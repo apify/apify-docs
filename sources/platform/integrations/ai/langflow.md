@@ -60,8 +60,6 @@ On the **New Flow** screen, click **Blank Flow**:
 
 Now, we can start building our flow.
 
----
-
 ### Calling Apify Actors in Langflow
 
 To call Apify Actors in Langflow, we need to add the **Apify Actors** component to the flow.
