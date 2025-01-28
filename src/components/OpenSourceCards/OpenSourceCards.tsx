@@ -2,7 +2,7 @@ import Link from '@docusaurus/Link';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
-import React from 'react';
+import type React from 'react';
 import GitHubButton from 'react-github-btn';
 
 import { theme } from '@apify-packages/ui-library';

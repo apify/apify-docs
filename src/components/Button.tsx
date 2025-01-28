@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 
 import { theme } from '@apify-packages/ui-library';

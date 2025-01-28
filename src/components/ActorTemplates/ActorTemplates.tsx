@@ -1,7 +1,6 @@
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import React,
-{
+import React, {
     useState,
     useEffect,
 } from 'react';

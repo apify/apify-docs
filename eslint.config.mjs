@@ -17,9 +17,8 @@ export default [
     },
     {
         rules: {
-            '@typescript-eslint/consistent-type-imports': 'off',
-            'no-promise-executor-return': 'off',
             '@typescript-eslint/no-explicit-any': 'off',
+            'no-promise-executor-return': 'off',
             'no-param-reassign': 'off',
             'no-void': 'off',
             'no-console': 'off',

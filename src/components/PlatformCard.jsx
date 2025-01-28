@@ -1,5 +1,4 @@
 import Link from '@docusaurus/Link';
-import React from 'react';
 
 import ExternalLinkIcon from '@apify/docs-theme/static/img/external-link.svg';
 
