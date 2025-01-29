@@ -115,17 +115,17 @@ For better results, switch the model to `gpt-4o` instead of `gpt-4o-mini` in the
 :::
 ![Flow - Agent configuration](../images/langflow/agent_configuration.png)
 
-To be able to interact with the Agent, add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**.
-Then connect both Apify Actor components **Tool** outputs to the Agent component **Tools** input. The final flow that can search the web for a company's social media profiles and extract data from them should look like this:
+To be able to interact with the agent, add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**.
+Then connect both Apify Actor components **Tool** outputs to the Agent component **Tools** input so that the agent can call the Apify Actors. The final flow that can search the web for a company's social media profiles and extract data from them should look like this:
 ![Flow - Final](../images/langflow/flow.png)
 
-Click the **Playground** button and chat with the Agent to test the flow:
+Click the **Playground** button and chat with the agent to test the flow:
 ![Flow - Playground](../images/langflow/playground.png)
 
-Here is an example Agent output for the following query:
+Here is an example agent output for the following query:
 
 ```text
 find tiktok profile of company openai using google search and then show me the profile bio and their latest video
 ```
 
-![Flow - Agent output](../images/langflow/agent_output.png)
+![Flow - agent output](../images/langflow/agent_output.png)
