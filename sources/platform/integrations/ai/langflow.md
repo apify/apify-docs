@@ -27,13 +27,23 @@ This guide will demonstrate two different ways to use Apify Actors with Langflow
 - **Calling Apify Actors in Langflow**: We will use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to search Google for a query and extract the search results.
 - **Building a flow to search for company's social media profiles**: We will use the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) Actor to search the web for social media profiles of a given company. Then, we will use the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract data from the TikTok profiles.
 
+### Prerequisites
+
+#### Apify API token
+
+To use Apify Actors in Langflow, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
+
+#### OpenAI API key
+
+In order to work with agents in Langflow, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+
+#### Langflow
+
 :::note Cloud vs local setup
 
 Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](http://langflow.org/) website. If you are using the cloud version, you can skip the installation step, and go straight to [Creating a new flow](#creating-a-new-flow)
 
 :::
-
-### Installation
 
 First, we need to install the Langflow platform using python package and project manager [uv](https://docs.astral.sh/uv/):
 
