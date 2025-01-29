@@ -89,7 +89,7 @@ Once the run is finished, we can view the output by clicking the **Output** butt
 The output should look similar to this:
 ![Flow - Apify Actors Output Data](../images/langflow/apify_actors_output_data.png)
 
-To filter only the `metadata` and `markdown` fields, set **Output fields** to `metadata,markdown`. Additionally, enable **Flatten output?** by setting it to `true`. This will output only the metadata and text content from the search results.
+To filter only the `metadata` and `markdown` fields, set **Output fields** to `metadata,markdown`. Additionally, enable **Flatten output** by setting it to `true`. This will output only the metadata and text content from the search results.
 > Flattening is necessary when you need to access nested dictionary fields in the output data object; they cannot be accessed directly otherwise in the Data object.
 
 ![Flow - Apify Actors Output Filter](../images/langflow/apify_actors_output_filter.png)
@@ -107,16 +107,16 @@ Create a new flow and add two **Apify Actors** components from the menu.
 Input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
-Now add the *Agent* component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)).
+Add the **Agent** component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)):
 :::tip Optimize Agent results
 
 For better results, switch the model to `gpt-4o` instead of `gpt-4o-mini` in the Agent configuration
 
 :::
-Then connect both Apify Actor components **Tool** outputs to the Agent component **Tools** input:
-![Flow - Agent configure](../images/langflow/agent_configure.png)
+![Flow - Agent configuration](../images/langflow/agent_configuration.png)
 
-Now add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**. The final flow that can search the web for a company's social media profiles and extract data from them:
+To be able to interact with the Agent, add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**.
+Then connect both Apify Actor components **Tool** outputs to the Agent component **Tools** input. The final flow that can search the web for a company's social media profiles and extract data from them should look like this:
 ![Flow - Final](../images/langflow/flow.png)
 
 Click the **Playground** button and chat with the Agent to test the flow:
