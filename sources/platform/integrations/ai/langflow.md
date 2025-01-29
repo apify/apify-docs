@@ -63,7 +63,6 @@ Now, we can start building our flow.
 ### Calling Apify Actors in Langflow
 
 To call Apify Actors in Langflow, we need to add the **Apify Actors** component to the flow.
-
 From the bundle menu, add **Apify Actors** component:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
