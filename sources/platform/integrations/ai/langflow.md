@@ -22,7 +22,9 @@ For more information on Langflow, visit its [documentation](https://docs.langflo
 
 ## How to use Apify with Langflow
 
-This guide will first demonstrate how to call Apify Actors by using the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to search Google for a query and extract the search results. Then, it will provide an example of using an AI agent workflow to search the web for a company's social media profiles and extract data from them. We will use the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) Actor to search the web for social media profiles of a given company. Then, we will use the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract data from the TikTok profiles.
+This guide will demonstrate two different ways to use Apify Actors with Langflow:
+- **Calling Apify Actors in Langflow**: We will use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to search Google for a query and extract the search results.
+- **Building a flow to search for company's social media profiles**: We will use the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) Actor to search the web for social media profiles of a given company. Then, we will use the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract data from the TikTok profiles.
 
 :::note Cloud vs local setup
 
@@ -50,12 +52,7 @@ When the platform is started, open the [Langflow UI](http://127.0.0.1:7860) in y
 
 ### Creating a new flow
 
-First, we need to create a new flow.
-
-On the Langflow welcome screen, click the **New Flow** button:
-![Langflow welcome screen - New Flow](../images/langflow/new_flow.png)
-
-On the **New Flow** screen, click **Blank Flow**:
+On the Langflow welcome screen, click the **New Flow** button and then click **Blank Flow**:
 ![New Flow screen - Blank Flow](../images/langflow/new_blank_flow.png)
 
 Now, we can start building our flow.
@@ -66,7 +63,7 @@ To call Apify Actors in Langflow, we need to add the **Apify Actors** component 
 From the bundle menu, add **Apify Actors** component:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
-Next, we need to configure the Apify Actors components. First, input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)). Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser). Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (an example Actor input can be found [here](https://apify.com/apify/rag-web-browser/input-schema)):
+Next, we need to configure the Apify Actors components. First, input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)). Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser). Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (full Actor input schema can be found [here](https://apify.com/apify/rag-web-browser/input-schema)):
 
 ```json
 {"query": "what is monero?", "maxResults": 3}
@@ -93,8 +90,6 @@ Now, the output contains only the `markdown` and flattened `metadata` fields:
 Now that we understand how to call Apify Actors, let's build a practical example where we search for a company's social media profiles and extract data from them.
 
 ### Building a flow to search for company's social media profiles
-
-In this example, we will build a flow that searches the web for a company's social media profiles and extracts data from them.
 
 Create a new flow and add two **Apify Actors** components from the menu.
 
