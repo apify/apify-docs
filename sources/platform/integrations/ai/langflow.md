@@ -52,7 +52,7 @@ When the platform is started, open the [Langflow UI](http://127.0.0.1:7860) in y
 
 ### Creating a new flow
 
-On the Langflow welcome screen, click the **New Flow** button and then click **Blank Flow**:
+On the Langflow welcome screen, click the **New Flow** button and then create **Blank Flow**:
 ![New Flow screen - Blank Flow](../images/langflow/new_blank_flow.png)
 
 Now, we can start building our flow.
@@ -83,7 +83,7 @@ To filter only the `metadata` and `markdown` fields, set **Output fields** to `m
 
 ![Flow - Apify Actors Output Filter](../images/langflow/apify_actors_output_filter.png)
 
-Now, the output contains only the `markdown` and flattened `metadata` fields:
+When you run the component again, the output contains only the `markdown` and flattened `metadata` fields:
 
 ![Flow - Apify Actors Output Filtered](../images/langflow/apify_actors_output_data_filtered.png)
 
@@ -96,22 +96,16 @@ Create a new flow and add two **Apify Actors** components from the menu.
 Input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
-Now add the *Agent* component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)):
+Now add the *Agent* component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)).
 :::tip Optimize Agent results
 
 For better results, switch the model to `gpt-4o` instead of `gpt-4o-mini` in the Agent configuration
 
 :::
-
-![Flow - Add Agent](../images/langflow/add_agent.png)
-
 Then connect both Apify Actor components **Tool** outputs to the Agent component **Tools** input:
 ![Flow - Agent configure](../images/langflow/agent_configure.png)
 
-Now add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**:
-![Flow - Add Chat components](../images/langflow/add_chat.png)
-
-The final flow that can search the web for a company's social media profiles and extract data from them:
+Now add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**. The final flow that can search the web for a company's social media profiles and extract data from them:
 ![Flow - Final](../images/langflow/flow.png)
 
 Click the **Playground** button and chat with the Agent to test the flow:
