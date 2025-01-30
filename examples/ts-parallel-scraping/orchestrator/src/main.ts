@@ -15,7 +15,7 @@ interface State {
 await Actor.init();
 
 const {
-    parallelRunsCount= 1,
+    parallelRunsCount = 1,
     targetActorId,
     targetActorInput = {},
     targetActorRunOptions = {},

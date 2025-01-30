@@ -1,8 +1,8 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import clsx from 'clsx';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import LinkItem from '@theme/Footer/LinkItem';
+import clsx from 'clsx';
+import React from 'react';
+
 import styles from './index.module.css';
 
 function FooterLinksColumn({ column }) {

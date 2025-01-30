@@ -108,7 +108,6 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
                     await generateChangelogFromGitHubReleases(pathsToCopyChangelog, `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`);
                 }
             } catch (e) {
-                // eslint-disable-next-line no-console
                 console.warn(`Changelog page could not be initialized: ${e.message}`);
             }
         },

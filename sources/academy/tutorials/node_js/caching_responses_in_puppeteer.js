@@ -28,7 +28,7 @@ const crawler = new PuppeteerCrawler({
                 let buffer;
                 try {
                     buffer = await response.buffer();
-                } catch (error) {
+                } catch {
                     // some responses do not contain buffer and do not need to be cached
                     return;
                 }

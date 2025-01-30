@@ -1,5 +1,5 @@
-import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
+import { gotScraping } from 'got-scraping';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 

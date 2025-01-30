@@ -1,8 +1,8 @@
 module.exports = function () {
     return {
         name: 'custom-docusaurus-plugin',
-        // eslint-disable-next-line
-        configureWebpack(config, isServer, utils) {
+
+        configureWebpack() {
             return {
                 resolve: {
                     alias: {

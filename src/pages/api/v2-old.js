@@ -28,20 +28,20 @@ function setupApiary(subdomain) {
                     section: {
                         title: { color: 'black', visibility: 'hidden' },
                         apiDescription: {
-                            'fontSize': '15px',
+                            fontSize: '15px',
                             // p: { marginBottom: '10px' },
-                            'code': {
+                            code: {
                                 fontSize: '13px',
                             },
-                            'pre': {
+                            pre: {
                                 fontSize: '13px',
                             },
-                            'h1': { fontSize: '30px', fontWeight: 'normal', color: '#ec6c33' },
-                            'h2': { fontSize: '30px', fontWeight: 'normal', color: '#ec6c33' },
-                            'h3': { fontSize: '23px', fontWeight: 'normal' },
-                            'p': { marginBottom: '20px' },
-                            'ul': { paddingTop: '0px', paddingBottom: '0px' },
-                            'ol': { paddingTop: '0px', paddingBottom: '0px' },
+                            h1: { fontSize: '30px', fontWeight: 'normal', color: '#ec6c33' },
+                            h2: { fontSize: '30px', fontWeight: 'normal', color: '#ec6c33' },
+                            h3: { fontSize: '23px', fontWeight: 'normal' },
+                            p: { marginBottom: '20px' },
+                            ul: { paddingTop: '0px', paddingBottom: '0px' },
+                            ol: { paddingTop: '0px', paddingBottom: '0px' },
                             'ul.li': { marginBottom: '0px' },
                             'ol.li': { marginBottom: '0px' },
                         },
@@ -49,16 +49,16 @@ function setupApiary(subdomain) {
                             resourceGroup: {
                                 name: { fontSize: '30px', fontWeight: 'normal', color: '#ec6c33' },
                                 description: {
-                                    'p': { fontSize: '15px' },
-                                    'code': { fontSize: '13px' },
-                                    'pre': { fontSize: '13px' },
+                                    p: { fontSize: '15px' },
+                                    code: { fontSize: '13px' },
+                                    pre: { fontSize: '13px' },
                                     'table.tr.th': { fontSize: '15px' },
                                     'table.tr.td': { fontSize: '15px' },
-                                    'ul': { paddingTop: '0px', paddingBottom: '0px' },
-                                    'ol': { paddingTop: '0px', paddingBottom: '0px' },
+                                    ul: { paddingTop: '0px', paddingBottom: '0px' },
+                                    ol: { paddingTop: '0px', paddingBottom: '0px' },
                                     'ul.li': { marginBottom: '0px' },
                                     'ol.li': { marginBottom: '0px' },
-                                    'marginBottom': '25px',
+                                    marginBottom: '25px',
                                 },
                                 resources: {
                                     resource: {
@@ -67,13 +67,13 @@ function setupApiary(subdomain) {
                                             action: {
                                                 invitation: { fontSize: '16px' },
                                                 description: {
-                                                    'p': { fontSize: '15px' },
-                                                    'code': { fontSize: '13px' },
-                                                    'pre': { fontSize: '13px' },
+                                                    p: { fontSize: '15px' },
+                                                    code: { fontSize: '13px' },
+                                                    pre: { fontSize: '13px' },
                                                     'table.tr.th': { fontSize: '15px' },
                                                     'table.tr.td': { fontSize: '15px' },
-                                                    'ul': { paddingTop: '0px', paddingBottom: '0px' },
-                                                    'ol': { paddingTop: '0px', paddingBottom: '0px' },
+                                                    ul: { paddingTop: '0px', paddingBottom: '0px' },
+                                                    ol: { paddingTop: '0px', paddingBottom: '0px' },
                                                     'ul.li': { marginBottom: '0px' },
                                                     'ol.li': { marginBottom: '0px' },
                                                 },
@@ -117,7 +117,6 @@ export default function ApiDocs() {
     React.useEffect(() => {
         loadApiaryScripts();
         document.documentElement.setAttribute('style', 'scroll-behavior: auto;');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

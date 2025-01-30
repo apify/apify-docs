@@ -1,9 +1,3 @@
-import {
-    ActionLink,
-    BlogArticle,
-    Button,
-    theme,
-} from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
@@ -11,6 +5,13 @@ import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import styled from 'styled-components';
+
+import {
+    ActionLink,
+    BlogArticle,
+    Button,
+    theme,
+} from '@apify-packages/ui-library';
 
 import styles from './styles.module.css';
 import GitButton from '../../components/GitButton';
@@ -182,7 +183,7 @@ curl -X POST -d @- \\
                                         </CodeBlock>
                                         <CodeBlock
                                             language='javascript'
-                                        // eslint-disable-next-line max-len
+
                                         >{`// Easily run Actors, await them to finish using the convenient .call() method, and retrieve results from the resulting dataset.
 const { ApifyClient } = require('apify-client');
 
