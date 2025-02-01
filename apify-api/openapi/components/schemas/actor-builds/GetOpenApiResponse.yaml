@@ -1,0 +1,348 @@
+title: GetOpenApiResponse
+type: object
+properties:
+  openapi:
+    type: string
+    example: 3.0.1
+  info:
+    type: object
+    properties:
+      title: 
+        type: string
+        example: Your Magic Actor
+      version: 
+        type: string
+        example: '1.0'
+      x-build-id: 
+        type: string
+        example: 'ID of build'
+  servers:
+    type: array
+    items:
+      type: object
+      properties:
+        url: 
+          type: string
+          example: https://api.apify.com/v2
+  paths:
+    type: object
+    properties:
+      /acts/<username>~<actor>/run-sync-get-dataset-items:
+        type: object
+        properties:
+          post:
+            type: object
+            properties:
+              operationId:
+                type: string
+                example: run-sync-get-dataset-items
+              x-openai-isConsequential:
+                type: boolean
+                example: false
+              summary:
+                type: string
+                example: Executes an Actor, waits for its completion, and returns Actor's dataset items in response.
+              tags:
+                type: array
+                items:
+                  type: string
+                example: ['Run Actor']
+              requestBody:
+                type: object
+                properties:
+                  required:
+                    type: boolean
+                    example: true
+                  content:
+                    type: object
+                    properties:
+                      application/json:
+                        type: object
+                        properties:
+                          schema:
+                            type: object
+                            properties:
+                              $ref:
+                                type: string
+                                example: '#/components/schemas/inputSchema'
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: token
+                    in:
+                      type: string
+                      example: query
+                    required:
+                      type: boolean
+                      example: true
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                    description:
+                      type: string
+                      example: Enter your Apify token here
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: OK
+      /acts/<username>~<actor>/runs:
+        type: object
+        properties:
+          post:
+            type: object
+            properties:
+              operationId:
+                type: string
+                example: runs
+              x-openai-isConsequential:
+                type: boolean
+                example: false
+              summary:
+                type: string
+                example: Executes an Actor and returns information about the initiated run in response.
+              tags:
+                type: array
+                items:
+                  type: string
+                example: ['Run Actor']
+              requestBody:
+                type: object
+                properties:
+                  required:
+                    type: boolean
+                    example: true
+                  content:
+                    type: object
+                    properties:
+                      application/json:
+                        type: object
+                        properties:
+                          schema:
+                            type: object
+                            properties:
+                              $ref:
+                                type: string
+                                example: '#/components/schemas/inputSchema'
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    in:
+                      type: string
+                      example: query
+                    required:
+                      type: boolean
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    description:
+                      type: string
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: OK
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  $ref:
+                                    type: string
+                                    example: '#/components/schemas/runsResponseSchema'
+      /acts/<username>~<actor>/run-sync:
+        type: object
+        properties:
+          post:
+            type: object
+            properties:
+              operationId:
+                type: string
+                example: run-sync
+              x-openai-isConsequential:
+                type: boolean
+                example: false
+              summary:
+                type: string
+                example: Executes an Actor, waits for completion, and returns the OUTPUT from Key-value store in response.
+              tags:
+                type: array
+                items:
+                  type: string
+                example: ['Run Actor']
+              requestBody:
+                type: object
+                properties:
+                  required:
+                    type: boolean
+                    example: true
+                  content:
+                    type: object
+                    properties:
+                      application/json:
+                        type: object
+                        properties:
+                          schema:
+                            type: object
+                            properties:
+                              $ref:
+                                type: string
+                                example: '#/components/schemas/inputSchema'
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    in:
+                      type: string
+                      example: query
+                    required:
+                      type: boolean
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    description:
+                      type: string
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: OK
+  components:
+    type: object
+    properties:
+      schemas:
+        type: object
+        properties:
+          inputSchema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: object
+          runsResponseSchema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: object
+              properties:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: object
+                      properties:
+                        type: object
+                        properties:
+                          id:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: string
+                          actId:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: string
+                          userId:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: string
+                          startedAt:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: string
+                              format:
+                                type: string
+                                example: date-time
+                              example:
+                                type: string
+                                example: '2025-01-08T00:00:00.000Z'
+                          finishedAt:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: string
+                              format:
+                                type: string
+                                example: date-time
+                              example:
+                                type: string
+                                example: '2025-01-08T00:00:00.000Z'
+                          status:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: string
+                              example:
+                                type: string
+                                example: 'READY'
+                          meta:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: object
+                              properties:
+                                type: object
+                                properties:
+                                  origin:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                        example: string
+                                      example:
+                                        type: string
+                                        example: 'API'
+                                  userAgent:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                        example: string

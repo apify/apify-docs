@@ -1,0 +1,51 @@
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+index 514066e..0d09eeb 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+@@ -286,7 +286,7 @@ function CodeSnippets({ postman, codeSamples }) {
+           CodeTab,
+           {
+             value: lang.language,
+-            label: lang.language,
++            label: lang.label ?? lang.language,
+             key: lang.language,
+             attributes: {
+               className: `openapi-tabs__code-item--${lang.logoClass}`,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
+index a2a4e40..f2d944d 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
+@@ -30,7 +30,7 @@ function Export({ url, proxy }) {
+     react_1.default.createElement(
+       "button",
+       { className: "export-button button button--sm button--secondary" },
+-      "Export"
++      "Download OpenAPI"
+     ),
+     react_1.default.createElement(
+       "ul",
+@@ -48,7 +48,23 @@ function Export({ url, proxy }) {
+             className: "dropdown__link",
+             href: `${url}`,
+           },
+-          "OpenAPI Spec"
++          "YAML"
++        )
++      ),
++      react_1.default.createElement(
++        "li",
++        null,
++        react_1.default.createElement(
++          "a",
++          {
++            onClick: (e) => {
++              e.preventDefault();
++              saveFile(`${url.replace(/\.yaml$/, '.json')}`);
++            },
++            className: "dropdown__link",
++            href: `${url.replace(/\.yaml$/, '.json')}`,
++          },
++          "JSON"
+         )
+       )
+     )

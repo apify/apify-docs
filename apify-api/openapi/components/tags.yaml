@@ -127,6 +127,10 @@
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to build of the actor were
     moved under new namespace [`actor-builds`](#/reference/actor-builds).'
+- name: Actors/Default build object
+  x-displayName: Default build object
+  x-parent-tag-name: Actor builds
+  x-trait: 'true'
 - name: Actors/Abort build
   x-displayName: Abort build
   x-parent-tag-name: Actors
@@ -251,6 +255,15 @@
     ```
 
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
+- name: Actors/Get OpenAPI definition
+  x-displayName: Get OpenAPI definition
+  x-parent-tag-name: Actors
+  x-trait: 'true'
+  description: |
+    Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
+
+    - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
 - name: Actor tasks
   x-displayName: Actor tasks
   x-legacy-doc-urls:
@@ -548,6 +561,15 @@
   - '#tag/Actor-buildsBuild-log'
   x-trait: 'true'
   description: Check out [Logs](#/reference/logs) for full reference.
+- name: Actor builds/Get OpenAPI definition
+  x-displayName: Get OpenAPI definition
+  x-parent-tag-name: Actor builds
+  x-trait: 'true'
+  description: |
+    Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
+
+    - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:

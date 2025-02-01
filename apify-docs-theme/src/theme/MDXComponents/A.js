@@ -8,7 +8,7 @@ export default function MDXA(props) {
     const { siteConfig } = useDocusaurusContext();
 
     if (props.href?.startsWith(siteConfig.url)) {
-        props.target = '_self';
+        props = { ...props, target: '_self' };
     }
 
     // absolute links in README, e.g. in the SDK or API Client docs, need to be converted to local `to` links
