@@ -1,10 +1,9 @@
 ---
 title: Advanced web scraping
 description: Take your scrapers to a production-ready level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
-menuWeight: 6
+sidebar_position:: 6
 category: web scraping & automation
-paths:
-- advanced-web-scraping
+slug: /advanced-web-scraping
 ---
 
 # Advanced web scraping
@@ -13,7 +12,7 @@ In [**Web scraping for beginners**](/academy/web-scraping-for-beginners) course,
 
 In this course, we will take all of that knowledge, add a few more advanced concepts, and apply them to learn how to build a production-ready web scraper.
 
-## [](#what-does-production-ready-mean) What does production-ready mean?
+## What does production-ready mean
 
 To scrape large and complex websites, we need to scale two essential aspects of the scraper: crawling and data extraction. Big websites can have millions of pages and the data we want to extract requires more sophisticated parsing techniques than just selecting elements by CSS selectors or using APIs as they are.
 
@@ -27,6 +26,6 @@ We will also touch on monitoring, performance, anti-scraping protections, and de
 
 If you've managed to follow along with all of the courses prior to this one, then you're more than ready to take these upcoming lessons on 😎
 
-## [](#first-up) First up
+## First up
 
 First, we will explore [advanced crawling section](academy/webscraping/advanced-web-scraping/advanced-crawling) that will help us to find all pages or products on the website.

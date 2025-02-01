@@ -9,9 +9,13 @@ import Example from '!!raw-loader!roa-loader!./scraping_from_sitemaps.js';
 
 # How to scrape from sitemaps {#scraping-with-sitemaps}
 
->Crawlee recently introduced a new feature that allows you to scrape sitemaps with ease. If you are using Crawlee, you can skip the following steps and just gather all the URLs from the sitemap in a few lines of code:
+:::note
 
-```javascript
+Crawlee allows you to scrape sitemaps with ease. If you are using Crawlee, you can skip the following steps and just gather all the URLs from the sitemap in a few lines of code.
+
+:::
+
+```js
 import { RobotsFile } from 'crawlee';
 
 const robots = await RobotsFile.find('https://www.mysite.com');

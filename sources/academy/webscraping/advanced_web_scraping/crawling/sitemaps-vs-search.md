@@ -1,14 +1,13 @@
 ---
 title: Sitemaps vs search
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. 
-menuWeight: 1
-paths:
-- advanced-web-scraping/crawling/sitemaps-vs-search
+sidebar_position:: 1
+slug: /advanced-web-scraping/crawling/sitemaps-vs-search
 ---
 
 The core crawling problem comes to down to ensuring that we reliably find all detail pages on the target website or inside its categories. This is trivial for small sites. We just open the home page or category pages and paginate to the end as we did in the Web Scraping for Beginners course.
 
-Unfortunately, **most modern websites restrict pagination** only to somewhere between 1 and 10 thousand products. Solving this problem might seem relatively straightforward at first but there are multiple hurdles that we will explore in this lesson.
+Unfortunately, **most modern websites restrict pagination** only to somewhere between 1 and 10 000 products. Solving this problem might seem relatively straightforward at first but there are multiple hurdles that we will explore in this lesson.
 
 There are two main approaches to solving this problem:
 
@@ -58,6 +57,6 @@ Fortunately, most websites list a total number of detail pages somewhere. It mig
 
 Unfortunately, some sites like Amazon do not provide exact numbers. In this case, we have to work with what they give us and put even more effort into making our scraping logic accurate. We will tackle this in the next lessons as well.
 
-## [](#next) Next up
+## Next up
 
 First, we will look into the easier approach, the [sitemap crawling](./crawling-sitemaps.md). Then we will go through all the intricacies of the category, search and filter crawling, and build up a generic framework that we can use on any website. At last, we will combine the results of both approaches and set up monitoring and persistence to ensure we can run this regularly without any manual controls.
