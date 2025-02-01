@@ -28,4 +28,4 @@ If you've managed to follow along with all of the courses prior to this one, the
 
 ## First up
 
-First, we will explore [advanced crawling section](academy/webscraping/advanced-web-scraping/advanced-crawling) that will help us to find all pages or products on the website.
+First, we will explore [advanced crawling section](./crawling/sitemaps-vs-search.md) that will help us to find all pages or products on the website.

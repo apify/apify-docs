@@ -5,9 +5,9 @@ sidebar_position:: 3
 slug: /advanced-web-scraping/crawling/crawling-with-search
 ---
 
-# Scraping websites with search 
+# Scraping websites with search
 
-In this lesson, we will start with a simpler example of scraping HTML based websites with limited pagination. 
+In this lesson, we will start with a simpler example of scraping HTML based websites with limited pagination.
 
 Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
 
@@ -281,6 +281,6 @@ await crawler.addRequests(requestsToEnqueue);
 
 ## Summary {#summary}
 
-And that's it. We have an elegant solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](/academy/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
+And that's it. We have an elegant solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../../platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
 
 Check out the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
