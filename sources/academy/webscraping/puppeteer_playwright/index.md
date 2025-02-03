@@ -21,7 +21,7 @@ Both packages were developed by the same team and are very similar, which is why
 
 > Each lesson's activity will contain examples for both libraries, but we recommend using Playwright, as it is newer and has more features and better [documentation](https://playwright.dev/docs/intro)
 
-## using a headless browser {#advantages-of-headless-browsers}
+## Advantages of using a headless browser {#advantages-of-headless-browsers}
 
 When automating a headless browser, you can do a whole lot more in comparison to making HTTP requests for static content. In fact, you can programmatically do pretty much anything a human could do with a browser, such as clicking elements, taking screenshots, typing into text areas, etc.
 
