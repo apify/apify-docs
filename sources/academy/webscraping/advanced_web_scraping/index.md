@@ -1,7 +1,7 @@
 ---
 title: Advanced web scraping
 description: Take your scrapers to a production-ready level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
-sidebar_position:: 6
+sidebar_position: 6
 category: web scraping & automation
 slug: /advanced-web-scraping
 ---

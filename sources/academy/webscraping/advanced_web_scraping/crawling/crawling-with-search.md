@@ -1,7 +1,7 @@
 ---
 title: Crawling with search 
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
-sidebar_position:: 3
+sidebar_position: 3
 slug: /advanced-web-scraping/crawling/crawling-with-search
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Crawling sitemaps
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
-sidebar_position:: 2
+sidebar_position: 2
 slug: /advanced-web-scraping/crawling/crawling-sitemaps
 ---
 
@@ -16,7 +16,7 @@ We will look at the following topics:
 
 ## How to find sitemap URLs
 
-Sitemaps are commonly restricted to contain a maximum of 50k URLs so usually, there will be a whole list of them. There can be a master sitemap containing URLs of all other sitemaps or the sitemaps might simply be indexed in robots.txt and/or have auto-incremented URLs like `/sitemap1.xml`, `/sitemap2.xml`, etc.
+Sitemaps are commonly restricted to contain a maximum of 50k URLs so usually, there will be a whole list of them. There can be a master sitemap containing URLs of all other sitemaps or the sitemaps might simply be indexed in `robots.txt` and/or have auto-incremented URLs like `/sitemap1.xml`, `/sitemap2.xml`, etc.
 
 ### Google
 
@@ -24,7 +24,7 @@ You can try your luck on Google by searching for `site:example.com sitemap.xml` 
 
 ### robots.txt {#robots-txt}
 
-If the website has a robots.txt file, it often contains sitemap URLs. The sitemap URLs are usually listed under `Sitemap:` directive.
+If the website has a `robots.txt` file, it often contains sitemap URLs. The sitemap URLs are usually listed under `Sitemap:` directive.
 
 ### Common URL paths
 
@@ -49,19 +49,19 @@ Some websites also provide an HTML version, to help indexing bots find new conte
 - /sitemap.html
 - /sitemap_index
 
-Apify provides the [Sitemap Sniffer actor](https://apify.com/vaclavrut/sitemap-sniffer) (open-source code), that scans the URL variations automatically for you so that you don't have to check manually.
+Apify provides the [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), an open source actor that scans the URL variations automatically for you so that you don't have to check them manually.
 
 ## How to set up HTTP requests to download sitemaps
 
-For most sitemaps, you can make a simple HTTP request and parse the downloaded XML text with Cheerio (or just use `CheerioCrawler`). Some sitemaps are compressed and have to be streamed and decompressed. The code for that is fairly complicated so we recommend just [using Crawlee](#using-crawlee) which handles streamed and compressed sitemaps by default.
+For most sitemaps, you can make a single HTTP request and parse the downloaded XML text. Some sitemaps are compressed and have to be streamed and decompressed. The code can get fairly complicated, but scraping frameworks, such as [Crawlee](#using-crawlee), can do this out of the box.
 
 ## How to parse URLs from sitemaps
 
-The easiest part is to parse the actual URLs from the sitemap. The URLs are usually listed under `<loc>` tags. You can use Cheerio to parse the XML text and extract the URLs. Just be careful that the sitemap might contain other URLs that you don't want to crawl (e.g. /about, /contact, or various special category sections). [This article](/academy/node-js/scraping-from-sitemaps) provides code examples for parsing sitemaps.
+Use your favorite XML parser to extract the URLs from inside the `<loc>` tags. Just be careful that the sitemap might contain other URLs that you don't want to crawl (e.g. `/about`, `/contact`, or various special category sections). For specific code examples, see [our Node.js guide](/academy/node-js/scraping-from-sitemaps).
 
 ## Using Crawlee
 
-Fortunately, you don't have to worry about any of the above steps if you use [Crawlee](https://crawlee.dev) which has rich traversing and parsing support for sitemap. Crawlee can traverse nested sitemaps, download, and parse compressed sitemaps, and extract URLs from them. You can get all URLs in a few lines of code:
+Fortunately, you don't have to worry about any of the above steps if you use [Crawlee](https://crawlee.dev), a scraping framework, which has rich traversing and parsing support for sitemap. It can traverse nested sitemaps, download, and parse compressed sitemaps, and extract URLs from them. You can get all the URLs in a few lines of code:
 
 ```js
 import { RobotsFile } from 'crawlee';

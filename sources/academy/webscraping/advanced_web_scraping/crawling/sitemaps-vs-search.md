@@ -1,13 +1,13 @@
 ---
 title: Sitemaps vs search
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. 
-sidebar_position:: 1
+sidebar_position: 1
 slug: /advanced-web-scraping/crawling/sitemaps-vs-search
 ---
 
 The core crawling problem comes to down to ensuring that we reliably find all detail pages on the target website or inside its categories. This is trivial for small sites. We just open the home page or category pages and paginate to the end as we did in the Web Scraping for Beginners course.
 
-Unfortunately, **most modern websites restrict pagination** only to somewhere between 1 and 10 000 products. Solving this problem might seem relatively straightforward at first but there are multiple hurdles that we will explore in this lesson.
+Unfortunately, **most modern websites restrict pagination** only to somewhere between 1 and 10,000 products. Solving this problem might seem relatively straightforward at first but there are multiple hurdles that we will explore in this lesson.
 
 There are two main approaches to solving this problem:
 
@@ -31,13 +31,13 @@ Sitemap is usually a simple XML file that contains a list of all pages on the we
 - **Does not directly reflect the website** - There is no way you can ensure that all pages on the website are in the sitemap. The sitemap also can contain pages that were already removed and will return 404s. This is a major downside of sitemaps which prevents us from using them as the only source of URLs.
 - **Updated in intervals** - Sitemaps are usually not updated in real-time. This means that you might miss some pages if you scrape them too soon after they were added to the website. Common update intervals are 1 day or 1 week.
 - **Hard to find or unavailable** - Sitemaps are not always trivial to locate. They can be deployed on a CDN with unpredictable URLs. Sometimes they are not available at all.
-- **Streamed, compressed, and archived** - Sitemaps are often streamed and archived with .tgz extensions and compressed with gzip. This means that you cannot use default HTTP client settings and must handle these cases with extra code. Fortunately, we will get to this in the next lesson.
+- **Streamed, compressed, and archived** - Sitemaps are often streamed and archived with .tgz extensions and compressed with gzip. This means that you cannot use default HTTP client settings and must handle these cases with extra code or use a scraping framework.
 
 ## Pros and cons of categories, search, and filters
 
-This approach means traversing the website like a normal user do by going through categories, setting up different filters, ranges and sorting options. The goal is to traverse it is a way that ensures we covered all categories/ranges where products can be located and for each of those we stayed under the pagination limit.
+This approach means traversing the website like a normal user does by going through categories, setting up different filters, ranges, and sorting options. The goal is to ensure that we cover all categories or ranges where products can be located, and that for each of those we stay under the pagination limit.
 
-The pros and cons of this approach are pretty much the opposite of the sitemaps approach.
+The pros and cons of this approach are pretty much the opposite of relying on sitemaps.
 
 ### Pros
 
@@ -47,16 +47,16 @@ The pros and cons of this approach are pretty much the opposite of the sitemaps 
 
 ### Cons
 
-- **Complex to set up** - The logic to traverse the website is usually more complex and can take a lot of time to get right. We will get to this in the next lessons.
+- **Complex to set up** - The logic to traverse the website is usually complex and can take a lot of time to get right. We will get to this in the next lessons.
 - **Slow to run** - The traversing can require a lot of requests. Some filters or categories will have products we already found.
-- **Not always complete** - Sometimes the combination of filters and categories will not allow us to ensure we have all products. This is especially painful for sites where we don't know the exact number of products we are looking for. The framework we will build in the next lessons will help us with this.
+- **Not always complete** - Sometimes the combination of filters and categories will not allow us to ensure we have all products. This is especially painful for sites where we don't know the exact number of products we are looking for. The tools we'll build in the following lessons will help us with this.
 
 ## Do we know how many products there are?
 
-Fortunately, most websites list a total number of detail pages somewhere. It might be displayed on the home page or search results or be provided in the API response. We just need to make sure that this number really represents the whole site or category we are looking to scrape. By knowing the total number of products, we can tell if our approach to scrape all succeeded or if we still need to refine it.
+Most websites list a total number of detail pages somewhere. It might be displayed on the home page, search results, or be provided in the API response. We just need to make sure that this number really represents the whole site or category we are looking to scrape. By knowing the total number of products, we can tell if our approach to scrape all succeeded or if we still need to refine it.
 
-Unfortunately, some sites like Amazon do not provide exact numbers. In this case, we have to work with what they give us and put even more effort into making our scraping logic accurate. We will tackle this in the next lessons as well.
+Some sites, like Amazon, do not provide exact numbers. In this case, we have to work with what they give us and put even more effort into making our scraping logic accurate. We will tackle this in the following lessons as well.
 
 ## Next up
 
-First, we will look into the easier approach, the [sitemap crawling](./crawling-sitemaps.md). Then we will go through all the intricacies of the category, search and filter crawling, and build up a generic framework that we can use on any website. At last, we will combine the results of both approaches and set up monitoring and persistence to ensure we can run this regularly without any manual controls.
+Next, we will look into [sitemap crawling](./crawling-sitemaps.md). After that we will go through all the intricacies of the category, search and filter crawling, and build up tools implementing a generic approach that we can use on any website. At last, we will combine the results of both and set up monitoring and persistence to ensure we can run this regularly without any manual controls.
