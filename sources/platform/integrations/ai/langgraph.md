@@ -1,7 +1,7 @@
 ---
 title: 🦜🔘➡️ LangGraph integration
 sidebar_label: LangGraph
-description: Learn how to integrate Apify with 🦜🔗🔘 LangGraph, in order to use Apify Actors with agents.
+description: Learn how to integrate Apify with 🦜🔘➡️ LangGraph, in order to use Apify Actors with agents.
 sidebar_position: 1
 slug: /integrations/langgraph
 ---
