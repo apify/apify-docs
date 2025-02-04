@@ -19,7 +19,7 @@ Now that we know how to execute scripts on a page, we're ready to learn a bit ab
 1. Directly in `page.evaluate()` and other evaluate functions such as `page.$$eval()`.
 2. In the Node.js context using a parsing library such as [Cheerio](https://www.npmjs.com/package/cheerio)
 
-::: tip
+:::tip Crawlee and parsing with Cheerio
 
 If you are using Crawlee, we highly recommend the [parseWithCheerio](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlingContext#parseWithCheerio) function for unified data extraction syntax. This way, switching between browser and plain HTTP scraping is a breeze.
 
