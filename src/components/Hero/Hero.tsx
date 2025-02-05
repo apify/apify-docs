@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import type React from 'react';
 
 import styles from './styles.module.css';
 import { Heading } from '../Heading';

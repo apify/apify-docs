@@ -1,4 +1,3 @@
-// eslint-disable-next-line global-require
 const items = require('./sidebar.ts');
 
 for (const item of items) {

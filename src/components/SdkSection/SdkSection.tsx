@@ -1,11 +1,11 @@
-import { ActionLink, Button, theme } from '@apify-packages/ui-library';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
 import ThemedImage from '@theme/ThemedImage';
-import React from 'react';
 import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
+
+import { ActionLink, Button, theme } from '@apify-packages/ui-library';
 
 import { Heading } from '../Heading';
 import { Text } from '../Text';
