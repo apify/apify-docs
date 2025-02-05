@@ -8,7 +8,7 @@ slug: /advanced-web-scraping
 
 # Advanced web scraping
 
-In [**Web scraping for beginners**](/academy/web-scraping-for-beginners) course, we have learned the necessary basics required to create a scraper. In the following courses, we learned more about specific practices and techniques that will help us to solve most of the problems we will face.
+In [Web scraping for beginners](/academy/web-scraping-for-beginners) course, we have learned the necessary basics required to create a scraper. In the following courses, we learned more about specific practices and techniques that will help us to solve most of the problems we will face.
 
 In this course, we will take all of that knowledge, add a few more advanced concepts, and apply them to learn how to build a production-ready web scraper.
 
