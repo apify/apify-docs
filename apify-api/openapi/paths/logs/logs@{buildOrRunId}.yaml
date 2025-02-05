@@ -1,6 +1,6 @@
 get:
   tags:
-    - Logs/Log
+    - Logs
   summary: Get log
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/logs/log/get-log

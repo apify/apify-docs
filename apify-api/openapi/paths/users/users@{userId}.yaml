@@ -1,6 +1,6 @@
 get:
   tags:
-    - Users/Public data
+    - Users
   summary: Get public user data
   description: |
     Returns public information about a specific user account, similar to what

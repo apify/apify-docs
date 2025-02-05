@@ -602,7 +602,7 @@ paths:
   '/v2/webhooks/{webhookId}/dispatches':
     $ref: 'paths/webhooks/webhooks@{webhookId}@dispatches.yaml'
   /v2/webhook-dispatches:
-    $ref: paths/webhook-dispatches/webhook-dispatches.yaml
+    $ref: 'paths/webhook-dispatches/webhook-dispatches.yaml'
   '/v2/webhook-dispatches/{dispatchId}':
     $ref: 'paths/webhook-dispatches/webhook-dispatches@{dispatchId}.yaml'
   /v2/schedules:

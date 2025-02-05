@@ -27,22 +27,14 @@
 - name: Schedules
   tags:
   - Schedules
-  - Schedules/Schedules collection
-  - Schedules/Schedule object
-  - Schedules/Schedule log
 - name: Store
   tags:
   - Store
-  - Store/Store Actors collection
 - name: Logs
   tags:
   - Logs
-  - Logs/Log
 - name: Users
   tags:
   - Users
-  - Users/Public data
-  - Users/Private data
-  - Users/Monthly usage
-  - Users/Account and usage limits
+
 
