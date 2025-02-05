@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor builds/Build object
+    - Actor builds
   summary: Get build
   description: |
     Gets an object that contains all the details about a specific build of an

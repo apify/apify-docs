@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Version object
+    - Actors/Actor versions
   summary: Get version
   description: |
     The **Version object** contains the source code of a specific version of an
@@ -85,7 +85,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#get
 put:
   tags:
-    - Actors/Version object
+    - Actors/Actor versions
   summary: Update version
   description: |
     The **Version object** contains the source code of a specific version of an
@@ -200,7 +200,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#update
 delete:
   tags:
-    - Actors/Version object
+    - Actors/Actor versions
   summary: Delete version
   description: |
     The **Version object** contains the source code of a specific version of an Actor.

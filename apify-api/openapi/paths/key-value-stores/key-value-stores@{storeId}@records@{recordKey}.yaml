@@ -1,6 +1,6 @@
 get:
   tags:
-    - Key-value stores/Record
+    - Storage/Key-value stores
   summary: Get record
   description: |
     Gets a value stored in the key-value store under a specific key.
@@ -72,7 +72,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#stream_record
 put:
   tags:
-    - Key-value stores/Record
+    - Storage/Key-value stores
   summary: Put record
   description: |
     Stores a value under a specific key to the key-value store.
@@ -82,8 +82,8 @@ put:
     `Content-Encoding` header.
 
     To save bandwidth, storage, and speed up your upload, send the request
-    payload compressed with Gzip compression and add the `Content-Encoding: gzip` 
-    header. It is possible to set up another compression type with `Content-Encoding` 
+    payload compressed with Gzip compression and add the `Content-Encoding: gzip`
+    header. It is possible to set up another compression type with `Content-Encoding`
     request header.
 
     Below is a list of supported `Content-Encoding` types.
@@ -157,7 +157,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
 delete:
   tags:
-    - Key-value stores/Record
+    - Storage/Key-value stores
   summary: Delete record
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete

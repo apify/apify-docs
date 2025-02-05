@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor tasks/Task collection
+    - Actor tasks
   summary: Get list of tasks
   description: |
     Gets the complete list of tasks that a user has created or used. The
@@ -111,7 +111,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskCollectionClientAsync#list
 post:
   tags:
-    - Actor tasks/Task collection
+    - Actor tasks
   summary: Create task
   description: |
     Create a new task with settings specified by the object passed as JSON in

@@ -1,13 +1,19 @@
 get:
   tags:
-    - Actors/Get OpenAPI definition
+    - Actors/Actor builds
   summary: Get OpenAPI definition
   description: |
+
+    Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
+
+    - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
+
     Get the OpenAPI definition for a specific Actor build.
 
     To fetch the default Actor build, simply pass `default` as the `buildId`.
     Authentication is based on the build's unique ID. No authentication token is required.
-    
+
     **Note**: You can also use the `/api/v2/actor-build-openapi-json-get` endpoint to get the OpenAPI definition for a build.
   operationId: act_openapi_json_get
   security:

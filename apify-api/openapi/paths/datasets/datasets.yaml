@@ -1,6 +1,6 @@
 get:
   tags:
-    - Datasets/Dataset collection
+    - Storage/Datasets
   summary: Get list of datasets
   description: |
     Lists all of a user's datasets. The response is a JSON array of objects,
@@ -100,7 +100,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetCollectionClientAsync#list
 post:
   tags:
-    - Datasets/Dataset collection
+    - Storage/Datasets
   summary: Create dataset
   description: |
     Creates a dataset and returns its object.

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor runs/Run object and its storages
+    - Actor runs
   summary: Get run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets
@@ -62,7 +62,9 @@ get:
     ```
 
     In order to save new items to the dataset, send HTTP POST request with JSON
-    payload to the same URL.Gets an object that contains all the details about a
+    payload to the same URL.
+
+    Gets an object that contains all the details about a
     specific run of an Actor.
 
     By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait
@@ -180,39 +182,9 @@ get:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
     - https://docs.apify.com/api/v2#/reference/actor-runs/get-run
     - https://docs.apify.com/api/v2#tag/Actor-runsRun-object-and-its-storages/operation/actorRun_get
-delete:
-  tags:
-    - Actor runs/Delete run
-  summary: Delete run
-  description: |
-    Delete the run. Only finished runs can be deleted. Only the person or
-    organization that initiated the run can delete it.
-  operationId: actorRun_delete
-  parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
-  responses:
-    '204':
-      description: ''
-      headers: {}
-      content: {}
-  deprecated: false
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run
-    - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run
-    - https://docs.apify.com/api/v2#tag/Actor-runsDelete-run/operation/actorRun_delete
-  x-js-parent: RunClient
-  x-js-name: delete
-  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
 put:
   tags:
-    - Actor runs/Update status message
+    - Actor runs
   summary: Update status message
   description: |
     You can set a single status message on your run that will be displayed in
@@ -334,3 +306,34 @@ put:
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message
     - https://docs.apify.com/api/v2#tag/Actor-runsUpdate-status-message/operation/actorRun_put
+delete:
+  tags:
+    - Actor runs
+  summary: Delete run
+  description: |
+    Delete the run. Only finished runs can be deleted. Only the person or
+    organization that initiated the run can delete it.
+  operationId: actorRun_delete
+  parameters:
+    - name: runId
+      in: path
+      description: Run ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run
+    - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsDelete-run/operation/actorRun_delete
+  x-js-parent: RunClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
+

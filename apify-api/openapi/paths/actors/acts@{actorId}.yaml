@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor object
+    - Actors
   summary: Get Actor
   description: Gets an object that contains all the details about a specific Actor.
   operationId: act_get
@@ -94,7 +94,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorClientAsync#get
 put:
   tags:
-    - Actors/Actor object
+    - Actors
   summary: Update Actor
   description: |
     Updates settings of an Actor using values specified by an Actor object
@@ -241,7 +241,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorClientAsync#update
 delete:
   tags:
-    - Actors/Actor object
+    - Actors
   summary: Delete Actor
   description: Deletes an Actor.
   operationId: act_delete

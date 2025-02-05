@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actor tasks/Run task synchronously and get dataset items
+    - Actor tasks
   summary: Run task synchronously and get dataset items (POST)
   description: |
     Runs an Actor task and synchronously returns its dataset items.
@@ -385,7 +385,7 @@ post:
     - https://docs.apify.com/api/v2#tag/Actor-tasksRun-task-synchronously-and-get-dataset-items/operation/actorTask_runSyncGetDatasetItems_post
 get:
   tags:
-    - Actor tasks/Run task synchronously and get dataset items
+    - Actor tasks
   summary: Run task synchronously and get dataset items (GET)
   description: |
     Run a specific task and return its dataset items.

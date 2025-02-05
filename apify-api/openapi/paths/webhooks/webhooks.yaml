@@ -1,6 +1,6 @@
 get:
   tags:
-    - Webhooks/Webhook collection
+    - Webhooks/Webhooks
   summary: Get list of webhooks
   description: |
     Gets the list of webhooks that the user created.
@@ -65,7 +65,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookCollectionClientAsync#list
 post:
   tags:
-    - Webhooks/Webhook collection
+    - Webhooks/Webhooks
   summary: Create webhook
   description: |
     Creates a new webhook with settings provided by the webhook object passed as

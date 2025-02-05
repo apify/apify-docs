@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actor tasks/Run task synchronously
+    - Actor tasks
   summary: Run task synchronously (POST)
   description: |
     Runs an Actor task and synchronously returns its output.
@@ -148,7 +148,7 @@ post:
     - https://docs.apify.com/api/v2#tag/Actor-tasksRun-task-synchronously/operation/actorTask_runSync_post
 get:
   tags:
-    - Actor tasks/Run task synchronously
+    - Actor tasks
   summary: Run task synchronously (GET)
   description: |
     Run a specific task and return its output.

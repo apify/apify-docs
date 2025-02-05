@@ -1,6 +1,6 @@
 get:
   tags:
-    - Datasets/Statistics
+    - Storage/Datasets
   summary: Get dataset statistics
   description: |
     Returns statistics for given dataset.
