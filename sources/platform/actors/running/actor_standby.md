@@ -50,6 +50,11 @@ This approach can be useful if you cannot modify the request headers.
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
     ```
 
+:::tip
+You can use [scoped tokens](/platform/integrations/api#limited-permissions) to send standby requests. This is useful if you want to allow a 3rd party service to use your Actor while not exposing your whole account.
+
+However, using a scoped token to [restrict what a Standby Actor can access](/platform/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) is currently not supported.
+:::
 
 ## Can I still run the Actor in normal mode
 
