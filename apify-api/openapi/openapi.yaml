@@ -66,14 +66,14 @@ info:
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
 
-    To run an actor, send a POST request to the [Run
-    actor](#/reference/actors/run-collection/run-actor) endpoint using either the
-    actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
+    To run an Actor, send a POST request to the [Run
+    Actor](#/reference/actors/run-collection/run-actor) endpoint using either the
+    Actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
     `janedoe~my-actor`):
 
     `https://api.apify.com/v2/acts/[actor_id]/runs`
 
-    If the actor is not runnable anonymously, you will receive a 401 or 403
+    If the Actor is not runnable anonymously, you will receive a 401 or 403
     [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
     This means you need to add your [secret API
     token](https://console.apify.com/account#/integrations) to the request's
@@ -81,24 +81,24 @@ info:
     URL query parameter `?token=[your_token]` (less secure).
 
     Optionally, you can include the query parameters described in the [Run
-    actor](#/reference/actors/run-collection/run-actor) section to customize your
+    Actor](#/reference/actors/run-collection/run-actor) section to customize your
     run.
 
-    If you're using Node.js, the best way to run an actor is using the
+    If you're using Node.js, the best way to run an Actor is using the
     `Apify.call()` method from the [Apify
     SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It
-    runs the actor using the account you are currently logged into (determined
+    runs the Actor using the account you are currently logged into (determined
     by the [secret API token](https://console.apify.com/account#/integrations)).
-    The result is an [actor run
+    The result is an [Actor run
     object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if
     any).
 
     A typical workflow is as follows:
 
-    1. Run an actor or task using the [Run
-    actor](#/reference/actors/run-collection/run-actor) or [Run
+    1. Run an Actor or task using the [Run
+    Actor](#/reference/actors/run-collection/run-actor) or [Run
     task](#/reference/actor-tasks/run-collection/run-task) API endpoints.
-    2. Monitor the actor run by periodically polling its progress using the [Get
+    2. Monitor the Actor run by periodically polling its progress using the [Get
     run](#/reference/actor-runs/run-object-and-its-storages/get-run) API
     endpoint.
     3. Fetch the results from the [Get
@@ -109,7 +109,7 @@ info:
     using the `defaultKeyValueStoreId` and the store's `key`.
 
     **Note**: Instead of periodic polling, you can also run your
-    [actor](#/reference/actors/run-actor-synchronously) or
+    [Actor](#/reference/actors/run-actor-synchronously) or
     [task](#/reference/actor-tasks/runs-collection/run-task-synchronously)
     synchronously. This will ensure that the request waits for 300 seconds (5
     minutes) for the run to finish and returns its output. If the run takes
@@ -151,7 +151,7 @@ info:
 
     All API endpoints that return a list of records
     (e.g. [Get list of
-    actors](#/reference/actors/actor-collection/get-list-of-actors))
+    Actors](#/reference/actors/actor-collection/get-list-of-actors))
     enforce pagination in order to limit the size of their responses.
 
     Most of these API endpoints are paginated using the `offset` and `limit`
@@ -417,10 +417,10 @@ info:
       operations on key-value store records
 
     These endpoints have a rate limit of _200 requests per second per resource_:
-    * [Run actor](#/reference/actors/run-collection/run-actor)
-    * [Run actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
-    * [Run actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    * [Metamorph actor run](#/reference/actors/metamorph-run/metamorph-run)
+    * [Run Actor](#/reference/actors/run-collection/run-actor)
+    * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
+    * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
+    * [Metamorph Actor run](#/reference/actors/metamorph-run/metamorph-run)
     * [Push items](#/reference/datasets/item-collection/put-items) to dataset
     * CRUD
       ([add](#/reference/request-queues/request-collection/add-request),
