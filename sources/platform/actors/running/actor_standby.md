@@ -51,9 +51,9 @@ This approach can be useful if you cannot modify the request headers.
     ```
 
 :::tip
-You can use [scoped tokens](/platform/integrations/api#limited-permissions) to send standby requests. This is useful if you want to allow a 3rd party service to use your Actor while not exposing your whole account.
+You can use [scoped tokens](/platform/integrations/api#limited-permissions) to send standby requests. This is useful for allowing third-party services to interact with your Actor without granting access to your entire account.
 
-However, using a scoped token to [restrict what a Standby Actor can access](/platform/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) is currently not supported.
+However,  scoped tokens cannot be used to [restrict what a Standby Actor can access](/platform/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor).m 
 :::
 
 ## Can I still run the Actor in normal mode
