@@ -1,13 +1,13 @@
-import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem';
-import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
-import LocaleDropdownNavbarItem from '@theme/NavbarItem/LocaleDropdownNavbarItem';
-import SearchNavbarItem from '@theme/NavbarItem/SearchNavbarItem';
-import HtmlNavbarItem from '@theme/NavbarItem/HtmlNavbarItem';
-import DocSidebarNavbarItem from '@theme/NavbarItem/DocSidebarNavbarItem';
-import DocsVersionNavbarItem from '@theme/NavbarItem/DocsVersionNavbarItem';
-import DocsVersionDropdownNavbarItem from '@theme/NavbarItem/DocsVersionDropdownNavbarItem';
 import { useDocsVersion, useLayoutDoc } from '@docusaurus/plugin-content-docs/client';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem';
+import DocSidebarNavbarItem from '@theme/NavbarItem/DocSidebarNavbarItem';
+import DocsVersionDropdownNavbarItem from '@theme/NavbarItem/DocsVersionDropdownNavbarItem';
+import DocsVersionNavbarItem from '@theme/NavbarItem/DocsVersionNavbarItem';
+import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
+import HtmlNavbarItem from '@theme/NavbarItem/HtmlNavbarItem';
+import LocaleDropdownNavbarItem from '@theme/NavbarItem/LocaleDropdownNavbarItem';
+import SearchNavbarItem from '@theme/NavbarItem/SearchNavbarItem';
 import React from 'react';
 
 // const versions = require('../../../versions.json');
@@ -40,7 +40,6 @@ function ApiNavbarItem(ctx) {
     let version = {};
 
     try {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
         version = useDocsVersion();
     } catch {
         version.version = stable;
@@ -87,15 +86,15 @@ function ApiNavbarItem(ctx) {
 }
 
 const ComponentTypes = {
-    'default': DefaultNavbarItem,
-    'localeDropdown': LocaleDropdownNavbarItem,
-    'search': SearchNavbarItem,
-    'dropdown': DropdownNavbarItem,
-    'html': HtmlNavbarItem,
+    default: DefaultNavbarItem,
+    localeDropdown: LocaleDropdownNavbarItem,
+    search: SearchNavbarItem,
+    dropdown: DropdownNavbarItem,
+    html: HtmlNavbarItem,
     'custom-api': ApiNavbarItem,
-    'doc': DocNavbarItem,
-    'docSidebar': DocSidebarNavbarItem,
-    'docsVersion': DocsVersionNavbarItem,
-    'docsVersionDropdown': DocsVersionDropdownNavbarItem,
+    doc: DocNavbarItem,
+    docSidebar: DocSidebarNavbarItem,
+    docsVersion: DocsVersionNavbarItem,
+    docsVersionDropdown: DocsVersionDropdownNavbarItem,
 };
 export default ComponentTypes;
