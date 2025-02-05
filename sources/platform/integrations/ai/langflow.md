@@ -108,11 +108,13 @@ Input your API token (learn how to get it [here](https://docs.apify.com/platform
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
 Add the **Agent** component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)):
+
 :::tip Optimize Agent results
 
 For better results, switch the model to `gpt-4o` instead of `gpt-4o-mini` in the Agent configuration
 
 :::
+
 ![Flow - Agent configuration](../images/langflow/agent_configuration.png)
 
 To be able to interact with the agent, add **Chat Input** and **Chat Output** components from the menu and connect them to the Agent component **Input** and **Response**.
