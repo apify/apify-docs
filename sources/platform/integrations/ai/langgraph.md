@@ -26,21 +26,14 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
 
 ### Prerequisites
 
-#### Apify API token
+- **Apify API token**: To use Apify Actors in LangGraph, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
 
-To use Apify Actors in LangGraph, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- **OpenAI API key**: In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
-#### OpenAI API key
-
-In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
-
-### Installation
-
-Before we start, we need to install all dependencies:
-
-```bash
-pip install langgraph langchain-apify langchain-openai
-```
+- **Python packages**: To use LangGraph with Apify, you need to install the following Python packages:
+    ```bash
+    pip install langgraph langchain-apify langchain-openai
+    ```
 
 ### Building the TikTok profile search and analysis agent
 
