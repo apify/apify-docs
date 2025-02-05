@@ -400,6 +400,12 @@
   x-legacy-doc-urls:
   - '#/reference/schedules'
   - '#tag/Schedules'
+  - '#/reference/schedules/schedules-collection'
+  - '#tag/SchedulesSchedules-collection'
+  - '#/reference/schedules/schedule-object'
+  - '#tag/SchedulesSchedule-object'
+  - '#/reference/schedules/schedule-log'
+  - '#tag/SchedulesSchedule-log'
   description: |
     This section describes API endpoints for managing schedules.
 
@@ -413,15 +419,6 @@
     Each schedule is assigned actions for it to perform. Actions can be of two types
     - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details, see the documentation of the
     [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
-- name: Schedules
-  x-displayName: Schedules
-  x-legacy-doc-urls:
-  - '#/reference/schedules/schedules-collection'
-  - '#tag/SchedulesSchedules-collection'
-  - '#/reference/schedules/schedule-object'
-  - '#tag/SchedulesSchedule-object'
-  - '#/reference/schedules/schedule-log'
-  - '#tag/SchedulesSchedule-log'
   x-trait: 'true'
 - name: Store
   x-displayName: Store
