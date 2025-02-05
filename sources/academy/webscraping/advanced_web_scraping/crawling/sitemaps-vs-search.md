@@ -5,7 +5,7 @@ sidebar_position: 1
 slug: /advanced-web-scraping/crawling/sitemaps-vs-search
 ---
 
-The core crawling problem comes to down to ensuring that we reliably find all detail pages on the target website or inside its categories. This is trivial for small sites. We just open the home page or category pages and paginate to the end as we did in the Web Scraping for Beginners course.
+The core crawling problem comes to down to ensuring that we reliably find all detail pages on the target website or inside its categories. This is trivial for small sites. We just open the home page or category pages and paginate to the end as we did in the [Web Scraping for Beginners course](/academy/web-scraping-for-beginners).
 
 Unfortunately, _most modern websites restrict pagination_ only to somewhere between 1 and 10,000 products. Solving this problem might seem relatively straightforward at first but there are multiple hurdles that we will explore in this lesson.
 

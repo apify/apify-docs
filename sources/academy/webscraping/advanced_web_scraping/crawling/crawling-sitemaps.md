@@ -28,26 +28,26 @@ If the website has a `robots.txt` file, it often contains sitemap URLs. The site
 
 ### Common URL paths
 
-You can try to iterate over common URL paths like:
+You can check some common URL paths, such as the following:
 
-- /sitemap.xml
-- /product_index.xml
-- /product_template.xml
-- /sitemap_index.xml
-- /sitemaps/sitemap_index.xml
-- /sitemap/product_index.xml
-- /media/sitemap.xml
-- /media/sitemap/sitemap.xml
-- /media/sitemap/index.xml
+/sitemap.xml
+/product_index.xml
+/product_template.xml
+/sitemap_index.xml
+/sitemaps/sitemap_index.xml
+/sitemap/product_index.xml
+/media/sitemap.xml
+/media/sitemap/sitemap.xml
+/media/sitemap/index.xml
 
 Make also sure you test the list with `.gz`, `.tar.gz` and `.tgz` extensions and by capitalizing the words (e.g. `/Sitemap_index.xml.tar.gz`).
 
 Some websites also provide an HTML version, to help indexing bots find new content. Those include:
 
-- /sitemap
-- /category-sitemap
-- /sitemap.html
-- /sitemap_index
+/sitemap
+/category-sitemap
+/sitemap.html
+/sitemap_index
 
 Apify provides the [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), an open source actor that scans the URL variations automatically for you so that you don't have to check them manually.
 

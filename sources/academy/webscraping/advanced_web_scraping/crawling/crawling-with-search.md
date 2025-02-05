@@ -9,7 +9,7 @@ slug: /advanced-web-scraping/crawling/crawling-with-search
 
 In this lesson, we will start with a simpler example of scraping HTML based websites with limited pagination.
 
-Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
+Limiting pagination is a common practice on e-commerce sites. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
 
 ![Pagination in on Google search results page](./images/pagination.png)
 
