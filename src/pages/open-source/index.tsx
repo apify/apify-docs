@@ -1,9 +1,10 @@
-import { theme, Banner, Heading, Text, Link } from '@apify-packages/ui-library';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';
+
+import { theme, Banner, Heading, Text, Link } from '@apify-packages/ui-library';
 
 import ActionCard from '../../components/ActionCard/ActionCard';
 import { ActorTemplates } from '../../components/ActorTemplates/ActorTemplates';

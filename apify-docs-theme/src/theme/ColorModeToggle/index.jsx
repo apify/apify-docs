@@ -1,11 +1,11 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import clsx from 'clsx';
-import useIsBrowser from '@docusaurus/useIsBrowser';
 import { translate } from '@docusaurus/Translate';
-import IconLightMode from '../Icon/LightMode';
-import IconDarkMode from '../Icon/DarkMode';
+import useIsBrowser from '@docusaurus/useIsBrowser';
+import clsx from 'clsx';
+import React from 'react';
+
 import styles from './styles.module.css';
+import IconDarkMode from '../Icon/DarkMode';
+import IconLightMode from '../Icon/LightMode';
 
 function ColorModeToggle({
     className,

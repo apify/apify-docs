@@ -1,8 +1,8 @@
-import React from 'react';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarItem from '@theme/NavbarItem';
+import React from 'react';
 
 function useNavbarItems() {
     // TODO temporary casting until ThemeConfig type is improved

@@ -4,26 +4,6 @@ const { unified } = require('unified');
 const { visitParents } = require('unist-util-visit-parents');
 
 /**
- * Updates the markdown content for better UX and compatibility with Docusaurus v3.
- * @param {string} changelog The markdown content.
- * @returns {string} The updated markdown content.
- */
-function updateChangelog(changelog) {
-    const pipeline = unified()
-        .use(remarkParse)
-        .use(removeGitCliffMarkers)
-        .use(incrementHeadingLevels)
-        .use(prettifyPRLinks)
-        .use(linkifyUserTags)
-        .use(remarkStringify);
-
-    changelog = pipeline.processSync(changelog).toString();
-    changelog = addFrontmatter(changelog);
-    changelog = escapeMDXCharacters(changelog);
-    return changelog;
-}
-
-/**
  * Bumps the headings levels in the markdown content. This function increases the depth
  * of all headings in the content by 1. This is useful when the content is included in
  * another markdown file with a higher-level heading.
@@ -60,7 +40,7 @@ const linkifyUserTags = () => (tree) => {
 
         const directParent = parents[parents.length - 1];
 
-        if (!match || directParent.type === 'link') return;
+        if (!match || directParent.type === 'link') return 0;
 
         const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
 
@@ -95,7 +75,7 @@ const prettifyPRLinks = () => (tree) => {
         const prLinkRegex = /https:\/\/github.com\/[^\s]+\/pull\/(\d+)/g;
         const match = prLinkRegex.exec(node.value);
 
-        if (!match) return;
+        if (!match) return 0;
 
         const directParent = parents[parents.length - 1];
         const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
@@ -146,6 +126,26 @@ function escapeMDXCharacters(changelog) {
     }).replaceAll(/\{|\}/g, (match) => {
         return match === '{' ? '&#123;' : '&#125;';
     });
+}
+
+/**
+ * Updates the markdown content for better UX and compatibility with Docusaurus v3.
+ * @param {string} changelog The markdown content.
+ * @returns {string} The updated markdown content.
+ */
+function updateChangelog(changelog) {
+    const pipeline = unified()
+        .use(remarkParse)
+        .use(removeGitCliffMarkers)
+        .use(incrementHeadingLevels)
+        .use(prettifyPRLinks)
+        .use(linkifyUserTags)
+        .use(remarkStringify);
+
+    changelog = pipeline.processSync(changelog).toString();
+    changelog = addFrontmatter(changelog);
+    changelog = escapeMDXCharacters(changelog);
+    return changelog;
 }
 
 module.exports = {

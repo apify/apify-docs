@@ -1,8 +1,8 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import clsx from 'clsx';
-import CodeBlock from '@theme/CodeBlock';
 import Link from '@docusaurus/Link';
+import CodeBlock from '@theme/CodeBlock';
+import clsx from 'clsx';
+import React from 'react';
+
 import styles from './RunnableCodeBlock.module.css';
 
 const EXAMPLE_RUNNERS = {

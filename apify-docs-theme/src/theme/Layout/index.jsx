@@ -1,9 +1,9 @@
-import React from 'react';
+import { useLocation } from '@docusaurus/router';
 // cannot use any of the theme aliases here as it causes a circular dependency :( ideas welcome
 import Layout from '@docusaurus/theme-classic/lib/theme/Layout/index';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { useLocation } from '@docusaurus/router';
+import { usePluginData } from '@docusaurus/useGlobalData';
+import React from 'react';
 
 export default function LayoutWrapper(props) {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
@@ -13,9 +13,9 @@ export default function LayoutWrapper(props) {
     return (
         <div style={{
             '--ifm-navbar-height': subNavbar && !currentPath.startsWith('api/v2') ? '123px' : '68px',
-            'margin': 0,
-            'padding': 0,
-            'boxSizing': 'border-box',
+            margin: 0,
+            padding: 0,
+            boxSizing: 'border-box',
         }}>
             <Layout {...props} />
         </div>
