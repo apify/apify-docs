@@ -10,10 +10,6 @@ slug: /integrations/gmail
 
 ---
 
-Complementary to the following guide we've created a detailed video, that will guide you through the process of setting up your Gmail integration.
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BcFexrRxzdM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ## Get started
 
 To use the Apify integration for Gmail, you will need:
@@ -24,31 +20,24 @@ To use the Apify integration for Gmail, you will need:
 
 ## Set up Gmail integration
 
-1. Head over to **Integrations** tab in your task and click on Gmail integration.
+1. Head over to **Integrations** tab in your task and click on Send email generic integration.
 
-    ![Gmail integration](../images/gmail/google-maps-task-integrations.png)
+    ![Google Drive integration](../images/google/google-integrations-add.png)
 
-1. In the popup window select:
+1. Click on **Connect with Google** button and select the account with which you want to use the integration.
 
-    - Send results email via Gmail
-    - Get notified when the run fails
+    ![Google Drive integration](../images/google/google-integrations-connect-gmail.png)
 
-    ![Gmail integration setup](../images/gmail/google-maps-task-configuration.png)
+1. Set up the integration details. Subject and body fields can make use of available variables. Dataset can be attached in several formats.
+ By default, the integration is triggered by successful runs only.
 
-1. Click on **Sign in with Google** button and select the account with which you want to use the integration.
+    ![Google Drive integration](../images/google/google-integrations-details-gmail.png)
 
-    ![Gmail integration email signup](../images/gmail/google-maps-task-email.png)
-
-1. After signing in you need to specify to what email account you want to send the message through the integration. Optionally you can also specify the subject and body of the email that will be sent.
-
-    ![Gmail integration email setup](../images/gmail/google-maps-task-email-filled.png)
-
-1. Select the desired format of the attached dataset file.
-
-    ![Gmail integration format selection](../images/gmail/google-maps-task-email-format.png)
-
-1. Click on save & enable the integration.
-
-    ![Gmail integration save](../images/gmail/google-maps-task-email-save.png)
+1. Click on **Save** & enable the integration.
 
 Once this is done, run your Actor to test whether the integration is working.
+
+You can manage your connected accounts at **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
+
+![Google Drive integration](../images/google/google-integrations-accounts.png)
+
