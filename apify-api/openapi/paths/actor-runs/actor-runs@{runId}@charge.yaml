@@ -9,7 +9,7 @@ post:
 
     :::note
 
-    Note that pay per events Actors are still in alpha. Please, reach out to us with any questions or feedback.
+    Pay per events Actors are still in alpha. Please, reach out to us with any questions or feedback.
 
     :::
   operationId: PostChargeRun

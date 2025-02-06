@@ -3,8 +3,9 @@ get:
     - Actor tasks
   summary: Get list of tasks
   description: |
-    Gets the complete list of tasks that a user has created or used. The
-    response is a list of objects in which each object contains essential
+    Gets the complete list of tasks that a user has created or used.
+
+    The response is a list of objects in which each object contains essential
     information about a single task.
 
     The endpoint supports pagination using the `limit` and `offset` parameters,

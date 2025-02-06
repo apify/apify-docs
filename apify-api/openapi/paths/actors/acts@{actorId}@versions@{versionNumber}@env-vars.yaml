@@ -4,8 +4,7 @@ get:
   summary: Get list of environment variables
   description: |
     Gets the list of environment variables for a specific version of an Actor.
-    The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where
-    each contains basic information about a single environment variable.
+    The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where each contains basic information about a single environment variable.
   operationId: act_version_envVars_get
   parameters:
     - name: actorId

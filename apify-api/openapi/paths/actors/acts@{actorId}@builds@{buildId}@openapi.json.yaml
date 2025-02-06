@@ -14,7 +14,11 @@ get:
     To fetch the default Actor build, simply pass `default` as the `buildId`.
     Authentication is based on the build's unique ID. No authentication token is required.
 
-    **Note**: You can also use the `/api/v2/actor-build-openapi-json-get` endpoint to get the OpenAPI definition for a build.
+    :::note
+
+    You can also use the [`/api/v2/actor-build-openapi-json-get`](/api/v2/actor-build-openapi-json-get) endpoint to get the OpenAPI definition for a build.
+
+    :::
   operationId: act_openapi_json_get
   security:
     - apiKeyActorBuilds: []

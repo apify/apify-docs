@@ -6,7 +6,8 @@ get:
     - https://docs.apify.com/api/v2#/reference/logs/log/get-log
     - https://docs.apify.com/api/v2#/reference/logs/get-log
     - https://docs.apify.com/api/v2#tag/LogsLog/operation/log_get
-  description: ''
+  description: |
+    Retrieves logs for a specific Actor build or run.
   operationId: log_get
   parameters:
     - name: buildOrRunId
