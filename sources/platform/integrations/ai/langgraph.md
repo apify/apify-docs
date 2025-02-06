@@ -12,7 +12,7 @@ slug: /integrations/langgraph
 
 ## What is LangGraph
 
-[LangGraph](https://www.langchain.com/langgraph) is a framework designed for constructing stateful, multi-actor applications with Large Language Models (LLMs), allowing developers to build complex AI agent workflows that can leverage tools, APIs, and databases.
+[LangGraph](https://www.langchain.com/langgraph) is a framework designed for constructing stateful, multi-agent applications with Large Language Models (LLMs), allowing developers to build complex AI agent workflows that can leverage tools, APIs, and databases.
 
 :::note Explore LangGraph
 
