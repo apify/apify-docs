@@ -157,6 +157,7 @@ The description is an optional string that you can add to the webhook. It serves
 | `eventType` | string | Type of the trigger event, [see Events](/platform/integrations/webhooks/events).              |
 | `eventData` | Object | Data associated with the trigger event, [see Events](/platform/integrations/webhooks/events). |
 | `resource`  | Object | The resource that caused the trigger event.                 |
+| `globals`   | Object | Data available in global context. Contains `dateISO` (date of webhook's trigger event in ISO 8601 format) and `dateUnix` (date of trigger event in Unix time in seconds) |           | 
 
 ### Resource
 
