@@ -30,7 +30,7 @@
   description: |
     The API endpoints in this section allow you to manage your Apify Actors versions.
 
-    - The _Version object_ contains the source code of a specific version of an Actor.
+    - The version object contains the source code of a specific version of an Actor.
     - The `sourceType` property indicates where the source code is hosted, and based
     on its value the Version object has the following additional property:
 
@@ -53,6 +53,8 @@
   - '#tag/ActorsBuild-object'
   - '#tag/ActorsAbort-build'
   x-trait: 'true'
+  description: |
+    The API endpoints in this section allow you to manage your Apify Actors builds.
 - name: Actors/Actor runs
   x-displayName: Actor runs
   x-parent-tag-name: Actors
@@ -69,7 +71,7 @@
   - '#/reference/actors/run-actor-synchronously-and-get-dataset-items'
   - '#tag/ActorsRun-Actor-synchronously-and-get-dataset-items'
   description: |
-    The API endpoints in this section allow you to run Apify Actors.
+    The API endpoints in this section allow you to manage your Apify Actors runs.
 
     Some API endpoints return run objects. If a run object includes usage costs in dollars, note that these values are calculated based on your effective unit pricing at the time of the query. As a result, the dollar amounts should be treated as informational only and not as exact figures.
 
