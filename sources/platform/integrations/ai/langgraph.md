@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /integrations/langgraph
 ---
 
-**Learn how to integrate Apify with LangGraph, in order to use Apify Actors with agents.**
+**Learn how to build AI Agents with Apify and LangGraph.**
 
 ---
 
