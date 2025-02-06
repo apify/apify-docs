@@ -15,7 +15,7 @@
     - A tilde-separated combination of the Actor owner's username and the Actor name (e.g., `janedoe~my-actor`).
 
 - name: Actors/Actor versions
-  x-displayName: Actor versions
+  x-displayName: Actor versions - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/version-collection'
@@ -44,7 +44,7 @@
     For more information about source code and Actor versions, check out [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
     in Actors documentation.
 - name: Actors/Actor builds
-  x-displayName: Actor builds
+  x-displayName: Actor builds - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/build-collection'
@@ -56,7 +56,7 @@
   description: |
     The API endpoints in this section allow you to manage your Apify Actors builds.
 - name: Actors/Actor runs
-  x-displayName: Actor runs
+  x-displayName: Actor runs - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/run-collection'
@@ -70,6 +70,8 @@
   - '#tag/ActorsRun-actor-synchronously'
   - '#/reference/actors/run-actor-synchronously-and-get-dataset-items'
   - '#tag/ActorsRun-Actor-synchronously-and-get-dataset-items'
+  - '#/reference/actors/last-run-object-and-its-storages'
+  - '#tag/ActorsLast-run-object-and-its-storages'
   description: |
     The API endpoints in this section allow you to manage your Apify Actors runs.
 
@@ -78,7 +80,7 @@
     For more information about platform usage and resource calculations, see the [Usage and Resources documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
   x-trait: 'true'
 - name: Actors/Webhook collection
-  x-displayName: Webhook collection
+  x-displayName: Webhook collection - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/webhook-collection'
@@ -86,68 +88,6 @@
   description: |
     The API endpoint in this section allows you to get a list of webhooks of a specific Actor.
   x-trait: 'true'
-- name: Actors/Last run object and its storages
-  x-displayName: Last run object and its storages
-  x-parent-tag-name: Actors
-  x-legacy-doc-urls:
-  - '#/reference/actors/last-run-object-and-its-storages'
-  - '#tag/ActorsLast-run-object-and-its-storages'
-  x-trait: 'true'
-  description: |
-    This is not a single endpoint, but an entire group of endpoints that lets you to
-    retrieve and manage the last run of given Actor or any of its default storages.
-    All the endpoints require an authentication token.
-
-    The endpoints accept the same HTTP methods and query parameters as
-    the respective storage endpoints.
-    The base path represents the last Actor run object is:
-
-    `/v2/acts/{actorId}/runs/last{?token,status}`
-
-    Using the `status` query parameter you can ensure to only get a run with a certain status
-    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
-    are the same as in the [Run object](#/reference/actors/run-object) endpoint.
-
-    In order to access the default storages of the last Actor run, i.e. log, key-value
-    store, dataset and request queue, use the following endpoints:
-
-    * `/v2/acts/{actorId}/runs/last/log{?token,status}`
-    * `/v2/acts/{actorId}/runs/last/key-value-store{?token,status}`
-    * `/v2/acts/{actorId}/runs/last/dataset{?token,status}`
-    * `/v2/acts/{actorId}/runs/last/request-queue{?token,status}`
-
-    These API endpoints have the same usage as the equivalent storage endpoints.
-    For example, `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and parameters
-    as the [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
-
-    Additionally, each of the above API endpoints supports all sub-endpoints
-    of the original one:
-
-    #### Key-value store
-
-    * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#/reference/key-value-stores/key-collection)
-    * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#/reference/key-value-stores/record)
-
-    #### Dataset
-
-    * `/v2/acts/{actorId}/runs/last/dataset/items{?token,status}` [Item collection](#/reference/datasets/item-collection)
-
-    #### Request queue
-
-    * `/v2/acts/{actorId}/runs/last/request-queue/requests{?token,status}` [Request
-    collection](#/reference/request-queues/request-collection)
-    * `/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}{?token,status}`
-    [Request collection](#/reference/request-queues/request)
-    * `/v2/acts/{actorId}/runs/last/request-queue/head{?token,status}` [Queue head](#/reference/request-queues/queue-head)
-
-    For example, to download data from a dataset of the last succeeded Actor run in XML format,
-    send HTTP GET request to the following URL:
-
-    ```
-    https://api.apify.com/v2/acts/{actorId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-    ```
-
-    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
 - name: Actor builds
   x-displayName: Actor builds - Introduction
   x-legacy-doc-urls:
@@ -186,7 +126,7 @@
 
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Actor tasks
-  x-displayName: Actor tasks
+  x-displayName: Actor tasks - Introduction
   x-legacy-doc-urls:
   - '#/reference/actor-tasks'
   - '#tag/Actor-tasks'
@@ -227,7 +167,7 @@
 - name: Storage
   x-displayName:
 - name: Storage/Datasets
-  x-displayName: Datasets
+  x-displayName: Datasets - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
   - '#/reference/datasets'
@@ -257,7 +197,7 @@
     :::
   x-trait: 'true'
 - name: Storage/Key-value stores
-  x-displayName: Key-value stores
+  x-displayName: Key-value stores - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
   - '#/reference/key-value-stores/key-collection'
@@ -287,7 +227,7 @@
     :::
   x-trait: 'true'
 - name: Storage/Request queues
-  x-displayName: Request queues
+  x-displayName: Request queues - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
   - '#/reference/request-queues'
@@ -327,7 +267,7 @@
 - name: Webhooks
   x-displayName:
 - name: Webhooks/Webhooks
-  x-displayName: Webhooks
+  x-displayName: Webhooks - Introduction
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhooks'
@@ -351,7 +291,7 @@
 
     For more information see [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 - name: Webhooks/Webhook dispatches
-  x-displayName: Webhook dispatches
+  x-displayName: Webhook dispatches - Introduction
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhook-dispatches'
@@ -362,7 +302,7 @@
   - '#tag/Webhook-dispatchesWebhook-dispatch-object'
   description: This section describes API endpoints to get webhook dispatches.
 - name: Schedules
-  x-displayName: Schedules
+  x-displayName: Schedules - Introduction
   x-legacy-doc-urls:
   - '#/reference/schedules'
   - '#tag/Schedules'
@@ -388,7 +328,7 @@
     For details, see the documentation of the [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
   x-trait: 'true'
 - name: Store
-  x-displayName: Store
+  x-displayName: Store - Introduction
   x-legacy-doc-urls:
   - '#/reference/store'
   - '#tag/Store'
@@ -406,7 +346,7 @@
     :::
   x-trait: true
 - name: Logs
-  x-displayName: Logs
+  x-displayName: Logs - Introduction
   x-legacy-doc-urls:
   - '#/reference/logs'
   - '#tag/Logs'
@@ -425,7 +365,7 @@
     :::
   x-trait: true
 - name: Users
-  x-displayName: Users
+  x-displayName: Users - Introduction
   x-legacy-doc-urls:
   - '#/reference/users'
   - '#tag/Users'
