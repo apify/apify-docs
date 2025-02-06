@@ -30,7 +30,7 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
 
 - **OpenAI API key**: In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
-- **Python packages**: To use LangGraph with Apify, you need to install the following Python packages:
+- **Python packages**:  You need to install the following Python packages:
 
     ```bash
     pip install langgraph langchain-apify langchain-openai
