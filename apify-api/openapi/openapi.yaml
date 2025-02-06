@@ -515,14 +515,14 @@ paths:
     $ref: 'paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml'
   '/v2/acts/{actorId}/runs/{runId}/resurrect':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml'
+  '/v2/acts/{actorId}/runs/last':
+    $ref: 'paths/actors/acts@{actorId}@runs@last.yaml'
   '/v2/acts/{actorId}/runs/{runId}':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}.yaml'
   '/v2/acts/{actorId}/runs/{runId}/abort':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}@abort.yaml'
   '/v2/acts/{actorId}/runs/{runId}/metamorph':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml'
-  '/v2/acts/{actorId}/runs/last':
-    $ref: 'paths/actors/acts@{actorId}@runs@last.yaml'
   /v2/actor-tasks:
     $ref: 'paths/actor-tasks/actor-tasks.yaml'
   '/v2/actor-tasks/{actorTaskId}':

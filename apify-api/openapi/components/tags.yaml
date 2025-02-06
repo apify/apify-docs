@@ -162,16 +162,13 @@
   - '#/reference/actor-builds/build-log'
   - '#tag/Actor-buildsBuild-log'
   description: |
-    The API endpoints described in this section enable you to create, manage, and delete Apify Actor builds.
-
-    :::note
+    The API endpoints described in this section enable you to manage, and delete Apify Actor builds.
 
     Note that if any returned build object contains usage in dollars, your effective
     unit pricing at the time of query has been used for computation of this dollar equivalent, and hence it should be
     used only for informative purposes.
-    You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 
-    :::
+    You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Actor runs
   x-displayName: Actor runs - Introduction
   x-legacy-doc-urls:
@@ -182,31 +179,12 @@
   - '#/reference/actor-runs/run-object-and-its-storages'
   - '#tag/Actor-runsRun-object-and-its-storages'
   description: |
-    The API endpoints described in this section enable you to manage Apify Actor runs.
+    The API endpoints described in this section enable you to manage, and delete Apify Actor runs.
 
-    :::note
-
-    Note that if any returned run object contains usage in dollars, your effective unit pricing at the time of query
+    If any returned run object contains usage in dollars, your effective unit pricing at the time of query
     has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
-    You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 
-    :::
-- name: Key-value stores
-  x-displayName: Key-value stores
-  x-legacy-doc-urls:
-  - '#/reference/key-value-stores'
-  - '#tag/Key-value-stores'
-  description: |
-    The API endpoints described in this section enable you to manage Key-value stores.
-    Key-value store is a simple storage for saving and reading data records or files.
-    Each data record is represented by a unique key and associated with a MIME content type.
-    Key-value stores are ideal for saving screenshots, Actor inputs and outputs, web pages,
-    PDFs or to persist the state of crawlers.
-    For more information, see the <a href="https://docs.apify.com/platform/storage/key-value-store">Key-value
-    store documentation</a>.
-
-    Note that some of the endpoints do not require the authentication token, the calls
-    are authenticated using a hard-to-guess ID of the key-value store.
+    You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Actor tasks
   x-displayName: Actor tasks
   x-legacy-doc-urls:
@@ -229,19 +207,23 @@
   - '#/reference/actor-tasks/last-run-object-and-its-storages'
   - '#tag/Actor-tasksLast-run-object-and-its-storages'
   description: |
-    The API endpoints described in this section enable you to manage and run Apify Actor tasks.
-    For more information, see the <a href="https://docs.apify.com/platform/actors/running/tasks">Actor
-    tasks documentation</a>.
+    The API endpoints described in this section enable you to create, manage, delete, and run Apify Actor tasks.
+    For more information, see the [Actor tasts documentation](https://docs.apify.com/platform/actors/running/tasks).
 
-    Note that for all the API endpoints that accept the `actorTaskId` parameter to
+    :::note
+
+    For all the API endpoints that accept the `actorTaskId` parameter to
     specify a task, you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
     username of the task's owner and the task's name (e.g. `janedoe~my-task`).
 
-    Some of the API endpoints return runs objects. Note that if any such run object
+    :::
+
+    Some of the API endpoints return run objects. If any such run object
     contains usage in dollars, your effective unit pricing at the time of query
     has been used for computation of this dollar equivalent, and hence it should be
-    used only for informative purposes. You can learn more
-    about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+    used only for informative purposes.
+
+    You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Storage
   x-displayName:
 - name: Storage/Datasets
@@ -264,12 +246,12 @@
     where each object is a row and its attributes are columns. Dataset is an append-only
     storage - you can only add new records to it but you cannot modify or remove existing
     records. Typically it is used to store crawling results.
-    For more information, see the <a href="https://docs.apify.com/platform/storage/dataset">Datasets
-    documentation</a>.
+
+    For more information, see the [Datasets documentation](https://docs.apify.com/platform/storage/dataset).
 
     :::note
 
-    Note that some of the endpoints do not require the authentication token, the calls
+    Some of the endpoints do not require the authentication token, the calls
     are authenticated using the hard-to-guess ID of the dataset.
 
     :::
@@ -286,18 +268,20 @@
   - '#tag/Key-value-storesStore-object'
   - '#/reference/key-value-stores/record'
   - '#tag/Key-value-storesRecord'
+  - '#/reference/key-value-stores'
+  - '#tag/Key-value-stores'
   description: |
     This section describes API endpoints to manage Key-value stores.
     Key-value store is a simple storage for saving and reading data records or files.
     Each data record is represented by a unique key and associated with a MIME content type.
     Key-value stores are ideal for saving screenshots, Actor inputs and outputs, web pages,
     PDFs or to persist the state of crawlers.
-    For more information, see the <a href="https://docs.apify.com/platform/storage/key-value-store">Key-value
-    store documentation</a>.
+
+    For more information, see the [Key-value store documentation](https://docs.apify.com/platform/storage/key-value-store).
 
     :::note
 
-    Note that some of the endpoints do not require the authentication token, the calls
+    Some of the endpoints do not require the authentication token, the calls
     are authenticated using a hard-to-guess ID of the key-value store.
 
     :::
@@ -325,18 +309,18 @@
   - '#/reference/request-queues/batch-request-operations'
   - '#tag/Request-queuesBatch-request-operations'
   description: |
-    This section describes API endpoints to manage request queues.
+    This section describes API endpoints to create, manage, and delete request queues.
 
     Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
     used for deep crawling of websites where you
     start with several URLs and then recursively follow links to other pages.
     The storage supports both breadth-first and depth-first crawling orders.
-    For more information, see the <a href="https://docs.apify.com/platform/storage/request-queue">Request
-    queue documentation</a>.
+
+    For more information, see the [Request queue documentation](https://docs.apify.com/platform/storage/request-queue).
 
     :::note
 
-    Note that some of the endpoints do not require the authentication token, the calls
+    Some of the endpoints do not require the authentication token, the calls
     are authenticated using the hard-to-guess ID of the queue.
 
     :::
@@ -364,8 +348,8 @@
     system event occurs.
     For example, you can use webhooks to start another Actor when an Actor run finishes
     or fails.
-    For more information see <a href="https://docs.apify.com/platform/integrations/webhooks">Webhooks
-    documentation</a>.
+
+    For more information see [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 - name: Webhooks/Webhook dispatches
   x-displayName: Webhook dispatches
   x-parent-tag-name: Webhooks
@@ -395,12 +379,13 @@
     can be associated with a number of Actors and Actor tasks. It is also possible
     to override the settings of each Actor (task) similarly to when invoking the Actor
     (task) using the API.
-    For more information, see <a href="https://docs.apify.com/platform/schedules">Schedules
-    documentation</a>.
+    For more information, see [Schedules documentation](https://docs.apify.com/platform/schedules">Schedules
+    documentation).
 
     Each schedule is assigned actions for it to perform. Actions can be of two types
-    - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details, see the documentation of the
-    [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
+    - `RUN_ACTOR` and `RUN_ACTOR_TASK`.
+
+    For details, see the documentation of the [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
   x-trait: 'true'
 - name: Store
   x-displayName: Store
@@ -414,7 +399,11 @@
     to the Apify community.
     The API endpoints described in this section are used to retrieve these Actors.
 
-    Note that the endpoints do not require the authentication token.
+    :::note
+
+    These endpoints do not require the authentication token.
+
+    :::
   x-trait: true
 - name: Logs
   x-displayName: Logs
@@ -428,8 +417,12 @@
     generated by Actor builds and runs. Note that only the trailing 5M characters
     of the log are stored, the rest is discarded.
 
+    :::note
+
     Note that the endpoints do not require the authentication token, the calls
     are authenticated using a hard-to-guess ID of the Actor build or run.
+
+    :::
   x-trait: true
 - name: Users
   x-displayName: Users
