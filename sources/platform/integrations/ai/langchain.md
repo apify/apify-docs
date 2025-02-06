@@ -20,7 +20,7 @@ If you prefer to use JavaScript, you can follow the  [JavaScript LangChain docum
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install apify-client langchain langchain_community langchain_openai openai tiktoken`
+`pip install langchain langchain-openai langchain-apify`
 
 After successful installation of all dependencies, we can start writing code.
 
@@ -30,9 +30,10 @@ First, import all required packages:
 import os
 
 from langchain.indexes import VectorstoreIndexCreator
-from langchain_community.utilities import ApifyWrapper
-from langchain_core.document_loaders.base import Document
-from langchain_openai import OpenAI
+from langchain_apify import ApifyWrapper
+from langchain_core.documents import Document
+from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 ```
 
@@ -49,6 +50,7 @@ Note that if you already have some results in an Apify dataset, you can load the
 
 ```python
 apify = ApifyWrapper()
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 loader = apify.call_actor(
     actor_id="apify/website-content-crawler",
@@ -68,14 +70,17 @@ The Actor call may take some time as it crawls the LangChain documentation websi
 Initialize the vector index from the crawled documents:
 
 ```python
-index = VectorstoreIndexCreator(embedding=OpenAIEmbeddings()).from_loaders([loader])
+index = VectorstoreIndexCreator(
+    vectorstore_cls=InMemoryVectorStore,
+    embedding=OpenAIEmbeddings()
+).from_loaders([loader])
 ```
 
 And finally, query the vector index:
 
 ```python
 query = "What is LangChain?"
-result = index.query_with_sources(query, llm=OpenAI())
+result = index.query_with_sources(query, llm=llm)
 
 print("answer:", result["answer"])
 print("source:", result["sources"])
@@ -87,15 +92,17 @@ If you want to test the whole example, you can simply create a new file, `langch
 import os
 
 from langchain.indexes import VectorstoreIndexCreator
-from langchain_community.utilities import ApifyWrapper
-from langchain_core.document_loaders.base import Document
-from langchain_openai import OpenAI
+from langchain_apify import ApifyWrapper
+from langchain_core.documents import Document
+from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 os.environ["APIFY_API_TOKEN"] = "Your Apify API token"
 
 apify = ApifyWrapper()
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 print("Call website content crawler ...")
 loader = apify.call_actor(
@@ -104,9 +111,12 @@ loader = apify.call_actor(
     dataset_mapping_function=lambda item: Document(page_content=item["text"] or "", metadata={"source": item["url"]}),
 )
 print("Compute embeddings...")
-index = VectorstoreIndexCreator(embedding=OpenAIEmbeddings()).from_loaders([loader])
+index = VectorstoreIndexCreator(
+    vectorstore_cls=InMemoryVectorStore,
+    embedding=OpenAIEmbeddings()
+).from_loaders([loader])
 query = "What is LangChain?"
-result = index.query_with_sources(query, llm=OpenAI())
+result = index.query_with_sources(query, llm=llm)
 
 print("answer:", result["answer"])
 print("source:", result["sources"])
@@ -117,9 +127,11 @@ To run it, you can use the following command: `python langchain_integration.py`
 After running the code, you should see the following output:
 
 ```text
-answer: LangChain is a framework for developing applications powered by language models. It provides standard, extendable interfaces, external integrations, and end-to-end implementations for off-the-shelf use. It also integrates with other LLMs, systems, and products to create a vibrant and thriving ecosystem.
+answer: LangChain is a framework designed for developing applications powered by large language models (LLMs). It simplifies the
+ entire application lifecycle, from development to productionization and deployment. LangChain provides open-source components a
+nd integrates with various third-party tools, making it easier to build and optimize applications using language models.
 
-source: https://python.langchain.com
+source: https://python.langchain.com/docs/get_started/introduction
 ```
 
 LangChain is a standard interface through which you can interact with a variety of large language models (LLMs).
