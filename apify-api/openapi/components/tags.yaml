@@ -1,5 +1,5 @@
 - name: Actors
-  x-displayName: Actors
+  x-displayName: Actors - Introduction
   x-legacy-doc-urls:
   - '#/reference/actors'
   - '#tag/Actors'
@@ -8,18 +8,12 @@
   - '#/reference/actors/actor-object'
   - '#tag/ActorsActor-object'
   description: |
-    The API endpoints described in this section enable you to manage, build and run Apify Actors.
-    For more information, see the <a href="https://docs.apify.com/platform/actors">Actor documentation</a>.
+    The API endpoints in this section allow you to manage Apify Actors. For more details about Actors, refer to the [Actor documentation](https://docs.apify.com/platform/actors).
 
-    Note that for all the API endpoints that accept the `actorId` parameter to specify an Actor,
-    you can pass either the Actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-    username of the Actor owner and the Actor name (e.g. `janedoe~my-actor`).
+    For API endpoints that require the `actorId` parameter to identify an Actor, you can provide either:
+    - The Actor ID (e.g., `HG7ML7M8z78YcAPEB`), or
+    - A tilde-separated combination of the Actor owner's username and the Actor name (e.g., `janedoe~my-actor`).
 
-    Some of the API endpoints return runs objects. Note that if any such run object
-    contains usage in dollars, your effective unit pricing at the time of query
-    has been used for computation of this dollar equivalent, and hence it should be
-    used only for informative purposes. You can learn more
-    about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 - name: Actors/Actor versions
   x-displayName: Actor versions
   x-parent-tag-name: Actors
@@ -34,50 +28,20 @@
   - '#tag/ActorsEnvironment-variable-object'
   x-trait: 'true'
   description: |
-    The **Version object** contains the source code of a specific version of an actor.
-    The `sourceType` property indicates where the source code is hosted, and based
+    The API endpoints in this section allow you to manage your Apify Actors versions.
+
+    - The _Version object_ contains the source code of a specific version of an Actor.
+    - The `sourceType` property indicates where the source code is hosted, and based
     on its value the Version object has the following additional property:
 
-    <table>
-      <tr>
-        <td><code>"SOURCE_FILES"</code></td>
-        <td>
-            Source code is comprised of multiple files specified in the <code>sourceFiles</code> array.
-            Each item of the array is an object with the following fields:<br />
-            <ul>
-            <li><code>name</code></li> - File path and name<br />
-            <li><code>format</code></li> - Format of the content, can be either <code>"TEXT"</code>
-    or <code>"BASE64"</code><br />
-            <li><code>content</code></li> - File content<br />
-            </ul>
-            <br />
-            Source files can be shown and edited in the Apify Console's Web IDE.
-        </td>
-      </tr>
-      <tr>
-        <td><code>"GIT_REPO"</code></td>
-        <td>
-            Source code is cloned from a Git repository, whose URL is specified in
-    the <code>gitRepoUrl</code> field.
-        </td>
-      </tr>
-      <tr>
-          <td><code>"TARBALL"</code></td>
-          <td>
-            Source code is downloaded using a tarball or Zip file from a URL specified
-    in the <code>tarballUrl</code> field.
-          </td>
-      </tr>
-      <tr>
-          <td><code>"GITHUB_GIST"</code></td>
-          <td>
-            Source code is taken from a GitHub Gist, whose URL is specified in the
-    <code>gitHubGistUrl</code> field.
-          </td>
-      </tr>
-    </table>
+    | **Value** | **Description**  |
+    |---|---|
+    | `"SOURCE_FILES"`   | Source code is comprised of multiple files specified in the `sourceFiles` array. Each item of the array is an object with the following fields:<br/> - `name`: File path and name<br/> - `format`: Format of the content, can be either `"TEXT"` or `"BASE64"`<br/> - `content`: File content<br/><br/>Source files can be shown and edited in the Apify Console's Web IDE. |
+    | `"GIT_REPO"` | Source code is cloned from a Git repository, whose URL is specified in the `gitRepoUrl` field. |
+    | `"TARBALL"` | Source code is downloaded using a tarball or Zip file from a URL specified in the `tarballUrl` field.  |
+    |`"GITHUB_GIST"`| Source code is taken from a GitHub Gist, whose URL is specified in the `gitHubGistUrl` field. |
 
-    For more information about source code and Actor versions, see [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
+    For more information about source code and Actor versions, check out [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
     in Actors documentation.
 - name: Actors/Actor builds
   x-displayName: Actor builds
@@ -104,6 +68,12 @@
   - '#tag/ActorsRun-actor-synchronously'
   - '#/reference/actors/run-actor-synchronously-and-get-dataset-items'
   - '#tag/ActorsRun-Actor-synchronously-and-get-dataset-items'
+  description: |
+    The API endpoints in this section allow you to run Apify Actors.
+
+    Some API endpoints return run objects. If a run object includes usage costs in dollars, note that these values are calculated based on your effective unit pricing at the time of the query. As a result, the dollar amounts should be treated as informational only and not as exact figures.
+
+    For more information about platform usage and resource calculations, see the [Usage and Resources documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
   x-trait: 'true'
 - name: Actors/Webhook collection
   x-displayName: Webhook collection
@@ -111,6 +81,8 @@
   x-legacy-doc-urls:
   - '#/reference/actors/webhook-collection'
   - '#tag/ActorsWebhook-collection'
+  description: |
+    The API endpoint in this section allows you to get a list of webhooks of a specific Actor.
   x-trait: 'true'
 - name: Actors/Last run object and its storages
   x-displayName: Last run object and its storages
@@ -175,7 +147,7 @@
 
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
 - name: Actor builds
-  x-displayName: Introduction
+  x-displayName: Actor builds - Introduction
   x-legacy-doc-urls:
   - '#/reference/actor-builds'
   - '#tag/Actor-builds'
@@ -188,14 +160,18 @@
   - '#/reference/actor-builds/build-log'
   - '#tag/Actor-buildsBuild-log'
   description: |
-    The API endpoints described in this section enable you to manage Apify Actor builds.
+    The API endpoints described in this section enable you to create, manage, and delete Apify Actor builds.
+
+    :::note
 
     Note that if any returned build object contains usage in dollars, your effective
     unit pricing at the time of query has been used for computation of this dollar equivalent, and hence it should be
     used only for informative purposes.
     You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
+    :::
 - name: Actor runs
-  x-displayName: Introduction
+  x-displayName: Actor runs - Introduction
   x-legacy-doc-urls:
   - '#/reference/actor-runs'
   - '#tag/Actor-runs'
@@ -206,16 +182,20 @@
   description: |
     The API endpoints described in this section enable you to manage Apify Actor runs.
 
+    :::note
+
     Note that if any returned run object contains usage in dollars, your effective unit pricing at the time of query
     has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
     You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
+    :::
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores'
   - '#tag/Key-value-stores'
   description: |
-    This section describes API endpoints to manage Key-value stores.
+    The API endpoints described in this section enable you to manage Key-value stores.
     Key-value store is a simple storage for saving and reading data records or files.
     Each data record is represented by a unique key and associated with a MIME content type.
     Key-value stores are ideal for saving screenshots, Actor inputs and outputs, web pages,
