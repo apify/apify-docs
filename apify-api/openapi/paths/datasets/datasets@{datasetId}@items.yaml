@@ -433,7 +433,7 @@ get:
 post:
   tags:
     - Storage/Datasets
-  summary: Put items
+  summary: Store items
   description: |
     Appends an item or an array of items to the end of the dataset.
     The POST payload is a JSON object or a JSON array of objects to save into the dataset.

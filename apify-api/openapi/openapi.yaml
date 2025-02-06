@@ -581,18 +581,18 @@ paths:
     $ref: paths/request-queues/request-queues.yaml
   '/v2/request-queues/{queueId}':
     $ref: 'paths/request-queues/request-queues@{queueId}.yaml'
+  '/v2/request-queues/{queueId}/requests/batch':
+    $ref: 'paths/request-queues/request-queues@{queueId}@requests@batch.yaml'
   '/v2/request-queues/{queueId}/requests':
     $ref: 'paths/request-queues/request-queues@{queueId}@requests.yaml'
   '/v2/request-queues/{queueId}/requests/{requestId}':
     $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}.yaml'
-  '/v2/request-queues/{queueId}/requests/{requestId}/lock':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}@lock.yaml'
   '/v2/request-queues/{queueId}/head':
     $ref: 'paths/request-queues/request-queues@{queueId}@head.yaml'
   '/v2/request-queues/{queueId}/head/lock':
     $ref: 'paths/request-queues/request-queues@{queueId}@head@lock.yaml'
-  '/v2/request-queues/{queueId}/requests/batch':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@batch.yaml'
+  '/v2/request-queues/{queueId}/requests/{requestId}/lock':
+    $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}@lock.yaml'
   /v2/webhooks:
     $ref: paths/webhooks/webhooks.yaml
   '/v2/webhooks/{webhookId}':

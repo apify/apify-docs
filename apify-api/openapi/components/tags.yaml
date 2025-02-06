@@ -236,20 +236,61 @@
   - '#tag/Request-queuesQueue-collection'
   - '#/reference/request-queues/queue'
   - '#tag/Request-queuesQueue'
+  - '#/reference/request-queues/batch-request-operations'
+  - '#tag/Request-queuesBatch-request-operations'
+  description: |
+    This section describes API endpoints to create, manage, and delete request queues.
+
+    Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
+    used for deep crawling of websites where you
+    start with several URLs and then recursively follow links to other pages.
+    The storage supports both breadth-first and depth-first crawling orders.
+
+    For more information, see the [Request queue documentation](https://docs.apify.com/platform/storage/request-queue).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using the hard-to-guess ID of the queue.
+
+    :::
+- name: Storage/Request queues/Requests
+  x-displayName: Requests- Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
   - '#/reference/request-queues/request-collection'
   - '#tag/Request-queuesRequest-collection'
   - '#/reference/request-queues/request'
   - '#tag/Request-queuesRequest'
+  description: |
+    This section describes API endpoints to create, manage, and delete requests within request queues.
+
+    Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
+    used for deep crawling of websites where you
+    start with several URLs and then recursively follow links to other pages.
+    The storage supports both breadth-first and depth-first crawling orders.
+
+    For more information, see the [Request queue documentation](https://docs.apify.com/platform/storage/request-queue).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using the hard-to-guess ID of the queue.
+
+    :::
+- name: Storage/Request queues/Requests locks
+  x-displayName: Requests locks - Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
+
   - '#/reference/request-queues/request-lock'
   - '#tag/Request-queuesRequest-lock'
   - '#/reference/request-queues/queue-head'
   - '#tag/Request-queuesQueue-head'
   - '#/reference/request-queues/queue-head-with-locks'
   - '#tag/Request-queuesQueue-head-with-locks'
-  - '#/reference/request-queues/batch-request-operations'
-  - '#tag/Request-queuesBatch-request-operations'
   description: |
-    This section describes API endpoints to create, manage, and delete request queues.
+    This section describes API endpoints to create, manage, and delete request locks within request queues.
 
     Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
     used for deep crawling of websites where you

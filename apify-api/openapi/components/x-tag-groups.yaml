@@ -20,6 +20,8 @@
   - Storage/Datasets
   - Storage/Key-value stores
   - Storage/Request queues
+  - Storage/Request queues/Requests
+  - Storage/Request queues/Requests locks
 - name: Webhooks
   tags:
   - Webhooks/Webhooks

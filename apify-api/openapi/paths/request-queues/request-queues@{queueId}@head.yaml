@@ -1,6 +1,6 @@
 get:
   tags:
-    - Storage/Request queues
+    - Storage/Request queues/Requests locks
   summary: Get head
   description: |
     Returns given number of first requests from the queue.

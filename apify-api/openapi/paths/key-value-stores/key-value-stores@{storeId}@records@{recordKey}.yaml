@@ -73,7 +73,7 @@ get:
 put:
   tags:
     - Storage/Key-value stores
-  summary: Put record
+  summary: Store record
   description: |
     Stores a value under a specific key to the key-value store.
 

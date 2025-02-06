@@ -1,6 +1,6 @@
 get:
   tags:
-    - Storage/Request queues
+    - Storage/Request queues/Requests
   summary: List requests
   description: |
     Returns a list of requests. This endpoint is paginated using
@@ -137,7 +137,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_requests
 post:
   tags:
-    - Storage/Request queues
+    - Storage/Request queues/Requests
   summary: Add request
   description: |
     Adds request to the queue. Response contains ID of the request and info if
