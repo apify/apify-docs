@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor collection
+    - Actors
   summary: Get list of Actors
   description: |
     Gets the list of all Actors that the user created or used. The response is a
@@ -97,7 +97,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorCollectionClientAsync#list
 post:
   tags:
-    - Actors/Actor collection
+    - Actors
   summary: Create Actor
   description: |
     Creates a new Actor with settings specified in an Actor object passed as

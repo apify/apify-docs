@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actor runs/Abort run
+    - Actor runs
   summary: Abort run
   description: |
     Aborts an Actor run and returns an object that contains all the details

@@ -1,11 +1,16 @@
 get:
   tags:
-    - Datasets/Dataset
+    - Storage/Datasets
   summary: Get dataset
   description: |
     Returns dataset object for given dataset ID.
 
-    **NOTE:** Keep in mind that attributes `itemCount` and `cleanItemCount` are not propagated right away after data are pushed into a dataset.
+    :::note
+
+    Keep in mind that attributes `itemCount` and `cleanItemCount` are not propagated right away after data are pushed into a dataset.
+
+    :::
+
     There is a short period (up to 5 seconds) during which these counters may not match with exact counts in dataset items.
   operationId: dataset_get
   parameters:
@@ -60,7 +65,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#get
 put:
   tags:
-    - Datasets/Dataset
+    - Storage/Datasets
   summary: Update dataset
   description: |
     Updates a dataset's name using a value specified by a JSON object passed in the PUT payload.
@@ -118,7 +123,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#update
 delete:
   tags:
-    - Datasets/Dataset
+    - Storage/Datasets
   summary: Delete dataset
   description: Deletes a specific dataset.
   operationId: dataset_delete

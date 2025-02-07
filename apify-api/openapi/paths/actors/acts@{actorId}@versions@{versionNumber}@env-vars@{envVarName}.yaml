@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Environment variable object
+    - Actors/Actor versions
   summary: Get environment variable
   description: |
     Gets a [EnvVar object](#/reference/actors/environment-variable-object) that
@@ -56,7 +56,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#get
 put:
   tags:
-    - Actors/Environment variable object
+    - Actors/Actor versions
   summary: Update environment variable
   description: |
     Updates Actor environment variable using values specified by a [EnvVar
@@ -135,7 +135,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#update
 delete:
   tags:
-    - Actors/Environment variable object
+    - Actors/Actor versions
   summary: Delete environment variable
   description: Deletes a specific environment variable.
   operationId: act_version_envVar_delete

@@ -10,8 +10,8 @@ info:
     The Apify API (version 2) provides programmatic access to the [Apify
     platform](https://docs.apify.com). The API is organized
     around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
-    HTTP endpoints. 
-    
+    HTTP endpoints.
+
     You can download the complete OpenAPI schema of Apify API in the [YAML](http://docs.apify.com/api/openapi.yaml) or [JSON](http://docs.apify.com/api/openapi.json) formats. The source code is also available on [GitHub](https://github.com/apify/apify-docs/tree/master/apify-api/openapi).
 
     All requests and responses (including errors) are encoded in
@@ -66,14 +66,14 @@ info:
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
 
-    To run an actor, send a POST request to the [Run
-    actor](#/reference/actors/run-collection/run-actor) endpoint using either the
-    actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
+    To run an Actor, send a POST request to the [Run
+    Actor](#/reference/actors/run-collection/run-actor) endpoint using either the
+    Actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
     `janedoe~my-actor`):
 
     `https://api.apify.com/v2/acts/[actor_id]/runs`
 
-    If the actor is not runnable anonymously, you will receive a 401 or 403
+    If the Actor is not runnable anonymously, you will receive a 401 or 403
     [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
     This means you need to add your [secret API
     token](https://console.apify.com/account#/integrations) to the request's
@@ -81,24 +81,24 @@ info:
     URL query parameter `?token=[your_token]` (less secure).
 
     Optionally, you can include the query parameters described in the [Run
-    actor](#/reference/actors/run-collection/run-actor) section to customize your
+    Actor](#/reference/actors/run-collection/run-actor) section to customize your
     run.
 
-    If you're using Node.js, the best way to run an actor is using the
+    If you're using Node.js, the best way to run an Actor is using the
     `Apify.call()` method from the [Apify
     SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It
-    runs the actor using the account you are currently logged into (determined
+    runs the Actor using the account you are currently logged into (determined
     by the [secret API token](https://console.apify.com/account#/integrations)).
-    The result is an [actor run
+    The result is an [Actor run
     object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if
     any).
 
     A typical workflow is as follows:
 
-    1. Run an actor or task using the [Run
-    actor](#/reference/actors/run-collection/run-actor) or [Run
+    1. Run an Actor or task using the [Run
+    Actor](#/reference/actors/run-collection/run-actor) or [Run
     task](#/reference/actor-tasks/run-collection/run-task) API endpoints.
-    2. Monitor the actor run by periodically polling its progress using the [Get
+    2. Monitor the Actor run by periodically polling its progress using the [Get
     run](#/reference/actor-runs/run-object-and-its-storages/get-run) API
     endpoint.
     3. Fetch the results from the [Get
@@ -109,7 +109,7 @@ info:
     using the `defaultKeyValueStoreId` and the store's `key`.
 
     **Note**: Instead of periodic polling, you can also run your
-    [actor](#/reference/actors/run-actor-synchronously) or
+    [Actor](#/reference/actors/run-actor-synchronously) or
     [task](#/reference/actor-tasks/runs-collection/run-task-synchronously)
     synchronously. This will ensure that the request waits for 300 seconds (5
     minutes) for the run to finish and returns its output. If the run takes
@@ -151,7 +151,7 @@ info:
 
     All API endpoints that return a list of records
     (e.g. [Get list of
-    actors](#/reference/actors/actor-collection/get-list-of-actors))
+    Actors](#/reference/actors/actor-collection/get-list-of-actors))
     enforce pagination in order to limit the size of their responses.
 
     Most of these API endpoints are paginated using the `offset` and `limit`
@@ -417,10 +417,10 @@ info:
       operations on key-value store records
 
     These endpoints have a rate limit of _200 requests per second per resource_:
-    * [Run actor](#/reference/actors/run-collection/run-actor)
-    * [Run actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
-    * [Run actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    * [Metamorph actor run](#/reference/actors/metamorph-run/metamorph-run)
+    * [Run Actor](#/reference/actors/run-collection/run-actor)
+    * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
+    * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
+    * [Metamorph Actor run](#/reference/actors/metamorph-run/metamorph-run)
     * [Push items](#/reference/datasets/item-collection/put-items) to dataset
     * CRUD
       ([add](#/reference/request-queues/request-collection/add-request),
@@ -499,30 +499,30 @@ paths:
     $ref: 'paths/actors/acts@{actorId}@webhooks.yaml'
   '/v2/acts/{actorId}/builds':
     $ref: 'paths/actors/acts@{actorId}@builds.yaml'
-  '/v2/acts/{actorId}/builds/{buildId}':
-    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}.yaml'
   '/v2/acts/{actorId}/builds/default':
     $ref: 'paths/actors/acts@{actorId}@builds@default.yaml'
-  '/v2/acts/{actorId}/builds/{buildId}/abort':
-    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml'
   '/v2/acts/{actorId}/builds/{buildId}/openapi.json':
     $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@openapi.json.yaml'
+  '/v2/acts/{actorId}/builds/{buildId}':
+    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}.yaml'
+  '/v2/acts/{actorId}/builds/{buildId}/abort':
+    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml'
   '/v2/acts/{actorId}/runs':
     $ref: 'paths/actors/acts@{actorId}@runs.yaml'
   '/v2/acts/{actorId}/run-sync':
     $ref: 'paths/actors/acts@{actorId}@run-sync.yaml'
   '/v2/acts/{actorId}/run-sync-get-dataset-items':
     $ref: 'paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml'
+  '/v2/acts/{actorId}/runs/{runId}/resurrect':
+    $ref: 'paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml'
+  '/v2/acts/{actorId}/runs/last':
+    $ref: 'paths/actors/acts@{actorId}@runs@last.yaml'
   '/v2/acts/{actorId}/runs/{runId}':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}.yaml'
   '/v2/acts/{actorId}/runs/{runId}/abort':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}@abort.yaml'
   '/v2/acts/{actorId}/runs/{runId}/metamorph':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml'
-  '/v2/acts/{actorId}/runs/{runId}/resurrect':
-    $ref: 'paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml'
-  '/v2/acts/{actorId}/runs/last':
-    $ref: 'paths/actors/acts@{actorId}@runs@last.yaml'
   /v2/actor-tasks:
     $ref: 'paths/actor-tasks/actor-tasks.yaml'
   '/v2/actor-tasks/{actorTaskId}':
@@ -581,18 +581,18 @@ paths:
     $ref: paths/request-queues/request-queues.yaml
   '/v2/request-queues/{queueId}':
     $ref: 'paths/request-queues/request-queues@{queueId}.yaml'
+  '/v2/request-queues/{queueId}/requests/batch':
+    $ref: 'paths/request-queues/request-queues@{queueId}@requests@batch.yaml'
   '/v2/request-queues/{queueId}/requests':
     $ref: 'paths/request-queues/request-queues@{queueId}@requests.yaml'
   '/v2/request-queues/{queueId}/requests/{requestId}':
     $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}.yaml'
-  '/v2/request-queues/{queueId}/requests/{requestId}/lock':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}@lock.yaml'
   '/v2/request-queues/{queueId}/head':
     $ref: 'paths/request-queues/request-queues@{queueId}@head.yaml'
   '/v2/request-queues/{queueId}/head/lock':
     $ref: 'paths/request-queues/request-queues@{queueId}@head@lock.yaml'
-  '/v2/request-queues/{queueId}/requests/batch':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@batch.yaml'
+  '/v2/request-queues/{queueId}/requests/{requestId}/lock':
+    $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}@lock.yaml'
   /v2/webhooks:
     $ref: paths/webhooks/webhooks.yaml
   '/v2/webhooks/{webhookId}':
@@ -602,7 +602,7 @@ paths:
   '/v2/webhooks/{webhookId}/dispatches':
     $ref: 'paths/webhooks/webhooks@{webhookId}@dispatches.yaml'
   /v2/webhook-dispatches:
-    $ref: paths/webhook-dispatches/webhook-dispatches.yaml
+    $ref: 'paths/webhook-dispatches/webhook-dispatches.yaml'
   '/v2/webhook-dispatches/{dispatchId}':
     $ref: 'paths/webhook-dispatches/webhook-dispatches@{dispatchId}.yaml'
   /v2/schedules:

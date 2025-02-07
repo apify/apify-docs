@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actor runs/Metamorph run
+    - Actor runs
   summary: Metamorph run
   description: |
     Transforms an Actor run into a run of another Actor with a new input.
@@ -18,8 +18,7 @@ post:
     All the default storages are preserved and the new input is stored under the
     `INPUT-METAMORPH-1` key in the same default key-value store.
 
-    For more information, see the [Actor
-    docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
+    For more information, see the [Actor docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
   operationId: actorRun_metamorph_post
   parameters:
     - name: runId

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Datasets/Item collection
+    - Storage/Datasets
   summary: Get items
   description: |
     Returns data stored in the dataset in a desired format.
@@ -432,8 +432,8 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#stream_items
 post:
   tags:
-    - Datasets/Item collection
-  summary: Put items
+    - Storage/Datasets
+  summary: Store items
   description: |
     Appends an item or an array of items to the end of the dataset.
     The POST payload is a JSON object or a JSON array of objects to save into the dataset.

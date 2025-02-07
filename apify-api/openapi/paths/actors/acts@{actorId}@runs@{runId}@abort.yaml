@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actors/Abort run
+    - Actors/Actor runs
   summary: Abort run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under

@@ -1,10 +1,13 @@
 get:
   tags:
-    - Datasets/Dataset collection
+    - Storage/Datasets
   summary: Get list of datasets
   description: |
-    Lists all of a user's datasets. The response is a JSON array of objects,
+    Lists all of a user's datasets.
+
+    The response is a JSON array of objects,
     where each object contains basic information about one dataset.
+
     By default, the objects are sorted by the `createdAt` field in ascending
     order, therefore you can use pagination to incrementally fetch all datasets while new
     ones are still being created. To sort them in descending order, use `desc=1`
@@ -100,7 +103,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetCollectionClientAsync#list
 post:
   tags:
-    - Datasets/Dataset collection
+    - Storage/Datasets
   summary: Create dataset
   description: |
     Creates a dataset and returns its object.

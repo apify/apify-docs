@@ -1,10 +1,11 @@
 get:
   tags:
-    - Datasets/Statistics
+    - Storage/Datasets
   summary: Get dataset statistics
   description: |
     Returns statistics for given dataset.
-    Currently provides only [field statistics](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics).
+
+    Provides only [field statistics](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics).
 
   operationId: dataset_statistics_get
   parameters:

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Schedules/Schedules collection
+    - Schedules
   summary: Get list of schedules
   description: |
     Gets the list of schedules that the user created.
@@ -63,7 +63,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ScheduleCollectionClientAsync#list
 post:
   tags:
-    - Schedules/Schedules collection
+    - Schedules
   summary: Create schedule
   description: |
     Creates a new schedule with settings provided by the schedule object passed

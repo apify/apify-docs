@@ -1,6 +1,6 @@
 get:
   tags:
-    - Webhooks/Webhook object
+    - Webhooks/Webhooks
   summary: Get webhook
   description: Gets webhook object with all details.
   operationId: webhook_get
@@ -34,7 +34,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#get
 put:
   tags:
-    - Webhooks/Webhook object
+    - Webhooks/Webhooks
   summary: Update webhook
   description: |
     Updates a webhook using values specified by a webhook object passed as JSON
@@ -89,7 +89,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#update
 delete:
   tags:
-    - Webhooks/Webhook object
+    - Webhooks/Webhooks
   summary: Delete webhook
   description: Deletes a webhook.
   operationId: webhook_delete

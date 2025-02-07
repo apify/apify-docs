@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor tasks/Task object
+    - Actor tasks
   summary: Get task
   description: Get an object that contains all the details about a task.
   operationId: actorTask_get
@@ -57,7 +57,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#get
 put:
   tags:
-    - Actor tasks/Task object
+    - Actor tasks
   summary: Update task
   description: |
     Update settings of a task using values specified by an object passed as JSON
@@ -152,7 +152,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#update
 delete:
   tags:
-    - Actor tasks/Task object
+    - Actor tasks
   summary: Delete task
   description: Delete the task specified through the `actorTaskId` parameter.
   operationId: actorTask_delete

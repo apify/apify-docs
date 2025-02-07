@@ -1,6 +1,6 @@
 post:
   tags:
-    - Request queues/Queue head with locks
+    - Storage/Request queues/Requests locks
   summary: Get head and lock
   description: |
     Returns the given number of first requests from the queue and locks them for

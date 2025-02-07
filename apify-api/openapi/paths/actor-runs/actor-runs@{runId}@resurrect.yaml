@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actor runs/Resurrect run
+    - Actor runs
   summary: Resurrect run
   description: |
     Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
@@ -8,8 +8,7 @@ post:
     Run status will be updated to RUNNING and its container will be restarted with the same storages
     (the same behaviour as when the run gets migrated to the new server).
 
-    For more information, 
-    see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
+    For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
   operationId: PostResurrectRun
   parameters:
     - name: runId

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Key-value stores/Store object
+    - Storage/Key-value stores
   summary: Get store
   description: |
     Gets an object that contains all the details about a specific key-value
@@ -39,7 +39,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#get
 put:
   tags:
-    - Key-value stores/Store object
+    - Storage/Key-value stores
   summary: Update store
   description: |
     Updates a key-value store's name using a value specified by a JSON object
@@ -87,7 +87,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#update
 delete:
   tags:
-    - Key-value stores/Store object
+    - Storage/Key-value stores
   summary: Delete store
   description: Deletes a key-value store.
   operationId: keyValueStore_delete

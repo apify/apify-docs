@@ -1,11 +1,11 @@
 get:
   tags:
-    - Actors/Default build object
+    - Actors/Actor builds
   summary: Get default build
   description: |
-    Get the default build for an Actor. 
-    
-    Use the optional `waitForFinish` parameter to synchronously wait for the build to finish. 
+    Get the default build for an Actor.
+
+    Use the optional `waitForFinish` parameter to synchronously wait for the build to finish.
     This avoids the need for periodic polling when waiting for the build to complete.
 
     This endpoint does not require an authentication token. Instead, calls are authenticated using the build's unique ID.
@@ -29,7 +29,7 @@ get:
         The maximum number of seconds the server waits for the build to finish.
         If the build finishes within this time, the returned build object will have a terminal status (e.g. `SUCCEEDED`),
         otherwise it will have a transitional status (e.g. `RUNNING`).
-        
+
         By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
       style: form
       explode: true

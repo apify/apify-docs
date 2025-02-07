@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor tasks/Task input object
+    - Actor tasks
   summary: Get task input
   description: Returns the input of a given task.
   operationId: actorTask_input_get
@@ -38,7 +38,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#get_input
 put:
   tags:
-    - Actor tasks/Task input object
+    - Actor tasks
   summary: Update task input
   description: |
     Updates the input of a task using values specified by an object passed as

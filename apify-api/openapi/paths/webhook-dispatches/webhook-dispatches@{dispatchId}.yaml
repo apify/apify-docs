@@ -1,6 +1,6 @@
 get:
   tags:
-    - Webhook dispatches/Webhook dispatch object
+    - Webhooks/Webhook dispatches
   summary: Get webhook dispatch
   description: Gets webhook dispatch object with all details.
   operationId: webhookDispatch_get

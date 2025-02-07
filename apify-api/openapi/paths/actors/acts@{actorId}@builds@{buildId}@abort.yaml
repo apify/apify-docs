@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actors/Abort build
+    - Actors/Actor builds
   summary: Abort build
   description: |
     **[DEPRECATED]** API endpoints related to build of the Actor were moved

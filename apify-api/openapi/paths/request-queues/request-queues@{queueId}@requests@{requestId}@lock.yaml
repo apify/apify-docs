@@ -1,6 +1,6 @@
 put:
   tags:
-    - Request queues/Request lock
+    - Storage/Request queues/Requests locks
   summary: Prolong request lock
   description: |
     Prolongs request lock. The request lock can be prolonged only by the client
@@ -84,7 +84,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#prolong_request_lock
 delete:
   tags:
-    - Request queues/Request lock
+    - Storage/Request queues/Requests locks
   summary: Delete request lock
   description: |
     Deletes a request lock. The request lock can be deleted only by the client

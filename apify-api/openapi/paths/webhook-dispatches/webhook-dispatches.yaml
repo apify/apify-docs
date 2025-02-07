@@ -1,6 +1,6 @@
 get:
   tags:
-    - Webhook dispatches/Webhook dispatches collection
+    - Webhooks/Webhook dispatches
   summary: Get list of webhook dispatches
   description: |
     Gets the list of webhook dispatches that the user have.

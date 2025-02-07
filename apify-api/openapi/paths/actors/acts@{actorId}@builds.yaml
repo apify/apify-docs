@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Build collection
+    - Actors/Actor builds
   summary: Get list of builds
   description: |
     Gets the list of builds of a specific Actor. The response is a JSON with the
@@ -74,7 +74,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/BuildCollectionClientAsync#list
 post:
   tags:
-    - Actors/Build collection
+    - Actors/Actor builds
   summary: Build Actor
   description: |
     Builds an Actor.

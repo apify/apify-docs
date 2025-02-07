@@ -1,6 +1,6 @@
 get:
   tags:
-    - Request queues/Queue
+    - Storage/Request queues/Requests
   summary: Get request
   description: Returns request from queue.
   operationId: requestQueue_request_get
@@ -78,7 +78,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#get
 put:
   tags:
-    - Request queues/Queue
+    - Storage/Request queues/Requests
   summary: Update request
   description: |
     Updates a request in a queue. Mark request as handled by setting
@@ -197,7 +197,7 @@ put:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#update
 delete:
   tags:
-    - Request queues/Queue
+    - Storage/Request queues/Requests
   summary: Delete request
   description: Deletes given request from queue.
   operationId: requestQueue_request_delete
