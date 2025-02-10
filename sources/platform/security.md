@@ -44,6 +44,11 @@ Read the Apify Security Whitepaper for a full description of Apify's measures an
 
 If you notice or suspect a potential security breach, please report this immediately to our security team at [security@apify.com](mailto:security@apify.com), including all the technical details.
 
+:::warning
+
+Please refrain from publicly disclosing the vulnerability until it has been resolved. This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
+
+:::
 The total compensation for your report will be highly dependent on the severity, complexity, and exploitability of the vulnerability. Your reports are always verified by our internal security team,
 which also weighs in on various risks associated with that vulnerability and how major of an impact it would have in case we were attacked.
 
