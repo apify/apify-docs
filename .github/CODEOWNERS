@@ -1,6 +1,8 @@
 # Documentation
-*.md @TC-MO
-*.mdx @TC-MO
+/sources/platform/ @TC-MO
+
+# Legal
+/sources/legal/ @mnmkng
 
 # Academy
 /sources/academy/ @honzajavorek
