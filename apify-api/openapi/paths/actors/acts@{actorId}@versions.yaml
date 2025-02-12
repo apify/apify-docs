@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Version collection
+    - Actors/Actor versions
   summary: Get list of versions
   description: |
     Gets the list of versions of a specific Actor. The response is a JSON object
@@ -62,7 +62,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionCollectionClientAsync#list
 post:
   tags:
-    - Actors/Version collection
+    - Actors/Actor versions
   summary: Create version
   description: |
     Creates a version of an Actor using values specified in a [Version

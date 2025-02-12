@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Build object
+    - Actors/Actor builds
   summary: Get build
   description: |
     By passing the optional `waitForFinish` parameter the API endpoint will
