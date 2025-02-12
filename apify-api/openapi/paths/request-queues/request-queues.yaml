@@ -1,6 +1,6 @@
 get:
   tags:
-    - Request queues/Queue collection
+    - Storage/Request queues
   summary: Get list of request queues
   description: |
     Lists all of a user's request queues. The response is a JSON array of
@@ -78,7 +78,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#list
 post:
   tags:
-    - Request queues/Queue collection
+    - Storage/Request queues
   summary: Create request queue
   description: |
     Creates a request queue and returns its object.
