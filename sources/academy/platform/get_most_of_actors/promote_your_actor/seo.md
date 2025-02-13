@@ -3,7 +3,7 @@ title: SEO
 description: Boost your Actor’s visibility with SEO! Learn how to optimize your content to rank higher on search engines like Google and Bing, attract more users, and drive long-term traffic—all for free.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/playbook/promote-your-actor/seo
+slug: /get-most-of-actors/promote-your-actor/seo
 ---
 
 SEO means optimizing your content to rank high for your target queries in search engines such as Google, Bing, etc. SEO is a great way to get more users for your Actors. It’s also free, and it can bring you traffic for years. This guide will give you a simple framework to rank better for your targeted queries.

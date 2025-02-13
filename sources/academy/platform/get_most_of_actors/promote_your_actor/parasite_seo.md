@@ -3,7 +3,7 @@ title: Parasite SEO
 description: Explore parasite SEO, a unique strategy that leverages third-party sites to boost rankings and drive traffic to your tools effectively..
 sidebar_position: 3
 category: apify platform
-slug: /get-most-of-actors/playbook/promote-your-actor/parasite-seo
+slug: /get-most-of-actors/promote-your-actor/parasite-seo
 ---
 
 **Do you want to attract more users to your Actors? You might want to consider parasite SEO, a non-conventional method of ranking that leverages third-party sites.**

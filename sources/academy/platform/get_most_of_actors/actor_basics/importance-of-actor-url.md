@@ -3,7 +3,7 @@ title: Importance of Actor URL
 description: Learn how to set your Actor’s URL (technical name) and name effectively when creating it on Apify. Follow best practices to optimize your Actor’s web presence and ensure it stands out on the Apify Store.
 sidebar_position: 2
 category: apify platform
-slug: /get-most-of-actors/playbook/store-basics/importance-of-actor-url
+slug: /get-most-of-actors/actor-basics/importance-of-actor-url
 ---
 
 **Actor URL (or technical name, as we call it), is the page URL of the Actor shown on the web. When you're creating an Actor, you can set the URL yourself along with the Actor name. Here are best practices on how to do it well.**
@@ -37,7 +37,6 @@ The name should reflect not only what Actor does (or what website it targets) bu
 
 📚 Learn more about SEO research and the best tools for it here: [SEO]
 
-
 ### Inspiration in Apify Store
 
 Explore Store URLs of similar Actors. But avoid naming your Actor too similarly to what already exists. There are two reasons for that:
@@ -68,12 +67,7 @@ Once set, the page URL should not be changed. There are two important reasons fo
 
 If it's absolutely crucial to change the URL, you will have to communicate that fact to your users.
 
-<aside>
 💡 Learn more about the easiest ways to communicate with your users: [Emails to Actor users]
-
-</aside>
-
----
 
 ## How and where to set the Actor URL
 

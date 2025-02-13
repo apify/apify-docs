@@ -3,7 +3,7 @@ title: Video tutorials
 description: Engage your audience and promote your Actors effectively with videos and live streams. Use them to demonstrate features, offer tutorials, and connect with users in real time, building trust and driving interest in your tools.
 sidebar_position: 6
 category: apify platform
-slug: /get-most-of-actors/playbook/promote-your-actor/video-tutorials
+slug: /get-most-of-actors/promote-your-actor/video-tutorials
 ---
 
 **Videos and live streams are powerful tools for connecting with users and potential users, especially when promoting your Actors. You can use them to demonstrate functionality, provide tutorials, or engage with your audience in real time.**

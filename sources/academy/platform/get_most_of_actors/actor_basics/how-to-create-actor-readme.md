@@ -3,7 +3,7 @@ title: How to create an Actor README
 description: Learn how to write a comprehensive README to help users better navigate, understand and run public Actors in Apify Store.
 sidebar_position: 3
 category: apify platform
-slug: /get-most-of-actors/playbook/actor-basics/how-to-create-an-actor-readme
+slug: /get-most-of-actors/actor-basics/how-to-create-an-actor-readme
 ---
 
 **Learn how to write a comprehensive README to help users better navigate, understand and run public Actors in Apify Store.**
@@ -216,10 +216,7 @@ If your page has a video, it has better changes to rank higher in Google.
 
 Readme should serve as a fallback for your users if something isn't immediately obvious in the input schema. There's also only that much space in input schema and the tooltips, so naturally, if you want to provde more details about something: input, formatting, expectations — you should put it in the readme and refer to it from relevant place in input schema.
 
-<aside>
 📌 Learn about [How to create a great input schema]
-
-</aside>
 
 ## Readme elements template[](https://docs.apify.com/academy/get-most-of-actors/actor-readme#what-should-you-add-to-your-actor-readme)
 

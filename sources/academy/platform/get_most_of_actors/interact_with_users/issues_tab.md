@@ -3,7 +3,7 @@ title: Issues tab
 description: Learn why issues tab is crucial for improving your tool, engaging with users, and building a reliable, user-friendly solution.
 sidebar_position: 2
 category: apify platform
-slug: /get-most-of-actors/playbook/interact-with-users/issues-tab
+slug: /get-most-of-actors/interact-with-users/issues-tab
 ---
 
 **Once you publish your Actor in Apify Store, it opens the door to new users, feedback, and… issue reports. Users can create issues and add comments after trying your Actor. But why is this space so important?**

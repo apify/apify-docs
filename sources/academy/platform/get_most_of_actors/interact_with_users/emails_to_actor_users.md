@@ -3,7 +3,7 @@ title: Emails to Actor users
 description: Email communication is a key tool to keep users engaged and satisfied. Learn when and how to email your users effectively to build loyalty and strengthen relationships with this practical guide.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/playbook/interact-with-users/emails-to-actor-users
+slug: /get-most-of-actors/interact-with-users/emails-to-actor-users
 ---
 
 **Getting users is one thing, but keeping them is another. While emailing your users might not seem like a typical marketing task, any seasoned marketer will tell you it’s essential. It’s much easier to keep your current users happy than to find new ones. This guide will help you understand when and how to email your users effectively.**

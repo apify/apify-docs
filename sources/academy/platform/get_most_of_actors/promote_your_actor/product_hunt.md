@@ -3,7 +3,7 @@ title: Product Hunt
 description: Boost your Actor’s visibility by launching it on Product Hunt, a top platform for tech innovations. Attract early adopters, developers, and businesses while showcasing your tool’s value through visuals or demos.
 sidebar_position: 4
 category: apify platform
-slug: /get-most-of-actors/playbook/promote-your-actor/product-hunt
+slug: /get-most-of-actors/promote-your-actor/product-hunt
 ---
 
 ## Why Product Hunt is great for promoting your Actor

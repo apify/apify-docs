@@ -3,7 +3,7 @@ title: How Actor monetization works
 description: Turn your web scrapers into income by publishing them on the Apify Store. Discover how to share your tools and explore monetization options to earn from your automation expertise.
 sidebar_position: 3
 category: apify platform
-slug: /get-most-of-actors/playbook/store-basics/how-actor-monetization-works
+slug: /get-most-of-actors/store-basics/how-actor-monetization-works
 ---
 
 **You can turn your web scrapers into a source of income by publishing them on Apify Store. Learn how it's done and what monetization options you have.**

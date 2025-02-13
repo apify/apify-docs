@@ -3,7 +3,7 @@ title: Actor success stories
 description: placeholder
 sidebar_position: 5
 category: apify platform
-slug: /get-most-of-actors/playbook/store-basics/actor-succes-stories
+slug: /get-most-of-actors/store-basics/actor-succes-stories
 ---
 
 _Web scraping freelance financial freedom with microworlds._ Discover how Caleb David, founder of `microworlds`, achieved financial freedom through freelance web scraping. His journey showcases how mastering the craft with tools like Crawlee and creating a Twitter scraper transformed his career. See the full story [here](https://blog.apify.com/web-scraping-freelance-financial-freedom/) and learn from his success.

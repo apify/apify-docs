@@ -3,7 +3,7 @@ title: How Apify Store works
 description: Explore the Apify Store, a dynamic marketplace with over 2,000 Actors, many built by developers like you. Learn how to create and publish your own Actor, and join a growing community of innovators in web automation.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/playbook/store-basics/how-store-works
+slug: /get-most-of-actors/store-basics/how-store-works
 ---
 
 **Out of the 2,000+ Actors on the [Apify Store](https://apify.com/store) marketplace, hundreds of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**

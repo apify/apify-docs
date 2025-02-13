@@ -3,7 +3,7 @@ title: Name your Actor
 description: Learn Apify’s standards for naming Actors and how to choose the right name for your scraping and automation tools. Discover tips to optimize your Actor for search engines and maximize visibility on the Apify Store.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/playbook/actor-basics/name-your-actor
+slug: /get-most-of-actors/actor-basics/name-your-actor
 ---
 
 **Apify's standards for Actor naming. Learn how to choose the right name for scraping and automation Actors and how to optimize your Actor for search engines.**

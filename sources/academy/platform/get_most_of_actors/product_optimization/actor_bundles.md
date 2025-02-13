@@ -3,7 +3,7 @@ title: Actor bundles
 description: Learn what an Actor bundle is, explore existing examples, and discover how to promote them.
 sidebar_position: 2
 category: apify platform
-slug: /get-most-of-actors/playbook/product-optimization/actor-bundles
+slug: /get-most-of-actors/product-optimization/actor-bundles
 ---
 
 **Learn what an Actor bundle is, explore existing examples, and discover how to promote them.**
