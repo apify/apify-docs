@@ -1,6 +1,6 @@
 ---
 title: How Apify Store works
-description: Explore the Apify Store, a dynamic marketplace with over 2,000 Actors, many built by developers like you. Learn how to create and publish your own Actor, and join a growing community of innovators in web automation.
+description: Learn how to create and publish your own Actor, and join a growing community of innovators in web automation.
 sidebar_position: 1
 category: apify platform
 slug: /get-most-of-actors/store-basics/how-store-works
@@ -18,15 +18,15 @@ The term "Actor" is used because, like human actors, these programs follow a scr
 
 ## What is Apify Store
 
-[Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With over 2,000 Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain in Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This ensures that the tools in our ecosystem are reliable, effective, and competitive.
+[Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With over 3,000 Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain in Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This ensures that the tools in our ecosystem are reliable, effective, and competitive.
 
 ### Types of Actors
 
-- _Web scraping Actors_: for instance, [Twitter (X) Scraper] extracts data from Twitter.
-- _Automation Actors_: for example, [Content Checker] monitors website content for changes and emails you once a change occurs.
-- _Bundles_: chains of multiple Actors united by a common data point or target website. For example, [Restaurant Review Aggregator] can scrape reviews from six platforms at once.
+- _Web scraping Actors_: for instance, [Twitter (X) Scraper](https://apify.com/apidojo/twitter-user-scraper) extracts data from Twitter.
+- _Automation Actors_: for example, [Content Checker](https://apify.com/jakubbalada/content-checker) monitors website content for changes and emails you once a change occurs.
+- _Bundles_: chains of multiple Actors united by a common data point or target website. For example, [Restaurant Review Aggregator](https://apify.com/tri_angle/restaurant-review-aggregator) can scrape reviews from six platforms at once.
 
-Learn more about bundles here: [Actor bundles]
+Learn more about bundles here: [Actor bundles](/academy/get-most-of-actors/product-optimization/actor-bundles)
 
 ## Public and private Actors
 
@@ -39,11 +39,11 @@ Actors in Apify Store can be public or private:
 
 You can monetize your Actors using three different pricing models:
 
-1. Pay for usage: charge based on how much the Actor is used.
-2. Pay per result: the price is based on the number of results produced, with the first few free.
-3. Monthly billing: set a fixed monthly rate for using the Actor.
+- Pay for usage: charge based on how much the Actor is used.
+- Pay per result: the price is based on the number of results produced, with the first few free.
+- Monthly billing: set a fixed monthly rate for using the Actor.
 
-For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works].
+For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/get-most-of-actors/store-basics/how-actor-monetization-works).
 
 ## Actor ownership in Store
 
@@ -58,20 +58,23 @@ When it comes to managing Actors on Apify, it’s important that every potential
 
 ### Community-maintained Actors
 
-✨ Features and functionality: offers a broader range of use cases and features, often tailored to specific needs. Great for exploring unique or niche applications.
+✨ _Features and functionality_: offers a broader range of use cases and features, often tailored to specific needs. Great for exploring unique or niche applications.
 
-🧑‍💻 Ownership: created and maintained by independent developers like you.
+🧑‍💻 _Ownership_: created and maintained by independent developers like you.
 
-🛠 Maintenance: you’re responsible for all updates, bug fixes, and ongoing maintenance. Apify hosts your Actor but does not manage its code.
+🛠 _Maintenance_: you’re responsible for all updates, bug fixes, and ongoing maintenance. Apify hosts your Actor but does not manage its code.
 
-👷‍♀️ Reliability and testing: it’s up to you to ensure your Actor’s reliability and performance.
+👷‍♀️ _Reliability and testing_: it’s up to you to ensure your Actor’s reliability and performance.
 
-☝️ Support and Issues: Apify does not provide direct support for Community-maintained Actors. You must manage issues through the Issues tab, where you handle user queries and problems yourself.
+☝️ _Support and Issues_: Apify does not provide direct support for Community-maintained Actors. You must manage issues through the Issues tab, where you handle user queries and problems yourself.
 
-✍️ Documentation: you’re responsible for creating and maintaining documentation for your Actor. Make sure it’s clear and helpful for users.
+✍️ _Documentation_: you’re responsible for creating and maintaining documentation for your Actor. Make sure it’s clear and helpful for users.
 
+:::tip
 
-📚 Pro tip: for the best results, ensure your Actor is well-documented and thoroughly tested. Engage with users through the Issues tab to address any problems promptly. By maintaining high standards and being proactive, you’ll enhance your Actor’s reputation and usability in Apify Store.
+For the best results, ensure your Actor is well-documented and thoroughly tested. Engage with users through the Issues tab to address any problems promptly. By maintaining high standards and being proactive, you’ll enhance your Actor’s reputation and usability in Apify Store.
+
+:::
 
 ## Importance of Actor testing and reliability
 
@@ -100,7 +103,7 @@ Learn more about how to handle the [Issues tab]
 
 ### Getting featured in Apify Store
 
-Actors that perform reliably and efficiently may be featured in the [**Apify picks](https://apify.com/store/collections/apify_picks)** section or the **Featured developers** section of Apify Store. The purpose of this is to highlight them for users seeking top-quality tools.
+Actors that perform reliably and efficiently may be featured in the [Apify picks](https://apify.com/store/collections/apify_picks) section or the **Featured developers** section of Apify Store. The purpose of this is to highlight them for users seeking top-quality tools.
 
 ## Resources
 

@@ -1,6 +1,6 @@
 ---
 title: How to build Actors
-description: At Apify, we make web scraping and automation easy. Customize universal scrapers with JavaScript, use code templates in JavaScript, TypeScript, or Python, or build from scratch with our SDKs and Crawlee libraries for Node.js and Python. Explore our tools to find the perfect solution for your needs.
+description: At Apify, we make web scraping and automation easy. Explore our tools to find the perfect solution for your needs.
 sidebar_position: 2
 category: apify platform
 slug: /get-most-of-actors/store-basics/how-to-buiild-actors
@@ -81,9 +81,7 @@ This schema should help you navigate through the options and choose the right sc
 📚 Resources:
 
 - How to use [Web Scraper](https://www.youtube.com/watch?v=5kcaHAuGxmY) to scrape any website
-
 - How to use [Beautiful Soup](https://www.youtube.com/watch?v=1KqLLuIW6MA) to scrape the web
-
 - Learn about our $1/month [Creator plan](https://apify.com/pricing/creator-plan) that encourages devs to build Actors based on Universal scrapers
 
 ## Web scraping code templates
@@ -106,17 +104,17 @@ Similar to our universal scrapers, our [code templates](https://apify.com/templa
 
 [Apify SDKs](https://docs.apify.com/sdk/js/) are designed for developers who want to interact directly with the Apify platform. It allows you to perform tasks like saving data in Apify Datasets, running Apify Actors, and accessing the key-value store. Ideal for those who are familiar with [Node.js](https://docs.apify.com/sdk/js/) and [Python](https://docs.apify.com/sdk/python/), SDKs provide the tools needed to develop software specifically on the Apify platform, offering complete freedom and flexibility within the JavaScript ecosystem.
 
-- Best for: interacting with the Apify platform (e.g., saving data, running Actors, etc)
-- Pros: full control over platform-specific operations, integrates seamlessly with Apify services
-- Cons: requires writing boilerplate code, higher complexity with more room for errors
+- _Best for_: interacting with the Apify platform (e.g., saving data, running Actors, etc)
+- _Pros_: full control over platform-specific operations, integrates seamlessly with Apify services
+- _Cons_: requires writing boilerplate code, higher complexity with more room for errors
 
 ### Crawlee
 
 [Crawlee](https://crawlee.dev/) (for both Node.js and [Python](https://crawlee.dev/python)) is a powerful web scraping library that focuses on tasks like extracting data from web pages, automating browser interactions, and managing complex scraping workflows. Unlike the Apify SDK, Crawlee does not require the Apify platform and can be used independently for web scraping tasks. It handles complex operations like concurrency management, auto-scaling, and request queuing, allowing you to concentrate on the actual scraping tasks.
 
-- Best for: web scraping and automation (e.g., scraping paragraphs, automating clicks)
-- Pros: full flexibility in web scraping tasks, does not require the Apify platform, leverages the JavaScript ecosystem
-- Cons: requires more setup and coding, higher chance of mistakes with complex operations
+- _Best for_: web scraping and automation (e.g., scraping paragraphs, automating clicks)
+- _Pros_: full flexibility in web scraping tasks, does not require the Apify platform, leverages the JavaScript ecosystem
+- _Cons_: requires more setup and coding, higher chance of mistakes with complex operations
 
 ### Combining Apify SDK and Crawlee
 
@@ -125,19 +123,14 @@ While these tools are distinct, they can be seamlessly combined. For example, yo
 📚 Resources:
 
 - Introduction to [Crawlee](https://www.youtube.com/watch?v=g1Ll9OlFwEQ)
-
 - Crawlee [blog](https://crawlee.dev/blog)
-
 - Webinar on scraping with [Crawlee 101](https://www.youtube.com/watch?v=iAk1mb3v5iI): how to create scrapers in JavaScript and TypeScript
-
 - Step-by-step video guide: [building an Amazon Scraper](https://www.youtube.com/watch?v=yTRHomGg9uQ) in Node.js with Crawlee
-
 - Webinar on how to use [Crawlee Python](https://www.youtube.com/watch?v=ip8Ii0eLfRY)
-
 - Introduction to Apify's [Python SDK](https://www.youtube.com/watch?v=C8DmvJQS3jk)
 
 
-## 🆚 📚Code templates vs. universal scrapers vs. libraries
+## Code templates vs. universal scrapers vs. libraries
 
 Basically, the choice here depends on how much flexibility you need and how much coding you're willing to do. More flexibility → more coding.
 
@@ -164,23 +157,15 @@ To use SuperScraper API, you can deploy it with an Apify API token and access it
 📚 Resources:
 
 - [How to integrate Scrapy projects](https://docs.apify.com/cli/docs/integrating-scrapy)
-
 - Scrapy monitoring: how to [manage your Scrapy spider on Apify](https://blog.apify.com/scrapy-monitoring-spidermon/)
-
 - Run ScrapingBee, ScraperAPI, and ScrapingAnt on Apify — [SuperScraper API Tutorial](https://www.youtube.com/watch?v=YKs-I-2K1Rg)
 
 ## General resources
 
 - Creating your Actor: [Actor sources](https://docs.apify.com/academy/getting-started/creating-actors)
-
 - Use it, build it or buy it? [Choosing the right solution on Apify](https://help.apify.com/en/articles/3024655-choosing-the-right-solution)
-
 - How to programmatically retrieve data with the [Apify API](https://www.youtube.com/watch?v=ViYYDHSBAKM&t=0s)
-
 - Improved way to [build your scrapers from a Git repo](https://www.youtube.com/watch?v=8QJetr-BYdQ)
-
 - Webinar on [how to build and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM) on Apify Store
-
 - 6 things you should know before buying or [building a web scraper](https://blog.apify.com/6-things-to-know-about-web-scraping/)
-
 - For a comprehensive guide on creating your first Actor, visit the [Apify Academy](https://apify.com/academy).
