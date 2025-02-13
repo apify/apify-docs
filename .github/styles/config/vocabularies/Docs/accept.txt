@@ -1,6 +1,5 @@
 \bApify\b(?:-\w+)?
 @apify\.com
-Actor(s)?
 SDK(s)
 [Ss]torages
 Crawlee
@@ -106,5 +105,7 @@ subwoofer
 captcha
 captchas
 deduplicating
+reindexes
+READMEs
 
 jQuery

@@ -29,12 +29,10 @@ Before we dive in, a little disclaimer: you don't need your Apify README to fulf
 
 Your Actor’s README has at least 4 functions:
 
-1. **SEO**. If your README is well structured and includes important keywords — both in headings and across the text — it has high chances of being noticed and promoted by Google. Organic search brings the most motivated type of potential users. If you win this game, you've won most of the SEO game.
-2. **First impression.** Your README is one of the first points of contact with a potential user. ****The way your README is worded and the way you come across is convincing, clear and reassuring can be the factor that will sway the potential user's opinion to try your Actor for their task.
-3. **Extended instruction.** README is also the space that explains specific complex input settings. For example, special formatting of the input, any coding related, or extended functions. Of course you could put that all in the blogpost as well, but the README should be their first point of contact.
-4. **Support**. Your users come back to the README when they face issues. Use it as a space to let them know that's where they can find links to the tutorials if they run into issues, describe common troubleshooting techniques, share tricks, warn about bugs.
-
----
+1. _SEO_ - If your README is well structured and includes important keywords — both in headings and across the text — it has high chances of being noticed and promoted by Google. Organic search brings the most motivated type of potential users. If you win this game, you've won most of the SEO game.
+2. _First impression_ - Your README is one of the first points of contact with a potential user. ****The way your README is worded and the way you come across is convincing, clear and reassuring can be the factor that will sway the potential user's opinion to try your Actor for their task.
+3. _Extended instruction_ - README is also the space that explains specific complex input settings. For example, special formatting of the input, any coding related, or extended functions. Of course you could put that all in the blogpost as well, but the README should be their first point of contact.
+4. _Support_ - Your users come back to the README when they face issues. Use it as a space to let them know that's where they can find links to the tutorials if they run into issues, describe common troubleshooting techniques, share tricks, warn about bugs.
 
 ## README elements theory
 
@@ -42,7 +40,7 @@ These are the most important elements of the README. This structure is also not 
 
 Aim for sections 1–6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
 
-### 1. Intro and features
+### Intro and features
 
 What is [Actor]?
 
@@ -52,7 +50,11 @@ What can this [Actor] do?
 
 - list the main features of this tool. list multiple ways of input if applicable. list platform advantages. if it's a bundle, mention the steps that the Actor will do for you, mention specific obstacles this tool is able to overcome, say out front how many results for free you can get.
 
-Tip: Your Actor + Apify platform. They come as a package. Don't forget to flaunt all the advantages that the platform gives to your solution.
+:::tip
+
+Your Actor + Apify platform. They come as a package. Don't forget to flaunt all the advantages that the platform gives to your solution.
+
+:::
 
 Imagine if there was a solution that is identical to yours but without the platform advantages such as monitoring, access to API, scheduling, possibility of integrations, proxy rotation. Now, if that tool suddenly gained all those advantages it would surely try making a selling point out of it. This is the way you should be thinking about your tool — boosted by the platform. So don't you ever omit that.
 
@@ -64,7 +66,7 @@ What data can you extract from [target website]
 
 Depending on the complexity of your Actor, you might include one or all three of these sections. It will also depend on what your Actor does. If your Actor has simple input but does a lot of steps for the user under the hood (like a bundle would), you'd wanna include the What can this Actor do section. If your Actor extracts data, the section with table makes sense to be included. You can also unite sections under a single one, or
 
-### 2. Tutorial section
+### Tutorial section
 
 Could be a simple listed step by step section or a paragraph with a link to a tutorial on blog.
 
@@ -72,7 +74,7 @@ A step by step section is reassuring for the user, and it can be a section optim
 
 How do I use [Actor] to scrape website data?
 
-### 3. Pricing
+### Pricing
 
 How much will it cost to scrape [target site]?
 
@@ -84,19 +86,19 @@ How much does it cost to extract [target site] data?
 
 Web scraping can be very unpredictable because there are a lot of elements involved in order for the process to be successful: complexity of website, proxies, cookies, etc. This is why it's important more than ever to set the pricing and scraping volumes expectations right with your users.
 
-You'd say — the part above the Actor detail page already indicates the pricing. Be it price per 1,000 results or rental price, you'd think that was enough so no need to reiterate that in the readme. However, this paragraph can still be useful. First of all, cost related questions can show up in Google, if they are SEO optimized. Second of all, you can use this space to inform and reassure the user about the pricing, give more details about it or entice them with possibility of very scalable scraping.
+You'd say — the part above the Actor detail page already indicates the pricing. Be it price per 1,000 results or rental price, you'd think that was enough so no need to reiterate that in the README. However, this paragraph can still be useful. First of all, cost related questions can show up in Google, if they are SEO optimized. Second of all, you can use this space to inform and reassure the user about the pricing, give more details about it or entice them with possibility of very scalable scraping.
 
 - If it's consumption pricing model (only consumed CUs), you can use this space to set the expectations and explain what does it mean to pay for Compute Units. Similar if it's a rental price, you can also use this paragraph to set expectations. Talk about average amount of data that can be scraped per given price. Make it easy for users to imagine how much they will pay for a given dataset. It also will make it easier for them to compare your solution with other ones on the market price-wise and value-wise.
 - If it's a price per result, you can extrapolate how many results a user can get on a free plan and also entice them with a larger plan and how many thousands of results they can get with that.
 - If it's a bundle that consists of a couple of Actors that are priced differently, you can use this section to talk about the difference between all the Actors that are involved and how that will affect the final price of a run.
 
-In any case, on top of setting expectations and reassuring users, this paragraph can get into Google. If somebody is Googling "How much does it cost to scrape [website]", they might come across this part of your readme and it will lead them from Google search directly onto your Actor's detail page. So I wouldn't wanna miss this chance.
+In any case, on top of setting expectations and reassuring users, this paragraph can get into Google. If somebody is Googling "How much does it cost to scrape [website]", they might come across this part of your README and it will lead them from Google search directly onto your Actor's detail page. So I wouldn't wanna miss this chance.
 
-<!-- TODO screenshot -->
+![readme example](images/readme.png)
 
-### 4. Input and Output examples
+### Input and Output examples
 
-This is what people click on the most in the table of contents of the readme. After they are done scrolling through the first part of the readme of course, users are interested in how difficult the input it, what it looks like, and what kind of information can the expect.
+This is what people click on the most in the table of contents of the README. After they are done scrolling through the first part of the README of course, users are interested in how difficult the input it, what it looks like, and what kind of information can the expect.
 
 **Input** part we often display as a screenshot of the input schema. This is also a way for people to see the platform even before they create an account.
 
@@ -104,11 +106,11 @@ This is what people click on the most in the table of contents of the readme. Af
 
 If your datasets come out complex and you wan to save your users some scrolling, you can also show multiple output examples: one for let's say reviews, one for contact details, one for ads, etc.
 
-### 5. Other Actors
+### Other Actors
 
-Don't forget to promote your other Actors. While our system for Actor recommendation works — you can see Related Actors at the bottom of the readme — it only works within the same category or similar name. Very likely, it won't be recommending a completely different Actor but from the same creator. So make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
+Don't forget to promote your other Actors. While our system for Actor recommendation works — you can see Related Actors at the bottom of the README — it only works within the same category or similar name. Very likely, it won't be recommending a completely different Actor but from the same creator. So make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
 
-### 6. FAQ, Disclaimers and Support
+### FAQ, Disclaimers and Support
 
 FAQ is a section where you can keep all the secondary questions that might still
 
@@ -127,9 +129,7 @@ Here are just a few things we usually push to the FAQ section. each of these can
 - possibility for integrations
 - use cases for the data scraped, success stories exemplifying the use of data
 
----
-
-## Format of the readme
+## Format of the README
 
 ### Markdown
 
@@ -139,21 +139,21 @@ The README has to be written in markdown. Most important elements are H2 and H3 
 
 You can use HTML and markdown interchangeably. For example, you can write the same table either way.
 
-### Tone of the readme
+### Tone of the README
 
-Apify Store has many Actors in its stock, and it's only growing. The advantage of an Actor is that an Actor can be anything, as versatile or complex as possible. From a single URL type of input to complex features that give customized control over the input parameters to the user. There are Actors that are intended for users who aren't familiar with coding and don't have any experience with it. Ideally, the readme should reflect the level of skill one should have to use the Actor.
+Apify Store has many Actors in its stock, and it's only growing. The advantage of an Actor is that an Actor can be anything, as versatile or complex as possible. From a single URL type of input to complex features that give customized control over the input parameters to the user. There are Actors that are intended for users who aren't familiar with coding and don't have any experience with it. Ideally, the README should reflect the level of skill one should have to use the Actor.
 
-The tone of the readme should make it immediately obvious who the tool is aimed at. If your tool's input includes glob patterns or looking for selectors, it should be immediately visible from the readme. Before the user even tries the tool. Trying to simplify this information using simple words with let's say ChatGPT can be misleading to the user that they don't need any technical knowledge to use the tool. you will attract the wrong audience and they will end up churning or asking you many questions.
+The tone of the README should make it immediately obvious who the tool is aimed at. If your tool's input includes glob patterns or looking for selectors, it should be immediately visible from the README. Before the user even tries the tool. Trying to simplify this information using simple words with let's say ChatGPT can be misleading to the user that they don't need any technical knowledge to use the tool. you will attract the wrong audience and they will end up churning or asking you many questions.
 
-Same works vice versa. If your target audience are people with little to no coding skills, who just prefer point-and-click solutions, it should be visible from the readme. Speak in regular terms, try avoiding code blocks or complex information at the beginning unless it's absolutely necessary. That way when people land on your Actor detail page, they will have their expectations set from the get go.
+Same works vice versa. If your target audience are people with little to no coding skills, who just prefer point-and-click solutions, it should be visible from the README. Speak in regular terms, try avoiding code blocks or complex information at the beginning unless it's absolutely necessary. That way when people land on your Actor detail page, they will have their expectations set from the get go.
 
-### Length of a readme
+### Length of a README
 
-When working on improving a readme, we regularly look at the heatmaps that show us where our website visitors spend most of their time. From our experience, most first-time visitors don't scroll past the first 25% of a readme. It means that the first quarter of the readme is where you want to focus the most of your attention of you're trying to persuade the page visitor to try your Actor.
+When working on improving a README, we regularly look at the heatmaps that show us where our website visitors spend most of their time. From our experience, most first-time visitors don't scroll past the first 25% of a README. It means that the first quarter of the README is where you want to focus the most of your attention of you're trying to persuade the page visitor to try your Actor.
 
-From the point of view of acquisition, the first few sections should make it immediately obvious what the tool is about, how hard it is to use, and who it is created for. This is why in Apify's standard of readmes you can see our first few paragraphs are built in way to explain these things and reassure the visitors that anyone can use these tools.
+From the point of view of acquisition, the first few sections should make it immediately obvious what the tool is about, how hard it is to use, and who it is created for. This is why in Apify's standard of READMEs you can see our first few paragraphs are built in way to explain these things and reassure the visitors that anyone can use these tools.
 
-From the point of view of retention, it doesn't mean you can't have long or complex readmes or not care for the information beyond the 25% mark. Since the readme is also intended to use as a back up when something goes wrong or needs more guidance, your users will come back to it multiple times.
+From the point of view of retention, it doesn't mean you can't have long or complex READMEs or not care for the information beyond the 25% mark. Since the README is also intended to use as a back up when something goes wrong or needs more guidance, your users will come back to it multiple times.
 
 ### Images and videos
 
@@ -163,18 +163,20 @@ One trick is not only to add images but also to make them clickable. For some re
 
 If your screenshot seems too big or occupies too much space, smaller size images are possible by using HTML.
 
-To embed a YouTube video, all you have to do is include its URL. No further formatting is needed, the thumbnail will render itself on the readme page.
+To embed a YouTube video, all you have to do is include its URL. No further formatting is needed, the thumbnail will render itself on the README page.
 
-> Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Simply add a separate line with the URL of your YouTube video.
->
-- Tip no.1: if you want to add snippets of code anywhere in your README, you can use [Carbon](https://github.com/carbon-app/carbon).
+:::tip
 
-📚 If you need any quick Markdown guidance, check out [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
+If you want to add snippets of code anywhere in your README, you can use [Carbon](https://github.com/carbon-app/carbon).
+
+:::
+
+If you need any quick Markdown guidance, check out [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
 
 
 ## README and SEO
 
-📚 Your README is your landing page.
+Your README is your landing page.
 
 If there was only one thing to remember about READMEs in Apify Store, that would be that. A README in Apify Store is not just a dry instruction on how to use your Actor. It has much more potential than that.
 
@@ -188,7 +190,7 @@ A good README has to be a balance between what you want your page visitors to kn
 
 ### Table of contents
 
-H1 of your page is the Actor name, so you don't have to set that up. But readme headings should be H2 or H3. H2 headings will make up the table of contents on the right. So if you don't want the table to be too crowded, keep the H2s to basics and push all the longer phrases and questions to H3s. H3s will stay hidden into the accordeon in default state until the visitor hovers cursor on it. H4 readings can also be included of course, but they won't show up as a pat of table of contents.
+H1 of your page is the Actor name, so you don't have to set that up. But README headings should be H2 or H3. H2 headings will make up the table of contents on the right. So if you don't want the table to be too crowded, keep the H2s to basics and push all the longer phrases and questions to H3s. H3s will stay hidden into the accordeon in default state until the visitor hovers cursor on it. H4 readings can also be included of course, but they won't show up as a pat of table of contents.
 
 ### Keyword opportunities
 
@@ -206,7 +208,7 @@ Now, could every H2 just say exactly what it is about, without SEO? Of course. Y
 
 However, the H2s and H3s is what sometimes gets into the Google Search results. If you're familiar with People Also Ask section, it is the best place to match your H2s. It is also something that gets highlighted in the Sitelinks of Google Search Results.
 
-Any part of your readme can make it onto Google pages. The intro sentence describing what your Actor is about, a video, a random question. Each one can become a good candidate for those prime Google pages. Which is why it's important to structure and write your readme with SEO in mind.
+Any part of your README can make it onto Google pages. The intro sentence describing what your Actor is about, a video, a random question. Each one can become a good candidate for those prime Google pages. Which is why it's important to structure and write your README with SEO in mind.
 
 ### Importance of including a video
 
@@ -214,11 +216,11 @@ If your page has a video, it has better changes to rank higher in Google.
 
 ## Readme and input schema
 
-Readme should serve as a fallback for your users if something isn't immediately obvious in the input schema. There's also only that much space in input schema and the tooltips, so naturally, if you want to provde more details about something: input, formatting, expectations — you should put it in the readme and refer to it from relevant place in input schema.
+Readme should serve as a fallback for your users if something isn't immediately obvious in the input schema. There's also only that much space in input schema and the tooltips, so naturally, if you want to provde more details about something: input, formatting, expectations — you should put it in the README and refer to it from relevant place in input schema.
 
-📌 Learn about [How to create a great input schema]
+Learn about [How to create a great input schema](/academy/get-most-of-actors/product-optimization/how-to-great-a-great-input-schema)
 
-## Readme elements template[](https://docs.apify.com/academy/get-most-of-actors/actor-readme#what-should-you-add-to-your-actor-readme)
+## [Readme elements template](https://docs.apify.com/academy/get-most-of-actors/actor-readme#what-should-you-add-to-your-actor-readme)
 
 1. What does (Actor name) do?
     - in 1–2 sentences describe what the Actor does and what it does not do
@@ -232,8 +234,12 @@ Readme should serve as a fallback for your users if something isn't immediately 
    - Link to "How to…" blogs, if one exists (or suggest one if it doesn't)
    - Add a video tutorial or GIF from an ideal Actor run.
 
-> Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Simply add a separate line with the URL of your YouTube video.
->
+:::tip
+
+For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Simply add a separate line with the URL of your YouTube video.
+
+:::
+
 - Consider adding a short numbered tutorial as Google will sometimes pick these up as rich snippets. Remember that this might be in search results, so you can repeat the name of the Actor and give a link, e.g.
 
 1. Is it legal to scrape (target site)?
