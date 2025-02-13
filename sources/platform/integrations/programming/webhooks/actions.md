@@ -164,3 +164,18 @@ The description is an optional string that you can add to the webhook. It serves
 The `resource` variable represents the triggering system resource. For example, when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the Actor run. The variable will be replaced by the `Object` that you would receive as a response from the relevant API at the moment when the webhook is triggered. For the Actor run resource, it would be the response of the [Get Actor run](/api/v2#/reference/actors/run-object-deprecated/get-run) API endpoint.
 
 In addition to Actor runs, webhooks also support various events related to Actor builds. In such cases, the resource object will look like the response of the [Get Actor build](/api/v2#/reference/actor-builds/build-object/get-build) API endpoint.
+
+## Source IP addresses
+
+Webhooks are dispatched from servers with static IP addresses. If your webhook destination is protected behind a firewall, you can whitelist these IP addresses to allow Apify webhooks to be delivered:
+
+- `3.215.64.207`
+- `13.216.80.7`
+- `13.216.180.86`
+- `34.224.107.31`
+- `34.236.208.85`
+- `44.198.219.104`
+- `44.207.71.44`
+- `44.207.141.205`
+- `52.4.20.206`
+- `52.203.255.236`
