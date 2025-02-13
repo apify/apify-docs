@@ -1,21 +1,29 @@
 ---
 title: Advanced web scraping
-description: Take your scrapers to the next level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
+description: Take your scrapers to a production-ready level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
 sidebar_position: 6
 category: web scraping & automation
 slug: /advanced-web-scraping
 ---
 
-# Advanced web scraping
+In [Web scraping for beginners](/academy/web-scraping-for-beginners) course, we have learned the necessary basics required to create a scraper. In the following courses, we learned more about specific practices and techniques that will help us to solve most of the problems we will face.
 
-**Take your scrapers to the next level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.**
+In this course, we will take all of that knowledge, add a few more advanced concepts, and apply them to learn how to build a production-ready web scraper.
 
----
+## What does production-ready mean
 
-In this course, we'll be tackling some of the most challenging and advanced web-scraping cases, such as mobile-app scraping, scraping sites with limited pagination, and handling large-scale cases where millions of items are scraped. Are **you** ready to take your scrapers to the next level?
+To scrape large and complex websites, we need to scale two essential aspects of the scraper: crawling and data extraction. Big websites can have millions of pages and the data we want to extract requires more sophisticated parsing techniques than just selecting elements by CSS selectors or using APIs as they are.
+
+<!-- WIP: We want to split this into crawling and data extraction
+The following sections will cover the core concepts that will ensure that your scraper is production-ready:
+The advanced crawling section will cover how to ensure we find all pages or products on the website.
+- The advanced data extraction will cover how to efficiently extract data from a particular page or API.
+-->
+
+We will also touch on monitoring, performance, anti-scraping protections, and debugging.
 
 If you've managed to follow along with all of the courses prior to this one, then you're more than ready to take these upcoming lessons on 😎
 
-## First up {#first-up}
+## First up
 
-This course's [first lesson](./scraping_paginated_sites.md) dives head-first into one of the most valuable skills you can have as a scraper developer: **Scraping paginated sites**.
+First, we will explore [advanced crawling section](./crawling/sitemaps-vs-search.md) that will help us to find all pages or products on the website.
