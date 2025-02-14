@@ -1,6 +1,6 @@
 ---
 title: SEO
-description: Boost your Actor’s visibility with SEO! Learn how to optimize your content to rank higher on search engines like Google and Bing, attract more users, and drive long-term traffic—all for free.
+description: Learn how to optimize your content to rank higher on search engines like Google and Bing, attract more users, and drive long-term traffic—all for free.
 sidebar_position: 1
 category: apify platform
 slug: /get-most-of-actors/promote-your-actor/seo
@@ -12,13 +12,13 @@ SEO means optimizing your content to rank high for your target queries in search
 
 Matching the search intent of potential users is super important when creating your Actor's README. The information you include should directly address the problems or needs that led users to search for a solution like yours. For example:
 
-- User goals: What are users trying to accomplish?
-- Pain points: What challenges are they facing?
-- Specific use cases: How might they use your Actor?
+- _User goals_: What are users trying to accomplish?
+- _Pain points_: What challenges are they facing?
+- _Specific use cases_: How might they use your Actor?
 
 Ensure your README demonstrates how your Actor aligns with the search intent. This alignment helps users quickly recognize your Actor's value and helps Google understand your Actor and rank you better.
 
-Example:
+_Example:_
 
 Let’s say you want to create a “YouTube Hashtag Scraper” Actor. After you search YouTube HashTag Scraper, you see that most people searching for it want to extract hashtags from YouTube videos, not download videos using a certain hashtag.
 
@@ -26,13 +26,15 @@ Let’s say you want to create a “YouTube Hashtag Scraper” Actor. After you 
 
 Keyword research is a very important part of your SEO success. Without that, you won’t know which keywords you should target with your Actor, and you might be leaving traffic on the table by not targeting all the angles or targeting the wrong one.
 
-We will do keyword research with free tools, but if you want to take this seriously, I highly recommend [Ahrefs](https://ahrefs.com/).
+We will do keyword research with free tools, but if you want to take this seriously, we highly recommend [Ahrefs](https://ahrefs.com/).
 
-### 1. Google autocomplete suggestions
+### Google autocomplete suggestions
 
 Start by typing your Actor's main function or purpose into Google. As you type, Google will suggest popular search terms. These suggestions are based on common user queries and can provide insight into what your potential users are searching for.
 
-Example: Let's say you've created an Actor for scraping product reviews. Type "product review scraper" into Google and note the suggestions:
+_Example:_
+
+Let's say you've created an Actor for scraping product reviews. Type "product review scraper" into Google and note the suggestions:
 
 - product review scraper free
 - product review scraper amazon
@@ -41,11 +43,13 @@ Example: Let's say you've created an Actor for scraping product reviews. Type "p
 
 These suggestions reveal potential features or use cases to highlight in your README.
 
-### 2. Alphabet soup method
+### Alphabet soup method
 
 This technique is similar to the previous one, but it involves adding each letter of the alphabet after your main keyword to discover more specific and long-tail keywords.
 
-Example: Continue with "product review scraper" and add each letter of the alphabet:
+_Example_:
+
+Continue with "product review scraper" and add each letter of the alphabet:
 
 - product review scraper a (autocomplete might suggest "api")
 - product review scraper b (might suggest "best")
@@ -53,11 +57,13 @@ Example: Continue with "product review scraper" and add each letter of the alpha
 
 ...and so on through the alphabet.
 
-### 3. People Also Ask
+### People Also Ask
 
 Search for your Actor's main function or purpose on Google. Scroll down to find the "People Also Ask" section, which contains related questions.
 
-Example: For a "product review scraper" Actor:
+_Example_:
+
+For a "product review scraper" Actor:
 
 - How do I scrape product reviews?
 - Is it legal to scrape product reviews?
@@ -66,7 +72,7 @@ Example: For a "product review scraper" Actor:
 
 Now, you can expand the “People Also Ask” questions. Click on each question to reveal the answer and generate more related questions you can use in your README.
 
-### 4. Google Keyword Planner
+### Google Keyword Planner
 
 Another way to collect more keywords is to use the official Google Keyword Planner. Go to [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) and open the tool. You need a Google Ads account, so just create one for free if you don’t have one already.
 
@@ -74,7 +80,7 @@ After you’re in the tool, click on “Discover new keywords”, make sure you�
 
 Write them down.
 
-### 5. Ahrefs Keyword Generator
+### Ahrefs Keyword Generator
 
 Go to [Ahrefs Keyword Generator](https://ahrefs.com/keyword-generator), enter your Actor's main function or purpose, and click “Find keywords.” You should see a list of keywords related to your actor.
 

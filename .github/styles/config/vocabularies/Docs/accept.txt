@@ -107,5 +107,15 @@ captchas
 deduplicating
 reindexes
 READMEs
+backlink
+backlinks
+subreddit
+subreddits
+upvote
+walkthrough
+walkthroughs
+influencers
+livestreams
+outro
 
 jQuery

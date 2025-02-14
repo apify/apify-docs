@@ -28,10 +28,10 @@ If you want to learn more, we recommend the following reading about parasite SEO
 
 Okay, let’s start. In this guide, we will cover the following sites that you can use for parasite SEO for free:
 
-1. Medium
-2. LinkedIn
-3. Reddit
-4. Quora
+- Medium
+- LinkedIn
+- Reddit
+- Quora
 
 ## Medium
 
@@ -52,7 +52,7 @@ LinkedIn Pulse is similar to Medium, so we won’t go into too much detail. The 
 
 ## Reddit
 
-1. 1. You must have a Reddit account that you will use to comment in relevant Subreddits.
+1. You must have a Reddit account that you will use to comment in relevant Subreddits.
 2. Go to Google and perform this search: `site:reddit.com <your keyword>`, where you replace `<your keyword>` with the main topic of your Actor.
 3. Now, list relevant Reddit threads that Google gives you. For an Airbnb scraper, this might be a good thread: [Has anybody have an latest Airbnb scraper code?](https://www.reddit.com/r/webscraping/comments/m650ol/has_anybody_have_an_latest_airbnb_scraper_code/)
 4. To prioritize threads from the list, you can check the traffic they get from Google in [Ahrefs Traffic Checker](https://ahrefs.com/traffic-checker). Just paste the URL, and the tool will give you traffic estimation. You can use this number to prioritize your list. If the volume exceeds 10, it usually has some traffic potential.
