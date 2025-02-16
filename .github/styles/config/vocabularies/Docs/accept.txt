@@ -117,5 +117,6 @@ walkthroughs
 influencers
 livestreams
 outro
+Chatbot
 
 jQuery

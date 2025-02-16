@@ -23,9 +23,26 @@ Everything is neatly available under a single URL, which makes it super easy to 
 
 Need some inspiration? Check out examples of how others are using their Store bio and README. You can set yours up by heading to **Settings > Account > Profile.**
 
-<!-- TODO 5 screenshots -->
+<!-- TODO screenshots -->
 
 [https://apify.com/anchor](https://apify.com/anchor)
 
+<!-- TODO screenshots -->
+
 [https://apify.com/jupri](https://apify.com/jupri)
 
+<!-- TODO screenshots -->
+
+[https://apify.com/apidojo](https://apify.com/apidojo)
+
+<!-- TODO screenshots -->
+
+[https://apify.com/curious_coder](https://apify.com/curious_coder)
+
+<!-- TODO screenshots -->
+
+[https://apify.com/epctex](https://apify.com/epctex)
+
+<!-- TODO screenshots -->
+
+[https://apify.com/microworlds](https://apify.com/microworlds)
