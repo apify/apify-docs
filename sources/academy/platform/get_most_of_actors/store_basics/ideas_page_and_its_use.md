@@ -54,7 +54,7 @@ The Ideas page at Apify offers a variety of concepts for scrapers, integrations,
 2. _Engage with the community_<br/>
     Upvote ideas you find intriguing. The more support an idea receives, the more likely it is to catch a developer’s eye and move forward.
 3. _Don’t forget to claim your idea_<br/>
-    Once your Actor is up and running, claim your idea by emailing [ideas@apify.com](mailto:ideas@apify.com) with your Actor's URL and the original idea. We’ll mark your idea as **Completed** and link it to your Actor — a signal to the other developers that this tool already exists in Apify Store.
+    Once your Actor is up and running, claim your idea by emailing [ideas@apify.com](mailto:ideas@apify.com) with your Actor's URL and the original idea. We’ll mark your idea as **Completed** and link it to your Actor - a signal to the other developers that this tool already exists in Apify Store.
 
 ## Multiple developers for one idea
 

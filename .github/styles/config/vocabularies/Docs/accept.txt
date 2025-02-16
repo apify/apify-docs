@@ -118,5 +118,7 @@ influencers
 livestreams
 outro
 Chatbot
+Tripadvisor
+[Rr]epurpose
 
 jQuery
