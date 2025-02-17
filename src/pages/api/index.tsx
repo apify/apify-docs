@@ -127,7 +127,7 @@ export default function Api() {
                     className={styles.LargerContent}
                     heading="API reference"
                     description={<div className="MainSectionContent">
-                        <p>The Apify API allows developers to interact programmatically apps using HTTP requests.
+                        <p>The Apify API allows developers to interact programmatically with apps using HTTP requests.
                         The Apify API is built around <Link to="https://en.wikipedia.org/wiki/REST">REST</Link>.</p>
                         <p>The API has predictable resource-oriented URLs, returns JSON-encoded responses,
                         and uses standard HTTP response codes, authentication, and verbs.</p>
