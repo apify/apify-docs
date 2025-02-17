@@ -28,7 +28,7 @@ To use the Apify integration for Google Drive, you will need:
 
     ![Google Drive integration](../images/google/google-integrations-connect-drive.png)
 
-1. Set up the integration details. You can choose the file format and filename, which can make use of available variables.
+1. Set up the integration details. You can choose the **Filename** and **Format** , which can make use of available variables.
 The file will be uploaded to your Google Drive account to `Apify Uploads` folder. By default, the integration is triggered by successful runs only.
 
     ![Google Drive integration](../images/google/google-integrations-details-drive.png)
