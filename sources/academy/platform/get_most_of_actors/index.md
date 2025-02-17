@@ -30,31 +30,31 @@ To help you succeed, we've created a comprehensive Marketing Playbook. This reso
     <Card
         title="How Apify Store works"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/store-basics/how-store-works"
         smallImage
     />
     <Card
         title="How to build Actors"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/store-basics/how-to-buiild-actors"
         smallImage
     />
     <Card
         title="How Actor monetization works"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/store-basics/how-actor-monetization-works"
         smallImage
     />
     <Card
         title="Ideas page and its use"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/store-basics/ideas-page"
         smallImage
     />
     <Card
         title="Actor success stories"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/store-basics/actor-succes-stories"
         smallImage
     />
 </CardGrid>
@@ -65,31 +65,31 @@ To help you succeed, we've created a comprehensive Marketing Playbook. This reso
     <Card
         title="Naming your Actor"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/actor-basics/name-your-actor"
         smallImage
     />
     <Card
         title="Importance of Actor URL"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/actor-basics/importance-of-actor-url"
         smallImage
     />
     <Card
         title="Actor description and SEO description"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/actor-basics/actor-description"
         smallImage
     />
     <Card
         title="How to create an Actor README"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/actor-basics/how-to-create-an-actor-readme"
         smallImage
     />
     <Card
         title="Actors and emojis"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/actor-basics/actors-and-emojis"
         smallImage
     />
 </CardGrid>
@@ -100,43 +100,43 @@ To help you succeed, we've created a comprehensive Marketing Playbook. This reso
     <Card
         title="SEO"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/seo"
         smallImage
     />
     <Card
         title="Social media"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/social-media"
         smallImage
     />
     <Card
         title="Parasite SEO"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/parasite-seo"
         smallImage
     />
     <Card
-        title="ProductHunt"
+        title="Product Hunt"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/product-hunt"
         smallImage
     />
     <Card
         title="Blogs and blog resources"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/blogs-and-blog-resources"
         smallImage
     />
     <Card
         title="Video tutorials"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/video-tutorials"
         smallImage
     />
     <Card
         title="Webinars"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/promote-your-actor/webinars"
         smallImage
     />
 </CardGrid>
@@ -147,19 +147,19 @@ To help you succeed, we've created a comprehensive Marketing Playbook. This reso
     <Card
         title="Emails to Actor users"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/interact-with-users/emails-to-actor-users"
         smallImage
     />
     <Card
         title="Issues tab"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/interact-with-users/issues-tab"
         smallImage
     />
     <Card
         title="Your Store bio"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/interact-with-users/your-store-bio"
         smallImage
     />
 </CardGrid>
@@ -170,13 +170,13 @@ To help you succeed, we've created a comprehensive Marketing Playbook. This reso
     <Card
         title="How to create a great input schema"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/product-optimization/how-to-great-a-great-input-schema"
         smallImage
     />
     <Card
         title="Actor bundles"
         desc=""
-        to=""
+        to="/academy/get-most-of-actors/product-optimization/actor-bundles"
         smallImage
     />
 </CardGrid>
