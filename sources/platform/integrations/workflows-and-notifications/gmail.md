@@ -28,7 +28,7 @@ To use the Apify integration for Gmail, you will need:
 
     ![Google Drive integration](../images/google/google-integrations-connect-gmail.png)
 
-1. Set up the integration details. Subject and body fields can make use of available variables. Dataset can be attached in several formats.
+1. Set up the integration details. **Subject** and **Body** fields can make use of available variables. Dataset can be attached in several formats.
  By default, the integration is triggered by successful runs only.
 
     ![Google Drive integration](../images/google/google-integrations-details-gmail.png)
