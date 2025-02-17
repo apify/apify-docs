@@ -14,6 +14,26 @@ slug: /integrations/webhooks/actions
 To send notification, you can use the HTTP request action, which sends an HTTP POST request to a specified URL with a JSON payload. The payload is defined using a payload template, which is a JSON-like syntax that allows you to include variables enclosed in double curly braces `{{variable}}`. This enables the
 dynamic injection of data into the payload when the webhook is triggered.
 
+:::tip Webhook delivery
+
+Webhooks are sent from servers that use static IP addresses. If your webhook destination is secured by a firewall, you can add the following IP addresses to your allow list to ensure Apify webhooks are delivered successfully.
+
+<details>
+    <summary>IP list</summary>
+- `3.215.64.207`
+- `13.216.80.7`
+- `13.216.180.86`
+- `34.224.107.31`
+- `34.236.208.85`
+- `44.198.219.104`
+- `44.207.71.44`
+- `44.207.141.205`
+- `52.4.20.206`
+- `52.203.255.236`
+</details>
+
+:::
+
 ### Response management
 
 The response to the POST request must have an HTTP status code in the `2XX` range. If the response has a different status code, it is considered an error, and the request will be retried periodically with an exponential back-off:
@@ -157,6 +177,7 @@ The description is an optional string that you can add to the webhook. It serves
 | `eventType` | string | Type of the trigger event, [see Events](/platform/integrations/webhooks/events).              |
 | `eventData` | Object | Data associated with the trigger event, [see Events](/platform/integrations/webhooks/events). |
 | `resource`  | Object | The resource that caused the trigger event.                 |
+| `globals`   | Object | Data available in global context. Contains `dateISO` (date of webhook's trigger event in ISO 8601 format) and `dateUnix` (date of trigger event in Unix time in seconds) |
 
 ### Resource
 

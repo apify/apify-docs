@@ -1,7 +1,7 @@
 const remarkParse = require('remark-parse');
 const remarkStringify = require('remark-stringify');
 const { unified } = require('unified');
-const { visitParents } = require('unist-util-visit-parents');
+const { visitParents, CONTINUE } = require('unist-util-visit-parents');
 
 /**
  * Bumps the headings levels in the markdown content. This function increases the depth
@@ -40,7 +40,7 @@ const linkifyUserTags = () => (tree) => {
 
         const directParent = parents[parents.length - 1];
 
-        if (!match || directParent.type === 'link') return 0;
+        if (!match || directParent.type === 'link') return CONTINUE;
 
         const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
 
@@ -57,10 +57,10 @@ const linkifyUserTags = () => (tree) => {
         node.value = before;
         directParent.children.splice(nodeIndexInParent + 1, 0, link);
 
-        if (!after) return nodeIndexInParent + 2;
+        if (!after) return [CONTINUE, nodeIndexInParent + 2];
 
         directParent.children.splice(nodeIndexInParent + 2, 0, { type: 'text', value: `${ending}${after}` });
-        return nodeIndexInParent + 3;
+        return [CONTINUE, nodeIndexInParent + 3];
     });
 };
 
@@ -75,7 +75,7 @@ const prettifyPRLinks = () => (tree) => {
         const prLinkRegex = /https:\/\/github.com\/[^\s]+\/pull\/(\d+)/g;
         const match = prLinkRegex.exec(node.value);
 
-        if (!match) return 0;
+        if (!match) return CONTINUE;
 
         const directParent = parents[parents.length - 1];
         const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
@@ -92,10 +92,10 @@ const prettifyPRLinks = () => (tree) => {
         node.value = before;
 
         directParent.children.splice(nodeIndexInParent + 1, 0, link);
-        if (!after) return nodeIndexInParent + 1;
+        if (!after) return [CONTINUE, nodeIndexInParent + 1];
 
         directParent.children.splice(nodeIndexInParent + 2, 0, { type: 'text', value: after });
-        return nodeIndexInParent + 2;
+        return [CONTINUE, nodeIndexInParent + 2];
     });
 };
 

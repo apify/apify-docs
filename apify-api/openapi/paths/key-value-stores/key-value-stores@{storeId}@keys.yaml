@@ -1,6 +1,6 @@
 get:
   tags:
-    - Key-value stores/Key collection
+    - Storage/Key-value stores
   summary: Get list of keys
   description: |
     Returns a list of objects describing keys of a given key-value store, as

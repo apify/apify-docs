@@ -94,7 +94,7 @@ Some permissions require other permissions to be granted alongside them. These a
 
 #### Automatic dependencies
 
-The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
+The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that when you can write to a dataset you can also read from it.
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
 

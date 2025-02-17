@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor runs/Run collection
+    - Actor runs
   summary: Get user runs list
   description: |
     Gets a list of all runs for a user. The response is a list of objects, where

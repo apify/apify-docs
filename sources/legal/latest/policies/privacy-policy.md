@@ -11,25 +11,25 @@ slug: /privacy-policy
 
 <!-- vale off -->
 
-Last Updated: September 12, 2024
+Last Updated: February 10, 2025
 
 Welcome to the Apify Privacy Policy!
 
 Apify Technologies s.r.o. ("**Apify**," "**we**," "**our**" or "**us**") operates website apify.com (“**Website**”), provides its customers with the computer platform “Apify” (the "**Platform**") and some other services and functions, as specified in the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md) (the "**Services**").
 
-Apify is committed to transparency in our processing of information. This is where we describe how we handle your personal data. “**Personal data**” is any information that is directly linked or can be linked to you. Capitalized terms not otherwise defined in this Privacy Policy will have the meaning outlined in the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md).
+Apify is committed to transparency in the processing of information. This is where we describe how we handle your personal data. “**Personal data**” is any information that is directly linked or can be linked to you. Capitalized terms not otherwise defined in this Privacy Policy will have the meaning outlined in the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md).
 
 ## When the Privacy Policy applies
 
-Please note that this Privacy Policy applies where Apify is a “data controller” of your personal data. This includes when we collect information from and about visitors to our websites, prospective users and customers, and users of the Platform, collectively referred to herein as “**you**.”
+Please note that this Privacy Policy applies where Apify is a “data controller” of your personal data. This includes when we collect information from and about visitors to our websites, job candidates, prospective users and customers, and users of the Platform, collectively referred to herein as “**you**.”
 
 ## When the Privacy Policy does not apply
 
 You may collect and manage personal data when using Platform or other Services. In such a scenario, Apify is a “**data processor**", not a “**data controller**” (as defined by applicable privacy laws) of personal data that we process under your instructions and on your behalf. For clarity, this Privacy Policy does not apply to where Apify processes personal data as a data processor. Such processing activities are governed by a separately executed data processing agreement(s) between Apify and you. We are not responsible for your privacy or data security practices. You represent and warrant that you have all necessary rights, consents, or other legal basis for processing such personal data and instructing us to process them on your behalf.
 
-This Privacy Policy also does not apply to personal data about current and former Apify employees, job candidates, or contractors and agents acting in similar roles.
+This Privacy Policy also does not apply to personal data about current and former Apify employees or contractors and agents acting in similar roles.
 
-**PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR PERSONAL DATA. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT USE THE SERVICES.**
+**PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR PERSONAL DATA. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT USE OUR WEBSITE OR THE SERVICES.**
 
 ## Table of Contents
 
@@ -55,9 +55,10 @@ This Privacy Policy also does not apply to personal data about current and forme
 We collect a variety of personal data that you provide directly to us. For example, we collect information from you when you:
 
 - create a user account to log into and use Platform and Services, including communicating with support or sales teams
-- register for a demo, webinar, conference, or other events.
+- register for a demo, webinar, conference, or other events
+- apply to a job offer.
 
-We need your name, email address, username, business information, billing information, and payment information. Additionally, you may provide us voluntarily with a short bio, homepage URL, GitHub username, Twitter username, and profile picture, which will be added to your public profile on the Platform.
+We need, including but not limited to, your name, email address, username, business information, billing information, information about your professional career and educational background, including current and old job positions, degrees, qualifications, and payment information. Additionally, you may provide us voluntarily with a short bio, homepage URL, GitHub username, Twitter username, and profile picture, which will be added to your public profile on the Platform.
 
 ### Personal Data We Collect through Automated Means
 
@@ -84,12 +85,13 @@ We process your personal data for various purposes:
 - **Secure our Services** and resolve technical issues being reported
 - **Meet legal requirements**: Comply with any procedures, laws, and regulations that apply to us where it is necessary for our legitimate interests or the legitimate interests of others
 - **Establish, exercise, or defend our legal rights** where it is needed for our legitimate interests or the legitimate interests of others
+- **Recruiting**: Evaluation and selection of applicants; including, for example, setting up and conducting interviews and tests, evaluating and assessing the results thereto, and as is otherwise needed in the recruitment processes, including the final recruitment. Additionally, we may process your personal data to include you in our talent pool and contact you should a suitable position be available if you have consented to this; such processing is legally permissible under Art. 6 (1)(a) of the GDPR.
 
 ## How We Disclose Your Personal Data
 
 We may disclose your personal data:
 
-- **Service Providers**: We provide access to or disclose your personal data to selected third parties who help us run our Website, provide Platform, or deliver our other Services, including billing and credit card verification, advertising and marketing, content and features, analytics, research, customer support, data storage, security, web hosting, fraud prevention, and legal services.
+- **Service Providers**: We provide access to or disclose your personal data to selected third parties who help us run our Website, provide Platform, or deliver our other Services, including billing and credit card verification, advertising and marketing, content and features, analytics, research, customer support, data storage, security, web hosting, fraud prevention, applicants tracking and legal services.
 - **Protection of Apify and Others**: By using the Services, you acknowledge and agree that we may access, retain, and disclose the personal data we collect and maintain about you if required to do so by applicable law or in a good faith belief that such access, retention or disclosure is reasonably necessary to: (a) enforce any contracts with you; (b) respond to claims that any content violates the rights of third parties; (c) protect the rights, property or personal safety of Apify, its agents and affiliates, its other users and/or the public; and/or (d) comply with legal process (e.g. a subpoena or court order).
 - **Joint Offerings**: From time to time, Apify may partner with other companies to offer products or services jointly. If you purchase or specifically express interest in a jointly offered product or service from us, Apify may share certain personal data collected in connection with your purchase or expression of interest with our joint promotion partner(s). Apify does not control its business partners' use of the personal data we share with them, and their use of the personal data will be in accordance with their own privacy policies. If you do not wish for your personal data to be shared in connection with any joint offerings, you may opt not to purchase or specifically express interest in a jointly offered product or service.
 - **Public Forums**: Our websites may offer publicly accessible message boards, blogs, and community forums. Please keep in mind that if you directly disclose any personal data through our public message boards, blogs, or forums (including profile information associated with your user account), it may be read, collected, and used by any member of the public who accesses these Websites. Your posts and profile information may remain available even after terminating your user account. We urge you to consider the sensitivity of any information you may disclose in this way.
