@@ -20,7 +20,7 @@ To use the Apify integration for Google Drive, you will need:
 
 ## Set up Google Drive integration
 
-1. Head over to **Integrations** tab in your saved task and click on the Upload file generic integration.
+1. Head over to **Integrations** tab in your saved task and click on the **Upload file** integration.
 
     ![Google Drive integration](../images/google/google-integrations-add.png)
 
