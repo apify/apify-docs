@@ -6,19 +6,19 @@ category: apify platform
 slug: /get-most-of-actors/store-basics/how-store-works
 ---
 
-**Out of the 2,000+ Actors on the [Apify Store](https://apify.com/store) marketplace, hundreds of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
+**Out of the 3,000+ Actors on [Apify Store](https://apify.com/store) marketplace, hundreds of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
 
 ---
 
-## What are Actors (and why are they called that)
+## What are Actors (and why they're called that)
 
 [Actors](https://apify.com/actors) are serverless cloud applications that run on the Apify platform, capable of performing various computing tasks on the web, such as crawling websites or sending automated emails. They are developed by independent developers all over the world, and _you can be one of them_.
 
-The term "Actor" is used because, like human actors, these programs follow a script. This naming convention unifies both web scraping and web automation solutions under a single term. Actors can range in complexity and function, targeting different websites or performing multiple tasks, which makes the umbrella term very useful.
+The term "Actor" is used because, like human actors, these programs follow a script. This naming convention unifies both web scraping and web automation solutions, including AI agents, under a single term. Actors can range in complexity and function, targeting different websites or performing multiple tasks, which makes the umbrella term very useful.
 
 ## What is Apify Store
 
-[Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With over 3,000 Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain in Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This ensures that the tools in our ecosystem are reliable, effective, and competitive.
+[Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With over 3,000 Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain on Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This keeps the tools in our ecosystem reliable, effective, and competitive.
 
 ### Types of Actors
 
@@ -30,7 +30,7 @@ Learn more about bundles here: [Actor bundles](/academy/get-most-of-actors/produ
 
 ## Public and private Actors
 
-Actors in Apify Store can be public or private:
+Actors on Apify Store can be public or private:
 
 - _Private Actors_: these are only accessible to you in Apify Console. You can use them without exposing them to the web. However, you can still share the results they produce.
 - _Public Actors_: these are available to everyone on Apify Store. You can choose to make them free or set a price. By publishing your web scrapers and automation solutions, you can attract users and generate income.
@@ -41,11 +41,12 @@ You can monetize your Actors using three different pricing models:
 
 - Pay for usage: charge based on how much the Actor is used.
 - Pay per result: the price is based on the number of results produced, with the first few free.
-- Monthly billing: set a fixed monthly rate for using the Actor.
+- Pay per event: the price is based on specific events triggered by the Actor.
+- Monthly billing: set a fixed monthly rental rate for using the Actor.
 
 For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/get-most-of-actors/store-basics/how-actor-monetization-works).
 
-## Actor ownership in Store
+## Actor ownership on Store
 
 Actors are either created and maintained by Apify or by members of the community:
 
@@ -70,23 +71,23 @@ When it comes to managing Actors on Apify, it’s important that every potential
 
 ✍️ _Documentation_: you’re responsible for creating and maintaining documentation for your Actor. Make sure it’s clear and helpful for users.
 
-:::tip
+:::tip Test your Actor!
 
-For the best results, ensure your Actor is well-documented and thoroughly tested. Engage with users through the Issues tab to address any problems promptly. By maintaining high standards and being proactive, you’ll enhance your Actor’s reputation and usability in Apify Store.
+For the best results, make sure your Actor is well-documented and thoroughly tested. Engage with users through the Issues tab to address any problems promptly. By maintaining high standards and being proactive, you’ll enhance your Actor’s reputation and usability in Apify Store.
 
 :::
 
 ## Importance of Actor testing and reliability
 
-Testing your Actors is crucial to ensure they work as intended. That's why we do it on our Store side as much as you should do it on yours.
+It's essential to test your Actors and make sure they work as intended. That's why Apify does it on our side as much as you should do it on yours.
 
-Apify runs automated tests daily to ensure all Actors in Apify Store are functional and reliable. These tests check _if an Actor can successfully run with its default input within 5 minutes_. If an Actor fails for three consecutive days, it’s labeled under maintenance, and the developer is notified. Continuous failures for another 28 days lead to deprecation.
+Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check _if an Actor can successfully run with its default input within 5 minutes_. If an Actor fails for three consecutive days, it’s labeled under maintenance, and the developer is notified. Continuous failures for another 28 days lead to deprecation.
 
-To restore an Actor's health, developers should fix and rebuild it. The testing system will automatically recognize the changes within 24 hours. If your Actor requires longer run times or authentication, contact support to explain why it should be excluded from tests. For more control, you can implement your own tests using the Actor Testing tool available in Apify Store.
+To restore an Actor's health, developers should fix and rebuild it. The testing system will automatically recognize the changes within 24 hours. If your Actor requires longer run times or authentication, contact support to explain why it should be excluded from tests. For more control, you can implement your own tests using the Actor Testing tool available on Apify Store.
 
 ### Actor metrics and reliability score
 
-On the right panel of each Actor in Store, you can see a list of Actor metrics.
+On the right panel of each Actor on Store, you can see a list of Actor metrics.
 
 Actor metrics such as the number of monthly users, star ratings, success rates, response times, creation dates, and recent modifications collectively offer insights into its reliability. Basically, they serve as a _shorthand for potential users to assess your Actor's reliability_ before even trying it out.
 
