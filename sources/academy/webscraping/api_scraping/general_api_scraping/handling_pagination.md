@@ -196,9 +196,9 @@ Here's what the output of this code looks like:
 105
 ```
 
-## Final note {#final-note}
+## Final note
 
-Sometimes, APIs have limited pagination. That means that they limit the total number of results that can appear for a set of pages, or that they limit the pages to a certain number. To learn how to handle these cases, take a look at [this short article](/academy/advanced-web-scraping/scraping-paginated-sites).
+Sometimes, APIs have limited pagination. That means that they limit the total number of results that can appear for a set of pages, or that they limit the pages to a certain number. To learn how to handle these cases, take a look at the [Crawling with search](/academy/advanced-web-scraping/crawling/crawling-with-search) article.
 
 ## Next up {#next}
 
