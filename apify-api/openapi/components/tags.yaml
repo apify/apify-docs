@@ -360,8 +360,7 @@
     can be associated with a number of Actors and Actor tasks. It is also possible
     to override the settings of each Actor (task) similarly to when invoking the Actor
     (task) using the API.
-    For more information, see [Schedules documentation](https://docs.apify.com/platform/schedules">Schedules
-    documentation).
+    For more information, see [Schedules documentation](https://docs.apify.com/platform/schedules).
 
     Each schedule is assigned actions for it to perform. Actions can be of two types
     - `RUN_ACTOR` and `RUN_ACTOR_TASK`.
