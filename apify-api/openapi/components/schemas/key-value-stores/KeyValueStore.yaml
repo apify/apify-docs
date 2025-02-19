@@ -5,6 +5,7 @@ required:
   - createdAt
   - modifiedAt
   - accessedAt
+  - consoleUrl
 type: object
 properties:
   id:
@@ -38,5 +39,8 @@ properties:
     type: string
     nullable: true
     example: null
+  consoleUrl:
+    type: string
+    example: 'https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC'  
   stats:
     $ref: ./KeyValueStoreStats.yaml
