@@ -10,9 +10,9 @@ Learn about Actor description and meta description. Where to set them and best p
 
 ---
 
-## What is an Actor description
+## What is an Actor description?
 
-First impressions are important, especially when it comes to tools. Actor descriptions are the first connections the potential users have with your Actor. You can set two kinds of descriptions: _regular description_ (in Apify Store) and _SEO description_ (on Google search), along with their respective names: regular name and SEO name.
+First impressions are important, especially when it comes to tools. Actor descriptions are the first connection potential users have with your Actor. You can set two kinds of descriptions: _regular description_ (in Apify Store) and _SEO description_ (on Google search), along with their respective names: regular name and SEO name.
 
 :::tip
 
@@ -24,9 +24,9 @@ You can change descriptions and names as many times as you want.
 
 |  | Actor description & name | SEO description & name |
 |---|---|---|
-| Name lenght | 40-50 characters | 40-50 characters |
-| Description lenght | 300 characters | 145-155 characters |
-| Visibility  | Visible in the Store | Visible on Google |
+| Name length | 40-50 characters | 40-50 characters |
+| Description length | 300 characters | 145-155 characters |
+| Visibility  | Visible on Store | Visible on Google |
 
 ### Description & Actor name
 
@@ -46,17 +46,17 @@ Actor SEO description is a tool description visible on Google. It is shorter and
 
 Usually the way the potential user interacts with both these descriptions goes like this: SEO first, regular description second. Is there any benefit in them being different?
 
-### Is there any benefit in description and meta description being different
+### Is there any benefit in the description and meta description being different?
 
 Different descriptions give you a chance to target different stages of user acquisition. And make sure the acquisition takes place.
 
-_SEO description (and SEO name)_ is targeting a “cold” potential user who knows nothing about your tool yet and just came across it on Google search. They’re searching to solve a problem or use case. The goal of the meta description is to convince that visitor to click on your tool's page among other similar search results on Google. While it's shorter, SEO description is also the space to SEO-optimize your language to the max to attract the most matching search intent.
+_SEO description (and SEO name)_ is targeting a “cold” potential user who knows nothing about your tool yet and just came across it on Google search. They’re searching to solve a problem or use case. The goal of the meta description is to convince that visitor to click on your tool's page among other similar search results on Google. While it's shorter, SEO description is also the space to search-engine-optimize your language to the max to attract the most matching search intent.
 
 _Description (and name)_ is targeting a “warm” potential user who is already curious about your tool. They have clicked on the tool's page and have a few seconds to understand how complex the tool is and what it can do for them. Here you can forget SEO optimization and speak directly to the user. The regular description also has a longer character limit, which means you can expand on your Actor’s features.
 
 Learn more about search intent here: [SEO](/academy/get-most-of-actors/promote-your-actor/seo)
 
-## Where can Actor descriptions be set
+## Where can Actor descriptions be set?
 
 Both descriptions can be found and edited on the very right **Publication tab →  Display information.** It has to be done separately for each Actor.
 
@@ -147,11 +147,11 @@ Examples:
 
 ## FAQ
 <!-- markdownlint-disable MD001 -->
-#### Can the Actor's meta description and description be the same
+#### Can the Actor's meta description and description be the same?
 
-Yes, they can, as long as they have the same (shorter) length (under 150 characters). But they can also be different, there's no harm in that.
+Yes, they can, as long as they have the same (shorter) length (under 150 characters). But they can also be different - there's no harm in that.
 
-#### How different can description and meta description be
+#### How different can description and meta description be?
 
 They can be vastly different and target different angles of your Actor. You can experiment by setting up different SEO descriptions for a period of time and seeing if the click-through rate rises.
 
