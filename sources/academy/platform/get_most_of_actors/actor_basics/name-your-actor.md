@@ -1,6 +1,6 @@
 ---
 title: Name your Actor
-description: Learn Apify’s standards for naming Actors and how to choose the right name for your scraping and automation tools and maximize visibility on the Apify Store.
+description: Learn Apify’s standards for naming Actors and how to choose the right name for your scraping and automation tools and maximize visibility on Apify Store.
 sidebar_position: 1
 category: apify platform
 slug: /get-most-of-actors/actor-basics/name-your-actor
@@ -10,7 +10,7 @@ slug: /get-most-of-actors/actor-basics/name-your-actor
 
 ---
 
-Naming your Actor can be tricky, especially after you’ve worked hard on it. To help people find your Actor and make it stand out, we’ve set some naming guidelines. These will help your Actor rank better on Google and keep things consistent in [Apify Store](https://apify.com/store).
+Naming your Actor can be tricky, especially after you’ve worked hard on it. To help people find your Actor and make it stand out, we’ve set some naming guidelines. These will help your Actor rank better on Google and keep things consistent on [Apify Store](https://apify.com/store).
 
 Ideally, you should choose a name that clearly shows what your Actor does and includes keywords people might use to search for it.
 
@@ -37,7 +37,7 @@ Your Actor's name should be _40-50 characters_ long. You can change your Actor n
 
 ### Actor name vs. SEO name
 
-There's an option to step away from your Actor's name for the sake of SEO optimization — Actor SEO name. The Actor name and Actor SEO name serve different purposes:
+There's an option to step away from your Actor's name for the sake of search engine optimization — the Actor SEO name. The Actor name and Actor SEO name serve different purposes:
 
 - _Actor name_: this is the name visible in Apify Store and Console. It should be easy for users to understand and quickly show what your Actor does. It’s about attracting users who browse the Store.
 
@@ -60,7 +60,7 @@ Here, the SEO name uses extra keywords to help people find it through search eng
 
 The Actor name and technical name (or URL) have different uses:
 
-- _Actor name_: this is the name users see in Apify Store and Console. It’s designed to be user-friendly and should make the Actor's purpose clear to anyone browsing or searching for it.
+- _Actor name_: this is the name users see on Apify Store and Console. It’s designed to be user-friendly and should make the Actor's purpose clear to anyone browsing or searching for it.
 - _Technical name_: this is a simplified, URL-friendly version used in technical contexts like API calls and scripts. This name should be concise and easily readable. Once set, it should not be changed as it can affect existing integrations and cause broken links.
 
 For example:
@@ -68,11 +68,11 @@ For example:
 - _Actor name_: Google Search Scraper
 - _Technical name_: google-search-scraper
 
-The Actor name is user-friendly and descriptive, while the Technical Name is a clean, URL-compatible version. Note that the technical name does not include spaces or special characters to ensure it functions properly in technical contexts.
+The Actor name is user-friendly and descriptive, while the technical name is a clean, URL-compatible version. Note that the technical name does not include spaces or special characters to ensure it functions properly in technical contexts.
 
 :::important
 
-This is important for SEO! Once set, the technical name should not be changed. It's crucial to finalize this name early in development. More on why here: [Importance of Actor URL]
+This is important for SEO! Once set, the technical name should not be changed. Make sure you finalize this name early in development. More on why here: [Importance of Actor URL]
 
 :::
 
@@ -80,7 +80,7 @@ This is important for SEO! Once set, the technical name should not be changed. I
 
 ### Brainstorming
 
-What does your Actor do? Does it scrape, find, extract, automate, connect, or upload? When choosing a name, ensure it stands out and is distinct from similar names both on Google and in Apify Store.
+What does your Actor do? Does it scrape, find, extract, automate, connect, or upload? When choosing a name, ensure it stands out and is distinct from similar names both on Google and on Apify Store.
 
 - _Use nouns and variations_: use nouns like "scraper", "extractor", “downloader”, “checker”, or "API" to describe what your Actor does. You can also include terms like API, data, or variations of the website name.
 - _Include key features_: mention unique features or benefits to highlight what sets your Actor apart.
@@ -92,17 +92,17 @@ The simplest approach is to make all names match. For example, TikTok Ads Scrape
 
 ### Name length
 
-Keep the name concise, ideally less than 4 words. For instance, Facebook Data Extractor is preferable to Facebook Meta Data Extractor Light.
+Keep the name concise, ideally less than four words. For instance, Facebook Data Extractor is preferable to Facebook Meta Data Extractor Light.
 
-### Check the Store for inspiration
+### Check Apify Store for inspiration
 
-Look at the names of similar Actors in the Store, but avoid naming your Actor too similarly. By choosing a unique name, you can stand out from the competition. This will also reduce confusion and help users easily distinguish your Actor.
+Look at the names of similar Actors on Apify Store, but avoid naming your Actor too similarly. By choosing a unique name, you can stand out from the competition. This will also reduce confusion and help users easily distinguish your Actor.
 
 ### Keep SEO in mind
 
 Even though you can set a different variation for SEO name specifically, consider doing a bit of research when setting the regular name as well. The name should reflect what the Actor does and the keywords people use when searching for it. If the keywords you find sound too robotic, save them for the SEO name. But if they sound like something you'd search for, it's a good candidate for a name.
 
-You can also check the keywords competitors use for similar tools outside the Apify Store.
+You can also check the keywords competitors use for similar tools outside Apify Store.
 
 ### Occasionally experiment
 
@@ -110,7 +110,7 @@ You can test and refine your SEO assumptions by occasionally changing the SEO na
 
 ## Naming examples
 
-### Actors scrapers
+### Scraping Actors
 
 ✅:
 
