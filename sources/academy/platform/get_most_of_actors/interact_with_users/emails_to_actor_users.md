@@ -6,13 +6,13 @@ category: apify platform
 slug: /get-most-of-actors/interact-with-users/emails-to-actor-users
 ---
 
-**Getting users is one thing, but keeping them is another. While emailing your users might not seem like a typical marketing task, any seasoned marketer will tell you it’s essential. It’s much easier to keep your current users happy than to find new ones. This guide will help you understand when and how to email your users effectively.**
+**Getting users is one thing, but keeping them is another. While emailing your users might not seem like a typical marketing task, any seasoned marketer will tell you it’s essential. It’s much easier to keep your current users happy and engaged than to find new ones. This guide will help you understand when and how to email your users effectively.**
 
 ---
 
 ## Whom and where to email
 
-You can email the audience of a specific Actor directly from the Console. Go to **Actors > Emails > Compose new ＋**. From there, select the Actor whose users you want to email, write a subject line, and craft your message. An automatic signature will be added to the end of your email.
+You can email the audience of a specific Actor directly from Apify Console. Go to **Actors > Emails > Compose new ＋**. From there, select the Actor whose users you want to email, write a subject line, and craft your message. An automatic signature will be added to the end of your email.
 
 ## How to write a good email
 
@@ -142,6 +142,6 @@ Newsletters are a great way to keep your users engaged without overwhelming them
 
 ## Emailing a separate user
 
-There may be times when you need to reach out to a specific user — whether it’s to address a unique situation, ask a question that doesn’t fit the public forum of the **Issue tab**, or explore a collaboration opportunity. While there isn’t a quick way to do this through the Console just yet, you can ensure users can contact you by **adding your email or other contact info to your Store bio**. This makes it easy for them to reach out directly.
+There may be times when you need to reach out to a specific user — whether it’s to address a unique situation, ask a question that doesn’t fit the public forum of the **Issue tab**, or explore a collaboration opportunity. While there isn’t a quick way to do this through Apify Console just yet, you can ensure users can contact you by **adding your email or other contact info to your Store bio**. This makes it easy for them to reach out directly.
 
 ✍🏻 Learn best practices on how to use your Store bio to connect with your users [Your Store bio](/academy/get-most-of-actors/interact-with-users/your-store-bio).
