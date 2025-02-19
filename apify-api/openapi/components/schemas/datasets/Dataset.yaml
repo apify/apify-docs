@@ -8,6 +8,7 @@ required:
   - accessedAt
   - itemCount
   - cleanItemCount
+  - consoleUrl
 type: object
 properties:
   id:
@@ -46,3 +47,6 @@ properties:
       type: string
     description: ''
     nullable: true
+  consoleUrl:
+    type: string
+    example: 'https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC'
