@@ -30,7 +30,7 @@ The main advantage of an Actor bundle is its ease of use. The user inputs a keyw
 
 🦾 [Website Content Crawler + Pinecone bundle](https://apify.com/tri_angle/wcc-pinecone-integration) scrapes a website and stores the data in a Pinecone database to build and improve your own AI chatbot assistant.
 
-🤖 [Pinecone GPT Chatbot](https://apify.com/tri_angle/pinecone-gpt-chatbot) combines OpenAI's GPT models with Pinecone's vector database, which simplifies creating a GPT chatbot.
+🤖 [Pinecone GPT Chatbot](https://apify.com/tri_angle/pinecone-gpt-chatbot) combines OpenAI's GPT models with Pinecone's vector database, which simplifies creating a GPT Chatbot.
 
 As you can see, they vary in complexity and range.
 

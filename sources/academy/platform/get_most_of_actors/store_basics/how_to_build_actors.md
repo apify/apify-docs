@@ -3,7 +3,7 @@ title: How to build Actors
 description: Learn how to create web scrapers and automation tools on Apify. Use universal scrapers for quick setup, code templates for a head start, or SDKs and libraries for full control.
 sidebar_position: 2
 category: apify platform
-slug: /get-most-of-actors/store-basics/how-to-buiild-actors
+slug: /get-most-of-actors/store-basics/how-to-build-actors
 ---
 
 At Apify, we try to make building web scraping and automation straightforward. You can customize our universal scrapers with JavaScript for quick tweaks, use our code templates for rapid setup in JavaScript, TypeScript, or Python, or build from scratch using our JavaScript and Python SDKs or Crawlee libraries for Node.js and Python for ultimate flexibility and control. This guide offers a quick overview of our tools to help you find the right fit for your needs.
