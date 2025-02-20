@@ -12,7 +12,7 @@ Now, before we start listing social media platforms, it might be important to ac
 
 Developers are notorious for not using social media that much. Or they use social media exclusively in the context of their own interests: that won’t find them new users, but rather colleagues or collaborators.
 
-That's a good start, and maybe it's enough. A developer that can also “do” social media is a unicorn. These are super rare. And if you want to take active chances at promoting your Actor, you'll have to become that unicorn. Before we start, you need to understand the benefits of this activity.
+That's a good start, and maybe it's enough. A developer that can also “do” social media is a unicorn. These are super rare. And if you want to really promote your Actor, you'll need to become that unicorn. Before we start, you need to understand the benefits of this activity.
 
 ---
 
@@ -26,18 +26,20 @@ Engaging with your users on social media offers a lot of benefits beyond just pr
 
 ## Where to engage: Choosing the right platforms
 
-Choosing the right platforms is key to reaching your target audience. Here's a breakdown of the best places for developers to promote their web scraping and automation tools (in a particular order):
+Choosing the right platforms is key to reaching your target audience. Here's a breakdown of the best places for developers to promote their web scraping and automation tools:
 
 - _Discord_: We started with an easy one. Create a community around your Actor to engage with users directly. Offering quick support and discussing the features of your Actor in a real-time chat setting can lead to deeper user engagement.
-    :::tip
+  
+    :::tip Use Apify's Discord
 
     You can also promote your tools through [Apify's Discord](https://discord.com/invite/crawlee-apify-801163717915574323).
 
     :::
+  
 - _Twitter (X)_: Good for short updates, feature announcements, and quick interactions with users. The tech community on Twitter is very active, which makes it a great spot for sharing tips and getting noticed.
 - _Reddit_: In theory, subreddits like r/webscraping, r/automation, and r/programming allow you to share expertise, engage in discussions, and present your Actor as a solution. However, in reality, you have to be quite careful with promotion there. Be very mindful of subreddit rules to avoid spamming or over-promoting. For Reddit, personal stories on how you built the tool + a roadblock you might be facing right now are the safest formula. If a tool is already finished and perfected, it will be treated as promotional content. But if you're asking for advice - now that's a community activity.
-- _TikTok_: Might not be an obvious choice, but that’s where most young people spend time. They discuss a myriad of topics, laugh at the newest memes, and create trends that take weeks to get to Reels and Shorts. If you want to create educational, fun short video content (and be among the first to talk about web scraping), this is your place for experiments and taking algorithm guesses.
-- _YouTube_: Ideal for tutorials and demos. A visual walk-through of how to use your Actor can attract users who prefer watching videos to reading tutorials or READMEs. It's also good for Shorts and short funny content.
+- _TikTok_: Might not be an obvious choice, but that’s where most young people spend time. They discuss a myriad of topics, laugh at the newest memes, and create trends that take weeks to get to Reels and Shorts. If you want to create educational, fun, short video content (and be among the first to talk about web scraping), this is your place for experiments and taking algorithm guesses.
+- _YouTube_: Ideal for tutorials and demos. A visual walk-through of how to use your Actor can attract users who prefer watching videos to reading tutorials or READMEs. It's also good for Shorts and short, funny content.
 - _StackOverflow_: While not a traditional social media platform, StackOverflow is a great space to answer technical questions and demonstrate your expertise. Offering help related to web scraping or automation can build credibility, and you can subtly mention your Actor if it directly solves the issue (as long as it adheres to community guidelines).
 - _LinkedIn_: If your Actor solves problems for professionals or automates business tasks, LinkedIn is the place to explain how your tool provides value to an industry or business.
 
@@ -50,7 +52,7 @@ Now that you know where to engage and why it’s important, here are some best p
 1. _Offer value beyond promotion_: If you look around, you'll see that the golden rule of social media these days is to educate and entertain. Focus on sharing useful information related to your Actor. Post tips on automation, web scraping techniques, or industry insights that can help your audience. When you do promote your Actor, users will see it as part of a valuable exchange, not just an ad. Besides, constantly posting promotional content turns anybody off.
 2. _Post consistently_: The most important rule for social media is to show up. Whether it’s a weekly post about new features or daily tips for using your Actor more effectively, maintaining a regular posting schedule keeps your audience connected.
 3. _Visuals matter_: Screenshots, GIFs, and short videos can explain more than text ever could. Show users how your Actor works, the results it scrapes, or how automation saves time.
-4. _Widen your reach_: Web scraping is a pretty niche topic. Find ways to talk about it more widely. If you stumble upon ways to relate it to wider topics: news, science, research, even politics and art, use it. Or you can go more technical way and talk about various libraries and languages you can use to build it. Anything to not get stuck in the niche.
+4. _Widen your reach_: Web scraping is a niche topic. Find ways to talk about it more widely. If you stumble upon ways to relate it to wider topics: news, science, research, even politics and art, use it. Or you can go more technical and talk about various libraries and languages you can use to build it.
 5. _Use relevant hashtags_: Hashtags like #webscraping, #automation, #programming, and #IT help you reach a wider audience on platforms like Twitter and TikTok. Stick to a few relevant hashtags per post to avoid clutter.
 6. _Engage actively_: Social media is a two-way street. Reply to comments, thank users for sharing your content, create stitches, and answer questions. Building relationships with your users helps foster loyalty and builds a sense of community around your Actor.
 7. _Use polls and Q&As_: Interactive content like polls or Q&A sessions can drive engagement. Ask users what features they’d like to see next or run a live Q&A to answer questions about using your Actor. These tools encourage participation and provide valuable insights.
