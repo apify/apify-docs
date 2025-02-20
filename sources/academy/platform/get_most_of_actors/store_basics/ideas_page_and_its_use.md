@@ -1,6 +1,6 @@
 ---
 title: Ideas page and its use
-description: Learn where you can draw inspirations for your Actors.
+description: Learn where you can draw inspiration for your Actors.
 sidebar_position: 4
 category: apify platform
 slug: /get-most-of-actors/store-basics/ideas-page
@@ -8,7 +8,7 @@ slug: /get-most-of-actors/store-basics/ideas-page
 
 So you want to build an Actor and publish it on Apify Store. Where should you start? How can you make people want to use it?
 
-To generate new Actor ideas, you can draw from your experiences. You can also use SEO tools to discover relevant search terms and explore sites related to web scraping, automation, or integrations. But for direct inspiration straight from Apify, check out our Actor [Ideas page](https://apify.com/ideas) to see what data extraction tools are trending in the Apify community. Let's see how you can both use and contribute to this valuable resource.
+To generate new Actor ideas, you can draw from your experience. You can also use SEO tools to discover relevant search terms and explore sites related to web scraping, automation, or integrations. But for direct inspiration straight from Apify, check out our Actor [Ideas page](https://apify.com/ideas) to see what data extraction tools are trending in the Apify community. Let's see how you can both use and contribute to this valuable resource.
 
 ---
 
@@ -18,7 +18,7 @@ The [Ideas page](https://apify.com/ideas) is where users can submit and explore 
 
 ## How you, as a developer, can use the Ideas page
 
-Got an innovative Actor idea or unsure what to build next? The Apify Ideas page is your go-to for submitting, developing, and claiming Actor concepts. If you're a developer ready to build an Actor using the Apify Ideas page, here’s how you can get involved:
+Got an innovative Actor idea or unsure what to build next? The Apify Ideas page is your go-to destination for submitting, developing, and claiming Actor concepts. If you're a developer ready to build an Actor using the Apify Ideas page, here’s how you can get involved:
 
 1. _Browse the Ideas page_<br/>
     Check out the [Ideas page](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills and the kind of Actor you want to build.
@@ -54,7 +54,7 @@ The Ideas page at Apify offers a variety of concepts for scrapers, integrations,
 2. _Engage with the community_<br/>
     Upvote ideas you find intriguing. The more support an idea receives, the more likely it is to catch a developer’s eye and move forward.
 3. _Don’t forget to claim your idea_<br/>
-    Once your Actor is up and running, claim your idea by emailing [ideas@apify.com](mailto:ideas@apify.com) with your Actor's URL and the original idea. We’ll mark your idea as **Completed** and link it to your Actor - a signal to the other developers that this tool already exists in Apify Store.
+    Once your Actor is up and running, claim your idea by emailing [ideas@apify.com](mailto:ideas@apify.com) with your Actor's URL and the original idea. We’ll mark your idea as **Completed** and link it to your Actor - a signal to the other developers that this tool already exists on Apify Store.
 
 ## Multiple developers for one idea
 
