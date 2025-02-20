@@ -79,7 +79,7 @@ Apify Store is like any other marketplace, so take a look at your competition th
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/get-most-of-actors/actor-basics/how-to-create-an-actor-readme)
 
-### Rental or pay-per-result (PPR)
+### Rental, pay-per-result (PPR), or pay-per-event (PPE)
 
 Rental pricing is technically easier: you set the rental fee, and the user covers their CU usage. So all you have to define is how much you want to charge the users. With pay-per-result, you’ll need to include both CU usage and your margin. So you have to calculate how much the average run is going to cost for the user + define how much you want to charge them.
 
@@ -87,11 +87,13 @@ To figure out the average cost per run for users, just run a few test runs and l
 
 From an average user's perspective, pay-per-result is often easier to grasp — $25 for a thousand pages, $5 for a thousand videos, $1 for a thousand images, etc. It gives users a clearer idea of what they’re paying for and allows them to estimate faster. But rental pricing has its fans, too — if your tool provides high value, users will come.
 
+Pay-per-event (PPE) lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling our PPE charging API. The most common events will most likely be Actor start, dataset item, external API calls, etc. PPE is great for users who want to optimize their costs and value transparency. PPE is also a fairer pricing model for integration and AI-driven use cases, where dataset-based pricing doesn’t make sense.
+
 ### Adapt when needed
 
 Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary.
 
-Keep an eye on SEO as well. If you monitor the volume of the keywords your Actor is targeting as well as how well your Actor's page is ranking for those keywords, you can estimate the number of people who actually end up trying your tool (a.k.a conversion rate). If your keywords are getting volume, but conversions are lower than expected, it might point to a few issues It could be due to your pricing, a verbose README, or complex input. If users are bouncing right away, it makes sense to check out your pricing and your closest competitors to see where adjustments might help.
+Keep an eye on SEO as well. If you monitor the volume of the keywords your Actor is targeting as well as how well your Actor's page is ranking for those keywords, you can estimate the number of people who actually end up trying your tool (aka conversion rate). If your keywords are getting volume, but conversions are lower than expected, it might point to a few issues It could be due to your pricing, a verbose README, or complex input. If users are bouncing right away, it makes sense to check out your pricing and your closest competitors to see where adjustments might help.
 
 ### Summary & a basic plan
 
@@ -99,15 +101,15 @@ Pick a pricing model, run some tests, and calculate your preliminary costs (**An
 
 Then check your costs against similar solutions in the Store and the market (try Google search or other marketplaces), and set a price that gives you some margin.
 
-It’s also normal to adjust pricing as you get more demand. For context, most prices in the Store range between $1-$10 per 1,000 results.
+It’s also normal to adjust pricing as you get more demand. For context, most prices on Apify Store range between $1-10 per 1,000 results.
 
 Example of useful pricing estimates from the **Analytics** tab:
 
 ![example of pricing estimates in analytics tab](images/analytisc-example.png)
 
-:::tip
+:::tip Use emails!
 
-📫 Don't forget to set an email sequence to warn and remind your users about the pricing changes. Learn more about emailing your users here:  [Emails to Actor users]
+📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here:  [Emails to Actor users]
 
 :::
 
