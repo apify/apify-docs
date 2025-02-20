@@ -14,14 +14,14 @@ But how do you get started? Here's a friendly guide on where to host, how to pre
 
 ---
 
-## Why should you host a live stream
+## Why host a live stream?
 
 Here are a few reasons why live streams are ideal for promoting your Actor:
 
 - _Demo_. You can show your Actor in action and highlight its most powerful features. You can tell a story about how you built it. You can also show how your Actor interacts with other tools and platforms and what its best uses are. A live demo lets users see immediately how your tool solves their problems.
 - _Building trust and rapport_. Interacting directly with your users builds trust and rapport. Even showing up and showing your face/voice, it's a chance to let your users meet you and get a feel for the team behind the Actor.
 - _Live Q&A_. Users often have questions that can be hard to fully address in documentation, README, or tutorials. A live session allows for Q&A, so you can explain complex features and demonstrate how to overcome common issues.
-- _Tutorial or training_. If you don't have time for complex graphics, this is an easy replacement for a video tutorial until you do. Remember that some platforms (YouTube) give an option of publishing the webinar after it's over. You can reuse it later in other content as well as a guide. Also, if you’ve noticed users struggling with particular features, a webinar is a great way to teach them directly.
+- _Tutorial or training_. If you don't have time for complex graphics, this is an easy replacement for a video tutorial until you do. Remember that some platforms (YouTube) give the option of publishing the webinar after it's over. You can reuse it later in other content as well as a guide. Also, if you’ve noticed users struggling with particular features, a webinar is a great way to teach them directly.
 
 Webinars help build a community around your Actor and turn one-time users into loyal advocates.
 
@@ -49,7 +49,7 @@ Send an email blast if you have an email list of users or potential users, send 
 - Social media promotion on Twitter (X), LinkedIn, or other platforms. Highlight what people will learn and any special features you’ll be demonstrating. Do it a few times - 2 weeks before the webinar, 1 week before, a day before, and the day of. Don't forget to announce on Apify’s Discord. These are places where your potential audience is likely hanging out. Let them know you’re hosting an event and what they can expect.
 - Use every piece of real estate on Apify Store and Actor pages. Add a banner or notification to your Actor’s page (top of the README): This can be a great way to notify people who are already looking at your Actor. A simple “join us for a live demo on DATE” message works well. Add something like that to your Store bio and its README. Mention it at the top description of your Actor's input schema.
 
-:::tip
+:::tip Use UTM tags
 
 When creating a link to share to the webinar, you can add different UTM tags for different places where you will insert the link. That way you can later learn which space brought the most webinar sign-ups.
 
@@ -71,9 +71,9 @@ Think carefully about what you’ll cover. Focus on what’s most relevant for y
 
 Don't forget to add an intro with an agenda and an outro with your contact details.
 
-:::tip
+:::tip Consider timezones
 
-When thinking of the time when to run the webinar, focus on the timezone of the majority of your users.
+When thinking of when to run the webinar, focus on the timezone of the majority of your users.
 
 :::
 
