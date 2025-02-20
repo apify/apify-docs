@@ -12,7 +12,7 @@ slug: /get-most-of-actors/promote-your-actor/video-tutorials
 
 ## Why videos and live streams matter
 
-1. _Visual engagement_. Videos allow you to show rather than just tell. Demonstrating how your Actor works or solving a problem in real time makes the content more engaging and easier to understand. For complex tools, visual explanations can be much more effective than text alone.
+1. _Visual engagement_. Videos allow you to show rather than just tell. Demonstrating how your Actor works or solving a problem in makes the content more engaging and easier to understand. For complex tools, visual explanations can be much more effective than text alone.
 2. _Enhanced communication_. Live streams offer a unique opportunity for direct interaction. You can answer questions, address concerns, and gather immediate feedback from your audience, creating a more dynamic and personal connection.
 3. _Increased reach_. Platforms like YouTube and TikTok have massive user bases, giving you access to a broad audience. Videos can also be shared across various social media channels, extending your reach even further.
 
@@ -22,12 +22,12 @@ Learn more about the rules of live streams in our next section: [Webinars](/acad
 
 1. _Keywords and titles_. Use relevant keywords in your video titles and descriptions. For instance, if your Actor is a web scraping tool, include terms like “web scraping tutorial” or “how to use web scraping tools” to help users find your content.
 2. _Engaging thumbnails_. Create eye-catching thumbnails that accurately represent the content of your video. Thumbnails are often the first thing users see, so make sure they are visually appealing and relevant.
-3. _Transcriptions and captions_. Adding transcriptions and captions to your videos improves accessibility and can enhance SEO. They allow search engines to index your content more effectively and help users who prefer reading or have hearing impairments.
+3. _Transcriptions and captions_. Adding transcripts and captions to your videos improves accessibility and can enhance SEO. They allow search engines to index your content more effectively and help users who prefer reading or have hearing impairments.
 
 ## YouTube vs. TikTok
 
 1. _YouTube_. YouTube is an excellent platform for longer, detailed videos. Create a channel dedicated to your Actors and regularly upload content such as tutorials, feature walkthroughs, and industry insights. Utilize YouTube’s SEO features by optimizing video descriptions, tags, and titles with relevant keywords. Engage with your audience through comments and encourage them to subscribe for updates. Collaborating with other YouTubers or influencers in the tech space can also help grow your channel.
-2. _TikTok_. TikTok is ideal for short, engaging videos. Use it to share quick tips, demo snippets, or behind-the-scenes content about your Actors. The platform’s algorithm favors high engagement, so create content that’s catchy and encourages viewers to interact. Use trending hashtags and participate in challenges relevant to your niche to increase visibility. Consistency is key, so post regularly and monitor which types of content resonate most with your audience.
+2. _TikTok_. TikTok is ideal for short, engaging videos. Use it to share quick tips, demo snippets, or behind-the-scenes content about your Actors. The platform’s algorithm favors high engagement, so create catchy content that encourages viewers to interact. Use trending hashtags and participate in challenges relevant to your niche to increase visibility. Consistency is key, so post regularly and monitor which types of content resonate most with your audience.
 
 ## Growing your channels
 
