@@ -1,6 +1,6 @@
 ---
 title: How Apify Store works
-description: Learn how to create and publish your own Actor, and join a growing community of innovators in web automation.
+description: Learn how to create and publish your own Actor, and join a growing community of innovators in scraping and web automation.
 sidebar_position: 1
 category: apify platform
 slug: /get-most-of-actors/store-basics/how-store-works
@@ -10,13 +10,13 @@ slug: /get-most-of-actors/store-basics/how-store-works
 
 ---
 
-## What are Actors (and why they're called that)
+## What are Actors (and why they're called that)?
 
 [Actors](https://apify.com/actors) are serverless cloud applications that run on the Apify platform, capable of performing various computing tasks on the web, such as crawling websites or sending automated emails. They are developed by independent developers all over the world, and _you can be one of them_.
 
 The term "Actor" is used because, like human actors, these programs follow a script. This naming convention unifies both web scraping and web automation solutions, including AI agents, under a single term. Actors can range in complexity and function, targeting different websites or performing multiple tasks, which makes the umbrella term very useful.
 
-## What is Apify Store
+## What is Apify Store?
 
 [Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With over 3,000 Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain on Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This keeps the tools in our ecosystem reliable, effective, and competitive.
 
