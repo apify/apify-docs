@@ -10,31 +10,31 @@ Optimizing your input schema. Learn to design and refine your input schema with 
 
 ---
 
-## What is an input schema
+## What is an input schema?
 
-So you've succeeded: your user has 1. found your Actor on Google, 2. explored the Actor's landing page, 3. decided to try it, and 4. created an Apify account. Now they’re on your Actor's page in the Console. The SEO fight is over. What’s next?
+So you've succeeded: your user has 1. found your Actor on Google, 2. explored the Actor's landing page, 3. decided to try it, and 4. created an Apify account. Now they’re on your Actor's page in Apify Console. The SEO fight is over. What’s next?
 
-Your user is finally one-on-one with your Actor — specifically, its input schema. This is the moment when they try your Actor and decide whether to stick with it. The input schema is your middleman here, and you want it to work in your favor.
+Your user is finally one-on-one with your Actor — specifically, its input schema. This is the moment when they try your Actor and decide whether to stick with it. The input schema is your representative here, and you want it to work in your favor.
 
 Technically, the input schema is a `JSON` object with various field types supported by the Apify platform, designed to simplify the use of the Actor. Based on the input schema you define, the Apify platform automatically generates a _user interface_ for your Actor.
 
-Of course, you can create an Actor without setting up an elaborate input schema. If your Actor is designed for users who don't need a good interface (e.g., they’ll use a JSON object and call it via API), you can skip this guide. But most users engage with Actors in Manual mode, aka the Actor interface. So, if your Actor is complex or you’re targeting regular users who need an intuitive interface, it's essential to consider their experience.
+Of course, you can create an Actor without setting up an elaborate input schema. If your Actor is designed for users who don't need a good interface (e.g. they’ll use a JSON object and call it via API), you can skip this guide. But most users engage with Actors in Manual mode, aka the Actor interface. So, if your Actor is complex or you’re targeting regular users who need an intuitive interface, it's essential to consider their experience.
 
 In this article, _we’ll refer to the input schema as the user interface_ of your Actor and focus exclusively on it.
 
-:::tip
+:::tip Understand input schemas
 
-To fully understand the recommendations in this blog post, you’ll first need to familiarize yourself with the [technical aspects of the input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema). This context is crucial to make good use of the insights shared here.
+To fully understand the recommendations in this blog post, you’ll first need to familiarize yourself with the [technical aspects of the input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema). This context is essential to make good use of the insights shared here.
 
 :::
 
 ## The importance of a good input schema
 
-When facing the Apify platform for the first time, it can feel intimidating. You only have a few seconds for the user to assess the ease of using your Actor.
+It can feel intimidating when facing the Apify platform for the first time. You only have a few seconds for a user to assess the ease of using your Actor.
 
 If something goes wrong or is unclear with the input, an ideal user will first turn to the tooltips in the input schema. Next, they might check the README or tutorials, and finally, they’ll reach out to you through the **Issues** tab. However, many users won’t go through all these steps — they may simply get overwhelmed and abandon the tool altogether.
 
-A well-designed input schema is all about managing user expectations, reducing cognitive load, and preventing frustration. All that is done by educating your user. Ideally, a good input schema, as your first line of interaction, should:
+A well-designed input schema is all about managing user expectations, reducing cognitive load, and preventing frustration. Ideally, a good input schema, as your first line of interaction, should:
 
 - Make the tool as easy to use as possible
 - Reduce the user’s cognitive load and make them feel confident about using and paying for it
@@ -83,7 +83,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
 
     ![Input schema toggle example](images/toggle-sshot.png)
 
-    - You have to consider this when you're choosing how to word the toggle button and which choice to set up as the default. If you're making this more complex than it's needed (e.g. by using negation as the ‘yes’ choice), you're increasing your user's cognitive load. You also might get them to receive way less or way more data than they need by default run.
+    - You have to consider this when you're choosing how to word the toggle button and which choice to set up as the default. If you're making this more complex than it's needed (e.g. by using negation as the ‘yes’ choice), you're increasing your user's cognitive load. You also might get them to receive way less, or way more, data than they need from a default run.
     - In our example, we assume the default user wants to scrape all places but still have the option to filter out closed ones. However, they have to make that choice consciously, so we keep the toggle disabled by default. If the toggle were enabled by default, users might not notice it, leading them to think the tool isn't working properly when it returns fewer results than expected.
 - **sections or `sectionCaption` (BIG bold text) and `sectionDescription`**
   - A section looks like a wrapped toggle list.
@@ -92,34 +92,34 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
 
   - It is useful to section off non-default ways of input or extra features. If your tool is complex, don't leave all fields in the first section. Just group them by topic and section them off (see the screenshot above ⬆️)
     - You can add a description to every section. Use `sectionDescription` only if you need to provide extra information about the section (see the screenshot below ⬇️.
-    - sometimes `sectionDescription` is used as a space for disclaimers so the user is informed of the risks right away instead of having to click on the tooltip.
+    - sometimes `sectionDescription` is used as a space for disclaimers so the user is informed of the risks from the outset instead of having to click on the tooltip.
 
     ![Input schema section description example](images/section-description-sshot.png)
 
 - tooltips or `description` to the title
   - To see the tooltip's text, the user needs to click on the `?` icon.
-  - This is your space to explain the title and what's going to happen in that field: any terminology, referrals to other fields of the tool, examples that don't fit the prefill, or caveats can be detailed here. Using HTML, you can add links, line breaks, code, and other more regular formatting here. Use this space to add links to relevant guides, video tutorials, screenshots, issues, or readme parts if needed.
+  - This is your space to explain the title and what's going to happen in that field: any terminology, referrals to other fields of the tool, examples that don't fit the prefill, or caveats can be detailed here. Using HTML, you can add links, line breaks, code, and other regular formatting here. Use this space to add links to relevant guides, video tutorials, screenshots, issues, or readme parts if needed.
   - Wording in titles vs. tooltips. Titles are usually nouns. They have a neutral tone and simply inform on what content this field is accepting (**Usernames**).
-    - Tooltips to those titles are usually verbs in imperative that tell the user what to do (_Add, enter, use_).
+    - Tooltips to those titles are usually verbs in the imperative that tell the user what to do (_Add, enter, use_).
     - This division is not set in stone, but the reason why the tooltip is an imperative verb is because, if the user is clicking on the tooltip, we assume they are looking for clarifications or instructions on what to do.
 
     ![Input schema tooltips example](images/tooltips-sshot.png)
 
 - emojis (visual component)
-  - Use them to attract attention or as visual shortcuts. Use emojis consistently to invoke user's iconic memory. The visual language should match across the whole input schema (and README) so the user can understand what section or field is referred to without reading the whole title.
-    - Don't overload the schema with emojis. Be responsible with the power of attracting attention that emojis provide.
+  - Use them to attract attention or as visual shortcuts. Use emojis consistently to invoke a user's iconic memory. The visual language should match across the whole input schema (and README) so the user can understand what section or field is referred to without reading the whole title.
+    - Don't overload the schema with emojis. They attract attention, so you need to use them sparingly.
 
 :::tip
 
-Read more on the science behind the use of emojis: [Actors and emojis]
+Read more on the use of emojis: [Actors and emojis]
 
 :::
 
-## Example of improved input schema
+## Example of an improved input schema
 
-1. Well-used `description` space. The description briefly introduces possible scraping options, visual language (sections represented by emojis), the easiest way to try the tool, and a link to a tutorial in case of issues. The description isn't too long, uses different formatting, and looks reassuring.
+1. A well-used `description` space. The description briefly introduces possible scraping options, visual language (sections represented by emojis), the easiest way to try the tool, and a link to a tutorial in case of issues. The description isn't too long, uses different formatting, and looks reassuring.
 2. The main section is introduced and visually separated from the rest. This is the space for the user to try the first run before they can discover the other options.
-3. The title informs right away that this field refers to multiple other fields, not only the first section.
+3. The title says right away that this field refers to multiple other fields, not only the first section.
 4. `prefill` is a small number (so in case users run the tool with default settings, it doesn't take too long and isn't expensive for them) and uses the language of the target website (not results or posts, _videos_).
 5. The tooltip expands with more details and refers to other sections it's applicable to using matching emojis.
 6. Section names are short. Sections are grouped by content type.
@@ -133,8 +133,8 @@ Read more on the science behind the use of emojis: [Actors and emojis]
 The version above was the improved input schema. Here's what this tool's input schema looked like before:
 
 1. Brief and dry description, with little value for the user, easy to miss. Most likely, the user already knows this info because what this Actor does is described in the Actor SEO description, description, and README.
-2. The field title is wordy and reads a bit techy: it uses terminology that's not the most accurate for the target website (_posts_) and limiting terms (_max_). The field is applicable for scraping by hashtags (field above) and by profile (section below). Easy detail to miss.
-3. The prefilled number is too high. If the user runs the Actor with default settings, they might spend a lot of money, and it will take some time. Users often just leave if an Actor takes a long time to complete on first try.
+2. The field title is wordy and reads a bit techie: it uses terminology that's not the most accurate for the target website (_posts_) and limiting terms (_max_). The field is applicable for scraping by hashtags (field above) and by profile (section below). Easy detail to miss.
+3. The prefilled number is too high. If the user runs the Actor with default settings, they might spend a lot of money, and it will take some time. Users often just leave if an Actor takes a long time to complete on the first try.
 4. The tooltip simply reiterates what is said in the title. Could've been avoided if the language of the title wasn't so complex.
 5. Merging two possible input types into one (profiles and URLs) can cause confusion. Verbose, reminds the user about an unrelated field (hashtags).
 6. This section refers to profiles but is separate. The user had to make extra effort to scrape profiles. They have to move across 3 sections: (use Max posts from section 1, use Profiles input from section 2, use Date sorting filters from section 3).
@@ -144,7 +144,7 @@ The version above was the improved input schema. Here's what this tool's input s
 
 ## Best practices
 
-1. Keep it short. Don’t rely too much on text—most users prefer to read as little as possible.
+1. Keep it short. Don’t rely too much on text - most users prefer to read as little as possible.
 2. Use formatting to your advantage (bold, italic, underline), links, and breaks to highlight key points.
 3. Use specific terminology (e.g., posts, images, tweets) from the target website instead of generic terms like "results" or "pages."
 4. Group related items for clarity and ease of use.
@@ -154,7 +154,7 @@ The version above was the improved input schema. Here's what this tool's input s
 
 ## Signs and tools for improving input schema
 
-- _User's feedback_. If they are asking obvious things, complaining, or consistently making silly mistakes with input, take notes. Feedback from users can help you understand their experience and identify areas for improvement.
+- _User feedback_. If they're asking obvious things, complaining, or consistently making silly mistakes with input, take notes. Feedback from users can help you understand their experience and identify areas for improvement.
 - _High churn rates_. If your users are trying your tool but quickly abandon it, this is a sign they are having difficulties with your schema.
 - _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source).** This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier.
 
