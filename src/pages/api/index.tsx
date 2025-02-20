@@ -1,9 +1,3 @@
-import {
-    ActionLink,
-    BlogArticle,
-    Button,
-    theme,
-} from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
@@ -11,6 +5,13 @@ import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import styled from 'styled-components';
+
+import {
+    ActionLink,
+    BlogArticle,
+    Button,
+    theme,
+} from '@apify-packages/ui-library';
 
 import styles from './styles.module.css';
 import GitButton from '../../components/GitButton';
@@ -126,7 +127,7 @@ export default function Api() {
                     className={styles.LargerContent}
                     heading="API reference"
                     description={<div className="MainSectionContent">
-                        <p>The Apify API allows developers to interact programmatically apps using HTTP requests.
+                        <p>The Apify API allows developers to interact programmatically with apps using HTTP requests.
                         The Apify API is built around <Link to="https://en.wikipedia.org/wiki/REST">REST</Link>.</p>
                         <p>The API has predictable resource-oriented URLs, returns JSON-encoded responses,
                         and uses standard HTTP response codes, authentication, and verbs.</p>
@@ -182,7 +183,7 @@ curl -X POST -d @- \\
                                         </CodeBlock>
                                         <CodeBlock
                                             language='javascript'
-                                        // eslint-disable-next-line max-len
+
                                         >{`// Easily run Actors, await them to finish using the convenient .call() method, and retrieve results from the resulting dataset.
 const { ApifyClient } = require('apify-client');
 

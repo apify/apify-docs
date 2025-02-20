@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor builds/Build collection
+    - Actor builds
   summary: Get user builds list
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-collection/get-user-builds-list

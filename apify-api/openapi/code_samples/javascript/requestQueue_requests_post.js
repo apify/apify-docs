@@ -6,9 +6,9 @@ const apifyClient = new ApifyClient({
 const result = await apifyClient
     .requestQueue('<QUEUE ID>')
     .addRequest({
-        'uniqueKey': 'http://example.com',
-        'url': 'http://example.com',
-        'method': 'GET',
+        uniqueKey: 'http://example.com',
+        url: 'http://example.com',
+        method: 'GET',
     });
 
 console.log(result);

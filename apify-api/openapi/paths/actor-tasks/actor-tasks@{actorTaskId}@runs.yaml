@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor tasks/Run collection
+    - Actor tasks
   summary: Get list of task runs
   description: |
     Get a list of runs of a specific task. The response is a list of objects,
@@ -129,7 +129,7 @@ get:
     - https://docs.apify.com/api/v2#tag/Actor-tasksRun-collection/operation/actorTask_runs_get
 post:
   tags:
-    - Actor tasks/Run collection
+    - Actor tasks
   summary: Run task
   description: |
     Runs an Actor task and immediately returns without waiting for the run to

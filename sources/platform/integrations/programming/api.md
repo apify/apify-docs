@@ -94,7 +94,7 @@ Some permissions require other permissions to be granted alongside them. These a
 
 #### Automatic dependencies
 
-The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
+The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that when you can write to a dataset you can also read from it.
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
 
@@ -139,6 +139,9 @@ Use this mode if you want to integrate with a 3rd-party service to run your Acto
 When you run an Actor with a scoped token in this mode, Apify will inject a token with the same scope as the scope of the original token.
 
 This way you can be sure that Actors won't accidentally—or intentionally—access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
+
+:::caution
+Restricted access mode is not supported for Actors running in [Standby mode](/platform/actors/running/standby). While you can send standby requests using a scoped token configured with restricted access, functionality is not guaranteed.
 
 :::tip
 This restriction is _transitive_, which means that if the Actor runs another Actor, its access will be restricted as well.

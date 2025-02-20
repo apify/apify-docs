@@ -62,4 +62,4 @@ The new Actor should take the following input values, which be mapped to paramet
 
 ## Next up {#next}
 
-[Lesson VI](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our **demo-actor** Amazon scraper.
+[Lesson VI](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our `demo-actor` Amazon scraper.

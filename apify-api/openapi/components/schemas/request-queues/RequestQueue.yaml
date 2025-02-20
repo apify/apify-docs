@@ -9,6 +9,7 @@ required:
   - handledRequestCount
   - pendingRequestCount
   - hadMultipleClients
+  - consoleUrl
 type: object
 properties:
   id:
@@ -42,3 +43,6 @@ properties:
   hadMultipleClients:
     type: boolean
     example: true
+  consoleUrl:
+    type: string
+    example: 'https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC'  

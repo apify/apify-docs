@@ -147,7 +147,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 > When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
-Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs) and more details.
+Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
 ### Apify SDKs
 

@@ -54,4 +54,4 @@ const data = await page.evaluate(() => window.__sc_hydration);
 console.log(data);
 ```
 
-Which of these methods you use totally depends on the type of crawler you are using. Grabbing the data directly from the `window` object within the context of the browser using Puppeteer is of course the most reliable solution; however, it is less performant than making a static HTTP request and parsing the object directly from the downloaded HTML.
+Which of these methods you use totally depends on the type of crawler you are using. Grabbing the data directly from the `window` object within the context of the browser using Puppeteer is of course the most reliable solution; however, it is less efficient than making a static HTTP request and parsing the object directly from the downloaded HTML.
