@@ -1,9 +1,9 @@
 ---
-title: Getting the most of Actors on Apify Store
+title: Actor marketing playbook
 description: Learn how to optimize and monetize your Actors on Apify Store by sharing them with other platform users.
 sidebar_position: 10
 category: apify platform
-slug: /get-most-of-actors
+slug: /actor-playbook
 ---
 
 **Learn how to optimize and monetize your Actors on Apify Store by sharing them with other platform users.**

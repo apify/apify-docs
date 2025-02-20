@@ -218,7 +218,7 @@ If your page has a video, it has a better chance of ranking higher in Google.
 
 The README should serve as a fallback for your users if something isn't immediately obvious in the input schema. There's also only that much space in the input schema and the tooltips, so naturally, if you want to provide more details about something: input, formatting, expectations — you should put it in the README and refer to it from the relevant place in the input schema.
 
-Learn about [How to create a great input schema](/academy/get-most-of-actors/product-optimization/how-to-great-a-great-input-schema)
+Learn about [How to create a great input schema](/academy/get-most-of-actors/product-optimization/how-to-create-a-great-input-schema)
 
 ## [Readme elements template](https://docs.apify.com/academy/get-most-of-actors/actor-readme#what-should-you-add-to-your-actor-readme)
 
