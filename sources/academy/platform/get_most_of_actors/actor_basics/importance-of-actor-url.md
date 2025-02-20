@@ -3,7 +3,7 @@ title: Importance of Actor URL
 description: Learn how to set your Actor’s URL (technical name) and name effectively when creating it on Apify. Follow best practices to optimize your Actor’s web presence and ensure it stands out on Apify Store.
 sidebar_position: 2
 category: apify platform
-slug: /get-most-of-actors/actor-basics/importance-of-actor-url
+slug: /actor-marketing-playbook/actor-basics/importance-of-actor-url
 ---
 
 **Actor URL (or technical name, as we call it), is the page URL of the Actor shown on the web. When you're creating an Actor, you can set the URL yourself along with the Actor name. Here are best practices on how to do it well.**
@@ -24,7 +24,7 @@ This part of the manual is only applicable to new Actors. _Once set, existing Ac
 
 ## How to choose a URL
 
-The right naming can propel or hinder the success of the Actor on Google Search. Just as naming your Actor is important, so is choosing its URL. The only difference is, once set, the URL is intended to be permanent (more on this [later](/academy/get-most-of-actors/actor-basics/importance-of-actor-url)). What's the formula for the best Actor URL?
+The right naming can propel or hinder the success of the Actor on Google Search. Just as naming your Actor is important, so is choosing its URL. The only difference is, once set, the URL is intended to be permanent (more on this [later](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url)). What's the formula for the best Actor URL?
 
 ### Brainstorming
 
@@ -38,7 +38,7 @@ The easiest way is to make sure the Actor name and the technical name match. As 
 
 The name should reflect not only what Actor does (or what website it targets), but also what words people use when they search for it. This is why it's also important to do SEO research to see which keywords work best for the topic. Ideally, the URL should include a keyword that has low complexity (low competition) but high traffic (high demand).
 
-Learn more about SEO research and the best tools for it here: [SEO](/academy/get-most-of-actors/promote-your-actor/seo)
+Learn more about SEO research and the best tools for it here: [SEO](/academy/actor-marketing-playbook/promote-your-actor/seo)
 
 ### Inspiration in Apify Store
 

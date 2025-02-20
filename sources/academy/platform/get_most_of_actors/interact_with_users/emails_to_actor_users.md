@@ -3,7 +3,7 @@ title: Emails to Actor users
 description: Email communication is a key tool to keep users engaged and satisfied. Learn when and how to email your users effectively to build loyalty and strengthen relationships with this practical guide.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/interact-with-users/emails-to-actor-users
+slug: /actor-marketing-playbook/interact-with-users/emails-to-actor-users
 ---
 
 **Getting users is one thing, but keeping them is another. While emailing your users might not seem like a typical marketing task, any seasoned marketer will tell you it’s essential. It’s much easier to keep your current users happy and engaged than to find new ones. This guide will help you understand when and how to email your users effectively.**
@@ -144,4 +144,4 @@ Newsletters are a great way to keep your users engaged without overwhelming them
 
 There may be times when you need to reach out to a specific user — whether it’s to address a unique situation, ask a question that doesn’t fit the public forum of the **Issue tab**, or explore a collaboration opportunity. While there isn’t a quick way to do this through Apify Console just yet, you can ensure users can contact you by **adding your email or other contact info to your Store bio**. This makes it easy for them to reach out directly.
 
-✍🏻 Learn best practices on how to use your Store bio to connect with your users [Your Store bio](/academy/get-most-of-actors/interact-with-users/your-store-bio).
+✍🏻 Learn best practices on how to use your Store bio to connect with your users [Your Store bio](/academy/actor-marketing-playbook/interact-with-users/your-store-bio).

@@ -3,7 +3,7 @@ title: Actor description & SEO description
 description: Learn about Actor description and meta description. Where to set them and best practices for both content and length.
 sidebar_position: 3
 category: apify platform
-slug: /get-most-of-actors/actor-basics/actor-description
+slug: /actor-marketing-playbook/actor-basics/actor-description
 ---
 
 Learn about Actor description and meta description. Where to set them and best practices for both content and length.
@@ -54,7 +54,7 @@ _SEO description (and SEO name)_ is targeting a “cold” potential user who kn
 
 _Description (and name)_ is targeting a “warm” potential user who is already curious about your tool. They have clicked on the tool's page and have a few seconds to understand how complex the tool is and what it can do for them. Here you can forget SEO optimization and speak directly to the user. The regular description also has a longer character limit, which means you can expand on your Actor’s features.
 
-Learn more about search intent here: [SEO](/academy/get-most-of-actors/promote-your-actor/seo)
+Learn more about search intent here: [SEO](/academy/actor-marketing-playbook/promote-your-actor/seo)
 
 ## Where can Actor descriptions be set?
 

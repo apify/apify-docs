@@ -3,7 +3,7 @@ title: Webinars
 description: Webinars and live streams are powerful tools to showcase your Actor’s features. Learn how to plan, host, and maximize the impact of your webinar.
 sidebar_position: 7
 category: apify platform
-slug: /get-most-of-actors/promote-your-actor/webinars
+slug: /actor-marketing-playbook/promote-your-actor/webinars
 ---
 
 Webinars and live streams are a fantastic way to connect with your audience, showcase your Actor's capabilities, and gather feedback from users. Though the term webinar might sound outdated these days, the concept of a live video tutorial is alive and well in the world of marketing and promotion.

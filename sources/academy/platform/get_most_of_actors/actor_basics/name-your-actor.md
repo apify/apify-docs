@@ -3,7 +3,7 @@ title: Name your Actor
 description: Learn Apify’s standards for naming Actors and how to choose the right name for your scraping and automation tools and maximize visibility on Apify Store.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/actor-basics/name-your-actor
+slug: /actor-marketing-playbook/actor-basics/name-your-actor
 ---
 
 **Apify's standards for Actor naming. Learn how to choose the right name for scraping and automation Actors and how to optimize your Actor for search engines.**
@@ -22,7 +22,7 @@ Your Actor's name consists of four parts: actual name, SEO name, URL, and GitHub
   - Actor SEO name (name shown on Google Search, optional), e.g. _Booking.com Hotel Data Scraper_.
   - If the SEO name is not set, the Actor name will be the default name shown on Google.
 - Actor URL (technical name), e.g. _booking-scraper_.
-  - More on it on [Importance of Actor URL](/academy/get-most-of-actors/actor-basics/importance-of-actor-url) page.
+  - More on it on [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) page.
 - GitHub repository name (best to keep it similar to the other ones, for convenience), e.g. _actor-booking-scraper_.
 
 ## Actor name
@@ -132,7 +132,7 @@ For example,
 - Actor name: `${Domain} ${Service} Scraper`, e.g. [Google Search Scraper](https://apify.com/apify/google-search-scraper).
 - GitHub repository: `actor-${domain}-${service}-scraper`, e.g. actor-google-search-scraper.
 
-### Non-scraping Actors[](https://docs.apify.com/academy/get-most-of-actors/naming-your-actor#non-scraping-actors)
+### Non-scraping Actors[](https://docs.apify.com/academy/actor-marketing-playbook/naming-your-actor#non-scraping-actors)
 
 Naming for non-scraping Actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a search engine when looking for your Actor. What is your Actor's function?
 
@@ -152,6 +152,6 @@ Below are examples for the [Google Sheets](https://apify.com/lukaskrivka/google
 
 :::warning Renaming your Actor
 
-You may rename your Actor freely, except when it comes to the Actor URL. Remember to read [Importance of Actor URL](/academy/get-most-of-actors/actor-basics/importance-of-actor-url) to find out why!
+You may rename your Actor freely, except when it comes to the Actor URL. Remember to read [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) to find out why!
 
 :::

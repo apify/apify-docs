@@ -3,7 +3,7 @@ title: Ideas page and its use
 description: Learn where you can draw inspiration for your Actors.
 sidebar_position: 4
 category: apify platform
-slug: /get-most-of-actors/store-basics/ideas-page
+slug: /actor-marketing-playbook/store-basics/ideas-page
 ---
 
 So you want to build an Actor and publish it on Apify Store. Where should you start? How can you make people want to use it?

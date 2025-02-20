@@ -3,7 +3,7 @@ title: Actor success stories
 description: Learn about developers who successfully make passive income from their Actors.
 sidebar_position: 5
 category: apify platform
-slug: /get-most-of-actors/store-basics/actor-success-stories
+slug: /actor-marketing-playbook/store-basics/actor-success-stories
 ---
 
 _Web scraping freelance financial freedom with microworlds._

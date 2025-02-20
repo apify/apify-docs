@@ -3,7 +3,7 @@ title: How to create a great input schema
 description: Optimizing your input schema. Learn to design and refine your input schema with best practices for a better user experience.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/product-optimization/how-to-create-a-great-input-schema
+slug: /actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema
 ---
 
 Optimizing your input schema. Learn to design and refine your input schema with best practices for a better user experience.

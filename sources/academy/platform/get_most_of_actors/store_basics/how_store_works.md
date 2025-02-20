@@ -3,7 +3,7 @@ title: How Apify Store works
 description: Learn how to create and publish your own Actor, and join a growing community of innovators in scraping and web automation.
 sidebar_position: 1
 category: apify platform
-slug: /get-most-of-actors/store-basics/how-store-works
+slug: /actor-marketing-playbook/store-basics/how-store-works
 ---
 
 **Out of the 3,000+ Actors on [Apify Store](https://apify.com/store) marketplace, hundreds of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
@@ -26,7 +26,7 @@ The term "Actor" is used because, like human actors, these programs follow a scr
 - _Automation Actors_: for example, [Content Checker](https://apify.com/jakubbalada/content-checker) monitors website content for changes and emails you once a change occurs.
 - _Bundles_: chains of multiple Actors united by a common data point or target website. For example, [Restaurant Review Aggregator](https://apify.com/tri_angle/restaurant-review-aggregator) can scrape reviews from six platforms at once.
 
-Learn more about bundles here: [Actor bundles](/academy/get-most-of-actors/product-optimization/actor-bundles)
+Learn more about bundles here: [Actor bundles](/academy/actor-marketing-playbook/product-optimization/actor-bundles)
 
 ## Public and private Actors
 
@@ -44,7 +44,7 @@ You can monetize your Actors using three different pricing models:
 - Pay per event: the price is based on specific events triggered by the Actor.
 - Monthly billing: set a fixed monthly rental rate for using the Actor.
 
-For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/get-most-of-actors/store-basics/how-actor-monetization-works).
+For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works).
 
 ## Actor ownership on Store
 

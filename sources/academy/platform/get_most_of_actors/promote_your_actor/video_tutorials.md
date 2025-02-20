@@ -3,7 +3,7 @@ title: Video tutorials
 description: Use video tutorials to demonstrate features, offer tutorials, and connect with users in real time, building trust and driving interest in your tools.
 sidebar_position: 6
 category: apify platform
-slug: /get-most-of-actors/promote-your-actor/video-tutorials
+slug: /actor-marketing-playbook/promote-your-actor/video-tutorials
 ---
 
 **Videos and live streams are powerful tools for connecting with users and potential users, especially when promoting your Actors. You can use them to demonstrate functionality, provide tutorials, or engage with your audience in real time.**
@@ -16,7 +16,7 @@ slug: /get-most-of-actors/promote-your-actor/video-tutorials
 2. _Enhanced communication_. Live streams offer a unique opportunity for direct interaction. You can answer questions, address concerns, and gather immediate feedback from your audience, creating a more dynamic and personal connection.
 3. _Increased reach_. Platforms like YouTube and TikTok have massive user bases, giving you access to a broad audience. Videos can also be shared across various social media channels, extending your reach even further.
 
-Learn more about the rules of live streams in our next section: [Webinars](/academy/get-most-of-actors/promote-your-actor/webinars)
+Learn more about the rules of live streams in our next section: [Webinars](/academy/actor-marketing-playbook/promote-your-actor/webinars)
 
 ## Optimizing videos for SEO
 

@@ -2,7 +2,7 @@
 title: Monetizing your Actor
 description: Learn how you can monetize your web scraping and automation projects by publishing Actors to users in Apify Store.
 sidebar_position: 5
-slug: /get-most-of-actors/monetizing-your-actor
+slug: /actor-marketing-playbook/monetizing-your-actor
 unlisted: true
 ---
 

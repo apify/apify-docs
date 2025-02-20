@@ -3,7 +3,7 @@ title: Blogs and blog resources
 description: Blogs are still a powerful way to promote your Actors and build authority. By sharing expertise, engaging users, and driving organic traffic, blogging remains a key strategy to complement social media, SEO, and other platforms in growing your audience.
 sidebar_position: 5
 category: apify platform
-slug: /get-most-of-actors/promote-your-actor/blogs-and-blog-resources
+slug: /actor-marketing-playbook/promote-your-actor/blogs-and-blog-resources
 ---
 
 **Blogs remain a powerful tool for promoting your Actors and establishing authority in the field. With social media, SEO, and other platforms, you might wonder if blogging is still relevant. The answer is a big yes. Writing blog posts can help you engage your users, share expertise, and drive organic traffic to your Actor.**

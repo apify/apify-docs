@@ -3,7 +3,7 @@ title: Social media
 description: Leverage social media to connect with users and grow your Actor’s audience. Learn how to showcase features, engage with users, and avoid common pitfalls.
 sidebar_position: 2
 category: apify platform
-slug: /get-most-of-actors/promote-your-actor/social-media
+slug: /actor-marketing-playbook/promote-your-actor/social-media
 ---
 
 **Social media is a powerful way to connect with your Actor users and potential users. Whether your tool focuses on web scraping or automation, social platforms can help you showcase its features, answer user questions, and grow your audience. This guide will show you how to use social media effectively, what to share, and how to avoid common mistakes along the way.**
@@ -29,13 +29,13 @@ Engaging with your users on social media offers a lot of benefits beyond just pr
 Choosing the right platforms is key to reaching your target audience. Here's a breakdown of the best places for developers to promote their web scraping and automation tools:
 
 - _Discord_: We started with an easy one. Create a community around your Actor to engage with users directly. Offering quick support and discussing the features of your Actor in a real-time chat setting can lead to deeper user engagement.
-  
+
     :::tip Use Apify's Discord
 
     You can also promote your tools through [Apify's Discord](https://discord.com/invite/crawlee-apify-801163717915574323).
 
     :::
-  
+
 - _Twitter (X)_: Good for short updates, feature announcements, and quick interactions with users. The tech community on Twitter is very active, which makes it a great spot for sharing tips and getting noticed.
 - _Reddit_: In theory, subreddits like r/webscraping, r/automation, and r/programming allow you to share expertise, engage in discussions, and present your Actor as a solution. However, in reality, you have to be quite careful with promotion there. Be very mindful of subreddit rules to avoid spamming or over-promoting. For Reddit, personal stories on how you built the tool + a roadblock you might be facing right now are the safest formula. If a tool is already finished and perfected, it will be treated as promotional content. But if you're asking for advice - now that's a community activity.
 - _TikTok_: Might not be an obvious choice, but that’s where most young people spend time. They discuss a myriad of topics, laugh at the newest memes, and create trends that take weeks to get to Reels and Shorts. If you want to create educational, fun, short video content (and be among the first to talk about web scraping), this is your place for experiments and taking algorithm guesses.

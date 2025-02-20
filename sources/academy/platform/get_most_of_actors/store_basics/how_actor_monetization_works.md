@@ -3,7 +3,7 @@ title: How Actor monetization works
 description: Discover how to share your tools and explore monetization options to earn from your automation expertise.
 sidebar_position: 3
 category: apify platform
-slug: /get-most-of-actors/store-basics/how-actor-monetization-works
+slug: /actor-marketing-playbook/store-basics/how-actor-monetization-works
 ---
 
 **You can turn your web scrapers into a source of income by publishing them on Apify Store. Learn how it's done and what monetization options you have.**
@@ -77,7 +77,7 @@ Also, remember that your Actor is a package deal with the Apify platform. So all
 
 Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression — communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
 
-Learn more about what makes a good readme here: [How to create an Actor README](/academy/get-most-of-actors/actor-basics/how-to-create-an-actor-readme)
+Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
 ### Rental, pay-per-result (PPR), or pay-per-event (PPE)
 
@@ -116,7 +116,7 @@ Example of useful pricing estimates from the **Analytics** tab:
 ## Resources
 
 - Learn about [incentives behind monetization](https://apify.com/partners/actor-developers)
-- Detailed guide to [setting up monetization models](https://docs.apify.com/academy/get-most-of-actors/monetizing-your-actor)
+- Detailed guide to [setting up monetization models](https://docs.apify.com/academy/actor-marketing-playbook/monetizing-your-actor)
 - Guide to [publishing Actors](https://docs.apify.com/platform/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Read a blog post from our CEO on the [reasoning behind monetizing Actors](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/)
