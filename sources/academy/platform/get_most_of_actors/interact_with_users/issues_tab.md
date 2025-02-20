@@ -1,6 +1,6 @@
 ---
 title: Issues tab
-description: Learn why issues tab is crucial for improving your tool, engaging with users, and building a reliable, user-friendly solution.
+description: Learn how the Issues tab can help you improve your Actor, engage with users, and build a reliable, user-friendly solution.
 sidebar_position: 2
 category: apify platform
 slug: /get-most-of-actors/interact-with-users/issues-tab
@@ -10,27 +10,27 @@ slug: /get-most-of-actors/interact-with-users/issues-tab
 
 ---
 
-## What is the Issues Tab
+## What is the Issues tab?
 
 The Issues tab is a dedicated section on your Actor’s page where signed-in users can report problems, share feedback, ask questions, and have conversations with you. You can manage each issue thread individually, and the whole thread is visible to everyone. The tab is divided into three categories: **Open**, **Closed**, and **All**, and it shows how long each response has been there. While only signed-in users can post and reply, all visitors can see the interactions, giving your page a transparent and welcoming vibe.
 
-:::note
+:::note Keep active
 
 🕑 On the web, your average 🕑 **Response time** is calculated and shown in your Actor Metrics. The purpose of this metric is to make it easy for potential users to see how active you are and how well-maintained the Actor is.
 
 :::
 
-You can view all the issues related to your Actors by going to **Actors** > [**Issues**](https://console.apify.com/actors?tab=issues) in the Apify Console. Users can get automatic updates on their reported issues or subscribe to issues they are interested in, so they stay informed about any responses. When users report an issue, they’re encouraged to share their run, which helps you get the full context and solve the problem more efficiently. Note that shared runs aren’t visible on the public Actor page.
+You can view all the issues related to your Actors by going to **Actors** > [**Issues**](https://console.apify.com/actors?tab=issues) in Apify Console. Users can get automatic updates on their reported issues or subscribe to issues they are interested in, so they stay informed about any responses. When users report an issue, they’re encouraged to share their run, which helps you get the full context and solve the problem more efficiently. Note that shared runs aren’t visible on the public Actor page.
 
-## What is the Issues tab for
+## What is the Issues tab for?
 
-The tab is essentially just a series of conversations between you and your users. There are existing systems like GitHub for that. So why create a separate system like an Issues tab? Since the Issues tab exists both in private space (Console) and public space (Actor's page on the web), it can fulfill two different sets of purposes.
+The tab is a series of conversations between you and your users. There are existing systems like GitHub for that. So why create a separate system like an Issues tab? Since the Issues tab exists both in private space (Console) and public space (Actor's page on the web), it can fulfill two different sets of purposes.
 
 ### Issues tab in Apify Console
 
-Originally, the Issues tab was only available in the Apify Console, and its main goals were:
+Originally, the Issues tab was only available in Apify Console, and its main goals were:
 
-- Convenience: have a single space to hold the communication between you and your users.
+- Convenience: a single space to hold the communication between you and your users.
 - Unity and efficiency: make sure multiple users don't submit the same issue through multiple channels or multiple times.
 - Transparency: make sure users have their issues addressed publicly and professionally. You can’t delete issues, you can only close them, so there's a clear record of what's been resolved and how.
 - Quality of service and innovation: make sure the Actor gets fixed and continuously improved, and users get the quality scraping services they pay for.
@@ -39,7 +39,7 @@ Originally, the Issues tab was only available in the Apify Console, and its main
 
 Now that the Issues tab is public and on the web, it also serves other goals:
 
-- Credibility: new users can check how active and reliable you are by looking at the issues and your average 🕑 **Response time** even before trying your Actor. It also levels their expectations on when to expect a response from you.
+- Credibility: new users can check how active and reliable you are by looking at the issues and your average 🕑 **Response time** even before trying your Actor. It also sets expectations for when to expect a response from you.
 - Collaboration: developers can learn from each other’s support styles, which motivates everyone to maintain good interactions and keep up good quality work.
 - SEO boost: every issue now generates its own URL, potentially driving more keyword traffic to your Actor's page
 
@@ -57,9 +57,9 @@ Once your Actor is public, you’re required to have an Issues tab.
 
 :::
 
-## SEO of the Issues tab
+## SEO for the Issues tab
 
-Yes, you read that right! The public Issues tab can boost your SEO. Each issue now has its own URL, which means every report could help your Actor rank for relevant keywords.
+Yes, you read that right! The public Issues tab can boost your search engine visibility. Each issue now has its own URL, which means every report could help your Actor rank for relevant keywords.
 
 When we made the tab public, we took inspiration from StackOverflow’s SEO strategy. Even though StackOverflow started as a Q&A forum, its strong SEO has been key to its success. Similarly, your Actor’s Issues tab can help bring in more traffic, with each question and answer potentially generating more visibility. This makes it easier for users to find solutions quickly.
 
@@ -67,7 +67,7 @@ When we made the tab public, we took inspiration from StackOverflow’s SEO stra
 
 1. _Don’t stay silent_
 
-    Respond quickly, even if it’s just a short note. Even if an issue takes weeks to resolve, keep the user in the loop. A quick update prevents frustration and shows the user (and others following it) that you’re actively working on solving the issue.
+    Respond quickly, even if it’s just a short note. If an issue takes weeks to resolve, keep the user in the loop. A quick update prevents frustration and shows the user (and others following it) that you’re actively working on solving the issue.
 
 2. _Encourage search to avoid duplication_
 
