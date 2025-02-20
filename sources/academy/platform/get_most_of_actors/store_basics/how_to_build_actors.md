@@ -1,6 +1,6 @@
 ---
 title: How to build Actors
-description: At Apify, we make web scraping and automation easy. Explore our tools to find the perfect solution for your needs.
+description: Learn how to create web scrapers and automation tools on Apify. Use universal scrapers for quick setup, code templates for a head start, or SDKs and libraries for full control.
 sidebar_position: 2
 category: apify platform
 slug: /get-most-of-actors/store-basics/how-to-buiild-actors
@@ -31,7 +31,7 @@ Since scraping and automation come in various forms, we decided to build not jus
 | ⚠️ JSDOM Scraper | JSDOM library (Browser-like DOM API) | + Handles client-side JavaScript<br/>+ Faster than full-browser solutions<br/>+ Ideal for light scripting | Not for heavy dynamic JavaScript, executes server-side code only, depends on pre-installed NPM modules | Speedy scraping with light client-side JS |
 | 🍲 BeautifulSoup Scraper | Python-based, HTTP requests + BeautifulSoup parser | Python-based, supports recursive crawling and URL lists | No full-featured web browser, not suitable for dynamic JavaScript-rendered pages | Python users needing simple, recursive crawling |
 
-### How do I choose the right universal web scraper to start with
+### How do I choose the right universal web scraper to start with?
 
 🎯 Decision points:
 
@@ -73,7 +73,7 @@ To make it easier, here's a short questionnaire that guides you on selecting the
         - Yes, and I prefer JavaScript: use Web Scraper or Cheerio Scraper
         - No: choose based on other criteria above.
 
-This schema should help you navigate through the options and choose the right scraper based on the website’s complexity, your scripting language preference, and your need for speed or advanced features.
+This should help you navigate through the options and choose the right scraper based on the website’s complexity, your scripting language preference, and your need for speed or advanced features.
 
 </details>
 
@@ -82,7 +82,7 @@ This schema should help you navigate through the options and choose the right sc
 
 - How to use [Web Scraper](https://www.youtube.com/watch?v=5kcaHAuGxmY) to scrape any website
 - How to use [Beautiful Soup](https://www.youtube.com/watch?v=1KqLLuIW6MA) to scrape the web
-- Learn about our $1/month [Creator plan](https://apify.com/pricing/creator-plan) that encourages devs to build Actors based on Universal scrapers
+- Learn about our $1/month [Creator plan](https://apify.com/pricing/creator-plan) that encourages devs to build Actors based on universal scrapers
 
 ## Web scraping code templates
 
@@ -118,7 +118,7 @@ Similar to our universal scrapers, our [code templates](https://apify.com/templa
 
 ### Combining Apify SDK and Crawlee
 
-While these tools are distinct, they can be seamlessly combined. For example, you can use Crawlee to scrape data from a page and then use the Apify SDK to save that data in an Apify dataset. This integration allows developers to make use of the strengths of both tools while working within the Apify ecosystem.
+While these tools are distinct, they can be combined. For example, you can use Crawlee to scrape data from a page and then use the Apify SDK to save that data in an Apify dataset. This integration allows developers to make use of the strengths of both tools while working within the Apify ecosystem.
 
 📚 Resources:
 
@@ -146,7 +146,7 @@ You can also take advantage of the Apify platform's features without having to m
 
 The Apify platform fully supports Scrapy spiders. By [deploying your existing Scrapy code to Apify](https://apify.com/run-scrapy-in-cloud), you can take advantage of features like scheduling, monitoring, scaling, and API access, all without needing to modify your original spider. This process is made easy with the [Apify CLI](https://docs.apify.com/cli/), which allows you to convert your Scrapy spider into an Apify Actor with just a few commands. Once deployed, your spider can run in the cloud, offering a reliable and scalable solution for your web scraping needs.
 
-Additionally, you can monetize your spiders by [publishing them as Actors](https://apify.com/partners/actor-developers) in Apify Store, potentially earning passive income from your work while benefiting from the platform’s extensive features.
+Additionally, you can monetize your spiders by [publishing them as Actors](https://apify.com/partners/actor-developers) on Apify Store, potentially earning passive income from your work while benefiting from the platform’s extensive features.
 
 ### ScrapingBee, ScrapingAnt, ScraperAPI
 
