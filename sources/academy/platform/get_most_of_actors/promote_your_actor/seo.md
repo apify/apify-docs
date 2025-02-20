@@ -1,6 +1,6 @@
 ---
 title: SEO
-description: Learn how to optimize your content to rank higher on search engines like Google and Bing, attract more users, and drive long-term traffic—all for free.
+description: Learn how to optimize your content to rank higher on search engines like Google and Bing, attract more users, and drive long-term traffic - all for free.
 sidebar_position: 1
 category: apify platform
 slug: /get-most-of-actors/promote-your-actor/seo
@@ -16,7 +16,7 @@ Matching the search intent of potential users is super important when creating y
 - _Pain points_: What challenges are they facing?
 - _Specific use cases_: How might they use your Actor?
 
-Ensure your README demonstrates how your Actor aligns with the search intent. This alignment helps users quickly recognize your Actor's value and helps Google understand your Actor and rank you better.
+Make sure your README demonstrates how your Actor aligns with the search intent. This alignment helps users quickly recognize your Actor's value and helps Google understand your Actor and rank you better.
 
 _Example:_
 
@@ -108,7 +108,7 @@ When putting keywords in your Actor’s README, it's important to maintain a nat
 
 Aim to use your most important keyword in the first paragraph of your README. This helps both search engines and users quickly understand what your Actor does. But avoid forcing keywords where they don't fit naturally.
 
-Throughout your content, use the keywords you gathered before where they make sense. We want to include those keywords in your README naturally.
+In your content, you can use the keywords you gathered before where they make sense. We want to include those keywords naturally in your README.
 
 If there are relevant questions in your keyword list, you can always cover them within an “FAQ” section of your Actor.
 
