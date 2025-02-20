@@ -54,7 +54,7 @@ To help you succeed, we've created a comprehensive Actor marketing playbook. You
     <Card
         title="Actor success stories"
         desc="Some developers have turned their Actors into profitable tools with steady user bases. This section shares real-world examples of what works, from product strategy to marketing tactics."
-        to="/academy/get-most-of-actors/store-basics/actor-succes-stories"
+        to="/academy/get-most-of-actors/store-basics/actor-success-stories"
         smallImage
     />
 </CardGrid>
