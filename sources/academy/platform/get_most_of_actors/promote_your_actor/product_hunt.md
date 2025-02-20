@@ -43,13 +43,13 @@ Once you’ve launched, be ready to engage with the community throughout the day
 
 The first few hours after your launch are crucial for gaining traction. Engage with users who comment on your product page, answer any questions, and address any concerns they might have. The more interaction you generate, the more likely you are to climb the daily rankings.
 
-Be transparent and friendly in your responses. If users point out potential improvements or bugs, acknowledge them and express a commitment to improving your Actor. Product Hunt users are often open to giving feedback, and this can help you iterate on your product quickly.
+Be transparent and friendly in your responses. If users point out potential improvements or bugs, acknowledge them and make a commitment to improve your Actor. Product Hunt users are often open to giving feedback, and this can help you iterate on your product quickly.
 
 If possible, have team members or collaborators available to help respond to comments. The more responsive and helpful you are, the better the overall experience will be for users checking out your Actor.
 
-:::tip
+:::tip Leverage Apify
 
-You can also give a shoutout to Apify, this way the Actor will also notified to community of Apify on Product Hunt: [https://www.producthunt.com/stories/introducing-shoutouts](https://www.producthunt.com/stories/introducing-shoutouts)
+You can also give a shoutout to Apify, this way your Actor will also notified to the community of Apify on Product Hunt: [https://www.producthunt.com/stories/introducing-shoutouts](https://www.producthunt.com/stories/introducing-shoutouts)
 
 :::
 
