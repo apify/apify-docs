@@ -132,7 +132,7 @@ For example,
 - Actor name: `${Domain} ${Service} Scraper`, e.g. [Google Search Scraper](https://apify.com/apify/google-search-scraper).
 - GitHub repository: `actor-${domain}-${service}-scraper`, e.g. actor-google-search-scraper.
 
-### Non-scraping Actors[](https://docs.apify.com/academy/actor-marketing-playbook/naming-your-actor#non-scraping-actors)
+### Non-scraping Actors
 
 Naming for non-scraping Actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a search engine when looking for your Actor. What is your Actor's function?
 
