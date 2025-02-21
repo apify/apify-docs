@@ -220,7 +220,7 @@ The README should serve as a fallback for your users if something isn't immediat
 
 Learn about [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema)
 
-## [Readme elements template](https://docs.apify.com/academy/actor-marketing-playbook/actor-readme#what-should-you-add-to-your-actor-readme)
+## Readme elements template
 
 1. What does (Actor name) do?
     - in 1–2 sentences describe what the Actor does and what it does not do

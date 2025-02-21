@@ -40,7 +40,7 @@ You probably know [Medium](https://medium.com/). But you might not know that Goo
 1. You need a Medium account. It’s free and easy to create.
 2. Now, you need to do keyword research. Go to [Ahrefs Free Keyword Generator](https://ahrefs.com/keyword-generator/?country=us), enter your main keyword (e.g. Airbnb scraper), and check what keyword has the highest search volume.
 3. Search for that keyword in Google. Use incognito mode and a US VPN if you can. Analyze the results and check what type of content you need to create. Is it a how-to guide on how to create an Airbnb scraper? Or is it a list of the best Airbnb scrapers? Or perhaps it’s a review or just a landing page.
-4. Now, you should have a good idea of the article you have to write. Write the article and try to mimic the structure of the first results. Check the [SEO guide](https://docs.google.com/document/d/17fGGo1yGpYPvPFClShEpMuDnP0Y_ziU3EdMvaDZy0ms/edit#) for more guidance.
+4. Now, you should have a good idea of the article you have to write. Write the article and try to mimic the structure of the first results.
 5. Once you’re done with the article, don’t forget to include a few calls to action linking to your Actor on Apify Store. Don’t be too pushy, but mention all the benefits of your Actor.
 6. Publish the article. Make sure your title and URL have the main keyword and that the main keyword is also in the first paragraph of the article. Also, try to use relevant tags for your Actor.
 
