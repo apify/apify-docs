@@ -99,12 +99,7 @@ Each Actor has an **Issues** tab in Apify Console and on the web. Here, users ca
 
 Since the **Issues** tab is public, the level of activity — or lack thereof — can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
 
-Learn more about how to handle the [Issues tab]
-
-
-### Getting featured in Apify Store
-
-Actors that perform reliably and efficiently may be featured in the [Apify picks](https://apify.com/store/collections/apify_picks) section or the **Featured developers** section of Apify Store. The purpose of this is to highlight them for users seeking top-quality tools.
+Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
 
 ## Resources
 
