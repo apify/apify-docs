@@ -1,6 +1,5 @@
 title: RunStats
 required:
-  - inputBodyLen
   - restartCount
   - resurrectCount
   - computeUnits
