@@ -97,8 +97,8 @@ Your profit is calculated as follows:
 
 where:
 
-- _Revenue_: The amount charged for events via the PPE API. You receive 80% of this revenue.
-- _Platform costs_: The underlying platform usage costs for running the Actor, calculated using the asme unit pricing as PPR.
+- _Revenue_: The amount charged for events via the PPE [API](/api/v2/post-charge-run) or through [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK. You receive 80% of this revenue.
+- _Platform costs_: The underlying platform usage costs for running the Actor, calculated using the same unit pricing as PPR.
 
 Only paid user activity is included in profit calculations.
 
@@ -116,12 +116,12 @@ Only paid user activity is included in profit calculations.
 #### Best practices for PPE Actors
 
 - Avoid duplicate charges by not calling the start Actor event during migration.
-- Ensure users are not charged beyond their set maximum. The [`ChargingManager`](https://github.com/metalwarrior665/actor-charge-manager-poc) can handle this logic.
+- Ensure users are not charged beyond their set maximum. The [`ChargingManager`](https://github.com/metalwarrior665/actor-charge-manager-poc) or our SDKs ([JS](/sdk/js/reference/class/ChargingManager) and [Python](/sdk/python/reference/class/ChargingManager)) can handle this logic.
 - Use idempotency keys in API calls to prevent double charges.
 
 :::note `ChargingManager` usage
 
-Use our [`ChargingManager`](https://github.com/metalwarrior665/actor-charge-manager-poc) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
+Use our [`ChargingManager`](https://github.com/metalwarrior665/actor-charge-manager-poc) or SDKs ([JS](/sdk/js/reference/class/ChargingManager) and [Python](/sdk/python/reference/class/ChargingManager)) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
 
 You can also choose not to use it, but then you must handle API integration and possible edge cases manually. You can use `ChargingManager` code as a reference.
 
