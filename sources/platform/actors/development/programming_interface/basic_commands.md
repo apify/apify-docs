@@ -299,7 +299,7 @@ The SDK provides convenient methods for exiting Actors:
 
 1. Use `exit()` with custom messages to inform users about the Actor's achievements or issues.
 
-2. The `exit()` method emits `exit` event allowing components to perform cleanup or state persistence.
+2. The `fail()` method emits `exit` event allowing components to perform cleanup or state persistence.
 
 Example of a failed exit using a shorthand method:
 
