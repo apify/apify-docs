@@ -11,7 +11,7 @@ slug: /store-publishing-terms-and-conditions
 
 <!-- vale off -->
 
-Effective date: May 14, 2024
+Last updated: February 26, 2025
 
 ---
 
@@ -33,7 +33,7 @@ Terms starting with a capital letter used in these Apify Store Publishing Terms 
 
 **3.2.** When publishing your Actor, you agree to create, publish and maintain an up-to-date, pertinent description, documentation or other sources of information, allowing Apify users to use the Actor.
 
-**3.3.** The Actor, its name, price, description and other information connected to it published in Apify Store can be changed at any time in the future. However, changes to the Actor's price are limited to a maximum of one change per month.
+**3.3.** The Actor, its name, price, description and other information connected to it published in Apify Store can be changed at any time in the future. However, changes to the Actor's price that might potentially lead to a price increase for the end user, including pricing model changes, are limited to a maximum of one change per month.
 
 ## 4. Competition
 
@@ -84,21 +84,22 @@ We are authorized to unpublish and/or delete such an Actor, in our sole discreti
 
 ## 12. Pricing options
 
-**12.1.** When you decide to set your Actor as monetized, you may choose one of the two following options for setting its price:
+**12.1.** When you decide to set your Actor as monetized, you may choose one of the following options for setting its price:
 
-1. **Monthly Rental** which means that each user of your Actor will pay a flat monthly rental fee for use of that Actor. You will set the price as X USD per month; or
-2. **Price per Result** model which means that each user of your Actor will pay a fee calculated according to the number of results of each run of that Actor. You will set the price as X USD per 1,000 results. In this model the users do not pay for the Platform usage.
+1. **Monthly Rental** which means that each user of your Actor will pay a flat monthly rental fee for use of that Actor. You will set the price as X USD per month;
+2. **Price per Result** model which means that each user of your Actor will pay a fee calculated according to the number of results of each run of that Actor. You will set the price as X USD per 1,000 results. In this model the users do not pay for the Platform usage; or
+3. **Price per Event** model which allows you to programatically charge for events in your Actor source code. You need to pre-define the events first when setting the Actor pricing. In this model, the users do not pay for the Platform usage.
 
 **12.2.** If you set your Actor as monetized, you will be entitled to receive remuneration calculated as follows:
 
 1. 80% of the sum of the Monthly Rental fees paid by the users of the Actor; or
-2. 80% of the sum of Price per Result fees paid by the users of the Actor, further reduced by the cost of Platform usage.
+2. 80% of the sum of Price per Result or Pay per Event fees paid by the users of the Actor, further reduced by the cost of Platform usage of the corresponding Actor runs.
 
 You acknowledge that the remaining portion of the users' fees paid for the Actor shall belong to us.
 
 _Example: You set the price for your monetized Actor under the Price per Result model as USD 5 per 1,000 results. The Actor has one paying user who runs it once and gets 1,000 results. The Platform usage costs of the Actor run are USD 0.5 You will be entitled to remuneration of USD 3.5 (i.e. (80% of 5) - 0.5)._
 
-**12.3.** You acknowledge that the amount of fees paid by the users and the Platform costs can change throughout the month thanks to unpaid invoices or refunds, and that any information about future or past profits or remuneration available in the Platform UI are only estimates. Apify shall not be liable for the outcomes of any actions made based on those estimates.
+**12.3.** You acknowledge that the amount of fees paid by the users and the Platform usage costs can change throughout the month thanks to unpaid invoices or refunds, and that any information about future or past profits or remuneration available to you in the Platform UI are only estimates. Apify shall not be liable for the outcomes of any actions made based on those estimates.
 
 ## 13. Payment terms
 
@@ -112,7 +113,7 @@ _Example: You set the price for your monetized Actor under the Price per Result 
 
 **13.5.** We may, in our sole discretion, block, remove, deprecate, or otherwise restrict your Actor from the Platform, if your Actor contains, requires, or refers the users to any payment method, other than the Apify payment gateway. This includes, without limitation, any method that (i) directly or indirectly circumvents the system of remuneration according to these Apify Store Publishing Terms; or (ii) poses a security risk to us, the Platform, the users, or any third party (e.g., by creating a false impression that the user pays any fees or other payments for the Actor to Apify). We reserve the right to withhold any and all outstanding payments due to you for such Actor until we determine whether the Actor complies with these Apify Store Publishing Terms.
 
-**13.6.** In case any suspicions arise regarding the legitimacy of any user’s payment for your Actor (e.g., suspicions of a fraudulent payment), before we pay you the remuneration for such user’s payment, we shall have the right, but not the obligation, to withhold the remuneration for such user’s payment for a period necessary for us to investigate any suspicious activity related to it. You agree to provide us and/or any authorized third party (e.g., PayPal) with all reasonably requested cooperation.
+**13.6.** In case any suspicions arise regarding the legitimacy of any user’s payment for your Actor (e.g., suspicions of a fraudulent payment) or if the user is past due with its payment obligations, before we pay you the remuneration for such user’s payment, we shall have the right, but not the obligation, to withhold the remuneration for such user’s payment for a period necessary for us to investigate any suspicious activity related to it or until paid by the user. You agree to provide us and/or any authorized third party (e.g., PayPal) with all reasonably requested cooperation.
 
 **13.7.** If any fraudulent or otherwise non-compliant activity is identified regarding a user’s account or payments, we may ban the user from using the Platform. If we ban such a user, we shall not be obligated to pay you any remuneration resulting from such fraudulent user’s payments. In case such activities are identified after we already paid you the remuneration for such user's payment, you shall be obligated, at our written request, to refund the corresponding part of the remuneration.
 
@@ -120,13 +121,4 @@ _Example: You set the price for your monetized Actor under the Price per Result 
 
 ## 14. Amendments
 
-**14.1.** We may unilaterally amend the Apify Store Publishing Terms. We shall notify you of such an amendment at least 30 days in advance before its effectiveness. Should you disagree with such an amendment, you may unpublish all your Actors from Apify Store until the effective date of the amendments. Otherwise, you will be deemed to agree with the announced amendments.
-
-## Version History
-
-This is the history of Apify Store Publishing Terms and Conditions. If you are a new user, the latest terms apply. If you are an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
-
-| Version                                                               | Effective from   | Effective until |
-|-----------------------------------------------------------------------|------------------|-----------------|
-| Latest (this document)                                                | May 14, 2024     |                 |
-| [December 2022](../../old/store-publishing-terms-and-conditions-2022.md) | December 1, 2022 | June 13, 2024   |
+**14.1.** We may unilaterally amend the Apify Store Publishing Terms. We shall notify you of such an amendment in advance. Should you disagree with such an amendment, you may unpublish all your Actors from Apify Store within 30 days from the notification. Otherwise, you will be deemed to agree with the announced amendments.
