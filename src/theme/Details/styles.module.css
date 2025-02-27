@@ -1,0 +1,15 @@
+.details {
+  --docusaurus-details-summary-arrow-size: 0.6rem;
+  --docusaurus-details-decoration-color: var(--ifm-alert-border-color);
+  --docusaurus-details-transition: transform var(--ifm-transition-fast) ease;
+  margin: 0 0 var(--ifm-spacing-vertical);
+  border: 1px solid var(--ifm-alert-border-color);
+
+  & > summary {
+    padding-left: 1.6rem;
+
+    &::before {
+      top: 0.6rem;
+    }
+  }
+}
