@@ -33,6 +33,7 @@ jobs:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
+                    SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
             -   name: Run Lychee Link Checker
                 id: lychee
