@@ -35,6 +35,7 @@ jobs:
             -   run: npm run build
                 env:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
+                    SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
     lint_content:
         name: Lint markdown content
