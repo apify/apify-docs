@@ -297,9 +297,9 @@ async def main():
 
 The SDK provides convenient methods for exiting Actors:
 
-1. Use `exit()` with custom messages to inform users about the Actor's achievements or issues.
-
-2. The `fail()` method emits `exit` event allowing components to perform cleanup or state persistence.
+- Use `exit()` with custom messages to inform users about the Actor's achievements or issues.
+- Use `fail()` as a shortcut for `exit()` when indicating an error. It defaults to an exit code of `1` and emits the `exit` event, allowing components to perform cleanup or state persistence.
+- The `exit()` method also emits the `exit` event, enabling cleanup or state persistence.
 
 Example of a failed exit using a shorthand method:
 
