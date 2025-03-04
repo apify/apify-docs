@@ -11,7 +11,11 @@ get:
     Get the OpenAPI definition for a specific Actor build.
     Authentication is based on the build's unique ID. No authentication token is required.
 
-    **Note**: You can also use the `/api/v2/act-openapi-json-get` endpoint to get the OpenAPI definition for a build.
+    :::note
+
+    You can also use the [`/api/v2/act-openapi-json-get`](/api/v2/act-openapi-json-get) endpoint to get the OpenAPI definition for a build.
+
+    :::
   operationId: actorBuild_openapi_json_get
   security:
     - apiKeyActorBuilds: []
