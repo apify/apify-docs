@@ -1,6 +1,6 @@
 post:
   tags:
-    - Request queues/Batch request operations
+    - Storage/Request queues
   summary: Add requests
   description: |
     Adds requests to the queue in batch. The maximum requests in batch is limit
@@ -110,7 +110,7 @@ post:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#batch_add_requests
 delete:
   tags:
-    - Request queues/Batch request operations
+    - Storage/Request queues
   summary: Delete requests
   description: |
     Batch-deletes given requests from the queue. The number of requests in a

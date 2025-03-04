@@ -1,11 +1,10 @@
 get:
   tags:
-    - Actors/Environment variable collection
+    - Actors/Actor versions
   summary: Get list of environment variables
   description: |
     Gets the list of environment variables for a specific version of an Actor.
-    The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where
-    each contains basic information about a single environment variable.
+    The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where each contains basic information about a single environment variable.
   operationId: act_version_envVars_get
   parameters:
     - name: actorId
@@ -42,7 +41,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarCollectionClientAsync#list
 post:
   tags:
-    - Actors/Environment variable collection
+    - Actors/Actor versions
   summary: Create environment variable
   description: |
     Creates an environment variable of an Actor using values specified in a

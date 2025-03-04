@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actors/Run actor synchronously
+    - Actors/Actor runs
   summary: With input
   description: |
     Runs a specific Actor and returns its output.
@@ -167,7 +167,7 @@ post:
     - https://docs.apify.com/api/v2#tag/ActorsRun-actor-synchronously/operation/act_runSync_post
 get:
   tags:
-    - Actors/Run actor synchronously
+    - Actors/Actor runs
   summary: Without input
   description: |
     Runs a specific Actor and returns its output.

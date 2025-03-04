@@ -1,6 +1,6 @@
 get:
   tags:
-    - Key-value stores/Store collection
+    - Storage/Key-value stores
   summary: Get list of key-value stores
   description: |
     Gets the list of key-value stores owned by the user.
@@ -80,7 +80,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreCollectionClientAsync#list
 post:
   tags:
-    - Key-value stores/Store collection
+    - Storage/Key-value stores
   summary: Create key-value store
   description: |
     Creates a key-value store and returns its object. The response is the same

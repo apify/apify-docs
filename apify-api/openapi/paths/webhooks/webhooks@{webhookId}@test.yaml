@@ -1,6 +1,6 @@
 post:
   tags:
-    - Webhooks/Webhook test
+    - Webhooks/Webhooks
   summary: Test webhook
   description: Tests a webhook. Creates a webhook dispatch with a dummy payload.
   operationId: webhook_test_post
