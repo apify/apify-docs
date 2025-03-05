@@ -49,18 +49,19 @@ Monetizing your Actor on the Apify platform involves several key steps:
 ### Pay-per-event pricing model
 
 - _How it works_: you charge users based on specific events triggered programmatically by your Actor's code. You earn 80% of the revenue minus platform costs.
-- _Example_: you set the following events for your Actor:
+- _Event cost example_: you set the following events for your Actor:
   - `Actor start per 1 GB of memory` at 0.005$
   - `Pages scraped` at 0.002$
   - `Page opened with residential proxy` at 0.002$ - this is on top of `Pages scraped`
   - `Page opened with a browser` at 0.002$ - this is on top of `Pages scraped`
+- _Example_:
   - User A:
     - Started the Actor 10 times = 0.05$
     - Scraped 1000 pages = 2.00$
     - 500 of those were scraped using residential proxy = 1.00$
     - 300 of those were scraped using browser = 0.90$
     - This comes up to 3.95$ of total revenue
-  - - User B:
+  - User B:
     - Started the Actor 5 times = 0.025$
     - Scraped 500 pages = 1.00$
     - 200 of those were scraped using residential proxy = 0.40$
