@@ -33,11 +33,14 @@ Monetizing your Actor on the Apify platform involves several key steps:
   - 2nd user starts their trial but pays next month.
   - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
 
+Learn more about rental pricing model in our [documentation](/platform/actors/publishing/monetize#rental-pricing-model).
+
 ### Pay-per-result pricing model
 
 ![pay per result model example](images/ppr-model.png)
 
 - _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform costs.
+- _Profit calculation_: `profit = (0.8 * revenue) - platform costs`
 - _Cost breakdown_:
   - Compute unit: $0.4 per CU
   - Residential proxies: $13 per GB
@@ -46,28 +49,35 @@ Monetizing your Actor on the Apify platform involves several key steps:
   - Dataset storage: $1 per 1,000 GB-hours
 - _Example_: you set a $1 per 1,000 results price. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If platform costs are $5 and $2, your profit is $49.
 
+Learn more about pay-per-result pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-result-pricing-model).
+
 ### Pay-per-event pricing model
 
+![pay per event model example](images/ppe-model.png)
+
 - _How it works_: you charge users based on specific events triggered programmatically by your Actor's code. You earn 80% of the revenue minus platform costs.
+- - _Profit calculation_: `profit = (0.8 * revenue) - platform costs`
 - _Event cost example_: you set the following events for your Actor:
-  - `Actor start per 1 GB of memory` at 0.005$
-  - `Pages scraped` at 0.002$
-  - `Page opened with residential proxy` at 0.002$ - this is on top of `Pages scraped`
-  - `Page opened with a browser` at 0.002$ - this is on top of `Pages scraped`
+  - `Actor start per 1 GB of memory` at $0.005
+  - `Pages scraped` at $0.002
+  - `Page opened with residential proxy` at $0.002 - this is on top of `Pages scraped`
+  - `Page opened with a browser` at $0.002 - this is on top of `Pages scraped`
 - _Example_:
   - User A:
-    - Started the Actor 10 times = 0.05$
-    - Scraped 1000 pages = 2.00$
-    - 500 of those were scraped using residential proxy = 1.00$
-    - 300 of those were scraped using browser = 0.90$
-    - This comes up to 3.95$ of total revenue
+    - Started the Actor 10 times = $0.05
+    - Scraped 1000 pages = $2.00
+    - 500 of those were scraped using residential proxy = $1.00
+    - 300 of those were scraped using browser = $0.60
+    - This comes up to $3.65 of total revenue
   - User B:
-    - Started the Actor 5 times = 0.025$
-    - Scraped 500 pages = 1.00$
-    - 200 of those were scraped using residential proxy = 0.40$
-    - 100 of those were scraped using browser = 0.30$
-    - This comes up to 1.725$ of total revenue
-  - That means if platform costs are 0.395$ for user A and 0.173$ for user B your profit is 3.972$
+    - Started the Actor 5 times = $0.025
+    - Scraped 500 pages = $1.00
+    - 200 of those were scraped using residential proxy = $0.40
+    - 100 of those were scraped using browser = $0.20
+    - This comes up to $1.625 of total revenue
+  - That means if platform costs are $0.365 for user A and $0.162 for user B your profit is $4.748
+
+Learn more about pay-per-event pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-event-pricing-model).
 
 ## Setting up monetization
 
