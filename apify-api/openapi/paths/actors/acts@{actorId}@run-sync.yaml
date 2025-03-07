@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: With input
+  summary: Run Actor synchronously with input and return output
   description: |
     Runs a specific Actor and returns its output.
 
