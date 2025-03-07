@@ -47,7 +47,7 @@ Learn more about the rental pricing model in our [documentation](/platform/actor
   - SERPs proxy: $3 per 1,000 SERPs
   - Data transfer (external): $0.20 per GB
   - Dataset storage: $1 per 1,000 GB-hours
-- _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If platform usage costs are $5 and $2, your profit is $49.
+- _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
 
 Learn more about the pay-per-result pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-result-pricing-model).
 
@@ -65,7 +65,7 @@ Learn more about the pay-per-result pricing model in our [documentation](/platfo
 - _Example_:
   - User A:
     - Started the Actor 10 times = $0.05
-    - Scraped 1000 pages = $2.00
+    - Scraped 1,000 pages = $2.00
     - 500 of those were scraped using residential proxy = $1.00
     - 300 of those were scraped using browser = $0.60
     - This comes up to $3.65 of total revenue
