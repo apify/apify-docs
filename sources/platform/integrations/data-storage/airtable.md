@@ -10,16 +10,16 @@ slug: /integrations/airtable
 
 ---
 
-## Get started
+[Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
 
-To use the Apify integration for Airtable, you will need:
+This integration uses OAuth 2.0, a secure authorization protocol, to connect your Airtable account to Apify and manage data transfers.
 
-- An [Apify account](https://console.apify.com/).
-- An Airtable account
+## Connect Apify with Airtable
 
-## Connect your Airtable account
+To use the Apify integration for Airtable, ensure you have:
 
-In order to upload run results of your Actors to Airtable, you’ll need to connect your Airtable account and grant Apify the necessary permissions. Airtable uses OAuth 2.0, a web standard that allows Apify to integrate with your Airtable account securely and manage data transfers on your behalf.
+- An [Apify account](https://console.apify.com/)
+- An [Airtable account](https://www.airtable.com/)
 
 ### Follow the steps below to connect your Airtable account to Apify:
 
