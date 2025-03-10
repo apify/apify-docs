@@ -21,21 +21,15 @@ To use the Apify integration for Airtable, ensure you have:
 - An [Apify account](https://console.apify.com/)
 - An [Airtable account](https://www.airtable.com/)
 
-### Follow the steps below to connect your Airtable account to Apify:
+### Set up integration within Apify Console
 
-1. Visit the [API & Integrations tab](https://console.apify.com/settings/integrations) in the Settings section of Apify Console.
-
-2. Scroll down to the **Account-level integrations** and click on the **Add account** button.
-
+1. In Apify Console, go to the [API & Integrations tab](https://console.apify.com/settings/integrations) in the **Settings** section.
+1. Under **Account-level integrations**, click **Add account**.
     ![Airtable integration](../images/airtable/connect-account-1.png)
-
-3. From the list of available services, select **Airtable**.
-
+1. Select **Airtable** from the list of available services.
     ![Airtable integration](../images/airtable/connect-account-2.png)
-
-4. The OAuth 2.0 authorization flow will initiate, allowing you to securely connect your Airtable account.
-
-5. After authorization, you’ll be prompted to select the workspaces and bases you want to grant Apify access to.
+1. Follow the OAuth 2.0 authorization flow to securely connect your Airtable account.
+1. Grant Apify access to the workspaces and bases you want to use.
 
 ## Set up Airtable integration
 
