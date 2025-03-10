@@ -21,7 +21,7 @@ To use the Apify integration for Airtable, ensure you have:
 - An [Apify account](https://console.apify.com/)
 - An [Airtable account](https://www.airtable.com/)
 
-### Set up integration within Apify Console
+### Set up connection within Apify Console
 
 1. In Apify Console, go to the [API & Integrations tab](https://console.apify.com/settings/integrations) in the **Settings** section.
 1. Under **Account-level integrations**, click **Add account**.
