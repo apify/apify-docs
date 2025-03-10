@@ -1,0 +1,13 @@
+title: ActorChargeEvent
+type: object
+required:
+  - eventPriceUsd
+  - eventTitle
+properties:
+  eventPriceUsd:
+    type: number
+  eventTitle:
+    type: string
+  eventDescription:
+    type: string
+    nullable: true

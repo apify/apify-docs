@@ -1,0 +1,18 @@
+title: PricePerEventActorPricingInfo
+allOf:
+  - $ref: "./CommonActorPricingInfo.yaml"
+  - type: object
+    required:
+      - pricingModel
+      - pricingPerEvent
+    properties:
+      pricingModel:
+        type: string
+        enum: [PAY_PER_EVENT]
+      pricingPerEvent:
+        type: object
+        additionalProperties:
+          $ref: ./ActorChargeEvent.yaml
+      minimalMaxTotalChargeUsd:
+        type: number
+        nullable: true

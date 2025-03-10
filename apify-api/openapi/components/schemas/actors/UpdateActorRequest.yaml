@@ -36,6 +36,10 @@ properties:
     items:
       $ref: "./CreateOrUpdateEnvVarRequest.yaml"
     description: ''
+  pricingInfos:
+    type: array
+    items:
+      $ref: ../actor-pricing-info/ActorPricingInfo.yaml
   categories:
     type: array
     items:
