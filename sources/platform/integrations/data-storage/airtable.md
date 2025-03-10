@@ -31,21 +31,14 @@ To use the Apify integration for Airtable, ensure you have:
 1. Follow the OAuth 2.0 authorization flow to securely connect your Airtable account.
 1. Grant Apify access to the workspaces and bases you want to use.
 
-## Set up Airtable integration
+### Set up Airtable integration
 
-1. [Choose an Actor or Task](https://console.apify.com/actors) to integrate with Airtable and head to its **Integrations** tab.
-
-2. Click **Upload data to Airtable** to initiate the integration setup.
-
+1. [Choose an Actor or Task](https://console.apify.com/actors) to integrate with Airtable.
+1. Go to the **Integrations** tab and click **Upload data to Airtable**.
     ![Airtable integration](../images/airtable/set-up-integration-1.png)
-
-3. Select a connected Airtable account and choose the base where the integration will upload run results.
-
-4. Enter a table name. A new table will be created for each execution of this integration. To ensure uniqueness, use dynamic variables. If a table with the same name already exists, a random token will be appended.
-
+1. Select a connected Airtable account and choose the base where the Actor run results will be uploaded.
+1. Enter a table name. A new table will be created for each execution of this integration. To ensure uniqueness, use dynamic variables. If a table with the same name already exists, a random token will be appended.
     ![Airtable integration](../images/airtable/set-up-integration-2.png)
-
-5. Save the integration. Once your Actor runs, you’ll see its results uploaded to Airtable.
-
+1. Save the integration. Once your Actor runs, you’ll see its results uploaded to Airtable.
     ![Airtable integration](../images/airtable/set-up-integration-3.png)
 
