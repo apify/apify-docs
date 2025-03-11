@@ -1,4 +1,4 @@
-title: PricePerEventActorPricingInfo
+title: PayPerEventActorPricingInfo
 allOf:
   - $ref: "./CommonActorPricingInfo.yaml"
   - type: object

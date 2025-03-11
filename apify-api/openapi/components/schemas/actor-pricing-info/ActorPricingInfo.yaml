@@ -2,12 +2,12 @@ title: ActorRunPricingInfo
 discriminator:
   propertyName: pricingModel
   mapping:
-    PAY_PER_EVENT: ./PricePerEventActorPricingInfo.yaml
+    PAY_PER_EVENT: ./PayPerEventActorPricingInfo.yaml
     PRICE_PER_DATASET_ITEM: ./PricePerDatasetItemActorPricingInfo.yaml
     FLAT_PRICE_PER_MONTH: ./FlatPricePerMonthActorPricingInfo.yaml
     FREE: ./FreeActorPricingInfo.yaml
 oneOf:
-  - $ref: ./PricePerEventActorPricingInfo.yaml
+  - $ref: ./PayPerEventActorPricingInfo.yaml
   - $ref: ./PricePerDatasetItemActorPricingInfo.yaml
   - $ref: ./FlatPricePerMonthActorPricingInfo.yaml
   - $ref: ./FreeActorPricingInfo.yaml

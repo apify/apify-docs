@@ -5,13 +5,13 @@ allOf:
     required:
       - pricingModel
       - pricePerUnitUsd
+      - unitName
     properties:
       pricingModel:
         type: string
         enum: [PRICE_PER_DATASET_ITEM]
       unitName:
         type: string
-        nullable: true
         description: "Name of the unit that is being charged"
       pricePerUnitUsd:
         type: number

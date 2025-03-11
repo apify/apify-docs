@@ -5,13 +5,13 @@ allOf:
     required:
       - pricingModel
       - pricePerUnitUsd
+      - trialMinutes
     properties:
       pricingModel:
         type: string
         enum: [FLAT_PRICE_PER_MONTH]
       trialMinutes:
         type: number
-        nullable: true
         description: "For how long this Actor can be used for free in trial period"
       pricePerUnitUsd:
         type: number

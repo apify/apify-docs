@@ -20,10 +20,13 @@ properties:
     type: string
     format: date-time
     nullable: true
+    x-internal: true
   notifiedAboutChangeAt:
     type: string
     format: date-time
     nullable: true
+    x-internal: true
   reasonForChange:
     type: string
     nullable: true
+    x-internal: true
