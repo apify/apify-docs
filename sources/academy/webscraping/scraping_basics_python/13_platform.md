@@ -119,15 +119,6 @@ Actor build detail https://console.apify.com/actors/a123bCDefghiJkLMN#/builds/0.
 
 Let's agree to opening the Actor detail in browser. There we'll find a button to **Start Actor**.
 
-<!--
-    TODO we'll need to remove INPUT from the config
-
-    it seems apify init won't recognize the project only with requirements.txt
-    https://crawlee.dev/python/docs/introduction/deployment
-    https://packaging.python.org/en/latest/tutorials/installing-packages/
-    https://docs.apify.com/sdk/python/docs/overview/introduction
--->
-
 ## What's next
 
 ---
