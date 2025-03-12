@@ -1,0 +1,10 @@
+title: FreeActorPricingInfo
+allOf:
+  - $ref: "./CommonActorPricingInfo.yaml"
+  - type: object
+    required:
+      - pricingModel
+    properties:
+      pricingModel:
+        type: string
+        enum: [FREE]
