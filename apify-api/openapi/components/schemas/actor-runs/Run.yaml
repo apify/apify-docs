@@ -50,7 +50,7 @@ properties:
   meta:
     $ref: ./RunMeta.yaml
   pricingInfo:
-    $ref: ../actor-pricing-info/ActorPricingInfo.yaml
+    $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   stats:
     $ref: ./RunStats.yaml
   chargedEventCounts:

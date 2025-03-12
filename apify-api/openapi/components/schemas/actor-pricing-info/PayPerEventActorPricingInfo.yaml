@@ -11,8 +11,11 @@ allOf:
         enum: [PAY_PER_EVENT]
       pricingPerEvent:
         type: object
-        additionalProperties:
-          $ref: ./ActorChargeEvent.yaml
+        properties:
+          actorChargeEvents:
+            type: object
+            additionalProperties:
+              $ref: ./ActorChargeEvent.yaml
       minimalMaxTotalChargeUsd:
         type: number
         nullable: true

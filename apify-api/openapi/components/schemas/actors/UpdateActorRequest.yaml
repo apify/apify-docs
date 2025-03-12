@@ -39,7 +39,7 @@ properties:
   pricingInfos:
     type: array
     items:
-      $ref: ../actor-pricing-info/ActorPricingInfo.yaml
+      $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   categories:
     type: array
     items:
