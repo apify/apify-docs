@@ -49,8 +49,14 @@ properties:
     example: false
   meta:
     $ref: ./RunMeta.yaml
+  pricingInfo:
+    $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   stats:
     $ref: ./RunStats.yaml
+  chargedEventCounts:
+    type: object
+    additionalProperties:
+      $ref: ../actor-pricing-info/ActorChargeEvent.yaml
   options:
     $ref: ./RunOptions.yaml
   buildId:

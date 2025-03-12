@@ -1,0 +1,17 @@
+title: PricePerDatasetItemActorPricingInfo
+allOf:
+  - $ref: "./CommonActorPricingInfo.yaml"
+  - type: object
+    required:
+      - pricingModel
+      - pricePerUnitUsd
+      - unitName
+    properties:
+      pricingModel:
+        type: string
+        enum: [PRICE_PER_DATASET_ITEM]
+      unitName:
+        type: string
+        description: "Name of the unit that is being charged"
+      pricePerUnitUsd:
+        type: number
