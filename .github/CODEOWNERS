@@ -6,3 +6,6 @@
 
 # Academy
 /sources/academy/ @honzajavorek
+
+# OpenAPI spec
+/apify-api/ @netmilk @janbuchar @fnesveda
