@@ -78,7 +78,7 @@ Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory co
 
 The file contains a single asynchronous function, `main()`. At the beginning, it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then passes that input to a small crawler built on top of the Crawlee framework.
 
-Every program that runs on the Apify platform first needs to be packaged as a so-called Actor—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
+Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://apify.com/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
 
 ![The expected file structure](./images/actor-file-structure.png)
 
@@ -258,7 +258,7 @@ When the run finishes, the interface will turn green. On the **Output** tab, we 
 
 :::info Accessing data programmatically
 
-You don't need to click buttons to download the data. You can also retrieve it using [Apify's API](https://docs.apify.com/api/v2/dataset-items-get), the [`apify datasets`](https://docs.apify.com/cli/docs/reference#datasets) CLI command, or the [`apify`](https://docs.apify.com/api/client/python/docs/examples/retrieve-actor-data) Python SDK.
+You don't need to click buttons to download the data. You can also retrieve it using Apify's API, the `apify datasets` CLI command, or the Python SDK. Learn more in the [Dataset docs](https://docs.apify.com/platform/storage/dataset).
 
 :::
 
@@ -266,13 +266,13 @@ You don't need to click buttons to download the data. You can also retrieve it u
 
 Now that our scraper is deployed, let's automate its execution. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Click **Create new**, review the periodicity (default: daily), and specify the Actor to run. Then click **Enable**—that's it!
 
-From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, see stats, monitor charts, and even set up alerts.
+From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/monitoring), and even set up alerts.
 
 ![Schedule detail page](./images/actor-schedule.png)
 
 ## Adding support for proxies
 
-If monitoring shows that our scraper frequently fails to reach the Warehouse Shop website, it's likely being blocked. To avoid this, we can configure proxies so our requests come from different locations, reducing the chances of detection and blocking.
+If monitoring shows that our scraper frequently fails to reach the Warehouse Shop website, it's likely being blocked. To avoid this, we can [configure proxies](https://docs.apify.com/platform/proxy) so our requests come from different locations, reducing the chances of detection and blocking.
 
 Proxy configuration is a type of Actor input, so let's start by reintroducing the necessary code. We'll update `warehouse-watchdog/src/main.py` like this:
 
@@ -427,7 +427,7 @@ You've reached the end of the course—congratulations! 🎉 Together, we've bui
 - Executes periodically without manual intervention, collecting data over time
 - Uses proxies to avoid being blocked
 
-We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even start publishing scrapers for others to use—for a fee? 😉
+We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even [start publishing scrapers](https://docs.apify.com/platform/actors/publishing) for others to use—for a fee? 😉
 
 ---
 
