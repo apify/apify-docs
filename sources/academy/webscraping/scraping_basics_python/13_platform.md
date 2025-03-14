@@ -6,8 +6,6 @@ sidebar_position: 13
 slug: /scraping-basics-python/platform
 ---
 
-import Exercises from './_exercises.mdx';
-
 **In this lesson, we'll deploy our application to a scraping platform that automatically runs it daily. We'll also use the platform's API to retrieve and work with the results.**
 
 ---
@@ -211,7 +209,7 @@ When the run finishes, the interface will turn green. On the **Output** tab, we 
 
 :::note Accessing data programmatically
 
-You don't need to click buttons to download the data. You can also retrieve it using [Apify's API](https://docs.apify.com/api/v2/dataset-items-get), the [`apify datasets`](https://docs.apify.com/cli/docs/reference#datasets) CLI command, or the [`apify`](https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync) Python SDK.
+You don't need to click buttons to download the data. You can also retrieve it using [Apify's API](https://docs.apify.com/api/v2/dataset-items-get), the [`apify datasets`](https://docs.apify.com/cli/docs/reference#datasets) CLI command, or the [`apify`](https://docs.apify.com/api/client/python/docs/examples/retrieve-actor-data) Python SDK.
 
 :::
 
@@ -378,7 +376,9 @@ We hope this serves as a solid foundation for your next scraping project. Perhap
 
 ---
 
-<Exercises />
+## Exercises
+
+The final challenge of this course is about interacting with your scraper programmatically using the Apify SDK.
 
 :::danger Work in progress
 
