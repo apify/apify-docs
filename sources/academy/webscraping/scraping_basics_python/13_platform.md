@@ -80,7 +80,9 @@ The file contains a single asynchronous function, `main()`. At the beginning, it
 
 Every program that runs on the Apify platform first needs to be packaged as a so-called Actor—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
 
-We'll now adjust the template so it runs our program for watching prices. As a first step, we'll create a new empty file, `crawler.py`, inside the `warehouse-watchdog/src` directory. Then, we'll fill this file with the [final code](./12_framework.md#logging) from the previous lesson:
+![The expected file structure](./images/actor-file-structure.png)
+
+We'll now adjust the template so that it runs our program for watching prices. As the first step, we'll create a new empty file, `crawler.py`, inside the `warehouse-watchdog/src` directory. Then, we'll fill this file with final, unchanged code from the previous lesson:
 
 ```py title=warehouse-watchdog/src/crawler.py
 import asyncio
@@ -95,7 +97,50 @@ async def main():
         context.log.info("Looking for product detail pages")
         await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
 
-    ...
+    @crawler.router.handler("DETAIL")
+    async def handle_detail(context):
+        context.log.info(f"Product detail page: {context.request.url}")
+        price_text = (
+            context.soup
+            .select_one(".product-form__info-content .price")
+            .contents[-1]
+            .strip()
+            .replace("$", "")
+            .replace(",", "")
+        )
+        item = {
+            "url": context.request.url,
+            "title": context.soup.select_one(".product-meta__title").text.strip(),
+            "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+            "price": Decimal(price_text),
+            "variant_name": None,
+        }
+        if variants := context.soup.select(".product-form__option.no-js option"):
+            for variant in variants:
+                context.log.info("Saving a product variant")
+                await context.push_data(item | parse_variant(variant))
+        else:
+            context.log.info("Saving a product")
+            await context.push_data(item)
+
+    await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
+
+    crawler.log.info("Exporting data")
+    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data_csv(path='dataset.csv')
+
+def parse_variant(variant):
+    text = variant.text.strip()
+    name, price_text = text.split(" - ")
+    price = Decimal(
+        price_text
+        .replace("$", "")
+        .replace(",", "")
+    )
+    return {"variant_name": name, "price": price}
+
+if __name__ == '__main__':
+    asyncio.run(main())
 ```
 
 Now, let's replace the contents of `warehouse-watchdog/src/main.py` with this:
@@ -109,7 +154,7 @@ async def main():
         await crawl()
 ```
 
-We import our program as a function and await the result inside the Actor block. Unlike the sample scraper, our program doesn't expect any input data, so we can delete the code handling that part.
+We import our scraper as a function and await the result inside the Actor block. Unlike the sample scraper, the one we made in the previous lesson doesn't expect any input data, so we can omit the code that handles that part.
 
 Next, we'll change to the `warehouse-watchdog` directory in our terminal and verify that everything works locally before deploying the project to the cloud:
 
@@ -203,11 +248,15 @@ Actor build detail https://console.apify.com/actors/a123bCDefghiJkLMN#/builds/0.
 ? Do you want to open the Actor detail in your browser? (Y/n)
 ```
 
-After agreeing to open the Actor details in our browser, assuming we're logged in, we'll see an option to **Start Actor**. Clicking it opens the execution settings. We won’t change anything—just hit **Start**, and we should see logs similar to what we see locally, but this time our scraper is running in the cloud.
+After opening the link in our browser, assuming we're logged in, we'll see the **Source** screen on the Actor's detail page. We'll go to the **Input** tab of that screen. We won't change anything—just hit **Start**, and we should see logs similar to what we see locally, but this time our scraper will be running in the cloud.
+
+![Actor's detail page, screen Source, tab Input](./images/actor-input.png)
 
 When the run finishes, the interface will turn green. On the **Output** tab, we can preview the results as a table or JSON. We can even export the data to formats like CSV, XML, Excel, RSS, and more.
 
-:::note Accessing data programmatically
+![Actor's detail page, screen Source, tab Output](./images/actor-output.png)
+
+:::info Accessing data programmatically
 
 You don't need to click buttons to download the data. You can also retrieve it using [Apify's API](https://docs.apify.com/api/v2/dataset-items-get), the [`apify datasets`](https://docs.apify.com/cli/docs/reference#datasets) CLI command, or the [`apify`](https://docs.apify.com/api/client/python/docs/examples/retrieve-actor-data) Python SDK.
 
@@ -218,6 +267,8 @@ You don't need to click buttons to download the data. You can also retrieve it u
 Now that our scraper is deployed, let's automate its execution. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Click **Create new**, review the periodicity (default: daily), and specify the Actor to run. Then click **Enable**—that's it!
 
 From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, see stats, monitor charts, and even set up alerts.
+
+![Schedule detail page](./images/actor-schedule.png)
 
 ## Adding support for proxies
 
@@ -331,7 +382,11 @@ Run: Building Actor warehouse-watchdog
 ? Do you want to open the Actor detail in your browser? (Y/n)
 ```
 
-Back in the Apify console, go to the **Source** screen and switch to the **Input** tab. You'll see the new **Proxy config** option, which defaults to **Datacenter - Automatic**. Leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
+Back in the Apify console, go to the **Source** screen and switch to the **Input** tab. You'll see the new **Proxy config** option, which defaults to **Datacenter - Automatic**.
+
+![Actor's detail page, screen Source, tab Input with proxies](./images/actor-input-proxies.png)
+
+Leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
 
 ```text
 (timestamp) ACTOR: Pulling Docker image of build o6vHvr5KwA1sGNxP0 from repository.
