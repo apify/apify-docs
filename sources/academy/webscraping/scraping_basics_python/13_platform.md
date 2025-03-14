@@ -31,7 +31,7 @@ That said, the main goal of this lesson is to show how deploying to **any platfo
 
 ## Registering
 
-First, let's [create a new Apify account](https://console.apify.com/sign-up). The process includes several verifications that you're a human being and that your e-mail address is valid. While annoying, these are necessary measures to prevent abuse of the platform.
+First, let's [create a new Apify account](https://console.apify.com/sign-up). The process includes several verifications that you're a human being and that your email address is valid. While annoying, these are necessary measures to prevent abuse of the platform.
 
 Apify serves both as an infrastructure where to privately deploy and run own scrapers, and as a marketplace, where anyone can offer their ready scrapers to others for rent. But we'll overcome our curiosity for now and leave exploring the Apify Store for later.
 
@@ -56,13 +56,13 @@ Success: You are logged in to Apify as user1234!
 
 ## Starting a real-world project
 
-Until now we kept our scrapers minimal, each being represented by just a single Python module, such as `main.py`. Also we've been adding dependencies to our project by only installing them by `pip` inside an activated virtual environment.
+Until now, we've kept our scrapers minimal, each represented by just a single Python module, such as `main.py`. Also, we've been adding dependencies to our project only by installing them with `pip` inside an activated virtual environment.
 
-If we were to send our code to a friend like this, they wouldn't know what they need to install before they can run the scraper without import errors. The same applies if we were to send our code to a cloud platform.
+If we were to send our code to a friend like this, they wouldn't know what they needed to install before running the scraper without import errors. The same applies if we were to deploy our code to a cloud platform.
 
-To be able to share what we've built we need a packaged Python project. The best way to do that is to follow the official [Python Packaging User Guide](https://packaging.python.org/), but for the sake of this course let's take a shortcut with the Apify CLI.
+To share what we've built, we need a packaged Python project. The best way to do that is by following the official [Python Packaging User Guide](https://packaging.python.org/), but for the sake of this course, let's take a shortcut with the Apify CLI.
 
-Change directory in your terminal to a place where you start new projects. Then run the following command-it will create a new subdirectory called `warehouse-watchdog` for the new project, which will contain all the necessary files:
+Change to a directory where you start new projects in your terminal. Then, run the following command—it will create a new subdirectory called `warehouse-watchdog` for the new project, containing all the necessary files:
 
 ```text
 $ apify create warehouse-watchdog --template=python-crawlee-beautifulsoup
@@ -76,13 +76,13 @@ Info: To install additional Python packages, you need to activate the virtual en
 
 ## Adjusting the template
 
-Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory containing several Python files, a `main.py` among them. That is a sample BeautifulSoup scraper provided by the template.
+Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory containing several Python files, including `main.py`. This is a sample BeautifulSoup scraper provided by the template.
 
-The file contains a single asynchronous function `main()`. In the beginning it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then it passes that input to a small crawler built on top of the Crawlee framework.
+The file contains a single asynchronous function, `main()`. At the beginning, it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then passes that input to a small crawler built on top of the Crawlee framework.
 
-Each program which should run on the Apify platform needs to be first packaged as a so-called Actor, a standardized box with places for input and output. Crawlee scrapers automatically connect to the Actor output, but the input needs to be explicitly handled in code.
+Every program that runs on the Apify platform first needs to be packaged as a so-called Actor—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their detault dataset to the Actor output, but input needs to be explicitly handled in the code.
 
-We'll now adjust the template so it runs our program for watching prices. As a first step, we'll create a new empty file `crawler.py` inside the `warehouse-watchdog/src` directory, and we'll fill this new file with the [final code](./12_framework.md#logging) from the previous lesson:
+We'll now adjust the template so it runs our program for watching prices. As a first step, we'll create a new empty file, `crawler.py`, inside the `warehouse-watchdog/src` directory. Then, we'll fill this file with the [final code](./12_framework.md#logging) from the previous lesson:
 
 ```py title=warehouse-watchdog/src/crawler.py
 import asyncio
@@ -100,7 +100,7 @@ async def main():
     ...
 ```
 
-Now let's change the contents of `warehouse-watchdog/src/main.py` to this:
+Now, let's replace the contents of `warehouse-watchdog/src/main.py` with this:
 
 ```py title=warehouse-watchdog/src/main.py
 from apify import Actor
@@ -111,9 +111,9 @@ async def main():
         await crawl()
 ```
 
-We imported our program as a function and we await result of that function inside the Actor block. Unlike the sample scraper, our program doesn't expect any input data, so we could delete the code handling that part.
+We import our program as a function and await the result inside the Actor block. Unlike the sample scraper, our program doesn't expect any input data, so we can delete the code handling that part.
 
-Now we'll change directory in our terminal so that we're inside `warehouse-watchdog`. There, we'll verify that everything works on our machine before we deploy our project to the cloud:
+Next, we'll change to the `warehouse-watchdog` directory in our terminal and verify that everything works locally before deploying the project to the cloud:
 
 ```text
 $ apify run
@@ -143,9 +143,9 @@ Run: /Users/course/Projects/warehouse-watchdog/.venv/bin/python3 -m src
 
 ## Deploying to platform
 
-The Actor configuration coming from the template instructs the platform to expect input, so we better change that before we attempt to run our scraper in the cloud.
+The Actor configuration from the template instructs the platform to expect input, so we should change that before running our scraper in the cloud.
 
-Inside `warehouse-watchdog` there is a directory called `.actor`. Inside, we'll edit the `input_schema.json` file. It comes out of the template like this:
+Inside `warehouse-watchdog`, there's a directory called `.actor`. Within it, we'll edit the `input_schema.json` file, which looks like this by default:
 
 ```json title=warehouse-watchdog/src/.actor/input_schema.json
 {
@@ -169,11 +169,11 @@ Inside `warehouse-watchdog` there is a directory called `.actor`. Inside, we'll 
 
 :::tip Hidden dot files
 
-Beware that on some systems `.actor` might be by default hidden in the directory listing, because it starts with a dot. Try to locate the file using your editor's built-in file explorer.
+On some systems, `.actor` might be hidden in the directory listing because it starts with a dot. Use your editor's built-in file explorer to locate it.
 
 :::
 
-We'll empty the expected properties and remove the list of required ones. After our changes, the file should look like this:
+We'll remove the expected properties and the list of required ones. After our changes, the file should look like this:
 
 ```json title=warehouse-watchdog/src/.actor/input_schema.json
 {
@@ -186,11 +186,11 @@ We'll empty the expected properties and remove the list of required ones. After 
 
 :::danger Trailing commas in JSON
 
-Make sure there is no trailing comma after `{}`, otherwise the file won't be valid JSON.
+Make sure there's no trailing comma after `{}`, or the file won't be valid JSON.
 
 :::
 
-Now we can proceed to deploying:
+Now, we can proceed with deployment:
 
 ```text
 $ apify push
@@ -203,27 +203,27 @@ Actor build detail https://console.apify.com/actors/a123bCDefghiJkLMN#/builds/0.
 ? Do you want to open the Actor detail in your browser? (Y/n)
 ```
 
-After agreeing to opening the Actor detail in our browser, assuming we're logged in we'll see a button to **Start Actor**. Hitting it brings us to a screen for specifying Actor input and run options. Without chaning anything we'll continue by hitting **Start** and immediately we should be presented with logs of the scraper run, similar to what we'd normally see in our terminal, but this time a remote copy of our program runs on a cloud platform.
+After agreeing to open the Actor details in our browser, assuming we're logged in, we'll see a **Start Actor** button. Clicking it takes us to a screen where we can specify Actor input and run options. Without changing anything, we'll continue by clicking **Start**, and we should immediately see the scraper's logs—similar to what we'd normally see in our terminal, but now running remotely on a cloud platform.
 
-When the run finishes, the interface should turn green. On the **Output** tab we're able to preview results of the scraper as a table or as JSON, and there's even a button to export the data to many different formats, including CSV, XML, Excel, RSS, and more.
+When the run finishes, the interface should turn green. On the **Output** tab, we can preview the scraper's results as a table or JSON. There's even an option to export the data to various formats, including CSV, XML, Excel, RSS, and more.
 
 :::note Accessing data programmatically
 
-You don't need to click buttons to download the data. The same can be achieved by [Apify's API](https://docs.apify.com/api/v2/dataset-items-get), the [`apify datasets`](https://docs.apify.com/cli/docs/reference#datasets) CLI command, or by the [`apify`](https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync) Python SDK.
+You don't need to click buttons to download the data. You can also retrieve it using [Apify's API](https://docs.apify.com/api/v2/dataset-items-get), the [`apify datasets`](https://docs.apify.com/cli/docs/reference#datasets) CLI command, or the [`apify`](https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync) Python SDK.
 
 :::
 
 ## Running the scraper periodically
 
-Let's say we want our scraper to collect data about sale prices daily. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Hitting **Create new** will open a setup screen where we can specify periodicity (daily is the default) and identify Actors which should be started. When we're done, we can hit **Enable**. That's it!
+Let's say we want our scraper to collect sale price data daily. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Clicking **Create new** will open a setup screen where we can specify the frequency (daily is the default) and select the Actors that should be started. Once we're done, we can click **Enable**—that's it!
 
-From now on, the Actor will execute daily. We'll be able to inspect every single run. For each run we'll have access to its logs, and the data collected. We'll see stats, monitoring charts, and we'll be able to setup alerts sending us a notification under specified conditions.
+From now on, the Actor will run daily, and we'll be able to inspect every execution. For each run, we'll have access to its logs and the collected data. We'll also see stats, monitoring charts, and have the option to set up alerts that notify us under specific conditions.
 
 ## Adding support for proxies
 
-If monitoring of our scraper starts showing that it regularly fails to reach the Warehouse shop website, we're most likely getting blocked. In such case we can use proxies so that our requests come from different locations in the world and our scraping is less apparent in the volume of the website's standard traffic.
+If our monitoring shows that the scraper frequently fails to reach the Warehouse Shop website, we're most likely getting blocked. In that case, we can use proxies to make requests from different locations, reducing the chances of detection and blocking.
 
-Proxy configuration is a type of Actor input, so let's start with re-introducing the code taking care of that. We'll change `warehouse-watchdog/src/main.py` to this:
+Proxy configuration is a type of Actor input, so let's start by reintroducing the necessary code. We'll update `warehouse-watchdog/src/main.py` like this:
 
 ```py title=warehouse-watchdog/src/main.py
 from apify import Actor
@@ -241,8 +241,7 @@ async def main():
         await crawl(proxy_config)
 ```
 
-Now we'll add `proxy_config` as an optional parameter to the scraper in `warehouse-watchdog/src/crawler.py`. Thanks to built-in integration between Apify and Crawlee, it's enough to pass it down to `BeautifulSoupCrawler()` and the class will do the rest:
-
+Next, we'll add `proxy_config` as an optional parameter in `warehouse-watchdog/src/crawler.py`. Thanks to the built-in integration between Apify and Crawlee, we only need to pass it to `BeautifulSoupCrawler()`, and the class will handle the rest:
 
 ```py title=warehouse-watchdog/src/crawler.py
 import asyncio
@@ -264,7 +263,7 @@ async def main(proxy_config = None):
     ...
 ```
 
-Last but not least we'll modify the Actor configuration in `warehouse-watchdog/src/.actor/input_schema.json` so that it includes the `proxyConfig` input parameter:
+Finally, we'll modify the Actor configuration in `warehouse-watchdog/src/.actor/input_schema.json` to include the `proxyConfig` input parameter:
 
 ```json title=warehouse-watchdog/src/.actor/input_schema.json
 {
@@ -290,7 +289,7 @@ Last but not least we'll modify the Actor configuration in `warehouse-watchdog/s
 }
 ```
 
-Now if we run the scraper locally, it should all work without error. We'll use the `apify run` command again, but with the `--purge` option, which makes sure we're not re-using anything from the previous run.
+Now, if we run the scraper locally, everything should work without errors. We'll use the `apify run` command again, but this time with the `--purge` option to ensure we're not reusing data from a previous run:
 
 ```text
 $ apify run --purge
@@ -320,7 +319,7 @@ Run: /Users/course/Projects/warehouse-watchdog/.venv/bin/python3 -m src
 ...
 ```
 
-In the logs we can notice a line `Using proxy: no`. When running the scraper locally, the Actor input doesn't contain any proxy configuration. The requests will be all made from our location, the same way as previously. Now let's update our cloud copy of the scraper with `apify push` so that it's based on our latest edits to the code:
+In the logs, we should see a line like `Using proxy: no`. When running the scraper locally, the Actor input doesn't include a proxy configuration, so all requests will be made from our own location, just as before. Now, let's update our cloud copy of the scraper with `apify push` to reflect our latest changes:
 
 ```text
 $ apify push
@@ -332,7 +331,7 @@ Run: Building Actor warehouse-watchdog
 ? Do you want to open the Actor detail in your browser? (Y/n)
 ```
 
-After opening the Actor detail in our browser, we should see the **Source** screen. We'll switch to the **Input** tab of that screen. There we can now see the **Proxy config** input option. By default it's set to **Datacenter - Automatic**, and we'll leave it like that. Let's hit the **Start** button! In the logs we should see the following:
+After opening the Actor detail in our browser, we should see the **Source** screen. We'll switch to the **Input** tab, where we can now see the **Proxy config** input option. By default, it's set to **Datacenter - Automatic**, and we'll leave it as is. Let's click **Start**! In the logs, we should see the following:
 
 ```text
 (timestamp) ACTOR: Pulling Docker image of build o6vHvr5KwA1sGNxP0 from repository.
@@ -362,13 +361,15 @@ After opening the Actor detail in our browser, we should see the **Source** scre
 ...
 ```
 
-The logs contain `Using proxy: yes`, which confirms that the scraper now uses proxies provided by the Apify platform.
+The logs should now include `Using proxy: yes`, confirming that the scraper is successfully using proxies provided by the Apify platform.
 
 ## Congratulations!
 
-You reached the end of the course, congratulations! Together we've built a program which crawls a shop, extracts data about products and their prices and exports the data. We managed to simplify our work with a framework and deployed our scraper to a scraping platform so that it can periodically run unassisted and accumulate data over time. The platform also helps us with monitoring or anti-scraping.
+You've reached the end of the course—congratulations! 🎉
 
-We hope that this will serve as a good start for your next adventure in the world of scraping. Perhaps creating scrapers which you publish for a fee so that others can re-use them? 😉
+Together, we've built a program that crawls a shop, extracts product and pricing data, and exports the results. We've also simplified our work using a framework and deployed our scraper to a cloud platform, enabling it to run periodically, collect data over time, and provide monitoring and anti-scraping protection.
+
+We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even start publishing scrapers for others to use—for a fee? 😉
 
 ---
 
