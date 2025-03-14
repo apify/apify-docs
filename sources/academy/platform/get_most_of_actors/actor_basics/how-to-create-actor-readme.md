@@ -62,7 +62,7 @@ What data can [Actor] extract?
 
 What data can you extract from [target website]
 
-- Create a table that represents the main datapoints that the Actor can extract. You don't have to list every single one, just list the most understandable and relatable ones.
+- Create a table that represents the main data points that the Actor can extract. You don't have to list every single one, just list the most understandable and relatable ones.
 
 Depending on the complexity of your Actor, you might include one or all three of these sections. It will also depend on what your Actor does. If your Actor has simple input but does a lot of steps for the user under the hood (like a bundle would), you might like to include the "What can this Actor do?" section. If your Actor extracts data, it makes sense to include a section with a table.
 
@@ -137,7 +137,7 @@ The README has to be written in Markdown. The most important elements are H2 and
 
 ### HTML use
 
-You can use HTML and Markdown interchangeably. For example, you can write the same table either way.
+You can mix HTML with Markdown interchangeably. The Actor README will display either on the Apify platform. That gives you more freedom to use HTML when needed. Remember, don't try CSS.
 
 ### Tone of the README
 
@@ -216,7 +216,7 @@ If your page has a video, it has a better chance of ranking higher in Google.
 
 ## README and input schema
 
-The README should serve as a fallback for your users if something isn't immediately obvious in the input schema. There's also only that much space in the input schema and the tooltips, so naturally, if you want to provide more details about something: input, formatting, expectations — you should put it in the README and refer to it from the relevant place in the input schema.
+The README should serve as a fallback for your users if something isn't immediately obvious in the input schema. There's also only that much space in the input schema and the tooltips, so naturally, if you want to provide more details about something, e.g. input, formatting, or expectations, you should put it in the README and refer to it from the relevant place in the input schema.
 
 Learn about [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema)
 
