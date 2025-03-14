@@ -428,15 +428,3 @@ You've reached the end of the course—congratulations! 🎉 Together, we've bui
 - Uses proxies to avoid being blocked
 
 We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even [start publishing scrapers](https://docs.apify.com/platform/actors/publishing) for others to use—for a fee? 😉
-
----
-
-## Exercises
-
-The final challenge of this course is about interacting with your scraper programmatically using the Apify SDK.
-
-:::danger Work in progress
-
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
-
-:::
