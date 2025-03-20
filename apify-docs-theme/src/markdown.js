@@ -1,5 +1,5 @@
-const remarkParse = require('remark-parse');
-const remarkStringify = require('remark-stringify');
+const remarkParse = require('remark-parse').default;
+const remarkStringify = require('remark-stringify').default;
 const { unified } = require('unified');
 const { visitParents, CONTINUE } = require('unist-util-visit-parents');
 
