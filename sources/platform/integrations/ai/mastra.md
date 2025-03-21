@@ -1,7 +1,7 @@
 ---
 title: Mastra integration
 sidebar_label: Mastra
-description: Learn how to build AI Agents Mastra using Apify MCP server
+description: Learn how to build AI Agents with Mastra using Apify MCP server
 sidebar_position: 1
 slug: /integrations/mastra
 ---
@@ -18,9 +18,9 @@ slug: /integrations/mastra
 See the [Mastra docs](https://mastra.ai/docs) for more.
 :::
 
-## What MCP server
+## What is MCP server
 
-An [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server exposes specific data sources or tools to agents via a standardized protocol. It acts as a bridge, connecting large language models (LLMs) to external systems like databases, APIs, or local filesystems. Built on a client-server architecture, MCP servers enable secure, real-time interaction, allowing agents to fetch context or execute actions without custom integrations. Think of it as a modular plugin system for agents, simplifying how they access and process data. Apify provides [Actors MCP Server](https://apify.com/apify/actors-mcp-server) to expose [Apify Actors](https://docs.apify.com/platform/actors) from the [Apify Store](https://apify.com/store) as tools via the MCP protocol.
+A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server exposes specific data sources or tools to agents via a standardized protocol. It acts as a bridge, connecting large language models (LLMs) to external systems like databases, APIs, or local filesystems. Built on a client-server architecture, MCP servers enable secure, real-time interaction, allowing agents to fetch context or execute actions without custom integrations. Think of it as a modular plugin system for agents, simplifying how they access and process data. Apify provides [Actors MCP Server](https://apify.com/apify/actors-mcp-server) to expose [Apify Actors](https://docs.apify.com/platform/actors) from the [Apify Store](https://apify.com/store) as tools via the MCP protocol.
 
 ## How to use Apify with Mastra via MCP
 
@@ -45,7 +45,7 @@ Since we are using the MCP server, we do not have to make any code changes and c
 
 ### Building the TikTok profile search and analysis agent
 
-First import all required packages:
+First, import all required packages:
 
 ```typescript
 import { Agent } from '@mastra/core/agent';
@@ -97,7 +97,7 @@ Instantiate the agent with the OpenAI model:
 
 ```typescript
 const agent = new Agent({
-    name: 'TikTokAnalyzer',
+    name: 'Social Media Agent',
     instructions: 'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
     model: openai('gpt-4o-mini')
 });
@@ -120,7 +120,7 @@ console.log(response.text);
 await mcpClient.disconnect();
 ```
 
-Before running the agent we need to start the Apify MCP Server by sending a request:
+Before running the agent, we need to start the Apify MCP Server by sending a request:
 
 ```bash
 curl https://actors-mcp-server.apify.actor/?token=YOUR_APIFY_TOKEN&actors=apify/rag-web-browser,clockworks/free-tiktok-scraper
@@ -140,9 +140,9 @@ Run the agent:
 npx tsx mastra-agent.ts
 ```
 
-:::note Execution Time
+:::note Search and analysis may take some time
 
-Web searches and TikTok scraping might take a minute—depends on the Actors and network.
+The agent tasks may take some time as they search the web for the OpenAI TikTok profile and extract data from it.
 
 :::
 
@@ -197,8 +197,8 @@ console.log('Fetching tools...');
 const tools = await mcpClient.tools();
 
 const agent = new Agent({
-    name: 'TikTokAnalyzer',
-    instructions: 'You’re a data extractor. Find TikTok URLs and analyze profiles with precision.',
+    name: 'Social Media Agent',
+    instructions: 'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
     model: openai('gpt-4o-mini')
 });
 
