@@ -26,16 +26,10 @@ A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server exposes
 
 This guide demonstrates how to integrate Apify Actors with Mastra by building an agent that uses the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to search Google for TikTok profiles and the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract and analyze data from the TikTok profiles via MCP.
 
-:::note MCP tools
-
-Since we are using the MCP server, we do not have to make any code changes and can dynamically change the Actors provided to the agent by modifying the startup request to the MCP server.
-
-:::
-
 ### Prerequisites
 
-- **Apify API token**: To use Apify Actors in CrewAI, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-- **OpenAI API key**: To power the agents in CrewAI, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+- **Apify API token**: To use Apify Actors, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- **OpenAI API key**: To power the agents, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 - **Node.js**: Ensure you have Node.js installed.
 - **Packages**: Install the following packages:
 
@@ -120,7 +114,7 @@ console.log(response.text);
 await mcpClient.disconnect();
 ```
 
-Before running the agent, we need to start the Apify MCP Server by sending a request:
+Before running the agent, we need to start the [Actors MCP Server](https://apify.com/apify/actors-mcp-server) by sending a request:
 
 ```bash
 curl https://actors-mcp-server.apify.actor/?token=YOUR_APIFY_TOKEN&actors=apify/rag-web-browser,clockworks/free-tiktok-scraper
@@ -130,7 +124,7 @@ Replace `YOUR_APIFY_TOKEN` with your Apify API token. You can also open the URL 
 
 :::note Use any Apify Actor
 
-Since it uses the MCP Server, swap in any Apify Actor from the [Apify Store](https://apify.com/store) by updating the startup request’s `actors` parameter.
+Since it uses the [Actors MCP Server](https://apify.com/apify/actors-mcp-server), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by updating the startup request’s `actors` parameter. No other changes are needed in the agent code.
 
 :::
 
@@ -151,8 +145,7 @@ You will see the agent’s output in the console, showing the results of the sea
 ```text
 Connecting to Mastra MCP server...
 Fetching tools...
-Generating response for prompt: Search the web for the OpenAI TikTok profile URL, then extr
-act and summarize its data.
+Generating response for prompt: Search the web for the OpenAI TikTok profile URL, then extract and summarize its data.
 ### OpenAI TikTok Profile Summary
 - **Profile URL**: [OpenAI on TikTok](https://www.tiktok.com/@openai?lang=en)              - **Followers**: 608,100
 - **Likes**: 3.4 million
