@@ -1,21 +1,23 @@
 ---
-title: Mastra integration
+title: Mastra MCP integration
 sidebar_label: Mastra
-description: Learn how to build AI Agents with Mastra using Apify MCP server
+description: Learn how to build AI Agents with Mastra via Apify Actors MCP server
 sidebar_position: 1
 slug: /integrations/mastra
 ---
 
-**Learn how to build AI Agents with Mastra and Apify MCP server.**
+**Learn how to build AI Agents with Mastra and Apify Actors MCP Server.**
 
 ---
 
 ## What is Mastra
 
-[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. Supporting any LLM (e.g., GPT-4, Claude, Gemini), it simplifies development with a unified interface via the Vercel AI SDK. You can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com).
+[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. Supporting any LLM (e.g., GPT-4, Claude, Gemini). You can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com).
 
 :::note Explore Mastra
+
 See the [Mastra docs](https://mastra.ai/docs) for more.
+
 :::
 
 ## What is MCP server
@@ -136,7 +138,7 @@ npx tsx mastra-agent.ts
 
 :::note Search and analysis may take some time
 
-The agent tasks may take some time as they search the web for the OpenAI TikTok profile and extract data from it.
+The agent's execution may take some time as it searches the web for the OpenAI TikTok profile and extracts data from it.
 
 :::
 
