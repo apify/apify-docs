@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /integrations/mastra
 ---
 
-**Learn how to build AI Agents with Mastra and Apify Actors MCP Server.**
+**Learn how to build AI agents with Mastra and Apify Actors MCP Server.**
 
 ---
 
