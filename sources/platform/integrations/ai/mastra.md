@@ -16,7 +16,7 @@ slug: /integrations/mastra
 
 :::note Explore Mastra
 
-See the [Mastra docs](https://mastra.ai/docs) for more.
+Check out the [Mastra docs](https://mastra.ai/docs) for more information.
 
 :::
 
