@@ -76,7 +76,8 @@ const mcpClient = new MastraMCPClient({
                 return fetch(input, { ...init, headers });
             }
         }
-    }
+    },
+    timeout: 300_000, // 5 minutes tool call timeout
 });
 ```
 
@@ -169,21 +170,22 @@ process.env.OPENAI_API_KEY = "your-openai-api-key";
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-    url: new URL('https://actors-mcp-server.apify.actor/sse'),
-    requestInit: {
-        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
-    },
-    // The EventSource package augments EventSourceInit with a "fetch" parameter.
-    // You can use this to set additional headers on the outgoing request.
-    // Based on this example: https://github.com/modelcontextprotocol/typescript-sdk/issues/118
-    eventSourceInit: {
-        async fetch(input: Request | URL | string, init?: RequestInit) {
-        const headers = new Headers(init?.headers || {});
-        headers.set('authorization', `Bearer ${process.env.APIFY_TOKEN}`);
-        return fetch(input, { ...init, headers });
+        url: new URL('https://actors-mcp-server.apify.actor/sse'),
+        requestInit: {
+            headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
+        },
+        // The EventSource package augments EventSourceInit with a "fetch" parameter.
+        // You can use this to set additional headers on the outgoing request.
+        // Based on this example: https://github.com/modelcontextprotocol/typescript-sdk/issues/118
+        eventSourceInit: {
+            async fetch(input: Request | URL | string, init?: RequestInit) {
+            const headers = new Headers(init?.headers || {});
+            headers.set('authorization', `Bearer ${process.env.APIFY_TOKEN}`);
+            return fetch(input, { ...init, headers });
+            }
         }
-    }
-    }
+    },
+    timeout: 300_000, // 5 minutes tool call timeout
 });
 
 console.log('Connecting to Mastra MCP server...');
