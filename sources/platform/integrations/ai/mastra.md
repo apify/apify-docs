@@ -30,10 +30,10 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
 
 ### Prerequisites
 
-- **Apify API token**: To use Apify Actors, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-- **OpenAI API key**: To power the agents, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
-- **Node.js**: Ensure you have Node.js installed.
-- **Packages**: Install the following packages:
+- _Apify API token_: To use Apify Actors, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- _OpenAI API key_: To power the agents, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+- _Node.js_: Ensure you have Node.js installed.
+- _Packages_: Install the following packages:
 
   ```bash
   npm install @mastra/core @mastra/mcp @ai-sdk/openai
