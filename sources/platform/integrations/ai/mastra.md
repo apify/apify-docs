@@ -31,7 +31,7 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
 ### Prerequisites
 
 - _Apify API token_: To use Apify Actors, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-- _OpenAI API key_: To power the agents, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+- _LLM provider API key_: To power the agents, you need an LLM provider API key. For example, get one from the [OpenAI](https://platform.openai.com/account/api-keys) or [Anthropic](https://console.anthropic.com/settings/keys).
 - _Node.js_: Ensure you have Node.js installed.
 - _Packages_: Install the following packages:
 
@@ -47,6 +47,8 @@ First, import all required packages:
 import { Agent } from '@mastra/core/agent';
 import { MastraMCPClient } from '@mastra/mcp';
 import { openai } from '@ai-sdk/openai';
+// For Anthropic use
+// import { anthropic } from '@ai-sdk/anthropic';
 ```
 
 Next, set the environment variables for the Apify API token and OpenAI API key:
@@ -54,6 +56,8 @@ Next, set the environment variables for the Apify API token and OpenAI API key:
 ```typescript
 process.env.APIFY_TOKEN = "your-apify-token";
 process.env.OPENAI_API_KEY = "your-openai-api-key";
+// For Anthropic use
+// process.env.ANTHROPIC_API_KEY = "your-anthropic-api-key";
 ```
 
 Instantiate the Mastra MCP client:
@@ -96,6 +100,7 @@ Instantiate the agent with the OpenAI model:
 const agent = new Agent({
     name: 'Social Media Agent',
     instructions: 'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
+    // You can swap to any other AI-SDK LLM provider
     model: openai('gpt-4o-mini')
 });
 ```
@@ -163,9 +168,13 @@ If you want to test the whole example, create a new file, `mastra-agent.ts`, and
 import { Agent } from '@mastra/core/agent';
 import { MastraMCPClient } from '@mastra/mcp';
 import { openai } from '@ai-sdk/openai';
+// For Anthropic use
+// import { anthropic } from '@ai-sdk/anthropic';
 
 process.env.APIFY_TOKEN = "your-apify-token";
 process.env.OPENAI_API_KEY = "your-openai-api-key";
+// For Anthropic use
+// process.env.ANTHROPIC_API_KEY = "your-anthropic-api-key";
 
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
@@ -196,6 +205,7 @@ const tools = await mcpClient.tools();
 const agent = new Agent({
     name: 'Social Media Agent',
     instructions: 'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
+    // You can swap to any other AI-SDK LLM provider
     model: openai('gpt-4o-mini')
 });
 
