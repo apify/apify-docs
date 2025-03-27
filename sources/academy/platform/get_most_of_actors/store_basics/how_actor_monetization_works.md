@@ -149,7 +149,7 @@ Example of useful pricing estimates from the **Analytics** tab:
 ## Resources
 
 - Learn about [incentives behind monetization](https://apify.com/partners/actor-developers)
-- Detailed guide to [setting up monetization models](https://docs.apify.com/academy/actor-marketing-playbook/monetizing-your-actor)
+- Detailed guide to [setting up monetization models](https://docs.apify.com/academy/get-most-of-actors/monetizing-your-actor)
 - Guide to [publishing Actors](https://docs.apify.com/platform/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Read a blog post from our CEO on the [reasoning behind monetizing Actors](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/)
