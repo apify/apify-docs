@@ -1,44 +1,41 @@
-/* eslint-disable import/order */
-import React from 'react';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import ThemedImage from '@theme/ThemedImage';
+import React from 'react';
+import styled from 'styled-components';
 
 import { Banner, theme } from '@apify-packages/ui-library';
 
-import styled from 'styled-components';
-import { Heading } from '../components/Heading';
-import { Text } from '../components/Text';
-import styles from './index.module.css';
-import Hero from '../components/Hero/Hero';
-import Section from '../components/Section/Section';
-import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
 import ActionCard from '../components/ActionCard/ActionCard';
-import PlainCard from '../components/PlainCard/PlainCard';
 import { ActorTemplates } from '../components/ActorTemplates/ActorTemplates';
-import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
-import OpenSourceCards from '../components/OpenSourceCards/OpenSourceCards';
 import Button from '../components/Button';
-
-/* Platform icons */
-import Actors from './img/platform_icons/actors.svg';
-import Storage from './img/platform_icons/storage.svg';
-import Proxy from './img/platform_icons/proxy.svg';
-import Schedules from './img/platform_icons/schedules.svg';
-import Integrations from './img/platform_icons/integrations.svg';
-import Monitoring from './img/platform_icons/monitoring.svg';
-import Collaboration from './img/platform_icons/collaboration.svg';
-import Security from './img/platform_icons/security.svg';
-
+import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
+import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
+import { Heading } from '../components/Heading';
+import Hero from '../components/Hero/Hero';
+import OpenSourceCards from '../components/OpenSourceCards/OpenSourceCards';
+import PlainCard from '../components/PlainCard/PlainCard';
+import Section from '../components/Section/Section';
+import { Text } from '../components/Text';
+import AntiScrapingProtections from './img/academy_icons/anti_scraping_protections.svg';
+import ApiScraping from './img/academy_icons/api_scraping.svg';
+import ApifyPlatformCourse from './img/academy_icons/apify_platform_course.svg';
+import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
+import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
 /* Academy images */
 import WebScrapingForBeginners from './img/academy_icons/web_scraping_for_beginners.svg';
-import ApifyPlatformCourse from './img/academy_icons/apify_platform_course.svg';
-import ApiScraping from './img/academy_icons/api_scraping.svg';
-import AntiScrapingProtections from './img/academy_icons/anti_scraping_protections.svg';
-import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
-import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
+/* Platform icons */
+import Actors from './img/platform_icons/actors.svg';
+import Collaboration from './img/platform_icons/collaboration.svg';
+import Integrations from './img/platform_icons/integrations.svg';
+import Monitoring from './img/platform_icons/monitoring.svg';
+import Proxy from './img/platform_icons/proxy.svg';
+import Schedules from './img/platform_icons/schedules.svg';
+import Security from './img/platform_icons/security.svg';
+import Storage from './img/platform_icons/storage.svg';
+import styles from './index.module.css';
 
 const StyledBanner = styled(Banner)`
     width: 100%;

@@ -1,4 +1,4 @@
-const { parse } = require('url');
+const { parse } = require('node:url');
 
 const visit = import('unist-util-visit').then((m) => m.visit);
 

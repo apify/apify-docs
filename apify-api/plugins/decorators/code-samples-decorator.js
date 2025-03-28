@@ -1,5 +1,5 @@
-const { existsSync } = require('fs');
-const path = require('path');
+const { existsSync } = require('node:fs');
+const path = require('node:path');
 
 const X_CODE_SAMPLES_PROPERTY = 'x-codeSamples';
 

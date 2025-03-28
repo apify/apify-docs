@@ -1,6 +1,6 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import RouterLink from '@docusaurus/Link';
-import { useLocation, useHistory } from '@docusaurus/router';
+import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React, { useCallback } from 'react';
 

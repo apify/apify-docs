@@ -1,6 +1,6 @@
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import Link from '@docusaurus/Link';
-import { useDocById, findFirstSidebarItemLink } from '@docusaurus/plugin-content-docs/client';
+import { findFirstSidebarItemLink, useDocById } from '@docusaurus/plugin-content-docs/client';
 import { usePluralForm } from '@docusaurus/theme-common';
 import { translate } from '@docusaurus/Translate';
 import Heading from '@theme/Heading';

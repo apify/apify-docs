@@ -1,7 +1,7 @@
 import { useThemeConfig } from '@docusaurus/theme-common';
 import {
-    useTOCHighlight,
     useFilteredAndTreeifiedTOC,
+    useTOCHighlight,
 } from '@docusaurus/theme-common/internal';
 import TOCItemTree from '@theme/TOCItems/Tree';
 import React, { useMemo } from 'react';
