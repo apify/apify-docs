@@ -44,13 +44,20 @@ To use the Apify integration for Airtable, ensure you have:
 
     ![Airtable integration option among other available integrations](../images/airtable/set-up-integration-1.png)
 
+1. Select the upload mode:
+   - **CREATE**: New table is created for each run of this integration.
+   - **APPEND**: New records are added to the specified table. If the table does not yet exist, new one is created.
+   - **OVERWRITE**: All records in the specified table are replaced with new data. If the table does not yet exist, new one is created.
+
 1. Select a connected Airtable account and choose the base where the Actor run results will be uploaded.
 
-1. Enter a table name. A new table will be created for each execution of this integration. To ensure uniqueness, use dynamic variables. If a table with the same name already exists, a random token will be appended.
+1. Enter a table name or select an existing one.
+
+   To ensure uniqueness when using CREATE mode, use dynamic variables. If a table with the same name already exists in CREATE mode, a random token will be appended.
 
     ![Airtable integration configuration form](../images/airtable/set-up-integration-2.png)
 
-1. Save the integration. Once your Actor runs, you’ll see its results uploaded to Airtable.
+1. Save the integration. Once your Actor runs, you'll see its results uploaded to Airtable.
 
     ![Airtable table filled with data](../images/airtable/set-up-integration-3.png)
 
