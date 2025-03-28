@@ -1,5 +1,5 @@
 import { useLocation } from '@docusaurus/router';
-import { useThemeConfig, isRegexpStringMatch } from '@docusaurus/theme-common';
+import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
 import {
     splitNavbarItems,
 } from '@docusaurus/theme-common/internal';

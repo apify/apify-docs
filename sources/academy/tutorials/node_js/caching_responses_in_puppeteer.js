@@ -1,4 +1,4 @@
-import { PuppeteerCrawler, Dataset } from 'crawlee';
+import { Dataset, PuppeteerCrawler } from 'crawlee';
 
 const cache = {};
 
