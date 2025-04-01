@@ -11,7 +11,7 @@ import {
     BlogArticle,
     Button,
     theme,
-} from '@apify-packages/ui-library';
+} from '@apify/ui-library';
 
 import styles from './styles.module.css';
 import GitButton from '../../components/GitButton';

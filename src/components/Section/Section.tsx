@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { theme } from '@apify-packages/ui-library';
+import { theme } from '@apify/ui-library';
 
 import styles from './styles.module.css';
 import { Heading } from '../Heading';

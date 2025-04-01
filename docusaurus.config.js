@@ -273,13 +273,6 @@ module.exports = {
                     module: {
                         rules: [
                             {
-                                test: /@apify-packages\/ui-library\/.*/,
-                                resolve: {
-                                    fullySpecified: false,
-                                },
-                                loader: 'babel-loader',
-                            },
-                            {
                                 test: /apify-docs\/examples\//i,
                                 type: 'asset/source',
                             },

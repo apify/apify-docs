@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import {
     ActorTemplateCard,
     theme,
-} from '@apify-packages/ui-library';
+} from '@apify/ui-library';
 
 interface ActorTemplate {
     id: string,
