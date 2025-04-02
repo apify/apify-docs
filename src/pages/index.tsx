@@ -6,7 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Banner, theme } from '@apify-packages/ui-library';
+import { Banner, theme } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
 import { ActorTemplates } from '../components/ActorTemplates/ActorTemplates';

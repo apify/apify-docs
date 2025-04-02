@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Banner, Heading, Link, Text, theme } from '@apify-packages/ui-library';
+import { Banner, Heading, Link, Text, theme } from '@apify/ui-library';
 
 import ActionCard from '../../components/ActionCard/ActionCard';
 import { ActorTemplates } from '../../components/ActorTemplates/ActorTemplates';

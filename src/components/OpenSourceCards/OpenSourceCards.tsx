@@ -5,7 +5,7 @@ import ThemedImage from '@theme/ThemedImage';
 import type React from 'react';
 import GitHubButton from 'react-github-btn';
 
-import { theme } from '@apify-packages/ui-library';
+import { theme } from '@apify/ui-library';
 
 import styles from './styles.module.css';
 import CardWithImageAndContent from '../CardWithImageAndContent/ImageWithContent';
