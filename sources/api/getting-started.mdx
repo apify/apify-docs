@@ -54,7 +54,7 @@ Expected response codes:
 
 ## Basic workflow
 
-A most common workflow involving Apify API consists of the following steps:
+The most common workflow involving Apify API consists of the following steps:
 
 1. Running an Actor.
 1. Retrieving the results.
@@ -63,10 +63,10 @@ A most common workflow involving Apify API consists of the following steps:
 
 #### Synchronously
 
-For shorter runs where you need immiediate results:
+For shorter runs where you need immediate results:
 
 ```http title="Endpoint"
-POST https://api.apify.com/v2/acts/{actorId}/run-sync
+POST https://api.apify.com/v2/acts/:actorId/run-sync
 ```
 
 Expected response codes:
@@ -77,11 +77,11 @@ Expected response codes:
 
 #### Asynchronously
 
-```http title="Endpoint"
-POST https://api.apify.com/v2/acts/{actorId}/runs
-```
+For longer-running operations or when you don't need immediate results.
 
-The request body is the same as for asynchronous runs, but the response will include the complete results once the Actor finishes.
+```http title="Endpoint"
+POST https://api.apify.com/v2/acts/:actorId/runs
+```
 
 Expected response codes:
 
@@ -94,7 +94,7 @@ Expected response codes:
 Most Actors store their results in a dataset:
 
 ```http title="Endpoint"
-GET https://api.apify.com/v2/datasets/{datasetId}/items
+GET https://api.apify.com/v2/datasets/:datasetId/items
 ```
 
 Optional query parameters:
@@ -109,14 +109,14 @@ Optional query parameters:
 * `limit=100` (number of items to retrieve)
 * `offset=0` (pagination offset)
 
-Expected code responses:
+Expected response codes:
 
 * `200`
 
 #### From a Key-value store
 
 ```http title="Endpoint"
-GET https://api.apify.com/v2/key-value-stores/{storeId}/records/{recordKey}
+GET https://api.apify.com/v2/key-value-stores/:storeId/records/:recordKey
 ```
 
 Expected response codes:
@@ -134,7 +134,7 @@ You can get a log for a specific run or build of an Actor.
 GET https://api.apify.com/v2/logs/:buildOrRunId
 ```
 
-Expected code responses:
+Expected response codes:
 
 * `200`
 
@@ -144,7 +144,7 @@ Expected code responses:
 GET https://api.apify.com/v2/actor-runs/:runId
 ```
 
-Expected response code:
+Expected response codes:
 
 * `200`
 
@@ -156,7 +156,7 @@ To store your own data in a Dataset:
 POST https://api.apify.com/v2/datasets/:datasetId/items
 ```
 
-If any of the items received by the API fails the validation, whole request is discarded.
+If any item in the request fails validation, the entire request will be rejected.
 
 Expected response codes:
 
@@ -168,7 +168,7 @@ Expected response codes:
 To store your own data in a Key-value store:
 
 ```http title="Endpoint"
-PUT https://api.apify.com/v2/key-value-stores/{storeId}/records/{recordKey}
+PUT https://api.apify.com/v2/key-value-stores/:storeId/records/:recordKey
 ```
 
 Include your data in the request body and set the appropriate `Content-Type` header.
@@ -176,6 +176,32 @@ Include your data in the request body and set the appropriate `Content-Type` hea
 Expected response codes:
 
 * `201`
+
+## HTTP Status Code Descriptions
+
+### `200` OK
+
+The request has succeeded.
+
+### `201` Created
+
+The request has been fulfilled and a new resource has been created.
+
+### `302` Found
+
+A redirection response indicating that the requested resource has been temporarily moved to a different URL.
+
+### `400` Bad Request
+
+The server cannot process the request due to client error, such as request syntax, invalid request parameters, or invalid data format. This occurs when:
+
+* The request body contains invalid data
+* Required parameters are missing
+* Data validation fails for Dataset items
+
+### `408` Request Timeout
+
+The server timed out waiting for the request to complete.
 
 ## Next steps
 
