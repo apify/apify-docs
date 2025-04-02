@@ -34,20 +34,46 @@ Before you can start using the API, check if you have all the necessary prerequi
 
 You must authenticate all API requests presented on this page. You can authenticate using your API token:
 
-`Authorization: Bearer YOUR_API_TOKEN`
+```http
+Authorization: Bearer YOUR_API_TOKEN
+```
 
 You can find your API token in the Apify Console under **[Settings > Integrations](https://console.apify.com/settings/integrations)**.
+
+### Verify your account
+
+To check your API credentials or account details:
+
+```http title="Endpoint"
+GET https://api.apify.com/v2/users/me
+```
+
+Expected response codes:
+
+* `200`
 
 ## Basic workflow
 
 A most common workflow involving Apify API consists of the following steps:
 
 1. Running an Actor.
-1. Monitoring the status of a run.
 1. Retrieving the results.
-1. Retrieving log for troubleshooting purposes. - optional
 
 ### 1. Run an Actor
+
+#### Synchronously
+
+For shorter runs where you need immiediate results:
+
+```http title="Endpoint"
+POST https://api.apify.com/v2/acts/{actorId}/run-sync
+```
+
+Expected response codes:
+
+* `201`
+* `400`
+* `408`
 
 #### Asynchronously
 
@@ -55,49 +81,13 @@ A most common workflow involving Apify API consists of the following steps:
 POST https://api.apify.com/v2/acts/{actorId}/runs
 ```
 
-```json title="Request body"
-TODO
-```
-
-```json title="Response"
-TODO
-```
-
-Expected response codes:
-
-* 201
-
-#### Synchronously
-
-For shorter runs where you need immediate results:
-
-```http title="Endpoint"
-POST https://api.apify.com/v2/acts/{actorId}/run-sync
-```
-
 The request body is the same as for asynchronous runs, but the response will include the complete results once the Actor finishes.
 
 Expected response codes:
 
-* 201
-* 400
-* 408
+* `201`
 
-### 2. Monitor run status
-
-```http title="Endpoint"
-GET https://api.apify.com/v2/actor-runs/:runId
-```
-
-``` json title="Response"
-TODO
-```
-
-Expected response code:
-
-* 200
-
-### 3. Retrieve results
+### 2. Retrieve results
 
 #### From a Dataset
 
@@ -121,7 +111,7 @@ Optional query parameters:
 
 Expected code responses:
 
-* 200
+* `200`
 
 #### From a Key-value store
 
@@ -131,10 +121,12 @@ GET https://api.apify.com/v2/key-value-stores/{storeId}/records/{recordKey}
 
 Expected response codes:
 
-* 200
-* 302
+* `200`
+* `302`
 
-### Get log
+### Additional operations
+
+#### Get log
 
 You can get a log for a specific run or build of an Actor.
 
@@ -144,9 +136,32 @@ GET https://api.apify.com/v2/logs/:buildOrRunId
 
 Expected code responses:
 
-* 200
+* `200`
 
-### Additional operations
+#### Monitor run status
+
+```http title="Endpoint"
+GET https://api.apify.com/v2/actor-runs/:runId
+```
+
+Expected response code:
+
+* `200`
+
+#### Store data in Dataset
+
+To store your own data in a Dataset:
+
+```http title="Endpoint"
+POST https://api.apify.com/v2/datasets/:datasetId/items
+```
+
+If any of the items received by the API fails the validation, whole request is discarded.
+
+Expected response codes:
+
+* `201`
+* `400`
 
 #### Store data in Key-value store
 
@@ -160,19 +175,7 @@ Include your data in the request body and set the appropriate `Content-Type` hea
 
 Expected response codes:
 
-* 201
-
-#### Verify your account
-
-To check your API credentials or account details:
-
-```http title="Endpoint"
-GET https://api.apify.com/v2/users/me
-```
-
-Expected response codes:
-
-* 200
+* `201`
 
 ## Next steps
 
