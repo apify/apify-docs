@@ -12,12 +12,6 @@ import DocCardList from '@theme/DocCardList';
 
 ---
 
-:::danger Work in progress
-
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. Comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
-
-:::
-
 In this course we'll use Python to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
 <!--
