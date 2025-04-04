@@ -79,8 +79,9 @@ Your profit is computed only from the first two users, since they are on Apify p
 To ensure profitable operation:
 
 - Set memory limits in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs
-- Implement the `ACTOR_MAX_PAID_DATASET_ITEMS` check to prevent excess result generation
+- Implement the `ACTOR_MAX_PAID_DATASET_ITEMS` check to prevent excess result generation. You can copy [this simple solution](https://github.com/metalwarrior665/max-paid-items-example/blob/master/src/push-data.ts).
 - Test your Actor with various result volumes to determine optimal pricing
+- Push at least one "error item" to the dataset for invalid input or if search query didn't generate any result. This will prevent users running your Actor for free.
 
 ### Pay-per-event pricing model
 
@@ -119,9 +120,10 @@ Only paid user activity is included in profit calculations.
 #### Best practices for PPE Actors
 
 - Set memory limits in your [`actor.json`](/platform/actors/development/actor-definition/actor-json) file to control platform usage costs
-- Avoid duplicate charges by not calling the start Actor event during migration.
-- Ensure users are not charged beyond their set maximum. The [`ChargingManager`](https://github.com/metalwarrior665/actor-charge-manager-poc) or our SDKs ([JS](/sdk/js/reference/class/ChargingManager) and [Python](/sdk/python/reference/class/ChargingManager)) can handle this logic.
-- Use idempotency keys in API calls to prevent double charges.
+- Charge either for "Actor start" or for invalid input or empty search to prevent users from running your Actor for free.
+    - Don't charge the "Actor start" event again after Actor migration (check `ChargingManager` state).
+- Finish the Actor run once charging reaches user-configured `Maximum cost per run`. Apify SDKs ([JS](/sdk/js/reference/class/Actor#charge) and [Python](/sdk/python/reference/class/Actor#charge)) return `ChargeResult` that helps determine when to finish.
+- If you are not using the SDKs, use idempotency keys in API calls to prevent double charges.
 - Try to limit the number of events. Fewer events make it easier for users to understand your pricing.
 - Try to make your event have tangible artifacts that users can see and understand (this might not be possible when using external APIs) i.e:
   - Get a record
@@ -130,7 +132,7 @@ Only paid user activity is included in profit calculations.
 
 :::note `ChargingManager` usage
 
-Use our [`ChargingManager`](https://github.com/metalwarrior665/actor-charge-manager-poc) or SDKs ([JS](/sdk/js/reference/class/ChargingManager) and, [Python](/sdk/python/reference/class/ChargingManager) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
+Use our SDKs ([JS](/sdk/js/reference/class/ChargingManager) and, [Python](/sdk/python/reference/class/ChargingManager) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
 
 You can also choose not to use it, but then you must handle API integration and possible edge cases manually. You can use `ChargingManager` code as a reference.
 
