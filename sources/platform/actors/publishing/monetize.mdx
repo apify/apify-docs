@@ -121,7 +121,7 @@ Only paid user activity is included in profit calculations.
 
 - Set memory limits in your [`actor.json`](/platform/actors/development/actor-definition/actor-json) file to control platform usage costs
 - Charge either for "Actor start" or for invalid input or empty search to prevent users from running your Actor for free.
-    - Don't charge the "Actor start" event again after Actor migration (check `ChargingManager` state).
+  - Don't charge the "Actor start" event again after Actor migration (check `ChargingManager` state).
 - Finish the Actor run once charging reaches user-configured `Maximum cost per run`. Apify SDKs ([JS](/sdk/js/reference/class/Actor#charge) and [Python](/sdk/python/reference/class/Actor#charge)) return `ChargeResult` that helps determine when to finish.
 - If you are not using the SDKs, use idempotency keys in API calls to prevent double charges.
 - Try to limit the number of events. Fewer events make it easier for users to understand your pricing.
