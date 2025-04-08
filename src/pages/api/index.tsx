@@ -13,12 +13,12 @@ import {
     theme,
 } from '@apify/ui-library';
 
-import styles from './styles.module.css';
 import GitButton from '../../components/GitButton';
 import Hero from '../../components/Hero/Hero';
 import Section from '../../components/Section/Section';
 import Tabs from '../../components/Tabs';
 import UiLibraryWrapper from '../../components/UiLibraryWrapper';
+import styles from './styles.module.css';
 
 const SectionWrapper = styled(Section)`
     display: flex;

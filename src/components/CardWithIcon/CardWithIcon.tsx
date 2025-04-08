@@ -1,11 +1,11 @@
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { VerticalTile, theme } from '@apify/ui-library';
+import { theme, VerticalTile } from '@apify/ui-library';
 
-import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
+import styles from './styles.module.css';
 
 interface CardWithIconProps {
     icon: React.ReactNode;
