@@ -1,7 +1,7 @@
 import react from 'eslint-plugin-react';
 import globals from 'globals';
 
-import apify from '@apify/eslint-config';
+import apify from '@apify/eslint-config/ts';
 
 export default [
     {
