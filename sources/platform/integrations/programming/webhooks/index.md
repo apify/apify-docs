@@ -18,7 +18,11 @@ You can find webhooks under the **Integrations** tab on an Actor's page in [Apif
 
 To define a webhook, select a system **event** that triggers the webhook. Then, provide the **action** to execute after the event. When the event occurs, the system executes the action.
 
-> Currently, the only available action is to send a POST HTTP request to a URL specified in the webhook.
+:::info Current webhook limitations
+
+ Currently, the only available action is to send a POST HTTP request to a URL specified in the webhook.
+
+:::
 
 * [**Events**](/platform/integrations/webhooks/events)
 * [**Actions**](/platform/integrations/webhooks/actions)

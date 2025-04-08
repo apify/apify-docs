@@ -1,0 +1,4 @@
+type: apiKey
+name: token
+in: query
+description: API authentication token. It is required only when using the `username~queue-name` format for `queueId`.

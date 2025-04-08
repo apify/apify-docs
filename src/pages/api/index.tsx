@@ -1,16 +1,17 @@
-import {
-    ActionLink,
-    BlogArticle,
-    Button,
-    CodeBlock,
-    theme,
-} from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import CodeBlock from '@theme/CodeBlock';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import styled from 'styled-components';
+
+import {
+    ActionLink,
+    BlogArticle,
+    Button,
+    theme,
+} from '@apify/ui-library';
 
 import styles from './styles.module.css';
 import GitButton from '../../components/GitButton';
@@ -126,7 +127,7 @@ export default function Api() {
                     className={styles.LargerContent}
                     heading="API reference"
                     description={<div className="MainSectionContent">
-                        <p>The Apify API allows developers to interact programmatically apps using HTTP requests.
+                        <p>The Apify API allows developers to interact programmatically with apps using HTTP requests.
                         The Apify API is built around <Link to="https://en.wikipedia.org/wiki/REST">REST</Link>.</p>
                         <p>The API has predictable resource-oriented URLs, returns JSON-encoded responses,
                         and uses standard HTTP response codes, authentication, and verbs.</p>
@@ -136,22 +137,15 @@ export default function Api() {
                     </div>}
                 >
                     <ClientCodeWrapper>
-                        <CodeBlock content={[{ key: 'cURL', label: 'cURL', language: 'bash', code: `
-                # Prepare Actor input
-cat > input.json <<'EOF'
-{
- // Define the input in JSON here
-}
-EOF
-
-# Run the Actor
-curl "https://api.apify.com/v2/acts/username~actorname/runs?token=<YOUR_API_TOKEN>" \\
-  -X POST \\
-  -d @input.json \\
-  -H 'Content-Type: application/json'
-
-# Use the defaultDatasetId from response and pass it instead of <DATASET_ID>
-curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN>"` }]} hideBashPromptPrefixes hideLineNumbers defaultTabKey="cURL" />
+                        <CodeBlock title="cURL" language='bash'>
+                            {`# Prepare Actor input and run it synchronously
+echo '{ "searchStringsArray": ["Apify"] }' |
+curl -X POST -d @- \\
+  -H 'Content-Type: application/json' \\
+  -H 'Authorization: Bearer <YOUR_API_TOKEN>' \\
+  -L 'https://api.apify.com/v2/acts/compass~crawler-google-places/run-sync-get-dataset-items'
+                           `}
+                        </CodeBlock>
                     </ClientCodeWrapper>
                 </SectionWrapper>
                 <Section
@@ -173,6 +167,7 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                             content: (
                                 <SectionWrapper
                                     heading="JavaScript API client"
+                                    headingAs="h3"
                                     description={<div className="Description">
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
@@ -183,12 +178,13 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                                     </div>}
                                 >
                                     <ClientCodeWrapper>
-                                        <CodeBlock content='npm install apify-client' language="bash"/>
+                                        <CodeBlock language="bash">
+                                            npm install apify-client
+                                        </CodeBlock>
                                         <CodeBlock
                                             language='javascript'
-                                            hideLineNumbers
-                                            content={`
-// Easily run Actors, await them to finish using the convenient .call() method, and retrieve results from the resulting dataset.
+
+                                        >{`// Easily run Actors, await them to finish using the convenient .call() method, and retrieve results from the resulting dataset.
 const { ApifyClient } = require('apify-client');
 
 const client = new ApifyClient({
@@ -199,8 +195,8 @@ const client = new ApifyClient({
 const { defaultDatasetId } = await client.actor('john-doe/my-cool-actor').call();
 
 // Fetches results from the actor's dataset.
-const { items } = await client.dataset(defaultDatasetId).listItems();
-                                `}/>
+const { items } = await client.dataset(defaultDatasetId).listItems();`}
+                                        </CodeBlock>
                                     </ClientCodeWrapper>
                                 </SectionWrapper>
                             ),
@@ -221,19 +217,16 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                         The official library to interact with Apify API from a Python applications.
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
-                                            <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs/quick-start'>Get started</Button>
+                                            <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
                                             <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>Python client reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
                                     <ClientCodeWrapper>
-                                        <CodeBlock content='pip install apify-client' language="bash"/>
+                                        <CodeBlock language="bash">pip install apify-client</CodeBlock>
                                         <CodeBlock
-                                            className="codeBlock"
                                             language='python'
-                                            hideLineNumbers
-                                            content={`
-from apify_client import ApifyClient
+                                        >{`from apify_client import ApifyClient
 
 apify_client = ApifyClient('MY-APIFY-TOKEN')
 
@@ -241,8 +234,7 @@ apify_client = ApifyClient('MY-APIFY-TOKEN')
 actor_call = apify_client.actor('john-doe/my-cool-actor').call()
 
 # Fetch results from the actor run's default dataset
-dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items().items
-                                `}/></ClientCodeWrapper>
+dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items().items`}</CodeBlock></ClientCodeWrapper>
                                 </SectionWrapper>
                             ),
                         },

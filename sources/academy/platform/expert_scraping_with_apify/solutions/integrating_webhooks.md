@@ -40,6 +40,8 @@ const dataset = await Actor.openDataset(datasetId);
 // ...
 ```
 
+> Tip: You will need to use `forceCloud` option - `Actor.openDataset(<name/id>, { forceCloud: true });` - to open dataset from platform storage while running Actor locally.
+
 Next, we'll grab hold of the dataset's items with the `dataset.getData()` function:
 
 ```js
@@ -68,7 +70,7 @@ const filtered = items.reduce((acc, curr) => {
 }, {});
 ```
 
-The results should be an array, so finally, we can take the map we just created and push an array of all of its values to the Actor's default dataset:
+The results should be an array, so we can take the map we just created and push an array of its values to the Actor's default dataset:
 
 ```js
 await Actor.pushData(Object.values(filtered));
@@ -141,7 +143,7 @@ https://api.apify.com/v2/acts/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
 
 Whichever one you choose is totally up to your preference.
 
-Next, within the Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
+Next, within the Amazon scraping Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
 ![Configuring a webhook](./images/adding-webhook.jpg)
 
@@ -163,7 +165,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: How do you allocate more CPU for an Actor's run?**
 
-**A:** On the platform, more memory can be allocated in the Actor's input configuration, and the default allocated CPU can be changed in the Actor's **Settings** tab. When running locally, you can use the **APIFY_MEMORY_MBYTES**** environment variable to set the allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
+**A:** On the platform, more memory can be allocated in the Actor's input configuration, and the default allocated CPU can be changed in the Actor's **Settings** tab. When running locally, you can use the **APIFY_MEMORY_MBYTES** environment variable to set the allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
 
 **Q: Within itself, can you get the exact time that an Actor was started?**
 

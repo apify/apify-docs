@@ -90,7 +90,7 @@ When allowing your users to pass input properties which could break the scraper 
 
 Validate the input provided by the user! This should be the very first thing your scraper does. If the fields in the input are missing or in an incorrect type/format, either parse the value and correct it programmatically or throw an informative error telling the user how to fix the error.
 
-> On the Apify platform, you can use the [input schema](../../platform/deploying_your_code/input_schema.md) to both easily validate inputs and generate a clean UI for those using your scraper.
+> On the Apify platform, you can use the [input schema](../../platform/deploying_your_code/input_schema.md) to both validate inputs and generate a clean UI for those using your scraper.
 
 ## Error handling {#error-handling}
 
@@ -124,7 +124,7 @@ This really depends on your use case though. If you want 100% clean data, you mi
 
 ## Recap {#recap}
 
-Wow, that's a whole lot of things to abide by! How will you remember all of them? Well, to simplify everything, just try to follow these three points:
+Wow, that's a whole lot of things to abide by! How will you remember all of them? Try to follow these three points:
 
 1. Describe your code as you write it with good naming, constants, and comments. It **should read like a book**.
 2. Add log messages at points throughout your code so that when it's running, you (and everyone else) know what's going on.

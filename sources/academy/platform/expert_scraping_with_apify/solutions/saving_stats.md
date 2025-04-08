@@ -63,7 +63,7 @@ await Stats.initialize();
 
 ## Tracking errors {#tracking-errors}
 
-In order to keep track of errors, we must write a new function within the crawler's configuration called **failedRequestHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
+In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
 
 ```js
 const crawler = new CheerioCrawler({
@@ -79,7 +79,7 @@ const crawler = new CheerioCrawler({
     maxConcurrency: 50,
     requestHandler: router,
     // Handle all failed requests
-    failedRequestHandler: async ({ error, request }) => {
+    errorHandler: async ({ error, request }) => {
         // Add an error for this url to our error tracker
         Stats.addError(request.url, error?.message);
     },
@@ -88,7 +88,7 @@ const crawler = new CheerioCrawler({
 
 ## Tracking total saved {#tracking-total-saved}
 
-Now, we'll just increment our **totalSaved** count for every offer added to the dataset.
+Now, we'll increment our **totalSaved** count for every offer added to the dataset.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
@@ -114,7 +114,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 ## Saving stats with dataset items {#saving-stats-with-dataset-items}
 
-Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
+Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is accessible in the context object.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
@@ -153,14 +153,6 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 **Q: In our Amazon scraper, we are trying to store the number of retries of a request once its data is pushed to the dataset. Where would you get this information? Where would you store it?**
 
 **A:** This information is available directly on the request object under the property **retryCount**.
-
-**Q: We are building a new imaginary scraper for a website that sometimes displays captchas at unexpected times, rather than displaying the content we want. How would you keep a count of the total number of captchas hit for the entire run? Where would you store this data? Why?**
-
-**A:** First, build a function that detects if the captcha has been hit. If so, it will throw an error and add to the **numberOfCaptchas** count. This data might be stored on a persisted state object to help better assess the anti-scraping mitigation techniques the scraper should be used.
-
-**Q: Is storing these types of values necessary for every single Actor?**
-
-**A:** For small Actors, it might be a waste of time to do this. For large-scale Actors, it can be extremely helpful when debugging and most definitely worth the extra 10–20 minutes of development time. Usually though, the default statistics from the Crawlee and the SDK might be enough for simple run stats.
 
 **Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
 

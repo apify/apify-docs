@@ -5,17 +5,17 @@ sidebar_position: 15.6
 slug: /node-js/processing-multiple-pages-web-scraper
 ---
 
-Sometimes when scraping, you need to process the same URL many times, but each time with a different setup (e.g. filling in a form with different data each time). This is easy to do with Apify, but how to go about it may not be obvious at first glance.
+Sometimes you need to process the same URL several times, but each time with a different setup. For example, you may want to submit the same form with different data each time.
 
-We'll show you how to do this with a simple example: starting a scraper with an array of keywords, inputting each of the keywords separately into Google, and retrieving the results on the last page. The tutorial will be split into these three main parts.
+Let's illustrate a solution to this problem by creating a scraper which starts with an array of keywords and inputs each of them to Google, one by one. Then it retrieves the results.
 
-This whole thing could be done in a much easier way, by directly enqueuing the search URL, but we're choosing this approach to demonstrate some of the not so obvious features of the Apify scraper.
+> This isn't an efficient solution to searching keywords on Google. You could directly enqueue search URLs like `https://www.google.cz/search?q=KEYWORD`.
 
 # Enqueuing start pages for all keywords
 
 > Solving a common problem with scraper automatically deduplicating the same URLs.
 
-First, we need to start the scraper on the page from which we're going to do our enqueuing. To do that, we create one start URL with the label "enqueue" and URL "[https://example.com](https://example.com/)". Now we can proceed to enqueue all the pages. The first part of our pageFunction will look like this:
+First, we need to start the scraper on the page from which we're going to do our enqueuing. To do that, we create one start URL with the label "enqueue" and URL "https://example.com/". Now we can proceed to enqueue all the pages. The first part of our `pageFunction` will look like this:
 
 ```js
 async function pageFunction(context) {
@@ -43,7 +43,7 @@ async function pageFunction(context) {
 }
 ```
 
-To set the keywords, we're using the customData scraper parameter. This is useful for smaller data sets, but may not be perfect for bigger ones. For such cases you may want to use something like [Importing a list of URLs from an external source](http://kb.apify.com/integration/importing-a-list-of-urls-from-an-external-source).
+To set the keywords, we're using the customData scraper parameter. This is useful for smaller data sets, but may not be perfect for bigger ones. For such cases you may want to use something like [Importing a list of URLs from an external source](https://docs.apify.com/academy/node-js/scraping-urls-list-from-google-sheets).
 
 Since we're enqueuing the same page more than once, we need to set our own uniqueKey so the page will be added to the queue (by default uniqueKey is set to be the same as the URL). The label for the next page will be "fill-form". We're passing the keyword to the next page in the userData field (this can contain any data).
 

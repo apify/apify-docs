@@ -1,0 +1,21 @@
+title: CreateScheduleActions
+required:
+  - type
+  - actorId
+type: object
+properties:
+  type:
+    type: string
+    example: RUN_ACTOR
+  actorId:
+    type: string
+    example: jF8GGEvbEg4Au3NLA
+  runInput:
+    nullable: true
+    allOf:
+      - $ref: ./ScheduleActionsRunInput.yaml
+  runOptions:
+    nullable: true
+    allOf:
+      - $ref: ./ScheduleActionsRunOptions.yaml
+

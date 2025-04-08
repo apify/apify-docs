@@ -1,10 +1,11 @@
-import { ActionLink, Button, CodeBlock, theme } from '@apify-packages/ui-library';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import CodeBlock from '@theme/CodeBlock';
 import ThemedImage from '@theme/ThemedImage';
-import React from 'react';
 import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
+
+import { ActionLink, Button, theme } from '@apify/ui-library';
 
 import { Heading } from '../Heading';
 import { Text } from '../Text';
@@ -111,8 +112,12 @@ export default function SdkSection({
                 </div>
             </div>
             <div className="SdkSectionCodeExamples">
-                <CodeBlock language="bash" content={installCodeSnippet} fullHeight />
-                <CodeBlock language={lowerCaseLanguage} hideLineNumbers content={exampleCodeSnippet} />
+                <CodeBlock language="bash">
+                    {installCodeSnippet}
+                </CodeBlock>
+                <CodeBlock language={lowerCaseLanguage}>
+                    {exampleCodeSnippet}
+                </CodeBlock>
             </div>
         </StyledSdkSection>
     );

@@ -1,0 +1,196 @@
+get:
+  tags:
+    - Storage/Key-value stores
+  summary: Get record
+  description: |
+    Gets a value stored in the key-value store under a specific key.
+
+    The response body has the same `Content-Encoding` header as it was set in
+    [Put record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put).
+
+    If the request does not define the `Accept-Encoding` HTTP header with the
+    right encoding, the record will be decompressed.
+
+    Most HTTP clients support decompression by default. After using the HTTP
+    client with decompression support, the `Accept-Encoding` header is set by
+    the client and body is decompressed automatically.
+  operationId: keyValueStore_record_get
+  security:
+    - apiKeyStoreId: []
+    - httpBearerStoreId: []
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: recordKey
+      in: path
+      description: Key of the record.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: some key
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/key-value-stores/GetRecordResponse.yaml
+              - example:
+                  foo: bar
+          example:
+            foo: bar
+    '302':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://apifier-key-value-store-prod.s3.amazonaws.com/tqx6jeMia43gYY6eE/INPUT?AWSAccessKeyId=NKDOUN&Expires=1502720992&Signature=DKLVPI4lDDKC
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/get-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_get
+  x-js-parent: KeyValueStoreClient
+  x-js-name: recordExists
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#recordExists
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: stream_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#stream_record
+put:
+  tags:
+    - Storage/Key-value stores
+  summary: Store record
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    The value is passed as the PUT payload and it is stored with a MIME content
+    type defined by the `Content-Type` header and with encoding defined by the
+    `Content-Encoding` header.
+
+    To save bandwidth, storage, and speed up your upload, send the request
+    payload compressed with Gzip compression and add the `Content-Encoding: gzip`
+    header. It is possible to set up another compression type with `Content-Encoding`
+    request header.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Gzip compression: `Content-Encoding: gzip`
+    * Deflate compression: `Content-Encoding: deflate`
+    * Brotli compression: `Content-Encoding: br`
+  operationId: keyValueStore_record_put
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: recordKey
+      in: path
+      description: Key of the record.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: some key
+    - name: Content-Encoding
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        enum:
+          - gzip
+        type: string
+        example: gzip
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/key-value-stores/PutRecordRequest.yaml
+        example:
+          foo: bar
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
+  x-js-parent: KeyValueStoreClient
+  x-js-name: setRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#setRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: set_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
+delete:
+  tags:
+    - Storage/Key-value stores
+  summary: Delete record
+  description: Removes a record specified by a key from the key-value store.
+  operationId: keyValueStore_record_delete
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: recordKey
+      in: path
+      description: Key of the record.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: some key
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/delete-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_delete
+  x-js-parent: KeyValueStoreClient
+  x-js-name: deleteRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#deleteRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: delete_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#delete_record

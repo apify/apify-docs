@@ -1,0 +1,790 @@
+post:
+  tags:
+    - Actors/Actor runs
+  summary: Run Actor synchronously with input and get dataset items
+  description: |
+    Runs a specific Actor and returns its dataset items.
+
+    The POST payload including its `Content-Type` header is passed as `INPUT` to
+    the Actor (usually `application/json`).
+    The HTTP response contains the Actors dataset items, while the format of
+    items depends on specifying dataset items' `format` parameter.
+
+    You can send all the same options in parameters as the [Get Dataset
+    Items](#/reference/datasets/item-collection/get-items) API endpoint.
+
+    The Actor is started with the default options; you can override them using
+    URL query parameters.
+    If the Actor run exceeds 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds,
+    the HTTP response will return the 408 status code (Request Timeout).
+
+    Beware that it might be impossible to maintain an idle HTTP connection for a
+    long period of time,
+    due to client timeout or network conditions. Make sure your HTTP client is
+    configured to have a long enough connection timeout.
+    If the connection breaks, you will not receive any information about the run
+    and its status.
+
+    To run the Actor asynchronously, use the [Run
+    Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
+  operationId: act_runSyncGetDatasetItems_post
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: timeout
+      in: query
+      description: |
+        Optional timeout for the run, in seconds. By default, the run uses a
+        timeout specified in the default run configuration for the Actor.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+    - name: memory
+      in: query
+      description: |
+        Memory limit for the run, in megabytes. The amount of memory can be set
+        to a power of 2 with a minimum of 128. By default, the run uses a memory
+        limit specified in the default run configuration for the Actor.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 256
+    - name: maxItems
+      in: query
+      description: |
+        The maximum number of items that the Actor run should return. This is
+        useful for pay-per-result Actors, as it allows you to limit the number
+        of results that will be charged to your subscription. You can access the
+        maximum number of items in your Actor by using the
+        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 1000
+    - name: maxTotalChargeUsd
+      in: query
+      description: |
+        Specifies the maximum cost of the Actor run. This parameter is
+        useful for pay-per-event Actors, as it allows you to limit the amount
+        charged to your subscription. You can access the
+        maximum cost in your Actor by using the
+        `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 5
+    - name: build
+      in: query
+      description: |
+        Specifies the Actor build to run. It can be either a build tag or build
+        number. By default, the run uses the build specified in the default run
+        configuration for the Actor (typically `latest`).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 0.1.234
+    - name: webhooks
+      in: query
+      description: |
+        Specifies optional webhooks associated with the Actor run, which can be
+        used to receive a notification
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
+        JSON array of objects defining the webhooks. For more information, see
+        [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+    - name: format
+      in: query
+      description: |
+        Format of the results, possible values are: `json`, `jsonl`, `csv`,
+        `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: json
+    - name: clean
+      in: query
+      description: |
+        If `true` or `1` then the API endpoint returns only non-empty items and
+        skips hidden fields (i.e. fields starting with the # character).
+        The `clean` parameter is just a shortcut for `skipHidden=true` and
+        `skipEmpty=true` parameters.
+        Note that since some objects might be skipped from the output, that the
+        result might contain less items than the `limit` value.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: offset
+      in: query
+      description: |
+        Number of items that should be skipped at the start. The default value
+        is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 0
+    - name: limit
+      in: query
+      description: Maximum number of items to return. By default there is no limit.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: fields
+      in: query
+      description: |
+        A comma-separated list of fields which should be picked from the items,
+        only these fields will remain in the resulting record objects.
+        Note that the fields in the outputted items are sorted the same way as
+        they are specified in the `fields` query parameter.
+        You can use this feature to effectively fix the output format.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'myValue,myOtherValue'
+    - name: omit
+      in: query
+      description: A comma-separated list of fields which should be omitted from the items.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'myValue,myOtherValue'
+    - name: unwind
+      in: query
+      description: |
+        A comma-separated list of fields which should be unwound, in order which
+        they should be processed. Each field should be either an array or an object.
+        If the field is an array then every element of
+        the array will become a separate record and merged with parent object.
+        If the unwound field is an object then it is merged with the parent object.
+        If the unwound field is missing or its value is neither an array nor an
+        object and therefore cannot be merged with a parent object then the item
+        gets preserved as it is.
+        Note that the unwound items ignore the `desc` parameter.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'myValue,myOtherValue'
+    - name: flatten
+      in: query
+      description: |
+        A comma-separated list of fields which should transform nested objects
+        into flat structures.
+        For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}`
+        is turned into `{"foo.bar": "hello"}`.
+        The original object with properties is replaced with the flattened
+        object.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: myValue
+    - name: desc
+      in: query
+      description: |
+        By default, results are returned in the same order as they were stored.
+        To reverse the order, set this parameter to `true` or `1`.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: attachment
+      in: query
+      description: |
+        If `true` or `1` then the response will define the `Content-Disposition:
+        attachment` header, forcing a web browser to download the file rather
+        than to display it. By default this header is not present.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: delimiter
+      in: query
+      description: |
+        A delimiter character for CSV files, only used if `format=csv`. You
+        might need to URL-encode the character (e.g. use `%09` for tab or `%3B`
+        for semicolon). The default delimiter is a simple comma (`,`).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: ;
+    - name: bom
+      in: query
+      description: |
+        All text responses are encoded in UTF-8 encoding. By default, the
+        `format=csv` files are prefixed with
+        the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html`
+        and `rss` files are not.
+        If you want to override this default behavior, specify `bom=1` query
+        parameter to include the BOM or `bom=0` to skip it.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: xmlRoot
+      in: query
+      description: |
+        Overrides default root element name of `xml` output. By default the root
+        element is `items`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: items
+    - name: xmlRow
+      in: query
+      description: |
+        Overrides default element name that wraps each page or page function
+        result object in `xml` output. By default the element name is `item`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: item
+    - name: skipHeaderRow
+      in: query
+      description: If `true` or `1` then header row in the `csv` format is skipped.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: skipHidden
+      in: query
+      description: |
+        If `true` or `1` then hidden fields are skipped from the output,
+        i.e. fields starting with the `#` character.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: skipEmpty
+      in: query
+      description: |
+        If `true` or `1` then empty items are skipped from the output.
+
+        Note that if used, the results might contain less items than the limit
+        value.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: simplified
+      in: query
+      description: |
+        If `true` or `1` then, the endpoint applies the
+        `fields=url,pageFunctionResult,errorInfo`
+        and `unwind=pageFunctionResult` query parameters. This feature is used
+        to emulate simplified results provided by the
+        legacy Apify Crawler product and it's not recommended to use it in new
+        integrations.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: skipFailedPages
+      in: query
+      description: |
+        If `true` or `1` then, the all the items with errorInfo property will be
+        skipped from the output.
+        This feature is here to emulate functionality of API version 1 used for
+        the legacy Apify Crawler product and it's not recommended to use it in
+        new integrations.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          type: object
+        example:
+          foo: bar
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers:
+        X-Apify-Pagination-Offset:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '0'
+        X-Apify-Pagination-Limit:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '100'
+        X-Apify-Pagination-Count:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '100'
+        X-Apify-Pagination-Total:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '10204'
+      content:
+        application/json:
+          schema:
+            type: object
+            example:
+              - myValue: some value
+                myOtherValue: some other value
+          example:
+            - myValue: some value
+              myOtherValue: some other value
+    '400':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+          example:
+            error:
+              type: run-failed
+              message: >-
+                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
+                FAILED)
+    '408':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+          example:
+            error:
+              type: run-timeout-exceeded
+              message: Actor run exceeded timeout of 300 seconds for this API endpoint
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items
+    - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items
+    - https://docs.apify.com/api/v2#tag/ActorsRun-Actor-synchronously-and-get-dataset-items/operation/act_runSyncGetDatasetItems_post
+get:
+  tags:
+    - Actors/Actor runs
+  summary: Run Actor synchronously without input and get dataset items
+  description: |
+    Runs a specific Actor and returns its dataset items.
+    The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
+    otherwise the API endpoint returns a timeout error.
+    The Actor is not passed any input.
+
+    It allows to send all possible options in parameters from [Get Dataset
+    Items](#/reference/datasets/item-collection/get-items) API endpoint.
+
+    Beware that it might be impossible to maintain an idle HTTP connection for a
+    long period of time,
+    due to client timeout or network conditions. Make sure your HTTP client is
+    configured to have a long enough connection timeout.
+    If the connection breaks, you will not receive any information about the run
+    and its status.
+
+    To run the Actor asynchronously, use the [Run
+    Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
+  operationId: act_runSyncGetDatasetItems_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: timeout
+      in: query
+      description: |
+        Optional timeout for the run, in seconds. By default, the run uses a
+        timeout specified in the default run configuration for the Actor.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+    - name: memory
+      in: query
+      description: |
+        Memory limit for the run, in megabytes. The amount of memory can be set
+        to a power of 2 with a minimum of 128. By default, the run uses a memory
+        limit specified in the default run configuration for the Actor.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 256
+    - name: maxItems
+      in: query
+      description: |
+        The maximum number of items that the Actor run should return. This is
+        useful for pay-per-result Actors, as it allows you to limit the number
+        of results that will be charged to your subscription. You can access the
+        maximum number of items in your Actor by using the
+        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 1000
+    - name: maxTotalChargeUsd
+      in: query
+      description: |
+        Specifies the maximum cost of the Actor run. This parameter is
+        useful for pay-per-event Actors, as it allows you to limit the amount
+        charged to your subscription. You can access the
+        maximum cost in your Actor by using the
+        `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 5
+    - name: build
+      in: query
+      description: |
+        Specifies the Actor build to run. It can be either a build tag or build
+        number. By default, the run uses the build specified in the default run
+        configuration for the Actor (typically `latest`).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 0.1.234
+    - name: webhooks
+      in: query
+      description: |
+        Specifies optional webhooks associated with the Actor run, which can be
+        used to receive a notification
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
+        JSON array of objects defining the webhooks. For more information, see
+        [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+    - name: format
+      in: query
+      description: |
+        Format of the results, possible values are: `json`, `jsonl`, `csv`,
+        `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: json
+    - name: clean
+      in: query
+      description: |
+        If `true` or `1` then the API endpoint returns only non-empty items and
+        skips hidden fields (i.e. fields starting with the # character).
+        The `clean` parameter is just a shortcut for `skipHidden=true` and `skipEmpty=true` parameters.
+        Note that since some objects might be skipped from the output, that the
+        result might contain less items than the `limit` value.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: offset
+      in: query
+      description: |
+        Number of items that should be skipped at the start. The default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 0
+    - name: limit
+      in: query
+      description: Maximum number of items to return. By default there is no limit.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: fields
+      in: query
+      description: |
+        A comma-separated list of fields which should be picked from the items,
+        only these fields will remain in the resulting record objects.
+        Note that the fields in the outputted items are sorted the same way as
+        they are specified in the `fields` query parameter.
+        You can use this feature to effectively fix the output format.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'myValue,myOtherValue'
+    - name: omit
+      in: query
+      description: A comma-separated list of fields which should be omitted from the items.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'myValue,myOtherValue'
+    - name: unwind
+      in: query
+      description: |
+        A comma-separated list of fields which should be unwound, in order which
+        they should be processed. Each field should be either an array or an object.
+        If the field is an array then every element of
+        the array will become a separate record and merged with parent object.
+        If the unwound field is an object then it is merged with the parent object
+        If the unwound field is missing or its value is neither an array nor an
+        object and therefore cannot be merged with a parent object then the item
+        gets preserved as it is.
+        Note that the unwound items ignore the `desc` parameter.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'myValue,myOtherValue'
+    - name: flatten
+      in: query
+      description: |
+        A comma-separated list of fields which should transform nested objects into flat structures.
+        For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+        The original object with properties is replaced with the flattened object.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: myValue
+    - name: desc
+      in: query
+      description: |
+        By default, results are returned in the same order as they were stored.
+        To reverse the order, set this parameter to `true` or `1`.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: attachment
+      in: query
+      description: |
+        If `true` or `1` then the response will define the `Content-Disposition:
+        attachment` header, forcing a web browser to download the file rather
+        than to display it. By default this header is not present.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: delimiter
+      in: query
+      description: |
+        A delimiter character for CSV files, only used if `format=csv`. You
+        might need to URL-encode the character (e.g. use `%09` for tab or `%3B`
+        for semicolon). The default delimiter is a simple comma (`,`).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: ;
+    - name: bom
+      in: query
+      description: |
+        All text responses are encoded in UTF-8 encoding. By default, the `format=csv` files are prefixed with
+        the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html` and `rss` files are not.
+        If you want to override this default behavior, specify `bom=1` query
+        parameter to include the BOM or `bom=0` to skip it.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: xmlRoot
+      in: query
+      description: |
+        Overrides default root element name of `xml` output. By default the root
+        element is `items`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: items
+    - name: xmlRow
+      in: query
+      description: |
+        Overrides default element name that wraps each page or page function
+        result object in `xml` output. By default the element name is `item`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: item
+    - name: skipHeaderRow
+      in: query
+      description: If `true` or `1` then header row in the `csv` format is skipped.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: skipHidden
+      in: query
+      description: |
+        If `true` or `1` then hidden fields are skipped from the output,
+        i.e. fields starting with the `#` character.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: skipEmpty
+      in: query
+      description: |
+        If `true` or `1` then empty items are skipped from the output.
+
+        Note that if used, the results might contain less items than the limit
+        value.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: simplified
+      in: query
+      description: |
+        If `true` or `1` then, the endpoint applies the `fields=url,pageFunctionResult,errorInfo`
+        and `unwind=pageFunctionResult` query parameters. This feature is used
+        to emulate simplified results provided by the
+        legacy Apify Crawler product and it's not recommended to use it in new integrations.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+    - name: skipFailedPages
+      in: query
+      description: |
+        If `true` or `1` then, the all the items with errorInfo property will be
+        skipped from the output.
+        This feature is here to emulate functionality of API version 1 used for
+        the legacy Apify Crawler product and it's not recommended to use it in
+        new integrations.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: false
+  responses:
+    '201':
+      description: ''
+      headers:
+        X-Apify-Pagination-Offset:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '0'
+        X-Apify-Pagination-Limit:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '100'
+        X-Apify-Pagination-Count:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '100'
+        X-Apify-Pagination-Total:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: '10204'
+      content:
+        application/json:
+          schema:
+            type: object
+          example:
+            - myValue: some value
+              myOtherValue: some other value
+    '400':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+          example:
+            error:
+              type: run-failed
+              message: >-
+                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
+                FAILED)
+    '408':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+          example:
+            error:
+              type: run-timeout-exceeded
+              message: Actor run exceeded timeout of 60 seconds for this API endpoint
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-without-input-and-get-dataset-items
+    - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-without-input-and-get-dataset-items
+    - https://docs.apify.com/api/v2#tag/ActorsRun-Actor-synchronously-and-get-dataset-items/operation/act_runSyncGetDatasetItems_get

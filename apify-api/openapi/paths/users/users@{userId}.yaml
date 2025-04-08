@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Users
+  summary: Get public user data
+  description: |
+    Returns public information about a specific user account, similar to what
+    can be seen on public profile pages (e.g. https://apify.com/apify).
+
+    This operation requires no authentication token.
+  operationId: user_get
+  parameters:
+    - name: userId
+      in: path
+      description: User ID or username.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: HGzIk8z78YcAPEB
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/users/GetPublicUserDataResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/users/public-data/get-public-user-data
+    - https://docs.apify.com/api/v2#/reference/users/get-public-user-data
+    - https://docs.apify.com/api/v2#tag/UsersPublic-data/operation/user_get

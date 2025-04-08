@@ -17,13 +17,13 @@ The `Target closed` error happens when you try to access the `page` object (or s
 
 ![Chrome crashed tab](./images/chrome-crashed-tab.png)
 
-Browsers create a separate process for each tab. That means each tab lives with a separate memory space. If you have a lot of tabs open, you might run out of memory. The browser cannot simply close your old tabs to free extra memory so it will usually kill your current memory hungry tab.
+Browsers create a separate process for each tab. That means each tab lives with a separate memory space. If you have a lot of tabs open, you might run out of memory. The browser cannot close your old tabs to free extra memory so it will usually kill your current memory hungry tab.
 
 ### Memory solution
 
 If you use [Crawlee](https://crawlee.dev/), your concurrency automatically scales up and down to fit in the allocated memory. You can change the allocated memory using the environment variable or the [Configuration](https://crawlee.dev/docs/guides/configuration) class. But very hungry pages can still occasionally cause sudden memory spikes, and you might have to limit the [maxConcurrency](https://crawlee.dev/docs/guides/scaling-crawlers#minconcurrency-and-maxconcurrency) of the crawler. This problem is very rare, though.
 
-Without Crawlee, you will need to predict the maximum concurrency the particular use case can handle or just increase the allocated memory.
+Without Crawlee, you will need to predict the maximum concurrency the particular use case can handle or increase the allocated memory.
 
 ## Page closed prematurely
 

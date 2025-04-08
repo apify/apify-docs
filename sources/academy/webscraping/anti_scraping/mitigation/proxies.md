@@ -22,21 +22,31 @@ The following factors determine the quality of a proxy IP:
 - How long was the proxy left to "heal" before it was resold?
 - What is the quality of the underlying server of the proxy? (latency)
 
-Although IP quality is still the most important factor when it comes to using proxies and avoiding anti-scraping measures, nowadays it's not just about avoiding rate-limiting, which brings new challenges for scrapers that can no longer just rely on simple IP rotation. Anti-scraping software providers, such as CloudFlare, have global databases of "suspicious" IP addresses. If you are unlucky, your newly bought IP might be blocked even before you use it. If the previous owners overused it, it might have already been marked as suspicious in many databases, or even (very likely) was blocked altogether. If you care about the quality of your IPs, use them as a real user, and any website will have a hard time banning them completely.
+Although IP quality is still the most important factor when it comes to using proxies and avoiding anti-scraping measures, nowadays it's not just about avoiding rate-limiting, which brings new challenges for scrapers that can no longer rely on IP rotation. Anti-scraping software providers, such as CloudFlare, have global databases of "suspicious" IP addresses. If you are unlucky, your newly bought IP might be blocked even before you use it. If the previous owners overused it, it might have already been marked as suspicious in many databases, or even (very likely) was blocked altogether. If you care about the quality of your IPs, use them as a real user, and any website will have a hard time banning them completely.
 
 Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfully avoid the majority of anti-scraping measures listed in the [previous lesson](../index.md).
 
-## A bit about proxy links {#understanding-proxy-links}
+## About proxy links {#understanding-proxy-links}
 
-When using proxies in your crawlers, you'll most likely be using them in a format that looks like this:
+To use a proxy, you need a proxy link, which contains the connection details, sometimes including credentials.
 
 ```text
 http://proxy.example.com:8080
 ```
 
-This link is separated into two main components: the **host**, and the **port**. In our case, our hostname is `http://proxy.example.com`, and our port is `8080`. Sometimes, a proxy might use an IP address as the host, such as `103.130.104.33`.
+The proxy link above has several parts:
 
-If authentication (a username and a password) is required, the format will look a bit different:
+- `http://` tells us we're using HTTP protocol,
+- `proxy.example.com` is a hostname, i.e. an address to the proxy server,
+- `8080` is a port number.
+
+Sometimes the proxy server has no name, so the link contains an IP address instead:
+
+```text
+http://123.456.789.10:8080
+```
+
+If proxy requires authentication, the proxy link can contain username and password:
 
 ```text
 http://USERNAME:PASSWORD@proxy.example.com:8080

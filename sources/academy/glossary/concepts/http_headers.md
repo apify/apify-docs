@@ -23,7 +23,7 @@ For some websites, you won't need to worry about modifying headers at all, as th
 
 Some websites will require certain default browser headers to work properly, such as **User-Agent** (though, this header is becoming more obsolete, as there are more sophisticated ways to detect and block a suspicious user).
 
-Another example of such a "default" header is **Referer**. Some e-commerce websites might share the same platform, and data is loaded through XMLHttpRequests to that platform, which simply would not know which data to return without knowing which exact website is requesting it.
+Another example of such a "default" header is **Referer**. Some e-commerce websites might share the same platform, and data is loaded through XMLHttpRequests to that platform, which would not know which data to return without knowing which exact website is requesting it.
 
 ## Custom headers required {#needs-custom-headers}
 
@@ -44,7 +44,7 @@ You could use Chrome DevTools to inspect request headers, and [Insomnia](../tool
 HTTP/1.1 and HTTP/2 headers have several differences. Here are the three key differences that you should be aware of:
 
 1. HTTP/2 headers do not include status messages. They only contain status codes.
-2. Certain headers are no longer used in HTTP/2 (such as **Connection** along with a few others related to it like **Keep-Alive**). In HTTP/2, connection-specific headers are prohibited. While some browsers will simply ignore them, Safari and other Webkit-based browsers will outright reject any response that contains them. Easy to do by accident, and a big problem.
+2. Certain headers are no longer used in HTTP/2 (such as **Connection** along with a few others related to it like **Keep-Alive**). In HTTP/2, connection-specific headers are prohibited. While some browsers will ignore them, Safari and other Webkit-based browsers will outright reject any response that contains them. Easy to do by accident, and a big problem.
 3. While HTTP/1.1 headers are case-insensitive and could be sent by the browsers with capitalized letters (e.g. **Accept-Encoding**, **Cache-Control**, **User-Agent**), HTTP/2 headers must be lower-cased (e.g. **accept-encoding**, **cache-control**, **user-agent**).
 
-> To learn more about the difference between HTTP/1.1 and HTTP/2 headers, check out [this](https://httptoolkit.tech/blog/translating-http-2-into-http-1/) article
+> To learn more about the difference between HTTP/1.1 and HTTP/2 headers, check out [this](https://httptoolkit.com/blog/translating-http-2-into-http-1/) article

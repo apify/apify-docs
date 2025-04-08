@@ -1,0 +1,193 @@
+post:
+  tags:
+    - Storage/Request queues
+  summary: Add requests
+  description: |
+    Adds requests to the queue in batch. The maximum requests in batch is limit
+    to 25. The response contains an array of unprocessed and processed requests.
+    If any add operation fails because the request queue rate limit is exceeded
+    or an internal failure occurs,
+    the failed request is returned in the unprocessedRequests response
+    parameter.
+    You can resend these requests to add. It is recommended to use exponential
+    backoff algorithm for these retries.
+    If a request with the same `uniqueKey` was already present in the queue,
+    then it returns an ID of the existing request.
+  operationId: requestQueue_requests_batch_post
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end. Default value is `false` (end of queue).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'false'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
+          description: ''
+          example:
+            - uniqueKey: 'http://example.com'
+              url: 'http://example.com'
+              method: GET
+            - uniqueKey: 'http://example.com/2'
+              url: 'http://example.com/2'
+              method: GET
+        example:
+          - uniqueKey: 'http://example.com'
+            url: 'http://example.com'
+            method: GET
+          - uniqueKey: 'http://example.com/2'
+            url: 'http://example.com/2'
+            method: GET
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/BatchOperationResponse.yaml
+              - example:
+                  data:
+                    processedRequests:
+                      - requestId: YiKoxjkaS9gjGTqhF
+                        uniqueKey: 'http://example.com/2'
+                        wasAlreadyPresent: true
+                        wasAlreadyHandled: false
+                    unprocessedRequests:
+                      - uniqueKey: 'http://example.com/2'
+                        url: 'http://example.com/2'
+                        method: GET
+          example:
+            data:
+              processedRequests:
+                - requestId: YiKoxjkaS9gjGTqhF
+                  wasAlreadyPresent: true
+                  wasAlreadyHandled: false
+              unprocessedRequests:
+                - uniqueKey: 'http://example.com/2'
+                  url: 'http://example.com/2'
+                  method: GET
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/add-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/add-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesBatch-request-operations/operation/requestQueue_requests_batch_post
+  x-js-parent: RequestQueueClient
+  x-js-name: batchAddRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: batch_add_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#batch_add_requests
+delete:
+  tags:
+    - Storage/Request queues
+  summary: Delete requests
+  description: |
+    Batch-deletes given requests from the queue. The number of requests in a
+    batch is limited to 25. The response contains an array of unprocessed and
+    processed requests.
+    If any delete operation fails because the request queue rate limit is
+    exceeded or an internal failure occurs,
+    the failed request is returned in the `unprocessedRequests` response
+    parameter.
+    You can re-send these delete requests. It is recommended to use an
+    exponential backoff algorithm for these retries.
+    Each request is identified by its ID or uniqueKey parameter. You can use
+    either of them to identify the request.
+  operationId: requestQueue_requests_batch_delete
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: Content-Type
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        enum:
+          - application/json
+        type: string
+        example: application/json
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/BatchOperationResponse.yaml
+              - example:
+                  data:
+                    processedRequests:
+                      - requestId: YiKoxjkaS9gjGTqhF
+                        uniqueKey: 'http://example.com/2'
+                        wasAlreadyPresent: true
+                        wasAlreadyHandled: false
+                    unprocessedRequests:
+                      - uniqueKey: 'http://example.com/2'
+                        url: 'http://example.com/2'
+                        method: GET
+          example:
+            data:
+              processedRequests:
+                - uniqueKey: 'http://example.com'
+              unprocessedRequests:
+                - id: sbJ7klsdf7ujN9l
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/delete-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/delete-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesBatch-request-operations/operation/requestQueue_requests_batch_delete
+  x-js-parent: RequestQueueClient
+  x-js-name: batchDeleteRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchDeleteRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: batch_delete_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#batch_delete_requests

@@ -1,0 +1,25 @@
+get:
+  tags:
+    - Users
+  summary: Get private user data
+  description: |
+    Returns information about the current user account, including both public
+    and private information.
+
+    The user account is identified by the provided authentication token.
+
+    The fields `plan`, `email` and `profile` are omitted when this endpoint is accessed from Actor run.
+  operationId: users_me_get
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/users/GetPrivateUserDataResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/users/private-data/get-private-user-data
+    - https://docs.apify.com/api/v2#/reference/users/get-private-user-data
+    - https://docs.apify.com/api/v2#tag/UsersPrivate-data/operation/users_me_get

@@ -1,7 +1,9 @@
 FORMAT: 1A
 HOST: https://api.apify.com/
 
-# Apify API
+# Apify API (This document is deprecated)
+
+>  UPDATE 2024-08-09: This documentation is no longer updated. Please refer to the [new Apify API documentation](https://docs.apify.com/api/v2).
 
 The Apify API (version 2) provides programmatic access to the [Apify platform](https://docs.apify.com).
 The API is organized around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
@@ -982,14 +984,15 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require the token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the default run configuration for the actor.
-    + maxItems: 1000 (number, optional) - The maximum number of items that the actor run should return. This is useful for pay-per-result actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxItems: 1000 (number, optional) - The maximum number of items that the Actor run should return. This is useful for pay-per-result Actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxTotalChargeUsd: 5 (number, optional) - Specifies the maximum cost of the Actor run. This is useful for pay-per-event Actors, as it allows you to limit the amount charged to your subscription. You can access the maximum cost in your Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 + Request
 
@@ -1019,11 +1022,12 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
                                                      in the response. By default, it is `OUTPUT`.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the default run configuration for the actor.
-    + maxItems: 1000 (number, optional) - The maximum number of items that the actor run should return. This is useful for pay-per-result actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxItems: 1000 (number, optional) - The maximum number of items that the Actor run should return. This is useful for pay-per-result Actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxTotalChargeUsd: 5 (number, optional) - Specifies the maximum cost of the Actor run. This is useful for pay-per-event Actors, as it allows you to limit the amount charged to your subscription. You can access the maximum cost in your Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 ### With input [POST]
 
@@ -1137,11 +1141,12 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
     + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the default run configuration for the actor.
-    + maxItems: 1000 (number, optional) - The maximum number of items that the actor run should return. This is useful for pay-per-result actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxItems: 1000 (number, optional) - The maximum number of items that the Actor run should return. This is useful for pay-per-result Actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxTotalChargeUsd: 5 (number, optional) - Specifies the maximum cost of the Actor run. This is useful for pay-per-event Actors, as it allows you to limit the amount charged to your subscription. You can access the maximum cost in your Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
     + format: `json` (string, optional) - Format of the results, possible values are: `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
     + clean: `false` (boolean, optional) - If `true` or `1` then the API endpoint returns only non-empty items and skips hidden fields
         (i.e. fields starting with the # character).
@@ -1749,7 +1754,8 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
-    + maxItems: 1000 (number, optional) - The maximum number of items that the actor run should return. This is useful for pay-per-result actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxItems: 1000 (number, optional) - The maximum number of items that the Actor run should return. This is useful for pay-per-result Actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxTotalChargeUsd: 5 (number, optional) - Specifies the maximum cost of the Actor run. This is useful for pay-per-event Actors, as it allows you to limit the amount charged to your subscription. You can access the maximum cost in your Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
       If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
@@ -1758,7 +1764,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
       **Note**: if you already have a webhook set up for the actor or task, you do not have to add it again here.
       For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 + Request
 
@@ -1787,12 +1793,13 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
     + maxItems: 1000 (number, optional) - The maximum number of items that the task run should return. This is useful for pay-per-result tasks, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxTotalChargeUsd: 5 (number, optional) - Specifies the maximum cost of the task run. This is useful for pay-per-event tasks, as it allows you to limit the amount charged to your subscription. You can access the maximum cost in your Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
     + outputRecordKey: `OUTPUT` (string, optional) - Key of the record from run's default key-value store to be returned
       in the response. By default, it is `OUTPUT`.
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 ### Run task synchronously (POST) [POST]
 
@@ -1895,10 +1902,11 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
     + maxItems: 1000 (number, optional) - The maximum number of items that the task run should return. This is useful for pay-per-result tasks, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+    + maxTotalChargeUsd: 5 (number, optional) - Specifies the maximum cost of the task run. This is useful for pay-per-event tasks, as it allows you to limit the amount charged to your subscription. You can access the maximum cost in your Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
     + format: `json` (string, optional) - Format of the results, possible values are: `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
     + clean: `false` (boolean, optional) - If `true` or `1` then the API endpoint returns only non-empty items and skips hidden fields
       (i.e. fields starting with the # character).
@@ -3005,7 +3013,7 @@ The pagination is always performed with the granularity of a single item, regard
 By default, the **Items** in the response are sorted by the time they were stored to the database, therefore you can use
 pagination to incrementally fetch the items as they are being added.
 The maximum number of items that will be returned in a single API call is limited to 250,000. <!-- GET_ITEMS_LIMIT -->
-If you specify `desc=1` query paremeter, the results are returned in the reverse order
+If you specify `desc=1` query parameter, the results are returned in the reverse order
 than they were stored (i.e. from newest to oldest items).
 Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
 
@@ -3081,7 +3089,7 @@ The POST payload is a JSON object or a JSON array of objects to save into the da
 **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size,
 you'll need to split it into a number of smaller arrays.
 
-If the dataset has fields schema defined, the push request can potentialy fail with `400 Bad Request` if any item does not match the schema.
+If the dataset has fields schema defined, the push request can potentially fail with `400 Bad Request` if any item does not match the schema.
 In such case, nothing will be inserted into the dataset and the response will contain an error message with a list of invalid items and their validation errors.
 
 + Parameters
@@ -3767,7 +3775,7 @@ parameter.
 
 + Parameters
 
-    + dispatchId: `Zib4xbZsmvZeK55ua`         (string, required) - Webhook dispacth ID.
+    + dispatchId: `Zib4xbZsmvZeK55ua`         (string, required) - Webhook dispatch ID.
     + token:      `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get webhook dispatch [GET]
@@ -4091,7 +4099,7 @@ a summary of your limits, and your current usage.
 - taggedBuilds                                 (object, nullable)
     - latest                                   (object, nullable)
         - buildId:      `z2EryhbfhgSyqj6Hn`    (string, nullable)
-        - buldNumber:   `0.0.2`                (string, nullable)
+        - buildNumber:   `0.0.2`                (string, nullable)
         - finishedAt:   `2019-06-10T11:15:49.286Z`          (string, nullable)
 
 ## ActCreate (object)

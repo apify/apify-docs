@@ -1,0 +1,423 @@
+- name: Actors
+  x-displayName: Actors - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/actors'
+  - '#tag/Actors'
+  - '#/reference/actors/actor-collection'
+  - '#tag/ActorsActor-collection'
+  - '#/reference/actors/actor-object'
+  - '#tag/ActorsActor-object'
+  description: |
+    The API endpoints in this section allow you to manage Apify Actors. For more details about Actors, refer to the [Actor documentation](https://docs.apify.com/platform/actors).
+
+    For API endpoints that require the `actorId` parameter to identify an Actor, you can provide either:
+    - The Actor ID (e.g., `HG7ML7M8z78YcAPEB`), or
+    - A tilde-separated combination of the Actor owner's username and the Actor name (e.g., `janedoe~my-actor`).
+
+- name: Actors/Actor versions
+  x-displayName: Actor versions - Introduction
+  x-parent-tag-name: Actors
+  x-legacy-doc-urls:
+  - '#/reference/actors/version-collection'
+  - '#tag/ActorsVersion-collection'
+  - '#/reference/actors/version-object'
+  - '#tag/ActorsVersion-object'
+  - '#/reference/actors/environment-variable-collection'
+  - '#tag/ActorsEnvironment-variable-collection'
+  - '#/reference/actors/environment-variable-object'
+  - '#tag/ActorsEnvironment-variable-object'
+  x-trait: 'true'
+  description: |
+    The API endpoints in this section allow you to manage your Apify Actors versions.
+
+    - The version object contains the source code of a specific version of an Actor.
+    - The `sourceType` property indicates where the source code is hosted, and based
+    on its value the Version object has the following additional property:
+
+    | **Value** | **Description**  |
+    |---|---|
+    | `"SOURCE_FILES"`   | Source code is comprised of multiple files specified in the `sourceFiles` array. Each item of the array is an object with the following fields:<br/> - `name`: File path and name<br/> - `format`: Format of the content, can be either `"TEXT"` or `"BASE64"`<br/> - `content`: File content<br/><br/>Source files can be shown and edited in the Apify Console's Web IDE. |
+    | `"GIT_REPO"` | Source code is cloned from a Git repository, whose URL is specified in the `gitRepoUrl` field. |
+    | `"TARBALL"` | Source code is downloaded using a tarball or Zip file from a URL specified in the `tarballUrl` field.  |
+    |`"GITHUB_GIST"`| Source code is taken from a GitHub Gist, whose URL is specified in the `gitHubGistUrl` field. |
+
+    For more information about source code and Actor versions, check out [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
+    in Actors documentation.
+- name: Actors/Actor builds
+  x-displayName: Actor builds - Introduction
+  x-parent-tag-name: Actors
+  x-legacy-doc-urls:
+  - '#/reference/actors/build-collection'
+  - '#tag/ActorsBuild-collection'
+  - '#/reference/actors/build-object'
+  - '#tag/ActorsBuild-object'
+  - '#tag/ActorsAbort-build'
+  x-trait: 'true'
+  description: |
+    The API endpoints in this section allow you to manage your Apify Actors builds.
+- name: Actors/Actor runs
+  x-displayName: Actor runs - Introduction
+  x-parent-tag-name: Actors
+  x-legacy-doc-urls:
+  - '#/reference/actors/run-collection'
+  - '#tag/ActorsRun-collection'
+  - '#tag/ActorsResurrect-run'
+  - '#tag/ActorsMetamorph-run'
+  - '#tag/ActorsAbort-run'
+  - '#/reference/actors/run-object'
+  - '#tag/ActorsRun-object'
+  - '#/reference/actors/run-actor-synchronously'
+  - '#tag/ActorsRun-actor-synchronously'
+  - '#/reference/actors/run-actor-synchronously-and-get-dataset-items'
+  - '#tag/ActorsRun-Actor-synchronously-and-get-dataset-items'
+  - '#/reference/actors/last-run-object-and-its-storages'
+  - '#tag/ActorsLast-run-object-and-its-storages'
+  description: |
+    The API endpoints in this section allow you to manage your Apify Actors runs.
+
+    Some API endpoints return run objects. If a run object includes usage costs in dollars, note that these values are calculated based on your effective unit pricing at the time of the query. As a result, the dollar amounts should be treated as informational only and not as exact figures.
+
+    For more information about platform usage and resource calculations, see the [Usage and Resources documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
+  x-trait: 'true'
+- name: Actors/Webhook collection
+  x-displayName: Webhook collection - Introduction
+  x-parent-tag-name: Actors
+  x-legacy-doc-urls:
+  - '#/reference/actors/webhook-collection'
+  - '#tag/ActorsWebhook-collection'
+  description: |
+    The API endpoint in this section allows you to get a list of webhooks of a specific Actor.
+  x-trait: 'true'
+- name: Actor builds
+  x-displayName: Actor builds - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/actor-builds'
+  - '#tag/Actor-builds'
+  - '#/reference/actor-builds/build-collection'
+  - '#tag/Actor-buildsBuild-collection'
+  - '#/reference/actor-builds/build-object'
+  - '#tag/Actor-buildsBuild-object'
+  - '#tag/Actor-buildsDelete-build'
+  - '#tag/Actor-buildsAbort-build'
+  - '#/reference/actor-builds/build-log'
+  - '#tag/Actor-buildsBuild-log'
+  description: |
+    The API endpoints described in this section enable you to manage, and delete Apify Actor builds.
+
+    Note that if any returned build object contains usage in dollars, your effective
+    unit pricing at the time of query has been used for computation of this dollar equivalent, and hence it should be
+    used only for informative purposes.
+
+    You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
+- name: Actor runs
+  x-displayName: Actor runs - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/actor-runs'
+  - '#tag/Actor-runs'
+  - '#/reference/actor-runs/run-collection'
+  - '#tag/Actor-runsRun-collection'
+  - '#/reference/actor-runs/run-object-and-its-storages'
+  - '#tag/Actor-runsRun-object-and-its-storages'
+  description: |
+    The API endpoints described in this section enable you to manage, and delete Apify Actor runs.
+
+    If any returned run object contains usage in dollars, your effective unit pricing at the time of query
+    has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
+
+    You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
+- name: Actor tasks
+  x-displayName: Actor tasks - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/actor-tasks'
+  - '#tag/Actor-tasks'
+  - '#/reference/actor-tasks/task-collection'
+  - '#tag/Actor-tasksTask-collection'
+  - '#/reference/actor-tasks/task-object'
+  - '#tag/Actor-tasksTask-object'
+  - '#/reference/actor-tasks/task-input-object'
+  - '#tag/Actor-tasksTask-input-object'
+  - '#/reference/actor-tasks/webhook-collection'
+  - '#tag/Actor-tasksWebhook-collection'
+  - '#/reference/actor-tasks/run-collection'
+  - '#tag/Actor-tasksRun-collection'
+  - '#/reference/actor-tasks/run-task-synchronously'
+  - '#tag/Actor-tasksRun-task-synchronously'
+  - '#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items'
+  - '#tag/Actor-tasksRun-task-synchronously-and-get-dataset-items'
+  - '#/reference/actor-tasks/last-run-object-and-its-storages'
+  - '#tag/Actor-tasksLast-run-object-and-its-storages'
+  description: |
+    The API endpoints described in this section enable you to create, manage, delete, and run Apify Actor tasks.
+    For more information, see the [Actor tasts documentation](https://docs.apify.com/platform/actors/running/tasks).
+
+    :::note
+
+    For all the API endpoints that accept the `actorTaskId` parameter to
+    specify a task, you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
+    username of the task's owner and the task's name (e.g. `janedoe~my-task`).
+
+    :::
+
+    Some of the API endpoints return run objects. If any such run object
+    contains usage in dollars, your effective unit pricing at the time of query
+    has been used for computation of this dollar equivalent, and hence it should be
+    used only for informative purposes.
+
+    You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
+- name: Storage
+  x-displayName:
+- name: Storage/Datasets
+  x-displayName: Datasets - Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
+  - '#/reference/datasets'
+  - '#tag/Datasets'
+  - '#/reference/datasets/dataset-collection'
+  - '#tag/DatasetsDataset-collection'
+  - '#/reference/datasets/dataset'
+  - '#tag/DatasetsDataset'
+  - '#/reference/datasets/item-collection'
+  - '#tag/DatasetsItem-collection'
+  description: |
+    This section describes API endpoints to manage Datasets.
+
+    Dataset is a storage for structured data, where each record stored has the same attributes,
+    such as online store products or real estate offers. You can imagine it as a table,
+    where each object is a row and its attributes are columns. Dataset is an append-only
+    storage - you can only add new records to it but you cannot modify or remove existing
+    records. Typically it is used to store crawling results.
+
+    For more information, see the [Datasets documentation](https://docs.apify.com/platform/storage/dataset).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using the hard-to-guess ID of the dataset.
+
+    :::
+  x-trait: 'true'
+- name: Storage/Key-value stores
+  x-displayName: Key-value stores - Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
+  - '#/reference/key-value-stores/key-collection'
+  - '#tag/Key-value-storesKey-collection'
+  - '#/reference/key-value-stores/store-collection'
+  - '#tag/Key-value-storesStore-collection'
+  - '#/reference/key-value-stores/store-object'
+  - '#tag/Key-value-storesStore-object'
+  - '#/reference/key-value-stores/record'
+  - '#tag/Key-value-storesRecord'
+  - '#/reference/key-value-stores'
+  - '#tag/Key-value-stores'
+  description: |
+    This section describes API endpoints to manage Key-value stores.
+    Key-value store is a simple storage for saving and reading data records or files.
+    Each data record is represented by a unique key and associated with a MIME content type.
+    Key-value stores are ideal for saving screenshots, Actor inputs and outputs, web pages,
+    PDFs or to persist the state of crawlers.
+
+    For more information, see the [Key-value store documentation](https://docs.apify.com/platform/storage/key-value-store).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using a hard-to-guess ID of the key-value store.
+
+    :::
+  x-trait: 'true'
+- name: Storage/Request queues
+  x-displayName: Request queues - Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
+  - '#/reference/request-queues'
+  - '#tag/Request-queues'
+  - '#/reference/request-queues/queue-collection'
+  - '#tag/Request-queuesQueue-collection'
+  - '#/reference/request-queues/queue'
+  - '#tag/Request-queuesQueue'
+  - '#/reference/request-queues/batch-request-operations'
+  - '#tag/Request-queuesBatch-request-operations'
+  description: |
+    This section describes API endpoints to create, manage, and delete request queues.
+
+    Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
+    used for deep crawling of websites where you
+    start with several URLs and then recursively follow links to other pages.
+    The storage supports both breadth-first and depth-first crawling orders.
+
+    For more information, see the [Request queue documentation](https://docs.apify.com/platform/storage/request-queue).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using the hard-to-guess ID of the queue.
+
+    :::
+- name: Storage/Request queues/Requests
+  x-displayName: Requests- Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
+  - '#/reference/request-queues/request-collection'
+  - '#tag/Request-queuesRequest-collection'
+  - '#/reference/request-queues/request'
+  - '#tag/Request-queuesRequest'
+  description: |
+    This section describes API endpoints to create, manage, and delete requests within request queues.
+
+    Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
+    used for deep crawling of websites where you
+    start with several URLs and then recursively follow links to other pages.
+    The storage supports both breadth-first and depth-first crawling orders.
+
+    For more information, see the [Request queue documentation](https://docs.apify.com/platform/storage/request-queue).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using the hard-to-guess ID of the queue.
+
+    :::
+- name: Storage/Request queues/Requests locks
+  x-displayName: Requests locks - Introduction
+  x-parent-tag-name: Storage
+  x-legacy-doc-urls:
+
+  - '#/reference/request-queues/request-lock'
+  - '#tag/Request-queuesRequest-lock'
+  - '#/reference/request-queues/queue-head'
+  - '#tag/Request-queuesQueue-head'
+  - '#/reference/request-queues/queue-head-with-locks'
+  - '#tag/Request-queuesQueue-head-with-locks'
+  description: |
+    This section describes API endpoints to create, manage, and delete request locks within request queues.
+
+    Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
+    used for deep crawling of websites where you
+    start with several URLs and then recursively follow links to other pages.
+    The storage supports both breadth-first and depth-first crawling orders.
+
+    For more information, see the [Request queue documentation](https://docs.apify.com/platform/storage/request-queue).
+
+    :::note
+
+    Some of the endpoints do not require the authentication token, the calls
+    are authenticated using the hard-to-guess ID of the queue.
+
+    :::
+- name: Webhooks
+  x-displayName:
+- name: Webhooks/Webhooks
+  x-displayName: Webhooks - Introduction
+  x-parent-tag-name: Webhooks
+  x-legacy-doc-urls:
+  - '#/reference/webhooks'
+  - '#tag/Webhooks'
+  - '#/reference/webhooks/webhook-collection'
+  - '#tag/WebhooksWebhook-collection'
+  - '#/reference/webhooks/webhook-object'
+  - '#tag/WebhooksWebhook-object'
+  - '#/reference/webhooks/webhook-test'
+  - '#tag/WebhooksWebhook-test'
+  - '#/reference/webhooks/dispatches-collection'
+  - '#tag/WebhooksDispatches-collection'
+  description: |
+    This section describes API endpoints to manage webhooks.
+
+    Webhooks provide an easy and reliable way to configure the Apify platform
+    to carry out an action (e.g. a HTTP request to another service) when a certain
+    system event occurs.
+    For example, you can use webhooks to start another Actor when an Actor run finishes
+    or fails.
+
+    For more information see [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
+- name: Webhooks/Webhook dispatches
+  x-displayName: Webhook dispatches - Introduction
+  x-parent-tag-name: Webhooks
+  x-legacy-doc-urls:
+  - '#/reference/webhook-dispatches'
+  - '#tag/Webhook-dispatches'
+  - '#/reference/webhook-dispatches/webhook-dispatches-collection'
+  - '#tag/Webhook-dispatchesWebhook-dispatches-collection'
+  - '#/reference/webhook-dispatches/webhook-dispatch-object'
+  - '#tag/Webhook-dispatchesWebhook-dispatch-object'
+  description: This section describes API endpoints to get webhook dispatches.
+- name: Schedules
+  x-displayName: Schedules - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/schedules'
+  - '#tag/Schedules'
+  - '#/reference/schedules/schedules-collection'
+  - '#tag/SchedulesSchedules-collection'
+  - '#/reference/schedules/schedule-object'
+  - '#tag/SchedulesSchedule-object'
+  - '#/reference/schedules/schedule-log'
+  - '#tag/SchedulesSchedule-log'
+  description: |
+    This section describes API endpoints for managing schedules.
+
+    Schedules are used to automatically start your Actors at certain times. Each schedule
+    can be associated with a number of Actors and Actor tasks. It is also possible
+    to override the settings of each Actor (task) similarly to when invoking the Actor
+    (task) using the API.
+    For more information, see [Schedules documentation](https://docs.apify.com/platform/schedules).
+
+    Each schedule is assigned actions for it to perform. Actions can be of two types
+    - `RUN_ACTOR` and `RUN_ACTOR_TASK`.
+
+    For details, see the documentation of the [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
+  x-trait: 'true'
+- name: Store
+  x-displayName: Store - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/store'
+  - '#tag/Store'
+  - '#/reference/store/store-actors-collection'
+  - '#tag/StoreStore-Actors-collection'
+  description: |
+    [Apify Store](https://apify.com/store) is home to hundreds of public Actors available
+    to the Apify community.
+    The API endpoints described in this section are used to retrieve these Actors.
+
+    :::note
+
+    These endpoints do not require the authentication token.
+
+    :::
+  x-trait: true
+- name: Logs
+  x-displayName: Logs - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/logs'
+  - '#tag/Logs'
+  - '#/reference/logs/log'
+  - '#tag/LogsLog'
+  description: |
+    The API endpoints described in this section are used the download the logs
+    generated by Actor builds and runs. Note that only the trailing 5M characters
+    of the log are stored, the rest is discarded.
+
+    :::note
+
+    Note that the endpoints do not require the authentication token, the calls
+    are authenticated using a hard-to-guess ID of the Actor build or run.
+
+    :::
+  x-trait: true
+- name: Users
+  x-displayName: Users - Introduction
+  x-legacy-doc-urls:
+  - '#/reference/users'
+  - '#tag/Users'
+  - '#/reference/users/public-data'
+  - '#tag/UsersPublic-data'
+  - '#/reference/users/private-data'
+  - '#tag/UsersPrivate-data'
+  - '#/reference/users/monthly-usage'
+  - '#tag/UsersMonthly-usage'
+  - '#/reference/users/account-and-usage-limits'
+  - '#tag/UsersAccount-and-usage-limits'
+  description: The API endpoints described in this section return information about
+    user accounts.
+  x-trait: true
+

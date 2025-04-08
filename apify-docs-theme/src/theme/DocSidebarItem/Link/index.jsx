@@ -1,12 +1,12 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import clsx from 'clsx';
+import isInternalUrl from '@docusaurus/isInternalUrl';
+import Link from '@docusaurus/Link';
+import { isActiveSidebarItem } from '@docusaurus/plugin-content-docs/client';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { isActiveSidebarItem } from '@docusaurus/theme-common/internal';
-import Link from '@docusaurus/Link';
-import isInternalUrl from '@docusaurus/isInternalUrl';
 import IconExternalLink from '@theme/Icon/ExternalLink';
+import clsx from 'clsx';
+import React from 'react';
+
 import styles from './styles.module.css';
 
 export default function DocSidebarItemLink({
@@ -29,6 +29,12 @@ export default function DocSidebarItemLink({
 
     if (href.startsWith(baseUrl)) {
         props.target = '_self';
+    }
+
+    if (item.customProps) {
+        for (const key of Object.keys(item.customProps)) {
+            props[`data-${key}`] = item.customProps[key];
+        }
     }
 
     return (

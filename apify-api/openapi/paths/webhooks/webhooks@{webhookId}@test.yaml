@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Webhooks/Webhooks
+  summary: Test webhook
+  description: Tests a webhook. Creates a webhook dispatch with a dummy payload.
+  operationId: webhook_test_post
+  parameters:
+    - name: webhookId
+      in: path
+      description: Webhook ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: Zib4xbZsmvZeK55ua
+  responses:
+    '201':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/webhooks/TestWebhookResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/webhooks/webhook-test/test-webhook
+    - https://docs.apify.com/api/v2#/reference/webhooks/test-webhook
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-test/operation/webhook_test_post
+  x-js-parent: WebhookClient
+  x-js-name: test
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#test
+  x-py-parent: WebhookClientAsync
+  x-py-name: test
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#test

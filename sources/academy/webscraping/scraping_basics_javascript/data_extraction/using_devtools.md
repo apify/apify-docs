@@ -114,7 +114,7 @@ As you can see, we were able to extract information about the subwoofer, but the
 
 ### Finding child elements {#finding-child-elements}
 
-In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were browsing the elements in the **Elements** tab to find the element that contains all the data. We can use the same approach to find the individual data points as well.
+In the [Getting structured data from HTML](#getting-structured-data) section, we were browsing the elements in the **Elements** tab to find the element that contains all the data. We can use the same approach to find the individual data points as well.
 
 Start from the element that contains all data: `<div class="product-item...">` Then inspect all the elements nested within this element. You'll discover that:
 
@@ -151,7 +151,7 @@ price.textContent;
 
 ![Extract product price](./images/devtools-extract-product-price.png)
 
-It worked, but the price was not alone in the result. We extracted it together with some extra text. This is very common in web scraping. Sometimes it's not possible to easily separate the data we need by element selection alone, and we have to clean the data using other methods.
+It worked, but the price was not alone in the result. We extracted it together with some extra text. This is very common in web scraping. Sometimes it's impossible to separate the data we need by element selection alone, and we have to clean the data using other methods.
 
 ### Cleaning extracted data {#cleaning-extracted-data}
 
@@ -192,7 +192,7 @@ price.textContent.split('$')[1];
 
 And there you go. Notice that this time we extracted the price without the `$` dollar sign. This could be desirable, because we wanted to convert the price from a string to a number, or not, depending on individual circumstances of the scraping project.
 
-Which method to choose? Neither is the perfect solution. The first method could easily break if the website's developers change the structure of the `<span>` elements and the price will no longer be in the third position - a very small change that can happen at any moment.
+Which method to choose? Neither is the perfect solution. The first method could break if the website's developers change the structure of the `<span>` elements and the price will no longer be in the third position - a very small change that can happen at any moment.
 
 The second method seems more reliable, but only until the website adds prices in other currency or decides to replace `$` with `USD`. It's up to you, the scraping developer to decide which of the methods will be more resilient on the website you scrape.
 

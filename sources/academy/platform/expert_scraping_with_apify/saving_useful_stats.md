@@ -28,9 +28,7 @@ Before moving on, give these valuable resources a quick lookover:
 
 1. Why might you want to store statistics about an Actor's run (or a specific request)?
 2. In our Amazon scraper, we are trying to store the number of retries of a request once its data is pushed to the dataset. Where would you get this information? Where would you store it?
-3. We are building a new imaginary scraper for a website that sometimes displays captchas at unexpected times, rather than displaying the content we want. How would you keep a count of the total number of captchas hit for the entire run? Where would you store this data? Why?
-4. Is storing these types of values necessary for every single Actor?
-5. What is the difference between the `failedRequestHandler` and `errorHandler`?
+3. What is the difference between the `failedRequestHandler` and `errorHandler`?
 
 ## Our task
 

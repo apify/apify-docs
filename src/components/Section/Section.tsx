@@ -1,6 +1,6 @@
-import { theme } from '@apify-packages/ui-library';
 import clsx from 'clsx';
-import React from 'react';
+
+import { theme } from '@apify/ui-library';
 
 import styles from './styles.module.css';
 import { Heading } from '../Heading';
@@ -19,7 +19,7 @@ export default function Section({ heading, description, className, children, hea
     return (
         <section className={clsx(styles.section, className)}>
             {(heading || description) && <div className={styles.sectionHeader}>
-                {heading && <Heading className={headingClassName} type='title2Xl' as={headingAs}>{heading}</Heading>}
+                {heading && <Heading className={headingClassName} type="title2Xl" as={headingAs || 'h2'}>{heading}</Heading>}
                 {description && <Text color={theme.color.neutral.textMuted} size="large">{description}</Text>}
             </div>}
             {children}

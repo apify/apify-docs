@@ -1,8 +1,10 @@
-import { UiDependencyProvider } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import { useEffect, useState } from 'react';
+
+import { UiDependencyProvider } from '@apify/ui-library';
 
 export default function UiLibraryWrapper({ children }: PropsWithChildren) {
     const [themeIsDark, setThemeIsDark] = useState(true);

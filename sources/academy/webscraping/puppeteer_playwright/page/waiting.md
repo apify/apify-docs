@@ -35,11 +35,11 @@ import puppeteer from 'puppeteer';
 const browser = await puppeteer.launch({ headless: false });
 
 const page = await browser.newPage();
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.click('button + button');
 
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Wait for the element to be present on the page prior to clicking it
@@ -58,7 +58,7 @@ Now, we won't see the error message anymore, and the first result will be succes
 
 If we remember properly, after clicking the first result, we want to console log the title of the result's page and save a screenshot into the filesystem. In order to grab a solid screenshot of the loaded page though, we should **wait for navigation** before snapping the image. This can be done with [`page.waitForNavigation()`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-pagewaitfornavigationoptions).
 
-> A navigation is simply when a new [page load](../../../glossary/concepts/dynamic_pages.md) happens. First, the `domcontentloaded` event is fired, then the `load` event. `page.waitForNavigation()` will wait for the `load` event to fire.
+> A navigation is when a new [page load](../../../glossary/concepts/dynamic_pages.md) happens. First, the `domcontentloaded` event is fired, then the `load` event. `page.waitForNavigation()` will wait for the `load` event to fire.
 
 Naively, you might immediately think that this is the way we should wait for navigation after clicking the first result:
 
@@ -104,10 +104,10 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // Agree to the cookies policy
-await page.click('button:has-text("I agree")');
+await page.click('button:has-text("Accept all")');
 
 // Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Click on the first result
@@ -139,7 +139,7 @@ await page.goto('https://google.com');
 await page.click('button + button');
 
 // Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Wait for the first result to appear on the page,

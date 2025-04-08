@@ -1,0 +1,15 @@
+title: ScheduleActionsRunOptions
+type: object
+properties:
+  build:
+    type: string
+    nullable: true
+    example: latest
+  timeoutSecs:
+    type: number
+    nullable: true
+    example: 60
+  memoryMbytes:
+    type: number
+    nullable: true
+    example: 1024

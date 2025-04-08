@@ -1,0 +1,98 @@
+# docs.apify.com
+
+> Cloud platform for web scraping, browser automation, and data for AI. Use 3,000+ ready-made tools, code templates, or order a custom solution.
+
+## Your full‑stack platform for web scraping
+
+- [Apify Store](https://apify.com/store): Ready-to-use web scraping tools for popular websites and automation software for any use case. Plus marketplace for developers to earn from coding.
+- [Apify Actors](https://apify.com/actors): Need to scrape at scale? Try Apify Actors, the easy serverless way to create and deploy web scraping and automation tools.
+- [Careers at Apify](https://apify.com/jobs): Join the Apify team and help us make the web more programmable!
+- [Apify integrations](https://apify.com/integrations): Connect Apify Actors and tasks with your favorite web apps and cloud services and bring your workflow automation to a whole new level.
+- [Flexible platform—flexible pricing](https://apify.com/pricing): Extract value from the web with Apify. Flexible platform — flexible pricing. Free plan available, no credit card required.
+- [Apify Storage](https://apify.com/storage): Scalable and reliable cloud data storage designed for web scraping and automation workloads.
+- [Contact Sales](https://apify.com/contact-sales): Apify has all the tools you need for large-scale web scraping and automation. What are you looking for?
+- [Scrape the web without getting blocked](https://apify.com/anti-blocking): Use Apify’s combined anti-blocking solutions to extract data reliably, even from sites with advanced anti-scraping protections.
+- [Apify Proxy](https://apify.com/proxy): Apify Proxy allows you to change your IP address when web scraping to reduce the chance of being blocked because of your geographical location.
+- [Apify for Enterprise](https://apify.com/enterprise): Accurate, reliable, and compliant web data for your business. From any website. At any scale.
+- [Fast, reliable data for ChatGPT and LLMs](https://apify.com/data-for-generative-ai): Get the data to train ChatGPT API and Large Language Models, fast.
+- [Use cases](https://apify.com/use-cases): Learn how web scraping and browser automation with Apify can help grow your business.
+- [Apify Professional Services](https://apify.com/professional-services): Premium, customized professional services for web scraping and automation projects.
+- [Apify Partners](https://apify.com/partners): Find certified partners to help you build or set up web scraping and automation solutions.
+- [Web scraping code templates](https://apify.com/templates): Actor templates help you quickly set up your web scraping projects, saving you development time and giving you immediate access to all the features the Apify platform has to offer.
+- [Actor and integration ideas](https://apify.com/ideas): Our community is always looking for new web scraping and automation Actors and integrations to connect them with. Upvote the ideas below or submit your own!
+- [Changelog](https://apify.com/change-log): Keep up to date with the latest releases, fixes, and features from Apify.
+- [Customer stories](https://apify.com/success-stories): Get inspired by these awesome projects. Find out how Apify can make your work more efficient, profitable, useful, and add value to everything you do.
+- [About Apify](https://apify.com/about): We’re building the world’s best cloud platform for developing and running web scraping solutions.
+- [Contact us](https://apify.com/contact): Company contact and legal information. Let us know what you would like Apify to do for you!
+
+## Apify Partners
+
+- [Monetize your code](https://apify.com/partners/actor-developers): Publish your code on the Apify platform, attract people who need your solution, and get paid!
+- [Apify Affiliate Program](https://apify.com/partners/affiliate): Join Apify Affiliate program and earn up to 30% recurring commission by referring customers and leads.
+
+## Apify Support Programs
+
+- [Apify for startups](https://apify.com/resources/startups): Apify believes in encouraging startups to grow by making use of online data at scale. So we're extending a special 30% discount on our Scale plan exclusively for entrepreneurs and teams just starting out.
+- [Apify for universities](https://apify.com/resources/universities): We hope to see future generations take advantage of the vast amount of data available online. That’s why we’re offering a 50% discount on our paid plans to students.
+- [Apify for nonprofits](https://apify.com/resources/nonprofits): We believe that online data can help your organization have more impact, so we're offering a substantial discount from our plans to nonprofits and NGOs.
+
+## Web scraping code templates
+
+- [Crawlee + Playwright + Chrome](https://apify.com/templates/ts-crawlee-playwright-chrome): Web scraper example with Crawlee, Playwright and headless Chrome. Playwright is more modern, user-friendly and harder to block than Puppeteer.
+- [Crawlee + Puppeteer + Chrome](https://apify.com/templates/ts-crawlee-puppeteer-chrome): Example of a Puppeteer and headless Chrome web scraper. Headless browsers render JavaScript and are harder to block, but they're slower than plain HTTP.
+- [Crawlee + Cheerio](https://apify.com/templates/ts-crawlee-cheerio): A scraper example that uses Cheerio to parse HTML. It's fast, but it can't run the website's JavaScript or pass JS anti-scraping challenges.
+- [Selenium + Chrome](https://apify.com/templates/python-selenium): Scraper example built with Selenium and headless Chrome browser to scrape a website and save the results to storage. A popular alternative to Playwright.
+- [Scrapy](https://apify.com/templates/python-scrapy): This example Scrapy spider scrapes page titles from URLs defined in input parameter. It shows how to use Apify SDK for Python and Scrapy pipelines to save results.
+- [Crawlee + BeautifulSoup](https://apify.com/templates/python-crawlee-beautifulsoup): Crawl and scrape websites using Crawlee and BeautifulSoup. Start from a given start URLs, and store results to Apify dataset.
+
+## Use cases
+
+- [Lead generation](https://apify.com/use-cases/lead-generation): A reliable and versatile solution for data extraction that will take your lead generation to the next level.
+- [Market research](https://apify.com/use-cases/market-research): Use web scraping to uncover deep insights from reviews, social media, comments, and forums. Find out what real customers are saying about you and your competitors.
+- [Sentiment analysis](https://apify.com/use-cases/sentiment-analysis): Fuel your sentiment analysis projects with automated data collection be it product reviews, news articles, or social media.
+
+## Apify Documentation
+
+- [Web Scraping Academy](https://docs.apify.com/academy): Learn everything about web scraping and automation with our free courses that will turn you into an expert scraper developer.
+- [Apify platform](https://docs.apify.com/platform): Apify is your one-stop shop for web scraping, data extraction, and RPA. Automate anything you can do manually in a browser.
+- [Apify API](https://docs.apify.com/api)
+- [Apify SDK](https://docs.apify.com/sdk)
+- [Apify command-line interface (CLI)](https://docs.apify.com/cli/)
+- [Apify open source](https://docs.apify.com/open-source)
+
+## Web Scraping Academy
+
+- [API scraping](https://docs.apify.com/academy/api-scraping): Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
+- [Advanced web scraping](https://docs.apify.com/academy/advanced-web-scraping): Take your scrapers to the next level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
+- [Anti-scraping protections](https://docs.apify.com/academy/anti-scraping): Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.
+- [Deploying your code to Apify](https://docs.apify.com/academy/deploying-your-code): In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor.
+- [Web scraping for beginners](https://docs.apify.com/academy/web-scraping-for-beginners): Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
+- [Introduction to the Apify platform](https://docs.apify.com/academy/apify-platform): Learn all about the Apify platform, all of the tools it offers, and how it can improve your overall development experience.
+
+## Apify API
+
+- [Apify API client for JavaScript](https://docs.apify.com/api/client/js/)
+- [Apify API client for Python](https://docs.apify.com/api/client/python/)
+- [Apify OpenAPI](https://docs.apify.com/api/v2)
+
+## Apify platform
+
+- [Actors](https://docs.apify.com/platform/actors): Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform.
+- [Storage](https://docs.apify.com/platform/storage): Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
+- [Proxy](https://docs.apify.com/platform/proxy): Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.
+- [Schedules](https://docs.apify.com/platform/schedules): Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.
+- [Integrations](https://docs.apify.com/platform/integrations): Learn how to integrate the Apify platform with other services, your systems, data pipelines, and other web automation workflows.
+- [Monitoring](https://docs.apify.com/platform/monitoring): Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.
+- [Collaboration](https://docs.apify.com/platform/collaboration): Learn how to collaborate with other users and manage permissions for organizations or private resources such as Actors, Actor runs, and storages.
+- [Security](https://docs.apify.com/platform/security): Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.
+
+## Actors
+
+- [Running](https://docs.apify.com/platform/actors/running): Start an Actor from Apify Console or via API. Learn about Actor lifecycles, how to specify settings and version, provide input, and resurrect finished runs.
+- [Publishing and monetization](https://docs.apify.com/platform/actors/publishing): Learn about publishing, and monetizing your Actors on the Apify platform.
+- [Development](https://docs.apify.com/platform/actors/development): Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
+
+## Apify SDK
+
+- [Apify SDK for JavaScript and Node.js](https://docs.apify.com/sdk/js/)
+- [Apify SDK for Python is a toolkit for building Actors](https://docs.apify.com/sdk/python/)

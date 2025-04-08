@@ -84,7 +84,7 @@ echo \json_encode($data, JSON_PRETTY_PRINT);
 
 You should see information about the run, including its ID and the ID of its default [dataset](/platform/storage/dataset). Take note of these, we will need them later.
 
-## [](#getting-dataset) Getting the results from dataset
+## Getting the results from dataset
 
 Actors usually store their output in a default dataset. The [Actor runs endpoint](/api/v2#/reference/actor-runs) lets you get overall info about an Actor run's default dataset.
 
@@ -126,7 +126,7 @@ echo \json_encode($parsedResponse, JSON_PRETTY_PRINT);
 
 All the available parameters are described in [our API reference](/api/v2#/reference/datasets/item-collection/get-items) and work both for all datasets.
 
-## [](#getting-key-value-store) Getting the results from key-value stores
+## Getting the results from key-value stores
 
 Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/platform/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
 
@@ -166,7 +166,7 @@ $data = $parsedResponse['data'];
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Downloading it is simple:
+We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Let's download it:
 
 ```php
 // Don't forget to replace the <RUN_ID>
@@ -179,7 +179,7 @@ If you open the generated `hello-world.pdf` file, you should see... well, "Hello
 
 If the Actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
 
-## When are the data ready?
+## When are the data ready
 
 It takes some time for an Actor to generate its output. Some even have Actors that run for days! In the previous examples, we chose Actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store (so the Actor had time to produce some output). If we ran the code immediately after starting a longer-running Actor, the dataset would probably still be empty.
 
@@ -230,9 +230,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-A [proxy](/platform/proxy) is another important Apify feature you will need. Guzzle makes it easy to use.
-
-If you just want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
+Let's use another important feature: [proxy](/platform/proxy). If you want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 
 ```php
 $client = new \GuzzleHttp\Client([

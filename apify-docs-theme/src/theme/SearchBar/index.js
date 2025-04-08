@@ -1,9 +1,10 @@
-import { ApifySearch } from '@apify/docs-search-modal';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import RouterLink from '@docusaurus/Link';
-import { useLocation, useHistory } from '@docusaurus/router';
+import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React, { useCallback } from 'react';
+
+import { ApifySearch } from '@apify/docs-search-modal';
 
 /**
  * Tests whether the given href is pointing to the current docusaurus instance (so we can use the router link).

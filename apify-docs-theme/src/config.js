@@ -13,7 +13,6 @@ const themeConfig = ({
             hideable: true,
         },
     },
-    smartlook: { projectKey: process.env.SMARTLOOK_PROJECT_KEY || '-' },
     navbar: {
         title: 'Apify Docs',
         logo: {
@@ -126,6 +125,10 @@ const themeConfig = ({
                         label: 'Apify on GitHub',
                         href: 'https://github.com/apify',
                     },
+                    {
+                        label: 'Actor Whitepaper',
+                        href: 'https://whitepaper.actor',
+                    },
                 ],
             },
             {
@@ -151,9 +154,9 @@ const themeConfig = ({
     },
     prism: {
         defaultLanguage: 'typescript',
-        theme: require('prism-react-renderer').themes.github,
-        darkTheme: require('prism-react-renderer').themes.dracula,
-        additionalLanguages: ['docker', 'log', 'php', 'json5'],
+        theme: require('./theme/CodeThemes/light').lightTheme,
+        darkTheme: require('./theme/CodeThemes/dark').darkTheme,
+        additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
     image: 'https://apify.com/og-image/docs-article',
@@ -226,6 +229,13 @@ const themeConfig = ({
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'Open source',
+                        href: `${absoluteUrl}/open-source`,
+                        position: 'left',
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
                 ],
             },
             {
@@ -239,6 +249,10 @@ const themeConfig = ({
                     {
                         label: 'GitHub',
                         href: 'https://github.com/apify',
+                    },
+                    {
+                        label: 'Trust Center',
+                        href: 'https://trust.apify.com',
                     },
                 ],
             },
@@ -266,7 +280,6 @@ const themeConfig = ({
 });
 
 const plugins = [
-    'docusaurus-plugin-smartlook',
     [
         'docusaurus-gtm-plugin',
         {

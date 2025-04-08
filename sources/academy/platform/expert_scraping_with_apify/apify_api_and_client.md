@@ -30,7 +30,7 @@ You can use one of the two main ways to programmatically interact with the Apify
 
 ## Our task
 
-In the previous lesson, we created a **task** for the Amazon Actor we built in the first two lessons of this course. Now, we'll be creating another new Actor, which will have two jobs:
+We'll be creating another new Actor, which will have two jobs:
 
 1. Programmatically call the task for the Amazon Actor.
 2. Export its results into CSV format under a new key called **OUTPUT.csv** in the default key-value store.
@@ -62,4 +62,4 @@ The new Actor should take the following input values, which be mapped to paramet
 
 ## Next up {#next}
 
-[Lesson VI](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our **demo-actor** Amazon scraper.
+[Lesson VI](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our `demo-actor` Amazon scraper.

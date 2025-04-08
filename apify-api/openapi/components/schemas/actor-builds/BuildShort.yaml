@@ -1,0 +1,31 @@
+title: BuildShort
+required:
+  - id
+  - status
+  - startedAt
+  - finishedAt
+  - usageTotalUsd
+type: object
+properties:
+  id:
+    type: string
+    example: HG7ML7M8z78YcAPEB
+  actId:
+    type: string
+    example: janedoe~my-actor
+  status:
+    type: string
+    example: SUCCEEDED
+  startedAt:
+    type: string
+    example: '2019-11-30T07:34:24.202Z'
+  finishedAt:
+    type: string
+    example: '2019-12-12T09:30:12.202Z'
+  usageTotalUsd:
+    type: number
+    example: 0.02
+  meta:
+    allOf:
+      - $ref: ./BuildsMeta.yaml
+      - {}

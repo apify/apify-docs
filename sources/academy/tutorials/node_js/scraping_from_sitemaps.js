@@ -1,4 +1,4 @@
-import { Dataset, RequestList, PuppeteerCrawler } from 'crawlee';
+import { Dataset, PuppeteerCrawler, RequestList } from 'crawlee';
 
 const requestList = await RequestList.open(null, [{
     requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',

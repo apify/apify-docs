@@ -26,7 +26,7 @@ Let's say that we want to automate searching for **hello world** on Google, then
 6. Read the title of the clicked result's loaded page
 7. Screenshot the page
 
-Though it seems complex, the wonderful **Page** API makes all of these actions extremely easy to perform.
+Though it seems complex, the wonderful **Page** API can help us with all the steps.
 
 ## Clicking & pressing keys {#clicking-and-pressing-keys}
 
@@ -36,7 +36,7 @@ Let's first focus on the first 3 steps listed above. By using `page.click()` and
 <TabItem value="Playwright" label="Playwright">
 
 ```js
-// Click the "I agree" button
+// Click the "Accept all" button
 await page.click('button:has-text("Accept all")');
 ```
 
@@ -44,7 +44,7 @@ await page.click('button:has-text("Accept all")');
 <TabItem value="Puppeteer" label="Puppeteer">
 
 ```js
-// Click the "I agree" button
+// Click the "Accept all" button
 await page.click('button + button');
 ```
 
@@ -53,15 +53,15 @@ await page.click('button + button');
 
 With `page.click()`, Puppeteer and Playwright actually drag the mouse and click, allowing the bot to act more human-like. This is different from programmatically clicking with `Element.click()` in vanilla client-side JavaScript.
 
-Notice that in the Playwright example, we are using a different selector than in the Puppeteer example. This is because Playwright supports [many custom CSS selectors](https://playwright.dev/docs/other-locators#css-elements-matching-one-of-the-conditions), such as the **has-text** pseudo class. As a rule of thumb, using text selectors is much more preferable to using regular selectors, as they are much less likely to break. If Google makes the sibling above the **I agree** button a `<div>` element instead of a `<button>` element, our `button + button` selector will break. However, the button will always have the text **I agree**; therefore, `button:has-text("I agree")` is more reliable.
+Notice that in the Playwright example, we are using a different selector than in the Puppeteer example. This is because Playwright supports [many custom CSS selectors](https://playwright.dev/docs/other-locators#css-elements-matching-one-of-the-conditions), such as the **has-text** pseudo class. As a rule of thumb, using text selectors is much more preferable to using regular selectors, as they are much less likely to break. If Google makes the sibling above the **Accept all** button a `<div>` element instead of a `<button>` element, our `button + button` selector will break. However, the button will always have the text **Accept all**; therefore, `button:has-text("Accept all")` is more reliable.
 
 > If you're not already familiar with CSS selectors and how to find them, we recommend referring to [this lesson](../../scraping_basics_javascript/data_extraction/using_devtools.md) in the **Web scraping for beginners** course.
 
-Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
+Then, we can type some text into an input field `<textarea>` with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
 
 ```js
 // Type the query into the search box
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 ```
 
 Finally, we can press a single key by accessing the `keyboard` property of `page` and calling the `press()` function on it:
@@ -83,13 +83,13 @@ const browser = await chromium.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
-// Click the "I agree" button
+// Click the "Accept all" button
 await page.click('button:has-text("Accept all")');
 
 // Type the query into the search box
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 // Press enter
 await page.keyboard.press('Enter');
@@ -108,13 +108,13 @@ const browser = await puppeteer.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
-// Click the "I agree" button
+// Click the "Accept all" button
 await page.click('button + button');
 
 // Type the query into the search box
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 // Press enter
 await page.keyboard.press('Enter');
@@ -142,11 +142,11 @@ const browser = await chromium.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.click('button:has-text("Accept all")');
 
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 await page.keyboard.press('Enter');
 
@@ -168,11 +168,11 @@ const browser = await puppeteer.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.click('button + button');
 
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 await page.keyboard.press('Enter');
 

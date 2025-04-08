@@ -83,7 +83,7 @@ You can visit [API Clients](/api) documentations for more information.
 
 ### Apify SDKs
 
-The Apify SDKs are libraries in JavaScript or Python that proviede tools for building your own Actors.<br />
+The Apify SDKs are libraries in JavaScript or Python that provide tools for building your own Actors.<br />
 
 * JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
 * Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
@@ -99,7 +99,7 @@ All API endpoints limit their rate of requests to protect Apify servers from ove
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
 operations of _request queue_ requests.
 
-If a client exceeds this limit, the API endpoints responds with the HTTP status code `429 Too Many Requests` and the following body:
+If a client exceeds this limit, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
 
 ```json
 {
@@ -114,8 +114,7 @@ Go to the [API documentation](/api/v2#/introduction/rate-limiting) for details a
 
 ## Data retention {#data-retention}
 
-Named datasets are retained indefinitely.
-Unnamed datasets expire after 7 days unless otherwise specified.
+Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. Unnamed datasets and runs beyond the latest ten will be automatically deleted after 7 days unless otherwise specified. Named datasets are retained indefinitely.
 
 ### Preserving your storages {#preserving-storages}
 

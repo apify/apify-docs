@@ -1,5 +1,5 @@
-const { opendirSync, readFileSync } = require('fs');
-const { join } = require('path');
+const { opendirSync, readFileSync } = require('node:fs');
+const { join } = require('node:path');
 
 function collectSlugs(pathname) {
     const dir = opendirSync(pathname);

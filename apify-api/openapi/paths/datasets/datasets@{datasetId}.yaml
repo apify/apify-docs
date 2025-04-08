@@ -1,0 +1,151 @@
+get:
+  tags:
+    - Storage/Datasets
+  summary: Get dataset
+  description: |
+    Returns dataset object for given dataset ID.
+
+    :::note
+
+    Keep in mind that attributes `itemCount` and `cleanItemCount` are not propagated right away after data are pushed into a dataset.
+
+    :::
+
+    There is a short period (up to 5 seconds) during which these counters may not match with exact counts in dataset items.
+  operationId: dataset_get
+  parameters:
+    - name: datasetId
+      in: path
+      description: Dataset ID or `username~dataset-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: token
+      in: query
+      description: |
+        API authentication token. It is required only when using the `username~dataset-name` format for `datasetId`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: soSkq9ekdmfOslopH
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/datasets/DatasetResponse.yaml
+          example:
+            data:
+              id: WkzbQMuFYuamGv3YF
+              name: d7b9MDYsbtX5L7XAj
+              userId: wRsJZtadYvn4mBZmm
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              itemCount: 7
+              cleanItemCount: 5
+              actId: null
+              actRunId: null
+              fields: []
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset
+    - https://docs.apify.com/api/v2#/reference/datasets/get-dataset
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset/operation/dataset_get
+  x-js-parent: DatasetClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#get
+  x-py-parent: DatasetClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#get
+put:
+  tags:
+    - Storage/Datasets
+  summary: Update dataset
+  description: |
+    Updates a dataset's name using a value specified by a JSON object passed in the PUT payload.
+    The response is the updated dataset object, as returned by the [Get dataset](#/reference/datasets/dataset-collection/get-dataset) API endpoint.
+  operationId: dataset_put
+  parameters:
+    - name: datasetId
+      in: path
+      description: Dataset ID or `username~dataset-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/datasets/UpdateDatasetRequest.yaml
+        example:
+          name: new-dataset-name
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/datasets/DatasetResponse.yaml
+          example:
+            data:
+              id: WkzbQMuFYuamGv3YF
+              name: d7b9MDYsbtX5L7XAj
+              userId: wRsJZtadYvn4mBZmm
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              itemCount: 7
+              cleanItemCount: 5
+              actId: null
+              actRunId: null
+              fields: []
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/dataset/update-dataset
+    - https://docs.apify.com/api/v2#/reference/datasets/update-dataset
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset/operation/dataset_put
+  x-js-parent: DatasetClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#update
+  x-py-parent: DatasetClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#update
+delete:
+  tags:
+    - Storage/Datasets
+  summary: Delete dataset
+  description: Deletes a specific dataset.
+  operationId: dataset_delete
+  parameters:
+    - name: datasetId
+      in: path
+      description: Dataset ID or `username~dataset-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/dataset/delete-dataset
+    - https://docs.apify.com/api/v2#/reference/datasets/delete-dataset
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset/operation/dataset_delete
+  x-js-parent: DatasetClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#delete

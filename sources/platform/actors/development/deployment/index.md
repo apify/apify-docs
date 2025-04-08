@@ -5,35 +5,67 @@ description: Learn how to deploy your Actor to the Apify platform and build them
 slug: /actors/development/deployment
 ---
 
-**Learn how to deploy your Actor to the Apify platform and build them.**
+**Learn how to deploy your Actors to the Apify platform and build them.**
 
 ---
 
-The deployment of your Actor is the process of uploading your Actor [source code](../actor_definition/index.md) and [building](../builds_and_runs/builds.md) it on the Apify platform. After that, you can easily [run](../builds_and_runs/runs.md) and scale your Actor in the cloud.
+Deploying an Actor involves uploading your [source code](/platform/actors/development/actor-definition) and [building](/platform/actors/development/builds-and-runs/builds) it on the Apify platform. Once deployed, you can run and scale your Actor in the cloud.
 
-## Apify CLI
+## Deploy using Apify CLI
 
-The easiest and fastest way to get your Actor deployed and built is to use [Apify CLI](/cli). If you followed one of the [tutorials](/academy), you should already have it installed. If you do not have Apify CLI installed, then follow the instructions at [Apify CLI documentation](/cli/docs/installation) to install it. Then you can simply log in to your Apify account by running:
+The fastest way to deploy and build your Actor is by using the [Apify CLI](/cli). If you've completed one of the tutorials from the [academy](/academy), you should have already have it installed. If not, follow the [Apify CLI installation instructions](/cli/docs/installation).
 
-```bash
-apify login
-```
+To deploy your Actor using Apify CLI:
 
-and then deploy your Actor by running:
+1. Log in to your Apify account:
 
-```bash
-apify push
-```
+    ```bash
+    apify login
+    ```
 
-When you deploy an Actor using the CLI, the code gets deployed as "multiple source files" Actor source type and so the code is visible and editable via web IDE:
+1. Navigate to the directory of your Actor on your local machine.
+
+1. Deploy your Actor by running:
+
+    ```bash
+    apify push
+    ```
+
+When you deploy using the CLI, your source code is uploaded as "multiple source files" and is visible and editable in the Web IDE.
+
 ![Web IDE](./images/actor-source.png)
 
-> This works only until a certain size; after that, Apify CLI deploys the code as a Zip file.
+:::note Source files size limit
 
-## Other ways (Zip, Git, Gist)
+The CLI deploys code as multiple source files up to 3 MB. Beyond that, it deploys as a Zip file.
 
-If you want to deploy an Actor in a different way, you need to first manually create the Actor in [Apify Console](https://my.apify.com/actors). Then switch its source type:
+:::
+
+### Pull an existing Actor
+
+You can also pull an existing Actor from the Apify platform to your local machine using `apify pull` command
+
+```bash
+apify pull [ACTORID]
+```
+
+This command fetches the Actor's files to your current directory. If the Actor is defined as a Git repository, it will be cloned, for Actors defined in the Web IDE, the command will fetch the files directly.
+
+You can specify a particular version of the Actor to pull by using the `--version` flag:
+
+```bash
+apify pull [ACTORID] --version=1.2
+```
+
+If you don't provide the `ACTORID`, the command will update the Actor in the current directory based on its name in the `.actor/actor.json` file.
+
+## Alternative deployment methods
+
+To deploy using other methods, first create the Actor manually through Apify CLI or Apify Console, then change its source type:
 
 ![Actor source types](./images/actor-source-types.png)
 
-This enables you to link a Git repository, Gist, or Zip file to your Actor. You will find more information on all source types in the following chapter.
+You can link your Actor to a Git repository, Gist, or a Zip file.
+
+For more information on alternative source types, check out next chapter.
+

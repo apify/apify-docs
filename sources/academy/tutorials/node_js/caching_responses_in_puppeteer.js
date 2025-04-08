@@ -1,4 +1,4 @@
-import { PuppeteerCrawler, Dataset } from 'crawlee';
+import { Dataset, PuppeteerCrawler } from 'crawlee';
 
 const cache = {};
 
@@ -28,8 +28,8 @@ const crawler = new PuppeteerCrawler({
                 let buffer;
                 try {
                     buffer = await response.buffer();
-                } catch (error) {
-                    // some responses do not contain buffer and do not need to be catched
+                } catch {
+                    // some responses do not contain buffer and do not need to be cached
                     return;
                 }
 

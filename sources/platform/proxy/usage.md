@@ -118,7 +118,7 @@ The table below describes the available parameters.
     </tbody>
 </table>
 
-If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to **auto**. **auto** serves as a placeholder because the username can't be empty.
+If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to `auto`, which serves as a default placeholder, because the proxy username cannot be empty.
 
 ## Code examples
 
@@ -143,17 +143,18 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 * Browser—a different IP address is used for each browser.
 * HTTP request—a different IP address is used for each request.
 
-Use [sessions](#sessions) to controll how you rotate and [persist](#session-persistence) IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
+Use [sessions](#sessions) to control how you rotate IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
 
 ## Sessions {#sessions}
 
 Sessions allow you to use the same IP address for multiple connections. In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy and so the IP address. On the other hand by switching the IP address, you can avoid being blocked by the website.
 
-To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](./datacenter_proxy.md#multiple-requests-with-the-same-ip-address), pass that same session ID in the username field.
+To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
 
 We recommend you to use [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction when managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
-
-Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the sessinon. Google SERP proxies do not support sessions.
+Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./
+residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for
+**26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the session. Google SERP proxies do not support sessions.
 
 ## Proxy groups
 
@@ -174,7 +175,7 @@ To view your connection status to [Apify Proxy](https://apify.com/proxy), open t
 
 To test that your requests are proxied and IP addresses are being [rotated](/academy/anti-scraping/techniques) correctly, open the following API endpoint via the proxy. It shows information about the client IP address.
 
-[https://api.apify.com/v2/browser-info/](https://api.apify.com/v2/browser-info/)
+https://api.apify.com/v2/browser-info/
 
 ### A different approach to `502 Bad Gateway`
 
@@ -198,3 +199,6 @@ The typical issues behind these codes are:
 * `594`, `595` and `596` may occur due to connection loss.
 * `597` indicates incorrect upstream credentials.
 * `599` is a generic error, where the above is not applicable.
+
+  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
+  You can find the details of the above errors and their implementation there.

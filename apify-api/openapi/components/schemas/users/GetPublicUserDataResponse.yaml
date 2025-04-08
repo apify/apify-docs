@@ -1,0 +1,7 @@
+title: GetPublicUserDataResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./UserPublicInfo.yaml

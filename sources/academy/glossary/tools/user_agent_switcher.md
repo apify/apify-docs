@@ -1,17 +1,17 @@
 ---
 title: User-Agent Switcher
-description: Learn how to easily switch your User-Agent header to different values in order to monitor how a certain site responds to the changes.
+description: Learn how to switch your User-Agent header to different values in order to monitor how a certain site responds to the changes.
 sidebar_position: 9.8
 slug: /tools/user-agent-switcher
 ---
 
 # User-Agent Switcher
 
-**Learn how to easily switch your User-Agent header to different values in order to monitor how a certain site responds to the changes.**
+**Learn how to switch your User-Agent header to different values in order to monitor how a certain site responds to the changes.**
 
 ---
 
-**User-Agent Switcher** is a simple Chrome extension that allows you to quickly change your **User-Agent** and see how a certain website would behave with different user agents. After adding it to Chrome, you'll see a **Chrome UA Spoofer** button in the extension icons area. Clicking on it will open up a list of various **User-Agent** groups.
+**User-Agent Switcher** is a Chrome extension that allows you to quickly change your **User-Agent** and see how a certain website would behave with different user agents. After adding it to Chrome, you'll see a **Chrome UA Spoofer** button in the extension icons area. Clicking on it will open up a list of various **User-Agent** groups.
 
 ![User-Agent Switcher groups](./images/user-agent-switcher-groups.png)
 

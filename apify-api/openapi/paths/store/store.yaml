@@ -1,0 +1,146 @@
+get:
+  tags:
+    - Store
+  summary: Get list of Actors in store
+  description: |
+    Gets the list of public Actors in Apify Store. You can use `search`
+    parameter to search Actors by string in title, name, description, username
+    and readme.
+    If you need detailed info about a specific Actor, use the [Get
+    Actor](#/reference/actors/actor-object/get-actor) endpoint.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters.
+    It will not return more than 1,000 records.
+  operationId: store_get
+  parameters:
+    - name: limit
+      in: query
+      description: |
+        Maximum number of elements to return. The default and maximum value is
+        `1,000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: offset
+      in: query
+      description: |
+        Number of elements that should be skipped at the start. The default
+        value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: search
+      in: query
+      description: |
+        String to search by. The search runs on the following fields: `title`,
+        `name`, `description`, `username`, `readme`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: web scraper
+    - name: sortBy
+      in: query
+      description: |
+        Specifies the field by which to sort the results. The supported values
+        are `relevance` (default), `popularity`, `newest` and `lastUpdate`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: '''popularity'''
+    - name: category
+      in: query
+      description: Filters the results by the specified category.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: '''AI'''
+    - name: username
+      in: query
+      description: Filters the results by the specified username.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: '''apify'''
+    - name: pricingModel
+      in: query
+      description: |
+        Filters the results by the specified pricing model. The supported values
+        are `FREE`, `FLAT_PRICE_PER_MONTH` and `PRICE_PER_DATASET_ITEM`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: '''FREE'''
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/store/GetListOfActorsInStoreResponse.yaml"
+          example:
+            data:
+              total: 100
+              offset: 0
+              limit: 1000
+              desc: false
+              count: 1
+              items:
+                - id: zdc3Pyhyz3m8vjDeM
+                  title: My Public Actor
+                  name: my-public-actor
+                  username: jane35
+                  description: My public Actor!
+                  pictureUrl: 'https://...'
+                  userPictureUrl: 'https://...'
+                  url: 'https://...'
+                  stats:
+                    totalBuilds: 9
+                    totalRuns: 16
+                    totalUsers: 6
+                    totalUsers7Days: 2
+                    totalUsers30Days: 6
+                    totalUsers90Days: 6
+                    totalMetamorphs: 2
+                    lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+                  currentPricingInfo:
+                    pricingModel: FREE
+                - id: zdc3Pyhyz3m8vjDeM
+                  title: My Public Actor
+                  name: my-public-actor
+                  username: jane35
+                  userFullName: Jane H. Doe
+                  categories:
+                    - "MARKETING"
+                    - "LEAD_GENERATION"
+                  description: My public Actor!
+                  pictureUrl: 'https://...'
+                  userPictureUrl: 'https://...'
+                  url: 'https://...'
+                  stats:
+                    totalBuilds: 9
+                    totalRuns: 16
+                    totalUsers: 6
+                    totalUsers7Days: 2
+                    totalUsers30Days: 6
+                    totalUsers90Days: 6
+                    totalMetamorphs: 2
+                    lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+                  currentPricingInfo:
+                    pricingModel: FREE
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store
+    - https://docs.apify.com/api/v2#/reference/store/get-list-of-actors-in-store
+    - https://docs.apify.com/api/v2#tag/StoreStore-Actors-collection/operation/store_get

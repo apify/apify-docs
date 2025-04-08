@@ -84,7 +84,7 @@ const course2 = {
 };
 ```
 
-Then, in the type definition, we can add a `typesLearned` key. Then, by simply writing the type that the array's elements are followed by two square brackets (`[]`), we can form an array type.
+Then, in the type definition, we can add a `typesLearned` key. Then, by writing the type that the array's elements are followed by two square brackets (`[]`), we can form an array type.
 
 ```ts
 const course: {

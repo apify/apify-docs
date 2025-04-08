@@ -13,7 +13,7 @@ slug: /actors/running/usage-and-resources
 
 ## Resources
 
-[Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
+[Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
 
 ![Setting an Actor's memory](./images/usage_and_resources/memory-settings.png)
 
@@ -63,9 +63,9 @@ A good middle ground is `4096MB`. If you need the results faster, increase the m
 Autoscaling only applies to solutions that run multiple tasks (URLs) for at least 30 seconds. If you need to scrape just one URL or use Actors like [Google Sheets](https://apify.com/lukaskrivka/google-sheets) that do just a single isolated job, we recommend you lower the memory.
 
 [//]: # (TODO: It's pretty outdated, we now have platform credits in pricing)
-<!-- vale off -->
+
 [//]: # (If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan]&#40;https://console.apify.com/billing-new#/subscription&#41;.)
-<!-- vale on -->
+
 
 If the Actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like `4096MB`, and the whole run takes 15 minutes. That should consume 1 CU (4 \* 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month, and you get an estimated usage of 720 (1 \* 24 \* 30) CUs monthly.
 
@@ -80,7 +80,7 @@ Check out our article on [estimating consumption](https://help.apify.com/en/arti
 Each use case has its own memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
 
 - Actors using [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/) for real web browser rendering require at least `1024MB` of memory.
-- Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places) require at least `4096MB` for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
+- Large and complex sites like [Google Maps](https://apify.com/compass/crawler-google-places) require at least `4096MB` for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
 - Projects involving large amount of data in memory.
 
 ### Maximum memory
@@ -121,13 +121,13 @@ This should be used for informational purposes only.
 
 :::
 
-For detailed information, FAQ, and, pricing check out the [platform pricing page](https://apify.com/pricing/actors).
+For detailed information, FAQ, and, pricing check out the [platform pricing page](https://apify.com/pricing).
 
 ### What is a compute unit
 
 A compute unit (CU) is the unit of measurement for the resources consumed by Actor runs and builds. You are charged for using Actors based on CU consumption.
 
-For example, running an Actor with`1024MB` of allocated memory for 1 hour will consume 1 CU. The cost of this CU depends on your [subscription plan](https://apify.com/pricing/actors#how-does-the-platform-pricing-work).
+For example, running an Actor with`1024MB` of allocated memory for 1 hour will consume 1 CU. The cost of this CU depends on your subscription plan.
 
 You can check each Actor run's exact CU usage in the run's details.
 

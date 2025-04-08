@@ -1,0 +1,12 @@
+title: MonthlyUsageCycle
+required:
+  - startAt
+  - endAt
+type: object
+properties:
+  startAt:
+    type: string
+    example: '2022-10-02T00:00:00.000Z'
+  endAt:
+    type: string
+    example: '2022-11-01T23:59:59.999Z'

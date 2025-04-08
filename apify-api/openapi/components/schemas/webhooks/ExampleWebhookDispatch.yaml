@@ -1,0 +1,12 @@
+title: ExampleWebhookDispatch
+required:
+  - status
+  - finishedAt
+type: object
+properties:
+  status:
+    type: string
+    example: SUCCEEDED
+  finishedAt:
+    type: string
+    example: '2019-12-13T08:36:13.202Z'

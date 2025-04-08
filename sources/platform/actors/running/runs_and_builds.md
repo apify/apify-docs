@@ -39,17 +39,18 @@ What's happening inside of an Actor is visible on the Actor run log in the Actor
 
 ### Origin
 
-All **Actor runs** have an **Origin** field indicating where the Actor run was invoked.
+Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via [API](https://docs.apify.com/api/v2/actor-run-get) in the `meta.origin` field.
 
 |Name|Origin|
 |:---|:---|
-|DEVELOPMENT|Manually from Apify Console in Development mode (own Actor)|
-|WEB|Manually from Apify Console in "normal" mode (someone else's Actor or task)|
-|API|From API|
-|CLI|From Apify CLI|
-|SCHEDULER|Using a Schedule|
-|WEBHOOK|Using a webhook|
-|ACTOR|From another Actor run|
+|`DEVELOPMENT`|Manually from Apify Console in the Development mode (own Actor)|
+|`WEB`|Manually from Apify Console in "normal" mode (someone else's Actor or task)|
+|`API`|From [Apify API](https://docs.apify.com/api)|
+|`CLI`|From [Apify CLI](https://docs.apify.com/cli/)|
+|`SCHEDULER`|Using a schedule|
+|`WEBHOOK`|Using a webhook|
+|`ACTOR`|From another Actor run|
+|`STANDBY`|From [Actor Standby](./standby)|
 
 ## Lifecycle
 
@@ -122,7 +123,7 @@ You can also adjust timeout and memory or change Actor build before the resurrec
 
 ### Data retention
 
-All **Actor runs** and default storages (Key-value store, Dataset, Request queue) are deleted after the data retention period, based on your [subscription plan](https://apify.com/pricing).
+Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All **Actor runs** beyond the latest ten are deleted along with their default storages (Key-value store, Dataset, Request queue) after the data retention period based on your [subscription plan](https://apify.com/pricing).
 
 **Actor builds** are deleted only when they are _not tagged_ and have not been used for over 90 days.
 

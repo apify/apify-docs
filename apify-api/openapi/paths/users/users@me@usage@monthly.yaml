@@ -1,0 +1,35 @@
+get:
+  tags:
+    - Users
+  summary: Get monthly usage
+  description: |
+    Returns a complete summary of your usage for the current usage cycle,
+    an overall sum, as well as a daily breakdown of usage. It is the same
+    information you will see on your account's [Billing page](https://console.apify.com/billing#/usage). The information
+    includes your use of storage, data transfer, and request queue usage.
+
+    Using the `date` parameter will show your usage in the usage cycle that
+    includes that date.
+  operationId: users_me_usage_monthly_get
+  parameters:
+    - name: date
+      in: query
+      description: Date in the YYYY-MM-DD format.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: '2020-06-14'
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/users/GetMonthlyUsageResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/users/monthly-usage/get-monthly-usage
+    - https://docs.apify.com/api/v2#/reference/users/get-monthly-usage
+    - https://docs.apify.com/api/v2#tag/UsersMonthly-usage/operation/users_me_usage_monthly_get

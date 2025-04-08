@@ -11,13 +11,13 @@ slug: /anti-scraping/techniques/rate-limiting
 
 ---
 
-When crawling a website, a web scraping bot will typically send many more requests from a single IP address than a human user could generate over the same period. Websites can easily monitor how many requests they receive from a single IP address, and block it or require a [captcha](./captchas.md) test to continue making requests.
+When crawling a website, a web scraping bot will typically send many more requests from a single IP address than a human user could generate over the same period. Websites can monitor how many requests they receive from a single IP address, and block it or require a [captcha](./captchas.md) test to continue making requests.
 
 In the past, most websites had their own anti-scraping solutions, the most common of which was IP address rate-limiting. In recent years, the popularity of third-party specialized anti-scraping providers has dramatically increased, but a lot of websites still use rate-limiting to only allow a certain number of requests per second/minute/hour to be sent from a single IP; therefore, crawler requests have the potential of being blocked entirely quite quickly.
 
 In cases when a higher number of requests is expected for the crawler, using a [proxy](../mitigation/proxies.md) and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
-## Dealing rate limiting with proxy/session rotating {#dealing-with-rate-limiting}
+## Dealing with rate limiting by rotating proxy or session {#dealing-with-rate-limiting}
 
 The most popular and effective way of avoiding rate-limiting issues is by rotating [proxies](../mitigation/proxies.md) after every **n** number of requests, which makes your scraper appear as if it is making requests from various different places. Since the majority of rate-limiting solutions are based on IP addresses, rotating IPs allows a scraper to make large amounts to a website without getting restricted.
 

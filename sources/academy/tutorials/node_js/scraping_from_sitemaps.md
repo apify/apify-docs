@@ -9,17 +9,31 @@ import Example from '!!raw-loader!roa-loader!./scraping_from_sitemaps.js';
 
 # How to scrape from sitemaps {#scraping-with-sitemaps}
 
+:::tip Processing sitemaps automatically with Crawlee
+
+Crawlee allows you to scrape sitemaps with ease. If you are using Crawlee, you can skip the following steps and just gather all the URLs from the sitemap in a few lines of code.
+
+:::
+
+```js
+import { RobotsFile } from 'crawlee';
+
+const robots = await RobotsFile.find('https://www.mysite.com');
+
+const allWebsiteUrls = await robots.parseUrlsFromSitemaps();
+```
+
 **The sitemap.xml file is a jackpot for every web scraper developer. Take advantage of this and learn an easier way to extract data from websites using Crawlee.**
 
 ---
 
-Let's say we want to scrape a database of craft beers ([brewbound.com](https://brewbound.com)) before summer starts. If we are lucky, the website will contain a sitemap at [https://www.brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
+Let's say we want to scrape a database of craft beers ([brewbound.com](https://www.brewbound.com/)) before summer starts. If we are lucky, the website will contain a sitemap at [brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
 
 > Check out [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), which can discover sitemaps in hidden locations!
 
 ## Analyzing the sitemap {#analyzing-the-sitemap}
 
-The sitemap is usually located at the path **/sitemap.xml**. It is always worth trying that URL, as it is rarely linked anywhere on the site. It usually contains a list of all pages in [XML format](https://www.w3.org/standards/xml/core).
+The sitemap is usually located at the path **/sitemap.xml**. It is always worth trying that URL, as it is rarely linked anywhere on the site. It usually contains a list of all pages in [XML format](https://en.wikipedia.org/wiki/XML).
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>

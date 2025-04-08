@@ -1,0 +1,26 @@
+title: UsageItem
+required:
+  - quantity
+  - baseAmountUsd
+  - baseUnitPriceUsd
+  - amountAfterVolumeDiscountUsd
+  - priceTiers
+type: object
+properties:
+  quantity:
+    type: number
+    example: 2.784475
+  baseAmountUsd:
+    type: number
+    example: 0.69611875
+  baseUnitPriceUsd:
+    type: number
+    example: 0.25
+  amountAfterVolumeDiscountUsd:
+    type: number
+    example: 0.69611875
+  priceTiers:
+    type: array
+    items:
+      $ref: ./PriceTiers.yaml
+    description: ''

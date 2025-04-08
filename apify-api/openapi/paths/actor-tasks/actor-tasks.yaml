@@ -1,0 +1,201 @@
+get:
+  tags:
+    - Actor tasks
+  summary: Get list of tasks
+  description: |
+    Gets the complete list of tasks that a user has created or used.
+
+    The response is a list of objects in which each object contains essential
+    information about a single task.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters,
+    and it does not return more than a 1000 records.
+
+    By default, the records are sorted by the `createdAt` field in ascending
+    order; therefore you can use pagination to incrementally fetch all tasks while new
+    ones are still being created. To sort the records in descending order, use
+    the `desc=1` parameter.
+  operationId: actorTasks_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of records that should be skipped at the start. The default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of records to return. The default value as well as the maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `createdAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: ../../components/schemas/common/PaginationResponse.yaml
+                  - type: object
+                    required:
+                      - items
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: ../../components/schemas/actor-tasks/TaskShort.yaml
+          example:
+            data:
+              total: 2
+              offset: 0
+              limit: 1000
+              desc: false
+              count: 2
+              items:
+                - id: zdc3Pyhyz3m8vjDeM
+                  userId: wRsJZtadYvn4mBZmm
+                  actId: asADASadYvn4mBZmm
+                  actName: my-actor
+                  name: my-task
+                  username: janedoe
+                  actUsername: janedoe
+                  createdAt: '2018-10-26T07:23:14.855Z'
+                  modifiedAt: '2018-10-26T13:30:49.578Z'
+                  stats:
+                    totalRuns: 15
+                - id: aWE3asdas3m8vjDeM
+                  userId: wRsJZtadYvn4mBZmm
+                  actId: asADASadYvn4mBZmm
+                  actName: my-actor
+                  actUsername: janedoe
+                  name: my-task-2
+                  username: janedoe
+                  createdAt: '2018-10-26T07:23:14.855Z'
+                  modifiedAt: '2018-10-26T13:30:49.578Z'
+                  stats:
+                    totalRuns: 4
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-collection/get-list-of-tasks
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/get-list-of-tasks
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-collection/operation/actorTasks_get
+  x-js-parent: TaskCollectionClient
+  x-js-name: list
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskCollectionClient#list
+  x-py-parent: TaskCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskCollectionClientAsync#list
+post:
+  tags:
+    - Actor tasks
+  summary: Create task
+  description: |
+    Create a new task with settings specified by the object passed as JSON in
+    the POST payload.
+
+    The response is the full task object as returned by the
+    [Get task](#/reference/tasks/task-object/get-task) endpoint.
+
+    The request needs to specify the `Content-Type: application/json` HTTP header!
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+  operationId: actorTasks_post
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: "../../components/schemas/actor-tasks/CreateTaskRequest.yaml"
+            - example:
+                actId: asADASadYvn4mBZmm
+                name: my-task
+                options:
+                  build: latest
+                  timeoutSecs: 300
+                  memoryMbytes: 128
+                input:
+                  hello: world
+        example:
+          actId: asADASadYvn4mBZmm
+          name: my-task
+          options:
+            build: latest
+            timeoutSecs: 300
+            memoryMbytes: 128
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'https://api.apify.com/v2/actor-tasks/zdc3Pyhyz3m8vjDeM'
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: "../../components/schemas/actor-tasks/Task.yaml"
+          example:
+            data:
+              id: zdc3Pyhyz3m8vjDeM
+              userId: wRsJZtadYvn4mBZmm
+              actId: asADASadYvn4mBZmm
+              name: my-task
+              username: janedoe
+              createdAt: '2018-10-26T07:23:14.855Z'
+              modifiedAt: '2018-10-26T13:30:49.578Z'
+              removedAt: null
+              stats:
+                totalRuns: 15
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 128
+              input:
+                hello: world
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-collection/create-task
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/create-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-collection/operation/actorTasks_post
+  x-js-parent: TaskCollectionClient
+  x-js-name: create
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskCollectionClient#create
+  x-py-parent: TaskCollectionClientAsync
+  x-py-name: create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskCollectionClientAsync#create

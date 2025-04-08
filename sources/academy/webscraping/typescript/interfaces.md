@@ -29,7 +29,7 @@ We can keep this just as it is, which would be totally okay, or we could use an 
 
 > When working with object types, it usually just comes down to preference whether you decide to use an interface or a type alias.
 
-Using the `interface` keyword, we can easily turn our `Person` type into an interface.
+Using the `interface` keyword, we can turn our `Person` type into an interface.
 
 ```ts
 // Interfaces don't need an "=" sign

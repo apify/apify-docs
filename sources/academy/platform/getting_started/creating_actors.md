@@ -15,9 +15,9 @@ You can create an Actor in several ways. You can create one from your own source
 
 ## Choose the source {#choose-the-source}
 
-Once you're in Apify Console, go to [Actors](https://console.apify.com/actors?asrc=developers_portal), and click on the **Create an Actor** button in the top right-hand corner.
+Once you're in Apify Console, go to [Development](https://console.apify.com/actors/development/my-actors), and click on the **Develop new** button in the top right-hand corner.
 
-![Create an Actor button](./images/create-new-actor.png)
+![Develop an Actor button](./images/develop-new-actor.png)
 
 You'll be presented with a page featuring two ways to get started with a new Actor.
 
@@ -30,7 +30,7 @@ You'll be presented with a page featuring two ways to get started with a new Act
 
 ## Creating Actor from existing source code {#existing-source-code}
 
-If you already have your code hosted by a Git provider, you can use it to create an Actor by linking the repository. If you use GitHub, you can use our [GitHub integration](/platform/integrations/github) to create an Actor from your public or private repository with just a few clicks. You can also use GitLab, Bitbucket or other Git providers or external repositories.
+If you already have your code hosted by a Git provider, you can use it to create an Actor by linking the repository. If you use GitHub, you can use our [GitHub integration](/platform/integrations/github) to create an Actor from your public or private repository. You can also use GitLab, Bitbucket or other Git providers or external repositories.
 
 ![Create an Actor from Git repository](./images/create-actor-git.png)
 
@@ -68,7 +68,7 @@ If you want to use the template locally, you can again use our [Apify CLI](/cli)
 
 When you click on the **Use locally** button, you'll be presented with instructions on how to create an Actor from this template in your local environment.
 
-With the Apify CLI installed, you can simply run the following commands in your terminal:
+With the Apify CLI installed, you can run the following commands in your terminal:
 
 ```shell
 apify create my-actor -t getting_started_node
@@ -135,7 +135,7 @@ The Actor takes the `url` from the input and then:
 
 The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
-> Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template. Just keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well. Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
+> Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template. Keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well. Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
 
 ## Build the Actor 🧱 {#build-an-actor}
 
@@ -153,7 +153,7 @@ And now we are ready to run the Actor. But before we do that, let's give the Act
 
 The input tab is where you can provide the Actor with some meaningful input. In this case, we'll be providing the Actor with a URL to scrape. For now, we'll use the prefilled value of [Apify website](https://apify.com/) (`https://apify.com/`).
 
-You can change the website you want to extract the data from by simply changing the URL in the input field.
+You can change the website you want to extract the data from by changing the URL in the input field.
 
 ![Input tab](./images/actor-input-tab.png)
 
@@ -163,7 +163,7 @@ Once you have provided the Actor with some URL you want to extract the data from
 
 ![Actor run logs](./images/actor-run.png)
 
-After the Actor finishes, you can preview or download the extracted data simply by clicking on the **Export X results** button.
+After the Actor finishes, you can preview or download the extracted data by clicking on the **Export X results** button.
 
 ![Export results](./images/actor-run-dataset.png)
 

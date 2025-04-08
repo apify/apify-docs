@@ -1,0 +1,16 @@
+title: ScheduleInvoked
+required:
+  - message
+  - level
+  - createdAt
+type: object
+properties:
+  message:
+    type: string
+    example: Schedule invoked
+  level:
+    type: string
+    example: INFO
+  createdAt:
+    type: string
+    example: '2019-03-26T12:28:00.370Z'

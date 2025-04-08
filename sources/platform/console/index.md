@@ -88,18 +88,24 @@ The Apify Console homepage provides an overview of your account setup. The heade
 
 Use the side menu to navigate other parts of Apify Console easily.
 
-:::tip Keyboard shortcuts
+<!-- markdownlint-disable-next-line -->
+#### Keyboard shortcuts
+
 You can also navigate Apify Console via keyboard shortcuts.
+
 <details>
 <summary>Keyboard Shortcuts</summary>
 
 |Shortcut| Tab |
 |:---|:----|
+|Show shortcuts | Shift? |
 |Home| GH  |
 |Store| GO  |
 |Actors| GA  |
+|Development| GD |
 |Saved tasks| GT  |
 |Runs| GR  |
+|Integrations | GI |
 |Schedules| GU  |
 |Storage| GE  |
 |Proxy| GP  |
@@ -107,7 +113,6 @@ You can also navigate Apify Console via keyboard shortcuts.
 |Billing| GB  |
 
 </details>
-:::
 
 | Tab name | Description |
 |:---|:---|

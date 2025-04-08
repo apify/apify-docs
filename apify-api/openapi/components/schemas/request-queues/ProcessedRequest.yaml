@@ -1,0 +1,20 @@
+title: ProcessedRequest
+required:
+  - requestId
+  - uniqueKey
+  - wasAlreadyHandled
+  - wasAlreadyPresent
+type: object
+properties:
+  requestId:
+    type: string
+    example: sbJ7klsdf7ujN9l
+  uniqueKey:
+    type: string
+    example: 'http://example.com'
+  wasAlreadyPresent:
+    type: boolean
+    example: false
+  wasAlreadyHandled:
+    type: boolean
+    example: false

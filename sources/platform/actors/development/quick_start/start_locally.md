@@ -11,7 +11,7 @@ slug: /actors/development/quick-start/locally
 
 :::info Prerequisites
 
-You need to have [Node.js](https://nodejs.org/en/) version 16 or higher with NPM installed on your computer.
+You need to have [Node.js](https://nodejs.org/en/) version 16 or higher with `npm` installed on your computer.
 
 :::
 
@@ -68,7 +68,7 @@ After creating your Actor, explore the source code in your preferred code editor
 
 ### `src` Directory
 
-- `srx/main.js`: This file contains the actual code of your Actor
+- `src/main.js`: This file contains the actual code of your Actor
 
 ### `.actor` Directory
 

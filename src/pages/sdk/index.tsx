@@ -1,7 +1,8 @@
-import { theme } from '@apify-packages/ui-library';
 import Layout from '@theme/Layout';
 import React from 'react';
 import styled from 'styled-components';
+
+import { theme } from '@apify/ui-library';
 
 import Hero from '../../components/Hero/Hero';
 import SdkSection from '../../components/SdkSection/SdkSection';

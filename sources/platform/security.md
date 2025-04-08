@@ -12,7 +12,26 @@ slug: /security
 
 ---
 
-## Security Whitepaper
+## SOC 2 type II compliance
+
+The Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations meet the SOC 2 standards for security, availability, and confidentiality of customer data.
+
+<a href="https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2" target="_blank" title="AICPA SOC 2">
+    <img src={require("./images/security/soc2-logo.png").default} width="150" title="Apify Security Whitepaper" />
+</a>
+
+To learn more read the [announcement](https://blog.apify.com/apify-soc2/) and visit our [Trust Center](https://trust.apify.com) for more information and to request a copy of our SOC 2 Type II report.
+
+## Trust center
+
+To learn more about Apify's security practices, data protection measures, and compliance certifications, visit our [Trust Center](https://trust.apify.com). The Trust Center includes:
+
+- List of our security certifications and compliance reports
+- Information about Apify's data protection controls
+- List of Apify's data subprocessors
+- AI Chatbot for answering your questions about security
+
+## Security whitepaper
 
 At Apify, security is the top priority of our daily work. Security best practices are reflected in our development, deployment, monitoring, and project management processes.
 Read the Apify Security Whitepaper for a full description of Apify's measures and commitments to security:
@@ -25,6 +44,11 @@ Read the Apify Security Whitepaper for a full description of Apify's measures an
 
 If you notice or suspect a potential security breach, please report this immediately to our security team at [security@apify.com](mailto:security@apify.com), including all the technical details.
 
+:::warning
+
+Please refrain from publicly disclosing the vulnerability until it has been resolved. This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
+
+:::
 The total compensation for your report will be highly dependent on the severity, complexity, and exploitability of the vulnerability. Your reports are always verified by our internal security team,
 which also weighs in on various risks associated with that vulnerability and how major of an impact it would have in case we were attacked.
 

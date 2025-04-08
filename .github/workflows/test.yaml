@@ -13,15 +13,17 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v4
 
-            -   name: Use Node.js 20
+            -   name: Use Node.js 22
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 20
+                    node-version: 22
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
-                    registry-url: 'https://npm.pkg.github.com/'
-                    scope: '@apify-packages'
+
+            -   name: Enable corepack
+                run: |
+                    corepack enable
 
             -   name: Install Dependencies
                 run: npm ci --force
@@ -30,46 +32,48 @@ jobs:
 
             -   run: npm run build
                 env:
-                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
+                    INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
+                    SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
     lint_content:
         name: Lint markdown content
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout Source code
-              uses: actions/checkout@v4
+            -   name: Checkout Source code
+                uses: actions/checkout@v4
 
-            - name: Get changed files
-              id: changed-files
-              uses: tj-actions/changed-files@v44.5.6
-              with:
-                files: |
-                    **/*.md
-                    **/*.mdx
-                separator: ","
+            -   name: Get changed files
+                id: changed-files
+                uses: tj-actions/changed-files@v46
+                with:
+                    files: '**/*.{md,mdx}'
+                    files_ignore: '!sources/api/*.{md,mdx}'
+                    separator: ","
 
-            - name: Use Node.js 20
-              uses: actions/setup-node@v4
-              with:
-                node-version: 20
-                cache: 'npm'
-                cache-dependency-path: 'package-lock.json'
-                registry-url: 'https://npm.pkg.github.com/'
-                scope: '@apify-packages'
+            -   name: Use Node.js 22
+                uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
 
-            - name: Install Dependencies
-              run: npm ci --force
-              env:
-                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            -   name: Enable corepack
+                run: |
+                    corepack enable
 
-            - name: List and Lint Changed Markdown Files
-              env:
-                ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-              run: |
-                IFS=',' read -ra FILE_ARRAY <<< "$ALL_CHANGED_FILES"
-                for file in "${FILE_ARRAY[@]}"; do
-                  npx markdownlint "$file"
-                done
+            -   name: Install Dependencies
+                run: npm ci --force
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            -   name: List and Lint Changed Markdown Files
+                env:
+                    ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+                run: |
+                    IFS=',' read -ra FILE_ARRAY <<< "$ALL_CHANGED_FILES"
+                    for file in "${FILE_ARRAY[@]}"; do
+                      npx markdownlint "$file"
+                    done
 
 
     lint_code:
@@ -79,14 +83,16 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v4
 
-            -   name: Use Node.js 20
+            -   name: Use Node.js 22
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 20
+                    node-version: 22
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
-                    registry-url: 'https://npm.pkg.github.com/'
-                    scope: '@apify-packages'
+
+            -   name: Enable corepack
+                run: |
+                    corepack enable
 
             -   name: Install Dependencies
                 run: npm ci --force

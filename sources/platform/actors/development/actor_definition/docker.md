@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ---
 
-When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker iamges to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development envrionment and ensuring consistent behavior across different environments.
+When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
 
 ## Base Docker images
 
@@ -47,7 +47,7 @@ These images come with Python (version `3.8`, `3.9`, `3.10`, `3.11`, or `3.12`) 
 | ----- | ----------- |
 | [`actor-python`](https://hub.docker.com/r/apify/actor-python) | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers. |
 | [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers. |
-| [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://chromedriver.chromium.org/). |
+| [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
 
 ## Custom Dockerfile
 
@@ -77,7 +77,7 @@ RUN npm --quiet set progress=false \
 COPY . ./
 ```
 
-For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).
 
 :::note Custom base images
 
@@ -105,7 +105,7 @@ By default, Apify base Docker images with the Apify SDK and Crawlee start your N
 }
 ```
 
-This means the system expects the source code to be in `main.js` by default. If you want to override this behavior, ues a custom `package.json` and/or `Dockerfile`.
+This means the system expects the source code to be in `main.js` by default. If you want to override this behavior, use a custom `package.json` and/or `Dockerfile`.
 
 :::tip Optimization tips
 

@@ -1,0 +1,41 @@
+get:
+  tags:
+    - Storage/Datasets
+  summary: Get dataset statistics
+  description: |
+    Returns statistics for given dataset.
+
+    Provides only [field statistics](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics).
+
+  operationId: dataset_statistics_get
+  parameters:
+    - name: datasetId
+      in: path
+      description: Dataset ID or `username~dataset-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/datasets/GetDatasetStatisticsResponse.yaml"
+          example:
+            data:
+              fieldStatistics:
+                name:
+                  nullCount: 122
+                price:
+                  min: 59
+                  max: 89
+# TODO: add clients methods
+#  x-js-parent: DatasetClient
+#  x-js-name: statistics
+#  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#statistics
+#  x-py-parent: DatasetClientAsync
+#  x-py-name: statistics
+#  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#statistics

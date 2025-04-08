@@ -8,7 +8,7 @@ slug: /proxy/datacenter-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Datacenter proxy {#datacenter-proxy}
+# Datacenter proxy
 
 **Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.**
 
@@ -177,7 +177,7 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-## Session persistence {#session-persistence}
+## Session persistence
 
 When you use datacenter proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 

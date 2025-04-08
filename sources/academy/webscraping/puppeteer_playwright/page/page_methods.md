@@ -14,9 +14,9 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Other than having methods for interacting with a page and waiting for events and elements, the **Page** object also supports various methods for doing other things, such as [reloading](https://pptr.dev/#?product=Puppeteer&version=v13.7.0&show=api-pagereloadoptions), [screenshotting](https://playwright.dev/docs/api/class-page#page-screenshot), [changing headers](https://playwright.dev/docs/api/class-page#page-set-extra-http-headers), and extracting the [page's content](https://pptr.dev/#?product=Puppeteer&show=api-pagecontent).
+Other than having methods for interacting with a page and waiting for events and elements, the **Page** object also supports various methods for doing other things, such as [reloading](https://pptr.dev/api/puppeteer.page.reload), [screenshotting](https://playwright.dev/docs/api/class-page#page-screenshot), [changing headers](https://playwright.dev/docs/api/class-page#page-set-extra-http-headers), and extracting the [page's content](https://pptr.dev/api/puppeteer.page.content/).
 
-Last lesson, we left off at a point where we were waiting for the page to navigate so that we can extract the page's title and take a screenshot of it. In this lesson, we'll be learning about the two methods we can use to easily achieve both of those things.
+Last lesson, we left off at a point where we were waiting for the page to navigate so that we can extract the page's title and take a screenshot of it. In this lesson, we'll be learning about the two methods we can use to achieve both of those things.
 
 ## Grabbing the title {#grabbing-the-title}
 
@@ -63,10 +63,10 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // Agree to the cookies policy
-await page.click('button:has-text("I agree")');
+await page.click('button:has-text("Accept all")');
 
 // Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Click on the first result
@@ -99,7 +99,7 @@ await page.goto('https://google.com');
 await page.click('button + button');
 
 // Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Wait for the first result to appear on the page,

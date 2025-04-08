@@ -18,25 +18,27 @@ jobs:
 
         steps:
             -   uses: actions/checkout@v4
-            -   name: Use Node.js 20
+            -   name: Use Node.js 22
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 20
+                    node-version: 22
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
-                    registry-url: 'https://npm.pkg.github.com/'
-                    scope: '@apify-packages'
+
+            -   name: Enable corepack
+                run: |
+                    corepack enable
 
             -   name: Build docs
                 run: |
                     npm ci --force
-                    npm update @apify/openapi
                     npm run build
                 env:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
+                    INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
+                    SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
             -   name: Set up GitHub Pages
                 uses: actions/configure-pages@v5

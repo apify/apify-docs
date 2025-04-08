@@ -1,0 +1,339 @@
+get:
+  tags:
+    - Actor runs
+  summary: Get run
+  description: |
+    This is not a single endpoint, but an entire group of endpoints that lets
+    you retrieve the run or any of its default storages.
+
+    The endpoints accept the same HTTP methods and query parameters as
+    the respective storage endpoints.
+
+    The base path that represents the Actor run object is:
+
+    `/v2/actor-runs/{runId}{?token}`
+
+    In order to access the default storages of the Actor run, i.e. log,
+    key-value store, dataset and request queue, use the following endpoints:
+
+    * `/v2/actor-runs/{runId}/log{?token}`
+    * `/v2/actor-runs/{runId}/key-value-store{?token}`
+    * `/v2/actor-runs/{runId}/dataset{?token}`
+    * `/v2/actor-runs/{runId}/request-queue{?token}`
+
+    These API endpoints have the same usage as the equivalent storage endpoints.
+
+    For example, `/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and
+    parameters as the [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
+
+    Additionally, each of the above API endpoints supports all sub-endpoints
+    of the original one:
+
+    #### Log
+
+    * `/v2/actor-runs/{runId}/log` [Log](#/reference/logs)
+
+    #### Key-value store
+
+    * `/v2/actor-runs/{runId}/key-value-store/keys{?token}` [Key
+    collection](#/reference/key-value-stores/key-collection)
+    * `/v2/actor-runs/{runId}/key-value-store/records/{recordKey}{?token}`
+    [Record](#/reference/key-value-stores/record)
+
+    #### Dataset
+
+    * `/v2/actor-runs/{runId}/dataset/items{?token}` [Item
+    collection](#/reference/datasets/item-collection)
+
+    #### Request queue
+
+    * `/v2/actor-runs/{runId}/request-queue/requests{?token}` [Request
+    collection](#/reference/request-queues/request-collection)
+    * `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}`
+    [Request collection](#/reference/request-queues/request)
+    * `/v2/actor-runs/{runId}/request-queue/head{?token}` [Queue
+    head](#/reference/request-queues/queue-head)
+
+    For example, to download data from a dataset of the Actor run in XML format,
+    send HTTP GET request to the following URL:
+
+    ```
+    https://api.apify.com/v2/actor-runs/{runId}/dataset/items?format=xml
+    ```
+
+    In order to save new items to the dataset, send HTTP POST request with JSON
+    payload to the same URL.
+
+    Gets an object that contains all the details about a
+    specific run of an Actor.
+
+    By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait
+    for the run to finish. This is useful to avoid periodic polling when waiting for Actor run to complete.
+
+    This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the run. However,
+    if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
+  operationId: actorRun_get
+  parameters:
+    - name: runId
+      in: path
+      description: Run ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+    - name: waitForFinish
+      in: query
+      description: |
+        The maximum number of seconds the server waits for the run to finish. By
+        default it is `0`, the maximum value is `60`. <!--
+        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+        If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
+        otherwise it will have a transitional status (e.g. `RUNNING`).
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/actor-runs/RunResponse.yaml
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: HDSasDasz78YcAPEB
+              userId: 7sT5jcggjjA9fNcxF
+              actorTaskId: KJHSKHausidyaJKHs
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: RUNNING
+              statusMessage: Actor is running
+              isStatusMessageTerminal: false
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                inputBodyLen: 240
+                restartCount: 0
+                resurrectCount: 2
+                memAvgBytes: 267874071.9
+                memMaxBytes: 404713472
+                memCurrentBytes: 0
+                cpuAvgUsage: 33.75321011075384
+                cpuMaxUsage: 169.65073553494125
+                cpuCurrentUsage: 0
+                netRxBytes: 103508042
+                netTxBytes: 4854600
+                durationMillis: 248472
+                runTimeSecs: 248.472
+                metamorph: 0
+                computeUnits: 0.13804
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              buildId: 7sT5jcggjjA9fNcxF
+              exitCode: 0
+              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
+              defaultDatasetId: wmKPijuyDnPZAPRMk
+              defaultRequestQueueId: FL35cSF7jrxr3BY39
+              buildNumber: 0.0.36
+              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              isContainerServerReady: true
+              gitBranchName: master
+              usage:
+                ACTOR_COMPUTE_UNITS: 3
+                DATASET_READS: 4
+                DATASET_WRITES: 4
+                KEY_VALUE_STORE_READS: 5
+                KEY_VALUE_STORE_WRITES: 3
+                KEY_VALUE_STORE_LISTS: 5
+                REQUEST_QUEUE_READS: 2
+                REQUEST_QUEUE_WRITES: 1
+                DATA_TRANSFER_INTERNAL_GBYTES: 1
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
+                PROXY_SERPS: 3
+              usageTotalUsd: 0.2654
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.072
+                DATASET_READS: 0.0004
+                DATASET_WRITES: 0.0002
+                KEY_VALUE_STORE_READS: 0.0006
+                KEY_VALUE_STORE_WRITES: 0.002
+                KEY_VALUE_STORE_LISTS: 0.004
+                REQUEST_QUEUE_READS: 0.005
+                REQUEST_QUEUE_WRITES: 0.02
+                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
+                PROXY_SERPS: 0.0006
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
+    - https://docs.apify.com/api/v2#/reference/actor-runs/get-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsRun-object-and-its-storages/operation/actorRun_get
+put:
+  tags:
+    - Actor runs
+  summary: Update status message
+  description: |
+    You can set a single status message on your run that will be displayed in
+    the Apify Console UI. During an Actor run, you will typically do this in order
+    to inform users of your Actor about the Actor's progress.
+
+    The request body must contain `runId` and `statusMessage` properties. The
+    `isStatusMessageTerminal` property is optional and it indicates if the
+    status message is the very last one. In the absence of a status message, the
+    platform will try to substitute sensible defaults.
+  operationId: actorRun_put
+  parameters:
+    - name: runId
+      in: path
+      description: Run ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: "../../components/schemas/actor-runs/UpdateRunRequest.yaml"
+            - example:
+                runId: 3KH8gEpp4d8uQSe8T
+                statusMessage: Actor has finished
+                isStatusMessageTerminal: true
+        example:
+          runId: 3KH8gEpp4d8uQSe8T
+          statusMessage: Actor has finished
+          isStatusMessageTerminal: true
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-runs/RunResponse.yaml
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: HDSasDasz78YcAPEB
+              userId: 7sT5jcggjjA9fNcxF
+              actorTaskId: KJHSKHausidyaJKHs
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: RUNNING
+              statusMessage: Actor is running
+              isStatusMessageTerminal: false
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                inputBodyLen: 240
+                restartCount: 0
+                resurrectCount: 2
+                memAvgBytes: 267874071.9
+                memMaxBytes: 404713472
+                memCurrentBytes: 0
+                cpuAvgUsage: 33.75321011075384
+                cpuMaxUsage: 169.65073553494125
+                cpuCurrentUsage: 0
+                netRxBytes: 103508042
+                netTxBytes: 4854600
+                durationMillis: 248472
+                runTimeSecs: 248.472
+                metamorph: 0
+                computeUnits: 0.13804
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              buildId: 7sT5jcggjjA9fNcxF
+              exitCode: 0
+              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
+              defaultDatasetId: wmKPijuyDnPZAPRMk
+              defaultRequestQueueId: FL35cSF7jrxr3BY39
+              buildNumber: 0.0.36
+              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              isContainerServerReady: true
+              gitBranchName: master
+              usage:
+                ACTOR_COMPUTE_UNITS: 3
+                DATASET_READS: 4
+                DATASET_WRITES: 4
+                KEY_VALUE_STORE_READS: 5
+                KEY_VALUE_STORE_WRITES: 3
+                KEY_VALUE_STORE_LISTS: 5
+                REQUEST_QUEUE_READS: 2
+                REQUEST_QUEUE_WRITES: 1
+                DATA_TRANSFER_INTERNAL_GBYTES: 1
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
+                PROXY_SERPS: 3
+              usageTotalUsd: 0.2654
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.072
+                DATASET_READS: 0.0004
+                DATASET_WRITES: 0.0002
+                KEY_VALUE_STORE_READS: 0.0006
+                KEY_VALUE_STORE_WRITES: 0.002
+                KEY_VALUE_STORE_LISTS: 0.004
+                REQUEST_QUEUE_READS: 0.005
+                REQUEST_QUEUE_WRITES: 0.02
+                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
+                PROXY_SERPS: 0.0006
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
+    - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message
+    - https://docs.apify.com/api/v2#tag/Actor-runsUpdate-status-message/operation/actorRun_put
+delete:
+  tags:
+    - Actor runs
+  summary: Delete run
+  description: |
+    Delete the run. Only finished runs can be deleted. Only the person or
+    organization that initiated the run can delete it.
+  operationId: actorRun_delete
+  parameters:
+    - name: runId
+      in: path
+      description: Run ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run
+    - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsDelete-run/operation/actorRun_delete
+  x-js-parent: RunClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
+

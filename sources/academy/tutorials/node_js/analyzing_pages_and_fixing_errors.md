@@ -35,7 +35,7 @@ Here are the most common reasons your working solution may break.
 
 Web scraping and automation are very specific types of programming. It is not possible to rely on specialized debugging tools, since the code does not output the same results every time. However, there are still many ways to diagnose issues in a crawler.
 
-> Many issues are edge cases, which occur in just one of a thousand pages or are time-dependent. Because of this, you cannot rely only on [determinism](https://en.wikipedia.org/wiki/Deterministic_algorithm).
+> Many issues are edge cases, which occur in one of a thousand pages or are time-dependent. Because of this, you cannot rely only on [determinism](https://en.wikipedia.org/wiki/Deterministic_algorithm).
 
 ### Logging {#logging}
 
@@ -75,7 +75,7 @@ Read more information about logging and error handling in our developer [best pr
 
 ### Saving snapshots {#saving-snapshots}
 
-By snapshots, we mean **screenshots** if you use a [browser with Puppeteer/Playwright](../../webscraping/puppeteer_playwright/index.md) and HTML saved into a [key-value store](https://crawlee.dev/api/core/class/KeyValueStore) that you can easily display in your own browser. Snapshots are useful throughout your code but especially important in error handling.
+By snapshots, we mean **screenshots** if you use a [browser with Puppeteer/Playwright](../../webscraping/puppeteer_playwright/index.md) and HTML saved into a [key-value store](https://crawlee.dev/api/core/class/KeyValueStore) that you can display in your own browser. Snapshots are useful throughout your code but especially important in error handling.
 
 Note that an error can happen only in a few pages out of a thousand and look completely random. You cannot do much else than to save and analyze a snapshot.
 
@@ -123,11 +123,11 @@ To make the error snapshot descriptive, we name it **ERROR-LOGIN**. We add a ran
 
 ### Error reporting {#error-reporting}
 
-Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's just look at simple **dataset** reporting.
+Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system.
 
 ## With the Apify SDK {#with-the-apify-sdk}
 
-This example extends our snapshot solution above by creating a [named dataset](/platform/storage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
+This example extends our snapshot solution above by creating a [named dataset](/platform/storage/usage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
 ```js
 import { Actor } from 'apify';

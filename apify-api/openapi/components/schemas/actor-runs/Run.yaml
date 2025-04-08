@@ -1,0 +1,107 @@
+title: Run
+required:
+  - id
+  - actId
+  - userId
+  - startedAt
+  - finishedAt
+  - status
+  - meta
+  - stats
+  - options
+  - buildId
+  - defaultKeyValueStoreId
+  - defaultDatasetId
+  - defaultRequestQueueId
+  - buildNumber
+  - containerUrl
+type: object
+properties:
+  id:
+    type: string
+    example: HG7ML7M8z78YcAPEB
+  actId:
+    type: string
+    example: HDSasDasz78YcAPEB
+  userId:
+    type: string
+    example: 7sT5jcggjjA9fNcxF
+  actorTaskId:
+    type: string
+    nullable: true
+    example: KJHSKHausidyaJKHs
+  startedAt:
+    type: string
+    example: '2019-11-30T07:34:24.202Z'
+  finishedAt:
+    type: string
+    example: '2019-12-12T09:30:12.202Z'
+  status:
+    type: string
+    example: RUNNING
+  statusMessage:
+    type: string
+    nullable: true
+    example: Actor is running
+  isStatusMessageTerminal:
+    type: boolean
+    nullable: true
+    example: false
+  meta:
+    $ref: ./RunMeta.yaml
+  pricingInfo:
+    $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
+  stats:
+    $ref: ./RunStats.yaml
+  chargedEventCounts:
+    type: object
+    additionalProperties:
+      $ref: ../actor-pricing-info/ActorChargeEvent.yaml
+  options:
+    $ref: ./RunOptions.yaml
+  buildId:
+    type: string
+    example: 7sT5jcggjjA9fNcxF
+  exitCode:
+    type: number
+    nullable: true
+    example: 0
+  defaultKeyValueStoreId:
+    type: string
+    example: eJNzqsbPiopwJcgGQ
+  defaultDatasetId:
+    type: string
+    example: wmKPijuyDnPZAPRMk
+  defaultRequestQueueId:
+    type: string
+    example: FL35cSF7jrxr3BY39
+  buildNumber:
+    type: string
+    example: 0.0.36
+  containerUrl:
+    type: string
+    example: 'https://g8kd8kbc5ge8.runs.apify.net'
+  isContainerServerReady:
+    type: boolean
+    nullable: true
+    example: true
+  gitBranchName:
+    type: string
+    nullable: true
+    example: master
+  usage:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./RunUsage.yaml
+      - {}
+  usageTotalUsd:
+    type: number
+    nullable: true
+    example: 0.2654
+  usageUsd:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./RunUsage.yaml
+      - {}

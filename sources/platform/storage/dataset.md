@@ -17,10 +17,10 @@ import TabItem from '@theme/TabItem';
 
 Dataset storage enables you to sequentially save and retrieve data. A unique dataset is automatically created and assigned to each Actor run when the first item is stored.
 
-Typically, datasets comprises results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
+Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
 > Named datasets are retained indefinitely. <br/>
-> Unnamed datasets expire after 7 days unless otherwise specified. <br/> > [Learn more](usage.md#named-and-unnamed-storages)
+> Unnamed datasets expire after 7 days unless otherwise specified. <br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -45,19 +45,19 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](./usage.md#data-retention-data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
 ### Apify API
 
-The [Apify API](/api/v2#/reference/datasets) enables you progammatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2#/reference/datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
-To retrieve a list of you datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
+To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets) endpoint.
 
 ```text
 https://api.apify.com/v2/datasets
@@ -87,7 +87,7 @@ To retrieve the `hotel` and `cafe` fields, you would send your GET request to th
 https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2Ccafe
 ```
 
-> Use `%2C` instead of commas for URL encoding, as `%2C` represent a comma. For morn on URL encoding check out [this page](https://www.url-encode-decode.com)
+> Use `%2C` instead of commas for URL encoding, as `%2C` represent a comma. For more on URL encoding check out [this page](https://www.url-encode-decode.com)
 
 To add data to a dataset, issue a POST request to the [Put items](/api/v2#/reference/datasets/item-collection/put-items) endpoint with the data as a JSON object payload.
 
@@ -147,7 +147,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 > When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
-Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
 ### Apify SDKs
 
@@ -155,7 +155,7 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
 
-Additionaly the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
+Additionally the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -284,7 +284,7 @@ For more information, visit our [Python SDK documentation](/sdk/python/docs/conc
 
 Fields in a dataset that begin with a `#` are treated as hidden. You can exclude these fields when downloading data by using either `skipHidden=1` or `clean=1` in your query parameters. This feature is useful for excluding debug information from the final dataset output.
 
-The following example demonstates a dataset record with hiddent fields, including HTTP response and error details.
+The following example demonstrates a dataset record with hidden fields, including HTTP response and error details.
 
 ```json
 {
@@ -440,7 +440,7 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-See the [Storage overview](/platform/storage#sharing-storages-between-runs) for details on sharing storages between runs.
+See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 
