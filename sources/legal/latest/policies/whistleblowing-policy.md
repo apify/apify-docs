@@ -20,6 +20,7 @@ At Apify, we are committed to upholding the highest standards of integrity, ethi
 ## Applicability
 
 In compliance with the applicable law, Apify excludes the possibility for reports to be submitted by persons other than those performing or having performed:
+
 - dependent work for Apify in the employment relationship (i.e., both under an employment contract and agreements made outside of employment, so-called “DPP/DPČ”);
 - voluntary activities; or
 - professional practice or internship.
@@ -89,9 +90,10 @@ V Apify jsme se zavázali dodržovat nejvyšší standardy integrity, etiky a od
 ## Kdo je oprávněn podávat oznámení?
 
 V souladu se zákonem Apify vylučuje možnost přijímání oznámení od jiných osob než těch, které pro Apify vykonávají nebo vykonávaly:
+
 - závislou práci v rámci základního pracovněprávního vztahu (tzn., jak v rámci pracovního poměru, tak dohod uzavřených mimo pracovní poměr, tzv. DPP/DPČ);
 - dobrovolnickou činnost; nebo
-- odborné praxe či stáže. 
+- odborné praxe či stáže.
 
 Toto vyloučení se nevztahuje na uchazeče o zaměstnání. **Apify nepřijímá anonymní oznámení.**
 
