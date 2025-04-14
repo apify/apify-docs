@@ -25,7 +25,8 @@ In compliance with the applicable law, Apify excludes the possibility for report
 - voluntary activities; or
 - professional practice or internship.
 
-The exclusion does not apply to job applicants. **Apify does not accept anonymous reports.**
+The exclusion does not apply to job applicants.
+**Apify does not accept anonymous reports.**
 
 ## Who can help you?
 
