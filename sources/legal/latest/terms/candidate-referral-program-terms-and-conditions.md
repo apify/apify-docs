@@ -20,11 +20,13 @@ Apify Technologies s.r.o., as the announcer (“**Apify**”), is constantly loo
 Apify undertakes that any individual (“**You**”) who:
 
 is neither:
+
 - currently employed by Apify;
 - a person who carries out business in human resources;
 - a recruiting agency, or a person cooperating with recruiting agency in any other capacity;
 
 and recommends to Apify a suitable job candidate (“**Candidate**”):
+
 - for any open full-time position published on the Apify Job page available at: https://apify.com/jobs;
 - who is not already in Apify’s applicant database, and is not active in the recruitment process (in which case you will be informed by Apify);
 - with whom Apify concludes an employment contract that establishes full-time employment between Apify and the Candidate (any candidates hired on a “DPP/DPČ” basis are excluded from this program);
