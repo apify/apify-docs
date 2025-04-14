@@ -1,4 +1,2 @@
 User-agent: *
 Sitemap: https://docs.apify.com/sitemap.xml
-Disallow: https://docs.apify.com/api/v2-old
-Disallow: https://docs.apify.com/api/v2-redoc

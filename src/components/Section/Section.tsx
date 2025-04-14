@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 
-import { theme } from '@apify-packages/ui-library';
+import { theme } from '@apify/ui-library';
 
-import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
+import styles from './styles.module.css';
 
 interface SectionProps {
     heading?: string;

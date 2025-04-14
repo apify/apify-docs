@@ -53,7 +53,7 @@ After successfully installing Langflow, we can start the platform:
 uv run langflow run
 ```
 
-When the platform is started, open the [Langflow UI](http://127.0.0.1:7860) in your browser.
+When the platform is started, open the Langflow UI using `http://127.0.0.1:7860` in your browser.
 
 > Other installation methods can be found in the [Langflow documentation](https://docs.langflow.org/get-started-installation).
 

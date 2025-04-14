@@ -537,6 +537,8 @@ paths:
     $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync.yaml'
   '/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items':
     $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync-get-dataset-items.yaml'
+  '/v2/actor-tasks/{actorTaskId}/runs/last':
+    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml'
   /v2/actor-runs:
     $ref: paths/actor-runs/actor-runs.yaml
   '/v2/actor-runs/{runId}':

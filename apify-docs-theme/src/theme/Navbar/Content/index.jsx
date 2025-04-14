@@ -1,5 +1,5 @@
 import { useLocation } from '@docusaurus/router';
-import { useThemeConfig, isRegexpStringMatch } from '@docusaurus/theme-common';
+import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
 import {
     splitNavbarItems,
 } from '@docusaurus/theme-common/internal';
@@ -11,8 +11,8 @@ import NavbarSearch from '@theme/Navbar/Search';
 import NavbarItem from '@theme/NavbarItem';
 import React from 'react';
 
-import styles from './styles.module.css';
 import SearchBar from '../../SearchBar';
+import styles from './styles.module.css';
 
 function NavbarItems({ items }) {
     return (

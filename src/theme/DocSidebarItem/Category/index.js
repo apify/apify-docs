@@ -1,15 +1,15 @@
 import Link from '@docusaurus/Link';
 import {
-    isActiveSidebarItem,
     findFirstSidebarItemLink,
+    isActiveSidebarItem,
     useDocSidebarItemsExpandedState,
 } from '@docusaurus/plugin-content-docs/client';
 import {
-    ThemeClassNames,
-    useThemeConfig,
-    usePrevious,
     Collapsible,
+    ThemeClassNames,
     useCollapsible,
+    usePrevious,
+    useThemeConfig,
 } from '@docusaurus/theme-common';
 import { isSamePath } from '@docusaurus/theme-common/internal';
 import { translate } from '@docusaurus/Translate';
