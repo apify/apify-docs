@@ -67,6 +67,10 @@ it well. Please head to the Actor README to learn more about the capabilities of
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
 
+## What is the timeout for incoming requests
+
+When you send a request to an Actor in Standby mode, the timeout is 5 minutes to the first response.
+
 ## How do I customize Standby configuration
 
 The Standby configuration currently consists of the following properties:
