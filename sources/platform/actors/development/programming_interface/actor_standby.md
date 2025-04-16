@@ -178,7 +178,7 @@ async def main() -> None:
 
 ## Timeouts
 
-When you send a request to an Actor in Standby mode, the total timeout is 5 minutes to the first response. But before the request is sent to a specific Actor run, the platform needs to decide to which run should the request go. The "run choosing" process has an internal timeout of 2 minutes.
+When you send a request to an Actor in Standby mode, the total timeout for receiving the first response is _5 minutes_. Before the platform forwards the request to a specific Actor run, it performs a _run selection_ process to determine the specific Actor run that will handle it. This process has internal timeout of _2 minutes_.
 
 ## Getting the URL of the Standby Actor
 

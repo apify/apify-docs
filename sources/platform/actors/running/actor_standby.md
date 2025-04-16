@@ -69,7 +69,7 @@ the system starts new Actor runs, which you will see in the Actor runs tab, with
 
 ## What is the timeout for incoming requests
 
-When you send a request to an Actor in Standby mode, the timeout is 5 minutes to the first response.
+For requests sent to an Actor in Standby mode, the maximum time allowed until receiving the first response is _5 minutes_. This represents the overall timeout for the operation.
 
 ## How do I customize Standby configuration
 
