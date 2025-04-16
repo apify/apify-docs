@@ -16,23 +16,23 @@ For more details, follow the tutorial below.
 
 ## Connect Apify Scraper for YouTube Data modules to Make
 
-1. To get started, create an account at [console.apify.com](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
+1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
     ![Sign up page](images/youtube/image.png)
 
-1. To connect your Apify account with Make, you need to get the **API token** from your Apify account. Go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** tab to find API tokens.
+1. To connect your Apify account with Make, you need to get the Apify API token. In the Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 
     ![Apify Console token for Make.png](images/Apify_Console_token_for_Make.png)
 
-1. Find your token under **Personal API tokens**. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
-1. To establish a connection, **copy the API token** and go back to Make.
+1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
+1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
 
     ![Apify token on Make.png](images/Apify_token_on_Make.png)
 
 1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
-1. In the **API token** field, paste the value copied in step 4, name your Connection, and click **Save**.
+1. In the **API token** field, paste the API token you copied from Apify. Provide a clear **Connection name**, and click **Save**.
 
-    ![lorem ipsum](images/youtube/image1.png)
+    ![Make API token](images/youtube/image1.png)
 
 Once connected, you can build workflows to automate YouTube data extraction and integrate results into your applications.
 
