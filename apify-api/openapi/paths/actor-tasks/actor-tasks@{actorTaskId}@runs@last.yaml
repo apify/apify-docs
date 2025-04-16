@@ -9,7 +9,7 @@ get:
 
     The endpoints accept the same HTTP methods and query parameters as
     the respective storage endpoints.
-    The base path represents the last actor task run object is:                                  
+    The base path represents the last actor task run object is:
 
     `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status}`
 
@@ -97,6 +97,7 @@ get:
                 userAgent: Mozilla/5.0 (iPad)
               stats:
                 inputBodyLen: 240
+                migrationCount: 0
                 restartCount: 0
                 resurrectCount: 2
                 memAvgBytes: 267874071.9
