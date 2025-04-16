@@ -8,6 +8,9 @@ properties:
   inputBodyLen:
     type: number
     example: 240
+  migrationCount:
+    type: number
+    example: 0
   restartCount:
     type: number
     example: 0
