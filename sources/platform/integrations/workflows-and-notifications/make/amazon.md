@@ -27,7 +27,7 @@ To use the module, you need an [Apify account](https://console.apify.com) and an
 
     ![Apify token on Make.png](images/Apify_token_on_Make.png)
 
-1. On Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
+1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
 1. In the **API token** field, paste the value copied in step 4, name your Connection, and click **Save**.
 
     ![image.png](images/amazon/image1.png)
