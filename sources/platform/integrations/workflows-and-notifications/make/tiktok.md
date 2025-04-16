@@ -177,4 +177,4 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 - Google Maps Emails Data
 - Amazon Data
 
-And more! Because you can access any of our 3,000+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
