@@ -176,6 +176,10 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
+## Timeouts
+
+When you send a request to an Actor in Standby mode, the total timeout for receiving the first response is _5 minutes_. Before the platform forwards the request to a specific Actor run, it performs a _run selection_ process to determine the specific Actor run that will handle it. This process has internal timeout of _2 minutes_.
+
 ## Getting the URL of the Standby Actor
 
 The URL is exposed as an environment variable `ACTOR_STANDBY_URL`. You can also use `Actor.config`, where the `standbyUrl` option is available.

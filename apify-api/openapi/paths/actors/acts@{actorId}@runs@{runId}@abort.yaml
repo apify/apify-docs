@@ -63,6 +63,7 @@ post:
                 userAgent: Mozilla/5.0 (iPad)
               stats:
                 inputBodyLen: 240
+                migrationCount: 0
                 restartCount: 0
                 resurrectCount: 1
                 memAvgBytes: 35914228.4
