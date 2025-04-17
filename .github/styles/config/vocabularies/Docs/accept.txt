@@ -87,12 +87,12 @@ preconfigured
 [Mm]ultiselect
 
 asyncio
-Langflow
 backlinks?
 captchas?
 Chatbot
 combinator
 deduplicating
+dev
 Fakestore
 Fandom('s)?
 IMDb
@@ -100,6 +100,7 @@ influencers
 iPads?
 iPhones?
 jQuery
+Langflow
 learnings
 livestreams
 outro
