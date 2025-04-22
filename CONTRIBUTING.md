@@ -87,8 +87,8 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 1. Text emphasis:
 
-    - use *Bold* for UI elements
-    - use **Italics** for emphasis
+    - use **Bold** for UI elements
+    - use *Italics* for emphasis
     - use `code` for inline code, by using back-ticks (\`\`\)
     - use code blocks with language specification
     - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language

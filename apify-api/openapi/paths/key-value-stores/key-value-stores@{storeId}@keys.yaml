@@ -7,7 +7,7 @@ get:
     well as some information about the values (e.g. size).
 
     This endpoint is paginated using `exclusiveStartKey` and `limit` parameters
-    - see [Pagination](#/introduction/response-structure) for more details.
+    - see [Pagination](/api/v2#using-key) for more details.
   operationId: keyValueStore_keys_get
   security:
     - apiKeyStoreId: []
