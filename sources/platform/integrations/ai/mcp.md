@@ -8,7 +8,7 @@ slug: /integrations/mcp
 
 <!-- markdownlint-disable MD024 -->
 
-The Apify Model Context Protocol (MCP) server allows AI agents and frameworks compatible with the MCP standard to connect with the extensive library of Actors available on the [Apify Store](https://apify.com/store).
+The Apify Model Context Protocol (MCP) server allows AI agents and frameworks compatible with the MCP standard to connect with the extensive library of Actors available on [Apify Store](https://apify.com/store).
 
 ## Why use MCP with Apify?
 
@@ -25,10 +25,10 @@ The Apify Model Context Protocol (MCP) server allows AI agents and frameworks co
 
 ## Prerequisites
 
-Before you start, ensure you have the following:
+Before you start, make sure you have the following:
 
 1. _Apify account_: You need an active account on the Apify platform.
-2. _API Token_: Get your personal API token from the **Integrations** section in the [Apify Console](https://console.apify.com/account#/integrations).
+2. _API Token_: Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations).
 
 ## Connection methods
 
@@ -39,7 +39,7 @@ Apify provides two main ways to connect your MCP client to Actors:
 
 ### Option 1: Use the main Actors MCP server
 
-This method offers the most flexibility, allowing access to the entire Apify Store dynamically or by specifying Actors at connection time.
+This method offers the most flexibility, allowing access to all of Apify Store dynamically or by specifying Actors at connection time.
 
 ```text title="Server endpoint"
 https://actors-mcp-server.apify.actor/sse?token=<YOUR_API_TOKEN>
@@ -47,7 +47,7 @@ https://actors-mcp-server.apify.actor/sse?token=<YOUR_API_TOKEN>
 
 Key features:
 
-- Dynamic discovery: Agents can use MCP operations like `discover-actors` to search the Apify Store for tools.
+- Dynamic discovery: Agents can use MCP operations like `discover-actors` to search Apify Store for tools.
 - Dynamic registration: Agents can use the `add-actor-to-tools` operation to add discovered Actors to their available toolset for the current session.
 - Pre-registration via URL: You can make specific Actors available immediately by adding the `&actors=` query parameter to the connection URL (for example, `&actors=apify/rag-web-browser`).
 
@@ -178,8 +178,8 @@ data: {"result":{"content":[{"type":"text","text":"[{\"searchResult\":{\"title\"
 - Testing:
   - Tester MCP Client: Use the [Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) on Apify to interact with either MCP server type. Enter the appropriate server URL (for example, `https://actors-mcp-server.apify.actor/sse` or `https://rag-web-browser.apify.actor/sse`) in the Actor input field, configure your API token, run the client Actor, and interact through its user interface.
 - Protocol information:
-  - MCP Documentation: For details on the protocol, see the [MCP Introduction](https://modelcontextprotocol.io/introduction).
-  - MCP Client Examples: Find example client implementations at [MCP Clients](https://modelcontextprotocol.io/clients).
+  - MCP documentation: For details on the protocol, see the [MCP Introduction](https://modelcontextprotocol.io/introduction).
+  - MCP client examples: Find example client implementations at [MCP Clients](https://modelcontextprotocol.io/clients).
 - Further reading:
   - Apify Blog: Read more about Apify's implementation in the post: [What is Anthropic's Model Context Protocol?](https://blog.apify.com/what-is-model-context-protocol/)
 
