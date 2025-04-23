@@ -47,6 +47,11 @@ properties:
       type: string
     description: ''
     nullable: true
+  schema:
+    type: object
+    nullable: true
   consoleUrl:
     type: string
     example: 'https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC'
+  stats:
+    $ref: ./DatasetStats.yaml
