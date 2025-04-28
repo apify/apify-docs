@@ -19,7 +19,7 @@ slug: /integrations/agno
 
 ## How to Use Apify with Agno
 
-This guide shows how to integrate Apify Actors with Agno to empower your AI agents with real-time web data. We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch web content and the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to extract location-based data. It is very easy to use with any other Actor by just passing the name of the Actor. See and choose from 4,000+ Actors in the [Apify Store](https://apify.com/store).
+This guide shows how to integrate Apify Actors with Agno to empower your AI agents with real-time web data. We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch web content and the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to extract location-based data. It is very easy to use with any other Actor by just passing the name of the Actor. See and choose from thousands of Actors in the [Apify Store](https://apify.com/store).
 
 ### Prerequisites
 
