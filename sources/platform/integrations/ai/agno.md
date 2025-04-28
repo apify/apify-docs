@@ -14,8 +14,9 @@ slug: /integrations/agno
 
 [Agno](https://docs.agno.com/) is an open-source framework for building intelligent AI agents. It provides a flexible architecture to create agents with custom tools, enabling seamless integration with external services like Apify for tasks such as web scraping, data extraction and automation.
 
-> [!NOTE]
-> Check out the [Agno documentation](https://docs.agno.com/introduction) for more details on building AI agents.
+:::note
+Check out the [Agno documentation](https://docs.agno.com/introduction) for more details on building AI agents.
+:::
 
 ## How to Use Apify with Agno
 
@@ -23,9 +24,9 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 
 ### Prerequisites
 
-- **Apify API token**: Obtain your token from the [Apify console](https://console.apify.com/account/integrations).  
-- **Python environment**: Ensure Python is installed (version 3.8+ recommended).  
-- **Required packages**: Install the following dependencies in your terminal:
+- *Apify API token*: Obtain your token from the [Apify console](https://console.apify.com/account/integrations).  
+- *Python environment*: Ensure Python is installed (version 3.8+ recommended).  
+- *Required packages*: Install the following dependencies in your terminal:
 
 ```bash
 pip install agno apify-client langchain-apify
@@ -57,8 +58,9 @@ agent.print_response("Extract key details from https://docs.agno.com/introductio
 
 Running this code will scrape the specified URL and return formatted content your agent can use.
 
-> [!TIP]
-> You can also set the APIFY_API_TOKEN environment variable instead of passing it directly in the code.
+:::tip
+You can also set the APIFY_API_TOKEN environment variable instead of passing it directly in the code.
+:::
 
 ### Advanced Scenario: Travel Planning Agent
 
@@ -105,8 +107,9 @@ This agent will fetch travel-related data and restaurant recommendations, provid
 2. Use the Google Places Crawler to find a top sushi restaurant.
 3. Combine the results into a comprehensive guide.
 
-> [!TIP]
-> Browse the [Apify Store](https://apify.com/store) to find additional Actors for tasks like social media scraping, e-commerce data extraction, or news aggregation.
+:::tip
+Browse the [Apify Store](https://apify.com/store) to find additional Actors for tasks like social media scraping, e-commerce data extraction, or news aggregation.
+:::
 
 ### Available Apify Tools
 
