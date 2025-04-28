@@ -2,7 +2,7 @@
 title: Mastra MCP integration
 sidebar_label: Mastra
 description: Learn how to build AI Agents with Mastra via Apify Actors MCP server
-sidebar_position: 1
+sidebar_position: 8
 slug: /integrations/mastra
 ---
 
