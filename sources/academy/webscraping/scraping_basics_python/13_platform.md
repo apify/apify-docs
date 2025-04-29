@@ -85,7 +85,7 @@ The file contains a single asynchronous function, `main()`. At the beginning, it
 
 Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://apify.com/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
 
-![The expected file structure](./images/actor-file-structure.png)
+![The expected file structure](./images/actor-file-structure.webp)
 
 We'll now adjust the template so that it runs our program for watching prices. As the first step, we'll create a new empty file, `crawler.py`, inside the `warehouse-watchdog/src` directory. Then, we'll fill this file with final, unchanged code from the previous lesson:
 
@@ -255,11 +255,11 @@ Actor build detail https://console.apify.com/actors/a123bCDefghiJkLMN#/builds/0.
 
 After opening the link in our browser, assuming we're logged in, we'll see the **Source** screen on the Actor's detail page. We'll go to the **Input** tab of that screen. We won't change anything—just hit **Start**, and we should see logs similar to what we see locally, but this time our scraper will be running in the cloud.
 
-![Actor's detail page, screen Source, tab Input](./images/actor-input.png)
+![Actor's detail page, screen Source, tab Input](./images/actor-input.webp)
 
 When the run finishes, the interface will turn green. On the **Output** tab, we can preview the results as a table or JSON. We can even export the data to formats like CSV, XML, Excel, RSS, and more.
 
-![Actor's detail page, screen Source, tab Output](./images/actor-output.png)
+![Actor's detail page, screen Source, tab Output](./images/actor-output.webp)
 
 :::info Accessing data programmatically
 
@@ -273,7 +273,7 @@ Now that our scraper is deployed, let's automate its execution. In the Apify web
 
 From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/monitoring), and even set up alerts.
 
-![Schedule detail page](./images/actor-schedule.png)
+![Schedule detail page](./images/actor-schedule.webp)
 
 ## Adding support for proxies
 
@@ -389,7 +389,7 @@ Run: Building Actor warehouse-watchdog
 
 Back in the Apify console, go to the **Source** screen and switch to the **Input** tab. You'll see the new **Proxy config** option, which defaults to **Datacenter - Automatic**.
 
-![Actor's detail page, screen Source, tab Input with proxies](./images/actor-input-proxies.png)
+![Actor's detail page, screen Source, tab Input with proxies](./images/actor-input-proxies.webp)
 
 Leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
 
