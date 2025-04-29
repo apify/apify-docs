@@ -7,7 +7,7 @@ slug: /node-js/submitting-forms-on-aspx-pages
 
 Apify users sometimes need to submit a form on pages created with ASP.NET (URL typically ends with .aspx). These pages have a different approach for how they submit forms and navigate through pages.
 
-This tutorial shows you how to handle these kinds of pages. This approach is based on a [blog post](https://toddhayton.com/2015/05/04/scraping-aspnet-pages-with-ajax-pagination/) from Todd Hayton, where he explains how crawlers for ASP.NET pages should work.
+This tutorial shows you how to handle these kinds of pages. This approach is based on a [blog post](https://web.archive.org/web/20230530120937/https://toddhayton.com/2015/05/04/scraping-aspnet-pages-with-ajax-pagination/) from Todd Hayton, where he explains how crawlers for ASP.NET pages should work.
 
 First of all, you need to copy&paste this function to your [Web Scraper](https://apify.com/apify/web-scraper) _Page function_:
 
