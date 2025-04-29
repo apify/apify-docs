@@ -14,8 +14,10 @@ slug: /integrations/agno
 
 [Agno](https://docs.agno.com/) is an open-source framework for building intelligent AI agents. It provides a flexible architecture to create agents with custom tools, enabling seamless integration with external services like Apify for tasks such as web scraping, data extraction and automation.
 
-:::note
+:::note Agno documentation
+
 Check out the [Agno documentation](https://docs.agno.com/introduction) for more details on building AI agents.
+
 :::
 
 ## How to Use Apify with Agno
@@ -58,8 +60,10 @@ agent.print_response("Extract key details from https://docs.agno.com/introductio
 
 Running this code will scrape the specified URL and return formatted content your agent can use.
 
-:::tip
+:::tip Environment variable token
+
 You can also set the APIFY_API_TOKEN environment variable instead of passing it directly in the code.
+
 :::
 
 ### Advanced Scenario: Travel Planning Agent
@@ -107,8 +111,10 @@ This agent will fetch travel-related data and restaurant recommendations, provid
 2. Use the Google Places Crawler to find a top sushi restaurant.
 3. Combine the results into a comprehensive guide.
 
-:::tip
+:::tip Apify Store
+
 Browse the [Apify Store](https://apify.com/store) to find additional Actors for tasks like social media scraping, e-commerce data extraction, or news aggregation.
+
 :::
 
 ### Available Apify Tools
