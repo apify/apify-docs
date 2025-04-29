@@ -1,7 +1,7 @@
 {
     "Beginner courses": [
         {
-            "title": "Web scraping for beginners",
+            "title": "Web scraping basics for JavaScript devs",
             "link": "academy/web-scraping-for-beginners",
             "description": "Learn how to develop web scrapers on your own computer with open-source tools. This web scraping course teaches you all the basics a scraper developer needs to know.",
             "imageUrl": "/img/academy/intro.svg"
