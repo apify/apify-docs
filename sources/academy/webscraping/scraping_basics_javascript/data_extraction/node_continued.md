@@ -164,7 +164,7 @@ After running the code, you will see this output in your terminal:
 ];
 ```
 
-Congratulations! You completed the **Basics of data extraction** section of the Web scraping for beginners course. A quick recap of what you learned:
+Congratulations! You completed the **Basics of data extraction** section of the Web scraping basics for JavaScript devs course. A quick recap of what you learned:
 
 1. The basic terminology around web scraping, crawling, HTML, CSS and JavaScript.
 2. How to use browser DevTools and Console to inspect web pages and manipulate them using CSS and JavaScript.

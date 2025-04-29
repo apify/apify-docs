@@ -63,7 +63,7 @@ npm install puppeteer
 </TabItem>
 </Tabs>
 
-> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**](../scraping_basics_javascript/data_extraction/computer_preparation.md) lesson in the **Web scraping for beginners** course
+> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**](../scraping_basics_javascript/data_extraction/computer_preparation.md) lesson in the **Web scraping basics for JavaScript devs** course
 
 ## Course overview {#course-overview}
 
