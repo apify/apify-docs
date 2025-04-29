@@ -2,7 +2,6 @@
 title: Getting links from HTML with Python
 sidebar_label: Getting links from HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate links to individual product pages.
-sidebar_position: 9
 slug: /scraping-basics-python/getting-links
 ---
 

@@ -2,7 +2,6 @@
 title: Locating HTML elements on a web page with browser DevTools
 sidebar_label: "DevTools: Locating HTML elements"
 description: Lesson about using the browser tools for developers to manually find products on an e-commerce website.
-sidebar_position: 2
 slug: /scraping-basics-python/devtools-locating-elements
 ---
 
