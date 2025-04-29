@@ -62,9 +62,11 @@ To share our project, we need to package it. The best way is following the offic
 
 Change to a directory where you start new projects in your terminal. Then, run the following command:
 
-`$ apify create warehouse-watchdog --template=python-crawlee-beautifulsoup`
+```text
+$ apify create warehouse-watchdog --template=python-crawlee-beautifulsoup
+```
 
-it will create a new subdirectory called `warehouse-watchdog` for the new project, containing all the necessary files:
+It will create a new subdirectory called `warehouse-watchdog` for the new project, containing all the necessary files:
 
 ```text
 Info: Python version 0.0.0 detected.
@@ -73,6 +75,7 @@ Info: Creating a virtual environment in ...
 Success: Actor 'warehouse-watchdog' was created. To run it, run "cd warehouse-watchdog" and "apify run".
 Info: To run your code in the cloud, run "apify push" and deploy your code to Apify Console.
 Info: To install additional Python packages, you need to activate the virtual environment in the ".venv" folder in the actor directory.
+```
 
 ## Adjusting the template
 
