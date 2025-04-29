@@ -31,13 +31,13 @@ As mentioned in the previous lesson, before building a scraper, we need to under
 
 ![Warehouse store with DevTools open](./images/devtools-warehouse.png)
 
-The page displays a grid of product cards, each showing a product's name and picture. Open DevTools and locate the name of the **Sony SACS9 Active Subwoofer**. Highlight it in the **Elements** tab by clicking on it.
+The page displays a grid of product cards, each showing a product's title and picture. Open DevTools and locate the title of the **Sony SACS9 Active Subwoofer**. Highlight it in the **Elements** tab by clicking on it.
 
-![Selecting an element with DevTools](./images/devtools-product-name.png)
+![Selecting an element with DevTools](./images/devtools-product-title.png)
 
 Next, let's find all the elements containing details about this subwoofer—its price, number of reviews, image, and more.
 
-In the **Elements** tab, move your cursor up from the `a` element containing the subwoofer's name. On the way, hover over each element until you highlight the entire product card. Alternatively, use the arrow-up key. The `div` element you land on is the **parent element**, and all nested elements are its **child elements**.
+In the **Elements** tab, move your cursor up from the `a` element containing the subwoofer's title. On the way, hover over each element until you highlight the entire product card. Alternatively, use the arrow-up key. The `div` element you land on is the **parent element**, and all nested elements are its **child elements**.
 
 ![Selecting an element with hover](./images/devtools-hover-product.png)
 
