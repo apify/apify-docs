@@ -63,7 +63,7 @@ To share our project, we need to package it. The best way is following the offic
 Change to a directory where you start new projects in your terminal. Then, run the following command:
 
 ```text
-$ apify create warehouse-watchdog --template=python-crawlee-beautifulsoup
+apify create warehouse-watchdog --template=python-crawlee-beautifulsoup
 ```
 
 It will create a new subdirectory called `warehouse-watchdog` for the new project, containing all the necessary files:
