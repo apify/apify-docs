@@ -126,7 +126,7 @@ Categories can be general (e.g., "restaurant") which includes all variations lik
 
 ### Search with Search Terms Module
 
-The Search Terms module is a component of the Google Maps Leads Scraper designed to discover and extract business leads by using specific search queries, similar to how you'd search on Google Maps directly. 
+The Search Terms module is a component of the Google Maps Leads Scraper designed to discover and extract business leads by using specific search queries, similar to how you'd search on Google Maps directly.
 
 #### Key Features
 
