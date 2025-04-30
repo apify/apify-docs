@@ -2,15 +2,16 @@
 title: Make - Facebook Actor integration
 description: Learn about Facebook scraper modules, extract posts, comments, and profile data from Facebook.
 sidebar_label: Facebook
-sidebar_position: 5
+sidebar_position: 8
 slug: /integrations/make/facebook
+unlisted: true
 ---
 
 ## Apify Scraper for Facebook Data
 
-The Facebook Scraper modules from apify.com allow you to extract posts, comments, and profile data from Facebook.
+The Facebook Scraper modules from [Apify](https://apify.com/) allow you to extract posts, comments, and profile data from Facebook.
 
-To use these modules, you need an Apify account and an API token, which you can find under Settings > Integrations in Apify Console. After connecting, you can automate data extraction and incorporate the results into your workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
 ## Connect Apify Scraper for Facebook Data modules to Make
 
@@ -58,9 +59,7 @@ For each given Facebook group URL, you will extract:
 - _Attachments_: media set URL, image thumbnail, full image URL, dimensions, OCR text (if any), media ID, and owner ID.
 - _Top comments_: comment ID, comment URL, timestamp, text, feedback ID, commenter ID and name, profile picture, likes count, and threading depth.
 
-Profile data, shortened sample:
-
-```json
+```json title="Profile data, shortened sample"
 [
   {
     "facebookUrl": "https://www.facebook.com/groups/WeirdSecondhandFinds",
@@ -118,9 +117,7 @@ Features like _replies_ and _comment sorting_ are limited for users on Apify's F
 
 :::
 
-Example (shortened):
-
-```json
+```json title="Example (shortened)"
 [
   {
     "facebookUrl": "https://www.facebook.com/NASAJSC/posts/pfbid0ohxEG5cJnm3JNFodkvsehRUY3yfLx5Vis8cude7xRdmrXV9EMDxsuScPaSCtX9KNl?locale=cs_CZ",     "commentUrl": "https://www.facebook.com/NASAJSC/posts/pfbid0ohxEG5cJnm3JNFodkvsehRUY3yfLx5Vis8cude7xRdmrXV9EMDxsuScPaSCtX9KNl?comment_id=2386082985122451",
@@ -163,9 +160,7 @@ You’ll get:
 - _Tags_: Hashtags used in the post
 - _Location_: Geographic location tagged in the post (if available)
 
-Example (shortened):
-
-```json
+```json title="Example (shortened)"
 [
   {
     "facebookUrl": "https://www.facebook.com/nasa",

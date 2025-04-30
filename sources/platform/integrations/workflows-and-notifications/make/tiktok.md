@@ -50,9 +50,7 @@ For each TikTok profile, you will extract:
 - _Profile avatar_: avatar URLs.
 - _Content information_: number of videos, fans, hearts, friends, and likes.
 
-Profile data, shortened sample:
-
-```json
+```json title="Profile data, shortened sample"
 [
     {
          "authorMeta": {
@@ -97,9 +95,7 @@ For each TikTok video, you will extract:
 - _Engagement data_: number of replies.
 - _Post association_: URL of the TikTok video the comment belongs to.
 
-Comment data, shortened sample:
-
-```json
+```json title="Comment data, shortened sample"
 [
     {
         "text": "Free lunches??!!!",
@@ -136,9 +132,7 @@ For each TikTok hashtag, you will extract:
 - _Basic creator info from TikToks posted with chosen hashtags_: name, ID, avatar, bio, account status, total followers/following numbers, given/received likes count, etc.
 - _Total number of views for a chosen hashtag_
 
-Hashtag data, shortened sample:
-
-```json
+```json title="Hashtag data, shortened sample"
 [
     {
         "videoMeta.coverUrl": "https://p77-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/1824f891fd0e48e7bf46513f27383e20_1727638068?lk3s=b59d6b55&x-expires=1740060000&x-signature=PNotHaeJ5nqiyt6zbbZqi4RljzA%3D&shp=b59d6b55&shcp=-",
@@ -170,11 +164,10 @@ Hashtag data, shortened sample:
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- Instagram Data
-- YouTube Data
-- Facebook Data
-- Google Search Data
-- Google Maps Emails Data
-- Amazon Data
+- [Instagram Data](platform/integrations/make/instagram)
+- [Google Maps Emails Data](platform/integrations/make/maps)
+- [YouTube Data](platform/integrations/make/youtube)
+- [AI crawling](platform/integrations/make/ai-crawling)
+- [Amazon](platform/integrations/make/amazon)
 
 And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

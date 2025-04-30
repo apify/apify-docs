@@ -57,9 +57,7 @@ For each Instagram profile, you will extract:
 - _Content information_: number of IGTV videos and highlight reels.
 - _Related profiles_: suggested accounts, including their username, full name, profile picture URL, and verification status.
 
-Profile data, shortened sample:
-
-```json
+```json title="Profile data, shortened sample"
 [
     {
         "fullName": "NASA",
@@ -106,9 +104,7 @@ Features like _replies_ and _newest comments first_ are limited for users on Api
 
 :::
 
-Comment data, shortened sample:
-
-```json
+```json title="Comment data, shortened sample"
 [
     {
         "text": "So beautiful 🥲🥹✨",
@@ -146,9 +142,7 @@ For each Instagram post, you will extract:
 - _User information_: owner’s username, full name (if available), and user ID.
 - _Additional data_: tagged users, child posts (for carousel posts), and location details (if available).
 
-Post data, shortened sample:
-
-```json
+```json title="Post data, shortened sample"
 [
     {
         "caption": "A supernova glowing in the dark 🌟⁣\n ⁣\nWhen supernova remnant SN 1006 first appeared in the sky in 1006 C.E., it was far brighter than Venus and visible during the daytime for weeks. From that moment on, it occupied the hearts of astronomers all over the world; it has been studied from the ground and from space many times.⁣\n ⁣\nIn this image, visible, radio, and X-ray data combine to give us that blue (and red) view of the remnant’s full shell – the debris field that was created when a white dwarf star exploded and sent material hurtling into space.⁣\n ⁣\nScientists believe SN 1006 is a Type Ia supernova. This class of supernova is caused when a white dwarf never lets another star go: either it pulls too much mass from a companion star and explodes, or it merges with another white dwarf and explodes. Understanding Type Ia supernovas is especially important because astronomers use observations of these explosions in distant galaxies as mileposts to mark the expansion of the universe.⁣\n ⁣\nImage description: This supernova remnant looks like a bubble filled with blue and red clouds of dust and gas, floating amid a million stars. These stars are visible all around the bubble and even can be seen peeking through it.⁣\n ⁣\nCredit: NASA, ESA, and Z. Levay (STScI)⁣\n ⁣\n#NASA #Supernova #Stars #IVE #Astronomy #Hubble #Chandra #Clouds #아이브 #SupernovaLove #DavidGuetta",
@@ -187,11 +181,10 @@ Post data, shortened sample:
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- TikTok Data
-- YouTube Data
-- Facebook Data
-- Google Search Data
-- Google Maps Emails Data
-- Amazon Data
+- [TikTok Data](platform/integrations/make/tiktok)
+- [Google Maps Emails Data](platform/integrations/make/maps)
+- [YouTube Data](platform/integrations/make/youtube)
+- [AI crawling](platform/integrations/make/ai-crawling)
+- [Amazon](platform/integrations/make/amazon)
 
 And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

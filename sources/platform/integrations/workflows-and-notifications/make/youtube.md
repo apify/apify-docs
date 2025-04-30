@@ -2,7 +2,7 @@
 title: Make - YouTube Actor integration
 description: Learn about YouTube scraper modules. Extract channel, video, streams, shorts, and search data from YouTube.
 sidebar_label: YouTube
-sidebar_position: 3
+sidebar_position: 5
 slug: /integrations/make/youtube
 ---
 
@@ -49,9 +49,7 @@ For YouTube URLs, you can extract:
 - _Basic channel details_: name, number of subscribers, total videos, location, social media links
 - _Video and search details_: author name, number of likes, comments, views, title, URL, subtitles, duration, release date
 
-Channel data sample:
-
-```json
+```json title="Channel data sample"
 {
   "id": "HV6OlMPn5sI",
   "title": "Raimu - The Spirit Within 🍃 [lofi hip hop/relaxing beats]",
@@ -103,9 +101,7 @@ Channel data sample:
 }
 ```
 
-Video data sample:
-
-```json
+```json title="Video data sample"
 {
   "title": "Stromae - Santé (Live From The Tonight Show Starring Jimmy Fallon)",
   "id": "CW7gfrTlr0Y",
@@ -174,9 +170,7 @@ Video data sample:
 }
 ```
 
-Search results data sample:
-
-```json
+```json title="Search results data sample"
 {
   "id": "CwRMBKk8St0",
   "title": "LET'S ARGUE: Beyoncé Fails the Bechdel Test!",
@@ -227,11 +221,10 @@ Search results data sample:
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- Instagram Data
-- TikTok Data
-- Facebook Data
-- Google Search Data
-- Google Maps Emails Data
-- Amazon Data
+- [Instagram Data](platform/integrations/make/instagram)
+- [TikTok Data](platform/integration/make/tiktok)
+- [Google Maps Emails Data](platform/integrations/make/maps)
+- [AI crawling](platform/integrations/make/ai-crawling)
+- [Amazon](platform/integrations/make/amazon)
 
 And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

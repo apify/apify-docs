@@ -2,7 +2,7 @@
 title: Make - Amazon Actor integration
 description: Learn about Amazon scraper modules, extract product, search, or category data from Amazon.
 sidebar_label: Amazon
-sidebar_position: 4
+sidebar_position: 6
 slug: /integrations/make/amazon
 ---
 
@@ -52,7 +52,7 @@ For Amazon URLs, you can extract:
 - _Description_
 - _Price value and currency_
 
-```json
+```json title="Example"
 [
     {
     "title": "Logitech M185 Wireless Mouse, 2.4GHz with USB Mini Receiver, 12-Month Battery Life, 1000 DPI Optical Tracking, Ambidextrous PC/Mac/Laptop - Swift Grey",
@@ -102,9 +102,7 @@ For Amazon URLs, you can extract:
 ]
 ```
 
-Search data sample:
-
-```json
+```json title="Search data sample"
 [
     {
         "title": "Logitech MK270 Wireless Keyboard And Mouse Combo For Windows, 2.4 GHz Wireless, Compact Mouse, 8 Multimedia And Shortcut Keys, For PC, Laptop - Black",
@@ -154,9 +152,7 @@ Search data sample:
 ]
 ```
 
-Product data sample:
-
-```json
+```json title="Product data sample"
 [
     {
         "title": "Amazon Basics Wired Keyboard, Full-Sized, QWERTY Layout, Black",
@@ -176,9 +172,7 @@ Product data sample:
 ]
 ```
 
-Category data sample:
-
-```json
+```json title="Category data sample"
 [
     {
         "title": "Logitech M185 Wireless Mouse, 2.4GHz with USB Mini Receiver, 12-Month Battery Life, 1000 DPI Optical Tracking, Ambidextrous PC/Mac/Laptop - Swift Grey",
@@ -232,11 +226,11 @@ Category data sample:
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- Instagram Data
-- TikTok Data
-- Facebook Data
-- Google Search Data
-- Google Maps Emails Data
-- YouTube Data
+- [Instagram Data](platform/integrations/make/instagram)
+- [TikTok Data](platform/integrations/make/tiktok)
+- [Google Maps Emails Data](platform/integrations/make/maps)
+- [YouTube Data](platform/integrations/make/youtube)
+- [AI crawling](platform/integrations/make/ai-crawling)
+
 
 And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
