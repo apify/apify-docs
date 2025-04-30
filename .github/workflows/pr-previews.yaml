@@ -1,0 +1,24 @@
+name: Docs PR Previews
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  trigger-preview:
+    if: github.event.action != 'closed'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger preview
+        run: gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private --field pr-number=${{ github.event.pull_request.number }} --field original-repo=${{ github.repository }}
+
+  delete-preview:
+    if: github.event.action == 'closed'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete preview
+        run: gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private --field pr-number=${{ github.event.pull_request.number }} --field original-repo=${{ github.repository }} --field delete-preview=true
