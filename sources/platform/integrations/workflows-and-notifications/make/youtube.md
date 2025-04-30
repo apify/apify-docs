@@ -222,7 +222,7 @@ For YouTube URLs, you can extract:
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
 - [Instagram Data](/platform/integrations/make/instagram)
-- [TikTok Data](/platform/integration/make/tiktok)
+- [TikTok Data](/platform/integrations/make/tiktok)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [AI crawling](/platform/integrations/make/ai-crawling)
 - [Amazon](/platform/integrations/make/amazon)

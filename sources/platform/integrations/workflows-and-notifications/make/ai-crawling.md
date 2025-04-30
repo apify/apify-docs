@@ -144,7 +144,7 @@ In addition to the standard output fields, Advanced Settings provides:
 Looking for more than just AI crawling? You can use other native Make apps powered by Apify:
 
 - [Instagram Data](/platform/integrations/make/instagram)
-- [TikTok Data](/platform/integration/make/tiktok)
+- [TikTok Data](/platform/integrations/make/tiktok)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [YouTube Data](/platform/integrations/make/youtube)
 - [Amazon](/platform/integrations/make/amazon)
