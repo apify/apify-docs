@@ -14,11 +14,7 @@ import DocCardList from '@theme/DocCardList';
 
 In this course we'll use Python to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
-<!--
-TODO image of warehouse with some CVS or JSON exported, similar to sources/academy/webscraping/scraping_basics_javascript/images/beginners-data-collection.png, which is for some reason the same as sources/academy/webscraping/scraping_basics_javascript/images/beginners-data-extraction.png
--->
-
-![E-commerce listing on the left, JSON with data on the right](./images/scraping.png)
+![E-commerce listing on the left, JSON with data on the right](./images/scraping.webp)
 
 ## What you'll do
 
