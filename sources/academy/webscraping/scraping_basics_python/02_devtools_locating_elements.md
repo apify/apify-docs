@@ -166,9 +166,9 @@ On English Wikipedia's [Main Page](https://en.wikipedia.org/wiki/Main_Page), use
   1. Open the [Main Page](https://en.wikipedia.org/wiki/Main_Page).
   1. Activate the element selection tool in your DevTools.
   1. Click on several headings to examine the markup.
-  1. Notice that all headings are `h2` tags with the `mp-h2` class.
+  1. Notice that all headings are `h2` elements with the `mp-h2` class.
   1. In the **Console**, execute `document.querySelectorAll('h2')`.
-  1. At the time of writing, this selector returns 8 headings. Each corresponds to a box, and there are no other `h2` tags on the page. Thus, the selector is sufficient as is.
+  1. At the time of writing, this selector returns 8 headings. Each corresponds to a box, and there are no other `h2` elements on the page. Thus, the selector is sufficient as is.
 
 </details>
 
@@ -184,7 +184,7 @@ Go to Shein's [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewel
   1. Visit the [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewelry-Accessories-sc-017291431.html) page. Close any pop-ups or promotions.
   1. Activate the element selection tool in your DevTools.
   1. Click on the first product to inspect its markup. Repeat with a few others.
-  1. Observe that all products are `section` tags with multiple classes, including `product-card`.
+  1. Observe that all products are `section` elements with multiple classes, including `product-card`.
   1. Since `section` is a generic wrapper, focus on the `product-card` class.
   1. In the **Console**, execute `document.querySelectorAll('.product-card')`.
   1. At the time of writing, this selector returns 120 results, all representing products. No further narrowing is necessary.
@@ -205,7 +205,7 @@ Hint: Learn about the [descendant combinator](https://developer.mozilla.org/en-U
   1. Open the [page about F1](https://www.theguardian.com/sport/formulaone).
   1. Activate the element selection tool in your DevTools.
   1. Click on an article to inspect its structure. Check several articles, including the ones with smaller cards.
-  1. Note that all articles are `li` tags, but their classes (e.g., `dcr-1qmyfxi`) are dynamically generated and unreliable.
+  1. Note that all articles are `li` elements, but their classes (e.g., `dcr-1qmyfxi`) are dynamically generated and unreliable.
   1. Using `document.querySelectorAll('li')` returns too many results, including unrelated items like navigation links.
   1. Inspect the page structure. The `main` element contains the primary content, including articles. Use the descendant combinator to target `li` elements within `main`.
   1. In the **Console**, execute `document.querySelectorAll('main li')`.
