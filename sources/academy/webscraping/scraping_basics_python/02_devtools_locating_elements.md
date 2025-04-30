@@ -65,13 +65,7 @@ document.querySelector('.product-item');
 
 It will return the HTML element for the first product card in the listing:
 
-![Using querySelector() in DevTools Console](./images/devtools-queryselector.png)
-
-:::note About the missing semicolon
-
-In the screenshot, there is a missing semicolon `;` at the end of the line. In JavaScript, semicolons are optional, so it doesn't make a difference here.
-
-:::
+![Using querySelector() in DevTools Console](./images/devtools-queryselector.webp)
 
 CSS selectors can get quite complex, but the basics are enough to scrape most of the Warehouse store. Let's cover two simple types and how they can combine.
 
