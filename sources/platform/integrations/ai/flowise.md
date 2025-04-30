@@ -2,7 +2,7 @@
 title: Flowise integration
 description: Learn how to integrate Apify with Flowise.
 sidebar_label: Flowise
-sidebar_position: 3
+sidebar_position: 8
 slug: /integrations/flowise
 ---
 

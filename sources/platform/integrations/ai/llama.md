@@ -2,7 +2,7 @@
 title: LlamaIndex integration
 description: Learn how to integrate Apify with LlamaIndex in order to feed vector databases and LLMs with data crawled from the web.
 sidebar_label: Llamaindex
-sidebar_position: 2
+sidebar_position: 7
 slug: /integrations/llama
 ---
 
