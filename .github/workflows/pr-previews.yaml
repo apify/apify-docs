@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Trigger preview
         run: gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private --field pr-number=${{ github.event.pull_request.number }} --field original-repo=${{ github.repository }}
+        env:
+          GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
   delete-preview:
     if: github.event.action == 'closed'
@@ -22,3 +24,5 @@ jobs:
     steps:
       - name: Delete preview
         run: gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private --field pr-number=${{ github.event.pull_request.number }} --field original-repo=${{ github.repository }} --field delete-preview=true
+        env:
+          GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
