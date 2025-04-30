@@ -312,7 +312,7 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened 2024-06-09
 
 Hints:
 
-- HTML's `<time>` tag can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
+- HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
 - Beautiful Soup gives you [access to attributes as if they were dictionary keys](https://beautiful-soup-4.readthedocs.io/en/latest/#attributes).
 - In Python you can create `datetime` objects using `datetime.fromisoformat()`, a [built-in method for parsing ISO 8601 strings](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat).
 - To get just the date part, you can call `.date()` on any `datetime` object.

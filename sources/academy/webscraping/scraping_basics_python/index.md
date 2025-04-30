@@ -65,7 +65,7 @@ As a scraper developer, you are not limited by whether certain data is available
 
 ### Why learn with Apify
 
-We are [Apify](https://apify.com), a web scraping and automation platform. We do our best to build this course on top of open source technologies. That means what you learn applies to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how scraping platforms can simplify your life, but those lessons are optional and designed to fit within our [free tier](https://apify.com/pricing).
+We are [Apify](https://apify.com), a web scraping and automation platform. We do our best to build this course on top of open source technologies. That means what you learn applies to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how a scraping platform can simplify your life, but that lesson is optional and designed to fit within our [free tier](https://apify.com/pricing).
 
 ## Course content
 
