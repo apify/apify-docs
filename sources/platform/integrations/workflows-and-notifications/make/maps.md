@@ -352,10 +352,10 @@ This module provides the most flexible options for defining where and how to sea
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- [Instagram Data](platform/integrations/make/instagram)
-- [TikTok](platform/integrations/make/tiktok)
-- [YouTube Data](platform/integrations/make/youtube)
-- [AI crawling](platform/integrations/make/ai-crawling)
-- [Amazon](platform/integrations/make/amazon)
+- [Instagram Data](/platform/integrations/make/instagram)
+- [TikTok](/platform/integrations/make/tiktok)
+- [YouTube Data](/platform/integrations/make/youtube)
+- [AI crawling](/platform/integrations/make/ai-crawling)
+- [Amazon](/platform/integrations/make/amazon)
 
 And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
