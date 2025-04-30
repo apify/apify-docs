@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
 
+concurrency:
+  cancel-in-progress: false
+  group: 'docs-pr-previews-${{ github.event.pull_request.number }}'
+
 jobs:
   trigger-preview:
     if: github.event.action != 'closed'
