@@ -14,10 +14,10 @@ slug: /node-js/multiple-runs-scrape
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import OrchestratorActorMainTs from '../../../../examples/ts-parallel-scraping/orchestrator/src/main.ts';
-import OrchestratorActorInputSchemaJson from '../../../../examples/ts-parallel-scraping/orchestrator/.actor/input_schema.json';
-import ScraperActorMainTs from '../../../../examples/ts-parallel-scraping/scraper/src/main.ts';
-import ScraperActorInputSchemaJson from '../../../../examples/ts-parallel-scraping/scraper/.actor/input_schema.json';
+import OrchestratorActorMainTs from '!!raw-loader!../../../../examples/ts-parallel-scraping/orchestrator/src/main.ts';
+import OrchestratorActorInputSchemaJson from '!!raw-loader!../../../../examples/ts-parallel-scraping/orchestrator/.actor/input_schema.json';
+import ScraperActorMainTs from '!!raw-loader!../../../../examples/ts-parallel-scraping/scraper/src/main.ts';
+import ScraperActorInputSchemaJson from '!!raw-loader!../../../../examples/ts-parallel-scraping/scraper/.actor/input_schema.json';
 
 Imagine a large website that you need to scrape. You have a scraper that works well, but scraping the whole website is slow.
 You can speed up the scraping process by running multiple instances of the scraper in parallel.
