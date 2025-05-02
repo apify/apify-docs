@@ -250,21 +250,21 @@ module.exports = {
                 },
             },
         ],
-        () => ({
-            name: 'webpack-loader-fix',
-            configureWebpack() {
-                return {
-                    module: {
-                        rules: [
-                            {
-                                test: /apify-docs\/examples\//i,
-                                type: 'asset/source',
-                            },
-                        ],
-                    },
-                };
-            },
-        }),
+        // () => ({
+        //     name: 'webpack-loader-fix',
+        //     configureWebpack() {
+        //         return {
+        //             module: {
+        //                 rules: [
+        //                     {
+        //                         test: /apify-docs\/examples\//i,
+        //                         type: 'asset/source',
+        //                     },
+        //                 ],
+        //             },
+        //         };
+        //     },
+        // }),
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
