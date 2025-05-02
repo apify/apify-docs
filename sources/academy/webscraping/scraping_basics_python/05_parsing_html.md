@@ -132,7 +132,7 @@ https://www.formula1.com/en/teams
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".outline")))
+  print(len(soup.select(".group")))
   ```
 
 </details>
@@ -154,7 +154,7 @@ Use the same URL as in the previous exercise, but this time print a total count 
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".f1-grid")))
+  print(len(soup.select(".f1-team-driver-name")))
   ```
 
 </details>
