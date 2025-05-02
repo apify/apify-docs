@@ -12,7 +12,7 @@ jobs:
   trigger-preview:
     if: github.event.action != 'closed'
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-arm64
 
     steps:
       - name: Trigger preview
@@ -23,7 +23,7 @@ jobs:
   delete-preview:
     if: github.event.action == 'closed'
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-arm64
 
     steps:
       - name: Delete preview
