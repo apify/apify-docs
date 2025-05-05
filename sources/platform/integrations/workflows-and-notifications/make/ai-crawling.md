@@ -145,6 +145,7 @@ Looking for more than just AI crawling? You can use other native Make apps power
 
 - [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok Data](/platform/integrations/make/tiktok)
+- [Google Search](/platform/integrations/make/search)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [YouTube Data](/platform/integrations/make/youtube)
 - [Amazon](/platform/integrations/make/amazon)

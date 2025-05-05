@@ -245,5 +245,13 @@ Looking for more than just Facebook? You can use other native Make apps powered 
 - Google Maps Email Data
 - Amazon Data
 
+- [Instagram Data](/platform/integrations/make/instagram)
+- [TikTok Data](/platform/integrations/make/tiktok)
+- [Google Search](/platform/integrations/make/search)
+- [Google Maps Emails Data](/platform/integrations/make/maps)
+- [YouTube Data](/platform/integrations/make/youtube)
+- [AI crawling](/platform/integrations/make/ai-crawling)
+- [Amazon](/platform/integrations/make/amazon)
+
 And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
 

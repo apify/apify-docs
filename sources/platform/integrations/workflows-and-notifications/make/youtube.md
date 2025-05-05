@@ -223,6 +223,7 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 
 - [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok Data](/platform/integrations/make/tiktok)
+- [Google Search](/platform/integrations/make/search)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [AI crawling](/platform/integrations/make/ai-crawling)
 - [Amazon](/platform/integrations/make/amazon)

@@ -165,6 +165,7 @@ For each TikTok hashtag, you will extract:
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
 - [Instagram Data](/platform/integrations/make/instagram)
+- [Google Search](/platform/integrations/make/search)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [YouTube Data](/platform/integrations/make/youtube)
 - [AI crawling](/platform/integrations/make/ai-crawling)
