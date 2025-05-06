@@ -41,7 +41,7 @@ Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to w
 
 ![Element of the main heading](./images/h1.png)
 
-Update your code to the following:
+We'll update our code to the following:
 
 ```py
 import httpx
@@ -56,7 +56,7 @@ soup = BeautifulSoup(html_code, "html.parser")
 print(soup.select("h1"))
 ```
 
-Let's run the program:
+Then let's run the program:
 
 ```text
 $ python main.py
@@ -77,6 +77,12 @@ If we run our scraper again, it prints the text of the first `h1` element:
 $ python main.py
 Sales
 ```
+
+:::note Dynamic websites
+
+The Warehouse returns full HTML in its initial response, but many other sites add content via JavaScript after the page loads or after user interaction. In such cases, what we see in DevTools may differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+
+:::
 
 ## Using CSS selectors
 
