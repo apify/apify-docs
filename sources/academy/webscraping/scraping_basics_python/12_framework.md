@@ -47,14 +47,15 @@ Now let's use the framework to create a new version of our scraper. Rename the `
 
 ```py
 import asyncio
-from crawlee.crawlers import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
     crawler = BeautifulSoupCrawler()
 
     @crawler.router.default_handler
-    async def handle_listing(context):
-        print(context.soup.title.text.strip())
+    async def handle_listing(context: BeautifulSoupCrawlingContext):
+        if title := context.soup.title:
+            print(title.text.strip())
 
     await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
 
@@ -64,13 +65,15 @@ if __name__ == '__main__':
 
 In the code, we do the following:
 
-1. We perform imports and specify an asynchronous `main()` function.
-2. Inside, we first create a crawler. The crawler objects control the scraping. This particular crawler is of the BeautifulSoup flavor.
-3. In the middle, we give the crawler a nested asynchronous function `handle_listing()`. Using a Python decorator (that line starting with `@`), we tell it to treat it as a default handler. Handlers take care of processing HTTP responses. This one finds the title of the page in `soup` and prints its text without whitespace.
-4. The function ends with running the crawler with the product listing URL. We await the crawler to finish its work.
-5. The last two lines ensure that if we run the file as a standalone program, Python's asynchronous machinery will run our `main()` function.
+1. We import the necessary modules and define an asynchronous `main()` function.
+2. Inside `main()`, we first create a crawler object. This object manages the scraping process. In this case, it's a BeautifulSoup-based crawler.
+3. Next, we define a nested asynchronous function called `handle_listing()`. It receives a `context` parameter, and Python type hints show it's of type `BeautifulSoupCrawlingContext`. Type hints help editors suggest what you can do with the object.
+4. We use a Python decorator (the line starting with `@`) to register `handle_listing()` as the _default handler_ for processing HTTP responses.
+5. Inside the handler, we extract the page title from the `soup` object and print its text without whitespace.
+6. At the end of the function, we run the crawler on a product listing URL and await its completion.
+7. The last two lines ensure that if the file is executed directly, Python will properly run the `main()` function using its asynchronous event loop.
 
-Don't worry if this involves a lot of things you've never seen before. For now, you don't need to know exactly how [`asyncio`](https://docs.python.org/3/library/asyncio.html) works or what decorators do. Let's stick to the practical side and see what the program does when executed:
+Don't worry if some of this is new. You don't need to fully understand [`asyncio`](https://docs.python.org/3/library/asyncio.html), decorators, or type hints just yet. Let's stick to the practical side and observe what the program does when executed:
 
 ```text
 $ python main.py
@@ -107,9 +110,9 @@ Sales
 
 If our previous scraper didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for the purposes of a small program. Among all the logging, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper that downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
 
-:::tip Asynchronous code and decorators
+:::tip Advanced Python features
 
-You don't need to be an expert in asynchronous programming or decorators to finish this lesson, but you might find yourself curious for more details. If so, check out [Async IO in Python: A Complete Walkthrough](https://realpython.com/async-io-python/) and [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
+You don't need to be an expert in asynchronous programming, decorators, or type hints to finish this lesson, but you might find yourself curious for more details. If so, check out [Async IO in Python: A Complete Walkthrough](https://realpython.com/async-io-python/), [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/), and [Python Type Checking](https://realpython.com/python-type-checking/).
 
 :::
 
@@ -121,20 +124,20 @@ For example, it takes a single line of code to extract and follow links to produ
 
 ```py
 import asyncio
-from crawlee.crawlers import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
     crawler = BeautifulSoupCrawler()
 
     @crawler.router.default_handler
-    async def handle_listing(context):
+    async def handle_listing(context: BeautifulSoupCrawlingContext):
         # highlight-next-line
         await context.enqueue_links(label="DETAIL", selector=".product-list a.product-item__title")
 
     # highlight-next-line
     @crawler.router.handler("DETAIL")
     # highlight-next-line
-    async def handle_detail(context):
+    async def handle_detail(context: BeautifulSoupCrawlingContext):
         # highlight-next-line
         print(context.request.url)
 
@@ -189,7 +192,7 @@ async def main():
     ...
 
     @crawler.router.handler("DETAIL")
-    async def handle_detail(context):
+    async def handle_detail(context: BeautifulSoupCrawlingContext):
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
@@ -197,6 +200,12 @@ async def main():
         }
         print(item)
 ```
+
+:::note Fragile code
+
+The code above assumes the `.select_one()` call doesn't return `None`. If your editor checks types, it might even warn that `text` is not a known attribute of `None`. This isn't robust and could break, but in our program, that's fine. We expect the elements to be there, and if they're not, we'd rather the scraper break quickly—it's a sign something's wrong and needs fixing.
+
+:::
 
 Now for the price. We're not doing anything new here—just import `Decimal` and copy-paste the code from our old scraper.
 
@@ -207,7 +216,7 @@ async def main():
     ...
 
     @crawler.router.handler("DETAIL")
-    async def handle_detail(context):
+    async def handle_detail(context: BeautifulSoupCrawlingContext):
         price_text = (
             context.soup
             # highlight-next-line
@@ -231,17 +240,17 @@ Finally, the variants. We can reuse the `parse_variant()` function as-is, and in
 ```py
 import asyncio
 from decimal import Decimal
-from crawlee.crawlers import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
     crawler = BeautifulSoupCrawler()
 
     @crawler.router.default_handler
-    async def handle_listing(context):
+    async def handle_listing(context: BeautifulSoupCrawlingContext):
         await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
 
     @crawler.router.handler("DETAIL")
-    async def handle_detail(context):
+    async def handle_detail(context: BeautifulSoupCrawlingContext):
         price_text = (
             context.soup
             .select_one(".product-form__info-content .price")
@@ -292,7 +301,7 @@ async def main():
     ...
 
     @crawler.router.handler("DETAIL")
-    async def handle_detail(context):
+    async def handle_detail(context: BeautifulSoupCrawlingContext):
         price_text = (
             ...
         )
@@ -334,19 +343,19 @@ Crawlee gives us stats about HTTP requests and concurrency, but we don't get muc
 ```py
 import asyncio
 from decimal import Decimal
-from crawlee.crawlers import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
     crawler = BeautifulSoupCrawler()
 
     @crawler.router.default_handler
-    async def handle_listing(context):
+    async def handle_listing(context: BeautifulSoupCrawlingContext):
         # highlight-next-line
         context.log.info("Looking for product detail pages")
         await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
 
     @crawler.router.handler("DETAIL")
-    async def handle_detail(context):
+    async def handle_detail(context: BeautifulSoupCrawlingContext):
         # highlight-next-line
         context.log.info(f"Product detail page: {context.request.url}")
         price_text = (
@@ -453,17 +462,17 @@ Hints:
   import asyncio
   from datetime import datetime
 
-  from crawlee.crawlers import BeautifulSoupCrawler
+  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
   async def main():
       crawler = BeautifulSoupCrawler()
 
       @crawler.router.default_handler
-      async def handle_listing(context):
+      async def handle_listing(context: BeautifulSoupCrawlingContext):
           await context.enqueue_links(selector=".teams-driver-item a", label="DRIVER")
 
       @crawler.router.handler("DRIVER")
-      async def handle_driver(context):
+      async def handle_driver(context: BeautifulSoupCrawlingContext):
           info = {}
           for row in context.soup.select(".common-driver-info li"):
               name = row.select_one("span").text.strip()
@@ -531,7 +540,7 @@ async def main():
     ...
 
     @crawler.router.default_handler
-    async def handle_netflix_table(context):
+    async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
         requests = []
         for name_cell in context.soup.select(...):
             name = name_cell.text.strip()
@@ -553,13 +562,13 @@ When navigating to the first search result, you might find it helpful to know th
   from urllib.parse import quote_plus
 
   from crawlee import Request
-  from crawlee.crawlers import BeautifulSoupCrawler
+  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
   async def main():
       crawler = BeautifulSoupCrawler()
 
       @crawler.router.default_handler
-      async def handle_netflix_table(context):
+      async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
           requests = []
           for name_cell in context.soup.select(".list-tbl-global .tbl-cell-name"):
               name = name_cell.text.strip()
@@ -568,11 +577,11 @@ When navigating to the first search result, you might find it helpful to know th
           await context.add_requests(requests)
 
       @crawler.router.handler("IMDB_SEARCH")
-      async def handle_imdb_search(context):
+      async def handle_imdb_search(context: BeautifulSoupCrawlingContext):
           await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
 
       @crawler.router.handler("IMDB")
-      async def handle_imdb(context):
+      async def handle_imdb(context: BeautifulSoupCrawlingContext):
           rating_selector = "[data-testid='hero-rating-bar__aggregate-rating__score']"
           rating_text = context.soup.select_one(rating_selector).text.strip()
           await context.push_data({
