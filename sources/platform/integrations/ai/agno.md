@@ -31,7 +31,7 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 - *Required packages*: Install the following dependencies in your terminal:
 
 ```bash
-pip install agno apify-client langchain-apify
+pip install agno apify-client
 ```
 
 ## Basic Integration Example
