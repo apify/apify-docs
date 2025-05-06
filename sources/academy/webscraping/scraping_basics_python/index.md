@@ -12,19 +12,9 @@ import DocCardList from '@theme/DocCardList';
 
 ---
 
-:::danger Work in progress
-
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. Comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
-
-:::
-
 In this course we'll use Python to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
-<!--
-TODO image of warehouse with some CVS or JSON exported, similar to sources/academy/webscraping/scraping_basics_javascript/images/beginners-data-collection.png, which is for some reason the same as sources/academy/webscraping/scraping_basics_javascript/images/beginners-data-extraction.png
--->
-
-![E-commerce listing on the left, JSON with data on the right](./images/scraping.png)
+![E-commerce listing on the left, JSON with data on the right](./images/scraping.webp)
 
 ## What you'll do
 
@@ -71,7 +61,7 @@ As a scraper developer, you are not limited by whether certain data is available
 
 ### Why learn with Apify
 
-We are [Apify](https://apify.com), a web scraping and automation platform. We do our best to build this course on top of open source technologies. That means what you learn applies to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how scraping platforms can simplify your life, but those lessons are optional and designed to fit within our [free tier](https://apify.com/pricing).
+We are [Apify](https://apify.com), a web scraping and automation platform. We do our best to build this course on top of open source technologies. That means what you learn applies to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how a scraping platform can simplify your life, but that lesson is optional and designed to fit within our [free tier](https://apify.com/pricing).
 
 ## Course content
 

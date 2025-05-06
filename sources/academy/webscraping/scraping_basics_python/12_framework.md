@@ -2,7 +2,6 @@
 title: Using a scraping framework with Python
 sidebar_label: Using a framework
 description: Lesson about building a Python application for watching prices. Using the Crawlee framework to simplify creating a scraper.
-sidebar_position: 12
 slug: /scraping-basics-python/framework
 ---
 
@@ -44,11 +43,11 @@ Successfully installed Jinja2-0.0.0 ... ... ... crawlee-0.0.0 ... ... ...
 
 ## Running Crawlee
 
-Now let's use the framework to create a new version of our scraper. In the same project directory where our `main.py` file lives, create a file `newmain.py`. This way, we can keep peeking at the original implementation while working on the new one. The initial content will look like this:
+Now let's use the framework to create a new version of our scraper. Rename the `main.py` file to `oldmain.py`, so that we can keep peeking at the original implementation while working on the new one. Then, in the same project directory, create a new, empty `main.py`. The initial content will look like this:
 
-```py title="newmain.py"
+```py
 import asyncio
-from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler
 
 async def main():
     crawler = BeautifulSoupCrawler()
@@ -74,8 +73,8 @@ In the code, we do the following:
 Don't worry if this involves a lot of things you've never seen before. For now, you don't need to know exactly how [`asyncio`](https://docs.python.org/3/library/asyncio.html) works or what decorators do. Let's stick to the practical side and see what the program does when executed:
 
 ```text
-$ python newmain.py
-[crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Current request statistics:
+$ python main.py
+[BeautifulSoupCrawler] INFO  Current request statistics:
 ┌───────────────────────────────┬──────────┐
 │ requests_finished             │ 0        │
 │ requests_failed               │ 0        │
@@ -91,7 +90,7 @@ $ python newmain.py
 [crawlee._autoscaling.autoscaled_pool] INFO  current_concurrency = 0; desired_concurrency = 2; cpu = 0; mem = 0; event_loop = 0.0; client_info = 0.0
 Sales
 [crawlee._autoscaling.autoscaled_pool] INFO  Waiting for remaining tasks to finish
-[crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Final request statistics:
+[BeautifulSoupCrawler] INFO  Final request statistics:
 ┌───────────────────────────────┬──────────┐
 │ requests_finished             │ 1        │
 │ requests_failed               │ 0        │
@@ -122,7 +121,7 @@ For example, it takes a single line of code to extract and follow links to produ
 
 ```py
 import asyncio
-from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler
 
 async def main():
     crawler = BeautifulSoupCrawler()
@@ -152,8 +151,8 @@ Below that, we give the crawler another asynchronous function, `handle_detail()`
 If we run the code, we should see how Crawlee first downloads the listing page and then makes parallel requests to each of the detail pages, printing their URLs along the way:
 
 ```text
-$ python newmain.py
-[crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Current request statistics:
+$ python main.py
+[BeautifulSoupCrawler] INFO  Current request statistics:
 ┌───────────────────────────────┬──────────┐
 ...
 └───────────────────────────────┴──────────┘
@@ -164,7 +163,7 @@ https://warehouse-theme-metal.myshopify.com/products/sony-sacs9-10-inch-active-s
 https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-turntable
 ...
 [crawlee._autoscaling.autoscaled_pool] INFO  Waiting for remaining tasks to finish
-[crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Final request statistics:
+[BeautifulSoupCrawler] INFO  Final request statistics:
 ┌───────────────────────────────┬──────────┐
 │ requests_finished             │ 25       │
 │ requests_failed               │ 0        │
@@ -232,7 +231,7 @@ Finally, the variants. We can reuse the `parse_variant()` function as-is, and in
 ```py
 import asyncio
 from decimal import Decimal
-from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler
 
 async def main():
     crawler = BeautifulSoupCrawler()
@@ -309,7 +308,7 @@ async def main():
             await context.push_data(item)
 ```
 
-That's it! If you run the program now, there should be a `storage` directory alongside the `newmain.py` file. Crawlee uses it to store its internal state. If you go to the `storage/datasets/default` subdirectory, you'll see over 30 JSON files, each representing a single item.
+That's it! If you run the program now, there should be a `storage` directory alongside the `main.py` file. Crawlee uses it to store its internal state. If you go to the `storage/datasets/default` subdirectory, you'll see over 30 JSON files, each representing a single item.
 
 ![Single dataset item](images/dataset-item.png)
 
@@ -335,7 +334,7 @@ Crawlee gives us stats about HTTP requests and concurrency, but we don't get muc
 ```py
 import asyncio
 from decimal import Decimal
-from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+from crawlee.crawlers import BeautifulSoupCrawler
 
 async def main():
     crawler = BeautifulSoupCrawler()
@@ -398,7 +397,7 @@ if __name__ == '__main__':
 
 Depending on what we find helpful, we can tweak the logs to include more or less detail. The `context.log` or `crawler.log` objects are just [standard Python loggers](https://docs.python.org/3/library/logging.html).
 
-Even with the extra logging we've added, we've managed to cut at least 20 lines of code compared to the original program. Throughout this lesson, we've been adding features to match the old scraper's functionality, but the new code is still clean and readable. Plus, we've been able to focus on what's unique to the website we're scraping and the data we care about, while the framework manages the rest.
+If we compare `main.py` and `oldmain.py` now, it's clear we've cut at least 20 lines of code compared to the original program, even with the extra logging we've added. Throughout this lesson, we've introduced features to match the old scraper's functionality, but the new code is still clean and readable. Plus, we've been able to focus on what's unique to the website we're scraping and the data we care about, while the framework manages the rest.
 
 In the next lesson, we'll use a scraping platform to set up our application to run automatically every day.
 
@@ -454,7 +453,7 @@ Hints:
   import asyncio
   from datetime import datetime
 
-  from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+  from crawlee.crawlers import BeautifulSoupCrawler
 
   async def main():
       crawler = BeautifulSoupCrawler()
@@ -554,7 +553,7 @@ When navigating to the first search result, you might find it helpful to know th
   from urllib.parse import quote_plus
 
   from crawlee import Request
-  from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+  from crawlee.crawlers import BeautifulSoupCrawler
 
   async def main():
       crawler = BeautifulSoupCrawler()
