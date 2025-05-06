@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
-import type { TextBaseProps } from '@apify-packages/ui-library';
+import type { TextBaseProps } from '@apify/ui-library';
 import {
     TextBaseComponent,
     theme,
-} from '@apify-packages/ui-library';
+} from '@apify/ui-library';
 
 /**
  * @typedef {Object} TextProps

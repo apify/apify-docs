@@ -2,7 +2,6 @@
 title: Crawling websites with Python
 sidebar_label: Crawling websites
 description: Lesson about building a Python application for watching prices. Using the HTTPX library to follow links to individual product pages.
-sidebar_position: 10
 slug: /scraping-basics-python/crawling
 ---
 

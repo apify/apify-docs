@@ -15,18 +15,14 @@
 3. GitHub access
 
 ### Installation steps
+
 <!-- vale off -->
 1. Clone the repository
-2. Configure GitHub access:
-
-    ```bash
-    npm login --scope@apify-packages -registry=https://npm.pkg.github.com --auth-type=legacy
-    ```
-
-3. Run `npm install`
-4. Start development server: `npm start`
+2. Run `npm install`
+3. Start development server: `npm start`
 <!-- vale on -->
-This will be enough to work on Platform, Academy and, OpenAPI. If you want to work on entire documentation set you need to join them using nginx.
+
+This will be enough to work on Platform, Academy and OpenAPI. If you want to work on the entire documentation set, you need to join them using nginx.
 
 #### Join all repositories with nginx
 
@@ -91,8 +87,8 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 1. Text emphasis:
 
-    - use *Bold* for UI elements
-    - use **Italics** for emphasis
+    - use **Bold** for UI elements
+    - use *Italics* for emphasis
     - use `code` for inline code, by using back-ticks (\`\`\)
     - use code blocks with language specification
     - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language

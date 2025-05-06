@@ -2,7 +2,6 @@
 title: Getting links from HTML with Python
 sidebar_label: Getting links from HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate links to individual product pages.
-sidebar_position: 9
 slug: /scraping-basics-python/getting-links
 ---
 
@@ -229,13 +228,13 @@ With everything in place, we can now start working on a scraper that also scrape
 
 ![Product card's child elements](./images/child-elements.png)
 
-Several methods exist for transitioning from one page to another, but the most common is a link tag, which looks like this:
+Several methods exist for transitioning from one page to another, but the most common is a link element, which looks like this:
 
 ```html
 <a href="https://example.com">Text of the link</a>
 ```
 
-In DevTools, we can see that each product title is, in fact, also a link tag. We already locate the titles, so that makes our task easier. We just need to edit the code so that it extracts not only the text of the element but also the `href` attribute. Beautiful Soup elements support accessing attributes as if they were dictionary keys:
+In DevTools, we can see that each product title is, in fact, also a link element. We already locate the titles, so that makes our task easier. We just need to edit the code so that it extracts not only the text of the element but also the `href` attribute. Beautiful Soup elements support accessing attributes as if they were dictionary keys:
 
 ```py
 def parse_product(product):

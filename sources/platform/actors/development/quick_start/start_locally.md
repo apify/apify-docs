@@ -92,7 +92,7 @@ To run your Actor locally, use the following command:
 apify run
 ```
 
-After executing this command, you will see the Actor's log output in your terminal. The results of the Actor's execution will be stored in the local dataset located in the `storage/dastasets/default` directory.
+After executing this command, you will see the Actor's log output in your terminal. The results of the Actor's execution will be stored in the local dataset located in the `storage/datasets/default` directory.
 
 ![Actor source code](./images/actor-local-run.png)
 

@@ -305,6 +305,7 @@ post:
                 scheduledAt: '2019-06-10T11:40:00.000Z'
               stats:
                 inputBodyLen: 240
+                migrationCount: 0
                 restartCount: 0
                 resurrectCount: 2
                 memAvgBytes: 35914228.4

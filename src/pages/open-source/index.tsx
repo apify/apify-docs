@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Banner, Heading, Link, Text, theme } from '@apify-packages/ui-library';
+import { Banner, Heading, Link, Text, theme } from '@apify/ui-library';
 
 import ActionCard from '../../components/ActionCard/ActionCard';
 import { ActorTemplates } from '../../components/ActorTemplates/ActorTemplates';
@@ -107,7 +107,8 @@ export default function OpenSource() {
                 <StyledWrapper>
                     <Hero
                         heading="Apify open source"
-                        description="Explore tools designed to streamline web scraping, browser automation, and proxy management."
+                        description="Open-source tools and libraries created and maintained by Apify experts
+                            to help you with web scraping, browser automation, and proxy management."
                     />
                     <Section>
                         <Banner useGradientBackground={false} className="banner">
@@ -120,7 +121,7 @@ export default function OpenSource() {
                                         </Heading>
                                     </div>
                                     <Text size="big" color={theme.color.neutral.textMuted}>
-                                        Crawlee is a web scraping and browser automation library that helps you build reliable crawlers.
+                                        Crawlee is a fully open-source web scraping and browser automation library that helps you build reliable crawlers.
                                     </Text>
                                 </div>
                                 <div className={clsx('bannerContentColumn', 'bannerContentActions')}>
@@ -143,7 +144,7 @@ export default function OpenSource() {
                                                 </Heading>
                                             </Link>
                                             <Text color={theme.color.neutral.textMuted} size="big">
-                                                Generate and inject browser fingerprints to avoid detection and enhance scraper stealth.
+                                                Generate and inject browser fingerprints to avoid detection and improve scraper stealth.
                                             </Text>
                                         </div>
                                         <div>
@@ -170,7 +171,7 @@ export default function OpenSource() {
                                                 </Heading>
                                             </Link>
                                             <Text color={theme.color.neutral.textMuted} size="big">
-                                                A powerful extension for sending browser-like requests, essential for blending in with web traffic.
+                                                A powerful extension for sending browser-like requests and blending in with web traffic.
                                             </Text>
                                         </div>
                                         <div>
@@ -218,7 +219,7 @@ export default function OpenSource() {
                     <Section
                         heading="Actor templates"
                         description="Actor templates help you quickly set up your web scraping projects.
-                            Save development time and get immediate access to all the features that the Apify platform has to offer."
+                            Save development time and get immediate access to all the features of the Apify platform."
                         headingAs="h2"
                     >
                         <div className="actorTemplates">
