@@ -152,7 +152,7 @@ for product in listing_soup.select(".product-item"):
 ...
 ```
 
-If you run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
+If we run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -191,7 +191,7 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 ### Scrape calling codes of African countries
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the calling code from the info table. Print the URL and the calling code for each country. Start with this URL:
+This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
