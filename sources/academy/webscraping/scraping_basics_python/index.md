@@ -1,7 +1,7 @@
 ---
 title: Web scraping basics for Python devs
 description: Learn how to use Python to extract information from websites in this practical course, starting from the absolute basics.
-sidebar_position: 10
+sidebar_position: 2
 category: web scraping & automation
 slug: /scraping-basics-python
 ---

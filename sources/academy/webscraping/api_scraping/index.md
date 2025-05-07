@@ -1,7 +1,7 @@
 ---
 title: API scraping
 description: Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
-sidebar_position: 3
+sidebar_position: 5
 category: web scraping & automation
 slug: /api-scraping
 ---
