@@ -16,8 +16,6 @@ properties:
     $ref: './EffectivePlatformFeature.yaml'
   STORAGE:
     $ref: './EffectivePlatformFeature.yaml'
-  STORAGE:
-    $ref: './EffectivePlatformFeature.yaml'
   SCHEDULER:
     $ref: './EffectivePlatformFeature.yaml'
   PROXY:
