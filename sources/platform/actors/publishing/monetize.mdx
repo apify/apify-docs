@@ -123,20 +123,21 @@ You can also choose not to use it, but then you must handle API integration and 
 :::
 
 ### How to attract larger customers of PPE and PPR Actors
-Each user running your Actor belongs to a specific Apify Store Discount tier. The standard tiers are `FREE`, `BRONZE`, `SILVER`, and `GOLD`. Enterprise customers may have additional tiers such as `PLATINUM`. For any non-standard tier, treat it as equivalent to the `PLATINUM` tier.
-Customers with higher spending potential are typically placed in higher discount tiers.
+Each user running your Actor belongs to a specific Apify Store discount tier, namely `FREE`, `BRONZE`, `SILVER`, or `GOLD` tier.
 
-When setting pricing for a PPE/PPR Actor, you can define different prices for different customer tiers. While optional, we strongly recommend offering progressively lower prices for higher discount tiers to attract large enterprise customers who may spend thousands or tens of thousands of dollars on your Actor.
-The unit platform usage costs for these customers will also be lower, helping you maintain healthy profit margins, as explained in the [Computing your costs for PPE and PPR Actors](#computing-your-costs-for-ppe-and-ppr-actors) section.
+When setting pricing for a PPE/PPR Actor, you can define different prices for different tiers. While optional, we strongly recommend offering progressively lower prices for higher discount tiers to attract large enterprise customers who may spend thousands or tens of thousands of dollars on your Actor.
+The unit platform usage costs for higher tiers will also be lower, helping you maintain healthy profit margins, as explained in the [Computing your costs for PPE and PPR Actors](#computing-your-costs-for-ppe-and-ppr-actors) section.
 
 During an Actor run, you can access the user's discount tier through run environment variables or by querying user data via our API. This allows you to potentially provide premium services to users in higher discount tiers.
+
+Apart from these standard tiers listed above, there are further tiers reserved for enterprise customers, such as `PLATINUM` and `DIAMOND`. If you are interested in providing enterprise level services and attracting large customers, please reach out to us.
 
 ### Computing your costs for PPE and PPR Actors
 For both PPE and PPR Actors, profit is computed using the formula `(0.8 * revenue) - costs`. In this section, we'll explain how the `costs` component is calculated.
 
 When paying users run your Actor, it generates platform usage in the form of compute units, data traffic, API operations etc. This usage determines the `costs` in the profit formula above. Note that usage by free users is covered by Apify and doesn't affect your costs. To calculate costs in dollars, multiply the unit cost of each service by the quantity consumed. For example, if a run uses 10 compute units (CUs) at $0.5/CU, your cost would be $5.
 
-As mentioned in the [How to attract larger customers of PPE and PPR Actors](#how-to-attract-larger-customers-of-ppe-and-ppr-actors) section, the user's discount tier determines the unit costs applied to their runs. Higher tiers have lower unit costs, allowing you to offer lower prices to high-tier customers while maintaining healthy profit margins.
+As mentioned in the [How to attract larger customers of PPE and PPR Actors](#how-to-attract-larger-customers-of-ppe-and-ppr-actors) section, the user's discount tier determines the unit costs applied to their runs if the Actor has tiered discounts set up. Higher tiers have lower unit costs, allowing you to offer lower prices to high-tier customers while maintaining healthy profit margins.
 
 The table below summarizes the unit prices for cost computation across different discount tiers.
 
@@ -154,6 +155,8 @@ The table below summarizes the unit prices for cost computation across different
 | Key-value store - lists       | 1,000 lists   | $0.05   | $0.05    | $0.045   | $0.04   | $0.04      |
 | Request queue - reads         | 1,000 reads   | $0.004  | $0.004   | $0.0036  | $0.0032 | $0.0032    |
 | Request queue - writes        | 1,000 writes  | $0.02   | $0.02    | $0.018   | $0.016  | $0.016     |
+
+If you decide not to offer tiered discounts on your Actor, the unit prices for FREE tier apply.
 
 ## Setting up monetization
 
