@@ -26,9 +26,9 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 
 ### Prerequisites
 
-- *Apify API token*: Obtain your token from the [Apify console](https://console.apify.com/account/integrations).  
-- *Python environment*: Ensure Python is installed (version 3.8+ recommended).  
-- *Required packages*: Install the following dependencies in your terminal:
+- _Apify API token_: Obtain your token from the [Apify console](https://console.apify.com/account/integrations).  
+- _Python environment_: Ensure Python is installed (version 3.8+ recommended).  
+- _Required packages_: Install the following dependencies in your terminal:
 
 ```bash
 pip install agno apify-client
@@ -39,17 +39,17 @@ pip install agno apify-client
 Start by setting up an Agno agent with Apify tools. This example uses the RAG Web Browser Actor to extract content from a specific URL.
 
 ```python
+import os
+
 from agno.agent import Agent
 from agno.tools.apify import ApifyTools
 
+os.environ["APIFY_API_TOKEN"] = "YOUR_APIFY_API_TOKEN"  # Replace with your Apify API token
+os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"  # Replace with your OpenAI API key
+
 # Initialize the agent with Apify tools
 agent = Agent(
-    tools=[
-        ApifyTools(
-            actors=["apify/rag-web-browser"],
-            apify_api_token="YOUR_APIFY_API_TOKEN"  # Replace YOUR_APIFY_API_TOKEN with your token 
-        )
-    ],
+    tools=[ApifyTools( actors=["apify/rag-web-browser"])],
     show_tool_calls=True,
     markdown=True
 )
@@ -60,19 +60,18 @@ agent.print_response("Extract key details from https://docs.agno.com/introductio
 
 Running this code will scrape the specified URL and return formatted content your agent can use.
 
-:::tip Environment variable token
-
-You can also set the APIFY_API_TOKEN environment variable instead of passing it directly in the code.
-
-:::
-
-### Advanced Scenario: Travel Planning Agent
+### Advanced scenario: Travel planning agent
 
 Combine multiple Apify Actors to create a powerful travel planning agent. This example uses the RAG Web Browser and Google Places Crawler to gather travel insights and local business data.
 
 ```python
+import os
+
 from agno.agent import Agent
 from agno.tools.apify import ApifyTools
+
+os.environ["APIFY_API_TOKEN"] = "YOUR_APIFY_API_TOKEN"  # Replace with your Apify API token
+os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"  # Replace with your OpenAI API key
 
 # Create a travel planning agent
 agent = Agent(
@@ -85,8 +84,7 @@ agent = Agent(
             actors=[
                 "apify/rag-web-browser",           # For general web research
                 "compass/crawler-google-places"    # For location-based data
-            ],
-            apify_api_token="YOUR_APIFY_API_TOKEN"
+            ]
         )
     ],
     show_tool_calls=True,
@@ -117,7 +115,7 @@ Browse the [Apify Store](https://apify.com/store) to find additional Actors for 
 
 :::
 
-### Available Apify Tools
+### Available Apify tools
 
 Agno supports any Apify Actor via the ApifyTools class. You can specify a single Actor ID or a list of Actor IDs to register multiple tools for your agent at once.
 
