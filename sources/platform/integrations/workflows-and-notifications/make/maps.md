@@ -15,11 +15,11 @@ To use these modules, you need an [Apify account](https://console.apify.com/sign
 
 For more details, follow the tutorial below.
 
-# Connect Apify Scraper for Google Maps Leads
+## Connect Apify Scraper for Google Maps Leads
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
-    ![Sign up page](images/maps/image.png)
+    ![Sign up page](images/maps/maps-signup.png)
 
 1. To connect your Apify account with Make, you need to get the Apify API token. In the Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 

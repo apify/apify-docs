@@ -17,7 +17,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
-    ![Sign up page](images/ai-crawling/image.png)
+    ![Sign up page](images/ai-crawling/wcc-signup.png)
 
 1. To connect your Apify account with Make, you need to get the Apify API token. In the Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 
