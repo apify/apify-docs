@@ -14,13 +14,13 @@ Before starting with a scraping platform, let's highlight a few caveats in our c
 - _User-operated:_ We have to run the scraper ourselves. If we're tracking price trends, we'd need to remember to run it daily. And if we want alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
 - _No monitoring:_ If we have a spare server or a Raspberry Pi lying around, we could use [cron](https://en.wikipedia.org/wiki/Cron) to schedule it. But even then, we'd have little insight into whether it ran successfully, what errors or warnings occurred, how long it took, or what resources it used.
 - _Manual data management:_ Tracking prices over time means figuring out how to organize the exported data ourselves. Processing the data could also be tricky since different analysis tools often require different formats.
-- _Anti-scraping risks:_ If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually, they'd block that too—risking seriously annoying the barista.
+- _Anti-scraping risks:_ If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually, they'd block that too—risking seriously annoying our barista.
 
 In this lesson, we'll use a platform to address all of these issues. Generic cloud platforms like [GitHub Actions](https://github.com/features/actions) can work for simple scenarios. But platforms dedicated to scraping, like [Apify](https://apify.com/), offer extra features such as monitoring scrapers, managing retrieved data, and overcoming anti-scraping measures.
 
 :::info Why Apify
 
-Scraping platforms come in many varieties, offering a wide range of tools and approaches. As the course authors, we're obviously a bit biased toward Apify—we think it's both powerful and complete.
+Scraping platforms come in many varieties, offering a wide range of tools and approaches. As the course authors, we're obviously biased toward Apify—we think it's both powerful and complete.
 
 That said, the main goal of this lesson is to show how deploying to _any platform_ can make life easier. Plus, everything we cover here fits within [Apify's free tier](https://apify.com/pricing).
 
@@ -28,7 +28,7 @@ That said, the main goal of this lesson is to show how deploying to _any platfor
 
 ## Registering
 
-First, let's [create a new Apify account](https://console.apify.com/sign-up). You'll go through a few checks to confirm you're human and your email is valid—annoying but necessary to prevent abuse of the platform.
+First, let's [create a new Apify account](https://console.apify.com/sign-up). We'll go through a few checks to confirm we're human and our email is valid—annoying but necessary to prevent abuse of the platform.
 
 Apify serves both as an infrastructure where to privately deploy and run own scrapers, and as a marketplace, where anyone can offer their ready scrapers to others for rent. But let's hold off on exploring the Apify Store for now.
 
@@ -59,7 +59,7 @@ If we sent our code to a friend, they wouldn't know what to install to avoid imp
 
 To share our project, we need to package it. The best way is following the official [Python Packaging User Guide](https://packaging.python.org/), but for this course, we'll take a shortcut with the Apify CLI.
 
-Change to a directory where you start new projects in your terminal. Then, run the following command:
+In our terminal, let's change to a directory where we usually start new projects. Then, we'll run the following command:
 
 ```text
 apify create warehouse-watchdog --template=python-crawlee-beautifulsoup
@@ -78,7 +78,7 @@ Info: To install additional Python packages, you need to activate the virtual en
 
 ## Adjusting the template
 
-Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory containing several Python files, including `main.py`. This is a sample BeautifulSoup scraper provided by the template.
+Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory containing several Python files, including `main.py`. This is a sample Beautiful Soup scraper provided by the template.
 
 The file contains a single asynchronous function, `main()`. At the beginning, it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then passes that input to a small crawler built on top of the Crawlee framework.
 
@@ -252,7 +252,7 @@ Actor build detail https://console.apify.com/actors/a123bCDefghiJkLMN#/builds/0.
 ? Do you want to open the Actor detail in your browser? (Y/n)
 ```
 
-After opening the link in our browser, assuming we're logged in, we'll see the **Source** screen on the Actor's detail page. We'll go to the **Input** tab of that screen. We won't change anything—just hit **Start**, and we should see logs similar to what we see locally, but this time our scraper will be running in the cloud.
+After opening the link in our browser, assuming we're logged in, we should see the **Source** screen on the Actor's detail page. We'll go to the **Input** tab of that screen. We won't change anything—just hit **Start**, and we should see logs similar to what we see locally, but this time our scraper will be running in the cloud.
 
 ![Actor's detail page, screen Source, tab Input](./images/actor-input.webp)
 
@@ -260,15 +260,15 @@ When the run finishes, the interface will turn green. On the **Output** tab, we 
 
 ![Actor's detail page, screen Source, tab Output](./images/actor-output.webp)
 
-:::info Accessing data programmatically
+:::info Accessing data
 
-You don't need to click buttons to download the data. You can also retrieve it using Apify's API, the `apify datasets` CLI command, or the Python SDK. Learn more in the [Dataset docs](https://docs.apify.com/platform/storage/dataset).
+We don't need to click buttons to download the data. It's possible to retrieve it also using Apify's API, the `apify datasets` CLI command, or the Python SDK. Learn more in the [Dataset docs](https://docs.apify.com/platform/storage/dataset).
 
 :::
 
 ## Running the scraper periodically
 
-Now that our scraper is deployed, let's automate its execution. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Click **Create new**, review the periodicity (default: daily), and specify the Actor to run. Then click **Enable**—that's it!
+Now that our scraper is deployed, let's automate its execution. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Let's click **Create new**, review the periodicity (default: daily), and specify the Actor to run. Then we'll click **Enable**—that's it!
 
 From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/monitoring), and even set up alerts.
 
@@ -386,11 +386,11 @@ Run: Building Actor warehouse-watchdog
 ? Do you want to open the Actor detail in your browser? (Y/n)
 ```
 
-Back in the Apify console, go to the **Source** screen and switch to the **Input** tab. You'll see the new **Proxy config** option, which defaults to **Datacenter - Automatic**.
+Back in the Apify console, we'll go to the **Source** screen and switch to the **Input** tab. We should see the new **Proxy config** option, which defaults to **Datacenter - Automatic**.
 
 ![Actor's detail page, screen Source, tab Input with proxies](./images/actor-input-proxies.webp)
 
-Leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
+We'll leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
 
 ```text
 (timestamp) ACTOR: Pulling Docker image of build o6vHvr5KwA1sGNxP0 from repository.
@@ -422,13 +422,13 @@ Leave it as is and click **Start**. This time, the logs should show `Using proxy
 
 ## Congratulations!
 
-You've reached the end of the course—congratulations! 🎉 Together, we've built a program that:
+We've reached the end of the course—congratulations! Together, we've built a program that:
 
-- Crawls a shop and extracts product and pricing data
-- Exports the results in several formats
-- Uses a concise code, thanks to a scraping framework
-- Runs on a cloud platform with monitoring and alerts
-- Executes periodically without manual intervention, collecting data over time
-- Uses proxies to avoid being blocked
+- Crawls a shop and extracts product and pricing data.
+- Exports the results in several formats.
+- Uses a concise code, thanks to a scraping framework.
+- Runs on a cloud platform with monitoring and alerts.
+- Executes periodically without manual intervention, collecting data over time.
+- Uses proxies to avoid being blocked.
 
-We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even [start publishing scrapers](https://docs.apify.com/platform/actors/publishing) for others to use—for a fee? 😉
+We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even [start publishing scrapers](https://docs.apify.com/platform/actors/publishing) for others to use—for a fee?

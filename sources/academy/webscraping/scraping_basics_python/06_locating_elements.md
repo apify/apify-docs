@@ -123,7 +123,7 @@ This program does the same as the one we already had, but its code is more conci
 
 :::note Fragile code
 
-We assume that the selectors we pass to the `select()` or `select_one()` methods return at least one element. If they don't, calling `[0]` on an empty list or `.text` on `None` would crash the program. If you perform type checking on your Python program, the code examples above may even trigger warnings about this.
+We assume that the selectors we pass to the `select()` or `select_one()` methods return at least one element. If they don't, calling `[0]` on an empty list or `.text` on `None` would crash the program. If you perform type checking on your Python program, the code examples above will trigger warnings about this.
 
 Not handling these cases allows us to keep the code examples more succinct. Additionally, if we expect the selectors to return elements but they suddenly don't, it usually means the website has changed since we wrote our scraper. Letting the program crash in such cases is a valid way to notify ourselves that we need to fix it.
 
@@ -131,7 +131,17 @@ Not handling these cases allows us to keep the code examples more succinct. Addi
 
 ## Precisely locating price
 
-In the output we can see that the price isn't located precisely. For each product, our scraper also prints the text `Sale price`. Let's look at the HTML structure again. Each bit containing the price looks like this:
+In the output we can see that the price isn't located precisely:
+
+```text
+JBL Flip 4 Waterproof Portable Bluetooth Speaker
+Sale price$74.95
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
+Sale priceFrom $1,398.00
+...
+```
+
+For each product, our scraper also prints the text `Sale price`. Let's look at the HTML structure again. Each bit containing the price looks like this:
 
 ```html
 <span class="price">
