@@ -20,13 +20,21 @@ Check out the [Agno documentation](https://docs.agno.com/introduction) for more 
 
 :::
 
-## How to Use Apify with Agno
+## How to use Apify with Agno
 
 This guide shows how to integrate Apify Actors with Agno to empower your AI agents with real-time web data. We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch web content and the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to extract location-based data. It is very easy to use with any other Actor by just passing the name of the Actor. See and choose from thousands of Actors in the [Apify Store](https://apify.com/store).
 
 ### Prerequisites
 
-- _Apify API token_: Obtain your token from the [Apify console](https://console.apify.com/account/integrations).  
+- _Apify API token_: Obtain your API token from the [Apify console](https://console.apify.com/account/integrations).  
+- _OpenAI API key_: Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+
+:::tip Alternative LLM providers
+
+While our examples use OpenAI, Agno supports other LLM providers as well. You'll need to adjust the environment variables and configuration according to your chosen provider. Check out the [Agno models documentation](https://docs.agno.com/models/introduction) for details on supported providers and configuration.
+
+:::
+
 - _Python environment_: Ensure Python is installed (version 3.8+ recommended).  
 - _Required packages_: Install the following dependencies in your terminal:
 
@@ -34,7 +42,7 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 pip install agno apify-client
 ```
 
-## Basic Integration Example
+## Basic integration example
 
 Start by setting up an Agno agent with Apify tools. This example uses the RAG Web Browser Actor to extract content from a specific URL.
 
@@ -119,12 +127,13 @@ Browse the [Apify Store](https://apify.com/store) to find additional Actors for 
 
 Agno supports any Apify Actor via the ApifyTools class. You can specify a single Actor ID or a list of Actor IDs to register multiple tools for your agent at once.
 
-## Configuration Options
+## Configuration options
 
-| Parameter                    | Type                | Default | Description                                                        |
-| ---------------------------- | ------------------- | ------- | ------------------------------------------------------------------ |
-| `apify_api_token`            | `str`               | `None`  | Apify API token (or set via APIFY_API_TOKEN environment variable)  |
-| `actors`                     | `str` or `List[str]`| `None`  | Single Actor ID or list of Actor IDs to register                   |
+**`apify_api_token`** (string, default: `None`)
+: Apify API token (or set via APIFY_API_TOKEN environment variable)
+
+**`actors`** (string or List[string], default: `None`)
+: Single Actor ID or list of Actor IDs to register
 
 ## Resources
 
