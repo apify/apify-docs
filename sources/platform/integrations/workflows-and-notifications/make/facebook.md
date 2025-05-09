@@ -19,7 +19,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/facebook/signup.png)
 
-1. To connect your Apify account with Make, you need to get the Apify API token. In the Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
     ![Apify Actor rental](images/facebook/actor-rental.png)
 
