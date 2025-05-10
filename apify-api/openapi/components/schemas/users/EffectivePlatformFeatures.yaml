@@ -1,0 +1,34 @@
+title: EffectivePlatformFeatures
+required:
+  - ACTORS
+  - STORAGE
+  - SCHEDULER
+  - PROXY
+  - PROXY_EXTERNAL_ACCESS
+  - PROXY_RESIDENTIAL
+  - PROXY_SERPS
+  - WEBHOOKS
+  - ACTORS_PUBLIC_ALL
+  - ACTORS_PUBLIC_DEVELOPER
+type: object
+properties:
+  ACTORS:
+    $ref: './EffectivePlatformFeature.yaml'
+  STORAGE:
+    $ref: './EffectivePlatformFeature.yaml'
+  SCHEDULER:
+    $ref: './EffectivePlatformFeature.yaml'
+  PROXY:
+    $ref: './EffectivePlatformFeature.yaml'
+  PROXY_EXTERNAL_ACCESS:
+    $ref: './EffectivePlatformFeature.yaml'
+  PROXY_RESIDENTIAL:
+    $ref: './EffectivePlatformFeature.yaml'
+  PROXY_SERPS:
+    $ref: './EffectivePlatformFeature.yaml'
+  WEBHOOKS:
+    $ref: './EffectivePlatformFeature.yaml'
+  ACTORS_PUBLIC_ALL:
+    $ref: './EffectivePlatformFeature.yaml'
+  ACTORS_PUBLIC_DEVELOPER:
+    $ref: './EffectivePlatformFeature.yaml'

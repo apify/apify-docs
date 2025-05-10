@@ -1,0 +1,27 @@
+title: EffectivePlatformFeature
+required:
+  - isEnabled
+  - disabledReason
+  - disabledReasonType
+  - isTrial
+  - trialExpirationAt
+type: object
+properties:
+  isEnabled:
+    type: boolean
+    example: true
+  disabledReason:
+    type: string
+    example: "The \"Selected public Actors for developers\" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com"
+    nullable: true
+  disabledReasonType:
+    type: string
+    example: "DISABLED"
+    nullable: true
+  isTrial:
+    type: boolean
+    example: false
+  trialExpirationAt:
+    type: string
+    example: "2025-01-01T14:00:00.000Z"
+    nullable: true

@@ -6,6 +6,9 @@ required:
   - email
   - proxy
   - plan
+  - effectivePlatformFeatures
+  - createdAt
+  - isPaying
 type: object
 properties:
   id:
@@ -23,3 +26,11 @@ properties:
     $ref: ./Proxy.yaml
   plan:
     $ref: ./Plan.yaml
+  effectivePlatformFeatures:
+    $ref: ./EffectivePlatformFeatures.yaml 
+  createdAt:
+    type: string
+    example: "2022-11-29T14:48:29.381Z"
+  isPaying:
+    type: boolean
+    example: true
