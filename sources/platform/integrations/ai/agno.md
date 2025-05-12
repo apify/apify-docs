@@ -129,10 +129,10 @@ Agno supports any Apify Actor via the ApifyTools class. You can specify a single
 
 ## Configuration options
 
-**`apify_api_token`** (string, default: `None`)
+`apify_api_token` (string, default: `None`)
 : Apify API token (or set via APIFY_API_TOKEN environment variable)
 
-**`actors`** (string or List[string], default: `None`)
+`actors` (string or List[string], default: `None`)
 : Single Actor ID or list of Actor IDs to register
 
 ## Resources
