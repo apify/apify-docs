@@ -125,8 +125,11 @@ You can also choose not to use it, but then you must handle API integration and 
 ### How to attract larger customers of PPE and PPR Actors
 Each user running your Actor belongs to a specific Apify Store discount tier, namely `FREE`, `BRONZE`, `SILVER`, or `GOLD` tier.
 
-When setting pricing for a PPE/PPR Actor, you can define different prices for different tiers. While optional, we strongly recommend offering progressively lower prices for higher discount tiers to attract large enterprise customers who may spend thousands or tens of thousands of dollars on your Actor.
+When setting pricing for a PPE/PPR Actor, you can define different prices for different tiers.
+While optional, we strongly recommend offering progressively lower prices for higher discount tiers to attract large enterprise customers who may spend thousands or tens of thousands of dollars on your Actor.
 The unit platform usage costs for higher tiers will also be lower, helping you maintain healthy profit margins, as explained in the [Computing your costs for PPE and PPR Actors](#computing-your-costs-for-ppe-and-ppr-actors) section.
+
+While we don't recommend setting very high prices for free users by default, because it limits the users' ability to evaluate your Actor, we understand that sometimes it's necessary to protect you from fraud or excessive use of your internal APIs, in which case setting a high price for free users might be justified.
 
 During an Actor run, you can access the user's discount tier through run environment variables or by querying user data via our API. This allows you to potentially provide premium services to users in higher discount tiers.
 
@@ -141,22 +144,22 @@ As mentioned in the [How to attract larger customers of PPE and PPR Actors](#how
 
 The table below summarizes the unit prices for cost computation across different discount tiers.
 
-| Service                         | Price is per | `FREE`  | `BRONZE` | `SILVER` | `GOLD`  | `PLATINUM` |
-|:-------------------------------|:--------------|--------:|---------:|---------:|--------:|-----------:|
-| Compute unit                   | CU            | $0.4    | $0.4     | $0.3     | $0.25   | $0.1125    |
-| Residential proxies            | GB            | $8      | $8       | $7.5     | $7      | $4         |
-| SERPs proxy                    | 1,000 SERPs   | $2.5    | $2.5     | $2       | $1.7    | $1.25      |
-| Data transfer - external       | GB            | $0.2    | $0.2     | $0.19    | $0.18   | $0.18      |
-| Data transfer - internal       | GB            | $0.05   | $0.05    | $0.045   | $0.04   | $0.04      |
-| Dataset - reads               | 1,000 reads   | $0.0004 | $0.0004  | $0.00036 | $0.00032| $0.00032   |
-| Dataset - writes              | 1,000 writes  | $0.005  | $0.005   | $0.0045  | $0.004  | $0.004     |
-| Key-value store - reads       | 1,000 reads   | $0.005  | $0.005   | $0.0045  | $0.004  | $0.004     |
-| Key-value store - writes      | 1,000 writes  | $0.05   | $0.05    | $0.045   | $0.04   | $0.04      |
-| Key-value store - lists       | 1,000 lists   | $0.05   | $0.05    | $0.045   | $0.04   | $0.04      |
-| Request queue - reads         | 1,000 reads   | $0.004  | $0.004   | $0.0036  | $0.0032 | $0.0032    |
-| Request queue - writes        | 1,000 writes  | $0.02   | $0.02    | $0.018   | $0.016  | $0.016     |
+| Service                         | Price is per | `FREE`  | `BRONZE` | `SILVER` | `GOLD`  |
+|:-------------------------------|:--------------|--------:|---------:|---------:|--------:|
+| Compute unit                   | CU            | $0.4    | $0.4     | $0.3     | $0.25   |
+| Residential proxies            | GB            | $8      | $8       | $7.5     | $7      |
+| SERPs proxy                    | 1,000 SERPs   | $2.5    | $2.5     | $2       | $1.7    |
+| Data transfer - external       | GB            | $0.2    | $0.2     | $0.19    | $0.18   |
+| Data transfer - internal       | GB            | $0.05   | $0.05    | $0.045   | $0.04   |
+| Dataset - reads               | 1,000 reads   | $0.0004 | $0.0004  | $0.00036 | $0.00032|
+| Dataset - writes              | 1,000 writes  | $0.005  | $0.005   | $0.0045  | $0.004  |
+| Key-value store - reads       | 1,000 reads   | $0.005  | $0.005   | $0.0045  | $0.004  |
+| Key-value store - writes      | 1,000 writes  | $0.05   | $0.05    | $0.045   | $0.04   |
+| Key-value store - lists       | 1,000 lists   | $0.05   | $0.05    | $0.045   | $0.04   |
+| Request queue - reads         | 1,000 reads   | $0.004  | $0.004   | $0.0036  | $0.0032 |
+| Request queue - writes        | 1,000 writes  | $0.02   | $0.02    | $0.018   | $0.016  |
 
-If you decide not to offer tiered discounts on your Actor, the unit prices for FREE tier apply.
+If you decide not to offer tiered discounts on your Actor, the unit prices for FREE tier apply. To offer enterprise level services and unlock even cheaper unit prices for enterprise customres, please reach out to us.
 
 ## Setting up monetization
 
