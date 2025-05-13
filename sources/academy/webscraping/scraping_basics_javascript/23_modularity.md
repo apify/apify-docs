@@ -12,7 +12,7 @@ slug: /web-scraping-for-beginners/challenge/modularity
 
 Now that we've gotten our first request going, the first challenge is going to be selecting all of the resulting products on the page. Back in the browser, we'll use the DevTools hover tool to inspect a product.
 
-![Result products](../../../platform/expert_scraping_with_apify/solutions/images/result-items.jpg)
+![Result products](../../platform/expert_scraping_with_apify/solutions/images/result-items.jpg)
 
 **Bingo!** Each product seems to have a `data-asin` attribute, which includes the ASIN (product ID) data we want. Now, we can select each of these elements with this selector: `div > div[data-asin]:not([data-asin=""])`. Then, we'll scrape some data about each product, and push a request to the main product page so we can grab hold of the description.
 
@@ -122,8 +122,8 @@ Then, the labels can be used by importing `labels` and accessing `labels.START`,
 
 This is not necessary, but it is best practice, as it can prevent dumb typos that can cause nasty bugs 🐞 For the rest of this lesson, all of the examples using labels will be using the imported versions.
 
-> If you haven't already read the **Best practices** lesson in the **Web scraping basics for JavaScript devs** course, please [give it a read](../best_practices.md).
+> If you haven't already read the **Best practices** lesson in the **Web scraping basics for JavaScript devs** course, please [give it a read](./25_best_practices.md).
 
 ## Next up {#next}
 
-Now that we've gotten that out of the way, we can finally continue with our Amazon scraper. [Let's do it](./scraping_amazon.md)!
+Now that we've gotten that out of the way, we can finally continue with our Amazon scraper. [Let's do it](./24_scraping_amazon.md)!

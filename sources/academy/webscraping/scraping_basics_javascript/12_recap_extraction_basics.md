@@ -10,7 +10,7 @@ slug: /web-scraping-for-beginners/crawling/recap-extraction-basics
 
 ---
 
-We finished off the [first section](../data_extraction/index.md) of the _Web scraping basics for JavaScript devs_ course by creating a web scraper in Node.js. The scraper collected all the on-sale products from [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). Let's see the code with some comments added.
+We finished off the [first section](./02_data_extraction.md) of the _Web scraping basics for JavaScript devs_ course by creating a web scraper in Node.js. The scraper collected all the on-sale products from [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). Let's see the code with some comments added.
 
 ```js
 // First, we imported all the libraries we needed to
@@ -65,16 +65,16 @@ writeFileSync('products.csv', csv);
 
 :::tip
 
-If some of the code is hard for you to understand, please review the [Basics of data extraction](../data_extraction/index.md) section. We will not go through the details again in this section about crawling.
+If some of the code is hard for you to understand, please review the [Basics of data extraction](./02_data_extraction.md) section. We will not go through the details again in this section about crawling.
 
 :::
 
 :::caution
 
-We are using JavaScript features like `import` statements and top-level `await`. If you see errors like _Cannot use import outside of a module_, please review the [Project setup lesson](../data_extraction/project_setup.md#modern-javascript), where we explain how to enable those features.
+We are using JavaScript features like `import` statements and top-level `await`. If you see errors like _Cannot use import outside of a module_, please review the [Project setup lesson](./07_project_setup.md#modern-javascript), where we explain how to enable those features.
 
 :::
 
 ## Next up {#next}
 
-The [next lesson](./finding_links.md) is all about finding links to crawl on the [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales).
+The [next lesson](./13_finding_links.md) is all about finding links to crawl on the [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales).

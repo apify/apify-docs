@@ -12,7 +12,7 @@ slug: /web-scraping-for-beginners/crawling/first-crawl
 
 In the previous lessons, we learned what crawling is and how to extract URLs from a page's HTML. The only thing that remains is to write the code—let's get right to it!
 
-> If the code starts to look too complex to you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. Near the end of this course, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now](./pro_scraping.md).
+> If the code starts to look too complex to you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. Near the end of this course, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now](./18_pro_scraping.md).
 
 ## Processing URLs {#processing-urls}
 
@@ -70,7 +70,7 @@ The code above is correct, but it's not robust. If something goes wrong, it will
 
 In programming, you handle errors by catching and handling them. Typically by printing information that the error occurred and/or retrying.
 
-> The scraping library we'll [show you in the following lessons](./pro_scraping.md) handles errors and retries automatically for you.
+> The scraping library we'll [show you in the following lessons](./18_pro_scraping.md) handles errors and retries automatically for you.
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
@@ -115,8 +115,8 @@ for (const url of productUrls) {
 
 At the time of writing, none of the links have failed; however, as you crawl more pages, you will surely hit a few errors 😉. The important thing is that the crawler will no longer crash if an error does in fact occur, and that it will be able to download the HTML from the working product links.
 
-> If you thought that the crawl was taking too long to complete, the [scraping library](./pro_scraping.md) we keep referring to will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
+> If you thought that the crawl was taking too long to complete, the [scraping library](./18_pro_scraping.md) we keep referring to will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
 
 ## Next up {#next}
 
-In the [next lesson](./scraping_the_data.md), we will complete the scraper by extracting data about all the products from their individual pages.
+In the [next lesson](./17_scraping_the_data.md), we will complete the scraper by extracting data about all the products from their individual pages.

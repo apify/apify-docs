@@ -33,9 +33,9 @@ When we set out to create the Academy, we wanted to build a complete guide to we
 This is what you'll learn in the **Web scraping basics for JavaScript devs** course:
 
 * [Web scraping basics for JavaScript devs](./index.md)
-  * [Basics of data extraction](./data_extraction/index.md)
-  * [Basics of crawling](./crawling/index.md)
-  * [Best practices](./best_practices.md)
+  * [Basics of data extraction](./02_data_extraction.md)
+  * [Basics of crawling](./11_crawling.md)
+  * [Best practices](./25_best_practices.md)
 
 ## Requirements {#requirements}
 
@@ -61,7 +61,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-* [DevTools](./data_extraction/browser_devtools.md)
+* [DevTools](./03_browser_devtools.md)
 
 ### jQuery or Cheerio {#jquery-or-cheerio}
 
@@ -69,6 +69,6 @@ We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package 
 
 ## Next up {#next}
 
-The course begins with a small bit of theory and moves into some realistic and practical examples of extracting data from the most popular websites on the internet using your browser console. [Let's get to it!](./introduction.md)
+The course begins with a small bit of theory and moves into some realistic and practical examples of extracting data from the most popular websites on the internet using your browser console. [Let's get to it!](./01_introduction.md)
 
-> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling](./crawling/index.md) section.
+> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling](./11_crawling.md) section.

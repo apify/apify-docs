@@ -11,7 +11,7 @@ slug: /web-scraping-for-beginners/crawling
 
 ---
 
-Welcome to the second section of our **Web scraping basics for JavaScript devs** course. In the [Basics of data extraction](../data_extraction/index.md) section, we learned how to extract data from a web page. Specifically, a template Shopify site called [Warehouse store](https://warehouse-theme-metal.myshopify.com/).
+Welcome to the second section of our **Web scraping basics for JavaScript devs** course. In the [Basics of data extraction](./02_data_extraction.md) section, we learned how to extract data from a web page. Specifically, a template Shopify site called [Warehouse store](https://warehouse-theme-metal.myshopify.com/).
 
 ![on-sale category of Warehouse store](./images/warehouse-store.png)
 
@@ -19,7 +19,7 @@ In this section, we will take a look at moving between web pages, which we call 
 
 ## How do you crawl? {#how-to-crawl}
 
-Crawling websites is a fairly straightforward process. We'll start by opening the first web page and extracting all the links (URLs) that lead to the other pages we want to visit. To do that, we'll use the skills learned in the [Basics of data extraction](../data_extraction/index.md) course. We'll add some extra filtering to make sure we only get the correct URLs. Then, we'll save those URLs, so in case our scraper crashes with an error, we won't have to extract them again. And, finally, we will visit those URLs one by one.
+Crawling websites is a fairly straightforward process. We'll start by opening the first web page and extracting all the links (URLs) that lead to the other pages we want to visit. To do that, we'll use the skills learned in the [Basics of data extraction](./02_data_extraction.md) course. We'll add some extra filtering to make sure we only get the correct URLs. Then, we'll save those URLs, so in case our scraper crashes with an error, we won't have to extract them again. And, finally, we will visit those URLs one by one.
 
 At any point, we can extract URLs, data, or both. Crawling can be separate from data extraction, but it's not a requirement and, in most projects, it's actually easier and faster to do both at the same time. To summarize, it goes like this:
 
@@ -30,4 +30,4 @@ At any point, we can extract URLs, data, or both. Crawling can be separate from 
 
 ## Next up {#next}
 
-First, let's make sure we all understand the foundations. In the [next lesson](./recap_extraction_basics.md) we will review the scraper code we already have from the [Basics of data extraction](../data_extraction/index.md) section of the course.
+First, let's make sure we all understand the foundations. In the [next lesson](./12_recap_extraction_basics.md) we will review the scraper code we already have from the [Basics of data extraction](./02_data_extraction.md) section of the course.

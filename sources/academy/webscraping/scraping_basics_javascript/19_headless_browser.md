@@ -126,7 +126,7 @@ One of the important benefits of using a browser is that it allows you to extrac
 
 :::tip
 
-We discuss dynamic data at length in the [How to scrape dynamic pages](../../../tutorials/node_js/dealing_with_dynamic_pages.md) tutorial, and we also have a special lesson dedicated to it in our [Puppeteer & Playwright course](../../puppeteer_playwright/page/waiting.md).
+We discuss dynamic data at length in the [How to scrape dynamic pages](../../tutorials/node_js/dealing_with_dynamic_pages.md) tutorial, and we also have a special lesson dedicated to it in our [Puppeteer & Playwright course](../puppeteer_playwright/page/waiting.md).
 
 :::
 
@@ -200,4 +200,4 @@ When you run the code, you'll find the recommended product names correctly extra
 
 ## Next up {#next}
 
-We learned how to scrape with Cheerio and Playwright, but how do we export the data for further processing? Let's learn that in the [next and final lesson](./exporting_data.md) of the Basics of crawling section.
+We learned how to scrape with Cheerio and Playwright, but how do we export the data for further processing? Let's learn that in the [next and final lesson](./20_exporting_data.md) of the Basics of crawling section.

@@ -10,7 +10,7 @@ slug: /web-scraping-for-beginners/crawling/scraping-the-data
 
 ---
 
-At the [very beginning of this course](../index.md), we learned that the term web scraping usually means a combined process of data extraction and crawling. And this is exactly what we'll do in this lesson. We will take the crawling code from the previous lesson, and we will combine it with data extraction code and turn everything into a web scraper.
+At the [very beginning of this course](./index.md), we learned that the term web scraping usually means a combined process of data extraction and crawling. And this is exactly what we'll do in this lesson. We will take the crawling code from the previous lesson, and we will combine it with data extraction code and turn everything into a web scraper.
 
 ## Extracting data from a product detail page {#extracting-data}
 
@@ -31,7 +31,7 @@ const $ = cheerio.load(html);
 // Attribute extraction code will go here.
 ```
 
-We will use the techniques learned in the [Basics of data extraction](../data_extraction/index.md) section to find and extract the following product attributes:
+We will use the techniques learned in the [Basics of data extraction](./02_data_extraction.md) section to find and extract the following product attributes:
 
 - title
 - vendor
@@ -41,7 +41,7 @@ We will use the techniques learned in the [Basics of data extraction](../data_ex
 
 ![scraping-title.png](./images/scraping-title.png)
 
-> For brevity, we won't explain how to extract every attribute step-by-step. Review the [Basics of data extraction](../data_extraction/index.md) section to learn about DevTools and extracting data.
+> For brevity, we won't explain how to extract every attribute step-by-step. Review the [Basics of data extraction](./02_data_extraction.md) section to learn about DevTools and extracting data.
 
 ### Title
 
@@ -153,7 +153,7 @@ for (const url of productUrls) {
 }
 ```
 
-We can see that the code is quite similar. Both scripts download HTML and then process the HTML. To understand how to put them together, we'll go back to the [original process of crawling](./index.md).
+We can see that the code is quite similar. Both scripts download HTML and then process the HTML. To understand how to put them together, we'll go back to the [original process of crawling](./11_crawling.md).
 
 1. Visit the start URL.
 2. Extract the next URLs (and data) and save them.
@@ -328,4 +328,4 @@ That's it for the absolute basics of crawling, but we're not done yet. We scrape
 
 ## Next up {#next}
 
-In the [next lesson](./pro_scraping.md) we will rewrite the scraper using an open-source web scraping library called [Crawlee](https://crawlee.dev). It will make the scraper more robust while speeding up development at the same time.
+In the [next lesson](./18_pro_scraping.md) we will rewrite the scraper using an open-source web scraping library called [Crawlee](https://crawlee.dev). It will make the scraper more robust while speeding up development at the same time.

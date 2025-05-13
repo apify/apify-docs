@@ -30,7 +30,7 @@ We'll see why the difference between relative URLs and absolute URLs is importan
 
 ## Browser vs Node.js: The Differences {#browser-vs-node}
 
-Let's update the Node.js code from the [Finding links lesson](./finding_links.md) to see why links with relative URLs can be a problem.
+Let's update the Node.js code from the [Finding links lesson](./13_finding_links.md) to see why links with relative URLs can be a problem.
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
@@ -96,4 +96,4 @@ Cheerio can't resolve the URL itself, because until you provide the necessary in
 
 ## Next up {#next}
 
-The [next lesson](./first_crawl.md) will teach you how to use the collected URLs to crawl all the individual product pages.
+The [next lesson](./16_first_crawl.md) will teach you how to use the collected URLs to crawl all the individual product pages.

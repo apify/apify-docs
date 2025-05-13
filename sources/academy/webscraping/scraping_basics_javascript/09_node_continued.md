@@ -8,7 +8,7 @@ slug: /web-scraping-for-beginners/data-extraction/node-continued
 
 ---
 
-In the first part of the Node.js tutorial we downloaded the HTML of our [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales) and parsed it with Cheerio. Now, we will replicate the extraction logic from the [Extracting Data with DevTools](./using_devtools.md) lessons and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of our [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales) and parsed it with Cheerio. Now, we will replicate the extraction logic from the [Extracting Data with DevTools](./04_using_devtools.md) lessons and finish our scraper.
 
 ## Querying data with Cheerio {#querying-with-cheerio}
 
@@ -174,4 +174,4 @@ Great job! 👏🎉
 
 # Next up {#next}
 
-What's next? While we were able to extract the data, it's not super useful to have it printed to the terminal. In the [next, bonus lesson](./save_to_csv.md), we will learn how to convert the data to a CSV and save it to a file.
+What's next? While we were able to extract the data, it's not super useful to have it printed to the terminal. In the [next, bonus lesson](./10_save_to_csv.md), we will learn how to convert the data to a CSV and save it to a file.

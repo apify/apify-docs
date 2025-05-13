@@ -12,7 +12,7 @@ Finally, we have everything ready to start scraping! Yes, the setup was a bit da
 
 ## Downloading HTML {#downloading-html}
 
-We will use the `got-scraping` library to download the HTML of products that are [on sale in the Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). We already worked with this page earlier in the [Extracting Data with DevTools](./using_devtools.md) lessons.
+We will use the `got-scraping` library to download the HTML of products that are [on sale in the Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). We already worked with this page earlier in the [Extracting Data with DevTools](./04_using_devtools.md) lessons.
 
 Replace the contents of your **main.js** file with this code:
 
@@ -33,7 +33,7 @@ Now run the script using the `node main.js` command from the previous lesson. Af
 
 ## Parsing HTML {#parsing-html}
 
-Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Parsing the HTML allows us to query the individual HTML elements, similarly to the way we did it in the browser in the [Extracting Data with DevTools](./using_devtools.md) lessons.
+Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Parsing the HTML allows us to query the individual HTML elements, similarly to the way we did it in the browser in the [Extracting Data with DevTools](./04_using_devtools.md) lessons.
 
 To parse the HTML with the `cheerio` library. Replace the code in your **main.js** with the following code:
 
@@ -69,4 +69,4 @@ The script first downloaded the page's HTML using the Got Scraping library. Then
 
 ## Next up {#next}
 
-In the [next lesson](./node_continued.md) we will learn more about Cheerio and use it to extract all the products' data from Fakestore.
+In the [next lesson](./09_node_continued.md) we will learn more about Cheerio and use it to extract all the products' data from Fakestore.

@@ -152,4 +152,4 @@ With that said, yes, filtering with CSS selectors is often the better and more r
 
 ## Next Up {#next}
 
-In the [next lesson](./relative_urls.md) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.
+In the [next lesson](./15_relative_urls.md) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.

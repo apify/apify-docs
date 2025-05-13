@@ -33,4 +33,4 @@ HTML and CSS give websites their structure and style, but they are static. To be
 
 ## Next up {#next}
 
-We will show you [how to use the browser DevTools](./browser_devtools.md) to inspect and interact with a web page.
+We will show you [how to use the browser DevTools](./03_browser_devtools.md) to inspect and interact with a web page.

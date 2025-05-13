@@ -8,7 +8,7 @@ slug: /web-scraping-for-beginners/data-extraction/using-devtools
 
 ---
 
-With the knowledge of the basics of DevTools we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors](../../../glossary/concepts/css_selectors.md), JavaScript, and DevTools to achieve this task.
+With the knowledge of the basics of DevTools we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors](../../glossary/concepts/css_selectors.md), JavaScript, and DevTools to achieve this task.
 
 > **Why use a Shopify demo and not a real e-commerce store like Amazon?** Because real websites are usually bulkier, littered with promotions, and they change very often. Many have multiple versions of pages, and you never know in advance which one you will get. It will be important to learn how to deal with these challenges in the future, but for this beginner course, we want to have a light and stable environment.
 >
@@ -38,7 +38,7 @@ Now that we know how the parent element looks, we can extract its data, includin
 
 ## Selecting elements in Console {#selecting-elements}
 
-We know how to find an element manually using the DevTools, but that's not very useful for automated scraping. We need to tell the computer how to find it as well. We can do that using JavaScript and CSS selectors. The function to do that is called [`document.querySelector()`](../../../glossary/concepts/querying_css_selectors.md) and it will find the first element in the page's HTML matching the provided [CSS selector](../../../glossary/concepts/css_selectors.md).
+We know how to find an element manually using the DevTools, but that's not very useful for automated scraping. We need to tell the computer how to find it as well. We can do that using JavaScript and CSS selectors. The function to do that is called [`document.querySelector()`](../../glossary/concepts/querying_css_selectors.md) and it will find the first element in the page's HTML matching the provided [CSS selector](../../glossary/concepts/css_selectors.md).
 
 For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('.my-class')` (notice the period `.`) will find the first element with the class `my-class`, such as `<div class="my-class">` or `<p class="my-class">`.
 
@@ -64,7 +64,7 @@ When we look more closely by hovering over the result in the Console, we find th
 
 ![Hover over a query result](./images/devtools-collection-query-hover.png)
 
-We need a different function: [`document.querySelectorAll()`](../../../glossary/concepts/querying_css_selectors.md) (notice the `All` at the end). This function does not find only the first element, but all the elements that match the provided selector.
+We need a different function: [`document.querySelectorAll()`](../../glossary/concepts/querying_css_selectors.md) (notice the `All` at the end). This function does not find only the first element, but all the elements that match the provided selector.
 
 Run the following function in the Console:
 
@@ -203,4 +203,4 @@ price.textContent.match(/((\d+,?)+.?(\d+)?)/)[0];
 
 ## Next up {#next}
 
-This concludes our lesson on extracting and cleaning data using DevTools. Using CSS selectors, we were able to find the HTML element that contains data about our favorite Sony subwoofer and then extract the data. In the [next lesson](./devtools_continued.md), we will learn how to extract information not only about the subwoofer, but about all the products on the page.
+This concludes our lesson on extracting and cleaning data using DevTools. Using CSS selectors, we were able to find the HTML element that contains data about our favorite Sony subwoofer and then extract the data. In the [next lesson](./05_devtools_continued.md), we will learn how to extract information not only about the subwoofer, but about all the products on the page.

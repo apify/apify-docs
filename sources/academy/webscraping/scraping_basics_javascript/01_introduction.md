@@ -29,4 +29,4 @@ We use web scraping as an umbrella term for crawling, web data extraction and al
 
 ## Next up {#next}
 
-In the [next lesson](./data_extraction/index.md), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.
+In the [next lesson](./02_data_extraction.md), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.

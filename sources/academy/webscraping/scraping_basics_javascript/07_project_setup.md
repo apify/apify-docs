@@ -77,4 +77,4 @@ If you see **it works!** printed in your terminal, great job! You set up everyth
 
 ## Next up {#next}
 
-With the project set up, the [next lesson](./node_js_scraper.md) will show you how to use **got-scraping** to download the website's HTML and extract data from it with Cheerio.
+With the project set up, the [next lesson](./08_node_js_scraper.md) will show you how to use **got-scraping** to download the website's HTML and extract data from it with Cheerio.

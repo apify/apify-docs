@@ -34,7 +34,7 @@ Crawlee factors away and manages the dull and repetitive parts of web scraper de
 - Request concurrency
 - Queueing requests
 - Data storage
-- Using and rotating [proxies](../../anti_scraping/mitigation/proxies.md)
+- Using and rotating [proxies](../anti_scraping/mitigation/proxies.md)
 - Puppeteer/Playwright setup overhead
 - [See all the features](https://crawlee.dev/docs/introduction)
 
@@ -240,4 +240,4 @@ Thanks to **Crawlee**, we were able to create a **faster and more robust scraper
 
 ## Next up {#next}
 
-In the [next lesson](./headless_browser.md) we'll show you how to turn this plain HTTP crawler into a **headless browser** scraper in only a few lines of code.
+In the [next lesson](./19_headless_browser.md) we'll show you how to turn this plain HTTP crawler into a **headless browser** scraper in only a few lines of code.

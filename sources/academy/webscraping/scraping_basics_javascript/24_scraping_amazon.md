@@ -27,7 +27,7 @@ router.addHandler(labels.PRODUCT, async ({ $ }) => {
 ```
 
 
-Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman](../../../glossary/tools/proxyman.md) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
+Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman](../../glossary/tools/proxyman.md) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
 ![View offers button](./images/view-offers-button.jpg)
 
@@ -47,7 +47,7 @@ Here's what this page looks like:
 
 Wow, that's ugly. But for our scenario, this is really great. When we click the **View offers** button, we usually have to wait for the offers to load and render, which would mean we could have to switch our entire crawler to a **PuppeteerCrawler** or **PlaywrightCrawler**. The data on this page we've just found appears to be loaded statically, which means we can still use CheerioCrawler and keep the scraper as efficient as possible 😎
 
-> It's totally possible to scrape the same data as this crawler using [Puppeteer or Playwright](../../puppeteer_playwright/index.md); however, with this offers link found in Postman, we can follow the same workflow much more quickly with static HTTP requests using CheerioCrawler.
+> It's totally possible to scrape the same data as this crawler using [Puppeteer or Playwright](../puppeteer_playwright/index.md); however, with this offers link found in Postman, we can follow the same workflow much more quickly with static HTTP requests using CheerioCrawler.
 
 First, we'll create a request for each product's offers page:
 

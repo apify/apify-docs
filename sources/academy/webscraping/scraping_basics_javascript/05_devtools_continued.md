@@ -93,4 +93,4 @@ And third, we wrapped this data extraction logic in a **loop** to automatically 
 
 And that's it! With a bit of trial and error, you will be able to extract data from any webpage that's loaded in your browser. This is a useful skill on its own. It will save you time copy-pasting stuff when you need data for a project.
 
-More importantly though, it taught you the basics to start programming your own scrapers. In the [next lessons](./computer_preparation.md), we will teach you how to create your own web data extraction script using JavaScript and Node.js.
+More importantly though, it taught you the basics to start programming your own scrapers. In the [next lessons](./06_computer_preparation.md), we will teach you how to create your own web data extraction script using JavaScript and Node.js.
