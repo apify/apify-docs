@@ -1,7 +1,6 @@
 ---
-title: Headless browsers
+title: "Crawling: Headless browsers"
 description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.
-sidebar_position: 8
 slug: /web-scraping-for-beginners/crawling/headless-browser
 ---
 

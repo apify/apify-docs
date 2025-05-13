@@ -1,7 +1,6 @@
 ---
-title: Your first crawl
+title: "Crawling: Your first crawl"
 description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Extract URLs from pages and use them to visit more websites.
-sidebar_position: 5
 slug: /web-scraping-for-beginners/crawling/first-crawl
 ---
 

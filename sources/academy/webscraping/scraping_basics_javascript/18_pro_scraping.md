@@ -1,7 +1,6 @@
 ---
-title: Professional scraping
+title: "Crawling: Professional scraping"
 description: Learn how to build scrapers quicker and get better and more robust results by using Crawlee, an open-source library for scraping in Node.js.
-sidebar_position: 7
 slug: /web-scraping-for-beginners/crawling/pro-scraping
 ---
 

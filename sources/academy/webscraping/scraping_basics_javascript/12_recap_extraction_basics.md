@@ -1,7 +1,6 @@
 ---
-title: Recap - Data extraction
+title: "Crawling: Recap - Data extraction"
 description: Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to extract and save the data.
-sidebar_position: 1
 slug: /web-scraping-for-beginners/crawling/recap-extraction-basics
 ---
 

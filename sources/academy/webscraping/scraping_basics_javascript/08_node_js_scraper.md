@@ -1,7 +1,6 @@
 ---
 title: Scraping with Node.js
 description: Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the Cheerio and Got-scraping libraries to make your job easier.
-sidebar_position: 6
 slug: /web-scraping-for-beginners/data-extraction/node-js-scraper
 ---
 

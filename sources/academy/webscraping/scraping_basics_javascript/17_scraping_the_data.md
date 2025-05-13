@@ -1,7 +1,6 @@
 ---
-title: Scraping data
+title: "Crawling: Scraping data"
 description: Learn how to add data extraction logic to your crawler, which will allow you to extract data from all the websites you crawled.
-sidebar_position: 6
 slug: /web-scraping-for-beginners/crawling/scraping-the-data
 ---
 

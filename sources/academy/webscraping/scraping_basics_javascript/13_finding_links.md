@@ -1,7 +1,6 @@
 ---
-title: Finding links
+title: "Crawling: Finding links"
 description: Learn what a link looks like in HTML and how to find and extract their URLs when web scraping. Using both DevTools and Node.js.
-sidebar_position: 2
 slug: /web-scraping-for-beginners/crawling/finding-links
 ---
 

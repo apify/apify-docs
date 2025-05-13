@@ -1,7 +1,6 @@
 ---
-title: Filtering links
+title: "Crawling: Filtering links"
 description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
-sidebar_position: 3
 slug: /web-scraping-for-beginners/crawling/filtering-links
 ---
 

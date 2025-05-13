@@ -1,7 +1,6 @@
 ---
-title: Exporting data
+title: "Crawling: Exporting data"
 description: Learn how to export the data you scraped using Crawlee to CSV or JSON.
-sidebar_position: 9
 slug: /web-scraping-for-beginners/crawling/exporting-data
 ---
 

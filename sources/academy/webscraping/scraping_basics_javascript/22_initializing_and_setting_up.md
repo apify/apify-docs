@@ -1,7 +1,6 @@
 ---
-title: Initializing & setting up
+title: "Challenge: Initializing & setting up"
 description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
-sidebar_position: 1
 slug: /web-scraping-for-beginners/challenge/initializing-and-setting-up
 ---
 
