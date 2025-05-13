@@ -223,7 +223,15 @@ The `anyDate` property renders a date picker that accepts both absolute and rela
 
 ![Apify Actor input schema - country input](./images/input-schema-date-both.png)
 
-TODO: Example of file selection using `fileupload` editor:
+Example of file selection using `fileupload` editor. The input is passed to the Actor as a string, it is up to the author to resolve the file or validate if it exists.
+
+![Apify Actor input schema - fileupload input](./images/input-schema-fileupload-input.png)
+
+
+The input allows the user to either provide a link or to upload the file as a record to a key-value store of their choosing.
+
+![Apify Actor input schema - fileupload input options](./images/input-schema-fileupload-modal.png)
+
 
 Properties:
 
