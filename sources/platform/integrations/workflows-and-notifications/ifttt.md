@@ -56,7 +56,7 @@ To create an Applet that starts when Apify event occurs:
 
 	![Apify Choose Trigger](../images/ifttt-choose-trigger.png)
 
-1. Configure the trigger by selecting the specif Actor or task.
+1. Configure the trigger by selecting the specific Actor or task.
 1. Click **Create trigger** to continue.
 
 In case you didn't connect to the Apify account, you will be prompted to do so when you select a trigger.
