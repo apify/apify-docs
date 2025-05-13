@@ -139,22 +139,6 @@ module.exports = {
                 },
             }),
         ],
-        [
-            'redocusaurus',
-            /** @type {import('redocusaurus').PresetEntry} */
-            {
-                config: join(__dirname, '.redocly.yaml'),
-                specs: [
-                    {
-                        spec: './apify-api/openapi/openapi.yaml',
-                        route: '/api/v2-redoc/',
-                    },
-                ],
-                theme: {
-                    primaryColor: '#1f9ec8',
-                },
-            },
-        ],
     ]),
     plugins: [
         [

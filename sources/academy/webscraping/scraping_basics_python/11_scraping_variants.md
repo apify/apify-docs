@@ -2,7 +2,6 @@
 title: Scraping product variants with Python
 sidebar_label: Scraping product variants
 description: Lesson about building a Python application for watching prices. Using browser DevTools to figure out how to extract product variants and exporting them as separate items.
-sidebar_position: 11
 slug: /scraping-basics-python/scraping-variants
 ---
 
@@ -37,7 +36,7 @@ First, let's extract information about the variants. If we go to [Sony XBR-950G 
 </div>
 ```
 
-Nice! We can extract the variant names, but we also need to extract the price for each variant. Switching the variants using the buttons shows us that the HTML changes dynamically. This means the page uses JavaScript to display information about the variants.
+Nice! We can extract the variant names, but we also need to extract the price for each variant. Switching the variants using the buttons shows us that the HTML changes dynamically. This means the page uses JavaScript to display this information.
 
 ![Switching variants](images/variants-js.gif)
 
@@ -97,7 +96,7 @@ The CSS selector `.product-form__option.no-js` matches elements with both `produ
 
 Python dictionaries are mutable, so if we assigned the variant with `item["variant_name"] = ...`, we'd always overwrite the values. Instead of saving an item for each variant, we'd end up with the last variant repeated several times. To avoid this, we create a new dictionary for each variant and merge it with the `item` data before adding it to `data`. If we don't find any variants, we add the `item` as is, leaving the `variant_name` key empty.
 
-:::tip Python syntax you might not know
+:::tip Modern Python syntax
 
 Since Python 3.8, you can use `:=` to simplify checking if an assignment resulted in a non-empty value. It's called an _assignment expression_ or _walrus operator_. You can learn more about it in the [docs](https://docs.python.org/3/reference/expressions.html#assignment-expressions) or in the [proposal document](https://peps.python.org/pep-0572/).
 
@@ -105,7 +104,7 @@ Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https
 
 :::
 
-If you run the program, you should see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
+If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -275,7 +274,7 @@ with open("products.json", "w") as file:
     export_json(file, data)
 ```
 
-Run the scraper and see for yourself if all the items in the data contain prices:
+Let's run the scraper and see if all the items in the data contain prices:
 
 <!-- eslint-skip -->
 ```json title=products.json

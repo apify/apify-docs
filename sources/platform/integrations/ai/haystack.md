@@ -2,7 +2,7 @@
 title: Haystack integration
 sidebar_label: Haystack
 description: Learn how to integrate Apify with Haystack to work with web data in the Haystack ecosystem.
-sidebar_position: 1
+sidebar_position: 3
 slug: /integrations/haystack
 ---
 

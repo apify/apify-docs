@@ -7,6 +7,8 @@ for (const item of items) {
     }
 }
 
+items.unshift('getting-started');
+
 module.exports = {
     api: [
         {

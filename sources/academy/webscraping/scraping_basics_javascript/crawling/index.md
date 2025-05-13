@@ -12,7 +12,7 @@ slug: /web-scraping-for-beginners/crawling
 
 ---
 
-Welcome to the second section of our **Web scraping for beginners** course. In the [Basics of data extraction](../data_extraction/index.md) section, we learned how to extract data from a web page. Specifically, a template Shopify site called [Warehouse store](https://warehouse-theme-metal.myshopify.com/).
+Welcome to the second section of our **Web scraping basics for JavaScript devs** course. In the [Basics of data extraction](../data_extraction/index.md) section, we learned how to extract data from a web page. Specifically, a template Shopify site called [Warehouse store](https://warehouse-theme-metal.myshopify.com/).
 
 ![on-sale category of Warehouse store](./images/warehouse-store.png)
 

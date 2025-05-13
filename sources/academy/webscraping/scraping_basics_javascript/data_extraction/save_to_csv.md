@@ -136,7 +136,7 @@ Finally, run it with `node main.js` in your terminal. After running it, you will
 
 ![Displaying CSV data in Google Sheets](./images/csv-data-in-sheets.png)
 
-This marks the end of the **Basics of data extraction** section of Web scraping for beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
+This marks the end of the **Basics of data extraction** section of Web scraping basics for JavaScript devs. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
 
 ## Next up {#next}
 

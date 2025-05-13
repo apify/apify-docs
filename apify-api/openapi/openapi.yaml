@@ -3,10 +3,6 @@ info:
   title: Apify API
   description: |
 
-    > **UPDATE 2025-01-14:**
-    > We have rolled out this new Apify API Documentation. In case of any issues, please [report here](https://github.com/apify/apify-docs/issues).
-    > The old API Documentation is still [available here](https://docs.apify.com/api/v2-old).
-
     The Apify API (version 2) provides programmatic access to the [Apify
     platform](https://docs.apify.com). The API is organized
     around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
@@ -537,6 +533,8 @@ paths:
     $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync.yaml'
   '/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items':
     $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync-get-dataset-items.yaml'
+  '/v2/actor-tasks/{actorTaskId}/runs/last':
+    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml'
   /v2/actor-runs:
     $ref: paths/actor-runs/actor-runs.yaml
   '/v2/actor-runs/{runId}':

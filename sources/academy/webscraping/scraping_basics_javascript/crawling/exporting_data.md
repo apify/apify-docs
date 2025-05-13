@@ -109,4 +109,4 @@ await Dataset.exportToCSV('results');
 
 ## Next up {#next}
 
-And this is it for the [**Basics of crawling**](./index.md) section of the [**Web scraping for beginners**](../index.md) course. If you want to learn more, test your knowledge of the methods and concepts you learned in this course by moving forward with the [**challenge**](../challenge/index.md).
+And this is it for the [**Basics of crawling**](./index.md) section of the [**Web scraping basics for JavaScript devs**](../index.md) course. If you want to learn more, test your knowledge of the methods and concepts you learned in this course by moving forward with the [**challenge**](../challenge/index.md).
