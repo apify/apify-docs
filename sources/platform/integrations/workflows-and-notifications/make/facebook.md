@@ -4,7 +4,6 @@ description: Learn about Facebook scraper modules, extract posts, comments, and 
 sidebar_label: Facebook
 sidebar_position: 8
 slug: /integrations/make/facebook
-unlisted: true
 ---
 
 ## Apify Scraper for Facebook Data
