@@ -4,7 +4,7 @@ description: Learn what a link looks like in HTML and how to find and extract th
 slug: /web-scraping-for-beginners/crawling/finding-links
 ---
 
-import Example from '!!raw-loader!roa-loader!./finding_links.js';
+import Example from '!!raw-loader!roa-loader!./code_blocks/finding_links.js';
 
 # Finding links {#finding-links}
 
