@@ -98,7 +98,7 @@ For each Instagram post, you will extract:
 - _Post association_: URL of the Instagram post the comment belongs to.
 - _Replies (if any)_: nested replies under the main comment.
 
-:::note Free plan limitatios
+:::note Free plan limitations
 
 Features like _replies_ and _newest comments first_ are limited for users on Apify's Free Plan. To access the newest comment sorting or more than 20 replies per comment, consider upgrading to a [paid subscription](https://apify.com/pricing).
 
