@@ -1,5 +1,6 @@
 ---
-title: Home
+title: Apify platform
+sidebar_label: Home
 description: Apify is your one-stop shop for web scraping, data extraction, and RPA. Automate anything you can do manually in a browser.
 slug: /
 hide_table_of_contents: true
@@ -9,20 +10,23 @@ import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 import homepageContent from "./homepage_content.json";
 
-# Apify platform
+_Apify_ is a cloud platform that helps you build reliable web scrapers, and automate anything you can do manually in a web browser. It's designed for large-scale and high-performance web scraping and automation. The platform provides easy access to compute instances([Actors](/platform/actors)), storage for requests and results, proxies, request queues, scheduling, webhooks, and more. All of those tools are accessible through the [Apify Console](platform/console) web interface, [Apify API](/api/v2), or our [JavaScript](api/client/js) and [Python](api/client/python) API clients.
 
-> **Apify** is a cloud platform that helps you build reliable web scrapers, fast, and automate anything you can do manually in a web browser.
->
-> **Actors** are serverless cloud programs running on the Apify platform that can easily crawl websites with millions of pages, but also perform arbitrary computing jobs such as sending emails or data transformations. They can be started manually, using our API or scheduler, and they can be easily integrated with other apps.
+_Actors_ are serverless cloud programs running on the Apify platform. The can crawl websites with millions of pages or perform diverse computing jobs like sending emails or data transformations. You can start Actors manually via our API, or with the scheduler, and they integrate easily with other applications.
 
 ## Getting started
 
-**Learn how to run any Actor in Apify Store or create your own. A step-by-step guides through your first steps on the Apify platform.**
+Learn how to run any Actor in Apify Store or create your own. A step-by-step guides through your first steps on the Apify platform.
 
 <CardGrid>
     <Card
-        title="Run Actor from Apify Store"
+        title="Learn about Apify Store"
         desc="Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify."
+        to="/platform/console"
+    />
+    <Card
+        title="Run Actor from Apify Store"
+        desc="Learn the simple steps to find, configure, and run ready-made Actors from Apify Store. Start automating tasks or extracting data in minutes, often without writing any code."
         to="/platform/actors/running"
     />
     <Card
