@@ -40,7 +40,7 @@ Nice! We can extract the variant names, but we also need to extract the price fo
 
 ![Switching variants](images/variants-js.gif)
 
-If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossiblescrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
+If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
 
 After a bit of detective work, we notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
 
