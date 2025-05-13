@@ -1,5 +1,5 @@
 ---
-title: Starting with browser DevTools
+title: "Data extraction: Starting with browser DevTools"
 description: Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.
 slug: /web-scraping-for-beginners/data-extraction/browser-devtools
 ---

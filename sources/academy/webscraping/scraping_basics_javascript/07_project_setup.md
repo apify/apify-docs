@@ -1,5 +1,5 @@
 ---
-title: Project setup
+title: "Data extraction: Project setup"
 description: Create a new project with npm and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.
 slug: /web-scraping-for-beginners/data-extraction/project-setup
 ---

@@ -1,5 +1,5 @@
 ---
-title: Finding elements with DevTools
+title: "Data extraction: Finding elements with DevTools"
 description: Learn how to use browser DevTools, CSS selectors, and JavaScript via the DevTools console to extract data from a website.
 slug: /web-scraping-for-beginners/data-extraction/using-devtools
 ---

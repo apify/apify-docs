@@ -1,5 +1,5 @@
 ---
-title: Basics of data extraction
+title: Data extraction
 description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data extraction.
 category: courses
 slug: /web-scraping-for-beginners/data-extraction
