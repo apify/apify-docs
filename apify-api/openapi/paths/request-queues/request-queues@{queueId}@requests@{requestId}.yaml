@@ -83,7 +83,7 @@ put:
   description: |
     Updates a request in a queue. Mark request as handled by setting
     `request.handledAt = new Date()`.
-    If `handledAt` is set, the request will be removed from head of the queue.
+    If `handledAt` is set, the request will be removed from head of the queue (and unlocked, if applicable).
   operationId: requestQueue_request_put
   parameters:
     - name: queueId
