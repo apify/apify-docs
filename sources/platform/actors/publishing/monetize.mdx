@@ -125,15 +125,16 @@ You can also choose not to use it, but then you must handle API integration and 
 ### How to attract larger customers of PPE and PPR Actors
 Each user running your Actor belongs to a specific Apify Store discount tier, namely `FREE`, `BRONZE`, `SILVER`, or `GOLD` tier.
 
-When setting pricing for a PPE/PPR Actor, you can define different prices for different tiers.
-While optional, we strongly recommend offering progressively lower prices for higher discount tiers to attract large enterprise customers who may spend thousands or tens of thousands of dollars on your Actor.
-The unit platform usage costs for higher tiers will also be lower, helping you maintain healthy profit margins, as explained in the [Computing your costs for PPE and PPR Actors](#computing-your-costs-for-ppe-and-ppr-actors) section.
+You can define different prices for different tiers.
+While optional, we recommend offering progressively lower prices for higher discount tiers. This approach can significantly improve attractiveness of your Actor to large enterprise customers who may spend thousands or tens of thousands of dollars on it.
 
-While we don't recommend setting very high prices for free users by default, because it limits the users' ability to evaluate your Actor, we understand that sometimes it's necessary to protect you from fraud or excessive use of your internal APIs, in which case setting a high price for free users might be justified.
+Your platform costs are also lower for these higher tier, which helps maintain healthy profit margins. This is further detailed in the [Computing your costs for PPE and PPR Actors](#computing-your-costs-for-ppe-and-ppr-actors) section.
 
-During an Actor run, you can access the user's discount tier through run environment variables or by querying user data via our API. This allows you to potentially provide premium services to users in higher discount tiers.
+By default, we advise against setting excessively high prices for _FREE_ tier users, as this can limit the ability to evaluate your Actor thoroughly. However, in certain situations, such as protecting your Actor from fraudulent activity or excessive use of your internal APIs, a higher price for _FREE_ tier users might be justified.
 
-Apart from these standard tiers listed above, there are further tiers reserved for enterprise customers, such as `PLATINUM` and `DIAMOND`. If you are interested in providing enterprise level services and attracting large customers, please reach out to us.
+During an Actor run, you can identify the user's discount tier through Actor run environment variables or by querying user data via the Apify API. This capability allows you to offer premium features or differentiated service levels to users in higher discount tiers.
+
+In addition to the standard tiers, Apify provides further tiers specifically for enterprise customers, including _PLATINUM_ and _DIAMOND_ tiers. If you are interested in offering enterprise-level services and attracting major clients, please contact us.
 
 ### Computing your costs for PPE and PPR Actors
 
