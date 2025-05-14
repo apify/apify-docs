@@ -210,8 +210,14 @@ always write to [community@apify.com](mailto:community@apify.com).
 ![Paid Actors' issues tab](./images/store/paid-actors-issues-tab.png)
 
 ## Apify Store discounts
-Each Apify subscription plan includes a discount tier (Bronze, Silver, Gold) that provides access to increasingly lower prices on selected Actors.
-Please note that offering these discounts is at the discretion of the Actor owners. Since this is a relatively new feature, not all Actors currently participate in the discount program at the moment.
+Each Apify subscription plan includes a discount tier (_BRONZE_, _SILVER_, _GOLD_) that provides access to increasingly lower prices on selected Actors.
+
+:::note Discount participation
+
+Discount offers are optional and determined by Actor owners. Not all Actors participate in the discount program.
+
+:::
+
 Additional discounts are available for Enterprise customers.
 
 To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in the Apify Store.
