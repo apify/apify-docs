@@ -13,6 +13,8 @@ import CardGrid from "@site/src/components/CardGrid";
 
 ---
 
+Actors are fundamental to the Apify platform. Understanding them is the first step to fully grasp Apify's capabilities for web scraping, automation, and more.
+
 <CardGrid>
     <Card
         title="Running Actors"
@@ -33,19 +35,46 @@ import CardGrid from "@site/src/components/CardGrid";
 
 ## What is an Actor?
 
-Actors are serverless programs running in the cloud. They can perform anything from simple actions (such as filling out a web form or sending an email) to complex operations (such as crawling an entire website or removing duplicates from a large dataset). Actor runs can be as short or as long as necessary. They could last seconds, hours, or even infinitely.
+When you deploy your code to the Apify Platform, it becomes an _Actor_. An Actor is a serverless program that accepts an input (usually in JSON format) and produces an output.
 
-> **To get better idea of what Apify Actors are, visit [Apify Store](https://apify.com/store), and try out some of them!**
-> ![Apify Store](./running/images/store-google-maps-scraper.png)
+Actors are versatile:
 
-You can use Actors [manually in Apify Console](https://console.apify.com/actors), by using the [API](/api/v2) or [scheduler](../schedules.md). You can easily [integrate them with other apps](../integrations/index.mdx) and share your Actors with other Apify users via [Apify Store](https://apify.com/store) or [access rights](./collaboration/access-rights) system.
+- They can perform simple actions, such as filling out a web form or sending an email.
+- They cah handle complex operations, like crawling an entire website or removing duplicates from a large dataset.
+- Their execution time can vary from few seconds, to hours, or even run indefinitely for continuous tasks.
 
-## Actors are containers
+While many Actors on the Apify platform are designed for web scraping, data extraction, and browser automation, they are not limited to these tasks. An Actor can be any program that runs inside a Docker container.
 
-A single isolated Actor consists of source code and various settings. You can think of an Actor as a cloud app or service that runs on the Apify platform. The run of an Actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
+Once an Actor is on the Apify platform, you can share it with the world through [Apify Store](https://apify.com/store).
+Public Actors can also be monetized.
 
-Basically, Actors are programs packaged as [Docker images](https://hub.docker.com/), which accept a well-defined JSON input, perform an action, and optionally produce an output.
+:::tip Try it out for yourself
 
-## Public and private Actors
+To get a practical understanding of Apify Actors, visit the [Apify Store](https://apify.com/store), and try some out!
 
-Actors can be [public](./actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public Actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+You can typically find an Actor, configure its input if needed (many have sensible defaults), start it, and then view its results once the run is complete.
+
+![Apify Store](./running/images/store-google-maps-scraper.png)
+
+:::
+
+You can interact with Actor in several ways:
+
+- Manually in the [Apify Console](https://console.apify.com/actors)
+- Programmatically using the [Apify API](/api/v2)
+- By scheduling them to run automatically using the [scheduler](platform/schedules)
+
+Additionally, you can easily [integrate Actors with other applications](platform/integrations/index) and manage access for collaboration using the [access right system](platform/collaboration/access-rights).
+
+### Actors are containers
+
+Behind the scenes, an Actor consists of your source code packaged with all of its dependencies into a Docker image. This containerized approach ensures that your Actor runs consistently across different environments.
+
+You can think of an Actor as a cloud application or service running on the Apify platform.Its run is not limited to the lifetime of a single HTTP transaction, it can persist for as long as necessary to complete its task.
+
+### Public and private Actors
+
+Actors on the Apify platform can be either public or private:
+
+- _Private Actors_ are visible and usable only by you (and those you grant access to). They are suitable for proprietary tools or internal projects.
+- _Public Actors_ are listed in the Apify Store and are available for anyone to use. You can offer them for free or [set a price for their usage](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
