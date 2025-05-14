@@ -210,6 +210,7 @@ always write to [community@apify.com](mailto:community@apify.com).
 ![Paid Actors' issues tab](./images/store/paid-actors-issues-tab.png)
 
 ## Apify Store discounts
+
 Each Apify subscription plan includes a discount tier (_BRONZE_, _SILVER_, _GOLD_) that provides access to increasingly lower prices on selected Actors.
 
 :::note Discount participation
