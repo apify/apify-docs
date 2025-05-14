@@ -237,13 +237,6 @@ You’ll get:
 
 Looking for more than just Facebook? You can use other native Make apps powered by Apify:
 
-- TikTok Data
-- YouTube Data
-- Instagram Data
-- Google Search Data
-- Google Maps Email Data
-- Amazon Data
-
 - [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok Data](/platform/integrations/make/tiktok)
 - [Google Search](/platform/integrations/make/search)
