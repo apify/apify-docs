@@ -41,7 +41,7 @@ You make your Actor rental with 7-day free trial and then $30/month. During the 
 The first user pays their first rent 7 days after the free trial, i.e., on the 22nd of the month. The second user only starts paying the rent next month. The third user is on the Apify free plan, so after the free trial ends on the 27th of the month, they are not charged and cannot use the Actor further until they get a paid plan. Your profit is computed only from the first user. They were charged $30, so 80% of this goes to you, i.e., _0.8 * 30 = $24_.
 </details>
 
-### Pay-per-result(PPR) pricing model
+### Pay-per-result (PPR) pricing model
 
 In this model, you set a price per 1,000 results. Users are charged based on the number of results your Actor produces and stores in the run's default dataset. Your profit is calculated as 80% of the revenue minus platform usage costs. The formula is:
 
@@ -69,7 +69,7 @@ To ensure profitable operation:
 - Test your Actor with various result volumes to determine optimal pricing
 - Push at least one "error item" to the dataset for invalid input or if search query didn't generate any result. This will prevent users running your Actor for free.
 
-### Pay-per-event pricing model
+### Pay-per-event (PPE) pricing model
 
 The pay-per-event pricing model offers a flexible monetization option for Actors on Apify Store. Unlike pay per result, PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
 
@@ -146,7 +146,7 @@ In addition to the standard tiers, Apify provides further tiers specifically for
 
 For both PPE and PPR Actors, profit is computed using the formula `(0.8 * revenue) - costs`. In this section, we'll explain how the `costs` component is calculated.
 
-When paying users run your Actor, it generates platform usage in the form of compute units, data traffic, API operations etc. This usage determines the `costs` in the profit formula above. 
+When paying users run your Actor, it generates platform usage in the form of compute units, data traffic, API operations etc. This usage determines the `costs` in the profit formula above.
 
 :::note _FREE_ tier usage
 
