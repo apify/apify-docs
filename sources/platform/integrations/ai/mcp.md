@@ -114,7 +114,7 @@ One of the powerful features of MCP with Apify is **dynamic actor tooling** – 
 
 ## Learn more
 
-- **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction):** Learn about the open standard on the official MCP website – understanding the protocol can help you build custom agents.    
-- **[Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server):** The README for the Apify MCP Server actor (available on Apify Store as `apify/actors-mcp-server`) provides technical details on implementation and advanced usage.
-- **[Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client):** A specialized client actor (`jiri.spilka/tester-mcp-client`) that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.
-- **[How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/):** Learn how to expose over 5,000 Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
+- [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction): Learn about the open standard on the official MCP website – understanding the protocol can help you build custom agents.    
+- [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server): The README for the Apify MCP Server actor (available on Apify Store as `apify/actors-mcp-server`) provides technical details on implementation and advanced usage.
+- [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client): A specialized client actor (`jiri.spilka/tester-mcp-client`) that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.
+- [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/): Learn how to expose over 5,000 Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
