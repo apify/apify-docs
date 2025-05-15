@@ -35,7 +35,7 @@ Before you start, make sure you have the following:
 
 While you can interact with the MCP server using raw API calls or cURL, in practice you’ll often use an AI assistant interface. Let’s walk through an example of using Claude Desktop with the Apify MCP Server:
 
-1. **Configure Claude Desktop:** Claude Desktop supports MCP servers via the **Developer Mode** configuration. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
+1. _Configure Claude Desktop:_ Claude Desktop supports MCP servers via the **Developer Mode** configuration. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
 
 ```json
     {
