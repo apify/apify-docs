@@ -8,7 +8,7 @@ slug: /integrations/mcp
 
 <!-- markdownlint-disable MD024 -->
 
-The **Apify Model Context Protocol (MCP) Server** allows AI agents and frameworks to tap into Apify’s extensive library of Actors as tools. It acts as a bridge between AI systems (like Anthropic’s Claude or other MCP-compatible clients) and Apify Actors, enabling agents to perform web scraping, data extraction, or other automation tasks using Actors in real time. MCP standardizes how external tools and data sources are presented to the AI, so you can **seamlessly equip your AI agent with thousands of Apify Actors** available on [Apify Store](https://apify.com/store).
+The _Apify Model Context Protocol (MCP) Server_ allows AI agents and frameworks to tap into Apify’s extensive library of Actors as tools. It acts as a bridge between AI systems (like Anthropic’s Claude or other MCP-compatible clients) and Apify Actors, enabling agents to perform web scraping, data extraction, or other automation tasks using Actors in real time. MCP standardizes how external tools and data sources are presented to the AI, so you can equip your AI agent with thousands of Apify Actors available on [Apify Store](https://apify.com/store).
 
 
 ## Why use MCP with Apify?
