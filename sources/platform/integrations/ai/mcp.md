@@ -8,178 +8,113 @@ slug: /integrations/mcp
 
 <!-- markdownlint-disable MD024 -->
 
-The Apify Model Context Protocol (MCP) server allows AI agents and frameworks compatible with the MCP standard to connect with the extensive library of Actors available on [Apify Store](https://apify.com/store).
+The **Apify Model Context Protocol (MCP) Server** allows AI agents and frameworks to tap into Apify’s extensive library of Actors as tools. It acts as a bridge between AI systems (like Anthropic’s Claude or other MCP-compatible clients) and Apify Actors, enabling agents to perform web scraping, data extraction, or other automation tasks using Actors in real time. MCP standardizes how external tools and data sources are presented to the AI, so you can **seamlessly equip your AI agent with thousands of Apify Actors** available on [Apify Store](https://apify.com/store).
+
 
 ## Why use MCP with Apify?
 
-- _Access a vast tool library_: Provide AI agents access to thousands of pre-built Actors for web scraping, data extraction, and automation.
-- _Dynamic tool discovery_: Unlike static OpenAPI definitions, MCP enables agents to dynamically find and add relevant Actors to their context during runtime. Agents can use MCP operations like `discover-actors` and `add-actor-to-tools`.
-- _Scalability_: Efficiently manage access to a large and growing number of tools, which is challenging with single, static API definitions.
-- _Flexible integration_: Connect to the MCP server using HTTP Server-Sent Events (SSE) or local standard input/output (stdin/stdout). Compatible clients include Claude Desktop, LibreChat, and [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client).
+- *Access a vast tool library:* Instantly provide AI agents with access to thousands of pre-built Apify Actors for web scraping, data extraction, and automation.
+- *Dynamic tool discovery:* Unlike static OpenAPI definitions or function calling, MCP lets agents dynamically discover and add new Actors as tools during a session. For example, agents can use operations like `discover-actors` or `add-actor` to find and integrate new capabilities on the fly.
+- *Scalability:* Efficiently manage a large and growing number of tools. The MCP server can expose the entire Apify Actor Store without requiring individual API integrations for each Actor.
+- *Flexible integration:* Connect via HTTP **Server-sent events (SSE)** for real-time streaming or via local **stdio** transport. Compatible clients include Claude Desktop, VS Code (with MCP extensions), LibreChat, or **[Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client)**. This means you can use MCP in cloud, on-premises, or desktop environments with equal ease.
 
 ## Common use cases
 
-- Extract data from websites, such as social media posts, search engine results, or specific URLs.
+- Extract data from websites (e.g. social media posts, search engine results, specific URLs).
 - Summarize web content or identify trends.
-- Run automated web workflows without direct user interaction.
+- Orchestrate multi-step web automation workflows (without user intervention) by chaining Actor tool calls and using the results in conversation.
 
 ## Prerequisites
 
 Before you start, make sure you have the following:
+1. **An Apify account:** Sign up for a free Apify account if you don’t have one.
+2. **Apify API Token:** Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
+3. **MCP Client:** You will also need an AI agent or client that supports MCP. This could be Anthropic Claude (Desktop edition), a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients). 
 
-1. _Apify account_: You need an active account on the Apify platform.
-2. _API Token_: Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations).
+## Example Usage (Claude Desktop)
 
-## Connection methods
+While you can interact with the MCP server using raw API calls or cURL, in practice you’ll often use an AI assistant interface. Let’s walk through an example of using **Claude Desktop** with the Apify MCP Server:
 
-Apify provides two main ways to connect your MCP client to Actors:
-
-1. Main Actors MCP Server: Access _all_ public Actors. Requires dynamic discovery or specifying Actors via URL parameters.
-2. Actor-specific MCP Server: A dedicated endpoint for a _single_ Actor, which is pre-registered and ready for immediate use.
-
-### Option 1: Use the main Actors MCP server
-
-This method offers the most flexibility, allowing access to all of Apify Store dynamically or by specifying Actors at connection time.
-
-```text title="Server endpoint"
-https://actors-mcp-server.apify.actor/sse?token=<YOUR_API_TOKEN>
-```
-
-Key features:
-
-- Dynamic discovery: Agents can use MCP operations like `discover-actors` to search Apify Store for tools.
-- Dynamic registration: Agents can use the `add-actor-to-tools` operation to add discovered Actors to their available toolset for the current session.
-- Pre-registration via URL: You can make specific Actors available immediately by adding the `&actors=` query parameter to the connection URL (for example, `&actors=apify/rag-web-browser`).
-
-The following example demonstrates connecting to the main server while pre-registering the `apify/rag-web-browser` Actor.
-
-#### Step 1: Start the SSE connection
-
-Use `curl` or another SSE client to establish the connection. Append `&actors=apify/rag-web-browser` to pre-register the tool. Replace `<YOUR_API_TOKEN>` with your actual Apify API token.
-
-```bash
-# Start the Server-Sent Events (SSE) session and keep it active
-curl "https://actors-mcp-server.apify.actor/sse?token=<YOUR_API_TOKEN>&actors=apify/rag-web-browser"
-
-# The server responds with the session endpoint. Note the sessionId.
-# event: endpoint
-# data: /message?sessionId=9d820491-38d4-4c7d-bb6a-3b7dc542f1fa
-```
-
-#### Step 2: Send a tool call request
-
-Use the `sessionId` obtained in Step 1 to send a POST request to the `/message` endpoint. This request invokes the pre-registered `apify/rag-web-browser` tool. Replace `<YOUR_API_TOKEN>` and `<SESSION_ID>` with your actual values.
-
-```bash
-curl -X POST "https://actors-mcp-server.apify.actor/message?token=<YOUR_API_TOKEN>&session_id=<SESSION_ID>" \
--H "Content-Type: application/json" \
--d '{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "tools/call",
-  "params": {
-    "arguments": {
-      "query": "web browser for RAG pipelines -site:reddit.com",
-      "proxyConfiguration": {
-            "useApifyProxy": true
-      },
-      "removeElementsCssSelector": "nav, footer, script, style, noscript, svg, img[src^='\''data:'\''],\\n[role=\\"alert\\"],\\n[role=\\"banner\\"],\\n[role=\\"dialog\\"],\\n[role=\\"alertdialog\\"],\\n[role=\\"region\\"][aria-label*=\\"skip\\" i],\\n[aria-modal=\\"true\\"]",
-      "htmlTransformer": "none"
-    },
-    "name": "apify/rag-web-browser"
-  }
-}'
-
-# The server immediately confirms receipt of the request:
-# Accepted
-```
-
-#### Step 3: Receive the result via SSE
-
-The Actor's result is sent back asynchronously over the SSE connection established in Step 1.
+1. **Configure Claude Desktop:** Claude Desktop supports MCP servers via the **Developer Mode** configuration. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
 
 ```json
-event: message
-data: {
-  "result": {
-    "content": [
-      {
-        "type": "text",
-        "text": "[{\"searchResult\":{\"title\":\"... RAG Web Browser Result ...\",\"description\":\"... Content extracted by the Actor ...\"}}]" // Example structure
+    {
+     "mcpServers": {
+       "actors-mcp-server": {
+         "command": "npx",
+         "args": ["-y", "@apify/actors-mcp-server"],
+         "env": {
+            "APIFY_TOKEN": "YOUR_APIFY_TOKEN"
+         }
+       }
+     }
+    }
+```
+
+This tells Claude to spawn the Apify MCP Server (via the NPM package) with your API token. (On first run, it will download the package automatically.)
+
+2. **Launch Claude and connect:** After updating the config, restart Claude Desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
+    
+3. **Use the Actors in conversation:** Now you can chat with Claude and ask it to use Apify Actors. For example, you might ask: _“What Apify Actors can I use?”_ Claude (through the MCP server) will list tools (Actors) available. If none are pre-loaded beyond the defaults, it might show a few default ones or instruct how to discover more. You can then ask something like: _“Use the Instagram Scraper to get the latest posts from NASA’s profile.”_ Claude will internally call the `apify/instagram-scraper` Actor via the MCP server and stream the results back to you, perhaps summarizing the output.
+    
+    Behind the scenes, Claude didn’t need to know the details of Apify’s API or Actors — it relied on the MCP server to handle tool execution. You, as the user, just see the answer or result in the chat.
+    
+4. **Dynamic tool loading:** If you ask for something that requires a tool not initially present, Claude can invoke the discovery mechanism. For instance, _“Find an Actor that scrapes Google Search and use it to search for ‘climate change news’.”_ Claude can call `search-actors` (to find a Google Search scraper), then `add-actor` (to add it), and then call it — all within one conversation. The result will then be presented.
+
+This example shows how an AI assistant can leverage Apify Actors through MCP in a conversational way. The key is that once the client (Claude) is configured, you can use natural language to trigger complex workflows on Apify.
+
+_(If you prefer not to set up Claude Desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
+
+## Adding Multiple Actors
+
+By default, the main Actors MCP Server starts with a **default set of Actors** (currently a few popular ones like Instagram Scraper, RAG Web Browser, etc.). However, you can customize which Actors are available:
+
+- **Via Actor Task (on Apify platform):** If you are running the MCP server as an Apify Actor (instead of via NPM), you can create a Task for the `apify/actors-mcp-server` Actor with a custom input specifying the Actors you want. This input would include an array of actor IDs or names. Running that Task (in Standby mode) will launch the MCP server with your chosen Actors instead of the defaults. This is useful if you always want a certain subset of tools and don’t need full dynamic discovery.
+- **Dynamic adding during a session:** If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does (when `enableActorAutoLoading` in Actors MCP Server is true).
+- **Via config file (for Claude Desktop):** When using Claude Desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
+
+```json
+   {
+    "mcpServers": {
+      "actors-mcp-server": {
+        "command": "npx",
+        "args": [
+          "-y", "@apify/actors-mcp-server",
+          "--actors", "lukaskrivka/google-maps-with-contact-details,apify/instagram-scraper"
+        ],
+        "env": {
+           "APIFY_TOKEN": "YOUR_APIFY_TOKEN"
+        }
       }
-    ]
-  }
-}
+    }
+   }
 ```
 
-### Option 2: Use an Actor-specific MCP server
+In summary, you can start with a broad set (everything open and discoverable) or a narrow set (just what you need) and even expand tools on the fly, giving your agent a lot of flexibility without overwhelming it initially.
 
-Certain Actors, such as `apify/rag-web-browser`, offer their own dedicated MCP server endpoint. This simplifies integration when you only need to interact with that specific Actor.
+## Dynamic Actor Tooling
 
-```text title="Endpoint example for &#96;apify/rag-web-browser&#96;"
-https://rag-web-browser.apify.actor/sse?token=<YOUR_API_TOKEN>
-```
+One of the powerful features of MCP with Apify is **dynamic actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
 
-:::note
+- **`search-actors`:** Discover available Actors or MCP-Servers in Apify Store using full text search using keywords.Users try to discover Actors using free form query in this case search query must be converted to full text search. Returns a list of Actors with name, description, run statistics, pricing, starts, and URL. You perhaps need to use this tool several times to find the right Actor. You should prefer simple keywords over complex queries. Limit number of results returned but ensure that relevant results are returned. This is not a general search tool, it is designed to search for Actors in Apify Store.
+- **`get-actor-details`:** Get documentation, readme, input schema and other details about an Actor. For example, when user says, I need to know more about web crawler Actor.Get details for an Actor with with Actor ID or Actor full name, i.e. username/name.Limit the length of the README if needed.
+- **`help-tool`:** Helper tool to get information on how to use and troubleshoot the Apify MCP server. This tool always returns the same help message with information about the server and how to use it. Call this tool in case of any problems or uncertainties with the server.
+- **`add-actor`:** Add a tool, Actor or MCP-Server to available tools by Actor ID or Actor name. A tool is an Actor or MCP-Server that can be called by the userDo not execute the tool, only add it and list it in available tools. For example, add a tool with username/name when user wants to scrape data from a website.
+- **`remove-actor`:** Remove a tool, an Actor or MCP-Server by name from available tools. For example, when user says, I do not need a tool username/name anymore
 
-The hostname typically matches the Actor's name.
+**Important:** Not all AI agent frameworks fully support these dynamic operations. Some require that the tool list is fixed at the start of the session. The Apify MCP Server will send notifications (via the MCP protocol) when the tool list changes, but it’s up to the client to handle that. Apify’s Tester MCP Client can handle this (allowing truly dynamic tool loading in a conversation), whereas something like Claude might not dynamically update its UI to show new tools (Claude’s design expects a fixed set of tools per session). In practice, with Claude you can still use `search-actors` to decide on a tool and then directly call it by name (even if it wasn’t in the initial list) if you use the `enableAddingActors=true` mode (which the Apify client uses by default). This essentially lets the server accept tool calls to Actors not originally in the list, simplifying dynamic usage.
 
-:::
+## Troubleshooting
 
-This method is ideal for integrating a specific tool directly into an application (like Claude Desktop) or a custom client without needing the dynamic discovery capabilities of the main server.
+- **Authorization (API Token):** If the MCP server isn’t executing Actors, ensure you provided a correct Apify API token. Without a valid `APIFY_TOKEN`, the server cannot start Actor runs. Always set the `APIFY_TOKEN` environment variable when running locally.
+- **Connection issues (Claude Desktop SSE):** Claude Desktop (free version) may occasionally drop SSE connections. If you see it disconnect frequently, it’s likely not an issue with Apify but with Claude’s SSE handling. In such cases, using the Stdio integration (as configured in Developer Mode) is recommended (Claude will handle restarts of the process if needed).
+- **Ensure latest version:** If running via NPM, always use the latest version of `@apify/actors-mcp-server` for the newest features and fixes. You can append `@latest` when installing or in your config args to ensure this.
+- **Node.js environment:** If running the server locally, make sure Node.js is installed and up to date (`node -v`). The MCP server requires Node.js v18+.
+- **No response or long delay:** Keep in mind that when an Actor tool is called, it may take some time to complete (depending on the task). The MCP client should stream intermediate results if possible. If nothing is coming back, check the Actor’s logs on Apify — the Actor might be waiting on a long operation or input. Using smaller input (e.g., limiting results with parameters like `maxResults=1`) is a good practice for quick responses, as noted in our guidelines.
 
-The following example demonstrates use of `rag-web-browser` server.
+## Learn more
 
-#### Step 1: Start the SSE connection
-
-Connect directly to the Actor's specific MCP endpoint. Replace `<YOUR_API_TOKEN>` with your actual Apify API token.
-
-```bash
-# Start the Server-Sent Events (SSE) session and keep it active
-curl "https://rag-web-browser.apify.actor/sse?token=<YOUR_API_TOKEN>"
-
-# The server responds with the session endpoint. Note the sessionId.
-# event: endpoint
-# data: /message?sessionId=5b2a...
-```
-
-#### Step 2: Send a tool call request
-
-Use the `sessionId` from Step 1 to send a POST request to the Actor's `/message` endpoint. Replace `<YOUR_API_TOKEN>` and `<SESSION_ID>` with your actual values. The tool `name` in the parameters typically matches the Actor name.
-
-```bash
-curl -X POST "https://rag-web-browser.apify.actor/message?session_id=<SESSION_ID>&token=<YOUR_API_TOKEN>" \
--H "Content-Type: application/json" \
--d '{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "tools/call",
-    "params": {
-      "arguments": { "query": "recent news about LLMs", "maxResults": 1 },
-      "name": "rag-web-browser"
-  }
-}'
-
-# The server immediately confirms receipt of the request:
-# Accepted
-```
-
-#### Step 3: Receive the result via SSE
-
-The result is sent back over the SSE connection established in Step 1.
-
-```json
-event: message
-data: {"result":{"content":[{"type":"text","text":"[{\"searchResult\":{\"title\":\"Language models recent news\",\"description\":\"Amazon Launches New Generation of LLM Foundation Model...\"}}]"}]}}
-```
-
-## Testing and resources
-
-- Testing:
-  - Tester MCP Client: Use the [Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) on Apify to interact with either MCP server type. Enter the appropriate server URL (for example, `https://actors-mcp-server.apify.actor/sse` or `https://rag-web-browser.apify.actor/sse`) in the Actor input field, configure your API token, run the client Actor, and interact through its user interface.
-- Protocol information:
-  - MCP documentation: For details on the protocol, see the [MCP Introduction](https://modelcontextprotocol.io/introduction).
-  - MCP client examples: Find example client implementations at [MCP Clients](https://modelcontextprotocol.io/clients).
-- Further reading:
-  - Apify Blog: Read more about Apify's implementation in the post: [What is Anthropic's Model Context Protocol?](https://blog.apify.com/what-is-model-context-protocol/)
-
+- **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction):** Learn about the open standard on the official MCP website – understanding the protocol can help you build custom agents.    
+- **[Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server):** The README for the Apify MCP Server actor (available on Apify Store as `apify/actors-mcp-server`) provides technical details on implementation and advanced usage.
+- **[Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client):** A specialized client actor (`jiri.spilka/tester-mcp-client`) that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.
+- **[How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/):** Learn how to expose over 5,000 Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
