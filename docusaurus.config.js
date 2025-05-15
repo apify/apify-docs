@@ -6,6 +6,7 @@ const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
+const path = require('node:path');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
@@ -248,6 +249,13 @@ module.exports = {
                         },
                     },
                 },
+            },
+        ],
+        [
+            path.resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
+            {
+                writeKey: process.env.SEGMENT_TOKEN,
+                allowedInDev: false,
             },
         ],
         () => ({
