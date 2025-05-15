@@ -53,7 +53,7 @@ While you can interact with the MCP server using raw API calls or cURL, in pract
 
 This tells Claude to spawn the Apify MCP Server (via the NPM package) with your API token. (On first run, it will download the package automatically.)
 
-2. **Launch Claude and connect:** After updating the config, restart Claude Desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
+2. _Launch Claude and connect:_ After updating the config, restart Claude Desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
     
 3. **Use the Actors in conversation:** Now you can chat with Claude and ask it to use Apify Actors. For example, you might ask: _“What Apify Actors can I use?”_ Claude (through the MCP server) will list tools (Actors) available. If none are pre-loaded beyond the defaults, it might show a few default ones or instruct how to discover more. You can then ask something like: _“Use the Instagram Scraper to get the latest posts from NASA’s profile.”_ Claude will internally call the `apify/instagram-scraper` Actor via the MCP server and stream the results back to you, perhaps summarizing the output.
     
