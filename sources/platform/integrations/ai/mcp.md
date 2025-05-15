@@ -13,10 +13,10 @@ The **Apify Model Context Protocol (MCP) Server** allows AI agents and framework
 
 ## Why use MCP with Apify?
 
-- *Access a vast tool library:* Instantly provide AI agents with access to thousands of pre-built Apify Actors for web scraping, data extraction, and automation.
-- *Dynamic tool discovery:* Unlike static OpenAPI definitions or function calling, MCP lets agents dynamically discover and add new Actors as tools during a session. For example, agents can use operations like `discover-actors` or `add-actor` to find and integrate new capabilities on the fly.
-- *Scalability:* Efficiently manage a large and growing number of tools. The MCP server can expose the entire Apify Actor Store without requiring individual API integrations for each Actor.
-- *Flexible integration:* Connect via HTTP **Server-sent events (SSE)** for real-time streaming or via local **stdio** transport. Compatible clients include Claude Desktop, VS Code (with MCP extensions), LibreChat, or **[Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client)**. This means you can use MCP in cloud, on-premises, or desktop environments with equal ease.
+- _Access a vast tool library:_ Instantly provide AI agents with access to thousands of pre-built Apify Actors for web scraping, data extraction, and automation.
+- _Dynamic tool discovery:_ Unlike static OpenAPI definitions or function calling, MCP lets agents dynamically discover and add new Actors as tools during a session. For example, agents can use operations like `discover-actors` or `add-actor` to find and integrate new capabilities on the fly.
+- _Scalability:_ Efficiently manage a large and growing number of tools. The MCP server can expose the entire Apify Actor Store without requiring individual API integrations for each Actor.
+- _Flexible integration:_ Connect via HTTP Server-sent events (SSE) for real-time streaming or via local stdio transport. Compatible clients include Claude Desktop, VS Code (with MCP extensions), LibreChat, or [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) This means you can use MCP in cloud, on-premises, or desktop environments with equal ease.
 
 ## Common use cases
 
