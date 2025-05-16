@@ -1,7 +1,7 @@
 ---
-title: Using a scraping platform with Python
+title: Using a scraping platform with Node.js
 sidebar_label: Using a platform
-description: Lesson about building a Python application for watching prices. Using the Apify platform to deploy a scraper.
+description: Lesson about building a Node.js application for watching prices. Using the Apify platform to deploy a scraper.
 slug: /scraping-basics-javascript2/platform
 unlisted: true
 ---

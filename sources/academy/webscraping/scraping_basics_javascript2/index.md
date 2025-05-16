@@ -9,32 +9,32 @@ unlisted: true
 
 import DocCardList from '@theme/DocCardList';
 
-**Learn how to use Python to extract information from websites in this practical course, starting from the absolute basics.**
+**Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.**
 
 ---
 
-In this course we'll use Python to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
+In this course we'll use JavaScript to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
 ![E-commerce listing on the left, JSON with data on the right](./images/scraping.webp)
 
 ## What we'll do
 
 - Inspect pages using browser DevTools.
-- Download web pages using the HTTPX library.
-- Extract data from web pages using the Beautiful Soup library.
+- Download web pages using the /TBD/ library.
+- Extract data from web pages using the /TBD/ library.
 - Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open.
 - Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
 ## Who this course is for
 
-Anyone with basic knowledge of developing programs in Python who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of web technologies or scraping.
+Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of web technologies or scraping.
 
 ## Requirements
 
-- A macOS, Linux, or Windows machine with a web browser and Python installed.
-- Familiarity with Python basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes, and exceptions.
-- Comfort with importing from the Python standard library, using virtual environments, and installing dependencies with `pip`.
+- A macOS, Linux, or Windows machine with a web browser and Node.js installed.
+- Familiarity with JavaScript basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes, and exceptions.
+- Comfort with building a Node.js package and installing dependencies with `npm`.
 - Familiarity with running commands in Terminal (macOS/Linux) or Command Prompt (Windows).
 
 ## You may want to know
