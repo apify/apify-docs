@@ -28,7 +28,7 @@ In this course we'll use JavaScript to create an application for watching prices
 
 ## Who this course is for
 
-Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of web technologies or scraping.
+Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of other web technologies or scraping.
 
 ## Requirements
 
