@@ -30,7 +30,7 @@ Now let's peek behind the scenes of a real-world website—say, Wikipedia. We'll
 
 ![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
-Websites are built with three main technologies: HTML, CSS, and JavaScript. In the **Elements** tab, DevTools shows the HTML and CSS of the current page:
+Apart from JavaScript, websites are built with two main technologies: HTML and CSS. In the **Elements** tab, DevTools shows the HTML and CSS of the current page:
 
 ![Elements tab in Chrome DevTools](./images/devtools-elements-tab.png)
 
@@ -58,9 +58,9 @@ HTML, a markup language, describes how everything on a page is organized, how el
 }
 ```
 
-While HTML and CSS describe what the browser should display, [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) is a general-purpose programming language that adds interaction to the page.
+While HTML and CSS describe what the browser should display, JavaScript adds interaction to the page. In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript.
 
-In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript. If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
+If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
 
 ![Console in Chrome DevTools](./images/devtools-console.png)
 
@@ -104,13 +104,13 @@ Encyclopedia
 
 ## Interacting with an element
 
-We won't be creating Python scrapers just yet. Let's first get familiar with what we can do in the JavaScript console and how we can further interact with HTML elements on the page.
+We won't be creating Node.js scrapers just yet. Let's first get familiar with what we can do in the DevTools console and how we can further interact with HTML elements on the page.
 
 In the **Elements** tab, with the subtitle element highlighted, let's right-click the element to open the context menu. There, we'll choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
 
 ![Global variable in Chrome DevTools Console](./images/devtools-console-variable.png)
 
-The Console allows us to run JavaScript in the context of the loaded page, similar to Python's [interactive REPL](https://realpython.com/interacting-with-python/). We can use it to play around with elements.
+The Console allows us to run code in the context of the loaded page. We can use it to play around with elements.
 
 For a start, let's access some of the subtitle's properties. One such property is `textContent`, which contains the text inside the HTML element. The last line in the Console is where your cursor is. We'll type the following and hit **Enter**:
 
