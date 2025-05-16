@@ -1,14 +1,14 @@
 ---
 title: Downloading HTML with Node.js
 sidebar_label: Downloading HTML
-description: Lesson about building a Node.js application for watching prices. Using the /TBD/ library to download HTML code of a product listing page.
+description: Lesson about building a Node.js application for watching prices. Using the Fetch API to download HTML code of a product listing page.
 slug: /scraping-basics-javascript2/downloading-html
 unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson we'll start building a Node.js application for watching prices. As a first step, we'll use the /TBD/ library to download HTML code of a product listing page.**
+**In this lesson we'll start building a Node.js application for watching prices. As a first step, we'll use the Fetch API to download HTML code of a product listing page.**
 
 ---
 
