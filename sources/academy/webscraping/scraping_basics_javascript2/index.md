@@ -20,9 +20,9 @@ In this course we'll use JavaScript to create an application for watching prices
 ## What we'll do
 
 - Inspect pages using browser DevTools.
-- Download web pages using the /TBD/ library.
-- Extract data from web pages using the /TBD/ library.
-- Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open.
+- Download web pages using the Fetch API.
+- Extract data from web pages using the Cheerio library.
+- Save extracted data in various formats (e.g. CSV which MS Excel or Google Sheets can open) using the json2csv library.
 - Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
