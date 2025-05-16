@@ -56,9 +56,7 @@ The `class` attribute can hold multiple values separated by whitespace. This par
 
 ## Programmatically locating a product card
 
-Let's jump into the **Console** and write some JavaScript. Don't worry—we don't need to know the language, and yes, this is a helpful step on our journey to creating a scraper in Python.
-
-In browsers, JavaScript represents the current page as the [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) object, accessible via `document`. This object offers many useful methods, including [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector). This method takes a CSS selector as a string and returns the first HTML element that matches. We'll try typing this into the **Console**:
+Let's jump into the **Console** and write some code. In browsers, JavaScript represents the current page as the [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) object, accessible via `document`. This object offers many useful methods, including [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector). This method takes a CSS selector as a string and returns the first HTML element that matches. We'll try typing this into the **Console**:
 
 ```js
 document.querySelector('.product-item');
@@ -136,14 +134,14 @@ We'll expand the result by clicking the small arrow, then hover our cursor over 
 
 ![Highlighting a querySelectorAll() result](./images/devtools-hover-queryselectorall.png)
 
-To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like in Python lists (or JavaScript arrays):
+To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like with regular JavaScript arrays:
 
 ```js
 products = document.querySelectorAll('.product-item');
 subwoofer = products[2];
 ```
 
-Even though we're just playing with JavaScript in the browser's **Console**, we're inching closer to figuring out what our Python program will need to do. In the next lesson, we'll dive into accessing child elements and extracting product details.
+Even though we're just playing in the browser's **Console**, we're inching closer to figuring out what our Node.js program will need to do. In the next lesson, we'll dive into accessing child elements and extracting product details.
 
 ---
 
