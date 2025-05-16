@@ -1,14 +1,14 @@
 ---
 title: Getting links from HTML with Node.js
 sidebar_label: Getting links from HTML
-description: Lesson about building a Node.js application for watching prices. Using the /TBD/ library to locate links to individual product pages.
+description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to locate links to individual product pages.
 slug: /scraping-basics-javascript2/getting-links
 unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson, we'll locate and extract links to individual product pages. We'll use /TBD/ to find the relevant bits of HTML.**
+**In this lesson, we'll locate and extract links to individual product pages. We'll use Cheerio to find the relevant bits of HTML.**
 
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Saving data with Node.js
 sidebar_label: Saving data
-description: Lesson about building a Node.js application for watching prices. Using /TBD/ to save data scraped from product listing pages in popular formats such as CSV or JSON.
+description: Lesson about building a Node.js application for watching prices. Using the json2csv library to save data scraped from product listing pages in both JSON and CSV.
 slug: /scraping-basics-javascript2/saving-data
 unlisted: true
 ---
 
-**In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use /TBD/ to export the files.**
+**In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use the json2csv library to export the files.**
 
 ---
 

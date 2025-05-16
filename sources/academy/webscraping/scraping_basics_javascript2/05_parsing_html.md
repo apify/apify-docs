@@ -1,14 +1,14 @@
 ---
 title: Parsing HTML with Node.js
 sidebar_label: Parsing HTML
-description: Lesson about building a Node.js application for watching prices. Using the /TBD/ library to parse HTML code of a product listing page.
+description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to parse HTML code of a product listing page.
 slug: /scraping-basics-javascript2/parsing-html
 unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson we'll look for products in the downloaded HTML. We'll use /TBD/ to turn the HTML into objects which we can work with in our Node.js program.**
+**In this lesson we'll look for products in the downloaded HTML. We'll use Cheerio to turn the HTML into objects which we can work with in our Node.js program.**
 
 ---
 
