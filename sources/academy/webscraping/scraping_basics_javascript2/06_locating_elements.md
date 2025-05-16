@@ -1,14 +1,14 @@
 ---
-title: Locating HTML elements with Python
+title: Locating HTML elements with Node.js
 sidebar_label: Locating HTML elements
-description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate products on the product listing page.
+description: Lesson about building a Node.js application for watching prices. Using the /TBD/ library to locate products on the product listing page.
 slug: /scraping-basics-javascript2/locating-elements
 unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson we'll locate product data in the downloaded HTML. We'll use BeautifulSoup to find those HTML elements which contain details about each product, such as title or price.**
+**In this lesson we'll locate product data in the downloaded HTML. We'll use /TBD/ to find those HTML elements which contain details about each product, such as title or price.**
 
 ---
 

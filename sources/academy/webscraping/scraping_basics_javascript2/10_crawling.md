@@ -1,14 +1,14 @@
 ---
-title: Crawling websites with Python
+title: Crawling websites with Node.js
 sidebar_label: Crawling websites
-description: Lesson about building a Python application for watching prices. Using the HTTPX library to follow links to individual product pages.
+description: Lesson about building a Node.js application for watching prices. Using the /TBD/ library to follow links to individual product pages.
 slug: /scraping-basics-javascript2/crawling
 unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson, we'll follow links to individual product pages. We'll use HTTPX to download them and BeautifulSoup to process them.**
+**In this lesson, we'll follow links to individual product pages. We'll use /TBD/ to download them and /TBD/ to process them.**
 
 ---
 
