@@ -21,7 +21,7 @@ Instead of artificial scraping playgrounds or sandboxes, we'll scrape a real e-c
 
 Live sites like Amazon are complex, loaded with promotions, frequently changing, and equipped with anti-scraping measures. While those challenges are manageable, they're advanced topics. For this beginner course, we're sticking to a lightweight, stable environment.
 
-That said, we designed all the exercises to work with live websites. This means occasional updates might be needed, but we think it's worth it for a more authentic learning experience.
+That said, we designed all the additional exercises to work with live websites. This means occasional updates might be needed, but we think it's worth it for a more authentic learning experience.
 
 :::
 
@@ -31,13 +31,13 @@ As mentioned in the previous lesson, before building a scraper, we need to under
 
 ![Warehouse store with DevTools open](./images/devtools-warehouse.png)
 
-The page displays a grid of product cards, each showing a product's title and picture. Open DevTools and locate the title of the **Sony SACS9 Active Subwoofer**. Highlight it in the **Elements** tab by clicking on it.
+The page displays a grid of product cards, each showing a product's title and picture. Let's open DevTools and locate the title of the **Sony SACS9 Active Subwoofer**. We'll highlight it in the **Elements** tab by clicking on it.
 
 ![Selecting an element with DevTools](./images/devtools-product-title.png)
 
 Next, let's find all the elements containing details about this subwoofer—its price, number of reviews, image, and more.
 
-In the **Elements** tab, move your cursor up from the `a` element containing the subwoofer's title. On the way, hover over each element until you highlight the entire product card. Alternatively, use the arrow-up key. The `div` element you land on is the **parent element**, and all nested elements are its **child elements**.
+In the **Elements** tab, we'll move our cursor up from the `a` element containing the subwoofer's title. On the way, we'll hover over each element until we highlight the entire product card. Alternatively, we can use the arrow-up key. The `div` element we land on is the **parent element**, and all nested elements are its **child elements**.
 
 ![Selecting an element with hover](./images/devtools-hover-product.png)
 
@@ -55,9 +55,9 @@ The `class` attribute can hold multiple values separated by whitespace. This par
 
 ## Programmatically locating a product card
 
-Let's jump into the **Console** and write some JavaScript. Don't worry—you don't need to know the language, and yes, this is a helpful step on our journey to creating a scraper in Python.
+Let's jump into the **Console** and write some JavaScript. Don't worry—we don't need to know the language, and yes, this is a helpful step on our journey to creating a scraper in Python.
 
-In browsers, JavaScript represents the current page as the [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) object, accessible via `document`. This object offers many useful methods, including [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector). This method takes a CSS selector as a string and returns the first HTML element that matches. Try typing this into the **Console**:
+In browsers, JavaScript represents the current page as the [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) object, accessible via `document`. This object offers many useful methods, including [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector). This method takes a CSS selector as a string and returns the first HTML element that matches. We'll try typing this into the **Console**:
 
 ```js
 document.querySelector('.product-item');
@@ -109,21 +109,21 @@ How did we know `.product-item` selects a product card? By inspecting the markup
 
 ## Choosing good selectors
 
-Multiple approaches often exist for creating a CSS selector that targets the element you want. Pick selectors that are simple, readable, unique, and semantically tied to the data. These are **resilient selectors**. They're the most reliable and likely to survive website updates. Avoid randomly generated attributes like `class="F4jsL8"`, as they tend to change without warning.
+Multiple approaches often exist for creating a CSS selector that targets the element we want. We should pick selectors that are simple, readable, unique, and semantically tied to the data. These are **resilient selectors**. They're the most reliable and likely to survive website updates. We better avoid randomly generated attributes like `class="F4jsL8"`, as they tend to change without warning.
 
 The product card has four classes: `product-item`, `product-item--vertical`, `1/3--tablet-and-up`, and `1/4--desk`. Only the first one checks all the boxes. A product card *is* a product item, after all. The others seem more about styling—defining how the element looks on the screen—and are probably tied to CSS rules.
 
-This class is also unique enough in the page's context. If it were something generic like `item`, there would be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, you can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
+This class is also unique enough in the page's context. If it were something generic like `item`, there would be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, we can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
 
 ![Overview of all the product cards in DevTools](./images/devtools-product-list.png)
 
 ## Locating all product cards
 
-In the **Console**, hovering your cursor over objects representing HTML elements highlights the corresponding elements on the page. This way we can verify that when we query `.product-item`, the result represents the JBL Flip speaker—the first product card in the list.
+In the **Console**, hovering our cursor over objects representing HTML elements highlights the corresponding elements on the page. This way we can verify that when we query `.product-item`, the result represents the JBL Flip speaker—the first product card in the list.
 
 ![Highlighting a querySelector() result](./images/devtools-hover-queryselector.png)
 
-But what if we want to scrape details about the Sony subwoofer we inspected earlier? For that, we need a method that selects more than just the first match: [`querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). As the name suggests, it takes a CSS selector string and returns all matching HTML elements. Type this into the **Console**:
+But what if we want to scrape details about the Sony subwoofer we inspected earlier? For that, we need a method that selects more than just the first match: [`querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). As the name suggests, it takes a CSS selector string and returns all matching HTML elements. Let's type this into the **Console**:
 
 ```js
 document.querySelectorAll('.product-item');
@@ -131,11 +131,11 @@ document.querySelectorAll('.product-item');
 
 The returned value is a [`NodeList`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList), a collection of nodes. Browsers understand an HTML document as a tree of nodes. Most nodes are HTML elements, but there are also text nodes for plain text, and others.
 
-Expand the result by clicking the small arrow, then hover your cursor over the third element in the list. Indexing starts at 0, so the third element is at index 2. There it is—the product card for the subwoofer!
+We'll expand the result by clicking the small arrow, then hover our cursor over the third element in the list. Indexing starts at 0, so the third element is at index 2. There it is—the product card for the subwoofer!
 
 ![Highlighting a querySelectorAll() result](./images/devtools-hover-queryselectorall.png)
 
-To save the subwoofer in a variable for further inspection, use index access with brackets, just like in Python lists (or JavaScript arrays):
+To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like in Python lists (or JavaScript arrays):
 
 ```js
 products = document.querySelectorAll('.product-item');

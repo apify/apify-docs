@@ -268,7 +268,7 @@ In the previous code example, we've also added the URL to the dictionary returne
 ]
 ```
 
-Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns out the HTML contains so-called relative links.
+Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns out the HTML contains so-called _relative links_.
 
 ## Turning relative links into absolute
 

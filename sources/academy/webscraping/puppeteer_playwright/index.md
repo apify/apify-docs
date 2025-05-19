@@ -1,7 +1,7 @@
 ---
 title: Puppeteer & Playwright
 description: Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.
-sidebar_position: 2
+sidebar_position: 3
 category: web scraping & automation
 slug: /puppeteer-playwright
 ---

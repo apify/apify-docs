@@ -208,3 +208,25 @@ and other users of this Actor. Please feel free to use the tab to ask any questi
 always write to [community@apify.com](mailto:community@apify.com).
 
 ![Paid Actors' issues tab](./images/store/paid-actors-issues-tab.png)
+
+## Apify Store discounts
+
+Each Apify subscription plan includes a discount tier (_BRONZE_, _SILVER_, _GOLD_) that provides access to increasingly lower prices on selected Actors.
+
+:::note Discount participation
+
+Discount offers are optional and determined by Actor owners. Not all Actors participate in the discount program.
+
+:::
+
+Additional discounts are available for Enterprise customers.
+
+To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in the Apify Store.
+
+![Apify Store discounts](./images/store/apify_store_discounts_web.png)
+
+In the Apify Console, you can find information about pricing and available discounts in the Actor's header section.
+
+![Apify Store discounts](./images/store/apify_store_discounts_console.png)
+
+![Apify Store discounts full table](./images/store/apify_store_discounts_full_table.png)

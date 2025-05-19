@@ -1,7 +1,7 @@
 ---
 title: Web scraping basics for Python devs
 description: Learn how to use Python to extract information from websites in this practical course, starting from the absolute basics.
-sidebar_position: 10
+sidebar_position: 2
 category: web scraping & automation
 slug: /scraping-basics-python
 ---
@@ -16,7 +16,7 @@ In this course we'll use Python to create an application for watching prices. It
 
 ![E-commerce listing on the left, JSON with data on the right](./images/scraping.webp)
 
-## What you'll do
+## What we'll do
 
 - Inspect pages using browser DevTools.
 - Download web pages using the HTTPX library.
