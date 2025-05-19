@@ -10,6 +10,8 @@ slug: /integrations/mcp
 
 The _Apify Model Context Protocol (MCP) Server_ allows AI agents and frameworks to tap into Apify’s extensive library of Actors as tools. It acts as a bridge between AI systems (like Anthropic’s Claude or other MCP-compatible clients) and Apify Actors, enabling agents to perform web scraping, data extraction, or other automation tasks using Actors in real time.
 
+![Apify MCP Server](./images/actors-mcp-server.webp)
+
 ## How to use
 
 You can use the Apify MCP Server in three ways:
@@ -58,6 +60,8 @@ This tells Claude to spawn the Apify MCP Server (via the NPM package) with your 
 This example shows how an AI assistant can leverage Apify Actors through MCP in a conversational way. The key is that once the client (Claude) is configured, you can use natural language to trigger complex workflows on Apify.
 
 _(If you prefer not to set up Claude Desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
+
+![Apify Tester MCP Client](./images/chat-ui.webp)
 
 ## Adding Multiple Actors
 
