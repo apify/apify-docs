@@ -11,14 +11,14 @@ module.exports = function (context, options) {
         },
 
         injectHtmlTags() {
+            if (process.env.NODE_ENV !== 'production' && !allowedInDev) {
+                return {};
+            }
+
             if (!writeKey) {
                 throw new Error(
                     'You need to specify a Segment writeKey in the plugin options',
                 );
-            }
-
-            if (process.env.NODE_ENV !== 'production' && !allowedInDev) {
-                return {};
             }
 
             return {
