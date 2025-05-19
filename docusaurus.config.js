@@ -257,7 +257,7 @@ module.exports = {
                     module: {
                         rules: [
                             {
-                                test: /apify-docs\/examples\//i,
+                                test: /examples\//i,
                                 type: 'asset/source',
                             },
                         ],
