@@ -10,7 +10,7 @@ At Apify, we try to make building web scraping and automation straightforward. Y
 
 ## Three ways to build Actors
 
-1. [Our universal scrapers](https://apify.com/store/scrapers/universal-web-scrapers) — customize our boilerplate tools to your needs with a bit of JavaScript and setup.
+1. [Our universal scrapers](https://apify.com/scrapers/universal-web-scrapers) — customize our boilerplate tools to your needs with a bit of JavaScript and setup.
 2. [Our code templates](https://apify.com/templates) for web scraping projects — for a quick project setup to save you development time (includes JavaScript, TypeScript, and Python templates).
 3. Open-source libraries and SDKs
     1. [JavaScript SDK](https://docs.apify.com/sdk/js/) & [Python SDK](https://docs.apify.com/sdk/python/) — for creating your own solution from scratch on the Apify platform using our free development kits. Involves more coding but offers infinite flexibility.
