@@ -103,7 +103,11 @@ One of the powerful features of MCP with Apify is **dynamic actor tooling** – 
 - **`add-actor`:** Add a tool, Actor or MCP-Server to available tools by Actor ID or Actor name. A tool is an Actor or MCP-Server that can be called by the userDo not execute the tool, only add it and list it in available tools. For example, add a tool with username/name when user wants to scrape data from a website.
 - **`remove-actor`:** Remove a tool, an Actor or MCP-Server by name from available tools. For example, when user says, I do not need a tool username/name anymore
 
-**Important:** Not all AI agent frameworks fully support these dynamic operations. Some require that the tool list is fixed at the start of the session. The Apify MCP Server will send notifications (via the MCP protocol) when the tool list changes, but it’s up to the client to handle that. Apify’s Tester MCP Client can handle this (allowing truly dynamic tool loading in a conversation), whereas something like Claude might not dynamically update its UI to show new tools (Claude’s design expects a fixed set of tools per session). In practice, with Claude you can still use `search-actors` to decide on a tool and then directly call it by name (even if it wasn’t in the initial list) if you use the `enableAddingActors=true` mode (which the Apify client uses by default). This essentially lets the server accept tool calls to Actors not originally in the list, simplifying dynamic usage.
+:::tip Dynamic tool loading
+
+Not all AI agent frameworks fully support these dynamic operations. Some require that the tool list is fixed at the start of the session. The Apify MCP Server will send notifications (via the MCP protocol) when the tool list changes, but it’s up to the client to handle that. Apify’s Tester MCP Client can handle this (allowing truly dynamic tool loading in a conversation), whereas something like Claude might not dynamically update its UI to show new tools (Claude’s design expects a fixed set of tools per session). In practice, with Claude you can still use `search-actors` to decide on a tool and then directly call it by name (even if it wasn’t in the initial list) if you use the `enableAddingActors=true` mode (which the Apify client uses by default). This essentially lets the server accept tool calls to Actors not originally in the list, simplifying dynamic usage.
+
+:::
 
 ## Troubleshooting
 
