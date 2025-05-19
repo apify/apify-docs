@@ -33,7 +33,7 @@ export default ExecutionEnvironment.canUseDOM ? {
         // Don't track page views on development
         if (process.env.NODE_ENV === 'production' && window.analytics) {
             window.analytics.page({
-                app: 'crawlee',
+                app: 'docs',
                 path: location.pathname,
                 url: location.href,
                 search: location.search,
