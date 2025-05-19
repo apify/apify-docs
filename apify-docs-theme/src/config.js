@@ -1,16 +1,12 @@
 /* eslint-disable global-require */
+// eslint-disable-next-line no-nested-ternary
+const absoluteUrl = process.env.LOCALHOST
+    ? 'http://localhost:3000'
+    : process.env.DEV
+        ? 'http://docs.apify.loc'
+        : 'https://docs.apify.com';
 
-let absoluteUrl = 'https://docs.apify.com';
-
-if (process.env.LOCALHOST) {
-    absoluteUrl = 'http://localhost:3000';
-} else if (process.env.DEV) {
-    absoluteUrl = 'http://docs.apify.loc';
-} else if (process.env.APIFY_DOCS_ABSOLUTE_URL) {
-    absoluteUrl = process.env.APIFY_DOCS_ABSOLUTE_URL;
-}
-
-const themeConfig = {
+const themeConfig = ({
     docs: {
         versionPersistence: 'localStorage',
         sidebar: {
@@ -281,7 +277,7 @@ const themeConfig = {
         async: true,
         defer: true,
     },
-};
+});
 
 const plugins = [
     [
@@ -298,9 +294,7 @@ const plugins = [
                 return {
                     resolveLoader: {
                         alias: {
-                            'roa-loader': require.resolve(
-                                `${__dirname}/roa-loader/`,
-                            ),
+                            'roa-loader': require.resolve(`${__dirname}/roa-loader/`),
                         },
                     },
                 };

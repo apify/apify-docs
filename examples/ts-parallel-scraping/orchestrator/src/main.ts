@@ -59,7 +59,7 @@ if (state.isInitialized) {
     state.isInitialized = true;
 }
 
-const parallelRunPromises = state.parallelRunIds.map(async (runId) => {
+const parallelRunPromises = state.parallelRunIds.map((runId) => {
     const runClient = apifyClient.run(runId);
     return runClient.waitForFinish();
 });
