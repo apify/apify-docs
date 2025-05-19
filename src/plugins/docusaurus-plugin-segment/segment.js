@@ -34,6 +34,8 @@ export default ExecutionEnvironment.canUseDOM ? {
         if (process.env.NODE_ENV === 'production' && window.analytics) {
             window.analytics.page({
                 app: 'docs',
+                pageType: 'DOCS_PAGE',
+                page_type: 'DOCS_PAGE',
                 path: location.pathname,
                 url: location.href,
                 search: location.search,
