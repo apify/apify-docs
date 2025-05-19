@@ -249,7 +249,7 @@ module.exports = {
                     module: {
                         rules: [
                             {
-                                test: /examples\//i,
+                                test: /\/examples\//i,
                                 type: 'asset/source',
                             },
                         ],
