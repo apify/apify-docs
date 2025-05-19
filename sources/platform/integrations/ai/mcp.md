@@ -63,6 +63,26 @@ _(If you prefer not to set up Claude Desktop, you can achieve a similar result u
 
 ![Apify Tester MCP Client](./images/chat-ui.webp)
 
+## Interact with the MCP Server over SSE
+
+You can interact with the server through Server-Sent Events (SSE) to send messages and receive responses.
+
+In the client settings, you need to provide server configuration:
+
+```json
+{
+    "mcpServers": {
+        "apify": {
+            "type": "sse",
+            "url": "https://actors-mcp-server.apify.actor/sse",
+            "env": {
+                "APIFY_TOKEN": "your-apify-token"
+            }
+        }
+    }
+}
+```
+
 ## Adding Multiple Actors
 
 By default, the main Actors MCP Server starts with a **default set of Actors** (currently a few popular ones like Instagram Scraper, RAG Web Browser, etc.). However, you can customize which Actors are available:
