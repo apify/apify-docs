@@ -34,7 +34,7 @@ Before you start, make sure you have the following:
 
 Let’s walk through an example of using Claude desktop with the Apify MCP Server:
 
-1. _Configure Claude desktop:_ Claude desktop supports MCP servers via the **Developer Mode** configuration. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
+1. _Configure Claude desktop:_ Claude desktop supports MCP servers via the **Developer settings**. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
 
 ```json
     {
