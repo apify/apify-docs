@@ -54,13 +54,7 @@ This tells Claude to spawn the Apify MCP Server (via the [Actors MCP Server](htt
 
 1. _Launch Claude and connect:_ After updating the config, restart Claude desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
 
-1. _Use the Actors in conversation:_ Now you can chat with Claude and ask it to use Apify Actors. For example, you might ask: _“What Apify Actors can I use?”_ Claude (through the MCP server) will list tools (Actors) available. If none are pre-loaded beyond the defaults, it might show a few default ones or instruct how to discover more. You can then ask something like: _“Use the Instagram Scraper to get the latest posts from NASA’s profile.”_ Claude will internally call the `apify/instagram-scraper` Actor via the MCP server and stream the results back to you, perhaps summarizing the output.
-
-    Behind the scenes, Claude didn’t need to know the details of Apify’s API or Actors — it relied on the MCP server to handle tool execution. You, as the user, just see the answer or result in the chat.
-
-1. **Dynamic tool loading:** If you ask for something that requires a tool not initially present, Claude can invoke the discovery mechanism. For instance, _“Find an Actor that scrapes Google Search and use it to search for ‘climate change news’.”_ Claude can call `search-actors` (to find a Google Search scraper), then `add-actor` (to add it), and then call it — all within one conversation. The result will then be presented.
-
-This example shows how an AI assistant can leverage Apify Actors through MCP in a conversational way. The key is that once the client (Claude) is configured, you can use natural language to trigger complex workflows on Apify.
+1. _Use the Actors in conversation:_ You can chat with Claude and ask it to use Apify Actors. For example: _“What Apify Actors can I use?”_ Claude will list available tools via the MCP server. If none are pre-loaded, it may show defaults or guide you to find more. Then you can say: _“Use the Instagram Scraper to get NASA’s latest posts,”_ and Claude will run the apify/instagram-scraper Actor and return the results.
 
 _(If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
 
@@ -90,8 +84,6 @@ In the client settings, you need to provide server configuration:
 
 By default, the main Actors MCP Server starts with a single default Actor: [RAG Web Browser](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
 
-
-- **Via Actor Task (on Apify platform):** If you are running the MCP server as an Apify Actor (instead of via NPM), you can create a Task for the `apify/actors-mcp-server` Actor with a custom input specifying the Actors you want. This input would include an array of actor IDs or names. Running that Task (in Standby mode) will launch the MCP server with your chosen Actors instead of the defaults. This is useful if you always want a certain subset of tools and don’t need full dynamic discovery.
 - **Dynamic adding during a session:** If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does (when `enableActorAutoLoading` in Actors MCP Server is true).
 - **Via config file (for Claude desktop):** When using Claude desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
 
@@ -123,12 +115,6 @@ One of the powerful features of MCP with Apify is **dynamic actor tooling** – 
 - **`help-tool`:** Helper tool to get information on how to use and troubleshoot the Apify MCP server. This tool always returns the same help message with information about the server and how to use it. Call this tool in case of any problems or uncertainties with the server.
 - **`add-actor`:** Add a tool, Actor or MCP-Server to available tools by Actor ID or Actor name. A tool is an Actor or MCP-Server that can be called by the userDo not execute the tool, only add it and list it in available tools. For example, add a tool with username/name when user wants to scrape data from a website.
 - **`remove-actor`:** Remove a tool, an Actor or MCP-Server by name from available tools. For example, when user says, I do not need a tool username/name anymore
-
-:::tip Dynamic tool loading
-
-Not all AI agent frameworks fully support these dynamic operations. Some require that the tool list is fixed at the start of the session. The Apify MCP Server will send notifications (via the MCP protocol) when the tool list changes, but it’s up to the client to handle that. Apify’s Tester MCP Client can handle this (allowing truly dynamic tool loading in a conversation), whereas Claude desktop might not dynamically update its UI to show new tools (Claude’s design expects a fixed set of tools per session). In practice, with Claude you can still use `search-actors` to decide on a tool and then directly call it by name (even if it wasn’t in the initial list) if you use the `enableAddingActors=true` mode (which the Apify client uses by default). This essentially lets the server accept tool calls to Actors not originally in the list, simplifying dynamic usage.
-
-:::
 
 ## Troubleshooting
 
