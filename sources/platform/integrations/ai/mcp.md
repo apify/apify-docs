@@ -135,7 +135,7 @@ Not all AI agent frameworks fully support these dynamic operations. Some require
 - _Authorization (API Token):_ If the MCP server isn’t executing Actors, ensure you provided a correct Apify API token. Without a valid `APIFY_TOKEN`, the server cannot start Actor runs. Always set the `APIFY_TOKEN` environment variable when running locally.
 - _Ensure latest version:_ If running via NPM, always use the latest version of `@apify/actors-mcp-server` for the newest features and fixes. You can append `@latest` when installing or in your config args to ensure this.
 - _Node.js environment:_ If running the server locally, make sure Node.js is installed and up to date (`node -v`). The MCP server requires Node.js v18+.
-- _No response or long delay:_ Keep in mind that when an Actor tool is called, it may take some time to complete (depending on the task). The MCP client should stream intermediate results if possible. If nothing is coming back, check the Actor’s logs on Apify — the Actor might be waiting on a long operation or input. Using smaller input (e.g., limiting results with parameters like `maxResults=1`) is a good practice for quick responses, as noted in our guidelines.
+- _No response or long delay:_ Keep in mind that when an Actor tool is called, it may take some time to complete (depending on the task). If nothing is coming back, check the Actor’s logs on Apify — the Actor might be waiting on a long operation or input. Using smaller input (e.g., limiting results with parameters like `maxResults=1`) is a good practice for quick responses, as noted in our guidelines.
 
 ## Learn more
 
