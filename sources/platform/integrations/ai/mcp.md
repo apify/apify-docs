@@ -88,7 +88,8 @@ In the client settings, you need to provide server configuration:
 
 ## Adding Multiple Actors
 
-By default, the main Actors MCP Server starts with a **default set of Actors** (currently a few popular ones like Instagram Scraper, RAG Web Browser, etc.). However, you can customize which Actors are available:
+By default, the main Actors MCP Server starts with a single default Actor: [RAG Web Browser](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
+
 
 - **Via Actor Task (on Apify platform):** If you are running the MCP server as an Apify Actor (instead of via NPM), you can create a Task for the `apify/actors-mcp-server` Actor with a custom input specifying the Actors you want. This input would include an array of actor IDs or names. Running that Task (in Standby mode) will launch the MCP server with your chosen Actors instead of the defaults. This is useful if you always want a certain subset of tools and don’t need full dynamic discovery.
 - **Dynamic adding during a session:** If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does (when `enableActorAutoLoading` in Actors MCP Server is true).
