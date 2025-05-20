@@ -16,7 +16,7 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 You can use the Apify MCP Server in two ways:
 
-- Standard Input/Output (stdio) which is useful for local integrations and command-line tools (e.g. Claude Desktop)
+- Standard Input/Output (stdio) which is useful for local integrations and command-line tools (e.g. Claude desktop)
 - Use [mcp.apify.com](https://mcp.apify.com)
 
 _(You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as Actor.)_
@@ -28,13 +28,13 @@ Before you start, make sure you have the following:
 
 1. _An Apify account:_ Sign up for a free Apify account if you don’t have one.
 1. _Apify API Token:_ Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
-1. _MCP client:_ You will also need an AI agent or client that supports MCP. This could be Anthropic Claude (Desktop edition), a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
+1. _MCP client:_ You will also need an AI agent or client that supports MCP. This could be Anthropic Claude desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
 
-## Example Usage (Local STDIO with Claude Desktop)
+## Example usage (local stdio with Claude desktop)
 
-While you can interact with the MCP server using raw API calls or cURL, in practice you’ll often use an AI assistant interface. Let’s walk through an example of using Claude Desktop with the Apify MCP Server:
+Let’s walk through an example of using Claude desktop with the Apify MCP Server:
 
-1. _Configure Claude Desktop:_ Claude Desktop supports MCP servers via the **Developer Mode** configuration. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
+1. _Configure Claude desktop:_ Claude desktop supports MCP servers via the **Developer Mode** configuration. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
 
 ```json
     {
@@ -52,7 +52,7 @@ While you can interact with the MCP server using raw API calls or cURL, in pract
 
 This tells Claude to spawn the Apify MCP Server (via the NPM package) with your API token. (On first run, it will download the package automatically.)
 
-1. _Launch Claude and connect:_ After updating the config, restart Claude Desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
+1. _Launch Claude and connect:_ After updating the config, restart Claude desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
 
 1. _Use the Actors in conversation:_ Now you can chat with Claude and ask it to use Apify Actors. For example, you might ask: _“What Apify Actors can I use?”_ Claude (through the MCP server) will list tools (Actors) available. If none are pre-loaded beyond the defaults, it might show a few default ones or instruct how to discover more. You can then ask something like: _“Use the Instagram Scraper to get the latest posts from NASA’s profile.”_ Claude will internally call the `apify/instagram-scraper` Actor via the MCP server and stream the results back to you, perhaps summarizing the output.
 
@@ -62,7 +62,7 @@ This tells Claude to spawn the Apify MCP Server (via the NPM package) with your 
 
 This example shows how an AI assistant can leverage Apify Actors through MCP in a conversational way. The key is that once the client (Claude) is configured, you can use natural language to trigger complex workflows on Apify.
 
-_(If you prefer not to set up Claude Desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
+_(If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
 
 ![Apify Tester MCP Client](./images/chat-ui.webp)
 
@@ -92,7 +92,7 @@ By default, the main Actors MCP Server starts with a **default set of Actors** (
 
 - **Via Actor Task (on Apify platform):** If you are running the MCP server as an Apify Actor (instead of via NPM), you can create a Task for the `apify/actors-mcp-server` Actor with a custom input specifying the Actors you want. This input would include an array of actor IDs or names. Running that Task (in Standby mode) will launch the MCP server with your chosen Actors instead of the defaults. This is useful if you always want a certain subset of tools and don’t need full dynamic discovery.
 - **Dynamic adding during a session:** If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does (when `enableActorAutoLoading` in Actors MCP Server is true).
-- **Via config file (for Claude Desktop):** When using Claude Desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
+- **Via config file (for Claude desktop):** When using Claude desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
 
 ```json
    {
@@ -132,7 +132,7 @@ Not all AI agent frameworks fully support these dynamic operations. Some require
 ## Troubleshooting
 
 - _Authorization (API Token):_ If the MCP server isn’t executing Actors, ensure you provided a correct Apify API token. Without a valid `APIFY_TOKEN`, the server cannot start Actor runs. Always set the `APIFY_TOKEN` environment variable when running locally.
-- _Connection issues (Claude Desktop SSE):_ Claude Desktop (free version) may occasionally drop SSE connections. If you see it disconnect frequently, it’s likely not an issue with Apify but with Claude’s SSE handling. In such cases, using the Stdio integration (as configured in Developer Mode) is recommended (Claude will handle restarts of the process if needed).
+- _Connection issues (Claude desktop SSE):_ Claude desktop (free version) may occasionally drop SSE connections. If you see it disconnect frequently, it’s likely not an issue with Apify but with Claude’s SSE handling. In such cases, using the Stdio integration (as configured in Developer Mode) is recommended (Claude will handle restarts of the process if needed).
 - _Ensure latest version:_ If running via NPM, always use the latest version of `@apify/actors-mcp-server` for the newest features and fixes. You can append `@latest` when installing or in your config args to ensure this.
 - _Node.js environment:_ If running the server locally, make sure Node.js is installed and up to date (`node -v`). The MCP server requires Node.js v18+.
 - _No response or long delay:_ Keep in mind that when an Actor tool is called, it may take some time to complete (depending on the task). The MCP client should stream intermediate results if possible. If nothing is coming back, check the Actor’s logs on Apify — the Actor might be waiting on a long operation or input. Using smaller input (e.g., limiting results with parameters like `maxResults=1`) is a good practice for quick responses, as noted in our guidelines.
