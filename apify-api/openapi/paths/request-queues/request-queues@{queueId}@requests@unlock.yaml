@@ -5,8 +5,8 @@ post:
   description: |
     Unlocks requests in the queue that are currently locked by the client.
 
-    * If client is within an Actor run, it unlocks all requests locked by that specific run plus all requests locked by the same clientKey.
-    * If client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
+    * If the client is within an Actor run, it unlocks all requests locked by that specific run plus all requests locked by the same clientKey.
+    * If the client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
   operationId: requestQueue_requests_unlock_post
   parameters:
     - name: queueId
