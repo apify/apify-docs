@@ -14,11 +14,13 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 ## How to use
 
-You can use the Apify MCP Server in three ways:
+You can use the Apify MCP Server in two ways:
 
-- Local STDIO transport with desktop client (e.g. Claude Desktop)
-- Run [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as Actor
-- Use [mcp.apify.com](https://mcp.apify.com) with both legacy SSE on `/sse` and streamable transport in `/`
+- Standard Input/Output (stdio) which is useful for local integrations and command-line tools (e.g. Claude Desktop)
+- Use [mcp.apify.com](https://mcp.apify.com)
+
+_(You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as Actor.)_
+
 
 ## Prerequisites
 
