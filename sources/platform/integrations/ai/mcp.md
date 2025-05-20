@@ -36,7 +36,7 @@ Let’s walk through an example of using Claude desktop with the Apify MCP Serve
 
 1. _Configure Claude desktop:_ Claude desktop supports MCP servers via the **Developer settings**. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
 
-```json
+    ```json
     {
      "mcpServers": {
        "actors-mcp-server": {
@@ -48,9 +48,9 @@ Let’s walk through an example of using Claude desktop with the Apify MCP Serve
        }
      }
     }
-```
+    ```
 
-This tells Claude to spawn the Apify MCP Server (via the [Actors MCP Server](https://www.npmjs.com/package/@apify/actors-mcp-server) NPM package with your API token (on the first run, it will download the package automatically).
+    This tells Claude to spawn the Apify MCP Server (via the [Actors MCP Server](https://www.npmjs.com/package/@apify/actors-mcp-server) NPM package with your API token (on the first run, it will download the package automatically).
 
 1. _Launch Claude and connect:_ After updating the config, restart Claude desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
 
