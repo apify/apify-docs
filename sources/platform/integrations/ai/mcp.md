@@ -12,12 +12,12 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 ![Apify MCP Server](./images/actors-mcp-server.webp)
 
-## How to use
+## Quickstart
 
 You can use the Apify MCP Server in two ways:
 
 - Standard Input/Output (stdio) which is useful for local integrations and command-line tools (e.g. Claude desktop)
-- Use [mcp.apify.com](https://mcp.apify.com)
+- Use [mcp.apify.com](https://mcp.apify.com) by connecting your MCP client with `Authorization: Bearer <APIFY_TOKEN>` header
 
 _(You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as Actor.)_
 
