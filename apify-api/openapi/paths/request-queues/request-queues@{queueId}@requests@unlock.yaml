@@ -3,7 +3,10 @@ post:
     - Storage/Request queues/Requests locks
   summary: Unlock requests
   description: |
-    Unlocks requests in the queue for the client. The requests are unlocked if were locked by the same client key or if locked from the same Actor run.
+    Unlocks requests in the queue that are currently locked by the client.
+
+    * If client is within an Actor run, it unlocks all requests locked by that specific run plus all requests locked by the same clientKey.
+    * If client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
   operationId: requestQueue_requests_unlock_post
   parameters:
     - name: queueId
