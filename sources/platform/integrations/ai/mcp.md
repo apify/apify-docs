@@ -64,7 +64,7 @@ _(If you prefer not to set up Claude desktop, you can achieve a similar result u
 
 ![Apify Tester MCP Client](./images/chat-ui.webp)
 
-## Interact with the MCP Server over SSE
+## Interact with the MCP server over SSE
 
 You can interact with the server through Server-Sent Events (SSE) to send messages and receive responses.
 
@@ -75,9 +75,9 @@ In the client settings, you need to provide server configuration:
     "mcpServers": {
         "apify": {
             "type": "sse",
-            "url": "https://actors-mcp-server.apify.actor/sse",
-            "env": {
-                "APIFY_TOKEN": "your-apify-token"
+            "url": "https://mcp.apify.com/sse",
+            "headers": {
+                "Authorization": "Bearer your-apify-token"
             }
         }
     }
@@ -110,7 +110,7 @@ By default, the main Actors MCP Server starts with a single default [RAG Web Bro
 
 In summary, you can start with a broad set (everything open and discoverable) or a narrow set (just what you need) and even expand tools on the fly, giving your agent a lot of flexibility without overwhelming it initially.
 
-## Dynamic Actor Tooling
+## Dynamic Actor tooling
 
 One of the powerful features of MCP with Apify is **dynamic actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
 
