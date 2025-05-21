@@ -114,11 +114,11 @@ In summary, you can start with a broad set (everything open and discoverable) or
 
 One of the powerful features of MCP with Apify is **dynamic actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
 
-- **`search-actors`:** Discover available Actors or MCP-Servers in Apify Store using full text search using keywords.Users try to discover Actors using free form query in this case search query must be converted to full text search. Returns a list of Actors with name, description, run statistics, pricing, starts, and URL. You perhaps need to use this tool several times to find the right Actor. You should prefer simple keywords over complex queries. Limit number of results returned but ensure that relevant results are returned. This is not a general search tool, it is designed to search for Actors in Apify Store.
-- **`get-actor-details`:** Get documentation, readme, input schema and other details about an Actor. For example, when user says, I need to know more about web crawler Actor.Get details for an Actor with with Actor ID or Actor full name, i.e. username/name.Limit the length of the README if needed.
-- **`help-tool`:** Helper tool to get information on how to use and troubleshoot the Apify MCP server. This tool always returns the same help message with information about the server and how to use it. Call this tool in case of any problems or uncertainties with the server.
-- **`add-actor`:** Add a tool, Actor or MCP-Server to available tools by Actor ID or Actor name. A tool is an Actor or MCP-Server that can be called by the userDo not execute the tool, only add it and list it in available tools. For example, add a tool with username/name when user wants to scrape data from a website.
-- **`remove-actor`:** Remove a tool, an Actor or MCP-Server by name from available tools. For example, when user says, I do not need a tool username/name anymore
+- _Actor discovery and management:_ Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add or remove tools (`add-actor`, `remove-actor`).
+- _Actor execution and monitoring:_ Start [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs), fetch run results (`get-actor-run`), logs (`get-actor-log`), and abort runs (`abort-actor-run`).
+- _Dataset access:_ List [datasets](https://docs.apify.com/platform/storage/dataset), retrieve dataset info and items (`get-dataset`, `get-dataset-list`, `get-dataset-items`).
+- _Key-value store access:_ List [key-value stores](https://docs.apify.com/platform/storage/key-value-store), view keys, and retrieve records (`get-key-value-store-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`).
+- _Built-in help tool:_ A static helper (`apify-actor-help-tool`) that returns usage info for the Apify MCP Server.
 
 ## Troubleshooting
 
