@@ -58,7 +58,7 @@ Let’s walk through an example of using Claude desktop with the Apify MCP Serve
 
 1. _Launch Claude and connect:_ After updating the config, restart Claude desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
 
-1. _Use the Actors in conversation:_ You can chat with Claude and ask it to use Apify Actors. For example: _“What Apify Actors can I use?”_ Claude will list available tools via the MCP server. If none are pre-loaded, it may show defaults or guide you to find more. Then you can say: _“Use the Instagram Scraper to get NASA’s latest posts,”_ and Claude will run the apify/instagram-scraper Actor and return the results.
+1. _Use the Actors in conversation:_ You can chat with Claude and ask it to use Apify Actors. For example: _“What Apify Actors can I use?”_ Claude will list available tools via the MCP server. If none are pre-loaded, it may show defaults or guide you to find more.
 
 _(If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
 
@@ -86,7 +86,7 @@ In the client settings, you need to provide server configuration:
 
 ## Adding Multiple Actors
 
-By default, the main Actors MCP Server starts with a single default Actor: [RAG Web Browser](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
+By default, the main Actors MCP Server starts with a single default [RAG Web Browser Actor](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
 
 - **Dynamic adding during a session:** If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if `enableAddingActors` is enabled—either via `?enableAddingActors=true` in the MCP Server URL, or with the CLI flag `--enable-adding-actors` (can also be set in Claude Desktop config args as `--enable-adding-actors`).
 - **Via config file (for Claude desktop):** When using Claude desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
