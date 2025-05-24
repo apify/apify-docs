@@ -38,6 +38,19 @@ get:
         type: number
         format: double
         example: 100
+    - name: collection
+      in: query
+      description: Limit the results to keys that belong to a specific collection from the key-value store schema.
+        The key-value store need to have a schema defined for this parameter to work.
+      schema:
+        type: string
+        example: postImages
+    - name: prefix
+      in: query
+      description: Limit the results to keys that start with a specific prefix.
+      schema:
+        type: string
+        example: post-images-
   responses:
     '200':
       description: ''
