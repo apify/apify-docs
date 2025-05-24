@@ -43,7 +43,7 @@ If you're in a brand new project, don't forget to initialize your project, then 
 npm init -y && npm i crawlee
 ```
 
-Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Data Extraction](../../webscraping/scraping_basics_javascript/data_extraction/index.md) lessons:
+Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Data Extraction](../../webscraping/scraping_basics_javascript/02_data_extraction.md) lessons:
 
 ```js
 import { CheerioCrawler } from 'crawlee';

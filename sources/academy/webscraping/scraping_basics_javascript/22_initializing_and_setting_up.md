@@ -1,7 +1,6 @@
 ---
-title: Initializing & setting up
+title: "Challenge: Initializing & setting up"
 description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
-sidebar_position: 1
 slug: /web-scraping-for-beginners/challenge/initializing-and-setting-up
 ---
 
@@ -76,4 +75,4 @@ Finally, we'll add the following input file to **INPUT.json** in the project's r
 
 ## Next up {#next}
 
-Cool! We're ready. But [let's discuss a bit about modularity](./modularity.md) before moving forward!
+Cool! We're ready. But [let's discuss a bit about modularity](./23_modularity.md) before moving forward!
