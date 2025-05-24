@@ -581,6 +581,8 @@ paths:
     $ref: 'paths/request-queues/request-queues@{queueId}.yaml'
   '/v2/request-queues/{queueId}/requests/batch':
     $ref: 'paths/request-queues/request-queues@{queueId}@requests@batch.yaml'
+  '/v2/request-queues/{queueId}/requests/unlock':
+    $ref: 'paths/request-queues/request-queues@{queueId}@requests@unlock.yaml'
   '/v2/request-queues/{queueId}/requests':
     $ref: 'paths/request-queues/request-queues@{queueId}@requests.yaml'
   '/v2/request-queues/{queueId}/requests/{requestId}':
