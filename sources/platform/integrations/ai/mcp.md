@@ -23,7 +23,7 @@ You can use the Apify MCP Server in two ways:
   - `https://mcp.apify.com` for streamable transport
   - `https://mcp.apify.com/sse` for legacy SSE transport
 
-_(You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as Actor.)_
+You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as an Actor.
 
 
 ## Prerequisites
