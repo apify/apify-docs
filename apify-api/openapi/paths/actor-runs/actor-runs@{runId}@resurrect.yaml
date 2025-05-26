@@ -45,7 +45,7 @@ post:
         type: number
       example: 1000
       description: |
-        Optional number of items that the run should return. Used for pay-per-result Actors. Value can be only increased, not decreased.
+        Optional number of items that the run should return. Used for pay-per-result Actors. The value can only be increased beyond the value specified when the Actor run was started.
     - name: maxTotalChargeUsd
       in: query
       required: false
@@ -53,7 +53,7 @@ post:
         type: number
       example: 10
       description: |
-        Optional maximum cost of the run, in USD. Used for pay-per-event Actors. Value can be only increased, not decreased.
+        Optional maximum cost of the run, in USD. Used for pay-per-event Actors. The value can only be increased beyond the value specified when the Actor run was started.
   responses:
     '200':
       description: ''
