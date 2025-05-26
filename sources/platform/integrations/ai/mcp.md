@@ -32,7 +32,7 @@ Before you start, make sure you have the following:
 
 1. _An Apify account:_ Sign up for a free Apify account if you don’t have one.
 1. _Apify API Token:_ Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
-1. _MCP client:_ You will also need an AI agent or client that supports MCP. This could be Anthropic Claude desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
+1. _MCP client:_ An AI agent or client that supports MCP. This could be Anthropic Claude desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
 
 ## Example usage (local stdio with Claude desktop)
 
