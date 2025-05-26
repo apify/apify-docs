@@ -104,7 +104,7 @@ Learn more about how to handle the [Issues tab](/academy/actor-marketing-playboo
 ## Resources
 
 - Best practices on setting up [testing for your Actor](https://docs.apify.com/platform/actors/publishing/test)
-<!-- - What are Apify-maintained and [Community-maintained Actors](https://help.apify.com/en/articles/6999799-what-are-apify-maintained-and-community-maintained-actors)? On ownership, maintenance, features, and support -->
+- What are Apify-maintained and [Community-maintained Actors](https://help.apify.com/en/articles/6999799-what-are-apify-maintained-and-community-maintained-actors)? On ownership, maintenance, features, and support
 - Step-by-step guide on how to [publish your Actor](https://docs.apify.com/platform/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Detailed [guide on pricing models](https://docs.apify.com/platform/actors/running/actors-in-store) for Actors in Store

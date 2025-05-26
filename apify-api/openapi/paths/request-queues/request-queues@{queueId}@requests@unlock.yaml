@@ -1,0 +1,58 @@
+post:
+  tags:
+    - Storage/Request queues/Requests locks
+  summary: Unlock requests
+  description: |
+    Unlocks requests in the queue that are currently locked by the client.
+
+    * If the client is within an Actor run, it unlocks all requests locked by that specific run plus all requests locked by the same clientKey.
+    * If the client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
+  operationId: requestQueue_requests_unlock_post
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+  responses:
+    '200':
+      description: 'Number of requests that were unlocked'
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                required:
+                  - unlockedCount
+                properties:
+                  unlockedCount:
+                    type: integer
+                    description: 'Number of requests that were successfully unlocked'
+          example:
+            data:
+              unlockedCount: 10
+
+  deprecated: false
+  x-js-parent: RequestQueueClient
+  x-js-name: unlockRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#unlockRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: unlock_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#unlock_requests
