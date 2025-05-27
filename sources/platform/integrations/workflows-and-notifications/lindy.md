@@ -1,5 +1,5 @@
 ---
-title: LindyAI integration
+title: Lindy integration
 description: Learn how to integrate Apify with Lindy.
 sidebar_label: Lindy
 sidebar_position: 6
@@ -19,13 +19,13 @@ To use the Apify integration with Lindy, you need:
 - An [Apify account](https://console.apify.com/).
 - A Lindy account with access to premium actions (required for certain integrations or higher usage limits).
 
-## How to Run an Apify Actor from LindyAI
+## How to Run an Apify Actor from Lindy
 
 This section demonstrates how to integrate Apify's data extraction capabilities into Lindy's AI automation.
 
 1. Start a new Lindy workflow by clicking the **+ New Lindy** button.
 
-    ![LindyAI dashboard with new Lindy button highlighted](../images/lindy/lindy-new-button.png)
+    ![Lindy dashboard with new Lindy button highlighted](../images/lindy/lindy-new-button.png)
 
     Select **Start from scratch** to build a custom workflow.
 
@@ -74,7 +74,7 @@ After the Apify Actor run is initiated, you can define what happens next, depend
   - Pass the extracted data to Lindy's AI for summarization, analysis, content generation, or other AI-driven tasks.
   - Route the data to other services (e.g., Google Sheets, databases, email notifications) using Lindy's action modules.
 
-## Available Actions in LindyAI for Apify
+## Available Actions in Lindy for Apify
 
 While LindyAI's specific module names may evolve, the core Apify functionalities typically exposed are:
 
