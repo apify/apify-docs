@@ -37,7 +37,8 @@ import TabItem from '@theme/TabItem';
     "input": "./input_schema.json",
     "storages": {
         "dataset": "./dataset_schema.json"
-    }
+    },
+    "webServerSchema": "./web_server_openapi.json"
 }
 ```
 
@@ -79,3 +80,4 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an _integer_ value. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `usesStandbyMode` | Optional | Boolean specifying whether the Actor will have [Standby mode](../programming_interface/actor_standby.md) enabled. |
+| `webServerSchema` | Optional | Defines an OpenAPI v3 schema for the web server running in the Actor. This can be either an embedded object or a path to a JSON schema file. Use this when your Actor starts its own HTTP server and you want to describe its interface. |
