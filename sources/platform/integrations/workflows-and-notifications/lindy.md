@@ -6,7 +6,7 @@ sidebar_position: 6
 slug: /integrations/lindy
 ---
 
-**Learn how to integrate your Apify Actors with LindyAI.**
+**Learn how to integrate your Apify Actors with Lindy.**
 
 ---
 
@@ -16,7 +16,6 @@ slug: /integrations/lindy
 
 To use the Apify integration with Lindy, you need:
 
-- An [Apify account](https://console.apify.com/).
 - A Lindy account with access to premium actions (required for certain integrations or higher usage limits).
 
 ## How to Run an Apify Actor from Lindy
@@ -76,6 +75,6 @@ After the Apify Actor run is initiated, you can define what happens next, depend
 
 ## Available Actions in Lindy for Apify
 
-While LindyAI's specific module names may evolve, the core Apify functionalities typically exposed are:
+While Lindy's specific module names may evolve, the core Apify functionalities typically exposed are:
 
 - **Run Actor:** Initiates a specific Apify Actor and can optionally wait for its completion.
