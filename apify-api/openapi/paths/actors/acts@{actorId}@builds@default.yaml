@@ -74,3 +74,9 @@ get:
               inputSchema: '{\n  \"title\": \"Schema for ... }'
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
+  x-js-parent: ActorClient
+  x-js-name: defaultBuild
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#defaultBuild
+  x-py-parent: ActorClient
+  x-py-name: default_build
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorClient#default_build
