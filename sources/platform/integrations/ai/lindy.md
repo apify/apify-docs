@@ -2,7 +2,7 @@
 title: Lindy integration
 description: Learn how to integrate Apify with Lindy.
 sidebar_label: Lindy
-sidebar_position: 6
+sidebar_position: 7
 slug: /integrations/lindy
 ---
 
@@ -24,30 +24,30 @@ This section demonstrates how to integrate Apify's data extraction capabilities 
 
 1. Start a new Lindy workflow by clicking the **+ New Lindy** button.
 
-    ![Lindy dashboard with new Lindy button highlighted](../images/lindy/lindy-new-button.png)
+    ![Lindy dashboard with new Lindy button highlighted](images/lindy/lindy-new-button.png)
 
     Select **Start from scratch** to build a custom workflow.
 
-    ![Lindy workflow creation options, with "Start from scratch" selected](../images/lindy/lindy-scratch.png)
+    ![Lindy workflow creation options, with "Start from scratch" selected](images/lindy/lindy-scratch.png)
 
 
 1. Choose a trigger that will initiate your automation. For this demonstration, we will select **Chat with Lindy/Message received**. This allows you to trigger the Apify Actor simply by sending a message to Lindy.
 
-    ![Lindy workflow editor, showing trigger selection, with "Select Trigger" highlighted](../images/lindy/lindy-trigger.png)
-    ![Lindy workflow editor, showing trigger selection, with "Chat with Lindy/Message received" chosen](../images/lindy/lindy-received.png)
+    ![Lindy workflow editor, showing trigger selection, with "Select Trigger" highlighted](images/lindy/lindy-trigger.png)
+    ![Lindy workflow editor, showing trigger selection, with "Chat with Lindy/Message received" chosen](images/lindy/lindy-received.png)
 
 
 1. After setting the trigger, select **Perform an Action**.
 
-    ![Lindy workflow editor, showing the option to "Perform an Action"](../images/lindy/lindy-action.png)
+    ![Lindy workflow editor, showing the option to "Perform an Action"](images/lindy/lindy-action.png)
 
     In the action search box, search for "Apify" or navigate to the **Scrapers** category and choose **Run Actor**.
 
-    ![Lindy action search box with "Apify" typed, showing "Run Actor" option, or "Scrapers" category with "Run Actor" highlighted.](../images/lindy/lindy-run-actor.png)
+    ![Lindy action search box with "Apify" typed, showing "Run Actor" option, or "Scrapers" category with "Run Actor" highlighted.](images/lindy/lindy-run-actor.png)
 
 1. Configure the Apify "Run Actor" Module. In the Apify "Run Actor" configuration, choose the Actor you want to execute. For example, select the **Instagram profile scraper**.
 
-    ![Apify "Run Actor" module configuration in Lindy, showing a dropdown or search for Actors, with "Instagram profile scraper" selected.](../images/lindy/lindy-instagram-actor.png)
+    ![Apify "Run Actor" module configuration in Lindy, showing a dropdown or search for Actors, with "Instagram profile scraper" selected.](images/lindy/lindy-instagram-actor.png)
 
 :::tip Actor availability
 
