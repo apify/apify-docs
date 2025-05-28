@@ -55,8 +55,6 @@ You have access to thousands of Actors available on the [Apify Store](https://ap
 
 :::
 
-
-
 This establishes the fundamental workflow:<br />
 _Chatting with Lindy can now trigger the Apify Instagram Profile Scraper._
 
