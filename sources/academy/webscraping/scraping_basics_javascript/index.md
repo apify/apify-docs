@@ -1,18 +1,18 @@
 ---
-title: Web scraping for beginners
+title: Web scraping basics for JavaScript devs
 description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
 sidebar_position: 1
 category: web scraping & automation
 slug: /web-scraping-for-beginners
 ---
 
-# Web scraping for beginners {#welcome}
+# Web scraping basics for JavaScript devs {#welcome}
 
 **Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.**
 
 ---
 
-Welcome to **Web scraping for beginners**, a comprehensive, practical and long form web scraping course that will take you from an absolute beginner to a successful web scraper developer. If you're looking for a quick start, we recommend trying [this tutorial](https://blog.apify.com/web-scraping-javascript-nodejs/) instead.
+Welcome to **Web scraping basics for JavaScript devs**, a comprehensive, practical and long form web scraping course that will take you from an absolute beginner to a successful web scraper developer. If you're looking for a quick start, we recommend trying [this tutorial](https://blog.apify.com/web-scraping-javascript-nodejs/) instead.
 
 This course is made by [Apify](https://apify.com), the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
 
@@ -30,9 +30,9 @@ Scraper development is a fun and challenging way to learn web development, web t
 
 When we set out to create the Academy, we wanted to build a complete guide to web scraping - a course that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques and technologies. All lessons include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
 
-This is what you'll learn in the **Web scraping for beginners** course:
+This is what you'll learn in the **Web scraping basics for JavaScript devs** course:
 
-* [Web scraping for beginners](./index.md)
+* [Web scraping basics for JavaScript devs](./index.md)
   * [Basics of data extraction](./data_extraction/index.md)
   * [Basics of crawling](./crawling/index.md)
   * [Best practices](./best_practices.md)

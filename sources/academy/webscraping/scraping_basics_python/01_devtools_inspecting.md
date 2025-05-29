@@ -1,32 +1,31 @@
 ---
 title: Inspecting web pages with browser DevTools
 sidebar_label: "DevTools: Inspecting"
-description: Lesson about using the browser tools for developers to inspect and manipulate the structure of an e-commerce website.
-sidebar_position: 1
+description: Lesson about using the browser tools for developers to inspect and manipulate the structure of a website.
 slug: /scraping-basics-python/devtools-inspecting
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of an e-commerce website.**
+**In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of a website.**
 
 ---
 
 A browser is the most complete tool for navigating websites. Scrapers are like automated browsers—and sometimes, they actually are automated browsers. The key difference? There's no user to decide where to go or eyes to see what's displayed. Everything has to be pre-programmed.
 
-All modern browsers provide developer tools, or DevTools, for website developers to debug their work. We'll use them to understand how websites are structured and identify the behavior our scraper needs to mimic. Here's the typical workflow for creating a scraper:
+All modern browsers provide developer tools, or _DevTools_, for website developers to debug their work. We'll use them to understand how websites are structured and identify the behavior our scraper needs to mimic. Here's the typical workflow for creating a scraper:
 
 1. Inspect the target website in DevTools to understand its structure and determine how to extract the required data.
 1. Translate those findings into code.
 1. If the scraper fails due to overlooked edge cases or, over time, due to website changes, go back to step 1.
 
-Now let's spend some time figuring out what the detective work from step 1 is about.
+Now let's spend some time figuring out what the detective work in step 1 is about.
 
 ## Opening DevTools
 
-Google Chrome is currently the most popular browser, and many others use the same core. That's why we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here. However, the steps are similar in other browsers like Safari ([Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web-inspector)) or Firefox ([DevTools](https://firefox-source-docs.mozilla.org/devtools-user/)).
+Google Chrome is currently the most popular browser, and many others use the same core. That's why we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here. However, the steps are similar in other browsers, as Safari has its [Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web-inspector) and Firefox also has [DevTools](https://firefox-source-docs.mozilla.org/devtools-user/).
 
-Let's peek behind the scenes of a real-world website—say, Wikipedia. Open Google Chrome and visit [wikipedia.org](https://www.wikipedia.org/). Press **F12**, or right-click anywhere on the page and select **Inspect**.
+Now let's peek behind the scenes of a real-world website—say, Wikipedia. We'll open Google Chrome and visit [wikipedia.org](https://www.wikipedia.org/). Then, let's press **F12**, or right-click anywhere on the page and select **Inspect**.
 
 ![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
@@ -36,11 +35,11 @@ Websites are built with three main technologies: HTML, CSS, and JavaScript. In t
 
 :::warning Screen adaptations
 
-On smaller or low-resolution screens, DevTools might look different. For example, the CSS styles section might appear below the HTML elements instead of in the right pane.
+DevTools may appear differently depending on your screen size. For instance, on smaller screens, the CSS panel might move below the HTML elements panel instead of appearing in the right pane.
 
 :::
 
-Think of [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) as the frame that defines a page's structure. A basic HTML element includes an opening tag, a closing tag, and attributes. Here's an `article` element with an `id` attribute. It wraps `h1` and `p` elements, both containing text. Some text is emphasized using `em`.
+Think of [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) elements as the frame that defines a page's structure. A basic HTML element includes an opening tag, a closing tag, and attributes. Here's an `article` element with an `id` attribute. It wraps `h1` and `p` elements, both containing text. Some text is emphasized using `em`.
 
 ```html
 <article id="article-123">
@@ -60,17 +59,17 @@ HTML, a markup language, describes how everything on a page is organized, how el
 
 While HTML and CSS describe what the browser should display, [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) is a general-purpose programming language that adds interaction to the page.
 
-In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript. If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets you manipulate the loaded page—we’ll try this shortly.
+In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript. If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
 
 ![Console in Chrome DevTools](./images/devtools-console.png)
 
 ## Selecting an element
 
-In the top-left corner of DevTools, find the icon with an arrow pointing to a square.
+In the top-left corner of DevTools, let's find the icon with an arrow pointing to a square.
 
 ![Chrome DevTools element selection tool](./images/devtools-element-selection.png)
 
-Click the icon and hover your cursor over Wikipedia's subtitle, **The Free Encyclopedia**. As you move your cursor, DevTools will display information about the HTML element under it. Click on the subtitle. In the **Elements** tab, DevTools will highlight the HTML element that represents the subtitle.
+We'll click the icon and hover your cursor over Wikipedia's subtitle, **The Free Encyclopedia**. As we move our cursor, DevTools will display information about the HTML element under it. We'll click on the subtitle. In the **Elements** tab, DevTools will highlight the HTML element that represents the subtitle.
 
 ![Chrome DevTools element hover](./images/devtools-hover.png)
 
@@ -106,35 +105,35 @@ Encyclopedia
 
 We won't be creating Python scrapers just yet. Let's first get familiar with what we can do in the JavaScript console and how we can further interact with HTML elements on the page.
 
-In the **Elements** tab, with the subtitle element highlighted, right-click the element to open the context menu. There, choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
+In the **Elements** tab, with the subtitle element highlighted, let's right-click the element to open the context menu. There, we'll choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
 
 ![Global variable in Chrome DevTools Console](./images/devtools-console-variable.png)
 
 The Console allows us to run JavaScript in the context of the loaded page, similar to Python's [interactive REPL](https://realpython.com/interacting-with-python/). We can use it to play around with elements.
 
-For a start, let's access some of the subtitle's properties. One such property is `textContent`, which contains the text inside the HTML element. The last line in the Console is where your cursor is. Type the following and hit **Enter**:
+For a start, let's access some of the subtitle's properties. One such property is `textContent`, which contains the text inside the HTML element. The last line in the Console is where your cursor is. We'll type the following and hit **Enter**:
 
 ```js
 temp1.textContent;
 ```
 
-The result should be `'The Free Encyclopedia'`. Now try this:
+The result should be `'The Free Encyclopedia'`. Now let's try this:
 
 ```js
 temp1.outerHTML;
 ```
 
-This should return the element's HTML tag as a string. Finally, run the next line to change the text of the element:
+This should return the element's HTML tag as a string. Finally, we'll run the next line to change the text of the element:
 
 ```js
 temp1.textContent = 'Hello World!';
 ```
 
-When you change elements in the Console, those changes reflect immediately on the page!
+When we change elements in the Console, those changes reflect immediately on the page!
 
 ![Changing textContent in Chrome DevTools Console](./images/devtools-console-textcontent.png)
 
-But don't worry—you haven't hacked Wikipedia. The change only happens in your browser. If you reload the page, your change will disappear. This, however, is an easy way to craft a screenshot with fake content—so screenshots shouldn't be trusted as evidence.
+But don't worry—we haven't hacked Wikipedia. The change only happens in our browser. If we reload the page, the change will disappear. This, however, is an easy way to craft a screenshot with fake content. That's why screenshots shouldn't be trusted as evidence.
 
 We're not here for playing around with elements, though—we want to create a scraper for an e-commerce website to watch prices. In the next lesson, we'll examine the website and use CSS selectors to locate HTML elements containing the data we need.
 

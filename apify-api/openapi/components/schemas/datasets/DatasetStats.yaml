@@ -1,0 +1,16 @@
+title: DatasetStats
+required:
+  - readCount
+  - writeCount
+  - storageBytes
+type: object
+properties:
+  readCount:
+    type: number
+    example: 22
+  writeCount:
+    type: number
+    example: 3
+  storageBytes:
+    type: number
+    example: 783

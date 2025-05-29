@@ -123,7 +123,7 @@ Then, the labels can be used by importing `labels` and accessing `labels.START`,
 
 This is not necessary, but it is best practice, as it can prevent dumb typos that can cause nasty bugs 🐞 For the rest of this lesson, all of the examples using labels will be using the imported versions.
 
-> If you haven't already read the **Best practices** lesson in the **Web scraping for beginners** course, please [give it a read](../best_practices.md).
+> If you haven't already read the **Best practices** lesson in the **Web scraping basics for JavaScript devs** course, please [give it a read](../best_practices.md).
 
 ## Next up {#next}
 

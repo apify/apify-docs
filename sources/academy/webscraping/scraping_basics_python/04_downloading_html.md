@@ -2,7 +2,6 @@
 title: Downloading HTML with Python
 sidebar_label: Downloading HTML
 description: Lesson about building a Python application for watching prices. Using the HTTPX library to download HTML code of a product listing page.
-sidebar_position: 4
 slug: /scraping-basics-python/downloading-html
 ---
 
@@ -16,7 +15,7 @@ Using browser tools for developers is crucial for understanding the structure of
 
 ## Starting a Python project
 
-Before we start coding, we need to set up a Python project. Create new directory with a virtual environment, then inside the directory and with the environment activated, install the HTTPX library:
+Before we start coding, we need to set up a Python project. Let's create new directory with a virtual environment. Inside the directory and with the environment activated, we'll install the HTTPX library:
 
 ```text
 $ pip install httpx
@@ -30,7 +29,7 @@ Being comfortable around Python project setup and installing packages is a prere
 
 :::
 
-Now let's test that all works. Inside the project directory create a new file called `main.py` with the following code:
+Now let's test that all works. Inside the project directory we'll create a new file called `main.py` with the following code:
 
 ```py
 import httpx
@@ -38,7 +37,7 @@ import httpx
 print("OK")
 ```
 
-Running it as a Python program will verify that your setup is okay and you've installed HTTPX:
+Running it as a Python program will verify that our setup is okay and we've installed HTTPX:
 
 ```text
 $ python main.py
@@ -63,7 +62,7 @@ response = httpx.get(url)
 print(response.text)
 ```
 
-If you run the program now, it should print the downloaded HTML:
+If we run the program now, it should print the downloaded HTML:
 
 ```text
 $ python main.py

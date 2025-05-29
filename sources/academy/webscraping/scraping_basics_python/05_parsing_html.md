@@ -2,7 +2,6 @@
 title: Parsing HTML with Python
 sidebar_label: Parsing HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to parse HTML code of a product listing page.
-sidebar_position: 5
 slug: /scraping-basics-python/parsing-html
 ---
 
@@ -12,7 +11,7 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-From lessons about browser DevTools we know that the HTML tags representing individual products have a `class` attribute which, among other values, contains `product-item`.
+From lessons about browser DevTools we know that the HTML elements representing individual products have a `class` attribute which, among other values, contains `product-item`.
 
 ![Products have the ‘product-item’ class](./images/product-item.png)
 
@@ -38,11 +37,11 @@ $ pip install beautifulsoup4
 Successfully installed beautifulsoup4-4.0.0 soupsieve-0.0
 ```
 
-Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` tag, which represents the main heading of the page.
+Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` element, which represents the main heading of the page.
 
-![Tag of the main heading](./images/h1.png)
+![Element of the main heading](./images/h1.png)
 
-Update your code to the following:
+We'll update our code to the following:
 
 ```py
 import httpx
@@ -57,14 +56,14 @@ soup = BeautifulSoup(html_code, "html.parser")
 print(soup.select("h1"))
 ```
 
-Let's run the program:
+Then let's run the program:
 
 ```text
 $ python main.py
 [<h1 class="collection__title heading h1">Sales</h1>]
 ```
 
-Our code lists all `<h1>` tags it can find on the page. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
+Our code lists all `h1` elements it can find on the page. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
 
 ```py
 headings = soup.select("h1")
@@ -72,12 +71,18 @@ first_heading = headings[0]
 print(first_heading.text)
 ```
 
-If we run our scraper again, it prints the text of the first `<h1>` tag:
+If we run our scraper again, it prints the text of the first `h1` element:
 
 ```text
 $ python main.py
 Sales
 ```
+
+:::note Dynamic websites
+
+The Warehouse returns full HTML in its initial response, but many other sites add content via JavaScript after the page loads or after user interaction. In such cases, what we see in DevTools may differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+
+:::
 
 ## Using CSS selectors
 
@@ -133,7 +138,7 @@ https://www.formula1.com/en/teams
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".outline")))
+  print(len(soup.select(".group")))
   ```
 
 </details>
@@ -155,7 +160,7 @@ Use the same URL as in the previous exercise, but this time print a total count 
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".f1-grid")))
+  print(len(soup.select(".f1-team-driver-name")))
   ```
 
 </details>

@@ -12,8 +12,6 @@ slug: /collaboration/access-rights
 
 You can easily and securely share your own resources - Actors, tasks, key-value stores, datasets, and request queues - with other users by using a [granular](https://www.google.com/search?q=define+granular+permissions) permissions system. This enables you, for example, to let your colleague run an [Actor](../actors/index.mdx) or view a [dataset](../storage/dataset.md) but not modify it.
 
-> To be able to grant access rights to another user, you must have a **username** set in [account settings](https://console.apify.com/account?tab=settings).
-
 You can also grant permission to update an Actor and build a new version.
 [Storages](../storage/index.md) (key-value stores, request queues, and datasets) are sharable in the same way as a **read** permission or a combination of both **read** and **write** permissions.
 
