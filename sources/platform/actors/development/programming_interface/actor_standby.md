@@ -186,4 +186,5 @@ The URL is exposed as an environment variable `ACTOR_STANDBY_URL`. You can also 
 
 ## Monetization of Actors with the Standby mode?
 
-Currently, the Standby mode is in beta, and monetization is not supported. But we plan to enable it soon.
+You can monetize Standby Actors just like any other Actors. We recommend using the pay per event monetization mode, as it aligns best with the Standby paradigm.
+When monetizing your Actor in Standby mode using pay per event mode, you are not responsible for covering the platform usage costs of your users' runs. Users will need to cover both the platform usage costs (paid to Apify) and event costs (paid to you).

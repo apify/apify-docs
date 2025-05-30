@@ -167,6 +167,11 @@ You would still pay for all interactions after the Actor run finishes, same as f
 
 You would still pay for the long term storage of results, same as for pay per result Actors.
 
+#### Some Actors declare that I still need to pay for usage, how come?
+When an Actor operates in [Standby mode](https://docs.apify.com/platform/actors/running/standby), you control how the background runs scale and how efficiently they are utilized.
+In this case, you are responsible for paying the platform usage costs of these runs in addition to the event charges. Some selected Standby Actors may have this usage component waived, so
+always check the pricing page of the specific Actor to determine whether you will be charged for usage or only for events.
+
 #### Where do I see how much I was charged for the pay per result Actors?
 
 Similarly to pay per result Actors, you can see how much you have been charged on your invoices, and on the [Usage tab](https://console.apify.com/billing) of the Billing section in the Console.
