@@ -12,7 +12,7 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 
 Effective date: May 14, 2024
-
+Latest version effective from: July 5, 2025
 ---
 
 **Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") thanks you ("**you**" or the "**Affiliate Partner**") for your interest in joining the Apify's Affiliate Program (the "**Affiliate Program**"). These terms and conditions (the "**Affiliate Program Terms**") shall govern your rights and obligations in relation to your participation in the Affiliate Program in addition to [Apify General Terms and Conditions](general-terms-and-conditions.md) (the "**General Terms**").
@@ -45,7 +45,7 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 ## 5. Payment terms
 
-**5.1.** Apify shall pay the earned Commission to the Affiliate Partner monthly, within 10 business days after the end of each calendar month, based on an invoice that shall be issued to Apify. The minimum Commission payable is 49 USD. Commission in any given calendar month lower than 49 USD will be rolled over to the following month.
+**5.1.** Apify shall pay the earned Commission to the Affiliate Partner monthly, within 15 business days after the end of each calendar month, based on an invoice that shall be issued to Apify. The minimum Commission payable is 100 USD. Commission in any given calendar month lower than 49 USD will be rolled over to the following month.
 
 **5.2.** The Commission may be paid either via PayPal or bank transfer. The Affiliate Partner shall specify the chosen payment method.
 
