@@ -57,7 +57,7 @@ One important thing to note is that you can use a `.gitignore` file to exclude f
 
 ## Deployed! {#deployed}
 
-Great! Once you've pushed your Actor to the platform, you should see it in the list of Actors under the **Actors** tab. If you used `apify push`, you'll have access to the **multifile editor** (discussed [here](/actors/development/quick-start/locally#deploy-to-the-apify-platform)).
+Great! Once you've pushed your Actor to the platform, you should see it in the list of Actors under the **Actors** tab. If you used `apify push`, you'll have access to the **multifile editor** (discussed in [deploy to the Apify platform](/actors/development/quick-start/locally#deploy-to-the-apify-platform) part of our docs).
 
 ![Deployed Actor on the Apify platform](./images/actor-page.jpg)
 
