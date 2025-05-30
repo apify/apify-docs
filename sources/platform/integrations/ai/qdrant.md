@@ -2,7 +2,7 @@
 title: Qdrant integration
 description: Learn how to integrate Apify with Qdrant to feed data crawled from the web into the Qdrant vector database.
 sidebar_label: Qdrant
-sidebar_position: 13
+sidebar_position: 15
 slug: /integrations/qdrant
 toc_min_heading_level: 2
 toc_max_heading_level: 4
