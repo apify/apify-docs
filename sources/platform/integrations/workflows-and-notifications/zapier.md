@@ -53,7 +53,7 @@ Choose the account that you want to connect with Zapier. A new window will appea
 
 ![Integrations OAuth](../images/zapier-allow-access.png)
 
-Continue by clicking **Allow Access** button.
+Continue by clicking **Allow Access** button..
 
 The connection is now created and the configuration form closes. You can continue with the Zap configuration and select the Actor you want to use as trigger.
 
