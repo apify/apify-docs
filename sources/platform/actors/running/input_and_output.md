@@ -97,7 +97,7 @@ Learn more about [accessing user input](/sdk/js/docs/examples/accept-user-input)
 
 ### Run options - Build, Timeout, and Memory
 
-In addition to task-specific parameters, you can specify run options such as [Build](../development/builds_and_runs/builds.md), Timeout, and [Memory](./usage_and_resources.md) for your Actor run.
+In addition to task-specific parameters, you can specify run options such as [Build](../development/builds_and_runs/builds.md), Timeout, and [Memory](/platform/actors/running/usage-and-resources) for your Actor run.
 
 There are typically configured alongside the main input:
 
@@ -109,7 +109,7 @@ There are typically configured alongside the main input:
 | Timeout | Timeout for the Actor run in seconds. Zero value means there is no timeout. |
 | Memory | Amount of memory allocated for the Actor run, in megabytes. |
 
-Refer to [Builds](platform/development/builds_and_runs/builds) and [Usage and Resources](platform/usage_and_resources.md) for more details on these options.
+Refer to [Builds](platform/development/builds_and_runs/builds) and [Usage and Resources](/platform/actors/running/usage-and-resources) for more details on these options.
 
 ## Output
 
