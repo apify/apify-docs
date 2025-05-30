@@ -170,9 +170,7 @@ Once you're satisfied with your Actor, deploy it to the Apify platform to run it
 
     This command uploads your Actor's code and configuration to the Apify platform. The CLI will create the Actor in your Apify account if it doesn't exist or update the existing one.
 
-After pushing, you can find your Actor in Apify Console
-
- under the Development section. From there, you can build it, configure its input, and run it just like an Actor created in the Web IDE.
+After pushing, you can find your Actor in Apify Console under the Development section. From there, you can build it, configure its input, and run it just like an Actor created in the Web IDE.
 
 :::tip Actor monetization
 

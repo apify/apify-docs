@@ -88,7 +88,7 @@ Cool! When we run `node index.js`, we see **20**.
 
 ### Accepting input without the Apify SDK
 
-Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API when the Actor is running on the platform. For this example, we are using the [Apify Client](../getting_started/apify_client.md) for Python to access the API.
+Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API when the Actor is running on the platform. For this example, we are using the [Apify Client](platform/integrations/api/using-client-libraries) for Python to access the API.
 
 ```py
 # index.py
