@@ -12,11 +12,11 @@ If you are building a service and your users could benefit from integrating with
 
 Apify is the leading platform for web scraping, AI agents, and automation tools. By integrating Apify into your platform, you enable users to incorporate real-time, structured data from the web with zero scraping infrastructure on your side.
 
-The [Apify Store](https://apify.com/store) contains thousands of pre-built Actors, ready-made tools for webscraping and automations.
+[Apify Store](https://apify.com/store) contains thousands of pre-built Actors, ready-made tools for webscraping and automations.
 
 ## Integration types
 
-An Apify integration can be _general_, allowing users to integrate any Actor from the Apify Store into their workflows (or their own Actors), or _Actor-specific_, enabling targeted automation like integrating the [Instagram Scraper](https://apify.com/apify/instagram-scraper) for use cases like social media monitoring.
+An Apify integration can be _general_, allowing users to integrate any Actor from Apify Store into their workflows (or their own Actors), or _Actor-specific_, enabling targeted automation like integrating the [Instagram Scraper](https://apify.com/apify/instagram-scraper) for use cases like social media monitoring.
 
 ### General integrations
 
@@ -41,7 +41,7 @@ For more examples, see [integrations](./index.mdx).
 
 To integrate your service with Apify, you have two options:
 
-- Build an [Apify Actor](https://docs.apify.com/platform/actors) that will be used as integration within the [Apify Console](https://console.apify.com)
+- Build an [Apify Actor](https://docs.apify.com/platform/actors) that will be used as integration within [Apify Console](https://console.apify.com)
 - Build an external integration using the [Apify API](https://docs.apify.com/api/v2)
 
 ![Integration-ready Actors](./images/integration-ready-actors.png)
@@ -191,7 +191,7 @@ For inspiration, take a look at the public repositories of our existing external
 - Make.com
   - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
 - Keboola
-  - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)  
+  - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
   - [Source code on Github](https://github.com/apify/keboola-ex-apify/) (JavaScript)
   - [Google Maps Reviews Scraper integration](https://github.com/apify/keboola-gmrs/) (Actor-specific)
 - Airbyte
