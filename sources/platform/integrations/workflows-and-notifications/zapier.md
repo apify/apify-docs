@@ -41,23 +41,23 @@ Then select which trigger you want to use.
 
 ### Step 2: Create a connection to your Apify account
 
-The next step is to connect your Apify account.
+Next, connect your Apify account.
 
-Click on the "Sign in" button next to the Connect to Apify title. Or you can select an account if you already have one connected.
+Click the **Select** button next to the **Connect to Apify** title. Or you can select an account if you already have one connected.
 
-The connection configuration options open in a new tab in your browser or in a modal window.
+The connection configuration options open in a new tab in your browser.
 
-![Apify Zapier connection](../images/zapier-new-connection.png)
+![Apify Zapier connection](../images/zapier-choose-account.png)
 
-In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > Integrations**.
+Choose the account that you want to connect with Zapier. A new window will appear displaying the information that will be shared between Zapier and Apify.
 
-![Integrations token](../images/apify-integrations-token.png)
+![Integrations OAuth](../images/zapier-allow-access.png)
 
-Copy the token and paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
+Continue by clicking **Allow Access** button.
 
-The connection is now created and the configuration form is closed. You can continue with the Zap configuration and select the Actor you want to use as trigger.
+The connection is now created and the configuration form closes. You can continue with the Zap configuration and select the Actor you want to use as trigger.
 
-The last step is to test the connection. The "Test Trigger" button lets you test the trigger. The test should prefill data from existing Actor runs you have in Apify. If you don't have any runs, you can create one in Apify Console and then test the connection again.
+The last step is to test the connection. The **Test Trigger** button lets you test the trigger. The test should prefill data from existing Actor runs you have in Apify. If you don't have any runs, you can create one in Apify Console and then test the connection again.
 
 After a successful test, you can continue with the Zap configuration and set up the action for the Zap.
 
@@ -79,12 +79,12 @@ We will use the Web Scraper Actor in this example.
 
 ![Zapier Action](../images/zapier-action-2.png)
 
-You need to fill the input for the Actor and use the "Continue" button to advance to the next step.
+You need to fill the input for the Actor and use the **Continue** button to advance to the next step.
 
 > You can choose to run Actor synchronously or asynchronously. If you choose to run Actor synchronously, the Zap will wait until the Actor finishes and the Actor output and data will be available in next steps.
 > Beware that the hard timeout for the run is 30 seconds. If the Actor doesn't finish in 30 seconds, the run will be terminated and the Actor output will not be available in next steps.
 
-In the next step, you can test the action and check if everything is using the "Test step" button.
+In the next step, you can test the action and check if everything is using the **Test step** button.
 
 This button runs the Actor run on Apify and you can see the data in Zapier.
 
