@@ -12,6 +12,7 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 
 Effective date: May 14, 2024
+Latest version effective from: July 5, 2025
 
 ---
 
@@ -45,7 +46,7 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 ## 5. Payment terms
 
-**5.1.** Apify shall pay the earned Commission to the Affiliate Partner monthly, within 10 business days after the end of each calendar month, based on an invoice that shall be issued to Apify. The minimum Commission payable is 49 USD. Commission in any given calendar month lower than 49 USD will be rolled over to the following month.
+**5.1.** Apify shall pay the earned Commission to the Affiliate Partner monthly, within 15 business days after the end of each calendar month, based on an invoice that shall be issued to Apify. The minimum Commission payable is 100 USD. Commission in any given calendar month lower than 49 USD will be rolled over to the following month.
 
 **5.2.** The Commission may be paid either via PayPal or bank transfer. The Affiliate Partner shall specify the chosen payment method.
 
