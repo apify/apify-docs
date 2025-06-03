@@ -35,6 +35,8 @@ jobs:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
+            -   run: npm run start:dev
+
     lint_content:
         name: Lint markdown content
         runs-on: ubuntu-latest
