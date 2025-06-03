@@ -17,9 +17,17 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'yarn'
-                    cache-dependency-path: 'yarn.lock'
-                    always-auth: 'true'
+
+            -   name: Enable corepack
+                run: |
+                    corepack enable
+                    corepack prepare yarn@stable --activate
+    
+            -   name: Activate cache for Node.js
+                uses: actions/setup-node@v4
+                with:
+                    cache: yarn
+                    cache-dependency-path: yarn.lock
 
             -   name: Enable corepack
                 run: |
@@ -56,12 +64,17 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'yarn'
-                    cache-dependency-path: 'yarn.lock'
 
             -   name: Enable corepack
                 run: |
                     corepack enable
+                    corepack prepare yarn@stable --activate
+    
+            -   name: Activate cache for Node.js
+                uses: actions/setup-node@v4
+                with:
+                    cache: yarn
+                    cache-dependency-path: yarn.lock
 
             -   name: Install Dependencies
                 run: yarn --immutable
@@ -89,8 +102,17 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'yarn'
-                    cache-dependency-path: 'yarn.lock'
+
+            -   name: Enable corepack
+                run: |
+                    corepack enable
+                    corepack prepare yarn@stable --activate
+    
+            -   name: Activate cache for Node.js
+                uses: actions/setup-node@v4
+                with:
+                    cache: yarn
+                    cache-dependency-path: yarn.lock
 
             -   name: Enable corepack
                 run: |
