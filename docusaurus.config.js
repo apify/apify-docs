@@ -18,8 +18,14 @@ module.exports = {
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
     future: {
-        experimental_faster: true,
-        v4: true,
+        experimental_faster: {
+            // swcJsLoader: true,
+            swcJsMinimizer: true,
+            swcHtmlMinimizer: true,
+            lightningCssMinimizer: true,
+            rspackBundler: true,
+            mdxCrossCompilerCache: true,
+        },
     },
     headTags: [
         {
@@ -229,13 +235,13 @@ module.exports = {
                 },
             },
         ],
-        [
-            resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
-            {
-                writeKey: process.env.SEGMENT_TOKEN,
-                allowedInDev: false,
-            },
-        ],
+        // [
+        //     resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
+        //     {
+        //         writeKey: process.env.SEGMENT_TOKEN,
+        //         allowedInDev: false,
+        //     },
+        // ],
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
