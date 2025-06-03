@@ -16,7 +16,7 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 You can use the Apify MCP Server in two ways:
 
-- _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude desktop client.
+- _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
 - _HTTPS Endpoint_ [mcp.apify.com](https://mcp.apify.com): Connect your MCP client by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
@@ -32,13 +32,13 @@ Before you start, make sure you have the following:
 
 1. _An Apify account:_ Sign up for a free Apify account if you don’t have one.
 1. _Apify API Token:_ Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
-1. _MCP client:_ An AI agent or client that supports MCP. This could be Anthropic Claude desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
+1. _MCP client:_ An AI agent or client that supports MCP. This could be Anthropic Claude for Desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
 
-## Example usage (local stdio with Claude desktop)
+## Example usage (local stdio with Claude for Desktop)
 
-Let’s walk through an example of using Claude desktop with the Apify MCP Server:
+Let’s walk through an example of using Claude for Desktop with the Apify MCP Server:
 
-1. _Configure Claude desktop:_ Claude desktop supports MCP servers via the **Developer settings**. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
+1. _Configure Claude for Desktop:_ Enabled MCP servers via the **Developer settings**. You need to add an entry for the Apify MCP server. For instance, in Claude’s config file, under `mcpServers`, add an entry like:
 
     ```json
     {
@@ -56,11 +56,11 @@ Let’s walk through an example of using Claude desktop with the Apify MCP Serve
 
     This tells Claude to spawn the Apify MCP Server (via the [Actors MCP Server](https://www.npmjs.com/package/@apify/actors-mcp-server) NPM package with your API token (on the first run, it will download the package automatically).
 
-1. _Launch Claude and connect:_ After updating the config, restart Claude desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
+1. _Launch Claude and connect:_ After updating the config, restart Claude for Desktop. If successful, Claude will show a “plugin” (often indicated by a plug icon 🔌) signifying it connected to the Apify Actors MCP server.
 
 1. _Use the Actors in conversation:_ You can chat with Claude and ask it to use Apify Actors. For example: _“What Apify Actors can I use?”_ Claude will list available tools via the MCP server. If none are pre-loaded, it may show defaults or guide you to find more.
 
-_(If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
+_(If you prefer not to set up Claude for Desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
 
 ![Apify Tester MCP Client](./images/chat-ui.webp)
 
@@ -88,8 +88,8 @@ In the client settings, you need to provide server configuration:
 
 By default, the main Actors MCP Server starts with a single default [RAG Web Browser Actor](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
 
-- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if `enableAddingActors` is enabled—either via `?enableAddingActors=true` in the MCP Server URL, or with the CLI flag `--enable-adding-actors` (can also be set in Claude Desktop config args as `--enable-adding-actors`).
-- _Via config file (for Claude desktop):_ When using Claude desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
+- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it. Note that not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if `enableAddingActors` is enabled—either via `?enableAddingActors=true` in the MCP Server URL, or with the CLI flag `--enable-adding-actors` (can also be set in Claude for Desktop config args as `--enable-adding-actors`).
+- _Via config file:_ When using Claude for Desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
 
 ```json
    {
