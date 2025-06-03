@@ -40,7 +40,7 @@ jobs:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: |
-                    npm ci
+                    yarn --immutable
                     yarn redoc:test
 
 # TODO
