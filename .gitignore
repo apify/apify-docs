@@ -11,7 +11,6 @@ coverage
 pids
 .idea
 .vscode
-yarn.lock
 tmp
 types
 .history
@@ -23,4 +22,4 @@ sources/api/*
 !sources/api/getting-started.mdx
 apify-api.yaml
 static/api
-apify-docs-theme/package-lock.json
+**/package-lock.json

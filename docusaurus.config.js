@@ -18,14 +18,8 @@ module.exports = {
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
     future: {
-        experimental_faster: {
-            // swcJsLoader: true,
-            swcJsMinimizer: true,
-            swcHtmlMinimizer: true,
-            lightningCssMinimizer: true,
-            rspackBundler: true,
-            mdxCrossCompilerCache: true,
-        },
+        experimental_faster: true,
+        v4: true,
     },
     headTags: [
         {

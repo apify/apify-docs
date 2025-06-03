@@ -17,8 +17,8 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
+                    cache: 'yarn'
+                    cache-dependency-path: 'yarn.lock'
                     always-auth: 'true'
 
             -   name: Enable corepack
@@ -26,16 +26,16 @@ jobs:
                     corepack enable
 
             -   name: Install Dependencies
-                run: npm ci --force
+                run: yarn --immutable
                 env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            -   run: npm run build
+            -   run: yarn build
                 env:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
-            -   run: npm run start:dev
+            -   run: yarn start:dev
 
     lint_content:
         name: Lint markdown content
@@ -56,15 +56,15 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
+                    cache: 'yarn'
+                    cache-dependency-path: 'yarn.lock'
 
             -   name: Enable corepack
                 run: |
                     corepack enable
 
             -   name: Install Dependencies
-                run: npm ci --force
+                run: yarn --immutable
                 env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -89,16 +89,16 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
+                    cache: 'yarn'
+                    cache-dependency-path: 'yarn.lock'
 
             -   name: Enable corepack
                 run: |
                     corepack enable
 
             -   name: Install Dependencies
-                run: npm ci --force
+                run: yarn --immutable
                 env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            -   run: npm run lint:code
+            -   run: yarn lint:code

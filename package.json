@@ -16,26 +16,26 @@
     },
     "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
-        "start": "npm run api:rebuild && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "start:dev": "npm run api:rebuild && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "build": "npm run api:rebuild && rimraf .docusaurus && docusaurus build",
-        "api:generate": "npm run redoc:build && npm run redoc:build:clean && docusaurus gen-api-docs all",
+        "start": "yarn api:rebuild && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "start:dev": "yarn api:rebuild && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "build": "yarn api:rebuild && rimraf .docusaurus && docusaurus build",
+        "api:generate": "yarn redoc:build && yarn redoc:build:clean && docusaurus gen-api-docs all",
         "api:clean": "docusaurus clean-api-docs all",
-        "api:rebuild": "npm run api:clean && npm run api:generate",
+        "api:rebuild": "yarn api:clean && yarn api:generate",
         "redoc:start": "redocly preview-docs",
         "redoc:build": "redocly bundle apify-api/openapi/openapi.yaml -o apify-api",
-        "redoc:build:clean": "npm run redoc:build:clean:yaml && npm run redoc:build:clean:json",
+        "redoc:build:clean": "yarn redoc:build:clean:yaml && yarn redoc:build:clean:json",
         "redoc:build:clean:yaml": "redocly bundle apify-api/openapi/openapi.yaml --skip-decorator=apify/legacy-doc-url-decorator --skip-decorator=apify/client-references-links-decorator --skip-decorator=apify/code-samples-decorator -o static/api/openapi.yaml",
         "redoc:build:clean:json": "redocly bundle apify-api/openapi/openapi.yaml --skip-decorator=apify/legacy-doc-url-decorator --skip-decorator=apify/client-references-links-decorator --skip-decorator=apify/code-samples-decorator -o static/api/openapi.json",
-        "redoc:test": "redocly lint && npm run redoc:build",
-        "redoc:test2": "redocly lint && npm run redoc:build && bin/schemathesis",
+        "redoc:test": "redocly lint && yarn redoc:build",
+        "redoc:test2": "redocly lint && yarn redoc:build && bin/schemathesis",
         "write-translations": "docusaurus write-translations",
         "version": "docusaurus version",
         "rename-version": "docusaurus rename-version",
         "swizzle": "docusaurus swizzle",
         "docusaurus": "docusaurus",
-        "lint": "npm run lint:md && npm run lint:code",
-        "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
+        "lint": "yarn lint:md && yarn lint:code",
+        "lint:fix": "yarn lint:md:fix && yarn lint:code:fix",
         "lint:md": "markdownlint '**/*.md'",
         "lint:md:fix": "markdownlint '**/*.md' --fix",
         "lint:code": "eslint .",
@@ -114,5 +114,5 @@
     "engines": {
         "node": ">=18.0.0"
     },
-    "packageManager": "npm@10.9.2"
+    "packageManager": "yarn@4.9.0"
 }
