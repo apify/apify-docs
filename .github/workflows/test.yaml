@@ -17,6 +17,7 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
+                    always-auth: 'true'
 
             -   name: Enable corepack
                 run: |
@@ -42,8 +43,6 @@ jobs:
                 env:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
-
-            -   run: yarn start:dev
 
     lint_content:
         name: Lint markdown content

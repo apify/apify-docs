@@ -235,13 +235,13 @@ module.exports = {
                 },
             },
         ],
-        // [
-        //     resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
-        //     {
-        //         writeKey: process.env.SEGMENT_TOKEN,
-        //         allowedInDev: false,
-        //     },
-        // ],
+        [
+            resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
+            {
+                writeKey: process.env.SEGMENT_TOKEN,
+                allowedInDev: false,
+            },
+        ],
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
