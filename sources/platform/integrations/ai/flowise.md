@@ -2,7 +2,7 @@
 title: Flowise integration
 description: Learn how to integrate Apify with Flowise.
 sidebar_label: Flowise
-sidebar_position: 8
+sidebar_position: 9
 slug: /integrations/flowise
 ---
 
@@ -46,7 +46,7 @@ In the left menu, you need to find Apify Website Content Crawler under Document 
 
 ![Flowise add Apify Crawler](../images/flowise-apify.png)
 
-Now you need to configure the crawler. You can find more information about the crawler [here](https://apify.com/apify/website-content-crawler).
+Now you need to configure the crawler. You can find more information about at [Website Content Crawler page](https://apify.com/apify/website-content-crawler).
 
 ![Flowise and Apify](../images/flowise.png)
 
