@@ -60,7 +60,11 @@ Let’s walk through an example of using Claude desktop with the Apify MCP Serve
 
 1. _Use the Actors in conversation:_ You can chat with Claude and ask it to use Apify Actors. For example: _“What Apify Actors can I use?”_ Claude will list available tools via the MCP server. If none are pre-loaded, it may show defaults or guide you to find more.
 
-_(If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
+:::note Web-based alternative
+
+If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)
+
+:::
 
 ![Apify Tester MCP Client](../../images/chat-ui.webp)
 
