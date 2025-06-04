@@ -10,7 +10,7 @@ slug: /integrations/mcp
 
 The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connect to Apify’s extensive library of Actors as tools to perform web scraping, data extraction, or other automation tasks in real time.
 
-![Apify MCP Server](./images/actors_mcp_new.png)
+![Apify MCP Server](./images/apify_mcp_server.png)
 
 ## Quickstart
 
