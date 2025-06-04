@@ -10,7 +10,7 @@ slug: /integrations/mcp
 
 The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connect to Apify’s extensive library of Actors as tools to perform web scraping, data extraction, or other automation tasks in real time.
 
-![Apify MCP Server](./images/actors-mcp-server.webp)
+![Apify MCP Server](../../images/apify_mcp_server.png)
 
 ## Quickstart
 
@@ -19,7 +19,7 @@ You can use the Apify MCP Server in two ways:
 - _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
-- _HTTPS Endpoint_ [mcp.apify.com](https://mcp.apify.com): Connect your MCP client by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
+- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
   - `https://mcp.apify.com` for streamable transport
   - `https://mcp.apify.com/sse` for legacy SSE transport
 
@@ -60,9 +60,13 @@ Let’s walk through an example of using Claude for Desktop with the Apify MCP S
 
 1. _Use the Actors in conversation:_ You can chat with Claude and ask it to use Apify Actors. For example: _“What Apify Actors can I use?”_ Claude will list available tools via the MCP server. If none are pre-loaded, it may show defaults or guide you to find more.
 
-_(If you prefer not to set up Claude for Desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)_
+:::note Web-based alternative
 
-![Apify Tester MCP Client](./images/chat-ui.webp)
+If you prefer not to set up Claude desktop, you can achieve a similar result using [Apify’s Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client), which provides a web UI to test the MCP server.)
+
+:::
+
+![Apify Tester MCP Client](../../images/chat-ui.webp)
 
 ## Interact with the MCP server over SSE
 

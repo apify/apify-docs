@@ -2,7 +2,7 @@
 title: Milvus integration
 description: Learn how to integrate Apify with Milvus (Zilliz) to save data scraped from the websites into the Milvus vector database.
 sidebar_label: Milvus
-sidebar_position: 11
+sidebar_position: 13
 slug: /integrations/milvus
 toc_min_heading_level: 2
 toc_max_heading_level: 4

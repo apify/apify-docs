@@ -2,7 +2,7 @@
 title: OpenAI Assistants integration
 sidebar_label: OpenAI Assistants
 description: Learn how to integrate Apify with OpenAI Assistants to provide real-time search data and to save them into OpenAI Vector Store
-sidebar_position: 10
+sidebar_position: 12
 slug: /integrations/openai-assistants
 ---
 
