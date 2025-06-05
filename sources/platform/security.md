@@ -44,7 +44,7 @@ Read the Apify Security Whitepaper for a comprehensive description of Apify's se
 
 We invite security researchers, ethical hackers, and the broader community to help us keep Apify safe by reporting any potential security vulnerabilities or weaknesses. Your responsible disclosure helps protect our users and strengthen the Apify platform.
 
-_Scope:_ 
+_Scope:_
 The following Apify services and domains are eligible for security research and responsible reporting:
 
 - [apify.com](https://apify.com)
@@ -53,7 +53,7 @@ The following Apify services and domains are eligible for security research and 
 
 Please use your own test account for research purposes. Free accounts are sufficient for most testing.
 
-_Out-of-scope:_ 
+_Out-of-scope:_
 
 - Issues with third-party systems
 - Clickjacking on non-sensitive pages
