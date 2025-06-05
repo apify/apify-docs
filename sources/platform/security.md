@@ -12,7 +12,7 @@ slug: /security
 
 ---
 
-## SOC 2 Type II Compliance
+## SOC 2 type II compliance
 
 The Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations comply with SOC 2 standards for security, availability, and confidentiality of customer data.
 
@@ -22,7 +22,7 @@ The Apify platform is SOC 2 Type II compliant. This means that we have undergone
 
 To learn more, read the [announcement](https://blog.apify.com/apify-soc2/) and visit our [Trust Center](https://trust.apify.com) for additional information or to request a copy of our SOC 2 Type II report.
 
-## Trust Center
+## Trust center
 
 To learn more about Apify's security practices, data protection measures, and compliance certifications, please visit our [Trust Center](https://trust.apify.com). The Trust Center includes:
 
@@ -40,11 +40,11 @@ Read the Apify Security Whitepaper for a comprehensive description of Apify's se
     <img src={require("./images/security/whitepaper-cover.png").default} width="50%" title="Apify Security Whitepaper" />
 </a>
 
-## Vulnerability Disclosure Policy
+## Vulnerability disclosure policy
 
-We invite security researchers, ethical hackers, and the broader community to help us keep Apify safe by reporting any potential security vulnerabilities or weaknesses. Your responsible disclosure helps protect our users and strengthen our platform.
+We invite security researchers, ethical hackers, and the broader community to help us keep Apify safe by reporting any potential security vulnerabilities or weaknesses. Your responsible disclosure helps protect our users and strengthen the Apify platform.
 
-**Scope:**  
+_Scope:_ 
 The following Apify services and domains are eligible for security research and responsible reporting:
 
 - [apify.com](https://apify.com)
@@ -53,7 +53,7 @@ The following Apify services and domains are eligible for security research and 
 
 Please use your own test account for research purposes. Free accounts are sufficient for most testing.
 
-**Out-of-scope:**  
+_Out-of-scope:_ 
 
 - Issues with third-party systems
 - Clickjacking on non-sensitive pages
@@ -63,7 +63,7 @@ Please use your own test account for research purposes. Free accounts are suffic
 - Social engineering, phishing, or physical attacks
 - Attacks requiring MITM or stolen credentials
 
-**We are especially interested in reports that demonstrate:**
+_We are especially interested in reports that demonstrate:_
 
 - Unauthorized access to data
 - Elevation of privileges
