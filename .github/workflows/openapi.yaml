@@ -18,21 +18,30 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 22
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
+
+            -   name: Enable corepack
+                run: |
+                    corepack enable
+                    corepack prepare yarn@stable --activate
+    
+            -   name: Activate cache for Node.js
+                uses: actions/setup-node@v4
+                with:
+                    cache: yarn
+                    cache-dependency-path: yarn.lock
 
             -   name: Enable corepack
                 run: |
                     corepack enable
 
             -   name: Install Dependencies
-                run: npm ci --force
+                run: yarn --immutable
                 env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: |
-                    npm ci
-                    npm run redoc:test
+                    yarn --immutable
+                    yarn redoc:test
 
 # TODO
 #            -   uses: actions/setup-python@v5

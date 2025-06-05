@@ -18,8 +18,8 @@
 
 <!-- vale off -->
 1. Clone the repository
-2. Run `npm install`
-3. Start development server: `npm start`
+2. Run `yarn`
+3. Start development server: `yarn start`
 <!-- vale on -->
 
 This will be enough to work on Platform, Academy and OpenAPI. If you want to work on the entire documentation set, you need to join them using nginx.
@@ -27,8 +27,8 @@ This will be enough to work on Platform, Academy and OpenAPI. If you want to wor
 #### Join all repositories with nginx
 
 1. Clone all the repositories
-2. Run `npm start:dev` instead of `npm start` from the main repository
-3. Run `npm start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
+2. Run `yarn start:dev` instead of `yarn start` from the main repository
+3. Run `yarn start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
 
     |Repository|Port|
     |:---|:---|
@@ -155,12 +155,12 @@ The API reference documentation at [docs.apify.com](https://docs.apify.com/) is 
 
 1. Install Node.js
 2. Clone the repository
-3. Run `npm install`
+3. Run `yarn`
 
 ### Basic commands
 
-- `npm start` - Starts docs preview server including API reference
-- `npm test` - Validates the definition
+- `yarn start` - Starts docs preview server including API reference
+- `yarn test` - Validates the definition
 
 ### Adding new documentation
 
@@ -246,7 +246,7 @@ Add languages by adding new folders at the appropriate path level.
 #### Submitting changes
 
 1. Make your changes following the guidelines above
-2. Test locally using provided npm commands
+2. Test locally using provided `yarn` commands
 3. Submit a pull request to the `main` branch
 4. Ensure all CI checks pass
 
@@ -258,8 +258,8 @@ Add languages by adding new folders at the appropriate path level.
 
     ```bash
 
-    npm install
-    npm start
+    yarn
+    yarn start
 
     ```
 
@@ -268,7 +268,7 @@ Add languages by adding new folders at the appropriate path level.
     - Clone all documentation repositories
     - Configure nginx server
     - Update hosts file
-    - Use `npm start:dev`
+    - Use `yarn start:dev`
 
 ## Quality check
 
@@ -277,15 +277,15 @@ Add languages by adding new folders at the appropriate path level.
 1. Markdown:
 
     ```bash
-    npm run lint:md # Checks for any issues using markdownlint
-    npm run lint:md:fix # Applies fixes
+    yarn lint:md # Checks for any issues using markdownlint
+    yarn lint:md:fix # Applies fixes
     ```
 
 2. Code:
 
     ```bash
-    npm run lint:code # Checks .js & .ts files
-    npm run lint:code:fix # Applies fixes
+    yarn lint:code # Checks .js & .ts files
+    yarn lint:code:fix # Applies fixes
     ```
 
 3. Prose:
