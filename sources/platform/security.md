@@ -14,46 +14,93 @@ slug: /security
 
 ## SOC 2 type II compliance
 
-The Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations meet the SOC 2 standards for security, availability, and confidentiality of customer data.
+The Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations comply with SOC 2 standards for security, availability, and confidentiality of customer data.
 
 <a href="https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2" target="_blank" title="AICPA SOC 2">
     <img src={require("./images/security/soc2-logo.png").default} width="150" title="Apify Security Whitepaper" />
 </a>
 
-To learn more read the [announcement](https://blog.apify.com/apify-soc2/) and visit our [Trust Center](https://trust.apify.com) for more information and to request a copy of our SOC 2 Type II report.
+To learn more, read the [announcement](https://blog.apify.com/apify-soc2/) and visit our [Trust Center](https://trust.apify.com) for additional information or to request a copy of our SOC 2 Type II report.
 
 ## Trust center
 
-To learn more about Apify's security practices, data protection measures, and compliance certifications, visit our [Trust Center](https://trust.apify.com). The Trust Center includes:
+To learn more about Apify's security practices, data protection measures, and compliance certifications, please visit our [Trust Center](https://trust.apify.com). The Trust Center includes:
 
 - List of our security certifications and compliance reports
 - Information about Apify's data protection controls
 - List of Apify's data subprocessors
-- AI Chatbot for answering your questions about security
+- An AI chatbot to answer your security-related questions
 
-## Security whitepaper
+## Security Whitepaper
 
-At Apify, security is the top priority of our daily work. Security best practices are reflected in our development, deployment, monitoring, and project management processes.
-Read the Apify Security Whitepaper for a full description of Apify's measures and commitments to security:
+At Apify, security is our top priority every day. Security best practices are reflected in our development, deployment, monitoring, and project management processes.
+Read the Apify Security Whitepaper for a comprehensive description of Apify's security measures and commitments:
 
 <a href="https://apify.com/security-whitepaper.pdf" target="_blank" title="Apify Security Whitepaper">
     <img src={require("./images/security/whitepaper-cover.png").default} width="50%" title="Apify Security Whitepaper" />
 </a>
 
-## Reporting a vulnerability
+## Vulnerability disclosure policy
 
-If you notice or suspect a potential security breach, please report this immediately to our security team at [security@apify.com](mailto:security@apify.com), including all the technical details.
+We invite security researchers, ethical hackers, and the broader community to help us keep Apify safe by reporting any potential security vulnerabilities or weaknesses. Your responsible disclosure helps protect our users and strengthen the Apify platform.
+
+_Scope:_
+The following Apify services and domains are eligible for security research and responsible reporting:
+
+- [apify.com](https://apify.com)
+- [console.apify.com](https://console.apify.com)
+- [api.apify.com](https://api.apify.com)
+
+Please use your own test account for research purposes. Free accounts are sufficient for most testing.
+
+_Out-of-scope:_
+
+- Issues with third-party systems
+- Clickjacking on non-sensitive pages
+- SPF/DKIM/DMARC or other email configuration issues
+- Best practices or informational findings without impact
+- Denial of Service (DoS), brute-force attacks, and resource exhaustion
+- Social engineering, phishing, or physical attacks
+- Attacks requiring MITM or stolen credentials
+
+_We are especially interested in reports that demonstrate:_
+
+- Unauthorized access to data
+- Elevation of privileges
+- Server-side vulnerabilities (e.g., SSRF, RCE)
+- Cross-site scripting (XSS) and injection attacks
+- Logic flaws impacting account integrity or billing
+- Authentication/authorization issues
+- Data leaks due to misconfiguration
+
+### Reporting process
+
+If you notice or suspect a potential security issue, please report it to our security team at [security@apify.com](mailto:security@apify.com) with as much detail as possible, including the following:
+
+- Clear description of the issue
+- Step-by-step reproduction instructions
+- PoC (screenshots or code snippets)
+- Impact analysis
+- Affected URL or endpoint
+
+### Rules of engagement
+
+- Only target accounts or data you control (test accounts)
+- Never disrupt our services or other users
+- Avoid privacy violations and do not destroy or alter data
+- Automated scanners are not permitted without prior approval
+- No spam, DoS, or social engineering
+- Submit one vulnerability per report (unless chaining is required)
+
+If you follow these guidelines and act in good faith, we will not take legal action against you for responsibly reporting a security issue.
 
 :::warning
 
 Please refrain from publicly disclosing the vulnerability until it has been resolved. This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
 
 :::
-The total compensation for your report will be highly dependent on the severity, complexity, and exploitability of the vulnerability. Your reports are always verified by our internal security team,
-which also weighs in on various risks associated with that vulnerability and how major of an impact it would have in case we were attacked.
 
-We strive to reply to all reports within 5 working days. However, depending on the complexity of the issue or our current workload, our response might take longer.
 
 ## Securing your data
 
-The Apify platform provides you with multiple ways to secure your data. This includes [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) to store your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) to secure the input parameters of your Actors.
+The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) for securing the input parameters of your Actors.
