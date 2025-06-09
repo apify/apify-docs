@@ -350,6 +350,14 @@ get:
       schema:
         type: boolean
         example: false
+    - name: view
+      in: query
+      description: |
+          Defines the view from the schema of items in your dataset,
+          you can check the full specification in [Apify docs](/platform/actors/development/actor-definition/dataset-schema).
+      schema:
+        type: string
+        example: overview
     - name: skipFailedPages
       in: query
       description: |
