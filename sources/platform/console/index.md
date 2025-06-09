@@ -72,7 +72,7 @@ After you click on the link (or copy it to your browser), you will proceed to a 
 
 ## Homepage overview
 
-![apify-console-homepage](./images/console-homepage.png)
+![apify-console-homepage](./images/apify-console-homepage.png)
 
 The Apify Console homepage provides an overview of your account setup. The header displays your account name and current plan level. The homepage features several sections:
 

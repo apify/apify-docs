@@ -118,7 +118,7 @@ You will still be charged for the timed storage of the data in the same fashion 
 
 You can set a limit on how many items an Actor should return and the amount you will be charged in Options on the Actor detail page in the section below the Actor input.
 
-![Max items for pay-per-result](./images/store/pay_per_result_max_items.png)
+![Max items for pay-per-result](./images/store/max-items-for-pay-per-result.png)
 
 ##### Can I publish an Actor that is paid per result?
 
