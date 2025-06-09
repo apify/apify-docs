@@ -102,7 +102,7 @@ Please refrain from publicly disclosing the vulnerability until it has been reso
 
 :::warning
 
-Please note that any information about the issue while we are working on the fix is considered to be Apify confidential information and cannot be disclosed unless otherwise approved by Apify in writing.
+Please note that any information about the issue while we are working on the fix is considered to be confidential information and cannot be disclosed unless otherwise approved by Apify in writing.
 
 :::
 
