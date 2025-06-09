@@ -51,7 +51,7 @@ The following Apify services and domains are eligible for security research and 
 - [console.apify.com](https://console.apify.com)
 - [api.apify.com](https://api.apify.com)
 
-Please use your own test account for research purposes. Free accounts are sufficient for most testing.
+Please use your personal account for research purposes. Free accounts are sufficient for most testing.
 
 _Out-of-scope:_
 
@@ -100,7 +100,17 @@ Please refrain from publicly disclosing the vulnerability until it has been reso
 
 :::
 
+:::warning
 
+Please note that any information about the issue while we are working on the fix is considered to be Apify confidential information and cannot be disclosed unless otherwise approved by Apify in writing.
+
+:::
+
+:::warning
+
+Please be aware that you must comply with the legal terms applicable to the specific product or services (see: https://docs.apify.com/legal/) at all times; particularly, you must not take any actions that might cause an overload, disruption or denial of service of our systems, resulting in an unauthorized access to data belonging to another user or have a similarly adverse effect on our services or other users
+
+:::
 ## Securing your data
 
 The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) for securing the input parameters of your Actors.
