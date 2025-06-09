@@ -12,15 +12,15 @@ If you are building a service and your users could benefit from integrating with
 
 Apify is the leading platform for web scraping, AI agents, and automation tools. By integrating Apify into your platform, you enable users to incorporate real-time, structured data from the web with zero scraping infrastructure on your side.
 
-[Apify Store](https://apify.com/store) contains thousands of pre-built Actors, ready-made tools for webscraping and automations.
+[Apify Store](https://apify.com/store) contains thousands of pre-built Actors, ready-made tools for web scraping and automation.
 
 ## Integration types
 
-An Apify integration can be _general_, allowing users to integrate any Actor from Apify Store into their workflows (or their own Actors), or _Actor-specific_, enabling targeted automation like integrating the [Instagram Scraper](https://apify.com/apify/instagram-scraper) for use cases like social media monitoring.
+An Apify integration can be _general_, allowing users to integrate any Actor from Apify Store into their workflows (or their own Actors), or _Actor-specific_, enabling targeted automation like integrating [Instagram Scraper](https://apify.com/apify/instagram-scraper) for use cases like social media monitoring.
 
 ### General integrations
 
-General integrations allow users to easily automate workflows by connecting Apify with other platforms. Examples include:
+General integrations allow users to automate workflows by connecting Apify with other platforms. Examples include:
 
 - [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
 - [Make](https://www.make.com/en/integrations/apify) integration enables workflow automation by connecting Apify with thousands of other apps.
@@ -28,7 +28,7 @@ General integrations allow users to easily automate workflows by connecting Apif
 
 ### Actor-specific integrations
 
-Actor-specific integrations enable integrating specific Actors for targeted use cases. While they offer similar functionality to general integrations, they make it easier for users searching for specific use cases to discover Apify's tools and enjoy a more streamlined experience.
+Actor-specific integrations are designed for targeted use cases. While they work similarly to general integrations, they help users find the right Apify tools more easily and provide a better experience.
 
 Examples include:
 
@@ -78,10 +78,10 @@ Triggers the execution of any Apify Actor by ID, allowing users to start custom 
 Recommended features:
 
 - Select Actor: The Actor list will be pre-populated with Actors that the user created or used, using the [List of Actors API](https://docs.apify.com/api/v2/acts-get) and enriched with Actors from the store, which the user has not run already using [API](https://docs.apify.com/api/v2/store-get).
-- Synchronous vs. asynchronous run: flow will wait until the run/task will finish (consider timeout on your platform side)
-- Input UI: upon selecting an Actor, dynamically display specific Actor input and preload default example values based on Actor Input schema. Alternatively, allow users to insert a JSON input for the Actor.
-- Additionally, it should include option to choose [Actor build](https://docs.apify.com/platform/actors/running/runs-and-builds), [memory](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) and [timeout](https://docs.apify.com/platform/actors/running/usage-and-resources#memory).
-- Field mapping: allowing users to map fields to data acquired in previous steps of the workflow
+- Synchronous vs. asynchronous run: flow will wait until the run/task finishes (consider a timeout on your platform side)
+- Input UI: upon selecting an Actor, dynamically display specific Actor input and preload default example values based on the Actor Input schema. Alternatively, allow users to insert a JSON input for the Actor.
+- Additionally, it should include the option to choose [Actor build](https://docs.apify.com/platform/actors/running/runs-and-builds), [memory](https://docs.apify.com/platform/actors/running/usage-and-resources#memory), and [timeout](https://docs.apify.com/platform/actors/running/usage-and-resources#memory).
+- Field mapping: allowing users to map fields to data acquired in previous steps of the workflow.
 
 ##### Run a task
 
@@ -103,7 +103,7 @@ Recommended features:
 - Limit (optional): The maximum number of dataset items to fetch. If empty, the default limit will be used.
 - Offset (optional): The offset in the dataset from where to start fetching the items. If empty, it will be from the beginning.
 
-##### Get key-value store item
+##### Get a key-value store item
 
 Retrieves a specific item from a key-value store, commonly used to access metadata, snapshots, logs, or one-off results generated during Actor execution.
 
@@ -112,17 +112,17 @@ Recommended features:
 - Key-value store: Dropdown (user's KV stores) or ID/String input. Populated via [Key-value Stores API](https://docs.apify.com/api/v2/key-value-stores-get).
 - Record key: value (string)
 
-##### Scrape single URL
+##### Scrape a single URL
 
-Runs Apify's [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor in synchronous mode to extract structured data from a single web page—ideal for on-demand URL scraping inside agents or automation flows.
+Runs Apify's [Website Content Crawler](https://apify.com/apify/website-content-crawler) in synchronous mode to extract structured data from a single web page - ideal for on-demand URL scraping inside agents or automation flows.
 
 Recommended features:
 
 - URL: that you intend to scraper (string)
 - Crawler type: Dropdown menu, allowing users to choose from the following options:
-  - Headless web browser - Useful for modern websites with anti-scraping protections and JavaScript rendering. It recognizes common blocking patterns like CAPTCHAs and automatically retries blocked requests through new sessions.
+  - Headless web browser - Useful for websites with anti-scraping protections and JavaScript rendering. It recognizes common blocking patterns like CAPTCHAs and automatically retries blocked requests through new sessions.
   - Stealthy web browser (default) - Another headless web browser with anti-blocking measures enabled. Try this if you encounter anti-bot protections while scraping.
-  - Raw HTTP client - High-performance crawling mode that uses raw HTTP requests to fetch the pages. It is faster and cheaper, but it might not work on all websites.
+  - Raw HTTP client - High-performance crawling mode that uses raw HTTP requests to fetch pages. It's faster and cheaper, but might not work on all websites.
 
 ##### Universal API call
 
@@ -132,7 +132,7 @@ A node to send API requests to Apify, allowing advanced users to configure or qu
 
 ##### Watch Actor runs
 
-Monitors the status of an Actor run by ID, useful for triggering follow-up steps once a job has completed. Triggered when a specific Actor run reaches a terminal status (succeeded, failed, timed out, aborted).
+Monitors the status of an Actor run by ID, useful for triggering follow-up steps once a job has completed. Triggered when a specific Actor run reaches terminal status (succeeded, failed, timed out, aborted).
 
 Recommended features:
 
@@ -174,16 +174,16 @@ These identifiers enable better analytics and support for your integration.
 
 ### Apify API
 
-[Apify API](https://docs.apify.com/api) provides extensive REST API, which covers all of the features of the Apify platform. You can download the complete OpenAPI schema of Apify API in the [YAML](https://docs.apify.com/api/openapi.yaml) or [JSON](https://docs.apify.com/api/openapi.json) formats. Apify provides official libraries for JavaScript and Python to access API.
+[Apify API](https://docs.apify.com/api) provides an extensive REST API that covers all of the features of the Apify platform. You can download the complete OpenAPI schema of Apify API in the [YAML](https://docs.apify.com/api/openapi.yaml) or [JSON](https://docs.apify.com/api/openapi.json) formats. Apify provides official libraries for JavaScript and Python to access API.
 
 - [Apify API Reference](https://docs.apify.com/api/v2)
-- Client Libraries
+- Client libraries
   - [JavaScript/TypeScript/Node.js](https://docs.apify.com/api/client/js/)
   - [Python](https://docs.apify.com/api/client/python/)
 
 ### Reference implementations
 
-For inspiration, take a look at the public repositories of our existing external integrations:
+For inspiration, check out the public repositories of Apify's existing external integrations:
 
 - Zapier
   - [Zapier integration documentation](https://docs.apify.com/platform/integrations/zapier)
