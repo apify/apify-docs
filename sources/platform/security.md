@@ -100,7 +100,7 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 - _Do not publicly disclose vulnerabilities until resolved._ This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
 - _Treat all related information as confidential._ Any details about a vulnerability you are reporting are considered confidential information and cannot be disclosed unless explicitly approved by Apify in writing.
-- _Comply with all legal terms._ As per our [Terms of Service](https://docs.apify.com/legal), you must not take any action that might cause an overload, disruption, or denial of service, result in unauthorized access to another user's data, or have a similar adverse effect on our services or other users.
+- _Comply with all legal terms._ As per our [Terms of Service](https://docs.apify.com/legal), you must not take any action that might cause an overload, disruption, or denial of service, result in unauthorized access to another user's data, or have a similar adverse effect on Apify's services or other users.
 
 :::
 
