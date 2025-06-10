@@ -51,7 +51,7 @@ The following Apify services and domains are eligible for security research and 
 - [console.apify.com](https://console.apify.com)
 - [api.apify.com](https://api.apify.com)
 
-Please use your own test account for research purposes. Free accounts are sufficient for most testing.
+Please use your personal account for research purposes. Free accounts are sufficient for most testing.
 
 _Out-of-scope:_
 
@@ -94,12 +94,15 @@ If you notice or suspect a potential security issue, please report it to our sec
 
 If you follow these guidelines and act in good faith, we will not take legal action against you for responsibly reporting a security issue.
 
-:::warning
+:::danger Crucial rules and legal obligations
 
-Please refrain from publicly disclosing the vulnerability until it has been resolved. This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
+Please adhere strictly to the following rules. Failure to do so may result in legal action:
+
+- _Do not publicly disclose vulnerabilities until resolved._ This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
+- _Treat all related information as confidential._ Any details about a vulnerability you are reporting are considered confidential information and cannot be disclosed unless explicitly approved by Apify in writing.
+- _Comply with all legal terms._ As per our [Terms of Service](https://docs.apify.com/legal), you must not take any action that might cause an overload, disruption, or denial of service, result in unauthorized access to another user's data, or have a similar adverse effect on Apify's services or other users.
 
 :::
-
 
 ## Securing your data
 
