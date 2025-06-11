@@ -115,9 +115,9 @@ You can also navigate Apify Console via keyboard shortcuts.
 | Tab name | Description |
 |:---|:---|
 | [Apify Store](/platform/console/store)| Search for Actors that suit your web-scraping needs. |
-| [Actors](/platform/actors)| View  rented Actors. |
+| [Actors](/platform/actors)| View recent & bookmarked Actors. |
 | [Runs](/platform/actors/running/runs-and-builds)| View your recent runs. |
-| [Saved tasks](/platform/actors/running/tasks)| View your Saved tasks. |
+| [Saved tasks](/platform/actors/running/tasks)| View your saved tasks. |
 | [Schedules](/platform/schedules)| Schedule Actor runs & tasks to run at specified time. |
 | [Integrations](/platform/integrations)| View your integrations. |
 | [Development](/platform/actors/development)| &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
