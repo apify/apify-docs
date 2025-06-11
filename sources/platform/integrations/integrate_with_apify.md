@@ -6,7 +6,7 @@ sidebar_position: 90.00
 slug: /integrations/integrate
 ---
 
-If you are building a service and your users could benefit from integrating with Apify or vice versa, we would love to hear from you! Contact us at [partners@apify.com](mailto:partners@apify.com) to discuss potential collaboration. We are always looking for ways to make our platform more useful and powerful for our users.
+If you are building a service and your users could benefit from integrating with Apify or vice versa, we would love to hear from you! Contact us at [integrations@apify.com](mailto:integrations@apify.com) to discuss potential collaboration. We are always looking for ways to make our platform more useful and powerful for our users.
 
 ## Why integrate with Apify
 
