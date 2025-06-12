@@ -58,7 +58,7 @@ In this model, you set a price per 1000 results. Users are charged based on the 
 | Request queue - writes          | **$0.02** / 1,000 writes   |
 
 
-Only revenue & cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential reeenue of users that are currently on free plans in Actor Insights in the Apify Console.
+Only revenue & cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential revenue of users that are currently on free plans in Actor Insights in the Apify Console.
 
 :::note What are Gigabyte-hours?
 

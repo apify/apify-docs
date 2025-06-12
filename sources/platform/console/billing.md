@@ -1,7 +1,7 @@
 ---
 title: Billing
 description: The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.
-sidebar_position: 4
+sidebar_position: 3
 category: platform
 slug: /console/billing
 ---

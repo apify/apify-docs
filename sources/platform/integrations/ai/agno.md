@@ -2,7 +2,7 @@
 title: Agno Integration
 sidebar_label: Agno
 description: Integrate Apify with Agno to power AI agents with web scraping, automation, and data insights.
-sidebar_position: 14
+sidebar_position: 17
 slug: /integrations/agno
 ---
 
@@ -26,7 +26,7 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 
 ### Prerequisites
 
-- _Apify API token_: Obtain your API token from the [Apify console](https://console.apify.com/account/integrations).  
+- _Apify API token_: Obtain your API token from the [Apify console](https://console.apify.com/account/integrations).
 - _OpenAI API key_: Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
 :::tip Alternative LLM providers
@@ -35,7 +35,7 @@ While our examples use OpenAI, Agno supports other LLM providers as well. You'll
 
 :::
 
-- _Python environment_: Ensure Python is installed (version 3.8+ recommended).  
+- _Python environment_: Ensure Python is installed (version 3.8+ recommended).
 - _Required packages_: Install the following dependencies in your terminal:
 
 ```bash

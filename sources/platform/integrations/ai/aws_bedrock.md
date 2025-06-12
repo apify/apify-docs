@@ -2,7 +2,7 @@
 title: Amazon Bedrock integrations
 sidebar_label: Amazon Bedrock
 description: Learn how to integrate Apify with Amazon Bedrock Agents to provide web data for AI agents
-sidebar_position: 9
+sidebar_position: 11
 slug: /integrations/aws_bedrock
 ---
 
