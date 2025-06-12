@@ -1,7 +1,6 @@
 ---
-title: Computer preparation
+title: "Data extraction: Computer preparation"
 description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and npm and run a Hello World script.
-sidebar_position: 4
 slug: /web-scraping-for-beginners/data-extraction/computer-preparation
 ---
 
@@ -64,4 +63,4 @@ You should see **Hello World** printed in your terminal. If you do, congratulati
 
 ## Next up {#next}
 
-You have your computer set up correctly for development, and you've run your first script. Great! In the [next lesson](./project_setup.md) we'll set up your project to download a website's HTML using Node.js instead of a browser.
+You have your computer set up correctly for development, and you've run your first script. Great! In the [next lesson](./07_project_setup.md) we'll set up your project to download a website's HTML using Node.js instead of a browser.
