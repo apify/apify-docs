@@ -375,7 +375,7 @@
   - '#/reference/store/store-actors-collection'
   - '#tag/StoreStore-Actors-collection'
   description: |
-    [Apify Store](https://apify.com/store) is home to hundreds of public Actors available
+    [Apify Store](https://apify.com/store) is home to thousands of public Actors available
     to the Apify community.
     The API endpoints described in this section are used to retrieve these Actors.
 
