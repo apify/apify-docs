@@ -6,7 +6,7 @@ category: apify platform
 slug: /actor-marketing-playbook/store-basics/how-store-works
 ---
 
-**Out of the 3,000+ Actors on [Apify Store](https://apify.com/store) marketplace, hundreds of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
+**Out of thousands of Actors on [Apify Store](https://apify.com/store) marketplace, most of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
 
 ---
 
