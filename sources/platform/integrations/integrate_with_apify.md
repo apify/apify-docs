@@ -49,7 +49,7 @@ One way to reach out to Apify users is directly within [Apify Console](https://c
 
 ### Building an external integration
 
-Alternative way is to let your users manage the connection directly on your side using [Apify API](https://docs.apify.com/api/v2) and our API clients for [JavaScript](/api/client/js/) or [Python](/api/client/python/). This way, your users can manage the connection directly from your service.
+An alternative way is to let your users manage the connection directly on your side using [Apify API](https://docs.apify.com/api/v2) and our API clients for [JavaScript](/api/client/js/) or [Python](/api/client/python/). This way, users can manage the connection directly from your service.
 
 ![Airbyte sources tab](./images/airbyte-sources-web.png)
 
@@ -189,11 +189,11 @@ For inspiration, check out the public repositories of Apify's existing external 
   - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
 - Keboola
   - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
-  - [Source code on Github](https://github.com/apify/keboola-ex-apify/) (JavaScript)
+  - [Source code on GitHub](https://github.com/apify/keboola-ex-apify/) (JavaScript)
   - [Google Maps Reviews Scraper integration](https://github.com/apify/keboola-gmrs/) (Actor-specific)
 - Airbyte
-  - [Source code on Github](https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-apify-dataset) (Python)
+  - [Source code on GitHub](https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-apify-dataset) (Python)
 - Pipedream
-  - [Source code on Github](https://github.com/PipedreamHQ/pipedream/tree/65e79d1d66cf0f2fca5ad20a18acd001f5eea069/components/apify)
+  - [Source code on GitHub](https://github.com/PipedreamHQ/pipedream/tree/65e79d1d66cf0f2fca5ad20a18acd001f5eea069/components/apify)
 
-For technical support, contact us at [integrations@apify.com](mailto:integrations@apify.com).
+For technical support, please contact us at [integrations@apify.com](mailto:integrations@apify.com).
