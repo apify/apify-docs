@@ -106,6 +106,7 @@ If you switch the input to the **JSON** display using the toggle, then you will 
 | `schemaVersion` | Integer | Yes | The version of the input schema <br/>specification against which <br/>your schema is written. <br/>Currently, only version `1` is out. |
 | `properties` | Object | Yes | This is an object mapping each field key <br/>to its specification. |
 | `required` | String | No | An array of field keys that are required. |
+| `additionalProperties` | Boolean | No | Controls if properties not listed in `properties` are allowed. Defaults to `true`. <br/>Set to `false` to make requests with extra properties fail. |
 
 :::note Input schema differences
 
