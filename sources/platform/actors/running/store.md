@@ -1,6 +1,6 @@
 ---
 title: Actors in Store
-description: Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
+description: Apify Store is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
 #display H2 to H4 heading
@@ -8,7 +8,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
+**[Apify Store](https://apify.com/store) is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
 
 ---
 
@@ -118,7 +118,7 @@ You will still be charged for the timed storage of the data in the same fashion 
 
 You can set a limit on how many items an Actor should return and the amount you will be charged in Options on the Actor detail page in the section below the Actor input.
 
-![Max items for pay-per-result](./images/store/pay_per_result_max_items.png)
+![Max items for pay-per-result](./images/store/max-items-for-pay-per-result.png)
 
 ##### Can I publish an Actor that is paid per result?
 
