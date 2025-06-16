@@ -66,8 +66,6 @@ get:
       description: |
         Field to sort the records by. The default is `createdAt`. You can also use `lastRunStartedAt` to sort
         by the most recently ran Actors.
-      style: form
-      explode: true
       schema:
         type: string
         enum: [createdAt, lastRunStartedAt]
