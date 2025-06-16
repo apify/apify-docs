@@ -74,12 +74,16 @@ get:
     - name: pricingModel
       in: query
       description: |
-        Filters the results by the specified pricing model. The supported values
-        are `FREE`, `FLAT_PRICE_PER_MONTH` and `PRICE_PER_DATASET_ITEM`.
+        Only return Actors with the specified pricing model.
       style: form
       explode: true
       schema:
         type: string
+        enum:
+            - FREE
+            - FLAT_PRICE_PER_MONTH
+            - PRICE_PER_DATASET_ITEM
+            - PAY_PER_EVENT
         example: '''FREE'''
   responses:
     '200':
