@@ -50,6 +50,7 @@ The following Apify services and domains are eligible for security research and 
 - [apify.com](https://apify.com)
 - [console.apify.com](https://console.apify.com)
 - [api.apify.com](https://api.apify.com)
+- [console-backend.apify.com](https://console-backend.apify.com)
 
 Please use your personal account for research purposes. Free accounts are sufficient for most testing.
 
