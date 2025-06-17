@@ -1,5 +1,5 @@
 ---
-title: Dockerfile
+title: How to create an Actor dockerfile
 description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
 sidebar_position: 4
 slug: /deploying-your-code/docker-file
@@ -7,8 +7,6 @@ slug: /deploying-your-code/docker-file
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Dockerfile {#dockerfile}
 
 **Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.**
 

@@ -1,11 +1,9 @@
 ---
-title: Dataset schema
+title: How to create a dataset schema
 description: Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.
 sidebar_position: 3
 slug: /deploying-your-code/dataset-schema
 ---
-
-# Dataset schema
 
 **Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.**
 
