@@ -1,11 +1,11 @@
 ---
 title: How to deploy your Actor
-description: Push local code to the platform, or create a new Actor on the console and integrate it with a Git repo to optionally automatically rebuild any new changes.
+description: Push local code to the platform, or create a new Actor on the console and integrate it with a Git repository to optionally automatically rebuild any new changes.
 sidebar_position: 5
 slug: /deploying-your-code/deploying
 ---
 
-**Push local code to the platform, or create a new Actor on the console and integrate it with a Git repo to optionally automatically rebuild any new changes.**
+**Push local code to the platform, or create a new Actor on the console and integrate it with a Git repository to optionally automatically rebuild any new changes.**
 
 ---
 
@@ -15,7 +15,7 @@ Once you've **actorified** your code, there are two ways to deploy it to the Api
 
 Before we deploy our project onto the Apify platform, let's ensure that we've pushed the changes we made in the last 3 lessons into our remote GitHub repository.
 
-> The benefit of using this method is that any time you push to the Git repo, the code on the platform is also updated and the Actor is automatically rebuilt. Also, you don't have to use a GitHub repository - you can use GitLab or any other service you'd like.
+> The benefit of using this method is that any time you push to the Git repository, the code on the platform is also updated and the Actor is automatically rebuilt. Also, you don't have to use a GitHub repository - you can use GitLab or any other service you'd like.
 
 ### Creating the Actor
 
@@ -31,7 +31,7 @@ In the **Source** tab on the new Actor's page, we'll click the dropdown menu und
 
 Now we'll paste the link to our GitHub repository into the **Git URL** text field and click **Save**.
 
-### Adding the webhook to the repository {#adding-repo-webhook}
+### Adding the webhook to the repository {#adding-repository-webhook}
 
 The final step is to click on **API** in the top right corner of our Actor's page:
 
@@ -39,9 +39,9 @@ The final step is to click on **API** in the top right corner of our Actor's pag
 
 And scroll through all of the links until we find the **Build Actor** API endpoint. Now we'll copy this endpoint's URL, head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
+![Adding a webhook to your GitHub repository](../../../platform/actors/development/deployment/images/ci-github-integration.png)
 
-That's it! The Actor should now pull its source code from the repo and automatically build.
+That's it! The Actor should now pull its source code from the repository and automatically build.
 
 ## Without a GitHub repository (using the Apify CLI) {#with-apify-cli}
 
