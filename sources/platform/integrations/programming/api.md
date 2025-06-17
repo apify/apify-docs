@@ -22,6 +22,8 @@ You are not required to those packages—the REST API works with any HTTP client
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give your token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
+
+
 ![Integrations page in Apify Console](../images/api-token.png)
 
 :::caution
@@ -35,6 +37,23 @@ You can authenticate the Apify API in two ways. You can either pass the token vi
 
 Note that some API endpoints, such as [Get list of keys](/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
+
+## Expiration
+
+API tokens support enhanced security features to help protect your account and data. You can set an expiration date for your API tokens, ensuring they automatically become invalid after a specified period. This is particularly useful for temporary access or when working with third-party services.
+
+![Creating token with expiration date in Apify Console](../images/api-token-expiration-date.png)
+
+## Rotation
+
+If you suspect that a token has been compromised or accidentally exposed, you can rotate it through the Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
+
+![Rotate token in Apify Console](../images/api-token-rotate.png)
+
+For better security awareness, tokens that have been identified as leaked are marked in the UI, making it easy to identify and take action on compromised tokens.
+
+![Leaked token in Apify Console](../images/api-token-leaked.png)
+
 
 ## Organization accounts
 
