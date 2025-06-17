@@ -22,8 +22,6 @@ You are not required to those packages—the REST API works with any HTTP client
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give your token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
-
-
 ![Integrations page in Apify Console](../images/api-token.png)
 
 :::caution
