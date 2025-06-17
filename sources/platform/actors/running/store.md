@@ -1,6 +1,6 @@
 ---
 title: Actors in Store
-description: Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
+description: Apify Store is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
 #display H2 to H4 heading
@@ -8,7 +8,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
+**[Apify Store](https://apify.com/store) is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
 
 ---
 

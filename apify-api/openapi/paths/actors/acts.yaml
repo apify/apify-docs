@@ -15,6 +15,9 @@ get:
     order, therefore you can use pagination to incrementally fetch all Actors while new
     ones are still being created. To sort the records in descending order, use the `desc=1` parameter.
 
+    You can also sort by `lastRunStartedAt` by using the `sortBy=lastRunStartedAt` query parameter.
+    In this case, descending order means the most recently run Actor appears first.
+
   operationId: acts_get
   parameters:
     - name: my
@@ -58,6 +61,15 @@ get:
       schema:
         type: boolean
         example: true
+    - name: sortBy
+      in: query
+      description: |
+        Field to sort the records by. The default is `createdAt`. You can also use `lastRunStartedAt` to sort
+        by the most recently ran Actors.
+      schema:
+        type: string
+        enum: [createdAt, lastRunStartedAt]
+        example: createdAt
   responses:
     '200':
       description: ''
