@@ -1,5 +1,5 @@
 ---
-title: How to create an Actor Dockerfile
+title: Creating Actor Dockerfile
 description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
 sidebar_position: 4
 slug: /deploying-your-code/docker-file

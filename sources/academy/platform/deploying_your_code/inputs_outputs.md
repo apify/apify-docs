@@ -1,5 +1,5 @@
 ---
-title: How to handle inputs and outputs
+title: Managing Actor inputs and outputs
 description: Learn to accept input into your Actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.
 sidebar_position: 1
 slug: /deploying-your-code/inputs-outputs

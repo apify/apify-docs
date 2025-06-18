@@ -1,5 +1,5 @@
 ---
-title: How to deploy your Actor
+title: Publishing your Actor
 description: Push local code to the platform, or create a new Actor on the console and integrate it with a Git repository to optionally automatically rebuild any new changes.
 sidebar_position: 5
 slug: /deploying-your-code/deploying
