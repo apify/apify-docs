@@ -12,6 +12,7 @@ module.exports = {
     title: 'Apify Documentation',
     tagline: 'Apify Documentation',
     url: config.absoluteUrl,
+    noIndex: config.noIndex,
     baseUrl: '/',
     trailingSlash: false,
     organizationName: 'apify',
