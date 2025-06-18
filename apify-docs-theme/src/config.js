@@ -10,7 +10,7 @@ if (process.env.LOCALHOST) {
     absoluteUrl = process.env.APIFY_DOCS_ABSOLUTE_URL;
 }
 
-const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '')
+const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '');
 
 const themeConfig = {
     docs: {
