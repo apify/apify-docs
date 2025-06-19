@@ -38,7 +38,7 @@ do not require an authentication token because they contain a hard-to-guess iden
 
 ## Expiration
 
-API tokens support enhanced security features to help protect your account and data. You can set an expiration date for your API tokens, ensuring they automatically become invalid after a specified period. This is particularly useful for temporary access or when working with third-party services.
+API tokens include security features to protect your account and data. You can set an expiration date for your API tokens, ensuring they become invalid after a specified period. This is particularly useful for temporary access or when working with third-party services.
 
 ![Creating token with expiration date in Apify Console](../images/api-token-expiration-date.png)
 
