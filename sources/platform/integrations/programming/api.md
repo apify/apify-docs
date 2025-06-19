@@ -48,7 +48,7 @@ If you suspect that a token has been compromised or accidentally exposed, you ca
 
 ![Rotate token in Apify Console](../images/api-token-rotate.png)
 
-For better security awareness, tokens that have been identified as leaked are marked in the UI, making it easy to identify and take action on compromised tokens.
+For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
 
 ![Leaked token in Apify Console](../images/api-token-leaked.png)
 
