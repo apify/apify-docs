@@ -1,5 +1,5 @@
 ---
-title: Dockerfile
+title: Creating Actor Dockerfile
 description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
 sidebar_position: 4
 slug: /deploying-your-code/docker-file
@@ -7,8 +7,6 @@ slug: /deploying-your-code/docker-file
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Dockerfile {#dockerfile}
 
 **Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.**
 
@@ -20,7 +18,7 @@ The **Dockerfile** is a file which gives the Apify platform (or Docker, more spe
 
 ## Base images {#base-images}
 
-If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running Actors on the platform, which can be found [here](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
+If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running Actors on the platform, which can be found on [Docker Hub](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
 
 > Tip: You can see all of Apify's Docker images [on DockerHub](https://hub.docker.com/u/apify).
 
