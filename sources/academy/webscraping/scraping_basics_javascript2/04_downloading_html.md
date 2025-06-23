@@ -12,61 +12,83 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-Using browser tools for developers is crucial for understanding the structure of a particular page, but it's a manual task. Let's start building our first automation, a Python program which downloads HTML code of the product listing.
+Using browser tools for developers is crucial for understanding the structure of a particular page, but it's a manual task. Let's start building our first automation, a JavaScript program which downloads HTML code of the product listing.
 
-## Starting a Python project
+## Starting a Node.js project
 
-Before we start coding, we need to set up a Python project. Let's create new directory with a virtual environment. Inside the directory and with the environment activated, we'll install the HTTPX library:
+Before we start coding, we need to set up a Node.js project. Let's create new directory and let's name it `product-scraper`. Inside the directory, we'll initialize new project:
 
 ```text
-$ pip install httpx
+$ npm init
+This utility will walk you through creating a package.json file.
 ...
-Successfully installed ... httpx-0.0.0
+
+Press ^C at any time to quit.
+package name: (product-scraper)
+version: (1.0.0)
+description: Product scraper
+entry point: (index.js)
+test command:
+git repository:
+keywords:
+author:
+license: (ISC)
+# highlight-next-line
+type: (commonjs) module
+About to write to /Users/.../product-scraper/package.json:
+
+{
+  "name": "product-scraper",
+  "version": "1.0.0",
+  "description": "Product scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+# highlight-next-line
+  "type": "module"
+}
 ```
 
-:::tip Installing packages
+The above creates a `package.json` file with configuration of our project. While most of the values are arbitrary, it's important that the project's type is set to `module`. Now let's test that all works. Inside the project directory we'll create a new file called `index.js` with the following code:
 
-Being comfortable around Python project setup and installing packages is a prerequisite of this course, but if you wouldn't say no to a recap, we recommend the [Installing Packages](https://packaging.python.org/en/latest/tutorials/installing-packages/) tutorial from the official Python Packaging User Guide.
+```js
+import process from 'node:process';
 
-:::
-
-Now let's test that all works. Inside the project directory we'll create a new file called `main.py` with the following code:
-
-```py
-import httpx
-
-print("OK")
+console.log(`All is OK, ${process.argv[2]}`);
 ```
 
-Running it as a Python program will verify that our setup is okay and we've installed HTTPX:
+Running it as a Node.js program will verify that our setup is okay and we've correctly set the type to `module`. The program takes a single word as an argument and will address us with it, so let's pass it "mate", for example:
 
 ```text
-$ python main.py
-OK
+$ node index.js mate
+All is OK, mate
 ```
 
 :::info Troubleshooting
 
-If you see errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
+If you see `ReferenceError: require is not defined in ES module scope, you can use import instead`, double check that in your `package.json` the type property is set to `module`.
+
+If you see other errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
 
 :::
 
 ## Downloading product listing
 
-Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing `OK`. The [documentation of the HTTPX library](https://www.python-httpx.org/) provides us with examples how to use it. Inspired by those, our code will look like this:
+Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing `All is OK`. The [documentation of the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) provides us with examples how to use it. Inspired by those, our code will look like this:
 
-```py
-import httpx
-
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-print(response.text)
+```js
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
+console.log(await response.text());
 ```
 
 If we run the program now, it should print the downloaded HTML:
 
 ```text
-$ python main.py
+$ node index.js
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -80,7 +102,7 @@ $ python main.py
 </html>
 ```
 
-Running `httpx.get(url)`, we made a HTTP request and received a response. It's not particularly useful yet, but it's a good start of our scraper.
+Running `await fetch(url)`, we made a HTTP request and received a response. It's not particularly useful yet, but it's a good start of our scraper.
 
 :::tip Client and server, request and response
 
@@ -88,7 +110,7 @@ HTTP is a network protocol powering the internet. Understanding it well is an im
 
 - HTTP is an exchange between two participants.
 - The _client_ sends a _request_ to the _server_, which replies with a _response_.
-- In our case, `main.py` is the client, and the technology running at `warehouse-theme-metal.myshopify.com` replies to our request as the server.
+- In our case, `index.js` is the client, and the technology running at `warehouse-theme-metal.myshopify.com` replies to our request as the server.
 
 :::
 
@@ -110,28 +132,30 @@ First, let's ask for trouble. We'll change the URL in our code to a page that do
 https://warehouse-theme-metal.myshopify.com/does/not/exist
 ```
 
-We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX already provides `response.raise_for_status()`, a method that analyzes the number and raises the `httpx.HTTPError` exception if our request wasn't successful:
+We could check the value of `response.status` against a list of allowed numbers, but the Fetch API already provides `response.ok`, a property which returns `false` if our request wasn't successful:
 
-```py
-import httpx
+```js
+const url = "https://warehouse-theme-metal.myshopify.com/does/not/exist";
+const response = await fetch(url);
 
-url = "https://warehouse-theme-metal.myshopify.com/does/not/exist"
-response = httpx.get(url)
-response.raise_for_status()
-print(response.text)
+if (response.ok) {
+  console.log(await response.text());
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
 If you run the code above, the program should crash:
 
 ```text
-$ python main.py
-Traceback (most recent call last):
-  File "/Users/.../main.py", line 5, in <module>
-    response.raise_for_status()
-  File "/Users/.../.venv/lib/python3/site-packages/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://warehouse-theme-metal.myshopify.com/does/not/exist'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+$ node index.js
+file:///Users/.../index.js:7
+  throw new Error(`HTTP ${response.status}`);
+        ^
+
+Error: HTTP 404
+    at file:///Users/.../index.js:7:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
 ```
 
 Letting our program visibly crash on error is enough for our purposes. Now, let's return to our primary goal. In the next lesson, we'll be looking for a way to extract information about products from the downloaded HTML.
@@ -151,13 +175,15 @@ https://www.aliexpress.com/w/wholesale-darth-vader.html
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
+  ```js
+  const url = "https://www.aliexpress.com/w/wholesale-darth-vader.html";
+  const response = await fetch(url);
 
-  url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
-  response = httpx.get(url)
-  response.raise_for_status()
-  print(response.text)
+  if (response.ok) {
+    console.log(await response.text());
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>
@@ -176,26 +202,30 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
   Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
 
   ```text
-  python main.py > products.html
+  node index.js > products.html
   ```
 
-  If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+  If you want to use Node.js instead, it offers several ways how to create files. The solution below uses the [Promises API](https://nodejs.org/api/fs.html#promises-api):
 
-  ```py
-  import httpx
-  from pathlib import Path
+  ```js
+  import { writeFile } from 'node:fs/promises';
 
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
-  Path("products.html").write_text(response.text)
+  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const html = await response.text();
+    await writeFile('products.html', html);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>
 
 ### Download an image as a file
 
-Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [HTTPX QuickStart](https://www.python-httpx.org/quickstart/) for guidance. You can use this URL pointing to an image of a TV:
+Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [Fetch API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#reading_the_response_body) for guidance. Especially check `Response.arrayBuffer()`. You can use this URL pointing to an image of a TV:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg
@@ -204,16 +234,20 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
 <details>
   <summary>Solution</summary>
 
-  Python offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+  Node.js offers several ways how to create files. The solution below uses [Promises API](https://nodejs.org/api/fs.html#promises-api):
 
-  ```py
-  from pathlib import Path
-  import httpx
+  ```js
+  import { writeFile } from 'node:fs/promises';
 
-  url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg"
-  response = httpx.get(url)
-  response.raise_for_status()
-  Path("tv.jpg").write_bytes(response.content)
+  const url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg";
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const buffer = Buffer.from(await response.arrayBuffer());
+    await writeFile('tv.jpg', buffer);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>
