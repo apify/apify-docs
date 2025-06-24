@@ -216,6 +216,16 @@ Algeria
 Angola
 Benin
 Botswana
+Burkina Faso
+Burundi
+Cameroon
+Cape Verde
+Central African Republic
+Chad
+Comoros
+Democratic Republic of the Congo
+Republic of the Congo
+Djibouti
 ...
 ```
 
