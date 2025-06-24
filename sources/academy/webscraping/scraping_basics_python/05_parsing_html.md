@@ -63,7 +63,7 @@ $ python main.py
 [<h1 class="collection__title heading h1">Sales</h1>]
 ```
 
-Our code lists all `h1` elements it can find on the page. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
+Our code lists all `h1` elements it can find in the HTML we gave it. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
 
 ```py
 headings = soup.select("h1")
@@ -80,7 +80,7 @@ Sales
 
 :::note Dynamic websites
 
-The Warehouse returns full HTML in its initial response, but many other sites add content via JavaScript after the page loads or after user interaction. In such cases, what we see in DevTools may differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
 
 :::
 
@@ -117,12 +117,12 @@ That's it! We've managed to download a product listing, parse its HTML, and coun
 
 <Exercises />
 
-### Scrape F1 teams
+### Scrape F1 Academy teams
 
-Print a total count of F1 teams listed on this page:
+Print a total count of F1 Academy teams listed on this page:
 
 ```text
-https://www.formula1.com/en/teams
+https://www.f1academy.com/Racing-Series/Teams
 ```
 
 <details>
@@ -132,20 +132,20 @@ https://www.formula1.com/en/teams
   import httpx
   from bs4 import BeautifulSoup
 
-  url = "https://www.formula1.com/en/teams"
+  url = "https://www.f1academy.com/Racing-Series/Teams"
   response = httpx.get(url)
   response.raise_for_status()
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".group")))
+  print(len(soup.select(".teams-driver-item")))
   ```
 
 </details>
 
-### Scrape F1 drivers
+### Scrape F1 Academy drivers
 
-Use the same URL as in the previous exercise, but this time print a total count of F1 drivers.
+Use the same URL as in the previous exercise, but this time print a total count of F1 Academy drivers.
 
 <details>
   <summary>Solution</summary>
@@ -154,13 +154,13 @@ Use the same URL as in the previous exercise, but this time print a total count 
   import httpx
   from bs4 import BeautifulSoup
 
-  url = "https://www.formula1.com/en/teams"
+  url = "https://www.f1academy.com/Racing-Series/Teams"
   response = httpx.get(url)
   response.raise_for_status()
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".f1-team-driver-name")))
+  print(len(soup.select(".driver")))
   ```
 
 </details>
