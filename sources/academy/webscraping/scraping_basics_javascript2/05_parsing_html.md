@@ -92,7 +92,7 @@ LoadedCheerio {
 }
 ```
 
-Our code prints a Cheerio object. It's something like an array of all `h1` elements Cheerio can find in the HTML we gave it. It's the case that there's just one, so we can see only a single item in the container.
+Our code prints a Cheerio object. It's something like an array of all `h1` elements Cheerio can find in the HTML we gave it. It's the case that there's just one, so we can see only a single item in the selection.
 
 The item has many properties, such as references to its parent or sibling elements, but most importantly, its name is `h1` and in the `children` property, it contains a single text element. Now let's print just the text. Let's change our program to the following:
 
@@ -112,7 +112,7 @@ if (response.ok) {
 }
 ```
 
-Thanks to the nature of the Cheerio object we don't have to explicitly find the first element. If we call `.text()`, it automatically assumes we want to work with the first element in the collection. Thus, if we run our scraper again, it prints the text of the first `h1` element:
+Thanks to the nature of the Cheerio object we don't have to explicitly find the first element. Calling `.text()` combines texts of all elements in the selection. If we run our scraper again, it prints the text of the `h1` element:
 
 ```text
 $ node index.js
@@ -147,7 +147,7 @@ if (response.ok) {
 }
 ```
 
-In CSS, `.product-item` selects all elements whose `class` attribute contains value `product-item`. We call `$()` with the selector and get back a container of matching elements. Cheerio handles all the complexity of understanding the HTML markup for us. Then we use `.length` to count how many items there is in the container.
+In CSS, `.product-item` selects all elements whose `class` attribute contains value `product-item`. We call `$()` with the selector and get back matching elements. Cheerio handles all the complexity of understanding the HTML markup for us. Then we use `.length` to count how many items there is in the selection.
 
 ```text
 $ node index.js
