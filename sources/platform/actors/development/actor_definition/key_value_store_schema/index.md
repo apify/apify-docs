@@ -68,6 +68,7 @@ To set up the key-value store collections using a single configuration file, use
 
 The template above defines the configuration for the default key-value store.
 Each collection can define its member keys using one of the following properties:
+
 - `keyPrefix` - All keys starting with the specified prefix will be included in the collection (e.g., all keys starting with "document-").
 - `key` - A specific individual key that will be included in the collection (e.g., exactly "summary-data").
 
