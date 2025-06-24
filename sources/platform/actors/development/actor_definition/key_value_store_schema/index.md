@@ -35,7 +35,7 @@ await Actor.setValue(`image-${imageID}`, imageBuffer, { contentType: 'image/jpeg
 await Actor.exit();
 ```
 
-To set up the key-value store collections using a single configuration file, use the following template for the `.actor/actor.json` configuration:
+To set up the key-value store schema using a single configuration file, use the following template for the `.actor/actor.json` configuration:
 
 ```json title=".actor/actor.json"
 {
@@ -46,7 +46,6 @@ To set up the key-value store collections using a single configuration file, use
     "storages": {
         "keyValueStore": {
             "actorKeyValueStoreSchemaVersion": 1,
-            "actorSpecification": 1,
             "title": "Key-Value Store Schema",
             "collections": {
                 "documents": {
@@ -70,17 +69,21 @@ The template above defines the configuration for the default key-value store.
 Each collection can define its member keys using one of the following properties:
 
 - `keyPrefix` - All keys starting with the specified prefix will be included in the collection (e.g., all keys starting with "document-").
-- `key` - A specific individual key that will be included in the collection (e.g., exactly "summary-data").
+- `key` - A specific individual key that will be included in the collection.
 
 Note that you must use either `key` or `keyPrefix` for each collection, but not both.
 
-Under the `Storage` tab property of the run or in the key-value store storage detail, there are the tabs for each collection defined in the configuration:
+Once the key-value store schema is defined, the tabs for each collection will appear in the `Storage` tab of the Actor's run:
 
-![Storages tab UI](images/kv-store-schema-example.png)
+![Storages tab in Run](images/kv-store-schema-example-run.png)
+
+And in the storage detail view too:
+
+![Storage detail](images/kv-store-schema-example-storage.png)
 
 ### API Example
 
-You can use the API to list keys from a specific collection by using the `collection` query parameter when calling the [Get list of keys](https://docs.apify.com/api/v2/key-value-store-keys-get) endpoint:
+With the key-value store schema defined, you can use the API to list keys from a specific collection by using the `collection` query parameter when calling the [Get list of keys](https://docs.apify.com/api/v2/key-value-store-keys-get) endpoint:
 
 ```http title="Get list of keys from a collection"
 GET https://api.apify.com/v2/key-value-stores/{storeId}/keys?collection=documents
@@ -141,7 +144,7 @@ You have two choices of how to organize files within the `.actor` folder.
         "keyValueStore": {
             "actorKeyValueStoreSchemaVersion": 1,
             "title": "Key-Value Store Schema",
-            "collections": {}
+            "collections": { /* Define your collections here */ }
         }
     }
 }
@@ -165,7 +168,7 @@ You have two choices of how to organize files within the `.actor` folder.
 {
     "actorKeyValueStoreSchemaVersion": 1,
     "title": "Key-Value Store Schema",
-    "collections": {}
+    "collections": { /* Define your collections here */ }
 }
 ```
 
@@ -173,27 +176,27 @@ Both of these methods are valid so choose one that suits your needs best.
 
 ## Key-value store schema structure definitions
 
-The key-value store schema structure defines the various components and properties that govern the organization and representation of the output data produced by an Actor.
-It specifies the structure of the data, the transformations to be applied, and the visual display configurations for the Output tab UI.
+The key-value store schema defines the collections of keys (and their properties) in the key-value store.
+It allows you to organize and validate data stored by the Actor, making it easier to manage and retrieve specific records.
 
 ### Key-value store schema object definition
 
 | Property                          | Type                          | Required | Description                                                                                                     |
 |-----------------------------------|-------------------------------|----------|-----------------------------------------------------------------------------------------------------------------|
 | `actorKeyValueStoreSchemaVersion` | integer                       | true     | Specifies the version of key-value store schema structure document. <br/>Currently only version 1 is available. |
-| `title`                           | string                        | true     | -         |
-| `description`                     | string                        | false    | -                               |
-| `collections`                     | Object                        | true     | An object where each key is a collection ID and its value is a collection definition object.                     |
+| `title`                           | string                        | true     | Title of the schema. Currently not used anywhere.                                                               |
+| `description`                     | string                        | false    | Description of the schema. Currently not used anywhere.                                                         |
+| `collections`                     | Object                        | true     | An object where each key is a collection ID and its value is a collection definition object (see below).        |
 
 ### Collection object definition
 
-| Property                  | Type         | Required | Description                                                                                                                                     |
-|---------------------------|--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`                   | string       | true     | The title displayed in the UI in the Output tab <br/>and returned in the API.                                                                   |
-| `description`             | string       | false    | A description of the collection that appears in tooltips in the UI and in API responses.                                                       |
-| `key`                     | string       | conditional* | Defines a single specific key that will be part of this collection.                                                                            |
-| `keyPrefix`               | string       | conditional* | Defines a prefix for keys that should be included in this collection.                                                                          |
-| `contentTypes`            | string array | false    | Allowed content types for records in this collection. Used for validation when storing data.                                                    |
-| `jsonSchema`              | object       | false    | For collections with content type `application/json`, you can define a JSON schema to validate structure. <br/>Uses JsonSchema Draft 07 format.  |
+| Property       | Type         | Required     | Description                                                                                                                                     |
+|----------------|--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`        | string       | true         | The collection’s title is shown in the storage tab of a run and in the storage detail view, where it appears as a tab for filtering records.    |
+| `description`  | string       | false        | A description of the collection that appears in tooltips in the UI.                                                                             |
+| `key`          | string       | conditional* | Defines a single specific key that will be part of this collection.                                                                             |
+| `keyPrefix`    | string       | conditional* | Defines a prefix for keys that should be included in this collection.                                                                           |
+| `contentTypes` | string array | false        | Allowed content types for records in this collection. Used for validation when storing data.                                                    |
+| `jsonSchema`   | object       | false        | For collections with content type `application/json`, you can define a JSON schema to validate structure. <br/>Uses JsonSchema Draft 07 format. |
 
 \* Either `key` or `keyPrefix` must be specified for each collection, but not both.
