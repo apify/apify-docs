@@ -65,11 +65,52 @@ get:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/get-record
     - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_get
   x-js-parent: KeyValueStoreClient
+  x-js-name: getRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#getRecor
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: get_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#get_record
+head:
+  tags:
+    - Storage/Key-value stores
+  summary: Check if a record exists
+  description: |
+    Check if a value is stored in the key-value store under a specific key.
+  operationId: keyValueStore_record_head
+  security:
+    - apiKeyStoreId: []
+    - httpBearerStoreId: []
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: recordKey
+      in: path
+      description: Key of the record.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: some key
+  responses:
+    '200':
+      description: 'The record exists'
+      headers: {}
+    '404':
+      description: 'The record does not exist'
+      headers: {}
+  deprecated: false
+  x-js-parent: KeyValueStoreClient
   x-js-name: recordExists
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#recordExists
   x-py-parent: KeyValueStoreClientAsync
-  x-py-name: stream_record
-  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#stream_record
+  x-py-name: record_exists
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#record_exists
 put:
   tags:
     - Storage/Key-value stores
