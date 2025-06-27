@@ -3,6 +3,7 @@ title: Using a scraping framework with Python
 sidebar_label: Using a framework
 description: Lesson about building a Python application for watching prices. Using the Crawlee framework to simplify creating a scraper.
 slug: /scraping-basics-javascript2/framework
+unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';

@@ -3,6 +3,7 @@ title: Saving data with Python
 sidebar_label: Saving data
 description: Lesson about building a Python application for watching prices. Using standard library to save data scraped from product listing pages in popular formats such as CSV or JSON.
 slug: /scraping-basics-javascript2/saving-data
+unlisted: true
 ---
 
 **In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use Python's standard library to export the files.**

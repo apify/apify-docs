@@ -3,6 +3,7 @@ title: Extracting data from HTML with Python
 sidebar_label: Extracting data from HTML
 description: Lesson about building a Python application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
 slug: /scraping-basics-javascript2/extracting-data
+unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';

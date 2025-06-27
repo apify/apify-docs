@@ -3,6 +3,7 @@ title: Locating HTML elements with Python
 sidebar_label: Locating HTML elements
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate products on the product listing page.
 slug: /scraping-basics-javascript2/locating-elements
+unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';

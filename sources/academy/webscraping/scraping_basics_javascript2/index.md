@@ -4,6 +4,7 @@ description: Learn how to use JavaScript to extract information from websites in
 sidebar_position: 1.5
 category: web scraping & automation
 slug: /scraping-basics-javascript2
+unlisted: true
 ---
 
 import DocCardList from '@theme/DocCardList';

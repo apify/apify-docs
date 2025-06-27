@@ -3,6 +3,7 @@ title: Getting links from HTML with Python
 sidebar_label: Getting links from HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate links to individual product pages.
 slug: /scraping-basics-javascript2/getting-links
+unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';

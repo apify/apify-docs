@@ -3,6 +3,7 @@ title: Parsing HTML with Python
 sidebar_label: Parsing HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to parse HTML code of a product listing page.
 slug: /scraping-basics-javascript2/parsing-html
+unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
