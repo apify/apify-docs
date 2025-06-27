@@ -168,7 +168,7 @@ Bob,42,"reading, TypeScript"
 
 In the CSV format, if a value contains commas, we should enclose it in quotes. When we open the file in a text editor of our choice, we can see that the writer automatically handled this.
 
-When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it as well. If you're using a different operating system, try opening the file with any spreadsheet program you have.
+When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
 
 ![CSV example preview](images/csv-example.png)
 
