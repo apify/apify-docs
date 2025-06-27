@@ -33,7 +33,7 @@ While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732
 We'll choose [Cheerio](https://cheerio.js.org/) as our parser, as it's a popular library which can process even non-standard, broken markup. This is useful for scraping, because real-world websites often contain all sorts of errors and discrepancies. In the project directory, we'll run the following to install the Cheerio package:
 
 ```text
-$ npm install cheerio
+$ npm install cheerio --save
 
 added 23 packages, and audited 24 packages in 1s
 ...
