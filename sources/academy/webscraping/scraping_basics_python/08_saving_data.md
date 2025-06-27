@@ -93,7 +93,7 @@ import csv
 import json
 ```
 
-Next, instead of printing the data, we'll finish the program by exporting it to JSON. Replace `print(data)` with the following:
+Next, instead of printing the data, we'll finish the program by exporting it to JSON. Let's replace the line `print(data)` with the following:
 
 ```py
 with open("products.json", "w") as file:
@@ -167,9 +167,9 @@ Alice,24,"kickbox, Python"
 Bob,42,"reading, TypeScript"
 ```
 
-In the CSV format, if values contain commas, we should enclose them in quotes. You can see that the writer automatically handled this.
+In the CSV format, if a value contains commas, we should enclose it in quotes. When we open the file in a text editor of our choice, we can see that the writer automatically handled this.
 
-When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it as well. If you're using a different operating system, try opening the file with any spreadsheet program you have.
+When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
 
 ![CSV example preview](images/csv-example.png)
 
@@ -183,7 +183,7 @@ from decimal import Decimal
 import csv
 ```
 
-Next, let’s append one more export to end of the source code of our scraper:
+Next, let's add one more data export to end of the source code of our scraper:
 
 ```py
 with open("products.csv", "w") as file:
@@ -193,7 +193,7 @@ with open("products.csv", "w") as file:
         writer.writerow(row)
 ```
 
-Now the program should work as expected, producing a CSV file with the following content:
+The program should now also produce a CSV file with the following content:
 
 ![CSV preview](images/csv.png)
 
@@ -203,7 +203,7 @@ We've built a Python application that downloads a product listing, parses the da
 
 ## Exercises
 
-In this lesson, you learned how to create export files in two formats. The following challenges are designed to help you empathize with the people who'd be working with them.
+In this lesson, we created export files in two formats. The following challenges are designed to help you empathize with the people who'd be working with them.
 
 ### Process your JSON
 
