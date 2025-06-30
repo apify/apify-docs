@@ -88,7 +88,6 @@ In Python, we can read and write JSON using the [`json`](https://docs.python.org
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 # highlight-next-line
 import json
 ```
@@ -179,6 +178,7 @@ Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we 
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
+import json
 # highlight-next-line
 import csv
 ```
@@ -186,6 +186,14 @@ import csv
 Next, let's add one more data export to end of the source code of our scraper:
 
 ```py
+def serialize(obj):
+    if isinstance(obj, Decimal):
+        return str(obj)
+    raise TypeError("Object not JSON serializable")
+
+with open("products.json", "w") as file:
+    json.dump(data, file, default=serialize)
+
 with open("products.csv", "w") as file:
     writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
     writer.writeheader()

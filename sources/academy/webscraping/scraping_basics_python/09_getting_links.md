@@ -34,8 +34,8 @@ Over the course of the previous lessons, the code of our program grew to almost 
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -65,12 +65,6 @@ for product in soup.select(".product-item"):
 
     data.append({"title": title, "min_price": min_price, "price": price})
 
-with open("products.csv", "w") as file:
-    writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
-
 def serialize(obj):
     if isinstance(obj, Decimal):
         return str(obj)
@@ -78,6 +72,12 @@ def serialize(obj):
 
 with open("products.json", "w") as file:
     json.dump(data, file, default=serialize)
+
+with open("products.csv", "w") as file:
+    writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
+    writer.writeheader()
+    for row in data:
+        writer.writerow(row)
 ```
 
 Let's introduce several functions to make the whole thing easier to digest. First, we can turn the beginning of our program into this `download()` function, which takes a URL and returns a `BeautifulSoup` instance:
@@ -152,8 +152,8 @@ Now let's put it all together:
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 
 def download(url):
     response = httpx.get(url)
@@ -182,13 +182,6 @@ def parse_product(product):
 
     return {"title": title, "min_price": min_price, "price": price}
 
-def export_csv(file, data):
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
-
 def export_json(file, data):
     def serialize(obj):
         if isinstance(obj, Decimal):
@@ -196,6 +189,13 @@ def export_json(file, data):
         raise TypeError("Object not JSON serializable")
 
     json.dump(data, file, default=serialize, indent=2)
+
+def export_csv(file, data):
+    fieldnames = list(data[0].keys())
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()
+    for row in data:
+        writer.writerow(row)
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
@@ -205,11 +205,11 @@ for product in listing_soup.select(".product-item"):
     item = parse_product(product)
     data.append(item)
 
-with open("products.csv", "w") as file:
-    export_csv(file, data)
-
 with open("products.json", "w") as file:
     export_json(file, data)
+
+with open("products.csv", "w") as file:
+    export_csv(file, data)
 ```
 
 The program is much easier to read now. With the `parse_product()` function handy, we could also replace the convoluted loop with one that only takes up four lines of code.
@@ -278,8 +278,8 @@ Browsers reading the HTML know the base address and automatically resolve such l
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 # highlight-next-line
 from urllib.parse import urljoin
 ```
