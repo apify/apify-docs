@@ -62,7 +62,7 @@ if (response.ok) {
     }
 
     // highlight-next-line
-    data.push({ title: titleText, ...priceRange })
+    data.push({ title: titleText, ...priceRange });
   });
 
   // highlight-next-line
