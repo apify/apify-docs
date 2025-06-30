@@ -206,7 +206,7 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 ### Scrape calling codes of African countries
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
+Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
@@ -225,43 +225,53 @@ https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://cheerio.js.org/docs/api/classes/Cheerio#parent) in the HTML element tree.
+Hint: Locating cells in tables is sometimes easier if you know how to [filter](https://cheerio.js.org/docs/api/classes/Cheerio#filter) or [navigate up](https://cheerio.js.org/docs/api/classes/Cheerio#parent) in the HTML element tree.
 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+  ```js
+  import * as cheerio from 'cheerio';
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+  async function download(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+      const html = await response.text();
+      return cheerio.load(html);
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  }
 
-  def parse_calling_code(soup):
-      for label in soup.select("th.infobox-label"):
-          if label.text.strip() == "Calling code":
-              data = label.parent.select_one("td.infobox-data")
-              return data.text.strip()
-      return None
+  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
+  const $ = await download(listingURL);
 
-  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  listing_soup = download(listing_url)
-  for name_cell in listing_soup.select(".wikitable tr td:nth-child(3)"):
-      link = name_cell.select_one("a")
-      country_url = urljoin(listing_url, link["href"])
-      country_soup = download(country_url)
-      calling_code = parse_calling_code(country_soup)
-      print(country_url, calling_code)
+  const $promises = $(".wikitable tr td:nth-child(3)").map(async (i, element) => {
+    const $nameCell = $(element);
+    const $link = $nameCell.find("a").first();
+    const countryURL = new URL($link.attr("href"), listingURL).href;
+
+    const $c = await download(countryURL);
+    const $label = $c("th.infobox-label")
+      .filter((i, element) => $c(element).text().trim() == "Calling code")
+      .first();
+    const callingCode = $label
+      .parent()
+      .find("td.infobox-data")
+      .first()
+      .text()
+      .trim();
+
+    console.log(`${countryURL} ${callingCode || null}`);
+  });
+  await Promise.all($promises.get());
   ```
 
 </details>
 
 ### Scrape authors of F1 news articles
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
+Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
@@ -286,34 +296,36 @@ Hints:
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+  ```js
+  import * as cheerio from 'cheerio';
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+  async function download(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+      const html = await response.text();
+      return cheerio.load(html);
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  }
 
-  def parse_author(article_soup):
-      link = article_soup.select_one('aside a[rel="author"]')
-      if link:
-          return link.text.strip()
-      address = article_soup.select_one('aside address')
-      if address:
-          return address.text.strip()
-      return None
+  const listingURL = "https://www.theguardian.com/sport/formulaone";
+  const $ = await download(listingURL);
 
-  listing_url = "https://www.theguardian.com/sport/formulaone"
-  listing_soup = download(listing_url)
-  for item in listing_soup.select("#maincontent ul li"):
-      link = item.select_one("a")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      title = article_soup.select_one("h1").text.strip()
-      author = parse_author(article_soup)
-      print(f"{author}: {title}")
+  const $promises = $("#maincontent ul li").map(async (i, element) => {
+    const $item = $(element);
+    const $link = $item.find("a").first();
+    const authorURL = new URL($link.attr("href"), listingURL).href;
+
+    const $a = await download(authorURL);
+    const title = $a("h1").text().trim();
+
+    const author = $a('a[rel="author"]').text().trim();
+    const address = $a('aside address').text().trim();
+
+    console.log(`${author || address || null}: ${title}`);
+  });
+  await Promise.all($promises.get());
   ```
 
 </details>
