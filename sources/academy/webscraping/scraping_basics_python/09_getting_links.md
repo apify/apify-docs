@@ -115,7 +115,20 @@ def parse_product(product):
     return {"title": title, "min_price": min_price, "price": price}
 ```
 
-Now the CSV export. We'll make a small change here. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
+Now the JSON export. For better readability of it, let's make a small change here and set the indentation level to two spaces:
+
+```py
+def export_json(file, data):
+    def serialize(obj):
+        if isinstance(obj, Decimal):
+            return str(obj)
+        raise TypeError("Object not JSON serializable")
+
+    # highlight-next-line
+    json.dump(data, file, default=serialize, indent=2)
+```
+
+The last function we'll add will take care of the CSV export. We'll make a small change here as well. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
 
 ```py
 def export_csv(file, data):
@@ -132,19 +145,6 @@ def export_csv(file, data):
 The code above assumes the `data` variable contains at least one item, and that all the items have the same keys. This isn't robust and could break, but in our program, this isn't a problem, and omitting these corner cases allows us to keep the code examples more succinct.
 
 :::
-
-The last function we'll add will take care of the JSON export. For better readability of the JSON export, let's make a small change here too and set the indentation level to two spaces:
-
-```py
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    # highlight-next-line
-    json.dump(data, file, default=serialize, indent=2)
-```
 
 Now let's put it all together:
 
@@ -406,8 +406,8 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
   from bs4 import BeautifulSoup
   from urllib.parse import urljoin
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
+  listing_url = "https://www.theguardian.com/sport/formulaone"
+  response = httpx.get(listing_url)
   response.raise_for_status()
 
   html_code = response.text
@@ -415,7 +415,7 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 
   for item in soup.select("#maincontent ul li"):
       link = item.select_one("a")
-      url = urljoin(url, link["href"])
+      url = urljoin(listing_url, link["href"])
       print(url)
   ```
 
