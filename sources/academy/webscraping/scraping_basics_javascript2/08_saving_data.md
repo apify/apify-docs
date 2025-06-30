@@ -168,6 +168,9 @@ import { AsyncParser } from '@json2csv/node';
 Then, let's add one more data export near the end of the source code of our scraper:
 
 ```js
+const jsonData = JSON.stringify(data);
+await writeFile('products.json', jsonData);
+
 const parser = new AsyncParser();
 const csvData = await parser.parse(data).promise();
 await writeFile("products.csv", csvData);
