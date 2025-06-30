@@ -65,7 +65,7 @@ for product in soup.select(".product-item"):
 print(data)
 ```
 
-Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list at once.
+Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list. The program should now print the results as a single large Python list:
 
 ```text
 $ python main.py
@@ -215,7 +215,7 @@ In this lesson, we created export files in two formats. The following challenges
 
 ### Process your JSON
 
-Write a new Python program that reads `products.json`, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
+Write a new Python program that reads the `products.json` file we created in the lesson, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
 
 <details>
   <summary>Solution</summary>

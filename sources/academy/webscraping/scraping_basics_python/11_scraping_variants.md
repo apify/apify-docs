@@ -71,8 +71,6 @@ These elements aren't visible to regular visitors. They're there just in case Ja
 Using our knowledge of Beautiful Soup, we can locate the options and extract the data we need:
 
 ```py
-...
-
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
 
@@ -88,8 +86,6 @@ for product in listing_soup.select(".product-item"):
     else:
         item["variant_name"] = None
         data.append(item)
-
-...
 ```
 
 The CSS selector `.product-form__option.no-js` matches elements with both `product-form__option` and `no-js` classes. Then we're using the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements somewhere inside the `.product-form__option.no-js` wrapper.
