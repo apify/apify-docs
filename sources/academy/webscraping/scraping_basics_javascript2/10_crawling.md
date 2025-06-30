@@ -20,8 +20,8 @@ Thanks to the refactoring, we have functions ready for each of the tasks, so we 
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 from urllib.parse import urljoin
 
 def download(url):

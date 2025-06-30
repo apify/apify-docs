@@ -192,8 +192,8 @@ Now, if we use our new function, we should finally get a program that can scrape
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 from urllib.parse import urljoin
 
 def download(url):
@@ -235,13 +235,6 @@ def parse_variant(variant):
     )
     return {"variant_name": name, "price": price}
 
-def export_csv(file, data):
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
-
 def export_json(file, data):
     def serialize(obj):
         if isinstance(obj, Decimal):
@@ -249,6 +242,13 @@ def export_json(file, data):
         raise TypeError("Object not JSON serializable")
 
     json.dump(data, file, default=serialize, indent=2)
+
+def export_csv(file, data):
+    fieldnames = list(data[0].keys())
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()
+    for row in data:
+        writer.writerow(row)
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
@@ -267,11 +267,11 @@ for product in listing_soup.select(".product-item"):
         item["variant_name"] = None
         data.append(item)
 
-with open("products.csv", "w") as file:
-    export_csv(file, data)
-
 with open("products.json", "w") as file:
     export_json(file, data)
+
+with open("products.csv", "w") as file:
+    export_csv(file, data)
 ```
 
 Let's run the scraper and see if all the items in the data contain prices:

@@ -35,8 +35,8 @@ Over the course of the previous lessons, the code of our program grew to almost 
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -153,8 +153,8 @@ Now let's put it all together:
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 
 def download(url):
     response = httpx.get(url)
@@ -279,8 +279,8 @@ Browsers reading the HTML know the base address and automatically resolve such l
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 # highlight-next-line
 from urllib.parse import urljoin
 ```

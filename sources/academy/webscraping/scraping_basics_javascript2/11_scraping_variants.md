@@ -193,8 +193,8 @@ Now, if we use our new function, we should finally get a program that can scrape
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
-import csv
 import json
+import csv
 from urllib.parse import urljoin
 
 def download(url):
