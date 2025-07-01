@@ -156,10 +156,12 @@ const $ = await download(listingURL);
 const $promises = $(".product-item").map(async (i, element) => {
   const $productItem = $(element);
   const item = parseProduct($productItem, listingURL);
+
   // highlight-next-line
   const $p = await download(item.url);
   // highlight-next-line
   item.vendor = $p(".product-meta__vendor").text().trim();
+
   return item;
 });
 const data = await Promise.all($promises.get());
