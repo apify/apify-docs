@@ -34,6 +34,20 @@ Before you start, make sure you have the following:
 1. _Apify API Token:_ Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
 1. _MCP client:_ An AI agent or client that supports MCP. This could be Anthropic Claude for Desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
 
+## Example usage (Streamable HTTP with Oauth)
+
+The easiest way how to connect is via Oauth. You just need server URL `https://mcp.apify.com` and to confirm your authentication to Apify in the browser. Depending on your MCP client, you'll either need a simple configuration or set it up in UI:
+
+    ```json
+    {
+     "mcpServers": {
+       "apify": {
+         "url": "https://mcp.apify.com"
+       }
+     }
+    }
+    ```
+
 ## Example usage (local stdio with Claude for Desktop)
 
 Let’s walk through an example of using Claude for Desktop with the Apify MCP Server:
