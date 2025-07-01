@@ -38,15 +38,15 @@ Before you start, make sure you have the following:
 
 The easiest way how to connect is via Oauth. You just need server URL `https://mcp.apify.com` and to confirm your authentication to Apify in the browser. Depending on your MCP client, you'll either need a simple configuration or set it up in UI:
 
-    ```json
-    {
-     "mcpServers": {
-       "apify": {
-         "url": "https://mcp.apify.com"
-       }
-     }
-    }
-    ```
+```json
+{
+ "mcpServers": {
+   "apify": {
+     "url": "https://mcp.apify.com"
+   }
+ }
+}
+```
 
 ## Example usage (local stdio with Claude for Desktop)
 
