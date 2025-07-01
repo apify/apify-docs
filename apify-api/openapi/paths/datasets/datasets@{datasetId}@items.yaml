@@ -350,6 +350,15 @@ get:
       schema:
         type: boolean
         example: false
+    - name: view
+      in: query
+      description: |
+        Defines the view configuration for dataset items based on the schema definition.
+        This parameter determines how the data will be filtered and presented.
+        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
+      schema:
+        type: string
+        example: overview
     - name: skipFailedPages
       in: query
       description: |

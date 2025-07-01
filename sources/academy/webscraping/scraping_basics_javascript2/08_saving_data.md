@@ -2,7 +2,8 @@
 title: Saving data with Python
 sidebar_label: Saving data
 description: Lesson about building a Python application for watching prices. Using standard library to save data scraped from product listing pages in popular formats such as CSV or JSON.
-slug: /scraping-basics-python/saving-data
+slug: /scraping-basics-javascript2/saving-data
+unlisted: true
 ---
 
 **In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use Python's standard library to export the files.**
@@ -78,28 +79,83 @@ If you find the complex data structures printed by `print()` difficult to read, 
 
 :::
 
-## Saving data as JSON
+## Saving data as CSV
 
-The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of objects in the JavaScript programming language, which is similar to the syntax of Python dictionaries.
+The CSV format is popular among data analysts because a wide range of tools can import it, including spreadsheets apps like LibreOffice Calc, Microsoft Excel, Apple Numbers, and Google Sheets.
 
-In Python, we can read and write JSON using the [`json`](https://docs.python.org/3/library/json.html) standard library module. We'll begin with imports:
+In Python, it's convenient to read and write CSV files, thanks to the [`csv`](https://docs.python.org/3/library/csv.html) standard library module. First let's try something small in the Python's interactive REPL to familiarize ourselves with the basic usage:
+
+```py
+>>> import csv
+>>> with open("data.csv", "w") as file:
+...     writer = csv.DictWriter(file, fieldnames=["name", "age", "hobbies"])
+...     writer.writeheader()
+...     writer.writerow({"name": "Alice", "age": 24, "hobbies": "kickbox, Python"})
+...     writer.writerow({"name": "Bob", "age": 42, "hobbies": "reading, TypeScript"})
+...
+```
+
+We first opened a new file for writing and created a `DictWriter()` instance with the expected field names. We instructed it to write the header row first and then added two more rows containing actual data. The code produced a `data.csv` file in the same directory where we're running the REPL. It has the following contents:
+
+```csv title=data.csv
+name,age,hobbies
+Alice,24,"kickbox, Python"
+Bob,42,"reading, TypeScript"
+```
+
+In the CSV format, if values contain commas, we should enclose them in quotes. You can see that the writer automatically handled this.
+
+When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it as well. If you're using a different operating system, try opening the file with any spreadsheet program you have.
+
+![CSV example preview](images/csv-example.png)
+
+Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we actually want is a CSV containing `Sony XBR-950G BRAVIA 4K HDR Ultra HD TV`, right? Let's do this! First, let's add `csv` to our imports:
 
 ```py
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
 # highlight-next-line
+import csv
+```
+
+Next, instead of printing the data, we'll finish the program by exporting it to CSV. Replace `print(data)` with the following:
+
+```py
+with open("products.csv", "w") as file:
+    writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
+    writer.writeheader()
+    for row in data:
+        writer.writerow(row)
+```
+
+If we run our scraper now, it won't display any output, but it will create a `products.csv` file in the current working directory, which contains all the data about the listed products.
+
+![CSV preview](images/csv.png)
+
+## Saving data as JSON
+
+The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of objects in the JavaScript programming language, which is similar to the syntax of Python dictionaries.
+
+In Python, there's a [`json`](https://docs.python.org/3/library/json.html) standard library module, which is so straightforward that we can start using it in our code right away. We'll need to begin with imports:
+
+```py
+import httpx
+from bs4 import BeautifulSoup
+from decimal import Decimal
+import csv
+# highlight-next-line
 import json
 ```
 
-Next, instead of printing the data, we'll finish the program by exporting it to JSON. Let's replace the line `print(data)` with the following:
+Next, let’s append one more export to end of the source code of our scraper:
 
 ```py
 with open("products.json", "w") as file:
     json.dump(data, file)
 ```
 
-That's it! If we run the program now, it should also create a `products.json` file in the current working directory:
+That’s it! If we run the program now, it should also create a `products.json` file in the current working directory:
 
 ```text
 $ python main.py
@@ -121,7 +177,7 @@ with open("products.json", "w") as file:
     json.dump(data, file, default=serialize)
 ```
 
-If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
+Now the program should work as expected, producing a JSON file with the following content:
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -142,76 +198,30 @@ Also, if your data contains non-English characters, set `ensure_ascii=False`. By
 
 :::
 
-## Saving data as CSV
-
-The CSV format is popular among data analysts because a wide range of tools can import it, including spreadsheets apps like LibreOffice Calc, Microsoft Excel, Apple Numbers, and Google Sheets.
-
-In Python, we can read and write CSV using the [`csv`](https://docs.python.org/3/library/csv.html) standard library module. First let's try something small in the Python's interactive REPL to familiarize ourselves with the basic usage:
-
-```py
->>> import csv
->>> with open("data.csv", "w") as file:
-...     writer = csv.DictWriter(file, fieldnames=["name", "age", "hobbies"])
-...     writer.writeheader()
-...     writer.writerow({"name": "Alice", "age": 24, "hobbies": "kickbox, Python"})
-...     writer.writerow({"name": "Bob", "age": 42, "hobbies": "reading, TypeScript"})
-...
-```
-
-We first opened a new file for writing and created a `DictWriter()` instance with the expected field names. We instructed it to write the header row first and then added two more rows containing actual data. The code produced a `data.csv` file in the same directory where we're running the REPL. It has the following contents:
-
-```csv title=data.csv
-name,age,hobbies
-Alice,24,"kickbox, Python"
-Bob,42,"reading, TypeScript"
-```
-
-In the CSV format, if a value contains commas, we should enclose it in quotes. When we open the file in a text editor of our choice, we can see that the writer automatically handled this.
-
-When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
-
-![CSV example preview](images/csv-example.png)
-
-Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we actually want is a CSV containing `Sony XBR-950G BRAVIA 4K HDR Ultra HD TV`, right? Let's do this! First, let's add `csv` to our imports:
-
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-# highlight-next-line
-import csv
-```
-
-Next, let's add one more data export to end of the source code of our scraper:
-
-```py
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
-with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
-
-with open("products.csv", "w") as file:
-    writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
-```
-
-The program should now also produce a CSV file with the following content:
-
-![CSV preview](images/csv.png)
-
 We've built a Python application that downloads a product listing, parses the data, and saves it in a structured format for further use. But the data still has gaps: for some products, we only have the min price, not the actual prices. In the next lesson, we'll attempt to scrape more details from all the product pages.
 
 ---
 
 ## Exercises
 
-In this lesson, we created export files in two formats. The following challenges are designed to help you empathize with the people who'd be working with them.
+In this lesson, you learned how to create export files in two formats. The following challenges are designed to help you empathize with the people who'd be working with them.
+
+### Process your CSV
+
+Open the `products.csv` file in a spreadsheet app. Use the app to find all products with a min price greater than $500.
+
+<details>
+  <summary>Solution</summary>
+
+  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
+
+  1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
+  2. Select the header row. Go to **Data > Create filter**.
+  3. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+
+  ![CSV in Google Sheets](images/csv-sheets.png)
+
+</details>
 
 ### Process your JSON
 
@@ -232,22 +242,5 @@ Write a new Python program that reads `products.json`, finds all products with a
       if Decimal(product["min_price"]) > 500:
           pp(product)
   ```
-
-</details>
-
-### Process your CSV
-
-Open the `products.csv` file we created in the lesson using a spreadsheet application. Then, in the app, find all products with a min price greater than $500.
-
-<details>
-  <summary>Solution</summary>
-
-  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
-
-  1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
-
-  ![CSV in Google Sheets](images/csv-sheets.png)
 
 </details>
