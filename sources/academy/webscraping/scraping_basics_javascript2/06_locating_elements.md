@@ -108,6 +108,12 @@ Sony XBR-950G BRAVIA 4K HDR Ultra HD TV |
 
 There's still some room for improvement, but it's already much better!
 
+:::info Dollar sign variable names
+
+In jQuery and Cheerio, the core idea is a collection that wraps selected objects, usually HTML elements. To tell these wrapped selections apart from plain arrays, strings or other objects, it's common to start variable names with a dollar sign. This is just a naming convention to improve readability. The dollar sign has no special meaning and works like any other character in a variable name.
+
+:::
+
 ## Precisely locating price
 
 In the output we can see that the price isn't located precisely. For each product, our scraper also prints the text `Sale price`. Let's look at the HTML structure again. Each bit containing the price looks like this:
