@@ -41,7 +41,7 @@ Nice! We can extract the variant names, but we also need to extract the price fo
 
 ![Switching variants](images/variants-js.gif)
 
-If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
+If we can't find a workaround, we'd need our scraper to run browser JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Cheerio as much as possible.
 
 After a bit of detective work, we notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
 
@@ -65,41 +65,73 @@ After a bit of detective work, we notice that not far below the `block-swatch-li
 </div>
 ```
 
-These elements aren't visible to regular visitors. They're there just in case JavaScript fails to work, otherwise they're hidden. This is a great find because it allows us to keep our scraper lightweight.
+These elements aren't visible to regular visitors. They're there just in case browser JavaScript fails to work, otherwise they're hidden. This is a great find because it allows us to keep our scraper lightweight.
 
 ## Extracting variants
 
-Using our knowledge of Beautiful Soup, we can locate the options and extract the data we need:
+Using our knowledge of Cheerio, we can locate the `option` elements and extract the data we need. We'll loop over the options, extract variant names, and create a corresponding array of items for each product:
 
-```py
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product, listing_url)
-    product_soup = download(item["url"])
-    vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
 
-    if variants := product_soup.select(".product-form__option.no-js option"):
-        for variant in variants:
-            data.append(item | {"variant_name": variant.text.strip()})
-    else:
-        item["variant_name"] = None
-        data.append(item)
+  const $p = await download(item.url);
+  item.vendor = $p(".product-meta__vendor").text().trim();
+
+  // highlight-start
+  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+    const $option = $(element);
+    const variantName = $option.text().trim();
+    return { variantName, ...item };
+  });
+  // highlight-end
+
+  return item;
+});
+const data = await Promise.all($promises.get());
 ```
 
-The CSS selector `.product-form__option.no-js` matches elements with both `product-form__option` and `no-js` classes. Then we're using the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements somewhere inside the `.product-form__option.no-js` wrapper.
+The CSS selector `.product-form__option.no-js` targets elements that have both the `product-form__option` and `no-js` classes. We then use the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements nested within the `.product-form__option.no-js` wrapper.
 
-Python dictionaries are mutable, so if we assigned the variant with `item["variant_name"] = ...`, we'd always overwrite the values. Instead of saving an item for each variant, we'd end up with the last variant repeated several times. To avoid this, we create a new dictionary for each variant and merge it with the `item` data before adding it to `data`. If we don't find any variants, we add the `item` as is, leaving the `variant_name` key empty.
+We loop over the variants using Cheerio's `.map()` method to create a collection of item copies for each `variantName`. We now need to pass all these items onward, but the function currently returns just one item per product. And what if there are no variants?
 
-:::tip Modern Python syntax
+Let's adjust the loop so it returns a promise that resolves to an array of items instead of a single item. If a product has no variants, we'll return an array with a single item, setting `variantName` to `null`:
 
-Since Python 3.8, you can use `:=` to simplify checking if an assignment resulted in a non-empty value. It's called an _assignment expression_ or _walrus operator_. You can learn more about it in the [docs](https://docs.python.org/3/reference/expressions.html#assignment-expressions) or in the [proposal document](https://peps.python.org/pep-0572/).
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https://docs.python.org/3/library/stdtypes.html#dict) aren't clear enough, check out the [proposal document](https://peps.python.org/pep-0584/) for more details.
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
 
-:::
+  const $p = await download(item.url);
+  item.vendor = $p(".product-meta__vendor").text().trim();
+
+  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+    const $option = $(element);
+    const variantName = $option.text().trim();
+    return { variantName, ...item };
+  });
+
+  // highlight-start
+  if ($items.length > 0) {
+    return $items.get();
+  }
+  return [{ variantName: null, ...item }];
+  // highlight-end
+});
+// highlight-start
+const itemLists = await Promise.all($promises.get());
+const data = itemLists.flat();
+// highlight-end
+```
+
+After modifying the loop, we also updated how we collect the items into the `data` array. Since the loop now produces an array of items per product, the result of `await Promise.all()` is an array of arrays. We use [`.flat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) to merge them into a single, non-nested array.
 
 If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
 
@@ -108,11 +140,11 @@ If we run the program now, we'll see 34 items in total. Some items don't have va
 [
   ...
   {
-    "variant_name": null,
-    "title": "Klipsch R-120SW Powerful Detailed Home Speaker - Unit",
-    "min_price": "324.00",
-    "price": "324.00",
+    "variant": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/klipsch-r-120sw-powerful-detailed-home-speaker-set-of-1",
+    "title": "Klipsch R-120SW Powerful Detailed Home Speaker - Unit",
+    "minPrice": 32400,
+    "price": 32400,
     "vendor": "Klipsch"
   },
   ...
@@ -126,19 +158,19 @@ Some products will break into several items, each with a different variant name.
 [
   ...
   {
-    "variant_name": "Red - $178.00",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": null,
+    "variant": "Red - $178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": null,
     "vendor": "Sony"
   },
   {
-    "variant_name": "Black - $178.00",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": null,
+    "variant": "Black - $178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": null,
     "vendor": "Sony"
   },
   ...
@@ -152,11 +184,11 @@ Perhaps surprisingly, some products with variants will have the price field set.
 [
   ...
   {
-    "variant_name": "Red - $74.95",
-    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "variant": "Red - $74.95",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
+    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
+    "minPrice": 7495,
+    "price": 7495,
     "vendor": "JBL"
   },
   ...
