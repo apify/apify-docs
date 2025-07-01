@@ -16,7 +16,7 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 You can use the Apify MCP Server in two ways:
 
-- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client through Oauth or by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
+- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client through OAuth or by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
   - `https://mcp.apify.com` for streamable transport
   - `https://mcp.apify.com/sse` for legacy SSE transport
 - _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
