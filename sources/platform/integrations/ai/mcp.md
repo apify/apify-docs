@@ -36,7 +36,9 @@ Before you start, make sure you have the following:
 
 ## Example usage (Streamable HTTP with Oauth)
 
-The easiest way how to connect is via Oauth. You just need server URL `https://mcp.apify.com` and to confirm your authentication to Apify in the browser. Depending on your MCP client, you'll either need a simple configuration or set it up in UI:
+We recommend connecting through OAuth for a secure and simple authentication process.
+
+During setup, provide the server URL `https://mcp.apify.com`. You will then be redirected to your browser to sign in to your Apify account and approve the connection. The configuration steps may vary slightly depending on your MCP client.
 
 ```json
 {
