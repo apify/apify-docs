@@ -222,6 +222,7 @@ def parse_product(product, base_url):
 
     return {"title": title, "min_price": min_price, "price": price, "url": url}
 
+# highlight-start
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
@@ -232,6 +233,7 @@ def parse_variant(variant):
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
+# highlight-end
 
 def export_json(file, data):
     json.dump(data, file, indent=2)
