@@ -305,7 +305,7 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 ### Build a scraper for watching Python jobs
 
-You're able to build a scraper now, aren't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
+You can build a scraper now, can't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
 
 - Tagged as "Database"
 - Posted within the last 60 days

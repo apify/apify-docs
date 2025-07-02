@@ -348,68 +348,107 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 <Exercises />
 
-### Build a scraper for watching Python jobs
+### Build a scraper for watching npm packages
 
-You're able to build a scraper now, aren't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
+You can build a scraper now, can't you? Let's build another one! From the registry at [npmjs.com](https://www.npmjs.com/), scrape information about npm packages that match the following criteria:
 
-- Tagged as "Database"
-- Posted within the last 60 days
+- Have the keyword "llm" (as in _large language model_)
+- Updated within the last two years ("2 years ago" is okay; "3 years ago" is too old)
 
-For each job posting found, use [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp) to print a dictionary containing the following data:
+Print an array of the top 5 packages with the most dependents. Each package should be represented by an object containing the following data:
 
-- Job title
-- Company
-- URL to the job posting
-- Date of posting
+- Name
+- Description
+- URL to the package detail page
+- Number of dependents
+- Number of downloads
 
 Your output should look something like this:
 
-```py
-{'title': 'Senior Full Stack Developer',
- 'company': 'Baserow',
- 'url': 'https://www.python.org/jobs/7705/',
- 'posted_on': datetime.date(2024, 9, 16)}
-{'title': 'Senior Python Engineer',
- 'company': 'Active Prime',
- 'url': 'https://www.python.org/jobs/7699/',
- 'posted_on': datetime.date(2024, 9, 5)}
-...
+```js
+[
+  {
+    name: 'langchain',
+    url: 'https://www.npmjs.com/package/langchain',
+    description: 'Typescript bindings for langchain',
+    dependents: 735,
+    downloads: 3938
+  },
+  {
+    name: '@langchain/core',
+    url: 'https://www.npmjs.com/package/@langchain/core',
+    description: 'Core LangChain.js abstractions and schemas',
+    dependents: 730,
+    downloads: 5994
+  },
+  ...
+]
 ```
-
-You can find everything you need for working with dates and times in Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module, including `date.today()`, `datetime.fromisoformat()`, `datetime.date()`, and `timedelta()`.
 
 <details>
   <summary>Solution</summary>
 
-  After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
+  After inspecting the registry, you'll notice that packages with the keyword "llm" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
 
-  ```py
-  from pprint import pp
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-  from datetime import datetime, date, timedelta
+  ```js
+  import * as cheerio from 'cheerio';
 
-  today = date.today()
-  jobs_url = "https://www.python.org/jobs/type/database/"
-  response = httpx.get(jobs_url)
-  response.raise_for_status()
-  soup = BeautifulSoup(response.text, "html.parser")
+  async function download(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+      const html = await response.text();
+      return cheerio.load(html);
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  }
 
-  for job in soup.select(".list-recent-jobs li"):
-      link = job.select_one(".listing-company-name a")
+  const listingURL = "https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count";
+  const $ = await download(listingURL);
 
-      time = job.select_one(".listing-posted time")
-      posted_at = datetime.fromisoformat(time["datetime"])
-      posted_on = posted_at.date()
-      posted_ago = today - posted_on
+  const $promises = $("section").map(async (i, element) => {
+    const $card = $(element);
 
-      if posted_ago <= timedelta(days=60):
-          title = link.text.strip()
-          company = list(job.select_one(".listing-company-name").stripped_strings)[-1]
-          url = urljoin(jobs_url, link["href"])
-          pp({"title": title, "company": company, "url": url, "posted_on": posted_on})
+    const details = $card
+      .children()
+      .first()
+      .children()
+      .last()
+      .text()
+      .split("•");
+    const updatedText = details[2].trim();
+    const dependents = parseInt(details[3].replace("dependents", "").trim());
+
+    if (updatedText.includes("years ago")) {
+      const yearsAgo = parseInt(updatedText.replace("years ago", "").trim());
+      if (yearsAgo > 2) {
+        return null;
+      }
+    }
+
+    const $link = $card.find("a").first();
+    const name = $link.text().trim();
+    const url = new URL($link.attr("href"), listingURL).href;
+    const description = $card.find("p").text().trim();
+
+    const downloadsText = $card
+      .children()
+      .last()
+      .text()
+      .replace(",", "")
+      .trim();
+    const downloads = parseInt(downloadsText);
+
+    return { name, url, description, dependents, downloads };
+  });
+
+  const data = await Promise.all($promises.get());
+  console.log(data.filter(item => item !== null).splice(0, 5));
   ```
+
+  Since the HTML doesn't contain any descriptive classes, we must rely on its structure. We're using [`.children()`](https://cheerio.js.org/docs/api/classes/Cheerio#children) to carefully navigate the HTML element tree.
+
+  For items older than 2 years, we return `null` instead of an item. Before printing the results, we use [.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to remove these empty values and [.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) the array down to just 5 items.
 
 </details>
 
