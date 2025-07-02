@@ -197,110 +197,121 @@ Perhaps surprisingly, some products with variants will have the price field set.
 
 ## Parsing price
 
-The items now contain the variant as text, which is good for a start, but we want the price to be in the `price` key. Let's introduce a new function to handle that:
+The items now contain the variant as text, which is good for a start, but we want the price to be in the `price` property. Let's introduce a new function to handle that:
 
-```py
-def parse_variant(variant):
-    text = variant.text.strip()
-    name, price_text = text.split(" - ")
-    price = Decimal(
-        price_text
-        .replace("$", "")
-        .replace(",", "")
-    )
-    return {"variant_name": name, "price": price}
+```js
+function parseVariant($option) {
+  const [variantName, priceText] = $option
+    .text()
+    .trim()
+    .split(" - ");
+  const price = parseInt(
+    priceText
+      .replace("$", "")
+      .replace(".", "")
+      .replace(",", "")
+  );
+  return { variantName, price };
+}
 ```
 
-First, we split the text into two parts, then we parse the price as a decimal number. This part is similar to what we already do for parsing product listing prices. The function returns a dictionary we can merge with `item`.
+First, we split the text into two parts, then we parse the price as a number. This part is similar to what we already do for parsing product listing prices. The function returns an object we can merge with `item`.
 
 ## Saving price
 
 Now, if we use our new function, we should finally get a program that can scrape exact prices for all products, even if they have variants. The whole code should look like this now:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-import csv
-from urllib.parse import urljoin
+```js
+import * as cheerio from 'cheerio';
+import { writeFile } from 'fs/promises';
+import { AsyncParser } from '@json2csv/node';
 
-def download(url):
-    response = httpx.get(url)
-    response.raise_for_status()
+async function download(url) {
+  const response = await fetch(url);
+  if (response.ok) {
+    const html = await response.text();
+    return cheerio.load(html);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
+}
 
-    html_code = response.text
-    return BeautifulSoup(html_code, "html.parser")
+function parseProduct(productItem, baseURL) {
+  const title = productItem.find(".product-item__title");
+  const titleText = title.text().trim();
+  const url = new URL(title.attr("href"), baseURL).href;
 
-def parse_product(product, base_url):
-    title_element = product.select_one(".product-item__title")
-    title = title_element.text.strip()
-    url = urljoin(base_url, title_element["href"])
+  const price = productItem.find(".price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+  if (priceText.startsWith("From ")) {
+      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+      priceRange.minPrice = parseInt(priceText);
+      priceRange.price = priceRange.minPrice;
+  }
 
-    return {"title": title, "min_price": min_price, "price": price, "url": url}
+  return { url, title: titleText, ...priceRange };
+}
 
-def parse_variant(variant):
-    text = variant.text.strip()
-    name, price_text = text.split(" - ")
-    price = Decimal(
-        price_text
-        .replace("$", "")
-        .replace(",", "")
-    )
-    return {"variant_name": name, "price": price}
+async function exportJSON(data) {
+  return JSON.stringify(data, null, 2);
+}
 
-def export_csv(file, data):
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
+async function exportCSV(data) {
+  const parser = new AsyncParser();
+  return await parser.parse(data).promise();
+}
 
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
+// highlight-start
+function parseVariant($option) {
+  const [variantName, priceText] = $option
+    .text()
+    .trim()
+    .split(" - ");
+  const price = parseInt(
+    priceText
+      .replace("$", "")
+      .replace(".", "")
+      .replace(",", "")
+  );
+  return { variantName, price };
+}
+// highlight-end
 
-    json.dump(data, file, default=serialize, indent=2)
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product, listing_url)
-    product_soup = download(item["url"])
-    vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+  const $p = await download(item.url);
+  item.vendor = $p(".product-meta__vendor").text().trim();
 
-    if variants := product_soup.select(".product-form__option.no-js option"):
-        for variant in variants:
-            # highlight-next-line
-            data.append(item | parse_variant(variant))
-    else:
-        item["variant_name"] = None
-        data.append(item)
+  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+    // highlight-next-line
+    const variant = parseVariant($(element));
+    // highlight-next-line
+    return { ...item, ...variant };
+  });
 
-with open("products.csv", "w") as file:
-    export_csv(file, data)
+  if ($items.length > 0) {
+    return $items.get();
+  }
+  return [{ variantName: null, ...item }];
+});
+const itemLists = await Promise.all($promises.get());
+const data = itemLists.flat();
 
-with open("products.json", "w") as file:
-    export_json(file, data)
+await writeFile('products.json', await exportJSON(data));
+await writeFile('products.csv', await exportCSV(data));
 ```
 
 Let's run the scraper and see if all the items in the data contain prices:
@@ -310,26 +321,26 @@ Let's run the scraper and see if all the items in the data contain prices:
 [
   ...
   {
-    "variant_name": "Red",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": "178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
-    "vendor": "Sony"
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": 17800,
+    "vendor": "Sony",
+    "variantName": "Red"
   },
   {
-    "variant_name": "Black",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": "178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
-    "vendor": "Sony"
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": 17800,
+    "vendor": "Sony",
+    "variantName": "Black"
   },
   ...
 ]
 ```
 
-Success! We managed to build a Python application for watching prices!
+Success! We managed to build a Node.js application for watching prices!
 
 Is this the end? Maybe! In the next lesson, we'll use a scraping framework to build the same application, but with less code, faster requests, and better visibility into what's happening while we wait for the program to finish.
 
