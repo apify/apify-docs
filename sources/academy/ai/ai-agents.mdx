@@ -162,50 +162,50 @@ The agent implementation in `src/main.py` includes:
 
 1. Handle Actor input: Read the user's query and any other parameters from the Actor input.
 
-  ```python
-  async def main():
-      async with Actor:
-          actor_input = await Actor.get_input()
-          query = actor_input.get("query")
-          model_name = actor_input.get("modelName", "gpt-4")
-  ```
+    ```python
+    async def main():
+        async with Actor:
+            actor_input = await Actor.get_input()
+            query = actor_input.get("query")
+            model_name = actor_input.get("modelName", "gpt-4")
+    ```
 
 1. Define the agent: Instantiate the agent, giving it a role, a goal, and access to the tools you configured.
 
-  ```python
-  agent = Agent(
-      role="Social Media Analyst",
-      goal="Analyze Instagram posts and provide insights",
-      backstory="Expert in social media analysis and trend identification",
-      tools=[instagram_scraper_tool],
-      llm=ChatOpenAI(model=model_name)
-  )
-  ```
+    ```python
+    agent = Agent(
+        role="Social Media Analyst",
+        goal="Analyze Instagram posts and provide insights",
+        backstory="Expert in social media analysis and trend identification",
+        tools=[instagram_scraper_tool],
+        llm=ChatOpenAI(model=model_name)
+    )
+    ```
 
 1. Create task and crew: Define the task for the agent to complete based on the user's query.
 
-  ```python
-  task = Task(
-      description=query,
-      agent=agent,
-      expected_output="Detailed analysis with insights"
-  )
+    ```python
+    task = Task(
+        description=query,
+        agent=agent,
+        expected_output="Detailed analysis with insights"
+    )
 
-  crew = Crew(
-      agents=[agent],
-      tasks=[task]
-  )
-  ```
+    crew = Crew(
+        agents=[agent],
+        tasks=[task]
+    )
+    ```
 
 1. Execute and save results: Kick off the crew to run the task and save the final result to the Actor's default dataset.
 
-  ```python
-  result = crew.kickoff()
-  await Actor.push_data({
-      "query": query,
-      "response": str(result)
-  })
-  ```
+    ```python
+    result = crew.kickoff()
+    await Actor.push_data({
+        "query": query,
+        "response": str(result)
+    })
+    ```
 
 ### Step 8: Test locally
 
