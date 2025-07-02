@@ -606,6 +606,7 @@ article .card h2 {
     margin-top: 0;
 }
 
+.menu__link,
 .tsd-kind-icon,
 .table-of-contents__link {
     text-overflow: ellipsis;
