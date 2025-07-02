@@ -664,9 +664,14 @@ aside button[class*="collapseSidebarButton"] svg {
     padding: 0.8rem;
     font-size: 1.2rem;
     line-height: 1.6rem;
+    border-radius: 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
+}
+
+.navbar .dropdown__link:hover {
+    background: var(--color-Neutral_Hover);
 }
 
 .navbar .dropdown__link svg[class*=iconExternalLink] {
