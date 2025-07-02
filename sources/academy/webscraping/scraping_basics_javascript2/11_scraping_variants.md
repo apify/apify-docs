@@ -418,8 +418,8 @@ You can find everything you need for working with dates and times in Python's [`
 Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
 
 - Locate the element that holds the main content of the article.
-- Use [`get_text()`](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#get-text) to extract all the content as plain text.
-- Use `len()` to calculate the character count.
+- Use `.text()` to extract all the content as plain text.
+- Use `.length` to calculate the character count.
 
 Skip pages without text (like those that only have a video). Sort the results and print the URL of the shortest article that made it to the homepage.
 
@@ -428,32 +428,38 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+  ```js
+  import * as cheerio from 'cheerio';
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+  async function download(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+      const html = await response.text();
+      return cheerio.load(html);
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  }
 
-  listing_url = "https://edition.cnn.com/sport"
-  listing_soup = download(listing_url)
+  const listingURL = "https://edition.cnn.com/sport";
+  const $ = await download(listingURL);
 
-  data = []
-  for card in listing_soup.select(".layout__main .card"):
-      link = card.select_one(".container__link")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      if content := article_soup.select_one(".article__content"):
-          length = len(content.get_text())
-          data.append((length, article_url))
+  const $promises = $(".layout__main .card").map(async (i, element) => {
+    const $link = $(element).find("a").first();
+    const articleURL = new URL($link.attr("href"), listingURL).href;
 
-  data.sort()
-  shortest_item = data[0]
-  item_url = shortest_item[1]
-  print(item_url)
+    const $a = await download(articleURL);
+    const content = $a(".article__content").text().trim();
+
+    return { url: articleURL, length: content.length };
+  });
+
+  const data = await Promise.all($promises.get());
+  const nonZeroData = data.filter(({ url, length }) => length > 0);
+  nonZeroData.sort((a, b) => a.length - b.length);
+  const shortestItem = nonZeroData[0];
+
+  console.log(shortestItem.url);
   ```
 
 </details>
