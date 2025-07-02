@@ -30,7 +30,7 @@ function Footer() {
     return (
         <footer className={clsx(styles.footer, style)}>
             <div className={styles.container}>
-                <div className={clsx("row", styles.top)}>
+                <div className={clsx('row', styles.top)}>
                     { links.map((column, i) => (
                         <div key={i} className={`col col--2`}>
                             <FooterLinksColumn {...{ column }} />
@@ -38,7 +38,7 @@ function Footer() {
                     ))
                     }
                 </div>
-                <div className={clsx("row", styles.bottom)}>
+                <div className={clsx('row', styles.bottom)}>
                     <div className="col col--6">
                         <a href="https://apify.com" target={'_blank'} rel={'dofollow noreferrer'}>
                             <span className={styles.logo}></span>
