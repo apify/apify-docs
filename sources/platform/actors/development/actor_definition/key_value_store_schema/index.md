@@ -72,7 +72,7 @@ Each collection can define its member keys using one of the following properties
 - `keyPrefix` - All keys starting with the specified prefix will be included in the collection (e.g., all keys starting with "document-").
 - `key` - A specific individual key that will be included in the collection.
 
-Note that you must use either `key` or `keyPrefix` for each collection, but not both.
+You must use either `key` or `keyPrefix` for each collection, but not both.
 
 Once the key-value store schema is defined, the tabs for each collection will appear in the `Storage` tab of the Actor's run:
 
