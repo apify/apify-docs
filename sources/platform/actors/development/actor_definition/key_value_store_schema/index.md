@@ -197,6 +197,6 @@ The key-value store schema defines the collections of keys and their properties.
 | `key`          | string       | conditional* | Defines a single specific key that will be part of this collection.                                                                             |
 | `keyPrefix`    | string       | conditional* | Defines a prefix for keys that should be included in this collection.                                                                           |
 | `contentTypes` | string array | false        | Allowed content types for records in this collection. Used for validation when storing data.                                                    |
-| `jsonSchema`   | object       | false        | For collections with content type `application/json`, you can define a JSON schema to validate structure. <br/>Uses JsonSchema Draft 07 format. |
+| `jsonSchema`   | object       | false        | For collections with content type `application/json`, you can define a JSON schema to validate structure. <br/>Uses JSON Schema Draft 07 format. |
 
 \* Either `key` or `keyPrefix` must be specified for each collection, but not both.
