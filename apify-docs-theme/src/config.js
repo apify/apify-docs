@@ -137,6 +137,13 @@ const themeConfig = {
                     },
                 ],
             },
+            {
+                href: 'https://discord.com/invite/jyEM2PRvMU',
+                label: 'Discord',
+                title: 'Chat on Discord',
+                position: 'right',
+                className: 'icon',
+            },
         ],
     },
     colorMode: {

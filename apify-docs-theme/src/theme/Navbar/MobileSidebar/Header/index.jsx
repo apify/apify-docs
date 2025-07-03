@@ -20,7 +20,7 @@ export default function NavbarMobileSidebarHeader() {
                 <button
                     type="button"
                     className="clean-btn navbar-sidebar__close"
-                    onClick={() => mobileSidebar.toggle()}
+                    onClick={mobileSidebar.toggle}
                     aria-label="Close navigation bar"
                 >
                     <IconClose />

@@ -163,7 +163,8 @@ html[data-theme='dark'] {
     --ifm-footer-background-color: #272c3d;
     --ifm-footer-title-color: #60626e;
     --ifm-footer-link-color: #6b6e80;
-    --max-layout-width: 1200px;
+    --ifm-spacing-horizontal: 2.4rem;
+    --max-layout-width: 1440px;
 
     --ifm-code-background: var(--ifm-pre-background);
 
@@ -424,7 +425,7 @@ footer .col {
 }
 
 .navbar__container {
-    max-width: var(--max-layout-width);
+    max-width: calc(var(--max-layout-width) - var(--ifm-spacing-horizontal) * 2);
     display: flex;
     margin: 0 auto;
     width: 100%;
@@ -629,13 +630,25 @@ article .card h2 {
     color: #f2f3fb;
 }
 
-.menu__caret:before,
-.menu__link--sublist:after {
-    float: right;
+.menu__caret {
+    margin-right: 0.8rem;
+    padding: 0.6rem;
+}
+
+.menu__caret,
+.menu__link--sublist-caret {
+    border-radius: 1.2rem;
+}
+
+.menu__caret:before {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .menu__link--sublist-caret:after {
+    width: 2rem;
     height: 2.4rem;
+    float: right;
 }
 
 aside button[class*="collapseSidebarButton"] svg {
@@ -928,28 +941,45 @@ div[class*="searchBox"] {
     font-weight: 500;
 }
 
+.navbar__item.navbar__link.icon {
+    padding: 0.8rem;
+    font-size: 0;
+    line-height: 0;
+    flex-shrink: 0;
+}
+
+@media (max-width: 996px) {
+    .navbar__item.navbar__link.icon {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        font-weight: 500;
+    }
+
+    .menu__link.icon::before {
+        display: none;
+    }
+    
+    .navbar__inner .navbar__item.navbar__link.icon {
+        display: none;
+    }
+}
+
+
 .menu__list-item-collapsible {
     padding: unset;
 }
 
 .menu__list {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+}
+
+.menu__list > .menu__list-item {
+    margin-top: 0.4rem;
 }
 
 .menu__list .menu__list {
     margin-top: unset;
     padding-left: 1.6rem;
-}
-
-.menu__list .menu__list .menu__list-item {
-    margin-top: 0.4rem;
-}
-
-.menu__caret {
-    margin-right: 0.8rem;
 }
 
 .navbar-sidebar__back {
@@ -995,11 +1025,6 @@ div[class*="searchBox"] {
 
 html .theme-doc-sidebar-container {
     border: 0;
-}
-
-html .theme-doc-sidebar-container button {
-    border: 0;
-    border-radius: 10px;
 }
 
 html .table-of-contents {
@@ -1133,10 +1158,6 @@ aside li.section-header.menu__list-item:nth-child(2) {
 
 aside li.section-header > .menu__list {
     padding-left: 0;
-}
-
-.theme-doc-sidebar-menu > li.section-header > ul > li.theme-doc-sidebar-item-category-level-2 {
-    margin-bottom: 1rem;
 }
 
 .beta-chip {

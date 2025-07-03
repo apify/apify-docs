@@ -4,7 +4,7 @@
 }
 
 .container {
-    max-width: var(--max-layout-width);
+    max-width: calc(var(--max-layout-width) - var(--ifm-spacing-horizontal) * 2);
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -90,6 +90,10 @@ html[data-theme='dark'] .logo {
     .bottom {
         padding-top: 0;
         gap: 1.6rem;
+
+        :global(.col) {
+            justify-content: center;
+        }
     }
 
     .toggle {

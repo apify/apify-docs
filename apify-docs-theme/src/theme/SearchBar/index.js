@@ -8,6 +8,7 @@ import React, { useCallback } from 'react';
 import { ApifySearch } from '@apify/docs-search-modal';
 
 // needs to be imported as the last thing, so that it can override the default styles
+// TODO: update simple-import-sort to allow importing css as last.
 import './styles.css';
 
 /**
