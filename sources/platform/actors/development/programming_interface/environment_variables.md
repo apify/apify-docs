@@ -94,8 +94,7 @@ Actor owners can define custom environment variables in `.actor/actor.json`. All
   "version": "0.1",
   "buildTag": "latest",
   "environmentVariables": {
-    "MYSQL_USER": "my_username",
-    "MYSQL_PASSWORD": "@mySecretPassword"
+    "api_token": "token_123",
   }
 }
 ```
