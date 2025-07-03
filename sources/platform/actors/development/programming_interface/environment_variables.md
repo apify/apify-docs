@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 There are two ways how you can set up environment variables for Actors:
 
-- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actoractorjson)
+- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
 - [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
 
 :::info Environment variables overwrite
@@ -27,7 +27,7 @@ After setting up variables in Apify Console, remove the `environmentVariables` f
 
 :::
 
-See how you can [access environment variables in Actors](#actor-environment-variables).
+See how you can [access environment variables in Actors](#access-environment-variables).
 
 ## System environment variables
 
@@ -83,7 +83,7 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
-## Set up environment variables in `actor.json`
+## Set up environment variables in actor.json
 
 Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into Apify platform after you push Actor to Apify.
 
