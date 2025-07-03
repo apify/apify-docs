@@ -36,7 +36,7 @@ await Actor.setValue(`image-${imageID}`, imageBuffer, { contentType: 'image/jpeg
 await Actor.exit();
 ```
 
-To set up the key-value store schema using a single configuration file, use the following template for the `.actor/actor.json` configuration:
+To configure the key-value store schema, use the following template for the `.actor/actor.json` configuration:
 
 ```json title=".actor/actor.json"
 {
