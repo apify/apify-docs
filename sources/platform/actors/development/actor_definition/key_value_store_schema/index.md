@@ -74,7 +74,7 @@ Each collection can define its member keys using one of the following properties
 
 You must use either `key` or `keyPrefix` for each collection, but not both.
 
-Once the key-value store schema is defined, the tabs for each collection will appear in the `Storage` tab of the Actor's run:
+Once the schema is defined, tabs for each collection will appear in the **Storage** tab of the Actor's run:
 
 ![Storages tab in Run](images/kv-store-schema-example-run.png)
 
