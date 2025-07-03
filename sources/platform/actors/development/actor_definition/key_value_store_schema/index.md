@@ -78,7 +78,7 @@ Once the schema is defined, tabs for each collection will appear in the **Storag
 
 ![Storages tab in Run](images/kv-store-schema-example-run.png)
 
-And in the storage detail view too:
+The tabs also appear in the storage detail view:
 
 ![Storage detail](images/kv-store-schema-example-storage.png)
 
