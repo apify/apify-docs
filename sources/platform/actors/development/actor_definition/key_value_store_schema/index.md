@@ -173,7 +173,7 @@ You have two choices of how to organize files within the `.actor` folder.
 }
 ```
 
-Both of these methods are valid so choose one that suits your needs best.
+Choose the method that best suits your configuration.
 
 ## Key-value store schema structure definitions
 
