@@ -184,8 +184,8 @@ The key-value store schema defines the collections of keys and their properties.
 | Property                          | Type                          | Required | Description                                                                                                     |
 |-----------------------------------|-------------------------------|----------|-----------------------------------------------------------------------------------------------------------------|
 | `actorKeyValueStoreSchemaVersion` | integer                       | true     | Specifies the version of key-value store schema structure document. <br/>Currently only version 1 is available. |
-| `title`                           | string                        | true     | Title of the schema. Currently not used anywhere.                                                               |
-| `description`                     | string                        | false    | Description of the schema. Currently not used anywhere.                                                         |
+| `title`                           | string                        | true     | Title of the schema                                                               |
+| `description`                     | string                        | false    | Description of the schema                                                         |
 | `collections`                     | Object                        | true     | An object where each key is a collection ID and its value is a collection definition object (see below).        |
 
 ### Collection object definition
