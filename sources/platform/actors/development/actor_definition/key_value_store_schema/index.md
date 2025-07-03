@@ -16,7 +16,7 @@ The key‑value store schema organizes keys into logical groups called collectio
 
 ## Example
 
-Let's consider an example Actor that calls `Actor.setValue()` to save a record into the key-value store:
+Consider an example Actor that calls `Actor.setValue()` to save a record into the key-value store:
 
 ```javascript title="main.js"
 import { Actor } from 'apify';
