@@ -177,8 +177,7 @@ Both of these methods are valid so choose one that suits your needs best.
 
 ## Key-value store schema structure definitions
 
-The key-value store schema defines the collections of keys (and their properties) in the key-value store.
-It allows you to organize and validate data stored by the Actor, making it easier to manage and retrieve specific records.
+The key-value store schema defines the collections of keys and their properties. It allows you to organize and validate data stored by the Actor, making it easier to manage and retrieve specific records.
 
 ### Key-value store schema object definition
 
