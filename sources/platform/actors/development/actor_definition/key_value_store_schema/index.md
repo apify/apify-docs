@@ -192,7 +192,7 @@ The key-value store schema defines the collections of keys and their properties.
 
 | Property       | Type         | Required     | Description                                                                                                                                     |
 |----------------|--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`        | string       | true         | The collection’s title is shown in the storage tab of a run and in the storage detail view, where it appears as a tab for filtering records.    |
+| `title`        | string       | true         | The collection’s title, shown in the run's storage tab and in the storage detail view, where it appears as a tab for filtering records.    |
 | `description`  | string       | false        | A description of the collection that appears in tooltips in the UI.                                                                             |
 | `key`          | string       | conditional* | Defines a single specific key that will be part of this collection.                                                                             |
 | `keyPrefix`    | string       | conditional* | Defines a prefix for keys that should be included in this collection.                                                                           |
