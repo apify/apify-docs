@@ -14,6 +14,21 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+## How to use environment variables in Actors
+
+There are two ways how you can set up environment variables for Actors:
+
+- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actoractorjson)
+- [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
+
+:::info Environment variables overwrite
+
+After setting up variables in Apify Console, remove the `environmentVariables` from `.actor/actor.json`. Otherwise, variables from `.actor/actor.json` will override variables in Apify Console.
+
+:::
+
+See how you can [access environment variables in Actors](#actor-environment-variables).
+
 ## System environment variables
 
 Apify sets several system environment variables for each Actor run. These variables provide essential context and information about the Actor's execution environment.
@@ -68,6 +83,41 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
+## Set up environment variables in `actor.json`
+
+Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into Apify platform after you push Actor to Apify.
+
+```json
+{
+  "actorSpecification": 1,
+  "name": "dataset-to-mysql",
+  "version": "0.1",
+  "buildTag": "latest",
+  "environmentVariables": {
+    "MYSQL_USER": "my_username",
+    "MYSQL_PASSWORD": "@mySecretPassword"
+  }
+}
+```
+
+## Set up environment variables in Apify Console
+
+Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
+
+1. Go to your Actor's **Source** page in the Apify Console
+
+1. Navigate to the **Environment variables** section.
+
+1. Add your custom variables.
+
+For sensitive data like API keys or passwords, enable the **Secret** option. This encrypt the value and redacts it from logs to prevent accidental exposure.
+
+:::info Build-time variables
+
+Custom environment variables are set during the Actor's build process and cannot be changed for existing builds. For more information, check out the [Builds](../builds_and_runs/builds.md) page.
+
+:::
+
 ## Access environment variables
 
 You can access environment variables in your code as follows:
@@ -78,7 +128,17 @@ You can access environment variables in your code as follows:
 In Node.js, use the `process.env` object:
 
 ```js
-console.log(process.env.APIFY_USER_ID);
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// get api_token
+const api_token = process.env.api_token
+
+// print api_token to console
+console.log(api_token);
+
+await Actor.exit();
 ```
 
 </TabItem>
@@ -88,15 +148,25 @@ In Python, use the `os.environ` dictionary:
 
 ```python
 import os
-print(os.environ['APIFY_USER_ID'])
+print(os.environ['api_token'])
+
+from apify import Actor
+
+async def main():
+    async with Actor:
+        # get api_token
+        userId = os.environ['api_token']
+
+        # print api_token to console
+        print(userId)
 ```
 
 </TabItem>
 </Tabs>
 
-## Use the `Configuration` class
+## Access system environment variables
 
-For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
+For more convenient access to Actor system variables and other configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class as follows:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -134,24 +204,6 @@ async def main():
 
 </TabItem>
 </Tabs>
-
-## Custom environment variables
-
-Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
-
-1. Go to your Actor's **Source** page in the Apify Console
-
-1. Navigate to the **Environment variables** section.
-
-1. Add your custom variables.
-
-For sensitive data like API keys or passwords, enable the **Secret** option. This encrypt the value and redacts it from logs to prevent accidental exposure.
-
-:::info Build-time variables
-
-Custom environment variables are set during the Actor's build process and cannot be changed for existing builds. For more information, check out the [Builds](../builds_and_runs/builds.md) page.
-
-:::
 
 ## Build-time environment variables
 
