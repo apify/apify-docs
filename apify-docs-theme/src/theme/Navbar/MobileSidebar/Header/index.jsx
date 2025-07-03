@@ -13,6 +13,11 @@ export default function NavbarMobileSidebarHeader() {
     const { navbar: { items } } = useThemeConfig();
     const searchBarItem = items.find((item) => item.type === 'search');
 
+    function onSearchClick(event) {
+        event.preventDefault();
+        mobileSidebar.toggle();
+    }
+
     return (
         <>
             <div className="navbar-sidebar__brand">
@@ -31,7 +36,7 @@ export default function NavbarMobileSidebarHeader() {
                     <NavbarCTA />
                     {!searchBarItem && (
                         <NavbarSearch>
-                            <SearchBar />
+                            <SearchBar onClick={onSearchClick} />
                         </NavbarSearch>
                     )}
                 </div>

@@ -40,7 +40,7 @@ export function Link(props) {
     return <a {...props}>{props.children}</a>;
 }
 
-export default function SearchBar() {
+export default function SearchBar({ onClick }) {
     const { siteConfig } = useDocusaurusContext();
     const location = useLocation();
     const history = useHistory();
@@ -62,13 +62,17 @@ export default function SearchBar() {
 
     return (
         <BrowserOnly>
-            {() => <ApifySearch
-                algoliaAppId={siteConfig.themeConfig.algolia.appId}
-                algoliaIndexName='test_test_apify_sdk'
-                algoliaKey={siteConfig.themeConfig.algolia.apiKey}
-                filters={`version:${getVersion()}`}
-                navigate={navigate}
-            />}
+            {() => (
+                <div onClick={onClick}>
+                    <ApifySearch
+                        algoliaAppId={siteConfig.themeConfig.algolia.appId}
+                        algoliaIndexName='test_test_apify_sdk'
+                        algoliaKey={siteConfig.themeConfig.algolia.apiKey}
+                        filters={`version:${getVersion()}`}
+                        navigate={navigate}
+                    />
+                </div>
+            )}
         </BrowserOnly>
     );
 }
