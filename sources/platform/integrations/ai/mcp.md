@@ -16,12 +16,12 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 You can use the Apify MCP Server in two ways:
 
+- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client through OAuth or by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
+  - `https://mcp.apify.com` for streamable transport
+  - `https://mcp.apify.com/sse` for legacy SSE transport
 - _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
-- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
-  - `https://mcp.apify.com` for streamable transport
-  - `https://mcp.apify.com/sse` for legacy SSE transport
 
 You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as an Actor.
 
@@ -33,6 +33,22 @@ Before you start, make sure you have the following:
 1. _An Apify account:_ Sign up for a free Apify account if you don’t have one.
 1. _Apify API Token:_ Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
 1. _MCP client:_ An AI agent or client that supports MCP. This could be Anthropic Claude for Desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
+
+## Example usage (Streamable HTTP with OAuth)
+
+We recommend connecting through OAuth for a secure and simple authentication process.
+
+During setup, provide the server URL `https://mcp.apify.com`. You will then be redirected to your browser to sign in to your Apify account and approve the connection. The configuration steps may vary slightly depending on your MCP client.
+
+```json
+{
+ "mcpServers": {
+   "apify": {
+     "url": "https://mcp.apify.com"
+   }
+ }
+}
+```
 
 ## Example usage (local stdio with Claude for Desktop)
 
@@ -96,7 +112,19 @@ By default, the main Actors MCP Server starts with a single default [RAG Web Bro
   _Tools for adding and removing Actors are enabled by default._  
   You can disable these tools by setting the parameter `?enableAddingActors=false` in the MCP Server URL, or with the CLI flag `--enable-adding-actors=false` (can also be set in Claude for Desktop config args as `--enable-adding-actors=false`).  
   Not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if adding Actors is enabled.
-- _Via config file:_ When using Claude for Desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
+- _Via url:_ If you are using Streamable HTTP or SSE protocol, you could add `actors` query parameter with Actor names separated by comma:
+
+```json
+{
+  "mcpServers": {
+    "Apify": {
+      "url": "https://mcp.apify.com/?actors=lukaskrivka/google-maps-with-contact-details,apify/instagram-scraper"
+    }
+  }
+}
+```
+
+- _Via config file:_ For local stdio connection, you can specify which Actors should be immediately available by configuring your json configuration. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
 
 ```json
    {
@@ -114,6 +142,7 @@ By default, the main Actors MCP Server starts with a single default [RAG Web Bro
     }
    }
 ```
+
 
 In summary, you can start with a broad set (everything open and discoverable) or a narrow set (just what you need) and even expand tools on the fly, giving your agent a lot of flexibility without overwhelming it initially.
 
