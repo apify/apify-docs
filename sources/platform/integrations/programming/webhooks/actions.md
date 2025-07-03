@@ -152,16 +152,16 @@ Note that the `eventData` and `resource` properties contain redundant data for b
 
 ## Headers template
 
-The headers template is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation and available variables). The resulting headers need to be a valid `json` object and values can be strings only.
+The headers template is a JSON-like text where you can add additional information to the default HTTP header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template), including the use of string interpolation and the available variables. The resulting interpolated text need to be a valid JSON object, and values can be strings only.
 
-Note that the following keys are hard-coded and will be always be rewritten:
+Note that the following HTTP headers are always set by the system and your changes will always be rewritten:
 
 | Variable                  | Value                   |
 |---------------------------|-------------------------|
-| `host`                    | request url             |
-| `Content-Type`            | application/json        |
-| `X-Apify-Webhook`         | Apify value             |
-| `X-Apify-Webhook-Dispatch-Id` | Apify id            |
+| `Host`                    | Request URL             |
+| `Content-Type`            | `application/json`      |
+| `X-Apify-Webhook`         | Apify internal value             |
+| `X-Apify-Webhook-Dispatch-Id` | Apify webhook dispatch ID            |
 | `X-Apify-Request-Origin`   | Apify origin           |
 
 ## Description
@@ -172,7 +172,7 @@ The description is an optional string that you can add to the webhook. It serves
 
 | Variable    | Type   | Description                                                                         |
 |-------------|--------|-------------------------------------------------------------------------------------|
-| `userId`    | string | ID of the user who owns the webhook.                                                |
+| `userId`    | string | ID of the Apify user who owns the webhook.                                                |
 | `createdAt` | string | ISO string date of the webhook's trigger event.                                     |
 | `eventType` | string | Type of the trigger event, see [Events](/platform/integrations/webhooks/events).              |
 | `eventData` | Object | Data associated with the trigger event, see [Events](/platform/integrations/webhooks/events). |
