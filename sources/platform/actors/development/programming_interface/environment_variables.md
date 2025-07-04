@@ -21,9 +21,9 @@ There are two ways how you can set up environment variables for Actors:
 - [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
 - [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
 
-:::info Environment variables overwrite
+:::info Environment variable precedence
 
-After setting up variables in Apify Console, remove the `environmentVariables` from `.actor/actor.json`. Otherwise, variables from `.actor/actor.json` will override variables in Apify Console.
+Your local `.actor/actor.json` file overrides variables set in Apify Console. To use Console variables, remove the `environmentVariables` key from the local file.
 
 :::
 
