@@ -113,8 +113,9 @@ For sensitive data like API keys or passwords, enable the **Secret** option. Thi
 
 :::info Build-time variables
 
-Custom environment variables are set during the Actor's build process and cannot be changed for existing builds. For more information, check out the [Builds](../builds_and_runs/builds.md) page.
+Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
 
+Learn more in [Builds](../builds_and_runs/builds.md).
 :::
 
 ## Access environment variables
