@@ -1,5 +1,5 @@
 ---
-title: Key-value Store schema specification
+title: Key-value store schema specification
 sidebar_label: Key-value store schema
 sidebar_position: 3
 description: Learn how to define and present your key-value store schema to organize records into collections.
