@@ -94,7 +94,7 @@ Actor owners can define custom environment variables in `.actor/actor.json`. All
   "version": "0.1",
   "buildTag": "latest",
   "environmentVariables": {
-    "api_token": "token_123",
+    "MYSQL_USER": "my_username",
   }
 }
 ```
@@ -132,11 +132,11 @@ import { Actor } from 'apify';
 
 await Actor.init();
 
-// get api_token
-const api_token = process.env.api_token
+// get MYSQL_USER
+const mysql_user = process.env.MYSQL_USER
 
-// print api_token to console
-console.log(api_token);
+// print MYSQL_USER to console
+console.log(mysql_user);
 
 await Actor.exit();
 ```
@@ -148,17 +148,17 @@ In Python, use the `os.environ` dictionary:
 
 ```python
 import os
-print(os.environ['api_token'])
+print(os.environ['MYSQL_USER'])
 
 from apify import Actor
 
 async def main():
     async with Actor:
-        # get api_token
-        userId = os.environ['api_token']
+        # get MYSQL_USER
+        mysql_user = os.environ['MYSQL_USER']
 
-        # print api_token to console
-        print(userId)
+        # print MYSQL_USER to console
+        print(mysql_user)
 ```
 
 </TabItem>
