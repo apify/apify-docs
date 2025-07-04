@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 ## How to use environment variables in Actors
 
-There are two ways how you can set up environment variables for Actors:
+You can set up environment variables for Actors in two ways:
 
 - [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
 - [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
