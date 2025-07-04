@@ -109,7 +109,7 @@ Actor owners can define custom environment variables to pass additional configur
 
 1. Add your custom variables.
 
-For sensitive data like API keys or passwords, enable the **Secret** option. This encrypt the value and redacts it from logs to prevent accidental exposure.
+For sensitive data like API keys or passwords, enable the **Secret** option. This will encrypt the value and redact it from logs to prevent accidental exposure.
 
 :::info Build-time variables
 
