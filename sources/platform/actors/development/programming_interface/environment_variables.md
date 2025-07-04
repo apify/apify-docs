@@ -99,6 +99,12 @@ Actor owners can define custom environment variables in `.actor/actor.json`. All
 }
 ```
 
+:::warn Git-workflow with actor.json
+
+Be aware that if you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not work properly, and we encourage you to define them in Apify Console.
+
+:::
+
 ## Set up environment variables in Apify Console
 
 Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
@@ -214,7 +220,7 @@ ARG MY_BUILD_VARIABLE
 RUN echo $MY_BUILD_VARIABLE
 ```
 
-:::caution Insecure build variables
+:::caution Variables set during the build
 
 Build-time environment variables are not suitable for secrets, as they are not encrypted.
 
