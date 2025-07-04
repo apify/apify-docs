@@ -277,7 +277,7 @@ const themeConfig = {
         },
         translations: {
             button: {
-                buttonText: 'Search documentation...',
+                buttonText: 'Search documentation…',
             },
         },
     },
