@@ -83,7 +83,7 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
-## Set up environment variables in actor.json
+## Set up environment variables in `actor.json`
 
 Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
 
