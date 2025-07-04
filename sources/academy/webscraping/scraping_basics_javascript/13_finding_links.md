@@ -1,11 +1,10 @@
 ---
-title: Finding links
+title: "Crawling: Finding links"
 description: Learn what a link looks like in HTML and how to find and extract their URLs when web scraping. Using both DevTools and Node.js.
-sidebar_position: 2
 slug: /web-scraping-for-beginners/crawling/finding-links
 ---
 
-import Example from '!!raw-loader!roa-loader!./finding_links.js';
+import Example from '!!raw-loader!roa-loader!./code_blocks/finding_links.js';
 
 # Finding links {#finding-links}
 
@@ -49,7 +48,7 @@ Go to the [Warehouse store Sales category](https://warehouse-theme-metal.myshopi
 
 DevTools Console is a fun playground, but Node.js is way more useful. Let's create a new file in our project called **crawler.js** and add some basic crawling code that prints all the links from the [Sales category of Warehouse](https://warehouse-theme-metal.myshopify.com/collections/sales).
 
-We'll start from a boilerplate that's very similar to the scraper we built in [Basics of data extraction](../data_extraction/node_js_scraper.md).
+We'll start from a boilerplate that's very similar to the scraper we built in [Basics of data extraction](./08_node_js_scraper.md).
 
 <RunnableCodeBlock className="language-js" type="cheerio">
     {Example}
@@ -61,4 +60,4 @@ When you run the above code, you'll see quite a lot of links in the terminal. So
 
 ## Next Up {#next}
 
-The [next lesson](./filtering_links.md) will teach you how to select and filter links, so that your crawler will always work only with valid and useful URLs.
+The [next lesson](./14_filtering_links.md) will teach you how to select and filter links, so that your crawler will always work only with valid and useful URLs.

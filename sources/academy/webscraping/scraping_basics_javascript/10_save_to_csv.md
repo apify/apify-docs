@@ -1,7 +1,6 @@
 ---
-title: Saving results to CSV
+title: "Data extraction: Saving results to CSV"
 description: Learn how to save the results of your scraper's collected data to a CSV file that can be opened in Excel, Google Sheets, or any other spreadsheets program.
-sidebar_position: 8
 slug: /web-scraping-for-beginners/data-extraction/save-to-csv
 ---
 
@@ -140,4 +139,4 @@ This marks the end of the **Basics of data extraction** section of Web scraping 
 
 ## Next up {#next}
 
-Next up are the [**Basics of crawling**](../crawling/index.md). You already know how to build a scraper that finds all the products on sale in the [Warehouse Store](https://warehouse-theme-metal.myshopify.com/collections/sales). In the [**Basics of crawling**](../crawling/index.md) section you will learn how to open individual product pages of those products and scrape information that's not available on the listing page, like SKUs, descriptions or reviews.
+Next up are the [**Basics of crawling**](./11_crawling.md). You already know how to build a scraper that finds all the products on sale in the [Warehouse Store](https://warehouse-theme-metal.myshopify.com/collections/sales). In the [**Basics of crawling**](./11_crawling.md) section you will learn how to open individual product pages of those products and scrape information that's not available on the listing page, like SKUs, descriptions or reviews.
