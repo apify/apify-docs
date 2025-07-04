@@ -27,7 +27,7 @@ After setting up variables in Apify Console, remove the `environmentVariables` f
 
 :::
 
-See how you can [access environment variables in Actors](#access-environment-variables).
+Check out how you can [access environment variables in Actors](#access-environment-variables).
 
 ## System environment variables
 
