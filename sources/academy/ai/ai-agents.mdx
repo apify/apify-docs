@@ -1,0 +1,303 @@
+---
+title: Build and monetize AI Agents on Apify
+description: This guide shows you how to create an AI agent using the CrewAI Python framework and Apify platform. You will build an Instagram analysis agent that integrates with large language models (LLMs) and web scrapers.
+sidebar_label: AI Agents
+sidebar_position: 1
+slug: /ai/ai-agents
+---
+
+**This guide shows you how to create an AI agent using the CrewAI Python framework and Apify platform. You will build an Instagram analysis agent that integrates with large language models (LLMs) and web scrapers.**
+
+---
+
+AI agents are goal-oriented systems that make independent decisions. They interact with environments using predefined tools and workflows to automate complex tasks.
+
+On Apify, AI agents are built as Actors—serverless cloud programs for web scraping, data processing, and AI deployment. Apify evolved from running scrapers in the cloud to supporting LLMs that follow predefined workflows with dynamically defined goals.
+
+## Prerequisites
+
+To build an effective AI agent, you need prompts to guide it, tools for external interactions, a large language model (LLM) to connect the components, an agentic framework to handle LLM behavior, and a platform to run, deploy, and scale the solution.
+
+## Benefits of using Apify for AI agents
+
+Apify provides a complete platform for building and deploying AI agents with the following benefits:
+
+- _Serverless execution_ - without infrastructure management
+- _Stateful execution_ - with agent memory capabilities
+- _Monetization options_ - through usage-based charging
+- _Extensive tool ecosystem_ - with thousands of available Actors
+- _Scalability and reliability_ - for production environments
+- _Pre-integrated tools_ - for web scraping and automation
+
+## Building an AI agent
+
+### Step 1: Define the use case
+
+This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](LINK HERE).
+
+_Example:_
+
+- _Input:_ "Analyze the last 10 posts from @openai and summarize AI trends."
+- _Output:_ Trend analysis based on post content.
+
+### Step 2: Configure input and output
+
+Define the input format (URL, JSON configuration, or text query) and output format (text response or structured data) for your agent.
+
+_Example input:_
+
+- User query: "Analyze @openai posts for AI trends"
+- OpenAI model selection (e.g., `gpt-4`)
+
+_Example output:_
+
+- Text response with insights
+- Data stored in Apify [Dataset](/platform/storage/dataset)
+
+:::note Agent memory
+
+Agents can include memory for storing information between conversations. Single-task agents typically do not require memory.
+
+:::
+
+### Step 3: Set up the development environment
+
+Install the Apify CLI, which allows you to create, run, and deploy Actors from your local machine.
+
+```bash
+npm install -g @apify/cli
+```
+
+Create a new Actor project from the CrewAI template and navigate into the new directory.
+
+```bash
+apify create agent-actor -t python-crewai
+cd agent-actor
+```
+
+### Step 4: Understand the project structure
+
+The template includes:
+
+- `.actor/` – Actor configuration files.
+  - `actor.json` – The Actor's definition.
+  - `input_schema.json` – Defines the UI for the Actor's input.
+  - `dataset_schema.json` – Defines the structure of the output data.
+  - `pay_per_event.json` – Configuration for monetization.
+- `src/` – Source code
+  - `main.py` – The main script for Actor execution, agent, and task definition.
+  - `tools.py` – Implementations of the tools the agent can use.
+  - `models.py` – Pydantic models for structured tool output.
+  - `ppe_utils.py` – Helper functions for pay-per-event monetization.
+
+### Step 5: Define input and output schemas
+
+Update `.actor/input_schema.json` to define the Actor's inputs. This schema generates a user interface for running the Actor on the Apify platform.
+
+```json
+{
+  "title": "Instagram Analysis Agent Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "query": {
+      "title": "Query",
+      "type": "string",
+      "description": "Task for the agent to perform",
+      "example": "Analyze @openai posts for AI trends"
+    },
+    "modelName": {
+      "title": "Model Name",
+      "type": "string",
+      "description": "OpenAI model to use",
+      "default": "gpt-4"
+    }
+  },
+  "required": ["query"]
+}
+```
+
+Define the dataset schema in `.actor/dataset_schema.json`. This helps structure the data pushed to the dataset.
+
+```json
+{
+  "title": "Instagram Analysis Output",
+  "type": "object",
+  "properties": {
+    "query": {
+      "title": "Query",
+      "type": "string"
+    },
+    "response": {
+      "title": "Response",
+      "type": "string"
+    }
+  }
+}
+```
+
+### Step 6: Configure tools
+
+The Instagram post scraper tool is implemented using the [Instagram Scraper Actor](LINK HERE). The tool returns structured output as Pydantic models defined in `src/models.py`:
+
+```python
+class InstagramPost(BaseModel):
+    id: str
+    url: str
+    caption: str
+    timestamp: datetime
+    likes_count: int
+    comments_count: int
+```
+
+The tool is defined in `src/tools.py` and includes:
+
+- Tool description and argument schema for the agent
+- Integration with Instagram Scraper Actor
+- Data retrieval and formatting
+
+### Step 7: Implement the agent
+
+The agent implementation in `src/main.py` includes:
+
+1. Handle Actor input: Read the user's query and any other parameters from the Actor input.
+
+    ```python
+    async def main():
+        async with Actor:
+            actor_input = await Actor.get_input()
+            query = actor_input.get("query")
+            model_name = actor_input.get("modelName", "gpt-4")
+    ```
+
+1. Define the agent: Instantiate the agent, giving it a role, a goal, and access to the tools you configured.
+
+    ```python
+    agent = Agent(
+        role="Social Media Analyst",
+        goal="Analyze Instagram posts and provide insights",
+        backstory="Expert in social media analysis and trend identification",
+        tools=[instagram_scraper_tool],
+        llm=ChatOpenAI(model=model_name)
+    )
+    ```
+
+1. Create task and crew: Define the task for the agent to complete based on the user's query.
+
+    ```python
+    task = Task(
+        description=query,
+        agent=agent,
+        expected_output="Detailed analysis with insights"
+    )
+
+    crew = Crew(
+        agents=[agent],
+        tasks=[task]
+    )
+    ```
+
+1. Execute and save results: Kick off the crew to run the task and save the final result to the Actor's default dataset.
+
+    ```python
+    result = crew.kickoff()
+    await Actor.push_data({
+        "query": query,
+        "response": str(result)
+    })
+    ```
+
+### Step 8: Test locally
+
+Run the agent on your local machine using the Apify CLI. Ensure you have set any required environment variables (e.g., `OPENAI_API_KEY`).
+
+```bash
+apify run
+```
+
+### Step 9: Deploy to Apify
+
+Push your Actor's code to the Apify platform.
+
+```bash
+apify push
+```
+
+After deployment:
+
+1. Navigate to your Actor's settings.
+1. Set `OPENAI_API_KEY` as a secret environment variable.
+1. Rebuild the Actor version to apply the changes.
+
+### Step 10: Test the deployed agent
+
+Run the agent on the platform with a sample query and monitor the results in the output dataset.
+
+```text
+Analyze the posts of the @openai and @googledeepmind and summarize me current trends in the AI.
+```
+
+:::info Troubleshooting
+
+Common issues and solutions:
+
+- _Agent fails to call tools:_ Check that the tool descriptions in src/tools.py are clear and the argument schemas are correct.
+- _Instagram scraper fails:_ Verify that the Instagram usernames exist and are public. Check the scraper Actor's run logs for specific errors.
+- _Missing API key:_ Ensure OPENAI_API_KEY is set as a secret environment variable in your Actor's Settings.
+
+:::
+
+## Monetizing your AI agent
+
+Apify's pay-per-event (PPE) pricing model allows charging users based on specific triggered events through the API or SDKs.
+
+### Step 1: Define chargeable events
+
+You can configure charges for events like the Actor starting, a task completing successfully, or custom events such as specific API calls.
+
+Example event definition:
+
+```json
+{
+  "eventName": "task-completed",
+  "description": "Charge for completed analysis task",
+  "price": 0.10
+}
+```
+
+### Step 2: Implement charging in code
+
+Add charging logic to your code:
+
+```python
+await Actor.charge({
+    "eventName": "task-completed",
+    "amount": 1
+})
+```
+
+### Step 3: Configure PPE settings
+
+1. Enable pay-per-event monetization in Actor settings.
+1. Define events from `pay_per_event.json`.
+1. Set pricing for each event.
+
+### Step 4: Publish the agent
+
+Before making your agent public on [Apify Store](https://apify.com/store), complete the following checklist:
+
+- Update README with usage instructions.
+- Validate `input_schema.json` and `dataset_schema.json`.
+- Verify `OPENAI_API_KEY` environment variable is handled correctly.
+- Check monetization settings on the Actor publication page.
+- Test the Actor thoroughly.
+- Set your Actor's visibility to public.
+
+## Next steps
+
+To continue developing AI agents:
+
+1. _Use the CrewAI template:_ Start with `apify create agent-actor -t python-crewai`
+2. _Explore other templates:_ Visit the Apify templates page for alternatives
+3. _Review existing agents:_ Check the AI Agents collection on Apify Store
+4. _Publish and monetize:_ Deploy with `apify push` and enable monetization
