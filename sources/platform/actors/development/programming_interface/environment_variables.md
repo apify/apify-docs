@@ -170,9 +170,9 @@ async def main():
 </TabItem>
 </Tabs>
 
-## Access system environment variables
+## Use the `Configuration` class
 
-For more convenient access to Actor system variables and other configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class as follows:
+For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
