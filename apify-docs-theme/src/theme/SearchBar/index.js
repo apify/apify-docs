@@ -59,7 +59,7 @@ export default function SearchBar() {
         <BrowserOnly>
             {() => <ApifySearch
                 algoliaAppId={siteConfig.themeConfig.algolia.appId}
-                algoliaIndexName='test_test_apify_sdk'
+                algoliaIndexName='apify_sdk_v2'
                 algoliaKey={siteConfig.themeConfig.algolia.apiKey}
                 filters={`version:${getVersion()}`}
                 navigate={navigate}
