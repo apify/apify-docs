@@ -270,7 +270,7 @@ const themeConfig = {
     algolia: {
         appId: 'N8EOCSBQGH',
         apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
-        indexName: 'test_test_apify_sdk',
+        indexName: 'apify_sdk_v2',
         placeholder: 'Search documentation',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
