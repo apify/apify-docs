@@ -14,6 +14,21 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+## How to use environment variables in an Actor
+
+You can set up environment variables for your Actor in two ways:
+
+- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
+- [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
+
+:::info Environment variable precedence
+
+Your local `.actor/actor.json` file overrides variables set in Apify Console. To use Console variables, remove the `environmentVariables` key from the local file.
+
+:::
+
+Check out how you can [access environment variables in Actors](#access-environment-variables).
+
 ## System environment variables
 
 Apify sets several system environment variables for each Actor run. These variables provide essential context and information about the Actor's execution environment.
@@ -53,7 +68,7 @@ Here's a table of key system environment variables:
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the actor, based on allocated memory. |
 | `APIFY_DISABLE_OUTDATED_WARNING` | Controls the display of outdated version warnings. Set to `1` to suppress notifications about updates. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
-| `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are [here](/platform/actors/running/runs-and-builds#origin) |
+| `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
 | `APIFY_SDK_LATEST_VERSION` | Specifies the most recent release version of the Apify SDK for JavaScript. Used for checking for updates. |
 | `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
@@ -68,6 +83,47 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
+## Set up environment variables in `actor.json`
+
+Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
+
+```json
+{
+  "actorSpecification": 1,
+  "name": "dataset-to-mysql",
+  "version": "0.1",
+  "buildTag": "latest",
+  "environmentVariables": {
+    "MYSQL_USER": "my_username",
+  }
+}
+```
+
+:::info Git-workflow with actor.json
+
+Be aware that if you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not be set from `.actor/actor.json` and you need to define them in Apify Console.
+
+:::
+
+## Set up environment variables in Apify Console
+
+Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
+
+1. Go to your Actor's **Source** page in the Apify Console
+
+1. Navigate to the **Environment variables** section.
+
+1. Add your custom variables.
+
+For sensitive data like API keys or passwords, enable the **Secret** option. This will encrypt the value and redact it from logs to prevent accidental exposure.
+
+:::info Build-time variables
+
+Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
+
+Learn more in [Builds](../builds_and_runs/builds.md).
+:::
+
 ## Access environment variables
 
 You can access environment variables in your code as follows:
@@ -78,7 +134,17 @@ You can access environment variables in your code as follows:
 In Node.js, use the `process.env` object:
 
 ```js
-console.log(process.env.APIFY_USER_ID);
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// get MYSQL_USER
+const mysql_user = process.env.MYSQL_USER
+
+// print MYSQL_USER to console
+console.log(mysql_user);
+
+await Actor.exit();
 ```
 
 </TabItem>
@@ -88,7 +154,17 @@ In Python, use the `os.environ` dictionary:
 
 ```python
 import os
-print(os.environ['APIFY_USER_ID'])
+print(os.environ['MYSQL_USER'])
+
+from apify import Actor
+
+async def main():
+    async with Actor:
+        # get MYSQL_USER
+        mysql_user = os.environ['MYSQL_USER']
+
+        # print MYSQL_USER to console
+        print(mysql_user)
 ```
 
 </TabItem>
@@ -135,24 +211,6 @@ async def main():
 </TabItem>
 </Tabs>
 
-## Custom environment variables
-
-Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
-
-1. Go to your Actor's **Source** page in the Apify Console
-
-1. Navigate to the **Environment variables** section.
-
-1. Add your custom variables.
-
-For sensitive data like API keys or passwords, enable the **Secret** option. This encrypt the value and redacts it from logs to prevent accidental exposure.
-
-:::info Build-time variables
-
-Custom environment variables are set during the Actor's build process and cannot be changed for existing builds. For more information, check out the [Builds](../builds_and_runs/builds.md) page.
-
-:::
-
 ## Build-time environment variables
 
 You can also use environment variables during the Actor's build process. In this case, they function as Docker build arguments. To use them in your Dockerfile, include `ARG` instruction:
@@ -162,7 +220,7 @@ ARG MY_BUILD_VARIABLE
 RUN echo $MY_BUILD_VARIABLE
 ```
 
-:::caution Insecure build variables
+:::caution Variables set during the build
 
 Build-time environment variables are not suitable for secrets, as they are not encrypted.
 
