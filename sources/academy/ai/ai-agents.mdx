@@ -1,12 +1,12 @@
 ---
-title: Build and monetize AI Agents on Apify
-description: This guide shows you how to create an AI agent using the CrewAI Python framework and Apify platform. You will build an Instagram analysis agent that integrates with large language models (LLMs) and web scrapers.
-sidebar_label: AI Agents
+title: Build and monetize AI agents on Apify
+description: This guide shows you how to create an AI agent using the CrewAI Python framework and the Apify platform. You will build an Instagram analysis agent that integrates with large language models (LLMs) and web scrapers.
+sidebar_label: Build and monetize AI agents
 sidebar_position: 1
 slug: /ai/ai-agents
 ---
 
-**This guide shows you how to create an AI agent using the CrewAI Python framework and Apify platform. You will build an Instagram analysis agent that integrates with large language models (LLMs) and web scrapers.**
+**This guide shows you how to create an AI agent using the CrewAI Python framework and the Apify platform. You will build an Instagram analysis agent that integrates with large language models (LLMs) and web scrapers.**
 
 ---
 
@@ -33,7 +33,7 @@ Apify provides a complete platform for building and deploying AI agents with the
 
 ### Step 1: Define the use case
 
-This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](LINK HERE).
+This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](https://apify.com/apify/instagram-scraper).
 
 _Example:_
 
@@ -138,7 +138,7 @@ Define the dataset schema in `.actor/dataset_schema.json`. This helps structure 
 
 ### Step 6: Configure tools
 
-The Instagram post scraper tool is implemented using the [Instagram Scraper Actor](LINK HERE). The tool returns structured output as Pydantic models defined in `src/models.py`:
+The Instagram post scraper tool is implemented using the [Instagram Scraper Actor](https://apify.com/apify/instagram-scraper). The tool returns structured output as Pydantic models defined in `src/models.py`:
 
 ```python
 class InstagramPost(BaseModel):
@@ -299,5 +299,5 @@ To continue developing AI agents:
 
 1. _Use the CrewAI template:_ Start with `apify create agent-actor -t python-crewai`
 2. _Explore other templates:_ Visit the Apify templates page for alternatives
-3. _Review existing agents:_ Check the AI Agents collection on Apify Store
+3. _Review existing agents:_ Check the AI agents collection on Apify Store
 4. _Publish and monetize:_ Deploy with `apify push` and enable monetization
