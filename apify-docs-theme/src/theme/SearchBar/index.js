@@ -1,4 +1,3 @@
-// eslint-disable-next-line simple-import-sort/imports
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import RouterLink from '@docusaurus/Link';
 import { useHistory, useLocation } from '@docusaurus/router';
@@ -6,10 +5,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React, { useCallback } from 'react';
 
 import { ApifySearch } from '@apify/docs-search-modal';
-
-// needs to be imported as the last thing, so that it can override the default styles
-// TODO: update simple-import-sort to allow importing css as last.
-import './styles.css';
 
 /**
  * Tests whether the given href is pointing to the current docusaurus instance (so we can use the router link).
@@ -40,7 +35,7 @@ export function Link(props) {
     return <a {...props}>{props.children}</a>;
 }
 
-export default function SearchBar({ onClick }) {
+export default function SearchBar() {
     const { siteConfig } = useDocusaurusContext();
     const location = useLocation();
     const history = useHistory();
@@ -62,17 +57,13 @@ export default function SearchBar({ onClick }) {
 
     return (
         <BrowserOnly>
-            {() => (
-                <div onClick={onClick}>
-                    <ApifySearch
-                        algoliaAppId={siteConfig.themeConfig.algolia.appId}
-                        algoliaIndexName='apify_sdk_v2'
-                        algoliaKey={siteConfig.themeConfig.algolia.apiKey}
-                        filters={`version:${getVersion()}`}
-                        navigate={navigate}
-                    />
-                </div>
-            )}
+            {() => <ApifySearch
+                algoliaAppId={siteConfig.themeConfig.algolia.appId}
+                algoliaIndexName='apify_sdk_v2'
+                algoliaKey={siteConfig.themeConfig.algolia.apiKey}
+                filters={`version:${getVersion()}`}
+                navigate={navigate}
+            />}
         </BrowserOnly>
     );
 }
