@@ -12,7 +12,7 @@ export default function LayoutWrapper(props) {
 
     return (
         <div style={{
-            '--ifm-navbar-height': subNavbar && !currentPath.startsWith('api/v2') ? '126px' : '68px',
+            '--ifm-navbar-height': subNavbar && !currentPath.startsWith('api/v2') ? '123px' : '68px',
             margin: 0,
             padding: 0,
             boxSizing: 'border-box',
