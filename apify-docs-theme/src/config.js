@@ -138,13 +138,6 @@ const themeConfig = {
                 ],
             },
             {
-                href: 'https://github.com/apify',
-                label: 'GitHub',
-                title: 'Apify on GitHub',
-                position: 'right',
-                className: 'icon',
-            },
-            {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
                 label: 'Discord',
                 title: 'Chat on Discord',
@@ -257,6 +250,10 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                        label: 'Discord',
+                    },
+                    {
                         label: 'Trust Center',
                         href: 'https://trust.apify.com',
                     },
@@ -274,8 +271,14 @@ const themeConfig = {
         appId: 'N8EOCSBQGH',
         apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
         indexName: 'apify_sdk_v2',
+        placeholder: 'Search documentation',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
+        },
+        translations: {
+            button: {
+                buttonText: 'Search documentation…',
+            },
         },
     },
     hubspot: {
