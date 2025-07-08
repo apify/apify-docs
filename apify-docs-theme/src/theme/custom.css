@@ -524,7 +524,6 @@ aside .icon svg[class*=iconExternalLink] {
 }
 
 .navbar__items {
-    height: calc(100% -68px);
     gap: 0.4rem;
 }
 

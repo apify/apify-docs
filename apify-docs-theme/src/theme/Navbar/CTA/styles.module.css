@@ -1,5 +1,4 @@
 .getStarted {
-  all: unset;
   height: 4rem;
   padding: 0.8rem 1.6rem !important;
   background-color: var(--color-primary-black-action);
@@ -8,6 +7,9 @@
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 2.4rem;
+  border: none;
+  box-shadow: none;
+  outline: none;
   box-sizing: border-box;
   cursor: pointer;
   display: block;
