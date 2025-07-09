@@ -31,15 +31,19 @@
       width: 100%;
     }
 
-    .DocSearch-Button-Placeholder {
-      display: block;
-    }
-
     .navbar__inner .DocSearch-Button {
       display: none;
     }
 
     .navbar-sidebar .DocSearch-Button {
+      display: flex;
+    }
+
+    .navbar-sidebar .DocSearch-Button-Placeholder {
+      display: block;
+    }
+
+    .navbar-sidebar .DocSearch-Button-Keys {
       display: flex;
     }
 }
