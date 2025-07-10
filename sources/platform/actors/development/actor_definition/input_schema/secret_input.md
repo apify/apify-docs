@@ -37,9 +37,11 @@ The editor for this input field will then turn into a secret input, and when you
 
 <img src={require("./images/secret-input-editor.png").default} alt="Secret input editor" style={{ width: '100%', maxWidth: '822px' }}/>
 
+When running the Actor through the API, input fields marked as secret are also encrypted automatically before being saved in the Actor run's default key-value store.
+
 :::note Type restriction
 
-This is only available for `string` inputs, and the editor type is limited to `textfield` or `textarea`.
+This feature supports `string`, `object`, and `array` inputs. The available editor types are `hidden` (for any of these), `textfield` and `textarea` (for `string` input), and `json` (for `object` and `array` inputs).
 
 :::
 
