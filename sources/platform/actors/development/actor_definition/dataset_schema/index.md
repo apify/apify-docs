@@ -142,7 +142,9 @@ You have two choices of how to organize files within the `.actor` folder.
                 "overview": {
                     "title": "Overview",
                     "transformation": {},
-                    "display": {}
+                    "display": {
+                        "component": "table"
+                    }
                 }
             }
         }
