@@ -59,8 +59,8 @@
         "globby": "^14.0.0",
         "markdownlint": "^0.38.0",
         "markdownlint-cli": "^0.45.0",
-        "path-browserify": "^1.0.1",
         "patch-package": "^8.0.0",
+        "path-browserify": "^1.0.1",
         "rimraf": "^6.0.0",
         "typescript": "5.8.3",
         "typescript-eslint": "^8.29.1"
@@ -80,6 +80,7 @@
         "@redocly/cli": "^1.27.1",
         "ajv": "^8.17.1",
         "clsx": "^2.0.0",
+        "docusaurus-plugin-image-zoom": "^3.0.1",
         "docusaurus-plugin-openapi-docs": "^4.3.7",
         "docusaurus-theme-openapi-docs": "^4.3.7",
         "form-data": "^4.0.0",
