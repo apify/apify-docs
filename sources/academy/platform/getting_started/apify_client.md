@@ -220,7 +220,7 @@ print(items)
 
 If you check the **Settings** tab within your **adding-actor**, you'll notice that the default memory being allocated to the Actor is **2048 MB**. This is a bit overkill considering the fact that the Actor is only adding two numbers together - **256 MB** would be much more reasonable. Also, we can safely say that the run should never take more than 20 seconds (even this is a generous number) and that the default of 3600 seconds is also overkill.
 
-Let's change these two Actor settings via the Apify client using the [`actor.update()`](/api/client/js/reference/class/ActorClient#update) function. This function will call the **update Actor** endpoint, which can take `defaultRunOptions` as an input property. You can find the shape of the `defaultRunOptions` in the [API documentation](/api/v2#/reference/actors/actor-object/update-actor). Perfect!
+Let's change these two Actor settings via the Apify client using the [`actor.update()`](/api/client/js/reference/class/ActorClient#update) function. This function will call the **update Actor** endpoint, which can take `defaultRunOptions` as an input property. You can find the shape of the `defaultRunOptions` in the [API documentation](/api/v2/act-put). Perfect!
 
 First, we'll create a pointer to our Actor, similar to before (except this time, we won't be using `.call()` at the end):
 

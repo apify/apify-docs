@@ -17,7 +17,7 @@ Sometimes, an Actor needs a channel for communication with other systems (or hum
 - An API to receive commands.
 - An HTML page displaying output data.
 
-Running a web server in an Actor is a piece of cake! Each Actor run is available at a unique URL (container URL) which always takes the form `https://CONTAINER-KEY.runs.apify.net`. This URL is available in the [**Actor run** object](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) returned by the Apify API, as well as in the Apify console.
+Running a web server in an Actor is a piece of cake! Each Actor run is available at a unique URL (container URL) which always takes the form `https://CONTAINER-KEY.runs.apify.net`. This URL is available in the [**Actor run** object](/api/v2/actor-run-get) returned by the Apify API, as well as in the Apify console.
 
 If you start a web server on the port defined by the **APIFY_CONTAINER_PORT** environment variable (the default value is **4321**), the container URL becomes available and gets displayed in the **Live View** tab in the Actor run console.
 
