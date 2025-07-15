@@ -45,7 +45,7 @@ Let's say we want to run our **adding-actor** via API and view its results in CS
 https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
 ```
 
-Additional parameters can be passed to this endpoint. You can learn about them [here](/api/v2/act-run-sync-get-dataset-items-post)
+Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/act-run-sync-get-dataset-items-post)
 
 > Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
 
