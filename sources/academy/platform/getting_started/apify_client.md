@@ -114,7 +114,7 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 </TabItem>
 </Tabs>
 
-> Learn more about the `.call()` function [here](/api/client/js/reference/class/ApifyClient#actor).
+> Learn more about the `.call()` function in our [API documentation](/api/client/js/reference/class/ApifyClient#actor).
 
 ## Downloading dataset items {#downloading-dataset-items}
 
