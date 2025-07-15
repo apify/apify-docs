@@ -957,7 +957,7 @@ div[class*="searchBox"] {
     .menu__link.icon::before {
         display: none;
     }
-    
+
     .navbar__inner .navbar__item.navbar__link.icon {
         display: none;
     }
@@ -1979,4 +1979,8 @@ div[class^="navbarSearchContainer"] {
     div[class^="navbarSearchContainer"] {
         position: static;
     }
+}
+
+.medium-zoom-image--opened {
+    z-index: 999;
 }
