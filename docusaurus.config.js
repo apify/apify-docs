@@ -309,7 +309,7 @@ module.exports = {
             ],
         },
         zoom: {
-            selector: '.markdown img',
+            selector: '.markdown img:not(a img)',
         },
         languageTabs: [
             {
