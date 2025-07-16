@@ -127,6 +127,7 @@ module.exports = {
         ],
     ]),
     plugins: [
+        'docusaurus-plugin-image-zoom',
         [
             '@docusaurus/plugin-content-docs',
             {
@@ -306,6 +307,9 @@ module.exports = {
                 ...config.themeConfig.prism.additionalLanguages,
                 'http', 'bash', 'ruby', 'java', 'scala', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
             ],
+        },
+        zoom: {
+            selector: '.markdown img:not(a img)',
         },
         languageTabs: [
             {
