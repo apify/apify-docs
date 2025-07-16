@@ -1,7 +1,6 @@
 ---
 title: Introduction
 description: Start learning about web scraping, web crawling, data extraction, and popular tools to start developing your own scraper.
-sidebar_position: 1.1
 category: courses
 slug: /web-scraping-for-beginners/introduction
 ---
@@ -30,4 +29,4 @@ We use web scraping as an umbrella term for crawling, web data extraction and al
 
 ## Next up {#next}
 
-In the [next lesson](./data_extraction/index.md), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.
+In the [next lesson](./02_data_extraction.md), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.
