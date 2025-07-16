@@ -11,7 +11,7 @@ slug: /getting-started/apify-api
 
 ---
 
-[Apify's API](/api/v2#/reference) is your ticket to the Apify platform without even needing to access the [Apify Console](https://console.apify.com?asrc=developers_portal) web-interface. The API is organized around RESTful HTTP endpoints.
+[Apify's API](/api/v2) is your ticket to the Apify platform without even needing to access the [Apify Console](https://console.apify.com?asrc=developers_portal) web-interface. The API is organized around RESTful HTTP endpoints.
 
 In this lesson, we'll be learning how to use the Apify API to call an Actor and view its results. We'll be using the Actor we created in the previous lesson, so if you haven't already gotten that one set up, go ahead do that before moving forward if you'd like to follow along.
 
@@ -45,7 +45,7 @@ Let's say we want to run our **adding-actor** via API and view its results in CS
 https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
 ```
 
-Additional parameters can be passed to this endpoint. You can learn about them [here](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
+Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/act-run-sync-get-dataset-items-post)
 
 > Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
 
@@ -65,7 +65,7 @@ And there it is! The Actor was run with our inputs of **num1** and **num2**, the
 
 ## Apify API's many features {#api-many-features}
 
-What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can [manage datasets](/api/v2#/reference/datasets/dataset/get-dataset) and [key-value stores](/api/v2#/reference/key-value-stores/key-collection/get-dataset), [add to request queues](/api/v2#/reference/request-queues/queue-collection/add-request), [update Actors](/api/v2#/reference/actors/actor-object/add-request), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
+What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can [manage datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), [add to request queues]/api/v2/storage-request-queues), [update Actors](/api/v2/storage-request-queues-requests), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
 
 ## Next up {#next}
 

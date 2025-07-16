@@ -19,11 +19,11 @@ Schedules allow timezone settings and support daylight saving time shifts (DST).
 You can set up and manage your Schedules using:
 
 * [Apify Console](https://console.apify.com/schedules)
-* [Apify API](https://docs.apify.com/api/v2#/reference/schedules)
+* [Apify API](/api/v2/schedules)
 * [JavaScript API client](https://docs.apify.com/api/client/js/reference/class/ScheduleClient)
 * [Python API client](https://docs.apify.com/api/client/python/reference/class/ScheduleClient)
 
-When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking an Actor or task using the [Apify REST API](/api/v2#/reference/schedules/).
+When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking an Actor or task using the [Apify REST API](/api/v2/schedules).
 
 :::note Events Startup Variability
 In most cases, scheduled events are fired within one second of their scheduled time. <br/>
@@ -73,12 +73,12 @@ For integrations, you can also add a [webhook](/platform/integrations/webhooks) 
 
 ### Apify API
 
-To create a new [schedule](/api/v2#/reference/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
+To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2/schedules-post) endpoint.
 
 You can find your [secret API token](./integrations/index.mdx) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#/introduction/authentication)).
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
 :::
 
 In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's _actions_.
@@ -110,7 +110,7 @@ If the request is successful, you will receive a `201` [HTTP response code](http
 
 You can add multiple Actor and task runs to a schedule with a single `POST` request. Simply add another object with the run's details to the **actions** array in your `POST` request's payload object.
 
-For more information, refer to the [schedules](/api/v2#/reference/schedules/schedule-object/get-schedule) section in our API documentation.
+For more information, refer to the [schedules](/api/v2/schedule-get) section in our API documentation.
 
 ## Schedule setup
 

@@ -34,7 +34,7 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 You can access your storage in several ways:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
-* [Apify API](/api/v2#/reference/key-value-stores) - to access your storages programmatically.
+* [Apify API](/api/v2/storage-key-value-stores) - to access your storages programmatically.
 * [API clients](/api) - to access your storages from any Node.js/Python application.
 * [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
@@ -53,7 +53,7 @@ Additionally, you can quickly share the contents and details of your storage by 
 ![Storage API](./images/overview-api.png)
 
 <!-- vale Microsoft.Dashes = NO -->
-These URLs link to API _endpoints_—the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
+These URLs link to API _endpoints_—the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
 <!-- vale Microsoft.Dashes = YES -->
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
@@ -61,7 +61,7 @@ These URLs link to API _endpoints_—the places where your data is stored. Endpo
 
 ### Apify API {#apify-api}
 
-The [Apify API](/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
+The [Apify API](/api/v2/storage-key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
 In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
@@ -71,9 +71,9 @@ In most cases, when accessing your storages via API, you will need to provide a 
 
 For read (GET) requests, it is enough to use a store's alphanumerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
-With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#/introduction/authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
+With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
 
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/datasets).
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-datasets).
 
 ### Apify API Clients
 
@@ -92,11 +92,11 @@ The Apify SDKs are libraries in JavaScript or Python that provide tools for buil
 
 All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is _30 requests per second_. However, there are exceptions limited to _200 requests per second_ per storage object, including:
 
-* [Push items](/api/v2#/reference/datasets/item-collection/put-items) to dataset.
-* CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
-[get](/api/v2#/reference/request-queues/request-collection/get-request),
-[update](/api/v2#/reference/request-queues/request-collection/update-request),
-[delete](/api/v2#/reference/request-queues/request-collection/delete-request))
+* [Push items](/api/v2/dataset-items-post) to dataset.
+* CRUD ([add](/api/v2/request-queue-requests-post),
+[get](/api/v2/request-queue-request-get),
+[update](/api/v2/request-queue-request-put),
+[delete](/api/v2/request-queue-request-delete))
 operations of _request queue_ requests.
 
 If a client exceeds this limit, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
@@ -110,7 +110,7 @@ If a client exceeds this limit, the API endpoints respond with the HTTP status c
 }
 ```
 
-Go to the [API documentation](/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
+Go to the [API documentation](/api/v2#rate-limiting) for details and to learn what to do if you exceed the rate limit.
 
 ## Data retention {#data-retention}
 
@@ -124,7 +124,7 @@ To ensure indefinite retention of your storages, assign them a name. This can be
 
 Find and open your storage by clicking the ID, click on the **Actions** menu, choose **Rename**, and enter its new name in the field. Your storage will now be preserved indefinitely.
 
-To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint. You can then give it a new name using the `Update \[storage\]` endpoint. For example, [Update dataset](/api/v2#/reference/datasets/dataset/update-dataset).
+To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2/actor-run-get) endpoint. You can then give it a new name using the `Update \[storage\]` endpoint. For example, [Update dataset](/api/v2/dataset-put).
 
 Our SDKs and clients each have unique naming conventions for storages. For more information check out documentation:
 
@@ -178,4 +178,4 @@ or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
 [dataset](/api/client/python#datasetclient),
 [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
 or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
-* [API](/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.
+* [API](/api/v2/key-value-store-delete) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.
