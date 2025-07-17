@@ -2,7 +2,7 @@
 title: Gumloop - YouTube Actor integration
 description: Learn about YouTube scraper modules. Extract video details, channel information, playlists, and search results.
 sidebar_label: YouTube
-sidebar_position: 1
+sidebar_position: 4
 slug: /integrations/gumloop/youtube
 ---
 

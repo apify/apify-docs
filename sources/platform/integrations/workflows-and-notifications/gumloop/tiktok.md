@@ -2,7 +2,7 @@
 title: Gumloop - TikTok Actor integration
 description: Learn about TikTok scraper modules. Extract videos, profile data, followers, and hashtag data.
 sidebar_label: TikTok
-sidebar_position: 1
+sidebar_position: 3
 slug: /integrations/gumloop/tiktok
 ---
 
