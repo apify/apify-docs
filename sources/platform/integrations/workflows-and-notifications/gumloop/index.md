@@ -105,7 +105,7 @@ Web Scraping \+ AI Analysis \+ Email Report
 ```mermaid
 
 graph LR
-    A[Apify Task Runner] --> B[Ask AI] --> C[Combine text] --> D[Gmails sender]
+    A[Apify Task Runner] --> B[Ask AI] --> C[Combine text] --> D[Gmail sender]
 
 ```
 
