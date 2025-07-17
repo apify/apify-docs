@@ -21,10 +21,10 @@ These native nodes eliminate the complexity of managing Apify tasks while provid
 
 The following data sources are available natively in Gumloop:
 
-- Instagram
-- Google Maps
-- TikTok
-- YouTube
+- [Instagram](/platform/integrations/gumloop/instagram)
+- [Google Maps](/platform/integrations/gumloop/maps)
+- [TikTok](/platform/integrations/gumloop/tiktok)
+- [YouTube](/platform/integrations/gumloop/youtube)
 
 <!-- TODO: video walkthrough -->
 
@@ -72,7 +72,7 @@ Open a new Gumloop pipeline page. Search for **Apify Task Runner** in the **Node
 
 ### Step 4: Create and Save Tasks in Apify
 
-The Apify task runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**]((https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
+The Apify task runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
 
 <!-- TODO: placeholder: Apify Actor page showing "Create a task" button -->
 
