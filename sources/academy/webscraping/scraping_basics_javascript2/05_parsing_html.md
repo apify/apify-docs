@@ -38,6 +38,20 @@ $ pip install beautifulsoup4
 Successfully installed beautifulsoup4-4.0.0 soupsieve-0.0
 ```
 
+<!--
+:::tip Installing packages
+
+Being comfortable around Python project setup and installing packages is a prerequisite of this course, but if you wouldn't say no to a recap, we recommend the [Installing Packages](https://packaging.python.org/en/latest/tutorials/installing-packages/) tutorial from the official Python Packaging User Guide.
+
+:::
+
+:::info Troubleshooting
+
+If you see other errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
+
+:::
+-->
+
 Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` element, which represents the main heading of the page.
 
 ![Element of the main heading](./images/h1.png)
