@@ -159,7 +159,7 @@ One of the powerful features of MCP with Apify is **dynamic Actor tooling** – 
 
 Helper tool categories marked with (*) are not enabled by default in the MCP server and must be explicitly enabled using the `tools` argument (either the `--tools` command line argument for the stdio server or the `?tools` URL query parameter for the remote MCP server). The `tools` argument is a comma-separated list of categories with the following possible values:
 
-- `docs`: Search and fetch Apify documentation tools.
+- `docs`: Search and fetch Apify documentation.
 - `runs`: Get Actor runs list, run details, and logs from a specific Actor run.
 - `storage`: Access datasets, key-value stores, and their records.
 - `preview`: Experimental tools in preview mode.
