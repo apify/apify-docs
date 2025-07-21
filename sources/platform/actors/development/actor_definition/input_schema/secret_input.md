@@ -37,7 +37,7 @@ The editor for this input field will then turn into a secret input, and when you
 
 <img src={require("./images/secret-input-editor.png").default} alt="Secret input editor" style={{ width: '100%', maxWidth: '822px' }}/>
 
-When running the Actor through the API, input fields marked as secret are also encrypted automatically before being saved in the Actor run's default key-value store.
+When you run the Actor through the API, the system automatically encrypts any input fields marked as secret before saving them to the Actor run's default key-value store.
 
 :::note Type restriction
 
