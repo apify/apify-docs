@@ -37,15 +37,21 @@ The editor for this input field will then turn into a secret input, and when you
 
 <img src={require("./images/secret-input-editor.png").default} alt="Secret input editor" style={{ width: '100%', maxWidth: '822px' }}/>
 
+When you run the Actor through the API, the system automatically encrypts any input fields marked as secret before saving them to the Actor run's default key-value store.
+
 :::note Type restriction
 
-This is only available for `string` inputs, and the editor type is limited to `textfield` or `textarea`.
+This feature supports `string`, `object`, and `array` input types. Available editor types include:
+
+- `hidden` (for any supported input type)
+- `textfield` and `textarea` (for string inputs)
+- `json` (for `object` and `array` inputs)
 
 :::
 
 ## Read secret input fields
 
-When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted (starting with the [`apify` package](https://www.npmjs.com/package/apify) version 3.1.0).
+When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted. Decryption of string fields is supported since [JavaScript SDK](http://docs.apify.loc/sdk/js/) 3.1.0; support for objects and arrays was added in [JavaScript SDK](http://docs.apify.loc/sdk/js/) 3.4.2 and [Python SDK](http://docs.apify.loc/sdk/python/) 2.7.0.
 
 <!-- eslint-skip -->
 ```js
