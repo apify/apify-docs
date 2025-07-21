@@ -25,7 +25,7 @@ The storage system for request queues accommodates both breadth-first and depth-
 You can access your request queues in several ways:
 
 - [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
-- [Apify API](/api/v2#) - for accessing your request queues programmatically.
+- [Apify API](/api/v2) - for accessing your request queues programmatically.
 - [Apify API clients](/api) - to access your request queues from any Node.js application.
 - [Apify SDK](/sdk) - when building your own JavaScript Actor.
 
@@ -38,37 +38,37 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
 [retention period](/platform/storage/usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
-Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
+Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
 
 ### Apify API
 
-The [Apify API](/api/v2#/reference/request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2/storage-request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
-To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
+To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2/request-queues-get) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues
 ```
 
-To get information about a request queue such as its creation time and item count, send a GET request to the [Get request queue](/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
+To get information about a request queue such as its creation time and item count, send a GET request to the [Get request queue](/api/v2/request-queue-get) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}
 ```
 
-To get a request from a queue, send a GET request to the [Get request](/api/v2#/reference/request-queues/request/get-request) endpoint.
+To get a request from a queue, send a GET request to the [Get request](/api/v2/request-queue-request-get) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
 ```
 
-To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
+To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2/request-queue-requests-post) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests
@@ -84,7 +84,7 @@ Example payload:
 }
 ```
 
-To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
+To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2/request-queue-request-put) endpoint. In the payload, specify the request's ID and add the information you want to update.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
@@ -101,11 +101,11 @@ Example payload:
 }
 ```
 
-> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2#/reference/request-queues/queue-head/get-head) operation for details. <br/>
+> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details. <br/>
 >
 > Example: `client-abc`
 
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-key-value-stores).
 
 ### Apify API Clients
 
@@ -338,7 +338,7 @@ await Actor.exit();
 ### Batch operations
 
 Request queues support batch operations on requests to enqueue or retrieve multiple requests in bulk, to cut down on network latency and enable easier parallel processing of requests.
-You can find the batch operations in the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations), as well in the Apify API client for [JavaScript](https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests) and [Python](https://docs.apify.com/api/client/python/reference/class/RequestQueueClient#batch_add_requests).
+You can find the batch operations in the [Apify API](/api/v2/storage-request-queues), as well in the Apify API client for [JavaScript](https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests) and [Python](https://docs.apify.com/api/client/python/reference/class/RequestQueueClient#batch_add_requests).
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -622,13 +622,13 @@ Check out the [Storage overview](/platform/storage/usage#sharing-storages-betwee
 
 ### Rate limiting {#rate-limiting}
 
-When managing request queues via [API](/api/v2#/reference/request-queues/put-items),
-CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
-[get](/api/v2#/reference/request-queues/request-collection/get-request),
-[update](/api/v2#/reference/request-queues/request-collection/update-request),
-[delete](/api/v2#/reference/request-queues/request-collection/delete-request))
+When managing request queues via [API](/api/v2/storage-request-queues-requests),
+CRUD ([add](/api/v2/request-queue-requests-post),
+[get](/api/v2/request-queue-request-get),
+[update](/api/v2/request-queue-request-put),
+[delete](/api/v2/request-queue-request-delete))
 operation requests are limited to _200 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
 
-All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to _30 requests per second_ per request queue.
+All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _30 requests per second_ per request queue.
 
-Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.
+Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

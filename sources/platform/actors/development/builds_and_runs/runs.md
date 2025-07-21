@@ -16,7 +16,7 @@ When you start an Actor, you create a run. A run is a single execution of your A
 You can start an Actor in several ways:
 
 - Manually from the [Apify Console](https://console.apify.com/actors) UI
-- Via the [Apify API](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor)
+- Via the [Apify API](/api/v2/act-runs-post)
 - Using the [Scheduler](../../../schedules.md) provided by the Apify platform
 - By one of the available [integrations](../../../integrations/index.mdx)
 
