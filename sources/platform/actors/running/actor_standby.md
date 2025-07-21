@@ -73,7 +73,7 @@ For requests sent to an Actor in Standby mode, the maximum time allowed until re
 
 ## What is the rate limit for incoming requests
 
-The rate limit for incoming requests to a Standby Actor is _2000 requests per second_ per single standby Actor run.
+The rate limit for incoming requests to a Standby Actor is _2000 requests per second_ per user account.
 
 ## How do I customize Standby configuration
 
