@@ -43,7 +43,7 @@ When you run the Actor through the API, the system automatically encrypts any in
 
 This feature supports `string`, `object`, and `array` input types. Available editor types include:
 
-- `hidded` (for any supported input type)
+- `hidden` (for any supported input type)
 - `textfield` and `textarea` (for string inputs)
 - `json` (for `object` and `array` inputs)
 
