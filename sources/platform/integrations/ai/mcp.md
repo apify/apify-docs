@@ -148,13 +148,25 @@ In summary, you can start with a broad set (everything open and discoverable) or
 
 ## Dynamic Actor tooling
 
-One of the powerful features of MCP with Apify is **dynamic actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
+One of the powerful features of MCP with Apify is **dynamic Actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
 
-- _Actor discovery and management:_ Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add or remove tools (`add-actor`, `remove-actor`).
-- _Actor execution and monitoring:_ Start [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs), fetch run results (`get-actor-run`), logs (`get-actor-log`), and abort runs (`abort-actor-run`).
-- _Dataset access:_ List [datasets](https://docs.apify.com/platform/storage/dataset), retrieve dataset info and items (`get-dataset`, `get-dataset-list`, `get-dataset-items`).
-- _Key-value store access:_ List [key-value stores](https://docs.apify.com/platform/storage/key-value-store), view keys, and retrieve records (`get-key-value-store-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`).
-- _Built-in help tool:_ A static helper (`apify-actor-help-tool`) that returns usage info for the Apify MCP Server.
+- _Actor discovery and management:_ Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add them (`add-actor`).
+- _Apify documentation:_ Search Apify documentation (`search-apify-docs`) and fetch specific documents (`fetch-apify-docs`).
+- _Actor runs (*):_ Get a list of your [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs) (`get-actor-run-list`), specific run details (`get-actor-run`), and logs from a specific Actor run (`get-actor-log`).
+- _Apify storage (*):_ Access [datasets](https://docs.apify.com/platform/storage/dataset)(`get-dataset`, `get-dataset-items`, `get-dataset-list`), [key-value stores](https://docs.apify.com/platform/storage/key-value-store) (`get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`, `get-key-value-store-records`), and their records.
+
+:::note Optional tools
+
+Helper tool categories marked with (*) are not enabled by default in the MCP server and must be explicitly enabled using the `tools` argument (either the `--tools` command line argument for the stdio server or the `?tools` URL query parameter for the remote MCP server). The `tools` argument is a comma-separated list of categories with the following possible values:
+
+- `docs`: Search and fetch Apify documentation.
+- `runs`: Get Actor runs list, run details, and logs from a specific Actor run.
+- `storage`: Access datasets, key-value stores, and their records.
+- `preview`: Experimental tools in preview mode.
+
+:::
+
+For example, to enable all tools, use `npx @apify/actors-mcp-server --tools docs,runs,storage,preview` or `https://mcp.apify.com/?tools=docs,runs,storage,preview`.
 
 ## Troubleshooting
 
