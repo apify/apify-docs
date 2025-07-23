@@ -53,10 +53,6 @@ To integrate Apify with your Bubble application, you first need to install the A
 
 After installing the plugin, it's ready to be used in your Bubble application. Unlike some other plugins, the Apify plugin doesn't require global configuration. Instead, you'll provide your API token each time you use an Apify action in your workflow:
 
-![Using Actions of Apify plugin](../images/bubble/plugin_options_preview.png)
-
-![Using Data of Apify plugin ](../images/bubble/plugin_data_options_preview.png)
-
 1. When setting up an Apify action in your workflow, you'll be prompted to enter your API token.
 2. You can find your API token in the Apify Console under **Settings > Integrations**.
 3. For security reasons, it's recommended to store your API token in a Bubble workflow's private field or a custom state that's not exposed to the frontend, rather than entering it directly in each action.
@@ -68,6 +64,8 @@ The Apify plugin for Bubble provides two types of API integrations: Data Calls a
 ### Data Calls
 
 Data calls are used to retrieve information from Apify and display it in your Bubble application. These calls can be used as data sources for elements like repeating groups, inputs, or any component that displays data. Data calls don't modify anything - they only fetch and display information.
+
+![Using Data of Apify plugin ](../images/bubble/plugin_data_options_preview.png)
 
 ![Using Apify data calls](../images/bubble/data_preview.png)
 
@@ -102,6 +100,8 @@ The Apify plugin provides the following data calls:
 ### Actions
 
 Actions are used to perform operations that change data or trigger processes. In Bubble, actions are used in workflows that are triggered by events like button clicks, page loads, or scheduled events.
+
+![Using Actions of Apify plugin](../images/bubble/plugin_options_preview.png)
 
 ![Using Apify action calls](../images/bubble/action_preview.png)
 
