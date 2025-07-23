@@ -70,8 +70,9 @@ To set up automated builds and tests with GitHub Actions, you need to:
       ```cURL
       https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
       ```
+
    1. Name the secret & paste in your API endpoint
-      
+
       ![Add build Actor URL to secrets](./images/ci-add-build-url.png)
 
 1. Create GitHub Actions workflow files:
