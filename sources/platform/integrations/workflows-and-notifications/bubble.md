@@ -53,7 +53,9 @@ To integrate Apify with your Bubble application, you first need to install the A
 
 After installing the plugin, it's ready to be used in your Bubble application. Unlike some other plugins, the Apify plugin doesn't require global configuration. Instead, you'll provide your API token each time you use an Apify action in your workflow:
 
-![Using of Apify plugin](../images/bubble/plugin_options_preview.png)
+![Using Actions of Apify plugin](../images/bubble/plugin_options_preview.png)
+
+![Using Data of Apify plugin ](../images/bubble/plugin_data_options_preview.png)
 
 1. When setting up an Apify action in your workflow, you'll be prompted to enter your API token.
 2. You can find your API token in the Apify Console under **Settings > Integrations**.
