@@ -25,7 +25,7 @@ The container web server provides a way how to connect to one specific Actor run
 You can find the container URL in three locations:
 
 - In the web application, on the Actor run details page as the **Container URL** field.
-- In the API as the `containerUrl` property of the [Run object](/api/v2#/reference/actors/run-object/get-run).
+- In the API as the `containerUrl` property of the [Run object](/api/v2/actor-run-get).
 - In the Actor run's container as the `ACTOR_WEB_SERVER_URL` environment variable.
 
 ## Set up the web server
