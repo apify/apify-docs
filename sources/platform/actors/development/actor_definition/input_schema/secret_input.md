@@ -51,7 +51,7 @@ This feature supports `string`, `object`, and `array` input types. Available edi
 
 ## Read secret input fields
 
-When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted. Decryption of string fields is supported since [JavaScript SDK](http://docs.apify.loc/sdk/js/) 3.1.0; support for objects and arrays was added in [JavaScript SDK](http://docs.apify.loc/sdk/js/) 3.4.2 and [Python SDK](http://docs.apify.loc/sdk/python/) 2.7.0.
+When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted. Decryption of string fields is supported since [JavaScript SDK](https://docs.apify.com/sdk/js/) 3.1.0; support for objects and arrays was added in [JavaScript SDK](https://docs.apify.com/sdk/js/) 3.4.2 and [Python SDK](https://docs.apify.com/sdk/python/) 2.7.0.
 
 <!-- eslint-skip -->
 ```js
