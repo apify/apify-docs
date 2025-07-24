@@ -36,8 +36,11 @@ To set up triggered builds with a webhook:
       ```
 
    :::note API token
+   
    Make sure you select the correct API token from the dropdown.
+   
    :::
+
 1. In your GitHub repository, go to Settings > Webhooks > Add webhook.
 1. Paste the API URL into the Payload URL field and add the webhook.
 
