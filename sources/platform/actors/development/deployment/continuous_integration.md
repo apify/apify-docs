@@ -20,7 +20,9 @@ You can automate Actor builds and tests using your Git repository's automated wo
 
 
 :::tip Using Bitbucket?
+
 Follow our step-by-step guide to set up continuous integration for your Actors with Bitbucket Pipelines: [Read the Bitbucket CI guide](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+
 :::
 
 There are two main ways to set up continuous integration for your Actors: [Trigger builds with a Webhook](#option-1-trigger-builds-with-a-webhook), or [Set up automated builds and tests with GitHub Actions](#option-2-set-up-automated-builds-and-tests-with-github-actions). Choose the method that best fits your workflow.
