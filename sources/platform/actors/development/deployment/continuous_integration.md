@@ -78,7 +78,7 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
       :::
 
       ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
+      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
       ```
 
    1. Name the secret & paste in your API endpoint
