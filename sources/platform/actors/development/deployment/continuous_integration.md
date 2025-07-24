@@ -1,5 +1,5 @@
 ---
-title: Continuous integration
+title: Continuous integration for Actors
 description: Learn how to integrate your Actors by setting up automated builds, deploys, and testing for your Actors.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
