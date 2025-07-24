@@ -148,7 +148,7 @@ To set up automated builds and tests with GitHub Actions, you need to:
           # Install dependencies and run tests
           - uses: actions/checkout@v2
           - run: npm install && npm run test
-          # Build latest version
+          # Build beta version
           - uses: distributhor/workflow-webhook@v1
             env:
               webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
