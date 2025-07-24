@@ -9,54 +9,47 @@ slug: /actors/development/quick-start/locally
 
 ---
 
-:::info Prerequisites
+## What you'll learn
 
-You need to have [Node.js](https://nodejs.org/en/) version 16 or higher with `npm` installed on your computer.
+- tbd
 
-:::
 
-## Install Apify CLI
+## Prerequisites
 
-### MacOS/Linux
+- [Node.js](https://nodejs.org/en/) version 16 or higher with `npm` installed on your computer.
+- The [Apify CLI](/cli/docs/installation) installed.
+- Optional: If you want to deploy your Actor to the Apify platform, you need to [sign in](https://console.apify.com/sign-in).
 
-You can install the Apify CLI via the [Homebrew package manager](https://brew.sh/).
+---
 
-```bash
-brew install apify-cli
-```
+## Step 1: Create your Actor
 
-### Other platforms
-
-Use [NPM](https://www.npmjs.com/) to install the Apify CLI.
-
-```bash
-npm -g install apify-cli
-```
-
-Visit [Apify CLI documentation](https://docs.apify.com/cli/) for more information regarding installation and advanced usage.
-
-## Create your Actor
-
-To create a new Actor, use the following command:
+Use Apify CLI to create a new Actor using the following command:
 
 ```bash
 apify create
 ```
 
-The CLI will prompt you to:
+The Apify CLI will prompt you to:
 
 1. _Name your Actor_: Enter a descriptive name for your Actor, such as `your-actor-name`
 1. _Choose a programming language_: Select the language you want to use for your Actor (JavaScript, TypeScript, or Python).
 1. _Select a development template_: Choose a template from the list of available options.
 
-After selecting the template, the CLI will:
+:::info
+
+If you’re unsure which template to use, browse the [full list of templates]((https://apify.com/templates)) with descriptions to find the best fit for your Actor.
+
+:::
+
+![Creation](./images/actor-create.gif)
+
+After selecting the template, the Apify CLI will:
 
 - Create a `your-actor-name` directory with the boilerplate code.
 - Install all project dependencies
 
-![Creation](./images/actor-create.gif)
-
-Navigate to the newly created Actor directory:
+Now, you can navigate to the newly created Actor directory:
 
 ```bash
 cd your-actor-name
