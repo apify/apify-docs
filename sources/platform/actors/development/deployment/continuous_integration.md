@@ -35,8 +35,6 @@ Choose the method that best fits your workflow.
 
 ### Option 1: Trigger builds with a Webhook
 
-To set up triggered builds with a webhook:
-
 1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
 
       ```cURL
@@ -57,8 +55,6 @@ To set up triggered builds with a webhook:
 Now your Actor will automatically rebuild on every push to the GitHub repository.
 
 ### Option 2: Set up automated builds and tests with GitHub Actions
-
-To set up automated builds and tests with GitHub Actions, you need to:
 
 1. Push your Actor to a GitHub repository.
 1. Get your Apify API token from the [Apify Console](https://console.apify.com/settings/integrations)
