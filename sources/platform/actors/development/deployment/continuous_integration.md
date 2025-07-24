@@ -36,6 +36,7 @@ Choose the method that best fits your workflow.
 
 ## Option 1: Trigger builds with a Webhook
 
+1. Push your Actor to a GitHub repository.
 1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
 
       ```cURL
