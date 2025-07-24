@@ -36,8 +36,8 @@ To integrate Apify with your Bubble application, you first need to install the A
 
 After installing the plugin, you'll need to provide your API token when setting up Apify actions:
 
-1. You can find your API token in the Apify Console under **Settings > Integrations**.
-2. For security, store your API token in a Bubble workflow's private field rather than entering it directly in each action.
+1. You can find your API token in the Apify Console under **Settings > API & Integrations**.
+2. For security, store your API token in your User data type with Privacy rules applied rather than entering it directly in each API call.
 
 ## Step 3: Set up automated workflows
 
@@ -71,7 +71,7 @@ Set up recurring data collection that updates your Bubble app automatically:
 3. Process and store the results in your Bubble database
 4. Update your app's display elements with new data
 
-![Using Apify Actions calls](../images/bubble/action_preview.png)
+![Using Apify Actions calls](../images/bubble/automate_data_workflow.png)
 
 ## Step 4: Example use cases
 
