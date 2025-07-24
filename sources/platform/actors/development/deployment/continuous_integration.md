@@ -44,9 +44,9 @@ Choose the method that best fits your workflow.
       ```
 
    :::note API token
-   
+
    Make sure you select the correct API token from the dropdown.
-   
+
    :::
 
 1. In your GitHub repository, go to Settings > Webhooks > Add webhook.
@@ -72,11 +72,11 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
 1. Add the Build Actor API endpoint URL to GitHub secrets
    1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
    1. In Apify Console, go to your Actor's detail page, click the API tab in the top right, and then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
-     
+
        :::note API token
-       
+
       Make sure you select the correct API token from the dropdown.
-      
+
       :::
 
       ```cURL
@@ -95,9 +95,9 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
     <TabItem value="latest.yml" label="latest.yml">
 
     :::note Use your secret names
-    
+
     Make sure to use the exact secret names you set in the previous step.
-    
+
     :::
 
     ```yaml
@@ -128,9 +128,9 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
     <TabItem value="beta.yml" label="beta.yml">
 
     :::note Use your secret names
-    
+
     Make sure to use the exact secret names you set in the previous step.
-    
+
     :::
 
     ```yaml
