@@ -66,8 +66,11 @@ To set up automated builds and tests with GitHub Actions, you need to:
 1. Add the Build Actor API endpoint URL to GitHub secrets
    1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
    1. In Apify Console, go to your Actor's detail page, click the API tab in the top right, and then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
-      :::note API token
+     
+       :::note API token
+       
       Make sure you select the correct API token from the dropdown.
+      
       :::
 
       ```cURL
