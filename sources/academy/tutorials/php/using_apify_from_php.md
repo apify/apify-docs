@@ -35,7 +35,7 @@ $client = new \GuzzleHttp\Client([
 
 Note that we pass the API token in the header. It can also be passed as a query string `token` parameter, but passing it in the header is preferred and more secure.
 
-To check whether everything works well, we'll try to get information about the [current user](/api/v2#/reference/users/private-data/get-private-user-data).
+To check whether everything works well, we'll try to get information about the [current user](/api/v2/users-me-get).
 
 ```php
 // Call the endpoint using our client
@@ -55,7 +55,7 @@ If, instead of data, you see an error saying `Authentication token is not valid`
 
 Now that we have our guzzle client ready to go, we can run some Actors. Let's try the **Contact Details Scraper** ([vdrmota/contact-info-scraper](https://apify.com/vdrmota/contact-info-scraper)).
 
-The [API reference](/api/v2#/reference/actors/run-collection/run-actor) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
+The [API reference](/api/v2/act-runs-post) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
 
 ```php
 // To run the Actor, we make a POST request to its run's endpoint
@@ -86,7 +86,7 @@ You should see information about the run, including its ID and the ID of its def
 
 ## Getting the results from dataset
 
-Actors usually store their output in a default dataset. The [Actor runs endpoint](/api/v2#/reference/actor-runs) lets you get overall info about an Actor run's default dataset.
+Actors usually store their output in a default dataset. The [Actor runs endpoint](/api/v2/actor-runs) lets you get overall info about an Actor run's default dataset.
 
 ```php
 // Replace <RUN_ID> with the run ID you from earlier
@@ -124,7 +124,7 @@ $parsedResponse = \json_decode($response->getBody(), true);
 echo \json_encode($parsedResponse, JSON_PRETTY_PRINT);
 ```
 
-All the available parameters are described in [our API reference](/api/v2#/reference/datasets/item-collection/get-items) and work both for all datasets.
+All the available parameters are described in [our API reference](/api/v2/dataset-items-get) and work both for all datasets.
 
 ## Getting the results from key-value stores
 
@@ -177,7 +177,7 @@ file_put_contents(__DIR__ . '/hello-world.pdf', $response->getBody());
 
 If you open the generated `hello-world.pdf` file, you should see... well, "Hello World".
 
-If the Actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
+If the Actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](/api/v2/storage-key-value-stores).
 
 ## When are the data ready
 
