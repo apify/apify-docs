@@ -27,7 +27,7 @@ Follow our step-by-step guide to set up continuous integration for your Actors w
 
 There are two main ways to set up continuous integration for your Actors: [Trigger builds with a Webhook](#option-1-trigger-builds-with-a-webhook), or [Set up automated builds and tests with GitHub Actions](#option-2-set-up-automated-builds-and-tests-with-github-actions). Choose the method that best fits your workflow.
 
-## Option 1: Trigger builds with a Webhook
+### Option 1: Trigger builds with a Webhook
 
 To set up triggered builds with a webhook:
 
