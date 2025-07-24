@@ -50,6 +50,8 @@ Create workflows that automatically run Apify Actors when certain events occur i
 3. Configure the Actor parameters and input data
 4. Set up follow-up actions to handle the results
 
+![Using Apify run Actor](../images/bubble/auto_run_preview.png)
+
 ### Display Apify data in your application
 
 Use Apify data sources to populate your Bubble app with Actor information and results:
@@ -68,6 +70,8 @@ Set up recurring data collection that updates your Bubble app automatically:
 2. Use the "Run Actor Task" action to collect fresh data
 3. Process and store the results in your Bubble database
 4. Update your app's display elements with new data
+
+![Using Apify Actions calls](../images/bubble/action_preview.png)
 
 ## Step 4: Example use cases
 
