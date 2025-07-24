@@ -67,7 +67,7 @@ To set up automated builds and tests with GitHub Actions, you need to:
 
 1. Add your Apify token to GitHub secrets
    1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
-   1. Name the secret & paste in your token
+   1. Name the secret and paste in your token
 
      ![Add Apify token to secrets](./images/ci-add-token.png)
 
