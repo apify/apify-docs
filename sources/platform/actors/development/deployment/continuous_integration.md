@@ -50,7 +50,7 @@ To set up triggered builds with a webhook:
 
 Now your Actor will automatically rebuild on every push to the GitHub repository.
 
-## Option 2: Set up automated builds and tests with GitHub Actions
+### Option 2: Set up automated builds and tests with GitHub Actions
 
 To set up automated builds and tests with GitHub Actions, you need to:
 
