@@ -32,30 +32,45 @@ apify create
 
 The Apify CLI will prompt you to:
 
-1. _Name your Actor_: Enter a descriptive name for your Actor, such as `your-actor-name`
-1. _Choose a programming language_: Select the language you want to use for your Actor (JavaScript, TypeScript, or Python).
-1. _Select a development template_: Choose a template from the list of available options.
+1. Name your Actor: Enter a descriptive name for your Actor, such as `your-actor-name`.
+1. Choose a programming language: Select the language you want to use for your Actor (JavaScript, TypeScript, or Python).
+1. Select a development template: Choose a template from the list of available options.
+   :::info
 
-:::info
+   If you’re unsure which template to use, browse the [full list of templates](https://apify.com/templates) with descriptions to find the best fit for your Actor.
 
-If you’re unsure which template to use, browse the [full list of templates]((https://apify.com/templates)) with descriptions to find the best fit for your Actor.
+   :::
+1. After selecting the template, the Apify CLI will:
+   - Create a `your-actor-name` directory with the boilerplate code.
+   - Install all project dependencies.
+1. Navigate to your new Actor directory:
+    ```bash
+    cd your-actor-name
+    ```
 
-:::
+## Step 2: Run your Actor
 
-![Creation](./images/actor-create.gif)
+- tbd (see the result as soon as possible)
 
-After selecting the template, the Apify CLI will:
+## Step 3: Explore the Result
 
-- Create a `your-actor-name` directory with the boilerplate code.
-- Install all project dependencies
+- tbd (see the result - AHA moment, I get data)
+- explain the "code"
 
-Now, you can navigate to the newly created Actor directory:
+## Step 4: Deploy your Actor
 
-```bash
-cd your-actor-name
-```
+- tbd
 
-## Explore the source code in your editor
+## Step 5: It's time to build!
+
+- Encourage developers to edit actors, build interesting stuff, etc.
+- Optional...
+
+## Next Steps
+
+- tbd (deploy)
+
+<!-- ## Explore the source code in your editor
 
 After creating your Actor, explore the source code in your preferred code editor, We'll use the `Crawlee + Puppeteer + Chrome` template code as an example, but all Actor templates follow a similar organizational pattern. The important directories and filer are:
 
@@ -121,4 +136,4 @@ Once you are satisfied with your Actor, to deploy it to the Apify platform, foll
 
     :::
 
-By following these steps, you can seamlessly deploy your Actors to the Apify platform, enabling you to leverage its scalability, reliability, and advanced features for your web scraping and data processing projects.
+By following these steps, you can seamlessly deploy your Actors to the Apify platform, enabling you to leverage its scalability, reliability, and advanced features for your web scraping and data processing projects. -->
