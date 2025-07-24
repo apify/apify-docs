@@ -85,7 +85,7 @@ To set up automated builds and tests with GitHub Actions, you need to:
 
 1. Create GitHub Actions workflow files:
    1. In your repository, create the `.github/workflows` directory
-   1. Add `latest.yml`. If you want, you can also add `beta.yml` to build actors from the develop branch (or other branches).
+   1. Add `latest.yml`. If you want, you can also add `beta.yml` to build Actors from the develop branch (or other branches).
 
     <Tabs groupId="main">
     <TabItem value="latest.yml" label="latest.yml">
