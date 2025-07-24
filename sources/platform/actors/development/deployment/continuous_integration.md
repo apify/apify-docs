@@ -124,7 +124,9 @@ To set up automated builds and tests with GitHub Actions, you need to:
     <TabItem value="beta.yml" label="beta.yml">
 
     :::note Use your secret names
+    
     Make sure to use the exact secret names you set in the previous step.
+    
     :::
 
     ```yaml
