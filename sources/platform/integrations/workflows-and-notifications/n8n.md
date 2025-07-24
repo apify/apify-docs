@@ -39,8 +39,8 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 For n8n Cloud users, installation is even simpler and doesn't require manual package entry.  Just search and add the node from the canvas.
 
 1. Go to the **Canvas** and open the **nodes panel**
-2. Search for **Apify** in the community node registry
-3. Click **Install node** to add the Apify node to your instance
+1. Search for **Apify** in the community node registry
+1. Click **Install node** to add the Apify node to your instance
 
 ![Apify Install Node](../images/n8n-install-node-cloud.png)
 
