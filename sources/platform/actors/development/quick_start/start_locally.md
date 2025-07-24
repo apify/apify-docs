@@ -45,9 +45,7 @@ The CLI will:
 
 Now, you can navigate to your new Actor directory:
 
-```bash
-cd your-actor-name
-```
+- tbd
 
 ### Step 2: Run your Actor
 
