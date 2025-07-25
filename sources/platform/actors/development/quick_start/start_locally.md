@@ -11,8 +11,9 @@ slug: /actors/development/quick-start/locally
 
 ## What you'll learn
 
-- tbd
-
+- How to create and run your first Actor locally using Apify CLI
+- How to understand and configure Actor input, output, and storage
+- How to deploy your Actor to the Apify platform
 
 ## Prerequisites
 
@@ -50,90 +51,107 @@ The Apify CLI will prompt you to:
 
 ## Step 2: Run your Actor
 
-- tbd (see the result as soon as possible)
-
-## Step 3: Explore the Result
-
-- tbd (see the result - AHA moment, I get data)
-- explain the "code"
-
-## Step 4: Deploy your Actor
-
-- tbd
-
-## Step 5: It's time to build!
-
-- Encourage developers to edit actors, build interesting stuff, etc.
-- Optional...
-
-## Next Steps
-
-- tbd (deploy)
-
-<!-- ## Explore the source code in your editor
-
-After creating your Actor, explore the source code in your preferred code editor, We'll use the `Crawlee + Puppeteer + Chrome` template code as an example, but all Actor templates follow a similar organizational pattern. The important directories and filer are:
-
-### `src` Directory
-
-- `src/main.js`: This file contains the actual code of your Actor
-
-### `.actor` Directory
-
-- [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json): This file defines the Actor's configuration, such as input and output specifications.
-- [`Dockerfile`](https://docs.apify.com/platform/actors/development/actor-definition/dockerfile): This file contains instructions for building the Docker image for your Actor.
-
-### `storage` Directory
-
-- This directory emulates the [Apify Storage](../../../storage/index.md)
-  - [Dataset](../../../storage/dataset.md)
-  - [Key-Value Store](../../../storage/key_value_store.md)
-  - [Request Queue](../../../storage/request_queue.md)
-
-![Actor source code](./images/actor-local-code.png)
-
-## Run it locally
-
-To run your Actor locally, use the following command:
+After creating your Actor, you can run it with:
 
 ```bash
 apify run
 ```
 
-After executing this command, you will see the Actor's log output in your terminal. The results of the Actor's execution will be stored in the local dataset located in the `storage/datasets/default` directory.
+:::tip
 
-![Actor source code](./images/actor-local-run.png)
-
-:::note Local testing & debugging
-
-Running the Actor locally allows you to test and debug your code before deploying it to the Apify platform.
+During development, use `apify run --purge`. This command clears all results from previous runs, so it’s as if you’re running the Actor for the first time.
 
 :::
 
-## Deploy it to Apify platform
+This command runs your Actor, and you’ll see output similar to the following in your terminal:
 
-Once you are satisfied with your Actor, to deploy it to the Apify platform, follow these steps:
+```bash
+INFO  System info {"apifyVersion":"3.4.3","apifyClientVersion":"2.12.6","crawleeVersion":"3.13.10","osType":"Darwin","nodeVersion":"v22.17.0"}
+Extracted heading { level: 'h1', text: 'Your full‑stack platform for web scraping' }
+Extracted heading { level: 'h3', text: 'TikTok Scraper' }
+Extracted heading { level: 'h3', text: 'Google Maps Scraper' }
+Extracted heading { level: 'h3', text: 'Instagram Scraper' }
+```
 
-1. _Sign in to Apify with the CLI tool_
+As you can see in the logs, the Actor extracts text from a web page. All the main logic is defined in `src/main.js`. Depending on the template you chose, this file may also be `src/main.ts` (for TypeScript) or `src/main.py` (for Python).
+
+In the next step, we’ll explore the results in more detail.
+
+## Step 3: Explore the Actor
+
+<!-- TODO: Add more examples -->
+
+The following section will explain the Actor in more details.
+
+### The `.actor` folder
+
+The Actor configuration is in the folder `.actor`. The file `actor.json` defines the Actor's configuration, such as name, description, etc. You can find more info in [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
+
+### Actor's `input`
+
+Each Actor accepts an `input object`, which tells it what it should do. The object is passed in JSON format, and you can find it in `storage/key_value_stores/default/INPUT.json`.
+
+:::info
+
+To change the `INPUT.json`, edit first the `input_schema.json` in the `.actor` folder. 
+
+This JSON Schema not only validates input automatically (so you don't need to handle input errors in your code), but also powers the Actor's user interface, generates API docs, and enables smart integration with tools like Zapier or Make by auto-linking input fields.
+
+:::
+
+You can find more info in the [Input schema](/platform/actors/development/actor-definition/input-schema) documentation.
+
+### Actor's `storage`
+
+The Actor system provides two specialized storages that can be used by Actors for storing files and results: `key-value` store and `dataset`.
+
+#### Key-value store
+
+The key-value store is a simple data storage that is used for saving and reading files or data records.
+
+Key-value stores are ideal for saving things like screenshots, PDFs, or to persist the state of Actors e.g. as a JSON file.
+
+#### Dataset 
+
+The dataset is an append-only storage that allows you to store a series of data objects such as results from web scraping, crawling, or data processing jobs. You or your users can then export the dataset to formats such as JSON, CSV, XML, RSS, Excel, or HTML.
+
+### Actor's `output`
+
+While the input object provides a standardized way to invoke Actors, Actors can also generate an output object, which is a standardized way to display, consume, and integrate Actors’ results.
+
+You can define how the Actor output looks using the Output schema file. The system uses this information to automatically generate an immutable JSON file, which tells users where to find the results produced by the Actor.
+
+## Step 4: Deploy your Actor
+
+Let's now deploy your Actor to the Apify platform, where you can for example run the Actor on scheduled basis, or you can make the Actor public for other users.
+
+1. First of all, you need to login:
 
     ```bash
     apify login
     ```
 
-    This command will prompt you to provide your API token that you can find in Console.
+    :::info
+    After you succesfull login, your Apify token is stored in `~/.apify/auth.json`, or `C:\Users\<name>\.apify` based on your system.
+    :::
 
-1. _Push your Actor to the Apify platform_
+1. Now, you can push your Actor to the Apify platform:
 
     ```bash
     apify push
     ```
 
-    This command will upload your Actor's code and configuration to the Apify platform, where it can be executed and managed.
+## Step 5: It's time to build!
 
-    :::note Actor monetization
+Good job, you have done it! 🎉  From here, you can develop your Actor.
 
-    If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
+:::tip Actor monetization
 
-    :::
+If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
 
-By following these steps, you can seamlessly deploy your Actors to the Apify platform, enabling you to leverage its scalability, reliability, and advanced features for your web scraping and data processing projects. -->
+:::
+
+## Next Steps
+
+- If you want to understand Actors in more details, read the [Actor Whitepaper](https://whitepaper.actor/).
+- Check [Continuous integration](../deployment/continuous_integration.md) documentation to automate your Actor development process.
