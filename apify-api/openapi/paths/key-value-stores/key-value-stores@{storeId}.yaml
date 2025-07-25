@@ -6,9 +6,6 @@ get:
     Gets an object that contains all the details about a specific key-value
     store.
   operationId: keyValueStore_get
-  security:
-    - apiKeyStoreId: []
-    - httpBearerStoreId: []
   parameters:
     - name: storeId
       in: path

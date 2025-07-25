@@ -153,9 +153,6 @@ get:
     If you specify `desc=1` query parameter, the results are returned in the reverse order than they were stored (i.e. from newest to oldest items).
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
   operationId: dataset_items_get
-  security:
-    - apiKeyStoreId: []
-    - httpBearerStoreId: []
   parameters:
     - name: datasetId
       in: path

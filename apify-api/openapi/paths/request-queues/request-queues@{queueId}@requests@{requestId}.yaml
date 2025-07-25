@@ -4,9 +4,6 @@ get:
   summary: Get request
   description: Returns request from queue.
   operationId: requestQueue_request_get
-  security:
-    - apiKeyQueueId: []
-    - httpBearerQueueId: []
   parameters:
     - name: queueId
       in: path

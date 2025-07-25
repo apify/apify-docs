@@ -11,9 +11,6 @@ get:
     This endpoint does not require an authentication token. Instead, calls are authenticated using the Actor's unique ID.
     However, if you access the endpoint without a token, certain attributes (e.g., `usageUsd` and `usageTotalUsd`) will be hidden.
   operationId: act_build_default_get
-  security:
-    - apiKeyActorBuilds: []
-    - httpBearerActorBuilds: []
   parameters:
     - name: actorId
       in: path
