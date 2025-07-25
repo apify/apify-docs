@@ -20,6 +20,7 @@ get:
 
     :::
   operationId: act_openapi_json_get
+  security: []
   parameters:
     - name: actorId
       in: path

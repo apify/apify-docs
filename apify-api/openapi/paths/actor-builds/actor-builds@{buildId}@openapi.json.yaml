@@ -17,6 +17,7 @@ get:
 
     :::
   operationId: actorBuild_openapi_json_get
+  security: []
   parameters:
     - name: buildId
       in: path

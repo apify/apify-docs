@@ -11,6 +11,7 @@ get:
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the build. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
   operationId: act_build_get
+  security: []
   parameters:
     - name: actorId
       in: path
