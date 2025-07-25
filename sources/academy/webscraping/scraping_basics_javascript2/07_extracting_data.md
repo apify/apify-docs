@@ -1,7 +1,7 @@
 ---
-title: Extracting data from HTML with Python
+title: Extracting data from HTML with Node.js
 sidebar_label: Extracting data from HTML
-description: Lesson about building a Python application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
+description: Lesson about building a Node.js application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
 slug: /scraping-basics-javascript2/extracting-data
 unlisted: true
 ---
