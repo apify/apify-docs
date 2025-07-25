@@ -19,8 +19,8 @@ Dataset storage enables you to sequentially save and retrieve data. A unique dat
 
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
-> Named datasets are retained indefinitely. <br/>
-> Unnamed datasets expire after 7 days unless otherwise specified. <br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+> Named datasets are retained indefinitely.
+> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
