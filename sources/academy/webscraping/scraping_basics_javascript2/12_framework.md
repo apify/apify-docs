@@ -1,7 +1,7 @@
 ---
-title: Using a scraping framework with Python
+title: Using a scraping framework with Node.js
 sidebar_label: Using a framework
-description: Lesson about building a Python application for watching prices. Using the Crawlee framework to simplify creating a scraper.
+description: Lesson about building a Node.js application for watching prices. Using the Crawlee framework to simplify creating a scraper.
 slug: /scraping-basics-javascript2/framework
 unlisted: true
 ---
@@ -534,7 +534,6 @@ If you export the dataset as JSON, it should look something like this:
 To scrape IMDb data, you'll need to construct a `Request` object with the appropriate search URL for each movie title. The following code snippet gives you an idea of how to do this:
 
 ```py
-...
 from urllib.parse import quote_plus
 
 async def main():
@@ -550,7 +549,6 @@ async def main():
         await context.add_requests(requests)
 
     ...
-...
 ```
 
 When navigating to the first search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
