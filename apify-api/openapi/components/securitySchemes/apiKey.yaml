@@ -1,4 +1,20 @@
 type: apiKey
 name: token
 in: query
-description: API authentication token.
+description: |-
+  API token provided as a query parameter (e.g., `?token=your_token`—less secure).
+  
+  Use your API token to authenticate requests. You can find it on the [Integrations page](https://console.apify.com/account#/integrations) in Apify Console.
+  
+  :::danger Security
+  
+  Do not share your API token (or account password) with untrusted parties.
+  
+  :::
+  
+  _When is authentication required?_
+  - _Required_ for private Actors, tasks, or resources (e.g., builds of private Actors).
+  - _Required_ when using named formats for IDs (e.g., `username~store-name` for stores or `username~queue-name` for queues).
+  - _Optional_ for public Actors or resources (e.g., builds of public Actors can be queried without a token).
+  
+  For more information, see our [integrations documentation](https://docs.apify.com/platform/integrations).
