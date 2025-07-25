@@ -17,8 +17,8 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 You can use the Apify MCP Server in two ways:
 
 - _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client through OAuth or by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
-  - `https://mcp.apify.com` for streamable transport
-  - `https://mcp.apify.com/sse` for legacy SSE transport
+  - `https://mcp.apify.com` for streamable transport (recommended)
+  - `https://mcp.apify.com/sse` for SSE transport (legacy)
 - _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
@@ -108,9 +108,9 @@ In the client settings, you need to provide server configuration:
 
 By default, the main Actors MCP Server starts with a single default [RAG Web Browser Actor](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
 
-- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it.  
-  _Tools for adding and removing Actors are enabled by default._  
-  You can disable these tools by setting the parameter `?enableAddingActors=false` in the MCP Server URL, or with the CLI flag `--enable-adding-actors=false` (can also be set in Claude for Desktop config args as `--enable-adding-actors=false`).  
+- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it.
+  _Tools for adding and removing Actors are enabled by default._
+  You can disable these tools by setting the parameter `?enableAddingActors=false` in the MCP Server URL, or with the CLI flag `--enable-adding-actors=false` (can also be set in Claude for Desktop config args as `--enable-adding-actors=false`).
   Not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if adding Actors is enabled.
 - _Via url:_ If you are using Streamable HTTP or SSE protocol, you could add `actors` query parameter with Actor names separated by comma:
 
