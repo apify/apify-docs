@@ -83,6 +83,7 @@ preconfigured
 [Zz]apier
 [Tt]rello
 [Pp]refill
+[Gg]umloop
 
 [Mm]ultiselect
 
