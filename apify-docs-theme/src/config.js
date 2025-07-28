@@ -132,7 +132,7 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
-                        label: 'Actor Whitepaper',
+                        label: 'Actor whitepaper',
                         href: 'https://whitepaper.actor',
                     },
                 ],
