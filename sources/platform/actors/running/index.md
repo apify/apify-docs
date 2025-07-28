@@ -22,9 +22,9 @@ Before you can run an Actor, you have to either choose one of the existing ones 
 
 ### 1. Choose your Actor
 
-After you sign-in to Apify Console, navigate to [Apify Store](https://console.apify.com/store). We'll pick the [Google Maps Scraper](https://console.apify.com/actors/nwua9Gu5YrADL7ZDj#/information/latest/readme):
+After you sign-in to Apify Console, navigate to [Apify Store](https://console.apify.com/store). We'll pick the [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme):
 
-![Apify Store](./images/store-google-maps-scraper.png)
+![Apify Store](./images/store.png)
 
 ### 2. Configure it
 
@@ -32,7 +32,7 @@ On the Actor's page, head over to the **Input** tab. Don't be put off by all the
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
-![Actor input](./images/actor-google-maps-scraper-input.png)
+![Actor input](./images/apify-input.png)
 
 ### 3. Wait for the results
 
@@ -41,18 +41,18 @@ The Actor might take a while to gather its first results and finish its run. Mea
 - Note the other tabs, which provide you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
 - At the top right, you can click on the API button to explore the related API endpoints
 
-![Run](./images/actor-google-maps-scraper-running.png)
+![Run](./images/actor-run.png)
 
 ### 4. Get the results
 
 Shortly you will see the first results popping up:
 
-![Actor results](./images/actor-google-maps-scraper-results.png)
+![Actor results](./images/actor-results.png)
 
 
 And you can use the export button at the bottom left to export the data in multiple formats:
 
-![Export results](./images/actor-google-maps-scraper-export.png)
+![Export results](./images/export-results.png)
 
 And that's it! Now you can get back to the Actor's input, play with it, and try out more of the [Apify Actors](https://apify.com/store) or [build your own](./development).
 

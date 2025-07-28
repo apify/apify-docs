@@ -10,6 +10,8 @@ if (process.env.LOCALHOST) {
     absoluteUrl = process.env.APIFY_DOCS_ABSOLUTE_URL;
 }
 
+const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '');
+
 const themeConfig = {
     docs: {
         versionPersistence: 'localStorage',
@@ -136,13 +138,6 @@ const themeConfig = {
                 ],
             },
             {
-                href: 'https://github.com/apify',
-                label: 'GitHub',
-                title: 'Apify on GitHub',
-                position: 'right',
-                className: 'icon',
-            },
-            {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
                 label: 'Discord',
                 title: 'Chat on Discord',
@@ -255,6 +250,10 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                        label: 'Discord',
+                    },
+                    {
                         label: 'Trust Center',
                         href: 'https://trust.apify.com',
                     },
@@ -271,9 +270,15 @@ const themeConfig = {
     algolia: {
         appId: 'N8EOCSBQGH',
         apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
-        indexName: 'test_test_apify_sdk',
+        indexName: 'apify_sdk_v2',
+        placeholder: 'Search documentation',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
+        },
+        translations: {
+            button: {
+                buttonText: 'Search documentation…',
+            },
         },
     },
     hubspot: {
@@ -313,4 +318,5 @@ module.exports = {
     themeConfig,
     plugins,
     absoluteUrl,
+    noIndex,
 };

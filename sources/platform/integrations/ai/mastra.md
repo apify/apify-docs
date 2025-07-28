@@ -2,7 +2,7 @@
 title: Mastra MCP integration
 sidebar_label: Mastra
 description: Learn how to build AI Agents with Mastra via Apify Actors MCP server
-sidebar_position: 8
+sidebar_position: 10
 slug: /integrations/mastra
 ---
 
@@ -66,7 +66,7 @@ Instantiate the Mastra MCP client:
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-        url: new URL('https://actors-mcp-server.apify.actor/sse'),
+        url: new URL('https://mcp.apify.com/sse'),
         requestInit: {
             headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
         },
@@ -122,17 +122,10 @@ console.log(response.text);
 await mcpClient.disconnect();
 ```
 
-Before running the agent, we need to start the [Actors MCP Server](https://apify.com/apify/actors-mcp-server) by sending a request:
-
-```bash
-curl https://actors-mcp-server.apify.actor/?token=YOUR_APIFY_TOKEN&actors=apify/rag-web-browser,clockworks/free-tiktok-scraper
-```
-
-Replace `YOUR_APIFY_TOKEN` with your Apify API token. You can also open the URL in a browser to start the server.
-
 :::note Use any Apify Actor
 
-Since it uses the [Actors MCP Server](https://apify.com/apify/actors-mcp-server), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by updating the startup request’s `actors` parameter. No other changes are needed in the agent code.
+Since it uses the [Apify MCP Server](https://mcp.apify.com), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by updating the startup request’s `actors` parameter.
+No other changes are needed in the agent code.
 
 :::
 
@@ -179,7 +172,7 @@ process.env.OPENAI_API_KEY = "your-openai-api-key";
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-        url: new URL('https://actors-mcp-server.apify.actor/sse'),
+        url: new URL('https://mcp.apify.com/sse'),
         requestInit: {
             headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
         },
@@ -223,7 +216,8 @@ await mcpClient.disconnect();
 
 - [Apify Actors](https://docs.apify.com/platform/actors)
 - [Mastra Documentation](https://mastra.ai/docs)
-- [Apify MCP Server](https://apify.com/apify/actors-mcp-server)
+- [Apify MCP Server](https://mcp.apify.com)
+- [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/)
 - [Apify Store](https://apify.com/store)
 - [What are AI Agents?](https://blog.apify.com/what-are-ai-agents/)
 - [How to Build an AI Agent](https://blog.apify.com/how-to-build-an-ai-agent/)

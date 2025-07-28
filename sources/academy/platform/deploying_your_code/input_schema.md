@@ -1,11 +1,9 @@
 ---
-title: Input schema
+title: Creating Actor input schema
 description: Learn how to generate a user interface on the platform for your Actor's input with a single file - the INPUT_SCHEMA.json file.
 sidebar_position: 2
 slug: /deploying-your-code/input-schema
 ---
-
-# Input schema {#input-schema}
 
 **Learn how to generate a user interface on the platform for your Actor's input with a single file - the INPUT_SCHEMA.json file.**
 

@@ -12,6 +12,7 @@ module.exports = {
     title: 'Apify Documentation',
     tagline: 'Apify Documentation',
     url: config.absoluteUrl,
+    noIndex: config.noIndex,
     baseUrl: '/',
     trailingSlash: false,
     organizationName: 'apify',
@@ -126,6 +127,7 @@ module.exports = {
         ],
     ]),
     plugins: [
+        'docusaurus-plugin-image-zoom',
         [
             '@docusaurus/plugin-content-docs',
             {
@@ -257,6 +259,19 @@ module.exports = {
                 };
             },
         }),
+        [
+            '@signalwire/docusaurus-plugin-llms-txt',
+            {
+                enableDescriptions: false,
+                content: {
+                    includeVersionedDocs: false,
+                    enableLlmsFullTxt: true,
+                    includeBlog: true,
+                    includePages: true,
+                    relativePaths: false,
+                },
+            },
+        ],
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
@@ -305,6 +320,9 @@ module.exports = {
                 ...config.themeConfig.prism.additionalLanguages,
                 'http', 'bash', 'ruby', 'java', 'scala', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
             ],
+        },
+        zoom: {
+            selector: '.markdown img:not(a img)',
         },
         languageTabs: [
             {

@@ -1,5 +1,14 @@
 .footer {
-    padding-top: 64px;
+    padding: 4rem 1.6rem 8rem;
+    border-top: 1px solid var(--color-neutral-separator-subtle);
+}
+
+.container {
+    max-width: calc(var(--max-layout-width) - var(--ifm-spacing-horizontal) * 2);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .builtBy {
@@ -33,20 +42,31 @@
     fill: #6f7490;
 }
 
-.footerTitle {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8d92af;
-    margin-bottom: 20px;
+.title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin-bottom: 1.6rem;
 }
 
-.footerLogo {
+.top {
+    justify-content: space-between;
+}
+
+.bottom {
+    padding-top: 8rem;
+
+    :global(.col) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.toggle {
+    margin-left: auto;
+}
+
+.logo {
     display: inline-block;
     width: 90px;
     height: 24px;
@@ -54,8 +74,47 @@
     background-repeat: no-repeat;
 }
 
-html[data-theme='dark'] .footerLogo {
+html[data-theme='dark'] .logo {
     background-image: url('/img/footer-apify-logo-white.svg');
+}
+
+@media (max-width: 996px) {
+    .footer {
+        padding: 3.2rem 1.6rem;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .bottom {
+        padding-top: 0;
+        gap: 1.6rem;
+
+        :global(.col) {
+            justify-content: center;
+        }
+    }
+
+    .toggle {
+        margin-left: unset;
+    }
+
+    .top {
+        padding: 3.2rem 0;
+        gap: 3.2rem;
+        text-align: center;
+    }
+
+    .top::before {
+        width: 100%;
+        height: 1px;
+        margin: 0 -1.6rem;
+        padding: 0 1.6rem;
+        content: '';
+        display: block;
+        background-color: var(--color-neutral-separator-subtle);
+    }
 }
 
 /** dummy comment just to trigger theme publishing 3 */

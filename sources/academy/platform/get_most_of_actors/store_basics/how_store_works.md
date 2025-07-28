@@ -6,7 +6,7 @@ category: apify platform
 slug: /actor-marketing-playbook/store-basics/how-store-works
 ---
 
-**Out of the 3,000+ Actors on [Apify Store](https://apify.com/store) marketplace, hundreds of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
+**Out of thousands of Actors on [Apify Store](https://apify.com/store) marketplace, most of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
 
 ---
 
@@ -18,7 +18,7 @@ The term "Actor" is used because, like human actors, these programs follow a scr
 
 ## What is Apify Store?
 
-[Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With over 3,000 Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain on Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This keeps the tools in our ecosystem reliable, effective, and competitive.
+[Apify Store](https://apify.com/store) is a public library of Actors that is constantly growing and evolving. It's basically a publicly visible (and searchable) part of the Apify platform. With thousands of Actors currently available, most of them are created and maintained by the community. Actors that consistently perform well remain on Apify Store, while those reported as malfunctioning or under maintenance are eventually removed. This keeps the tools in our ecosystem reliable, effective, and competitive.
 
 ### Types of Actors
 

@@ -12,7 +12,7 @@ slug: /actor-marketing-playbook/interact-with-users/emails-to-actor-users
 
 ## Whom and where to email
 
-You can email the audience of a specific Actor directly from Apify Console. Go to **Actors > Development > Emails > Compose new**. From there, select the Actor whose users you want to email, write a subject line, and craft your message. An automatic signature will be added to the end of your email.
+You can email the audience of a specific Actor directly from Apify Console. Go to **Messaging > Emails > Compose new**. From there, select the Actor whose users you want to email, write a subject line, and craft your message. An automatic signature will be added to the end of your email.
 
 ## How to write a good email
 
