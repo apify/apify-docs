@@ -9,9 +9,6 @@ get:
     This endpoint is paginated using `exclusiveStartKey` and `limit` parameters
     - see [Pagination](/api/v2#using-key) for more details.
   operationId: keyValueStore_keys_get
-  security:
-    - apiKeyStoreId: []
-    - httpBearerStoreId: []
   parameters:
     - name: storeId
       in: path
