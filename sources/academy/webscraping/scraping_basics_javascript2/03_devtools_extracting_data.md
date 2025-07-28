@@ -41,7 +41,7 @@ We'll use the **Elements** tab of DevTools to inspect all child elements of the 
 
 ![Finding child elements](./images/devtools-product-details.png)
 
-JavaScript represents HTML elements as [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) objects. Among properties we've already played with, such as `textContent` or `outerHTML`, it also has the [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector) method. Here the method looks for matches only within children of the element:
+Browser JavaScript represents HTML elements as [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) objects. Among properties we've already played with, such as `textContent` or `outerHTML`, it also has the [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector) method. Here the method looks for matches only within children of the element:
 
 ```js
 title = subwoofer.querySelector('.product-item__title');
@@ -69,9 +69,9 @@ It works, but the price isn't alone in the result. Before we'd use such data, we
 
 ![Extracting product price](./images/devtools-extracting-price.png)
 
-But for now that's okay. We're just testing the waters now, so that we have an idea about what our scraper will need to do. Once we'll get to extracting prices in Python, we'll figure out how to get the values as numbers.
+But for now that's okay. We're just testing the waters now, so that we have an idea about what our scraper will need to do. Once we'll get to extracting prices in Node.js, we'll figure out how to get the values as numbers.
 
-In the next lesson, we'll start with our Python project. First we'll be figuring out how to download the Sales page without browser and make it accessible in a Python program.
+In the next lesson, we'll start with our Node.js project. First we'll be figuring out how to download the Sales page without browser and make it accessible in a Node.js program.
 
 ---
 
@@ -79,7 +79,7 @@ In the next lesson, we'll start with our Python project. First we'll be figuring
 
 ### Extract the price of IKEA's most expensive artificial plant
 
-At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number.
+At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use the [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number.
 
 <details>
   <summary>Solution</summary>
@@ -98,7 +98,7 @@ At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/a
 
 ### Extract the name of the top wiki on Fandom Movies
 
-On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML element manipulation in the **Console** to extract the name of the top wiki. Use JavaScript's [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space around the name.
+On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML element manipulation in the **Console** to extract the name of the top wiki. Use the [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space around the name.
 
 ![Fandom's Movies page](./images/devtools-exercise-fandom.png)
 
