@@ -237,13 +237,13 @@ async function download(url) {
 }
 
 function parseProduct(productItem, baseURL) {
-  const title = productItem.find(".product-item__title");
-  const titleText = title.text().trim();
-  const url = new URL(title.attr("href"), baseURL).href;
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
+  const url = new URL($title.attr("href"), baseURL).href;
 
-  const price = productItem.find(".price").contents().last();
+  const $price = $productItem.find(".price").contents().last();
   const priceRange = { minPrice: null, price: null };
-  const priceText = price
+  const priceText = $price
     .text()
     .trim()
     .replace("$", "")
@@ -257,7 +257,7 @@ function parseProduct(productItem, baseURL) {
       priceRange.price = priceRange.minPrice;
   }
 
-  return { url, title: titleText, ...priceRange };
+  return { url, title, ...priceRange };
 }
 
 async function exportJSON(data) {
