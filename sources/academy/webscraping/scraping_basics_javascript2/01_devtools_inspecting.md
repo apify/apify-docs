@@ -30,7 +30,7 @@ Now let's peek behind the scenes of a real-world website—say, Wikipedia. We'll
 
 ![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
-Apart from JavaScript, websites are built with two main technologies: HTML and CSS. In the **Elements** tab, DevTools shows the HTML and CSS of the current page:
+Websites are built with three main technologies: HTML, CSS, and JavaScript. In the **Elements** tab, DevTools shows the HTML and CSS of the current page:
 
 ![Elements tab in Chrome DevTools](./images/devtools-elements-tab.png)
 
