@@ -60,7 +60,7 @@ HTML, a markup language, describes how everything on a page is organized, how el
 
 While HTML and CSS describe what the browser should display, JavaScript adds interaction to the page. In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript.
 
-If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
+If you don't see it, press <kbd>ESC</kbd> to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
 
 ![Console in Chrome DevTools](./images/devtools-console.png)
 
