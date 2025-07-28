@@ -53,8 +53,8 @@ await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sale
 In the code, we do the following:
 
 1. Import the necessary module.
-2. Create a crawler object, which manages the scraping process. In this case, it's a `CheerioCrawler`.
-3. Define an asynchronous `requestHandler` function. It receives a context object with Cheerio `$` and a logger.
+2. Create a crawler object, which manages the scraping process. In this case, it's a `CheerioCrawler`, which requests HTML from websites and parses it with Cheerio. Other crawlers, such as `PlaywrightCrawler`, would be suitable if we wanted to scrape by automating a real browser.
+3. Define an asynchronous `requestHandler` function. It receives a context object with Cheerio's `$` instance and a logger.
 4. Extract the page title and log it.
 5. Run the crawler on a product listing URL and await its completion.
 
@@ -213,7 +213,8 @@ const crawler = new CheerioCrawler({
                 url: request.url,
                 title: $(".product-meta__title").text().trim(),
                 vendor: $('.product-meta__vendor').text().trim(),
-                ...priceRange, // highlight-next-line
+                ...priceRange,
+                // highlight-next-line
                 variantName: null,
             };
 
