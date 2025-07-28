@@ -12,6 +12,12 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+## What you'll learn
+
+- How to create and run your first Actor locally using Apify CLI
+- How to understand and configure Actor input, output, and storage
+- How to deploy your Actor to the Apify platform
+
 ## Prerequisites
 
 - An Apify account. [Sign up for a free account](https://console.apify.com/sign-up) on the Apify website.
