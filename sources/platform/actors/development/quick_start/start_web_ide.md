@@ -28,7 +28,7 @@ Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**
 
 ![Create Actor](./images/create-actor.png)
 
-You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`. 
+You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`.
 
 These templates provide boilerplate code and a preconfigured environment. Choose the template that best suits your needs. For the following demo, we'll proceed with **Crawlee + Puppeteer + Chrome**.
 
@@ -44,7 +44,7 @@ After choosing the template, your Actor will be automatically named and you'll b
 
 ## Step 2: Explore the Actor
 
-The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. 
+The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library.
 
 By default, the code crawls the [apify.com](https://apify.com) website, but you can change it to any website.
 
