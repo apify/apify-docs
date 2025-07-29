@@ -41,10 +41,12 @@ The CLI will ask you to:
    :::
 
 The CLI will:
+
 - Create a `your-actor-name` directory with boilerplate code
 - Install all project dependencies
 
 Now, you can navigate to your new Actor directory:
+
 ```bash
 cd your-actor-name
 ```
@@ -91,7 +93,7 @@ Each Actor accepts an `input object` that tells it what to do. The object uses J
 
 :::info
 
-To change the `INPUT.json`, edit the `input_schema.json` in the `.actor` folder first. 
+To change the `INPUT.json`, edit the `input_schema.json` in the `.actor` folder first.
 
 This JSON Schema validates input automatically (no error handling needed), powers the Actor's user interface, generates API docs, and enables smart integration with tools like Zapier or Make by auto-linking input fields.
 
@@ -107,7 +109,7 @@ The Actor system provides two storage types for files and results: `key-value` s
 
 The key-value store saves and reads files or data records. Key-value stores work well for screenshots, PDFs, or persisting Actor state as JSON files.
 
-#### Dataset 
+#### Dataset
 
 The dataset stores a series of data objects from web scraping, crawling, or data processing jobs. You can export datasets to JSON, CSV, XML, RSS, Excel, or HTML formats.
 
