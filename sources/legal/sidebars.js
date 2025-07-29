@@ -1,6 +1,11 @@
 module.exports = {
     legal: [
         {
+            type: 'link',
+            label: 'Home',
+            href: '/legal',
+        },
+        {
             type: 'category',
             label: 'Terms and Conditions',
             collapsible: false,
