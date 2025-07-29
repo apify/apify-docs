@@ -71,6 +71,10 @@ the system starts new Actor runs, which you will see in the Actor runs tab, with
 
 For requests sent to an Actor in Standby mode, the maximum time allowed until receiving the first response is _5 minutes_. This represents the overall timeout for the operation.
 
+## What is the rate limit for incoming requests
+
+The rate limit for incoming requests to a Standby Actor is _2000 requests per second_ per user account.
+
 ## How do I customize Standby configuration
 
 The Standby configuration currently consists of the following properties:

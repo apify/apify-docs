@@ -135,7 +135,7 @@ We'll expand the result by clicking the small arrow, then hover our cursor over 
 
 ![Highlighting a querySelectorAll() result](./images/devtools-hover-queryselectorall.png)
 
-To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like in Python lists (or JavaScript arrays):
+To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like with Python lists (or JavaScript arrays):
 
 ```js
 products = document.querySelectorAll('.product-item');
