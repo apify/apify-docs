@@ -2,7 +2,7 @@ module.exports = {
     legal: [
         {
             type: 'link',
-            label: 'Home',
+            label: 'Impressum',
             href: '/legal',
         },
         {
