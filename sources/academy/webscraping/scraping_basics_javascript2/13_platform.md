@@ -223,11 +223,11 @@ Now let's connect this file to the actor configuration. In `actor.json`, we'll a
 
 ```json title=".actor/actor.json"
 {
-	"actorSpecification": 1,
-	"name": "warehouse-watchdog",
-	"version": "0.0",
-	"buildTag": "latest",
-	"environmentVariables": {},
+  "actorSpecification": 1,
+  "name": "warehouse-watchdog",
+  "version": "0.0",
+  "buildTag": "latest",
+  "environmentVariables": {},
     // highlight-next-line
     "input": "./inputSchema.json"
 }
