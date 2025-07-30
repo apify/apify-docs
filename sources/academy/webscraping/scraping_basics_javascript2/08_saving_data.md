@@ -154,7 +154,7 @@ Neither JavaScript itself nor Node.js offers anything built-in to read and write
 ```text
 $ npm install @json2csv/node --save
 
-added 4 packages, and audited 28 packages in 1s
+added 123 packages, and audited 123 packages in 0s
 ...
 ```
 
