@@ -143,7 +143,7 @@ To pull your Actor:
 
 You can find both by clicking on the Actor title at the top of the page, which will open a new window containing the Actor's unique name and ID.
 
-## Step 6: It's Time to Iterate!
+### Step 6: It's time to iterate!
 
 After pulling the Actor's source code to your local machine, you can modify and customize it to match your specific requirements. Leverage your preferred code editor or development environment to make the necessary changes and enhancements.
 
