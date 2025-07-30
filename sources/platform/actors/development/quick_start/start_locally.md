@@ -99,7 +99,7 @@ This JSON Schema validates input automatically (no error handling needed), power
 
 Find more info in the [Input schema](/platform/actors/development/actor-definition/input-schema) documentation.
 
-### Actor's `storage`
+#### Actor's `storage`
 
 The Actor system provides two storage types for files and results: [key-value](/platform/actors/development/actor-definition/key-value-store-schema) store and [dataset](/platform/actors/development/actor-definition/dataset-schema).
 
