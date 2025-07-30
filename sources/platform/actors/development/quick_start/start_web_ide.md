@@ -52,7 +52,7 @@ By default, the code crawls the [apify.com](https://apify.com) website, but you 
 
 :::
 
-## Step 3: Build the Actor
+### Step 3: Build the Actor
 
 To run your Actor, build it first. Click the **Build** button below the source code.
 
