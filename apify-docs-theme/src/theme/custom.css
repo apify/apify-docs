@@ -1984,3 +1984,11 @@ div[class^="navbarSearchContainer"] {
 .medium-zoom-image--opened {
     z-index: 999;
 }
+
+.DocSearch-Button {
+    cursor: pointer;
+}
+
+.DocSearch-Button-Key {
+    border: 0;
+}
