@@ -11,9 +11,7 @@ slug: /actors/development/quick-start/locally
 
 ## What you'll learn
 
-- How to create and run your first Actor locally using Apify CLI
-- How to understand and configure Actor input, output, and storage
-- How to deploy your Actor to the Apify platform
+This guide walks you through the full lifecycle of an Actor. You'll start by creating and running it locally with the Apify CLI, then learn to configure its input and data storage. Finally, you will deploy the Actor to the Apify platform, making it ready to run in the cloud.
 
 ## Prerequisites
 
