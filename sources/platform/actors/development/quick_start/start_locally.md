@@ -111,7 +111,7 @@ The key-value store saves and reads files or data records. Key-value stores work
 
 The dataset stores a series of data objects from web scraping, crawling, or data processing jobs. You can export datasets to JSON, CSV, XML, RSS, Excel, or HTML formats.
 
-### Actor's `output`
+#### Actor's `output`
 
 You define the Actor output using the Output schema files:
 
