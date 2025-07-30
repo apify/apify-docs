@@ -75,7 +75,7 @@ This represents the Actor creation flow, where you first build the Actor from th
 
 :::
 
-## Step 4: Run the Actor
+### Step 4: Run the Actor
 
 Once the Actor is built, you can look at its input, which consists of one field - **Start URL**, the URL where the crawling starts. Below the input, you can adjust the **Run options**:
 
