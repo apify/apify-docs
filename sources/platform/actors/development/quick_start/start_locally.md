@@ -85,7 +85,7 @@ Let's explore the Actor structure.
 
 The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
 
-### Actor's `input`
+#### Actor's `input`
 
 Each Actor accepts an `input object` that tells it what to do. The object uses JSON format and lives in `storage/key_value_stores/default/INPUT.json`.
 
