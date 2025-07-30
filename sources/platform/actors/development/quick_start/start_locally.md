@@ -89,7 +89,7 @@ The `.actor` folder contains the Actor configuration. The `actor.json` file defi
 
 Each Actor accepts an `input object` that tells it what to do. The object uses JSON format and lives in `storage/key_value_stores/default/INPUT.json`.
 
-:::info
+:::info Edit the schema to change input
 
 To change the `INPUT.json`, edit the `input_schema.json` in the `.actor` folder first.
 
