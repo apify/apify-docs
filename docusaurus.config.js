@@ -445,6 +445,7 @@ module.exports = {
             '^/legal',
             '^/legal/*',
         ],
+        ...config.customFields ?? [],
     },
     clientModules: ['./clientModule.js'],
 };

@@ -82,6 +82,8 @@ export function Link(props) {
 
 export default function SearchBar({ onClick }) {
     const [variant, setVariant] = useState(null);
+    const { siteConfig } = useDocusaurusContext();
+    const { inkeepApiKey } = siteConfig.customFields;
 
     useEffect(() => {
         const storedVariant = localStorage.getItem('search-provider');
@@ -94,10 +96,6 @@ export default function SearchBar({ onClick }) {
             setVariant(assignedVariant);
         }
     }, []);
-
-    const inkeepApiKey = process.env.LOCALHOST || process.env.DEV
-        ? 'bbbb9f1001a9b66f282431a80bb743a24e2bdefb85d4f1e4' // development, works with localhost
-        : '8af30e40009f26622237f75aab8256064c26a3063717c48a';
 
     onClick = () => {
         if (variant === 'kapa') {
@@ -117,7 +115,7 @@ export default function SearchBar({ onClick }) {
         if (window.Inkeep) {
             const config = {
                 baseSettings: {
-                    apiKey: inkeepApiKey, // production, only works on apify.com (any subdomain)
+                    apiKey: inkeepApiKey,
                     organizationDisplayName: 'Apify',
                     primaryBrandColor: '#FF9013',
                     transformSource: (source) => {
@@ -189,7 +187,7 @@ export default function SearchBar({ onClick }) {
 
             modal.update({ modalSettings: { isOpen: true } });
         } else {
-            console.error('Kapa.ai widget is not available.');
+            console.error('Inkeep widget is not available.');
         }
     };
 

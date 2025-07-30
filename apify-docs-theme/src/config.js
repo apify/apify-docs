@@ -341,10 +341,17 @@ const scripts = [
     },
 ];
 
+const customFields = {
+    inkeepApiKey: process.env.LOCALHOST || process.env.DEV
+        ? 'bbbb9f1001a9b66f282431a80bb743a24e2bdefb85d4f1e4' // development, works with localhost
+        : '8af30e40009f26622237f75aab8256064c26a3063717c48a', // production, only works on apify.com (any subdomain)
+};
+
 module.exports = {
     themeConfig,
     plugins,
     absoluteUrl,
     noIndex,
     scripts,
+    customFields,
 };
