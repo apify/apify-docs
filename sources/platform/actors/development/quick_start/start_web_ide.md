@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 This guide walks you through the full lifecycle of an Actor. You'll start by creating and running it locally with the Apify CLI, then learn to configure its input and data storage. Finally, you will deploy the Actor to the Apify platform, making it ready to run in the cloud.
 
-## Prerequisites
+### Prerequisites
 
 - An Apify account. [Sign up for a free account](https://console.apify.com/sign-up) on the Apify website.
 
