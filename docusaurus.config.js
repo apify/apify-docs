@@ -263,11 +263,11 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             {
                 enableDescriptions: false,
-                depth: 3,
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
                     includeBlog: true,
+                    includeGeneratedIndex: false,
                     includePages: true,
                     relativePaths: false,
                 },
