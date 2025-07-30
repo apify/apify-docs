@@ -322,7 +322,7 @@ Finally, we'll modify the Actor configuration in `warehouse-watchdog/src/.actor/
 
 ```json title=warehouse-watchdog/src/.actor/input_schema.json
 {
-    "title": "Python Crawlee BeautifulSoup Scraper",
+    "title": "Crawlee BeautifulSoup Scraper",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
