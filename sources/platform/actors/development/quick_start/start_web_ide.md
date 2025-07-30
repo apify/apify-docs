@@ -40,7 +40,7 @@ Browse the [full list of templates](https://apify.com/templates) to find the bes
 
 After choosing the template, your Actor will be automatically named and you'll be redirected to its page.
 
-## Step 2: Explore the Actor
+### Step 2: Explore the Actor
 
 The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library.
 
