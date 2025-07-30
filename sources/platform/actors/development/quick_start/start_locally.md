@@ -107,7 +107,7 @@ The Actor system provides two storage types for files and results: [key-value](/
 
 The key-value store saves and reads files or data records. Key-value stores work well for screenshots, PDFs, or persisting Actor state as JSON files.
 
-#### Dataset
+##### Dataset
 
 The dataset stores a series of data objects from web scraping, crawling, or data processing jobs. You can export datasets to JSON, CSV, XML, RSS, Excel, or HTML formats.
 
