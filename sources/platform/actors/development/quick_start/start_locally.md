@@ -120,7 +120,7 @@ You define the Actor output using the Output schema files:
 
 The system uses this to generate an immutable JSON file that tells users where to find the Actor's results.
 
-## Step 4: Deploy your Actor
+### Step 4: Deploy your Actor
 
 Let's now deploy your Actor to the Apify platform, where you can run the Actor on a scheduled basis, or you can make the Actor public for other users.
 
