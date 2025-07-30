@@ -81,7 +81,7 @@ In the next step, we’ll explore the results in more detail.
 
 Let's explore the Actor structure.
 
-### The `.actor` folder
+#### The `.actor` folder
 
 The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
 
