@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './QuickStartPromptButton.module.css';
 
 const PROMPT = `Go step by step to create an Apify Actor:
@@ -35,31 +35,66 @@ apify run
 
 export default function QuickStartPromptButton({ prompt = PROMPT }) {
     const [copied, setCopied] = useState(false);
+    const [showPrompt, setShowPrompt] = useState(false);
+    const timeoutRef = useRef(null);
+
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
+    }, []);
 
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText(prompt);
 
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            timeoutRef.current = setTimeout(() => setCopied(false), 2000);
         } catch (err) {
             console.error('Failed to copy prompt:', err);
         }
     };
 
+    const togglePrompt = () => {
+        setShowPrompt(!showPrompt);
+    };
+
     return (
-        <div className={styles['quick-start-prompt-card']}>
-            <div className={styles['prompt-content']}>
-                <div className={styles['prompt-text']}>
-                    <span>Use this pre-built prompt to get started faster.</span>
+        <>
+            <div className={styles['quick-start-prompt-card']}>
+                <div className={styles['prompt-content']}>
+                    <div className={styles['prompt-text']}>
+                        <span>Use this pre-built prompt to get started faster.</span>
+                    </div>
+                </div>
+                <div className={styles['button-container']}>
+                    <button
+                        className={styles['toggle-button']}
+                        onClick={togglePrompt}
+                    >
+                        {showPrompt ? 'Hide the prompt' : 'Show the prompt'}
+                    </button>
+                    <button
+                        className={`${styles['copy-button']} ${copied ? styles['copied'] : ''}`}
+                        onClick={handleCopy}
+                    >
+                        {copied ? 'Copied!' : 'Copy prompt'}
+                    </button>
                 </div>
             </div>
-            <button
-                className={`${styles['copy-button']} ${copied ? styles['copied'] : ''}`}
-                onClick={handleCopy}
-            >
-                {copied ? 'Copied!' : 'Copy prompt'}
-            </button>
-        </div>
+            {showPrompt && (
+                <div className={styles['full-prompt-container']}>
+                    <div className={styles['full-prompt']}>
+                        <pre>{prompt}</pre>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }

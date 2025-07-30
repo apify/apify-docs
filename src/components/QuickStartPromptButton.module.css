@@ -7,16 +7,9 @@
   border-radius: 8px;
   padding: 1.6rem;
   box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
-  transition: all var(--ifm-transition-fast) ease;
-  transition-property: border, box-shadow;
   width: 100%;
   position: relative;
   overflow: hidden;
-}
-
-.quick-start-prompt-card:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
 
 /* Light purple glow effect */
@@ -68,6 +61,7 @@
 }
 
 .copy-button {
+  width: 150px;
   background: var(--ifm-color-primary);
   color: var(--ifm-color-primary-contrast-background);
   border: 1px solid var(--ifm-color-primary);
@@ -102,6 +96,71 @@
   border-color: var(--ifm-color-success-darker);
 }
 
+.button-container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.toggle-button {
+  width: 150px;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) ease;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.toggle-button:hover {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background);
+  transform: translateY(-1px);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+}
+
+.full-prompt {
+  margin-top: 1.2rem;
+  padding: 1.2rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.full-prompt-container {
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+.full-prompt-container .full-prompt {
+  margin-top: 0;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+}
+
+.full-prompt pre {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--ifm-color-content);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .quick-start-prompt-card {
@@ -115,7 +174,13 @@
     gap: 0.8rem;
   }
 
-  .copy-button {
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .copy-button,
+  .toggle-button {
     width: 100%;
   }
 }
