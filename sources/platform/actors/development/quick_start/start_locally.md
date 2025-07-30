@@ -32,7 +32,7 @@ The CLI will ask you to:
 1. Name your Actor (e.g., `your-actor-name`)
 2. Choose a programming language (`JavaScript`, `TypeScript`, or `Python`)
 3. Select a development template
-   :::info
+   :::info Explore Actor templates
 
    Browse the [full list of templates](https://apify.com/templates) to find the best fit for your Actor.
 
@@ -101,7 +101,7 @@ Find more info in the [Input schema](/platform/actors/development/actor-definiti
 
 ### Actor's `storage`
 
-The Actor system provides two storage types for files and results: `key-value` store and `dataset`.
+The Actor system provides two storage types for files and results: [key-value](/platform/actors/development/actor-definition/key-value-store-schema) store and [dataset](/platform/actors/development/actor-definition/dataset-schema).
 
 #### Key-value store
 
