@@ -3,6 +3,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import RouterLink from '@docusaurus/Link';
 // import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import clsx from 'clsx';
 // import React, { useCallback } from 'react';
 import React, { useEffect, useState } from 'react';
 
@@ -212,7 +213,7 @@ export default function SearchBar({ onClick }) {
                         </span>
                         <span className="DocSearch-Button-Keys">
                             {key !== null && (<>
-                                <kbd className="DocSearch-Button-Key">
+                                <kbd className={clsx(key === 'ctrl' ? 'ctrl' : 'cmd', 'DocSearch-Button-Key')}>
                                     {key === 'ctrl' ? <ControlKeyIcon/> : key}
                                 </kbd>
                                 <kbd className="DocSearch-Button-Key">K</kbd>

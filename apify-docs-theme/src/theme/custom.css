@@ -1992,3 +1992,8 @@ div[class^="navbarSearchContainer"] {
 .DocSearch-Button-Key {
     border: 0;
 }
+
+.DocSearch-Button-Key.ctrl:first-child {
+    width: 14px !important;
+    height: 15px !important;
+}
