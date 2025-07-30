@@ -89,7 +89,7 @@ To initiate an Actor run, click the **Start** button at the bottom of the page. 
 
 ![Actor run](./images/actor-run.png)
 
-## Step 5: Pull the Actor
+### Step 5: Pull the Actor
 
 To continue development locally, pull the Actor's source code to your machine.
 
