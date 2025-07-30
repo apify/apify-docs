@@ -149,7 +149,7 @@ After pulling the Actor's source code to your local machine, you can modify and 
 
 Once you've made the desired changes, you can push the updated code back to the Apify platform for deployment & execution, leveraging the platform's scalability and reliability.
 
-## Next Steps
+## Next steps
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
