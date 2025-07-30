@@ -103,7 +103,7 @@ Find more info in the [Input schema](/platform/actors/development/actor-definiti
 
 The Actor system provides two storage types for files and results: [key-value](/platform/actors/development/actor-definition/key-value-store-schema) store and [dataset](/platform/actors/development/actor-definition/dataset-schema).
 
-#### Key-value store
+##### Key-value store
 
 The key-value store saves and reads files or data records. Key-value stores work well for screenshots, PDFs, or persisting Actor state as JSON files.
 
