@@ -77,7 +77,7 @@ As you can see in the logs, the Actor extracts text from a web page. The main lo
 
 In the next step, we’ll explore the results in more detail.
 
-## Step 3: Explore the Actor
+### Step 3: Explore the Actor
 
 Let's explore the Actor structure.
 
