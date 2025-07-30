@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import styles from './QuickStartPromptButton.module.css';
 
 const PROMPT = `Go step by step to create an Apify Actor:
