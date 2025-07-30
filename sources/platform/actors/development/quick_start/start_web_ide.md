@@ -32,7 +32,7 @@ You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Pyth
 
 These templates provide boilerplate code and a preconfigured environment. Choose the template that best suits your needs. For the following demo, we'll proceed with **Crawlee + Puppeteer + Chrome**.
 
-:::info
+:::info Explore Actor templates
 
 Browse the [full list of templates](https://apify.com/templates) to find the best fit for your Actor.
 
