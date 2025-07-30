@@ -38,7 +38,7 @@ We'll choose [Cheerio](https://cheerio.js.org/) as our parser, as it's a popular
 ```text
 $ npm install cheerio --save
 
-added 23 packages, and audited 24 packages in 1s
+added 123 packages, and audited 123 packages in 0s
 ...
 ```
 
