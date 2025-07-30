@@ -49,7 +49,7 @@ Now, you can navigate to your new Actor directory:
 cd your-actor-name
 ```
 
-## Step 2: Run your Actor
+### Step 2: Run your Actor
 
 Run your Actor with:
 
