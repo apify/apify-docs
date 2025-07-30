@@ -31,7 +31,7 @@ First let's install the Crawlee package. The framework has a lot of dependencies
 ```text
 $ npm install crawlee --save
 
-added 275 packages, and audited 303 packages in 14s
+added 123 packages, and audited 123 packages in 0s
 ...
 ```
 
