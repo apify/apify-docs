@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './QuickStartPromptButton.module.css';
 
 const PROMPT = `Go step by step to create an Apify Actor:
@@ -81,7 +81,7 @@ export default function QuickStartPromptButton({ prompt = PROMPT }) {
                         {showPrompt ? 'Hide the prompt' : 'Show the prompt'}
                     </button>
                     <button
-                        className={`${styles['copy-button']} ${copied ? styles['copied'] : ''}`}
+                        className={`${styles['copy-button']} ${copied ? styles.copied : ''}`}
                         onClick={handleCopy}
                     >
                         {copied ? 'Copied!' : 'Copy prompt'}
