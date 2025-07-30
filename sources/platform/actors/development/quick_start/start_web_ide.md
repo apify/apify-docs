@@ -20,7 +20,7 @@ This guide walks you through the full lifecycle of an Actor. You'll start by cre
 
 - An Apify account. [Sign up for a free account](https://console.apify.com/sign-up) on the Apify website.
 
-## Step 1: Create your Actor
+### Step 1: Create your Actor
 
 Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**](https://console.apify.com/actors/development/my-actors), then click the **Develop new** button.
 
