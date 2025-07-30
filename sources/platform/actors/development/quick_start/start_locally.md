@@ -19,7 +19,7 @@ This guide walks you through the full lifecycle of an Actor. You'll start by cre
 - The [Apify CLI](/cli/docs/installation) installed.
 - Optional: To deploy your Actor, [sign in](https://console.apify.com/sign-in).
 
-## Step 1: Create your Actor
+### Step 1: Create your Actor
 
 Use Apify CLI to create a new Actor:
 
