@@ -146,7 +146,7 @@ Let's now deploy your Actor to the Apify platform, where you can run the Actor o
 
 Good job! 🎉 You're ready to develop your Actor. You can make changes to your Actor and implement your use case.
 
-## Next Steps
+## Next steps
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
