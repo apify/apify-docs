@@ -131,9 +131,9 @@ Let's now deploy your Actor to the Apify platform, where you can run the Actor o
     ```
 
     :::info Your Apify token location
-    
+
     After you successfully login, your Apify token is stored in `~/.apify/auth.json`, or `C:\Users\<name>\.apify` based on your system.
-    
+
     :::
 
 2. Push your Actor to the Apify platform:
