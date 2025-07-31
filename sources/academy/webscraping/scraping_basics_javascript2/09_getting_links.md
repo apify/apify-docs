@@ -121,7 +121,7 @@ function parseProduct(productItem) {
 }
 ```
 
-Now the JSON export. For better readability of it, let's make a small change here and set the indentation level to two spaces:
+Now the JSON export. For better readability, let's make a small change here and set the indentation level to two spaces:
 
 ```js
 async function exportJSON(data) {
