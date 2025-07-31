@@ -48,6 +48,15 @@ export default function QuickStartPromptButton({ prompt = PROMPT }) {
     }, []);
 
     const handleCopy = async () => {
+        if (window.analytics) {
+            console.log('Copying prompt', window.analytics);
+            window.analytics.track('Clicked', {
+                app: 'docs',
+                button_text: 'Copy prompt',
+                element: 'quick-start-prompt-button.copyButton',
+            });
+        }
+
         try {
             await navigator.clipboard.writeText(prompt);
 
