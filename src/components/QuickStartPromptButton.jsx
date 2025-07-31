@@ -49,7 +49,6 @@ export default function QuickStartPromptButton({ prompt = PROMPT }) {
 
     const handleCopy = async () => {
         if (window.analytics) {
-            console.log('Copying prompt', window.analytics);
             window.analytics.track('Clicked', {
                 app: 'docs',
                 button_text: 'Copy prompt',
