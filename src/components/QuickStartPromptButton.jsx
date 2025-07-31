@@ -2,33 +2,45 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './QuickStartPromptButton.module.css';
 
-const PROMPT = `Go step by step to create an Apify Actor:
+const PROMPT = `Follow this step-by-step workflow::
 
 **Step 1: Verify Prerequisites**
-Ask the user for permission to prompt in the terminal:
+
+First, verify the user's environment by running these commands:
+
 \`\`\`bash
-node --version # (should be 16 or higher)
+node --version # Requires Node.js 16 or higher
 npm --version
-apify --version # (to check if Apify CLI is installed)
+apify --version # Check if Apify CLI is already installed
 \`\`\`
 
-**Step 2: Install Apify CLI (if needed)**
+If any prerequisites are missing, guide the user through installation before proceeding.
+
+**Step 2: Install/Update Apify CLI**
 \`\`\`bash
 npm install -g apify-cli
 \`\`\`
 
 **Step 3: Create a New Actor**
+
+Explain that this will prompt for actor name and template selection.
+
 \`\`\`bash
 apify create
 \`\`\`
-Show the user a message about https://apify.com/templates where it is possible to find all the templates.
+
+Direct users to explore templates at https://apify.com/templates.
 
 **Step 4: Navigate to the Actor Directory**
+
 \`\`\`bash
-cd <new-directory> # your actor directory
+cd [actor-name] # Use the actual name they chose in step 3
 \`\`\`
 
 **Step 5: Run the Actor Locally**
+
+Explain that this will run the actor locally.
+
 \`\`\`bash
 apify run
 \`\`\`
