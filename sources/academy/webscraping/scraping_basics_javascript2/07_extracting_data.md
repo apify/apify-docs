@@ -70,7 +70,7 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
+  for (const element of $(".product-item").toArray()) {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -87,7 +87,7 @@ if (response.ok) {
     }
 
     console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
-  });
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -177,7 +177,7 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
+  for (const element of $(".product-item").toArray()) {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -200,7 +200,7 @@ if (response.ok) {
     }
 
     console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
-  });
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -248,7 +248,7 @@ Denon AH-C720 In-Ear Headphones | 236
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".product-item").each((i, element) => {
+    for (const element of $(".product-item").toArray()) {
       const $productItem = $(element);
 
       const title = $productItem.find(".product-item__title");
@@ -266,7 +266,7 @@ Denon AH-C720 In-Ear Headphones | 236
         : parseInt(unitsText);
 
       console.log(`${title} | ${unitsCount}`);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -297,7 +297,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".product-item").each((i, element) => {
+    for (const element of $(".product-item").toArray()) {
       const $productItem = $(element);
 
       const $title = $productItem.find(".product-item__title");
@@ -311,7 +311,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
         : parseInt(unitsText.match(/\d+/));
 
       console.log(`${title} | ${unitsCount}`);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -363,7 +363,7 @@ Hints:
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $("#maincontent ul li").each((i, element) => {
+    for (const element of $("#maincontent ul li").toArray()) {
       const $article = $(element);
 
       const title = $article
@@ -377,7 +377,7 @@ Hints:
       const date = new Date(dateText);
 
       console.log(`${title} | ${date.toDateString()}`);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
