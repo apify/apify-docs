@@ -241,6 +241,16 @@ Denon AH-C720 In-Ear Headphones | 236
   ```js
   import * as cheerio from 'cheerio';
 
+  function parseUnitsText(text) {
+    const count = text
+      .replace("In stock,", "")
+      .replace("Only", "")
+      .replace(" left", "")
+      .replace("units", "")
+      .trim();
+    return count === "Sold out" ? 0 : parseInt(count);
+  }
+
   const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
   const response = await fetch(url);
 
@@ -254,16 +264,8 @@ Denon AH-C720 In-Ear Headphones | 236
       const title = productItem.find(".product-item__title");
       const titleText = title.text().trim();
 
-      const unitsText = productItem
-        .find(".product-item__inventory")
-        .text()
-        .replace("In stock,", "")
-        .replace("Only", "")
-        .replace(" left", "")
-        .replace("units", "")
-        .trim();
-      const unitsCount = unitsText === "Sold out" ? 0
-        : parseInt(unitsText);
+      const unitsText = productItem.find(".product-item__inventory").text();
+      const unitsCount = parseUnitsText(unitsText);
 
       console.log(`${titleText} | ${unitsCount}`);
     });
@@ -290,6 +292,14 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
   ```js
   import * as cheerio from 'cheerio';
 
+  function parseUnitsText(text) {
+    const match = text.match(/\d+/);
+    if (match) {
+      return parseInt(match[0]);
+    }
+    return 0;
+  }
+
   const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
   const response = await fetch(url);
 
@@ -303,12 +313,8 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
       const title = productItem.find(".product-item__title");
       const titleText = title.text().trim();
 
-      const unitsText = productItem
-        .find(".product-item__inventory")
-        .text()
-        .trim();
-      const unitsCount = unitsText === "Sold out" ? 0
-        : parseInt(unitsText.match(/\d+/));
+      const unitsText = productItem.find(".product-item__inventory").text();
+      const unitsCount = parseUnitsText(unitsText);
 
       console.log(`${titleText} | ${unitsCount}`);
     });
