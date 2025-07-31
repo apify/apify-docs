@@ -38,7 +38,7 @@ if (response.ok) {
   const $ = cheerio.load(html);
 
   // highlight-next-line
-  const $items = $(".product-item").map((i, element) => {
+  const data = $(".product-item").toArray().map(element => {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -64,15 +64,13 @@ if (response.ok) {
     return { title, ...priceRange };
   });
   // highlight-next-line
-  const data = $items.get();
-  // highlight-next-line
   console.log(data);
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
 ```
 
-Instead of printing each line, we now return the data for each product as a JavaScript object. We've replaced `.each()` with [`.map()`](https://cheerio.js.org/docs/api/classes/Cheerio#map-3), which also iterates over the selection but, in addition, collects all the results and returns them as a Cheerio collection. We then convert it into a standard JavaScript array by calling [`.get()`](https://cheerio.js.org/docs/api/classes/Cheerio#call-signature-32). Near the end of the program, we print the entire array.
+Instead of printing each line, we now return the data for each product as a JavaScript object. We've replaced the `for` loop with [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), which also iterates over the selection but, in addition, collects all the results and returns them as another array. Near the end of the program, we print this entire array.
 
 :::tip Advanced syntax
 
