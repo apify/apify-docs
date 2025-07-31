@@ -255,7 +255,7 @@ Denon AH-C720 In-Ear Headphones | 236
       else:
           units = int(units_text)
 
-      print(title, units, sep="|")
+      print(title, units, sep=" | ")
   ```
 
 </details>
@@ -288,7 +288,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://docs
       else:
           units = 0
 
-      print(title, units, sep="|")
+      print(title, units, sep=" | ")
   ```
 
 </details>
@@ -339,7 +339,7 @@ Hints:
       date_iso = article.select_one("time")["datetime"].strip()
       date = datetime.fromisoformat(date_iso)
 
-      print(title, date.strftime('%a %b %d %Y'), sep="|")
+      print(title, date.strftime('%a %b %d %Y'), sep=" | ")
   ```
 
 </details>
