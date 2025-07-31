@@ -44,6 +44,20 @@ Explain that this will run the actor locally.
 \`\`\`bash
 apify run
 \`\`\`
+
+**Step 6: Next Steps**
+
+Explain that the user can deploy the actor to Apify, but they first need to log in to Apify:
+
+\`\`\`bash
+apify login
+\`\`\`
+
+After logging in, you can deploy the actor to Apify:
+
+\`\`\`bash
+apify push
+\`\`\`
 `;
 
 export default function QuickStartPromptButton({ prompt = PROMPT }) {
