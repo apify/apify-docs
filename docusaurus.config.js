@@ -17,7 +17,10 @@ module.exports = {
     trailingSlash: false,
     organizationName: 'apify',
     projectName: 'apify-docs',
-    scripts: ['/js/custom.js'],
+    scripts: [
+        '/js/custom.js',
+        ...config.scripts ?? [],
+    ],
     future: {
         experimental_faster: {
             // swcJsLoader: true,
@@ -442,6 +445,7 @@ module.exports = {
             '^/legal',
             '^/legal/*',
         ],
+        ...config.customFields ?? [],
     },
     clientModules: ['./clientModule.js'],
 };
