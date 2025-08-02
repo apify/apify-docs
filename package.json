@@ -77,7 +77,7 @@
         "@docusaurus/utils": "^3.8.1",
         "@giscus/react": "^3.0.0",
         "@mdx-js/react": "^3.0.1",
-        "@redocly/cli": "^1.27.1",
+        "@redocly/cli": "^2.0.2",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "ajv": "^8.17.1",
         "clsx": "^2.0.0",
