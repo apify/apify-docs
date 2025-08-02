@@ -1,7 +1,6 @@
 ---
-title: Exporting data
+title: "Crawling: Exporting data"
 description: Learn how to export the data you scraped using Crawlee to CSV or JSON.
-sidebar_position: 9
 slug: /web-scraping-for-beginners/crawling/exporting-data
 ---
 
@@ -109,4 +108,4 @@ await Dataset.exportToCSV('results');
 
 ## Next up {#next}
 
-And this is it for the [**Basics of crawling**](./index.md) section of the [**Web scraping basics for JavaScript devs**](../index.md) course. If you want to learn more, test your knowledge of the methods and concepts you learned in this course by moving forward with the [**challenge**](../challenge/index.md).
+And this is it for the [**Basics of crawling**](./11_crawling.md) section of the [**Web scraping basics for JavaScript devs**](./index.md) course. If you want to learn more, test your knowledge of the methods and concepts you learned in this course by moving forward with the [**challenge**](./21_challenge.md).
