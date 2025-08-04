@@ -170,7 +170,7 @@ For example, to enable all tools, use `npx @apify/actors-mcp-server --tools docs
 
 ## Rate limits
 
-The Apify MCP server has a rate limit of **30 requests per second** per user. If you exceed this limit, you will receive a `429 Too Many Requests` response.
+The Apify MCP server has a rate limit of _30 requests per second_ per user. If you exceed this limit, you will receive a `429 Too Many Requests` response.
 
 ## Troubleshooting
 
