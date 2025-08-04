@@ -1,7 +1,3 @@
-/**
- * Sidebar for the second Information Architecture.
- * Top-level categories are static headers.
- */
 module.exports = {
     platform: [
         // 1. Home
