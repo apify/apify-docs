@@ -168,6 +168,10 @@ Helper tool categories marked with (*) are not enabled by default in the MCP ser
 
 For example, to enable all tools, use `npx @apify/actors-mcp-server --tools docs,runs,storage,preview` or `https://mcp.apify.com/?tools=docs,runs,storage,preview`.
 
+## Rate limits
+
+The Apify MCP server has a rate limit of _30 requests per second_ per user. If you exceed this limit, you will receive a `429 Too Many Requests` response.
+
 ## Troubleshooting
 
 - _Authorization (API Token):_ If the MCP server isn’t executing Actors, ensure you provided a correct Apify API token. Without a valid `APIFY_TOKEN`, the server cannot start Actor runs. Always set the `APIFY_TOKEN` environment variable when running locally.
