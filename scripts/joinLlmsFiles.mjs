@@ -31,7 +31,7 @@ async function joinFiles() {
             ROUTES.map((route) => fetchFile(route, file)),
         );
         const joined = contents.filter(Boolean).join('\n\n');
-        await fs.writeFile(path.join(BUILD_DIR, file), joined, 'utf8');
+        await fs.appendFile(path.join(BUILD_DIR, file), joined, 'utf8');
         console.log(`Wrote ${file} to build/`);
     }
 }
