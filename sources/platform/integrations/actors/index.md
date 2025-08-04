@@ -1,7 +1,7 @@
 ---
 title: Actor-to-Actor integration
 description: Learn how to integrate with other Actors and tasks.
-sidebar_label: Actor-to-Actor integration
+sidebar_label: Actor-to-Actor
 slug: /integrations/actors
 ---
 
