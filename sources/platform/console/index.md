@@ -124,4 +124,4 @@ You can also navigate Apify Console via keyboard shortcuts.
 | [Proxy](/platform/proxy)| View your proxy usage & credentials |
 | [Storage](/platform/storage)| View stored results of your runs in various data formats. |
 | [Billing](/platform/console/billing)| Billing information, statistics and invoices. |
-| [Settings](/platform/console/settings)| Console settings of your account. |
+| [Settings](/platform/console/settings)| Settings of your account. |
