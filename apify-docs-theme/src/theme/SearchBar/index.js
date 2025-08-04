@@ -4,8 +4,8 @@ import RouterLink from '@docusaurus/Link';
 // import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
-// import React, { useCallback } from 'react';
 import React, { useEffect, useState } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 // import { ApifySearch } from '@apify/docs-search-modal';
 import { ControlKeyIcon, SearchIcon } from '@apify/docs-search-modal/dist/utils/icons';
@@ -82,6 +82,7 @@ export function Link(props) {
 
 export default function SearchBar({ onClick }) {
     const [variant, setVariant] = useState(null);
+    const [opened, setOpened] = useState(false);
     const { siteConfig } = useDocusaurusContext();
     const { inkeepApiKey } = siteConfig.customFields;
 
@@ -98,9 +99,18 @@ export default function SearchBar({ onClick }) {
     }, []);
 
     onClick = () => {
+        if (opened) {
+            return;
+        }
+
+        setOpened(true);
+
         if (variant === 'kapa') {
             if (window.Kapa && typeof window.Kapa.open === 'function') {
                 window.Kapa.open();
+                window.Kapa('onModalClose', () => {
+                    setOpened(false);
+                });
             } else {
                 console.error('Kapa.ai widget is not available.');
             }
@@ -178,11 +188,13 @@ export default function SearchBar({ onClick }) {
                         },
                     ],
                 },
+                defaultView: 'chat',
             };
             const modal = window.Inkeep.ModalSearchAndChat(config);
 
             function handleOpenChange(newOpen) {
                 modal.update({ modalSettings: { isOpen: newOpen } });
+                setOpened(newOpen);
             }
 
             modal.update({ modalSettings: { isOpen: true } });
@@ -199,6 +211,10 @@ export default function SearchBar({ onClick }) {
             setKey(isMac ? '⌘' : 'ctrl');
         }
     }, []);
+
+    useHotkeys('mod+k, /', () => {
+        onClick();
+    }, { preventDefault: true });
 
     return (
         <BrowserOnly>
