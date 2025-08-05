@@ -41,7 +41,6 @@ async function fetchFile(route) {
 
 async function joinFiles() {
     await fs.mkdir(BUILD_DIR, { recursive: true });
-    // TODO: Remove HTML from description with replaceAll
     for (const [llmsFile, files] of Object.entries(FILES_ROUTES)) {
         const contents = await Promise.all(
             files.map((route) => fetchFile(route)),
