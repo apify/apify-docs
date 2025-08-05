@@ -1,5 +1,6 @@
 ---
-title: Local development
+title: Local Actor development
+sidebar_label: Local development
 sidebar_position: 1
 description: Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.
 slug: /actors/development/quick-start/locally
