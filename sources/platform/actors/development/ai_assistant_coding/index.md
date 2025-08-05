@@ -12,11 +12,15 @@ slug: /actors/development/ai-assistants
 import { RULES_AND_INSTRUCTIONS_PROMPT } from "@site/src/utils/ai-prompts";
 import PromptButton from "@site/src/components/PromptButton";
 
-The following documents describe how you can leverage llms.txt and llms-full.txt in AI IDEs, create rules and instructions files, and follow best practices for AI assistant coding.
+The following documents describe:
+
+- [How you can leverage llms.txt and llms-full.txt in AI IDEs](#use-llmstxt-and-llms-fulltxt)
+- [Create rules and instructions files](#add-rules)
+- [Best practices for AI assistant coding](#best-practices)
 
 ### Documentation for LLMs: llms.txt and llms-full.txt
 
-Search engines weren't built for Large Language Modals (LLMs), but AI needs context. That's why we created `llms.txt` and `llms-full.txt` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
+Search engines weren't built for Large Language Modals (LLMs), but LLMs needs context. That's why we created `llms.txt` and `llms-full.txt` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
 Find them here:
 
@@ -102,10 +106,10 @@ As the project evolves, you might introduce new things. Always make sure that yo
 
 ### Best practices
 
-- **Small tasks**: Don't ask AI for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
+- **Small tasks**: Don't ask LLMs for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
 
-- **Iterative approach**: Work iteratively with clear steps. Start with a basic implementation. Improve it based on feedback and testing.
+- **Iterative approach**: Work iteratively with clear steps. Start with a basic implementation and gradually add complexity.
 
 - **Versioning**: Version your changes often using git. This lets you track changes, roll back if needed, and maintain a clear history.
 
-- **Security**: Don't expose API keys, secrets, or sensitive information in your code or conversations with AI assistants.
+- **Security**: Don't expose API keys, secrets, or sensitive information in your code or conversations with LLM assistants.
