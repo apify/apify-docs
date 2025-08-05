@@ -69,9 +69,24 @@ All is OK, mate
 
 :::info Troubleshooting
 
-If you see `ReferenceError: require is not defined in ES module scope, you can use import instead`, double check that in your `package.json` the type property is set to `module`.
+If you see errors or are otherwise unable to run the code above, it likely means your environment isn't set up correctly. Unfortunately, diagnosing the issue is out of scope for this course.
 
-If you see other errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
+
+If you see errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
+
+Make sure that in your `package.json` the type property is set to `module`, otherwise you'll get the following warning:
+
+```text
+[MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/.../product-scraper/index.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/.../product-scraper/package.json.
+```
+
+In older versions of Node.js, you may even encounter this error:
+
+```text
+SyntaxError: Cannot use import statement outside a module
+```
 
 :::
 
@@ -84,6 +99,12 @@ const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const response = await fetch(url);
 console.log(await response.text());
 ```
+
+:::tip Asynchronous flow
+
+First time you see `await`? It's a modern syntax for working with promises. See the [JavaScript Asynchronous Programming and Callbacks](https://nodejs.org/en/learn/asynchronous-work/javascript-asynchronous-programming-and-callbacks) and [Discover Promises in Node.js](https://nodejs.org/en/learn/asynchronous-work/discover-promises-in-nodejs) tutorials in the official Node.js documentation for more.
+
+:::
 
 If we run the program now, it should print the downloaded HTML:
 
@@ -225,7 +246,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 
 ### Download an image as a file
 
-Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [Fetch API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#reading_the_response_body) for guidance. Especially check `Response.arrayBuffer()`. You can use this URL pointing to an image of a TV:
+Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [Fetch API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#reading_the_response_body) and the [Writing files with Node.js](https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs) tutorial for guidance. Especially check `Response.arrayBuffer()`. You can use this URL pointing to an image of a TV:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg
