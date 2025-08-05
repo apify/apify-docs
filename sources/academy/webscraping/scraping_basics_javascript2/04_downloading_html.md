@@ -71,9 +71,6 @@ All is OK, mate
 
 If you see errors or are otherwise unable to run the code above, it likely means your environment isn't set up correctly. Unfortunately, diagnosing the issue is out of scope for this course.
 
-
-If you see errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
-
 Make sure that in your `package.json` the type property is set to `module`, otherwise you'll get the following warning:
 
 ```text
