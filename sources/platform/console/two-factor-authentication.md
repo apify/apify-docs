@@ -1,5 +1,5 @@
 ---
-title: Two-factor authentication
+title: Two-factor authentication setup
 description: Learn about Apify Console's two-factor authentication process and how to set it up.
 sidebar_position: 5
 category: platform

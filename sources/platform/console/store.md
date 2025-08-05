@@ -1,5 +1,5 @@
 ---
-title: Store
+title: Apify Store
 description: Explore Apify Store, browse and select Actors, search by criteria, sort by relevance, and adjust settings for immediate or future runs.
 sidebar_position: 2
 category: platform

@@ -1,5 +1,5 @@
 ---
-title: Settings
+title: Console settings
 description: Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.
 sidebar_position: 4
 category: platform
