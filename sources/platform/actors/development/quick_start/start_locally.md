@@ -9,9 +9,9 @@ slug: /actors/development/quick-start/locally
 
 ---
 
-import QuickStartPromptButton from "@site/src/components/QuickStartPromptButton";
+import PromptButton from "@site/src/components/PromptButton";
 
-<QuickStartPromptButton/>
+<PromptButton/>
 
 ## What you'll learn
 

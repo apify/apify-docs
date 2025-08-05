@@ -9,6 +9,11 @@ slug: /actors/development/ai-assistants
 
 ---
 
+import { RULES_AND_INSTRUCTIONS_PROMPT } from "@site/src/utils/ai-prompts";
+import PromptButton from "@site/src/components/PromptButton";
+
+The following documents describe how you can leverage llms.txt and llms-full.txt in AI IDEs, create rules and instructions files, and follow best practices for AI assistant coding.
+
 ### Documentation for LLMs: llms.txt and llms-full.txt
 
 Search engines weren't built for Large Language Modals (LLMs), but AI needs context. That's why we created `llms.txt` and `llms-full.txt` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
@@ -86,9 +91,14 @@ See how to set up rules for your AI IDEs:
 
 #### Apify rules and instructions
 
-Use these rules and instructions for your Actors development:
+The best rules and instructions are specific for individual use cases, but we provide a prompt to help you get start with creating rules and instructions:
 
-- [Rules and instructions](./rules_and_instructions.md)
+<PromptButton prompt={RULES_AND_INSTRUCTIONS_PROMPT}/>
+
+#### Keep your rules and instructions up to date
+
+As the project evolves, you might introduce new things. Always make sure that your rules are up to date.
+
 
 ### Best practices
 

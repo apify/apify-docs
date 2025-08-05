@@ -1,4 +1,4 @@
-.quick-start-prompt-card {
+.prompt-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +13,7 @@
 }
 
 /* Light purple glow effect */
-.quick-start-prompt-card::before {
+.prompt-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -163,7 +163,7 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .quick-start-prompt-card {
+  .prompt-card {
     flex-direction: column;
     gap: 1.2rem;
     text-align: center;
