@@ -1,11 +1,11 @@
 ---
-title: AI assistant coding
-sidebar_position: 10
+title: Vibe coding
+sidebar_position: 3
 description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
-slug: /actors/development/ai-assistants
+slug: /actors/development/quick-start/vibe-coding
 ---
 
-**Set up your environment, choose tools, and build workflows for effective AI assistant coding.**
+**Set up your environment, choose tools, and build workflows for effective vibe coding.**
 
 ---
 
@@ -14,7 +14,7 @@ import PromptButton from "@site/src/components/PromptButton";
 
 The following documents describe:
 
-- [How you can leverage llms.txt and llms-full.txt in AI IDEs](#use-llmstxt-and-llms-fulltxt)
+- [How you can leverage llms.txt and llms-full.txt](#use-llmstxt-and-llms-fulltxt)
 - [Create rules and instructions files](#add-rules)
 - [Best practices for AI assistant coding](#best-practices)
 
@@ -24,8 +24,8 @@ Search engines weren't built for Large Language Modals (LLMs), but LLMs needs co
 
 Find them here:
 
-- [llms.txt](https://docs.apify.com//llms.txt)
-- [llms-full.txt](https://docs.apify.com//llms-full.txt)
+- [https://docs.apify.com/llms.txt](https://docs.apify.com/llms.txt)
+- [https://docs.apify.com/llms-full.txt](https://docs.apify.com/llms-full.txt)
 
 :::info LLMs.txt vs sitemap.xml vs robots.txt
 

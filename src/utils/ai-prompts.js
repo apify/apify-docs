@@ -19,6 +19,8 @@ npm install -g apify-cli
 
 **Step 3: Create a New Actor**
 
+**Note for AI Tools**: If you're an AI assistant that cannot run interactive commands (like the Gemini CLI), inform the user that the \`apify create\` command requires interactive input and cannot be executed automatically. Suggest they run this workflow in tools that support interactive commands like Cursor, or GitHub Copilot.
+
 Explain that this will prompt for actor name and template selection.
 
 \`\`\`bash
