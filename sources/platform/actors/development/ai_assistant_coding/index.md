@@ -20,8 +20,8 @@ Search engines weren't built for Large Language Modals (LLMs), but AI needs cont
 
 Find them here:
 
-- [llms.txt](/llms.txt)
-- [llms-full.txt](/llms-full.txt)
+- [llms.txt](https://docs.apify.com//llms.txt)
+- [llms-full.txt](https://docs.apify.com//llms-full.txt)
 
 :::info LLMs.txt vs sitemap.xml vs robots.txt
 
@@ -81,7 +81,7 @@ New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models c
 
 ### Add rules
 
-To get the most from AI IDEs, add rules or instructions. 
+To get the most from AI IDEs, add rules or instructions.
 
 See how to set up rules for your AI IDEs:
 
