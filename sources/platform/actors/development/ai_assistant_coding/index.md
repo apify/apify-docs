@@ -11,7 +11,7 @@ slug: /actors/development/ai-assistants
 
 ### Documentation for LLMs: llms.txt and llms-full.txt
 
-Search engines weren't built for Large Language Modals (LLMs). But AI needs context. That's why we created `llms.txt` and `llms-full.txt` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
+Search engines weren't built for Large Language Modals (LLMs), but AI needs context. That's why we created `llms.txt` and `llms-full.txt` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
 Find them here:
 
@@ -30,29 +30,41 @@ Find them here:
 
 ### Use llms.txt and llms-full.txt
 
-LLMs don't automatically discover llms.txt files. You need to add the link manually. Some tools like Cursor provide settings for this.
+LLMs don't automatically discover llms.txt files, you need to add the link manually. Some tools like [Cursor](https://www.cursor.com/) provide settings for this.
 
 #### Cursor
 
-Go to: Settings -> Cursor Settings -> Indexing & Docs -> Add Doc.
+Go to: `Settings -> Cursor Settings -> Indexing & Docs -> Add Doc`.
 
-Now, you can just provide the link to Apify `llms-full.txt`. 
+Now, you can just provide the link to Apify `llms-full.txt`:
 
-![Add llms-full.txt to Cursor](./images/cursor-docs.png)
+```markdown
+https://docs.apify.com/llms-full.txt
+```
+
+![Add llms-full.txt to Cursor](./images/cursor.png)
 
 #### Windsurf
 
-- TODO...
+Open Windsurf Cascade, and add context via `@web`:
 
-#### Visual Studio Code and Copilot
+![Add llms-full.txt to Windsurf](./images/windsurf.png)
+
+:::note Windsurf @docs
+
+Windsurf provides the `@docs` command, but you cannot customize it. It means that you cannot add your own documentation.
+
+:::
+
+#### GitHub Copilot
 
 Open Copilot Chat mode, and add context via `#fetch`:
 
-![Add llms.txt to Copilot](./images/copilot.png)
+![Add llms.txt to Copilot](./images/github-copilot.png)
 
-:::note Copilot and llms.txt / llms-full.txt
+:::note GitHub Copilot and documentation
 
-Copilot's official documentation doesn't cover llms.txt usage. If something doesn't work, check the official Apify documentation.
+Similar to Windsurf, GitHub Copilot does not provide an option for adding your own documentation.
 
 :::
 
@@ -61,46 +73,6 @@ Copilot's official documentation doesn't cover llms.txt usage. If something does
 New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models can search the web. With the right context, you get better answers:
 
 ![Ask about Apify](./images/claude.png)
-
-### Use Modal Context Protocol (MCP)
-
-Context is everything with LLMs. You can add `llms.txt` and `llms-full.txt`. But there are limitations, as we mentioned with Copilot. Another way to provide context is through Modal Context Protocol (MCP) and Context7.
-
-#### Context7
-
-Context7 MCP pulls up-to-date documentation and code examples from the source. It places them directly into your prompt. Find more information on the [Context7](https://context7.com/) website.
-
-#### Install Context7
-
-Go to: Settings -> Cursor Settings -> Tools & Integrations -> New MCP Server
-
-Add this configuration to your `mcp.json` file:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-:::tip Check official guides for other IDEs
-
-Find a guide for your favorite IDE on the [official installation page](https://github.com/upstash/context7?tab=readme-ov-file#%EF%B8%8F-installation).
-
-:::
-
-#### Use Context7
-
-Context7 fetches up-to-date code examples and documentation into your LLM's context.
-
-- Write your prompt naturally
-- Tell the LLM to use context7
-- Get working code answers
-
-![Apify and Context7](./images/context7.png)
 
 ### Add rules
 
