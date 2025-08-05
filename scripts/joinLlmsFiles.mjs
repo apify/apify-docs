@@ -28,14 +28,13 @@ const FILES_ROUTES = {
     ],
 };
 
-async function fetchFile(route, file) {
-    const url = `${route}/${file}`;
+async function fetchFile(route) {
     try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
+        const res = await fetch(route);
+        if (!res.ok) throw new Error(`Failed to fetch ${route}: ${res.status}`);
         return await res.text();
     } catch (err) {
-        console.error(`Error fetching ${url}:`, err.message);
+        console.error(`Error fetching ${route}:`, err.message);
         return '';
     }
 }
@@ -45,7 +44,7 @@ async function joinFiles() {
     // TODO: Remove HTML from description with replaceAll
     for (const [llmsFile, files] of Object.entries(FILES_ROUTES)) {
         const contents = await Promise.all(
-            files.map((route) => fetchFile(route, llmsFile)),
+            files.map((route) => fetchFile(route)),
         );
         const joined = contents.filter(Boolean).join('\n\n');
         await fs.appendFile(path.join(BUILD_DIR, llmsFile), joined, 'utf8');
