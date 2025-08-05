@@ -16,16 +16,16 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
-    ![Sign up page](images/ai-crawling/wcc-signup.png)
+    ![Sign up page](../make/images/ai-crawling/wcc-signup.png)
 
 1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-    ![Apify Console token for Make.png](images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for Make.png](../make/images/Apify_Console_token_for_Make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your n8n workflow interface.
 
-    ![Apify token on Make.png](images/Apify_token_on_Make.png)
+    ![Apify token on Make.png](../make/images/Apify_token_on_Make.png)
 
 1. In n8n, click **Create new credential** of the chosen Apify Scraper module.
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.
