@@ -103,10 +103,9 @@ The best rules and instructions are specific for individual use cases, but we pr
 
 As the project evolves, you might introduce new things. Always make sure that your rules are up to date.
 
-
 ### Best practices
 
-- **Small tasks**: Don't ask LLMs for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
+- **Small tasks**: Don't ask AI for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
 
 - **Iterative approach**: Work iteratively with clear steps. Start with a basic implementation and gradually add complexity.
 
