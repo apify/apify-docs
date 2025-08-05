@@ -42,6 +42,7 @@ async function fetchFile(route, file) {
 
 async function joinFiles() {
     await fs.mkdir(BUILD_DIR, { recursive: true });
+    // TODO: Remove HTML from description with replaceAll
     for (const [llmsFile, files] of Object.entries(FILES_ROUTES)) {
         const contents = await Promise.all(
             files.map((route) => fetchFile(route, llmsFile)),
@@ -52,7 +53,16 @@ async function joinFiles() {
     }
 }
 
+async function sanitizeFile(filePath) {
+    const content = await fs.readFile(filePath, 'utf8');
+    const sanitizedContent = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
+    await fs.writeFile(filePath, sanitizedContent, 'utf8');
+    console.log(`Sanitized ${filePath}`);
+}
+
 joinFiles().catch((err) => {
     console.error('Failed to join LLMs files:', err);
     process.exit(1);
 });
+
+Object.keys(FILES_ROUTES).forEach((llmsFile) => sanitizeFile(path.join(BUILD_DIR, llmsFile)));
