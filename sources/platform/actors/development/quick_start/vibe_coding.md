@@ -81,7 +81,7 @@ See how to set up rules for your AI IDEs:
 - [Windsurf Rules](https://docs.windsurf.com/windsurf/cascade/memories#rules)
 - [GitHub Copilot instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
 
-#### Apify rules and instructions
+### Apify rules and instructions
 
 The best rules and instructions are specific for individual use cases, but we provide a prompt to help you get start with creating rules and instructions:
 
