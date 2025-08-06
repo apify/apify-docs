@@ -91,7 +91,7 @@ The best rules and instructions are specific for individual use cases, but we pr
 
 As the project evolves, you might introduce new things. Always make sure that your rules are up to date.
 
-### Best practices
+## Best practices
 
 - **Small tasks**: Don't ask AI for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
 
