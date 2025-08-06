@@ -20,12 +20,7 @@ The following documents describe:
 
 ### Documentation for LLMs: llms.txt and llms-full.txt
 
-Search engines weren't built for Large Language Modals (LLMs), but LLMs needs context. That's why we created `llms.txt` and `llms-full.txt` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
-
-Find them here:
-
-- [https://docs.apify.com/llms.txt](https://docs.apify.com/llms.txt)
-- [https://docs.apify.com/llms-full.txt](https://docs.apify.com/llms-full.txt)
+Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created `[llms.txt](https://docs.apify.com/llms.txt)` and `[llms-full.txt](https://docs.apify.com/llms-full.txt)` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
 :::info LLMs.txt vs sitemap.xml vs robots.txt
 
