@@ -27,7 +27,7 @@ Search engines weren't built for Large Language Models (LLMs), but they needs co
 
 ### Use llms.txt and llms-full.txt
 
-LLMs don't automatically discover llms.txt files, you need to add the link manually. Some tools like [Cursor](https://www.cursor.com/) provide settings for this.
+LLMs don't automatically discover `llms.txt` files, you need to add the link manually. Some tools like [Cursor](https://www.cursor.com/) provide settings for this.
 
 #### Cursor
 
