@@ -15,7 +15,7 @@ import PromptButton from "@site/src/components/PromptButton";
 
 This guide explains how to enhance your development workflow by leveraging `llms.txt` and `llms-full.txt` with an AI assistant. You will learn how to provide foundational context and further refine AI's behavior with specific rules and instruction files.
 
-### Documentation for LLMs: llms.txt and llms-full.txt
+## `llms.txt` and `llms-full.txt`
 
 Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created `[llms.txt](https://docs.apify.com/llms.txt)` and `[llms-full.txt](https://docs.apify.com/llms-full.txt)` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
