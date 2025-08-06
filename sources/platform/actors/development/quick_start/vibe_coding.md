@@ -13,11 +13,7 @@ toc_max_heading_level: 4
 import { RULES_AND_INSTRUCTIONS_PROMPT } from "@site/src/utils/ai-prompts";
 import PromptButton from "@site/src/components/PromptButton";
 
-The following documents describe:
-
-- [How you can leverage llms.txt and llms-full.txt](#use-llmstxt-and-llms-fulltxt)
-- [Create rules and instructions files](#add-rules)
-- [Best practices for AI assistant coding](#best-practices)
+This guide explains how to enhance your development workflow by leveraging `llms.txt` and `llms-full.txt` with an AI assistant. You will learn how to provide foundational context and further refine AI's behavior with specific rules and instruction files.
 
 ### Documentation for LLMs: llms.txt and llms-full.txt
 
