@@ -1,7 +1,7 @@
 ---
 title: API integration
 description: Learn how to integrate with Apify via API.
-sidebar_label: API
+sidebar_label: API integration
 sidebar_position: 1
 slug: /integrations/api
 ---
@@ -33,7 +33,7 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 You can authenticate the Apify API in two ways. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
-Note that some API endpoints, such as [Get list of keys](/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys),
+Note that some API endpoints, such as [Get list of keys](/api/v2/key-value-store-keys-get),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
 
 ## Expiration

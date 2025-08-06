@@ -19,8 +19,8 @@ Dataset storage enables you to sequentially save and retrieve data. A unique dat
 
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
-> Named datasets are retained indefinitely. <br/>
-> Unnamed datasets expire after 7 days unless otherwise specified. <br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+> Named datasets are retained indefinitely.
+> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -29,7 +29,7 @@ Dataset storage is _append-only_ - data can only be added and cannot be modified
 You can access your datasets in several ways:
 
 - [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
-- [Apify API](/api/v2#) - to access your datasets programmatically.
+- [Apify API](/api/v2) - to access your datasets programmatically.
 - [Apify API client](/api) - to access your datasets from any Node.js/Python application.
 - [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
@@ -45,31 +45,31 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
 ### Apify API
 
-The [Apify API](/api/v2#/reference/datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2/storage-datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
-To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets) endpoint.
+To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2/datasets-get) endpoint.
 
 ```text
 https://api.apify.com/v2/datasets
 ```
 
-To get information about a dataset such as its creation time and item count, send a GET request to the [Get dataset](/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
+To get information about a dataset such as its creation time and item count, send a GET request to the [Get dataset](/api/v2/dataset-get) endpoint.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}
 ```
 
-To view a dataset's data, send a GET request to the [Get dataset items](/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
+To view a dataset's data, send a GET request to the [Get dataset items](/api/v2/dataset-items-get) Apify API endpoint.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
@@ -89,7 +89,7 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2C
 
 > Use `%2C` instead of commas for URL encoding, as `%2C` represent a comma. For more on URL encoding check out [this page](https://www.url-encode-decode.com)
 
-To add data to a dataset, issue a POST request to the [Put items](/api/v2#/reference/datasets/item-collection/put-items) endpoint with the data as a JSON object payload.
+To add data to a dataset, issue a POST request to the [Put items](/api/v2/dataset-items-post) endpoint with the data as a JSON object payload.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
@@ -113,7 +113,7 @@ Example payload:
 ]
 ```
 
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/datasets).
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-datasets).
 
 ### Apify API Clients
 
@@ -300,7 +300,7 @@ The following example demonstrates a dataset record with hidden fields, includin
 }
 ```
 
-Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as [URL parameters](/api/v2#/reference/datasets/item-collection/get-items).
+Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as [URL parameters](/api/v2/dataset-items-get).
 
 ## XML format extension
 
@@ -452,8 +452,8 @@ See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs
 
 ### Rate limiting {#rate-limiting}
 
-The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
+The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
-For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is _30 requests per second_ for each dataset.
+For all other dataset [API endpoints](/api/v2/storage-datasets) , the rate limit is _30 requests per second_ for each dataset.
 
-Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.
+Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

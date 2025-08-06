@@ -223,14 +223,39 @@ Be aware that you can change the monetization setting of each Actor only once pe
 
 :::
 
-## Payouts and analytics
+## Monthly payouts and analytics
 
-Payout invoices are generated automatically on the 14th of each month. Review your invoice in the **Settings > Payout** section within one week. If not approved by the 20th, the system will auto-approve on the 21st.
+Payout invoices are automatically generated on the 11th of each month, summarizing the profits from all your Actors for the previous month.
+In accordance with our [Terms & Conditions](https://apify.com/store-terms-and-conditions), only funds from legitimate users who have already paid are included in the payout invoice.
 
-Track your Actor's performance through:
+:::note How negative profits are handled
 
-- The payout section for financial records
-- [Actor Analytics](https://console.apify.com/actors/development/analytics) (**Actors > Development > Analytics**) for usage statistics
+If your PPR or PPE Actor's price doesn't cover its monthly platform usage costs, it will have a negative profit. When this occurs, we automatically set that Actor's profit to $0 for the month. This ensures a single Actor's loss never reduces your total payout.
+
+:::
+
+You have 3 days to review your payout invoice in the **Development >Insights > Payout** section. During this period, you can either approve the invoice or request a revision, which we will process promptly.
+If no action is taken, the payout will be automatically approved on the 14th, with funds disbursed shortly after. Payouts require meeting minimum thresholds of either:
+
+- $20 for PayPal
+- $100 for other payout methods
+
+If the monthly profit does not meet these thresholds, as per our [Terms & Conditions](https://apify.com/store-terms-and-conditions), the funds will roll over to the next month until the threshold is reached.
+
+## Actor analytics
+
+Monitor your Actors' performance through the [Actor Analytics](https://console.apify.com/actors/insights/analytics) dashboard under **Development > Insights > Analytics**.
+
+The analytics dashboard allows you to select specific Actors and view key metrics aggregated across all user runs:
+
+- Revenue, costs and profit trends over time
+- User growth metrics (both paid and free users)
+- Cost per 1,000 results to optimize pricing
+- Run success rate statistics
+- User acquisition funnel analytics
+- Shared debug runs from users
+
+All metrics can be exported as JSON for custom analysis and reporting.
 
 ## Promoting your Actor
 

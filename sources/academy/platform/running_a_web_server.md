@@ -1,7 +1,7 @@
 ---
 title: Running a web server on the Apify platform
 description: A web server running in an Actor can act as a communication channel with the outside world. Learn how to set one up with Node.js.
-sidebar_position: 11
+sidebar_position: 12
 category: apify platform
 slug: /running-a-web-server
 ---
@@ -17,7 +17,7 @@ Sometimes, an Actor needs a channel for communication with other systems (or hum
 - An API to receive commands.
 - An HTML page displaying output data.
 
-Running a web server in an Actor is a piece of cake! Each Actor run is available at a unique URL (container URL) which always takes the form `https://CONTAINER-KEY.runs.apify.net`. This URL is available in the [**Actor run** object](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) returned by the Apify API, as well as in the Apify console.
+Running a web server in an Actor is a piece of cake! Each Actor run is available at a unique URL (container URL) which always takes the form `https://CONTAINER-KEY.runs.apify.net`. This URL is available in the [**Actor run** object](/api/v2/actor-run-get) returned by the Apify API, as well as in the Apify console.
 
 If you start a web server on the port defined by the **APIFY_CONTAINER_PORT** environment variable (the default value is **4321**), the container URL becomes available and gets displayed in the **Live View** tab in the Actor run console.
 
@@ -236,4 +236,4 @@ When we deploy and run this Actor on the Apify platform, then we can open the **
 
 With that, we're done! And our application works like a charm :)
 
-The complete code of this Actor is available [here](https://apify.com/apify/example-web-server). You can run it there or copy it to your account.
+The complete code of this Actor is available on its Store [page](https://apify.com/apify/example-web-server/source-code). You can run it there or copy it to your account.

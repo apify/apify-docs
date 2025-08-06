@@ -29,7 +29,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 You can access key-value stores through several methods
 
 - [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
-- [Apify API](/api/v2#) - for accessing your key-value stores programmatically.
+- [Apify API](/api/v2) - for accessing your key-value stores programmatically.
 - [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
 - [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
@@ -41,37 +41,37 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 To view a key-value store's content, click on its **Store ID**.
 Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
-Click on the **API** button to view and test a store's [API endpoints](/api/v2#/reference/key-value-stores).
+Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail.png)
 
 ### Apify API
 
-The [Apify API](/api/v2#/reference/key-value-stores) enables you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2/storage-key-value-stores) enables you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
-To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint.
+To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2/key-value-stores-get) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores
 ```
 
-To get information about a key-value store such as its creation time and item count, send a GET request to the [Get store](/api/v2#/reference/key-value-stores/store-object/get-store) endpoint.
+To get information about a key-value store such as its creation time and item count, send a GET request to the [Get store](/api/v2/key-value-store-get) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}
 ```
 
-To get a record (its value) from a key-value store, send a GET request to the [Get record](/api/v2#/reference/key-value-stores/key-collection/get-record) endpoint.
+To get a record (its value) from a key-value store, send a GET request to the [Get record](/api/v2/key-value-store-record-get) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
-To add a record with a specific key in a key-value store, send a PUT request to the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint.
+To add a record with a specific key in a key-value store, send a PUT request to the [Store record](/api/v2/key-value-store-record-put) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
@@ -86,13 +86,13 @@ Example payload:
 }
 ```
 
-To delete a record, send a DELETE request specifying the key from a key-value store to the [Delete record](/api/v2#/reference/key-value-stores/record/delete-record) endpoint.
+To delete a record, send a DELETE request specifying the key from a key-value store to the [Delete record](/api/v2/key-value-store-record-delete) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-key-value-stores).
 
 ### Apify API Clients
 
@@ -248,7 +248,7 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 
 ## Compression
 
-Previously, when using the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, records are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
+Previously, when using the [Store record](/api/v2/key-value-store-record-put) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, records are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
 
 You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let our platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
 

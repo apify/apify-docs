@@ -171,7 +171,7 @@ These identifiers enable better analytics and support for your integration.
 
 ### Apify API
 
-[Apify API](https://docs.apify.com/api) provides an extensive REST API that covers all of the features of the Apify platform. You can download the complete OpenAPI schema of Apify API in the [YAML](https://docs.apify.com/api/openapi.yaml) or [JSON](https://docs.apify.com/api/openapi.json) formats. Apify provides official libraries for JavaScript and Python to access API.
+[Apify API](https://docs.apify.com/api) provides an extensive REST API that covers all the features of the Apify platform. You can download the complete OpenAPI schema of Apify API in the [YAML](https://docs.apify.com/api/openapi.yaml) or [JSON](https://docs.apify.com/api/openapi.json) formats. Apify provides official libraries for JavaScript and Python to access API.
 
 - [Apify API Reference](https://docs.apify.com/api/v2)
 - Client libraries

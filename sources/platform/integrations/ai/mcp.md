@@ -1,6 +1,6 @@
 ---
 title: Apify MCP server
-sidebar_label: Apify MCP server
+sidebar_label: MCP
 description: Learn how to use the Apify MCP server to integrate Apify Actors into your AI agents or applications.
 sidebar_position: 1
 slug: /integrations/mcp
@@ -16,12 +16,12 @@ The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connec
 
 You can use the Apify MCP Server in two ways:
 
+- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client through OAuth or by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
+  - `https://mcp.apify.com` for streamable transport (recommended)
+  - `https://mcp.apify.com/sse` for SSE transport (legacy)
 - _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
-- _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
-  - `https://mcp.apify.com` for streamable transport
-  - `https://mcp.apify.com/sse` for legacy SSE transport
 
 You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as an Actor.
 
@@ -33,6 +33,22 @@ Before you start, make sure you have the following:
 1. _An Apify account:_ Sign up for a free Apify account if you don’t have one.
 1. _Apify API Token:_ Get your personal API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token will be used to authorize the MCP server to run Actors on your behalf.
 1. _MCP client:_ An AI agent or client that supports MCP. This could be Anthropic Claude for Desktop, a VS Code extension with MCP support, Apify’s web-based Tester MCP Client, or any custom client implementation. See supported MCP clients in [official documentation](https://modelcontextprotocol.io/clients).
+
+## Example usage (Streamable HTTP with OAuth)
+
+We recommend connecting through OAuth for a secure and simple authentication process.
+
+During setup, provide the server URL `https://mcp.apify.com`. You will then be redirected to your browser to sign in to your Apify account and approve the connection. The configuration steps may vary slightly depending on your MCP client.
+
+```json
+{
+ "mcpServers": {
+   "apify": {
+     "url": "https://mcp.apify.com"
+   }
+ }
+}
+```
 
 ## Example usage (local stdio with Claude for Desktop)
 
@@ -92,11 +108,23 @@ In the client settings, you need to provide server configuration:
 
 By default, the main Actors MCP Server starts with a single default [RAG Web Browser Actor](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
 
-- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it.  
-  _Tools for adding and removing Actors are enabled by default._  
-  You can disable these tools by setting the parameter `?enableAddingActors=false` in the MCP Server URL, or with the CLI flag `--enable-adding-actors=false` (can also be set in Claude for Desktop config args as `--enable-adding-actors=false`).  
+- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it.
+  _Tools for adding and removing Actors are enabled by default._
+  You can disable these tools by setting the parameter `?enableAddingActors=false` in the MCP Server URL, or with the CLI flag `--enable-adding-actors=false` (can also be set in Claude for Desktop config args as `--enable-adding-actors=false`).
   Not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if adding Actors is enabled.
-- _Via config file:_ When using Claude for Desktop, you can specify which Actors should be immediately available by configuring your `mcpServers` settings. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
+- _Via url:_ If you are using Streamable HTTP or SSE protocol, you could add `actors` query parameter with Actor names separated by comma:
+
+```json
+{
+  "mcpServers": {
+    "Apify": {
+      "url": "https://mcp.apify.com/?actors=lukaskrivka/google-maps-with-contact-details,apify/instagram-scraper"
+    }
+  }
+}
+```
+
+- _Via config file:_ For local stdio connection, you can specify which Actors should be immediately available by configuring your json configuration. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
 
 ```json
    {
@@ -115,17 +143,34 @@ By default, the main Actors MCP Server starts with a single default [RAG Web Bro
    }
 ```
 
+
 In summary, you can start with a broad set (everything open and discoverable) or a narrow set (just what you need) and even expand tools on the fly, giving your agent a lot of flexibility without overwhelming it initially.
 
 ## Dynamic Actor tooling
 
-One of the powerful features of MCP with Apify is **dynamic actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
+One of the powerful features of MCP with Apify is **dynamic Actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
 
-- _Actor discovery and management:_ Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add or remove tools (`add-actor`, `remove-actor`).
-- _Actor execution and monitoring:_ Start [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs), fetch run results (`get-actor-run`), logs (`get-actor-log`), and abort runs (`abort-actor-run`).
-- _Dataset access:_ List [datasets](https://docs.apify.com/platform/storage/dataset), retrieve dataset info and items (`get-dataset`, `get-dataset-list`, `get-dataset-items`).
-- _Key-value store access:_ List [key-value stores](https://docs.apify.com/platform/storage/key-value-store), view keys, and retrieve records (`get-key-value-store-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`).
-- _Built-in help tool:_ A static helper (`apify-actor-help-tool`) that returns usage info for the Apify MCP Server.
+- _Actor discovery and management:_ Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add them (`add-actor`).
+- _Apify documentation:_ Search Apify documentation (`search-apify-docs`) and fetch specific documents (`fetch-apify-docs`).
+- _Actor runs (*):_ Get a list of your [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs) (`get-actor-run-list`), specific run details (`get-actor-run`), and logs from a specific Actor run (`get-actor-log`).
+- _Apify storage (*):_ Access [datasets](https://docs.apify.com/platform/storage/dataset)(`get-dataset`, `get-dataset-items`, `get-dataset-list`), [key-value stores](https://docs.apify.com/platform/storage/key-value-store) (`get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`, `get-key-value-store-records`), and their records.
+
+:::note Optional tools
+
+Helper tool categories marked with (*) are not enabled by default in the MCP server and must be explicitly enabled using the `tools` argument (either the `--tools` command line argument for the stdio server or the `?tools` URL query parameter for the remote MCP server). The `tools` argument is a comma-separated list of categories with the following possible values:
+
+- `docs`: Search and fetch Apify documentation.
+- `runs`: Get Actor runs list, run details, and logs from a specific Actor run.
+- `storage`: Access datasets, key-value stores, and their records.
+- `preview`: Experimental tools in preview mode.
+
+:::
+
+For example, to enable all tools, use `npx @apify/actors-mcp-server --tools docs,runs,storage,preview` or `https://mcp.apify.com/?tools=docs,runs,storage,preview`.
+
+## Rate limits
+
+The Apify MCP server has a rate limit of _30 requests per second_ per user. If you exceed this limit, you will receive a `429 Too Many Requests` response.
 
 ## Troubleshooting
 
