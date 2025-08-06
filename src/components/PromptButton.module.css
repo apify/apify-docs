@@ -10,6 +10,12 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Apply margin-bottom only when the next sibling is not a heading */
+.prompt-card:not(:has(+ h1, + h2, + h3, + h4, + h5, + h6)) {
+  margin-bottom: var(--ifm-leading);
 }
 
 /* Light purple glow effect */

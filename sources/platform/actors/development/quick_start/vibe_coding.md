@@ -87,9 +87,11 @@ The best rules and instructions are specific for individual use cases, but we pr
 
 <PromptButton prompt={RULES_AND_INSTRUCTIONS_PROMPT}/>
 
-#### Keep your rules and instructions up to date
+:::info Keep your rules and instructions up to date
 
-As the project evolves, you might introduce new things. Always make sure that your rules are up to date.
+As the project evolves, you might introduce new things. Always make sure that your rules and instructions are up to date.
+
+:::
 
 ## Best practices
 
