@@ -3,6 +3,7 @@ title: Vibe coding
 sidebar_position: 3
 description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
 slug: /actors/development/quick-start/vibe-coding
+toc_max_heading_level: 4
 ---
 
 **Set up your environment, choose tools, and build workflows for effective vibe coding.**
