@@ -19,15 +19,11 @@ This guide explains how to enhance your development workflow by leveraging `llms
 
 Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created `[llms.txt](https://docs.apify.com/llms.txt)` and `[llms-full.txt](https://docs.apify.com/llms-full.txt)` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
-:::info LLMs.txt vs sitemap.xml vs robots.txt
-
-`/sitemap.xml` lists pages but doesn't help with content. LLMs systems still need to parse complex HTML and handle extra info. This clutters the context window.
-
-`/robots.txt` tells crawlers where to go. It doesn't help with content understanding.
-
-`/llms.txt` solves LLMs problems. It overcomes context window limits. It removes markup and scripts. It presents content optimized for LLMs processing.
-
-:::
+| File | Purpose | Impact on LLM Processing |
+| :--- | :--- | :--- |
+| `/robots.txt` | Tells crawlers where to go. | It doesn't help with content understanding. |
+| `/sitemap.xml` | Lists pages. | It doesn't help with content. LLM systems still need to parse complex HTML and handle extra info, which clutters the context window. |
+| `/llms.txt` | Solves LLMs problems by presenting content optimized for LLM processing. | It overcomes context window limits and removes markup and scripts. |
 
 ### Use llms.txt and llms-full.txt
 
