@@ -91,10 +91,12 @@ New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models c
 Every page in Apify documentation is available in markdown format. Simply add `.md` to any documentation URL to access the raw markdown content.
 
 For example:
+
 - [https://docs.apify.com/platform](https://docs.apify.com/platform) → [https://docs.apify.com/platform.md](https://docs.apify.com/platform.md)
 - [https://docs.apify.com/api](https://docs.apify.com/api) → [https://docs.apify.com/api.md](https://docs.apify.com/api.md)
 
 This is useful when you want to:
+
 - Copy documentation content for AI prompts
 - Reference exact markdown syntax
 - Access content programmatically
