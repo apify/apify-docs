@@ -93,10 +93,10 @@ As the project evolves, you might introduce new things. Always make sure that yo
 
 ## Best practices
 
-- **Small tasks**: Don't ask AI for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
+- _Small tasks_: Don't ask AI for many tasks at once. Break complex problems into smaller pieces. Solve them step by step.
 
-- **Iterative approach**: Work iteratively with clear steps. Start with a basic implementation and gradually add complexity.
+- _Iterative approach_: Work iteratively with clear steps. Start with a basic implementation and gradually add complexity.
 
-- **Versioning**: Version your changes often using git. This lets you track changes, roll back if needed, and maintain a clear history.
+- _Versioning_: Version your changes often using git. This lets you track changes, roll back if needed, and maintain a clear history.
 
-- **Security**: Don't expose API keys, secrets, or sensitive information in your code or conversations with LLM assistants.
+- _Security_: Don't expose API keys, secrets, or sensitive information in your code or conversations with LLM assistants.
