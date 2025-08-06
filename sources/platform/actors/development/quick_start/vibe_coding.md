@@ -17,7 +17,7 @@ This guide explains how to enhance your development workflow by leveraging `llms
 
 ## `llms.txt` and `llms-full.txt`
 
-Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created `[llms.txt](https://docs.apify.com/llms.txt)` and `[llms-full.txt](https://docs.apify.com/llms-full.txt)` for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
+Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
 | File | Purpose | Impact on LLM Processing |
 | :--- | :--- | :--- |
