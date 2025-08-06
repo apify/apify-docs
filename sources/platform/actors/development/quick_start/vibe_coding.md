@@ -71,7 +71,7 @@ New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models c
 
 ![Ask about Apify](./images/claude.png)
 
-### Add rules
+## Add rules
 
 To get the most from AI IDEs, add rules or instructions.
 
