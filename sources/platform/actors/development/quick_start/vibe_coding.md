@@ -31,7 +31,7 @@ LLMs don't automatically discover llms.txt files, you need to add the link manua
 
 #### Cursor
 
-Go to: `Settings -> Cursor Settings -> Indexing & Docs -> Add Doc`.
+Go to: **Settings -> Cursor Settings -> Indexing & Docs -> Add Doc**.
 
 Now, you can just provide the link to Apify `llms-full.txt`:
 
