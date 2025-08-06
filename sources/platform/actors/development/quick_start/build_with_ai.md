@@ -1,12 +1,12 @@
 ---
-title: Vibe coding
+title: Build with AI
 sidebar_position: 3
 description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
-slug: /actors/development/quick-start/vibe-coding
+slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Set up your environment, choose tools, and build workflows for effective vibe coding.**
+**Set up your environment, choose tools, and build workflows for effective AI development.**
 
 ---
 
@@ -19,11 +19,26 @@ This guide explains how to enhance your development workflow by leveraging `llms
 
 Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
 
-| File | Purpose | Impact on LLM Processing |
-| :--- | :--- | :--- |
-| `/robots.txt` | Tells crawlers where to go. | It doesn't help with content understanding. |
-| `/sitemap.xml` | Lists pages. | It doesn't help with content. LLM systems still need to parse complex HTML and handle extra info, which clutters the context window. |
-| `/llms.txt` | Solves LLMs problems by presenting content optimized for LLM processing. | It overcomes context window limits and removes markup and scripts. |
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>llms.txt</code></td>
+      <td>Contains index of the docs page in Markdown, with links to all subpages in Markdown.</td>
+    </tr>
+    <tr>
+      <td>
+        <code style={{ whiteSpace: 'nowrap' }}>llms-full.txt</code>
+      </td>
+      <td>Contains a full dump of documentation in Markdown.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Use llms.txt and llms-full.txt
 
@@ -71,11 +86,24 @@ New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models c
 
 ![Ask about Apify](./images/claude.png)
 
+## View pages as markdown
+
+Every page in Apify documentation is available in markdown format. Simply add `.md` to any documentation URL to access the raw markdown content.
+
+For example:
+- [https://docs.apify.com/platform](https://docs.apify.com/platform) → [https://docs.apify.com/platform.md](https://docs.apify.com/platform.md)
+- [https://docs.apify.com/api](https://docs.apify.com/api) → [https://docs.apify.com/api.md](https://docs.apify.com/api.md)
+
+This is useful when you want to:
+- Copy documentation content for AI prompts
+- Reference exact markdown syntax
+- Access content programmatically
+
 ## Add rules
 
-To get the most from AI IDEs, add rules or instructions.
+To get the most from AI Code Editors, add rules or instructions.
 
-See how to set up rules for your AI IDEs:
+See how to set up rules for your AI Code Editors:
 
 - [Cursor Rules](https://docs.cursor.com/en/context/rules)
 - [Windsurf Rules](https://docs.windsurf.com/windsurf/cascade/memories#rules)
