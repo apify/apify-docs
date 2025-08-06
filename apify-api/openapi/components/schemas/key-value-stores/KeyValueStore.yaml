@@ -6,6 +6,7 @@ required:
   - modifiedAt
   - accessedAt
   - consoleUrl
+  - keysPublicUrl
 type: object
 properties:
   id:
@@ -42,5 +43,11 @@ properties:
   consoleUrl:
     type: string
     example: 'https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC'  
+  keysPublicUrl:
+    type: string
+    example: 'https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123'
+  urlSigningSecretKey:
+    type: string
+    nullable: true
   stats:
     $ref: ./KeyValueStoreStats.yaml
