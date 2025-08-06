@@ -1,12 +1,12 @@
 ---
 title: Account settings
-description: Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.
+description: Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.
 sidebar_position: 4
 category: platform
 slug: /console/settings
 ---
 
-**Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.**
+**Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.**
 
 ---
 
