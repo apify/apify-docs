@@ -27,7 +27,7 @@ You could also use legacy option by running [Apify Actors MCP Server](https://ap
 
 :::note Run instantly ⚡
 
-To one-click install the Apify MCP Server in your [Claude for Desktop](https://claude.ai/download), download and run the provided [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt).
+To install the Apify MCP Server in [Claude for Desktop](https://claude.ai/download) with one click, download and run the latest [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt)
 
 :::
 
