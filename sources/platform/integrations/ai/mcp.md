@@ -194,7 +194,7 @@ Supported dynamic tool operations (enebled by default):
 - `search-actors`: Find available Actors by keyword or category.
 - `get-actor-details`: View details and usage information for a specific Actor.
 - `add-actor`: Dynamically add an Actor as a tool for the current session, making it available for use.
--
+
 These operations allow your agent to expand its toolset on demand, without requiring a server restart or manual configuration.
 
 Dynamic tool addition can be disabled using the `?enableAddingActors=false`.

@@ -70,7 +70,9 @@ To call Apify Actors in Langflow, we need to add the **Apify Actors** component 
 From the bundle menu, add **Apify Actors** component:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
-Next, we need to configure the Apify Actors components. First, input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)). Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser). Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (full Actor input schema can be found [here](https://apify.com/apify/rag-web-browser/input-schema)):
+Next, we need to configure the Apify Actors components. First, input your API token (learn how to get it at [Integrations](https://docs.apify.com/platform/integrations/api)).
+Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
+Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (full Actor input schema can be found in the [RAG Web Browser input schema](https://apify.com/apify/rag-web-browser/input-schema)):
 
 ```json
 {"query": "what is monero?", "maxResults": 3}
@@ -100,10 +102,10 @@ Now that we understand how to call Apify Actors, let's build a practical example
 
 Create a new flow and add two **Apify Actors** components from the menu.
 
-Input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
+Input your API token (learn how to get it in the [Integrations documentation](https://docs.apify.com/platform/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
-Add the **Agent** component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)):
+Add the **Agent** component from the menu and set your OpenAI API key (get it from the [OpenAI API keys page](https://platform.openai.com/account/api-keys)):
 
 :::tip Optimize Agent results
 
