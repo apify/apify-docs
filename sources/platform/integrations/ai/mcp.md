@@ -154,7 +154,7 @@ In summary, you can start with a broad set (everything open and discoverable) or
 
 ## Configure tools for MCP server
 
-You can customize the tools of the MCP server by adding query parameters to the server URL.
+You can customize the MCP server’s available tools by adding query parameters to the server URL or by passing arguments to the CLI.
 This allows you to enable or disable specific tool categories and control which tools are available.
 
 The following tool categories are available:
@@ -163,26 +163,43 @@ The following tool categories are available:
 - `docs` (default, can be disabled): Search Apify documentation (`search-apify-docs`) and fetch specific documents (`fetch-apify-docs`).
 - `runs` (optional): Get a list of your [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs) (`get-actor-run-list`), specific run details (`get-actor-run`), and logs from a specific Actor run (`get-actor-log`).
 - `storage` (optional): Access [datasets](https://docs.apify.com/platform/storage/dataset) and [key-value stores](https://docs.apify.com/platform/storage/key-value-store), including their records (`get-dataset`, `get-dataset-items`, `get-dataset-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`, `get-key-value-store-records`).
-- `preview` (optional): Experimental tools in preview mode. Call any Actor using API (`call-actor`)
+- `preview` (optional): Experimental tools in preview mode. Call any Actor using API (`call-actor`).
 
-The "Actor discovery and management" tools are always present and cannot be disabled.
-The "docs" tools are enabled by default but can be switched off using the `tools` parameter.
+The _Actor discovery and management_ tools are always present and cannot be disabled.
+The _docs_ tools are enabled by default but can be switched off using the `tools` parameter.
 
-:::note Configure mcp.apify.com using query parameters
+### Configure mcp.apify.com using query parameters
 
-Use query parameter `tools` to enable or disable specific tool categories.
+Use the `tools` query parameter to enable or disable specific tool categories.
 
-For example, to enable only the `runs` and `storage` tools, you can use the URL `https://mcp.apify.com/?tools=runs,storage`
+For example, to enable only the `runs` and `storage` tools, you can use: `https://mcp.apify.com/?tools=runs,storage`
 
-This sever will expose all Actor discovery and management tools, `runs`, and `storage`.
+The server will expose all `Actor discovery and management tools`, as well as `runs` and `storage`.
 
-:::
+### Configure STDIO server using CLI arguments
 
-For STDIO use `--tools` parameter as follows `npx @apify/actors-mcp-server --tools uns,storage`.
+When running the MCP server via the command line, you can specify the tools using the `--tools` parameter.
+For example, to enable only the `runs` and `storage` tools, you can run:
+
+```bash
+npx @apify/actors-mcp-server --tools runs,storage
+```
 
 ## Dynamic Actor tooling
 
-One of the powerful features of MCP with Apify is **dynamic Actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them. Here are some special MCP operations and how Apify MCP Server supports them:
+One of the powerful features of MCP with Apify is **dynamic Actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them.
+
+Supported dynamic tool operations (enebled by default):
+
+- `search-actors`: Find available Actors by keyword or category.
+- `get-actor-details`: View details and usage information for a specific Actor.
+- `add-actor`: Dynamically add an Actor as a tool for the current session, making it available for use.
+-
+These operations allow your agent to expand its toolset on demand, without requiring a server restart or manual configuration.
+
+Dynamic tool addition can be disabled using the `?enableAddingActors=false`.
+Not all MCP clients support dynamic tool addition.
+Please check your client’s documentation or settings to confirm this feature is available.
 
 ## Rate limits
 
