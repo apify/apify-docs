@@ -159,11 +159,11 @@ This allows you to enable or disable specific tool categories and control which 
 
 The following tool categories are available:
 
-- `Actor discovery and management` (default, always enabled): Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add them (`add-actor`).
-- `docs` (default, can be disabled): Search Apify documentation (`search-apify-docs`) and fetch specific documents (`fetch-apify-docs`).
-- `runs` (optional): Get a list of your [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs) (`get-actor-run-list`), specific run details (`get-actor-run`), and logs from a specific Actor run (`get-actor-log`).
-- `storage` (optional): Access [datasets](https://docs.apify.com/platform/storage/dataset) and [key-value stores](https://docs.apify.com/platform/storage/key-value-store), including their records (`get-dataset`, `get-dataset-items`, `get-dataset-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`, `get-key-value-store-records`).
-- `preview` (optional): Experimental tools in preview mode. Call any Actor using API (`call-actor`).
+- _Actor discovery and management_ (default, always enabled): Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add them (`add-actor`).
+- _docs_ (default, can be disabled): Search Apify documentation (`search-apify-docs`) and fetch specific documents (`fetch-apify-docs`).
+- _runs_ (optional): Get a list of your [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs) (`get-actor-run-list`), specific run details (`get-actor-run`), and logs from a specific Actor run (`get-actor-log`).
+- _storage_ (optional): Access [datasets](https://docs.apify.com/platform/storage/dataset) and [key-value stores](https://docs.apify.com/platform/storage/key-value-store), including their records (`get-dataset`, `get-dataset-items`, `get-dataset-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`, `get-key-value-store-records`).
+- _preview_ (optional): Experimental tools in preview mode. Call any Actor using API (`call-actor`).
 
 The _Actor discovery and management_ tools are always present and cannot be disabled.
 The _docs_ tools are enabled by default but can be switched off using the `tools` parameter.
@@ -172,7 +172,11 @@ The _docs_ tools are enabled by default but can be switched off using the `tools
 
 Use the `tools` query parameter to enable or disable specific tool categories.
 
-For example, to enable only the `runs` and `storage` tools, you can use: `https://mcp.apify.com/?tools=runs,storage`
+For example, to enable only the `runs` and `storage` tools, you can use:
+
+```text
+https://mcp.apify.com/?tools=runs,storage
+```
 
 The server will expose all `Actor discovery and management tools`, as well as `runs` and `storage`.
 
