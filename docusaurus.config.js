@@ -265,13 +265,34 @@ module.exports = {
         [
             '@signalwire/docusaurus-plugin-llms-txt',
             {
-                enableDescriptions: false,
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
                     includeBlog: true,
+                    includeGeneratedIndex: false,
                     includePages: true,
                     relativePaths: false,
+                    excludeRoutes: [
+                        '/',
+                    ],
+                    routeRules: [
+                        {
+                            route: '/api/**',
+                            categoryName: 'Apify API',
+                        },
+                        {
+                            route: '/academy/**',
+                            categoryName: 'Apify academy',
+                        },
+                        {
+                            route: '/legal/**',
+                            categoryName: 'Legal documents',
+                        },
+                        {
+                            route: '/platform/**',
+                            categoryName: 'Platform documentation',
+                        },
+                    ],
                 },
             },
         ],
