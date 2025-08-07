@@ -25,7 +25,7 @@ You can use the Apify MCP Server in two ways:
 
 You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as an Actor.
 
-:::note Run instantly ⚡
+:::tip Run instantly ⚡
 
 To install the Apify MCP Server in [Claude for Desktop](https://claude.ai/download) with one click, download and run the latest [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt)
 
