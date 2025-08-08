@@ -33,7 +33,7 @@ Anyone with basic knowledge of developing programs in JavaScript who wants to st
 ## Requirements
 
 - A macOS, Linux, or Windows machine with a web browser and Node.js installed.
-- Familiarity with JavaScript basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes, and exceptions.
+- Familiarity with JavaScript basics: variables, conditions, loops, functions, strings, arrays, objects, files, classes, promises, imports, and exceptions.
 - Comfort with building a Node.js package and installing dependencies with `npm`.
 - Familiarity with running commands in Terminal (macOS/Linux) or Command Prompt (Windows).
 
