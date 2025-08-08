@@ -178,7 +178,10 @@ For example, to enable only the `runs` and `storage` tools, you can use:
 https://mcp.apify.com/?tools=runs,storage
 ```
 
-The server will expose all `Actor discovery and management tools`, as well as `runs` and `storage`.
+The server will expose all _Actor discovery and management tools_, as well as `runs` and `storage`.
+The list of tools you can enable/disable is as follows: `docs`, `runs`, `storage`, and `preview`.
+
+
 
 ### Configure STDIO server using CLI arguments
 
@@ -189,11 +192,11 @@ For example, to enable only the `runs` and `storage` tools, you can run:
 npx @apify/actors-mcp-server --tools runs,storage
 ```
 
-## Dynamic Actor tooling
+## Dynamic discovery of Actors
 
 One of the powerful features of MCP with Apify is **dynamic Actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them.
 
-Supported dynamic tool operations (enebled by default):
+Supported dynamic tool operations (enabled by default):
 
 - `search-actors`: Find available Actors by keyword or category.
 - `get-actor-details`: View details and usage information for a specific Actor.
@@ -222,3 +225,4 @@ The Apify MCP server has a rate limit of _30 requests per second_ per user. If y
 - [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server): The README for the Apify MCP Server actor (available on Apify Store as `apify/actors-mcp-server`) provides technical details on implementation and advanced usage.
 - [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client): A specialized client actor (`jiri.spilka/tester-mcp-client`) that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.
 - [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/): Learn how to expose over 5,000 Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
+- [Apify MCP Server Tutorial](https://www.youtube.com/watch?v=BKu8H91uCTg): Integrate 5,000+ Apify Actors and Agents with Claude
