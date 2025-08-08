@@ -1,7 +1,6 @@
 ---
-title: Filtering links
+title: "Crawling: Filtering links"
 description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
-sidebar_position: 3
 slug: /web-scraping-for-beginners/crawling/filtering-links
 ---
 
@@ -153,4 +152,4 @@ With that said, yes, filtering with CSS selectors is often the better and more r
 
 ## Next Up {#next}
 
-In the [next lesson](./relative_urls.md) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.
+In the [next lesson](./15_relative_urls.md) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.

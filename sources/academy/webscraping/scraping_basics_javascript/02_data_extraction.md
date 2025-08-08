@@ -1,7 +1,6 @@
 ---
-title: Basics of data extraction
+title: Data extraction
 description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data extraction.
-sidebar_position: 1.2
 category: courses
 slug: /web-scraping-for-beginners/data-extraction
 ---
@@ -34,4 +33,4 @@ HTML and CSS give websites their structure and style, but they are static. To be
 
 ## Next up {#next}
 
-We will show you [how to use the browser DevTools](./browser_devtools.md) to inspect and interact with a web page.
+We will show you [how to use the browser DevTools](./03_browser_devtools.md) to inspect and interact with a web page.
