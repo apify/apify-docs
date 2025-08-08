@@ -8,14 +8,20 @@ slug: /storage
 
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
-
-# Storage {#storage}
+import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
 
 **Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data on the Apify Console or via the API.**
 
 ---
 
 The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our [REST API](/api/v2) [Apify API Clients](/api) or [SDKs](/sdk).
+
+
+## Pricing calculator
+
+Use the calculator to estimate storage costs by plan and storage type. Results are estimates.
+
+See estimates with the [pricing calculator](./usage#pricing-calculator).
 
 <CardGrid>
     <Card

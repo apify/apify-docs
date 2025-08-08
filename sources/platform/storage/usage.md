@@ -6,9 +6,26 @@ category: platform
 slug: /storage/usage
 ---
 
+import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
+
 **Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.**
 
 ---
+
+## Pricing calculator
+
+Use the calculator to estimate storage costs by plan and storage type. Results are estimates.
+
+<details>
+  <summary>Estimate your storage costs</summary>
+
+1. Select a storage type.
+1. Choose a plan.
+1. Enter storage, duration, and operation counts.
+1. Review the estimated total and breakdown.
+
+  <StoragePricingCalculator />
+</details>
 
 ## Dataset {#dataset}
 
@@ -171,11 +188,11 @@ You can delete storages in the following ways:
   [Key-value store](/sdk/python/reference/class/KeyValueStore#drop),
   or [Request queue](/sdk/python/reference/class/RequestQueue#drop) class.
 * [JavaScript API client](/api/client/js) - using the `.delete()` method in the
-[dataset](/api/client/js/reference/class/DatasetClient),
-[key-value store](/api/client/js/reference/class/KeyValueStoreClient),
-or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
+  [dataset](/api/client/js/reference/class/DatasetClient),
+  [key-value store](/api/client/js/reference/class/KeyValueStoreClient),
+  or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
 * [Python API client](/api/client/python) - using the `.delete()` method in the
-[dataset](/api/client/python#datasetclient),
-[key-value store](/api/client/python/reference/class/KeyValueStoreClient),
-or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
+  [dataset](/api/client/python#datasetclient),
+  [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
+  or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
 * [API](/api/v2/key-value-store-delete) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.
