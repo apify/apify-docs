@@ -152,7 +152,7 @@ By default, the main Actors MCP Server starts with a single default [RAG Web Bro
 
 In summary, you can start with a broad set (everything open and discoverable) or a narrow set (just what you need) and even expand tools on the fly, giving your agent a lot of flexibility without overwhelming it initially.
 
-## Configure tools for MCP server
+## Configure tools for the MCP server
 
 You can customize the MCP server’s available tools by adding query parameters to the server URL or by passing arguments to the CLI.
 This allows you to enable or disable specific tool categories and control which tools are available.
@@ -206,7 +206,7 @@ These operations allow your agent to expand its toolset on demand, without requi
 
 Dynamic tool addition can be disabled using the `?enableAddingActors=false`.
 Not all MCP clients support dynamic tool addition.
-Please check your client’s documentation or settings to confirm this feature is available.
+Check your client’s documentation or settings to confirm this feature is available.
 
 ## Rate limits
 
