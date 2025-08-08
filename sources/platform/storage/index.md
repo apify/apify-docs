@@ -17,12 +17,6 @@ import StoragePricingCalculator from "@site/src/components/StoragePricingCalcula
 The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our [REST API](/api/v2) [Apify API Clients](/api) or [SDKs](/sdk).
 
 
-## Pricing calculator
-
-Use the calculator to estimate storage costs by plan and storage type. Results are estimates.
-
-See estimates with the [pricing calculator](./usage#pricing-calculator).
-
 <CardGrid>
     <Card
         title="Dataset"
