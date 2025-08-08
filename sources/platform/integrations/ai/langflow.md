@@ -41,13 +41,13 @@ Langflow can either be installed locally or used in the cloud. The cloud version
 
 :::
 
-First, you need to install the Langflow platform using python package and project manager [uv](https://docs.astral.sh/uv/):
+First, install the Langflow platform using Python package and project manager [uv](https://docs.astral.sh/uv/):
 
 ```bash
 uv pip install langflow
 ```
 
-After successfully installing Langflow, you can start the platform:
+After installing Langflow, you can start the platform:
 
 ```bash
 uv run langflow run
@@ -70,7 +70,7 @@ To call Apify Actors in Langflow, you need to add the **Apify Actors** component
 From the bundle menu, add **Apify Actors** component:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
-Next, you need to configure the Apify Actors components. First, input your API token (learn how to get it at [Integrations](https://docs.apify.com/platform/integrations/api)).
+Next,  configure the Apify Actors components. First, input your API token (learn how to get it at [Integrations](https://docs.apify.com/platform/integrations/api)).
 Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
 Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (full Actor input schema can be found in the [RAG Web Browser input schema](https://apify.com/apify/rag-web-browser/input-schema)):
 
@@ -78,10 +78,10 @@ Set the **Run input** field to pass arguments to the Actor run, allowing it to s
 {"query": "what is monero?", "maxResults": 3}
 ```
 
-Now, you can run the component by clicking the **Run** button.
+Click **Run**.
 ![Flow - Apify Actors Run](../images/langflow/apify_actors_run.png)
 
-Once the run is finished, you can view the output by clicking the **Output** button.
+After the run finishes, click **Output** to view the results.
 ![Flow - Apify Actors Output](../images/langflow/apify_actors_output.png)
 
 The output should look similar to this:
