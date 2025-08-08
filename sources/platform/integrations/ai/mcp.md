@@ -182,8 +182,7 @@ The server will expose all _Actor discovery and management tools_, as well as `r
 The list of tools you can enable/disable is as follows: `docs`, `runs`, `storage`, and `preview`.
 
 
-
-### Configure STDIO server using CLI arguments
+### Configure stdio server using CLI arguments
 
 When running the MCP server via the command line, you can specify the tools using the `--tools` parameter.
 For example, to enable only the `runs` and `storage` tools, you can run:
