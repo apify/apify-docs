@@ -247,7 +247,7 @@ Add languages by adding new folders at the appropriate path level.
 
 1. Make your changes following the guidelines above
 2. Test locally using provided npm commands
-3. Submit a pull request to the `main` branch
+3. Submit a pull request to the `master` branch
 4. Ensure all CI checks pass
 
 ## Development workflow
