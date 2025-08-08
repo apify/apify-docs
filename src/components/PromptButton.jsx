@@ -18,6 +18,7 @@ export default function PromptButton({ prompt = QUICK_START_PROMPT, title = 'Use
 
     const handleCopy = async () => {
         if (window.analytics) {
+            console.log('analytics', window.analytics);
             window.analytics.track('Clicked', {
                 app: 'docs',
                 button_text: 'Copy prompt',
