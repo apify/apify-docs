@@ -26,13 +26,9 @@ The following data sources are available natively in Gumloop:
 - [TikTok](/platform/integrations/gumloop/tiktok)
 - [YouTube](/platform/integrations/gumloop/youtube)
 
-<!-- TODO: video walkthrough -->
-
 ### Gumloop credits
 
 Retrieving data from Apify Actors is included in your Gumloop subscription. Apify Actors natively integrated into Gumloop (YouTube, TikTok, Google Maps, Instagram) have a list of tools (data points) you can retrieve.
-
-<!-- TODO:Image of MCP tools -->
 
 Each tool has a corresponding Gumloop credit cost. Each Gumloop subscription comes with a set of credits.
 
@@ -56,25 +52,25 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     To get started, navigate to [**Settings > Integrations**](https://console.apify.com/settings/integrations) in Apify Console and copy your API token.
 
-    <!-- TODO: placeholder: Apify Console API key location -->
+    ![Apify Settings > Integrations with API token](images/generate_apify_token.png)
 
 1. Add Apify Credentials to Gumloop
 
     Next, go to [**Gumloop Credentials**](https://www.gumloop.com/settings/profile/credentials) and click **Add New Credentials**. Search for Apify in the credentials list, add your Apify API key, and save the credential.
 
-    <!-- TODO: placeholder: Gumloop credentials page showing Apify integration -->
+    ![Gumloop Credentials adding Apify API key](images/apify_credential_gumloop.png)
 
    1. Add Apify Task Runner Node to Your Workflow
 
    Open a new Gumloop pipeline page. Search for **Apify Task Runner** in the **Node Library**, and drag and drop the node onto your canvas.
 
-    <!-- TODO: placeholder: Gumloop pipeline page with Apify Task Runner node -->
+    ![Apify Task Runner in Node Library](images/apify_task_runner_node_library.png)
 
    1. Create and Save Tasks in Apify
 
    The Apify task runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
 
-    <!-- TODO: placeholder: Apify Actor page showing "Create a task" button -->
+    ![Create a task on an Actor](images/create_apify_task.png)
 
     :::important
 
@@ -88,13 +84,13 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     This step is required because Gumloop needs to understand the output structure of your task to properly configure data fields.
 
-    <!-- TODO: placeholder: Apify task execution page -->
+    ![Saved tasks with Start](images/start_apify_task.png)
 
 1. Configure Your Gumloop Workflow
 
     Select your task from the dropdown menu. Choose the output fields you want to use. Configure maximum run time and output limits. Connect the node to other workflow components.
 
-    <!-- TODO: placeholder: Configured Apify Task Runner node in Gumloop -->
+    ![Apify Task Runner node configuration](images/apify_task_runner_node.png)
 
 ## Example Workflow
 

@@ -14,38 +14,36 @@ The Gumloop Google Maps integration provides a native interface for running Apif
 
 Using the Gumloop Google Maps MCP node, you can simply prompt the location data you need and Gumloop will retrieve it from relevant Apify actors. From there, you can connect it to your favorite tools and AI agents to process the information.
 
-<!-- TODO:Image of MCP node -->
-
 ## Available actions
 
-You can pull the following types of place data from Google Maps using Gumloop’s Google Maps node (via Apify). Each action has a token cost.
+You can pull the following types of place data from Google Maps using Gumloop’s Google Maps node (via Apify). Each action has a credit cost.
 
 Prerequisites:
 
 - A Gumloop account.
 
-| Tool/ Action | Description | Token Cost |
+| Tool/ Action | Description | Credit Cost |
 | :---- | :---- | :---- |
-| Search places | Search for places on Google Maps using location and search terms. | 3 tokens per item |
-| Get place details | Retrieve detailed information about a specific place using its URL or place ID. | 5 tokens per item |
-| Search by category | Search for places by a specific category (e.g. cafes, gyms) on Google Maps. | 3 tokens per item |
-| Get place reviews | Fetch reviews for specific locations, including text, rating, and reviewer info. | 3 tokens per item |
-| Find places in area | Return all visible places within a defined map area or bounding box. | 3 tokens per item |
+| Search places | Search for places on Google Maps using location and search terms. | 3 credits per item |
+| Get place details | Retrieve detailed information about a specific place using its URL or place ID. | 5 credits per item |
+| Search by category | Search for places by a specific category (e.g. cafes, gyms) on Google Maps. | 3 credits per item |
+| Get place reviews | Fetch reviews for specific locations, including text, rating, and reviewer info. | 3 credits per item |
+| Find places in area | Return all visible places within a defined map area or bounding box. | 3 credits per item |
 
 
 ## Retrieve Google Maps data in Gumloop
 
 1. Add the Gumloop Google Maps MCP node.
 
-    First, add the Google Maps node from the node lirbary to your workflow canvas.
+    First, add the Google Maps node from the node library to your workflow canvas.
 
-    <!-- TODO:Image of MCP node -->
+    ![Google Maps MCP node in Node Library](images/maps/mcp-node-image.jpeg)
 
 1. Prompt the data you need
 
     In the node's configuration panel, write a clear, specific prompt that describes the data you want to retrieve.
 
-    <!-- TODO:Image of the prompt -->
+    ![Google Maps node prompt field](images/maps/prompt.jpeg)
 
     :::tip Prompting tips
 
@@ -60,7 +58,7 @@ Prerequisites:
 
     Gummie (Gumloop’s AI assistant) will suggest inputs (information coming from previous steps, ie location, keyword, category), parameters (user defined choices, ie number of results or radius) and outputs (information used in future steps, ie business name, review count, ratings).
 
-    <!-- TODO:Image of inputs/outputs -->
+    ![Suggested inputs, parameters, outputs](images/maps/input-outputs.jpeg)
 
 1. Generate and test the node
 
@@ -70,7 +68,7 @@ Prerequisites:
 
     Once saved, you can access this node in any of your flows.
 
-    <!-- TODO:Image of node -->
+    ![Google Maps node with test values and outputs](images/maps/node.jpeg)
 
 ## Other integrations
 

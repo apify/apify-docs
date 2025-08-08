@@ -14,37 +14,35 @@ The Gumloop YouTube integration provides a native interface for running Apify’
 
 Using the Gumloop YouTube MCP node, you can simply prompt the YouTube data you need and Gumloop will retrieve it from relevant Apify actors. From there, you can connect it to your favorite tools and AI agents to process the information.
 
-<!-- TODO:Image of MCP node -->
-
 ## Available actions
 
-You can pull the following types of data from YouTube using Gumloop’s YouTube node (via Apify). Each action has a token cost:
+You can pull the following types of data from YouTube using Gumloop’s YouTube node (via Apify). Each action has a credit cost:
 
 Prerequisites:
 
 - A Gumloop account.
 
-| Tool/ Action | Description | Token Cost |
+| Tool/ Action | Description | Credit Cost |
 | :---- | :---- | :---- |
-| Search videos | Search YouTube by keywords and get video results with filtering, metadata, and content info. | 3 tokens per item |
-| Get video details | Retrieve detailed stats and content info for specific videos via URL or ID. | 4 tokens per item |
-| Get channel videos | Get videos from a specific YouTube channel with full metadata and context. | 3 tokens per item |
-| Get playlist videos | Fetch videos from a YouTube playlist with metadata and playlist details. | 3 tokens per item |
-| Get channel details | Get channel metadata including subscriber count, total videos, description, and more. | 5 tokens per item |
+| Search videos | Search YouTube by keywords and get video results with filtering, metadata, and content info. | 3 credit per item |
+| Get video details | Retrieve detailed stats and content info for specific videos via URL or ID. | 4 credit per item |
+| Get channel videos | Get videos from a specific YouTube channel with full metadata and context. | 3 credit per item |
+| Get playlist videos | Fetch videos from a YouTube playlist with metadata and playlist details. | 3 credit per item |
+| Get channel details | Get channel metadata including subscriber count, total videos, description, and more. | 5 credit per item |
 
 ## Retrieve YouTube data in Gumloop
 
 1. Add the Gumloop YouTube MCP node
 
-    First, add the YouTube node from the node lirbary to your workflow canvas.
+    First, add the YouTube node from the node library to your workflow canvas.
 
-    <!-- TODO:Image of MCP node -->
+    ![YouTube MCP node in Node Library](images/youtube/mcp-node-image.jpeg)
 
 1. Prompt the data you need
 
     In the node's configuration panel, write a clear, specific prompt that describes the data you want to retrieve.
 
-    <!-- TODO:Image of the prompt -->
+    ![YouTube node prompt field](images/youtube/prompt.jpeg)
 
     :::tip Prompting tips
 
@@ -59,7 +57,7 @@ Prerequisites:
 
     Gummie (Gumloop’s AI assistant) will suggest inputs (information coming from previous steps, ie search terms, video URLs), parameters (user defined choices, ie number of videos to retrieve) and outputs (information used in future steps, title, view count, channel name).
 
-    <!-- TODO:Image of inputs/outputs -->
+    ![Suggested inputs, parameters, outputs](images/youtube/input-outputs.jpeg)
 
 1. Generate and test the node
 
@@ -69,7 +67,7 @@ Prerequisites:
 
     Once saved, you can access this node in any of your flows.
 
-    <!-- TODO:Image of node -->
+    ![YouTube node with test values and outputs](images/youtube/node.jpeg)
 
 ## Other integrations
 

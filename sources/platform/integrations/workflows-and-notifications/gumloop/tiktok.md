@@ -13,37 +13,35 @@ Get TikTok hashtag videos, profile videos, followers, video details, and search 
 The Gumloop TikTok integration provides a native interface for running Apify’s TikTok scrapers directly in your workflows—no API tokens or manual polling required. All you need is a Gumloop account.  
 Using the Gumloop TikTok MCP node, you can simply prompt the TikTok data you need and Gumloop will retrieve it from relevant Apify actors. From there, you can connect it to your favorite tools and AI agents to process the information.
 
-<!-- TODO:Image of MCP node -->
-
 ## Available actions
 
-You can pull the following types of data from TikTok using Gumloop’s TikTok node (via Apify). Each action has a token cost.
+You can pull the following types of data from TikTok using Gumloop’s TikTok node (via Apify). Each action has a credits cost.
 
 Prerequisites:
 
 - A Gumloop account.
 
-| Tool/ Action | Description | Token Cost |
+| Tool/ Action | Description | Credit Cost |
 | :---- | :---- | :---- |
-| Get hashtag videos | Fetch videos from TikTok hashtags with captions, engagement metrics, play counts, and author information. | 3 tokens per item |
-| Get profile videos | Get videos from TikTok user profiles with video metadata, engagement stats, music info, and timestamps. | 3 tokens per item |
-| Get profile followers | Retrieve followers or following lists from TikTok profiles, including usernames, follower counts, and bios. | 3 tokens per item |
-| Get video details | Get comprehensive data on a specific TikTok video using its URL—includes engagement and video-level metrics. | 5 tokens per item |
-| Search videos | Search TikTok for videos and users using queries. Returns video details and user profile info. | 3 tokens per item |
+| Get hashtag videos | Fetch videos from TikTok hashtags with captions, engagement metrics, play counts, and author information. | 3 credits per item |
+| Get profile videos | Get videos from TikTok user profiles with video metadata, engagement stats, music info, and timestamps. | 3 credits per item |
+| Get profile followers | Retrieve followers or following lists from TikTok profiles, including usernames, follower counts, and bios. | 3 credits per item |
+| Get video details | Get comprehensive data on a specific TikTok video using its URL—includes engagement and video-level metrics. | 5 credits per item |
+| Search videos | Search TikTok for videos and users using queries. Returns video details and user profile info. | 3 credits per item |
 
 ## Retrieve Tiktok Data in Gumloop
 
 1. Add the Gumloop TikTok MCP node
 
-    First, add the TikTok node from the node lirbary to your workflow canvas.
+    First, add the TikTok node from the node library to your workflow canvas.
 
-    <!-- TODO:Image of MCP node -->
+    ![TikTok MCP node on canvas](images/tiktok/mcp-node-image.jpeg)
 
 1. Prompt the data you need
 
     In the node's configuration panel, write a clear, specific prompt that describes the data you want to retrieve.
 
-    <!-- TODO:Image of prompt -->
+    ![TikTok node prompt field](images/tiktok/prompt.jpeg)
 
     :::tip Prompting tips
 
@@ -58,7 +56,7 @@ Prerequisites:
 
     Gummie (Gumloop’s AI assistant) will suggest inputs (information coming from previous steps, ie search keyword, video URL), parameters (user defined choices, number of videos to retrieve) and outputs (information used in future steps, ie follower count, video engagement, music info).
 
-    <!-- TODO:Image of inputs/outputs -->
+    ![Suggested inputs, parameters, outputs](images/tiktok/input-output.jpeg)
 
 1. Generate and test the node
 
@@ -68,7 +66,7 @@ Prerequisites:
 
     Once saved, you can access this node in any of your flows.
 
-    <!-- TODO:Image of  final node-->
+    ![TikTok node with test values and outputs](images/tiktok/node.jpeg)
 
 ## Other integrations
 
