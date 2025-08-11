@@ -59,7 +59,7 @@ get:
     - name: status
       in: query
       description: |
-        Comma-separated list of statuses ([available
+        Single status oromma-separated list of statuses ([available
         statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)) used to filter runs by the specified statuses only.
       style: form
       explode: true
