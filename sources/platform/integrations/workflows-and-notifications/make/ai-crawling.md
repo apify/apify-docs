@@ -31,7 +31,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
 1. In the **API token** field, paste the API token you copied from Apify. Provide a clear **Connection name**, and click **Save**.
 
-    ![Make API token](images/ai-crawling/image1.png)
+    ![Make API token](images/ai-crawling/image%201.png)
 
 Once connected, you can build workflows to automate website extraction and integrate results into your AI applications.
 
