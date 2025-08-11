@@ -155,15 +155,9 @@ export default function SearchBar({ onClick }) {
                 },
                 searchSettings: {
                     tabs: [
-                        'All',
-                        'Docs',
-                        'Publications',
-                        'PDFs',
+                        ['Docs', { isAlwaysVisible: true }],
                         'GitHub',
-                        'Forums',
-                        'Discord',
-                        'Slack',
-                        'StackOverflow',
+                        'All',
                     ],
                 },
                 aiChatSettings: {
