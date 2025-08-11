@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
-import clsx from 'clsx';
 import Admonition from '@theme/Admonition';
+import clsx from 'clsx';
 import styles from './StoragePricingCalculator.module.css';
 
 const pricingTiers = [
@@ -49,10 +49,10 @@ const StoragePricingCalculator = () => {
   const [lists, setLists] = useState(1000);
 
   const calculations = useMemo(() => {
-    const storageCost = (storageGB * storageHours / 1000) * selectedStorageType.baseStoragePrice * selectedTier.storageMultiplier;
+    const storageCost = ((storageGB * storageHours) / 1000) * selectedStorageType.baseStoragePrice * selectedTier.storageMultiplier;
     const readCost = (reads / 1000) * selectedStorageType.baseReadPrice * selectedTier.readMultiplier;
     const writeCost = (writes / 1000) * selectedStorageType.baseWritePrice * selectedTier.writeMultiplier;
-    const listCost = selectedStorageType.hasLists && selectedStorageType.baseListPrice 
+    const listCost = selectedStorageType.hasLists && selectedStorageType.baseListPrice
       ? (lists / 1000) * selectedStorageType.baseListPrice * (selectedTier.listMultiplier || 1)
       : 0;
 
@@ -75,7 +75,7 @@ const StoragePricingCalculator = () => {
       </div>
 
       <Admonition type="warning" title="This is an estimate">
-        This is an estimate based on current pricing. Actual costs may vary.<br/> 
+        This is an estimate based on current pricing. Actual costs may vary.<br/>
         Prices are per 1,000 GB-hours for storage and per 1,000 operations for reads/writes/lists.
       </Admonition>
 
@@ -117,7 +117,7 @@ const StoragePricingCalculator = () => {
                   <div className={styles.radioContent}>
                     <strong>{tier.name}</strong>
                     <span>
-                      {tier.storageMultiplier < 1 
+                      {tier.storageMultiplier < 1
                         ? `${((1 - tier.storageMultiplier) * 100).toFixed(0)}% discount`
                         : 'Standard pricing'
                       }
@@ -150,7 +150,7 @@ const StoragePricingCalculator = () => {
                 type="number"
                 min="0"
                 value={reads}
-                onChange={(e) => setReads(parseInt(e.target.value) || 0)}
+                onChange={(e) => setReads(parseInt(e.target.value, 10) || 0)}
               />
             </div>
             <div className={styles.inputGroup}>
@@ -160,7 +160,7 @@ const StoragePricingCalculator = () => {
                 type="number"
                 min="1"
                 value={storageHours}
-                onChange={(e) => setStorageHours(parseInt(e.target.value) || 0)}
+                onChange={(e) => setStorageHours(parseInt(e.target.value, 10) || 0)}
               />
             </div>
             <div className={styles.inputGroup}>
@@ -170,7 +170,7 @@ const StoragePricingCalculator = () => {
                 type="number"
                 min="0"
                 value={writes}
-                onChange={(e) => setWrites(parseInt(e.target.value) || 0)}
+                onChange={(e) => setWrites(parseInt(e.target.value, 10) || 0)}
               />
             </div>
             {selectedStorageType.hasLists && (
@@ -181,7 +181,7 @@ const StoragePricingCalculator = () => {
                   type="number"
                   min="0"
                   value={lists}
-                  onChange={(e) => setLists(parseInt(e.target.value) || 0)}
+                  onChange={(e) => setLists(parseInt(e.target.value, 10) || 0)}
                 />
               </div>
             )}
