@@ -1,0 +1,232 @@
+# Apify documentation - cursor rules
+
+## Project overview
+
+This is the Apify documentation repository containing platform documentation, academy content, and API reference. The project uses Docusaurus with MDX, OpenAPI specifications, and follows Microsoft style guide principles.
+
+## Documentation structure
+
+- **Platform docs**: `/sources/platform/` - Core platform features and functionality
+- **Academy**: `/sources/academy/` - Educational content, tutorials, and courses
+- **API reference**: `/apify-api/` - Generated from OpenAPI specifications
+
+## Writing style & guidelines
+
+### Language & tone
+
+- Use **US English** spelling and grammar
+- Write in **inclusive language** - avoid gendered terms and assumptions
+- Use **active voice** whenever possible
+- Write for a **technical audience** but keep explanations clear and accessible
+- Avoid directional language (don't use "left/right")
+- Be **action-oriented** in descriptions and titles
+
+### Technical writing best practices
+
+- **Start with the user's goal** - what are they trying to accomplish?
+- **Use clear, concise sentences** - avoid unnecessary complexity
+- **Provide context** before diving into technical details
+- **Use consistent terminology** throughout the documentation
+- **Include examples** for complex concepts
+- **Structure content logically** - from basic to advanced concepts
+
+### Microsoft style guide compliance
+
+- Use **sentence case** for headings (except main titles)
+- Use **title case** for UI elements and proper nouns
+- **Bold** for UI elements, buttons, menu items
+- *Italics* for emphasis and new terms
+- `code` for inline code, file names, and technical terms
+- Use **numbered lists** for sequential steps
+- Use **bullet points** for non-sequential items
+
+## Content formatting
+
+### Front matter (MDX files)
+
+```yaml
+---
+title: "Clear, action-oriented title"
+description: "140-160 character description that explains the value"
+sidebar_position: 1
+slug: /path/to/page
+---
+```
+
+### Text emphasis
+
+- **Bold** for UI elements, buttons, menu items
+- *Italics* for emphasis and new terms
+- `code` for inline code, file names, paths, variables
+- Use code blocks with language specification for examples
+
+### Admonitions
+
+Use admonitions to highlight important information:
+
+```markdown
+:::note Important information
+Your note content here.
+:::
+
+:::tip Pro tip
+Helpful tip for users.
+:::
+
+:::info Additional context
+Background information.
+:::
+
+:::caution Warning
+Something to be careful about.
+:::
+
+:::danger Critical
+Critical information that could cause issues.
+:::
+```
+
+### Code examples
+
+- Use **code tabs** for multiple language examples
+- Include **complete, runnable examples**
+- Add **comments** to explain complex code
+- Use **syntax highlighting** for all code blocks
+
+### Screenshots & images
+
+- Use **light theme** for screenshots
+- Include **meaningful alt text**
+- Use **red indicators** to highlight important areas
+- Keep images **optimized** for web
+
+## File organization
+
+### Naming conventions
+
+- Use **kebab-case** for file names: `web-scraping-basics.md`
+- Use **descriptive names** that reflect content
+- Group related files in **logical directories**
+
+### Directory structure
+
+```text
+sources/
+├── platform/          # Platform documentation
+│   ├── actors/        # Actor-related content
+│   ├── storage/       # Storage documentation
+│   └── integrations/  # Integration guides
+└── academy/           # Educational content
+    ├── tutorials/     # Step-by-step guides
+    ├── webscraping/   # Web scraping courses
+    └── glossary/      # Terminology and definitions
+```
+
+## API documentation
+
+### OpenAPI specifications
+
+- Follow **RESTful conventions** for endpoint design
+- Use **descriptive operation IDs** following camelCase
+- Include **comprehensive examples** for all endpoints
+- Provide **clear parameter descriptions**
+
+### Code samples
+
+- Include examples in **multiple languages** (JavaScript, Python, cURL)
+- Use **realistic data** in examples
+- Show **error handling** where appropriate
+- Include **authentication examples**
+
+## Quality standards
+
+### Content review checklist
+
+- [ ] Content follows Microsoft style guide
+- [ ] All links are working and accurate
+- [ ] Code examples are tested and functional
+- [ ] Screenshots are up-to-date and clear
+- [ ] Front matter includes proper metadata
+- [ ] Content is accessible and inclusive
+
+### Technical accuracy
+
+- Verify all **technical information** is current
+- Test **code examples** before publishing
+- Ensure **screenshots** match current UI
+- Validate **API endpoints** and responses
+
+## Development workflow
+
+### Local development
+
+1. Run `npm install` to install dependencies
+2. Use `npm start` for basic development
+3. Use `npm start:dev` for full documentation set
+4. Run `npm run lint:md` to check markdown
+5. Run `npm run lint:code` to check code
+
+### Linting & quality
+
+- **Markdown linting**: `npm run lint:md`
+- **Code linting**: `npm run lint:code`
+- **Prose linting**: Uses Vale with Microsoft style guide
+- **Auto-fix**: `npm run lint:fix`
+
+### Commit guidelines
+
+- Follow **Conventional Commits** format
+- Include **comprehensive documentation updates**
+- Ensure all **CI checks pass**
+
+## Common patterns
+
+### Tutorial structure
+
+1. **Introduction** - What will the user learn?
+2. **Prerequisites** - What do they need to know/have?
+3. **Step-by-step instructions** - Clear, numbered steps
+4. **Code examples** - Complete, working examples
+5. **Summary** - What they accomplished and next steps
+
+### API documentation structure
+
+1. **Overview** - What the endpoint does
+2. **Authentication** - How to authenticate
+3. **Parameters** - Detailed parameter descriptions
+4. **Request examples** - Multiple language examples
+5. **Response examples** - Success and error responses
+6. **Rate limits** - Any applicable limits
+
+### Troubleshooting sections
+
+- **Common issues** and solutions
+- **Error messages** and their meanings
+- **Debugging steps** for complex problems
+- **Contact information** for additional help
+
+## Accessibility guidelines
+
+- Use **descriptive link text** (avoid "click here")
+- Include **alt text** for all images
+- Use **proper heading hierarchy** (H1 → H2 → H3)
+- Ensure **sufficient color contrast**
+- Write **clear, concise content**
+
+## SEO best practices
+
+- Use **descriptive page titles**
+- Include **relevant keywords** naturally
+- Write **meta descriptions** (140-160 characters)
+- Use **proper heading structure**
+- Include **internal links** to related content
+
+## Review process
+
+1. **Self-review** using the quality checklist
+2. **Technical review** by subject matter experts
+3. **Editorial review** for style and clarity
+4. **Accessibility review** for inclusive content
+5. **Final review** before publication
+
+Remember: The goal is to help users succeed with Apify. Every piece of documentation should serve that purpose by being clear, accurate, and actionable.
