@@ -9,6 +9,10 @@ slug: /actors/development/quick-start/locally
 
 ---
 
+import PromptButton from "@site/src/components/PromptButton";
+
+<PromptButton/>
+
 ## What you'll learn
 
 This guide walks you through the full lifecycle of an Actor. You'll start by creating and running it locally with the Apify CLI, then learn to configure its input and data storage. Finally, you will deploy the Actor to the Apify platform, making it ready to run in the cloud.
@@ -46,7 +50,7 @@ The CLI will:
 Now, you can navigate to your new Actor directory:
 
 ```bash
-cd your-actor-name
+cd `your-actor-name`
 ```
 
 ### Step 2: Run your Actor
