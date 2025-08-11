@@ -115,7 +115,6 @@ The scraper exports data in various formats including JSON, CSV, Excel, and XML,
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok Data](/platform/integrations/make/tiktok)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [YouTube Data](/platform/integrations/make/youtube)
