@@ -7,13 +7,33 @@ slug: /integrations/n8n/ai-crawling
 toc_max_heading_level: 4
 ---
 
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- An [Apify account](https://console.apify.com/)
+- An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
+
 ## Apify Scraper for AI Crawling
 
 Apify Scraper for AI Crawling from [Apify](https://apify.com/) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
 
 To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
-## Connect Apify Scraper for AI Crawling
+## Install the Apify Node (self-hosted)
+
+If you're running a self-hosted n8n instance, you can install the Apify community node directly from the editor. This process adds the node to your available tools, enabling Apify operations in workflows.
+
+1. Open your n8n instance.
+1. Go to **Settings > Community Nodes**.
+1. Select **Install**.
+1. Enter the npm package name: `@apify/n8n-nodes-apify-content-crawler`  (for latest version). To install a specific [version](https://www.npmjs.com/package/@apify/n8n-nodes-apify-content-crawler?activeTab=versions) enter e.g `@apify/n8n-nodes-apify-content-crawler@0.0.1`.
+1. Agree to the [risks](https://docs.n8n.io/integrations/community-nodes/risks/) of using community nodes and select **Install**.
+1. You can now use the node in your workflows.
+
+![Apify Install Node](images/install.png)
+
+## Connect Apify Scraper for AI Crawling (self-hosted)
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
@@ -21,17 +41,17 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-    ![Apify Console token for Make.png](../make/images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for n8n](../make/images/Apify_Console_token_for_Make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your n8n workflow interface.
 
-    ![Apify token on Make.png](../make/images/Apify_token_on_Make.png)
+    ![Apify token on n8n](../make/images/Apify_token_on_Make.png)
 
 1. In n8n, click **Create new credential** of the chosen Apify Scraper module.
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.
 
-IMG
+![Apify token on n8n](images/token.png)
 
 Once connected, you can build workflows to automate website extraction and integrate results into your AI applications.
 
