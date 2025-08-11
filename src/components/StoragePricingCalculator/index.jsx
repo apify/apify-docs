@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import Admonition from '@theme/Admonition';
 import clsx from 'clsx';
+import React, { useMemo, useState } from 'react';
+
 import styles from './StoragePricingCalculator.module.css';
 
 const pricingTiers = [
