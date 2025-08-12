@@ -1,4 +1,10 @@
-# Apify documentation - cursor rules
+---
+description: Documentation style guidelines and writing standards for Apify docs
+globs: ["sources/**/*.md", "sources/**/*.mdx"]
+alwaysApply: true
+---
+
+# Documentation Style Guidelines
 
 ## Project overview
 
@@ -39,112 +45,6 @@ This is the Apify documentation repository containing platform documentation, ac
 - `code` for inline code, file names, and technical terms
 - Use **numbered lists** for sequential steps
 - Use **bullet points** for non-sequential items
-
-## Content formatting
-
-### Front matter (MDX files)
-
-```yaml
----
-title: "Clear, action-oriented title"
-description: "140-160 character description that explains the value"
-sidebar_position: 1
-slug: /path/to/page
----
-```
-
-### Text emphasis
-
-- **Bold** for UI elements, buttons, menu items
-- *Italics* for emphasis and new terms
-- `code` for inline code, file names, paths, variables
-- Use code blocks with language specification for examples
-
-### Admonitions
-
-Use admonitions to highlight important information:
-
-```markdown
-:::note Important information
-Your note content here.
-:::
-
-:::tip Pro tip
-Helpful tip for users.
-:::
-
-:::info Additional context
-Background information.
-:::
-
-:::caution Warning
-Something to be careful about.
-:::
-
-:::danger Critical
-Critical information that could cause issues.
-:::
-```
-
-### Code examples
-
-- Use **code tabs** for multiple language examples
-- Include **complete, runnable examples**
-- Add **comments** to explain complex code
-- Use **syntax highlighting** for all code blocks
-
-## File organization
-
-### Naming conventions
-
-- Use **kebab-case** for file names: `web-scraping-basics.md`
-- Use **descriptive names** that reflect content
-- Group related files in **logical directories**
-
-### Directory structure
-
-```text
-sources/
-├── platform/          # Platform documentation
-│   ├── actors/        # Actor-related content
-│   ├── storage/       # Storage documentation
-│   └── integrations/  # Integration guides
-└── academy/           # Educational content
-    ├── tutorials/     # Step-by-step guides
-    ├── webscraping/   # Web scraping courses
-    └── glossary/      # Terminology and definitions
-```
-
-## API documentation
-
-### OpenAPI specifications
-
-- Follow **RESTful conventions** for endpoint design
-- Use **descriptive operation IDs** following camelCase
-- Include **comprehensive examples** for all endpoints
-- Provide **clear parameter descriptions**
-
-### Code samples
-
-- Include examples in **multiple languages** (JavaScript, Python, cURL)
-- Use **realistic data** in examples
-- Show **error handling** where appropriate
-- Include **authentication examples**
-
-## Quality standards
-
-### Content quality guidelines
-
-When creating or editing content, ensure:
-
-- [ ] Content follows Microsoft style guide (sentence case headings, proper emphasis)
-- [ ] Front matter includes proper title, description, and metadata
-- [ ] Code examples are complete and include proper syntax highlighting
-- [ ] All links use descriptive text (avoid "click here")
-- [ ] Images include meaningful alt text
-- [ ] Content uses inclusive language and active voice
-- [ ] Headings follow proper hierarchy (H1 → H2 → H3)
-- [ ] Content is clear, concise, and action-oriented
 
 ## Common patterns
 
