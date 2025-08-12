@@ -3,7 +3,7 @@
   border-radius: 0.5rem;
   padding: 1.5rem;
   margin: 2rem 0;
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-background-surface-color, #ffffff);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -73,7 +73,7 @@
   border-radius: 0.375rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-background-surface-color, #ffffff);
   min-height: 4.5rem;
   flex: 1;
 }
@@ -82,14 +82,27 @@
   border-color: var(--color-neutral-field-border, #4a5568);
 }
 
+/* Dark mode selected state */
+.dark .radioOption:has(input[type="radio"]:checked) {
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.15);
+  box-shadow: 0 0 0 1px var(--ifm-color-primary);
+}
+
 .radioOption:hover {
   border-color: var(--ifm-color-primary);
   background-color: rgba(var(--ifm-color-primary-rgb), 0.05);
 }
 
 .radioOption input[type="radio"] {
-  margin: 0;
-  accent-color: var(--ifm-color-primary);
+  display: none; /* Hide the radio button indicator */
+}
+
+/* Selected state for radio options */
+.radioOption:has(input[type="radio"]:checked) {
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1);
+  box-shadow: 0 0 0 1px var(--ifm-color-primary);
 }
 
 .radioContent {
@@ -133,7 +146,7 @@
   border: 1px solid var(--color-neutral-border, #e2e8f0);
   border-radius: 0.375rem;
   font-size: 1.2rem;
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-background-surface-color, #ffffff);
   color: var(--ifm-color-content);
   transition: border-color 0.2s ease;
 }
@@ -166,7 +179,7 @@
   border: 1px solid var(--color-neutral-border, #e2e8f0);
   border-radius: 0.375rem;
   font-size: 1.2rem;
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-background-surface-color, #ffffff);
   color: var(--ifm-color-content);
   transition: border-color 0.2s ease;
 }

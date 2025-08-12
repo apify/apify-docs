@@ -6,9 +6,30 @@ import React, { useMemo, useState } from 'react';
 import styles from './StoragePricingCalculator.module.css';
 
 const pricingTiers = [
-  { name: 'Free/Starter', storageMultiplier: 1.0, readMultiplier: 1.0, writeMultiplier: 1.0, listMultiplier: 1.0 },
-  { name: 'Scale', storageMultiplier: 0.9, readMultiplier: 0.9, writeMultiplier: 0.9, listMultiplier: 0.9 },
-  { name: 'Business', storageMultiplier: 0.8, readMultiplier: 0.8, writeMultiplier: 0.8, listMultiplier: 0.8 },
+  {
+    name: 'Free/Starter',
+    description: '$0/month & $39/month',
+    storageMultiplier: 1.0,
+    readMultiplier: 1.0,
+    writeMultiplier: 1.0,
+    listMultiplier: 1.0,
+  },
+  {
+    name: 'Scale',
+    description: '$199/month',
+    storageMultiplier: 0.9,
+    readMultiplier: 0.9,
+    writeMultiplier: 0.9,
+    listMultiplier: 0.9,
+  },
+  {
+    name: 'Business',
+    description: '$999/month',
+    storageMultiplier: 0.8,
+    readMultiplier: 0.8,
+    writeMultiplier: 0.8,
+    listMultiplier: 0.8,
+  },
 ];
 
 const storageTypes = [
@@ -117,6 +138,7 @@ const StoragePricingCalculator = () => {
                   />
                   <div className={styles.radioContent}>
                     <strong>{tier.name}</strong>
+                    <span>{tier.description}</span>
                   </div>
                 </label>
               ))}
