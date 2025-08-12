@@ -35,7 +35,7 @@ This is the Apify documentation repository containing platform documentation, ac
 - Use **sentence case** for headings (except main titles)
 - Use **title case** for UI elements and proper nouns
 - **Bold** for UI elements, buttons, menu items
-- *Italics* for emphasis and new terms
+- _Italics_ for emphasis and new terms
 - `code` for inline code, file names, and technical terms
 - Use **numbered lists** for sequential steps
 - Use **bullet points** for non-sequential items
@@ -93,13 +93,6 @@ Critical information that could cause issues.
 - Add **comments** to explain complex code
 - Use **syntax highlighting** for all code blocks
 
-### Screenshots & images
-
-- Use **light theme** for screenshots
-- Include **meaningful alt text**
-- Use **red indicators** to highlight important areas
-- Keep images **optimized** for web
-
 ## File organization
 
 ### Naming conventions
@@ -140,44 +133,18 @@ sources/
 
 ## Quality standards
 
-### Content review checklist
+### Content quality guidelines
 
-- [ ] Content follows Microsoft style guide
-- [ ] All links are working and accurate
-- [ ] Code examples are tested and functional
-- [ ] Screenshots are up-to-date and clear
-- [ ] Front matter includes proper metadata
-- [ ] Content is accessible and inclusive
+When creating or editing content, ensure:
 
-### Technical accuracy
-
-- Verify all **technical information** is current
-- Test **code examples** before publishing
-- Ensure **screenshots** match current UI
-- Validate **API endpoints** and responses
-
-## Development workflow
-
-### Local development
-
-1. Run `npm install` to install dependencies
-2. Use `npm start` for basic development
-3. Use `npm start:dev` for full documentation set
-4. Run `npm run lint:md` to check markdown
-5. Run `npm run lint:code` to check code
-
-### Linting & quality
-
-- **Markdown linting**: `npm run lint:md`
-- **Code linting**: `npm run lint:code`
-- **Prose linting**: Uses Vale with Microsoft style guide
-- **Auto-fix**: `npm run lint:fix`
-
-### Commit guidelines
-
-- Follow **Conventional Commits** format
-- Include **comprehensive documentation updates**
-- Ensure all **CI checks pass**
+- [ ] Content follows Microsoft style guide (sentence case headings, proper emphasis)
+- [ ] Front matter includes proper title, description, and metadata
+- [ ] Code examples are complete and include proper syntax highlighting
+- [ ] All links use descriptive text (avoid "click here")
+- [ ] Images include meaningful alt text
+- [ ] Content uses inclusive language and active voice
+- [ ] Headings follow proper hierarchy (H1 → H2 → H3)
+- [ ] Content is clear, concise, and action-oriented
 
 ## Common patterns
 
@@ -188,15 +155,6 @@ sources/
 3. **Step-by-step instructions** - Clear, numbered steps
 4. **Code examples** - Complete, working examples
 5. **Summary** - What they accomplished and next steps
-
-### API documentation structure
-
-1. **Overview** - What the endpoint does
-2. **Authentication** - How to authenticate
-3. **Parameters** - Detailed parameter descriptions
-4. **Request examples** - Multiple language examples
-5. **Response examples** - Success and error responses
-6. **Rate limits** - Any applicable limits
 
 ### Troubleshooting sections
 
@@ -210,7 +168,6 @@ sources/
 - Use **descriptive link text** (avoid "click here")
 - Include **alt text** for all images
 - Use **proper heading hierarchy** (H1 → H2 → H3)
-- Ensure **sufficient color contrast**
 - Write **clear, concise content**
 
 ## SEO best practices
@@ -220,13 +177,5 @@ sources/
 - Write **meta descriptions** (140-160 characters)
 - Use **proper heading structure**
 - Include **internal links** to related content
-
-## Review process
-
-1. **Self-review** using the quality checklist
-2. **Technical review** by subject matter experts
-3. **Editorial review** for style and clarity
-4. **Accessibility review** for inclusive content
-5. **Final review** before publication
 
 Remember: The goal is to help users succeed with Apify. Every piece of documentation should serve that purpose by being clear, accurate, and actionable.
