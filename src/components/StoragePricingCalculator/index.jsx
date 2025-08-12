@@ -77,7 +77,7 @@ const StoragePricingCalculator = () => {
 
       <Admonition type="warning" title="This is an estimate">
         This is an estimate based on current pricing. Actual costs may vary.<br/>
-        Prices are per 1,000 GB-hours for storage and per 1,000 operations for reads/writes/lists.
+        Prices are per 1,000 GB-hours for storage and per operation for reads/writes/lists.
       </Admonition>
 
       <div className={styles.controls}>
@@ -117,12 +117,6 @@ const StoragePricingCalculator = () => {
                   />
                   <div className={styles.radioContent}>
                     <strong>{tier.name}</strong>
-                    <span>
-                      {tier.storageMultiplier < 1
-                        ? `${((1 - tier.storageMultiplier) * 100).toFixed(0)}% discount`
-                        : 'Standard pricing'
-                      }
-                    </span>
                   </div>
                 </label>
               ))}
