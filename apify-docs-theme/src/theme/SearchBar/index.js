@@ -129,10 +129,17 @@ export default function SearchBar({ onClick }) {
                     organizationDisplayName: 'Apify',
                     primaryBrandColor: '#FF9013',
                     transformSource: (source) => {
+                        function getTabForSource(source) {
+                            if (source.url.includes('help.apify.com')) {
+                                return 'Help';
+                            }
+                            return 'Docs';
+                        }
+
                         if (source.contentType === 'documentation') {
                             return {
                                 ...source,
-                                tabs: [...(source.tabs || []), 'Docs'],
+                                tabs: [...(source.tabs || []), getTabForSource(source)],
                             };
                         }
                         return source;
@@ -157,6 +164,7 @@ export default function SearchBar({ onClick }) {
                     tabs: [
                         'All',
                         'Docs',
+                        'Help',
                         'Publications',
                         'PDFs',
                         'GitHub',
