@@ -6,8 +6,6 @@ category: platform
 slug: /limits
 ---
 
-# Limits {#limits}
-
 **Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of Actors and tasks per user.**
 
 ---
@@ -16,7 +14,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
 
 > If needed, the limits shown below can be increased on paid accounts. For details, contact us at **[hello@apify.com](mailto:hello@apify.com)** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
 
-## Actor runtime limits {#actor-limits}
+## Actor runtime limits
 
 <table>
     <thead>
@@ -26,9 +24,9 @@ The tables below demonstrate the Apify platform's default resource limits. For A
     </tr>
     <tr>
         <th>Free</th>
-        <th>Personal</th>
-        <th>Team</th>
-        <th>Enterprise</th>
+        <th>Starter</th>
+        <th>Scale</th>
+        <th>Business</th>
     </tr>
     </thead>
     <tbody>
@@ -75,7 +73,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
     </tbody>
 </table>
 
-## Apify platform limits {#platform-limits}
+## Apify platform limits
 
 <table>
     <thead>
@@ -85,9 +83,9 @@ The tables below demonstrate the Apify platform's default resource limits. For A
     </tr>
     <tr>
         <th>Free</th>
-        <th>Personal</th>
-        <th>Team</th>
-        <th>Enterprise</th>
+        <th>Starter</th>
+        <th>Scale</th>
+        <th>Business</th>
     </tr>
     </thead>
     <tbody>
@@ -133,7 +131,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
     </tbody>
 </table>
 
-## Usage limit {#usage-limit}
+## Usage limit
 
 The Apify platform also introduces usage limits based on the billing plan to protect users from accidental overspending. To learn more about usage limits, head over to the [Limits](./console/billing.md#limits) section of our docs.
 
