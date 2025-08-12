@@ -92,8 +92,8 @@ const StoragePricingCalculator = () => {
   return (
     <div className={clsx(styles.calculator, isDarkTheme && styles.dark)}>
       <div className={styles.header}>
-        <h3>Storage Pricing Calculator</h3>
-        <p>Calculate estimated costs for your storage usage</p>
+        <h3>Storage Pricing</h3>
+        <p>Estimate costs for your storage usage</p>
       </div>
 
       <Admonition type="warning" title="This is an estimate">
