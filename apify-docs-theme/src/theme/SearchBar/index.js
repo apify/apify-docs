@@ -128,9 +128,9 @@ export default function SearchBar({ onClick }) {
                     apiKey: inkeepApiKey,
                     organizationDisplayName: 'Apify',
                     primaryBrandColor: '#FF9013',
-                    transformSource: (source) => {
-                        function getTabForSource(source) {
-                            if (source.url.includes('help.apify.com')) {
+                    transformSource: (src) => {
+                        function getTabForSource(src) {
+                            if (src.url.includes('help.apify.com')) {
                                 return 'Help';
                             }
                             return 'Docs';
