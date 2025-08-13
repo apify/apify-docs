@@ -7,12 +7,12 @@ const internalUrls = ['sdk.apify.com'];
 /**
  * @param {import('url').UrlWithStringQuery} href
  */
-function isInternal(href) {
+exports.isInternal = (href) => {
     return internalUrls.some(
         (internalUrl) => href.host === internalUrl
             || (!href.protocol && !href.host && (href.pathname || href.hash)),
     );
-}
+};
 
 /**
  * @type {import('unified').Plugin}
@@ -27,7 +27,7 @@ exports.externalLinkProcessor = () => {
             ) {
                 const href = parse(node.properties.href);
 
-                if (!isInternal(href)) {
+                if (!exports.isInternal(href)) {
                     node.properties.target = '_blank';
                     node.properties.rel = 'noopener';
                 } else {
