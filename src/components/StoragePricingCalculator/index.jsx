@@ -97,8 +97,7 @@ const StoragePricingCalculator = () => {
       </div>
 
       <Admonition type="warning" title="This is an estimate">
-        This is an estimate based on current pricing. Actual costs may vary.<br/>
-        Prices are per 1,000 GB-hours for storage and per operation for reads/writes/lists.
+        This is an estimate based on current pricing. Actual costs may vary.
       </Admonition>
 
       <div className={styles.controls}>
