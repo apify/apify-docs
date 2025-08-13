@@ -10,7 +10,7 @@ Get YouTube search results, video details, channel videos, playlists, and channe
 
 ---
 
-The Gumloop YouTube integration provides a native interface for running Apify’s YouTube scrapers directly in your workflows—no API keys or manual polling required. All you need is a Gumloop account.  
+The Gumloop YouTube integration provides a native interface for running Apify’s YouTube scrapers directly in your workflows. No API keys or manual polling required. All you need is a Gumloop account.
 
 Using the Gumloop YouTube MCP node, you can simply prompt the YouTube data you need and Gumloop will retrieve it from relevant Apify actors. From there, you can connect it to your favorite tools and AI agents to process the information.
 
@@ -18,11 +18,7 @@ Using the Gumloop YouTube MCP node, you can simply prompt the YouTube data you n
 
 You can pull the following types of data from YouTube using Gumloop’s YouTube node (via Apify). Each action has a credit cost:
 
-Prerequisites:
-
-- A Gumloop account.
-
-| Tool/ Action | Description | Credit Cost |
+| Tool/Action | Description | Credit Cost |
 | :---- | :---- | :---- |
 | Search videos | Search YouTube by keywords and get video results with filtering, metadata, and content info. | 3 credit per item |
 | Get video details | Retrieve detailed stats and content info for specific videos via URL or ID. | 4 credit per item |
@@ -32,13 +28,13 @@ Prerequisites:
 
 ## Retrieve YouTube data in Gumloop
 
-1. Add the Gumloop YouTube MCP node
+1. _Add the Gumloop YouTube MCP node_
 
     First, add the YouTube node from the node library to your workflow canvas.
 
     ![YouTube MCP node in Node Library](images/youtube/mcp-node-image.jpeg)
 
-1. Prompt the data you need
+1. _Prompt the data you need_
 
     In the node's configuration panel, write a clear, specific prompt that describes the data you want to retrieve.
 
@@ -51,7 +47,7 @@ Prerequisites:
 
     :::
 
-1. Define the inputs and outputs
+1. _Define the inputs and outputs_
 
     Once you’ve entered your prompt, you will go through the AI assisted node creation process starting with defining inputs, parameters and outputs of your YouTube node.
 
@@ -59,7 +55,7 @@ Prerequisites:
 
     ![Suggested inputs, parameters, outputs](images/youtube/input-outputs.jpeg)
 
-1. Generate and test the node
+1. _Generate and test the node_
 
     With inputs, parameters and outputs defined, Gummie will generate the code to retrieve the data from the Apify YouTube node. There is no requirement for you to review or understand the code, Gummie takes care of it.
 

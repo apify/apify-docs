@@ -18,11 +18,7 @@ Using the Gumloop Instagram MCP node, you can prompt the Instagram data you need
 
 You can pull the following types of data from public Instagram accounts using Gumloop’s Instagram node (via Apify). Each action has a credit cost.
 
-Prerequisites:
-
-- A Gumloop account.
-
-| Tool/ Action | Description | Credit Cost |
+| Tool/Action | Description | Credit Cost |
 | :---- | :---- | :---- |
 | Get profile posts | Fetch posts from a public Instagram profile, including captions, images, like and comment counts, and metadata. | 3 credits per item |
 | Get post comments | Retrieve all comments on a specific post, with author info, timestamps, and like counts. | 3 credits per item |
@@ -35,13 +31,13 @@ Prerequisites:
 
 ## Retrieve Instagram data in Gumloop
 
-1. Add the Gumloop Instagram MCP node
+1. _Add the Gumloop Instagram MCP node_
 
     First, add the Instagram node from the node library to your workflow canvas.
 
     ![Instagram MCP node on canvas](images/instagram/mcp-node-image.jpeg)
 
-1. Prompt the data you need.
+1. _Prompt the data you need._
 
     In the node's configuration panel, write a clear, specific prompt that describes the data you want to retrieve.
 
@@ -49,12 +45,12 @@ Prerequisites:
 
     :::tip Prompting tips
 
-    - MCP nodes only have access to the tools listed so your prompt should be scoped to Instagram.  
+    - MCP nodes only have access to the tools listed so your prompt should be scoped to Instagram.
     - You can mix and match different tools (get 10 latest videos for a hashtag and retrieve profile data for each post).
 
     :::
 
-1. Define the inputs and outputs
+1. _Define the inputs and outputs_
 
     Once you’ve entered your prompt, you will go through the AI assisted node creation process starting with defining inputs, parameters and outputs of your Instagram node.
 
@@ -62,7 +58,7 @@ Prerequisites:
 
     ![Suggested inputs, parameters, outputs](images/instagram/input-outputs.jpeg)
 
-1. Generate and test the node
+1. _Generate and test the node_
 
     With inputs, parameters and outputs defined, Gummie will generate the code to retrieve the data from the Apify Instagram node. There is no requirement for you to review or understand the code, Gummie takes care of it.
 
