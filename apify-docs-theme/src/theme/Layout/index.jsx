@@ -3,10 +3,12 @@ import { useLocation } from '@docusaurus/router';
 // cannot use any of the theme aliases here as it causes a circular dependency :( ideas welcome
 import Layout from '@docusaurus/theme-classic/lib/theme/Layout/index';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import React from 'react';
 
 export default function LayoutWrapper(props) {
+    const { siteConfig } = useDocusaurusContext();
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
     const baseUrl = useBaseUrl('/');
     const currentPath = useLocation().pathname.replace(new RegExp(`^${baseUrl}`), '');
@@ -14,7 +16,7 @@ export default function LayoutWrapper(props) {
     return (
         <>
             <Head>
-                <link rel="alternate" type="text/markdown" href={`${baseUrl}${currentPath}.md`}/>
+                <link rel="alternate" type="text/markdown" href={`${siteConfig.url}/${currentPath}.md`}/>
             </Head>
             <div
                 style={{
