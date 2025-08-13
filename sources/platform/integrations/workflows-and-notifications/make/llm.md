@@ -45,22 +45,20 @@ Use Standard Settings to quickly search the web and extract content with optimiz
 
 The module supports two modes:
 
-- **Search mode** (keywords)
+- _Search mode_ (keywords)
   - Queries Google Search with your keywords (supports advanced operators)
   - Retrieves the top N organic results
   - Loads each result and extracts the main content
   - Returns Markdown-formatted content
 
-- **Direct URL mode** (URL)
+- _Direct URL mode_ (URL)
   - Navigates to a specific URL
   - Extracts page content
   - Skips Google Search
 
-#### Processing steps
+#### How it works
 
-1. Search (if keywords provided): run Google Search, parse results, collect organic URLs
-2. Content extraction: load pages, wait for dynamic content, remove clutter, extract main content, convert to Markdown
-3. Output generation: combine content, add metadata and sources, format for AI consumption
+When you provide keywords, the module runs Google Search, parses the results, and collects organic URLs. For content extraction, it loads pages, waits for dynamic content to render, removes clutter, extracts the main content, and converts it to Markdown. Finally, it generates output by combining content, adding metadata and sources, and formatting everything for AI consumption.
 
 #### Output data
 
@@ -93,33 +91,33 @@ The module supports two modes:
 
 #### Configuration (Standard Settings)
 
-- **Search query**: Google Search keywords or a direct URL
-- **Maximum results**: Number of top search results to process (default: 3)
-- **Output formats**: Markdown, text, or HTML
-- **Remove cookie warnings**: Dismiss cookie consent dialogs
-- **Debug mode**: Enable extraction diagnostics
+- _Search query_: Google Search keywords or a direct URL
+- _Maximum results_: Number of top search results to process (default: 3)
+- _Output formats_: Markdown, text, or HTML
+- _Remove cookie warnings_: Dismiss cookie consent dialogs
+- _Debug mode_: Enable extraction diagnostics
 
 ### Advanced Settings module
 
-Advanced Settings gives you full control over search and extraction. Use it for complex sites or production RAG pipelines.
+Advanced Settings give you full control over search and extraction. Use it for complex sites or production RAG pipelines.
 
 #### Key features
 
-- Advanced search options: full Google operator support
-- Flexible crawling tools: browser-based (Playwright) or HTTP-based (Cheerio)
-- Proxy configuration: handle geo-restrictions and rate limits
-- Granular content control: include, remove, and click selectors
-- Dynamic content handling: wait strategies for JavaScript rendering
-- Multiple output formats: Markdown, HTML, or text
-- Request management: timeouts, retries, and concurrency
+- _Advanced search options_: full Google operator support
+- _Flexible crawling tools_: browser-based (Playwright) or HTTP-based (Cheerio)
+- _Proxy configuration_: handle geo-restrictions and rate limits
+- _Granular content control_: include, remove, and click selectors
+- _Dynamic content handling_: wait strategies for JavaScript rendering
+- _Multiple output formats_: Markdown, HTML, or text
+- _Request management_: timeouts, retries, and concurrency
 
 #### Configuration options
 
-- Search: query, max results (1–100), SERP proxy group, SERP retries
-- Scraping: tool (browser-playwright, raw-http), HTML transformer, selectors (remove/keep/click), expand clickable elements
-- Requests: timeouts, retries, dynamic content wait
-- Proxy: use Apify Proxy, proxy groups, countries
-- Output: formats, save HTML/Markdown, debug mode, save screenshots
+- _Search_: query, max results (1–100), SERP proxy group, SERP retries
+- _Scraping_: tool (browser-playwright, raw-http), HTML transformer, selectors (remove/keep/click), expand clickable elements
+- _Requests_: timeouts, retries, dynamic content wait
+- _Proxy_: use Apify Proxy, proxy groups, countries
+- _Output_: formats, save HTML/Markdown, debug mode, save screenshots
 
 #### Output data
 
@@ -168,10 +166,7 @@ Advanced Settings gives you full control over search and extraction. Use it for 
 
 ### Best practices
 
-1. Search query optimization: use specific keywords and operators; exclude unwanted domains with `-site:`
-2. Performance: use HTTP mode for static sites; use browser mode only when necessary; tune concurrency
-3. Content quality: remove non-content elements; select the right HTML transformer; enable debug when needed
-4. Error handling: set timeouts and retries; monitor HTTP status codes
+To get the best search results, use specific keywords and operators, and exclude unwanted domains with `-site:`. For better performance, use HTTP mode for static sites and only switch to browser mode when necessary. You can also tune concurrency settings based on your needs. To maintain content quality, remove non-content elements, choose the right HTML transformer, and enable debug mode when troubleshooting. Finally, ensure reliable operation by setting appropriate timeouts and retries, and monitoring HTTP status codes for errors.
 
 ## Other scrapers available
 
@@ -184,4 +179,4 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 - [AI crawling](/platform/integrations/make/ai-crawling)
 - [Amazon](/platform/integrations/make/amazon)
 
-And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

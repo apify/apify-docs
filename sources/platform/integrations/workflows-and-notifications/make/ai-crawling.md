@@ -149,4 +149,4 @@ Looking for more than just AI crawling? You can use other native Make apps power
 - [YouTube Data](/platform/integrations/make/youtube)
 - [Amazon](/platform/integrations/make/amazon)
 
-And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
