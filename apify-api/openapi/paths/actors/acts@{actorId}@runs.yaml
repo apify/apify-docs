@@ -59,8 +59,8 @@ get:
     - name: status
       in: query
       description: |
-        Return only runs with the provided status ([available
-        statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle))
+        Single status or comma-separated list of statuses, see ([available
+        statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)). Used to filter runs by the specified statuses only.
       style: form
       explode: true
       schema:
