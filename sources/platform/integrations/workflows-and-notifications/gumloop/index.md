@@ -54,21 +54,21 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     ![Apify Settings > Integrations with API token](images/generate_apify_token.png)
 
-1. Add Apify Credentials to Gumloop
+1. Add Apify credentials to Gumloop
 
     Next, go to [**Gumloop Credentials**](https://www.gumloop.com/settings/profile/credentials) and click **Add New Credentials**. Search for Apify in the credentials list, add your Apify API key, and save the credential.
 
     ![Gumloop Credentials adding Apify API key](images/apify_credential_gumloop.png)
 
-   1. Add Apify Task Runner Node to Your Workflow
+1. Add Apify Task Runner node to your workflow
 
    Open a new Gumloop pipeline page. Search for **Apify Task Runner** in the **Node Library**, and drag and drop the node onto your canvas.
 
     ![Apify Task Runner in Node Library](images/apify_task_runner_node_library.png)
 
-   1. Create and Save Tasks in Apify
+1. Create and save tasks in Apify
 
-   The Apify task runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
+   The Apify Task Runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
 
     ![Create a task on an Actor](images/create_apify_task.png)
 
@@ -78,7 +78,7 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     :::
 
-1. Run Your Tasks
+1. Run your tasks
 
     Before tasks appear in Gumloop, they must be executed at least once in Apify. Go to your [**Saved tasks**](https://console.apify.com/actors/tasks), click on the task you want to use, and click **Start** to execute it. Wait for the task to complete.
 
@@ -86,13 +86,13 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     ![Saved tasks with Start](images/start_apify_task.png)
 
-1. Configure Your Gumloop Workflow
+1. Configure your Gumloop workflow
 
     Select your task from the dropdown menu. Choose the output fields you want to use. Configure maximum run time and output limits. Connect the node to other workflow components.
 
     ![Apify Task Runner node configuration](images/apify_task_runner_node.png)
 
-## Example Workflow
+## Example workflow
 
 Here's a simple example of how to use Apify with Gumloop:
 
