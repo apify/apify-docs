@@ -90,9 +90,9 @@ The Apify SDKs are libraries in JavaScript or Python that provide tools for buil
 * JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
 * Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
-## Pricing calculator
+## Estimate your costs
 
-Use the calculator to estimate storage costs by plan and storage type. Results are estimates.
+Use this tool to estimate storage costs by plan and storage type.
 
 <details>
   <summary>Estimate your storage costs</summary>
