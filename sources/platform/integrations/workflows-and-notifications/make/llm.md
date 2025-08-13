@@ -17,21 +17,21 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
-   <!-- TODO: Add signup screenshot. Suggested path: images/llm/signup.png -->
+    ![Make interface showing API token field and connection name field for Apify integration setup](images/llm/rag-signup.png)
 
 1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-   <!-- TODO: Add console token screenshot. You can reuse: images/Apify_Console_token_for_Make.png -->
+    ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/Apify_Console_token_for_Make.png)
 
 1. Find your token under **Personal API tokens**. You can also create a new token with custom permissions by clicking **+ Create a new token**.
 1. Click the **Copy** icon to copy your API token, then return to your Make scenario.
 
-   <!-- TODO: Add Make token connection screenshot. You can reuse: images/Apify_token_on_Make.png -->
+    ![Apify Console Settings page showing Personal API tokens section with token management options](images/Apify_token_on_Make.png)
 
 1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
 1. In the **API token** field, paste your token, provide a clear **Connection name**, and click **Save**.
 
-   <!-- TODO: Add Make connection dialog screenshot. Suggested path: images/llm/make-connection.png -->
+    ![Make connection dialog with completed API token and connection name fields for Apify Scraper module](images/llm/apify-token-for-module-on-make.png)
 
 Once connected, you can build workflows that search the web, extract content, and pass it to your AI applications.
 
