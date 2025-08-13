@@ -14,7 +14,7 @@ export default function LayoutWrapper(props) {
     return (
         <>
             <Head>
-                <link rel="alternate" type="text/markdown" href={`${currentPath}.md`}/>
+                <link rel="alternate" type="text/markdown" href={`${baseUrl}${currentPath}.md`}/>
             </Head>
             <div
                 style={{
