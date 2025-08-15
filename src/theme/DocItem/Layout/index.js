@@ -5,7 +5,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Giscus from '@giscus/react';
 import ContentVisibility from '@theme/ContentVisibility';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
-import DocItemContent from '@theme/DocItem/Content';
 import DocItemFooter from '@theme/DocItem/Footer';
 import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
@@ -15,6 +14,7 @@ import DocVersionBanner from '@theme/DocVersionBanner';
 import clsx from 'clsx';
 import React, { useCallback } from 'react';
 
+import DocItemContent from '../Content';
 import styles from './styles.module.css';
 
 /**

@@ -1,0 +1,38 @@
+.llmButtonsContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -8px;
+    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));;
+}
+
+.llmButtonsSeparator {
+    width: 1px;
+    height: 16px;
+    background-color: #e0e0e0;
+}
+
+.llmButton {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    height: 16px;
+    cursor: pointer;
+    padding: 0;
+    gap: 4px;
+}
+
+.llmButtonIcon {
+    width: 16px;
+    height: 16px;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .llmButton {
+    background: #2a2a2a;
+    border-color: #404040;
+    color: #e0e0e0;
+}

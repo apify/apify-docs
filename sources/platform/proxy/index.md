@@ -11,8 +11,6 @@ import TabItem from '@theme/TabItem';
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
-# Proxy
-
 **Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.**
 
 ---
