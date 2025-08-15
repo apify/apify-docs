@@ -6,8 +6,6 @@ category: platform
 slug: /security
 ---
 
-# Security
-
 **Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.**
 
 ---
