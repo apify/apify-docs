@@ -19,7 +19,7 @@ One of the most common WAFs one can come across is the one from [Cloudflare](htt
 
 ## How it works {#how-it-works}
 
-WAPs work on a similar premise as regular firewalls. Web admins define the rules, and the firewall executes them. As an example of how the WAF can work, we will take a look at Cloudflare's solution:
+WAFs work on a similar premise as regular firewalls. Web admins define the rules, and the firewall executes them. As an example of how the WAF can work, we will take a look at Cloudflare's solution:
 
 1. The visitor sends a request to the webpage.
 2. The request is intercepted by the firewall.
@@ -38,7 +38,7 @@ Since there are multiple providers, it is essential to say that the challenges a
 - Overriding the browser's [fingerprint](./fingerprinting.md) (most effective).
 - Farming the [cookies](../../../glossary/concepts/http_cookies.md) from a website with a headless browser, then using the farmed cookies to do HTTP based scraping (most performant).
 
-As you likely already know, there is no solution that fits all. If you are struggling to get past a WAP provider, you can try using Firefox with Playwright.
+As you likely already know, there is no solution that fits all. If you are struggling to get past a WAF provider, you can try using Firefox with Playwright.
 
 ## Next up {#next}
 
