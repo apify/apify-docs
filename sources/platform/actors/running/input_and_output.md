@@ -50,8 +50,72 @@ You can quickly access the Actor's output from the run detail page:
 
 ![Actor output](./images/input_and_output/actor-output.png)
 
-And to access all the data associated with the run, see the **Storage** tab, where you can explore the Actor's default [Dataset](../../storage/dataset), [Key-value store](../../storage/key-value-store), and [Request queue](../../storage/request-queue):
-
-![Actor output](./images/input_and_output/actor-storage.png)
+And to access all the data associated with the run, see the **Storage** tab, where you can explore the Actor's default [Dataset](../../storage/dataset), [Key-value store](../../storage/key-value-store), and [Request queue](../../storage/request-queue).
 
 You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
+
+## Example
+
+Here is a simple Actor that demonstrates how to access input and produce output. The Actor takes two numbers as input, adds them together, and pushes the result to its default dataset.
+
+### Input
+
+To create a user interface for this input in the Apify Console, you would define the following `INPUT_SCHEMA.json`:
+
+```json title="INPUT_SCHEMA.json"
+{
+    "title": "Number adder",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "num1": {
+            "title": "1st Number",
+            "type": "integer",
+            "description": "First number.",
+            "editor": "number"
+        },
+        "num2": {
+            "title": "2nd Number",
+            "type": "integer",
+            "description": "Second number.",
+            "editor": "number"
+        }
+    },
+    "required": ["num1", "num2"]
+}
+```
+
+When you run this Actor, you can enter the two numbers in the **Input** tab:
+
+![Configuring inputs](./images/input_and_output/configure-inputs.jpg)
+
+### Code
+
+The Actor's code uses `Actor.getInput()` to retrieve the input values and `Actor.pushData()` to save the result.
+
+```javascript title="main.js"
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// Get the input from the INPUT.json file
+const { num1, num2 } = await Actor.getInput();
+
+// Calculate the sum
+const sum = num1 + num2;
+
+// Push the result to the default dataset
+await Actor.pushData({ sum });
+
+await Actor.exit();
+```
+
+### Output
+
+The results from the "number adder" example can be found in the **Results** tab of the Actor run.
+
+![Result box](./images/input_and_output/result-box.png)
+
+On the results page, you can preview the data in various formats.
+
+![Dataset preview](./images/input_and_output/dataset-preview.png)
