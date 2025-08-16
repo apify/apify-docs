@@ -5,7 +5,7 @@ const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
-const { externalLinkProcessor } = require('./tools/utils/externalLink');
+const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
@@ -264,7 +264,8 @@ module.exports = {
         }),
         [
             '@signalwire/docusaurus-plugin-llms-txt',
-            {
+            /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
+            ({
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -272,6 +273,14 @@ module.exports = {
                     includeGeneratedIndex: false,
                     includePages: true,
                     relativePaths: false,
+                    remarkStringify: {
+                        handlers: {
+                            link: (node) => {
+                                const isUrlInternal = isInternal(node.url);
+                                return `[${node.title}](${isUrlInternal ? `${config.absoluteUrl}${node.url}` : node.url})`;
+                            },
+                        },
+                    },
                     excludeRoutes: [
                         '/',
                     ],
@@ -294,7 +303,7 @@ module.exports = {
                         },
                     ],
                 },
-            },
+            }),
         ],
         // TODO this should be somehow computed from all the external sources
         // [
