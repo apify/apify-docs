@@ -27,6 +27,7 @@ Before contributing, read these essential resources:
 
 - [Contributing guidelines](CONTRIBUTING.md)
 - [Documentation style guide](CONTRIBUTING.md#documentation-style-guide)
+- [AI Assistant Rules Structure](CONTRIBUTING.md#ai-assistant-rules-structure)
 
 ## Documentation architecture
 

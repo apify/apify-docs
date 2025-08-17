@@ -73,3 +73,6 @@ static/api/openapi.yaml
 
 # Generated requirements files
 apify-api/scripts/requirements.bin
+
+# AGENT.md is the primary vendor-agnostic rules file
+# .cursor/rules/ contains Cursor-specific rules with advanced features

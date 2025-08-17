@@ -88,7 +88,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 1. Text emphasis:
 
     - use **Bold** for UI elements
-    - use *Italics* for emphasis
+    - use _Italics_ for emphasis
     - use `code` for inline code, by using back-ticks (\`\`\)
     - use code blocks with language specification
     - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
@@ -126,6 +126,44 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Use action-oriented phrasing
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
+
+## AI Assistant Rules Structure
+
+This project uses a hybrid approach for AI assistant rules to ensure consistency across different tools while leveraging Cursor-specific features.
+
+### Structure Overview
+
+#### Vendor-Agnostic Rules
+
+- **`AGENT.md`** - Primary vendor-agnostic rules file containing core documentation standards
+
+#### Cursor-Specific Rules
+
+- **`.cursor/rules/documentation-style.mdc`** - Cursor-specific documentation guidelines
+- **`.cursor/rules/content-formatting.mdc`** - Cursor-specific formatting rules
+- **`.cursor/rules/api-documentation.mdc`** - Cursor-specific API documentation rules
+- **`.cursor/rules/quality-standards.mdc`** - Cursor-specific quality guidelines
+- **`.cursor/rules/file-organization.mdc`** - Cursor-specific file organization rules
+
+### Usage
+
+#### For General AI Assistants
+
+- Reference `AGENT.md` for vendor-agnostic documentation standards
+
+#### For Cursor-Specific Features
+
+- Use `.cursor/rules/*.mdc` files for Cursor-specific workflows
+- Leverage glob patterns and `alwaysApply` settings
+- Use Cursor Chat and Cmd+K with `@AGENT.md` references
+
+### File Targeting
+
+Each `.mdc` file uses glob patterns to target specific file types:
+
+- **`documentation-style.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
+- **`content-formatting.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
+- **`api-documentation.mdc`**: `["apify-api/**/*.yaml", "apify-api/**/*.js"]`
 
 ## Repository structure
 

@@ -1,81 +1,55 @@
 ---
-description: Documentation style guidelines and writing standards for Apify docs
+description: Cursor-specific documentation style rules for Apify docs
 globs: ["sources/**/*.md", "sources/**/*.mdx"]
 alwaysApply: true
 ---
 
-# Documentation Style Guidelines
+# Cursor-Specific Documentation Rules
 
-## Project overview
+## Context-Aware Writing
 
-This is the Apify documentation repository containing platform documentation, academy content, and API reference. The project uses Docusaurus with MDX, OpenAPI specifications, and follows Microsoft style guide principles.
+When editing documentation in Cursor, consider the broader context:
 
-## Documentation structure
+- **Cross-references**: When mentioning other pages, use Cursor's file navigation to verify links
+- **Consistency checks**: Use Cursor's search to ensure terminology consistency across files
+- **Code examples**: Leverage Cursor's syntax highlighting and validation for code blocks
 
-- **Platform docs**: `/sources/platform/` - Core platform features and functionality
-- **Academy**: `/sources/academy/` - Educational content, tutorials, and courses
-- **API reference**: `/apify-api/` - Generated from OpenAPI specifications
+## Cursor-Specific Workflows
 
-## Writing style & guidelines
+### Using Cursor Chat for Documentation
 
-### Language & tone
+- Ask Cursor to "review this documentation for clarity and completeness"
+- Use "explain this technical concept in simpler terms" for complex topics
+- Request "suggest improvements for this tutorial structure"
 
-- Use **US English** spelling and grammar
-- Write in **inclusive language** - avoid gendered terms and assumptions
-- Use **active voice** whenever possible
-- Write for a **technical audience** but keep explanations clear and accessible
-- Avoid directional language (don't use "left/right")
-- Be **action-oriented** in descriptions and titles
+### Using Cmd+K for Quick Edits
 
-### Technical writing best practices
+- Use `@AGENT.md` to reference the main documentation standards
+- Use `@sources/**/*.md` to search across all documentation files
+- Use `@apify-api/**/*.yaml` to reference API specifications
 
-- **Start with the user's goal** - what are they trying to accomplish?
-- **Use clear, concise sentences** - avoid unnecessary complexity
-- **Provide context** before diving into technical details
-- **Use consistent terminology** throughout the documentation
-- **Include examples** for complex concepts
-- **Structure content logically** - from basic to advanced concepts
+## File-Specific Guidance
 
-### Microsoft style guide compliance
+### For Platform Documentation (`sources/platform/**/*.md`)
 
-- Use **sentence case** for headings (except main titles)
-- Use **title case** for UI elements and proper nouns
-- **Bold** for UI elements, buttons, menu items
-- _Italics_ for emphasis and new terms
-- `code` for inline code, file names, and technical terms
-- Use **numbered lists** for sequential steps
-- Use **bullet points** for non-sequential items
+- Focus on practical, actionable guidance
+- Include real-world examples and use cases
+- Reference related API endpoints when applicable
 
-## Common patterns
+### For Academy Content (`sources/academy/**/*.md`)
 
-### Tutorial structure
+- Structure content for learning progression
+- Include hands-on exercises and examples
+- Provide clear prerequisites and next steps
 
-1. **Introduction** - What will the user learn?
-2. **Prerequisites** - What do they need to know/have?
-3. **Step-by-step instructions** - Clear, numbered steps
-4. **Code examples** - Complete, working examples
-5. **Summary** - What they accomplished and next steps
+### For MDX Files
 
-### Troubleshooting sections
+- Leverage Cursor's MDX syntax highlighting
+- Use component imports and JSX syntax appropriately
+- Ensure proper frontmatter formatting
 
-- **Common issues** and solutions
-- **Error messages** and their meanings
-- **Debugging steps** for complex problems
-- **Contact information** for additional help
+## Quality Assurance in Cursor
 
-## Accessibility guidelines
-
-- Use **descriptive link text** (avoid "click here")
-- Include **alt text** for all images
-- Use **proper heading hierarchy** (H1 → H2 → H3)
-- Write **clear, concise content**
-
-## SEO best practices
-
-- Use **descriptive page titles**
-- Include **relevant keywords** naturally
-- Write **meta descriptions** (140-160 characters)
-- Use **proper heading structure**
-- Include **internal links** to related content
-
-Remember: The goal is to help users succeed with Apify. Every piece of documentation should serve that purpose by being clear, accurate, and actionable.
+- Use Cursor's spell check for documentation files
+- Leverage Cursor's markdown preview for formatting verification
+- Use Cursor's search to find similar content and maintain consistency
