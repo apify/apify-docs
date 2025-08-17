@@ -4,15 +4,15 @@ ignorecase: false
 level: error
 scope: text
 tokens:
-  # Apify Actors (the product) - avoid matching in URLs, code, or other contexts
+  # Apify Actors - avoid matching in URLs, code, or other contexts
   - '(?<![\/\-#\w])actors(?![\/\}])(?!\.\w)'
   
-  # Apify Actor (the product) - avoid matching in URLs, code, or other contexts
+  # Apify Actor - avoid matching in URLs, code, or other contexts
   - '(?<![\/\-#\.`\w])actor(?![\/\}\-\w])(?! =)(?!\.\w)'
   
-  # Apify Console (the product)
+  # Apify Console
   - '(?<![\/\-#\.`\w])console(?![\/\}\-\w])(?! =)(?!\.\w)'
   
-  # Apify Proxy (the product)
+  # Apify Proxy
   - '(?<![\/\-#\.`\w])proxy(?![\/\}\-\w])(?! =)(?!\.\w)'
 nonword: false

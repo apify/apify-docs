@@ -3,7 +3,7 @@ message: "Use '%s' instead of '%s'."
 ignorecase: false
 level: warning
 swap:
-    # Brand consistency
+    # Naming consistency
     Apify Dashboard: Apify Console
     apify freelancers: Apify freelancers
     Apify Platform: Apify platform
