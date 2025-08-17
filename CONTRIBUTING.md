@@ -10,9 +10,10 @@
 
 ### Prerequisites
 
-1. Git
-2. Node.js
-3. GitHub access
+1. **Git**
+2. **Node.js 22** (see [.nvmrc](.nvmrc) file)
+3. **GitHub access**
+4. **npm** or **pnpm** package manager
 
 ### Installation steps
 
@@ -312,21 +313,21 @@ Add languages by adding new folders at the appropriate path level.
 
 ### Linting
 
-1. Markdown:
+1. **Markdown**:
 
     ```bash
     npm run lint:md # Checks for any issues using markdownlint
     npm run lint:md:fix # Applies fixes
     ```
 
-2. Code:
+2. **Code**:
 
     ```bash
     npm run lint:code # Checks .js & .ts files
     npm run lint:code:fix # Applies fixes
     ```
 
-3. Prose:
+3. **Prose**:
 
     - Use [Vale](https://vale.sh/) for content linting
     - Configure exceptions in `accepts.txt`
@@ -347,3 +348,5 @@ Add languages by adding new folders at the appropriate path level.
 
 - [Docusaurus documentation](https://docusaurus.io/docs)
 - [Vale style guide](https://vale.sh/docs)
+- [OpenAPI specification](https://spec.openapis.org/oas/v3.1.0)
+- [Redocly documentation](https://redocly.com/docs/)

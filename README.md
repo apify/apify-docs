@@ -21,13 +21,43 @@ Our documentation ecosystem consists of:
   - [Python](https://docs.apify.com/sdk/python/)
 - **CLI documentation** - [CLI docs](https://docs.apify.com/cli/)
 
-## Getting started
+## Getting Started
 
-Before contributing, read these essential resources:
+**Before contributing, read these essential resources:**
 
-- [Contributing guidelines](CONTRIBUTING.md)
-- [Documentation style guide](CONTRIBUTING.md#documentation-style-guide)
-- [AI Assistant Rules Structure](CONTRIBUTING.md#ai-assistant-rules-structure)
+- [Contributing guidelines](CONTRIBUTING.md) - Complete setup and contribution process
+- [Documentation style guide](CONTRIBUTING.md#documentation-style-guide) - Writing standards and formatting
+- [AI Assistant Rules Structure](CONTRIBUTING.md#ai-assistant-rules-structure) - AI tool configuration
+
+### Prerequisites
+
+- **Node.js 22** (see [.nvmrc](.nvmrc))
+- **npm** or **pnpm**
+- **Git**
+
+### Quick Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/apify/apify-docs.git
+cd apify-docs
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+```
+
+The site will be available at `http://localhost:3000`
+
+### Available Scripts
+
+- `npm start` - Start development server with API docs
+- `npm run build` - Build for production
+- `npm run lint` - Run all linting checks
+- `npm run lint:fix` - Fix linting issues automatically
+- `npm run api:rebuild` - Regenerate API documentation
 
 ## Documentation architecture
 
@@ -57,7 +87,7 @@ Our documentation is built using:
 - **Automated Deployment**: CI/CD pipeline for continuous updates
 - **nginx routing**: Handles subdomain routing and redirects
 
-## Need help
+### Need help
 
 - For contribution questions, see our [Contributing Guidelines](CONTRIBUTING.md)
 - For technical issues, [create a GitHub issue](https://github.com/apify/apify-docs/issues/new)
