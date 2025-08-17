@@ -1,10 +1,21 @@
 extends: substitution
-message: "Use '%s' instead of '%s'."
+message: "Use '%s' instead of '%s' for proper language naming."
 ignorecase: false
 level: warning
 swap:
+  # JavaScript variations
   'javascript|Javascript|javaScript': JavaScript
+  
+  # Python variations (avoid matching in URLs like python.org)
   '(?<!-)python(?!-)': Python
-  'typescript|Typescript|typescript': TypeScript
-  'nodejs|Nodejs|node.js': Node.js
-  # Add more languages or common mistakes as needed
+  
+  # TypeScript variations
+  'typescript|Typescript': TypeScript
+  
+  # Node.js variations
+  'nodejs|Nodejs|node\.js': Node.js
+  
+  # Additional common language variations
+  'js|JS': JavaScript
+  'ts|TS': TypeScript
+  'py|PY': Python

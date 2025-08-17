@@ -1,20 +1,18 @@
 extends: existence
-message: "The word '%s' should always be capitalized."
+message: "The word '%s' should always be capitalized when referring to Apify products."
 ignorecase: false
 level: error
+scope: text
 tokens:
-  # Before the word there should be no: /, -, #, word character
-  # (avoids anchors, URLs, identifiers, and words like 'factors')
-  #
-  # After the word there should be no: /, } (avoids paths or URLs)
-  # Also no . followed by a word character (avoids 'actors.md')
+  # Apify Actors (the product) - avoid matching in URLs, code, or other contexts
   - '(?<![\/\-#\w])actors(?![\/\}])(?!\.\w)'
-
-  # Before the word there should be no: /, -, #, ., `, word character
-  # (avoids anchors, URLs, identifiers, code, and words like 'factors')
-  #
-  # After the word there should be no: /, }, -, word character (avoids paths or URLs)
-  # Also no " =" (avoids code like "actor = ...")
-  # Also no . followed by a word character (avoids 'actor.md' or 'actor.update()')
+  
+  # Apify Actor (the product) - avoid matching in URLs, code, or other contexts
   - '(?<![\/\-#\.`\w])actor(?![\/\}\-\w])(?! =)(?!\.\w)'
+  
+  # Apify Console (the product)
+  - '(?<![\/\-#\.`\w])console(?![\/\}\-\w])(?! =)(?!\.\w)'
+  
+  # Apify Proxy (the product)
+  - '(?<![\/\-#\.`\w])proxy(?![\/\}\-\w])(?! =)(?!\.\w)'
 nonword: false

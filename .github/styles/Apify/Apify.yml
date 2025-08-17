@@ -3,8 +3,13 @@ message: "Use '%s' instead of '%s'."
 ignorecase: false
 level: warning
 swap:
+    # Brand consistency
     Apify Dashboard: Apify Console
     apify freelancers: Apify freelancers
     Apify Platform: Apify platform
+    
+    # Product names
     '(?:[Tt]he\s)?[Aa]pify\sproxy': Apify Proxy
+    
+    # Writing style
     circa: approx.
