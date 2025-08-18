@@ -26,11 +26,10 @@ To integrate Apify with your Bubble application, you first need to install the A
 
 ![Apify Plugin Download](../images/bubble/plugin_install_preview.png)
 
-1. Go to your Bubble application dashboard.
-2. Navigate to the "Plugins" tab.
-3. Click the "Add plugins" button.
-4. Search for "Apify" in the plugin marketplace.
-5. Click on the Apify plugin and then click "Install".
+1. Go to your Bubble application dashboard and navigate to the **Plugins** tab.
+1. Click the **Add plugins** button.
+1. Search for "Apify" in the plugin marketplace.
+1. Click on the Apify plugin and then click **Install**.
 
 ## Step 2: Configure the Apify plugin
 
