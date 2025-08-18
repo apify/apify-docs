@@ -72,9 +72,7 @@ Trigger a workflow on form submission to run an Actor that enriches lead data, s
 
 ### Content aggregation
 
-1. Schedule regular Actor runs to collect content from multiple sources
-2. Use "Fetch Data From Dataset Json As Data" to display aggregated content
-3. Create filtered views based on content categories or dates
+Configure regular Actor runs to gather articles or posts from multiple sources. Use the **Get Dataset Items** data call to display the content in your app, and enable user filters by category, date, or source.
 
 ## Available Apify actions and data sources
 
