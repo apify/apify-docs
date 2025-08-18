@@ -91,9 +91,21 @@ The Apify plugin provides two main types of operations:
 
 ## Troubleshooting
 
-- **Authentication errors**: Ensure your API token is in the format "Bearer <api_token>" and has necessary permissions
-- **Missing Actors or tasks**: Run your Actor at least once in the Apify Console to make it appear in Bubble dropdowns
-- **Timeout errors**: For long-running Actors, consider using asynchronous runs
-- **Data format issues**: Ensure JSON data is properly formatted when working with datasets
+#### Authentication errors
+
+Ensure your API token is correctly formatted as `Bearer <your_api_token>` in the Authorization header and has the necessary permissions.
+
+#### Missing Actors or tasks 
+
+If an Actor or task doesn't appear in a dropdown, make sure you have run it at least once from the Apify Console.
+
+#### Timeout errors
+
+Bubble workflows have a timeout limit. For long-running Actors, use the **Run Actor** action and a separate backend workflow triggered by a webhook to process the results asynchronously when the Actor finishes.
+
+#### Data format issues
+
+Check that your JSON input is correctly formatted when providing input to an Actor. Verify the structure of the dataset output when displaying it in your app.
+
 
 If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
