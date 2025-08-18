@@ -44,12 +44,7 @@ Once the plugin is configured, you can start building automated workflows.
 
 ### Trigger Actor runs from Bubble events
 
-Create workflows that automatically run Apify Actors when certain events occur in your Bubble app:
-
-1. Create a workflow triggered by your preferred event (form submission, button click, page load, etc.)
-2. Add the "Run Actor" or "Run Actor Task" action to your workflow
-3. Configure the Actor parameters and input data
-4. Set up follow-up actions to handle the results
+Create workflows that run Apify Actors in response to events in your Bubble app, such as button clicks or form submissions. In the **Workflow** tab, set up a new workflow with your chosen trigger event. Add a new action and select **Run Actor** or **Run Actor Task** from the Apify plugin. Configure the Actor or Task, including any input data, and include follow-up actions to process the returned data.
 
 ![Using Apify run Actor](../images/bubble/auto_run_preview.png)
 
