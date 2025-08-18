@@ -10,16 +10,6 @@ slug: /integrations/mcp
 
 The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connect to Apify's extensive library of Actors as tools to perform web scraping, data extraction, or other automation tasks in real time.
 
-## Support and contribution
-
-The Apify MCP Server is an open-source project. You can report bugs, suggest new features, or ask questions in the [GitHub issues](https://github.com/apify/actors-mcp-server/issues). If you find this project useful, please [star it on GitHub](https://github.com/apify/actors-mcp-server) to show your support!
-
-:::tip Configure MCP Server
-
-Configure Apify MCP server at [mcp.apify.com](https://mcp.apify.com), select Actors and tools and copy configuration to your MCP client.
-
-:::
-
 ![Apify MCP Server](../../images/apify_mcp_server.png)
 
 ## Quickstart
@@ -27,15 +17,15 @@ Configure Apify MCP server at [mcp.apify.com](https://mcp.apify.com), select Act
 You can use the Apify MCP Server in two ways:
 
 - _HTTPS Endpoint_ `mcp.apify.com`: Connect your MCP client through OAuth or by including `Authorization: Bearer <APIFY_TOKEN>` header in your requests.
-  - `https://mcp.apify.com` for streamable transport (recommended)
-  - `https://mcp.apify.com/sse` for SSE transport (legacy)
+  - `https://mcp.apify.com` for streamable transport
 - _Standard Input/Output (stdio)_: Ideal for local integrations and command-line tools such as the Claude for Desktop client.
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
 
-:::tip Run instantly ⚡
+:::tip Quick setup options
+MCP server configuration for other clients: Use https://mcp.apify.com to select Actors and tools, then copy the configuration to your client.
 
-To install the Apify MCP Server in [Claude for Desktop](https://claude.ai/download) with one click, download and run the latest [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt)
+Claude Desktop: Download and run the [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt) for one-click installation.
 
 :::
 
@@ -218,7 +208,11 @@ Check your client’s documentation or settings to confirm this feature is avail
 
 The Apify MCP server has a rate limit of _30 requests per second_ per user. If you exceed this limit, you will receive a `429 Too Many Requests` response.
 
-## Troubleshooting
+## Support and contribution
+
+The Apify MCP Server is an open-source project.
+You can report bugs, suggest new features, or ask questions in the [GitHub issues](https://github.com/apify/actors-mcp-server/issues).
+If you find this project useful, please [star it on GitHub](https://github.com/apify/actors-mcp-server) to show your support!
 
 - _Authorization (API Token):_ If the MCP server isn’t executing Actors, ensure you provided a correct Apify API token. Without a valid `APIFY_TOKEN`, the server cannot start Actor runs. Always set the `APIFY_TOKEN` environment variable when running locally.
 - _Ensure latest version:_ If running via NPM, always use the latest version of `@apify/actors-mcp-server` for the newest features and fixes. You can append `@latest` when installing or in your config args to ensure this.
