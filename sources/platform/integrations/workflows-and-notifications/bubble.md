@@ -90,7 +90,7 @@ The Apify plugin provides two main types of operations:
 - Access key-value store records
 
 ## Troubleshooting
-
+<!-- markdownlint-disable MD001 -->
 #### Authentication errors
 
 Ensure your API token is correctly formatted as `Bearer <your_api_token>` in the Authorization header and has the necessary permissions.
