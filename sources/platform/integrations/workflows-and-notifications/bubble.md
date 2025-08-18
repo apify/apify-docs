@@ -50,11 +50,7 @@ Create workflows that run Apify Actors in response to events in your Bubble app,
 
 ### Display Apify data in your application
 
-Use Apify data sources to populate your Bubble app with Actor information and results:
-
-1. Use data calls like "List User Tasks", "List Actor Runs", or "List Store Actors" as data sources for repeating groups
-2. Configure the specific Actor or task you want to display
-3. Use "Fetch Data From Dataset Json As Data" to show actual scraped results from your Actor runs
+Populate elements in your Bubble application with information from your Apify account or Actor run data. Apply data sources like **List User Tasks**, **List Actor Runs**, or **List Store Actors** to repeating groups. To show actual scraped data, use **Fetch Data From Dataset Json As Data** to retrieve results from your run's dataset.
 
 ![Using Apify data calls](../images/bubble/data_preview.png)
 
