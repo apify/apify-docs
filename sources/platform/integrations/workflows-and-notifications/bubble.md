@@ -56,12 +56,7 @@ Populate elements in your Bubble application with information from your Apify ac
 
 ### Automate data collection workflows
 
-Set up recurring data collection that updates your Bubble app automatically:
-
-1. Create a scheduled workflow or API workflow
-2. Use the "Run Actor Task" action to collect fresh data
-3. Process and store the results in your Bubble database
-4. Update your app's display elements with new data
+Maintain fresh data in your Bubble app by setting up recurring workflows. Create a backend workflow with a schedule, such as daily runs. Incorporate the **Run Actor Task** action to trigger a pre-configured Actor for data collection. Follow this with steps to process the results, save them to your Bubble database, and update your app's display elements automatically.
 
 ![Using Apify Actions calls](../images/bubble/automate_data_workflow.png)
 
