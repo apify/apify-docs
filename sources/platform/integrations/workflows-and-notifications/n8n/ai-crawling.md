@@ -1,5 +1,5 @@
 ---
-title: N8N - AI crawling Actor integration
+title: n8n - AI crawling Actor integration
 description: Learn about AI Crawling scraper modules.
 sidebar_label: AI Crawling
 sidebar_position: 6
@@ -163,3 +163,22 @@ In addition to the standard output fields, Advanced Settings provides:
 
 You can access any of our 6,000+ scrapers on Apify Store by using the [general Apify app](https://n8n.io/integrations/apify).
 
+## Usage as an AI Agent Tool
+
+You can setup Apify's Website Content Crawler app as a tool for your AI Agents. Below is a very simple configuration for your agents.
+
+![Setup AI Agent](./images/setup.png)
+
+### Dynamic url crawling
+
+In the Website Content Crawler module you can set the **Start URLs** to be filled in by your AI Agent dynamically as shown in the image below. This allows the Agent to decide on which pages to scrape off the internet.
+
+We recommend using the **Advanced options** module with your AI Agent. Two key parameters in the Advanced module to set are **Max crawling depth** and **Max pages**. Remember that the scraping results are passed into the AI Agent’s context, so using smaller values for these parameters helps stay within context limits.
+
+![Config Apify](./images/config.png)
+
+### Example usage
+
+Here I used it to find information about the latest blog post of Apify and its content. As you can see the AI Agent correctly filled the url for Apify's blog and summarized it's content
+
+![Scraping Results](./images/result.png)
