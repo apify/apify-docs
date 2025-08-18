@@ -60,7 +60,7 @@ Maintain fresh data in your Bubble app by setting up recurring workflows. Create
 
 ![Using Apify Actions calls](../images/bubble/automate_data_workflow.png)
 
-## Step 4: Example use cases
+## Example use cases
 
 ### E-commerce price monitoring
 
