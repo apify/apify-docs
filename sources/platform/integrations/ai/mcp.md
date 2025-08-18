@@ -8,8 +8,9 @@ slug: /integrations/mcp
 
 <!-- markdownlint-disable MD024 -->
 
-
 The _Apify Model Context Protocol (MCP) Server_ allows AI applications to connect to Apify's extensive library of Actors as tools to perform web scraping, data extraction, or other automation tasks in real time.
+
+**Open source**—You can [raise issues](https://github.com/apify/actors-mcp-server/issues) or [suggest new features](https://github.com/apify/actors-mcp-server/issues/new). If you find this useful, please [star us on GitHub](https://github.com/apify/actors-mcp-server) to show your support!
 
 :::tip Configure MCP Server
 
@@ -30,14 +31,11 @@ You can use the Apify MCP Server in two ways:
   - Set MCP client server command to `npx @apify/actors-mcp-server` and environment variable `APIFY_TOKEN` to your Apify API token
   - See `npx @apify/actors-mcp-server --help` for more options
 
-You could also use legacy option by running [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server) as an Actor.
-
 :::tip Run instantly ⚡
 
 To install the Apify MCP Server in [Claude for Desktop](https://claude.ai/download) with one click, download and run the latest [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt)
 
 :::
-
 
 ## Prerequisites
 
@@ -228,7 +226,7 @@ The Apify MCP server has a rate limit of _30 requests per second_ per user. If y
 ## Learn more
 
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction): Learn about the open standard on the official MCP website – understanding the protocol can help you build custom agents.
-- [Apify Actors MCP Server](https://apify.com/apify/actors-mcp-server): The README for the Apify MCP Server actor (available on Apify Store as `apify/actors-mcp-server`) provides technical details on implementation and advanced usage.
+- [Actors MCP Server GitHub](https://github.com/apify/actors-mcp-server): The README for the Apify MCP Server actor (available on Apify Store as `apify/actors-mcp-server`) provides technical details on implementation and advanced usage.
 - [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client): A specialized client actor (`jiri.spilka/tester-mcp-client`) that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.
 - [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/): Learn how to expose over 5,000 Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
 - [Apify MCP Server Tutorial](https://www.youtube.com/watch?v=BKu8H91uCTg): Integrate thousands of Apify Actors and Agents with Claude.
