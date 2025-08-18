@@ -38,7 +38,9 @@ After installing the plugin, you'll need to provide your API token when setting 
 1. You can find your API token in the Apify Console under **Settings > API & Integrations**.
 2. For security, store your API token in your User data type with Privacy rules applied rather than entering it directly in each API call.
 
-## Step 3: Set up automated workflows
+## Using the integration
+
+Once the plugin is configured, you can start building automated workflows.
 
 ### Trigger Actor runs from Bubble events
 
