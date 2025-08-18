@@ -64,10 +64,7 @@ Maintain fresh data in your Bubble app by setting up recurring workflows. Create
 
 ### E-commerce price monitoring
 
-1. Set up a workflow that triggers daily or weekly
-2. Use the "Run Actor" action to scrape competitor prices
-3. Display the results in your Bubble app's dashboard
-4. Set up notifications when prices change significantly
+Schedule a daily workflow to run a price-scraping Actor on competitor sites. Store the results in your Bubble database, display them in a dashboard, and set up alerts for significant price changes.
 
 ### Lead generation automation
 
