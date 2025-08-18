@@ -11,7 +11,7 @@ export default function ViewAsMarkdown() {
                 element: 'llm-buttons.viewAsMarkdown',
             });
         }
-        
+
         try {
             const currentUrl = window.location.href;
             const markdownUrl = `${currentUrl}.md`;
