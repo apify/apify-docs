@@ -1,4 +1,3 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import React, { useState } from 'react';
 
 import styles from '../styles.module.css';
@@ -15,11 +14,18 @@ function ButtonText({ isLoading, isCopied }: { isLoading: boolean; isCopied: boo
 }
 
 export default function CopyForLLM() {
-    const copyIcon = useBaseUrl('/img/copy.svg');
     const [isLoading, setIsLoading] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopy = async () => {
+        if ((window as any).analytics) {
+            (window as any).analytics.track('Clicked', {
+                app: 'docs',
+                button_text: 'Copy for LLM',
+                element: 'llm-buttons.copyForLLM',
+            });
+        }
+
         try {
             setIsLoading(true);
 
@@ -56,14 +62,7 @@ export default function CopyForLLM() {
             disabled={isLoading}
         >
             <span
-                className={styles.llmButtonIcon}
-                style={{
-                    backgroundImage: `url(${copyIcon})`,
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    display: 'inline-block',
-                }}
+                className={`${styles.llmButtonIcon} ${styles.llmButtonIconBackgroundCopy}`}
                 aria-label="Copy for LLM"
             />
             <ButtonText isLoading={isLoading} isCopied={isCopied} />

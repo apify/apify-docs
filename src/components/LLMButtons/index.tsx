@@ -7,9 +7,9 @@ import ViewAsMarkdown from './ViewAsMarkdown';
 export default function LLMButtons() {
     return (
         <div className={styles.llmButtonsContainer}>
-            <CopyForLLM />
-            <div className={styles.llmButtonsSeparator}></div>
             <ViewAsMarkdown />
+            <div className={styles.llmButtonsSeparator}></div>
+            <CopyForLLM />
         </div>
     );
 }

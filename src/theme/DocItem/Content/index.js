@@ -1,5 +1,6 @@
-    import { useDoc } from '@docusaurus/plugin-content-docs/client';
+import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import { ThemeClassNames } from '@docusaurus/theme-common';
+import { useLocation } from '@docusaurus/router';
 import Heading from '@theme/Heading';
 import MDXContent from '@theme/MDXContent';
 import clsx from 'clsx';
@@ -20,12 +21,14 @@ function useSyntheticTitle() {
 
 export default function DocItemContent({ children }) {
   const syntheticTitle = useSyntheticTitle();
+  const location = useLocation();
+  const shouldShowLLMButtons = !location.pathname.startsWith('/legal');
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
       <header>
           <Heading as="h1">{syntheticTitle}</Heading>
-          <LLMButtons />
+          {shouldShowLLMButtons && <LLMButtons />}
           <MDXContent>{children}</MDXContent>
         </header>
     </div>

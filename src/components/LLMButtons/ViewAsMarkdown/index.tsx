@@ -1,12 +1,17 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import React from 'react';
 
 import styles from '../styles.module.css';
 
 export default function ViewAsMarkdown() {
-    const markdownIcon = useBaseUrl('/img/markdown.svg');
-
     const handleClick = () => {
+        if ((window as any).analytics) {
+            (window as any).analytics.track('Clicked', {
+                app: 'docs',
+                button_text: 'View as Markdown',
+                element: 'llm-buttons.viewAsMarkdown',
+            });
+        }
+        
         try {
             const currentUrl = window.location.href;
             const markdownUrl = `${currentUrl}.md`;
@@ -23,14 +28,7 @@ export default function ViewAsMarkdown() {
             onClick={handleClick}
         >
             <span
-                className={styles.llmButtonIcon}
-                style={{
-                    backgroundImage: `url(${markdownIcon})`,
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    display: 'inline-block',
-                }}
+                className={`${styles.llmButtonIcon} ${styles.llmButtonIconBackgroundMarkdown}`}
                 aria-label="View as Markdown"
             />
             View as Markdown
