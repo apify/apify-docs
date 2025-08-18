@@ -68,10 +68,7 @@ Schedule a daily workflow to run a price-scraping Actor on competitor sites. Sto
 
 ### Lead generation automation
 
-1. Create a form submission workflow
-2. Use scraped data to enrich lead information automatically
-3. Store enriched data in your Bubble database
-4. Trigger follow-up actions based on the enriched data
+Trigger a workflow on form submission to run an Actor that enriches lead data, such as pulling company details from a domain. Save the enriched information to your database and automate follow-up actions like email campaigns.
 
 ### Content aggregation
 
