@@ -23,9 +23,9 @@ You can use the Apify MCP Server in two ways:
   - See `npx @apify/actors-mcp-server --help` for more options
 
 :::tip Quick setup options
-MCP server configuration for other clients: Use https://mcp.apify.com to select Actors and tools, then copy the configuration to your client.
+_MCP server configuration for other clients_: Use https://mcp.apify.com to select Actors and tools, then copy the configuration to your client.
 
-Claude Desktop: Download and run the [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt) for one-click installation.
+_Claude Desktop_: Download and run the [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/actors-mcp-server.dxt) for one-click installation.
 
 :::
 
