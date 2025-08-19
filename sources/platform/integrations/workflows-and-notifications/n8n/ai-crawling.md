@@ -59,30 +59,15 @@ Once connected, you can build workflows to automate website extraction and integ
 
 After connecting the app, you can use one of the two modules as native scrapers to extract website content.
 
-### Standard Settings Module
+### Standard Settings module
 
-The Standard Settings module is a streamlined component of the Website Content Crawler that allows you to quickly extract content from websites using optimized default settings. This module is perfect for extracting content from blogs, documentation sites, knowledge bases, or any text-rich website to feed into AI models.
+The Standard Settings module lets you quickly extract content from websites using optimized default settings. This module is ideal for extracting content from blogs, documentation, and knowledge bases to feed into AI models.
 
 #### How it works
 
-The crawler starts with one or more **Start URLs** you provide, typically the top-level URL of a documentation site, blog, or knowledge base. It then:
+The crawler starts with one or more URLs. It then crawls these initial URLs and discovers links to other pages on the same site, which it adds to a queue. The crawler will recursively follow these links as long as they are under the same path as the start URL. You can customize this behavior by defining specific URL patterns for inclusion or exclusion. To ensure efficiency, the crawler automatically skips any duplicate pages it encounters. A variety of settings are available to fine-tune the crawling process, including the crawler type, the maximum number of pages to crawl, the crawl depth, and concurrency.
 
-- Crawls these start URLs
-- Finds links to other pages on the site
-- Recursively crawls those pages as long as their URL is under the start URL
-- Respects URL patterns for inclusion/exclusion
-- Automatically skips duplicate pages with the same canonical URL
-- Provides various settings to customize crawling behavior (crawler type, max pages, depth, concurrency, etc.)
-
-Once a web page is loaded, the Actor processes its HTML to ensure quality content extraction:
-
-- Waits for dynamic content to load if using a headless browser
-- Can scroll to a certain height to ensure all page content is loaded
-- Can expand clickable elements to reveal hidden content
-- Removes DOM nodes matching specific CSS selectors (like navigation, headers, footers)
-- Optionally keeps only content matching specific CSS selectors
-- Removes cookie warnings using browser extensions
-- Transforms the page using the selected HTML transformer to extract the main content
+Once a page is loaded, the Actor processes its HTML to extract high-quality content. It can be configured to wait for dynamic content to load and can scroll the page to trigger the loading of additional content. To access information hidden in interactive sections, the crawler can be set up to expand clickable elements. It also cleans the HTML by removing irrelevant DOM nodes, such as navigation bars, headers, and footers, and can be configured to keep only the content that matches specific CSS selectors. The crawler also handles cookie warnings automatically and transforms the page to extract the main content.
 
 #### Output data
 
@@ -115,7 +100,7 @@ For each crawled web page, you'll receive:
 }
 ```
 
-### Advanced Settings Module
+### Advanced Settings module
 
 The Advanced Settings module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
 
@@ -132,53 +117,39 @@ The Advanced Settings module provides complete control over the content extracti
 
 #### How it works
 
-The Advanced Settings module provides granular control over the entire crawling process:
-
-1. _Crawler Selection_: Choose from Playwright (Firefox/Chrome), or Cheerio based on website complexity
-2. _URL Management_: Define precise scoping with include/exclude URL patterns
-3. _DOM Manipulation_: Control which HTML elements to keep or remove
-4. _Content Transformation_: Apply specialized algorithms for content extraction
-5. _Output Formatting_: Select from multiple formats for AI model compatibility
+The Advanced Settings module provides granular control over the entire crawling process. For _Crawler selection_, you can choose from Playwright (Firefox/Chrome) or Cheerio, depending on the complexity of the target website. _URL management_ allows you to define the crawling scope with include and exclude URL patterns. You can also exercise precise _DOM manipulation_ by controlling which HTML elements to keep or remove. To ensure the best results, you can apply specialized algorithms for _Content transformation_ and select from various _Output formatting_ options for better AI model compatibility.
 
 #### Configuration options
 
-Advanced Settings offers numerous configuration options, including:
-
-- _Crawler Type_: Select the rendering engine (browser or HTTP client)
-- _Content Extraction Algorithm_: Choose from multiple HTML transformers
-- _Element Selectors_: Specify which elements to keep, remove, or click
-- _URL Patterns_: Define URL inclusion/exclusion patterns with glob syntax
-- _Crawling Parameters_: Set concurrency, depth, timeouts, and retries
-- _Proxy Configuration_: Configure proxy settings for robust crawling
-- _Output Options_: Select content formats and storage options
+Advanced Settings offers a wide range of configuration options. You can select the _Crawler type_ by choosing the rendering engine (browser or HTTP client) and the _Content extraction algorithm_ from multiple HTML transformers. _Element selectors_ allow you to specify which elements to keep, remove, or click, while _URL patterns_ let you define inclusion and exclusion rules with glob syntax. You can also set _Crawling parameters_ like concurrency, depth, timeouts, and retries. For robust crawling, you can configure _Proxy configuration_ settings and select from various _Output options_ for content formats and storage.
 
 #### Output data
 
-In addition to the standard output fields, Advanced Settings provides:
+In addition to the standard output fields, this module provides:
 
-- _Multiple Format Options_: Content in Markdown, HTML, or plain text
-- _Debug Information_: Detailed extraction diagnostics and snapshots
-- _HTML Transformations_: Results from different content extraction algorithms
-- _File Storage Options_: Flexible storage for HTML, screenshots, or downloaded files
+- _Multiple format options_: Content in Markdown, HTML, or plain text
+- _Debug information_: Detailed extraction diagnostics and snapshots
+- _HTML transformations_: Results from different content extraction algorithms
+- _File storage options_: Flexible storage for HTML, screenshots, or downloaded files
 
-You can access any of our 6,000+ scrapers on Apify Store by using the [general Apify app](https://n8n.io/integrations/apify).
+You can access any of thousands of our scrapers on Apify Store by using the [general Apify app](https://n8n.io/integrations/apify).
 
 ## Usage as an AI Agent Tool
 
-You can setup Apify's Website Content Crawler app as a tool for your AI Agents. Below is a very simple configuration for your agents.
+You can setup Apify's Website Content Crawler app as a tool for your AI Agents.
 
 ![Setup AI Agent](./images/setup.png)
 
-### Dynamic url crawling
+### Dynamic URL crawling
 
-In the Website Content Crawler module you can set the **Start URLs** to be filled in by your AI Agent dynamically as shown in the image below. This allows the Agent to decide on which pages to scrape off the internet.
+In the Website Content Crawler module you can set the **Start URLs** to be filled in by your AI Agent dynamically. This allows the Agent to decide on which pages to scrape off the internet.
 
-We recommend using the **Advanced options** module with your AI Agent. Two key parameters in the Advanced module to set are **Max crawling depth** and **Max pages**. Remember that the scraping results are passed into the AI Agent’s context, so using smaller values for these parameters helps stay within context limits.
+We recommend using the Advanced Settings module with your AI Agent. Two key parameters to set are **Max crawling depth** and **Max pages**. Remember that the scraping results are passed into the AI Agent’s context, so using smaller values helps stay within context limits.
 
 ![Config Apify](./images/config.png)
 
 ### Example usage
 
-Here I used it to find information about the latest blog post of Apify and its content. As you can see the AI Agent correctly filled the url for Apify's blog and summarized it's content
+Here, the agent was used to find information about Apify's latest blog post. It correctly filled in the URL for the blog and summarized its content.
 
 ![Scraping Results](./images/result.png)
