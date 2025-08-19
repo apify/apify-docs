@@ -22,15 +22,42 @@ function useSyntheticTitle() {
 export default function DocItemContent({ children }) {
   const syntheticTitle = useSyntheticTitle();
   const location = useLocation();
-  const shouldShowLLMButtons = !location.pathname.startsWith('/legal');
+
+  // Define the allowed API v2 paths that should show LLMButtons (tag/info pages)
+  // The logic is handled here, and also in docusaurus.config.js (see docusaurus-plugin-openapi-docs)
+  const allowedApiV2Paths = [
+    '/api/v2/getting-started',
+    '/api/v2/actors',
+    '/api/v2/actors-actor-versions',
+    '/api/v2/actors-actor-builds',
+    '/api/v2/actors-actor-runs',
+    '/api/v2/actors-webhook-collection',
+    '/api/v2/actor-builds',
+    '/api/v2/actor-runs',
+    '/api/v2/actor-tasks',
+    '/api/v2/storage-datasets',
+    '/api/v2/storage-key-value-stores',
+    '/api/v2/storage-request-queues',
+    '/api/v2/storage-request-queues-requests',
+    '/api/v2/storage-request-queues-requests-locks',
+    '/api/v2/webhooks-webhooks',
+    '/api/v2/webhooks-webhook-dispatches',
+    '/api/v2/schedules',
+    '/api/v2/store',
+    '/api/v2/logs',
+    '/api/v2/users',
+    '/platform',
+  ];
+
+  const shouldShowLLMButtons = allowedApiV2Paths.some((path) => location.pathname.startsWith(path));
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
       <header>
-          <Heading as="h1">{syntheticTitle}</Heading>
-          {shouldShowLLMButtons && <LLMButtons />}
-          <MDXContent>{children}</MDXContent>
-        </header>
+        <Heading as="h1">{syntheticTitle}</Heading>
+        {shouldShowLLMButtons && <LLMButtons />}
+        <MDXContent>{children}</MDXContent>
+      </header>
     </div>
   );
 }
