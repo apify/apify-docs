@@ -7,18 +7,18 @@ slug: /integrations/n8n/ai-crawling
 toc_max_heading_level: 4
 ---
 
+## Apify Scraper for AI Crawling
+
+Apify Scraper for AI Crawling from [Apify](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/input) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
+
+To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+
 ## Prerequisites
 
 Before you begin, make sure you have:
 
 - An [Apify account](https://console.apify.com/)
 - An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
-
-## Apify Scraper for AI Crawling
-
-Apify Scraper for AI Crawling from [Apify](https://apify.com/) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
-
-To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 ## Install the Apify Node (self-hosted)
 
@@ -32,6 +32,20 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 1. You can now use the node in your workflows.
 
 ![Apify Install Node](images/install.png)
+
+## Install the Apify Scraper for AI Crawling Node (n8n Cloud)
+
+For n8n Cloud users, installation is even simpler and doesn't require manual package entry.  Just search and add the node from the canvas.
+
+1. Go to the **Canvas** and open the **nodes panel**
+1. Search for **Apify Scraper for AI Crawling** in the community node registry
+1. Click **Install node** to add the Apify node to your instance
+
+:::note Verified community nodes visibility
+
+On n8n Cloud, instance owners can toggle visibility of verified community nodes in the Cloud Admin Panel. Ensure this setting is enabled to install the Apify Scraper for AI Crawling node.
+
+:::
 
 ## Connect Apify Scraper for AI Crawling (self-hosted)
 
@@ -53,9 +67,24 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 ![Apify token on n8n](images/token.png)
 
-Once connected, you can build workflows to automate website extraction and integrate results into your AI applications.
+### OAuth2 (cloud instance only)
 
-## Apify Scraper for Website Content modules
+1. In n8n Cloud, select **Create Credential**.
+1. Search for Apify OAuth2 API and select **Continue**.
+1. Select **Connect my account** and authorize with your Apify account.
+1. n8n automatically retrieves and stores the OAuth2 tokens.
+
+  ![Apify Auth](../../images/n8n-oauth.png)
+  
+:::note
+
+For simplicity on n8n Cloud, use the API key method if you prefer manual control over credentials.
+
+:::
+
+With authentication set up, you can now create workflows that incorporate the Apify node.
+
+## Apify Scraper for AI Crawling modules
 
 After connecting the app, you can use one of the two modules as native scrapers to extract website content.
 
@@ -136,7 +165,7 @@ You can access any of thousands of our scrapers on Apify Store by using the [gen
 
 ## Usage as an AI Agent Tool
 
-You can setup Apify's Website Content Crawler app as a tool for your AI Agents.
+You can setup Apify's Scraper for AI Crawling node as a tool for your AI Agents.
 
 ![Setup AI Agent](./images/setup.png)
 
