@@ -4,6 +4,7 @@ description: Learn about Instagram scraper modules. Extract posts, comments, and
 sidebar_label: Instagram
 sidebar_position: 1
 slug: /integrations/make/instagram
+unlisted: true
 ---
 
 **Learn about Instagram scraper modules. Extract posts, comments, and profile data.**
