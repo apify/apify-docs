@@ -26,7 +26,7 @@ All Apify Docker images are pre-cached on Apify servers to speed up Actor builds
 
 ### Node.js base images
 
-These images come with Node.js (versions `16`, `18`, `20`, or `22`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
+These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
 
 | Image | Description |
 | ----- | ----------- |
@@ -41,7 +41,7 @@ See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details
 
 ### Python base images
 
-These images come with Python (version `3.8`, `3.9`, `3.10`, `3.11`, or `3.12`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
+These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
 
 | Image | Description |
 | ----- | ----------- |
@@ -61,9 +61,9 @@ To use a custom `Dockerfile`, you can either:
 If no `Dockerfile` is provided, the system uses the following default:
 
 ```dockerfile
-FROM apify/actor-node:20
+FROM apify/actor-node:24
 
-COPY package*.json ./
+COPY --chown=myuser:myuser package*.json ./
 
 RUN npm --quiet set progress=false \
  && npm install --only=prod --no-optional \
@@ -74,7 +74,7 @@ RUN npm --quiet set progress=false \
  && echo "NPM version:" \
  && npm --version
 
-COPY . ./
+COPY --chown=myuser:myuser . ./
 ```
 
 For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).
