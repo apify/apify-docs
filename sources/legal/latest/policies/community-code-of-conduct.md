@@ -17,7 +17,7 @@ Effective Date: August 18, 2025
 
 ## Overview and Purpose
 
-Apify community is intended to be a place for further collaboration, support, and brainstorming. This is a civilized place for connecting with other users, learning new skills, sharing feedback and ideas, and finding all the support you need for your Apify projects. By participating in the Apify community, you are agreeing to the [Apify General Terms and Conditions](general-terms-and-conditions.md) that apply to use of our Website and Services, as well as this Apify Community Code of Conduct.
+Apify community is intended to be a place for further collaboration, support, and brainstorming. This is a civilized place for connecting with other users, learning new skills, sharing feedback and ideas, and finding all the support you need for your Apify projects. By participating in the Apify community, you are agreeing to the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md) that apply to use of our Website and Services, as well as this Apify Community Code of Conduct.
 With this Apify Community Code of Conduct, we hope to help you understand how best to collaborate in the Apify community, what you can expect from moderators, and what type of actions or content may result in temporary or permanent suspension from community participation. We will investigate any abuse reports and may moderate public content within the Apify community that we determine to be in violation of either the Apify General Terms and Conditions or this Apify Community Code of Conduct.
 Our diverse user base brings different perspectives, ideas, and experiences, and ranges from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making Apify an environment that welcomes all the different voices and perspectives our community has to offer, while maintaining a safe place for developers to do their best work.
 
@@ -55,12 +55,12 @@ We are committed to maintaining a community where users are free to express them
 
 ## What is not allowed
 
-The [Apify Acceptable Use Policy](acceptable-use-policy.md), which is part of [Apify General Terms and Conditions](general-terms-and-conditions.md), sets a baseline for what is not allowed on Apify. Since Apify community is on apify.com, these terms and restrictions apply to Apify community, including the following restrictions:
+The [Apify Acceptable Use Policy](acceptable-use-policy.md), which is part of [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md), sets a baseline for what is not allowed on Apify. Since Apify community is on apify.com, these terms and restrictions apply to Apify community, including the following restrictions:
 
 - **Anyone under the age of 18**. If you're under the age of 18, you may not have an account on Apify. Apify does not knowingly collect information from or direct any of our content specifically to children under 18. If we learn or have reason to suspect that you are a user who is under the age of 18, we will unfortunately have to close your user account. We don't want to discourage you from learning to code, but those are the rules. Please see Apify General Terms and Conditions for information about account termination.
 - **Creating new account after account restriction**. Apify General Terms and Conditions state that "each user may create and use one user account at the most" Additional user accounts created to inquire about flagged or suspended accounts in Apify will be removed.
 - **Other conduct which could reasonably be considered inappropriate in a professional setting**. Apify community is a professional space and should be treated as such.
-- **Violation of General Terms and Conditions**. If your user account is identified in violation of [Apify General Terms and Conditions](general-terms-and-conditions) we will have to close your user account.
+- **Violation of General Terms and Conditions**. If your user account is identified in violation of [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md) we will have to close your user account.
 
 ## Reasonable use of AI generated content
 
@@ -106,9 +106,9 @@ We'll review, investigate, and respond to complaints promptly and fairly, and we
 
 ## Legal Notices
 
-Yes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have [Apify General Terms and Conditions](general-terms-and-conditions.md), which include our [Acceptable Use Policy](acceptable-use-policy.md), and our Privacy Policy describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our Terms and Conditions, Acceptable Use Policies and the Privacy Policy.
+Yes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md), which include our [Acceptable Use Policy](acceptable-use-policy.md), and our Privacy Policy describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our Terms and Conditions, Acceptable Use Policies and the Privacy Policy.
 
-This Apify Community Code of Conduct does not modify our [General Terms and Conditions](general-terms-and-conditions.md) and is not intended to be a complete list. Apify retains full discretion under the General Terms and Conditions to remove or restrict any content or accounts for activity that violates our policies, including because it is unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable, or violates any party's intellectual property or Apify General Terms and Conditions. This Apify Community Code of Conduct describes when we will exercise that discretion.
+This Apify Community Code of Conduct does not modify our [General Terms and Conditions](../terms/general-terms-and-conditions.md) and is not intended to be a complete list. Apify retains full discretion under the General Terms and Conditions to remove or restrict any content or accounts for activity that violates our policies, including because it is unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable, or violates any party's intellectual property or Apify General Terms and Conditions. This Apify Community Code of Conduct describes when we will exercise that discretion.
 
 ## Data Retention and Deletion
 
