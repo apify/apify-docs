@@ -6,6 +6,7 @@ const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
+const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
@@ -308,6 +309,8 @@ module.exports = {
                             categoryName: 'Platform documentation',
                         },
                     ],
+                    // Add custom remark processing to remove LLM button text
+                    remarkPlugins: [removeLlmButtons],
                 },
             },
         ],
