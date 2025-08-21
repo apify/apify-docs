@@ -558,7 +558,7 @@ A detailed tutorial on how to process one request queue with multiple Actor runs
 
 You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
-### Sharing request queues between runs {#sharing-request-queues-between-runs}
+### Sharing request queues between runs
 
 You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
@@ -620,7 +620,7 @@ Check out the [Storage overview](/platform/storage/usage#sharing-storages-betwee
 
 - The maximum length for request queue name is 63 characters.
 
-### Rate limiting {#rate-limiting}
+### Rate limiting
 
 When managing request queues via [API](/api/v2/storage-request-queues-requests),
 CRUD ([add](/api/v2/request-queue-requests-post),

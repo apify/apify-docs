@@ -1,0 +1,57 @@
+.llmButtonsContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -8px;
+    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
+}
+
+.llmButtonsSeparator {
+    width: 1px;
+    height: 16px;
+    background-color: var(--ifm-hr-background-color);
+}
+
+.llmButton {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    height: 16px;
+    cursor: pointer;
+    padding: 0;
+    gap: 4px;
+}
+
+.llmButtonIcon {
+    width: 16px;
+    height: 16px;
+    margin: 0 !important;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.llmButtonIconBackgroundMarkdown {
+    background-image: url('/img/markdown.svg');
+
+}
+
+.llmButtonIconBackgroundCopy {
+    background-image: url('/img/copy.svg');
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .llmButtonIcon {
+    color: #e0e0e0;
+}
+
+[data-theme='dark'] .llmButtonIconBackgroundMarkdown {
+    background-image: url('/img/markdown-dark-theme.svg');
+}
+
+[data-theme='dark'] .llmButtonIconBackgroundCopy {
+    background-image: url('/img/copy-dark-theme.svg');
+}
