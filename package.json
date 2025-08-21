@@ -41,7 +41,7 @@
         "lint:code": "eslint .",
         "lint:code:fix": "eslint . --fix",
         "postinstall": "patch-package",
-        "postbuild": "node ./scripts/joinLlmsFiles.mjs"
+        "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/cleanupMarkdownFiles.mjs"
     },
     "devDependencies": {
         "@apify/eslint-config": "^1.0.0",
