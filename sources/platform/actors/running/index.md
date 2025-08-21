@@ -5,8 +5,6 @@ sidebar_position: 7.1
 slug: /actors/running
 ---
 
-# Running Actors
-
 **In this section, you learn how to run Apify Actors using Apify Console or programmatically. You will learn about their configuration, versioning, data retention, usage, and pricing.**
 
 import Tabs from '@theme/Tabs';
