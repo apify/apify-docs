@@ -14,6 +14,7 @@ properties:
       required:
         - key
         - size
+        - recordPublicUrl
       properties:
         key:
           type: string
@@ -21,6 +22,10 @@ properties:
         size:
           type: number
           example: 36
+        recordPublicUrl:
+          type: string
+          description: "A public link to access this record directly."
+          example: 'https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key?signature=abc123'
     description: ''
   count:
     type: number

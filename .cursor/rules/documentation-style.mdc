@@ -1,0 +1,81 @@
+---
+description: Documentation style guidelines and writing standards for Apify docs
+globs: ["sources/**/*.md", "sources/**/*.mdx"]
+alwaysApply: true
+---
+
+# Documentation Style Guidelines
+
+## Project overview
+
+This is the Apify documentation repository containing platform documentation, academy content, and API reference. The project uses Docusaurus with MDX, OpenAPI specifications, and follows Microsoft style guide principles.
+
+## Documentation structure
+
+- **Platform docs**: `/sources/platform/` - Core platform features and functionality
+- **Academy**: `/sources/academy/` - Educational content, tutorials, and courses
+- **API reference**: `/apify-api/` - Generated from OpenAPI specifications
+
+## Writing style & guidelines
+
+### Language & tone
+
+- Use **US English** spelling and grammar
+- Write in **inclusive language** - avoid gendered terms and assumptions
+- Use **active voice** whenever possible
+- Write for a **technical audience** but keep explanations clear and accessible
+- Avoid directional language (don't use "left/right")
+- Be **action-oriented** in descriptions and titles
+
+### Technical writing best practices
+
+- **Start with the user's goal** - what are they trying to accomplish?
+- **Use clear, concise sentences** - avoid unnecessary complexity
+- **Provide context** before diving into technical details
+- **Use consistent terminology** throughout the documentation
+- **Include examples** for complex concepts
+- **Structure content logically** - from basic to advanced concepts
+
+### Microsoft style guide compliance
+
+- Use **sentence case** for headings (except main titles)
+- Use **title case** for UI elements and proper nouns
+- **Bold** for UI elements, buttons, menu items
+- _Italics_ for emphasis and new terms
+- `code` for inline code, file names, and technical terms
+- Use **numbered lists** for sequential steps
+- Use **bullet points** for non-sequential items
+
+## Common patterns
+
+### Tutorial structure
+
+1. **Introduction** - What will the user learn?
+2. **Prerequisites** - What do they need to know/have?
+3. **Step-by-step instructions** - Clear, numbered steps
+4. **Code examples** - Complete, working examples
+5. **Summary** - What they accomplished and next steps
+
+### Troubleshooting sections
+
+- **Common issues** and solutions
+- **Error messages** and their meanings
+- **Debugging steps** for complex problems
+- **Contact information** for additional help
+
+## Accessibility guidelines
+
+- Use **descriptive link text** (avoid "click here")
+- Include **alt text** for all images
+- Use **proper heading hierarchy** (H1 → H2 → H3)
+- Write **clear, concise content**
+
+## SEO best practices
+
+- Use **descriptive page titles**
+- Include **relevant keywords** naturally
+- Write **meta descriptions** (140-160 characters)
+- Use **proper heading structure**
+- Include **internal links** to related content
+
+Remember: The goal is to help users succeed with Apify. Every piece of documentation should serve that purpose by being clear, accurate, and actionable.

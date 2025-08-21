@@ -2,7 +2,7 @@
   height: 4rem;
   padding: 0.8rem 1.6rem !important;
   background-color: var(--color-primary-black-action);
-  border-radius: 2rem;
+  border-radius: 8px;
   color: var(--color-neutral-text-on-primary);
   font-size: 1.6rem;
   font-weight: 500;

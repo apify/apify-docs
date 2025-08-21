@@ -384,7 +384,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
 
-### Sharing datasets between runs {#sharing-datasets-between-runs}
+### Sharing datasets between runs
 
 You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
@@ -450,7 +450,7 @@ See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs
 
 - The maximum length for dataset names is 63 characters.
 
-### Rate limiting {#rate-limiting}
+### Rate limiting
 
 The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
