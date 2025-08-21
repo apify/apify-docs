@@ -49,7 +49,7 @@ export default function DocItemContent({ children }) {
     '/platform',
   ];
 
-  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
+  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path) && !location.pathname.endsWith('.md'));
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
