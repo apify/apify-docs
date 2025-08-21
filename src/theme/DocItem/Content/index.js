@@ -23,9 +23,9 @@ export default function DocItemContent({ children }) {
   const syntheticTitle = useSyntheticTitle();
   const location = useLocation();
 
-  // Define the allowed API v2 paths that should show LLMButtons (tag/info pages)
+  // Define the allowed paths that should show LLMButtons (tag/info pages)
   // The logic is handled here, and also in docusaurus.config.js (see docusaurus-plugin-openapi-docs)
-  const allowedApiV2Paths = [
+  const allowedPaths = [
     '/api/v2/getting-started',
     '/api/v2/actors',
     '/api/v2/actors-actor-versions',
@@ -49,7 +49,7 @@ export default function DocItemContent({ children }) {
     '/platform',
   ];
 
-  const shouldShowLLMButtons = allowedApiV2Paths.some((path) => location.pathname.startsWith(path));
+  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
