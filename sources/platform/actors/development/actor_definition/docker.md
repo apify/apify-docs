@@ -112,3 +112,109 @@ This means the system expects the source code to be in `main.js` by default. If 
 You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
 
 :::
+
+## Updating older Dockerfiles
+
+Certain Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
+
+:::danger Action required
+
+The base Docker images display a deprecation warning. This warning will be removed in future versions, so you should update your Dockerfiles to ensure forward compatibility.
+
+For further assistance, [open an issue in the apify-actor-docker GitHub repository](https://github.com/apify/apify-actor-docker/issues/new).
+
+:::
+
+### User and working directory
+
+To improve security, the affected images no longer run as the `root` user. Instead, they use a dedicated non-root user, `myuser`, and a consistent working directory at `/home/myuser`. This configuration is now the standard for all Apify base Docker images.
+
+### Common issues
+
+#### Crawlee templates automatically installing `git` in Python images
+
+If you've built your Actor using a [Crawlee](https://crawlee.dev/) template, you might have the following line in your `Dockerfile`:
+
+```dockerfile
+RUN apt update && apt install -yq git && rm -rf /var/lib/apt/lists/*
+```
+
+You can safely remove this line, as the `git` package is now installed in the base image.
+
+#### `uv` package manager fails to install dependencies
+
+If you are using the `uv` package manager, you might have the following line in your `Dockerfile`:
+
+```dockerfile
+ENV UV_PROJECT_ENVIRONMENT="/usr/local"
+```
+
+With the move to a non-root user, this variable will cause `uv` to throw a permission error. You can safely remove this line or adjust it to point to the `/home/myuser` directory.
+
+#### Copying files with the correct permissions
+
+When using the `COPY` instruction to copy your files to the container, you should append the `--chown=myuser:myuser` flag to the command to ensure the `myuser` user owns the files.
+
+Here are a few common examples:
+
+```dockerfile
+COPY --chown=myuser:myuser requirements.txt ./
+
+COPY --chown=myuser:myuser . ./
+```
+
+:::warning
+
+If your `Dockerfile` contains a `RUN` instruction similar to the following one, you should remove it:
+
+```dockerfile
+RUN chown -R myuser:myuser /home/myuser
+```
+
+Instead, add the `--chown` flag to the `COPY` instruction:
+
+```dockerfile
+COPY --chown=myuser:myuser . ./
+```
+
+Running `chown` across multiple files needlessly slows down the build process. Using the flag on `COPY` is much more efficient.
+
+:::
+
+#### An `apify` user is being added by a template
+
+If your `Dockerfile` has instructions similar to the following, they were likely added by an older template:
+
+```dockerfile
+# Create and run as a non-root user.
+RUN adduser -h /home/apify -D apify && \
+    chown -R apify:apify ./
+USER apify
+```
+
+You should remove these lines, as the new user is now `myuser`. Don't forget to update your `COPY` instructions to use the `--chown` flag with the `myuser` user.
+
+```dockerfile
+COPY --chown=myuser:myuser . ./
+```
+
+#### Installing dependencies that require root access
+
+The `root` user is still available in the Docker images. If you must run steps that require root access (like installing system packages with `apt` or `apk`), you can temporarily switch to the `root` user.
+
+```dockerfile
+FROM apify/actor-node:24
+
+# Switch to root temporarily to install dependencies
+USER root
+
+RUN apt update \
+    && apt install -y <dependencies here>
+
+# Switch back to the non-root user
+USER myuser
+
+# ... your other instructions
+```
+
+If your Actor needs to run as `root` for a specific reason, you can add the `USER root` instruction after `FROM`. However, for a majority of Actors, this is not necessary.
