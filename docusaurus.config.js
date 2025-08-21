@@ -196,17 +196,6 @@ module.exports = {
                                     md = md.replace('--&gt;', '-->');
                                 }
 
-                                // Add LLMButtons import and component
-                                if (!md.includes('import LLMButtons')) {
-                                    // Find the first import statement and add LLMButtons import after it
-                                    const firstImportMatch = md.match(/^import\s+.*?from\s+["'][^"']*["'];?\s*$/m);
-                                    if (firstImportMatch) {
-                                        const importEnd = md.indexOf(firstImportMatch[0]) + firstImportMatch[0].length;
-                                        const llmButtonsImport = '\nimport LLMButtons from "@site/src/components/LLMButtons";';
-                                        md = md.slice(0, importEnd) + llmButtonsImport + md.slice(importEnd);
-                                    }
-                                }
-
                                 // Find the first Heading h1 and add LLMButtons after it
                                 // eslint-disable-next-line max-len
                                 const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
@@ -216,12 +205,6 @@ module.exports = {
                             },
                             createInfoPageMD: (pageData) => {
                                 let md = createInfoPageMD(pageData);
-
-                                // Add LLMButtons import and component
-                                if (!md.includes('import LLMButtons')) {
-                                    // eslint-disable-next-line max-len
-                                    md = md.replace('import Heading from "@theme/Heading";', 'import Heading from "@theme/Heading";\nimport LLMButtons from "@site/src/components/LLMButtons";');
-                                }
 
                                 // Find the first Heading h1 and add LLMButtons after it
                                 // eslint-disable-next-line max-len

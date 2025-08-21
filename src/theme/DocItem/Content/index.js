@@ -49,15 +49,13 @@ export default function DocItemContent({ children }) {
     '/platform',
   ];
 
-  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path) && !location.pathname.endsWith('.md'));
+  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
-      <header>
-        {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
-        {shouldShowLLMButtons && <LLMButtons />}
-        <MDXContent>{children}</MDXContent>
-      </header>
+      {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
+      {shouldShowLLMButtons && <LLMButtons />}
+      <MDXContent>{children}</MDXContent>
     </div>
   );
 }
