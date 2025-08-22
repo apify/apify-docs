@@ -115,7 +115,7 @@ You can check out various optimization tips for Dockerfile in our [Performance](
 
 ## Updating older Dockerfiles
 
-Certain Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
+All Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
 
 :::danger Action required
 
@@ -149,7 +149,7 @@ If you are using the `uv` package manager, you might have the following line in 
 ENV UV_PROJECT_ENVIRONMENT="/usr/local"
 ```
 
-With the move to a non-root user, this variable will cause `uv` to throw a permission error. You can safely remove this line or adjust it to point to the `/home/myuser` directory.
+With the move to a non-root user, this variable will cause `uv` to throw a permission error. You can safely remove this line, or, if you need it set to a custom path, adjust it to point to a location in the `/home/myuser` directory.
 
 #### Copying files with the correct permissions
 
