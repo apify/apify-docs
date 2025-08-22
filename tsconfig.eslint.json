@@ -6,6 +6,7 @@
         "src/**/*.js",
         "src/**/*.ts",
         "src/**/*.jsx",
-        "src/**/*.tsx"
+        "src/**/*.tsx",
+        "apify-docs-theme/**/*.tsx"
     ]
 }

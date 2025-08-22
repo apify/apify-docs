@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 
 import styles from '../styles.module.css';
 
 // Custom component for button text
 function ButtonText({ isLoading, isCopied }: { isLoading: boolean; isCopied: boolean }) {
     if (isLoading) {
-        return <>Copying...</>;
+        return 'Copying...';
     }
     if (isCopied) {
-        return <>Copied!</>;
+        return 'Copied!';
     }
-    return <>Copy for LLM</>;
+    return 'Copy for LLM';
 }
 
 export default function CopyForLLM() {

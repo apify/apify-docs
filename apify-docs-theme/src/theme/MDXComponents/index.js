@@ -1,5 +1,5 @@
-import LLMButtons from '@site/src/components/LLMButtons';
 import Admonition from '@theme/Admonition';
+import LLMButtons from '@theme/LLMButtons';
 import MDXA from '@theme/MDXComponents/A';
 import MDXCode from '@theme/MDXComponents/Code';
 import MDXDetails from '@theme/MDXComponents/Details';
