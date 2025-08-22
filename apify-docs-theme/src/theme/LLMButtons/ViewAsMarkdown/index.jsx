@@ -4,8 +4,8 @@ import styles from '../styles.module.css';
 
 export default function ViewAsMarkdown() {
     const handleClick = () => {
-        if ((window as any).analytics) {
-            (window as any).analytics.track('Clicked', {
+        if (window.analytics) {
+            window.analytics.track('Clicked', {
                 app: 'docs',
                 button_text: 'View as Markdown',
                 element: 'llm-buttons.viewAsMarkdown',

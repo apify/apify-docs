@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import styles from '../styles.module.css';
 
 // Custom component for button text
-function ButtonText({ isLoading, isCopied }: { isLoading: boolean; isCopied: boolean }) {
+function ButtonText({ isLoading, isCopied }) {
     if (isLoading) {
-        return <>Copying...</>;
+        return 'Copying...';
     }
     if (isCopied) {
-        return <>Copied!</>;
+        return 'Copied!';
     }
-    return <>Copy for LLM</>;
+    return 'Copy for LLM';
 }
 
 export default function CopyForLLM() {
@@ -18,8 +18,8 @@ export default function CopyForLLM() {
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopy = async () => {
-        if ((window as any).analytics) {
-            (window as any).analytics.track('Clicked', {
+        if (window.analytics) {
+            window.analytics.track('Clicked', {
                 app: 'docs',
                 button_text: 'Copy for LLM',
                 element: 'llm-buttons.copyForLLM',
