@@ -35,12 +35,12 @@
 }
 
 .llmButtonIconBackgroundMarkdown {
-    background-image: url('/img/markdown.svg');
+    background-image: url('https://docs.apify.com/img/markdown.svg');
 
 }
 
 .llmButtonIconBackgroundCopy {
-    background-image: url('/img/copy.svg');
+    background-image: url('https://docs.apify.com/img/copy.svg');
 }
 
 /* Dark theme adjustments */
@@ -49,9 +49,9 @@
 }
 
 [data-theme='dark'] .llmButtonIconBackgroundMarkdown {
-    background-image: url('/img/markdown-dark-theme.svg');
+    background-image: url('https://docs.apify.com/img/markdown-dark-theme.svg');
 }
 
 [data-theme='dark'] .llmButtonIconBackgroundCopy {
-    background-image: url('/img/copy-dark-theme.svg');
+    background-image: url('https://docs.apify.com/img/copy-dark-theme.svg');
 }
