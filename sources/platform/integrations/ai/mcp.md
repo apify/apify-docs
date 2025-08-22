@@ -8,7 +8,8 @@ slug: /integrations/mcp
 
 <!-- markdownlint-disable MD024 -->
 
-The Apify _Model Context Protocol (MCP)_ server allows AI applications and agents to use Actors from [Apify Store](https://apify.com/store) as tools for web scraping, data extraction, or automation.
+The Apify [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server allows AI applications and agents to search and run Actors from [Apify Store](https://apify.com/store) as tools for web scraping, data extraction, or automation,
+as well as access Apify documentation and tutorials from your AI coding environments.
 
 ![Apify MCP Server](../../images/apify_mcp_server.png)
 
