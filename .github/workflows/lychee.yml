@@ -40,6 +40,7 @@ jobs:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 with:
                     fail: true
+                    lycheeVersion: 'v0.18.1'
                     args: >
                         --base https://docs.apify.com
                         --exclude-path 'build/versions.html'
