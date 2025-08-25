@@ -151,6 +151,32 @@ ENV UV_PROJECT_ENVIRONMENT="/usr/local"
 
 With the move to a non-root user, this variable will cause `uv` to throw a permission error. You can safely remove this line, or, if you need it set to a custom path, adjust it to point to a location in the `/home/myuser` directory.
 
+#### `stat /usr/src/app/dist: file does not exist`
+
+With the change of the working directory to `/home/myuser`, you might see the following error:
+
+```
+Docker image build failed: COPY failed: stat /usr/src/app/dist: file does not exist
+```
+
+The fix is super simple! Find all your `COPY` instructions that copy files from the `/usr/src/app` directory and change them to copy from the `/home/myuser` directory instead.
+
+:::tip Example
+
+Previous:
+
+```dockerfile
+COPY --from=builder /usr/src/app/dist ./dist
+```
+
+New:
+
+```dockerfile
+COPY --from=builder /home/myuser/dist ./dist
+```
+
+:::
+
 #### Copying files with the correct permissions
 
 When using the `COPY` instruction to copy your files to the container, you should append the `--chown=myuser:myuser` flag to the command to ensure the `myuser` user owns the files.
