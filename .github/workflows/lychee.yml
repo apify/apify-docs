@@ -40,14 +40,12 @@ jobs:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 with:
                     fail: true
-                    lycheeVersion: 'v0.18.1'
                     args: >
                         --base https://docs.apify.com
                         --exclude-path 'build/versions.html'
                         --max-retries 6
                         --verbose
                         --no-progress
-                        --include-fragments
                         --accept '100..=103,200..=299,403..=403,429'
                         --format markdown
                         './build/**/*.html'
