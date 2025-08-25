@@ -25,7 +25,10 @@ While somewhat possible, such an approach is tedious, fragile, and unreliable. T
 
 :::info Why regex can't parse HTML
 
-While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732454/325365) is funny, it doesn't go much into explaining. In formal language theory, HTML's hierarchical and nested structure makes it a [context-free language](https://en.wikipedia.org/wiki/Context-free_language). Regular expressions match patterns in [regular languages](https://en.wikipedia.org/wiki/Regular_language), which are much simpler. This difference makes it hard for a regex to handle HTML's nested tags. HTML's complex syntax rules and various edge cases also add to the difficulty.
+While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732454/325365) is funny, it doesn't go very deep into the reasoning:
+
+- In **formal language theory**, HTML's hierarchical, nested structure makes it a [context-free language](https://en.wikipedia.org/wiki/Context-free_language). **Regular expressions**, by contrast, match patterns in [regular languages](https://en.wikipedia.org/wiki/Regular_language), which are much simpler.
+- Because of this difference, regex alone struggles with HTML's nested tags. On top of that, HTML has **complex syntax rules** and countless **edge cases**, which only add to the difficulty.
 
 :::
 
