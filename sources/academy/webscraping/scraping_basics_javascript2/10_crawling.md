@@ -12,75 +12,71 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-In previous lessons we've managed to download the HTML code of a single page, parse it with BeautifulSoup, and extract relevant data from it. We'll do the same now for each of the products.
+In previous lessons we've managed to download the HTML code of a single page, parse it with Cheerio, and extract relevant data from it. We'll do the same now for each of the products.
 
 Thanks to the refactoring, we have functions ready for each of the tasks, so we won't need to repeat ourselves in our code. This is what you should see in your editor now:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-import csv
-from urllib.parse import urljoin
+```js
+import * as cheerio from 'cheerio';
+import { writeFile } from 'fs/promises';
+import { AsyncParser } from '@json2csv/node';
 
-def download(url):
-    response = httpx.get(url)
-    response.raise_for_status()
+async function download(url) {
+  const response = await fetch(url);
+  if (response.ok) {
+    const html = await response.text();
+    return cheerio.load(html);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
+}
 
-    html_code = response.text
-    return BeautifulSoup(html_code, "html.parser")
+function parseProduct(productItem, baseURL) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
+  const url = new URL($title.attr("href"), baseURL).href;
 
-def parse_product(product, base_url):
-    title_element = product.select_one(".product-item__title")
-    title = title_element.text.strip()
-    url = urljoin(base_url, title_element["href"])
+  const $price = $productItem.find(".price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+  if (priceText.startsWith("From ")) {
+      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+      priceRange.minPrice = parseInt(priceText);
+      priceRange.price = priceRange.minPrice;
+  }
 
-    return {"title": title, "min_price": min_price, "price": price, "url": url}
+  return { url, title, ...priceRange };
+}
 
-def export_csv(file, data):
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
+function exportJSON(data) {
+  return JSON.stringify(data, null, 2);
+}
 
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
+async function exportCSV(data) {
+  const parser = new AsyncParser();
+  return await parser.parse(data).promise();
+}
 
-    json.dump(data, file, default=serialize, indent=2)
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+const $items = $(".product-item").map((i, element) => {
+  const $productItem = $(element);
+  // highlight-next-line
+  const item = parseProduct($productItem, listingURL);
+  return item;
+});
+const data = $items.get();
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product, listing_url)
-    data.append(item)
-
-with open("products.csv", "w") as file:
-    export_csv(file, data)
-
-with open("products.json", "w") as file:
-    export_json(file, data)
+await writeFile('products.json', exportJSON(data));
+await writeFile('products.csv', await exportCSV(data));
 ```
 
 ## Extracting vendor name
@@ -125,33 +121,51 @@ Depending on what's valuable for our use case, we can now use the same technique
 
 It looks like using a CSS selector to locate the element with the `product-meta__vendor` class, and then extracting its text, should be enough to get the vendor name as a string:
 
-```py
-vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+```js
+const vendor = $(".product-meta__vendor").text().trim();
 ```
 
 But where do we put this line in our program?
 
 ## Crawling product detail pages
 
-In the `data` loop we're already going through all the products. Let's expand it to include downloading the product detail page, parsing it, extracting the vendor's name, and adding it as a new key in the item's dictionary:
+In the `.map()` loop, we're already going through all the products. Let's expand it to include downloading the product detail page, parsing it, extracting the vendor's name, and adding it to the item object.
 
-```py
-...
+First, we need to make the loop asynchronous so that we can use `await download()` for each product. We'll add the `async` keyword to the inner function and rename the collection to `$promises`, since it will now store promises that resolve to items rather than the items themselves. We'll still convert the collection to a standard JavaScript array, but this time we'll pass it to `await Promise.all()` to resolve all the promises and retrieve the actual items.
 
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product, listing_url)
-    # highlight-next-line
-    product_soup = download(item["url"])
-    # highlight-next-line
-    item["vendor"] = product_soup.select_one(".product-meta__vendor").text.strip()
-    data.append(item)
-
-...
+// highlight-next-line
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
+  return item;
+});
+// highlight-next-line
+const data = await Promise.all($promises.get());
 ```
+
+The program behaves the same as before, but now the code is prepared to make HTTP requests from within the inner function. Let's do it:
+
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
+
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
+  // highlight-next-line
+  const $p = await download(item.url);
+  // highlight-next-line
+  item.vendor = $p(".product-meta__vendor").text().trim();
+  return item;
+});
+const data = await Promise.all($promises.get());
+```
+
+We download each product detail page and parse its HTML using Cheerio. The `$p` variable is the root of a Cheerio object tree, similar to but distinct from the `$` used for the listing page. That's why we use `$p()` instead of `$p.find()`.
 
 If we run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
 
@@ -159,17 +173,17 @@ If we run the program now, it'll take longer to finish since it's making 24 more
 ```json title=products.json
 [
   {
-    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
+    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
+    "minPrice": 7495,
+    "price": 7495,
     "vendor": "JBL"
   },
   {
-    "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
-    "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv",
+    "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
+    "minPrice": 139800,
+    "price": null,
     "vendor": "Sony"
   },
   ...
@@ -178,7 +192,7 @@ If we run the program now, it'll take longer to finish since it's making 24 more
 
 ## Extracting price
 
-Scraping the vendor's name is nice, but the main reason we started checking the detail pages in the first place was to figure out how to get a price for each product. From the product listing, we could only scrape the min price, and remember—we’re building a Python app to track prices!
+Scraping the vendor's name is nice, but the main reason we started checking the detail pages in the first place was to figure out how to get a price for each product. From the product listing, we could only scrape the min price, and remember—we're building a Node.js app to track prices!
 
 Looking at the [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), it's clear that the listing only shows min prices, because some products have variants, each with a different price. And different stock availability. And different SKUs…
 
@@ -206,12 +220,12 @@ https://en.wikipedia.org/wiki/Angola +244
 https://en.wikipedia.org/wiki/Benin +229
 https://en.wikipedia.org/wiki/Botswana +267
 https://en.wikipedia.org/wiki/Burkina_Faso +226
-https://en.wikipedia.org/wiki/Burundi None
+https://en.wikipedia.org/wiki/Burundi null
 https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://cheerio.js.org/docs/api/classes/Cheerio#parent) in the HTML element tree.
 
 <details>
   <summary>Solution</summary>
