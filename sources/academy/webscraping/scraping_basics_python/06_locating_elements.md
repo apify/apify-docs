@@ -162,7 +162,7 @@ We can use Beautiful Soup's `.contents` property to access individual nodes. It 
 ["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
-It seems like we can read the last element to get the actual amount from a list like the above. Let's fix our program:
+It seems like we can read the last element to get the actual amount. Let's fix our program:
 
 ```py
 import httpx
@@ -228,6 +228,16 @@ Algeria
 Angola
 Benin
 Botswana
+Burkina Faso
+Burundi
+Cameroon
+Cape Verde
+Central African Republic
+Chad
+Comoros
+Democratic Republic of the Congo
+Republic of the Congo
+Djibouti
 ...
 ```
 
