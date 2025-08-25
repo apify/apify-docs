@@ -450,8 +450,8 @@ See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs
 
 ### Rate limiting
 
-The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
+The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
-For all other dataset [API endpoints](/api/v2/storage-datasets) , the rate limit is _30 requests per second_ for each dataset.
+For all other dataset [API endpoints](/api/v2/storage-datasets) , the rate limit is _60 requests per second_ for each dataset.
 
 Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

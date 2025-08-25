@@ -627,8 +627,8 @@ CRUD ([add](/api/v2/request-queue-requests-post),
 [get](/api/v2/request-queue-request-get),
 [update](/api/v2/request-queue-request-put),
 [delete](/api/v2/request-queue-request-delete))
-operation requests are limited to _200 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
+operation requests are limited to _400 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
 
-All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _30 requests per second_ per request queue.
+All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _60 requests per second_ per request queue.
 
 Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.
