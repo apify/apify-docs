@@ -117,11 +117,11 @@ You can check out various optimization tips for Dockerfile in our [Performance](
 
 All Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
 
+If you encounter an issue that is not listed here, or need more guidance on how to update your Dockerfile, please [open an issue in the apify-actor-docker GitHub repository](https://github.com/apify/apify-actor-docker/issues/new).
+
 :::danger Action required
 
-The base Docker images display a deprecation warning. This warning will be removed in future versions, so you should update your Dockerfiles to ensure forward compatibility.
-
-For further assistance, [open an issue in the apify-actor-docker GitHub repository](https://github.com/apify/apify-actor-docker/issues/new).
+As of **August 25, 2025** the base Docker images display a deprecation warning that links you here. This warning will be removed start of **February 2026**, so you should update your Dockerfiles to ensure forward compatibility.
 
 :::
 
