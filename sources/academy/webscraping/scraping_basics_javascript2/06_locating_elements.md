@@ -34,7 +34,7 @@ if (response.ok) {
 }
 ```
 
-We're using [`each()`](https://cheerio.js.org/docs/api/classes/Cheerio#each) to loop over the items in the Cheerio container. It calls given function for each of the elements, with two arguments. The first is an index (0, 1, 2…), and the second is the element being processed.
+We're using [`each()`](https://cheerio.js.org/docs/api/classes/Cheerio#each) to loop over the items in the Cheerio container. It calls the given function for each of the elements, with two arguments. The first is an index (0, 1, 2…), and the second is the element being processed.
 
 Cheerio requires us to wrap the element with `$()` again before we can work with it further, and then we call `.text()`. If we run the code, it… well, it definitely prints _something_…
 
