@@ -33,7 +33,7 @@ These benefits make metamorph a valuable tool for creating complex, efficient wo
 
 ## Implementation guidelines
 
-To make your Actor compatible with metamorph, use `Actor.getInput()` instead of `Actor.getValue(&#96;INPUT&#96;)`. This method fetches the input using the correct key (_INPUT-METAMORPH-1_) for metamorphed runs, ensuring proper data retrieval in transformed Actor runs.
+To make your Actor compatible with metamorph, use `Actor.getInput()` instead of ``Actor.getValue(`INPUT`)``. This method fetches the input using the correct key (_INPUT-METAMORPH-1_) for metamorphed runs, ensuring proper data retrieval in transformed Actor runs.
 
 :::note Runtime limits
 
