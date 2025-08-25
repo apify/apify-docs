@@ -130,6 +130,10 @@ An Actor's negative net profit does not affect the positive profit of another Ac
   - Get a record
   - Save it to a dataset
   - etc.
+- Use synthetic start event `apify-actor-start`.
+  - This event is automatically charged by the Apify platform when an Actor is started or resurrected.
+  - The number of charged events is based on Actor memory: one event per GB with a minimum of one event.
+  - Lowers your costs by waiving the CUs equal to 5 seconds of Actor runtime.
 
 :::note `ChargingManager` usage
 
