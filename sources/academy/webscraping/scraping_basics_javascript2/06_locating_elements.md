@@ -80,15 +80,15 @@ if (response.ok) {
   const $ = cheerio.load(html);
 
   $(".product-item").each((i, element) => {
-    const productItem = $(element);
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text();
 
-    const price = productItem.find(".price");
-    const priceText = price.text();
+    const $price = $productItem.find(".price");
+    const price = $price.text();
 
-    console.log(`${titleText} | ${priceText}`);
+    console.log(`${title} | ${price}`);
   });
 } else {
   throw new Error(`HTTP ${response.status}`);
@@ -170,16 +170,16 @@ if (response.ok) {
   const $ = cheerio.load(html);
 
   $(".product-item").each((i, element) => {
-    const productItem = $(element);
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text();
 
     // highlight-next-line
-    const price = productItem.find(".price").contents().last();
-    const priceText = price.text();
+    const $price = $productItem.find(".price").contents().last();
+    const price = $price.text();
 
-    console.log(`${titleText} | ${priceText}`);
+    console.log(`${title} | ${price}`);
   });
 } else {
   throw new Error(`HTTP ${response.status}`);
@@ -243,18 +243,17 @@ Djibouti
     const $ = cheerio.load(html);
 
     $(".wikitable").each((i, tableElement) => {
-      const table = $(tableElement);
-      const rows = table.find("tr");
+      const $table = $(tableElement);
+      const $rows = $table.find("tr");
 
-      rows.each((j, rowElement) => {
-        const row = $(rowElement);
-        const cells = row.find("td");
+      $rows.each((j, rowElement) => {
+        const $row = $(rowElement);
+        const $cells = $row.find("td");
 
-        if (cells.length > 0) {
-          const thirdColumn = $(cells[2]);
-          const link = thirdColumn.find("a").first();
-          const linkText = link.text();
-          console.log(linkText);
+        if ($cells.length > 0) {
+          const $thirdColumn = $($cells[2]);
+          const $link = $thirdColumn.find("a").first();
+          console.log($link.text());
         }
       });
     });
@@ -289,10 +288,9 @@ Simplify the code from previous exercise. Use a single for loop and a single CSS
     const $ = cheerio.load(html);
 
     $(".wikitable tr td:nth-child(3)").each((i, element) => {
-      const nameCell = $(element);
-      const link = nameCell.find("a").first();
-      const linkText = link.text();
-      console.log(linkText);
+      const $nameCell = $(element);
+      const $link = $nameCell.find("a").first();
+      console.log($link.text());
     });
   } else {
     throw new Error(`HTTP ${response.status}`);
