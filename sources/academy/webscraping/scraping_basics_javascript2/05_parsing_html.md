@@ -158,9 +158,9 @@ That's it! We've managed to download a product listing, parse its HTML, and coun
 
 :::info Cheerio and jQuery
 
-The Cheerio documentation frequently mentions something called jQuery. In the medieval days of the internet, when so-called Internet Explorers roamed the untamed plains of simple websites, developers created the first JavaScript frameworks to improve their crude tools and overcome the wild inconsistencies between browsers. Imagine a time when things like `document.querySelectorAll()` didn't even exist. jQuery was the most popular of these frameworks, granting great power to those who knew how to wield it.
+The Cheerio documentation frequently mentions jQuery. Back when browsers were wildly inconsistent and basic DOM methods like document.querySelectorAll() didn't exist, jQuery was the most popular JavaScript framework for web development. It provided a consistent API that worked across all browsers.
 
-Cheerio was deliberately designed to mimic jQuery's interface. At the time, nearly everyone was familiar with it, and it felt like the most natural way to walk through HTML elements. jQuery was used in the browser, Cheerio in Node.js. But as time passed, jQuery gradually faded from relevance. In a twist of history, we now learn its syntax only to use Cheerio.
+Cheerio was designed to mimic jQuery's interface because nearly every developer knew jQuery at the time. jQuery worked in browsers, Cheerio in Node.js. While jQuery has largely faded from modern web development, we now learn its syntax specifically to use Cheerio for server-side HTML manipulation.
 
 :::
 
