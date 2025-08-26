@@ -159,8 +159,8 @@ Run: Building Actor filter-actor
 ...
 (timestamp) ACTOR: Pushing Docker image to repository.
 (timestamp) ACTOR: Build finished.
-Actor build detail https://console.apify.com/actors/Jrq1LclODUbUsqcbc#/builds/0.0.1
-Actor detail https://console.apify.com/actors/Jrq1LclODUbUsqcbc
+Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
+Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
@@ -170,15 +170,15 @@ We'll use the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api) to s
 
 ```text
 ...
-Actor build detail https://console.apify.com/actors/Jrq1LclODUbUsqcbc#/builds/0.0.1
-Actor detail https://console.apify.com/actors/Jrq1LclODUbUsqcbc
+Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
+Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
-The URLs tell us that our Actor's ID is `Jrq1LclODUbUsqcbc`. With this `actorId`, and our `token`, which is retrievable through **Settings > Integrations** on the Apify Console, we can construct a link which will call the Actor:
+The URLs tell us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > Integrations** on the Apify Console, we can construct a link which will call the Actor:
 
 ```text
-https://api.apify.com/v2/acts/Jrq1LclODUbUsqcbc/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/acts/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
 ```
 
 We can also use our username and the name of the Actor like this:
