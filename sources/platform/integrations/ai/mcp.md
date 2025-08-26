@@ -106,7 +106,7 @@ If you prefer not to set up Claude desktop, you can achieve a similar result usi
 
 :::caution Legacy SSE transport is discouraged
 
-We strongly recommend using the latest [streamable HTTP transport](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) for new integrations via `https://mcp.apify.com` instead of `https://mcp.apify.com/sse`. The legacy SSE transport is deprecated and will be removed in the future.
+We strongly recommend using the latest [streamable HTTP transport](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) for new integrations at `https://mcp.apify.com`. The legacy SSE transport at `https://mcp.apify.com/sse` is deprecated and will be removed in the future.
 
 :::
 
