@@ -53,6 +53,21 @@ During setup, provide the server URL `https://mcp.apify.com`. You will then be r
 }
 ```
 
+You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration:
+
+```json
+{
+ "mcpServers": {
+   "apify": {
+     "url": "https://mcp.apify.com",
+     "headers": {
+         "Authorization": "Bearer your-apify-token"
+     }
+   }
+  }
+}
+```
+
 ## Example usage (local stdio with Claude for Desktop)
 
 Let’s walk through an example of using Claude for Desktop with the Apify MCP Server:
@@ -87,9 +102,15 @@ If you prefer not to set up Claude desktop, you can achieve a similar result usi
 
 ![Apify Tester MCP Client](../../images/chat-ui.webp)
 
-## Interact with the MCP server over SSE
+## Interact with the MCP server over legacy SSE transport
 
-You can interact with the server through Server-Sent Events (SSE) to send messages and receive responses.
+:::caution Legacy SSE transport is discouraged
+
+We strongly recommend using the latest [streamable HTTP transport](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) for new integrations via `https://mcp.apify.com` instead of `https://mcp.apify.com/sse`. The legacy SSE transport is deprecated and will be removed in the future.
+
+:::
+
+You can interact with the server through legacy Server-Sent Events (SSE) to send messages and receive responses.
 
 In the client settings, you need to provide server configuration:
 
@@ -107,102 +128,132 @@ In the client settings, you need to provide server configuration:
 }
 ```
 
-## Adding Multiple Actors
+## Tools, resources, and prompts
 
-By default, the main Actors MCP Server starts with a single default [RAG Web Browser Actor](https://apify.com/apify/rag-web-browser). However, you can fully customize which Actors are available:
+The MCP server provides a set of tools for interacting with Apify Actors.
+Since the Apify Store is large and growing rapidly, the MCP server provides a way to dynamically discover and use new Actors.
 
-- _Dynamic adding during a session:_ If your client supports it, the agent itself can add Actors dynamically by name (using the `add-actor` operation) at runtime. For example, after using `search-actors` to find an Actor’s name, calling `add-actor` with that name will load it.
-  _Tools for adding and removing Actors are enabled by default._
-  You can disable these tools by setting the parameter `?enableAddingActors=false` in the MCP Server URL, or with the CLI flag `--enable-adding-actors=false` (can also be set in Claude for Desktop config args as `--enable-adding-actors=false`).
-  Not all MCP client frameworks allow dynamic tool addition at runtime, but Apify’s own tester client does, if adding Actors is enabled.
-- _Via url:_ If you are using Streamable HTTP or SSE protocol, you could add `actors` query parameter with Actor names separated by comma:
+### Actors
+
+Any [Apify Actor](https://apify.com/store) can be used as a tool.
+By default, the server is pre-configured with one Actor, `apify/rag-web-browser`, and several helper tools.
+The MCP server loads an Actor's input schema and creates a corresponding MCP tool.
+This allows the AI agent to know exactly what arguments to pass to the Actor and what to expect in return.
+
+For example, for the `apify/rag-web-browser` Actor, the input parameters are:
 
 ```json
 {
-  "mcpServers": {
-    "Apify": {
-      "url": "https://mcp.apify.com/?actors=lukaskrivka/google-maps-with-contact-details,apify/instagram-scraper"
-    }
-  }
+  "query": "restaurants in San Francisco",
+  "maxResults": 3
 }
 ```
 
-- _Via config file:_ For local stdio connection, you can specify which Actors should be immediately available by configuring your json configuration. Add the Actors as a comma-separated list in the `--actors` parameter, as shown in the example below. This pre-loads your selected tools without requiring discovery during conversations, ideal for workflows with predictable tool needs.
+You don't need to manually specify which Actor to call or its input parameters; the LLM handles this automatically.
+When a tool is called, the arguments are automatically passed to the Actor by the LLM.
+You can refer to the specific Actor's documentation for a list of available arguments.
 
-```json
-   {
-    "mcpServers": {
-      "actors-mcp-server": {
-        "command": "npx",
-        "args": [
-          "-y", "@apify/actors-mcp-server",
-          "--actors", "lukaskrivka/google-maps-with-contact-details,apify/instagram-scraper"
-        ],
-        "env": {
-           "APIFY_TOKEN": "YOUR_APIFY_TOKEN"
-        }
-      }
-    }
-   }
-```
+### Helper tools
 
+One of the most powerful features of using MCP with Apify is dynamic tool discovery.
+It gives an AI agent the ability to find new tools (Actors) as needed and incorporate them.
+Here are some special MCP operations and how the Apify MCP Server supports them:
 
-In summary, you can start with a broad set (everything open and discoverable) or a narrow set (just what you need) and even expand tools on the fly, giving your agent a lot of flexibility without overwhelming it initially.
+- **Apify Actors**: Search for Actors, view their details, and use them as tools for the AI.
+- **Apify documentation**: Search the Apify documentation and fetch specific documents to provide context to the AI.
+- **Actor runs**: Get lists of your Actor runs, inspect their details, and retrieve logs.
+- **Apify storage**: Access data from your datasets and key-value stores.
 
-## Configure tools for the MCP server
+### Overview of available tools
 
-You can customize the MCP server’s available tools by adding query parameters to the server URL or by passing arguments to the CLI.
-This allows you to enable or disable specific tool categories and control which tools are available.
+Here is an overview list of all the tools provided by the Apify MCP Server.
 
-The following tool categories are available:
+| Tool name | Category | Description | Enabled by default |
+| :--- | :--- | :--- | :---: |
+| `search-actors` | actors | Search for Actors in the Apify Store. | ✅ |
+| `fetch-actor-details` | actors | Retrieve detailed information about a specific Actor. | ✅ |
+| `call-actor` | actors | Call an Actor and get its run results. | ✅ |
+| [`apify-slash-rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor (see [tool configuration](#tools-configuration)) | An Actor tool to browse the web. | ✅ |
+| `search-apify-docs` | docs | Search the Apify documentation for relevant pages. | ✅ |
+| `fetch-apify-docs` | docs | Fetch the full content of an Apify documentation page by its URL. | ✅ |
+| `get-actor-run` | runs | Get detailed information about a specific Actor run. |  |
+| `get-actor-run-list` | runs | Get a list of an Actor's runs, filterable by status. |  |
+| `get-actor-log` | runs | Retrieve the logs for a specific Actor run. |  |
+| `get-dataset` | storage | Get metadata about a specific dataset. |  |
+| `get-dataset-items` | storage | Retrieve items from a dataset with support for filtering and pagination. |  |
+| `get-dataset-schema` | storage | Generate a JSON schema from dataset items. |  |
+| `get-key-value-store` | storage | Get metadata about a specific key-value store. |  |
+| `get-key-value-store-keys`| storage | List the keys within a specific key-value store. |  |
+| `get-key-value-store-record`| storage | Get the value associated with a specific key in a key-value store. |  |
+| `get-dataset-list` | storage | List all available datasets for the user. |  |
+| `get-key-value-store-list`| storage | List all available key-value stores for the user. |  |
+| `add-actor` | experimental | Add an Actor as a new tool for the user to call. |  |
 
-- _Actor discovery and management_ (default, always enabled): Search for [Actors](https://docs.apify.com/platform/actors) (`search-actors`), view details (`get-actor-details`), and dynamically add them (`add-actor`).
-- _docs_ (default, can be disabled): Search Apify documentation (`search-apify-docs`) and fetch specific documents (`fetch-apify-docs`).
-- _runs_ (optional): Get a list of your [Actor runs](https://docs.apify.com/platform/actors/running/runs-and-builds#runs) (`get-actor-run-list`), specific run details (`get-actor-run`), and logs from a specific Actor run (`get-actor-log`).
-- _storage_ (optional): Access [datasets](https://docs.apify.com/platform/storage/dataset) and [key-value stores](https://docs.apify.com/platform/storage/key-value-store), including their records (`get-dataset`, `get-dataset-items`, `get-dataset-list`, `get-key-value-store`, `get-key-value-store-keys`, `get-key-value-store-record`, `get-key-value-store-records`).
-- _preview_ (optional): Experimental tools in preview mode. Call any Actor using API (`call-actor`).
+### Tools configuration
 
-The _Actor discovery and management_ tools are always present and cannot be disabled.
-The _docs_ tools are enabled by default but can be switched off using the `tools` parameter.
+The `tools` configuration parameter is used to specify loaded tools - either categories or specific tools directly, and Apify Actors. For example, `tools=storage,runs` loads two categories; `tools=add-actor` loads just one tool.
 
-### Configure mcp.apify.com using query parameters
+When no query parameters are provided, the MCP server loads the following `tools` by default:
 
-Use the `tools` query parameter to enable or disable specific tool categories.
+- `actors`
+- `docs`
+- `apify/rag-web-browser`
 
-For example, to enable only the `runs` and `storage` tools, you can use:
+If the tools parameter is specified, only the listed tools or categories will be enabled - no default tools will be included.
+
+:::tip Easy configuration
+
+Use the [UI configurator](https://mcp.apify.com/) to configure your server, then copy the configuration to your client.
+
+:::
+
+**Configuring the hosted server:**
+
+The hosted server can be configured using query parameters in the URL. For example, to load the default tools, use:
 
 ```text
-https://mcp.apify.com/?tools=runs,storage
+https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser
 ```
 
-The server will expose all _Actor discovery and management tools_, as well as `runs` and `storage`.
-The list of tools you can enable/disable is as follows: `docs`, `runs`, `storage`, and `preview`.
+For minimal configuration, if you want to use only a single Actor tool - without any discovery or generic calling tools, the server can be configured as follows:
 
+```text
+https://mcp.apify.com?tools=apify/my-actor
+```
 
-### Configure stdio server using CLI arguments
+This setup exposes only the specified Actor (`apify/my-actor`) as a tool. No other tools will be available.
 
-When running the MCP server via the command line, you can specify the tools using the `--tools` parameter.
-For example, to enable only the `runs` and `storage` tools, you can run:
+**Configuring the CLI:**
+
+The CLI can be configured using command-line flags. For example, to load the same tools as in the hosted server configuration, use:
 
 ```bash
-npx @apify/actors-mcp-server --tools runs,storage
+npx @apify/actors-mcp-server --tools actors,docs,apify/rag-web-browser
 ```
 
-## Dynamic discovery of Actors
+The minimal configuration is similar to the hosted server configuration:
 
-One of the powerful features of MCP with Apify is **dynamic Actor tooling** – the ability for an AI agent to find new tools (Actors) as needed and incorporate them.
+```bash
+npx @apify/actors-mcp-server --tools apify/my-actor
+```
 
-Supported dynamic tool operations (enabled by default):
+As above, this exposes only the specified Actor (`apify/my-actor`) as a tool. No other tools will be available.
 
-- `search-actors`: Find available Actors by keyword or category.
-- `get-actor-details`: View details and usage information for a specific Actor.
-- `add-actor`: Dynamically add an Actor as a tool for the current session, making it available for use.
+:::caution Important recommendation
 
-These operations allow your agent to expand its toolset on demand, without requiring a server restart or manual configuration.
+**The default tools configuration may change in future versions.** When no `tools` parameter is specified, the server currently loads default tools, but this behavior is subject to change.
 
-Dynamic tool addition can be disabled using the `?enableAddingActors=false`.
-Not all MCP clients support dynamic tool addition.
-Check your client’s documentation or settings to confirm this feature is available.
+**For production use and stable interfaces, always explicitly specify the `tools` parameter** to ensure your configuration remains consistent across updates.
+
+:::
+
+### Prompts
+
+The server provides a set of predefined example prompts to help you get started interacting with Apify through MCP. For example, there is a `GetLatestNewsOnTopic` prompt that allows you to easily retrieve the latest news on a specific topic using the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor.
+
+### Resources
+
+The server does not yet provide any resources.
 
 ## Rate limits
 
