@@ -125,9 +125,30 @@ window.addEventListener('load', () => {
 
     // docusaurus-openapi-docs plugin: scroll sidebar into viewport, no need for a large timeout here
     setTimeout(() => scrollOpenApiSidebarItemIntoView(), 200);
+
+    // MCP cache clearing - run after page is fully loaded
+    setTimeout(() => clearMcpRedirectCache(), 200);
 });
 
 window.addEventListener('popstate', () => {
     setTimeout(() => redirectOpenApiDocs(), 50);
     setTimeout(() => scrollOpenApiSidebarItemIntoView(), 50);
 });
+
+// MCP redirect cache-busting
+// Background: Previously, mcp.apify.com had a 301 redirect to the docs page
+// This clears cached redirects so users can access the new MCP configuration interface
+function clearMcpRedirectCache() {
+    // Only run on the MCP documentation page
+    if (window.location.pathname.includes('integrations/mcp')) {
+        // Clear cached redirects to mcp.apify.com
+        fetch('https://mcp.apify.com/', {
+            method: 'get',
+            cache: 'reload',
+        }).then(() => {
+            // Cache cleared successfully
+        }).catch(() => {
+            // Failed to clear cache - silent fail
+        });
+    }
+}

@@ -35,7 +35,7 @@ const page = await browser.newPage();
 
 await page.addInitScript(() => {
     // Override the prototype
-    Node.prototype.addEventListener = () => { /* do nothing */ };
+    Node.prototype.addEventListener = null; /* do nothing */
 });
 
 await page.goto('https://google.com');
@@ -55,7 +55,7 @@ const page = await browser.newPage();
 
 await page.evaluateOnNewDocument(() => {
     // Override the prototype
-    Node.prototype.addEventListener = null;
+    Node.prototype.addEventListener = null; /* do nothing */
 });
 
 await page.goto('https://google.com');
