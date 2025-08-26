@@ -48,7 +48,7 @@ export default function DocItemContent({ children }) {
     '/api/client',
     '/platform',
     '/sdk',
-    '/cli'
+    '/cli',
   ];
 
   const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
