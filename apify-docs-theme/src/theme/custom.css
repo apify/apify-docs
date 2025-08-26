@@ -934,7 +934,7 @@ div[class*="searchBox"] {
 .navbar__item > .navbar__link,
 .navbar-sidebar__back {
     padding: 0.8rem 1.2rem;
-    border-radius: 2rem;
+    border-radius: 0.8rem;
     font-size: 1.4rem;
     line-height: 2.4rem;
     font-weight: 500;
