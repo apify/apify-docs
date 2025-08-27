@@ -53,10 +53,8 @@ export default function DocItemContent({ children }) {
 
   const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
 
-  console.error('DEBUG: shouldShowLLMButtons', shouldShowLLMButtons);
-
   return (
-    <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown test-class')}>
+    <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
       {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
       {shouldShowLLMButtons && <LLMButtons />}
       <MDXContent>{children}</MDXContent>
