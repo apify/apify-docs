@@ -18,7 +18,7 @@ Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation
 
 You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
 
-## Features {#features}
+## Features
 
 * Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
 * Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
@@ -33,13 +33,13 @@ You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-
 
 When using Apify's datacenter proxies, you can either select a proxy group, or the `auto` mode. [Apify Proxy](https://apify.com/proxy) offers either proxy groups that are shared across multiple customers or dedicated ones.
 
-### Shared proxy groups {#shared-proxy-groups}
+### Shared proxy groups
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed, etc.).
 
 For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
 
-### Dedicated proxy groups {#dedicated-proxy-groups}
+### Dedicated proxy groups
 
 When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
@@ -47,7 +47,7 @@ This feature is also useful if you have your own pool of proxy servers and still
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
 
-## Connecting to datacenter proxies {#connecting-to-datacenter-proxies}
+## Connecting to datacenter proxies
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
@@ -314,7 +314,7 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-## Examples using standard libraries and languages {#examples-using-standard-libraries-and-languages}
+## Examples using standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
 

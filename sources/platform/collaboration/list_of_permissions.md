@@ -11,11 +11,11 @@ slug: /collaboration/list-of-permissions
 
 This document contains all the access options that can be granted to resources on the Apify platform.
 
-## Actors {#actors}
+## Actors
 
 Click [here](../actors/index.mdx) to learn about Apify Actors.
 
-### Actor {#actor}
+### Actor
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
@@ -25,7 +25,7 @@ Click [here](../actors/index.mdx) to learn about Apify Actors.
 | View runs            | View a list of Actor runs and their details.               |
 | Manage access rights | Manage Actor access rights.                                |
 
-### Actor task {#actor-task}
+### Actor task
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
@@ -36,11 +36,11 @@ Click [here](../actors/index.mdx) to learn about Apify Actors.
 
 To learn about Actor tasks, see the [documentation](../actors/running/tasks.md).
 
-## Storage {#storage}
+## Storage
 
 For more information about Storage, see its [documentation](../storage/index.md).
 
-### Dataset {#dataset}
+### Dataset
 
 | Permission           | Description                                                     |
 |----------------------|-----------------------------------------------------------------|
@@ -50,7 +50,7 @@ For more information about Storage, see its [documentation](../storage/index.md)
 
 To learn about dataset storage, see its [documentation](../storage/dataset.md).
 
-### Key-value-store {#key-value-store}
+### Key-value-store
 
 | Permission           | Description                                                                                       |
 |----------------------|---------------------------------------------------------------------------------------------------|
@@ -60,7 +60,7 @@ To learn about dataset storage, see its [documentation](../storage/dataset.md).
 
 To learn about key-value stores, see the [documentation](../storage/key_value_store.md).
 
-### Request queue {#request-queue}
+### Request queue
 
 | Permission           | Description                                                                                    |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -70,7 +70,7 @@ To learn about key-value stores, see the [documentation](../storage/key_value_st
 
 To learn about request queue storage, see the [documentation](../storage/request_queue.md).
 
-## Proxy {#proxy}
+## Proxy
 
 | Permission | Description               |
 |------------|---------------------------|
@@ -78,7 +78,7 @@ To learn about request queue storage, see the [documentation](../storage/request
 
 To learn about Apify Proxy, see its [documentation](../proxy/index.md).
 
-## User permissions {#user-permissions}
+## User permissions
 
 Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](./organization_account/index.md).
 
