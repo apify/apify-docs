@@ -4,7 +4,6 @@ import { useColorMode, useWindowSize } from '@docusaurus/theme-common';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Giscus from '@giscus/react';
 import ContentVisibility from '@theme/ContentVisibility';
-import DocItemContent from '@theme/DocItemContent';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import DocItemFooter from '@theme/DocItem/Footer';
 import DocItemPaginator from '@theme/DocItem/Paginator';
