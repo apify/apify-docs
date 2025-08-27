@@ -13,7 +13,7 @@ This document contains all the access options that can be granted to resources o
 
 ## Actors
 
-Click [here](../actors/index.mdx) to learn about Apify Actors.
+To learn about Apify Actors, check out the [documentation](../actors/index.mdx).
 
 ### Actor
 
