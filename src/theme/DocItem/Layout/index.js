@@ -4,6 +4,7 @@ import { useColorMode, useWindowSize } from '@docusaurus/theme-common';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Giscus from '@giscus/react';
 import ContentVisibility from '@theme/ContentVisibility';
+import DocItemContent from '@theme/DocItemContent';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import DocItemFooter from '@theme/DocItem/Footer';
 import DocItemPaginator from '@theme/DocItem/Paginator';
@@ -14,7 +15,6 @@ import DocVersionBanner from '@theme/DocVersionBanner';
 import clsx from 'clsx';
 import React, { useCallback } from 'react';
 
-import DocItemContent from '../Content';
 import styles from './styles.module.css';
 
 /**
