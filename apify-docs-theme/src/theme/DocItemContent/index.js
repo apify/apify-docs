@@ -18,11 +18,14 @@ function useSyntheticTitle() {
   return metadata.title;
 }
 
+/**
+ * This component is also used in other Apify docs (clients, SDKs, CLI)
+ */
 export default function DocItemContent({ children }) {
   const syntheticTitle = useSyntheticTitle();
   const location = useLocation();
 
-  // Define the allowed paths that should show LLMButtons (tag/info pages)
+  // Define the allowed paths that should show LLMButtons
   // The logic is handled here, and also in docusaurus.config.js (see docusaurus-plugin-openapi-docs)
   const allowedPaths = [
     '/api/v2/getting-started',
