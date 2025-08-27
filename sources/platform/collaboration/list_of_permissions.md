@@ -5,8 +5,6 @@ sidebar_position: 12.2
 slug: /collaboration/list-of-permissions
 ---
 
-# List of permissions
-
 **Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, actActoror runs/tasks and storage.**
 
 ---

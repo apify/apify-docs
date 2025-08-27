@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /collaboration/organization-account/setup
 ---
 
-# Setup
-
 **Configure your organization account by inviting new members and assigning their roles. Manage team members' access permissions to the organization's resources.**
 
 ---

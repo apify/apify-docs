@@ -8,8 +8,6 @@ slug: /proxy/google-serp-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Google SERP proxy {#google-serp-proxy}
-
 **Learn how to collect search results from Google Search-powered tools. Get search results from localized domains in multiple countries, e.g. the US and Germany.**
 
 ---

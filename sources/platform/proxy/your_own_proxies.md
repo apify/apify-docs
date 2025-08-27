@@ -5,8 +5,6 @@ sidebar_position: 10.5
 slug: /proxy/using-your-own-proxies
 ---
 
-# Using your own proxies
-
 **Learn how to use your own proxies while using the Apify platform.**
 
 ---

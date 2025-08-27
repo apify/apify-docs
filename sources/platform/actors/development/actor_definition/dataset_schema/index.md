@@ -1,11 +1,10 @@
 ---
-title: Dataset schema
+title: Dataset Schema Specification
 sidebar_position: 3
 description: Learn how to define and present your dataset schema in an user-friendly output UI.
 slug: /actors/development/actor-definition/dataset-schema
+sidebar_label: Dataset schema
 ---
-
-# Dataset Schema Specification
 
 **Learn how to define and present your dataset schema in an user-friendly output UI.**
 

@@ -8,8 +8,6 @@ slug: /proxy/residential-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Residential proxy {#residential-proxy}
-
 **Achieve a higher level of anonymity using IP addresses from human users. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.**
 
 ---

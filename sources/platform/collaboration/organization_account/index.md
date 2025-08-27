@@ -5,8 +5,6 @@ sidebar_position: 12.1
 slug: /collaboration/organization-account
 ---
 
-# Organization account
-
 **Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.**
 
 ---
