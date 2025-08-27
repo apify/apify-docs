@@ -168,26 +168,26 @@ Here are some special MCP operations and how the Apify MCP Server supports them:
 
 Here is an overview list of all the tools provided by the Apify MCP Server.
 
-| Tool name | Category | Description | Enabled by default |
+| Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :---: |
-| `search-actors` | actors | Search for Actors in the Apify Store. | ✅ |
-| `fetch-actor-details` | actors | Retrieve detailed information about a specific Actor. | ✅ |
-| `call-actor` | actors | Call an Actor and get its run results. | ✅ |
-| [`apify-slash-rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor (see [tool configuration](#tools-configuration)) | An Actor tool to browse the web. | ✅ |
-| `search-apify-docs` | docs | Search the Apify documentation for relevant pages. | ✅ |
-| `fetch-apify-docs` | docs | Fetch the full content of an Apify documentation page by its URL. | ✅ |
-| `get-actor-run` | runs | Get detailed information about a specific Actor run. |  |
-| `get-actor-run-list` | runs | Get a list of an Actor's runs, filterable by status. |  |
-| `get-actor-log` | runs | Retrieve the logs for a specific Actor run. |  |
-| `get-dataset` | storage | Get metadata about a specific dataset. |  |
-| `get-dataset-items` | storage | Retrieve items from a dataset with support for filtering and pagination. |  |
-| `get-dataset-schema` | storage | Generate a JSON schema from dataset items. |  |
-| `get-key-value-store` | storage | Get metadata about a specific key-value store. |  |
-| `get-key-value-store-keys`| storage | List the keys within a specific key-value store. |  |
-| `get-key-value-store-record`| storage | Get the value associated with a specific key in a key-value store. |  |
-| `get-dataset-list` | storage | List all available datasets for the user. |  |
-| `get-key-value-store-list`| storage | List all available key-value stores for the user. |  |
-| `add-actor` | experimental | Add an Actor as a new tool for the user to call. |  |
+| `search-actors` | actors | ✅ | Search for Actors in the Apify Store. |
+| `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor. |
+| `call-actor` | actors | ✅ | Call an Actor and get its run results. |
+| [`apify-slash-rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor (see [tool configuration](#tools-configuration)) | ✅ | An Actor tool to browse the web. |
+| `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages. |
+| `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL. |
+| `get-actor-run` | runs |  | Get detailed information about a specific Actor run. |
+| `get-actor-run-list` | runs |  | Get a list of an Actor's runs, filterable by status. |
+| `get-actor-log` | runs |  | Retrieve the logs for a specific Actor run. |
+| `get-dataset` | storage |  | Get metadata about a specific dataset. |
+| `get-dataset-items` | storage |  | Retrieve items from a dataset with support for filtering and pagination. |
+| `get-dataset-schema` | storage |  | Generate a JSON schema from dataset items. |
+| `get-key-value-store` | storage |  | Get metadata about a specific key-value store. |
+| `get-key-value-store-keys`| storage |  | List the keys within a specific key-value store. |
+| `get-key-value-store-record`| storage |  | Get the value associated with a specific key in a key-value store. |
+| `get-dataset-list` | storage |  | List all available datasets for the user. |
+| `get-key-value-store-list`| storage |  | List all available key-value stores for the user. |
+| `add-actor` | experimental |  | Add an Actor as a new tool for the user to call. |
 
 ### Tools configuration
 
@@ -207,7 +207,7 @@ Use the [UI configurator](https://mcp.apify.com/) to configure your server, then
 
 :::
 
-**Configuring the hosted server:**
+#### Configuring the hosted server
 
 The hosted server can be configured using query parameters in the URL. For example, to load the default tools, use:
 
@@ -223,7 +223,7 @@ https://mcp.apify.com?tools=apify/my-actor
 
 This setup exposes only the specified Actor (`apify/my-actor`) as a tool. No other tools will be available.
 
-**Configuring the CLI:**
+#### Configuring the CLI
 
 The CLI can be configured using command-line flags. For example, to load the same tools as in the hosted server configuration, use:
 
@@ -241,9 +241,9 @@ As above, this exposes only the specified Actor (`apify/my-actor`) as a tool. No
 
 :::caution Important recommendation
 
-**The default tools configuration may change in future versions.** When no `tools` parameter is specified, the server currently loads default tools, but this behavior is subject to change.
+_The default tools configuration may change in future versions._ When no `tools` parameter is specified, the server currently loads default tools, but this behavior is subject to change.
 
-**For production use and stable interfaces, always explicitly specify the `tools` parameter** to ensure your configuration remains consistent across updates.
+_For production use and stable interfaces, always explicitly specify the `tools` parameter_ to ensure your configuration remains consistent across updates.
 
 :::
 
