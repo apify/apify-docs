@@ -93,7 +93,7 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2/datase
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at _200 requests per second_ to avoid overloading our servers.
+> API data push to a dataset is capped at _400 requests per second_ to avoid overloading our servers.
 
 Example payload:
 
