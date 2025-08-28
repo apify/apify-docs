@@ -40,7 +40,7 @@ Docker is a massive topic on its own, but don't be worried! We only expect you t
 
 ### The basics of Actors {#actor-basics}
 
-Part of this course will be learning more in-depth about Actors; however, some basic knowledge is already assumed. If you haven't yet gone through the [Actors](/actors) lesson of the **Apify platform** course, it's highly recommended to at least give it a glance before moving forward.
+Part of this course will be learning more in-depth about Actors; however, some basic knowledge is already assumed. If you haven't yet gone through the [Actors](platform/actors) documentation, it's highly recommended to at least give it a glance before moving forward.
 
 ## First up {#first}
 

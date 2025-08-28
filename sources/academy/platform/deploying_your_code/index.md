@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This section will discuss how to use your newfound knowledge of the Apify platform and Actors from the [**Actors overview**](/actors) to deploy your existing project's code to the Apify platform as an Actor.
+This section will discuss how to use your newfound knowledge of the Apify platform and Actors from the [**Actors overview**](/platform/actors) to deploy your existing project's code to the Apify platform as an Actor.
 Any program running in a Docker container can become an Apify Actor.
 
 ![The deployment workflow](../../images/deployment-workflow.png)
