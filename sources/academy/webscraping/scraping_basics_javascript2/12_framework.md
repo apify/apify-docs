@@ -132,9 +132,9 @@ const crawler = new CheerioCrawler({
 });
 ```
 
-Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper.
+Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
 
-The only change will be in the selector. In `oldindex.js`, we look for `.price` within a `$productItem` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
+In `oldindex.js`, we look for `.price` within a `$productItem` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```js
 const crawler = new CheerioCrawler({
