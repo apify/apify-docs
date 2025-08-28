@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /integrations/actors/integrating-actors-via-api
 ---
 
-# Integrating Actors via API
-
 **Learn how to integrate with other Actors and tasks using the Apify API.**
 
 import Tabs from '@theme/Tabs';

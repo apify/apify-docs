@@ -6,8 +6,6 @@ description: Learn how to define and present your key-value store schema to orga
 slug: /actors/development/actor-definition/key-value-store-schema
 ---
 
-# Key-value Store Schema Specification
-
 **Learn how to define and present your key-value store schema to organize records into collections.**
 
 ---
