@@ -191,7 +191,7 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 ### Scrape calling codes of African countries
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
+Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
@@ -246,7 +246,7 @@ Hint: Locating cells in tables is sometimes easier if you know how to [navigate 
 
 ### Scrape authors of F1 news articles
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
+Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
@@ -282,7 +282,7 @@ Hints:
       return BeautifulSoup(response.text, "html.parser")
 
   def parse_author(article_soup):
-      link = article_soup.select_one('aside a[rel="author"]')
+      link = article_soup.select_one('a[rel="author"]')
       if link:
           return link.text.strip()
       address = article_soup.select_one('aside address')
