@@ -90,7 +90,6 @@ We'll now adjust the template so that it runs our program for watching prices. A
 
 ```py title=warehouse-watchdog/src/crawler.py
 import asyncio
-from decimal import Decimal
 from crawlee.crawlers import BeautifulSoupCrawler
 
 async def main():
@@ -110,13 +109,14 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
             "variant_name": None,
         }
         if variants := context.soup.select(".product-form__option.no-js option"):
@@ -136,9 +136,10 @@ async def main():
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
@@ -300,7 +301,6 @@ Next, we'll add `proxy_config` as an optional parameter in `warehouse-watchdog/s
 
 ```py title=warehouse-watchdog/src/crawler.py
 import asyncio
-from decimal import Decimal
 from crawlee.crawlers import BeautifulSoupCrawler
 
 # highlight-next-line
