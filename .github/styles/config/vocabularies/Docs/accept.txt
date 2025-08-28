@@ -1,11 +1,17 @@
+# Apify-specific terms and products
 \bApify\b(?:-\w+)?
 @apify\.com
-SDK(s)
-[Ss]torages
 Crawlee
 [Aa]utoscaling
 CU
 
+# Technical terms and abbreviations
+SDK(s)?
+API's?
+APIs
+webhook's?
+idempotency
+backoff
 booleans
 env
 npm
@@ -15,36 +21,43 @@ node_modules
 [Rr]egex
 [Mm]onorepo
 [Gg]ist
-SDK
 Dockerfile
 Docker's
-
 Docusaurus
 navbar
 nginx
-npm
 camelCase
-
-:::caution
-:::note
-:::info
-:::tip
-:::warning
-
 maxWidth
 startUrls
-
 PDFs
-dataset's
+dataset's?
 gif
 Gzip
+hostname
+IPs
+unscoped
+multistep
+[Aa]utogenerated
+preconfigured
+[Dd]atacenter
+asyncio
+backlinks?
+captchas?
+combinator
+deduplicating
+parallelization
+READMEs
+reindexes
+screenshotting
+SKUs?
+subreddits?
+upvote
+walkthroughs?
 
-API's
-APIs
-webhook's
-idempotency
-backoff
+# Storage and data terms
+[Ss]torages
 
+# Authentication and security
 Authy
 reCaptcha
 OAuth
@@ -52,11 +65,11 @@ untrusted
 unencrypted
 proxied
 
+# AI
 LLM
 embedder
 chatbot
 [Ll]angchain
-
 [Kk]eboola
 [Aa]irbyte
 [Qq]drant
@@ -65,61 +78,51 @@ chatbot
 [Zz]illiz
 llama_index
 [Ff]lowise
+Langflow
+[Aa]gno
+[Gg]umloop
 
+# Technical concepts
 exploitability
 [Ww]hitepaper
 [Cc]ron
 scalably
 metamorph
-hostname
-IPs
-unscoped
-multistep
-[Aa]utogenerated
-preconfigured
-[Dd]atacenter
 
+# Third-party services and platforms
 [Ww]ikipedia
 [Zz]apier
 [Tt]rello
 [Pp]refill
-[Gg]umloop
-
 [Mm]ultiselect
-
-devs
-asyncio
-backlinks?
-captchas?
-Chatbot
-combinator
-deduplicating
-dev
 Fakestore
 Fandom('s)?
 IMDb
-influencers
 iPads?
 iPhones?
 jQuery
-Langflow
+Shein('s)?
+Shopify
+[Ss]ubwoofer
+Tripadvisor
+[Ss]crapy
+
+# Content and media
+influencers
 learnings
 livestreams
 outro
-parallelization
-READMEs
-reindexes
 [Rr]epurpose
-screenshotting
-[Ss]crapy
-Shein('s)?
-Shopify
-SKUs?
-subreddits?
-[Ss]ubwoofer
-Tripadvisor
-upvote
-walkthroughs?
 
+# Development and tools
+devs
+dev
 ul
-[Aa]gno
+pnpm
+
+# Docusaurus admonitions
+:::caution
+:::note
+:::info
+:::tip
+:::warning
