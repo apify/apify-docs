@@ -54,7 +54,13 @@ export default function DocItemContent({ children }) {
     '/cli',
   ];
 
-  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
+  // Define paths that should not show LLMButtons (e.g., changelog pages)
+  const disallowedPaths = [
+    '/changelog',
+  ];
+
+  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path))
+    && !disallowedPaths.some((path) => location.pathname.includes(path));
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
