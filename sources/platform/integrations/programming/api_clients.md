@@ -43,7 +43,7 @@ After installing the package, you must import and initialize the client with you
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 import { ApifyClient } from 'apify-client';
 
 const client = new ApifyClient({
@@ -54,7 +54,7 @@ const client = new ApifyClient({
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 from apify_client import ApifyClient
 
 client = ApifyClient(token='YOUR_API_TOKEN')
@@ -82,7 +82,7 @@ First, get a client for the specific Actor, then run it using the `.call()` meth
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 // Get a client for the 'apify/example-add-numbers' Actor
 const actorClient = client.actor('apify/example-add-numbers');
 
@@ -96,7 +96,7 @@ const run = await actorClient.call({
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 # Get a client for the 'apify/example-add-numbers' Actor
 actor_client = client.actor('apify/example-add-numbers')
 
@@ -119,7 +119,7 @@ You can then use this `defaultDatasetId` to get a client for the dataset and fet
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 // Get a client for the run's default dataset
 const datasetClient = client.dataset(run.defaultDatasetId);
 
@@ -131,7 +131,7 @@ console.log(items);
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 # Get a client for the run's default dataset
 dataset_client = client.dataset(run['defaultDatasetId'])
 
@@ -152,14 +152,14 @@ First, get a client for your Actor.
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 const actorClient = client.actor('YOUR_USERNAME/YOUR_ACTOR_NAME');
 ```
 
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 actor_client = client.actor('YOUR_USERNAME/YOUR_ACTOR_NAME')
 ```
 
@@ -171,7 +171,7 @@ Then, call the `.update()` method on the client and pass in the new `defaultRunO
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 await actorClient.update({
     defaultRunOptions: {
         build: 'latest',
@@ -184,8 +184,12 @@ await actorClient.update({
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
-actor_client.update(default_run_build='latest', default_run_memory_mbytes=256, default_run_timeout_secs=20)
+```py
+actor_client.update(
+    default_run_build='latest',
+    default_run_memory_mbytes=256,
+    default_run_timeout_secs=20,
+)
 ```
 
 </TabItem>

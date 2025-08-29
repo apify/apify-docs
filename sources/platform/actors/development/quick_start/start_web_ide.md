@@ -37,7 +37,7 @@ Choose the **Start with JavaScript** template. This template is a great starting
 
 The main logic of the template lives in the `src/main.js` file and uses [Axios](https://axios-http.com/docs/intro) for downloading the page content and [Cheerio](https://cheerio.js.org/) for parsing the HTML.
 
-```javascript
+```js
 import { Actor } from 'apify';
 import axios from 'axios';
 import * as cheerio from 'cheerio';

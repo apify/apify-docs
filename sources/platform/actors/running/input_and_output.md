@@ -93,7 +93,7 @@ When you run this Actor, you can enter the two numbers in the **Input** tab:
 
 The Actor's code uses `Actor.getInput()` to retrieve the input values and `Actor.pushData()` to save the result.
 
-```javascript title="main.js"
+```js title="main.js"
 import { Actor } from 'apify';
 
 await Actor.init();
