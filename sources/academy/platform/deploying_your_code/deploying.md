@@ -55,7 +55,7 @@ One important thing to note is that you can use a `.gitignore` file to exclude f
 
 ## Deployed! {#deployed}
 
-Great! Once you've pushed your Actor to the platform, you will find it listed under the **Actors** tab. When using the `apify push` command, you will have access to the multifile editor. For details about using the multifile editor, refer to [Creating Actors](/academy/getting-started/creating-actors#web-ide).
+Great! Once you've pushed your Actor to the platform, you will find it listed under the **Actors** tab. When using the `apify push` command, you will have access to the multifile editor. For details about using the multifile editor, refer to [the Web IDE quick start](/platform/actors/development/quick-start/web-ide).
 
 ![Deployed Actor on the Apify platform](./images/actor-page.jpg)
 
