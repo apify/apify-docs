@@ -207,9 +207,9 @@ The code above assumes the `.select_one()` call doesn't return `None`. If your e
 
 :::
 
-Now for the price. We're not doing anything new here—just import `Decimal` and copy-paste the code from our old scraper.
+Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
 
-The only change will be in the selector. In `main.py`, we looked for `.price` within a `product_soup` object representing a product card. Now, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
+In `main.py`, we looked for `.price` within a `product_soup` object representing a product card. Now, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```py
 async def main():
@@ -224,13 +224,14 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
         }
         print(item)
 ```
@@ -239,7 +240,6 @@ Finally, the variants. We can reuse the `parse_variant()` function as-is, and in
 
 ```py
 import asyncio
-from decimal import Decimal
 from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
@@ -257,13 +257,14 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
             "variant_name": None,
         }
         if variants := context.soup.select(".product-form__option.no-js option"):
@@ -277,9 +278,10 @@ async def main():
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
@@ -342,7 +344,6 @@ Crawlee gives us stats about HTTP requests and concurrency, but we don't get muc
 
 ```py
 import asyncio
-from decimal import Decimal
 from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
@@ -364,13 +365,14 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
             "variant_name": None,
         }
         if variants := context.soup.select(".product-form__option.no-js option"):
@@ -393,9 +395,10 @@ async def main():
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}

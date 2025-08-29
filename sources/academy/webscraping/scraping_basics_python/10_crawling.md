@@ -18,7 +18,6 @@ Thanks to the refactoring, we have functions ready for each of the tasks, so we 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 import csv
 from urllib.parse import urljoin
@@ -41,24 +40,20 @@ def parse_product(product, base_url):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price, "url": url}
 
 def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    json.dump(data, file, default=serialize, indent=2)
+    json.dump(data, file, indent=2)
 
 def export_csv(file, data):
     fieldnames = list(data[0].keys())
@@ -159,14 +154,14 @@ If we run the program now, it'll take longer to finish since it's making 24 more
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
     "vendor": "JBL"
   },
   {
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
+    "min_price": "139800",
     "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv",
     "vendor": "Sony"

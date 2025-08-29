@@ -113,8 +113,8 @@ If we run the program now, we'll see 34 items in total. Some items don't have va
   {
     "variant_name": null,
     "title": "Klipsch R-120SW Powerful Detailed Home Speaker - Unit",
-    "min_price": "324.00",
-    "price": "324.00",
+    "min_price": "32400",
+    "price": "32400",
     "url": "https://warehouse-theme-metal.myshopify.com/products/klipsch-r-120sw-powerful-detailed-home-speaker-set-of-1",
     "vendor": "Klipsch"
   },
@@ -131,7 +131,7 @@ Some products will break into several items, each with a different variant name.
   {
     "variant_name": "Red - $178.00",
     "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
+    "min_price": "12800",
     "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
     "vendor": "Sony"
@@ -139,7 +139,7 @@ Some products will break into several items, each with a different variant name.
   {
     "variant_name": "Black - $178.00",
     "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
+    "min_price": "12800",
     "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
     "vendor": "Sony"
@@ -157,8 +157,8 @@ Perhaps surprisingly, some products with variants will have the price field set.
   {
     "variant_name": "Red - $74.95",
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
     "vendor": "JBL"
   },
@@ -174,15 +174,16 @@ The items now contain the variant as text, which is good for a start, but we wan
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
 ```
 
-First, we split the text into two parts, then we parse the price as a decimal number. This part is similar to what we already do for parsing product listing prices. The function returns a dictionary we can merge with `item`.
+First, we split the text into two parts, then we parse the price as a number. This part is similar to what we already do for parsing product listing prices. The function returns a dictionary we can merge with `item`.
 
 ## Saving price
 
@@ -191,7 +192,6 @@ Now, if we use our new function, we should finally get a program that can scrape
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 import csv
 from urllib.parse import urljoin
@@ -214,13 +214,14 @@ def parse_product(product, base_url):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price, "url": url}
@@ -228,20 +229,16 @@ def parse_product(product, base_url):
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
 
 def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    json.dump(data, file, default=serialize, indent=2)
+    json.dump(data, file, indent=2)
 
 def export_csv(file, data):
     fieldnames = list(data[0].keys())
@@ -283,16 +280,16 @@ Let's run the scraper and see if all the items in the data contain prices:
   {
     "variant_name": "Red",
     "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": "178.00",
+    "min_price": "12800",
+    "price": "17800",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
     "vendor": "Sony"
   },
   {
     "variant_name": "Black",
     "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": "178.00",
+    "min_price": "12800",
+    "price": "17800",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
     "vendor": "Sony"
   },

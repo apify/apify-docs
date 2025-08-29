@@ -29,7 +29,6 @@ Producing results line by line is an efficient approach to handling large datase
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -49,13 +48,14 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     # highlight-next-line
@@ -69,7 +69,7 @@ Before looping over the products, we prepare an empty list. Then, instead of pri
 
 ```text
 $ python main.py
-[{'title': 'JBL Flip 4 Waterproof Portable Bluetooth Speaker', 'min_price': Decimal('74.95'), 'price': Decimal('74.95')}, {'title': 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV', 'min_price': Decimal('1398.00'), 'price': None}, ...]
+[{'title': 'JBL Flip 4 Waterproof Portable Bluetooth Speaker', 'min_price': 7495, 'price': 7495}, {'title': 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV', 'min_price': 139800, 'price': None}, ...]
 ```
 
 :::tip Pretty print
@@ -87,7 +87,6 @@ In Python, we can read and write JSON using the [`json`](https://docs.python.org
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 # highlight-next-line
 import json
 ```
@@ -99,39 +98,17 @@ with open("products.json", "w") as file:
     json.dump(data, file)
 ```
 
-That's it! If we run the program now, it should also create a `products.json` file in the current working directory:
-
-```text
-$ python main.py
-Traceback (most recent call last):
-  ...
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type Decimal is not JSON serializable
-```
-
-Ouch! JSON supports integers and floating-point numbers, but there's no guidance on how to handle `Decimal`. To maintain precision, it's common to store monetary values as strings in JSON files. But this is a convention, not a standard, so we need to handle it manually. We'll pass a custom function to `json.dump()` to serialize objects that it can't handle directly:
-
-```py
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
-with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
-```
-
-If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
+That's it! If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
 
 <!-- eslint-skip -->
 ```json title=products.json
-[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "74.95", "price": "74.95"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "1398.00", "price": null}, ...]
+[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "7495", "price": "7495"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "139800", "price": null}, ...]
 ```
 
 If you skim through the data, you'll notice that the `json.dump()` function handled some potential issues, such as escaping double quotes found in one of the titles by adding a backslash:
 
 ```json
-{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "158.00", "price": "158.00"}
+{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "15800", "price": "15800"}
 ```
 
 :::tip Pretty JSON
@@ -177,7 +154,6 @@ Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 # highlight-next-line
 import csv
@@ -186,13 +162,8 @@ import csv
 Next, let's add one more data export to end of the source code of our scraper:
 
 ```py
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
 with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
+    json.dump(data, file)
 
 with open("products.csv", "w") as file:
     writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
@@ -223,13 +194,12 @@ Write a new Python program that reads `products.json`, finds all products with a
   ```py
   import json
   from pprint import pp
-  from decimal import Decimal
 
   with open("products.json", "r") as file:
       products = json.load(file)
 
   for product in products:
-      if Decimal(product["min_price"]) > 500:
+      if int(product["min_price"]) > 500:
           pp(product)
   ```
 
