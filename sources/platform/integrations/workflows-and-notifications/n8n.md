@@ -19,7 +19,7 @@ In this guide, you'll learn how to install the Apify node, set up authentication
 Before you begin, make sure you have:
 
 - An [Apify account](https://console.apify.com/)
-- An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
+- An [n8n instance](https://docs.n8n.io/learning-path/) (self‑hosted or cloud)
 
 ## Install the Apify Node (self-hosted)
 
@@ -73,7 +73,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 1. n8n automatically retrieves and stores the OAuth2 tokens.
 
   ![Apify Auth](../images/n8n-oauth.png)
-  
+
 :::note
 
 For simplicity on n8n Cloud, use the API key method if you prefer manual control over credentials.

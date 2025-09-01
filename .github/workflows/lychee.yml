@@ -46,6 +46,7 @@ jobs:
                         --max-retries 6
                         --verbose
                         --no-progress
+                        --timeout '60'
                         --accept '100..=103,200..=299,403..=403,429'
                         --format markdown
                         './build/**/*.html'
