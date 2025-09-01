@@ -146,8 +146,8 @@ function clearMcpRedirectCache() {
             method: 'get',
             cache: 'reload',
             headers: {
-                'Accept': 'text/html'
-            }
+                Accept: 'text/html',
+            },
         }).then(() => {
             // Cache cleared successfully
         }).catch(() => {
