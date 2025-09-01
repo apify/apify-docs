@@ -132,12 +132,12 @@ module.exports = {
     ]),
     plugins: [
         [
-            'docusaurus-biel',{
+            'docusaurus-biel', {
                 project: 'zat23cvkm1',
                 headerTitle: 'Biel.ai chatbot',
                 version: 'latest',
                 enable: false,
-            }
+            },
         ],
         'docusaurus-plugin-image-zoom',
         [
