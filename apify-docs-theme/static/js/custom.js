@@ -145,6 +145,9 @@ function clearMcpRedirectCache() {
         fetch('https://mcp.apify.com/', {
             method: 'get',
             cache: 'reload',
+            headers: {
+                'Accept': 'text/html'
+            }
         }).then(() => {
             // Cache cleared successfully
         }).catch(() => {
