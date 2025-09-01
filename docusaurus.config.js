@@ -135,7 +135,8 @@ module.exports = {
             'docusaurus-biel',{
                 project: 'zat23cvkm1',
                 headerTitle: 'Biel.ai chatbot',
-                version: 'latest'
+                version: 'latest',
+                enable: false,
             }
         ],
         'docusaurus-plugin-image-zoom',
