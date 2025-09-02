@@ -267,18 +267,17 @@ The Apify plugin provides two main types of operations:
 - Create Webhook [doc](https://docs.apify.com/api/v2/webhooks-post)
 - Delete Webhook [doc](https://docs.apify.com/api/v2/webhook-delete)
 
-:::tip
+:::tip Check out the documentation
 
-### Check out the documentation
 Each API call links to the Apify documentation. To learn more about any plugin action or data call, go to the **Plugins** page in your app, select the Apify plugin, and use the documentation links in the field descriptions.
+
+:::
 
 ### Use the latest version of the plugin
 To stay up to date with new features, make sure you're using the latest version of the plugin. You can check this on the **Plugins** page by selecting the Apify plugin and choosing the latest version from the drop-down menu. You'll also see a brief note describing what's changed in that version.
 
-:::
-
 ## Troubleshooting
-<!-- markdownlint-disable MD001 -->
+
 ### Authentication errors
 
 Ensure your API token is correctly set in the action (preferably as `Current User's apify_api_token`) and that it has the necessary permissions.
