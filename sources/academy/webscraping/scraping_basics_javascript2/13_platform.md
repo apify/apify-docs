@@ -76,7 +76,7 @@ The command creates an `.actor` directory with `actor.json` file inside. This fi
 
 :::tip Hidden dot files
 
-On some systems, `.actor` might be hidden in the directory listing because it starts with a dot. Use your editor's built-in file explorer to locate it.
+On some systems, `.actor` might be hidden in the directory listing because it starts with a `.`. Use your editor's built-in file explorer to locate it.
 
 :::
 
