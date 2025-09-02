@@ -412,7 +412,7 @@ If you export the dataset as JSON, it should look something like this:
 
 Hints:
 
-- The website uses `DD/MM/YYYY` format for the date of birth. You'll need to change the format to the ISO 8601 standard with dashes.
+- The website uses `DD/MM/YYYY` format for the date of birth. You'll need to change the format to the ISO 8601 standard with dashes: `YYYY-MM-DD`
 - To locate the Instagram URL, use the attribute selector `a[href*='instagram']`. Learn more about attribute selectors in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
 
 <details>
