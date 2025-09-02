@@ -140,7 +140,7 @@ If we run the program now, we'll see 34 items in total. Some items don't have va
 [
   ...
   {
-    "variant": null,
+    "variantName": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/klipsch-r-120sw-powerful-detailed-home-speaker-set-of-1",
     "title": "Klipsch R-120SW Powerful Detailed Home Speaker - Unit",
     "minPrice": 32400,
@@ -158,7 +158,7 @@ Some products will break into several items, each with a different variant name.
 [
   ...
   {
-    "variant": "Red - $178.00",
+    "variantName": "Red - $178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
     "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
     "minPrice": 12800,
@@ -166,7 +166,7 @@ Some products will break into several items, each with a different variant name.
     "vendor": "Sony"
   },
   {
-    "variant": "Black - $178.00",
+    "variantName": "Black - $178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
     "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
     "minPrice": 12800,
@@ -184,7 +184,7 @@ Perhaps surprisingly, some products with variants will have the price field set.
 [
   ...
   {
-    "variant": "Red - $74.95",
+    "variantName": "Red - $74.95",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
     "minPrice": 7495,
@@ -236,7 +236,7 @@ async function download(url) {
   }
 }
 
-function parseProduct(productItem, baseURL) {
+function parseProduct($productItem, baseURL) {
   const $title = $productItem.find(".product-item__title");
   const title = $title.text().trim();
   const url = new URL($title.attr("href"), baseURL).href;
