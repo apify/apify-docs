@@ -82,7 +82,7 @@ Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory co
 
 The file contains a single asynchronous function, `main()`. At the beginning, it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then passes that input to a small crawler built on top of the Crawlee framework.
 
-Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://apify.com/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
+Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://docs.apify.com/platform/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
 
 ![The expected file structure](./images/actor-file-structure.webp)
 

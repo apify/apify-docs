@@ -61,7 +61,7 @@ Success: You are logged in to Apify as user1234!
 
 ## Turning our program to an Actor
 
-Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://apify.com/actors)—a standardized container with designated places for input and output.
+Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://docs.apify.com/platform/actors)—a standardized container with designated places for input and output.
 
 Many [Actor templates](https://apify.com/templates/categories/javascript) simplify the setup for new projects. We'll skip those, as we're about to package an existing program.
 
