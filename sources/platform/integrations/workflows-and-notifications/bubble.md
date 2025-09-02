@@ -230,7 +230,7 @@ This approach avoids Bubble timeouts, keeps the UI responsive, and scales to lar
 
 ## Example use cases
 
-- _E-commerce price monitoring_  - Schedule a daily workflow to run a price-scraping Actor on competitor sites. Store the results in your Bubble database, display them in a dashboard, and set up alerts for significant price changes.
+- _E-commerce price monitoring_ - Schedule a daily workflow to run a price-scraping Actor on competitor sites. Store the results in your Bubble database, display them in a dashboard, and set up alerts for significant price changes.
 - _Lead generation automation_ - Trigger a workflow on form submission to run an Actor that enriches lead data, such as pulling company details from a domain. Save the enriched information to your database and automate follow-up actions like email campaigns.
 - _Content aggregation_ - Configure regular Actor runs to gather articles or posts from multiple sources.
 
