@@ -364,7 +364,7 @@ await crawler.exportData('dataset.json');
 await crawler.exportData('dataset.csv');
 ```
 
-Depending on what we find helpful, we can tweak the logs to include more or less detail. See the Crawlee docs on the [Log instance](https://crawlee.dev/js/api/core/class/Log) for more details on what you can do with it.
+Depending on what we find helpful, we can tweak the logs to include more or less detail. Check the Crawlee docs on the [Log instance](https://crawlee.dev/js/api/core/class/Log) for more details on what you can do with it.
 
 If we compare `index.js` and `oldindex.js` now, it's clear we've cut at least 20 lines of code compared to the original program, even with the extra logging we've added. Throughout this lesson, we've introduced features to match the old scraper's functionality, but at each phase, the code remained clean and readable. Plus, we've been able to focus on what's unique to the website we're scraping and the data we care about.
 
