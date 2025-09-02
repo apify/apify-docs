@@ -9,11 +9,10 @@ slug: /integrations/bubble
 **Learn how to integrate your Apify Actors with Bubble for automated workflows and notifications.**
 
 ---
-[Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the Apify integration for Bubble, you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
+[Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
-:::tip 
+:::tip Explore the live demo
 
-### Explore the live demo
 Open the demo Bubble app to check out the integration end-to-end before building your own: [apify-28595.bubbleapps.io](https://apify-28595.bubbleapps.io)
 
 :::
@@ -236,44 +235,44 @@ This approach avoids Bubble timeouts, keeps the UI responsive, and scales to lar
 
 ## Available Apify actions and data sources
 
-The Apify plugin provides two main types of operations:
-
-**Data calls** (data sources):
-- Fetch Data From Dataset Text As Data [doc](https://docs.apify.com/api/v2/dataset-items-get)
-- Fetch Data From Dataset File As Data [doc](https://docs.apify.com/api/v2/dataset-items-get)
-- Fetch Data From Dataset Json As Data [doc](https://docs.apify.com/api/v2/dataset-items-get)
-- List User Datasets [doc](https://docs.apify.com/api/v2/datasets-get)
-- List Key-Value Stores [doc](https://docs.apify.com/api/v2/key-value-stores-get)
-- List Store Keys [doc](https://docs.apify.com/api/v2/key-value-store-keys-get)
-- Get Record As File [doc](https://docs.apify.com/api/v2/key-value-store-record-get)
-- Get Record As Image File [doc](https://docs.apify.com/api/v2/key-value-store-record-get)
-- List Store Actors [doc](https://docs.apify.com/api/v2/store-get)
-- List User Actors [doc](https://docs.apify.com/api/v2/acts-get)
-- List User Tasks [doc](https://docs.apify.com/api/v2/actor-tasks-get)
-- Scrape Single URL As File As Data [doc](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
-- Scrape Single URL As Json As Data [doc](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
-- List Actor Runs [doc](https://docs.apify.com/api/v2/act-runs-get)
-- List Specific Actor Runs [doc](https://docs.apify.com/api/v2/act-runs-get)
-- List Webhooks [doc](https://docs.apify.com/api/v2/webhooks-get)
-
-**Actions** (workflow steps):
-- Fetch Data From Dataset Text As Action [doc](https://docs.apify.com/api/v2/dataset-items-get)
-- Fetch Data From Dataset File As Action [doc](https://docs.apify.com/api/v2/dataset-items-get)
-- Get Record As Text [doc](https://docs.apify.com/api/v2/key-value-store-record-get)
-- Scrape Single URL As File As Action [doc](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
-- Scrape Single URL As Json As Action [doc](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
-- Run Actor [doc](https://docs.apify.com/api/v2/act-runs-post)
-- Run Actor Task [doc](https://docs.apify.com/api/v2/actor-task-runs-post)
-- Create Webhook [doc](https://docs.apify.com/api/v2/webhooks-post)
-- Delete Webhook [doc](https://docs.apify.com/api/v2/webhook-delete)
-
-:::tip Check out the documentation
+tip::: Check out the documentation
 
 Each API call links to the Apify documentation. To learn more about any plugin action or data call, go to the **Plugins** page in your app, select the Apify plugin, and use the documentation links in the field descriptions.
 
 :::
 
-### Use the latest version of the plugin
+The Apify plugin provides two main types of operations:
+
+**Data calls** (data sources):
+- [Fetch Data From Dataset Text As Data](https://docs.apify.com/api/v2/dataset-items-get)
+- [Fetch Data From Dataset File As Data](https://docs.apify.com/api/v2/dataset-items-get)
+- [Fetch Data From Dataset Json As Data](https://docs.apify.com/api/v2/dataset-items-get)
+- [List User Datasets](https://docs.apify.com/api/v2/datasets-get)
+- [List Key-Value Stores](https://docs.apify.com/api/v2/key-value-stores-get)
+- [List Store Keys](https://docs.apify.com/api/v2/key-value-store-keys-get)
+- [Get Record As File](https://docs.apify.com/api/v2/key-value-store-record-get)
+- [Get Record As Image File](https://docs.apify.com/api/v2/key-value-store-record-get)
+- [List Store Actors](https://docs.apify.com/api/v2/store-get)
+- [List User Actors](https://docs.apify.com/api/v2/acts-get)
+- [List User Tasks](https://docs.apify.com/api/v2/actor-tasks-get)
+- [Scrape Single URL As File As Data](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
+- [Scrape Single URL As Json As Data](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
+- [List Actor Runs](https://docs.apify.com/api/v2/act-runs-get)
+- [List Specific Actor Runs](https://docs.apify.com/api/v2/act-runs-get)
+- [List Webhooks](https://docs.apify.com/api/v2/webhooks-get)
+
+**Actions** (workflow steps):
+- [Fetch Data From Dataset Text As Action](https://docs.apify.com/api/v2/dataset-items-get)
+- [Fetch Data From Dataset File As Action](https://docs.apify.com/api/v2/dataset-items-get)
+- [Get Record As Text](https://docs.apify.com/api/v2/key-value-store-record-get)
+- [Scrape Single URL As File As Action](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
+- [Scrape Single URL As Json As Action](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post)
+- [Run Actor](https://docs.apify.com/api/v2/act-runs-post)
+- [Run Actor Task](https://docs.apify.com/api/v2/actor-task-runs-post)
+- [Create Webhook](https://docs.apify.com/api/v2/webhooks-post)
+- [Delete Webhook](https://docs.apify.com/api/v2/webhook-delete)
+
+## Use the latest version of the plugin
 To stay up to date with new features, make sure you're using the latest version of the plugin. You can check this on the **Plugins** page by selecting the Apify plugin and choosing the latest version from the drop-down menu. You'll also see a brief note describing what's changed in that version.
 
 ## Troubleshooting
