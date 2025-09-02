@@ -166,6 +166,7 @@ Populate elements in your Bubble application with information from your Apify ac
 There are two common approaches:
 
 ### Display data
+
 - This example appends the text result of an Actor run; it's a basic bind to the element’s text.
 - Create / select the UI visual element — in this example, `Text`.
 - In the Appearance tab, click the input area, select Insert dynamic data, and, according to your case, find the source — in this example, it's the `key_value_storages's recordContentText` custom state, where I set the result of the API call
