@@ -296,7 +296,7 @@ Crawlee doesn't do much to help with locating and extracting the data—that par
 
 ## Saving data
 
-When we're at _letting the framework take care of everything else_, let's take a look at what it can do about saving data. As of now the product detail page handler prints each item as soon as the item is ready. Instead, we can push the item to Crawlee's default dataset:
+Now that we're _letting the framework take care of everything else_, let's see what it can do about saving data. As of now, the product detail page handler logs each item as soon as it's ready. Instead, we can push the item to Crawlee's default dataset:
 
 ```py
 async def main():
