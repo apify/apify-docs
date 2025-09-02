@@ -14,7 +14,7 @@ slug: /integrations/bubble
 :::tip 
 
 ### Explore the live demo
-Open the demo Bubble app to check out the integration end-to-end before building your own: [apify-28595.bubbleapps.io/version-test](https://apify-28595.bubbleapps.io/version-test)
+Open the demo Bubble app to check out the integration end-to-end before building your own: [apify-28595.bubbleapps.io](https://apify-28595.bubbleapps.io)
 
 :::
 
