@@ -111,9 +111,8 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
 ```
 ![Select Insert dynamic value](../images/bubble/insert_dynamic_data.png)
 
-:::tip
+:::tip Inserting dynamic data
 
-#### Inserting dynamic data
 When inserting dynamic data, Bubble replaces the selected text. Place your cursor exactly where you want the expression in the JSON; avoid selecting the entire field.
 
 :::
