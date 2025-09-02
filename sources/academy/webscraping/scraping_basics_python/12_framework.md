@@ -21,7 +21,7 @@ Before rewriting our code, let's point out several caveats in our current soluti
 - _Browser means rewrite:_ We got lucky extracting variants. If the website didn't include a fallback, we might have had no choice but to spin up a browser instance and automate clicking on buttons. Such a change in the underlying technology would require a complete rewrite of our program.
 - _No error handling:_ The scraper stops if it encounters issues. It should allow for skipping problematic products with warnings or retrying downloads when the website returns temporary errors.
 
-In this lesson, we'll tackle all the above issues while keeping the code concise thanks to a scraping framework.
+In this lesson, we'll address all of the above issues while keeping the code concise with the help of a scraping framework. We'll use [Crawlee](https://crawlee.dev/), not only because we created it, but also because we believe it's the best tool for the job.
 
 :::info Why Crawlee and not Scrapy
 
