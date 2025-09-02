@@ -12,46 +12,50 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-In the previous lesson we've managed to print text of the page's main heading or count how many products are in the listing. Let's combine those two. What happens if we print `.text` for each product card?
+In the previous lesson we've managed to print text of the page's main heading or count how many products are in the listing. Let's combine those two. What happens if we print `.text()` for each product card?
 
-```py
-import httpx
-from bs4 import BeautifulSoup
+```js
+import * as cheerio from 'cheerio';
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
 
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
-
-for product in soup.select(".product-item"):
-    print(product.text)
+if (response.ok) {
+  const html = await response.text();
+  const $ = cheerio.load(html);
+  // highlight-next-line
+  $(".product-item").each((i, element) => {
+    // highlight-next-line
+    console.log($(element).text());
+  // highlight-next-line
+  });
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
-Well, it definitely prints _something_…
+We're using [`each()`](https://cheerio.js.org/docs/api/classes/Cheerio#each) to loop over the items in the Cheerio container. It calls the given function for each of the elements, with two arguments. The first is an index (0, 1, 2…), and the second is the element being processed.
+
+Cheerio requires us to wrap the element with `$()` again before we can work with it further, and then we call `.text()`. If we run the code, it… well, it definitely prints _something_…
 
 ```text
-$ python main.py
-Save $25.00
+$ node index.js
 
 
-JBL
+
+    JBL
 JBL Flip 4 Waterproof Portable Bluetooth Speaker
 
 
 
-Black
+                    Black
 
-+7
-
-
-Blue
-
-+6
+                  +7
 
 
-Grey
+                    Blue
+
+                  +6
 ...
 ```
 
@@ -65,84 +69,48 @@ As in the browser DevTools lessons, we need to change the code so that it locate
 
 We should be looking for elements which have the `product-item__title` and `price` classes. We already know how that translates to CSS selectors:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
+```js
+import * as cheerio from 'cheerio';
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
 
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
+if (response.ok) {
+  const html = await response.text();
+  const $ = cheerio.load(html);
 
-for product in soup.select(".product-item"):
-    titles = product.select(".product-item__title")
-    first_title = titles[0].text
+  $(".product-item").each((i, element) => {
+    const productItem = $(element);
 
-    prices = product.select(".price")
-    first_price = prices[0].text
+    const title = productItem.find(".product-item__title");
+    const titleText = title.text();
 
-    print(first_title, first_price)
+    const price = productItem.find(".price");
+    const priceText = price.text();
+
+    console.log(`${titleText} | ${priceText}`);
+  });
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
 Let's run the program now:
 
 ```text
 $ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker
-Sale price$74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
-Sale priceFrom $1,398.00
+JBL Flip 4 Waterproof Portable Bluetooth Speaker |
+              Sale price$74.95
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV |
+              Sale priceFrom $1,398.00
 ...
 ```
 
 There's still some room for improvement, but it's already much better!
 
-## Locating a single element
-
-Often, we want to assume in our code that a certain element exists only once. It's a bit tedious to work with lists when you know you're looking for a single element. For this purpose, Beautiful Soup offers the `.select_one()` method. Like `document.querySelector()` in browser DevTools, it returns just one result or `None`. Let's simplify our code!
-
-```py
-import httpx
-from bs4 import BeautifulSoup
-
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
-
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
-
-for product in soup.select(".product-item"):
-    title = product.select_one(".product-item__title").text
-    price = product.select_one(".price").text
-    print(title, price)
-```
-
-This program does the same as the one we already had, but its code is more concise.
-
-:::note Fragile code
-
-We assume that the selectors we pass to the `select()` or `select_one()` methods return at least one element. If they don't, calling `[0]` on an empty list or `.text` on `None` would crash the program. If you perform type checking on your Python program, the code examples above will trigger warnings about this.
-
-Not handling these cases allows us to keep the code examples more succinct. Additionally, if we expect the selectors to return elements but they suddenly don't, it usually means the website has changed since we wrote our scraper. Letting the program crash in such cases is a valid way to notify ourselves that we need to fix it.
-
-:::
-
 ## Precisely locating price
 
-In the output we can see that the price isn't located precisely:
-
-```text
-JBL Flip 4 Waterproof Portable Bluetooth Speaker
-Sale price$74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
-Sale priceFrom $1,398.00
-...
-```
-
-For each product, our scraper also prints the text `Sale price`. Let's look at the HTML structure again. Each bit containing the price looks like this:
+In the output we can see that the price isn't located precisely. For each product, our scraper also prints the text `Sale price`. Let's look at the HTML structure again. Each bit containing the price looks like this:
 
 ```html
 <span class="price">
@@ -151,58 +119,77 @@ For each product, our scraper also prints the text `Sale price`. Let's look at t
 </span>
 ```
 
-When translated to a tree of Python objects, the element with class `price` will contain several _nodes_:
+When translated to a tree of JavaScript objects, the element with class `price` will contain several _nodes_:
 
 - Textual node with white space,
 - a `span` HTML element,
 - a textual node representing the actual amount and possibly also white space.
 
-We can use Beautiful Soup's `.contents` property to access individual nodes. It returns a list of nodes like this:
-
-```py
-["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
-```
-
-It seems like we can read the last element to get the actual amount from a list like the above. Let's fix our program:
-
-```py
-import httpx
-from bs4 import BeautifulSoup
-
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
-
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
-
-for product in soup.select(".product-item"):
-    title = product.select_one(".product-item__title").text
-    price = product.select_one(".price").contents[-1]
-    print(title, price)
-```
-
-If we run the scraper now, it should print prices as only amounts:
+We can use Cheerio's [`.contents()`](https://cheerio.js.org/docs/api/classes/Cheerio#contents) method to access individual nodes. It returns a list of nodes like this:
 
 ```text
-$ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker $74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV From $1,398.00
-...
+LoadedCheerio {
+  '0': <ref *1> Text {
+    parent: Element { ... },
+    prev: null,
+    next: Element { ... },
+    data: '\n              ',
+    type: 'text'
+  },
+  '1': <ref *2> Element {
+    parent: Element { ... },
+    prev: <ref *1> Text { ... },
+    next: Text { ... },
+    children: [ [Text] ],
+    name: 'span',
+    type: 'tag',
+    ...
+  },
+  '2': <ref *3> Text {
+    parent: Element { ... },
+    prev: <ref *2> Element { ... },
+    next: null,
+    data: '$74.95',
+    type: 'text'
+  },
+  length: 3,
+  ...
+}
 ```
 
-## Formatting output
+It seems like we can read the last element to get the actual amount. Let's fix our program:
 
-The results seem to be correct, but they're hard to verify because the prices visually blend with the titles. Let's set a different separator for the `print()` function:
+```js
+import * as cheerio from 'cheerio';
 
-```py
-print(title, price, sep=" | ")
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
+
+if (response.ok) {
+  const html = await response.text();
+  const $ = cheerio.load(html);
+
+  $(".product-item").each((i, element) => {
+    const productItem = $(element);
+
+    const title = productItem.find(".product-item__title");
+    const titleText = title.text();
+
+    // highlight-next-line
+    const price = productItem.find(".price").contents().last();
+    const priceText = price.text();
+
+    console.log(`${titleText} | ${priceText}`);
+  });
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
-The output is much nicer this way:
+We're enjoying the fact that Cheerio selections provide utility methods for accessing items, such as [`.first()`](https://cheerio.js.org/docs/api/classes/Cheerio#first) or [`.last()`](https://cheerio.js.org/docs/api/classes/Cheerio#last). If we run the scraper now, it should print prices as only amounts:
 
 ```text
-$ python main.py
+$ node index.js
 JBL Flip 4 Waterproof Portable Bluetooth Speaker | $74.95
 Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 ...
@@ -216,7 +203,7 @@ Great! We have managed to use CSS selectors and walk the HTML tree to get a list
 
 ### Scrape Wikipedia
 
-Download Wikipedia's page with the list of African countries, use Beautiful Soup to parse it, and print short English names of all the states and territories mentioned in all tables. This is the URL:
+Download Wikipedia's page with the list of African countries, use Cheerio to parse it, and print short English names of all the states and territories mentioned in all tables. This is the URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
@@ -229,30 +216,52 @@ Algeria
 Angola
 Benin
 Botswana
+Burkina Faso
+Burundi
+Cameroon
+Cape Verde
+Central African Republic
+Chad
+Comoros
+Democratic Republic of the Congo
+Republic of the Congo
+Djibouti
 ...
 ```
 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(url)
-  response.raise_for_status()
+  const url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
+  const response = await fetch(url);
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for table in soup.select(".wikitable"):
-      for row in table.select("tr"):
-          cells = row.select("td")
-          if cells:
-              third_column = cells[2]
-              title_link = third_column.select_one("a")
-              print(title_link.text)
+    $(".wikitable").each((i, tableElement) => {
+      const table = $(tableElement);
+      const rows = table.find("tr");
+
+      rows.each((j, rowElement) => {
+        const row = $(rowElement);
+        const cells = row.find("td");
+
+        if (cells.length > 0) {
+          const thirdColumn = $(cells[2]);
+          const link = thirdColumn.find("a").first();
+          const linkText = link.text();
+          console.log(linkText);
+        }
+      });
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
+
   ```
 
   Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
@@ -269,26 +278,32 @@ Simplify the code from previous exercise. Use a single for loop and a single CSS
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(url)
-  response.raise_for_status()
+  const url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
+  const response = await fetch(url);
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
-      print(name_cell.select_one("a").text)
+    $(".wikitable tr td:nth-child(3)").each((i, element) => {
+      const nameCell = $(element);
+      const link = nameCell.find("a").first();
+      const linkText = link.text();
+      console.log(linkText);
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>
 
 ### Scrape F1 news
 
-Download Guardian's page with the latest F1 news, use Beautiful Soup to parse it, and print titles of all the listed articles. This is the URL:
+Download Guardian's page with the latest F1 news, use Cheerio to parse it, and print titles of all the listed articles. This is the URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
@@ -306,19 +321,22 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
-  response.raise_for_status()
+  const url = "https://www.theguardian.com/sport/formulaone";
+  const response = await fetch(url);
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for title in soup.select("#maincontent ul li h3"):
-      print(title.text)
+    $("#maincontent ul li h3").each((i, element) => {
+      console.log($(element).text());
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>

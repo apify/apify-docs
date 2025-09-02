@@ -18,11 +18,14 @@ function useSyntheticTitle() {
   return metadata.title;
 }
 
+/**
+ * This component is also used in other Apify docs (clients, SDKs, CLI)
+ */
 export default function DocItemContent({ children }) {
   const syntheticTitle = useSyntheticTitle();
   const location = useLocation();
 
-  // Define the allowed paths that should show LLMButtons (tag/info pages)
+  // Define the allowed paths that should show LLMButtons
   // The logic is handled here, and also in docusaurus.config.js (see docusaurus-plugin-openapi-docs)
   const allowedPaths = [
     '/api/v2/getting-started',
@@ -45,10 +48,19 @@ export default function DocItemContent({ children }) {
     '/api/v2/store',
     '/api/v2/logs',
     '/api/v2/users',
+    '/api/client',
     '/platform',
+    '/sdk',
+    '/cli',
   ];
 
-  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path));
+  // Define paths that should not show LLMButtons (e.g., changelog pages)
+  const disallowedPaths = [
+    '/changelog',
+  ];
+
+  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path))
+    && !disallowedPaths.some((path) => location.pathname.includes(path));
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>

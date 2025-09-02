@@ -9,12 +9,12 @@ import DocItemFooter from '@theme/DocItem/Footer';
 import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
 import DocItemTOCMobile from '@theme/DocItem/TOC/Mobile';
+import DocItemContent from '@theme/DocItemContent';
 import DocVersionBadge from '@theme/DocVersionBadge';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import clsx from 'clsx';
 import React, { useCallback } from 'react';
 
-import DocItemContent from '../Content';
 import styles from './styles.module.css';
 
 /**
