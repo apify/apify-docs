@@ -31,7 +31,7 @@ async function download(url) {
   }
 }
 
-function parseProduct(productItem, baseURL) {
+function parseProduct($productItem, baseURL) {
   const $title = $productItem.find(".product-item__title");
   const title = $title.text().trim();
   const url = new URL($title.attr("href"), baseURL).href;
