@@ -61,7 +61,7 @@ const dataset = await Actor.openDataset(datasetId);
 // ...
 ```
 
-:::tip
+:::tip Accessing Cloud Datasets Locally
 
 You will need to use `forceCloud` option - `Actor.openDataset(<name/id>, { forceCloud: true });` - to open dataset from platform storage while running Actor locally.
 
