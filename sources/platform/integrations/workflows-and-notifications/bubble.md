@@ -290,7 +290,7 @@ If an Actor or task doesn't appear in a dropdown, make sure you have run it at l
 
 ### Timeout errors
 
-Bubble workflows have a timeout limit. For long-running Actors, consider setting **Wait until finished** = no, then process results in a separate backend workflow triggered by a webhook or scheduled event.
+Bubble workflows have execution time limits. For long‑running Actors, set the **timeout** to 0 and process results asynchronously via a webhook and a backend workflow or scheduled event. See the [Long‑running scrapes and Bubble time limits (async pattern)](#long-running-scrapes-and-bubble-time-limits-async-pattern) section for a step‑by‑step guide.
 
 ### Data format issues
 
