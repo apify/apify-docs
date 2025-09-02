@@ -82,9 +82,7 @@ Apify's Bubble plugin exposes two ways to interact with Apify:
    - Location in Bubble: In any property input where a data source is expected click **Insert dynamic data**, under **Data sources** select **Get Data from an External API**, and choose the desired Apify data call.
    - ![Apify Plugin's data calls](../images/bubble/data_calls_preview.png)
 
-:::tip
-
-### Inline documentation
+:::tip Inline documentation
 
 Each Apify plugin action and data call input in Bubble includes inline documentation describing what the parameter is for and the expected format. If you're unsure, check the field's help text in the Bubble editor.
 
