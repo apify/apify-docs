@@ -53,10 +53,10 @@ await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sale
 In the code, we do the following:
 
 1. Import the necessary module.
-2. Create a crawler object, which manages the scraping process. In this case, it's a `CheerioCrawler`, which requests HTML from websites and parses it with Cheerio. Other crawlers, such as `PlaywrightCrawler`, would be suitable if we wanted to scrape by automating a real browser.
-3. Define an asynchronous `requestHandler` function. It receives a context object with Cheerio's `$` instance and a logger.
-4. Extract the page title and log it.
-5. Run the crawler on a product listing URL and await its completion.
+1. Create a crawler object, which manages the scraping process. In this case, it's a `CheerioCrawler`, which requests HTML from websites and parses it with Cheerio. Other crawlers, such as `PlaywrightCrawler`, would be suitable if we wanted to scrape by automating a real browser.
+1. Define an asynchronous `requestHandler` function. It receives a context object with Cheerio's `$` instance and a logger.
+1. Extract the page title and log it.
+1. Run the crawler on a product listing URL and await its completion.
 
 Let's see what it does when we run it:
 
