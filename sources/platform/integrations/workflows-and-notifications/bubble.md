@@ -173,6 +173,7 @@ There are two common approaches:
 - ![Display text data](../images/bubble/text_dynamic_content.png)
 
 ### Display list of data
+
 - This example lists the current user's datasets and displays them in a repeating group.
 - Add a **Repeating group** to the page.
    1. Add data to a variable: create a custom state (for example, on the page) that will hold the list of datasets, and set it to the plugin's **List User Datasets** data call.
