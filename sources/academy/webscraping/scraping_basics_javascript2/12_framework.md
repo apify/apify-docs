@@ -436,12 +436,13 @@ Hints:
           const value = $(link).find('h2').text().trim();
           detail[name] = value;
         });
+        const [dobDay, dobMonth, dobYear] = info['DOB'].split("/");
         pushData({
           url: request.url,
           name: $('h1').text().trim(),
           team: detail['Team'],
           nationality: info['Nationality'],
-          dob: info['DOB'].replaceAll("/", "-"),
+          dob: `${dobYear}-${dobMonth}-${dobDay}`,
           instagram_url: $(".common-social-share a[href*='instagram']").attr('href'),
         });
       } else {
