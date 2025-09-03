@@ -281,7 +281,7 @@ To stay up to date with new features, make sure you're using the latest version 
 
 Ensure your API token is correctly set in the action (preferably as `Current User's apify_api_token`) and that it has the necessary permissions.
 
-### Missing Actors or Tasks 
+### Missing Actors or Tasks
 
 If your Actor or Task doesn't appear in list responses, run it at least once in the Apify Console so it becomes discoverable.
 
