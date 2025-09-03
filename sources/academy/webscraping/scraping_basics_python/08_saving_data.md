@@ -215,7 +215,7 @@ In this lesson, we created export files in two formats. The following challenges
 
 ### Process your JSON
 
-Write a new Python program that reads `products.json`, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
+Write a new Python program that reads the `products.json` file we created in this lesson, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
 
 <details>
   <summary>Solution</summary>
