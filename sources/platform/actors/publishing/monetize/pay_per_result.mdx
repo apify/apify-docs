@@ -1,0 +1,109 @@
+---
+title: Pay per result (PPR)
+description: TBD
+slug: /actors/publishing/monetize/pay-per-result
+sidebar_position: 2
+---
+
+In this model, you set a price per 1,000 results. Users are charged based on the number of results your Actor produces and stores in the run's default dataset. Your profit is calculated as 80% of the revenue minus platform usage costs. 
+
+The details on how your cost is computed can be found in [Example of a pay-per-result pricing model](#example-of-a-pay-per-result-pricing-model).
+
+## How is profit computed
+
+Your profit is calculated from the mentioned formula:
+
+`profit = (0.8 * revenue) - platform costs`
+
+where:
+
+- _Revenue_: The amount charged for results via the PPR pricing API or through JS/Python SDK. You receive 80% of this revenue.
+- _Platform costs_: The underlying platform usage costs for running the Actor, calculated in the same way as for PPE. For more details, visit the [Example of a pay-per-result pricing model](#example-of-a-pay-per-result-pricing-model) section.
+
+Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
+
+## Best practices for pay-per-result Actors
+
+To ensure profitability, check the following best practices.
+
+### Set memory limits
+
+Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
+
+```json
+{
+    "actorSpecification": 1, 
+    "name": "name-of-my-scraper",
+    "version": "0.0",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 4096,
+}
+```
+
+### Implement the `ACTOR_MAX_PAID_DATASET_ITEMS` check
+
+This check prevents your Actor from generating more results than the user has paid for, protecting both you and your users from unexpected costs. 
+
+The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for paid-per-result Actors. Do not exceed this limit.
+
+```typescript
+const MAX_ITEMS = Number(process.env.ACTOR_MAX_PAID_DATASET_ITEMS);
+let pushedItemCount = 0;
+
+export const pushDataMaxAware = async (data: Parameters<Actor['pushData']>[0]) => {
+    // rest of the code...
+
+    const dataAsArray = Array.isArray(data) ? data : [data];
+    const dataToPush = dataAsArray.slice(0, MAX_ITEMS - pushedItemCount);
+
+    if (dataToPush.length) {
+        // We have to update the state before 'await' to avoid race conditions
+        pushedItemCount += dataToPush.length;
+        await Actor.pushData(dataToPush);
+    }
+
+    // rest of the code...
+}
+```
+
+You can find the whole code of implementing this check in this [example](https://github.com/metalwarrior665/max-paid-items-example/blob/master/src/push-data.ts).
+
+### Test your Actor
+
+Test your Actor with various result volumes to determine optimal pricing. Start with minimal datasets (1-100 results) to understand your base costs and ensure the Actor works correctly with small inputs. Then test with typical usage volumes (1,000-10,000 results) to simulate real-world scenarios and identify any performance bottlenecks.
+
+Throughout all testing, monitor platform usage costs for each test run to calculate the true cost per result. This cost analysis is crucial for setting profitable pricing that covers your expenses while remaining competitive in the market.
+
+### Push at least one "error item" to the dataset
+
+In PPR Actors, users are only charged when your Actor produces results in the dataset. If your Actor encounters invalid input or finds no results, it should still push at least one item to the dataset to ensure the user is charged for the attempt.
+
+Why this matters:
+
+- **Prevents free usage**: Without pushing any items, users could run your Actor repeatedly with invalid inputs without being charged
+- **Ensures fair billing**: Users should pay for the processing attempt, even if no valid results are found
+- **Maintains profitability**: Every run should generate some revenue to cover your platform costs
+
+Example scenarios:
+
+- **User provides invalid search terms**: Push an error item explaining the issue
+- **Target website returns no results**: Push an item indicating "No results found"
+- **Input validation fails**: Push an item with validation error details
+
+This ensures that every run generates at least one result, guaranteeing that users are charged appropriately for using your Actor.
+
+## Example of a pay-per-result pricing model
+
+You make your Actor pay-per-result and set the price to be **$1/1,000 results**. During the first month, three users use your Actor:
+
+- **User 1** (paid plan): Gets 50,000 results, costing them $50
+- **User 2** (paid plan): Gets 20,000 results, costing them $20
+- **User 3** (free plan): Gets 5,000 results, costing them $0
+
+Let's say the underlying platform usage for the first user is $5, for the second $2, and for the third $0.5.
+
+Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue breakdown is:
+
+- **Total revenue**: $50 + $20 = $70
+- **Total underlying cost**: $5 + $2 = $7
+- **Your profit**: 80% of revenue minus costs = 0.8 × $70 - $7 = **$49**
