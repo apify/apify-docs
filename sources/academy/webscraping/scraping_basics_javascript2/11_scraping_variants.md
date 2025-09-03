@@ -72,7 +72,7 @@ These elements aren't visible to regular visitors. They're there just in case br
 Using our knowledge of Cheerio, we can locate the `option` elements and extract the data we need. We'll loop over the options, extract variant names, and create a corresponding array of items for each product:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const $promises = $(".product-item").map(async (i, element) => {
