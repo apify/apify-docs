@@ -217,7 +217,10 @@ Inside `warehouse-watchdog`, there's a directory called `.actor`. Within it, we'
 
 :::tip Hidden dot files
 
-On some systems, `.actor` might be hidden in the directory listing because it starts with a dot. Use your editor's built-in file explorer to locate it.
+Files and folders that start with a dot (like `.actor`) may be hidden by default. To see them:
+
+1. In your operating system's file explorer, look for a setting like **Show hidden files**.
+1. Many editors or IDEs can show hidden files as well. For example, the file explorer in **VS Code** shows them by default.
 
 :::
 
