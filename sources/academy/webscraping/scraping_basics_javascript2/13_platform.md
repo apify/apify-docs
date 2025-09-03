@@ -78,8 +78,8 @@ The command creates an `.actor` directory with `actor.json` file inside. This fi
 
 Files and folders that start with a dot (like `.actor`) may be hidden by default. To see them:
 
-1. In your operating system's file explorer, look for a setting like **Show hidden files**.
-1. Many editors or IDEs can show hidden files as well. For example, the file explorer in **VS Code** shows them by default.
+- In your operating system's file explorer, look for a setting like **Show hidden files**.
+- Many editors or IDEs can show hidden files as well. For example, the file explorer in VS Code shows them by default.
 
 :::
 
