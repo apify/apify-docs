@@ -82,7 +82,7 @@ Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory co
 
 The file contains a single asynchronous function, `main()`. At the beginning, it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then passes that input to a small crawler built on top of the Crawlee framework.
 
-Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://apify.com/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
+Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://docs.apify.com/platform/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
 
 ![The expected file structure](./images/actor-file-structure.webp)
 
@@ -217,7 +217,10 @@ Inside `warehouse-watchdog`, there's a directory called `.actor`. Within it, we'
 
 :::tip Hidden dot files
 
-On some systems, `.actor` might be hidden in the directory listing because it starts with a dot. Use your editor's built-in file explorer to locate it.
+Files and folders that start with a dot (like `.actor`) may be hidden by default. To see them:
+
+- In your operating system's file explorer, look for a setting like **Show hidden files**.
+- Many editors or IDEs can show hidden files as well. For example, the file explorer in VS Code shows them by default.
 
 :::
 
@@ -322,7 +325,7 @@ Finally, we'll modify the Actor configuration in `warehouse-watchdog/src/.actor/
 
 ```json title=warehouse-watchdog/src/.actor/input_schema.json
 {
-    "title": "Python Crawlee BeautifulSoup Scraper",
+    "title": "Crawlee BeautifulSoup Scraper",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
