@@ -204,7 +204,7 @@ In this lesson, we created export files in two formats. The following challenges
 
 ### Process your JSON
 
-Write a new Node.js program that reads the `products.json` file we created in the lesson, finds all products with a min price greater than $500, and prints each of them.
+Write a new Node.js program that reads the `products.json` file we created in this lesson, finds all products with a min price greater than $500, and prints each of them.
 
 <details>
   <summary>Solution</summary>
