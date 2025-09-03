@@ -25,7 +25,7 @@ We should use widely popular formats that have well-defined solutions for all th
 
 ## Collecting data
 
-Producing results line by line is an efficient approach to handling large datasets, but to simplify this lesson, we'll store all our data in one variable. This'll take three changes to our program:
+Producing results line by line is an efficient approach to handling large datasets, but to simplify this lesson, we'll store all our data in one variable. This'll take four changes to our program:
 
 ```js
 import * as cheerio from 'cheerio';
@@ -38,16 +38,15 @@ if (response.ok) {
   const $ = cheerio.load(html);
 
   // highlight-next-line
-  const data = [];
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  const $items = $(".product-item").map((i, element) => {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text().trim();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text().trim();
 
-    const price = productItem.find(".price").contents().last();
+    const $price = $productItem.find(".price").contents().last();
     const priceRange = { minPrice: null, price: null };
-    const priceText = price
+    const priceText = $price
       .text()
       .trim()
       .replace("$", "")
@@ -62,9 +61,10 @@ if (response.ok) {
     }
 
     // highlight-next-line
-    data.push({ title: titleText, ...priceRange });
+    return { title, ...priceRange };
   });
-
+  // highlight-next-line
+  const data = $items.get();
   // highlight-next-line
   console.log(data);
 } else {
@@ -72,7 +72,23 @@ if (response.ok) {
 }
 ```
 
-Before looping over the products, we prepare an empty array. Then, instead of printing each line, we append the data of each product to the array in the form of a JavaScript object. At the end of the program, we print the entire array at once.
+Instead of printing each line, we now return the data for each product as a JavaScript object. We've replaced `.each()` with [`.map()`](https://cheerio.js.org/docs/api/classes/Cheerio#map-3), which also iterates over the selection but, in addition, collects all the results and returns them as a Cheerio collection. We then convert it into a standard JavaScript array by calling [`.get()`](https://cheerio.js.org/docs/api/classes/Cheerio#call-signature-32). Near the end of the program, we print the entire array.
+
+:::tip Advanced syntax
+
+When returning the item object, we use [shorthand property syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#property_definitions) to set the title, and [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to set the prices. It's the same as if we wrote the following:
+
+```js
+{
+  title: title,
+  minPrice: priceRange.minPrice,
+  price: priceRange.price,
+}
+```
+
+:::
+
+The program should now print the results as a single large JavaScript array:
 
 ```text
 $ node index.js
@@ -90,20 +106,6 @@ $ node index.js
   ...
 ]
 ```
-
-:::tip Spread syntax
-
-The three dots in `{ title: titleText, ...priceRange }` are called [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). It's the same as if we wrote the following:
-
-```js
-{
-  title: titleText,
-  minPrice: priceRange.minPrice,
-  price: priceRange.price,
-}
-```
-
-:::
 
 ## Saving data as JSON
 
@@ -202,7 +204,7 @@ In this lesson, we created export files in two formats. The following challenges
 
 ### Process your JSON
 
-Write a new Node.js program that reads `products.json`, finds all products with a min price greater than $500, and prints each of them.
+Write a new Node.js program that reads the `products.json` file we created in this lesson, finds all products with a min price greater than $500, and prints each of them.
 
 <details>
   <summary>Solution</summary>
