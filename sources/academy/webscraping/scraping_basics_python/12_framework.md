@@ -21,7 +21,7 @@ Before rewriting our code, let's point out several caveats in our current soluti
 - _Browser means rewrite:_ We got lucky extracting variants. If the website didn't include a fallback, we might have had no choice but to spin up a browser instance and automate clicking on buttons. Such a change in the underlying technology would require a complete rewrite of our program.
 - _No error handling:_ The scraper stops if it encounters issues. It should allow for skipping problematic products with warnings or retrying downloads when the website returns temporary errors.
 
-In this lesson, we'll tackle all the above issues while keeping the code concise thanks to a scraping framework.
+In this lesson, we'll address all of the above issues while keeping the code concise with the help of a scraping framework. We'll use [Crawlee](https://crawlee.dev/), not only because we created it, but also because we believe it's the best tool for the job.
 
 :::info Why Crawlee and not Scrapy
 
@@ -181,7 +181,7 @@ https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-tu
 └───────────────────────────────┴──────────┘
 ```
 
-In the final stats, we can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially.
+In the final stats, we can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially. These requests are not made all at once without planning. They are scheduled and sent in a way that doesn't overload the target server. And if they do, Crawlee can automatically retry them.
 
 ## Extracting data
 
@@ -209,7 +209,7 @@ The code above assumes the `.select_one()` call doesn't return `None`. If your e
 
 Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
 
-In `main.py`, we looked for `.price` within a `product_soup` object representing a product card. Now, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
+The only change will be in the selector. In `oldmain.py`, we look for `.price` within a `product_soup` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```py
 async def main():
@@ -236,7 +236,7 @@ async def main():
         print(item)
 ```
 
-Finally, the variants. We can reuse the `parse_variant()` function as-is, and in the handler we'll again take inspiration from what we had in `main.py`. The full program will look like this:
+Finally, the variants. We can reuse the `parse_variant()` function as-is, and in the handler we'll again take inspiration from what we have in `oldmain.py`. The full program will look like this:
 
 ```py
 import asyncio
@@ -296,7 +296,7 @@ Crawlee doesn't do much to help with locating and extracting the data—that par
 
 ## Saving data
 
-When we're at _letting the framework take care of everything else_, let's take a look at what it can do about saving data. As of now the product detail page handler prints each item as soon as the item is ready. Instead, we can push the item to Crawlee's default dataset:
+Now that we're _letting the framework take care of everything else_, let's see what it can do about saving data. As of now, the product detail page handler logs each item as soon as it's ready. Instead, we can push the item to Crawlee's default dataset:
 
 ```py
 async def main():
@@ -553,7 +553,7 @@ async def main():
     ...
 ```
 
-When navigating to the first search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
+When navigating to the first IMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
 
 <details>
   <summary>Solution</summary>
@@ -571,7 +571,7 @@ When navigating to the first search result, you might find it helpful to know th
       @crawler.router.default_handler
       async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
           requests = []
-          for name_cell in context.soup.select(".list-tbl-global .tbl-cell-name"):
+          for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
               name = name_cell.text.strip()
               imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
               requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
