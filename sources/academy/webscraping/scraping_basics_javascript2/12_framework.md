@@ -525,7 +525,7 @@ When navigating to the first IMDb search result, you might find it helpful to kn
         // handle IMDB search results
         await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
 
-      } else {
+      } else if (request.label === 'NETFLIX') {
         // handle Netflix table
         const $requests = $('[data-uia="top10-table-row-title"] button').map((i, nameButton) => {
           const name = $(nameButton).text().trim();
@@ -533,6 +533,8 @@ When navigating to the first IMDb search result, you might find it helpful to kn
           return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
         });
         await addRequests($requests.get());
+      } else {
+        throw new Error(`Unexpected request label: ${request.label}`);
       }
     },
   });
