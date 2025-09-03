@@ -101,7 +101,7 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
 
 #### Examples
 
-##### Use a page input in an Action's JSON field (Input overrides):
+##### Use a page input in an Action's JSON field (Input overrides)
 
 ```json
 {
