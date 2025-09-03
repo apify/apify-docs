@@ -20,9 +20,7 @@ get:
 
     :::
   operationId: act_openapi_json_get
-  security:
-    - apiKeyActorBuilds: []
-    - httpBearerActorBuilds: []
+  security: []
   parameters:
     - name: actorId
       in: path

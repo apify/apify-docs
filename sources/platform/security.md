@@ -6,8 +6,6 @@ category: platform
 slug: /security
 ---
 
-# Security
-
 **Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.**
 
 ---
@@ -83,6 +81,12 @@ If you notice or suspect a potential security issue, please report it to our sec
 - PoC (screenshots or code snippets)
 - Impact analysis
 - Affected URL or endpoint
+
+:::note Voluntary disclosures
+
+Thank you for helping us keep Apify secure! Please note that we don’t offer financial or other rewards for vulnerability reports. Participation in our VDP is entirely voluntary, and we sincerely appreciate your contribution to the safety of the platform and the community.
+
+:::
 
 ### Rules of engagement
 

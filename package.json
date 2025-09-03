@@ -40,16 +40,17 @@
         "lint:md:fix": "markdownlint '**/*.md' --fix",
         "lint:code": "eslint .",
         "lint:code:fix": "eslint . --fix",
-        "postinstall": "patch-package"
+        "postinstall": "patch-package",
+        "postbuild": "node ./scripts/joinLlmsFiles.mjs"
     },
     "devDependencies": {
         "@apify/eslint-config": "^1.0.0",
         "@apify/tsconfig": "^0.1.0",
         "@rsbuild/plugin-styled-components": "^1.1.0",
-        "@types/react": "^18.2.8",
+        "@types/react": "^19.0.0",
         "babel-plugin-styled-components": "^2.1.4",
         "cross-env": "^7.0.3",
-        "eslint": "^9.24.0",
+        "eslint": "^9.32.0",
         "eslint-plugin-json": "^4.0.1",
         "eslint-plugin-markdown": "^5.1.0",
         "eslint-plugin-react": "^7.37.5",
@@ -62,8 +63,8 @@
         "patch-package": "^8.0.0",
         "path-browserify": "^1.0.1",
         "rimraf": "^6.0.0",
-        "typescript": "5.8.3",
-        "typescript-eslint": "^8.29.1"
+        "typescript": "5.9.2",
+        "typescript-eslint": "^8.38.0"
     },
     "dependencies": {
         "@apify/ui-library": "^1.0.0",
@@ -78,8 +79,10 @@
         "@giscus/react": "^3.0.0",
         "@mdx-js/react": "^3.0.1",
         "@redocly/cli": "^1.27.1",
+        "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "ajv": "^8.17.1",
         "clsx": "^2.0.0",
+        "docusaurus-biel": "^1.0.8",
         "docusaurus-plugin-image-zoom": "^3.0.1",
         "docusaurus-plugin-openapi-docs": "^4.3.7",
         "docusaurus-theme-openapi-docs": "^4.3.7",

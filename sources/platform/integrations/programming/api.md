@@ -1,7 +1,7 @@
 ---
 title: API integration
 description: Learn how to integrate with Apify via API.
-sidebar_label: API
+sidebar_label: API integration
 sidebar_position: 1
 slug: /integrations/api
 ---
@@ -63,7 +63,7 @@ The Personal API tokens are different from your own Personal API tokens mentione
 
 On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
 
-## API tokens with limited permissions {#limited-permissions}
+## API tokens with limited permissions
 
 By default, tokens can access all data in your account. If that is not desirable, you can choose to limit the permissions of your token, so that it can only access data needed for the particular use case. We call these tokens **scoped**.
 

@@ -6,8 +6,6 @@ toc_max_heading_level: 4
 slug: /storage/dataset
 ---
 
-# Dataset
-
 **Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.**
 
 import Tabs from '@theme/Tabs';
@@ -19,8 +17,8 @@ Dataset storage enables you to sequentially save and retrieve data. A unique dat
 
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
-> Named datasets are retained indefinitely. <br/>
-> Unnamed datasets expire after 7 days unless otherwise specified. <br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+> Named datasets are retained indefinitely.
+> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -95,7 +93,7 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2/datase
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at _200 requests per second_ to avoid overloading our servers.
+> API data push to a dataset is capped at _400 requests per second_ to avoid overloading our servers.
 
 Example payload:
 
@@ -384,7 +382,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
 
-### Sharing datasets between runs {#sharing-datasets-between-runs}
+### Sharing datasets between runs
 
 You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
@@ -450,10 +448,10 @@ See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs
 
 - The maximum length for dataset names is 63 characters.
 
-### Rate limiting {#rate-limiting}
+### Rate limiting
 
-The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
+The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
-For all other dataset [API endpoints](/api/v2/storage-datasets) , the rate limit is _30 requests per second_ for each dataset.
+For all other dataset [API endpoints](/api/v2/storage-datasets) , the rate limit is _60 requests per second_ for each dataset.
 
 Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

@@ -9,123 +9,150 @@ slug: /actors/development/quick-start/locally
 
 ---
 
-:::info Prerequisites
+import PromptButton from "@site/src/components/PromptButton";
 
-You need to have [Node.js](https://nodejs.org/en/) version 16 or higher with `npm` installed on your computer.
+<PromptButton/>
 
-:::
+## What you'll learn
 
-## Install Apify CLI
+This guide walks you through the full lifecycle of an Actor. You'll start by creating and running it locally with the Apify CLI, then learn to configure its input and data storage. Finally, you will deploy the Actor to the Apify platform, making it ready to run in the cloud.
 
-### MacOS/Linux
+### Prerequisites
 
-You can install the Apify CLI via the [Homebrew package manager](https://brew.sh/).
+- [Node.js](https://nodejs.org/en/) version 16 or higher with `npm` installed on your computer.
+- The [Apify CLI](/cli/docs/installation) installed.
+- Optional: To deploy your Actor, [sign in](https://console.apify.com/sign-in).
 
-```bash
-brew install apify-cli
-```
+### Step 1: Create your Actor
 
-### Other platforms
-
-Use [NPM](https://www.npmjs.com/) to install the Apify CLI.
-
-```bash
-npm -g install apify-cli
-```
-
-Visit [Apify CLI documentation](https://docs.apify.com/cli/) for more information regarding installation and advanced usage.
-
-## Create your Actor
-
-To create a new Actor, use the following command:
+Use Apify CLI to create a new Actor:
 
 ```bash
 apify create
 ```
 
-The CLI will prompt you to:
+The CLI will ask you to:
 
-1. _Name your Actor_: Enter a descriptive name for your Actor, such as `your-actor-name`
-1. _Choose a programming language_: Select the language you want to use for your Actor (JavaScript, TypeScript, or Python).
-1. _Select a development template_: Choose a template from the list of available options.
+1. Name your Actor (e.g., `your-actor-name`)
+2. Choose a programming language (`JavaScript`, `TypeScript`, or `Python`)
+3. Select a development template
+   :::info Explore Actor templates
 
-After selecting the template, the CLI will:
+   Browse the [full list of templates](https://apify.com/templates) to find the best fit for your Actor.
 
-- Create a `your-actor-name` directory with the boilerplate code.
+   :::
+
+The CLI will:
+
+- Create a `your-actor-name` directory with boilerplate code
 - Install all project dependencies
 
-![Creation](./images/actor-create.gif)
-
-Navigate to the newly created Actor directory:
+Now, you can navigate to your new Actor directory:
 
 ```bash
-cd your-actor-name
+cd `your-actor-name`
 ```
 
-## Explore the source code in your editor
+### Step 2: Run your Actor
 
-After creating your Actor, explore the source code in your preferred code editor, We'll use the `Crawlee + Puppeteer + Chrome` template code as an example, but all Actor templates follow a similar organizational pattern. The important directories and filer are:
-
-### `src` Directory
-
-- `src/main.js`: This file contains the actual code of your Actor
-
-### `.actor` Directory
-
-- [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json): This file defines the Actor's configuration, such as input and output specifications.
-- [`Dockerfile`](https://docs.apify.com/platform/actors/development/actor-definition/dockerfile): This file contains instructions for building the Docker image for your Actor.
-
-### `storage` Directory
-
-- This directory emulates the [Apify Storage](../../../storage/index.md)
-  - [Dataset](../../../storage/dataset.md)
-  - [Key-Value Store](../../../storage/key_value_store.md)
-  - [Request Queue](../../../storage/request_queue.md)
-
-![Actor source code](./images/actor-local-code.png)
-
-## Run it locally
-
-To run your Actor locally, use the following command:
+Run your Actor with:
 
 ```bash
 apify run
 ```
 
-After executing this command, you will see the Actor's log output in your terminal. The results of the Actor's execution will be stored in the local dataset located in the `storage/datasets/default` directory.
+:::tip Clear data with --purge
 
-![Actor source code](./images/actor-local-run.png)
-
-:::note Local testing & debugging
-
-Running the Actor locally allows you to test and debug your code before deploying it to the Apify platform.
+During development, use `apify run --purge`. This clears all results from previous runs, so it's as if you're running the Actor for the first time.
 
 :::
 
-## Deploy it to Apify platform
+You'll see output similar to this in your terminal:
 
-Once you are satisfied with your Actor, to deploy it to the Apify platform, follow these steps:
+```bash
+INFO  System info {"apifyVersion":"3.4.3","apifyClientVersion":"2.12.6","crawleeVersion":"3.13.10","osType":"Darwin","nodeVersion":"v22.17.0"}
+Extracted heading { level: 'h1', text: 'Your full‑stack platform for web scraping' }
+Extracted heading { level: 'h3', text: 'TikTok Scraper' }
+Extracted heading { level: 'h3', text: 'Google Maps Scraper' }
+Extracted heading { level: 'h3', text: 'Instagram Scraper' }
+```
 
-1. _Sign in to Apify with the CLI tool_
+As you can see in the logs, the Actor extracts text from a web page. The main logic lives in `src/main.js`. Depending on your template, this file may be `src/main.ts` (TypeScript) or `src/main.py` (Python).
+
+In the next step, we’ll explore the results in more detail.
+
+### Step 3: Explore the Actor
+
+Let's explore the Actor structure.
+
+#### The `.actor` folder
+
+The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
+
+#### Actor's `input`
+
+Each Actor accepts an `input object` that tells it what to do. The object uses JSON format and lives in `storage/key_value_stores/default/INPUT.json`.
+
+:::info Edit the schema to change input
+
+To change the `INPUT.json`, edit the `input_schema.json` in the `.actor` folder first.
+
+This JSON Schema validates input automatically (no error handling needed), powers the Actor's user interface, generates API docs, and enables smart integration with tools like Zapier or Make by auto-linking input fields.
+
+:::
+
+Find more info in the [Input schema](/platform/actors/development/actor-definition/input-schema) documentation.
+
+#### Actor's `storage`
+
+The Actor system provides two storage types for files and results: [key-value](/platform/storage/key-value-store) store and [dataset](/platform/storage/dataset).
+
+##### Key-value store
+
+The key-value store saves and reads files or data records. Key-value stores work well for screenshots, PDFs, or persisting Actor state as JSON files.
+
+##### Dataset
+
+The dataset stores a series of data objects from web scraping, crawling, or data processing jobs. You can export datasets to JSON, CSV, XML, RSS, Excel, or HTML formats.
+
+#### Actor's `output`
+
+You define the Actor output using the Output schema files:
+
+- [Dataset Schema Specification](/platform/actors/development/actor-definition/dataset-schema)
+- [Key-value Store Schema Specification](/platform/actors/development/actor-definition/key-value-store-schema)
+
+The system uses this to generate an immutable JSON file that tells users where to find the Actor's results.
+
+### Step 4: Deploy your Actor
+
+Let's now deploy your Actor to the Apify platform, where you can run the Actor on a scheduled basis, or you can make the Actor public for other users.
+
+1. Login first:
 
     ```bash
     apify login
     ```
 
-    This command will prompt you to provide your API token that you can find in Console.
+    :::info Your Apify token location
 
-1. _Push your Actor to the Apify platform_
+    After you successfully login, your Apify token is stored in `~/.apify/auth.json`, or `C:\Users\<name>\.apify` based on your system.
+
+    :::
+
+2. Push your Actor to the Apify platform:
 
     ```bash
     apify push
     ```
 
-    This command will upload your Actor's code and configuration to the Apify platform, where it can be executed and managed.
+### Step 5: It's Time to Iterate!
 
-    :::note Actor monetization
+Good job! 🎉 You're ready to develop your Actor. You can make changes to your Actor and implement your use case.
 
-    If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
+## Next steps
 
-    :::
-
-By following these steps, you can seamlessly deploy your Actors to the Apify platform, enabling you to leverage its scalability, reliability, and advanced features for your web scraping and data processing projects.
+- Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
+- To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
+- Check [Continuous integration](../deployment/continuous_integration.md) documentation to automate your Actor development process.
+- After you finish building your first Actor, you can [share it with other users and even monetize it](../../publishing/index.mdx).

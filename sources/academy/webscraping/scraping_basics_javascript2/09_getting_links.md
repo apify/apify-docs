@@ -1,14 +1,14 @@
 ---
-title: Getting links from HTML with Python
+title: Getting links from HTML with Node.js
 sidebar_label: Getting links from HTML
-description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate links to individual product pages.
+description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to locate links to individual product pages.
 slug: /scraping-basics-javascript2/getting-links
 unlisted: true
 ---
 
 import Exercises from './_exercises.mdx';
 
-**In this lesson, we'll locate and extract links to individual product pages. We'll use BeautifulSoup to find the relevant bits of HTML.**
+**In this lesson, we'll locate and extract links to individual product pages. We'll use Cheerio to find the relevant bits of HTML.**
 
 ---
 
@@ -31,189 +31,177 @@ This will help us figure out the actual prices of products, as right now, for so
 
 Over the course of the previous lessons, the code of our program grew to almost 50 lines containing downloading, parsing, and exporting:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-import csv
+```js
+import * as cheerio from 'cheerio';
+import { writeFile } from 'fs/promises';
+import { AsyncParser } from '@json2csv/node';
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
 
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
+if (response.ok) {
+  const html = await response.text();
+  const $ = cheerio.load(html);
 
-data = []
-for product in soup.select(".product-item"):
-    title = product.select_one(".product-item__title").text.strip()
+  const $items = $(".product-item").map((i, element) => {
+    const $productItem = $(element);
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text().trim();
 
-    data.append({"title": title, "min_price": min_price, "price": price})
+    const $price = $productItem.find(".price").contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price
+      .text()
+      .trim()
+      .replace("$", "")
+      .replace(".", "")
+      .replace(",", "");
 
-with open("products.csv", "w") as file:
-    writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
+    if (priceText.startsWith("From ")) {
+        priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
 
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
+    return { title, ...priceRange };
+  });
+  const data = $items.get();
 
-with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
+  const jsonData = JSON.stringify(data);
+  await writeFile('products.json', jsonData);
+
+  const parser = new AsyncParser();
+  const csvData = await parser.parse(data).promise();
+  await writeFile('products.csv', csvData);
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
-Let's introduce several functions to make the whole thing easier to digest. First, we can turn the beginning of our program into this `download()` function, which takes a URL and returns a `BeautifulSoup` instance:
+Let's introduce several functions to make the whole thing easier to digest. First, we can turn the beginning of our program into this `download()` function, which takes a URL and returns a Cheerio object:
 
-```py
-def download(url):
-    response = httpx.get(url)
-    response.raise_for_status()
-
-    html_code = response.text
-    return BeautifulSoup(html_code, "html.parser")
+```js
+async function download(url) {
+  const response = await fetch(url);
+  if (response.ok) {
+    const html = await response.text();
+    return cheerio.load(html);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
+}
 ```
 
-Next, we can put parsing into a `parse_product()` function, which takes the product item element and returns the dictionary with data:
+Next, we can put parsing into a `parseProduct()` function, which takes the product item element and returns the object with data:
 
-```py
-def parse_product(product):
-    title = product.select_one(".product-item__title").text.strip()
+```js
+function parseProduct($productItem) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+  const $price = $productItem.find(".price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-    return {"title": title, "min_price": min_price, "price": price}
+  if (priceText.startsWith("From ")) {
+      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+      priceRange.minPrice = parseInt(priceText);
+      priceRange.price = priceRange.minPrice;
+  }
+
+  return { title, ...priceRange };
+}
 ```
 
-Now the CSV export. We'll make a small change here. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
+Now the JSON export. For better readability, let's make a small change here and set the indentation level to two spaces:
 
-```py
-def export_csv(file, data):
-    # highlight-next-line
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
+```js
+function exportJSON(data) {
+  return JSON.stringify(data, null, 2);
+}
 ```
 
-:::note Fragile code
+The last function we'll add will take care of the CSV export:
 
-The code above assumes the `data` variable contains at least one item, and that all the items have the same keys. This isn't robust and could break, but in our program, this isn't a problem, and omitting these corner cases allows us to keep the code examples more succinct.
-
-:::
-
-The last function we'll add will take care of the JSON export. For better readability of the JSON export, let's make a small change here too and set the indentation level to two spaces:
-
-```py
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    # highlight-next-line
-    json.dump(data, file, default=serialize, indent=2)
+```js
+async function exportCSV(data) {
+  const parser = new AsyncParser();
+  return await parser.parse(data).promise();
+}
 ```
 
 Now let's put it all together:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-import csv
+```js
+import * as cheerio from 'cheerio';
+import { writeFile } from 'fs/promises';
+import { AsyncParser } from '@json2csv/node';
 
-def download(url):
-    response = httpx.get(url)
-    response.raise_for_status()
+async function download(url) {
+  const response = await fetch(url);
+  if (response.ok) {
+    const html = await response.text();
+    return cheerio.load(html);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
+}
 
-    html_code = response.text
-    return BeautifulSoup(html_code, "html.parser")
+function parseProduct($productItem) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
 
-def parse_product(product):
-    title = product.select_one(".product-item__title").text.strip()
+  const $price = $productItem.find(".price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+  if (priceText.startsWith("From ")) {
+      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+      priceRange.minPrice = parseInt(priceText);
+      priceRange.price = priceRange.minPrice;
+  }
 
-    return {"title": title, "min_price": min_price, "price": price}
+  return { title, ...priceRange };
+}
 
-def export_csv(file, data):
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
+function exportJSON(data) {
+  return JSON.stringify(data, null, 2);
+}
 
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
+async function exportCSV(data) {
+  const parser = new AsyncParser();
+  return await parser.parse(data).promise();
+}
 
-    json.dump(data, file, default=serialize, indent=2)
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+const $items = $(".product-item").map((i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem);
+  return item;
+});
+const data = $items.get();
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product)
-    data.append(item)
-
-with open("products.csv", "w") as file:
-    export_csv(file, data)
-
-with open("products.json", "w") as file:
-    export_json(file, data)
+await writeFile('products.json', exportJSON(data));
+await writeFile('products.csv', await exportCSV(data));
 ```
 
-The program is much easier to read now. With the `parse_product()` function handy, we could also replace the convoluted loop with one that only takes up four lines of code.
+The program is much easier to read now. With the `parseProduct()` function handy, we could also replace the convoluted loop with one that only takes up five lines of code.
 
 :::tip Refactoring
 
@@ -235,35 +223,36 @@ Several methods exist for transitioning from one page to another, but the most c
 <a href="https://example.com">Text of the link</a>
 ```
 
-In DevTools, we can see that each product title is, in fact, also a link element. We already locate the titles, so that makes our task easier. We just need to edit the code so that it extracts not only the text of the element but also the `href` attribute. Beautiful Soup elements support accessing attributes as if they were dictionary keys:
+In DevTools, we can see that each product title is, in fact, also a link element. We already locate the titles, so that makes our task easier. We just need to edit the code so that it extracts not only the text of the element but also the `href` attribute. Cheerio selections support accessing attributes using the `.attr()` method:
 
-```py
-def parse_product(product):
-    title_element = product.select_one(".product-item__title")
-    title = title_element.text.strip()
-    url = title_element["href"]
+```js
+function parseProduct($productItem) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
+  const url = $title.attr("href");
 
-    ...
+  ...
 
-    return {"title": title, "min_price": min_price, "price": price, "url": url}
+  return { url, title, ...priceRange };
+}
 ```
 
-In the previous code example, we've also added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
+In the previous code example, we've also added the URL to the object returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
 
 <!-- eslint-skip -->
 ```json title=products.json
 [
   {
+    "url": "/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
-    "url": "/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
+    "minPrice": 7495,
+    "price": 7495
   },
   {
+    "url": "/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv",
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
-    "price": null,
-    "url": "/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
+    "minPrice": 139800,
+    "price": null
   },
   ...
 ]
@@ -273,44 +262,37 @@ Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns
 
 ## Turning relative links into absolute
 
-Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. The function [`urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin) from Python's standard library will help us. Let's add it to our imports first:
+Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. The built-in [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) object will help us.
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-import csv
-# highlight-next-line
-from urllib.parse import urljoin
-```
+We'll change the `parseProduct()` function so that it also takes the base URL as an argument and then joins it with the relative URL to the product page:
 
-Next, we'll change the `parse_product()` function so that it also takes the base URL as an argument and then joins it with the relative URL to the product page:
+```js
+// highlight-next-line
+function parseProduct($productItem, baseURL) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
+  // highlight-next-line
+  const url = new URL($title.attr("href"), baseURL).href;
 
-```py
-# highlight-next-line
-def parse_product(product, base_url):
-    title_element = product.select_one(".product-item__title")
-    title = title_element.text.strip()
-    # highlight-next-line
-    url = urljoin(base_url, title_element["href"])
+  ...
 
-    ...
-
-    return {"title": title, "min_price": min_price, "price": price, "url": url}
+  return { url, title, ...priceRange };
+}
 ```
 
 Now we'll pass the base URL to the function in the main body of our program:
 
-```py
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-data = []
-for product in listing_soup.select(".product-item"):
-    # highlight-next-line
-    item = parse_product(product, listing_url)
-    data.append(item)
+const $items = $(".product-item").map((i, element) => {
+  const $productItem = $(element);
+  // highlight-next-line
+  const item = parseProduct($productItem, listingURL);
+  return item;
+});
+const data = $items.get();
 ```
 
 When we run the scraper now, we should see full URLs in our exports:
@@ -319,16 +301,16 @@ When we run the scraper now, we should see full URLs in our exports:
 ```json title=products.json
 [
   {
+    "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
-    "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
+    "minPrice": 7495,
+    "price": 7495
   },
   {
+    "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv",
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
-    "price": null,
-    "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
+    "minPrice": 139800,
+    "price": null
   },
   ...
 ]
@@ -342,7 +324,7 @@ Ta-da! We've managed to get links leading to the product pages. In the next less
 
 ### Scrape links to countries in Africa
 
-Download Wikipedia's page with the list of African countries, use Beautiful Soup to parse it, and print links to Wikipedia pages of all the states and territories mentioned in all tables. Start with this URL:
+Download Wikipedia's page with the list of African countries, use Cheerio to parse it, and print links to Wikipedia pages of all the states and territories mentioned in all tables. Start with this URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
@@ -361,29 +343,32 @@ https://en.wikipedia.org/wiki/Botswana
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+  ```js
+  import * as cheerio from 'cheerio';
 
-  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(listing_url)
-  response.raise_for_status()
+  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
+  const response = await fetch(listingURL);
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
-      link = name_cell.select_one("a")
-      url = urljoin(listing_url, link["href"])
-      print(url)
+    $(".wikitable tr td:nth-child(3)").each((i, element) => {
+      const nameCell = $(element);
+      const link = nameCell.find("a").first();
+      const url = new URL(link.attr("href"), listingURL).href;
+      console.log(url);
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>
 
 ### Scrape links to F1 news
 
-Download Guardian's page with the latest F1 news, use Beautiful Soup to parse it, and print links to all the listed articles. Start with this URL:
+Download Guardian's page with the latest F1 news, use Cheerio to parse it, and print links to all the listed articles. Start with this URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
@@ -402,22 +387,24 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
-  response.raise_for_status()
+  const listingURL = "https://www.theguardian.com/sport/formulaone";
+  const response = await fetch(listingURL);
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for item in soup.select("#maincontent ul li"):
-      link = item.select_one("a")
-      url = urljoin(url, link["href"])
-      print(url)
+    $("#maincontent ul li").each((i, element) => {
+      const link = $(element).find("a").first();
+      const url = new URL(link.attr("href"), listingURL).href;
+      console.log(url);
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
   Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:

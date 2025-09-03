@@ -69,5 +69,13 @@ properties:
   consoleUrl:
     type: string
     example: 'https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC'
+  itemsPublicUrl:
+    type: string
+    description: "A public link to access the dataset items directly."
+    example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items?signature=abc123'
+  urlSigningSecretKey:
+    type: string
+    description: "A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the dataset."
+    nullable: true
   stats:
     $ref: ./DatasetStats.yaml

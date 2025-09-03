@@ -19,7 +19,11 @@ Not only does becoming comfortable with and understanding the ins and outs of us
 
 ## Making the query {#making-the-query}
 
-! Cheddar website was changed and the below example no longer works there. Nonetheless, the general approach is still viable on some websites even though introspection is disabled on most.
+:::warning
+
+Cheddar website was changed and the below example no longer works there. Nonetheless, the general approach is still viable on some websites even though introspection is disabled on most.
+
+:::
 
 In order to perform introspection on our [target website](https://www.cheddar.com), we need to make a request to their GraphQL API with this introspection query using [Insomnia](../../../glossary/tools/insomnia.md) or another HTTP client that supports GraphQL:
 

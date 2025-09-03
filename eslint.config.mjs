@@ -20,6 +20,7 @@ export default [
             '@typescript-eslint/no-explicit-any': 'off',
             'no-param-reassign': 'off',
             'no-void': 'off',
+            indent: 'off',
             'no-console': 'off',
             'import/no-extraneous-dependencies': 'off',
             'import/extensions': 'off',

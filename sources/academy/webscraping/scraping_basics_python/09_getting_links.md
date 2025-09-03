@@ -33,7 +33,6 @@ Over the course of the previous lessons, the code of our program grew to almost 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 import csv
 
@@ -54,24 +53,20 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     data.append({"title": title, "min_price": min_price, "price": price})
 
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
 with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
+    json.dump(data, file)
 
 with open("products.csv", "w") as file:
     writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
@@ -103,13 +98,14 @@ def parse_product(product):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price}
@@ -119,13 +115,8 @@ Now the JSON export. For better readability of it, let's make a small change her
 
 ```py
 def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
     # highlight-next-line
-    json.dump(data, file, default=serialize, indent=2)
+    json.dump(data, file, indent=2)
 ```
 
 The last function we'll add will take care of the CSV export. We'll make a small change here as well. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
@@ -151,7 +142,6 @@ Now let's put it all together:
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 import csv
 
@@ -171,24 +161,20 @@ def parse_product(product):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price}
 
 def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    json.dump(data, file, default=serialize, indent=2)
+    json.dump(data, file, indent=2)
 
 def export_csv(file, data):
     fieldnames = list(data[0].keys())
@@ -254,13 +240,13 @@ In the previous code example, we've also added the URL to the dictionary returne
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
   },
   {
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
+    "min_price": "139800",
     "price": null,
     "url": "/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
   },
@@ -277,7 +263,6 @@ Browsers reading the HTML know the base address and automatically resolve such l
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 import csv
 # highlight-next-line
@@ -319,13 +304,13 @@ When we run the scraper now, we should see full URLs in our exports:
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
   },
   {
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
+    "min_price": "139800",
     "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
   },

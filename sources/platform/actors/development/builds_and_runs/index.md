@@ -33,7 +33,7 @@ To create a _run_, you take your _build_ and start it with some input:
 
 ```mermaid
 flowchart LR
-    subgraph AD [+]
+    subgraph AD [Run Definition]
         direction LR
         Build
         Input

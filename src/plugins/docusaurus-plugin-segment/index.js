@@ -16,9 +16,8 @@ module.exports = function (context, options) {
             }
 
             if (!writeKey) {
-                throw new Error(
-                    'You need to specify a Segment writeKey in the plugin options',
-                );
+                console.warn('You need to specify a Segment writeKey in the plugin options');
+                return {};
             }
 
             return {

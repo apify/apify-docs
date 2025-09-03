@@ -98,6 +98,15 @@ where:
 
 Only paid user activity is included in profit calculations.
 
+:::note Negative profit isolation
+
+An Actor's negative net profit does not affect the positive profit of another Actor. For aggregation purposes, any Actor with a negative net profit is considered to have a profit of $0.
+
+- _Previously:_ `Total Profit = (-$90) + $100 = $10`
+- _Now:_ `Total Profit = $0 + $100 = $100`
+
+:::
+
 #### How to set pricing for PPE
 
 1. _Understand your costs_: Analyze resource usage (e.g CPU, memory, proxies, external APIs) and identify cost drivers
@@ -129,6 +138,10 @@ Use our SDKs ([JS](/sdk/js/reference/class/ChargingManager) and, [Python](/sdk/p
 You can also choose not to use it, but then you must handle API integration and possible edge cases manually. You can use `ChargingManager` code as a reference.
 
 :::
+
+#### PPE event names
+
+To implement pay-per-event pricing, you need to define specific events in your Actor code. You can retrieve the list of available pricing event names using the [Get Actor](https://apify.com/docs/api/v2/act-get) API endpoint.
 
 ### How to attract larger customers of PPE and PPR Actors
 

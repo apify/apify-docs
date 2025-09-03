@@ -1,7 +1,7 @@
 ---
-title: Extracting data from HTML with Python
+title: Extracting data from HTML with Node.js
 sidebar_label: Extracting data from HTML
-description: Lesson about building a Python application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
+description: Lesson about building a Node.js application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
 slug: /scraping-basics-javascript2/extracting-data
 unlisted: true
 ---
@@ -15,7 +15,7 @@ import Exercises from './_exercises.mdx';
 Locating the right HTML elements is the first step of a successful data extraction, so it's no surprise that we're already close to having the data in the correct form. The last bit that still requires our attention is the price:
 
 ```text
-$ python main.py
+$ node index.js
 JBL Flip 4 Waterproof Portable Bluetooth Speaker | $74.95
 Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 ...
@@ -35,172 +35,183 @@ It's because some products have variants with different prices. Later in the cou
 
 Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix?
 
-```py
-price_text = product.select_one(".price").contents[-1]
-price = price_text.removeprefix("From ")
+```js
+const priceText = $price.text().replace("From ", "");
 ```
 
 In other cases, they'd tell us the data must include the range. And in cases when we just don't know, the safest option is to include all the information we have and leave the decision on what's important to later stages. One approach could be having the exact and minimum prices as separate values. If we don't know the exact price, we leave it empty:
 
-```py
-price_text = product.select_one(".price").contents[-1]
-if price_text.startswith("From "):
-    min_price = price_text.removeprefix("From ")
-    price = None
-else:
-    min_price = price_text
-    price = min_price
+```js
+const priceRange = { minPrice: null, price: null };
+const priceText = $price.text()
+if (priceText.startsWith("From ")) {
+    priceRange.minPrice = priceText.replace("From ", "");
+} else {
+    priceRange.minPrice = priceText;
+    priceRange.price = priceRange.minPrice;
+}
 ```
 
 :::tip Built-in string methods
 
-If you're not proficient in Python's string methods, [.startswith()](https://docs.python.org/3/library/stdtypes.html#str.startswith) checks the beginning of a given string, and [.removeprefix()](https://docs.python.org/3/library/stdtypes.html#str.removeprefix) removes something from the beginning of a given string.
+If you're not proficient in JavaScript's string methods, [.startsWith()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) checks the beginning of a given string, and [.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) changes part of a given string.
 
 :::
 
 The whole program would look like this:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
+```js
+import * as cheerio from 'cheerio';
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
 
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
+if (response.ok) {
+  const html = await response.text();
+  const $ = cheerio.load(html);
 
-for product in soup.select(".product-item"):
-    title = product.select_one(".product-item__title").text
+  $(".product-item").each((i, element) => {
+    const $productItem = $(element);
 
-    price_text = product.select_one(".price").contents[-1]
-    if price_text.startswith("From "):
-        min_price = price_text.removeprefix("From ")
-        price = None
-    else:
-        min_price = price_text
-        price = min_price
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text();
 
-    print(title, min_price, price, sep=" | ")
+    const $price = $productItem.find(".price").contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price.text();
+    if (priceText.startsWith("From ")) {
+        priceRange.minPrice = priceText.replace("From ", "");
+    } else {
+        priceRange.minPrice = priceText;
+        priceRange.price = priceRange.minPrice;
+    }
+
+    console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
+  });
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
 ## Removing white space
 
 Often, the strings we extract from a web page start or end with some amount of whitespace, typically space characters or newline characters, which come from the [indentation](https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming) of the HTML tags.
 
-We call the operation of removing whitespace _stripping_ or _trimming_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it. Let's add Python's built-in [.strip()](https://docs.python.org/3/library/stdtypes.html#str.strip):
+We call the operation of removing whitespace _trimming_ or _stripping_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it. Let's add JavaScript's built-in [.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim):
 
-```py
-title = product.select_one(".product-item__title").text.strip()
+```js
+const title = $title.text().trim();
 
-price_text = product.select_one(".price").contents[-1].strip()
+const priceText = $price.text().trim();
 ```
-
-:::info Handling strings in Beautiful Soup
-
-Beautiful Soup offers several attributes when it comes to working with strings:
-
-- `.string`, which often is like `.text`,
-- `.strings`, which [returns a list of all nested textual nodes](https://beautiful-soup-4.readthedocs.io/en/latest/#strings-and-stripped-strings),
-- `.stripped_strings`, which does the same but with whitespace removed.
-
-These might be useful in some complex scenarios, but in our case, they won't make scraping the title or price any shorter or more elegant.
-
-:::
 
 ## Removing dollar sign and commas
 
-We got rid of the `From` and possible whitespace, but we still can't save the price as a number in our Python program:
+We got rid of the `From` and possible whitespace, but we still can't save the price as a number in our JavaScript program:
 
-```py
->>> price = "$1,998.00"
->>> float(price)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ValueError: could not convert string to float: '$1,998.00'
+```js
+> const priceText = "$1,998.00"
+> parseFloat(priceText)
+NaN
 ```
 
-:::tip Interactive Python
+:::tip Interactive JavaScript
 
-The demonstration above is inside the Python's [interactive REPL](https://realpython.com/interacting-with-python/). It's a useful playground where you can try how code behaves before you use it in your program.
+The demonstration above is inside the Node.js' [interactive REPL](https://nodejs.org/en/learn/command-line/how-to-use-the-nodejs-repl). It's similar to running arbitrary code in your browser's DevTools Console, and it's a useful playground where you can try how code behaves before you use it in your program.
 
 :::
 
-We need to remove the dollar sign and the decimal commas. For this type of cleaning, [regular expressions](https://docs.python.org/3/library/re.html) are often the best tool for the job, but in this case [`.replace()`](https://docs.python.org/3/library/stdtypes.html#str.replace) is also sufficient:
+We need to remove the dollar sign and the decimal commas. For this type of cleaning, [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) are often the best tool for the job, but in this case [`.replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) is also sufficient:
 
-```py
-price_text = (
-    product
-    .select_one(".price")
-    .contents[-1]
-    .strip()
-    .replace("$", "")
-    .replace(",", "")
-)
+```js
+const priceText = $price
+  .text()
+  .trim()
+  .replace("$", "")
+  .replace(",", "");
 ```
 
 ## Representing money in programs
 
-Now we should be able to add `float()`, so that we have the prices not as a text, but as numbers:
+Now we should be able to add `parseFloat()`, so that we have the prices not as a text, but as numbers:
 
-```py
-if price_text.startswith("From "):
-    min_price = float(price_text.removeprefix("From "))
-    price = None
-else:
-    min_price = float(price_text)
-    price = min_price
+```js
+const priceRange = { minPrice: null, price: null };
+const priceText = $price.text()
+if (priceText.startsWith("From ")) {
+    priceRange.minPrice = parseFloat(priceText.replace("From ", ""));
+} else {
+    priceRange.minPrice = parseFloat(priceText);
+    priceRange.price = priceRange.minPrice;
+}
 ```
 
-Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save `float()` numbers in a way which isn't always reliable:
+Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save floating point numbers in a way which isn't always reliable:
 
 ```py
->>> 0.1 + 0.2
+> 0.1 + 0.2
 0.30000000000000004
 ```
 
-These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid `float()` when working with money. Let's instead use Python's built-in [`Decimal()`](https://docs.python.org/3/library/decimal.html) type:
+These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid floating point numbers when working with money. We won't store dollars, but cents:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
+```js
+const priceText = $price
+  .text()
+  .trim()
+  .replace("$", "")
+// highlight-next-line
+  .replace(".", "")
+  .replace(",", "");
+```
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
+In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. This is how the whole program looks like now:
 
-html_code = response.text
-soup = BeautifulSoup(html_code, "html.parser")
+```js
+import * as cheerio from 'cheerio';
 
-for product in soup.select(".product-item"):
-    title = product.select_one(".product-item__title").text.strip()
+const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const response = await fetch(url);
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+if (response.ok) {
+  const html = await response.text();
+  const $ = cheerio.load(html);
 
-    print(title, min_price, price, sep=" | ")
+  $(".product-item").each((i, element) => {
+    const $productItem = $(element);
+
+    const $title = $productItem.find(".product-item__title");
+    const titleText = $title.text().trim();
+
+    const $price = $productItem.find(".price").contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price
+      .text()
+      .trim()
+      .replace("$", "")
+      .replace(".", "")
+      .replace(",", "");
+
+    if (priceText.startsWith("From ")) {
+        priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
+
+    console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
+  });
+} else {
+  throw new Error(`HTTP ${response.status}`);
+}
 ```
 
 If we run the code above, we have nice, clean data about all the products!
 
 ```text
-$ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker | 74.95 | 74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 1398.00 | None
+$ node index.js
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | 7495 | 7495
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 139800 | null
 ...
 ```
 
@@ -215,82 +226,108 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 Change our scraper so that it extracts how many units of each product are on stock. Your program should print the following. Note the unit amounts at the end of each line:
 
 ```text
-JBL Flip 4 Waterproof Portable Bluetooth Speaker 672
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV 77
-Sony SACS9 10" Active Subwoofer 7
-Sony PS-HX500 Hi-Res USB Turntable 15
-Klipsch R-120SW Powerful Detailed Home Speaker - Unit 0
-Denon AH-C720 In-Ear Headphones 236
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77
+Sony SACS9 10" Active Subwoofer | 7
+Sony PS-HX500 Hi-Res USB Turntable | 15
+Klipsch R-120SW Powerful Detailed Home Speaker - Unit | 0
+Denon AH-C720 In-Ear Headphones | 236
 ...
 ```
 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
+  function parseUnitsText(text) {
+    const count = text
+      .replace("In stock,", "")
+      .replace("Only", "")
+      .replace(" left", "")
+      .replace("units", "")
+      .trim();
+    return count === "Sold out" ? 0 : parseInt(count);
+  }
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+  const response = await fetch(url);
 
-  for product in soup.select(".product-item"):
-      title = product.select_one(".product-item__title").text.strip()
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-      units_text = (
-          product
-          .select_one(".product-item__inventory")
-          .text
-          .removeprefix("In stock,")
-          .removeprefix("Only")
-          .removesuffix(" left")
-          .removesuffix("units")
-          .strip()
-      )
-      if "Sold out" in units_text:
-          units = 0
-      else:
-          units = int(units_text)
+    $(".product-item").each((i, element) => {
+      const $productItem = $(element);
 
-      print(title, units)
+      const title = $productItem.find(".product-item__title");
+      const title = $title.text().trim();
+
+      const unitsText = $productItem.find(".product-item__inventory").text();
+      const unitsCount = parseUnitsText(unitsText);
+
+      console.log(`${title} | ${unitsCount}`);
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
+
+  :::tip Conditional (ternary) operator
+
+  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
+
+  :::
 
 </details>
 
 ### Use regular expressions
 
-Simplify the code from previous exercise. Use [regular expressions](https://docs.python.org/3/library/re.html) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
+Simplify the code from previous exercise. Use [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import re
-  import httpx
-  from bs4 import BeautifulSoup
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
+  function parseUnitsText(text) {
+    const match = text.match(/\d+/);
+    if (match) {
+      return parseInt(match[0]);
+    }
+    return 0;
+  }
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+  const response = await fetch(url);
 
-  for product in soup.select(".product-item"):
-      title = product.select_one(".product-item__title").text.strip()
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-      units_text = product.select_one(".product-item__inventory").text
-      if re_match := re.search(r"\d+", units_text):
-          units = int(re_match.group())
-      else:
-          units = 0
+    $(".product-item").each((i, element) => {
+      const $productItem = $(element);
 
-      print(title, units)
+      const $title = $productItem.find(".product-item__title");
+      const title = $title.text().trim();
+
+      const unitsText = $productItem.find(".product-item__inventory").text();
+      const unitsCount = parseUnitsText(unitsText);
+
+      console.log(`${title} | ${unitsCount}`);
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
+
+  :::tip Conditional (ternary) operator
+
+  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
+
+  :::
 
 </details>
 
@@ -305,42 +342,51 @@ https://www.theguardian.com/sport/formulaone
 Your program should print something like the following. Note the dates at the end of each line:
 
 ```text
-Wolff confident Mercedes are heading to front of grid after Canada improvement 2024-06-10
-Frustrated Lando Norris blames McLaren team for missed chance 2024-06-09
-Max Verstappen wins Canadian Grand Prix: F1 – as it happened 2024-06-09
+Brad Pitt in the paddock: how F1 the Movie went deep to keep fans coming | Fri Jun 20 2025
+Wolff hits out at Red Bull protest after Russell’s Canadian GP win | Tue Jun 17 2025
+F1 the Movie review – spectacular macho melodrama handles Brad Pitt with panache | Tue Jun 17 2025
+Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian F1 GP | Mon Jun 16 2025
 ...
 ```
 
 Hints:
 
 - HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
-- Beautiful Soup gives you [access to attributes as if they were dictionary keys](https://beautiful-soup-4.readthedocs.io/en/latest/#attributes).
-- In Python you can create `datetime` objects using `datetime.fromisoformat()`, a [built-in method for parsing ISO 8601 strings](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat).
-- To get just the date part, you can call `.date()` on any `datetime` object.
+- Cheerio gives you [.attr()](https://cheerio.js.org/docs/api/classes/Cheerio#attr) to access attributes.
+- In JavaScript you can use an ISO 8601 string to create a [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object.
+- To get the date, you can call `.toDateString()` on `Date` objects.
 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from datetime import datetime
+  ```js
+  import * as cheerio from 'cheerio';
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
-  response.raise_for_status()
+  const url = "https://www.theguardian.com/sport/formulaone";
+  const response = await fetch(url);
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+  if (response.ok) {
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for article in soup.select("#maincontent ul li"):
-      title = article.select_one("h3").text.strip()
+    $("#maincontent ul li").each((i, element) => {
+      const $article = $(element);
 
-      time_iso = article.select_one("time")["datetime"].strip()
-      published_at = datetime.fromisoformat(time_iso)
-      published_on = published_at.date()
+      const title = $article
+        .find("h3")
+        .text()
+        .trim();
+      const dateText = $article
+        .find("time")
+        .attr("datetime")
+        .trim();
+      const date = new Date(dateText);
 
-      print(title, published_on)
+      console.log(`${title} | ${date.toDateString()}`);
+    });
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
   ```
 
 </details>

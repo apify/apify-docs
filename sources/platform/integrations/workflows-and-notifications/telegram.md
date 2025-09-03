@@ -2,7 +2,7 @@
 title: Telegram integration through Zapier
 sidebar_label: Telegram
 description: Learn how to integrate your Apify Actors with Zapier.
-sidebar_position: 3
+sidebar_position: 4
 slug: /integrations/telegram
 ---
 
