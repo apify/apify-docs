@@ -41,7 +41,7 @@ Nice! We can extract the variant names, but we also need to extract the price fo
 
 ![Switching variants](images/variants-js.gif)
 
-If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
+If we can't find a workaround, we'd need our scraper to run browser JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Cheerio as much as possible.
 
 After a bit of detective work, we notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
 
@@ -65,41 +65,73 @@ After a bit of detective work, we notice that not far below the `block-swatch-li
 </div>
 ```
 
-These elements aren't visible to regular visitors. They're there just in case JavaScript fails to work, otherwise they're hidden. This is a great find because it allows us to keep our scraper lightweight.
+These elements aren't visible to regular visitors. They're there just in case browser JavaScript fails to work, otherwise they're hidden. This is a great find because it allows us to keep our scraper lightweight.
 
 ## Extracting variants
 
-Using our knowledge of Beautiful Soup, we can locate the options and extract the data we need:
+Using our knowledge of Cheerio, we can locate the `option` elements and extract the data we need. We'll loop over the options, extract variant names, and create a corresponding array of items for each product:
 
-```py
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const $ = await download(listingURL);
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product, listing_url)
-    product_soup = download(item["url"])
-    vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
 
-    if variants := product_soup.select(".product-form__option.no-js option"):
-        for variant in variants:
-            data.append(item | {"variant_name": variant.text.strip()})
-    else:
-        item["variant_name"] = None
-        data.append(item)
+  const $p = await download(item.url);
+  item.vendor = $p(".product-meta__vendor").text().trim();
+
+  // highlight-start
+  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+    const $option = $(element);
+    const variantName = $option.text().trim();
+    return { variantName, ...item };
+  });
+  // highlight-end
+
+  return item;
+});
+const data = await Promise.all($promises.get());
 ```
 
-The CSS selector `.product-form__option.no-js` matches elements with both `product-form__option` and `no-js` classes. Then we're using the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements somewhere inside the `.product-form__option.no-js` wrapper.
+The CSS selector `.product-form__option.no-js` targets elements that have both the `product-form__option` and `no-js` classes. We then use the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements nested within the `.product-form__option.no-js` wrapper.
 
-Python dictionaries are mutable, so if we assigned the variant with `item["variant_name"] = ...`, we'd always overwrite the values. Instead of saving an item for each variant, we'd end up with the last variant repeated several times. To avoid this, we create a new dictionary for each variant and merge it with the `item` data before adding it to `data`. If we don't find any variants, we add the `item` as is, leaving the `variant_name` key empty.
+We loop over the variants using Cheerio's `.map()` method to create a collection of item copies for each `variantName`. We now need to pass all these items onward, but the function currently returns just one item per product. And what if there are no variants?
 
-:::tip Modern Python syntax
+Let's adjust the loop so it returns a promise that resolves to an array of items instead of a single item. If a product has no variants, we'll return an array with a single item, setting `variantName` to `null`:
 
-Since Python 3.8, you can use `:=` to simplify checking if an assignment resulted in a non-empty value. It's called an _assignment expression_ or _walrus operator_. You can learn more about it in the [docs](https://docs.python.org/3/reference/expressions.html#assignment-expressions) or in the [proposal document](https://peps.python.org/pep-0572/).
+```js
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https://docs.python.org/3/library/stdtypes.html#dict) aren't clear enough, check out the [proposal document](https://peps.python.org/pep-0584/) for more details.
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
 
-:::
+  const $p = await download(item.url);
+  item.vendor = $p(".product-meta__vendor").text().trim();
+
+  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+    const $option = $(element);
+    const variantName = $option.text().trim();
+    return { variantName, ...item };
+  });
+
+  // highlight-start
+  if ($items.length > 0) {
+    return $items.get();
+  }
+  return [{ variantName: null, ...item }];
+  // highlight-end
+});
+// highlight-start
+const itemLists = await Promise.all($promises.get());
+const data = itemLists.flat();
+// highlight-end
+```
+
+After modifying the loop, we also updated how we collect the items into the `data` array. Since the loop now produces an array of items per product, the result of `await Promise.all()` is an array of arrays. We use [`.flat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) to merge them into a single, non-nested array.
 
 If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
 
@@ -108,11 +140,11 @@ If we run the program now, we'll see 34 items in total. Some items don't have va
 [
   ...
   {
-    "variant_name": null,
-    "title": "Klipsch R-120SW Powerful Detailed Home Speaker - Unit",
-    "min_price": "324.00",
-    "price": "324.00",
+    "variantName": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/klipsch-r-120sw-powerful-detailed-home-speaker-set-of-1",
+    "title": "Klipsch R-120SW Powerful Detailed Home Speaker - Unit",
+    "minPrice": 32400,
+    "price": 32400,
     "vendor": "Klipsch"
   },
   ...
@@ -126,19 +158,19 @@ Some products will break into several items, each with a different variant name.
 [
   ...
   {
-    "variant_name": "Red - $178.00",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": null,
+    "variantName": "Red - $178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": null,
     "vendor": "Sony"
   },
   {
-    "variant_name": "Black - $178.00",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": null,
+    "variantName": "Black - $178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": null,
     "vendor": "Sony"
   },
   ...
@@ -152,11 +184,11 @@ Perhaps surprisingly, some products with variants will have the price field set.
 [
   ...
   {
-    "variant_name": "Red - $74.95",
-    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "variantName": "Red - $74.95",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
+    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
+    "minPrice": 7495,
+    "price": 7495,
     "vendor": "JBL"
   },
   ...
@@ -165,110 +197,121 @@ Perhaps surprisingly, some products with variants will have the price field set.
 
 ## Parsing price
 
-The items now contain the variant as text, which is good for a start, but we want the price to be in the `price` key. Let's introduce a new function to handle that:
+The items now contain the variant as text, which is good for a start, but we want the price to be in the `price` property. Let's introduce a new function to handle that:
 
-```py
-def parse_variant(variant):
-    text = variant.text.strip()
-    name, price_text = text.split(" - ")
-    price = Decimal(
-        price_text
-        .replace("$", "")
-        .replace(",", "")
-    )
-    return {"variant_name": name, "price": price}
+```js
+function parseVariant($option) {
+  const [variantName, priceText] = $option
+    .text()
+    .trim()
+    .split(" - ");
+  const price = parseInt(
+    priceText
+      .replace("$", "")
+      .replace(".", "")
+      .replace(",", "")
+  );
+  return { variantName, price };
+}
 ```
 
-First, we split the text into two parts, then we parse the price as a decimal number. This part is similar to what we already do for parsing product listing prices. The function returns a dictionary we can merge with `item`.
+First, we split the text into two parts, then we parse the price as a number. This part is similar to what we already do for parsing product listing prices. The function returns an object we can merge with `item`.
 
 ## Saving price
 
 Now, if we use our new function, we should finally get a program that can scrape exact prices for all products, even if they have variants. The whole code should look like this now:
 
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import json
-import csv
-from urllib.parse import urljoin
+```js
+import * as cheerio from 'cheerio';
+import { writeFile } from 'fs/promises';
+import { AsyncParser } from '@json2csv/node';
 
-def download(url):
-    response = httpx.get(url)
-    response.raise_for_status()
+async function download(url) {
+  const response = await fetch(url);
+  if (response.ok) {
+    const html = await response.text();
+    return cheerio.load(html);
+  } else {
+    throw new Error(`HTTP ${response.status}`);
+  }
+}
 
-    html_code = response.text
-    return BeautifulSoup(html_code, "html.parser")
+function parseProduct($productItem, baseURL) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
+  const url = new URL($title.attr("href"), baseURL).href;
 
-def parse_product(product, base_url):
-    title_element = product.select_one(".product-item__title")
-    title = title_element.text.strip()
-    url = urljoin(base_url, title_element["href"])
+  const $price = $productItem.find(".price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+  if (priceText.startsWith("From ")) {
+      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+      priceRange.minPrice = parseInt(priceText);
+      priceRange.price = priceRange.minPrice;
+  }
 
-    return {"title": title, "min_price": min_price, "price": price, "url": url}
+  return { url, title, ...priceRange };
+}
 
-def parse_variant(variant):
-    text = variant.text.strip()
-    name, price_text = text.split(" - ")
-    price = Decimal(
-        price_text
-        .replace("$", "")
-        .replace(",", "")
-    )
-    return {"variant_name": name, "price": price}
+async function exportJSON(data) {
+  return JSON.stringify(data, null, 2);
+}
 
-def export_csv(file, data):
-    fieldnames = list(data[0].keys())
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in data:
-        writer.writerow(row)
+async function exportCSV(data) {
+  const parser = new AsyncParser();
+  return await parser.parse(data).promise();
+}
 
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
+// highlight-start
+function parseVariant($option) {
+  const [variantName, priceText] = $option
+    .text()
+    .trim()
+    .split(" - ");
+  const price = parseInt(
+    priceText
+      .replace("$", "")
+      .replace(".", "")
+      .replace(",", "")
+  );
+  return { variantName, price };
+}
+// highlight-end
 
-    json.dump(data, file, default=serialize, indent=2)
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const $ = await download(listingURL);
 
-listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-listing_soup = download(listing_url)
+const $promises = $(".product-item").map(async (i, element) => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem, listingURL);
 
-data = []
-for product in listing_soup.select(".product-item"):
-    item = parse_product(product, listing_url)
-    product_soup = download(item["url"])
-    vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+  const $p = await download(item.url);
+  item.vendor = $p(".product-meta__vendor").text().trim();
 
-    if variants := product_soup.select(".product-form__option.no-js option"):
-        for variant in variants:
-            # highlight-next-line
-            data.append(item | parse_variant(variant))
-    else:
-        item["variant_name"] = None
-        data.append(item)
+  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+    // highlight-next-line
+    const variant = parseVariant($(element));
+    // highlight-next-line
+    return { ...item, ...variant };
+  });
 
-with open("products.csv", "w") as file:
-    export_csv(file, data)
+  if ($items.length > 0) {
+    return $items.get();
+  }
+  return [{ variantName: null, ...item }];
+});
+const itemLists = await Promise.all($promises.get());
+const data = itemLists.flat();
 
-with open("products.json", "w") as file:
-    export_json(file, data)
+await writeFile('products.json', await exportJSON(data));
+await writeFile('products.csv', await exportCSV(data));
 ```
 
 Let's run the scraper and see if all the items in the data contain prices:
@@ -278,26 +321,26 @@ Let's run the scraper and see if all the items in the data contain prices:
 [
   ...
   {
-    "variant_name": "Red",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": "178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
-    "vendor": "Sony"
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": 17800,
+    "vendor": "Sony",
+    "variantName": "Red"
   },
   {
-    "variant_name": "Black",
-    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
-    "min_price": "128.00",
-    "price": "178.00",
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xb950-extra-bass-wireless-headphones-with-app-control",
-    "vendor": "Sony"
+    "title": "Sony XB-950B1 Extra Bass Wireless Headphones with App Control",
+    "minPrice": 12800,
+    "price": 17800,
+    "vendor": "Sony",
+    "variantName": "Black"
   },
   ...
 ]
 ```
 
-Success! We managed to build a Python application for watching prices!
+Success! We managed to build a Node.js application for watching prices!
 
 Is this the end? Maybe! In the next lesson, we'll use a scraping framework to build the same application, but with less code, faster requests, and better visibility into what's happening while we wait for the program to finish.
 
@@ -305,68 +348,107 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 <Exercises />
 
-### Build a scraper for watching Python jobs
+### Build a scraper for watching npm packages
 
-You're able to build a scraper now, aren't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
+You can build a scraper now, can't you? Let's build another one! From the registry at [npmjs.com](https://www.npmjs.com/), scrape information about npm packages that match the following criteria:
 
-- Tagged as "Database"
-- Posted within the last 60 days
+- Have the keyword "llm" (as in _large language model_)
+- Updated within the last two years ("2 years ago" is okay; "3 years ago" is too old)
 
-For each job posting found, use [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp) to print a dictionary containing the following data:
+Print an array of the top 5 packages with the most dependents. Each package should be represented by an object containing the following data:
 
-- Job title
-- Company
-- URL to the job posting
-- Date of posting
+- Name
+- Description
+- URL to the package detail page
+- Number of dependents
+- Number of downloads
 
 Your output should look something like this:
 
-```py
-{'title': 'Senior Full Stack Developer',
- 'company': 'Baserow',
- 'url': 'https://www.python.org/jobs/7705/',
- 'posted_on': datetime.date(2024, 9, 16)}
-{'title': 'Senior Python Engineer',
- 'company': 'Active Prime',
- 'url': 'https://www.python.org/jobs/7699/',
- 'posted_on': datetime.date(2024, 9, 5)}
-...
+```js
+[
+  {
+    name: 'langchain',
+    url: 'https://www.npmjs.com/package/langchain',
+    description: 'Typescript bindings for langchain',
+    dependents: 735,
+    downloads: 3938
+  },
+  {
+    name: '@langchain/core',
+    url: 'https://www.npmjs.com/package/@langchain/core',
+    description: 'Core LangChain.js abstractions and schemas',
+    dependents: 730,
+    downloads: 5994
+  },
+  ...
+]
 ```
-
-You can find everything you need for working with dates and times in Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module, including `date.today()`, `datetime.fromisoformat()`, `datetime.date()`, and `timedelta()`.
 
 <details>
   <summary>Solution</summary>
 
-  After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
+  After inspecting the registry, you'll notice that packages with the keyword "llm" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
 
-  ```py
-  from pprint import pp
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-  from datetime import datetime, date, timedelta
+  ```js
+  import * as cheerio from 'cheerio';
 
-  today = date.today()
-  jobs_url = "https://www.python.org/jobs/type/database/"
-  response = httpx.get(jobs_url)
-  response.raise_for_status()
-  soup = BeautifulSoup(response.text, "html.parser")
+  async function download(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+      const html = await response.text();
+      return cheerio.load(html);
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  }
 
-  for job in soup.select(".list-recent-jobs li"):
-      link = job.select_one(".listing-company-name a")
+  const listingURL = "https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count";
+  const $ = await download(listingURL);
 
-      time = job.select_one(".listing-posted time")
-      posted_at = datetime.fromisoformat(time["datetime"])
-      posted_on = posted_at.date()
-      posted_ago = today - posted_on
+  const $promises = $("section").map(async (i, element) => {
+    const $card = $(element);
 
-      if posted_ago <= timedelta(days=60):
-          title = link.text.strip()
-          company = list(job.select_one(".listing-company-name").stripped_strings)[-1]
-          url = urljoin(jobs_url, link["href"])
-          pp({"title": title, "company": company, "url": url, "posted_on": posted_on})
+    const details = $card
+      .children()
+      .first()
+      .children()
+      .last()
+      .text()
+      .split("•");
+    const updatedText = details[2].trim();
+    const dependents = parseInt(details[3].replace("dependents", "").trim());
+
+    if (updatedText.includes("years ago")) {
+      const yearsAgo = parseInt(updatedText.replace("years ago", "").trim());
+      if (yearsAgo > 2) {
+        return null;
+      }
+    }
+
+    const $link = $card.find("a").first();
+    const name = $link.text().trim();
+    const url = new URL($link.attr("href"), listingURL).href;
+    const description = $card.find("p").text().trim();
+
+    const downloadsText = $card
+      .children()
+      .last()
+      .text()
+      .replace(",", "")
+      .trim();
+    const downloads = parseInt(downloadsText);
+
+    return { name, url, description, dependents, downloads };
+  });
+
+  const data = await Promise.all($promises.get());
+  console.log(data.filter(item => item !== null).splice(0, 5));
   ```
+
+  Since the HTML doesn't contain any descriptive classes, we must rely on its structure. We're using [`.children()`](https://cheerio.js.org/docs/api/classes/Cheerio#children) to carefully navigate the HTML element tree.
+
+  For items older than 2 years, we return `null` instead of an item. Before printing the results, we use [.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to remove these empty values and [.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) the array down to just 5 items.
 
 </details>
 
@@ -375,8 +457,8 @@ You can find everything you need for working with dates and times in Python's [`
 Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
 
 - Locate the element that holds the main content of the article.
-- Use [`get_text()`](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#get-text) to extract all the content as plain text.
-- Use `len()` to calculate the character count.
+- Use `.text()` to extract all the content as plain text.
+- Use `.length` to calculate the character count.
 
 Skip pages without text (like those that only have a video). Sort the results and print the URL of the shortest article that made it to the homepage.
 
@@ -385,32 +467,38 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+  ```js
+  import * as cheerio from 'cheerio';
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+  async function download(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+      const html = await response.text();
+      return cheerio.load(html);
+    } else {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  }
 
-  listing_url = "https://edition.cnn.com/sport"
-  listing_soup = download(listing_url)
+  const listingURL = "https://edition.cnn.com/sport";
+  const $ = await download(listingURL);
 
-  data = []
-  for card in listing_soup.select(".layout__main .card"):
-      link = card.select_one(".container__link")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      if content := article_soup.select_one(".article__content"):
-          length = len(content.get_text())
-          data.append((length, article_url))
+  const $promises = $(".layout__main .card").map(async (i, element) => {
+    const $link = $(element).find("a").first();
+    const articleURL = new URL($link.attr("href"), listingURL).href;
 
-  data.sort()
-  shortest_item = data[0]
-  item_url = shortest_item[1]
-  print(item_url)
+    const $a = await download(articleURL);
+    const content = $a(".article__content").text().trim();
+
+    return { url: articleURL, length: content.length };
+  });
+
+  const data = await Promise.all($promises.get());
+  const nonZeroData = data.filter(({ url, length }) => length > 0);
+  nonZeroData.sort((a, b) => a.length - b.length);
+  const shortestItem = nonZeroData[0];
+
+  console.log(shortestItem.url);
   ```
 
 </details>

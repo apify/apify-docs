@@ -88,7 +88,7 @@ for product in listing_soup.select(".product-item"):
         data.append(item)
 ```
 
-The CSS selector `.product-form__option.no-js` matches elements with both `product-form__option` and `no-js` classes. Then we're using the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements somewhere inside the `.product-form__option.no-js` wrapper.
+The CSS selector `.product-form__option.no-js` targets elements that have both the `product-form__option` and `no-js` classes. We then use the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements nested within the `.product-form__option.no-js` wrapper.
 
 Python dictionaries are mutable, so if we assigned the variant with `item["variant_name"] = ...`, we'd always overwrite the values. Instead of saving an item for each variant, we'd end up with the last variant repeated several times. To avoid this, we create a new dictionary for each variant and merge it with the `item` data before adding it to `data`. If we don't find any variants, we add the `item` as is, leaving the `variant_name` key empty.
 
@@ -222,6 +222,7 @@ def parse_product(product, base_url):
 
     return {"title": title, "min_price": min_price, "price": price, "url": url}
 
+# highlight-start
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
@@ -232,6 +233,7 @@ def parse_variant(variant):
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
+# highlight-end
 
 def export_json(file, data):
     json.dump(data, file, indent=2)
@@ -303,7 +305,7 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 ### Build a scraper for watching Python jobs
 
-You're able to build a scraper now, aren't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
+You can build a scraper now, can't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
 
 - Tagged as "Database"
 - Posted within the last 60 days
