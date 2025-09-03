@@ -241,6 +241,7 @@ Each API call links to the Apify documentation. To learn more about any plugin a
 The Apify plugin provides two main types of operations:
 
 **Data calls** (data sources):
+
 - [Fetch Data From Dataset Text As Data](https://docs.apify.com/api/v2/dataset-items-get)
 - [Fetch Data From Dataset File As Data](https://docs.apify.com/api/v2/dataset-items-get)
 - [Fetch Data From Dataset Json As Data](https://docs.apify.com/api/v2/dataset-items-get)
