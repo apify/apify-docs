@@ -260,6 +260,7 @@ The Apify plugin provides two main types of operations:
 - [List Webhooks](https://docs.apify.com/api/v2/webhooks-get)
 
 **Actions** (workflow steps):
+
 - [Fetch Data From Dataset Text As Action](https://docs.apify.com/api/v2/dataset-items-get)
 - [Fetch Data From Dataset File As Action](https://docs.apify.com/api/v2/dataset-items-get)
 - [Get Record As Text](https://docs.apify.com/api/v2/key-value-store-record-get)
