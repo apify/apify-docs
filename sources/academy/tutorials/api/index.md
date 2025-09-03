@@ -1,5 +1,5 @@
 ---
-title: "Tutorials on Apify API"
+title: Tutorials on Apify API
 description: A collection of various tutorials explaining how to interact with the Apify platform programmatically using its API.
 sidebar_position: 6
 category: tutorials
