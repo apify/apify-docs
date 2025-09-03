@@ -51,9 +51,9 @@ For security, avoid hardcoding the token in action settings. Store it on the `Us
 
 1. In Bubble, go to **Data → Data types**, open `User`.
 1. Add a new field, for example `apify_api_token` (type: text).
-  - ![Bubble data type](../images/bubble/data_type_api_key.png)
+    - ![Bubble data type](../images/bubble/data_type_api_key.png)
 1. Go to **Data → Privacy** and check if only the **Current User** is allowed to view their own `apify_api_token`.
-  - ![Bubble data type](../images/bubble/data_privacy.png)
+    - ![Bubble data type](../images/bubble/data_privacy.png)
 
 ### Point Apify actions to the saved token
 
@@ -96,7 +96,7 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
   - **Page/UI elements**: inputs, dropdowns, multi-selects, radio buttons, checkboxes
   - **Database Things and fields**
   - **Current User**
-  - **Previous workflow steps** (e.g., Step 1's Run Actor result's `defaultDatasetId` or `runId`)
+  - **Previous workflow steps** (e.g., Step 2's Run Actor result's `defaultDatasetId` or `runId`)
   - **Get Data from an External API**: data calls
 
 #### Examples
@@ -122,20 +122,20 @@ When inserting dynamic data, Bubble replaces the selected text. Place your curso
 Create workflows that run Apify plugin actions in response to events in your Bubble app, such as button clicks or form submissions.
 
 1. Open the **Workflow** tab and create a new workflow (for example, **When Run button is clicked**).
-  - You can also click `Add workflow` button:
-  - ![Adding workflow to button](../images/bubble/button_adding_workflow.png)
-  - Or you can create it manually: `Workflows` → `+ New` → `An element is clicked`
-  - ![Create workflow](../images/bubble/create_workflow.png)
-  - Then select the correct UI button.
-  - ![Adding workflow to button](../images/bubble/button_creating_workflow.png)
+    - You can also click `Add workflow` button:
+    - ![Adding workflow to button](../images/bubble/button_adding_workflow.png)
+    - Or you can create it manually: `Workflows` → `+ New` → `An element is clicked`
+    - ![Create workflow](../images/bubble/create_workflow.png)
+    - Then select the correct UI button.
+    - ![Adding workflow to button](../images/bubble/button_creating_workflow.png)
 1. Click `Add an action` → `Plugins` → choose one of the Apify actions:
-  - For example `Run Actor` (run a specific Actor by ID)
-  - ![Add action to workflow](../images/bubble/add_action_to_workflow.png)
+    - For example `Run Actor` (run a specific Actor by ID)
+    - ![Add action to workflow](../images/bubble/add_action_to_workflow.png)
 1. Configure the action:
-  - **API token**: set to `Current User's apify_api_token` (check out the Step 2.3)
-  - **Actor or Task**: paste an Actor ID
-  - **Input overrides**: provide JSON and use dynamic expressions from page elements or things
-  - **Timeout**: set in seconds (0 means no limit). Due to Bubble workflow time limits, set this explicitly. If you do not want to restrict the call duration, set it to 0.
+    - **API token**: set to `Current User's apify_api_token` ([Point Apify actions to the saved token](#point-apify-actions-to-the-saved-token))
+    - **Actor or Task**: paste an Actor ID
+    - **Input overrides**: provide JSON and use dynamic expressions from page elements or things
+    - **Timeout**: set in seconds (0 means no limit). Due to Bubble workflow time limits, set this explicitly. If you do not want to restrict the call duration, set it to 0.
 
 ### Where to find your IDs
 
@@ -176,11 +176,11 @@ There are two common approaches:
 - This example lists the current user's datasets and displays them in a repeating group.
 - Add a **Repeating group** to the page.
   1. Add data to a variable: create a custom state (for example, on the page) that will hold the list of datasets, and set it to the plugin's **List User Datasets** data call.
-    - ![Step 1 — Set variable with user's datasets](../images/bubble/user_dataset_repeating_group_set.png)
+      - ![Step 1 — Set variable with user's datasets](../images/bubble/user_dataset_repeating_group_set.png)
   1. Set the type: in the repeating group's settings, set **Type of content** to match the dataset object your variable returns.
-    - ![Step 2 — Repeating group type of content](../images/bubble/user_dataset_repeating_group.png)
+      - ![Step 2 — Repeating group type of content](../images/bubble/user_dataset_repeating_group.png)
   1. Bind the variable: set the repeating group's **Data source** to the variable from Step 1.
-    - ![Step 3 — Repeating group data source](../images/bubble/user_dataset_repeating_group_source.png)
+      - ![Step 3 — Repeating group data source](../images/bubble/user_dataset_repeating_group_source.png)
 - Inside the repeating group cell, bind dataset fields (for example, `Current cell's item name`, `id`, `createdAt`).
 - ![Step 4 — Repeating group data cell](../images/bubble/user_dataset_repeating_group_cell.png)
 
@@ -198,32 +198,31 @@ To receive webhooks from Apify, enable Bubble's public API workflows and copy yo
 
 Use this URL as the Apify webhook target. Configure the webhook's authentication as needed (e.g., a shared secret or query string token) and verify it inside your Bubble workflow before processing.
 
-
 1. Trigger the scrape without waiting
-  - In a workflow, add **Run Actor** (or **Run Actor Task**) and set **timeout** to 0.
-  - Actor ID: `aYG0l9s7dbB7j3gbS` (`apify/website-content-crawler`).
-  - Input: copy the Actor's input from the Actor's Input page, and map `crawlerType` and `url` to values from your UI.
-  - ![Run scraping actor](../images/bubble/step1_scraping.png)
+    - In a workflow, add **Run Actor** (or **Run Actor Task**) and set **timeout** to 0.
+    - Actor ID: `aYG0l9s7dbB7j3gbS` (`apify/website-content-crawler`).
+    - Input: copy the Actor's input from the Actor's Input page, and map `crawlerType` and `url` to values from your UI.
+    - ![Run scraping actor](../images/bubble/step1_scraping.png)
 1. Notify Bubble when the run finishes
-  - Create an Apify **Webhook** with event `ACTOR.RUN.SUCCEEDED`.
-  - Set `actorId` from the Step 1 result.
-  - Set `databaseId` from the Step 1 result, where actor will store the result.
-  - Set `idempotencyKey` to random value.
-  - Set `requestUrl` to your Bubble backend workflow URL, for example: `https://your-app.bubbleapps.io/version-test/api/1.1/wf/webhook`.
-  - ![Create a webhook](../images/bubble/step2_scraping.png)
+    - Create an Apify **Webhook** with event `ACTOR.RUN.SUCCEEDED`.
+    - Set `actorId` from the Step 1 result.
+    - Set `databaseId` from the Step 1 result, where actor will store the result.
+    - Set `idempotencyKey` to random value.
+    - Set `requestUrl` to your Bubble backend workflow URL, for example: `https://your-app.bubbleapps.io/version-test/api/1.1/wf/webhook`.
+    - ![Create a webhook](../images/bubble/step2_scraping.png)
 1. Receive the webhook in Bubble and store the dataset ID
-  - Create a public data type, for example, `ScrapingResults`.
-  - Add a text field, for example, `result`, to store the dataset ID from the webhook.
-  - ![Create a datatype with new field](../images/bubble/step3_scraping.png)
-  - Create the backend workflow (`webhook`) that Bubble exposes at `/api/1.1/wf/webhook`. The workflow name defines the API route.
-  - ![Create a backend webhook](../images/bubble/step4_scraping.png)
-  - In that workflow, for each received webhook call, create a new thing in `ScrapingResults` and set `result` to the dataset ID from the request body. This stores one `datasetId` per call for later processing.
-  - ![Add new result](../images/bubble/step5_scraping.png)
+    - Create a public data type, for example, `ScrapingResults`.
+    - Add a text field, for example, `result`, to store the dataset ID from the webhook.
+    - ![Create a datatype with new field](../images/bubble/step3_scraping.png)
+    - Create the backend workflow (`webhook`) that Bubble exposes at `/api/1.1/wf/webhook`. The workflow name defines the API route.
+    - ![Create a backend webhook](../images/bubble/step4_scraping.png)
+    - In that workflow, for each received webhook call, create a new thing in `ScrapingResults` and set `result` to the dataset ID from the request body. This stores one `datasetId` per call for later processing.
+    - ![Add new result](../images/bubble/step5_scraping.png)
 1. Pick up the results asynchronously
-  - In a (periodic) backend workflow, search `ScrapingResults` for pending entries (or for the expected `datasetId`).
-  - If found, read its `result` (the `datasetId`), fetch items via the appropriate action (for example, **Fetch Data From Dataset JSON As Action**), update the UI or save to your DB, and then delete that `ScrapingResults` entry to avoid reprocessing.
-  - If not found yet, do nothing and check again later.
-  - ![Do every time](../images/bubble/step6_scraping.png)
+    - In a (periodic) backend workflow, search `ScrapingResults` for pending entries (or for the expected `datasetId`).
+    - If found, read its `result` (the `datasetId`), fetch items via the appropriate action (for example, **Fetch Data From Dataset JSON As Action**), update the UI or save to your DB, and then delete that `ScrapingResults` entry to avoid reprocessing.
+    - If not found yet, do nothing and check again later.
+    - ![Do every time](../images/bubble/step6_scraping.png)
 
 This approach avoids Bubble timeouts, keeps the UI responsive, and scales to larger scrapes.
 
@@ -235,7 +234,7 @@ This approach avoids Bubble timeouts, keeps the UI responsive, and scales to lar
 
 ## Available Apify actions and data sources
 
-tip::: Check out the documentation
+::: tip Check out the documentation
 
 Each API call links to the Apify documentation. To learn more about any plugin action or data call, go to the **Plugins** page in your app, select the Apify plugin, and use the documentation links in the field descriptions.
 
@@ -273,6 +272,7 @@ The Apify plugin provides two main types of operations:
 - [Delete Webhook](https://docs.apify.com/api/v2/webhook-delete)
 
 ## Use the latest version of the plugin
+
 To stay up to date with new features, make sure you're using the latest version of the plugin. You can check this on the **Plugins** page by selecting the Apify plugin and choosing the latest version from the drop-down menu. You'll also see a brief note describing what's changed in that version.
 
 ## Troubleshooting
