@@ -1,13 +1,26 @@
 ---
 title: Pay per result (PPR)
-description: TBD
+description: Learn how to monetize your Actor with pay-per-result (PPR) pricing, charging users based on the number of results produced and stored in the dataset, and understand how to set profitable, transparent result-based pricing.
 slug: /actors/publishing/monetize/pay-per-result
 sidebar_position: 2
 ---
 
+**Learn how to monetize your Actor with pay-per-result (PPR) pricing, charging users based on the number of results produced and stored in the dataset, and understand how to set profitable, transparent result-based pricing.**
+
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 In this model, you set a price per 1,000 results. Users are charged based on the number of results your Actor produces and stores in the run's default dataset. Your profit is calculated as 80% of the revenue minus platform usage costs. 
 
 The details on how your cost is computed can be found in [Example of a pay-per-result pricing model](#example-of-a-pay-per-result-pricing-model).
+
+## Pay-per-result (PPR) vs. pay-per-event (PPE)
+
+Unlike PPR, which charges based on the number of results produced, PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling the PPE charging API. Common events include Actor start, dataset item creation, and external API calls.
+
+If you're interested in learning more about PPE, check out the [Pay per event (PPE)](/platform/actors/publishing/monetize/pay-per-event) section.
 
 ## How is profit computed
 
@@ -46,25 +59,55 @@ This check prevents your Actor from generating more results than the user has pa
 
 The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for paid-per-result Actors. Do not exceed this limit.
 
-```typescript
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
 const MAX_ITEMS = Number(process.env.ACTOR_MAX_PAID_DATASET_ITEMS);
 let pushedItemCount = 0;
 
-export const pushDataMaxAware = async (data: Parameters<Actor['pushData']>[0]) => {
-    // rest of the code...
+export const pushDataMaxAware = async (data) => {
+    // rest of the Actor logic
 
     const dataAsArray = Array.isArray(data) ? data : [data];
     const dataToPush = dataAsArray.slice(0, MAX_ITEMS - pushedItemCount);
 
     if (dataToPush.length) {
-        // We have to update the state before 'await' to avoid race conditions
         pushedItemCount += dataToPush.length;
         await Actor.pushData(dataToPush);
     }
 
-    // rest of the code...
+    // rest of the Actor logic
 }
 ```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+import os
+from apify import Actor
+
+MAX_ITEMS = int(os.getenv('ACTOR_MAX_PAID_DATASET_ITEMS', 0))
+
+# rest of the Actor logic
+
+async def push_data_max_aware(data, pushed_item_count=0):
+    data_as_array = data if isinstance(data, list) else [data]
+    data_to_push = data_as_array[:MAX_ITEMS - pushed_item_count]
+    
+    if data_to_push:
+        new_count = pushed_item_count + len(data_to_push)
+        await Actor.push_data(data_to_push)
+        return new_count
+    
+    return pushed_item_count
+
+# rest of the Actor logic
+```
+
+</TabItem>
+</Tabs>
 
 You can find the whole code of implementing this check in this [example](https://github.com/metalwarrior665/max-paid-items-example/blob/master/src/push-data.ts).
 
@@ -80,15 +123,15 @@ In PPR Actors, users are only charged when your Actor produces results in the da
 
 Why this matters:
 
-- **Prevents free usage**: Without pushing any items, users could run your Actor repeatedly with invalid inputs without being charged
-- **Ensures fair billing**: Users should pay for the processing attempt, even if no valid results are found
-- **Maintains profitability**: Every run should generate some revenue to cover your platform costs
+- _Prevents free usage_: Without pushing any items, users could run your Actor repeatedly with invalid inputs without being charged
+- _Ensures fair billing_: Users should pay for the processing attempt, even if no valid results are found
+- _Maintains profitability_: Every run should generate some revenue to cover your platform costs
 
 Example scenarios:
 
-- **User provides invalid search terms**: Push an error item explaining the issue
-- **Target website returns no results**: Push an item indicating "No results found"
-- **Input validation fails**: Push an item with validation error details
+- _User provides invalid search terms_: Push an error item explaining the issue
+- _Target website returns no results_: Push an item indicating "No results found"
+- _Input validation fails_: Push an item with validation error details
 
 This ensures that every run generates at least one result, guaranteeing that users are charged appropriately for using your Actor.
 
@@ -96,14 +139,18 @@ This ensures that every run generates at least one result, guaranteeing that use
 
 You make your Actor pay-per-result and set the price to be **$1/1,000 results**. During the first month, three users use your Actor:
 
-- **User 1** (paid plan): Gets 50,000 results, costing them $50
-- **User 2** (paid plan): Gets 20,000 results, costing them $20
-- **User 3** (free plan): Gets 5,000 results, costing them $0
+- _User 1 (paid plan)_: Gets 50,000 results, costing them $50
+- _User 2 (paid plan)_: Gets 20,000 results, costing them $20
+- _User 3 (free plan)_: Gets 5,000 results, costing them $0
 
 Let's say the underlying platform usage for the first user is $5, for the second $2, and for the third $0.5.
 
 Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue breakdown is:
 
-- **Total revenue**: $50 + $20 = $70
-- **Total underlying cost**: $5 + $2 = $7
-- **Your profit**: 80% of revenue minus costs = 0.8 × $70 - $7 = **$49**
+- _Total revenue_: $50 + $20 = $70
+- _Total underlying cost_: $5 + $2 = $7
+- _Your profit_: 80% of revenue minus costs = 0.8 × $70 - $7 = $49
+
+## Next steps
+
+- Check out the [Pricing and costs](/actors/publishing/monetize/pricing-and-costs) section to learn how to compute your costs.
