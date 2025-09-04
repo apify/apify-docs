@@ -64,7 +64,7 @@ async function exportCSV(data) {
   return await parser.parse(data).promise();
 }
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const $items = $(".product-item").map((i, element) => {
@@ -134,7 +134,7 @@ In the `.map()` loop, we're already going through all the products. Let's expand
 First, we need to make the loop asynchronous so that we can use `await download()` for each product. We'll add the `async` keyword to the inner function and rename the collection to `$promises`, since it will now store promises that resolve to items rather than the items themselves. We'll still convert the collection to a standard JavaScript array, but this time we'll pass it to `await Promise.all()` to resolve all the promises and retrieve the actual items.
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 // highlight-next-line
@@ -150,7 +150,7 @@ const data = await Promise.all($promises.get());
 The program behaves the same as before, but now the code is prepared to make HTTP requests from within the inner function. Let's do it:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const $promises = $(".product-item").map(async (i, element) => {
