@@ -1,4 +1,4 @@
-# Contributing to Apify Documentation
+# Contributing to Apify 
 
 ## Before you start
 
