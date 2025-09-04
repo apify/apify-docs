@@ -14,7 +14,7 @@ import Exercises from '../scraping_basics/_exercises.mdx';
 
 From lessons about browser DevTools we know that the HTML elements representing individual products have a `class` attribute which, among other values, contains `product-item`.
 
-![Products have the ‘product-item’ class](./images/product-item.png)
+![Products have the ‘product-item’ class](../scraping_basics/images/product-item.png)
 
 As a first step, let's try counting how many products are on the listing page.
 
@@ -50,7 +50,7 @@ Being comfortable around installing Node.js packages is a prerequisite of this c
 
 Now let's import the package and use it for parsing the HTML. The `cheerio` module allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` element, which represents the main heading of the page.
 
-![Element of the main heading](./images/h1.png)
+![Element of the main heading](../scraping_basics/images/h1.png)
 
 We'll update our code to the following:
 

@@ -64,7 +64,7 @@ To get details about each product in a structured way, we'll need a different ap
 
 As in the browser DevTools lessons, we need to change the code so that it locates child elements for each product card.
 
-![Product card's child elements](./images/child-elements.png)
+![Product card's child elements](../scraping_basics/images/child-elements.png)
 
 We should be looking for elements which have the `product-item__title` and `price` classes. We already know how that translates to CSS selectors:
 
