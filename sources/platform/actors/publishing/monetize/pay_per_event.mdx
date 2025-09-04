@@ -115,7 +115,6 @@ async def charge_for_actor_start():
     charging_manager = Actor.get_charging_manager()
 
     # Don't charge the "Actor start" event again after Actor migration
-    # TODO: FIX
     if charging_manager.get_charged_event_count("actor-start") == 0:
         await Actor.charge(event_name="actor-start")
 
