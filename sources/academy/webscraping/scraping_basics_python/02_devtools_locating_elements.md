@@ -5,7 +5,7 @@ description: Lesson about using the browser tools for developers to manually fin
 slug: /scraping-basics-python/devtools-locating-elements
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to manually find products on an e-commerce website.**
 

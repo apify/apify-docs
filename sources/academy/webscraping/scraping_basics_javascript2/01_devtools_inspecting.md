@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/devtools-inspecting
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of a website.**
 
