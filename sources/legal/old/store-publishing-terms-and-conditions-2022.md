@@ -1,4 +1,5 @@
 <!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify Store Publishing Terms and Conditions December 2022
 description: Outdated Apify Store publishing terms and conditions that governed publishing of Actors in the Apify Store until May 2024.

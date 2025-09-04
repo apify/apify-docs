@@ -1,4 +1,5 @@
 <!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify Affiliate Program Terms and Conditions
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.

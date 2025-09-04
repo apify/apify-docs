@@ -1,4 +1,5 @@
 <!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify Acceptable Use Policy
 description: Apify's acceptable use policy describes activities that are prohibited on the Apify platform and on our websites.

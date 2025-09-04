@@ -1,4 +1,5 @@
 <!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify Open Source Fair Share Program Terms
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.

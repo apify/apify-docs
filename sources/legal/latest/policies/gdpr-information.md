@@ -1,4 +1,5 @@
 <!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify GDPR Information
 description: This Apify GDPR Information document describes how Apify complies with GDPR and its requirements.

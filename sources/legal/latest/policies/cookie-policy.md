@@ -1,4 +1,5 @@
 <!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify Cookie Policy
 description: Apify Cookie Policy describes how we handle cookies on our website and platform.
