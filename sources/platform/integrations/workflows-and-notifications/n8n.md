@@ -10,8 +10,6 @@ slug: /integrations/n8n
 
 ---
 
-# Test H1
-
 [n8n](https://n8n.io/) is an open source, fair-code licensed tool for workflow automation. With the [Apify integration for n8n](https://github.com/apify/n8n-nodes-apify), you can connect Apify Actors and storage to hundreds of services You can run scrapers, extract data, and trigger workflows based on Actor or task events.
 
 In this guide, you'll learn how to install the Apify node, set up authentication, and incorporate it into your n8n workflows as either a trigger or an action.
@@ -38,7 +36,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 ## Install the Apify Node (n8n Cloud)
 
-For n8n Cloud users, installation is even simpler and doesn't require manual package entry.  Just search and add the node from the canvas.
+For n8n Cloud users, installation is even simpler and doesn't require manual package entry. Just search and add the node from the canvas.
 
 1. Go to the **Canvas** and open the **nodes panel**
 1. Search for **Apify** in the community node registry
