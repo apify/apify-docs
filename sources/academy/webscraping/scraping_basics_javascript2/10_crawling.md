@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/crawling
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll follow links to individual product pages. We'll use the Fetch API to download them and Cheerio to process them.**
 
