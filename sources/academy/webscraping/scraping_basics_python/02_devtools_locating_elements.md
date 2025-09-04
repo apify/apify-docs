@@ -189,7 +189,11 @@ Go to Shein's [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewel
 
 Go to Guardian's [page about F1](https://www.theguardian.com/sport/formulaone). Use the **Console** to find all HTML elements representing the articles.
 
-Hint: Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
+:::tip Hint
+
+Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
+
+:::
 
 ![Articles on Guardian's page about F1](./images/devtools-exercise-guardian1.png)
 

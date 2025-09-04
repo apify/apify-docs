@@ -205,7 +205,11 @@ https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+:::tip Hint
+
+Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -258,10 +262,12 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 ...
 ```
 
-Hints:
+:::tip Hints
 
 - You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on their attribute values.
 - Sometimes a person authors the article, but other times it's contributed by a news agency.
+
+:::
 
 <details>
   <summary>Solution</summary>
