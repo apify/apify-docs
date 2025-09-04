@@ -1,3 +1,4 @@
+<!-- vale off -->
 ---
 title: Apify Store Publishing Terms and Conditions
 description: Apify Store Publishing Terms and Conditions govern publishing of Actors in the Apify Store and payments for monetized Actors.
@@ -9,7 +10,6 @@ slug: /store-publishing-terms-and-conditions
 
 # Apify Store Publishing Terms and Conditions
 
-<!-- vale off -->
 
 Last updated: February 26, 2025
 

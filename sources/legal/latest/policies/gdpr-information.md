@@ -1,3 +1,4 @@
+<!-- vale off -->
 ---
 title: Apify GDPR Information
 description: This Apify GDPR Information document describes how Apify complies with GDPR and its requirements.
@@ -9,7 +10,6 @@ slug: /gdpr-information
 
 # Apify GDPR Information
 
-<!-- vale off -->
 
 The European Union (“**EU**”) General Data Protection Regulation (“**GDPR**”) replaces the 1995 EU Data Protection Directive. The GDPR strengthens the rights that individuals have regarding personal data relating to them and seeks to unify data protection laws across Europe, regardless of where that data is processed. Besides strengthening and standardizing user data privacy across the EU nations, the GDPR requires new or additional obligations from all organizations that handle the personal data of EU citizens, regardless of where the organizations themselves are located.
 

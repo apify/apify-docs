@@ -1,3 +1,4 @@
+<!-- vale off -->
 ---
 title: Apify Open Source Fair Share Program Terms
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.
@@ -8,8 +9,6 @@ slug: /fair-share-program-terms-and-conditions
 ---
 
 # Apify Open Source Fair Share Program Terms and Conditions
-
-<!-- vale off -->
 
 Effective Date: February 14, 2025
 

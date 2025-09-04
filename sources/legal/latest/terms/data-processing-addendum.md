@@ -1,3 +1,4 @@
+<!-- vale off -->
 ---
 title: Apify Data Processing Addendum
 description: Apify Data Processing Addendum serve as a framework for processing of personal data on behalf of Apify customers.
@@ -9,7 +10,6 @@ slug: /data-processing-addendum
 
 # Apify Data Processing Addendum
 
-<!-- vale off -->
 
 Last Updated: January 13, 2025
 
