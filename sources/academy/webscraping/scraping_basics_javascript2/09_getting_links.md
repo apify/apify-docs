@@ -186,7 +186,7 @@ async function exportCSV(data) {
   return await parser.parse(data).promise();
 }
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const data = $(".product-item").toArray().map(element => {
@@ -281,7 +281,7 @@ function parseProduct($productItem, baseURL) {
 Now we'll pass the base URL to the function in the main body of our program:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const data = $(".product-item").toArray().map(element => {

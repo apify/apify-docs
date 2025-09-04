@@ -103,7 +103,7 @@ We loop over the variants using `.map()` method to create an array of item copie
 Let's adjust the loop so it returns a promise that resolves to an array of items instead of a single item. If a product has no variants, we'll return an array with a single item, setting `variantName` to `null`:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const promises = $(".product-item").toArray().map(async element => {
@@ -282,7 +282,7 @@ function parseVariant($option) {
 }
 // highlight-end
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
 const promises = $(".product-item").toArray().map(async element => {
