@@ -30,17 +30,17 @@ That said, we designed all the additional exercises to work with live websites. 
 
 As mentioned in the previous lesson, before building a scraper, we need to understand structure of the target page and identify the specific elements our program should extract. Let's figure out how to select details for each product on the [Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales).
 
-![Warehouse store with DevTools open](./images/devtools-warehouse.png)
+![Warehouse store with DevTools open](../scraping_basics/images/devtools-warehouse.png)
 
 The page displays a grid of product cards, each showing a product's title and picture. Let's open DevTools and locate the title of the **Sony SACS9 Active Subwoofer**. We'll highlight it in the **Elements** tab by clicking on it.
 
-![Selecting an element with DevTools](./images/devtools-product-title.png)
+![Selecting an element with DevTools](../scraping_basics/images/devtools-product-title.png)
 
 Next, let's find all the elements containing details about this subwoofer—its price, number of reviews, image, and more.
 
 In the **Elements** tab, we'll move our cursor up from the `a` element containing the subwoofer's title. On the way, we'll hover over each element until we highlight the entire product card. Alternatively, we can use the arrow-up key. The `div` element we land on is the **parent element**, and all nested elements are its **child elements**.
 
-![Selecting an element with hover](./images/devtools-hover-product.png)
+![Selecting an element with hover](../scraping_basics/images/devtools-hover-product.png)
 
 At this stage, we could use the **Store as global variable** option to send the element to the **Console**. While helpful for manual inspection, this isn't something a program can do.
 
@@ -64,7 +64,7 @@ document.querySelector('.product-item');
 
 It will return the HTML element for the first product card in the listing:
 
-![Using querySelector() in DevTools Console](./images/devtools-queryselector.webp)
+![Using querySelector() in DevTools Console](../scraping_basics/images/devtools-queryselector.webp)
 
 CSS selectors can get quite complex, but the basics are enough to scrape most of the Warehouse store. Let's cover two simple types and how they can combine.
 
@@ -114,13 +114,13 @@ The product card has four classes: `product-item`, `product-item--vertical`, `1/
 
 This class is also unique enough in the page's context. If it were something generic like `item`, there would be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, we can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
 
-![Overview of all the product cards in DevTools](./images/devtools-product-list.png)
+![Overview of all the product cards in DevTools](../scraping_basics/images/devtools-product-list.png)
 
 ## Locating all product cards
 
 In the **Console**, hovering our cursor over objects representing HTML elements highlights the corresponding elements on the page. This way we can verify that when we query `.product-item`, the result represents the JBL Flip speaker—the first product card in the list.
 
-![Highlighting a querySelector() result](./images/devtools-hover-queryselector.png)
+![Highlighting a querySelector() result](../scraping_basics/images/devtools-hover-queryselector.png)
 
 But what if we want to scrape details about the Sony subwoofer we inspected earlier? For that, we need a method that selects more than just the first match: [`querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). As the name suggests, it takes a CSS selector string and returns all matching HTML elements. Let's type this into the **Console**:
 
@@ -132,7 +132,7 @@ The returned value is a [`NodeList`](https://developer.mozilla.org/en-US/docs/We
 
 We'll expand the result by clicking the small arrow, then hover our cursor over the third element in the list. Indexing starts at 0, so the third element is at index 2. There it is—the product card for the subwoofer!
 
-![Highlighting a querySelectorAll() result](./images/devtools-hover-queryselectorall.png)
+![Highlighting a querySelectorAll() result](../scraping_basics/images/devtools-hover-queryselectorall.png)
 
 To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like with regular JavaScript arrays:
 
@@ -151,7 +151,7 @@ Even though we're just playing in the browser's **Console**, we're inching close
 
 On English Wikipedia's [Main Page](https://en.wikipedia.org/wiki/Main_Page), use CSS selectors in the **Console** to list the HTML elements representing headings of the colored boxes (including the grey ones).
 
-![Wikipedia's Main Page headings](./images/devtools-exercise-wikipedia.png)
+![Wikipedia's Main Page headings](../scraping_basics/images/devtools-exercise-wikipedia.png)
 
 <details>
   <summary>Solution</summary>
@@ -169,7 +169,7 @@ On English Wikipedia's [Main Page](https://en.wikipedia.org/wiki/Main_Page), use
 
 Go to Shein's [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewelry-Accessories-sc-017291431.html) category. In the **Console**, use CSS selectors to list all HTML elements representing the products.
 
-![Products in Shein's Jewelry & Accessories category](./images/devtools-exercise-shein.png)
+![Products in Shein's Jewelry & Accessories category](../scraping_basics/images/devtools-exercise-shein.png)
 
 <details>
   <summary>Solution</summary>
@@ -194,7 +194,7 @@ Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs
 
 :::
 
-![Articles on Guardian's page about F1](./images/devtools-exercise-guardian1.png)
+![Articles on Guardian's page about F1](../scraping_basics/images/devtools-exercise-guardian1.png)
 
 <details>
   <summary>Solution</summary>
