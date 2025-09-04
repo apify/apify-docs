@@ -275,7 +275,7 @@ Djibouti
 
 Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
 
-:::tip Hints
+:::tip Need a nudge?
 
 You may want to check out the following pages:
 

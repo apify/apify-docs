@@ -349,7 +349,7 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 ...
 ```
 
-:::tip Hints
+:::tip Need a nudge?
 
 - HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
 - Cheerio gives you [.attr()](https://cheerio.js.org/docs/api/classes/Cheerio#attr) to access attributes.

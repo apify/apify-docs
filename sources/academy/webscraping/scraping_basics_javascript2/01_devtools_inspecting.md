@@ -146,7 +146,7 @@ We're not here for playing around with elements, though—we want to create a sc
 
 Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure out the URL of FIFA's logo image file.
 
-:::tip Hint
+:::tip Need a nudge?
 
 You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element with a `src` attribute.
 
