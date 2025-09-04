@@ -67,13 +67,12 @@ async function exportCSV(data) {
 const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 const $ = await download(listingURL);
 
-const $items = $(".product-item").map((i, element) => {
+const data = $(".product-item").toArray().map(element => {
   const $productItem = $(element);
   // highlight-next-line
   const item = parseProduct($productItem, listingURL);
   return item;
 });
-const data = $items.get();
 
 await writeFile('products.json', exportJSON(data));
 await writeFile('products.csv', await exportCSV(data));
@@ -131,20 +130,20 @@ But where do we put this line in our program?
 
 In the `.map()` loop, we're already going through all the products. Let's expand it to include downloading the product detail page, parsing it, extracting the vendor's name, and adding it to the item object.
 
-First, we need to make the loop asynchronous so that we can use `await download()` for each product. We'll add the `async` keyword to the inner function and rename the collection to `$promises`, since it will now store promises that resolve to items rather than the items themselves. We'll still convert the collection to a standard JavaScript array, but this time we'll pass it to `await Promise.all()` to resolve all the promises and retrieve the actual items.
+First, we need to make the loop asynchronous so that we can use `await download()` for each product. We'll add the `async` keyword to the inner function and rename the collection to `promises`, since it will now store promises that resolve to items rather than the items themselves. We'll pass it to `await Promise.all()` to resolve all the promises and retrieve the actual items.
 
 ```js
 const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 const $ = await download(listingURL);
 
 // highlight-next-line
-const $promises = $(".product-item").map(async (i, element) => {
+const promises = $(".product-item").toArray().map(async element => {
   const $productItem = $(element);
   const item = parseProduct($productItem, listingURL);
   return item;
 });
 // highlight-next-line
-const data = await Promise.all($promises.get());
+const data = await Promise.all(promises);
 ```
 
 The program behaves the same as before, but now the code is prepared to make HTTP requests from within the inner function. Let's do it:
@@ -153,7 +152,7 @@ The program behaves the same as before, but now the code is prepared to make HTT
 const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 const $ = await download(listingURL);
 
-const $promises = $(".product-item").map(async (i, element) => {
+const promises = $(".product-item").toArray().map(async element => {
   const $productItem = $(element);
   const item = parseProduct($productItem, listingURL);
 
@@ -248,7 +247,8 @@ Hint: Locating cells in tables is sometimes easier if you know how to [filter](h
   const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
   const $ = await download(listingURL);
 
-  const $promises = $(".wikitable tr td:nth-child(3)").map(async (i, element) => {
+  const $cells = $(".wikitable tr td:nth-child(3)");
+  const promises = $cells.toArray().map(async element => {
     const $nameCell = $(element);
     const $link = $nameCell.find("a").first();
     const countryURL = new URL($link.attr("href"), listingURL).href;
@@ -266,7 +266,7 @@ Hint: Locating cells in tables is sometimes easier if you know how to [filter](h
 
     console.log(`${countryURL} ${callingCode || null}`);
   });
-  await Promise.all($promises.get());
+  await Promise.all(promises);
   ```
 
 </details>
@@ -314,7 +314,7 @@ Hints:
   const listingURL = "https://www.theguardian.com/sport/formulaone";
   const $ = await download(listingURL);
 
-  const $promises = $("#maincontent ul li").map(async (i, element) => {
+  const promises = $("#maincontent ul li").toArray().map(async element => {
     const $item = $(element);
     const $link = $item.find("a").first();
     const authorURL = new URL($link.attr("href"), listingURL).href;
@@ -327,7 +327,7 @@ Hints:
 
     console.log(`${author || address || null}: ${title}`);
   });
-  await Promise.all($promises.get());
+  await Promise.all(promises);
   ```
 
 </details>

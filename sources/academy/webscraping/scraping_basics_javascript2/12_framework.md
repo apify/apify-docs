@@ -223,10 +223,10 @@ const crawler = new CheerioCrawler({
             if ($variants.length === 0) {
               log.info("Item scraped", item);
             } else {
-              $variants.each((i, element) => {
+              for (const element of $variants.toArray()) {
                 const variant = parseVariant($(element));
                 log.info("Item scraped", { ...item, ...variant });
-              });
+              }
             }
             // highlight-end
         } else {
@@ -258,11 +258,11 @@ const crawler = new CheerioCrawler({
         // highlight-next-line
         pushData(item);
       } else {
-        $variants.each((i, element) => {
+        for (const element of $variants.toArray()) {
           const variant = parseVariant($(element));
           // highlight-next-line
           pushData({ ...item, ...variant });
-        });
+        }
       }
     } else {
         ...
@@ -342,12 +342,12 @@ const crawler = new CheerioCrawler({
               log.info('Saving a product');
               pushData(item);
             } else {
-              $variants.each((i, element) => {
+              for (const element of $variants.toArray()) {
                 const variant = parseVariant($(element));
                 // highlight-next-line
                 log.info('Saving a product variant');
                 pushData({ ...item, ...variant });
-              });
+              }
             }
         } else {
             // highlight-next-line
@@ -425,15 +425,15 @@ Hints:
     async requestHandler({ $, request, enqueueLinks, pushData }) {
       if (request.label === 'DRIVER') {
         const info = {};
-        $('.common-driver-info li').each((i, listItem) => {
-          const name = $(listItem).find('span').text().trim();
-          const value = $(listItem).find('h4').text().trim();
+        for (const itemElement of $('.common-driver-info li').toArray()) {
+          const name = $(itemElement).find('span').text().trim();
+          const value = $(itemElement).find('h4').text().trim();
           info[name] = value;
-        });
+        }
         const detail = {};
-        $('.driver-detail--cta-group a').each((i, link) => {
-          const name = $(link).find('p').text().trim();
-          const value = $(link).find('h2').text().trim();
+        for (const linkElement of $('.driver-detail--cta-group a').toArray()) {
+          const name = $(linkElement).find('p').text().trim();
+          const value = $(linkElement).find('h2').text().trim();
           detail[name] = value;
         });
         const [dobDay, dobMonth, dobYear] = info['DOB'].split("/");
@@ -527,8 +527,9 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 
       } else if (request.label === 'NETFLIX') {
         // handle Netflix table
-        const $requests = $('[data-uia="top10-table-row-title"] button').map((i, nameButton) => {
-          const name = $(nameButton).text().trim();
+        const $buttons = $('[data-uia="top10-table-row-title"] button');
+        const requests = $buttons.toArray().map(buttonElement => {
+          const name = $(buttonElement).text().trim();
           const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
           return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
         });
