@@ -231,8 +231,8 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
   1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+  1. Select the header row. Go to **Data > Create filter**.
+  1. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
   ![CSV in Google Sheets](images/csv-sheets.png)
 
