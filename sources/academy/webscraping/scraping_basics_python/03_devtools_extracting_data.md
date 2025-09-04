@@ -5,7 +5,7 @@ description: Lesson about using the browser tools for developers to manually ext
 slug: /scraping-basics-python/devtools-extracting-data
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to manually extract product data from an e-commerce website.**
 
