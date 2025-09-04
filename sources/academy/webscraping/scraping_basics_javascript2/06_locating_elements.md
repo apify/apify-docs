@@ -273,10 +273,16 @@ Djibouti
 
 ### Use CSS selectors to their max
 
-Simplify the code from previous exercise. Use a single for loop and a single CSS selector. You may want to check out the following pages:
+Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
+
+:::tip Need a nudge?
+
+You may want to check out the following pages:
 
 - [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
 - [`:nth-child()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
+
+:::
 
 <details>
   <summary>Solution</summary>

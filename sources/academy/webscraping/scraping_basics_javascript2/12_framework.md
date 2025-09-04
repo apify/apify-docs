@@ -410,10 +410,12 @@ If you export the dataset as JSON, it should look something like this:
 ]
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - The website uses `DD/MM/YYYY` format for the date of birth. You'll need to change the format to the ISO 8601 standard with dashes: `YYYY-MM-DD`
 - To locate the Instagram URL, use the attribute selector `a[href*='instagram']`. Learn more about attribute selectors in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -503,7 +505,11 @@ async requestHandler({ ..., addRequests }) {
 },
 ```
 
+:::tip Need a nudge?
+
 When navigating to the first IMDb search result, you might find it helpful to know that `enqueueLinks()` accepts a `limit` option, letting you specify the max number of HTTP requests to enqueue.
+
+:::
 
 <details>
   <summary>Solution</summary>

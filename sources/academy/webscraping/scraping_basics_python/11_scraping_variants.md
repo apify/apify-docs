@@ -331,7 +331,11 @@ Your output should look something like this:
 ...
 ```
 
+:::tip Need a nudge?
+
 You can find everything you need for working with dates and times in Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module, including `date.today()`, `datetime.fromisoformat()`, `datetime.date()`, and `timedelta()`.
+
+:::
 
 <details>
   <summary>Solution</summary>

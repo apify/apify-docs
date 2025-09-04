@@ -226,7 +226,11 @@ https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [filter](https://cheerio.js.org/docs/api/classes/Cheerio#filter) or [navigate up](https://cheerio.js.org/docs/api/classes/Cheerio#parent) in the HTML element tree.
+:::tip Need a nudge?
+
+Locating cells in tables is sometimes easier if you know how to [filter](https://cheerio.js.org/docs/api/classes/Cheerio#filter) or [navigate up](https://cheerio.js.org/docs/api/classes/Cheerio#parent) in the HTML element tree.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -290,10 +294,12 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on their attribute values.
 - Sometimes a person authors the article, but other times it's contributed by a news agency.
+
+:::
 
 <details>
   <summary>Solution</summary>
