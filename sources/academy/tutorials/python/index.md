@@ -1,11 +1,12 @@
 ---
-title: Python tutorials 🐍📚
+title: Python tutorials
 description: A collection of various Python tutorials to aid you in your journey to becoming a master web scraping and automation developer.
 sidebar_position: 15
-sidebar_label: Python tutorials
 category: tutorials
 slug: /python
 ---
+
+# Python Tutorials 🐍📚
 
 **A collection of various Python tutorials to aid you in your journey to becoming a master web scraping and automation developer.**
 

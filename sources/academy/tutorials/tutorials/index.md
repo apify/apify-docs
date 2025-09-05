@@ -1,11 +1,12 @@
 ---
-title: Tutorials 📚
+title: What's this section?
 description: Learn about various different specific topics related to web-scraping and web-automation with the Apify Academy tutorial lessons!
 sidebar_position: 1
-sidebar_label: WHat's in this section?
 category: tutorials
 slug: /tutorials
 ---
+
+# Tutorials 📚
 
 **Learn about various different specific topics related to web-scraping and web-automation with the Apify Academy tutorial lessons!**
 
