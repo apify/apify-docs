@@ -1,3 +1,5 @@
+<!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify Acceptable Use Policy
 description: Apify's acceptable use policy describes activities that are prohibited on the Apify platform and on our websites.
@@ -9,7 +11,6 @@ slug: /acceptable-use-policy
 
 # Apify Acceptable Use Policy
 
-<!-- vale off -->
 
 Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, Nové Město, 110 00 Prague 1, Czech Republic, Company ID No.: 04788290, registered in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (hereinafter referred to as “**we**” or “**Apify**”), is committed to making sure that the Platform and the Website are being used only for legitimate and legal purposes.
 

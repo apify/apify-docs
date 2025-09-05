@@ -6,8 +6,6 @@ category: courses
 slug: /web-scraping-for-beginners/crawling
 ---
 
-# Basics of crawling {#basics}
-
 **Learn how to crawl the web with your scraper. How to extract links and URLs from web pages and how to manage the collected links to visit new pages.**
 
 ---

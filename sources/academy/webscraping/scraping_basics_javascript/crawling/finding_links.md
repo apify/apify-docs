@@ -7,8 +7,6 @@ slug: /web-scraping-for-beginners/crawling/finding-links
 
 import Example from '!!raw-loader!roa-loader!./finding_links.js';
 
-# Finding links {#finding-links}
-
 **Learn what a link looks like in HTML and how to find and extract their URLs when web scraping using both DevTools and Node.js.**
 
 ---
