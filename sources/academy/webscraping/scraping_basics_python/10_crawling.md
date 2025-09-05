@@ -120,7 +120,7 @@ Depending on what's valuable for our use case, we can now use the same technique
 It looks like using a CSS selector to locate the element with the `product-meta__vendor` class, and then extracting its text, should be enough to get the vendor name as a string:
 
 ```py
-vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+vendor = soup.select_one(".product-meta__vendor").text.strip()
 ```
 
 But where do we put this line in our program?
@@ -130,8 +130,6 @@ But where do we put this line in our program?
 In the `data` loop we're already going through all the products. Let's expand it to include downloading the product detail page, parsing it, extracting the vendor's name, and adding it as a new key in the item's dictionary:
 
 ```py
-...
-
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
 
@@ -143,8 +141,6 @@ for product in listing_soup.select(".product-item"):
     # highlight-next-line
     item["vendor"] = product_soup.select_one(".product-meta__vendor").text.strip()
     data.append(item)
-
-...
 ```
 
 If we run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
@@ -172,7 +168,7 @@ If we run the program now, it'll take longer to finish since it's making 24 more
 
 ## Extracting price
 
-Scraping the vendor's name is nice, but the main reason we started checking the detail pages in the first place was to figure out how to get a price for each product. From the product listing, we could only scrape the min price, and remember—we’re building a Python app to track prices!
+Scraping the vendor's name is nice, but the main reason we started checking the detail pages in the first place was to figure out how to get a price for each product. From the product listing, we could only scrape the min price, and remember—we're building a Python app to track prices!
 
 Looking at the [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), it's clear that the listing only shows min prices, because some products have variants, each with a different price. And different stock availability. And different SKUs…
 
@@ -205,7 +201,11 @@ https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+:::tip Need a nudge?
+
+Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -258,10 +258,12 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on their attribute values.
 - Sometimes a person authors the article, but other times it's contributed by a news agency.
+
+:::
 
 <details>
   <summary>Solution</summary>

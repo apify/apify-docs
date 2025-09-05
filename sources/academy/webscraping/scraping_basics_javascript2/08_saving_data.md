@@ -38,7 +38,7 @@ if (response.ok) {
   const $ = cheerio.load(html);
 
   // highlight-next-line
-  const $items = $(".product-item").map((i, element) => {
+  const data = $(".product-item").toArray().map(element => {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -64,15 +64,13 @@ if (response.ok) {
     return { title, ...priceRange };
   });
   // highlight-next-line
-  const data = $items.get();
-  // highlight-next-line
   console.log(data);
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
 ```
 
-Instead of printing each line, we now return the data for each product as a JavaScript object. We've replaced `.each()` with [`.map()`](https://cheerio.js.org/docs/api/classes/Cheerio#map-3), which also iterates over the selection but, in addition, collects all the results and returns them as a Cheerio collection. We then convert it into a standard JavaScript array by calling [`.get()`](https://cheerio.js.org/docs/api/classes/Cheerio#call-signature-32). Near the end of the program, we print the entire array.
+Instead of printing each line, we now return the data for each product as a JavaScript object. We've replaced the `for` loop with [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), which also iterates over the selection but, in addition, collects all the results and returns them as another array. Near the end of the program, we print this entire array.
 
 :::tip Advanced syntax
 
@@ -154,7 +152,7 @@ Neither JavaScript itself nor Node.js offers anything built-in to read and write
 ```text
 $ npm install @json2csv/node --save
 
-added 4 packages, and audited 28 packages in 1s
+added 123 packages, and audited 123 packages in 0s
 ...
 ```
 
@@ -231,8 +229,8 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
   1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+  1. Select the header row. Go to **Data > Create filter**.
+  1. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
   ![CSV in Google Sheets](images/csv-sheets.png)
 

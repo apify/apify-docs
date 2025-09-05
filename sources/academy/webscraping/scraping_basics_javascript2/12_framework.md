@@ -31,7 +31,7 @@ First let's install the Crawlee package. The framework has a lot of dependencies
 ```text
 $ npm install crawlee --save
 
-added 275 packages, and audited 303 packages in 14s
+added 123 packages, and audited 123 packages in 0s
 ...
 ```
 
@@ -223,10 +223,10 @@ const crawler = new CheerioCrawler({
             if ($variants.length === 0) {
               log.info("Item scraped", item);
             } else {
-              $variants.each((i, element) => {
+              for (const element of $variants.toArray()) {
                 const variant = parseVariant($(element));
                 log.info("Item scraped", { ...item, ...variant });
-              });
+              }
             }
             // highlight-end
         } else {
@@ -258,11 +258,11 @@ const crawler = new CheerioCrawler({
         // highlight-next-line
         pushData(item);
       } else {
-        $variants.each((i, element) => {
+        for (const element of $variants.toArray()) {
           const variant = parseVariant($(element));
           // highlight-next-line
           pushData({ ...item, ...variant });
-        });
+        }
       }
     } else {
         ...
@@ -342,12 +342,12 @@ const crawler = new CheerioCrawler({
               log.info('Saving a product');
               pushData(item);
             } else {
-              $variants.each((i, element) => {
+              for (const element of $variants.toArray()) {
                 const variant = parseVariant($(element));
                 // highlight-next-line
                 log.info('Saving a product variant');
                 pushData({ ...item, ...variant });
-              });
+              }
             }
         } else {
             // highlight-next-line
@@ -410,10 +410,12 @@ If you export the dataset as JSON, it should look something like this:
 ]
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - The website uses `DD/MM/YYYY` format for the date of birth. You'll need to change the format to the ISO 8601 standard with dashes: `YYYY-MM-DD`
 - To locate the Instagram URL, use the attribute selector `a[href*='instagram']`. Learn more about attribute selectors in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -425,15 +427,15 @@ Hints:
     async requestHandler({ $, request, enqueueLinks, pushData }) {
       if (request.label === 'DRIVER') {
         const info = {};
-        $('.common-driver-info li').each((i, listItem) => {
-          const name = $(listItem).find('span').text().trim();
-          const value = $(listItem).find('h4').text().trim();
+        for (const itemElement of $('.common-driver-info li').toArray()) {
+          const name = $(itemElement).find('span').text().trim();
+          const value = $(itemElement).find('h4').text().trim();
           info[name] = value;
-        });
+        }
         const detail = {};
-        $('.driver-detail--cta-group a').each((i, link) => {
-          const name = $(link).find('p').text().trim();
-          const value = $(link).find('h2').text().trim();
+        for (const linkElement of $('.driver-detail--cta-group a').toArray()) {
+          const name = $(linkElement).find('p').text().trim();
+          const value = $(linkElement).find('h2').text().trim();
           detail[name] = value;
         });
         const [dobDay, dobMonth, dobYear] = info['DOB'].split("/");
@@ -503,7 +505,11 @@ async requestHandler({ ..., addRequests }) {
 },
 ```
 
+:::tip Need a nudge?
+
 When navigating to the first IMDb search result, you might find it helpful to know that `enqueueLinks()` accepts a `limit` option, letting you specify the max number of HTTP requests to enqueue.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -527,8 +533,9 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 
       } else if (request.label === 'NETFLIX') {
         // handle Netflix table
-        const $requests = $('[data-uia="top10-table-row-title"] button').map((i, nameButton) => {
-          const name = $(nameButton).text().trim();
+        const $buttons = $('[data-uia="top10-table-row-title"] button');
+        const requests = $buttons.toArray().map(buttonElement => {
+          const name = $(buttonElement).text().trim();
           const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
           return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
         });

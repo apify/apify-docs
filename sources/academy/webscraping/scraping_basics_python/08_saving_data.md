@@ -65,7 +65,7 @@ for product in soup.select(".product-item"):
 print(data)
 ```
 
-Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list at once.
+Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list. The program should now print the results as a single large Python list:
 
 ```text
 $ python main.py
@@ -215,8 +215,8 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
   1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+  1. Select the header row. Go to **Data > Create filter**.
+  1. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
   ![CSV in Google Sheets](images/csv-sheets.png)
 

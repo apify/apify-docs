@@ -43,7 +43,7 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  const $items = $(".product-item").map((i, element) => {
+  const data = $(".product-item").toArray().map(element => {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -67,7 +67,6 @@ if (response.ok) {
 
     return { title, ...priceRange };
   });
-  const data = $items.get();
 
   const jsonData = JSON.stringify(data);
   await writeFile('products.json', jsonData);
@@ -187,15 +186,14 @@ async function exportCSV(data) {
   return await parser.parse(data).promise();
 }
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const $items = $(".product-item").map((i, element) => {
+const data = $(".product-item").toArray().map(element => {
   const $productItem = $(element);
   const item = parseProduct($productItem);
   return item;
 });
-const data = $items.get();
 
 await writeFile('products.json', exportJSON(data));
 await writeFile('products.csv', await exportCSV(data));
@@ -283,16 +281,15 @@ function parseProduct($productItem, baseURL) {
 Now we'll pass the base URL to the function in the main body of our program:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const $items = $(".product-item").map((i, element) => {
+const data = $(".product-item").toArray().map(element => {
   const $productItem = $(element);
   // highlight-next-line
   const item = parseProduct($productItem, listingURL);
   return item;
 });
-const data = $items.get();
 ```
 
 When we run the scraper now, we should see full URLs in our exports:
@@ -353,12 +350,12 @@ https://en.wikipedia.org/wiki/Botswana
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".wikitable tr td:nth-child(3)").each((i, element) => {
+    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
       const nameCell = $(element);
       const link = nameCell.find("a").first();
       const url = new URL(link.attr("href"), listingURL).href;
       console.log(url);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -397,11 +394,11 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $("#maincontent ul li").each((i, element) => {
+    for (const element of $("#maincontent ul li").toArray()) {
       const link = $(element).find("a").first();
       const url = new URL(link.attr("href"), listingURL).href;
       console.log(url);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }

@@ -70,7 +70,7 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
+  for (const element of $(".product-item").toArray()) {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -87,7 +87,7 @@ if (response.ok) {
     }
 
     console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
-  });
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -177,7 +177,7 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
+  for (const element of $(".product-item").toArray()) {
     const $productItem = $(element);
 
     const $title = $productItem.find(".product-item__title");
@@ -200,7 +200,7 @@ if (response.ok) {
     }
 
     console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
-  });
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -258,7 +258,7 @@ Denon AH-C720 In-Ear Headphones | 236
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".product-item").each((i, element) => {
+    for (const element of $(".product-item").toArray()) {
       const $productItem = $(element);
 
       const title = $productItem.find(".product-item__title");
@@ -268,7 +268,7 @@ Denon AH-C720 In-Ear Headphones | 236
       const unitsCount = parseUnitsText(unitsText);
 
       console.log(`${title} | ${unitsCount}`);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -307,7 +307,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".product-item").each((i, element) => {
+    for (const element of $(".product-item").toArray()) {
       const $productItem = $(element);
 
       const $title = $productItem.find(".product-item__title");
@@ -317,7 +317,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
       const unitsCount = parseUnitsText(unitsText);
 
       console.log(`${title} | ${unitsCount}`);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -349,12 +349,14 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
 - Cheerio gives you [.attr()](https://cheerio.js.org/docs/api/classes/Cheerio#attr) to access attributes.
 - In JavaScript you can use an ISO 8601 string to create a [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object.
 - To get the date, you can call `.toDateString()` on `Date` objects.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -369,7 +371,7 @@ Hints:
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $("#maincontent ul li").each((i, element) => {
+    for (const element of $("#maincontent ul li").toArray()) {
       const $article = $(element);
 
       const title = $article
@@ -383,7 +385,7 @@ Hints:
       const date = new Date(dateText);
 
       console.log(`${title} | ${date.toDateString()}`);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }

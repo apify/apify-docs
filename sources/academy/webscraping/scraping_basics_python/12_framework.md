@@ -66,12 +66,12 @@ if __name__ == '__main__':
 In the code, we do the following:
 
 1. We import the necessary modules and define an asynchronous `main()` function.
-2. Inside `main()`, we first create a crawler object, which manages the scraping process. In this case, it's a crawler based on Beautiful Soup.
-3. Next, we define a nested asynchronous function called `handle_listing()`. It receives a `context` parameter, and Python type hints show it's of type `BeautifulSoupCrawlingContext`. Type hints help editors suggest what we can do with the object.
-4. We use a Python decorator (the line starting with `@`) to register `handle_listing()` as the _default handler_ for processing HTTP responses.
-5. Inside the handler, we extract the page title from the `soup` object and print its text without whitespace.
-6. At the end of the function, we run the crawler on a product listing URL and await its completion.
-7. The last two lines ensure that if the file is executed directly, Python will properly run the `main()` function using its asynchronous event loop.
+1. Inside `main()`, we first create a crawler object, which manages the scraping process. In this case, it's a crawler based on Beautiful Soup.
+1. Next, we define a nested asynchronous function called `handle_listing()`. It receives a `context` parameter, and Python type hints show it's of type `BeautifulSoupCrawlingContext`. Type hints help editors suggest what we can do with the object.
+1. We use a Python decorator (the line starting with `@`) to register `handle_listing()` as the _default handler_ for processing HTTP responses.
+1. Inside the handler, we extract the page title from the `soup` object and print its text without whitespace.
+1. At the end of the function, we run the crawler on a product listing URL and await its completion.
+1. The last two lines ensure that if the file is executed directly, Python will properly run the `main()` function using its asynchronous event loop.
 
 Don't worry if some of this is new. We don't need to know exactly how [`asyncio`](https://docs.python.org/3/library/asyncio.html), decorators, or type hints work. Let's stick to the practical side and observe what the program does when executed:
 
@@ -453,10 +453,12 @@ If you export the dataset as JSON, it should look something like this:
 ]
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - Use Python's `datetime.strptime(text, "%d/%m/%Y").date()` to parse dates in the `DD/MM/YYYY` format. Check out the [docs](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime) for more details.
 - To locate the Instagram URL, use the attribute selector `a[href*='instagram']`. Learn more about attribute selectors in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -553,7 +555,11 @@ async def main():
     ...
 ```
 
+:::tip Need a nudge?
+
 When navigating to the first IMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
+
+:::
 
 <details>
   <summary>Solution</summary>

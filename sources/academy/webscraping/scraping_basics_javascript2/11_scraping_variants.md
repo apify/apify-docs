@@ -75,7 +75,7 @@ Using our knowledge of Cheerio, we can locate the `option` elements and extract 
 const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const $promises = $(".product-item").map(async (i, element) => {
+const promises = $(".product-item").toArray().map(async element => {
   const $productItem = $(element);
   const item = parseProduct($productItem, listingURL);
 
@@ -83,8 +83,9 @@ const $promises = $(".product-item").map(async (i, element) => {
   item.vendor = $p(".product-meta__vendor").text().trim();
 
   // highlight-start
-  const $items = $p(".product-form__option.no-js option").map((j, element) => {
-    const $option = $(element);
+  const $options = $p(".product-form__option.no-js option");
+  const items = $options.toArray().map(optionElement => {
+    const $option = $(optionElement);
     const variantName = $option.text().trim();
     return { variantName, ...item };
   });
@@ -92,41 +93,37 @@ const $promises = $(".product-item").map(async (i, element) => {
 
   return item;
 });
-const data = await Promise.all($promises.get());
+const data = await Promise.all(promises);
 ```
 
 The CSS selector `.product-form__option.no-js` targets elements that have both the `product-form__option` and `no-js` classes. We then use the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements nested within the `.product-form__option.no-js` wrapper.
 
-We loop over the variants using Cheerio's `.map()` method to create a collection of item copies for each `variantName`. We now need to pass all these items onward, but the function currently returns just one item per product. And what if there are no variants?
+We loop over the variants using `.map()` method to create an array of item copies for each `variantName`. We now need to pass all these items onward, but the function currently returns just one item per product. And what if there are no variants?
 
 Let's adjust the loop so it returns a promise that resolves to an array of items instead of a single item. If a product has no variants, we'll return an array with a single item, setting `variantName` to `null`:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const $promises = $(".product-item").map(async (i, element) => {
+const promises = $(".product-item").toArray().map(async element => {
   const $productItem = $(element);
   const item = parseProduct($productItem, listingURL);
 
   const $p = await download(item.url);
   item.vendor = $p(".product-meta__vendor").text().trim();
 
-  const $items = $p(".product-form__option.no-js option").map((j, element) => {
-    const $option = $(element);
+  const $options = $p(".product-form__option.no-js option");
+  const items = $options.toArray().map(optionElement => {
+    const $option = $(optionElement);
     const variantName = $option.text().trim();
     return { variantName, ...item };
   });
-
-  // highlight-start
-  if ($items.length > 0) {
-    return $items.get();
-  }
-  return [{ variantName: null, ...item }];
-  // highlight-end
+  // highlight-next-line
+  return items.length > 0 ? items : [{ variantName: null, ...item }];
 });
 // highlight-start
-const itemLists = await Promise.all($promises.get());
+const itemLists = await Promise.all(promises);
 const data = itemLists.flat();
 // highlight-end
 ```
@@ -285,29 +282,26 @@ function parseVariant($option) {
 }
 // highlight-end
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const $promises = $(".product-item").map(async (i, element) => {
+const promises = $(".product-item").toArray().map(async element => {
   const $productItem = $(element);
   const item = parseProduct($productItem, listingURL);
 
   const $p = await download(item.url);
   item.vendor = $p(".product-meta__vendor").text().trim();
 
-  const $items = $p(".product-form__option.no-js option").map((j, element) => {
+  const $options = $p(".product-form__option.no-js option");
+  const items = $options.toArray().map(optionElement => {
     // highlight-next-line
-    const variant = parseVariant($(element));
+    const variant = parseVariant($(optionElement));
     // highlight-next-line
     return { ...item, ...variant };
   });
-
-  if ($items.length > 0) {
-    return $items.get();
-  }
-  return [{ variantName: null, ...item }];
+  return items.length > 0 ? items : [{ variantName: null, ...item }];
 });
-const itemLists = await Promise.all($promises.get());
+const itemLists = await Promise.all(promises);
 const data = itemLists.flat();
 
 await writeFile('products.json', await exportJSON(data));
@@ -406,7 +400,7 @@ Your output should look something like this:
   const listingURL = "https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count";
   const $ = await download(listingURL);
 
-  const $promises = $("section").map(async (i, element) => {
+  const promises = $("section").toArray().map(async element => {
     const $card = $(element);
 
     const details = $card
@@ -442,7 +436,7 @@ Your output should look something like this:
     return { name, url, description, dependents, downloads };
   });
 
-  const data = await Promise.all($promises.get());
+  const data = await Promise.all(promises);
   console.log(data.filter(item => item !== null).splice(0, 5));
   ```
 
@@ -483,7 +477,7 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
   const listingURL = "https://edition.cnn.com/sport";
   const $ = await download(listingURL);
 
-  const $promises = $(".layout__main .card").map(async (i, element) => {
+  const promises = $(".layout__main .card").toArray().map(async element => {
     const $link = $(element).find("a").first();
     const articleURL = new URL($link.attr("href"), listingURL).href;
 
@@ -493,7 +487,7 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
     return { url: articleURL, length: content.length };
   });
 
-  const data = await Promise.all($promises.get());
+  const data = await Promise.all(promises);
   const nonZeroData = data.filter(({ url, length }) => length > 0);
   nonZeroData.sort((a, b) => a.length - b.length);
   const shortestItem = nonZeroData[0];
