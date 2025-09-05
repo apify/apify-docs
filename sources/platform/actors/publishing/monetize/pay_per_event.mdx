@@ -66,10 +66,16 @@ Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.
     "actorSpecification": 1, 
     "name": "name-of-my-scraper",
     "version": "0.0",
-    "minMemoryMbytes": 256,
-    "maxMemoryMbytes": 4096,
+    "minMemoryMbytes": 512,
+    "maxMemoryMbytes": 1024,
 }
 ```
+
+:::note Memory requirements for browser-based scraping
+
+When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
+
+:::
 
 ### Charge for "Actor start"
 
@@ -134,11 +140,12 @@ async def main():
 :::note Actor migrations and charging
 
 Actors can migrate between servers during execution, which restarts the process and clears memory. When using PPE charging, avoid charging the start event multiple times after a migration by checking your charging state.
+
 :::
 
 ### Charge for invalid input
 
-Charge for invalid input or empty search to prevent users from running your Actor for free.
+Charge for things like URLs that appear valid but lead to errors (like 404s) since you actually had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -146,24 +153,38 @@ Charge for invalid input or empty search to prevent users from running your Acto
 ```js
 import { Actor } from 'apify';
 
-const parseInput = async (input) => {
-  if (!input.searchStringsArray && !input.startUrls) {
+const processUrl = async (url) => {
+  const response = await fetch(url);
+    
+  if (response.status === 404) {
+    // Charge for the work done (opening the page)
     await Actor.charge({
-      eventName: "invalid-input",
+        eventName: "scraped-result",
+    });
+      
+    // Return error item instead of failing
+    await Actor.pushData({
+      url: url,
+      error: "404",
+      errorMessage: "Page not found"
     });
     
-    throw await Actor.fail('INVALID INPUT: You must provide either search terms, or start URLs!');
+    return;
   }
 
-  return input;
+  // Rest of the Actor logic
 };
 
 await Actor.init();
 
 const main = async () => {
   const input = await Actor.getInput();
-  const parsedInput = await parseInput(input);
+  const { urls } = input;
   
+  for (const url of urls) {
+    await processUrl(url);
+  }
+
   // Rest of the Actor logic
 };
 
@@ -177,23 +198,37 @@ await Actor.exit();
 
 ```python
 from apify import Actor
+import requests
 
-async def parse_input(input_data):
-    if not input_data.get('searchStringsArray') and not input_data.get('startUrls'):
-        await Actor.charge(event_name='invalid-input')
+async def process_url(url):
+    response = requests.get(url)
+    
+    if response.status_code == 404:
+        # Charge for the work done (opening the page)
+        await Actor.charge(event_name='scraped-result')
         
-        raise await Actor.fail('INVALID INPUT: You must provide either search terms, or start URLs!')
+        # Return error item instead of failing
+        await Actor.push_data({
+            'url': url,
+            'error': '404',
+            'errorMessage': 'Page not found'
+        })
+        
+        return
 
-    return input_data
+    # Rest of the Actor logic
 
 async def main():
     await Actor.init()
     
     input_data = await Actor.get_input()
-    parsed_input = await parse_input(input_data)
+    urls = input_data.get('urls', [])
+    
+    for url in urls:
+        await process_url(url)
     
     # Rest of the Actor logic
-
+    
     await Actor.exit()
 ```
 
@@ -203,6 +238,8 @@ async def main():
 ### Respect user spending limits
 
 Finish the Actor run once charging reaches user-configured Maximum cost per run. Apify SDKs (JS and Python) return ChargeResult that helps determine when to finish.
+
+The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -266,9 +303,11 @@ async def main():
 </TabItem>
 </Tabs>
 
-### Use idempotency keys to prevent double charges
+:::note Crawlee integration and spending limits
 
-If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
+When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler and allow the rest of your code to process normally.
+
+:::
 
 ### Keep pricing simple with fewer events
 
@@ -292,21 +331,25 @@ Avoid charging for:
 
 This helps users understand exactly what they're paying for and builds trust in your pricing model.
 
+### Use idempotency keys to prevent double charges
+
+If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
+
 ## Example of a pay-per-event pricing model
 
 You make your Actor pay-per-event and set the following pricing:
 
 - _"actor-start" event_: $0.10 per start
 - _"scraped-product" event_: $0.01 per product
-- _"api-call" event_: $0.05 per API call
+- _"scraped-product-detail" event_: $0.05 per detail
 
 During the first month, three users use your Actor:
 
-- _User 1 (paid plan)_: Starts Actor 5 times, scrapes 1,000 products, makes 50 API calls
+- _User 1 (paid plan)_: Starts Actor 5 times, scrapes 1,000 products, makes 50 product details
   - Charges: 5 × $0.10 + 1,000 × $0.01 + 50 × $0.05 = $0.50 + $10.00 + $2.50 = $13.00
-- _User 2 (paid plan)_: Starts Actor 2 times, scrapes 500 products, makes 20 API calls  
+- _User 2 (paid plan)_: Starts Actor 2 times, scrapes 500 products, makes 20 product details  
   - Charges: 2 × $0.10 + 500 × $0.01 + 20 × $0.05 = $0.20 + $5.00 + $1.00 = $6.20
-- _User 3 (free plan)_: Starts Actor 1 time, scrapes 100 products, makes 5 API calls
+- _User 3 (free plan)_: Starts Actor 1 time, scrapes 100 products, makes 5 product details
   - Charges: 1 × $0.10 + 100 × $0.01 + 5 × $0.05 = $0.10 + $1.00 + $0.25 = $1.35
 
 Let's say the underlying platform usage for the first user is $2.50, for the second $1.20, and for the third $0.30.
