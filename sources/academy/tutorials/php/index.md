@@ -1,12 +1,11 @@
 ---
-title: PHP tutorials
+title: PHP tutorials 👨‍💻📚
 description: A collection of PHP tutorials to aid you in your journey to becoming a master web scraping and automation developer.
 sidebar_position: 16
+sidebar_label: PHP tutorials
 category: tutorials
 slug: /php
 ---
-
-# PHP Tutorials 👨‍💻📚
 
 **A collection of PHP tutorials to aid you in your journey to becoming a master web scraping and automation developer.**
 
