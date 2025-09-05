@@ -27,7 +27,7 @@ To learn more about Apify's security practices, data protection measures, and co
 - List of our security certifications and compliance reports
 - Information about Apify's data protection controls
 - List of Apify's data subprocessors
-- An AI chatbot to answer your security-related questions
+- An AI Chatbot to answer your security-related questions
 
 ## Security Whitepaper
 

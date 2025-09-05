@@ -2,3 +2,5 @@ extends: existence
 message: 'Do not use H1 headings (#). The main title is generated automatically. Please use H2 (##) or lower.'
 level: error
 scope: heading.h1
+tokens:
+  - '.+'
