@@ -48,37 +48,69 @@ Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.
     "actorSpecification": 1, 
     "name": "name-of-my-scraper",
     "version": "0.0",
-    "minMemoryMbytes": 256,
-    "maxMemoryMbytes": 4096,
+    "minMemoryMbytes": 512,
+    "maxMemoryMbytes": 1024,
 }
 ```
+
+:::note Memory requirements for browser-based scraping
+
+When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
+
+:::
 
 ### Implement the `ACTOR_MAX_PAID_DATASET_ITEMS` check
 
 This check prevents your Actor from generating more results than the user has paid for, protecting both you and your users from unexpected costs.
 
-The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for paid-per-result Actors. Do not exceed this limit.
+The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for paid-per-result Actors. Do not exceed this limit. You can see the example implementation in the following code snippets.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
 ```js
-const MAX_ITEMS = Number(process.env.ACTOR_MAX_PAID_DATASET_ITEMS);
+import { Actor } from 'apify';
+
+// Use top-level variables with a closure so you don't have to initialize anything
+const MAX_ITEMS: number | undefined = Number(process.env.ACTOR_MAX_PAID_DATASET_ITEMS) || undefined;
+
+let isInitialized = false;
+let isGettingItemCount = false;
 let pushedItemCount = 0;
 
-export const pushDataMaxAware = async (data) => {
-    // rest of the Actor logic
+export const pushDataMaxAware = async (data: Parameters<Actor['pushData']>[0]): Promise<{ shouldStop: boolean }> => {
+    // If this isn't pay-per-result, just push like normallyå
+    if (!MAX_ITEMS) {
+        await Actor.pushData(data);
+        return { shouldStop: false };
+    }
+
+    // Initialize on the first call so it as standalone function
+    if (!isInitialized && !isGettingItemCount) {
+        isGettingItemCount = true;
+        const dataset = await Actor.openDataset();
+        const { itemCount } = (await dataset.getInfo())!;
+        pushedItemCount = itemCount;
+        isGettingItemCount = false;
+        isInitialized = true;
+    }
+
+    // Others handlers will wait until initialized which should be few milliseconds
+    while (!isInitialized) {
+        await new Promise((resolve) => setTimeout(resolve, 50));
+    }
 
     const dataAsArray = Array.isArray(data) ? data : [data];
     const dataToPush = dataAsArray.slice(0, MAX_ITEMS - pushedItemCount);
 
     if (dataToPush.length) {
+        // Update the state before 'await' to avoid race conditions
         pushedItemCount += dataToPush.length;
         await Actor.pushData(dataToPush);
     }
 
-    // rest of the Actor logic
-}
+    return { shouldStop: pushedItemCount >= MAX_ITEMS };
+};
 ```
 
 </TabItem>
@@ -87,29 +119,54 @@ export const pushDataMaxAware = async (data) => {
 ```python
 import os
 from apify import Actor
+from typing import Union, List, Dict, Any
 
-MAX_ITEMS = int(os.getenv('ACTOR_MAX_PAID_DATASET_ITEMS', 0))
+class PayPerResultManager:
+    def __init__(self):
+        self.max_items = int(os.getenv('ACTOR_MAX_PAID_DATASET_ITEMS', 0)) or None
+        self.is_initialized = False
+        self.is_getting_item_count = False
+        self.pushed_item_count = 0
 
-# rest of the Actor logic
+    async def push_data_max_aware(self, data: Union[Dict[Any, Any], List[Dict[Any, Any]]]) -> Dict[str, bool]:
+        # If this isn't pay-per-result, just push like normally
+        if not self.max_items:
+            await Actor.push_data(data)
+            return {'shouldStop': False}
 
-async def push_data_max_aware(data, pushed_item_count=0):
-    data_as_array = data if isinstance(data, list) else [data]
-    data_to_push = data_as_array[:MAX_ITEMS - pushed_item_count]
-    
-    if data_to_push:
-        new_count = pushed_item_count + len(data_to_push)
-        await Actor.push_data(data_to_push)
-        return new_count
-    
-    return pushed_item_count
+        # Initialize on the first call
+        if not self.is_initialized and not self.is_getting_item_count:
+            self.is_getting_item_count = True
+            dataset = await Actor.open_dataset()
+            dataset_info = await dataset.get_info()
+            self.pushed_item_count = dataset_info['itemCount']
+            self.is_getting_item_count = False
+            self.is_initialized = True
 
-# rest of the Actor logic
+        # Others handlers will wait until initialized which should be few milliseconds
+        while not self.is_initialized:
+            await Actor.sleep(0.05)
+
+        data_as_array = data if isinstance(data, list) else [data]
+        data_to_push = data_as_array[:self.max_items - self.pushed_item_count]
+
+        if data_to_push:
+            # Update the state before 'await' to avoid race conditions
+            self.pushed_item_count += len(data_to_push)
+            await Actor.push_data(data_to_push)
+
+        return {'shouldStop': self.pushed_item_count >= self.max_items}
+
+# Create a singleton instance
+ppr_manager = PayPerResultManager()
+
+# Convenience function that uses the singleton
+async def push_data_max_aware(data: Union[Dict[Any, Any], List[Dict[Any, Any]]]) -> Dict[str, bool]:
+    return await ppr_manager.push_data_max_aware(data)
 ```
 
 </TabItem>
 </Tabs>
-
-You can find the whole code of implementing this check in this [example](https://github.com/metalwarrior665/max-paid-items-example/blob/master/src/push-data.ts).
 
 ### Test your Actor
 
