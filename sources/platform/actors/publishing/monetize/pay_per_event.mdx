@@ -247,9 +247,9 @@ The `eventChargeLimitReached` property checks if the current event type can be c
 ```js
 import { Actor } from 'apify';
 
-const chargForApiCall = async () => {
+const chargForApiProductDetail = async () => {
   const chargeResult = await Actor.charge({
-    eventName: "api-call",
+    eventName: "product-detail",
   });
 
   return chargeResult;
@@ -260,7 +260,7 @@ await Actor.init();
 const main = async () => {
   // API call, or any other logic that you want to charge for
 
-  const chargeResult = await chargForApiCall();
+  const chargeResult = await chargForApiProductDetail();
 
   if (chargeResult.eventChargeLimitReached) {
     await Actor.exit();
@@ -280,8 +280,8 @@ await Actor.exit();
 ```python
 from apify import Actor
 
-async def charge_for_api_call():
-    charge_result = await Actor.charge(event_name='api-call')
+async def charge_for_api_product_detail():
+    charge_result = await Actor.charge(event_name='product-detail')
 
     return charge_result
 
@@ -290,7 +290,7 @@ async def main():
     
     # API call, or any other logic that you want to charge for
 
-    charge_result = await charge_for_api_call()
+    charge_result = await charge_for_api_product_detail()
 
     if charge_result.event_charge_limit_reached:
         await Actor.exit()
