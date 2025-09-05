@@ -118,6 +118,7 @@ export const pushDataMaxAware = async (data: Parameters<Actor['pushData']>[0]): 
 
 ```python
 import os
+import asyncio
 from apify import Actor
 from typing import Union, List, Dict, Any
 
@@ -143,9 +144,9 @@ class PayPerResultManager:
             self.is_getting_item_count = False
             self.is_initialized = True
 
-        # Others handlers will wait until initialized which should be few milliseconds
+        # Wait until initialized
         while not self.is_initialized:
-            await Actor.sleep(0.05)
+            await asyncio.sleep(0.05)  # 50ms
 
         data_as_array = data if isinstance(data, list) else [data]
         data_to_push = data_as_array[:self.max_items - self.pushed_item_count]
