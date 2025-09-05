@@ -5,7 +5,7 @@ description: Lesson about using the browser tools for developers to manually ext
 slug: /scraping-basics-python/devtools-extracting-data
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to manually extract product data from an e-commerce website.**
 
@@ -30,7 +30,7 @@ subwoofer.textContent;
 
 That indeed outputs all the text, but in a form which would be hard to break down to relevant pieces.
 
-![Printing text content of the parent element](./images/devtools-extracting-text.png)
+![Printing text content of the parent element](../scraping_basics/images/devtools-extracting-text.png)
 
 We'll need to first locate relevant child elements and extract the data from each of them individually.
 
@@ -38,7 +38,7 @@ We'll need to first locate relevant child elements and extract the data from eac
 
 We'll use the **Elements** tab of DevTools to inspect all child elements of the product card for the Sony subwoofer. We can see that the title of the product is inside an `a` element with several classes. From those the `product-item__title` seems like a great choice to locate the element.
 
-![Finding child elements](./images/devtools-product-details.png)
+![Finding child elements](../scraping_basics/images/devtools-product-details.png)
 
 JavaScript represents HTML elements as [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) objects. Among properties we've already played with, such as `textContent` or `outerHTML`, it also has the [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector) method. Here the method looks for matches only within children of the element:
 
@@ -49,13 +49,13 @@ title.textContent;
 
 Notice we're calling `querySelector()` on the `subwoofer` variable, not `document`. And just like this, we've scraped our first piece of data! We've extracted the product title:
 
-![Extracting product title](./images/devtools-extracting-title.png)
+![Extracting product title](../scraping_basics/images/devtools-extracting-title.png)
 
 ## Extracting price
 
 To figure out how to get the price, we'll use the **Elements** tab of DevTools again. We notice there are two prices, a regular price and a sale price. For the purposes of watching prices we'll need the sale price. Both are `span` elements with the `price` class.
 
-![Finding child elements](./images/devtools-product-details.png)
+![Finding child elements](../scraping_basics/images/devtools-product-details.png)
 
 We could either rely on the fact that the sale price is likely to be always the one which is highlighted, or that it's always the first price. For now we'll rely on the later and we'll let `querySelector()` to simply return the first result:
 
@@ -66,7 +66,7 @@ price.textContent;
 
 It works, but the price isn't alone in the result. Before we'd use such data, we'd need to do some **data cleaning**:
 
-![Extracting product price](./images/devtools-extracting-price.png)
+![Extracting product price](../scraping_basics/images/devtools-extracting-price.png)
 
 But for now that's okay. We're just testing the waters now, so that we have an idea about what our scraper will need to do. Once we'll get to extracting prices in Python, we'll figure out how to get the values as numbers.
 
@@ -99,7 +99,7 @@ At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/a
 
 On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML element manipulation in the **Console** to extract the name of the top wiki. Use JavaScript's [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space around the name.
 
-![Fandom's Movies page](./images/devtools-exercise-fandom.png)
+![Fandom's Movies page](../scraping_basics/images/devtools-exercise-fandom.png)
 
 <details>
   <summary>Solution</summary>
@@ -118,7 +118,7 @@ On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selecto
 
 On the Guardian's [F1 news page](https://www.theguardian.com/sport/formulaone), use CSS selectors and HTML manipulation in the **Console** to extract details about the first post. Specifically, extract its title, lead paragraph, and URL of the associated photo.
 
-![F1 news page](./images/devtools-exercise-guardian2.png)
+![F1 news page](../scraping_basics/images/devtools-exercise-guardian2.png)
 
 <details>
   <summary>Solution</summary>
