@@ -2,4 +2,4 @@
 
 Hello
 
-### ### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
+### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
