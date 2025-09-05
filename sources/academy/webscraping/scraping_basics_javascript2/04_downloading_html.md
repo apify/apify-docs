@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/downloading-html
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll start building a Node.js application for watching prices. As a first step, we'll use the Fetch API to download HTML code of a product listing page.**
 

@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/devtools-inspecting
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of a website.**
 
@@ -28,11 +28,11 @@ Google Chrome is currently the most popular browser, and many others use the sam
 
 Now let's peek behind the scenes of a real-world website—say, Wikipedia. We'll open Google Chrome and visit [wikipedia.org](https://www.wikipedia.org/). Then, let's press **F12**, or right-click anywhere on the page and select **Inspect**.
 
-![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
+![Wikipedia with Chrome DevTools open](../scraping_basics/images/devtools-wikipedia.png)
 
 Websites are built with three main technologies: HTML, CSS, and JavaScript. In the **Elements** tab, DevTools shows the HTML and CSS of the current page:
 
-![Elements tab in Chrome DevTools](./images/devtools-elements-tab.png)
+![Elements tab in Chrome DevTools](../scraping_basics/images/devtools-elements-tab.png)
 
 :::warning Screen adaptations
 
@@ -62,17 +62,17 @@ While HTML and CSS describe what the browser should display, JavaScript adds int
 
 If you don't see it, press <kbd>ESC</kbd> to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
 
-![Console in Chrome DevTools](./images/devtools-console.png)
+![Console in Chrome DevTools](../scraping_basics/images/devtools-console.png)
 
 ## Selecting an element
 
 In the top-left corner of DevTools, let's find the icon with an arrow pointing to a square.
 
-![Chrome DevTools element selection tool](./images/devtools-element-selection.png)
+![Chrome DevTools element selection tool](../scraping_basics/images/devtools-element-selection.png)
 
 We'll click the icon and hover your cursor over Wikipedia's subtitle, **The Free Encyclopedia**. As we move our cursor, DevTools will display information about the HTML element under it. We'll click on the subtitle. In the **Elements** tab, DevTools will highlight the HTML element that represents the subtitle.
 
-![Chrome DevTools element hover](./images/devtools-hover.png)
+![Chrome DevTools element hover](../scraping_basics/images/devtools-hover.png)
 
 The highlighted section should look something like this:
 
@@ -108,7 +108,7 @@ We won't be creating Node.js scrapers just yet. Let's first get familiar with wh
 
 In the **Elements** tab, with the subtitle element highlighted, let's right-click the element to open the context menu. There, we'll choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
 
-![Global variable in Chrome DevTools Console](./images/devtools-console-variable.png)
+![Global variable in Chrome DevTools Console](../scraping_basics/images/devtools-console-variable.png)
 
 The Console allows us to run code in the context of the loaded page. We can use it to play around with elements.
 
@@ -132,7 +132,7 @@ temp1.textContent = 'Hello World!';
 
 When we change elements in the Console, those changes reflect immediately on the page!
 
-![Changing textContent in Chrome DevTools Console](./images/devtools-console-textcontent.png)
+![Changing textContent in Chrome DevTools Console](../scraping_basics/images/devtools-console-textcontent.png)
 
 But don't worry—we haven't hacked Wikipedia. The change only happens in our browser. If we reload the page, the change will disappear. This, however, is an easy way to craft a screenshot with fake content. That's why screenshots shouldn't be trusted as evidence.
 
@@ -161,7 +161,7 @@ You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/
   1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
   1. In the console, type `temp1.src` and hit **Enter**.
 
-  ![DevTools exercise result](./images/devtools-exercise-fifa.png)
+  ![DevTools exercise result](../scraping_basics/images/devtools-exercise-fifa.png)
 
 </details>
 
@@ -178,6 +178,6 @@ Open a news website, such as [CNN](https://cnn.com). Use the Console to change t
   1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
   1. In the console, type `temp1.textContent = 'Something something'` and hit **Enter**.
 
-  ![DevTools exercise result](./images/devtools-exercise-cnn.png)
+  ![DevTools exercise result](../scraping_basics/images/devtools-exercise-cnn.png)
 
 </details>
