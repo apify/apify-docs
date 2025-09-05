@@ -18,6 +18,10 @@ By default, each system resource (Actor, key-value store, run, ...) you create i
         <td>Enables you to grant access to another user for a certain resource you own. This way, you can share results with your client, or two engineers can collaborate on developing one Actor.</td>
     </tr>
     <tr>
+        <td><strong><a href="/platform/collaboration/general-resource-access">Share resources by link</a></strong></td>
+        <td>Certain resources (runs, builds and storages) can by shared just by their link. Anyone with their ID is able to access them. This is configurable via <a href="/platform/collaboration/general-resource-access">General Resource Access</a></td>
+    </tr>
+    <tr>
         <td><strong><a href="/platform/collaboration/organization-account">Organization account</a></strong></td>
         <td>Apify's organization account allows multiple engineers to collaborate on team projects with role-specific access permissions.</td>
     </tr>
