@@ -1,4 +1,4 @@
-# Contributing to Apify Documentation
+# Contributing to Apify documentation
 
 ## Before you start
 
@@ -128,17 +128,17 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
 
-## AI Assistant Rules Structure
+## AI Assistant rules structure
 
 This project uses a hybrid approach for AI assistant rules to ensure consistency across different tools while leveraging Cursor-specific features.
 
-### Structure Overview
+### Structure overview
 
-#### Vendor-Agnostic Rules
+#### Vendor-agnostic rules
 
 - **`AGENT.md`** - Primary vendor-agnostic rules file containing core documentation standards
 
-#### Cursor-Specific Rules
+#### Cursor-specific rules
 
 - **`.cursor/rules/documentation-style.mdc`** - Cursor-specific documentation guidelines
 - **`.cursor/rules/content-formatting.mdc`** - Cursor-specific formatting rules
@@ -150,17 +150,17 @@ To verify rule application, hover over attached rules in the Cursor chat window.
 
 ### Usage
 
-#### For General AI Assistants
+#### For general AI assistants
 
 - Reference `AGENT.md` for vendor-agnostic documentation standards
 
-#### For Cursor-Specific Features
+#### For Cursor-specific features
 
 - Use `.cursor/rules/*.mdc` files for Cursor-specific workflows
 - Leverage glob patterns and `alwaysApply` settings
 - Use Cursor Chat and Cmd+K with `@AGENT.md` references
 
-### File Targeting
+### File targeting
 
 Each `.mdc` file uses glob patterns to target specific file types:
 
