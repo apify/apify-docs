@@ -24,6 +24,7 @@ const example = "properly formatted";
 ```
 
 # For YAML frontmatter
+
 ```yaml
 ---
 title: "Example"
@@ -32,10 +33,11 @@ description: "Description"
 ```
 
 # For API examples
+
 ```bash
 curl -X GET "https://api.apify.com/v2/acts"
 ```
-```
+
 
 ## Cursor Workflow for Formatting
 
