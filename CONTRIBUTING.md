@@ -146,6 +146,8 @@ This project uses a hybrid approach for AI assistant rules to ensure consistency
 - **`.cursor/rules/quality-standards.mdc`** - Cursor-specific quality guidelines
 - **`.cursor/rules/file-organization.mdc`** - Cursor-specific file organization rules
 
+To verify rule application, hover over attached rules in the Cursor chat window.
+
 ### Usage
 
 #### For General AI Assistants
