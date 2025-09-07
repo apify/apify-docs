@@ -47,11 +47,11 @@ Click the **Select** button next to the **Connect to Apify** title. Or you can s
 
 The connection configuration options open in a new tab in your browser.
 
-![Apify Zapier connection](../images/zapier-choose-account.png)
+<!-- ![Apify Zapier connection](../images/zapier-choose-account.png) TODO: FIX SCREENSHOT -->
 
 Choose the account that you want to connect with Zapier. A new window will appear displaying the information that will be shared between Zapier and Apify.
 
-![Integrations OAuth](../images/zapier-allow-access.png)
+<!-- ![Integrations OAuth](../images/zapier-allow-access.png) TODO: FIX SCREENSHOT -->
 
 Continue by clicking **Allow Access** button.
 
@@ -77,7 +77,7 @@ In the next step, you need to select the Actor you want to use. You can use the 
 
 We will use the Web Scraper Actor in this example.
 
-![Zapier Action](../images/zapier-action-2.png)
+<!-- ![Zapier Action](../images/zapier-action-2.png) TODO: FIX SCREENSHOT -->
 
 You need to fill the input for the Actor and use the **Continue** button to advance to the next step.
 
@@ -88,7 +88,7 @@ In the next step, you can test the action and check if everything is using the *
 
 This button runs the Actor run on Apify and you can see the data in Zapier.
 
-![Zapier Action](../images/zapier-action-3.png)
+<!-- ![Zapier Action](../images/zapier-action-3.png) TODO: FIX SCREENSHOT -->
 
 Once you are happy with the test, you can publish the Zap. When it is turned on, it will run the Actor every time the trigger is fired.
 
