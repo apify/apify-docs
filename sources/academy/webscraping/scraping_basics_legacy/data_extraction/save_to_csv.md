@@ -3,6 +3,7 @@ title: Saving results to CSV
 description: Learn how to save the results of your scraper's collected data to a CSV file that can be opened in Excel, Google Sheets, or any other spreadsheets program.
 sidebar_position: 8
 slug: /scraping-basics-javascript/legacy/data-extraction/save-to-csv
+unlisted: true
 ---
 
 **Learn how to save the results of your scraper's collected data to a CSV file that can be opened in Excel, Google Sheets, or any other spreadsheets program.**

@@ -4,6 +4,7 @@ description: Learn how to crawl the web with your scraper. How to extract links 
 sidebar_position: 1.3
 category: courses
 slug: /scraping-basics-javascript/legacy/crawling
+unlisted: true
 ---
 
 **Learn how to crawl the web with your scraper. How to extract links and URLs from web pages and how to manage the collected links to visit new pages.**
