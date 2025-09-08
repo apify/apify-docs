@@ -13,8 +13,6 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-While you can interact with the Apify API through raw HTTP requests, our official clients for JavaScript and Python provide a much simpler way to get started.
-
 ## Installation
 
 You can install the client libraries from their respective package managers.
@@ -71,11 +69,11 @@ Avoid hardcoding your `API token`. Use an environment variable instead, especial
 
 ## Usage examples
 
-The following examples demonstrate how to perform common actions using the API clients.
+The following examples show how to perform common actions using the API clients.
 
 ### Running an Actor and getting results
 
-This example runs an Actor and retrieves its results. We will use a simple "number adder" Actor that takes two numbers as input and outputs their sum.
+This example runs an Actor and retrieves its results. We will use an Actor that takes two numbers as input and outputs their sum.
 
 First, get a client for the specific Actor, then run it using the `.call()` method.
 

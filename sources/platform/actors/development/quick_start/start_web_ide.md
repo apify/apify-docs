@@ -27,9 +27,9 @@ Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**
 
 ![Create Actor](./images/create-actor.png)
 
-You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`. These templates provide boilerplate code and a preconfigured environment. For this guide, we'll start with the simplest one.
+You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`. These templates provide boilerplate code and a preconfigured environment.
 
-#### A simple JavaScript example
+#### JavaScript example
 
 Choose the **Start with JavaScript** template. This template is a great starting point for web scraping as it extracts data from a single website using basic HTTP requests.
 
@@ -72,7 +72,7 @@ The Actor takes a `url` as input and then:
 1. Extracts all headings (H1 - H6).
 1. Stores the extracted data in the Actor's default [dataset](/platform/storage/dataset).
 
-After choosing the template, your Actor will be automatically named and you'll be redirected to its page. From here, you can move on to **[Step 3: Build the Actor](#step-3-build-the-actor)**, as this simple template doesn't require any further exploration of the code.
+After choosing the template, your Actor will be automatically named and you'll be redirected to its page. From here, you can move on to **[Step 3: Build the Actor](#step-3-build-the-actor)**, as this template doesn't require any further exploration of the code.
 
 #### More advanced templates
 
