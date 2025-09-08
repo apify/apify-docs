@@ -61,7 +61,7 @@ Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.
 
 :::note Memory requirements for browser-based scraping
 
-When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
+When using browser automation tools like [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/) for web scraping, increase the memory limits to accommodate the browser's memory usage.
 
 :::
 
@@ -69,7 +69,7 @@ When using browser automation tools like Puppeteer or Playwright for web scrapin
 
 This check prevents your Actor from generating more results than the user has paid for, protecting both you and your users from unexpected costs.
 
-The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for paid-per-result Actors. Do not exceed this limit. You can see the example implementation in the following code snippets.
+The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for pay-per-results Actors. Do not exceed this limit. You can see the example implementation in the following code snippets.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
