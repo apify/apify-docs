@@ -282,7 +282,7 @@ export default function Home() {
                             icon={<WebScrapingForBeginners />}
                             title="Web scraping for beginners"
                             description="Learn the basics of web scraping and how to develop your own scraper."
-                            to="/academy/web-scraping-for-beginners"
+                            to="/academy/scraping-basics-javascript"
                         />
                         <CardWithIcon
                             icon={<ApifyPlatformCourse />}

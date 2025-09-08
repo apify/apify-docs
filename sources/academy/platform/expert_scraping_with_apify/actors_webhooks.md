@@ -39,7 +39,7 @@ Prior to moving forward, please read over these resources:
 
 ## Our task {#our-task}
 
-In this task, we'll be building on top of what we already created in the [Web scraping basics for JavaScript devs](/academy/web-scraping-for-beginners/challenge) course's final challenge, so keep those files safe!
+In this task, we'll be building on top of what we already created in the [Web scraping basics for JavaScript devs](/academy/scraping-basics-javascript/legacy/challenge) course's final challenge, so keep those files safe!
 
 Once our Amazon Actor has completed its run, we will, rather than sending an email to ourselves, call an Actor through a webhook. The Actor called will be a new Actor that we will create together, which will take the dataset ID as input, then subsequently filter through all of the results and return only the cheapest one for each product. All of the results of the Actor will be pushed to its default dataset.
 
