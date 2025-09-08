@@ -1,11 +1,10 @@
 ---
-title: How to use
+title: Using the organization account
 description: Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.
 sidebar_position: 2
 slug: /collaboration/organization-account/how-to-use
+sidebar_label: How to use
 ---
-
-# Using the organization account
 
 **Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.**
 
@@ -17,7 +16,7 @@ While you can't manage an organization account via [API](/api/v2), you can still
 
 **[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
-## In the Apify Console {#in-the-apify-console}
+## In the Apify Console
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
@@ -29,7 +28,7 @@ The resources you can access and account details you can edit will depend on you
 
 > When switching between accounts, beware which account you start an Actor run in. If you accidentally start an organization's Actor run in your personal account, the run will be billed to your account (and vice versa).
 
-### Manage your organizations {#manage-your-organizations}
+### Manage your organizations
 
 You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://console.apify.com/account#/myorganization).
 
@@ -37,11 +36,11 @@ If you want to leave an organization you own, you must first transfer ownership 
 
 ![My organizations](../images/organizations/my-organizations.png)
 
-### Transfer ownership {#transfer-ownership}
+### Transfer ownership
 
 The organization, its Actors, and its integrations will keep running as they are. The original owner will either leave the organization or become a member with permissions defined by the new owner. Only the new owner will have complete access to the organization.
 
-## Via API {#via-api}
+## Via API
 
 While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 

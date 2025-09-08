@@ -8,8 +8,6 @@ slug: /proxy/residential-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Residential proxy {#residential-proxy}
-
 **Achieve a higher level of anonymity using IP addresses from human users. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.**
 
 ---
@@ -22,7 +20,7 @@ Residential proxies support [IP address rotation](./usage.md#ip-address-rotation
 
 **Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in the Apify Console.
 
-## Connecting to residential proxy {#connecting-to-residential-proxy}
+## Connecting to residential proxy
 
 Connecting to residential proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences.
 
@@ -30,7 +28,7 @@ Connecting to residential proxy works the same way as [datacenter proxy](./datac
 
 2. You can specify the country in which you want your proxies to be.
 
-### How to set a proxy group {#how-to-set-a-proxy-group}
+### How to set a proxy group
 
 When using [standard libraries and languages](./datacenter_proxy.md), specify the `groups` parameter in the [username](./usage.md#username-parameters) as `groups-RESIDENTIAL`.
 
@@ -73,7 +71,7 @@ async def main():
 </TabItem>
 </Tabs>
 
-### How to set a proxy country {#how-to-set-a-proxy-country}
+### How to set a proxy country
 
 When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`.
 
@@ -120,7 +118,7 @@ async def main():
 </TabItem>
 </Tabs>
 
-## Session persistence {#session-persistence}
+## Session persistence
 
 When using residential proxy with the `session` [parameter](./usage.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
 
@@ -135,7 +133,7 @@ If the proxy server becomes unresponsive or the session expires, a new IP addres
 
 To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the proxy [overview page](./index.md).
 
-## Tips to keep in mind {#tips-to-keep-in-mind}
+## Tips to keep in mind
 
 [Residential](./index.md) proxies are less predictable than [datacenter](./datacenter_proxy.md) proxies and are priced differently (by number of IPs vs traffic used). Because of this, there are some important things to consider before using residential proxy in your solutions.
 
@@ -145,13 +143,13 @@ Residential proxy is priced by data traffic used. Thus, it's easy to quickly use
 
 To reduce your traffic use, we recommend using the `blockRequests()` function of [`playwrightUtils`](https://crawlee.dev/api/playwright-crawler/namespace/playwrightUtils#blockRequests)/[`puppeteerUtils`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#blockRequests) (depending on the library used).
 
-### Connected proxy speed variation {#connected-proxy-speed-variation}
+### Connected proxy speed variation
 
 Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./usage.md#sessions) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
 
 If your solution requires quickly loaded content, the best option is to set a [session](./usage.md#sessions), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 
-### Connection interruptions {#connection-interruptions}
+### Connection interruptions
 
 While sessions are persistent, they can be destroyed at any time if the host devices are turned off or disconnected.
 

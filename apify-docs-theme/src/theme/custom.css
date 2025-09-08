@@ -125,6 +125,8 @@ html[data-theme='dark'] {
 }
 
 :root {
+    --biel-button-position-right: 84px;
+    --biel-button-position-bottom: 24px;
     /* use default system font based on https://devhints.io/css-system-font-stack */
     --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI',
         'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -934,7 +936,7 @@ div[class*="searchBox"] {
 .navbar__item > .navbar__link,
 .navbar-sidebar__back {
     padding: 0.8rem 1.2rem;
-    border-radius: 2rem;
+    border-radius: 0.8rem;
     font-size: 1.4rem;
     line-height: 2.4rem;
     font-weight: 500;
@@ -1997,3 +1999,4 @@ div[class^="navbarSearchContainer"] {
     width: 14px !important;
     height: 15px !important;
 }
+

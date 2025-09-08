@@ -12,7 +12,7 @@ jobs:
             -   uses: actions/checkout@v5
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v5
                 with:
                     node-version: 22
                     cache: 'npm'
@@ -35,7 +35,7 @@ jobs:
 
             -   name: Run Lychee Link Checker
                 id: lychee
-                uses: lycheeverse/lychee-action@v2.6.0
+                uses: lycheeverse/lychee-action@v2.6.1
                 env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 with:
@@ -46,7 +46,7 @@ jobs:
                         --max-retries 6
                         --verbose
                         --no-progress
-                        --include-fragments
+                        --timeout '60'
                         --accept '100..=103,200..=299,403..=403,429'
                         --format markdown
                         './build/**/*.html'

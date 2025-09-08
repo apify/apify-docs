@@ -22,7 +22,7 @@ You can use proxies in your [Actors](../actors/index.mdx) or any other applicati
 You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in Apify Console. For pricing information, visit [apify.com/pricing](https://apify.com/pricing).
 
 
-## Quickstart {#quickstart}
+## Quickstart
 
 Usage of Apify Proxy means just a couple of lines of code, thanks to our [SDKs](/sdk):
 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 </TabItem>
 </Tabs>
 
-## Proxy types {#proxy-types}
+## Proxy types
 
 Several types of proxy servers exist, each offering distinct advantages, disadvantages, and varying pricing structures. You can use them to access websites from various geographies and with different levels of anonymity.
 

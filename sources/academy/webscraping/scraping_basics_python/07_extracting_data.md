@@ -159,12 +159,26 @@ Great! Only if we didn't overlook an important pitfall called [floating-point er
 0.30000000000000004
 ```
 
-These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid floating point numbers when working with money. Let's instead use Python's built-in [`Decimal()`](https://docs.python.org/3/library/decimal.html) type:
+These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid floating point numbers when working with money. We won't store dollars, but cents:
+
+```py
+price_text = (
+    product
+    .select_one(".price")
+    .contents[-1]
+    .strip()
+    .replace("$", "")
+# highlight-next-line
+    .replace(".", "")
+    .replace(",", "")
+)
+```
+
+In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. For converting the text to a number we'll use `int()` instead of `float()`. This is how the whole program looks like now:
 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -182,13 +196,14 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     print(title, min_price, price, sep=" | ")
@@ -198,8 +213,8 @@ If we run the code above, we have nice, clean data about all the products!
 
 ```text
 $ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker | 74.95 | 74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 1398.00 | None
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | 7495 | 7495
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 139800 | None
 ...
 ```
 
@@ -311,12 +326,14 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
 - Beautiful Soup gives you [access to attributes as if they were dictionary keys](https://beautiful-soup-4.readthedocs.io/en/latest/#attributes).
 - In Python you can create `datetime` objects using `datetime.fromisoformat()`, a [built-in method for parsing ISO 8601 strings](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat).
 - To get the date, you can call `.strftime('%a %b %d %Y')` on `datetime` objects.
+
+:::
 
 <details>
   <summary>Solution</summary>

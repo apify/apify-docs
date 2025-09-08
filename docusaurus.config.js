@@ -5,7 +5,7 @@ const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
-const { externalLinkProcessor } = require('./tools/utils/externalLink');
+const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
@@ -131,6 +131,13 @@ module.exports = {
         ],
     ]),
     plugins: [
+        [
+            'docusaurus-biel', {
+                project: 'zat23cvkm1',
+                headerTitle: 'Biel.ai chatbot',
+                version: 'latest',
+            },
+        ],
         'docusaurus-plugin-image-zoom',
         [
             '@docusaurus/plugin-content-docs',
@@ -280,7 +287,8 @@ module.exports = {
         }),
         [
             '@signalwire/docusaurus-plugin-llms-txt',
-            {
+            /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
+            ({
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -288,6 +296,17 @@ module.exports = {
                     includeGeneratedIndex: false,
                     includePages: true,
                     relativePaths: false,
+                    remarkStringify: {
+                        handlers: {
+                            link: (node) => {
+                                const isUrlInternal = isInternal(node.url);
+                                const url = isUrlInternal ? `${config.absoluteUrl}${node.url}` : node.url;
+
+                                if (node.title) return `[${node.title}](${url})`;
+                                return url;
+                            },
+                        },
+                    },
                     excludeRoutes: [
                         '/',
                     ],
@@ -312,7 +331,7 @@ module.exports = {
                     // Add custom remark processing to remove LLM button text
                     remarkPlugins: [removeLlmButtons],
                 },
-            },
+            }),
         ],
         // TODO this should be somehow computed from all the external sources
         // [

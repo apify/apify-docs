@@ -1,11 +1,10 @@
 ---
-title: System events
+title: System events in Apify Actors
 description: Learn about system events sent to your Actor and how to benefit from them.
 slug: /actors/development/programming-interface/system-events
 sidebar_position: 4
+sidebar_label: System events
 ---
-
-# System events in Apify Actors
 
 **Learn about system events sent to your Actor and how to benefit from them.**
 

@@ -11,13 +11,32 @@ slug: /expert-scraping-with-apify/solutions/using-api-and-client
 
 ---
 
-Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template.
+Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
 
-![Selecting an empty template to start with](./images/select-empty.jpg)
+```text
+$ apify create filter-caller
+? Choose the programming language of your new Actor:
+❯ JavaScript
+  TypeScript
+  Python
+```
 
-This time, let's call our project **actor-caller**.
+Again, use the arrow down key to select **Empty JavaScript Project**:
 
-Let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
+```text
+$ apify create filter-actor
+✔ Choose the programming language of your new Actor: JavaScript
+? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
+  Crawlee + Playwright + Chrome
+  Crawlee + Playwright + Camoufox
+  Bootstrap CheerioCrawler
+  Cypress
+❯ Empty JavaScript Project
+  Standby JavaScript Project
+  ...
+```
+
+Confirm the choices by **Install template** and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
 
 ```js
 import { Actor } from 'apify';
