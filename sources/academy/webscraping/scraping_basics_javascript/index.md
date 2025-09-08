@@ -4,7 +4,7 @@ description: Learn how to use JavaScript to extract information from websites in
 sidebar_position: 1.5
 sidebar_label: Web scraping basics with JS
 category: web scraping
-slug: /scraping-basics-javascript2
+slug: /scraping-basics-javascript
 unlisted: true
 ---
 
