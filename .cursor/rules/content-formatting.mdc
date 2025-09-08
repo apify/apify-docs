@@ -49,7 +49,7 @@ curl -X GET "https://api.apify.com/v2/acts"
 
 ### Using Cmd+K for Quick Formatting
 
-- Use `@AGENT.md` to reference formatting standards
+- Use `@` to reference formatting standards
 - Use `@sources/**/*.mdx` to find similar MDX patterns
 - Use `@apify-api/**/*.yaml` to reference API examples
 

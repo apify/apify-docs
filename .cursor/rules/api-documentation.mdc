@@ -26,7 +26,7 @@ alwaysApply: true
 
 - Use `@apify-api/openapi/paths/**/*.yaml` to reference endpoint definitions
 - Use `@apify-api/openapi/components/schemas/**/*.yaml` to reference data models
-- Use `@AGENT.md` to reference API documentation standards
+- Use `@AGENTS.md` to reference API documentation standards
 
 ### Cursor-Specific Code Sample Workflow
 

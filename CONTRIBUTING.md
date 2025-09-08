@@ -136,7 +136,7 @@ This project uses a hybrid approach for AI assistant rules to ensure consistency
 
 #### Vendor-agnostic rules
 
-- **`AGENT.md`** - Primary vendor-agnostic rules file containing core documentation standards
+- **`AGENTS.md`** - Primary vendor-agnostic rules file containing core documentation standards
 
 #### Cursor-specific rules
 
@@ -152,13 +152,13 @@ To verify rule application, hover over attached rules in the Cursor chat window.
 
 #### For general AI assistants
 
-- Reference `AGENT.md` for vendor-agnostic documentation standards
+- Reference `AGENTS.md` for vendor-agnostic documentation standards
 
 #### For Cursor-specific features
 
 - Use `.cursor/rules/*.mdc` files for Cursor-specific workflows
 - Leverage glob patterns and `alwaysApply` settings
-- Use Cursor Chat and Cmd+K with `@AGENT.md` references
+- Use Cursor Chat and Cmd+K with `@AGENTS.md` references
 
 ### File targeting
 

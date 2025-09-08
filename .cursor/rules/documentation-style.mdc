@@ -24,7 +24,7 @@ When editing documentation in Cursor, consider the broader context:
 
 ### Using Cmd+K for Quick Edits
 
-- Use `@AGENT.md` to reference the main documentation standards
+- Use `@AGENTS.md` to reference the main documentation standards
 - Use `@sources/**/*.md` to search across all documentation files
 - Use `@apify-api/**/*.yaml` to reference API specifications
 
