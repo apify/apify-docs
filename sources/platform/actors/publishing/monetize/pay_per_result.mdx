@@ -16,6 +16,12 @@ In this model, you set a price per 1,000 results. Users are charged based on the
 
 The details on how your cost is computed can be found in [Example of a pay-per-result pricing model](#example-of-a-pay-per-result-pricing-model).
 
+:::tip Additional benefits
+
+Actors that implement pay-per-result pricing receive additional benefits, including increased visibility in the Apify Store and enhanced discoverability for users looking for monetized solutions.
+
+:::
+
 ## Pay-per-result (PPR) vs. pay-per-event (PPE)
 
 Unlike PPR, which charges based on the number of results produced, PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling the PPE charging API. Common events include Actor start, dataset item creation, and external API calls.
@@ -174,6 +180,12 @@ async def push_data_max_aware(data: Union[Dict[Any, Any], List[Dict[Any, Any]]])
 Test your Actor with various result volumes to determine optimal pricing. Start with minimal datasets (1-100 results) to understand your base costs and ensure the Actor works correctly with small inputs. Then test with typical usage volumes (1,000-10,000 results) to simulate real-world scenarios and identify any performance bottlenecks.
 
 Throughout all testing, monitor platform usage costs for each test run to calculate the true cost per result. This cost analysis is crucial for setting profitable pricing that covers your expenses while remaining competitive in the market.
+
+:::tip Use Actor analytics for cost estimation
+
+Check the **cost per 1000 results** chart in your Actor's analytics in Apify Console. This chart is computed from all runs of both paying and free users, giving you a comprehensive view of platform usage costs across different usage patterns. Use this data to better estimate the adequate price for your Actor.
+
+:::
 
 ### Push at least one "error item" to the dataset
 

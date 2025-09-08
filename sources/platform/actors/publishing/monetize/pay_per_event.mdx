@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 The pay-per-event pricing model offers a flexible monetization option for Actors on Apify Store. Unlike pay per result, PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
 
-PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling the [PPE charging API](/api/v2/post-charge-run), or through [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK Common events include Actor start, dataset item creation, and external API calls.
+PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly. Common events include Actor start, dataset item creation, and external API calls.
 
 The details on how your cost is computed can be found in [Example of a pay-per-event pricing model](#example-of-a-pay-per-event-pricing-model).
 
@@ -315,21 +315,16 @@ Try to limit the number of events. Fewer events make it easier for users to unde
 
 ### Make events produce visible results
 
-Try to make your event have tangible artifacts that users can see and understand (this might not be possible when using external APIs). Each charged event should produce something concrete in the user's dataset.
+For Actors that produce data, events should map to something concrete in the user's dataset or storage. 
 
-Good examples:
+However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility is what makes pay-per-event pricing powerful. It gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
+
+Examples:
 
 - _"scraped-product" event_: Each charge adds one product record to the dataset
 - _"processed-image" event_: Each charge adds one processed image to the dataset  
 - _"extracted-review" event_: Each charge adds one review to the dataset
-
-Avoid charging for:
-
-- Internal processing steps that don't produce visible results
-- API calls that don't generate user-visible data
-- Setup or configuration steps
-
-This helps users understand exactly what they're paying for and builds trust in your pricing model.
+- _"ai-analysis" event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
 
 ### Use idempotency keys to prevent double charges
 
@@ -342,23 +337,24 @@ You make your Actor pay-per-event and set the following pricing:
 - _"actor-start" event_: $0.10 per start
 - _"scraped-product" event_: $0.01 per product
 - _"scraped-product-detail" event_: $0.05 per detail
+- _"ai-analysis" event_: $0.15 per analysis
 
 During the first month, three users use your Actor:
 
-- _User 1 (paid plan)_: Starts Actor 5 times, scrapes 1,000 products, makes 50 product details
-  - Charges: 5 × $0.10 + 1,000 × $0.01 + 50 × $0.05 = $0.50 + $10.00 + $2.50 = $13.00
-- _User 2 (paid plan)_: Starts Actor 2 times, scrapes 500 products, makes 20 product details  
-  - Charges: 2 × $0.10 + 500 × $0.01 + 20 × $0.05 = $0.20 + $5.00 + $1.00 = $6.20
-- _User 3 (free plan)_: Starts Actor 1 time, scrapes 100 products, makes 5 product details
-  - Charges: 1 × $0.10 + 100 × $0.01 + 5 × $0.05 = $0.10 + $1.00 + $0.25 = $1.35
+- _User 1 (paid plan)_: Starts Actor 5 times, scrapes 1,000 products, makes 50 product details, runs 30 AI analyses
+  - Charges: 5 × $0.10 + 1,000 × $0.01 + 50 × $0.05 + 30 × $0.15 = $0.50 + $10.00 + $2.50 + $4.50 = $17.50
+- _User 2 (paid plan)_: Starts Actor 2 times, scrapes 500 products, makes 20 product details, runs 10 AI analyses
+  - Charges: 2 × $0.10 + 500 × $0.01 + 20 × $0.05 + 10 × $0.15 = $0.20 + $5.00 + $1.00 + $1.50 = $7.70
+- _User 3 (free plan)_: Starts Actor 1 time, scrapes 100 products, makes 5 product details, runs 3 AI analyses
+  - Charges: 1 × $0.10 + 100 × $0.01 + 5 × $0.05 + 3 × $0.15 = $0.10 + $1.00 + $0.25 + $0.45 = $1.80
 
-Let's say the underlying platform usage for the first user is $2.50, for the second $1.20, and for the third $0.30.
+Let's say the underlying platform usage for the first user is $3.20, for the second $1.50, and for the third $0.40.
 
 Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue breakdown is:
 
-- _Total revenue_: $13.00 + $6.20 = $19.20
-- _Total underlying cost_: $2.50 + $1.20 = $3.70
-- _Your profit_: 80% of revenue minus costs = 0.8 × $19.20 - $3.70 = $11.66
+- _Total revenue_: $17.50 + $7.70 = $25.20
+- _Total underlying cost_: $3.20 + $1.50 = $4.70
+- _Your profit_: 80% of revenue minus costs = 0.8 × $25.20 - $4.70 = $15.46
 
 ## PPE event names
 
