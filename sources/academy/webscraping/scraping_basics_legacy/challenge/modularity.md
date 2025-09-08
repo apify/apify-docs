@@ -2,7 +2,7 @@
 title: Modularity
 description: Before you build your first web scraper with Crawlee, it is important to understand the concept of modularity in programming.
 sidebar_position: 2
-slug: /web-scraping-for-beginners/challenge/modularity
+slug: /scraping-basics-javascript/legacy/challenge/modularity
 ---
 
 **Before you build your first web scraper with Crawlee, it is important to understand the concept of modularity in programming.**

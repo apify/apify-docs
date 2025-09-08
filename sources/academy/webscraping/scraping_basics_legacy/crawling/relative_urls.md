@@ -2,7 +2,7 @@
 title: Relative URLs
 description: Learn about absolute and relative URLs used on web pages and how to work with them when parsing HTML with Cheerio in your scraper.
 sidebar_position: 4
-slug: /web-scraping-for-beginners/crawling/relative-urls
+slug: /scraping-basics-javascript/legacy/crawling/relative-urls
 ---
 
 **Learn about absolute and relative URLs used on web pages and how to work with them when parsing HTML with Cheerio in your scraper.**

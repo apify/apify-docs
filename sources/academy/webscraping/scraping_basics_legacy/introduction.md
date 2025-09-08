@@ -3,7 +3,7 @@ title: Introduction
 description: Start learning about web scraping, web crawling, data extraction, and popular tools to start developing your own scraper.
 sidebar_position: 1.1
 category: courses
-slug: /web-scraping-for-beginners/introduction
+slug: /scraping-basics-javascript/legacy/introduction
 ---
 
 **Start learning about web scraping, web crawling, data extraction, and popular tools to start developing your own scraper.**

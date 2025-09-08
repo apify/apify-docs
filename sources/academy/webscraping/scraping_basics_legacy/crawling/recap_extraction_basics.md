@@ -2,7 +2,7 @@
 title: Recap of data extraction basics
 description: Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to extract and save the data.
 sidebar_position: 1
-slug: /web-scraping-for-beginners/crawling/recap-extraction-basics
+slug: /scraping-basics-javascript/legacy/crawling/recap-extraction-basics
 ---
 
 **Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to extract and save the data.**

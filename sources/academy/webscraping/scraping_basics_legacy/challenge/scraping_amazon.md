@@ -2,7 +2,7 @@
 title: Scraping Amazon
 description: Before you build your first web scraper with Crawlee, it is important to understand the concept of modularity in programming.
 sidebar_position: 4
-slug: /web-scraping-for-beginners/challenge/scraping-amazon
+slug: /scraping-basics-javascript/legacy/challenge/scraping-amazon
 ---
 
 **Build your first web scraper with Crawlee. Let's extract product information from Amazon to give you an idea of what real-world scraping looks like.**
