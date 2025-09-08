@@ -1,3 +1,5 @@
+<!-- vale off -->
+<!-- markdownlint-disable -->
 ---
 title: Apify General Terms and Conditions
 description: Apify General Terms and Conditions govern the use of Apify's website, platform and services.
@@ -8,8 +10,6 @@ slug: /general-terms-and-conditions
 ---
 
 # Apify General Terms and Conditions
-
-<!-- vale off -->
 
 Effective date: May 14, 2024
 
