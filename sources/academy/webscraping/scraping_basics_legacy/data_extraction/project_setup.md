@@ -3,6 +3,7 @@ title: Project setup
 description: Create a new project with npm and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.
 sidebar_position: 5
 slug: /scraping-basics-javascript/legacy/data-extraction/project-setup
+unlisted: true
 ---
 
 # Setting up your project {#setting-up}

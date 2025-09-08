@@ -4,6 +4,7 @@ description: Learn about HTML, CSS, and JavaScript, the basic building blocks of
 sidebar_position: 1.2
 category: courses
 slug: /scraping-basics-javascript/legacy/data-extraction
+unlisted: true
 ---
 
 # Basics of data extraction {#basics}
