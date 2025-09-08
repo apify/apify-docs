@@ -56,7 +56,7 @@ You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To
 
 ## Example
 
-Here is an Actor that demonstrates how to access input and produce output. The Actor takes two numbers as input, adds them together, and pushes the result to its default dataset.
+Here is an Actor that shows how to access input and produce output. The Actor takes two numbers as input, adds them together, and pushes the result to its default dataset.
 
 ### Input
 

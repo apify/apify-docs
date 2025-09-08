@@ -36,7 +36,7 @@ pip install apify-client
 
 ## Initialization
 
-After installing the package, you must import and initialize the client with your personal API token, which you can find in the [**Integrations**](https://console.apify.com/settings/integrations) section of the Apify Console.
+After installing the package, you must import and initialize the client with your personal API token, which you can find in the [**Integrations**](https://console.apify.com/settings/integrations) section of Apify Console.
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
