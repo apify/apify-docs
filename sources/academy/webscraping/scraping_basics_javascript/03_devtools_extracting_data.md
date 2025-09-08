@@ -2,7 +2,7 @@
 title: Extracting data from a web page with browser DevTools
 sidebar_label: "DevTools: Extracting data"
 description: Lesson about using the browser tools for developers to manually extract product data from an e-commerce website.
-slug: /scraping-basics-javascript2/devtools-extracting-data
+slug: /scraping-basics-javascript/devtools-extracting-data
 unlisted: true
 ---
 
