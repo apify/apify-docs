@@ -4,7 +4,7 @@ description: Learn how to develop web scrapers with this comprehensive and pract
 sidebar_position: 1
 sidebar_label: Web scraping basics with JS
 category: web scraping
-slug: /web-scraping-for-beginners
+slug: /scraping-basics-javascript/legacy
 ---
 
 # Web scraping basics for JavaScript devs {#welcome}
