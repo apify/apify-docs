@@ -63,7 +63,7 @@ client = ApifyClient(token='YOUR_API_TOKEN')
 
 :::caution Protect your token
 
-Avoid hardcoding your `API token`. Use an environment variable instead, especially for code in a public repository.
+Avoid hardcoding `API token`. Use an [environment variable](https://en.wikipedia.org/wiki/Environment_variable) instead, especially for code in a public repository.
 
 :::
 
