@@ -12,11 +12,9 @@ slug: /integrations/api
 
 All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
 
-If you want to use the Apify API from JavaScript in Node.js or Python, we strongly recommend using one of our official API clients. They implement best practices such as exponential backoff and rate limiting.
+While you can use any HTTP client with the Apify REST API, our official API clients for [JavaScript](/api/client/js/) and [Python](/api/client/python/) offer built-in best practices like exponential backoff and rate limiting.
 
 [Check out API Clients guide](/platform/integrations/api/clients)
-
-You are not required to use these packages—the REST API works with any HTTP client—but the official API clients are the recommended approach for most use cases.
 
 ## API token
 
