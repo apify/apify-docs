@@ -1,5 +1,5 @@
 ---
-title: Pay per event (PPE)
+title: Pay per event
 description: Learn how to monetize your Actor with pay-per-event (PPE) pricing, charging users for specific actions like Actor starts, dataset items, or API calls, and understand how to set profitable, transparent event-based pricing.
 slug: /actors/publishing/monetize/pay-per-event
 sidebar_position: 3
@@ -114,7 +114,7 @@ await Actor.exit();
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 from apify import Actor
 
 async def charge_for_actor_start():
@@ -139,7 +139,7 @@ async def main():
 
 :::note Actor migrations and charging
 
-Actors can migrate between servers during execution, which restarts the process and clears memory. When using PPE charging, avoid charging the start event multiple times after a migration by checking your charging state.
+Actors can migrate between servers during execution, which restarts the process and clears memory. When using PPE pricing model, avoid charging the start event multiple times after a migration by checking your charging state.
 
 :::
 
@@ -196,7 +196,7 @@ await Actor.exit();
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 from apify import Actor
 import requests
 
@@ -237,7 +237,7 @@ async def main():
 
 ### Respect user spending limits
 
-Finish the Actor run once charging reaches user-configured Maximum cost per run. Apify SDKs (JS and Python) return ChargeResult that helps determine when to finish.
+Finish the Actor run once charging reaches user-configured Maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
 
 The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
 
@@ -277,7 +277,7 @@ await Actor.exit();
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 from apify import Actor
 
 async def charge_for_api_product_detail():

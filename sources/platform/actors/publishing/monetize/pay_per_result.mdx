@@ -1,5 +1,5 @@
 ---
-title: Pay per result (PPR)
+title: Pay per result
 description: Learn how to monetize your Actor with pay-per-result (PPR) pricing, charging users based on the number of results produced and stored in the dataset, and understand how to set profitable, transparent result-based pricing.
 slug: /actors/publishing/monetize/pay-per-result
 sidebar_position: 2
@@ -122,7 +122,7 @@ export const pushDataMaxAware = async (data: Parameters<Actor['pushData']>[0]): 
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 import os
 import asyncio
 from apify import Actor
@@ -205,9 +205,9 @@ Example scenarios:
 
 This ensures that every run generates at least one result, guaranteeing that users are charged appropriately for using your Actor.
 
-## Example of a pay-per-result pricing model
+## Example of pay-per-result pricing model
 
-You make your Actor pay-per-result and set the price to be **$1/1,000 results**. During the first month, three users use your Actor:
+You make your Actor pay-per-result and set the price to be _$1/1,000 results_. During the first month, three users use your Actor:
 
 - _User 1 (paid plan)_: Gets 50,000 results, costing them $50
 - _User 2 (paid plan)_: Gets 20,000 results, costing them $20
