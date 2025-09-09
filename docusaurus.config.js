@@ -368,12 +368,12 @@ module.exports = {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
-            }
 
-            // Extract the first sentence (ending with . ! or ?) even if it spans multiple lines
-            const contentText = result.content.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-            const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
-            result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
+                // Extract the first sentence (ending with . ! or ?) even if it spans multiple lines
+                const contentText = result.content.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+                const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
+                result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
+            }
 
             return result;
         },
