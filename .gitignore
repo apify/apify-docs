@@ -24,3 +24,5 @@ sources/api/*
 apify-api.yaml
 static/api
 apify-docs-theme/package-lock.json
+.github/styles/Microsoft
+.github/styles/write-good
