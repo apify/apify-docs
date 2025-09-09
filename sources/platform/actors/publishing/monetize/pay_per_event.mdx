@@ -12,11 +12,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The pay-per-event pricing model offers a flexible monetization option for Actors on Apify Store. Unlike pay per result, PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
+The PPE pricing model offers a flexible monetization option for Actors on Apify Store. Unlike pay per result, PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
 
 PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly. Common events include Actor start, dataset item creation, and external API calls.
 
-The details on how your cost is computed can be found in [Example of a pay-per-event pricing model](#example-of-a-pay-per-event-pricing-model).
+The details on how your cost is computed can be found in [Example of a PPE pricing model](#example-of-a-ppe-pricing-model).
 
 ## How is profit computed
 
@@ -40,7 +40,7 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 
 :::
 
-## How to set pricing for pay-per-event Actors
+## How to set pricing for PPE Actors
 
 1. _Understand your costs_: Analyze resource usage (e.g CPU, memory, proxies, external APIs) and identify cost drivers
 1. _Define clear events_: break your Actor's functionality into measurable, chargeable events.
@@ -51,7 +51,7 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
-## Best practices for pay-per-event Actors
+## Best practices for PPE Actors
 
 Use our SDKs (JS and, Python or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
 
@@ -77,9 +77,9 @@ When using browser automation tools like Puppeteer or Playwright for web scrapin
 
 :::
 
-### Charge for "Actor start"
+### Charge for `Actor start`
 
-Charge for "Actor start" to prevent users from running your Actor for free.
+Charge for `Actor start` to prevent users from running your Actor for free.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -317,7 +317,7 @@ Try to limit the number of events. Fewer events make it easier for users to unde
 
 For Actors that produce data, events should map to something concrete in the user's dataset or storage.
 
-However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility is what makes pay-per-event pricing powerful. It gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
+However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility is what makes PPE pricing powerful. It gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
 
 Examples:
 
@@ -330,9 +330,9 @@ Examples:
 
 If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
 
-## Example of a pay-per-event pricing model
+## Example of a PPE pricing model
 
-You make your Actor pay-per-event and set the following pricing:
+You make your Actor PPE and set the following pricing:
 
 - _`actor-start` event_: $0.10 per start
 - _`scraped-product` event_: $0.01 per product
@@ -356,9 +356,9 @@ Your profit is computed only from the first two users, since they are on Apify p
 - _Total underlying cost_: $3.20 + $1.50 = $4.70
 - _Your profit_: 80% of revenue minus costs = 0.8 × $25.20 - $4.70 = $15.46
 
-## PPE event names
+## Event names
 
-To implement pay-per-event pricing, you need to define specific events in your Actor code. You can retrieve the list of available pricing event names using the [Get Actor](https://apify.com/docs/api/v2/act-get) API endpoint.
+To implement PPE pricing, you need to define specific events in your Actor code. You can retrieve the list of available pricing event names using the [Get Actor](https://apify.com/docs/api/v2/act-get) API endpoint.
 
 ## Next steps
 

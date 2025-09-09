@@ -14,19 +14,13 @@ import TabItem from '@theme/TabItem';
 
 In this model, you set a price per 1,000 results. Users are charged based on the number of results your Actor produces and stores in the run's default dataset. Your profit is calculated as 80% of the revenue minus platform usage costs.
 
-The details on how your cost is computed can be found in [Example of a pay-per-result pricing model](#example-of-a-pay-per-result-pricing-model).
+The details on how your cost is computed can be found in [Example of a PPR pricing model](#example-of-a-ppr-pricing-model).
 
 :::tip Additional benefits
 
-Actors that implement pay-per-result pricing receive additional benefits, including increased visibility in the Apify Store and enhanced discoverability for users looking for monetized solutions.
+Actors that implement PPR pricing receive additional benefits, including increased visibility in the Apify Store and enhanced discoverability for users looking for monetized solutions.
 
 :::
-
-## Pay-per-result (PPR) vs. pay-per-event (PPE)
-
-Unlike PPR, which charges based on the number of results produced, PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling the PPE charging API. Common events include Actor start, dataset item creation, and external API calls.
-
-If you're interested in learning more about PPE, check out the [Pay per event (PPE)](/platform/actors/publishing/monetize/pay-per-event) section.
 
 ## How is profit computed
 
@@ -37,11 +31,11 @@ Your profit is calculated from the mentioned formula:
 where:
 
 - _Revenue_: The amount charged for results via the PPR pricing API or through JS/Python SDK. You receive 80% of this revenue.
-- _Platform costs_: The underlying platform usage costs for running the Actor, calculated in the same way as for PPE. For more details, visit the [Example of a pay-per-result pricing model](#example-of-a-pay-per-result-pricing-model) section.
+- _Platform costs_: The underlying platform usage costs for running the Actor, calculated in the same way as for PPE. For more details, visit the [Example of a PPR pricing model](#example-of-a-ppr-pricing-model) section.
 
 Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
 
-## Best practices for pay-per-result Actors
+## Best practices for PPR Actors
 
 To ensure profitability, check the following best practices.
 
@@ -69,7 +63,7 @@ When using browser automation tools like [Puppeteer](https://pptr.dev/) or [Play
 
 This check prevents your Actor from generating more results than the user has paid for, protecting both you and your users from unexpected costs.
 
-The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for pay-per-results Actors. Do not exceed this limit. You can see the example implementation in the following code snippets.
+The `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable contains the user-set limit on returned results for PPR Actors. Do not exceed this limit. You can see the example implementation in the following code snippets.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -85,7 +79,7 @@ let isGettingItemCount = false;
 let pushedItemCount = 0;
 
 export const pushDataMaxAware = async (data: Parameters<Actor['pushData']>[0]): Promise<{ shouldStop: boolean }> => {
-    // If this isn't pay-per-result, just push like normallyå
+    // If this isn't PPR, just push like normally
     if (!MAX_ITEMS) {
         await Actor.pushData(data);
         return { shouldStop: false };
@@ -136,7 +130,7 @@ class PayPerResultManager:
         self.pushed_item_count = 0
 
     async def push_data_max_aware(self, data: Union[Dict[Any, Any], List[Dict[Any, Any]]]) -> Dict[str, bool]:
-        # If this isn't pay-per-result, just push like normally
+        # If this isn't PPR, just push like normally
         if not self.max_items:
             await Actor.push_data(data)
             return {'shouldStop': False}
@@ -205,9 +199,9 @@ Example scenarios:
 
 This ensures that every run generates at least one result, guaranteeing that users are charged appropriately for using your Actor.
 
-## Example of pay-per-result pricing model
+## Example of PPR pricing model
 
-You make your Actor pay-per-result and set the price to be _$1/1,000 results_. During the first month, three users use your Actor:
+You make your Actor PPR and set the price to be _$1/1,000 results_. During the first month, three users use your Actor:
 
 - _User 1 (paid plan)_: Gets 50,000 results, costing them $50
 - _User 2 (paid plan)_: Gets 20,000 results, costing them $20
