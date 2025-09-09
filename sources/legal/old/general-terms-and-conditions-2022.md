@@ -1,5 +1,3 @@
-<!-- vale off -->
-<!-- markdownlint-disable -->
 ---
 title: Apify General Terms and Conditions October 2022
 description: Outdated general terms and conditions that governed the use of Apify website, platform and services until May 2024.
@@ -7,6 +5,8 @@ category: legal
 slug: /old/general-terms-and-conditions-october-2022
 ---
 
+<!-- vale off -->
+<!-- markdownlint-disable -->
 
 ## Version History
 
