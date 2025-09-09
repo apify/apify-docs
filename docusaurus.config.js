@@ -378,7 +378,7 @@ module.exports = {
                     .trim();
                 // Extract the first sentence (ending with . ! or ?) even if it spans multiple lines
                 const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
-                if (!result.frontMatter.description.endsWith('.')) result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
+                result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
             }
 
             return result;
