@@ -1,5 +1,3 @@
-<!-- vale off -->
-<!-- markdownlint-disable -->
 ---
 title: Apify Privacy Policy
 description: Apify Privacy Policy describes how we handle your personal data and how you can exercise your personal data rights.
@@ -10,6 +8,8 @@ slug: /privacy-policy
 ---
 
 # Apify Privacy Policy
+
+<!-- vale off -->
 
 Last Updated: February 10, 2025
 

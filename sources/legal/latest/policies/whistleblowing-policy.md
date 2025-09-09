@@ -1,5 +1,3 @@
-<!-- vale off -->
-<!-- markdownlint-disable -->
 ---
 title: Apify Whistleblowing Policy
 description: Apify's whistleblowing policy describes how illegal activities can be reported, as required by law.
@@ -11,6 +9,7 @@ slug: /whistleblowing-policy
 
 # Apify Whistleblowing Policy
 
+<!-- vale off -->
 
 [verze v českém jazyce níže]
 

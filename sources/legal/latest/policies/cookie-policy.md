@@ -1,5 +1,3 @@
-<!-- vale off -->
-<!-- markdownlint-disable -->
 ---
 title: Apify Cookie Policy
 description: Apify Cookie Policy describes how we handle cookies on our website and platform.
@@ -10,6 +8,8 @@ slug: /cookie-policy
 ---
 
 # Apify Cookie Policy
+
+<!-- vale off -->
 
 **Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**", "**us**" or the "**Provider**") welcomes you (“**you**” or the “**User**”) on our website apify.com (the “**Website**”).
 

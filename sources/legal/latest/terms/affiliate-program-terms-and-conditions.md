@@ -1,5 +1,3 @@
-<!-- vale off -->
-<!-- markdownlint-disable -->
 ---
 title: Apify Affiliate Program Terms and Conditions
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.
@@ -10,6 +8,8 @@ slug: /affiliate-program-terms-and-conditions
 ---
 
 # Apify Affiliate Program Terms and Conditions
+
+<!-- vale off -->
 
 Effective date: May 14, 2024
 

@@ -1,5 +1,3 @@
-<!-- vale off -->
-<!-- markdownlint-disable -->
 ---
 title: Apify Community Code of Conduct
 description: Apify's code of conduct describes how Apify expects its community members behave.
@@ -11,6 +9,7 @@ slug: /community-code-of-conduct
 
 # Apify Community Code of Conduct
 
+<!-- vale off -->
 
 Effective Date: August 18, 2025
 
