@@ -82,7 +82,6 @@
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "ajv": "^8.17.1",
         "clsx": "^2.0.0",
-        "docusaurus-biel": "^1.0.8",
         "docusaurus-plugin-image-zoom": "^3.0.1",
         "docusaurus-plugin-openapi-docs": "^4.3.7",
         "docusaurus-theme-openapi-docs": "^4.3.7",
