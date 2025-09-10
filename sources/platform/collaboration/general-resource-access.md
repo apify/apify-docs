@@ -1,6 +1,6 @@
 # General Resources Access
 
-Some resources, like storages, actor runs or actor builds, support `unrestricted access`. You can share them simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
+Some resources, like storages, Actor runs or Actor builds, support `unrestricted access`. You can share them simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
 
 Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation or a formal audit trail and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
@@ -78,9 +78,9 @@ This automatic sharing ensures the developer can view all the context they need 
 
 The access is granted through explicit, behind-the-scenes permissions (not anonymous or public access), and is limited to just that run and its related storages. No other resources in your account are affected.
 
-This means you don’t need to manually adjust permissions or share multiple links when reporting an actor issue — **just including the run URL in your issue is enough**
+This means you don’t need to manually adjust permissions or share multiple links when reporting an Actor issue — **just including the run URL in your issue is enough**
 
-![Sharing a run link in create actor issue dialog makes it accessible to the developer automatically](./images/general-resouce-access/creating-actor-issue.png)
+![Sharing a run link in create Actor issue dialog makes it accessible to the developer automatically](./images/general-resouce-access/creating-actor-issue.png)
 
 ## Per-resource access control
 
