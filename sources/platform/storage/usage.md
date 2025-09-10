@@ -168,7 +168,7 @@ For one-off sharing when access is restricted, generate time-limited pre-signed 
 
 :::tip
 
-If your storage resource is set to *restricted*, all API calls must include a valid authentication token in the `Authorization` header. If you're using **apify-client** the header is passed in automatically.
+If your storage resource is set to _restricted_, all API calls must include a valid authentication token in the `Authorization` header. If you're using **apify-client** the header is passed in automatically.
 
 :::
 
