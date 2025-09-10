@@ -15,7 +15,7 @@ You can create an Actor in several ways. You can create one from your own source
 
 ## Choose the source {#choose-the-source}
 
-Once you're in Apify Console, go to [Development](https://console.apify.com/actors/development/my-actors), and click on the **Develop new** button in the top right-hand corner.
+Once you're in Apify Console, go to [Actors](https://console.apify.com/actors), and click on the **Develop new** button in the top right-hand corner.
 
 ![Develop an Actor button](./images/develop-new-actor.png)
 
@@ -168,12 +168,6 @@ After the Actor finishes, you can preview or download the extracted data by clic
 ![Export results](./images/actor-run-dataset.png)
 
 And that's it! You've just created your first Actor and extracted data from a website 🎉.
-
-## Getting stuck? Check out the tips 💡 {#get-help-with-tips}
-
-If you ever get stuck, you can always click on the **Tips** button in the top right corner of the page. It will show you a list of tips that are relevant to the Actor development.
-
-![Tips](./images/actor-tips.png)
 
 ## Next up {#next}
 
