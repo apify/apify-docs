@@ -160,7 +160,17 @@ For example, storage names `janedoe~my-storage-1` and `janedoe~web-scrape-result
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to others Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md). If your storage's access is set to restricted and you'd like to share a short-lived link, you can also share storages using [pre-signed URL's](../collaboration/general-resource-access#pre-signed-urls).
+You can grant [access rights](../collaboration/index.md) to other Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md).
+
+You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+
+For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+
+:::tip
+
+If your storage resource is set to *restricted*, all API calls must include a valid authentication token in the `Authorization` header. If you're using **apify-client** the header is passed in automatically.
+
+:::
 
 ### Sharing storages between runs
 
@@ -172,6 +182,13 @@ Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actor
 
 > When multiple runs try to write data to a storage simultaneously, the order of data writing cannot be controlled. Data is written as each request is processed. <br/>
 > Similar principle applies in key-value stores and request queues, when a delete request for a record precedes a read request for the same record, the read request will fail.
+
+:::info
+
+If a storage resource access is set to `Restricted`, you must the run from which it's accessed must have explicit access to it.
+Learn how restricted access works in [General resource access](/platform/collaboration/general-resource-access).
+
+:::
 
 ## Deleting storages
 
