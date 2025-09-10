@@ -6,7 +6,7 @@ Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use 
 
 **General resource access** is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
 
-- **Anyone with ID can read (default)**: Selected resources can be accessed using just with their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the console url.
+- **Anyone with ID can read (default)**: Selected resources can be accessed using just with their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
 - **Restricted**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
 
 This setting affects the following resources:
@@ -29,11 +29,11 @@ When using the API, resources that are set to `Restricted` can be viewed only wi
 
 ### Named storages
 
-A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages i only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages console url.
+A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages i only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
 
 :::tip
 
-This is very useful if you wish to expose a storage publicly with an easy to remember url.
+This is very useful if you wish to expose a storage publicly with an easy to remember URL.
 
 :::
 
