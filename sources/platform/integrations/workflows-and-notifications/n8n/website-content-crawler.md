@@ -1,15 +1,15 @@
 ---
-title: n8n - AI crawling Actor integration
-description: Learn about AI Crawling scraper modules.
-sidebar_label: AI Crawling
+title: n8n - Website Content Crawler Actor integration
+description: Learn about Website Content Crawler module.
+sidebar_label: Website Content Crawler
 sidebar_position: 6
-slug: /integrations/n8n/ai-crawling
+slug: /integrations/n8n/website-content-crawler
 toc_max_heading_level: 4
 ---
 
-## Apify Scraper for AI Crawling
+## Website Content Crawler By Apify
 
-Apify Scraper for AI Crawling from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
+Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
 
 To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
@@ -33,21 +33,23 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 ![Apify Install Node](images/install.png)
 
-## Install the Apify Scraper for AI Crawling Node (n8n Cloud)
+## Install the Website Content Crawler by Apify Node (n8n Cloud)
 
 For n8n Cloud users, installation is even simpler and doesn't require manual package entry.  Just search and add the node from the canvas.
 
 1. Go to the **Canvas** and open the **nodes panel**
-1. Search for **Apify Scraper for AI Crawling** in the community node registry
+1. Search for **Website Content Crawler by Apify** in the community node registry
 1. Click **Install node** to add the Apify node to your instance
+
+![Website Content Crawler by Apify on n8n](images/operations.png)
 
 :::note Verified community nodes visibility
 
-On n8n Cloud, instance owners can toggle visibility of verified community nodes in the Cloud Admin Panel. Ensure this setting is enabled to install the Apify Scraper for AI Crawling node.
+On n8n Cloud, instance owners can toggle visibility of verified community nodes in the Cloud Admin Panel. Ensure this setting is enabled to install the Website Content Crawler by Apify node.
 
 :::
 
-## Connect Apify Scraper for AI Crawling (self-hosted)
+## Connect Website Content Crawler by Apify (self-hosted)
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
@@ -74,7 +76,7 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
 1. Select **Connect my account** and authorize with your Apify account.
 1. n8n automatically retrieves and stores the OAuth2 tokens.
 
-  ![Apify Auth](../../images/n8n-oauth.png)
+  ![Apify Auth](images/credentials.png)
   
 :::note
 
@@ -84,19 +86,24 @@ For simplicity on n8n Cloud, use the API key method if you prefer manual control
 
 With authentication set up, you can now create workflows that incorporate the Apify node.
 
-## Apify Scraper for AI Crawling modules
+## Website Content Crawler by Apify module
 
-After connecting the app, you can use one of the two modules as native scrapers to extract website content.
+This module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
 
-### Standard Settings module
+#### Key features
 
-The Standard Settings module lets you quickly extract content from websites using optimized default settings. This module is ideal for extracting content from blogs, documentation, and knowledge bases to feed into AI models.
+- _Multiple Crawler Options_: Choose between headless browsers (Playwright) or faster HTTP clients (Cheerio)
+- _Custom Content Selection_: Specify exactly which elements to keep or remove
+- _Advanced Navigation Control_: Set crawling depth, scope, and URL patterns
+- _Dynamic Content Handling_: Wait for JavaScript-rendered content to load
+- _Interactive Element Support_: Click expandable sections to reveal hidden content
+- _Multiple Output Formats_: Save content as Markdown, HTML, or plain text
+- _Proxy Configuration_: Use proxies to handle geo-restrictions or avoid IP blocks
+- _Content Transformation Options_: Multiple algorithms for optimal content extraction
 
 #### How it works
 
-The crawler starts with one or more URLs. It then crawls these initial URLs and discovers links to other pages on the same site, which it adds to a queue. The crawler will recursively follow these links as long as they are under the same path as the start URL. You can customize this behavior by defining specific URL patterns for inclusion or exclusion. To ensure efficiency, the crawler automatically skips any duplicate pages it encounters. A variety of settings are available to fine-tune the crawling process, including the crawler type, the maximum number of pages to crawl, the crawl depth, and concurrency.
-
-Once a page is loaded, the Actor processes its HTML to extract high-quality content. It can be configured to wait for dynamic content to load and can scroll the page to trigger the loading of additional content. To access information hidden in interactive sections, the crawler can be set up to expand clickable elements. It also cleans the HTML by removing irrelevant DOM nodes, such as navigation bars, headers, and footers, and can be configured to keep only the content that matches specific CSS selectors. The crawler also handles cookie warnings automatically and transforms the page to extract the main content.
+The Advanced Settings module provides granular control over the entire crawling process. For _Crawler selection_, you can choose from Playwright (Firefox/Chrome) or Cheerio, depending on the complexity of the target website. _URL management_ allows you to define the crawling scope with include and exclude URL patterns. You can also exercise precise _DOM manipulation_ by controlling which HTML elements to keep or remove. To ensure the best results, you can apply specialized algorithms for _Content transformation_ and select from various _Output formatting_ options for better AI model compatibility.
 
 #### Output data
 
@@ -107,6 +114,10 @@ For each crawled web page, you'll receive:
 - _Markdown formatting_: Structured content with headers, lists, links, and other formatting preserved
 - _Crawl information_: Loaded URL, referrer URL, timestamp, HTTP status
 - _Optional file downloads_: PDFs, DOCs, and other linked documents
+- _Multiple format options_: Content in Markdown, HTML, or plain text
+- _Debug information_: Detailed extraction diagnostics and snapshots
+- _HTML transformations_: Results from different content extraction algorithms
+- _File storage options_: Flexible storage for HTML, screenshots, or downloaded files
 
 ```json title="Sample output (shortened)"
 {
@@ -129,39 +140,11 @@ For each crawled web page, you'll receive:
 }
 ```
 
-### Advanced Settings module
-
-The Advanced Settings module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
-
-#### Key features
-
-- _Multiple Crawler Options_: Choose between headless browsers (Playwright) or faster HTTP clients (Cheerio)
-- _Custom Content Selection_: Specify exactly which elements to keep or remove
-- _Advanced Navigation Control_: Set crawling depth, scope, and URL patterns
-- _Dynamic Content Handling_: Wait for JavaScript-rendered content to load
-- _Interactive Element Support_: Click expandable sections to reveal hidden content
-- _Multiple Output Formats_: Save content as Markdown, HTML, or plain text
-- _Proxy Configuration_: Use proxies to handle geo-restrictions or avoid IP blocks
-- _Content Transformation Options_: Multiple algorithms for optimal content extraction
-
-#### How it works
-
-The Advanced Settings module provides granular control over the entire crawling process. For _Crawler selection_, you can choose from Playwright (Firefox/Chrome) or Cheerio, depending on the complexity of the target website. _URL management_ allows you to define the crawling scope with include and exclude URL patterns. You can also exercise precise _DOM manipulation_ by controlling which HTML elements to keep or remove. To ensure the best results, you can apply specialized algorithms for _Content transformation_ and select from various _Output formatting_ options for better AI model compatibility.
+You can access any of thousands of our scrapers on Apify Store by using the [general Apify app](https://n8n.io/integrations/apify).
 
 #### Configuration options
 
-Advanced Settings offers a wide range of configuration options. You can select the _Crawler type_ by choosing the rendering engine (browser or HTTP client) and the _Content extraction algorithm_ from multiple HTML transformers. _Element selectors_ allow you to specify which elements to keep, remove, or click, while _URL patterns_ let you define inclusion and exclusion rules with glob syntax. You can also set _Crawling parameters_ like concurrency, depth, timeouts, and retries. For robust crawling, you can configure _Proxy configuration_ settings and select from various _Output options_ for content formats and storage.
-
-#### Output data
-
-In addition to the standard output fields, this module provides:
-
-- _Multiple format options_: Content in Markdown, HTML, or plain text
-- _Debug information_: Detailed extraction diagnostics and snapshots
-- _HTML transformations_: Results from different content extraction algorithms
-- _File storage options_: Flexible storage for HTML, screenshots, or downloaded files
-
-You can access any of thousands of our scrapers on Apify Store by using the [general Apify app](https://n8n.io/integrations/apify).
+You can select the _Crawler type_ by choosing the rendering engine (browser or HTTP client) and the _Content extraction algorithm_ from multiple HTML transformers. _Element selectors_ allow you to specify which elements to keep, remove, or click, while _URL patterns_ let you define inclusion and exclusion rules with glob syntax. You can also set _Crawling parameters_ like concurrency, depth, timeouts, and retries. For robust crawling, you can configure _Proxy configuration_ settings and select from various _Output options_ for content formats and storage.
 
 ## Usage as an AI Agent Tool
 
@@ -173,7 +156,7 @@ You can setup Apify's Scraper for AI Crawling node as a tool for your AI Agents.
 
 In the Website Content Crawler module you can set the **Start URLs** to be filled in by your AI Agent dynamically. This allows the Agent to decide on which pages to scrape off the internet.
 
-We recommend using the Advanced Settings module with your AI Agent. Two key parameters to set are **Max crawling depth** and **Max pages**. Remember that the scraping results are passed into the AI Agent’s context, so using smaller values helps stay within context limits.
+Two key parameters to configure for optimized AI Agent usage are **Max crawling depth** and **Max pages**. Remember that the scraping results are passed into the AI Agent’s context, so using smaller values helps stay within context limits.
 
 ![Config Apify](./images/config.png)
 
