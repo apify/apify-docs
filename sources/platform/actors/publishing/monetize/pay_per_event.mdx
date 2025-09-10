@@ -145,7 +145,7 @@ Actors can migrate between servers during execution, which restarts the process 
 
 ### Charge for invalid input
 
-Charge for things like URLs that appear valid but lead to errors (like 404s) since you actually had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
+Charge for things like URLs that appear valid but lead to errors (like 404s) since you had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -317,7 +317,7 @@ Try to limit the number of events. Fewer events make it easier for users to unde
 
 For Actors that produce data, events should map to something concrete in the user's dataset or storage.
 
-However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility is what makes PPE pricing powerful. It gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
+However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
 
 Examples:
 
