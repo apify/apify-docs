@@ -26,7 +26,7 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 If your **general resource access** is set to **anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
-When using the API, resources that are set to `Restricted` can be viewed only with a valid token with correct permissions is sent in the request.  Alternatively, when a resource is set to **anyone with ID can read**, the resource could be viewed without authentication.
+When using the API, resources that are set to `Restricted` can be viewed only with a valid token with correct permissions is sent in the request. Alternatively, when a resource is set to **anyone with ID can read**, the resource could be viewed without authentication.
 
 Even if your access is set to `Restricted` there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
 
@@ -99,7 +99,7 @@ You can also set the general access on a resource programmatically using the Api
 ```js
 const datasetClient = apifyClient.dataset(datasetId);
 await datasetClient.update({
-	generalAccess: STORAGE_GENERAL_ACCESS.ANYONE_WITH_ID_CAN_READ
+    generalAccess: STORAGE_GENERAL_ACCESS.ANYONE_WITH_ID_CAN_READ
 });
 ```
 
@@ -159,7 +159,7 @@ To test your public Actor, run it using an account with **general resource acces
 In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior.
 
 
-:::️warning
+:::caution
 
 Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **general resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
