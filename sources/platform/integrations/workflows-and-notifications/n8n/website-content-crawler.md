@@ -90,7 +90,7 @@ With authentication set up, you can now create workflows that incorporate the Ap
 
 This module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
 
-#### Key features
+### Key features
 
 - _Multiple Crawler Options_: Choose between headless browsers (Playwright) or faster HTTP clients (Cheerio)
 - _Custom Content Selection_: Specify exactly which elements to keep or remove
@@ -101,11 +101,11 @@ This module provides complete control over the content extraction process, allow
 - _Proxy Configuration_: Use proxies to handle geo-restrictions or avoid IP blocks
 - _Content Transformation Options_: Multiple algorithms for optimal content extraction
 
-#### How it works
+### How it works
 
 The Advanced Settings module provides granular control over the entire crawling process. For _Crawler selection_, you can choose from Playwright (Firefox/Chrome) or Cheerio, depending on the complexity of the target website. _URL management_ allows you to define the crawling scope with include and exclude URL patterns. You can also exercise precise _DOM manipulation_ by controlling which HTML elements to keep or remove. To ensure the best results, you can apply specialized algorithms for _Content transformation_ and select from various _Output formatting_ options for better AI model compatibility.
 
-#### Output data
+### Output data
 
 For each crawled web page, you'll receive:
 
@@ -142,7 +142,7 @@ For each crawled web page, you'll receive:
 
 You can access any of thousands of our scrapers on Apify Store by using the [general Apify app](https://n8n.io/integrations/apify).
 
-#### Configuration options
+### Configuration options
 
 You can select the _Crawler type_ by choosing the rendering engine (browser or HTTP client) and the _Content extraction algorithm_ from multiple HTML transformers. _Element selectors_ allow you to specify which elements to keep, remove, or click, while _URL patterns_ let you define inclusion and exclusion rules with glob syntax. You can also set _Crawling parameters_ like concurrency, depth, timeouts, and retries. For robust crawling, you can configure _Proxy configuration_ settings and select from various _Output options_ for content formats and storage.
 
