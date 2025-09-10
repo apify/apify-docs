@@ -53,7 +53,7 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 
 ## Best practices for PPE Actors
 
-Use our SDKs (JS and, Python or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
+Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
 
 You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
@@ -237,7 +237,7 @@ async def main():
 
 ### Respect user spending limits
 
-Finish the Actor run once charging reaches user-configured Maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
+Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
 
 The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
 
@@ -325,6 +325,12 @@ Examples:
 - _`processed-image` event_: Each charge adds one processed image to the dataset  
 - _`extracted-review` event_: Each charge adds one review to the dataset
 - _`ai-analysis` event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
+
+:::note Additional context
+
+You can display a status message or push a record to the dataset to inform users about non-data actions performed by your Actor. This helps users understand what actions were charged for, even if those actions do not produce tangible output.
+
+:::
 
 ### Use idempotency keys to prevent double charges
 
