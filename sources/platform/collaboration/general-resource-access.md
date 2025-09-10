@@ -23,6 +23,7 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 ![Setup account-level general resources access setting](./images/general-resouce-access//account-setting.png)
 
 ## How restricted access works
+
 If your **general resource access** is set to **anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
 When using the API, resources that are set to `Restricted` can be viewed only with a valid token with correct permissions is sent in the request. Alternatively, when a resource is set to **anyone with ID can read**, the resource could be viewed.
@@ -55,6 +56,7 @@ When you share an Actor with a collaborator, they automatically gain read-only a
 - This works even if your account uses **restricted general resource access** — permissions are applied automatically.
 
 ### Exception: Automatically sharing runs with public Actor creators
+
 If you’re using a public Actor from the Apify Store, you can choose to automatically share your runs of that Actor with its creator. This helps developers monitor usage and troubleshoot issues more effectively.
 
 - This setting is opt-in and can be enabled under **Account Settings → Privacy**
@@ -66,15 +68,16 @@ This sharing works even if your account has **restricted general resource access
 You can disable this behavior at any time by turning off the setting in your account.
 
 ### Exception: Automatically sharing runs via Actor Issues
+
 When you report an issue on an Actor and include a **run URL**, that run is automatically shared with the Actor developer — **even if your account uses restricted general resource access**.
 
 This automatic sharing ensures the developer can view all the context they need to troubleshoot the issue effectively. That includes:
 
 - Full access to the run itself (logs, input, status)
 - Automatic access to the run’s default storages:
-    - Dataset
-    - Key-value store
-    - Request queue
+  - Dataset
+  - Key-value store
+  - Request queue
 
 The access is granted through explicit, behind-the-scenes permissions (not anonymous or public access), and is limited to just that run and its related storages. No other resources in your account are affected.
 
