@@ -91,7 +91,7 @@ You are charged one event for each GB of memory used by the Actor (at least one 
 
 :::note Automatic charging of synthetic start event
 
-You do **not** need to manually charge for the synthetic start event (`apify-actor-start`) in your Actor code.
+You must **not** manually charge for the synthetic start event (`apify-actor-start`) in your Actor code. 
 
 If you attempt to charge this event yourself, the operation will fail.
 This event is **always** charged automatically by the Apify platform whenever your Actor starts or is resurrected.
