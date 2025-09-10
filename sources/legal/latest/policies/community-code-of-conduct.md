@@ -10,6 +10,7 @@ slug: /community-code-of-conduct
 # Apify Community Code of Conduct
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Effective Date: August 18, 2025
 

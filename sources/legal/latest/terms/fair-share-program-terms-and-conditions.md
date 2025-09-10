@@ -10,6 +10,7 @@ slug: /fair-share-program-terms-and-conditions
 # Apify Open Source Fair Share Program Terms and Conditions
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Effective Date: February 14, 2025
 
