@@ -10,6 +10,7 @@ slug: /store-publishing-terms-and-conditions
 # Apify Store Publishing Terms and Conditions
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Last updated: February 26, 2025
 

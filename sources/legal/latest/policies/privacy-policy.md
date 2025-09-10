@@ -10,6 +10,7 @@ slug: /privacy-policy
 # Apify Privacy Policy
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Last Updated: February 10, 2025
 
