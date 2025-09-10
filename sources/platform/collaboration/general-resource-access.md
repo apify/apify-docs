@@ -26,7 +26,9 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 If your **general resource access** is set to **anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
-When using the API, resources that are set to `Restricted` can be viewed only with a valid token with correct permissions is sent in the request. Alternatively, when a resource is set to **anyone with ID can read**, the resource could be viewed.
+When using the API, resources that are set to `Restricted` can be viewed only with a valid token with correct permissions is sent in the request.  Alternatively, when a resource is set to **anyone with ID can read**, the resource could be viewed without authentication.
+
+Even if your access is set to `Restricted` there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
 
 ### Named storages
 
