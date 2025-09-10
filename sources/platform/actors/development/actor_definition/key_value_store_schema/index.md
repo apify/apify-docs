@@ -6,8 +6,6 @@ description: Learn how to define and present your key-value store schema to orga
 slug: /actors/development/actor-definition/key-value-store-schema
 ---
 
-# Key-value Store Schema Specification
-
 **Learn how to define and present your key-value store schema to organize records into collections.**
 
 ---
@@ -123,7 +121,7 @@ GET https://api.apify.com/v2/key-value-stores/{storeId}/keys?prefix=document-
 
 When you define a key-value store schema with specific `contentTypes` for collections, the Apify platform validates any data being stored against these specifications. For example, if you've specified that a collection should only contain JSON data with content type `application/json`, attempts to store data with other content types in that collection will be rejected.
 
-The validation happens automatically when you call `Actor.setValue()` or use the [Put record](https://docs.apify.com/api/v2/reference/key-value-stores/record/put-record) API endpoint.
+The validation happens automatically when you call `Actor.setValue()` or use the [Put record](https://docs.apify.com/api/v2/key-value-store-record-put) API endpoint.
 
 If you've defined a `jsonSchema` for a collection with content type `application/json`, the platform will also validate that the JSON data conforms to the specified schema. This helps ensure data consistency and prevents storing malformed data.
 

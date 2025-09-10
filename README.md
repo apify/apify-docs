@@ -26,7 +26,7 @@ Our documentation ecosystem consists of:
 Before contributing, read these essential resources:
 
 - [Contributing guidelines](CONTRIBUTING.md)
-- [Documentation style guide](CONTRIBUTING.md#style-guide)
+- [Documentation style guide](CONTRIBUTING.md#documentation-style-guide)
 
 ## Documentation architecture
 

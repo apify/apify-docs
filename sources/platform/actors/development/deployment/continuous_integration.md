@@ -6,8 +6,6 @@ slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
 
-# Continuous integration for Actors
-
 **Learn how to set up automated builds, deploys, and testing for your Actors.**
 
 import Tabs from '@theme/Tabs';

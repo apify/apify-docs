@@ -1,11 +1,10 @@
 ---
-title: Environment variables
+title: Actor environment variables
 description: Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK.
 slug: /actors/development/programming-interface/environment-variables
 sidebar_position: 3
+sidebar_label: Environment variables
 ---
-
-# Actor environment variables
 
 **Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables set by the Apify platform.**
 

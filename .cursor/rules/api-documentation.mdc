@@ -1,0 +1,21 @@
+---
+description: Standards for OpenAPI specifications and API code samples
+globs: ["apify-api/**/*.yaml", "apify-api/**/*.js"]
+alwaysApply: true
+---
+
+# API Documentation Rules
+
+## OpenAPI specifications
+
+- Follow **RESTful conventions** for endpoint design
+- Use **descriptive operation IDs** following camelCase
+- Include **comprehensive examples** for all endpoints
+- Provide **clear parameter descriptions**
+
+## Code samples
+
+- Include examples in **multiple languages** (JavaScript, Python, cURL)
+- Use **realistic data** in examples
+- Show **error handling** where appropriate
+- Include **authentication examples**

@@ -6,8 +6,6 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-# Key-value store
-
 **Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
 
 import Tabs from '@theme/Tabs';

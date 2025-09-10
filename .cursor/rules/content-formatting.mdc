@@ -1,0 +1,58 @@
+---
+description: Content formatting standards for MDX files and code examples
+globs: ["sources/**/*.md", "sources/**/*.mdx"]
+alwaysApply: true
+---
+
+# Content Formatting Rules
+
+## Front matter (MDX files)
+
+```yaml
+---
+title: "Clear, action-oriented title"
+description: "140-160 character description that explains the value"
+sidebar_position: 1
+slug: /path/to/page
+---
+```
+
+## Text emphasis
+
+- **Bold** for UI elements, buttons, menu items
+- *Italics* for emphasis and new terms
+- `code` for inline code, file names, paths, variables
+- Use code blocks with language specification for examples
+
+## Admonitions
+
+Use admonitions to highlight important information:
+
+```markdown
+:::note Important information
+Your note content here.
+:::
+
+:::tip Pro tip
+Helpful tip for users.
+:::
+
+:::info Additional context
+Background information.
+:::
+
+:::caution Warning
+Something to be careful about.
+:::
+
+:::danger Critical
+Critical information that could cause issues.
+:::
+```
+
+## Code examples
+
+- Use **code tabs** for multiple language examples
+- Include **complete, runnable examples**
+- Add **comments** to explain complex code
+- Use **syntax highlighting** for all code blocks

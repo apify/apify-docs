@@ -6,30 +6,32 @@ category: platform
 slug: /storage/usage
 ---
 
+import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
+
 **Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.**
 
 ---
 
-## Dataset {#dataset}
+## Dataset
 
 [Dataset](./dataset.md) storage allows you to store a series of data objects, such as results from web scraping, crawling, or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel, or HTML formats.
 
 ![Dataset graphic](../images/datasets-overview.png)
 
-## Key-value store {#key-value-store}
+## Key-value store
 
 The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
 
 ![Key-value store graphic](../images/key-value-overview.svg)
 
 
-## Request queue {#request-queue}
+## Request queue
 
 [Request queues](./request_queue.md) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
 
 ![Request queue graphic](../images/request-queue-overview.svg)
 
-## Basic usage {#basic-usage}
+## Basic usage
 
 You can access your storage in several ways:
 
@@ -38,7 +40,7 @@ You can access your storage in several ways:
 * [API clients](/api) - to access your storages from any Node.js/Python application.
 * [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
-### Apify Console {#apify-console}
+### Apify Console
 
 To access your storages via Apify Console, navigate to the [**Storage**](https://console.apify.com/storage) section in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, and request queues, and you can click on the **API** button in the top right corner to view related API endpoints. To view a storage, click its **ID**.
 
@@ -59,7 +61,7 @@ These URLs link to API _endpoints_—the places where your data is stored. Endpo
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
 
-### Apify API {#apify-api}
+### Apify API
 
 The [Apify API](/api/v2/storage-key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
@@ -88,9 +90,24 @@ The Apify SDKs are libraries in JavaScript or Python that provide tools for buil
 * JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
 * Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
-## Rate limiting {#rate-limiting}
+## Estimate your costs
 
-All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is _30 requests per second_. However, there are exceptions limited to _200 requests per second_ per storage object, including:
+Use this tool to estimate storage costs by plan and storage type.
+
+<details>
+  <summary>Estimate your storage costs</summary>
+
+1. Select a storage type.
+1. Choose a plan.
+1. Enter storage, duration, and operation counts.
+1. Review the estimated total and breakdown.
+
+  <StoragePricingCalculator />
+</details>
+
+## Rate limiting
+
+All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is _60 requests per second_. However, there are exceptions limited to _400 requests per second_ per storage object, including:
 
 * [Push items](/api/v2/dataset-items-post) to dataset.
 * CRUD ([add](/api/v2/request-queue-requests-post),
@@ -112,11 +129,11 @@ If a client exceeds this limit, the API endpoints respond with the HTTP status c
 
 Go to the [API documentation](/api/v2#rate-limiting) for details and to learn what to do if you exceed the rate limit.
 
-## Data retention {#data-retention}
+## Data retention
 
 Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. Unnamed datasets and runs beyond the latest ten will be automatically deleted after 7 days unless otherwise specified. Named datasets are retained indefinitely.
 
-### Preserving your storages {#preserving-storages}
+### Preserving your storages
 
 To ensure indefinite retention of your storages, assign them a name. This can be done via Apify Console or through our API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
 
@@ -131,7 +148,7 @@ Our SDKs and clients each have unique naming conventions for storages. For more 
 * [SDKs](/sdk)
 * [API Clients](/api)
 
-## Named and unnamed storages {#named-and-unnamed-storages}
+## Named and unnamed storages
 
 The default storages for an Actor run are unnamed, identified only by an _ID_. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
 
@@ -141,11 +158,11 @@ Named and unnamed storages are identical in all aspects except for their retenti
 
 For example, storage names `janedoe~my-storage-1` and `janedoe~web-scrape-results` are easier to tell apart than the alphanumerical IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`.
 
-## Sharing {#sharing}
+## Sharing
 
 You can grant [access rights](../collaboration/index.md) to others Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md).
 
-### Sharing storages between runs {#sharing-storages-between-runs}
+### Sharing storages between runs
 
 Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
@@ -156,7 +173,7 @@ Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actor
 > When multiple runs try to write data to a storage simultaneously, the order of data writing cannot be controlled. Data is written as each request is processed. <br/>
 > Similar principle applies in key-value stores and request queues, when a delete request for a record precedes a read request for the same record, the read request will fail.
 
-## Deleting storages {#deleting-storages}
+## Deleting storages
 
 Named storages are only removed upon your request.<br/>
 You can delete storages in the following ways:
@@ -171,11 +188,11 @@ You can delete storages in the following ways:
   [Key-value store](/sdk/python/reference/class/KeyValueStore#drop),
   or [Request queue](/sdk/python/reference/class/RequestQueue#drop) class.
 * [JavaScript API client](/api/client/js) - using the `.delete()` method in the
-[dataset](/api/client/js/reference/class/DatasetClient),
-[key-value store](/api/client/js/reference/class/KeyValueStoreClient),
-or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
+  [dataset](/api/client/js/reference/class/DatasetClient),
+  [key-value store](/api/client/js/reference/class/KeyValueStoreClient),
+  or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
 * [Python API client](/api/client/python) - using the `.delete()` method in the
-[dataset](/api/client/python#datasetclient),
-[key-value store](/api/client/python/reference/class/KeyValueStoreClient),
-or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
+  [dataset](/api/client/python#datasetclient),
+  [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
+  or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
 * [API](/api/v2/key-value-store-delete) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.

@@ -10,6 +10,7 @@ slug: /whistleblowing-policy
 # Apify Whistleblowing Policy
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 [verze v českém jazyce níže]
 
