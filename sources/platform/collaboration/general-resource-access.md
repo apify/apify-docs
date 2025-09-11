@@ -32,6 +32,9 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 If your **general resource access** is set to **anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
+:::tip Access Setting Changes May Be Delayed
+When you change the access for a resource it may take a minute for the change to take effect.
+:::
 
 ### What is the best setting for me?
 
@@ -50,7 +53,7 @@ Because this is a new setting, some existing public Actors and integrations migh
 
 ## Exceptions
 
-Even if your access is set to `Restricted` there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
+Even if your access is set to **Restricted** there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
 
 
 ### Builds of public Actors
@@ -63,7 +66,7 @@ This exception exists to maintain usability and avoid breaking workflows that re
 
 ### Exception: Automatically share owner runs of shared Actors & Tasks with collaborators
 
-When you share an Actor with a collaborator, they automatically gain read-only access to your (the owner’s) runs of that Actor. This makes it easier for them to help with debugging, monitoring, or reviewing outputs.
+When you share an Actor with a collaborator, you can choose to share read-only access to your (the owner’s) runs of that Actor. This makes it easier for them to help with debugging, monitoring, or reviewing outputs.
 
 - This access includes logs, input, and default storages (dataset, key-value store, request queue)
 - Access is one-way: you won’t see the collaborator’s runs unless they share them
@@ -106,7 +109,7 @@ The account level access control can be changed on individual resources. This ca
 
 ![Setup resource level access control](./images/general-resouce-access/share-resource-dialog.png)
 
-:::tip
+:::tip Using Apify API
 You can also set the general access on a resource programmatically using the Apify API or Apify client. Read more in the API reference and client documentation.
 
 ```js
@@ -116,10 +119,6 @@ await datasetClient.update({
 });
 ```
 
-:::
-
-:::tip
-When you change the access for a resource it may take a minute for the change to take effect.
 :::
 
 ### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
@@ -137,7 +136,7 @@ To generate a pre-signed link, you can use the **Export** button in the Console,
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
-:::info
+:::info Console links for resources
 
 Resource objects returned by the API and clients (like `apify-client-js`) include a `consoleUrl` property. This provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, the Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
 
@@ -159,7 +158,7 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General Resource Access** set to `restricted`.
 
-:::tip
+:::tip Testing public access behavior
 
 To test your public Actor, run it using an account with **general resource access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
 
@@ -168,7 +167,7 @@ To test your public Actor, run it using an account with **general resource acces
 In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior.
 
 
-:::caution
+:::caution Actor Runs Inherit User Permissions
 
 Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **general resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
