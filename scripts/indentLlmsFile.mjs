@@ -12,11 +12,13 @@ const INDENTED_PATHS = ['/api/v2/', '/academy/', '/platform/', '/legal/'];
 // Main API pages that should have no indentation
 const MAIN_API_PAGES = ['/api.md', '/api/v2.md'];
 
+const BASE_URL = process.env.APIFY_DOCS_ABSOLUTE_URL || 'https://docs.apify.com';
+console.log('debug: BASE_URL', BASE_URL);
 /**
  * Calculates the depth of a URL by counting non-file path segments.
  */
 function getUrlDepth(url) {
-    const baseUrl = url.replace('https://docs.apify.com', '');
+    const baseUrl = url.replace(BASE_URL, '');
     const urlSegments = baseUrl.split('/').filter((segment) => segment && segment !== '');
     const nonFileSegments = urlSegments.filter((segment) => !segment.endsWith('.md'));
     return nonFileSegments.length;
@@ -55,8 +57,8 @@ function getIndentationLevel(line, lineIndex, allLines) {
         return INDENT_LEVEL * 2; // Sub-subsection title - 2 level indent
     }
 
-    if (line.startsWith('- [') && line.includes('](https://docs.apify.com/')) {
-        const urlMatch = line.match(/\]\((https:\/\/docs\.apify\.com\/[^)]+)\)/);
+    if (line.startsWith('- [') && line.includes(`](${BASE_URL}/`)) {
+        const urlMatch = line.match(new RegExp(`\\]\\((${BASE_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/[^)]+)\\)`));
         if (!urlMatch) {
             return INDENT_LEVEL; // Fallback if URL parsing fails
         }
