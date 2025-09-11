@@ -42,7 +42,7 @@ Learn more about the rental pricing model in our [documentation](/platform/actor
 - _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
 - _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
 - _Cost breakdown_:
-  - Compute unit: $0.4 per CU
+  - Compute unit: $0.3 per CU
   - Residential proxies: $13 per GB
   - SERPs proxy: $3 per 1,000 SERPs
   - Data transfer (external): $0.20 per GB
