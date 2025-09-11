@@ -64,7 +64,7 @@ This ensures that public Actors in the Apify Store continue to work as expected.
 
 This exception exists to maintain usability and avoid breaking workflows that rely on public Actors. It only applies to builds of Actors that are marked as **public**. For private Actors, build access still follows the general resource access setting of the owner’s account.
 
-### Exception: Automatically share owner runs of shared Actors & Tasks with collaborators
+### Automatically share owner runs of shared Actors & Tasks with collaborators
 
 When you share an Actor with a collaborator, you can choose to share read-only access to your (the owner’s) runs of that Actor. This makes it easier for them to help with debugging, monitoring, or reviewing outputs.
 
@@ -73,7 +73,7 @@ When you share an Actor with a collaborator, you can choose to share read-only a
 - Collaborators can’t see each other’s runs
 - This works even if your account uses **restricted general resource access** — permissions are applied automatically.
 
-### Exception: Automatically sharing runs with public Actor creators
+### Automatically sharing runs with public Actor creators
 
 If you’re using a public Actor from the Apify Store, you can choose to automatically share your runs of that Actor with its creator. This helps developers monitor usage and troubleshoot issues more effectively.
 
@@ -85,7 +85,7 @@ This sharing works even if your account has **restricted general resource access
 
 You can disable this behavior at any time by turning off the setting in your account.
 
-### Exception: Automatically sharing runs via Actor Issues
+### Automatically sharing runs via Actor Issues
 
 When you report an issue on an Actor and include a **run URL**, that run is automatically shared with the Actor developer — **even if your account uses restricted general resource access**.
 
