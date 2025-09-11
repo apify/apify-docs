@@ -28,8 +28,12 @@ Once installed, the next step is authentication.
 
 The Apify plugin for Kestra uses **API Key authentication** to securely connect with your Apify account.
 This method works for both self-hosted and cloud instances.
-You can store and manage your API key directly in [Kestra Secrets](https://kestra.io/docs/concepts/secret) in the UI or through environment variables, ensuring
-credentials stay secure and flows remain declarative.
+
+You can store and manage your API key directly in [Kestra Secrets}(https://kestra.io/docs/concepts/secret)
+in the UI or through environment variables, ensuring credentials stay secure and flows remain declarative. In the open-source version, Secrets can be managed using base64-encoded environment variables.
+
+For open-source deployments, you can also use [Kestra’s KV Store](https://kestra.io/docs/concepts/kv-store)
+to persist and share API keys (or other values) across executions and workflows.
 
 With authentication configured, you can now define flows that integrate the Apify plugin — orchestrating scrapers, data extraction, and event-driven tasks directly from Kestra.
 
