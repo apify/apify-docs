@@ -1,13 +1,11 @@
 ---
-title: n8n - Website Content Crawler Actor integration
+title: n8n - Website Content Crawler by Apify
 description: Learn about Website Content Crawler module.
 sidebar_label: Website Content Crawler
 sidebar_position: 6
 slug: /integrations/n8n/website-content-crawler
 toc_max_heading_level: 4
 ---
-
-## Website Content Crawler By Apify
 
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
 
@@ -20,7 +18,7 @@ Before you begin, make sure you have:
 - An [Apify account](https://console.apify.com/)
 - An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
 
-## Install the Apify Node (self-hosted)
+## Install the Website Content Crawler by Apify Node (self-hosted)
 
 If you're running a self-hosted n8n instance, you can install the Apify community node directly from the editor. This process adds the node to your available tools, enabling Apify operations in workflows.
 
