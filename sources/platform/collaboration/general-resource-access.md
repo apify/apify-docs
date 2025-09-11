@@ -1,6 +1,6 @@
 ---
 title: General resource access
-description: <TODO>
+description: Control how Apify resources are shared. Set default access (anyone with ID or restricted), and learn about link sharing, exceptions, and pre-signed URLs.
 sidebar_position: 1
 category: platform
 slug: /collaboration/general-resource-access
@@ -8,7 +8,7 @@ slug: /collaboration/general-resource-access
 
 Some resources, like storages, Actor runs or Actor builds, can be shared simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
 
-Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation or a formal audit trail and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
+Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
 _General resource access_ is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
 
@@ -32,21 +32,28 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 If your **general resource access** is set to **anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
-When using the API, resources that are set to `Restricted` can be viewed only with a valid token with correct permissions is sent in the request. Alternatively, when a resource is set to **anyone with ID can read**, the resource could be viewed without authentication.
+
+### What is the best setting for me?
+
+Sharing by link is quick, convenient, and secure enough for most use cases -- thanks to the use of hard-to-guess unique IDs.
+
+That said, link-based sharing doesn’t support access revocation, audit trails, or fine-grained permission controls. If you need tighter control over who can access your data or require elevated security because of the domain you're working in we recommend enabling **restricted** access.
+
+The default setting strikes a good balance for casual or internal use, but **restricted** access is a better fit for teams with stricter security policies, integrations using scoped API tokens, or audit requirements.
+
+You can switch to **restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
+
+:::note Support in public Actors
+Because this is a new setting, some existing public Actors and integrations might not support it yet. Their authors need to update them to provide a valid token on all API calls.
+:::
+
+
+## Exceptions
 
 Even if your access is set to `Restricted` there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
 
-### Named storages
 
-A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
-
-:::tip
-
-This is very useful if you wish to expose a storage publicly with an easy to remember URL.
-
-:::
-
-### Exception: Builds of public Actors
+### Builds of public Actors
 
 Builds of **public Actors** are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **general resource access** setting.
 
@@ -126,7 +133,7 @@ Pre-signed URLs:
 - Are scoped to a single resource (prevents access to other records)
 - Are ideal for sharing screenshots, reports, or any other one-off files
 
-To generate a pre-signed link, you can use the **Export** button in the Console, or call the appropriate SDK method.
+To generate a pre-signed link, you can use the **Export** button in the Console, or call the appropriate API client method.
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
@@ -138,21 +145,17 @@ This is ideal for use-cases like email notifications or other automated workflow
 
 :::
 
-### What is the best setting for me?
+### Sharing storages by name
 
-Sharing by link is quick, convenient, and secure enough for most use cases -- thanks to the use of hard-to-guess unique IDs.
+A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
 
-That said, link-based sharing doesn’t support access revocation, audit trails, or fine-grained permission controls. If you need tighter control over who can access your data or require elevated security because of the domain you're working in we recommend enabling **restricted** access.
+:::tip Exposing public named datasets
 
-The default setting strikes a good balance for casual or internal use, but **restricted** access is a better fit for teams with stricter security policies, integrations using scoped API tokens, or audit requirements.
+This is very useful if you wish to expose a storage publicly with an easy to remember URL.
 
-You can switch to **restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
-
-:::note
-Because this is a new setting, some existing public Actors and integrations might not support it yet. Their authors need to update them to provide a valid token on all API calls.
 :::
 
-### Implications for public Actor developers
+## Implications for public Actor developers
 
 If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General Resource Access** set to `restricted`.
 

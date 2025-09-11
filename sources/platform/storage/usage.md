@@ -185,7 +185,7 @@ Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actor
 
 :::info
 
-If a storage resource access is set to `Restricted`, you must the run from which it's accessed must have explicit access to it.
+If a storage resource access is set to **Restricted**,the run from which it's accessed must have explicit access to it.
 Learn how restricted access works in [General resource access](/platform/collaboration/general-resource-access).
 
 :::
