@@ -95,7 +95,7 @@ This means you don’t need to manually adjust permissions or share multiple lin
 
 ## Per-resource access control
 
-The account level access control can be changed on individual resources. You can do by setting the general access level to other than Restricted  in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
+The account level access control can be changed on individual resources. This can be done by setting the general access level to other than Restricted  in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
 
 ![Setup resource level access control](./images/general-resouce-access/share-resource-dialog.png)
 
