@@ -9,7 +9,7 @@ slug: /collaboration
 **Learn how to collaborate with other users and manage permissions for organizations or private resources such as Actors, Actor runs, and storages.**
 
 ---
-Apify was built from the ground up as a collaborative platform. Whether you’re publishing your Actor in the Apify Store or sharing a dataset with a teammate, collaboration is deeply integrated into how Apify works. You can easily share your resources (like Actors, runs, or storages) with others, manage permissions, or invite collaborators to your organization. By default, each system resource you create is only available to you, the owner. However, you can grant access to other users, making it easy to collaborate effectively and securely.
+Apify was built from the ground up as a collaborative platform. Whether you’re publishing your Actor in Apify Store or sharing a dataset with a teammate, collaboration is deeply integrated into how Apify works. You can share your resources (like Actors, runs, or storages) with others, manage permissions, or invite collaborators to your organization. By default, each system resource you create is only available to you, the owner. However, you can grant access to other users, making it easy to collaborate effectively and securely.
 
 While most resources can be shared by assigning permissions (see [Access Rights](./access_rights.md)), some resources can also be shared simply by using their unique links or IDs. There are two types of resources in terms of sharing:
 
