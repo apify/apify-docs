@@ -38,7 +38,7 @@ Even if your access is set to `Restricted` there are a few built-in exceptions t
 
 ### Named storages
 
-A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages i only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
+A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
 
 :::tip
 
