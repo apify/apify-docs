@@ -6,7 +6,7 @@ category: platform
 slug: /collaboration/general-resource-access
 ---
 
-Some resources, like storages, Actor runs or Actor builds, support `unrestricted access`. You can share them simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
+Some resources, like storages, Actor runs or Actor builds, can be shared simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
 
 Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation or a formal audit trail and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
