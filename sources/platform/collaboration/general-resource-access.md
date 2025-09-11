@@ -1,6 +1,6 @@
 ---
 title: General resource access
-description: Control how Apify resources are shared. Set default access (anyone with ID or restricted), and learn about link sharing, exceptions, and pre-signed URLs.
+description: Control how Apify resources are shared. Set default access (Anyone with ID can read or Restricted), and learn about link sharing, exceptions, and pre-signed URLs.
 sidebar_position: 1
 category: platform
 slug: /collaboration/general-resource-access
@@ -30,7 +30,7 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 ## How restricted access works
 
-If your **general resource access** is set to **anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
+If your **General Resource Access** is set to **Anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **Restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
 :::tip Access Setting Changes May Be Delayed
 When you change the access for a resource it may take a minute for the change to take effect.
@@ -40,11 +40,11 @@ When you change the access for a resource it may take a minute for the change to
 
 Sharing by link is quick, convenient, and secure enough for most use cases -- thanks to the use of hard-to-guess unique IDs.
 
-That said, link-based sharing doesn’t support access revocation, audit trails, or fine-grained permission controls. If you need tighter control over who can access your data or require elevated security because of the domain you're working in we recommend enabling **restricted** access.
+That said, link-based sharing doesn’t support access revocation, audit trails, or fine-grained permission controls. If you need tighter control over who can access your data or require elevated security because of the domain you're working in we recommend enabling **Restricted** access.
 
-The default setting strikes a good balance for casual or internal use, but **restricted** access is a better fit for teams with stricter security policies, integrations using scoped API tokens, or audit requirements.
+The default setting strikes a good balance for casual or internal use, but **Restricted** access is a better fit for teams with stricter security policies, integrations using scoped API tokens, or audit requirements.
 
-You can switch to **restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
+You can switch to **Restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
 
 :::note Support in public Actors
 Because this is a new setting, some existing public Actors and integrations might not support it yet. Their authors need to update them to provide a valid token on all API calls.
@@ -58,7 +58,7 @@ Even if your access is set to **Restricted** there are a few built-in exceptions
 
 ### Builds of public Actors
 
-Builds of **public Actors** are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **general resource access** setting.
+Builds of **public Actors** are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General Resource Access** setting.
 
 This ensures that public Actors in the Apify Store continue to work as expected. For example, if you open a public Actor in the Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
 
@@ -156,11 +156,11 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 ## Implications for public Actor developers
 
-If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General Resource Access** set to `restricted`.
+If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General Resource Access** set to **Restricted**.
 
 :::tip Testing public access behavior
 
-To test your public Actor, run it using an account with **general resource access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
+To test your public Actor, run it using an account with **General Resource Access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
 
 :::
 
@@ -169,6 +169,6 @@ In practice, this means that all API calls originating from the Actor need to ha
 
 :::caution Actor Runs Inherit User Permissions
 
-Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **general resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
+Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General Resource Access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
 :::
