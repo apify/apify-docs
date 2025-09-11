@@ -16,7 +16,7 @@ While most resources can be shared by assigning permissions (see [Access Rights]
 - _Resources that require explicit access by default:_
   - [Actors](../actors/running/index.md), [tasks](../actors/running/tasks.md)
   - Can be shared only by inviting collaborators using [Access Rights](./access_rights.md)) or using [Organization Accounts](./organization_account/index.md)
-- **resources supporting both explicit access and link sharing:**
+- _Resources supporting both explicit access and link sharing:_
   - Actor runs, Actor builds and storage resources (datasets, key-value stores, request queues)
   - Can be shared by inviting collaborators or simply by sharing a unique direct link
 
