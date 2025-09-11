@@ -41,7 +41,7 @@ In this model, you set a price per 1000 results. Users are charged based on the 
 
 | Service                         | Unit price                 |
 |:--------------------------------|:---------------------------|
-| Compute unit                    | **$0.4** / CU              |
+| Compute unit                    | **$0.3** / CU              |
 | Residential proxies             | **$13** / GB               |
 | SERPs proxy                     | **$3** / 1,000 SERPs       |
 | Data transfer - external        | **$0.20** / GB             |
