@@ -10,7 +10,7 @@ Some resources, like storages, Actor runs or Actor builds, can be shared simply 
 
 Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
-_General resource access_ is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
+**General resource access** is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
 
 - **Anyone with ID can read (default)**: Selected resources can be accessed using just with their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
 - **Restricted**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
@@ -28,7 +28,7 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 ![Setup account-level general resources access setting](./images/general-resouce-access//account-setting.png)
 
-## How restricted access works
+## How Restricted Access works
 
 If your **General Resource Access** is set to **Anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **Restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
@@ -51,20 +51,20 @@ Because this is a new setting, some existing public Actors and integrations migh
 :::
 
 
-## Exceptions
+### Exceptions
 
 Even if your access is set to **Restricted** there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
 
 
-### Builds of public Actors
+#### Builds of public Actors
 
-Builds of **public Actors** are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General Resource Access** setting.
+Builds of public Actors are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General Resource Access** setting.
 
-This ensures that public Actors in the Apify Store continue to work as expected. For example, if you open a public Actor in the Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
+This ensures that public Actors in the Apify Store continue to work as expected. For example, if you open a public Actor in Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
 
 This exception exists to maintain usability and avoid breaking workflows that rely on public Actors. It only applies to builds of Actors that are marked as **public**. For private Actors, build access still follows the general resource access setting of the owner’s account.
 
-### Automatically share owner runs of shared Actors & Tasks with collaborators
+#### Automatically share owner runs of shared Actors & Tasks with collaborators
 
 When you share an Actor with a collaborator, you can choose to share read-only access to your (the owner’s) runs of that Actor. This makes it easier for them to help with debugging, monitoring, or reviewing outputs.
 
@@ -73,7 +73,7 @@ When you share an Actor with a collaborator, you can choose to share read-only a
 - Collaborators can’t see each other’s runs
 - This works even if your account uses **restricted general resource access** — permissions are applied automatically.
 
-### Automatically sharing runs with public Actor creators
+#### Automatically sharing runs with public Actor creators
 
 If you’re using a public Actor from the Apify Store, you can choose to automatically share your runs of that Actor with its creator. This helps developers monitor usage and troubleshoot issues more effectively.
 
@@ -85,7 +85,7 @@ This sharing works even if your account has **restricted general resource access
 
 You can disable this behavior at any time by turning off the setting in your account.
 
-### Automatically sharing runs via Actor Issues
+#### Automatically sharing runs via Actor Issues
 
 When you report an issue on an Actor and include a **run URL**, that run is automatically shared with the Actor developer — **even if your account uses restricted general resource access**.
 
@@ -132,13 +132,13 @@ Pre-signed URLs:
 - Are scoped to a single resource (prevents access to other records)
 - Are ideal for sharing screenshots, reports, or any other one-off files
 
-To generate a pre-signed link, you can use the **Export** button in the Console, or call the appropriate API client method.
+To generate a pre-signed link, you can use the **Export** button in Console, or call the appropriate API client method.
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
 :::info Console links for resources
 
-Resource objects returned by the API and clients (like `apify-client-js`) include a `consoleUrl` property. This provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, the Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
+Resource objects returned by the API and clients (like `apify-client-js`) include a `consoleUrl` property. This provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
 
 This is ideal for use-cases like email notifications or other automated workflows.
 
