@@ -108,6 +108,12 @@ For new Actors, this event is added automatically as you can see on the followin
 
 If you have existing Actors, you can add this event manually in Apify Console.
 
+#### Synthetic start event for Actors with start event
+
+Your Actor might already have a start event defined, such as `actor-start` or another variant of the event name. In this case, you can choose whether to use the synthetic start event or keep the existing start event.
+
+If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console.
+
 ### Charge for invalid input
 
 Charge for things like URLs that appear valid but lead to errors (like 404s) since you had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
