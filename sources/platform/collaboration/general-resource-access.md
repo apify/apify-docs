@@ -10,7 +10,7 @@ Some resources, like storages, Actor runs or Actor builds, can be shared simply 
 
 Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
-**General resource access** is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
+**General resource access** is an account setting that defines the default access policy at the account level. You can find General resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
 
 - **Anyone with ID can read (default)**: Selected resources can be accessed using just their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
 - **Restricted**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
@@ -30,7 +30,7 @@ Access to resources that require explicit access — such as Actors, tasks or sc
 
 ## How Restricted Access works
 
-If your **General Resource Access** is set to **Anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **Restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
+If your **General resource access** is set to **Anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **Restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
 :::tip Access Setting Changes May Be Delayed
 When you change the access for a resource it may take a minute for the change to take effect.
@@ -58,7 +58,7 @@ Even if your access is set to **Restricted** there are a few built-in exceptions
 
 #### Builds of public Actors
 
-Builds of public Actors are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General Resource Access** setting.
+Builds of public Actors are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General resource access** setting.
 
 This ensures that public Actors in the Apify Store continue to work as expected. For example, if you open a public Actor in Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
 
@@ -81,7 +81,7 @@ If you’re using a public Actor from the Apify Store, you can choose to automat
 - When enabled, your runs of public Actors are automatically visible to the Actor’s creator
 - Shared runs include logs, input, and output storages (dataset, key-value store, request queue)
 
-This sharing works even if your account has **restricted general resource access** — the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
+This sharing works even if your account has  **General resource access** set to **Restricted** — the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
 
 You can disable this behavior at any time by turning off the setting in your account.
 
@@ -127,7 +127,7 @@ Even when a resource is restricted, you might still want to share it with someon
 
 Pre-signed URLs:
 
-- Work even when general resource access is restricted
+- Work even when General resource access is restricted
 - Expire automatically after 14 days (by default)
 - Are scoped to a single resource (prevents access to other records)
 - Are ideal for sharing screenshots, reports, or any other one-off files
@@ -156,11 +156,11 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 ## Implications for public Actor developers
 
-If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General Resource Access** set to **Restricted**.
+If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General resource access** set to **Restricted**.
 
 :::tip Testing public access behavior
 
-To test your public Actor, run it using an account with **General Resource Access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
+To test your public Actor, run it using an account with **General resource access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
 
 :::
 
@@ -169,6 +169,6 @@ In practice, this means that all API calls originating from the Actor need to ha
 
 :::caution Actor Runs Inherit User Permissions
 
-Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General Resource Access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
+Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
 :::

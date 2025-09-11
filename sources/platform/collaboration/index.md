@@ -29,7 +29,7 @@ You can control access to your resources in four ways:
     </tr>
     <tr>
         <td><strong><a href="/platform/collaboration/general-resource-access">Share resources by link</a></strong></td>
-        <td>Certain resources (runs, builds and storages) can by shared just by their link. Anyone with their ID is able to access them. This is configurable via <a href="/platform/collaboration/general-resource-access">General Resource Access</a></td>
+        <td>Certain resources (runs, builds and storages) can by shared just by their link. Anyone with their ID is able to access them. This is configurable via <a href="/platform/collaboration/general-resource-access">General resource access</a></td>
     </tr>
     <tr>
         <td><strong><a href="/platform/collaboration/organization-account">Organization account</a></strong></td>
