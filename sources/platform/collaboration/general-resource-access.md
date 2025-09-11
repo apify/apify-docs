@@ -123,7 +123,7 @@ Pre-signed URLs:
 
 - Work even when general resource access is restricted
 - Expire automatically after 14 days (by default)
-- Are scoped to a single record (prevents access to other records)
+- Are scoped to a single resource (prevents access to other records)
 - Are ideal for sharing screenshots, reports, or any other one-off files
 
 To generate a pre-signed link, you can use the **Export** button in the Console, or call the appropriate SDK method.
