@@ -13,7 +13,7 @@ Apify was built from the ground up as a collaborative platform. Whether you’re
 
 While most resources can be shared by assigning permissions (see [Access Rights](./access_rights.md)), some resources can also be shared simply by using their unique links or IDs. There are two types of resources in terms of sharing:
 
-- **resources that require explicit access by default:**
+- _Resources that require explicit access by default:_
   - [Actors](../actors/running/index.md), [tasks](../actors/running/tasks.md)
   - Can be shared only by inviting collaborators using [Access Rights](./access_rights.md)) or using [Organization Accounts](./organization_account/index.md)
 - **resources supporting both explicit access and link sharing:**
