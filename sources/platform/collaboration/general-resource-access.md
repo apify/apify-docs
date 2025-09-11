@@ -10,7 +10,7 @@ Some resources, like storages, Actor runs or Actor builds, support `unrestricted
 
 Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation or a formal audit trail and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
-**General resource access** is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
+_General resource access_ is an account setting that defines the default access policy at the account level. You can find general resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
 
 - **Anyone with ID can read (default)**: Selected resources can be accessed using just with their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
 - **Restricted**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
