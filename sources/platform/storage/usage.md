@@ -166,7 +166,7 @@ You can also share storages by link using their ID or name, depending on your ac
 
 For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
 
-:::tip
+:::tip Accessing restricted storage resources via API
 
 If your storage resource is set to _restricted_, all API calls must include a valid authentication token in the `Authorization` header. If you're using **apify-client** the header is passed in automatically.
 
@@ -183,7 +183,7 @@ Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actor
 > When multiple runs try to write data to a storage simultaneously, the order of data writing cannot be controlled. Data is written as each request is processed. <br/>
 > Similar principle applies in key-value stores and request queues, when a delete request for a record precedes a read request for the same record, the read request will fail.
 
-:::info
+:::info Accessing restricted storage resources between runs
 
 If a storage resource access is set to **Restricted**,the run from which it's accessed must have explicit access to it.
 Learn how restricted access works in [General resource access](/platform/collaboration/general-resource-access).
