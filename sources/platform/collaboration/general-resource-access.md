@@ -36,7 +36,7 @@ If your **general resource access** is set to **anyone with ID can read**, you c
 When you change the access for a resource it may take a minute for the change to take effect.
 :::
 
-### What is the best setting for me?
+### What is the best setting for me
 
 Sharing by link is quick, convenient, and secure enough for most use cases -- thanks to the use of hard-to-guess unique IDs.
 
