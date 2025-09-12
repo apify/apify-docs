@@ -3,7 +3,6 @@ const { join, resolve } = require('node:path');
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 const { remark } = require('remark');
-const strip = require('strip-markdown');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -363,6 +362,8 @@ module.exports = {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
+
+                const strip = (await import('strip-markdown')).default; // ESM only
 
                 // Use remark to strip markdown and get plain text
                 const processed = await remark().use(strip).process(result.content);
