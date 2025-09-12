@@ -2,9 +2,6 @@ const { join, resolve } = require('node:path');
 
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
-const { remark } = require('remark');
-const mdxRemoveImports = require('remark-mdx-remove-imports');
-const stripHtml = require('remark-strip-html');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -365,19 +362,16 @@ module.exports = {
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
 
-                const strip = (await import('strip-markdown')).default; // ESM only
-                // const mdx = (await import('remark-mdx')).default; // ESM only
+                // Remove import statements and JSX/MDX tags from content
+                const contentText = result.content
+                    .replace(/import\s+[^;]+;?/g, '') // Remove import statements
+                    .replace(/<[^>]+>/g, '') // Remove all tags (JSX/MDX)
+                    .replace(/\n+/g, ' ') // Replace newlines with space
+                    .replace(/\s+/g, ' ') // Collapse whitespace
+                    .trim();
 
-                // Use remark to strip markdown and get plain text
-                const processed = await remark()
-                    .use(stripHtml)
-                    // .use(mdx)
-                    .use(mdxRemoveImports)
-                    .use(strip)
-                    .process(result.content);
-                const contentText = String(processed).replace(/\s+/g, ' ').trim();
-                // Extract the first sentence (ending with . ! or ?) even if it spans multiple lines
                 const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
+
                 result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
             }
 
