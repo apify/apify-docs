@@ -2,7 +2,7 @@ const { join, resolve } = require('node:path');
 
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
-const remark = require('remark');
+const { remark } = require('remark');
 const strip = require('strip-markdown');
 
 const { config } = require('./apify-docs-theme');
