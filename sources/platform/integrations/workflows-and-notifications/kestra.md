@@ -72,7 +72,7 @@ Tasks allow you to perform operations like running an Actor within a workflow.
 
 Your completed template should match the template below.
 ```yaml
-id: get_last_actor_run_and_get_dataset
+id: run_actor_and_fetch_dataset
 namespace: company.team
 
 tasks:
