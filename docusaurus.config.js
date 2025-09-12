@@ -361,6 +361,18 @@ module.exports = {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
+
+                // Remove import statements and JSX/MDX tags from content
+                const contentText = result.content
+                    .replace(/import\s+[^;]+;?/g, '') // Remove import statements
+                    .replace(/<[^>]+>/g, '') // Remove all tags (JSX/MDX)
+                    .replace(/\n+/g, ' ') // Replace newlines with space
+                    .replace(/\s+/g, ' ') // Collapse whitespace
+                    .trim();
+
+                const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
+
+                result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
             }
 
             return result;
