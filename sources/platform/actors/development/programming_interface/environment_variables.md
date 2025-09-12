@@ -66,10 +66,8 @@ Here's a table of key system environment variables:
 | `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. |
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the actor, based on allocated memory. |
-| `APIFY_DISABLE_OUTDATED_WARNING` | Controls the display of outdated version warnings. Set to `1` to suppress notifications about updates. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
-| `APIFY_SDK_LATEST_VERSION` | Specifies the most recent release version of the Apify SDK for JavaScript. Used for checking for updates. |
 | `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
 
