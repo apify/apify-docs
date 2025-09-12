@@ -3,6 +3,7 @@ const { join, resolve } = require('node:path');
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 const { remark } = require('remark');
+const mdxRemoveImports = require('remark-mdx-remove-imports');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -366,7 +367,9 @@ module.exports = {
                 const strip = (await import('strip-markdown')).default; // ESM only
 
                 // Use remark to strip markdown and get plain text
-                const processed = await remark().use(strip).process(result.content);
+                const processed = await remark()
+                    .use(mdxRemoveImports).use(strip)
+                    .process(result.content);
                 const contentText = String(processed).replace(/\s+/g, ' ').trim();
                 // Extract the first sentence (ending with . ! or ?) even if it spans multiple lines
                 const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
