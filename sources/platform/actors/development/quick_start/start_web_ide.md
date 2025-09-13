@@ -3,6 +3,7 @@ title: Web IDE
 sidebar_position: 2
 description: Create your first Actor using the web IDE in Apify Console.
 slug: /actors/development/quick-start/web-ide
+toc_max_heading_level: 4
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,9 +27,56 @@ Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**
 
 ![Create Actor](./images/create-actor.png)
 
-You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`.
+You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`. These templates provide boilerplate code and a preconfigured environment.
 
-These templates provide boilerplate code and a preconfigured environment. Choose the template that best suits your needs. For the following demo, we'll proceed with **Crawlee + Puppeteer + Chrome**.
+#### JavaScript example
+
+Choose the **Start with JavaScript** template. This template is a great starting point for web scraping as it extracts data from a single website using basic HTTP requests.
+
+![JavaScript template card](./images/create-actor-template-javascript-card.png)
+
+The main logic of the template lives in the `src/main.js` file and uses [Axios](https://axios-http.com/docs/intro) for downloading the page content and [Cheerio](https://cheerio.js.org/) for parsing the HTML.
+
+```js
+import { Actor } from 'apify';
+import axios from 'axios';
+import * as cheerio from 'cheerio';
+
+await Actor.init();
+
+const input = await Actor.getInput();
+const { url } = input;
+
+const response = await axios.get(url);
+const $ = cheerio.load(response.data);
+
+const headings = [];
+$('h1, h2, h3, h4, h5, h6').each((i, element) => {
+    const headingObject = {
+        level: $(element).prop('tagName').toLowerCase(),
+        text: $(element).text(),
+    };
+    console.log('Extracted heading', headingObject);
+    headings.push(headingObject);
+});
+
+await Actor.pushData(headings);
+
+await Actor.exit();
+```
+
+The Actor takes a `url` as input and then:
+
+1. Sends a request to the URL.
+1. Downloads the page's HTML content.
+1. Extracts all headings (H1 - H6).
+1. Stores the extracted data in the Actor's default [dataset](/platform/storage/dataset).
+
+After choosing the template, your Actor will be automatically named and you'll be redirected to its page. From here, you can move on to **[Step 3: Build the Actor](#step-3-build-the-actor)**, as this template doesn't require any further exploration of the code.
+
+#### More advanced templates
+
+For more complex scenarios, you'll want to use a template that includes [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. For example, the **Crawlee + Puppeteer + Chrome** template provides a powerful setup for scraping dynamic websites.
 
 :::info Explore Actor templates
 
@@ -38,11 +86,9 @@ Browse the [full list of templates](https://apify.com/templates) to find the bes
 
 ![Templates](./images/actor-templates.png)
 
-After choosing the template, your Actor will be automatically named and you'll be redirected to its page.
-
 ### Step 2: Explore the Actor
 
-The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library.
+This step is most relevant when using an advanced template like **Crawlee + Puppeteer + Chrome**. The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/).
 
 By default, the code crawls the [apify.com](https://apify.com) website, but you can change it to any website.
 
