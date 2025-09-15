@@ -25,7 +25,7 @@ Before connecting your AI to Apify, you'll need three things:
 
 ## Quick start
 
-To get started with the Apify MCP server you have two options.
+You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup, or run the server locally for development and testing.
 
 ### Streamable HTTP with OAuth (recommended)
 
@@ -154,22 +154,20 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 
 ### Production best practices
 
-For production deployments, explicitly specify which tools to load rather than relying on defaults. This ensures consistent behavior across updates:
+- For production deployments, explicitly specify which tools to load rather than relying on defaults. This ensures consistent behavior across updates:
 
-`npx @apify/actors-mcp-server --tools apify/web-scraper,apify/google-search-scraper`
+    `npx @apify/actors-mcp-server --tools apify/web-scraper,apify/google-search-scraper`
 
-Always use the latest version of the server by appending `@latest` to your npm commands. Monitor your API usage through Apify Console to stay within your plan limits.
+- Always use the latest version of the server by appending `@latest` to your npm commands.
+- Monitor your API usage through Apify Console to stay within your plan limits.
+- For optimal performance, batch related operations when possible and use Actor webhooks for long-running tasks instead of polling for results.
 
-### Rate limits and performance
+## Rate limits and performance
 
 The Apify MCP server allows up to _30_ requests per second per user. This limit applies to all operations including Actor runs, storage access, and
 documentation queries. If you exceed this limit, you'll receive a `429` response and should implement appropriate retry logic.
 
-For optimal performance, batch related operations when possible and use Actor webhooks for long-running tasks instead of polling for results.
-
 ## Troubleshooting
-
-This section covers common issues you might encounter while using the Apify MCP server.
 
 ### Authentication errors
 
