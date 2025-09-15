@@ -107,6 +107,7 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
 {
   "url": "Input URL's value"
 }
+```
 
 :::tip Inserting dynamic data
 
