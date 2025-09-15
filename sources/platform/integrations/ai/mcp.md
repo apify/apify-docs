@@ -167,22 +167,24 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 The Apify MCP server allows up to _30_ requests per second per user. This limit applies to all operations including Actor runs, storage access, and
 documentation queries. If you exceed this limit, you'll receive a `429` response and should implement appropriate retry logic.
 
+<!-- markdownlint-disable MD001 -->
 ## Troubleshooting
 
-### Authentication errors
+#### Authentication errors
 
 - _Check your API token_: Verify that your Apify API token is correct. You can find it in the **Integrations** section of the [Apify Console](https://console.apify.com/account#/integrations). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
-### Local environment setup
+#### Local environment setup
 
 - _The MCP server requires Node.js v18 or higher_. Check your installed version by running `node -v` in your terminal.
 - _Using the latest server version_: To ensure you have the latest features and bug fixes, use the latest version of the `@apify/actors-mcp-server` package. You can do this by appending `@latest` to the package name in your `npx` command or configuration file.
 
-### Actor execution issues
+#### Actor execution issues
 
 - _No response or long delays_: Actor runs can take time to complete depending on their task. If you're experiencing long delays, check the Actor's logs in Apify Console. The logs will provide insight into the Actor's status and show if it's processing a long operation or has encountered an error.
 
+<!-- markdownlint-enable MD001 -->
 ## Support and resources
 
 The Apify MCP Server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/actors-mcp-server/issues).
