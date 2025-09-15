@@ -1,5 +1,3 @@
-\bApify\b(?:-\w+)?
-@apify\.com
 SDK(s)
 [Ss]torages
 Crawlee
@@ -84,6 +82,7 @@ preconfigured
 [Tt]rello
 [Pp]refill
 [Gg]umloop
+[Aa]pify
 
 [Mm]ultiselect
 

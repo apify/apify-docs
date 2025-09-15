@@ -43,16 +43,15 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  const data = [];
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  const data = $(".product-item").toArray().map(element => {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text().trim();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text().trim();
 
-    const price = productItem.find(".price").contents().last();
+    const $price = $productItem.find(".price").contents().last();
     const priceRange = { minPrice: null, price: null };
-    const priceText = price
+    const priceText = $price
       .text()
       .trim()
       .replace("$", "")
@@ -66,7 +65,7 @@ if (response.ok) {
         priceRange.price = priceRange.minPrice;
     }
 
-    data.push({ title: titleText, ...priceRange });
+    return { title, ...priceRange };
   });
 
   const jsonData = JSON.stringify(data);
@@ -97,13 +96,13 @@ async function download(url) {
 Next, we can put parsing into a `parseProduct()` function, which takes the product item element and returns the object with data:
 
 ```js
-function parseProduct(productItem) {
-  const title = productItem.find(".product-item__title");
-  const titleText = title.text().trim();
+function parseProduct($productItem) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
 
-  const price = productItem.find(".price").contents().last();
+  const $price = $productItem.find(".price").contents().last();
   const priceRange = { minPrice: null, price: null };
-  const priceText = price
+  const priceText = $price
     .text()
     .trim()
     .replace("$", "")
@@ -117,23 +116,17 @@ function parseProduct(productItem) {
       priceRange.price = priceRange.minPrice;
   }
 
-  return { title: titleText, ...priceRange };
+  return { title, ...priceRange };
 }
 ```
 
 Now the JSON export. For better readability, let's make a small change here and set the indentation level to two spaces:
 
 ```js
-async function exportJSON(data) {
+function exportJSON(data) {
   return JSON.stringify(data, null, 2);
 }
 ```
-
-:::note Why asynchronous?
-
-The `exportJSON()` function doesn't need to be `async` now, but keeping it makes future changes easier — like switching to an async JSON parser. It also stays consistent with the upcoming `exportCSV()` function, which must be asynchronous.
-
-:::
 
 The last function we'll add will take care of the CSV export:
 
@@ -161,13 +154,13 @@ async function download(url) {
   }
 }
 
-function parseProduct(productItem) {
-  const title = productItem.find(".product-item__title");
-  const titleText = title.text().trim();
+function parseProduct($productItem) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
 
-  const price = productItem.find(".price").contents().last();
+  const $price = $productItem.find(".price").contents().last();
   const priceRange = { minPrice: null, price: null };
-  const priceText = price
+  const priceText = $price
     .text()
     .trim()
     .replace("$", "")
@@ -181,10 +174,10 @@ function parseProduct(productItem) {
       priceRange.price = priceRange.minPrice;
   }
 
-  return { title: titleText, ...priceRange };
+  return { title, ...priceRange };
 }
 
-async function exportJSON(data) {
+function exportJSON(data) {
   return JSON.stringify(data, null, 2);
 }
 
@@ -193,17 +186,16 @@ async function exportCSV(data) {
   return await parser.parse(data).promise();
 }
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const data = []
-$(".product-item").each((i, element) => {
-  const productItem = $(element);
-  const item = parseProduct(productItem);
-  data.push(item);
+const data = $(".product-item").toArray().map(element => {
+  const $productItem = $(element);
+  const item = parseProduct($productItem);
+  return item;
 });
 
-await writeFile('products.json', await exportJSON(data));
+await writeFile('products.json', exportJSON(data));
 await writeFile('products.csv', await exportCSV(data));
 ```
 
@@ -232,14 +224,14 @@ Several methods exist for transitioning from one page to another, but the most c
 In DevTools, we can see that each product title is, in fact, also a link element. We already locate the titles, so that makes our task easier. We just need to edit the code so that it extracts not only the text of the element but also the `href` attribute. Cheerio selections support accessing attributes using the `.attr()` method:
 
 ```js
-function parseProduct(productItem) {
-  const title = productItem.find(".product-item__title");
-  const titleText = title.text().trim();
-  const url = title.attr("href");
+function parseProduct($productItem) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
+  const url = $title.attr("href");
 
   ...
 
-  return { url, title: titleText, ...priceRange };
+  return { url, title, ...priceRange };
 }
 ```
 
@@ -274,30 +266,29 @@ We'll change the `parseProduct()` function so that it also takes the base URL as
 
 ```js
 // highlight-next-line
-function parseProduct(productItem, baseURL) {
-  const title = productItem.find(".product-item__title");
-  const titleText = title.text().trim();
+function parseProduct($productItem, baseURL) {
+  const $title = $productItem.find(".product-item__title");
+  const title = $title.text().trim();
   // highlight-next-line
-  const url = new URL(title.attr("href"), baseURL).href;
+  const url = new URL($title.attr("href"), baseURL).href;
 
   ...
 
-  return { url, title: titleText, ...priceRange };
+  return { url, title, ...priceRange };
 }
 ```
 
 Now we'll pass the base URL to the function in the main body of our program:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
 const $ = await download(listingURL);
 
-const data = []
-$(".product-item").each((i, element) => {
-  const productItem = $(element);
+const data = $(".product-item").toArray().map(element => {
+  const $productItem = $(element);
   // highlight-next-line
-  const item = parseProduct(productItem, listingURL);
-  data.push(item);
+  const item = parseProduct($productItem, listingURL);
+  return item;
 });
 ```
 
@@ -359,12 +350,12 @@ https://en.wikipedia.org/wiki/Botswana
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".wikitable tr td:nth-child(3)").each((i, element) => {
+    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
       const nameCell = $(element);
       const link = nameCell.find("a").first();
       const url = new URL(link.attr("href"), listingURL).href;
       console.log(url);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -403,11 +394,11 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $("#maincontent ul li").each((i, element) => {
+    for (const element of $("#maincontent ul li").toArray()) {
       const link = $(element).find("a").first();
       const url = new URL(link.attr("href"), listingURL).href;
       console.log(url);
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }

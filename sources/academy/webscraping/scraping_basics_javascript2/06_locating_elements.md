@@ -23,20 +23,19 @@ const response = await fetch(url);
 if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
-  // highlight-next-line
-  $(".product-item").each((i, element) => {
-    // highlight-next-line
+  // highlight-start
+  for (const element of $(".product-item").toArray()) {
     console.log($(element).text());
-  // highlight-next-line
-  });
+  }
+  // highlight-end
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
 ```
 
-We're using [`each()`](https://cheerio.js.org/docs/api/classes/Cheerio#each) to loop over the items in the Cheerio container. It calls the given function for each of the elements, with two arguments. The first is an index (0, 1, 2…), and the second is the element being processed.
+Calling [`toArray()`](https://cheerio.js.org/docs/api/classes/Cheerio#toarray) converts the Cheerio selection to a standard JavaScript array. We can then loop over that array and process each selected element.
 
-Cheerio requires us to wrap the element with `$()` again before we can work with it further, and then we call `.text()`. If we run the code, it… well, it definitely prints _something_…
+Cheerio requires us to wrap each element with `$()` again before we can work with it further, and then we call `.text()`. If we run the code, it… well, it definitely prints _something_…
 
 ```text
 $ node index.js
@@ -79,17 +78,17 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  for (const element of $(".product-item").toArray()) {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text();
 
-    const price = productItem.find(".price");
-    const priceText = price.text();
+    const $price = $productItem.find(".price");
+    const price = $price.text();
 
-    console.log(`${titleText} | ${priceText}`);
-  });
+    console.log(`${title} | ${price}`);
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -107,6 +106,12 @@ Sony XBR-950G BRAVIA 4K HDR Ultra HD TV |
 ```
 
 There's still some room for improvement, but it's already much better!
+
+:::info Dollar sign variable names
+
+In jQuery and Cheerio, the core idea is a collection that wraps selected objects, usually HTML elements. To tell these wrapped selections apart from plain arrays, strings or other objects, it's common to start variable names with a dollar sign. This is just a naming convention to improve readability. The dollar sign has no special meaning and works like any other character in a variable name.
+
+:::
 
 ## Precisely locating price
 
@@ -169,18 +174,18 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  for (const element of $(".product-item").toArray()) {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text();
 
     // highlight-next-line
-    const price = productItem.find(".price").contents().last();
-    const priceText = price.text();
+    const $price = $productItem.find(".price").contents().last();
+    const price = $price.text();
 
-    console.log(`${titleText} | ${priceText}`);
-  });
+    console.log(`${title} | ${price}`);
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -242,26 +247,24 @@ Djibouti
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".wikitable").each((i, tableElement) => {
-      const table = $(tableElement);
-      const rows = table.find("tr");
+    for (const tableElement of $(".wikitable").toArray()) {
+      const $table = $(tableElement);
+      const $rows = $table.find("tr");
 
-      rows.each((j, rowElement) => {
-        const row = $(rowElement);
-        const cells = row.find("td");
+      for (const rowElement of $rows.toArray()) {
+        const $row = $(rowElement);
+        const $cells = $row.find("td");
 
-        if (cells.length > 0) {
-          const thirdColumn = $(cells[2]);
-          const link = thirdColumn.find("a").first();
-          const linkText = link.text();
-          console.log(linkText);
+        if ($cells.length > 0) {
+          const $thirdColumn = $($cells[2]);
+          const $link = $thirdColumn.find("a").first();
+          console.log($link.text());
         }
-      });
-    });
+      }
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
-
   ```
 
   Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
@@ -270,10 +273,16 @@ Djibouti
 
 ### Use CSS selectors to their max
 
-Simplify the code from previous exercise. Use a single for loop and a single CSS selector. You may want to check out the following pages:
+Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
+
+:::tip Need a nudge?
+
+You may want to check out the following pages:
 
 - [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
 - [`:nth-child()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -288,12 +297,11 @@ Simplify the code from previous exercise. Use a single for loop and a single CSS
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".wikitable tr td:nth-child(3)").each((i, element) => {
-      const nameCell = $(element);
-      const link = nameCell.find("a").first();
-      const linkText = link.text();
-      console.log(linkText);
-    });
+    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
+      const $nameCell = $(element);
+      const $link = $nameCell.find("a").first();
+      console.log($link.text());
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -331,9 +339,9 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $("#maincontent ul li h3").each((i, element) => {
+    for (const element of $("#maincontent ul li h3").toArray()) {
       console.log($(element).text());
-    });
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }

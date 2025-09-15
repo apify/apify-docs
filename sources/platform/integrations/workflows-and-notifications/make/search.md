@@ -4,6 +4,7 @@ description: Learn about Google Search scraper modules.
 sidebar_label: Google Search
 sidebar_position: 3
 slug: /integrations/make/search
+unlisted: true
 ---
 
 ## Apify Scraper for Google Search

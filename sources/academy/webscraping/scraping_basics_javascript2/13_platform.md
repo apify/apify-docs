@@ -35,9 +35,16 @@ Apify serves both as an infrastructure where to privately deploy and run own scr
 
 ## Getting access from the command line
 
-To control the platform from our machine and send the code of our program there, we'll need the Apify CLI. On macOS, we can install the CLI using [Homebrew](https://brew.sh), otherwise we'll first need [Node.js](https://nodejs.org/en/download).
+To control the platform from our machine and send the code of our program there, we'll need the Apify CLI. The [Apify CLI installation guide](https://docs.apify.com/cli/docs/installation) suggests we can install it with `npm` as a global package:
 
-After following the [Apify CLI installation guide](https://docs.apify.com/cli/docs/installation), we'll verify that we installed the tool by printing its version:
+```text
+$ npm -g install apify-cli
+
+added 440 packages in 2s
+...
+```
+
+We better verify that we installed the tool by printing its version:
 
 ```text
 $ apify --version
@@ -52,191 +59,101 @@ $ apify login
 Success: You are logged in to Apify as user1234!
 ```
 
-## Starting a real-world project
+## Turning our program to an Actor
 
-Until now, we've kept our scrapers simple, each with just a single Python module like `main.py`, and we've added dependencies only by installing them with `pip` inside a virtual environment.
+Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://docs.apify.com/platform/actors)—a standardized container with designated places for input and output.
 
-If we sent our code to a friend, they wouldn't know what to install to avoid import errors. The same goes for deploying to a cloud platform.
+Many [Actor templates](https://apify.com/templates/categories/javascript) simplify the setup for new projects. We'll skip those, as we're about to package an existing program.
 
-To share our project, we need to package it. The best way is following the official [Python Packaging User Guide](https://packaging.python.org/), but for this course, we'll take a shortcut with the Apify CLI.
-
-In our terminal, let's change to a directory where we usually start new projects. Then, we'll run the following command:
+Inside the project directory we'll run the `apify init` command followed by a name we want to give to the Actor:
 
 ```text
-apify create warehouse-watchdog --template=python-crawlee-beautifulsoup
+$ apify init warehouse-watchdog
+Success: The Actor has been initialized in the current directory.
 ```
 
-It will create a new subdirectory called `warehouse-watchdog` for the new project, containing all the necessary files:
-
-```text
-Info: Python version 0.0.0 detected.
-Info: Creating a virtual environment in ...
-...
-Success: Actor 'warehouse-watchdog' was created. To run it, run "cd warehouse-watchdog" and "apify run".
-Info: To run your code in the cloud, run "apify push" and deploy your code to Apify Console.
-Info: To install additional Python packages, you need to activate the virtual environment in the ".venv" folder in the actor directory.
-```
-
-## Adjusting the template
-
-Inside the `warehouse-watchdog` directory, we should see a `src` subdirectory containing several Python files, including `main.py`. This is a sample Beautiful Soup scraper provided by the template.
-
-The file contains a single asynchronous function, `main()`. At the beginning, it handles [input](https://docs.apify.com/platform/actors/running/input-and-output#input), then passes that input to a small crawler built on top of the Crawlee framework.
-
-Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://apify.com/actors)—a standardized container with designated places for input and output. Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled explicitly in the code.
-
-![The expected file structure](./images/actor-file-structure.webp)
-
-We'll now adjust the template so that it runs our program for watching prices. As the first step, we'll create a new empty file, `crawler.py`, inside the `warehouse-watchdog/src` directory. Then, we'll fill this file with final, unchanged code from the previous lesson:
-
-```py title=warehouse-watchdog/src/crawler.py
-import asyncio
-from decimal import Decimal
-from crawlee.crawlers import BeautifulSoupCrawler
-
-async def main():
-    crawler = BeautifulSoupCrawler()
-
-    @crawler.router.default_handler
-    async def handle_listing(context):
-        context.log.info("Looking for product detail pages")
-        await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
-
-    @crawler.router.handler("DETAIL")
-    async def handle_detail(context):
-        context.log.info(f"Product detail page: {context.request.url}")
-        price_text = (
-            context.soup
-            .select_one(".product-form__info-content .price")
-            .contents[-1]
-            .strip()
-            .replace("$", "")
-            .replace(",", "")
-        )
-        item = {
-            "url": context.request.url,
-            "title": context.soup.select_one(".product-meta__title").text.strip(),
-            "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
-            "variant_name": None,
-        }
-        if variants := context.soup.select(".product-form__option.no-js option"):
-            for variant in variants:
-                context.log.info("Saving a product variant")
-                await context.push_data(item | parse_variant(variant))
-        else:
-            context.log.info("Saving a product")
-            await context.push_data(item)
-
-    await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
-
-    crawler.log.info("Exporting data")
-    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
-    await crawler.export_data_csv(path='dataset.csv')
-
-def parse_variant(variant):
-    text = variant.text.strip()
-    name, price_text = text.split(" - ")
-    price = Decimal(
-        price_text
-        .replace("$", "")
-        .replace(",", "")
-    )
-    return {"variant_name": name, "price": price}
-
-if __name__ == '__main__':
-    asyncio.run(main())
-```
-
-Now, let's replace the contents of `warehouse-watchdog/src/main.py` with this:
-
-```py title=warehouse-watchdog/src/main.py
-from apify import Actor
-from .crawler import main as crawl
-
-async def main():
-    async with Actor:
-        await crawl()
-```
-
-We import our scraper as a function and await the result inside the Actor block. Unlike the sample scraper, the one we made in the previous lesson doesn't expect any input data, so we can omit the code that handles that part.
-
-Next, we'll change to the `warehouse-watchdog` directory in our terminal and verify that everything works locally before deploying the project to the cloud:
-
-```text
-$ apify run
-Run: /Users/course/Projects/warehouse-watchdog/.venv/bin/python3 -m src
-[apify] INFO  Initializing Actor...
-[apify] INFO  System info ({"apify_sdk_version": "0.0.0", "apify_client_version": "0.0.0", "crawlee_version": "0.0.0", "python_version": "0.0.0", "os": "xyz"})
-[BeautifulSoupCrawler] INFO  Current request statistics:
-┌───────────────────────────────┬──────────┐
-│ requests_finished             │ 0        │
-│ requests_failed               │ 0        │
-│ retry_histogram               │ [0]      │
-│ request_avg_failed_duration   │ None     │
-│ request_avg_finished_duration │ None     │
-│ requests_finished_per_minute  │ 0        │
-│ requests_failed_per_minute    │ 0        │
-│ request_total_duration        │ 0.0      │
-│ requests_total                │ 0        │
-│ crawler_runtime               │ 0.016736 │
-└───────────────────────────────┴──────────┘
-[crawlee._autoscaling.autoscaled_pool] INFO  current_concurrency = 0; desired_concurrency = 2; cpu = 0; mem = 0; event_loop = 0.0; client_info = 0.0
-[BeautifulSoupCrawler] INFO  Looking for product detail pages
-[BeautifulSoupCrawler] INFO  Product detail page: https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker
-[BeautifulSoupCrawler] INFO  Saving a product variant
-[BeautifulSoupCrawler] INFO  Saving a product variant
-...
-```
-
-## Updating the Actor configuration
-
-The Actor configuration from the template tells the platform to expect input, so we need to update that before running our scraper in the cloud.
-
-Inside `warehouse-watchdog`, there's a directory called `.actor`. Within it, we'll edit the `input_schema.json` file, which looks like this by default:
-
-```json title=warehouse-watchdog/src/.actor/input_schema.json
-{
-    "title": "Python Crawlee BeautifulSoup Scraper",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {
-        "start_urls": {
-            "title": "Start URLs",
-            "type": "array",
-            "description": "URLs to start with",
-            "prefill": [
-                { "url": "https://apify.com" }
-            ],
-            "editor": "requestListSources"
-        }
-    },
-    "required": ["start_urls"]
-}
-```
+The command creates an `.actor` directory with `actor.json` file inside. This file serves as the configuration of the Actor.
 
 :::tip Hidden dot files
 
-On some systems, `.actor` might be hidden in the directory listing because it starts with a dot. Use your editor's built-in file explorer to locate it.
+Files and folders that start with a dot (like `.actor`) may be hidden by default. To see them:
+
+- In your operating system's file explorer, look for a setting like **Show hidden files**.
+- Many editors or IDEs can show hidden files as well. For example, the file explorer in VS Code shows them by default.
 
 :::
 
-We'll remove the expected properties and the list of required ones. After our changes, the file should look like this:
+We'll also need a few changes to our code. First, let's add the `apify` package, which is the [Apify SDK](https://docs.apify.com/sdk/js/):
 
-```json title=warehouse-watchdog/src/.actor/input_schema.json
+```text
+$ npm install apify --save
+
+added 123 packages, and audited 123 packages in 0s
+...
+```
+
+Now we'll modify the program so that before it starts, it configures the Actor environment, and after it ends, it gracefully exits the Actor process:
+
+```js title="index.js"
+import { CheerioCrawler } from 'crawlee';
+// highlight-next-line
+import { Actor } from 'apify';
+
+function parseVariant($option) {
+  ...
+}
+
+// highlight-next-line
+await Actor.init();
+
+const crawler = new CheerioCrawler({
+  ...
+});
+
+await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
+crawler.log.info('Exporting data');
+await crawler.exportData('dataset.json');
+await crawler.exportData('dataset.csv');
+
+// highlight-next-line
+await Actor.exit();
+```
+
+Finally, let's tell others how to start the project. This is not specific to Actors. JavaScript projects usually include this so people and tools like Apify know how to run them. We will add a `start` script to `package.json`:
+
+```json title="package.json"
 {
-    "title": "Python Crawlee BeautifulSoup Scraper",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {}
+  "name": "academy-example",
+  "version": "1.0.0",
+  ...
+  "scripts": {
+    // highlight-next-line
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    ...
+  }
 }
 ```
 
-:::danger Trailing commas in JSON
+That's it! Before deploying the project to the cloud, let's verify that everything works locally:
 
-Make sure there's no trailing comma after `{}`, or the file won't be valid JSON.
+```text
+$ apify run
+Run: npm run start
 
-:::
+> academy-example@1.0.0 start
+> node index.js
+
+INFO  System info {"apifyVersion":"0.0.0","apifyClientVersion":"0.0.0","crawleeVersion":"0.0.0","osType":"Darwin","nodeVersion":"v0.0.0"}
+INFO  CheerioCrawler: Starting the crawler.
+INFO  CheerioCrawler: Looking for product detail pages
+INFO  CheerioCrawler: Product detail page: https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker
+INFO  CheerioCrawler: Saving a product variant
+INFO  CheerioCrawler: Saving a product variant
+...
+```
 
 ## Deploying the scraper
 
@@ -263,7 +180,7 @@ When the run finishes, the interface will turn green. On the **Output** tab, we 
 
 :::info Accessing data
 
-We don't need to click buttons to download the data. It's possible to retrieve it also using Apify's API, the `apify datasets` CLI command, or the Python SDK. Learn more in the [Dataset docs](https://docs.apify.com/platform/storage/dataset).
+We don't need to click buttons to download the data. It's possible to retrieve it also using Apify's API, the `apify datasets` CLI command, or the JavaScript SDK. Learn more in the [Dataset docs](https://docs.apify.com/platform/storage/dataset).
 
 :::
 
@@ -279,103 +196,95 @@ From now on, the Actor will execute daily. We can inspect each run, view logs, c
 
 If monitoring shows that our scraper frequently fails to reach the Warehouse Shop website, it's likely being blocked. To avoid this, we can [configure proxies](https://docs.apify.com/platform/proxy) so our requests come from different locations, reducing the chances of detection and blocking.
 
-Proxy configuration is a type of Actor input, so let's start by reintroducing the necessary code. We'll update `warehouse-watchdog/src/main.py` like this:
+Proxy configuration is a type of [Actor input](https://docs.apify.com/platform/actors/running/input-and-output#input). Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled manually. Inside the `.actor` directory we'll create a new file, `inputSchema.json`, with the following content:
 
-```py title=warehouse-watchdog/src/main.py
-from apify import Actor
-from .crawler import main as crawl
-
-async def main():
-    async with Actor:
-        input_data = await Actor.get_input()
-
-        if actor_proxy_input := input_data.get("proxyConfig"):
-            proxy_config = await Actor.create_proxy_configuration(actor_proxy_input=actor_proxy_input)
-        else:
-            proxy_config = None
-
-        await crawl(proxy_config)
-```
-
-Next, we'll add `proxy_config` as an optional parameter in `warehouse-watchdog/src/crawler.py`. Thanks to the built-in integration between Apify and Crawlee, we only need to pass it to `BeautifulSoupCrawler()`, and the class will handle the rest:
-
-```py title=warehouse-watchdog/src/crawler.py
-import asyncio
-from decimal import Decimal
-from crawlee.crawlers import BeautifulSoupCrawler
-
-# highlight-next-line
-async def main(proxy_config = None):
-    # highlight-next-line
-    crawler = BeautifulSoupCrawler(proxy_configuration=proxy_config)
-    # highlight-next-line
-    crawler.log.info(f"Using proxy: {'yes' if proxy_config else 'no'}")
-
-    @crawler.router.default_handler
-    async def handle_listing(context):
-        context.log.info("Looking for product detail pages")
-        await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
-
-    ...
-```
-
-Finally, we'll modify the Actor configuration in `warehouse-watchdog/src/.actor/input_schema.json` to include the `proxyConfig` input parameter:
-
-```json title=warehouse-watchdog/src/.actor/input_schema.json
+```json title=".actor/inputSchema.json"
 {
-    "title": "Python Crawlee BeautifulSoup Scraper",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {
-        "proxyConfig": {
-            "title": "Proxy config",
-            "description": "Proxy configuration",
-            "type": "object",
-            "editor": "proxy",
-            "prefill": {
-                "useApifyProxy": true,
-                "apifyProxyGroups": []
-            },
-            "default": {
-                "useApifyProxy": true,
-                "apifyProxyGroups": []
-            }
-        }
+  "title": "Crawlee Cheerio Scraper",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "proxyConfig": {
+      "title": "Proxy config",
+      "description": "Proxy configuration",
+      "type": "object",
+      "editor": "proxy",
+      "prefill": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": []
+      },
+      "default": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": []
+      }
     }
+  }
 }
+```
+
+Now let's connect this file to the actor configuration. In `actor.json`, we'll add one more line:
+
+```json title=".actor/actor.json"
+{
+  "actorSpecification": 1,
+  "name": "warehouse-watchdog",
+  "version": "0.0",
+  "buildTag": "latest",
+  "environmentVariables": {},
+  // highlight-next-line
+  "input": "./inputSchema.json"
+}
+```
+
+:::danger Trailing commas in JSON
+
+Make sure there's no trailing comma after the line, or the file won't be valid JSON.
+
+:::
+
+That tells the platform our Actor expects proxy configuration on input. We'll also update the `index.js`. Thanks to the built-in integration between Apify and Crawlee, we can pass the proxy configuration as-is to the `CheerioCrawler`:
+
+```js
+...
+await Actor.init();
+// highlight-next-line
+const proxyConfiguration = await Actor.createProxyConfiguration();
+
+const crawler = new CheerioCrawler({
+  // highlight-next-line
+  proxyConfiguration,
+  async requestHandler({ $, request, enqueueLinks, pushData, log }) {
+    ...
+  },
+});
+
+// highlight-next-line
+crawler.log.info(`Using proxy: ${proxyConfiguration ? 'yes' : 'no'}`);
+await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
+...
 ```
 
 To verify everything works, we'll run the scraper locally. We'll use the `apify run` command again, but this time with the `--purge` option to ensure we're not reusing data from a previous run:
 
 ```text
 $ apify run --purge
-Info: All default local stores were purged.
-Run: /Users/course/Projects/warehouse-watchdog/.venv/bin/python3 -m src
-[apify] INFO  Initializing Actor...
-[apify] INFO  System info ({"apify_sdk_version": "0.0.0", "apify_client_version": "0.0.0", "crawlee_version": "0.0.0", "python_version": "0.0.0", "os": "xyz"})
-[BeautifulSoupCrawler] INFO  Using proxy: no
-[BeautifulSoupCrawler] INFO  Current request statistics:
-┌───────────────────────────────┬──────────┐
-│ requests_finished             │ 0        │
-│ requests_failed               │ 0        │
-│ retry_histogram               │ [0]      │
-│ request_avg_failed_duration   │ None     │
-│ request_avg_finished_duration │ None     │
-│ requests_finished_per_minute  │ 0        │
-│ requests_failed_per_minute    │ 0        │
-│ request_total_duration        │ 0.0      │
-│ requests_total                │ 0        │
-│ crawler_runtime               │ 0.014976 │
-└───────────────────────────────┴──────────┘
-[crawlee._autoscaling.autoscaled_pool] INFO  current_concurrency = 0; desired_concurrency = 2; cpu = 0; mem = 0; event_loop = 0.0; client_info = 0.0
-[BeautifulSoupCrawler] INFO  Looking for product detail pages
-[BeautifulSoupCrawler] INFO  Product detail page: https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker
-[BeautifulSoupCrawler] INFO  Saving a product variant
-[BeautifulSoupCrawler] INFO  Saving a product variant
+Run: npm run start
+
+> academy-example@1.0.0 start
+> node index.js
+
+INFO  System info {"apifyVersion":"0.0.0","apifyClientVersion":"0.0.0","crawleeVersion":"0.0.0","osType":"Darwin","nodeVersion":"v0.0.0"}
+WARN  ProxyConfiguration: The "Proxy external access" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com
+INFO  CheerioCrawler: Using proxy: no
+INFO  CheerioCrawler: Starting the crawler.
+INFO  CheerioCrawler: Looking for product detail pages
+INFO  CheerioCrawler: Product detail page: https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones
+INFO  CheerioCrawler: Saving a product variant
+INFO  CheerioCrawler: Saving a product variant
 ...
 ```
 
-In the logs, we should see `Using proxy: no`, because local runs don't include proxy settings. All requests will be made from our own location, just as before. Now, let's update the cloud version of our scraper with `apify push`:
+In the logs, we should see `Using proxy: no`, because local runs don't include proxy settings. A warning informs us that it's a paid feature we don't have enabled, so all requests will be made from our own location, just as before. Now, let's update the cloud version of our scraper with `apify push`:
 
 ```text
 $ apify push
@@ -394,30 +303,17 @@ Back in the Apify console, we'll go to the **Source** screen and switch to the *
 We'll leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
 
 ```text
-(timestamp) ACTOR: Pulling Docker image of build o6vHvr5KwA1sGNxP0 from repository.
+(timestamp) ACTOR: Pulling Docker image of build o6vHvr5KwA1sGNxP0 from registry.
 (timestamp) ACTOR: Creating Docker container.
 (timestamp) ACTOR: Starting Docker container.
-(timestamp) [apify] INFO  Initializing Actor...
-(timestamp) [apify] INFO  System info ({"apify_sdk_version": "0.0.0", "apify_client_version": "0.0.0", "crawlee_version": "0.0.0", "python_version": "0.0.0", "os": "xyz"})
-(timestamp) [BeautifulSoupCrawler] INFO  Using proxy: yes
-(timestamp) [BeautifulSoupCrawler] INFO  Current request statistics:
-(timestamp) ┌───────────────────────────────┬──────────┐
-(timestamp) │ requests_finished             │ 0        │
-(timestamp) │ requests_failed               │ 0        │
-(timestamp) │ retry_histogram               │ [0]      │
-(timestamp) │ request_avg_failed_duration   │ None     │
-(timestamp) │ request_avg_finished_duration │ None     │
-(timestamp) │ requests_finished_per_minute  │ 0        │
-(timestamp) │ requests_failed_per_minute    │ 0        │
-(timestamp) │ request_total_duration        │ 0.0      │
-(timestamp) │ requests_total                │ 0        │
-(timestamp) │ crawler_runtime               │ 0.036449 │
-(timestamp) └───────────────────────────────┴──────────┘
-(timestamp) [crawlee._autoscaling.autoscaled_pool] INFO  current_concurrency = 0; desired_concurrency = 2; cpu = 0; mem = 0; event_loop = 0.0; client_info = 0.0
-(timestamp) [crawlee.storages._request_queue] INFO  The queue still contains requests locked by another client
-(timestamp) [BeautifulSoupCrawler] INFO  Looking for product detail pages
-(timestamp) [BeautifulSoupCrawler] INFO  Product detail page: https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker
-(timestamp) [BeautifulSoupCrawler] INFO  Saving a product variant
+(timestamp) INFO  System info {"apifyVersion":"0.0.0","apifyClientVersion":"0.0.0","crawleeVersion":"0.0.0","osType":"Darwin","nodeVersion":"v0.0.0"}
+(timestamp) INFO  CheerioCrawler: Using proxy: yes
+(timestamp) INFO  CheerioCrawler: Starting the crawler.
+(timestamp) INFO  CheerioCrawler: Looking for product detail pages
+(timestamp) INFO  CheerioCrawler: Product detail page: https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-turntable
+(timestamp) INFO  CheerioCrawler: Saving a product
+(timestamp) INFO  CheerioCrawler: Product detail page: https://warehouse-theme-metal.myshopify.com/products/klipsch-r-120sw-powerful-detailed-home-speaker-set-of-1
+(timestamp) INFO  CheerioCrawler: Saving a product
 ...
 ```
 

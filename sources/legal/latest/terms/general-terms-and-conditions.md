@@ -10,6 +10,7 @@ slug: /general-terms-and-conditions
 # Apify General Terms and Conditions
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Effective date: May 14, 2024
 

@@ -1,12 +1,12 @@
 ---
-title: Python tutorials
+title: Tutorials on scraping with Python
 description: A collection of various Python tutorials to aid you in your journey to becoming a master web scraping and automation developer.
-sidebar_position: 15
+sidebar_position: 3
 category: tutorials
 slug: /python
 ---
 
-# Python Tutorials 🐍📚
+# Scraping with Python
 
 **A collection of various Python tutorials to aid you in your journey to becoming a master web scraping and automation developer.**
 

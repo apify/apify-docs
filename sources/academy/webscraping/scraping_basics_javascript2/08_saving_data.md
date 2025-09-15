@@ -25,7 +25,7 @@ We should use widely popular formats that have well-defined solutions for all th
 
 ## Collecting data
 
-Producing results line by line is an efficient approach to handling large datasets, but to simplify this lesson, we'll store all our data in one variable. This'll take three changes to our program:
+Producing results line by line is an efficient approach to handling large datasets, but to simplify this lesson, we'll store all our data in one variable. This'll take four changes to our program:
 
 ```js
 import * as cheerio from 'cheerio';
@@ -38,16 +38,15 @@ if (response.ok) {
   const $ = cheerio.load(html);
 
   // highlight-next-line
-  const data = [];
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  const data = $(".product-item").toArray().map(element => {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text().trim();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text().trim();
 
-    const price = productItem.find(".price").contents().last();
+    const $price = $productItem.find(".price").contents().last();
     const priceRange = { minPrice: null, price: null };
-    const priceText = price
+    const priceText = $price
       .text()
       .trim()
       .replace("$", "")
@@ -62,9 +61,8 @@ if (response.ok) {
     }
 
     // highlight-next-line
-    data.push({ title: titleText, ...priceRange });
+    return { title, ...priceRange };
   });
-
   // highlight-next-line
   console.log(data);
 } else {
@@ -72,7 +70,23 @@ if (response.ok) {
 }
 ```
 
-Before looping over the products, we prepare an empty array. Then, instead of printing each line, we append the data of each product to the array in the form of a JavaScript object. At the end of the program, we print the entire array at once.
+Instead of printing each line, we now return the data for each product as a JavaScript object. We've replaced the `for` loop with [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), which also iterates over the selection but, in addition, collects all the results and returns them as another array. Near the end of the program, we print this entire array.
+
+:::tip Advanced syntax
+
+When returning the item object, we use [shorthand property syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#property_definitions) to set the title, and [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to set the prices. It's the same as if we wrote the following:
+
+```js
+{
+  title: title,
+  minPrice: priceRange.minPrice,
+  price: priceRange.price,
+}
+```
+
+:::
+
+The program should now print the results as a single large JavaScript array:
 
 ```text
 $ node index.js
@@ -90,20 +104,6 @@ $ node index.js
   ...
 ]
 ```
-
-:::tip Spread syntax
-
-The three dots in `{ title: titleText, ...priceRange }` are called [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). It's the same as if we wrote the following:
-
-```js
-{
-  title: titleText,
-  minPrice: priceRange.minPrice,
-  price: priceRange.price,
-}
-```
-
-:::
 
 ## Saving data as JSON
 
@@ -152,7 +152,7 @@ Neither JavaScript itself nor Node.js offers anything built-in to read and write
 ```text
 $ npm install @json2csv/node --save
 
-added 4 packages, and audited 28 packages in 1s
+added 123 packages, and audited 123 packages in 0s
 ...
 ```
 
@@ -202,7 +202,7 @@ In this lesson, we created export files in two formats. The following challenges
 
 ### Process your JSON
 
-Write a new Node.js program that reads `products.json`, finds all products with a min price greater than $500, and prints each of them.
+Write a new Node.js program that reads the `products.json` file we created in this lesson, finds all products with a min price greater than $500, and prints each of them.
 
 <details>
   <summary>Solution</summary>
@@ -229,8 +229,8 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
   1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+  1. Select the header row. Go to **Data > Create filter**.
+  1. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
   ![CSV in Google Sheets](images/csv-sheets.png)
 

@@ -11,11 +11,32 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 
 ---
 
-In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted for which type of boilerplate to start out with, select **Empty**.
+In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted about the programming language, select **JavaScript**:
 
-![Selecting an empty template to start with](./images/select-empty.jpg)
+```text
+$ apify create filter-actor
+? Choose the programming language of your new Actor:
+❯ JavaScript
+  TypeScript
+  Python
+```
 
-Cool! Now, we're ready to get started.
+Then use the arrow down key to select **Empty JavaScript Project**:
+
+```text
+$ apify create filter-actor
+✔ Choose the programming language of your new Actor: JavaScript
+? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
+  Crawlee + Playwright + Chrome
+  Crawlee + Playwright + Camoufox
+  Bootstrap CheerioCrawler
+  Cypress
+❯ Empty JavaScript Project
+  Standby JavaScript Project
+  ...
+```
+
+As a last step, confirm the choices by **Install template** and wait until our new Actor is ready.
 
 ## Building the new Actor {#building-the-new-actor}
 
@@ -40,7 +61,11 @@ const dataset = await Actor.openDataset(datasetId);
 // ...
 ```
 
-> Tip: You will need to use `forceCloud` option - `Actor.openDataset(<name/id>, { forceCloud: true });` - to open dataset from platform storage while running Actor locally.
+:::tip Accessing Cloud Datasets Locally
+
+You will need to use `forceCloud` option - `Actor.openDataset(<name/id>, { forceCloud: true });` - to open dataset from platform storage while running Actor locally.
+
+:::
 
 Next, we'll grab hold of the dataset's items with the `dataset.getData()` function:
 
@@ -121,15 +146,36 @@ Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as 
 }
 ```
 
-Now we're done, and we can push it up to the Apify platform with the `apify push` command.
+Now we're done, and we can push it up to the Apify platform with the `apify push` command:
+
+```text
+$ apify push
+Info: Created Actor with name filter-actor on Apify.
+Info: Deploying Actor 'filter-actor' to Apify.
+Run: Updated version 0.0 for Actor filter-actor.
+Run: Building Actor filter-actor
+(timestamp) ACTOR: Extracting Actor documentation from README.md
+(timestamp) ACTOR: Building Docker image.
+...
+(timestamp) ACTOR: Pushing Docker image to repository.
+(timestamp) ACTOR: Build finished.
+Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
+Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
+Success: Actor was deployed to Apify cloud and built there.
+```
 
 ## Setting up the webhook {#setting-up-the-webhook}
 
-Since we'll be calling the Actor via the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api), we'll need to grab hold of the ID of the Actor we just created and pushed to the platform. The ID is always accessible through the **Settings** page of the Actor.
+We'll use the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api) to set up the webhook. To compose the HTTP request, we'll need either the ID of our Actor or its technical name. Let's take a second look at the end of the output of the `apify push` command:
 
-![Actor ID in Actor settings](./images/actor-settings.jpg)
+```text
+...
+Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
+Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
+Success: Actor was deployed to Apify cloud and built there.
+```
 
-With this `actorId`, and our `token`, which is retrievable through **Settings > Integrations** on the Apify Console, we can construct a link which will call the Actor:
+The URLs tell us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > Integrations** on the Apify Console, we can construct a link which will call the Actor:
 
 ```text
 https://api.apify.com/v2/acts/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
