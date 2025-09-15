@@ -1,20 +1,18 @@
 ---
 title: Workato integration
-description: Learn how to integrate your Apify Actors with Workato to build enterprise-grade automated workflows and connect with hundreds of business applications.
+description: Learn how to connect Apify web scraping with Workato to automate data flows across your business applications.
 sidebar_label: Workato
 sidebar_position: 7
 slug: /integrations/workato
 ---
 
-**Learn how to integrate your Apify Actors with Workato to build enterprise-grade automated workflows and connect with hundreds of business applications.**
+**Learn how to connect Apify web scraping with Workato to automate data flows across your business applications.**
 
 ---
 
-[Workato](https://www.workato.com/) is an enterprise-grade integration and automation platform (iPaaS) that enables you to build automated workflows called **"recipes"** across applications using no-code or low-code connectors. With the [Apify Workato Connector](https://apify.com), you can seamlessly integrate web scraping and automation capabilities into your enterprise workflows.
+[Workato](https://www.workato.com/) is an enterprise-grade automation platform that lets you build **recipes** (workflows) across applications using no-code connectors. The [Apify Workato Connector](https://apify.com) integrates web scraping capabilities into your enterprise workflows.
 
-Each Workato recipe begins with a **trigger** (an event in one app) and executes one or more **actions** (operations in other apps). The Apify connector provides Apify-specific triggers and actions, allowing you to start or monitor Apify tasks, retrieve scraped data, and incorporate web automation into your business processes.
-
-You can use the Workato integration to trigger workflows when Apify Actors or tasks finish, start scraping jobs based on business events, or fetch and process scraped data across your tech stack.
+Recipes start with a **trigger** (an event) and execute **actions** (operations). With the Apify connector, you can start scraping jobs, monitor tasks, and process scraped data throughout your tech stack.
 
 ## Get started
 
@@ -238,27 +236,23 @@ This action provides immediate, on-demand scraping capabilities:
 
 ![Scrape Single URL action](../images/workato/scrape-url.png)
 
+## Long‑running scrapes and async pattern in Workato
+
+Long-running scrapes can exceed typical step execution expectations. Use this asynchronous pattern to keep recipes reliable and scalable.
+
+1. Start the run without waiting
+   - In a recipe, add the **Run Actor** action and configure inputs as needed.
+   - Run asynchronously (do not block downstream steps on completion).
+   - ![Run Actor action](../images/workato/run-actor.png)
+1. Continue when the run finishes
+   - Build a separate recipe with the **Actor Run Finished** trigger.
+   - Filter for the specific Actor or Task you started in Step 1.
+   - ![Actor Run Finished trigger](../images/workato/trigger-actor.png)
+1. Fetch results and process
+   - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
+   - ![Get Dataset Items action](../images/workato/get-dataset.png)
+
 ## Example use cases
-
-### Automated competitive monitoring
-
-**Trigger:** Scheduled (daily)  
-**Actions:** 
-1. Run Actor (competitor price scraper)
-1. Get Dataset Items (fetch price data)
-1. Send to Google Sheets or Salesforce
-1. Send Slack notification if significant price changes detected
-
-### Lead generation from web data
-
-**Trigger:** New opportunity created in CRM  
-**Actions:**
-1. Scrape Single URL (extract company data from website)
-1. Update CRM record with enriched data
-1. Trigger email sequence in marketing automation platform
-
-
-## Using the integration
 
 ### Data mapping and workflow design
 
@@ -277,27 +271,6 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - **Rate limiting:** Be mindful of API rate limits when designing high-frequency workflows
 - **Data validation:** Validate scraped data before sending to critical business systems
 
-## Long‑running scrapes and async pattern in Workato
-
-Long-running scrapes can exceed typical step execution expectations. Use this asynchronous pattern to keep recipes reliable and scalable.
-
-1. Start the run without waiting
-   - In a recipe, add the **Run Actor** action and configure inputs as needed.
-   - Run asynchronously (do not block downstream steps on completion).
-   - ![Run Actor action](../images/workato/run-actor.png)
-1. Continue when the run finishes
-   - Build a separate recipe with the **Actor Run Finished** trigger.
-   - Filter for the specific Actor or Task you started in Step 1.
-   - ![Actor Run Finished trigger](../images/workato/trigger-actor.png)
-1. Fetch results and process
-   - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
-   - ![Get Dataset Items action](../images/workato/get-dataset.png)
-
-:::note Screenshot needed
-
-Please add `../images/workato/async-flow.png` illustrating a two‑recipe setup: one recipe starting a run, and another recipe triggered on run completion.
-
-:::
 
 ## Troubleshooting
 
