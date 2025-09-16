@@ -1,7 +1,9 @@
-extends: existence
-message: "The word '%s' should always be capitalized."
+extends: substitution
+message: "Use '%s' instead of '%s'."
 ignorecase: false
 level: error
-tokens:
-  - '\bactor\b'
-  - '\bactors\b'
+scope: text & ~alt
+nonword: true
+swap:
+  '\bactor\b': Actor
+  '\bactors\b': Actors
