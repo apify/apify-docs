@@ -36,14 +36,14 @@ It's because some products have variants with different prices. Later in the cou
 Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix?
 
 ```js
-const priceText = price.text().replace("From ", "");
+const priceText = $price.text().replace("From ", "");
 ```
 
 In other cases, they'd tell us the data must include the range. And in cases when we just don't know, the safest option is to include all the information we have and leave the decision on what's important to later stages. One approach could be having the exact and minimum prices as separate values. If we don't know the exact price, we leave it empty:
 
 ```js
 const priceRange = { minPrice: null, price: null };
-const priceText = price.text()
+const priceText = $price.text()
 if (priceText.startsWith("From ")) {
     priceRange.minPrice = priceText.replace("From ", "");
 } else {
@@ -70,15 +70,15 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  for (const element of $(".product-item").toArray()) {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text();
+    const $title = $productItem.find(".product-item__title");
+    const title = $title.text();
 
-    const price = productItem.find(".price").contents().last();
+    const $price = $productItem.find(".price").contents().last();
     const priceRange = { minPrice: null, price: null };
-    const priceText = price.text();
+    const priceText = $price.text();
     if (priceText.startsWith("From ")) {
         priceRange.minPrice = priceText.replace("From ", "");
     } else {
@@ -86,8 +86,8 @@ if (response.ok) {
         priceRange.price = priceRange.minPrice;
     }
 
-    console.log(`${titleText} | ${priceRange.minPrice} | ${priceRange.price}`);
-  });
+    console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -100,9 +100,9 @@ Often, the strings we extract from a web page start or end with some amount of w
 We call the operation of removing whitespace _trimming_ or _stripping_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it. Let's add JavaScript's built-in [.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim):
 
 ```js
-const titleText = title.text().trim();
+const title = $title.text().trim();
 
-const priceText = price.text().trim();
+const priceText = $price.text().trim();
 ```
 
 ## Removing dollar sign and commas
@@ -124,7 +124,7 @@ The demonstration above is inside the Node.js' [interactive REPL](https://nodejs
 We need to remove the dollar sign and the decimal commas. For this type of cleaning, [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) are often the best tool for the job, but in this case [`.replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) is also sufficient:
 
 ```js
-const priceText = price
+const priceText = $price
   .text()
   .trim()
   .replace("$", "")
@@ -137,7 +137,7 @@ Now we should be able to add `parseFloat()`, so that we have the prices not as a
 
 ```js
 const priceRange = { minPrice: null, price: null };
-const priceText = price.text()
+const priceText = $price.text()
 if (priceText.startsWith("From ")) {
     priceRange.minPrice = parseFloat(priceText.replace("From ", ""));
 } else {
@@ -156,7 +156,7 @@ Great! Only if we didn't overlook an important pitfall called [floating-point er
 These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid floating point numbers when working with money. We won't store dollars, but cents:
 
 ```js
-const priceText = price
+const priceText = $price
   .text()
   .trim()
   .replace("$", "")
@@ -177,15 +177,15 @@ if (response.ok) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  $(".product-item").each((i, element) => {
-    const productItem = $(element);
+  for (const element of $(".product-item").toArray()) {
+    const $productItem = $(element);
 
-    const title = productItem.find(".product-item__title");
-    const titleText = title.text().trim();
+    const $title = $productItem.find(".product-item__title");
+    const titleText = $title.text().trim();
 
-    const price = productItem.find(".price").contents().last();
+    const $price = $productItem.find(".price").contents().last();
     const priceRange = { minPrice: null, price: null };
-    const priceText = price
+    const priceText = $price
       .text()
       .trim()
       .replace("$", "")
@@ -199,8 +199,8 @@ if (response.ok) {
         priceRange.price = priceRange.minPrice;
     }
 
-    console.log(`${titleText} | ${priceRange.minPrice} | ${priceRange.price}`);
-  });
+    console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
+  }
 } else {
   throw new Error(`HTTP ${response.status}`);
 }
@@ -258,17 +258,17 @@ Denon AH-C720 In-Ear Headphones | 236
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".product-item").each((i, element) => {
-      const productItem = $(element);
+    for (const element of $(".product-item").toArray()) {
+      const $productItem = $(element);
 
-      const title = productItem.find(".product-item__title");
-      const titleText = title.text().trim();
+      const title = $productItem.find(".product-item__title");
+      const title = $title.text().trim();
 
-      const unitsText = productItem.find(".product-item__inventory").text();
+      const unitsText = $productItem.find(".product-item__inventory").text();
       const unitsCount = parseUnitsText(unitsText);
 
-      console.log(`${titleText} | ${unitsCount}`);
-    });
+      console.log(`${title} | ${unitsCount}`);
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -307,17 +307,17 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $(".product-item").each((i, element) => {
-      const productItem = $(element);
+    for (const element of $(".product-item").toArray()) {
+      const $productItem = $(element);
 
-      const title = productItem.find(".product-item__title");
-      const titleText = title.text().trim();
+      const $title = $productItem.find(".product-item__title");
+      const title = $title.text().trim();
 
-      const unitsText = productItem.find(".product-item__inventory").text();
+      const unitsText = $productItem.find(".product-item__inventory").text();
       const unitsCount = parseUnitsText(unitsText);
 
-      console.log(`${titleText} | ${unitsCount}`);
-    });
+      console.log(`${title} | ${unitsCount}`);
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -349,12 +349,14 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
 - Cheerio gives you [.attr()](https://cheerio.js.org/docs/api/classes/Cheerio#attr) to access attributes.
 - In JavaScript you can use an ISO 8601 string to create a [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object.
 - To get the date, you can call `.toDateString()` on `Date` objects.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -369,21 +371,21 @@ Hints:
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    $("#maincontent ul li").each((i, element) => {
-      const article = $(element);
+    for (const element of $("#maincontent ul li").toArray()) {
+      const $article = $(element);
 
-      const titleText = article
+      const title = $article
         .find("h3")
         .text()
         .trim();
-      const dateText = article
+      const dateText = $article
         .find("time")
         .attr("datetime")
         .trim();
       const date = new Date(dateText);
 
-      console.log(`${titleText} | ${date.toDateString()}`);
-    });
+      console.log(`${title} | ${date.toDateString()}`);
+    }
   } else {
     throw new Error(`HTTP ${response.status}`);
   }

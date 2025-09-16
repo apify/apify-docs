@@ -18,7 +18,7 @@ jobs:
                     fetch-depth: 0
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v5
                 with:
                     node-version: 22
                     cache: 'npm'
@@ -30,7 +30,7 @@ jobs:
 
             -   name: Check changes in theme
                 id: changed-theme-files
-                uses: tj-actions/changed-files@v46
+                uses: tj-actions/changed-files@v47
                 with:
                     since_last_remote_commit: "true"
                     files: |
@@ -46,7 +46,7 @@ jobs:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v5
                 with:
                     node-version: 22
                     cache: 'npm'

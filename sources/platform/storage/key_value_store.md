@@ -6,8 +6,6 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-# Key-value store
-
 **Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
 
 import Tabs from '@theme/Tabs';
@@ -257,6 +255,10 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or o
 ## Sharing
 
 You can grant [access rights](../collaboration/index.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
+
+You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
 
 ### Sharing key-value stores between runs
 

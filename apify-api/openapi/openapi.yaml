@@ -372,7 +372,7 @@ info:
       <tr>
         <td><code>429</code></td>
         <td><code>rate-limit-exceeded</code></td>
-        <td>You have exceeded the rate limit of 30 requests per second</td>
+        <td>You have exceeded the rate limit of ... requests per second</td>
       </tr>
       <tr>
         <td><code>405</code></td>
@@ -398,18 +398,18 @@ info:
     ### Per-resource rate limit
     <span id="/introduction/rate-limiting/per-resource-rate-limit"></span>
 
-    The default per-resource rate limit is _30 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
+    The default per-resource rate limit is _60 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
     The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
     Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
-    These endpoints have a rate limit of _100 requests per second per resource_:
+    These endpoints have a rate limit of _200 requests per second per resource_:
 
     * CRUD ([get](#/reference/key-value-stores/record/get-record),
       [put](#/reference/key-value-stores/record/put-record),
       [delete](#/reference/key-value-stores/record/delete-record))
       operations on key-value store records
 
-    These endpoints have a rate limit of _200 requests per second per resource_:
+    These endpoints have a rate limit of _400 requests per second per resource_:
     * [Run Actor](#/reference/actors/run-collection/run-actor)
     * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
     * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)

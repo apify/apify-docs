@@ -6,6 +6,7 @@ slug: /old/general-terms-and-conditions-october-2022
 ---
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 ## Version History
 

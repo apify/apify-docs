@@ -162,7 +162,7 @@ We can use Beautiful Soup's `.contents` property to access individual nodes. It 
 ["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
-It seems like we can read the last element to get the actual amount from a list like the above. Let's fix our program:
+It seems like we can read the last element to get the actual amount. Let's fix our program:
 
 ```py
 import httpx
@@ -228,6 +228,16 @@ Algeria
 Angola
 Benin
 Botswana
+Burkina Faso
+Burundi
+Cameroon
+Cape Verde
+Central African Republic
+Chad
+Comoros
+Democratic Republic of the Congo
+Republic of the Congo
+Djibouti
 ...
 ```
 
@@ -260,10 +270,16 @@ Botswana
 
 ### Use CSS selectors to their max
 
-Simplify the code from previous exercise. Use a single for loop and a single CSS selector. You may want to check out the following pages:
+Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
+
+:::tip Need a nudge?
+
+You may want to check out the following pages:
 
 - [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
 - [`:nth-child()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
+
+:::
 
 <details>
   <summary>Solution</summary>
