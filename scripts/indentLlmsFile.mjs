@@ -6,47 +6,81 @@ const LLMS_FILE = path.join(BUILD_DIR, 'llms.txt');
 
 const INDENT_LEVEL = 2;
 
-// Paths that should be indented at the first level
-const INDENTED_PATHS = ['/api/v2/', '/academy/', '/platform/', '/legal/'];
-
-// Main API pages that should have no indentation
-const MAIN_API_PAGES = ['/api.md', '/api/v2.md'];
+const MAIN_SECTIONS = ['/api.md', '/api/v2.md'];
 
 const BASE_URL = process.env.APIFY_DOCS_ABSOLUTE_URL || 'https://docs.apify.com';
-console.log('debug: BASE_URL', BASE_URL);
+
 /**
- * Calculates the depth of a URL by counting non-file path segments.
+ * Extracts the path from a URL, removing the base URL and query parameters
  */
-function getUrlDepth(url) {
-    const baseUrl = url.replace(BASE_URL, '');
-    const urlSegments = baseUrl.split('/').filter((segment) => segment && segment !== '');
-    const nonFileSegments = urlSegments.filter((segment) => !segment.endsWith('.md'));
+function extractPathFromUrl(url) {
+    const urlObj = new URL(url);
+    return urlObj.pathname;
+}
+
+/**
+ * Calculates the hierarchical depth of a URL path.
+ * This counts directory levels, not including the filename.
+ */
+function getUrlHierarchyDepth(url) {
+    const urlPath = extractPathFromUrl(url);
+    const segments = urlPath.split('/').filter((segment) => segment && segment !== '');
+
+    // Remove the .md file extension to count only directory levels
+    const nonFileSegments = segments.filter((segment) => !segment.endsWith('.md'));
+
     return nonFileSegments.length;
 }
 
 /**
- * Determines the indentation level for a documentation link based on its URL.
+ * Determines if a URL is a main section page (level 0)
  */
-function getLinkIndentation(url) {
-    if (MAIN_API_PAGES.some((page) => url.includes(page))) {
-        return 0;
+function isMainSectionPage(url) {
+    const urlPath = extractPathFromUrl(url);
+    const segments = urlPath.split('/').filter((segment) => segment && segment !== '');
+
+    // Main pages are those with only one segment (the .md file)
+    // or specific known main pages
+    if (segments.length === 1) {
+        return true;
     }
 
-    if (INDENTED_PATHS.some((item) => url.includes(item))) {
-        return INDENT_LEVEL;
+    // Special cases for main API pages
+    if (MAIN_SECTIONS.includes(urlPath)) {
+        return true;
     }
 
-    // Default based on URL depth
-    const depth = getUrlDepth(url);
-    return Math.min(depth * INDENT_LEVEL, INDENT_LEVEL * 3);
+    return false;
 }
 
 /**
- * Determines the indentation level for a line based on its content type.
+ * Determines the indentation level for a documentation link based on its URL hierarchy.
+ */
+function getLinkIndentation(url) {
+    // Main section pages get no indentation
+    if (isMainSectionPage(url)) {
+        return 0;
+    }
+
+    // Calculate hierarchy depth
+    const depth = getUrlHierarchyDepth(url);
+
+    // The first level after main sections gets 1 level of indentation
+    // Each subsequent level gets another level of indentation
+    return Math.min(depth * INDENT_LEVEL, INDENT_LEVEL * 4); // Cap at 4 levels
+}
+
+/**
+ * Determines the indentation level for a line based on its content type and URL.
  */
 function getIndentationLevel(line, lineIndex, allLines) {
-    if (line.startsWith('# ') || line.startsWith('## ')) {
-        return 0; // Main title or section title - no indent
+    // Handle markdown headers
+    if (line.startsWith('# ')) {
+        return 0; // Main title - no indent
+    }
+
+    if (line.startsWith('## ')) {
+        return 0; // Section title - no indent
     }
 
     if (line.startsWith('### ')) {
@@ -57,6 +91,7 @@ function getIndentationLevel(line, lineIndex, allLines) {
         return INDENT_LEVEL * 2; // Sub-subsection title - 2 level indent
     }
 
+    // Handle markdown links with URLs
     if (line.startsWith('- [') && line.includes(`](${BASE_URL}/`)) {
         const urlMatch = line.match(new RegExp(`\\]\\((${BASE_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/[^)]+)\\)`));
         if (!urlMatch) {
@@ -65,9 +100,10 @@ function getIndentationLevel(line, lineIndex, allLines) {
         return getLinkIndentation(urlMatch[1]);
     }
 
+    // For other content, use the same indentation as the previous line
     if (lineIndex > 0) {
-        // Other content - use same indent as previous line
-        const prevIndentMatch = allLines[lineIndex - 1].match(/^(\s*)/);
+        const prevLine = allLines[lineIndex - 1];
+        const prevIndentMatch = prevLine.match(/^(\s*)/);
         return prevIndentMatch ? prevIndentMatch[1].length : INDENT_LEVEL;
     }
 
