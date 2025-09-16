@@ -4,6 +4,7 @@ sidebar_label: MCP
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
 sidebar_position: 1
 slug: /integrations/mcp
+toc_max_heading_level: 4
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -38,13 +39,12 @@ When you connect for the first time, you'll be redirected to your browser to sig
 authentication without exposing your API token.
 
 ```json
-
 {
-"mcpServers": {
+  "mcpServers": {
     "apify": {
-    "url": "https://mcp.apify.com"
+      "url": "https://mcp.apify.com"
     }
-}
+  }
 }
 ```
 
@@ -55,16 +55,18 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 
 ```json
 {
-"mcpServers": {
-"apify": {
-    "url": "https://mcp.apify.com",
-    "headers": {
-        "Authorization": "Bearer your-apify-token"
+  "mcpServers": {
+    "apify": {
+      "url": "https://mcp.apify.com",
+      "headers": {
+        "Authorization": "Bearer <APIFY_TOKEN>"
+      }
     }
-}
-}
+  }
 }
 ```
+
+Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
 
 </TabItem>
 </Tabs>
@@ -73,15 +75,145 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 
 _MCP server configuration for other clients_: Use the [UI configuration tool](https://mcp.apify.com/) to select Actors and tools, then copy the configuration to your client.
 
-_Claude Desktop_: Download and run the [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.dxt) for one-click installation.
+:::
+
+#### Text editor configuration
+
+Here's how to add the Apify MCP server to popular text editors and AI assistants:
+
+<Tabs>
+<TabItem value="cursor" label="Cursor">
+
+To add Apify MCP server to Cursor:
+
+1. Create or open the `.cursor/mcp.json` file.
+1. Add the following to the configuration file:
+
+    <Tabs>
+    <TabItem value="OAuth" label="OAuth" >
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com"
+        }
+      }
+    }
+    ```
+
+    When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
+
+    </TabItem>
+    <TabItem value="Bearer token" label="Bearer token">
+
+    You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com",
+          "headers": {
+            "Authorization": "Bearer <APIFY_TOKEN>"
+          }
+        }
+      }
+    }
+    ```
+
+    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+
+    </TabItem>
+    </Tabs>
+
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+VS Code supports MCP through GitHub Copilot's agent mode(requires Copilot subscription):
+
+1. Ensure you have GitHub Copilot installed
+1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run _MCP: Open User Configuration_ command.
+   - This will open `mcp.json` file in your user profile. If the file does not exist, VS Code creates it for you.
+1. Add the following to the configuration file:
+
+    <Tabs>
+    <TabItem value="OAuth" label="OAuth" >
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com"
+        }
+      }
+    }
+    ```
+
+    When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
+
+    </TabItem>
+    <TabItem value="Bearer token" label="Bearer token">
+
+    You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com",
+          "headers": {
+            "Authorization": "Bearer <APIFY_TOKEN>"
+          }
+        }
+      }
+    }
+    ```
+
+    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+
+    </TabItem>
+    </Tabs>
+
+</TabItem>
+<TabItem value="claude-desktop" label="Claude Desktop">
+
+:::tip One-click installation
+
+Download and run the [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.dxt) for one-click installation.
 
 :::
 
+To manually configure Apify's MCP server for Claude Desktop:
+
+1. Open Claude Desktop settings.
+1. Navigate to the **Developer** section.
+1. Add the following to the configuration file:
+
+```json
+{
+  "mcpServers": {
+    "actors-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "@apify/actors-mcp-server"],
+      "env": {
+        "APIFY_TOKEN": "<APIFY_TOKEN>"
+      }
+    }
+  }
+}
+```
+
+Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+
+</TabItem>
+</Tabs>
+
 ### Local stdio
 
-For development environments or Claude Desktop, you can run the MCP server locally. This approach gives you more control over the server configuration and is ideal for testing.
+For development environments, you can run the MCP server locally. This approach gives you more control over the server configuration and is ideal for testing.
 
-For Claude Desktop, add this to your configuration file:
+Add this to your configuration file:
 
 ```json
 {
@@ -97,8 +229,7 @@ For Claude Desktop, add this to your configuration file:
 }
 ```
 
-The server will download automatically on first use and connect using your API token. To access Claude's configuration, open the settings and navigate to
-the Developer section.
+The server will download automatically on first use and connect using your API token.
 
 ## Tool selection
 
@@ -170,17 +301,17 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 <!-- markdownlint-disable MD001 -->
 ## Troubleshooting
 
-#### Authentication errors
+##### Authentication errors
 
 - _Check your API token_: Verify that your Apify API token is correct. You can find it in the **Integrations** section of the [Apify Console](https://console.apify.com/account#/integrations). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
-#### Local environment setup
+##### Local environment setup
 
 - _The MCP server requires Node.js v18 or higher_. Check your installed version by running `node -v` in your terminal.
 - _Using the latest server version_: To ensure you have the latest features and bug fixes, use the latest version of the `@apify/actors-mcp-server` package. You can do this by appending `@latest` to the package name in your `npx` command or configuration file.
 
-#### Actor execution issues
+##### Actor execution issues
 
 - _No response or long delays_: Actor runs can take time to complete depending on their task. If you're experiencing long delays, check the Actor's logs in Apify Console. The logs will provide insight into the Actor's status and show if it's processing a long operation or has encountered an error.
 
@@ -197,4 +328,3 @@ To learn more about MCP and Apify integration:
 - [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/) - Learn how to expose over thousands of Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
 - [Video tutorial](https://www.youtube.com/watch?v=BKu8H91uCTg) - Integrate thousands of Apify Actors and Agents with Claude.
 - [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) - A specialized client Actor that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.
-
