@@ -82,6 +82,7 @@ preconfigured
 [Tt]rello
 [Pp]refill
 [Gg]umloop
+[Rr]edocly
 [Aa]pify
 
 [Mm]ultiselect
@@ -122,3 +123,4 @@ walkthroughs?
 
 ul
 [Aa]gno
+pnpm
