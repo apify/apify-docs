@@ -167,7 +167,7 @@ Here are some special MCP operations and how the Apify MCP Server supports them:
 ### Overview of available tools
 
 Here is an overview list of all the tools provided by the Apify MCP Server.
-
+<!-- vale off -->
 | Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :---: |
 | `search-actors` | actors | ✅ | Search for Actors in the Apify Store. |
@@ -188,6 +188,7 @@ Here is an overview list of all the tools provided by the Apify MCP Server.
 | `get-dataset-list` | storage |  | List all available datasets for the user. |
 | `get-key-value-store-list`| storage |  | List all available key-value stores for the user. |
 | `add-actor` | experimental |  | Add an Actor as a new tool for the user to call. |
+<!-- vale on -->
 
 ### Tools configuration
 
