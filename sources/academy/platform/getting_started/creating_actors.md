@@ -42,7 +42,7 @@ You can also push your existing code from your local machine using [Apify CLI](/
 
 Python, JavaScript, and TypeScript have several template options that you can use.
 
-> You can select one from the list on this page or you can browse all the templates in the template library by clicking on the **View all templates** button in the right corner.
+> You can select a template from the list on this page, or browse all available templates in the template library by selecting the **View all templates** button in the corner. Alternatively, you can view all templates on the [Apify website](https://apify.com/templates).
 
 For example, let's choose the **Start with JavaScript** template and click on the template card.
 
