@@ -130,6 +130,30 @@ Actions allow you to perform operations like running an Actor within a workflow.
 1. Save and execute the workflow
     ![Apify Node](../images/n8n-workflow-example.png)
 
+## Use Apify Node as an AI tool
+
+You can run Apify operations, retrieve the results, and use AI to process, analyze, and summarize the data, or generate insights and recommendations.
+
+  ![Apify Node](../images/n8n-ai-tool-example.png)
+
+
+1. Create a new workflow.
+1. **Add a trigger**:  Search for and select **Chat Trigger**.
+1. **Add the AI Agent node**:  Click **Add Node**, search for **AI Agent**, and select it.
+1. Configure the AI Agent:  
+    - **Chat Model**: Choose the language model you want to use.
+    - **Memory (optional)**: Enables the AI model to remember and reference past interactions.
+    - **Tools**: Search for **Apify**, select **Apify Tool**, and click  **Add to Workflow**. Choose any available operation and configure it.
+1. **Run the workflow**: Save it, then provide a prompt instructing the Agent to use the Apify tool with the operations you configured earlier.
+
+:::note
+
+  Let the AI model define the parameters in your node when possible. Click the _sparkle_ icon next to a parameter to have the AI fill it in for you.
+
+:::
+
+  ![Apify Node](../images/n8n-ai-defined-param.png)
+
 ## Available Operations
 
 The Apify node provides a range of operations for managing Actors, tasks, runs, and storage. These can be used as actions in your workflows. For triggers, focus on event-based activations to start workflows automatically.
