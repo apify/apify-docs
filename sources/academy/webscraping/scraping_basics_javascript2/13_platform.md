@@ -172,11 +172,11 @@ Actor build detail https://console.apify.com/actors/a123bCDefghiJkLMN#/builds/0.
 
 After opening the link in our browser, assuming we're logged in, we should see the **Source** screen on the Actor's detail page. We'll go to the **Input** tab of that screen. We won't change anything—just hit **Start**, and we should see logs similar to what we see locally, but this time our scraper will be running in the cloud.
 
-![Actor's detail page, screen Source, tab Input](./images/actor-input.webp)
+![Actor's detail page, screen Source, tab Input](../scraping_basics/images/actor-input.webp)
 
 When the run finishes, the interface will turn green. On the **Output** tab, we can preview the results as a table or JSON. We can even export the data to formats like CSV, XML, Excel, RSS, and more.
 
-![Actor's detail page, screen Source, tab Output](./images/actor-output.webp)
+![Actor's detail page, screen Source, tab Output](../scraping_basics/images/actor-output.webp)
 
 :::info Accessing data
 
@@ -190,7 +190,7 @@ Now that our scraper is deployed, let's automate its execution. In the Apify web
 
 From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/monitoring), and even set up alerts.
 
-![Schedule detail page](./images/actor-schedule.webp)
+![Schedule detail page](../scraping_basics/images/actor-schedule.webp)
 
 ## Adding support for proxies
 
@@ -298,7 +298,7 @@ Run: Building Actor warehouse-watchdog
 
 Back in the Apify console, we'll go to the **Source** screen and switch to the **Input** tab. We should see the new **Proxy config** option, which defaults to **Datacenter - Automatic**.
 
-![Actor's detail page, screen Source, tab Input with proxies](./images/actor-input-proxies.webp)
+![Actor's detail page, screen Source, tab Input with proxies](../scraping_basics/images/actor-input-proxies.webp)
 
 We'll leave it as is and click **Start**. This time, the logs should show `Using proxy: yes`, as the scraper uses proxies provided by the platform:
 
