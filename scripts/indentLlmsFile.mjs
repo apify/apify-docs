@@ -25,8 +25,6 @@ function extractPathFromUrl(url) {
 function getUrlHierarchyDepth(url) {
     const urlPath = extractPathFromUrl(url);
     const segments = urlPath.split('/').filter((segment) => segment && segment !== '');
-
-    // Remove the .md file extension to count only directory levels
     const nonFileSegments = segments.filter((segment) => !segment.endsWith('.md'));
 
     return nonFileSegments.length;
@@ -40,7 +38,6 @@ function isMainSectionPage(url) {
     const segments = urlPath.split('/').filter((segment) => segment && segment !== '');
 
     // Main pages are those with only one segment (the .md file)
-    // or specific known main pages
     if (segments.length === 1) {
         return true;
     }
@@ -62,40 +59,36 @@ function getLinkIndentation(url) {
         return 0;
     }
 
-    // Calculate hierarchy depth
     const depth = getUrlHierarchyDepth(url);
 
     // The first level after main sections gets 1 level of indentation
     // Each subsequent level gets another level of indentation
-    return Math.min(depth * INDENT_LEVEL, INDENT_LEVEL * 4); // Cap at 4 levels
+    return Math.min(depth * INDENT_LEVEL, INDENT_LEVEL * 4);
 }
 
 /**
  * Determines the indentation level for a line based on its content type and URL.
  */
 function getIndentationLevel(line, lineIndex, allLines) {
-    // Handle markdown headers
-    if (line.startsWith('# ')) {
-        return 0; // Main title - no indent
-    }
-
-    if (line.startsWith('## ')) {
-        return 0; // Section title - no indent
+    if (line.startsWith('# ') || line.startsWith('## ')) {
+        return 0;
     }
 
     if (line.startsWith('### ')) {
-        return INDENT_LEVEL; // Subsection title - 1 level indent
+        return INDENT_LEVEL;
     }
 
     if (line.startsWith('#### ')) {
-        return INDENT_LEVEL * 2; // Sub-subsection title - 2 level indent
+        return INDENT_LEVEL * 2;
     }
 
     // Handle markdown links with URLs
     if (line.startsWith('- [') && line.includes(`](${BASE_URL}/`)) {
+        // Extract URL from markdown link format: - [Link Text](https://docs.apify.com/path/to/page)
+        // Example: "- [API Reference](https://docs.apify.com/api/v2)" → extracts "https://docs.apify.com/api/v2"
         const urlMatch = line.match(new RegExp(`\\]\\((${BASE_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/[^)]+)\\)`));
         if (!urlMatch) {
-            return INDENT_LEVEL; // Fallback if URL parsing fails
+            return INDENT_LEVEL;
         }
         return getLinkIndentation(urlMatch[1]);
     }
@@ -121,7 +114,7 @@ function indentContent(content) {
         const line = lines[i];
         const trimmedLine = line.trim();
 
-        // Skip empty lines
+        // Preserve empty lines (add them without indentation)
         if (!trimmedLine) {
             indentedLines.push('');
             continue;
@@ -156,7 +149,4 @@ async function indentLlmsFile() {
     }
 }
 
-indentLlmsFile().catch((err) => {
-    console.error('Failed to indent LLMs files:', err);
-    process.exit(1);
-});
+await indentLlmsFile();
