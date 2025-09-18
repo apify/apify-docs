@@ -9,12 +9,17 @@ import React from 'react';
 export default function LayoutWrapper(props) {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
     const baseUrl = useBaseUrl('/');
-    const currentPath = useLocation().pathname.replace(new RegExp(`^${baseUrl}`), '');
+    const currentPath = useLocation().pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
+    const shouldRenderAlternateLink = currentPath && currentPath !== '404';
 
     return (
         <>
             <Head>
-                <link rel="alternate" type="text/markdown" href={`${currentPath}.md`}/>
+                {
+                    shouldRenderAlternateLink
+                        ? <link rel="alternate" type="text/markdown" href={`${currentPath}.md`}/>
+                        : null
+                }
             </Head>
             <div
                 style={{

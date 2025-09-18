@@ -10,6 +10,7 @@ slug: /candidate-referral-program-terms
 # Apify Candidate Referral Program
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Last Updated: April 14, 2025
 

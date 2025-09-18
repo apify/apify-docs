@@ -1,0 +1,78 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+apify-docs-theme/package-lock.json
+
+# Build artifacts and generated content
+build/
+dist/
+build-docs/
+.docusaurus/
+static/api/
+apify-api.yaml
+apify-api/openapi/code_samples/
+apify-api/docs/
+
+# Large generated files
+*.log
+*.pid
+*.seed
+*.tsbuildinfo
+
+# IDE and editor files
+.vscode/
+.idea/
+.history/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+pids/
+coverage/
+.nyc_output/
+
+# Generated types
+types/
+
+# Turbo cache
+.turbo/
+
+# Generated documentation
+# These are typically auto-generated, but require editing from time to time
+# sources/api/*
+# !sources/api/sidebars.js
+# !sources/api/getting-started.mdx
+
+# Large static files that are auto-generated
+static/api/openapi.json
+static/api/openapi.yaml
+
+# Generated routes and registry files
+.docusaurus/routes.js
+.docusaurus/routesChunkNames.json
+.docusaurus/registry.js
+.docusaurus/globalData.json
+.docusaurus/site-metadata.json
+.docusaurus/client-modules.js
+.docusaurus/docusaurus.config.mjs
+
+# Generated plugin directories
+.docusaurus/docusaurus-plugin-*/
+.docusaurus/docusaurus-theme-*/
+.docusaurus/@apify/
+
+# Generated code samples (these are auto-generated from OpenAPI specs)
+# Note: These are typically auto-generated, but you may need to edit them occasionally
+# Uncomment the lines below if you want to ignore them completely:
+# apify-api/openapi/code_samples/javascript/*.js
+# apify-api/openapi/code_samples/curl/*.sh
+
+# Generated requirements files
+apify-api/scripts/requirements.bin
+
+# AGENTS.md is the primary vendor-agnostic rules file
+# .cursor/rules/ contains Cursor-specific rules with advanced features

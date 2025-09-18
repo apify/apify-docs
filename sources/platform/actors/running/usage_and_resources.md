@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /actors/running/usage-and-resources
 ---
 
-# Usage and resources
-
 **Learn about your Actors' memory and processing power requirements, their relationship with Docker resources, minimum requirements for different use cases and its impact on the cost.**
 
 ---

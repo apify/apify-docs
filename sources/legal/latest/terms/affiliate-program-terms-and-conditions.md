@@ -10,6 +10,7 @@ slug: /affiliate-program-terms-and-conditions
 # Apify Affiliate Program Terms and Conditions
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 Effective date: May 14, 2024
 

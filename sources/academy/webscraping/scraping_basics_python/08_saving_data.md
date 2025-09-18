@@ -29,7 +29,6 @@ Producing results line by line is an efficient approach to handling large datase
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -49,13 +48,14 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     # highlight-next-line
@@ -65,11 +65,11 @@ for product in soup.select(".product-item"):
 print(data)
 ```
 
-Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list at once.
+Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list. The program should now print the results as a single large Python list:
 
 ```text
 $ python main.py
-[{'title': 'JBL Flip 4 Waterproof Portable Bluetooth Speaker', 'min_price': Decimal('74.95'), 'price': Decimal('74.95')}, {'title': 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV', 'min_price': Decimal('1398.00'), 'price': None}, ...]
+[{'title': 'JBL Flip 4 Waterproof Portable Bluetooth Speaker', 'min_price': 7495, 'price': 7495}, {'title': 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV', 'min_price': 139800, 'price': None}, ...]
 ```
 
 :::tip Pretty print
@@ -87,7 +87,6 @@ In Python, we can read and write JSON using the [`json`](https://docs.python.org
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 # highlight-next-line
 import json
 ```
@@ -99,39 +98,17 @@ with open("products.json", "w") as file:
     json.dump(data, file)
 ```
 
-That's it! If we run the program now, it should also create a `products.json` file in the current working directory:
-
-```text
-$ python main.py
-Traceback (most recent call last):
-  ...
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type Decimal is not JSON serializable
-```
-
-Ouch! JSON supports integers and floating-point numbers, but there's no guidance on how to handle `Decimal`. To maintain precision, it's common to store monetary values as strings in JSON files. But this is a convention, not a standard, so we need to handle it manually. We'll pass a custom function to `json.dump()` to serialize objects that it can't handle directly:
-
-```py
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
-with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
-```
-
-If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
+That's it! If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
 
 <!-- eslint-skip -->
 ```json title=products.json
-[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "74.95", "price": "74.95"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "1398.00", "price": null}, ...]
+[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "7495", "price": "7495"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "139800", "price": null}, ...]
 ```
 
 If you skim through the data, you'll notice that the `json.dump()` function handled some potential issues, such as escaping double quotes found in one of the titles by adding a backslash:
 
 ```json
-{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "158.00", "price": "158.00"}
+{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "15800", "price": "15800"}
 ```
 
 :::tip Pretty JSON
@@ -177,7 +154,6 @@ Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 import json
 # highlight-next-line
 import csv
@@ -186,13 +162,8 @@ import csv
 Next, let's add one more data export to end of the source code of our scraper:
 
 ```py
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
 with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
+    json.dump(data, file)
 
 with open("products.csv", "w") as file:
     writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
@@ -215,7 +186,7 @@ In this lesson, we created export files in two formats. The following challenges
 
 ### Process your JSON
 
-Write a new Python program that reads `products.json`, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
+Write a new Python program that reads the `products.json` file we created in this lesson, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
 
 <details>
   <summary>Solution</summary>
@@ -223,13 +194,12 @@ Write a new Python program that reads `products.json`, finds all products with a
   ```py
   import json
   from pprint import pp
-  from decimal import Decimal
 
   with open("products.json", "r") as file:
       products = json.load(file)
 
   for product in products:
-      if Decimal(product["min_price"]) > 500:
+      if int(product["min_price"]) > 500:
           pp(product)
   ```
 
@@ -245,8 +215,8 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
   1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+  1. Select the header row. Go to **Data > Create filter**.
+  1. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
   ![CSV in Google Sheets](images/csv-sheets.png)
 

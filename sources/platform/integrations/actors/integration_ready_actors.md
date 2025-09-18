@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---
 
-# Integration-ready Actors
-
 **Learn how to create Actors that are ready to be integrated with other Actors and tasks.**
 
 ---

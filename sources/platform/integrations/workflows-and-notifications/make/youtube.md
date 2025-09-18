@@ -4,6 +4,7 @@ description: Learn about YouTube scraper modules. Extract channel, video, stream
 sidebar_label: YouTube
 sidebar_position: 5
 slug: /integrations/make/youtube
+unlisted: true
 ---
 
 ## Apify Scraper for YouTube Data

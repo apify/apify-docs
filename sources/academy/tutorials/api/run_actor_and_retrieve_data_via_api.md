@@ -1,7 +1,6 @@
 ---
 title: Run Actor and retrieve data via API
 description: Learn how to run an Actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating Actors with your projects.
-sidebar_position: 6
 slug: /api/run-actor-and-retrieve-data-via-api
 ---
 
