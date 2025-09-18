@@ -22,6 +22,26 @@
     color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 }
 
+.AskAI-Button {
+  height: 4rem;
+  padding: 0.8rem 1.6rem !important;
+  background-color: var(--ifm-color-primary);
+  border-radius: 8px;
+  color: var(--color-neutral-text-on-primary);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  text-align: center;
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
 .navbar-sidebar .DocSearch-Button {
   display: none;
 }

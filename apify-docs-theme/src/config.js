@@ -322,8 +322,6 @@ const scripts = [
         'data-modal-title': 'Apify AI Assistant',
         'data-project-color': '#666666',
         'data-button-hide': 'true',
-        'data-search-mode-enabled': 'true',
-        'data-search-include-source-names': '["Docs"]',
         'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
         'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
         'data-modal-override-open-id': 'ask-ai-input',
