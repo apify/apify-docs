@@ -17,13 +17,8 @@ import TabItem from '@theme/TabItem';
 
 You can set up environment variables for your Actor in two ways:
 
-- [How to use environment variables in an Actor](#how-to-use-environment-variables-in-an-actor)
-- [System environment variables](#system-environment-variables)
 - [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
 - [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
-- [Access environment variables](#access-environment-variables)
-- [Use the `Configuration` class](#use-the-configuration-class)
-- [Build-time environment variables](#build-time-environment-variables)
 
 :::info Environment variable precedence
 
