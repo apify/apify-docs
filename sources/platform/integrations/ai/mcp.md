@@ -318,9 +318,9 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 <!-- markdownlint-enable MD001 -->
 ## Support and resources
 
-The Apify MCP Server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/actors-mcp-server/issues).
+The Apify MCP Server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/apify-mcp-server/issues).
 
-If you find this project useful, please star it on [GitHub](https://github.com/apify/actors-mcp-server) to show your support!
+If you find this project useful, please star it on [GitHub](https://github.com/apify/apify-mcp-server) to show your support!
 
 To learn more about MCP and Apify integration:
 
