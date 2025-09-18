@@ -1,0 +1,17 @@
+name: Nginx configuration test
+
+on:
+  pull_request:
+    paths:
+      - nginx.conf
+
+jobs:
+  nginx-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: nginx:1.29.1-alpine-slim
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Test Nginx configuration
+        run: nginx -t -c $(pwd)/nginx.conf
