@@ -63,11 +63,9 @@ export default function SearchBar({ onClick }) {
     return (
         <BrowserOnly>
             {() => (
-                <div
-                    style={{ display: 'flex', alignItems: 'center' }}
-                >
+                <div className="SearchButton-Container">
 
-                <div onClick={onClick} style={{ marginRight: '12px' }}>
+                <div onClick={onClick} className="AlgoliaContainer" style={{ marginRight: '12px' }}>
                     <ApifySearch
                         algoliaAppId={siteConfig.themeConfig.algolia.appId}
                         algoliaIndexName='apify_sdk_v2'

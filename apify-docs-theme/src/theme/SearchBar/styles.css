@@ -42,20 +42,34 @@
   transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 }
 
-.navbar-sidebar .DocSearch-Button {
+.SearchButton-Container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-sidebar .SearchButton-Container {
   display: none;
 }
 
 @media (max-width: 768px) {
-    .DocSearch-Button {
+    .SearchButton-Container {
       width: 100%;
     }
 
-    .navbar__inner .DocSearch-Button {
+    .AlgoliaContainer {
+      flex: 1;
+    }
+
+    .DocSearch-Button {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .navbar__inner .SearchButton-Container {
       display: none;
     }
 
-    .navbar-sidebar .DocSearch-Button {
+    .navbar-sidebar .SearchButton-Container {
       display: flex;
     }
 
