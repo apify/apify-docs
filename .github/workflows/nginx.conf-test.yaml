@@ -9,7 +9,7 @@ jobs:
   nginx-test-job:
     runs-on: ubuntu-latest
     container:
-      image: nginx:1.29.1-alpine-slim
+      image: docker.io/library/nginx:1.28.0-alpine-slim
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
