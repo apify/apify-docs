@@ -66,6 +66,28 @@ get:
       schema:
         type: string
         example: SUCCEEDED
+    - name: startedAfter
+      in: query
+      description: |
+        Filter runs that started after the specified date and time (inclusive).
+        The value must be a valid ISO 8601 datetime string (UTC).
+      style: form
+      explode: true
+      schema:
+        type: string
+        format: date-time
+        example: "2025-09-01T00:00:00.000Z"
+    - name: startedBefore
+      in: query
+      description: |
+        Filter runs that started before the specified date and time (inclusive).
+        The value must be a valid ISO 8601 datetime string (UTC).
+      style: form
+      explode: true
+      schema:
+        type: string
+        format: date-time
+        example: "2025-09-17T23:59:59.000Z"
   responses:
     '200':
       description: ''
