@@ -187,6 +187,9 @@ For inspiration, check out the public repositories of Apify's existing external 
   - [Source code on Github](https://github.com/apify/apify-zapier-integration)
 - Make.com
   - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
+- Kestra
+  - [kestra integration documentation](https://kestra.io/plugins/plugin-apify)
+  - [Source code on Github](https://github.com/kestra-io/plugin-apify)
 - Keboola
   - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
   - [Source code on GitHub](https://github.com/apify/keboola-ex-apify/) (JavaScript)
