@@ -18,7 +18,7 @@ Metamorph is a powerful operation that transforms an Actor run into the run of a
 
 ## Understand metamorph
 
-The metamorph process involves several key steps. It stops the current Actor's Docker container, then starts a new container using a different Docker image. During this transition, all default storages are preserved. The new input is stored under the _INPUT-METAMORPH-1_ key in the default key-value store, ensuring seamless data transfer between Actor runs.
+The metamorph process involves several key steps. It stops the current Actor's Docker container, then starts a new container using a different Docker image. During this transition, all default storages are preserved. The new input is stored under the `INPUT-METAMORPH-1` key in the default key-value store, ensuring seamless data transfer between Actor runs.
 
 ## Benefits of metamorph
 
