@@ -326,11 +326,8 @@ const scripts = [
         'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
         'data-modal-override-open-id': 'ask-ai-input',
         'data-modal-override-open-class': 'search-input',
-        'data-font-size-xs': '1.2rem',
-        'data-font-size-sm': '1.4rem',
-        'data-font-size-md': '1.6rem',
-        'data-font-size-lg': '1.8rem',
-        'data-font-size-xl': '2.0rem',
+        'data-scale-factor': '1.6',
+        'data-modal-size': '800px',
         async: true,
     },
 ];
