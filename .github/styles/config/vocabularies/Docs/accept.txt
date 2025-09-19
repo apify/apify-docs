@@ -55,7 +55,6 @@ proxied
 LLM
 embedder
 chatbot
-[Ll]angchain
 
 [Kk]eboola
 [Aa]irbyte
