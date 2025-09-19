@@ -27,15 +27,11 @@ Once your Keboola account is ready and you are logged in, navigate to the **Comp
 
 ![Keboola dashboard](../images/keboola/keboola-dashboard.png)
 
-In the list of available Components, find and select the **Apify** from Data Sources and click on the **Add Component** button.
+In the list of available Components, find and select the **Apify** from Data Sources and click on the **Create configuration** button.
 
 ![Keboola component search](../images/keboola/keboola-components.png)
 
-On the new window, click **Connect** to my data**
-
-![Keboola Connector](../images/keboola/keboola-connector.png)
-
-Provide a name and description for your configuration, then click the **Create** Configuration** button.
+Provide a name and description for your configuration, then click the **Create Configuration** button.
 
 ![Keboola configuration setup](../images/keboola/keboola-create-configuration.png)
 
