@@ -2,7 +2,7 @@ module.exports = {
     courses: [
         {
             type: 'category',
-            label: 'Web scraping & Automation',
+            label: 'Web scraping',
             collapsible: false,
             className: 'section-header',
             items: [
