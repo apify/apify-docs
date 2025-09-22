@@ -7,7 +7,7 @@ slug: /integrations/n8n/website-content-crawler
 toc_max_heading_level: 4
 ---
 
-Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
+Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
 To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
@@ -24,7 +24,7 @@ This section explains how to install and connect the Apify node when using n8n C
 
 ### Install
 
-For n8n Cloud users, installation is even simpler and doesn't require manual package entry.  Just search and add the node from the canvas.
+For n8n Cloud users, installation is even simpler and doesn't require manual package entry. Just search and add the node from the canvas.
 
 1. Go to the **Canvas** and open the **nodes panel**
 1. Search for **Website Content Crawler by Apify** in the community node registry
@@ -49,7 +49,7 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
   
 :::note Cloud API Key management
 
-On n8n Cloud, you can use the API key method if you prefer to manage your credentials manually.  
+On n8n Cloud, you can use the API key method if you prefer to manage your credentials manually.
 See the [**Connect** section for n8n self-hosted](#connect-self-hosted) for detailed API configuration instructions.
 
 :::
@@ -68,7 +68,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 1. Open your n8n instance.
 1. Go to **Settings > Community Nodes**.
 1. Select **Install**.
-1. Enter the npm package name: `@apify/n8n-nodes-apify-content-crawler`  (for latest version). To install a specific [version](https://www.npmjs.com/package/@apify/n8n-nodes-apify-content-crawler?activeTab=versions) enter e.g `@apify/n8n-nodes-apify-content-crawler@0.0.1`.
+1. Enter the npm package name: `@apify/n8n-nodes-apify-content-crawler` (for latest version). To install a specific [version](https://www.npmjs.com/package/@apify/n8n-nodes-apify-content-crawler?activeTab=versions) enter e.g `@apify/n8n-nodes-apify-content-crawler@0.0.1`.
 1. Agree to the [risks](https://docs.n8n.io/integrations/community-nodes/risks/) of using community nodes and select **Install**.
 1. You can now use the node in your workflows.
 
