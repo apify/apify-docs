@@ -57,6 +57,79 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
+## Respect user spending limits
+
+Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
+
+The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
+
+:::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
+
+For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+
+:::
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+const chargeForApiProductDetail = async () => {
+  const chargeResult = await Actor.charge({ eventName: "product-detail" });
+
+  return chargeResult;
+};
+
+await Actor.init();
+
+// API call, or any other logic that you want to charge for
+const chargeResult = await chargeForApiProductDetail();
+
+if (chargeResult.eventChargeLimitReached) {
+  await Actor.exit();
+}
+
+// Rest of the Actor logic
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```py
+from apify import Actor
+
+async def charge_for_api_product_detail():
+    charge_result = await Actor.charge(event_name='product-detail')
+
+    return charge_result
+
+async def main():
+    await Actor.init()
+    
+    # API call, or any other logic that you want to charge for
+
+    charge_result = await charge_for_api_product_detail()
+
+    if charge_result.event_charge_limit_reached:
+        await Actor.exit()
+
+    # Rest of the Actor logic
+
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
+
+:::note Crawlee integration and spending limits
+
+When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler and allow the rest of your code to process normally.
+
+:::
+
 ## Best practices for PPE Actors
 
 Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
@@ -128,38 +201,29 @@ const processUrl = async (url) => {
   const response = await fetch(url);
     
   if (response.status === 404) {
-    // Charge for the work done (opening the page)
-    await Actor.charge({
-        eventName: "scraped-result",
-    });
-      
-    // Return error item instead of failing
+    // Charge for the work done and return error item in one call
     await Actor.pushData({
       url: url,
       error: "404",
       errorMessage: "Page not found"
-    });
+    }, 'scraped-result');
     
     return;
   }
 
-  // Rest of the Actor logic
+  // Rest of the process_url function
 };
 
 await Actor.init();
 
-const main = async () => {
-  const input = await Actor.getInput();
-  const { urls } = input;
+const input = await Actor.getInput();
+const { urls } = input;
   
-  for (const url of urls) {
-    await processUrl(url);
-  }
+for (const url of urls) {
+  await processUrl(url);
+}
 
-  // Rest of the Actor logic
-};
-
-await main();
+// Rest of the Actor logic
 
 await Actor.exit();
 ```
@@ -175,19 +239,16 @@ async def process_url(url):
     response = requests.get(url)
     
     if response.status_code == 404:
-        # Charge for the work done (opening the page)
-        await Actor.charge(event_name='scraped-result')
+      # Charge for the work done and return error item in one call
+      await Actor.push_data({
+          'url': url,
+          'error': '404',
+          'errorMessage': 'Page not found'
+      }, 'scraped-result')
         
-        # Return error item instead of failing
-        await Actor.push_data({
-            'url': url,
-            'error': '404',
-            'errorMessage': 'Page not found'
-        })
-        
-        return
+      return
 
-    # Rest of the Actor logic
+    # Rest of the process_url function
 
 async def main():
     await Actor.init()
@@ -205,80 +266,6 @@ async def main():
 
 </TabItem>
 </Tabs>
-
-### Respect user spending limits
-
-Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
-
-The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-const chargForApiProductDetail = async () => {
-  const chargeResult = await Actor.charge({
-    eventName: "product-detail",
-  });
-
-  return chargeResult;
-};
-
-await Actor.init();
-
-const main = async () => {
-  // API call, or any other logic that you want to charge for
-
-  const chargeResult = await chargForApiProductDetail();
-
-  if (chargeResult.eventChargeLimitReached) {
-    await Actor.exit();
-  }
-
-  // Rest of the Actor logic
-};
-
-await main();
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```py
-from apify import Actor
-
-async def charge_for_api_product_detail():
-    charge_result = await Actor.charge(event_name='product-detail')
-
-    return charge_result
-
-async def main():
-    await Actor.init()
-    
-    # API call, or any other logic that you want to charge for
-
-    charge_result = await charge_for_api_product_detail()
-
-    if charge_result.event_charge_limit_reached:
-        await Actor.exit()
-
-    # Rest of the Actor logic
-
-    await Actor.exit()
-```
-
-</TabItem>
-</Tabs>
-
-:::note Crawlee integration and spending limits
-
-When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler and allow the rest of your code to process normally.
-
-:::
 
 ### Keep pricing simple with fewer events
 
