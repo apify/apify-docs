@@ -19,6 +19,7 @@ Before you begin, make sure you have:
 - An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
 
 ## n8n Cloud setup
+
 This section explains how to install and connect the Apify node when using n8n Cloud.
 
 ### Install
@@ -56,8 +57,8 @@ See the [**Connect** section for n8n self-hosted](#connect-self-hosted) for deta
 With authentication set up, you can now create workflows that incorporate the Apify node.
 
 
-
 ## n8n self-hosted setup
+
 This section explains how to install and connect the Apify node when running your own n8n instance.
 
 ### Install
@@ -94,7 +95,6 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.
 
 ![Apify token on n8n](images/token.png)
-
 
 
 ## Website Content Crawler by Apify module
