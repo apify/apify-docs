@@ -78,7 +78,7 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
   
 :::note
 
-For simplicity on n8n Cloud, use the API key method if you prefer manual control over credentials.
+On 8n Cloud, use the API key method if you prefer manual control over credentials.
 
 :::
 
