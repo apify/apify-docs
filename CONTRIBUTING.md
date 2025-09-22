@@ -1,4 +1,4 @@
-# Contributing to Apify Documentation
+# Contributing to Apify documentation
 
 ## Before you start
 
@@ -10,9 +10,10 @@
 
 ### Prerequisites
 
-1. Git
-2. Node.js
-3. GitHub access
+1. **Git**
+2. **Node.js 22** (see [.nvmrc](.nvmrc) file)
+3. **GitHub access**
+4. **npm** or **pnpm** package manager
 
 ### Installation steps
 
@@ -88,7 +89,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 1. Text emphasis:
 
     - use **Bold** for UI elements
-    - use *Italics* for emphasis
+    - use _Italics_ for emphasis
     - use `code` for inline code, by using back-ticks (\`\`\)
     - use code blocks with language specification
     - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
@@ -126,6 +127,46 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Use action-oriented phrasing
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
+
+## AI Assistant rules structure
+
+This project uses a hybrid approach for AI assistant rules to ensure consistency across different tools while leveraging Cursor-specific features.
+
+### Structure overview
+
+#### Vendor-agnostic rules
+
+- **`AGENTS.md`** - Primary vendor-agnostic rules file containing core documentation standards
+
+#### Cursor-specific rules
+
+- **`.cursor/rules/documentation-style.mdc`** - Cursor-specific documentation guidelines
+- **`.cursor/rules/content-formatting.mdc`** - Cursor-specific formatting rules
+- **`.cursor/rules/api-documentation.mdc`** - Cursor-specific API documentation rules
+- **`.cursor/rules/quality-standards.mdc`** - Cursor-specific quality guidelines
+- **`.cursor/rules/file-organization.mdc`** - Cursor-specific file organization rules
+
+To verify rule application, hover over attached rules in the Cursor chat window.
+
+### Usage
+
+#### For general AI assistants
+
+- Reference `AGENTS.md` for vendor-agnostic documentation standards
+
+#### For Cursor-specific features
+
+- Use `.cursor/rules/*.mdc` files for Cursor-specific workflows
+- Leverage glob patterns and `alwaysApply` settings
+- Use Cursor Chat and Cmd+K with `@AGENTS.md` references
+
+### File targeting
+
+Each `.mdc` file uses glob patterns to target specific file types:
+
+- **`documentation-style.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
+- **`content-formatting.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
+- **`api-documentation.mdc`**: `["apify-api/**/*.yaml", "apify-api/**/*.js"]`
 
 ## Repository structure
 
@@ -274,21 +315,21 @@ Add languages by adding new folders at the appropriate path level.
 
 ### Linting
 
-1. Markdown:
+1. **Markdown**:
 
     ```bash
     npm run lint:md # Checks for any issues using markdownlint
     npm run lint:md:fix # Applies fixes
     ```
 
-2. Code:
+2. **Code**:
 
     ```bash
     npm run lint:code # Checks .js & .ts files
     npm run lint:code:fix # Applies fixes
     ```
 
-3. Prose:
+3. **Prose**:
 
     - Use [Vale](https://vale.sh/) for content linting
     - Configure exceptions in `accepts.txt`
@@ -309,3 +350,5 @@ Add languages by adding new folders at the appropriate path level.
 
 - [Docusaurus documentation](https://docusaurus.io/docs)
 - [Vale style guide](https://vale.sh/docs)
+- [OpenAPI specification](https://spec.openapis.org/oas/v3.1.0)
+- [Redocly documentation](https://redocly.com/docs/)

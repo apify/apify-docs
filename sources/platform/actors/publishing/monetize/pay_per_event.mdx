@@ -18,6 +18,12 @@ PPE lets you define pricing for individual events. You can charge for specific e
 
 The details on how your cost is computed can be found in [Example of a PPE pricing model](#example-of-a-ppe-pricing-model).
 
+:::tip Additional benefits
+
+Actors that implement PPE pricing receive additional benefits, including increased visibility in Apify Store and enhanced discoverability for users looking for monetized solutions.
+
+:::
+
 ## How is profit computed
 
 Your profit is calculated from the mentioned formula:
@@ -51,225 +57,40 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
-## Best practices for PPE Actors
-
-Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
-
-You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
-
-### Set memory limits
-
-Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
-
-```json
-{
-    "actorSpecification": 1, 
-    "name": "name-of-my-scraper",
-    "version": "0.0",
-    "minMemoryMbytes": 512,
-    "maxMemoryMbytes": 1024,
-}
-```
-
-:::note Memory requirements for browser-based scraping
-
-When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
-
-:::
-
-### Charge for `Actor start`
-
-Charge for `Actor start` to prevent users from running your Actor for free.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-const chargeForActorStart = async () => {
-  const chargingManager = Actor.getChargingManager();
-
-  // Don't charge the "Actor start" event again after Actor migration
-  if (chargingManager.getChargedEventCount("actor-start") === 0) {
-    await Actor.charge({
-      "eventName": "actor-start",
-    });
-  }
-}
-
-await Actor.init();
-
-const main = async () => {
-  await chargeForActorStart();
-
-  // Rest of the Actor logic
-};
-
-await main();
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```py
-from apify import Actor
-
-async def charge_for_actor_start():
-    charging_manager = Actor.get_charging_manager()
-
-    # Don't charge the "Actor start" event again after Actor migration
-    if charging_manager.get_charged_event_count("actor-start") == 0:
-        await Actor.charge(event_name="actor-start")
-
-async def main():
-    await Actor.init()
-    
-    await charge_for_actor_start()
-
-    # Rest of the Actor logic
-
-    await Actor.exit()
-```
-
-</TabItem>
-</Tabs>
-
-:::note Actor migrations and charging
-
-Actors can migrate between servers during execution, which restarts the process and clears memory. When using PPE pricing model, avoid charging the start event multiple times after a migration by checking your charging state.
-
-:::
-
-### Charge for invalid input
-
-Charge for things like URLs that appear valid but lead to errors (like 404s) since you had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-const processUrl = async (url) => {
-  const response = await fetch(url);
-    
-  if (response.status === 404) {
-    // Charge for the work done (opening the page)
-    await Actor.charge({
-        eventName: "scraped-result",
-    });
-      
-    // Return error item instead of failing
-    await Actor.pushData({
-      url: url,
-      error: "404",
-      errorMessage: "Page not found"
-    });
-    
-    return;
-  }
-
-  // Rest of the Actor logic
-};
-
-await Actor.init();
-
-const main = async () => {
-  const input = await Actor.getInput();
-  const { urls } = input;
-  
-  for (const url of urls) {
-    await processUrl(url);
-  }
-
-  // Rest of the Actor logic
-};
-
-await main();
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```py
-from apify import Actor
-import requests
-
-async def process_url(url):
-    response = requests.get(url)
-    
-    if response.status_code == 404:
-        # Charge for the work done (opening the page)
-        await Actor.charge(event_name='scraped-result')
-        
-        # Return error item instead of failing
-        await Actor.push_data({
-            'url': url,
-            'error': '404',
-            'errorMessage': 'Page not found'
-        })
-        
-        return
-
-    # Rest of the Actor logic
-
-async def main():
-    await Actor.init()
-    
-    input_data = await Actor.get_input()
-    urls = input_data.get('urls', [])
-    
-    for url in urls:
-        await process_url(url)
-    
-    # Rest of the Actor logic
-    
-    await Actor.exit()
-```
-
-</TabItem>
-</Tabs>
-
-### Respect user spending limits
+## Respect user spending limits
 
 Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
 
 The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
 
+:::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
+
+For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+
+:::
+
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
 ```js
 import { Actor } from 'apify';
 
-const chargForApiProductDetail = async () => {
-  const chargeResult = await Actor.charge({
-    eventName: "product-detail",
-  });
+const chargeForApiProductDetail = async () => {
+  const chargeResult = await Actor.charge({ eventName: "product-detail" });
 
   return chargeResult;
 };
 
 await Actor.init();
 
-const main = async () => {
-  // API call, or any other logic that you want to charge for
+// API call, or any other logic that you want to charge for
+const chargeResult = await chargeForApiProductDetail();
 
-  const chargeResult = await chargForApiProductDetail();
+if (chargeResult.eventChargeLimitReached) {
+  await Actor.exit();
+}
 
-  if (chargeResult.eventChargeLimitReached) {
-    await Actor.exit();
-  }
-
-  // Rest of the Actor logic
-};
-
-await main();
+// Rest of the Actor logic
 
 await Actor.exit();
 ```
@@ -308,6 +129,143 @@ async def main():
 When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler and allow the rest of your code to process normally.
 
 :::
+
+## Best practices for PPE Actors
+
+Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
+
+You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
+
+### Set memory limits
+
+Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
+
+```json
+{
+    "actorSpecification": 1, 
+    "name": "name-of-my-scraper",
+    "version": "0.0",
+    "minMemoryMbytes": 512,
+    "maxMemoryMbytes": 1024,
+}
+```
+
+:::note Memory requirements for browser-based scraping
+
+When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
+
+:::
+
+### Use synthetic start event `apify-actor-start`
+
+This event is automatically charged by the Apify platform when an Actor is started or resurrected.
+
+Users of your Actor are charged one event for each GB of memory used by the Actor (at least one event per run). We _strongly_ suggest setting the price of this event to $0.0001 to remain competitive in the Store and attractive for your customers. If you define this event, you also save 5 seconds of Actor runtime from each Actor run, which won't be deducted from your payout profits.
+
+:::note Automatic charging of synthetic start event
+
+You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code.
+
+If you attempt to charge this event yourself, the operation will fail.
+This event is _always_ charged automatically by the Apify platform whenever your Actor starts or is resurrected.
+
+:::
+
+#### Synthetic start event for new Actors
+
+For new Actors, this event is added automatically as you can see on the following screen:
+
+![New Actor - synthetic start event](../images/apify-actor-start.png)
+
+#### Synthetic start event for existing Actors
+
+If you have existing Actors, you can add this event manually in Apify Console.
+
+#### Synthetic start event for Actors with start event
+
+Your Actor might already have a start event defined, such as `actor-start` or another variant of the event name. In this case, you can choose whether to use the synthetic start event or keep the existing start event.
+
+If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console.
+
+### Charge for invalid input
+
+Charge for things like URLs that appear valid but lead to errors (like 404s) since you had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+const processUrl = async (url) => {
+  const response = await fetch(url);
+    
+  if (response.status === 404) {
+    // Charge for the work done and return error item in one call
+    await Actor.pushData({
+      url: url,
+      error: "404",
+      errorMessage: "Page not found"
+    }, 'scraped-result');
+    
+    return;
+  }
+
+  // Rest of the process_url function
+};
+
+await Actor.init();
+
+const input = await Actor.getInput();
+const { urls } = input;
+  
+for (const url of urls) {
+  await processUrl(url);
+}
+
+// Rest of the Actor logic
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```py
+from apify import Actor
+import requests
+
+async def process_url(url):
+    response = requests.get(url)
+    
+    if response.status_code == 404:
+      # Charge for the work done and return error item in one call
+      await Actor.push_data({
+          'url': url,
+          'error': '404',
+          'errorMessage': 'Page not found'
+      }, 'scraped-result')
+        
+      return
+
+    # Rest of the process_url function
+
+async def main():
+    await Actor.init()
+    
+    input_data = await Actor.get_input()
+    urls = input_data.get('urls', [])
+    
+    for url in urls:
+        await process_url(url)
+    
+    # Rest of the Actor logic
+    
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
 
 ### Keep pricing simple with fewer events
 
