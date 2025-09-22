@@ -18,20 +18,10 @@ Before you begin, make sure you have:
 - An [Apify account](https://console.apify.com/)
 - An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
 
-## Install the Website Content Crawler by Apify Node (self-hosted)
+## n8n Cloud setup
+This section explains how to install and connect the Apify node when using n8n Cloud.
 
-If you're running a self-hosted n8n instance, you can install the Apify community node directly from the editor. This process adds the node to your available tools, enabling Apify operations in workflows.
-
-1. Open your n8n instance.
-1. Go to **Settings > Community Nodes**.
-1. Select **Install**.
-1. Enter the npm package name: `@apify/n8n-nodes-apify-content-crawler`  (for latest version). To install a specific [version](https://www.npmjs.com/package/@apify/n8n-nodes-apify-content-crawler?activeTab=versions) enter e.g `@apify/n8n-nodes-apify-content-crawler@0.0.1`.
-1. Agree to the [risks](https://docs.n8n.io/integrations/community-nodes/risks/) of using community nodes and select **Install**.
-1. You can now use the node in your workflows.
-
-![Apify Install Node](images/install.png)
-
-## Install the Website Content Crawler by Apify Node (n8n Cloud)
+### Install
 
 For n8n Cloud users, installation is even simpler and doesn't require manual package entry.  Just search and add the node from the canvas.
 
@@ -47,7 +37,45 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
 
 :::
 
-## Connect Website Content Crawler by Apify (self-hosted)
+### Connect
+
+1. In n8n Cloud, select **Create Credential**.
+1. Search for Apify OAuth2 API and select **Continue**.
+1. Select **Connect my account** and authorize with your Apify account.
+1. n8n automatically retrieves and stores the OAuth2 tokens.
+
+  ![Apify Auth](images/credentials.png)
+  
+:::note Cloud API Key management
+
+On n8n Cloud, you can use the API key method if you prefer to manage your credentials manually.  
+See the [**Connect** section for n8n self-hosted](#connect-self-hosted) for detailed API configuration instructions.
+
+:::
+
+With authentication set up, you can now create workflows that incorporate the Apify node.
+
+
+
+## n8n self-hosted setup
+This section explains how to install and connect the Apify node when running your own n8n instance.
+
+### Install
+
+If you're running a self-hosted n8n instance, you can install the Apify community node directly from the editor. This process adds the node to your available tools, enabling Apify operations in workflows.
+
+1. Open your n8n instance.
+1. Go to **Settings > Community Nodes**.
+1. Select **Install**.
+1. Enter the npm package name: `@apify/n8n-nodes-apify-content-crawler`  (for latest version). To install a specific [version](https://www.npmjs.com/package/@apify/n8n-nodes-apify-content-crawler?activeTab=versions) enter e.g `@apify/n8n-nodes-apify-content-crawler@0.0.1`.
+1. Agree to the [risks](https://docs.n8n.io/integrations/community-nodes/risks/) of using community nodes and select **Install**.
+1. You can now use the node in your workflows.
+
+![Apify Install Node](images/install.png)
+
+<a id="connect-self-hosted"></a>
+
+### Connect
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
@@ -67,22 +95,7 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
 
 ![Apify token on n8n](images/token.png)
 
-### OAuth2 (cloud instance only)
 
-1. In n8n Cloud, select **Create Credential**.
-1. Search for Apify OAuth2 API and select **Continue**.
-1. Select **Connect my account** and authorize with your Apify account.
-1. n8n automatically retrieves and stores the OAuth2 tokens.
-
-  ![Apify Auth](images/credentials.png)
-  
-:::note
-
-On 8n Cloud, use the API key method if you prefer manual control over credentials.
-
-:::
-
-With authentication set up, you can now create workflows that incorporate the Apify node.
 
 ## Website Content Crawler by Apify module
 
