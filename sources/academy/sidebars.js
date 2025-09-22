@@ -14,7 +14,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'AI',
+            label: 'AI agents',
             collapsible: false,
             className: 'section-header',
             items: [
