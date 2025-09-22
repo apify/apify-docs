@@ -156,7 +156,7 @@ In the Website Content Crawler module you can set the **Start URLs** to be fille
 
 Two key parameters to configure for optimized AI Agent usage are **Max crawling depth** and **Max pages**. Remember that the scraping results are passed into the AI Agent’s context, so using smaller values helps stay within context limits.
 
-![Config Apify](./images/config.png)
+![Apify Configuration](./images/config.png)
 
 ### Example usage
 
