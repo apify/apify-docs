@@ -22,20 +22,54 @@
     color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 }
 
-.navbar-sidebar .DocSearch-Button {
+.AskAI-Button {
+  height: 4rem;
+  padding: 0.8rem 1.6rem !important;
+  background-color: var(--ifm-color-primary);
+  border-radius: 8px;
+  color: var(--color-neutral-text-on-primary);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  text-align: center;
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.SearchButton-Container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-sidebar .SearchButton-Container {
   display: none;
 }
 
 @media (max-width: 768px) {
-    .DocSearch-Button {
+    .SearchButton-Container {
       width: 100%;
     }
 
-    .navbar__inner .DocSearch-Button {
+    .AlgoliaContainer {
+      flex: 1;
+    }
+
+    .DocSearch-Button {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .navbar__inner .SearchButton-Container {
       display: none;
     }
 
-    .navbar-sidebar .DocSearch-Button {
+    .navbar-sidebar .SearchButton-Container {
       display: flex;
     }
 
