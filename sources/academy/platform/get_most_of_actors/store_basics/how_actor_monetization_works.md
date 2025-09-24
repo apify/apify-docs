@@ -114,13 +114,19 @@ Learn more about what makes a good readme here: [How to create an Actor README](
 
 ### Rental, pay-per-result (PPR), or pay-per-event (PPE)
 
-Rental pricing is technically easier: you set the rental fee, and the user covers their CU usage. So all you have to define is how much you want to charge the users. With pay-per-result, you’ll need to include both CU usage and your margin. So you have to calculate how much the average run is going to cost for the user + define how much you want to charge them.
+Rental pricing allows you charge a monthly fee for your Actor and users cover their own compute usage.
 
-To figure out the average cost per run for users, just run a few test runs and look at the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
+Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 
-From an average user's perspective, pay-per-result is often easier to grasp — $25 for a thousand pages, $5 for a thousand videos, $1 for a thousand images, etc. It gives users a clearer idea of what they’re paying for and allows them to estimate faster. But rental pricing has its fans, too — if your tool provides high value, users will come.
+Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
 
-Pay-per-event (PPE) lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling our PPE charging API. The most common events will most likely be Actor start, dataset item, external API calls, etc. PPE is great for users who want to optimize their costs and value transparency. PPE is also a fairer pricing model for integration and AI-driven use cases, where dataset-based pricing doesn’t make sense.
+:::tip Additional benefits
+
+Actors that implement PPE receive additional benefits, including increased visibility in Apify Store and enhanced discoverability for users looking for monetized solutions.
+
+:::
+
+To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
 
 ### Adapt when needed
 
