@@ -35,6 +35,16 @@ where:
 
 Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
 
+## PPR vs PPE
+
+PPR charges based on the number of results produced. PPE lets you define pricing for individual events, and help you to make your pricing more flexible. You can charge for specific events directly from your Actor by calling the PPE charging API. 
+
+:::info Learn more about PPE
+
+If you want to learn more about PPE, please refer to the [Pay per event](/platform/actors/publishing/monetize/pay-per-event) section.
+
+:::
+
 ## Best practices for PPR Actors
 
 To ensure profitability, check the following best practices.
@@ -201,19 +211,68 @@ This ensures that every run generates at least one result, guaranteeing that use
 
 ## Example of PPR pricing model
 
-You make your Actor PPR and set the price to be _$1/1,000 results_. During the first month, three users use your Actor:
+You make your Actor PPR and set the price to be _$1/1,000 results_. During the first month, three users use your Actor.
 
-- _User 1 (paid plan)_: Gets 50,000 results, costing them $50
-- _User 2 (paid plan)_: Gets 20,000 results, costing them $20
-- _User 3 (free plan)_: Gets 5,000 results, costing them $0
+#### Pricing breakdown by user
 
-Let's say the underlying platform usage for the first user is $5, for the second $2, and for the third $0.5.
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th style={{whiteSpace: 'nowrap'}}>Plan</th>
+      <th style={{width: '35%'}}>Results</th>
+      <th style={{width: '45%'}}>Charges</th>
+      <th style={{whiteSpace: 'nowrap'}}>Total</th>
+      <th style={{whiteSpace: 'nowrap'}}>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
+      <td>
+        <div>50,000 results</div>
+      </td>
+      <td>
+        <div>50,000 ÷ 1,000 × $1.00 = $50.00</div>
+      </td>
+      <td><strong>$50.00</strong></td>
+      <td>$5.00</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
+      <td>
+        <div>20,000 results</div>
+      </td>
+      <td>
+        <div>20,000 ÷ 1,000 × $1.00 = $20.00</div>
+      </td>
+      <td><strong>$20.00</strong></td>
+      <td>$2.00</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style={{whiteSpace: 'nowrap'}}>Free plan</td>
+      <td>
+        <div>5,000 results</div>
+      </td>
+      <td>
+        <div>5,000 ÷ 1,000 × $1.00 = $5.00</div>
+      </td>
+      <td><strong>$0.00</strong></td>
+      <td>$0.50</td>
+    </tr>
+  </tbody>
+</table>
 
-Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue breakdown is:
+The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
 
-- _Total revenue_: $50 + $20 = $70
-- _Total underlying cost_: $5 + $2 = $7
-- _Your profit_: 80% of revenue minus costs = 0.8 × $70 - $7 = $49
+#### Revenue breakdown
+
+- **Revenue (paid users only)**: $50.00 + $20.00 = **$70.00**
+- **Underlying cost (paid users only)**: $5.00 + $2.00 = **$7.00**
+- **Profit**: 0.8 × $70.00 − $7.00 = **$49.00**
 
 ## Next steps
 
