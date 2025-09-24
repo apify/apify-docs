@@ -53,7 +53,7 @@ properties:
   taggedBuilds:
     type: object
     description: |
-      Object containing the Actor's tagged builds, where the key is the tag name (e.g., `latest`) and the value is an object containing the build ID.
+      Object containing the Actor's tagged builds, where the key is the tag name (e.g., _latest_) and the value is an object containing the build ID.
       The object you provide will completely overwrite all existing tagged builds for the Actor.
 
       - To create or reassign a tag: Include it in the object with the desired `buildId`.
