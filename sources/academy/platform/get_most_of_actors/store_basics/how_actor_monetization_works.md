@@ -122,7 +122,7 @@ Pay-per-event (PPE) gives you the most flexibility and growth potential. You can
 
 :::tip Additional benefits
 
-Actors that implement PPE receive additional benefits, including increased visibility in Apify Store and enhanced discoverability for users looking for monetized solutions.
+Actors that implement PPE receive additional benefits, including increased visibility in Apify Store and enhanced discoverability.
 
 :::
 
