@@ -34,7 +34,7 @@ properties:
   versions:
     type: array
     items:
-      $ref: "./CreateOrUpdateEnvVarRequest.yaml"
+      $ref: './CreateOrUpdateEnvVarRequest.yaml'
     description: ''
   pricingInfos:
     type: array
@@ -50,3 +50,15 @@ properties:
     oneOf:
       - nullable: true
       - $ref: ./DefaultRunOptions.yaml
+  taggedBuilds:
+    type: object
+    additionalProperties:
+      type: object
+      required:
+        - buildId
+      properties:
+        buildId:
+          type: string
+    example:
+      latest:
+        buildId: z2EryhbfhgSyqj6Hn
