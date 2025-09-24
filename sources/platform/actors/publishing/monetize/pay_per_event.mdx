@@ -142,22 +142,22 @@ We recommend using the synthetic Actor start event in PPE Actors. It benefits bo
 
 :::
 
-Starting an Actor takes time, and creates additional cost for the Actor creator, because the profit equals revenue minus platform costs. 
+Starting an Actor takes time, and creates additional cost for the Actor creator, because the profit equals revenue minus platform costs.
 
-One of the options to charge for the time spent on starting the Actor is to charge an “Actor start” event. Let’s say $1 for 1000 Actor starts. Unfortunately, this makes your Actor comparably expensive with other tools on the market (outside of [Apify Store](/platform/console/store)) that do not incur this startup cost. 
+One of the options to charge for the time spent on starting the Actor is to charge an “Actor start” event. Let’s say $1 for 1000 Actor starts. Unfortunately, this makes your Actor comparably expensive with other tools on the market (outside of [Apify Store](/platform/console/store)) that do not incur this startup cost.
 
 We want to make it easier for Actor creators to stay competitive, but also help them to be profitable. Therefore, we have the Apify Actor synthetic start event `apify-actor-start`.
 
 #### How the synthetic start event works
 
 - The Apify Actor start event is **automatically enabled** for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
-- Apify **automatically charges** the event. 
-    - You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code. If you attempt to charge this event yourself, the operation will fail.
+- Apify **automatically charges** the event.
+  - You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code. If you attempt to charge this event yourself, the operation will fail.
 - The price of the event is **$0.00005**, which equals **$0.05 per 1,000 starts**.
 - The number of events charged **depends on the memory** of the Actor run. Up to and including 1 GB of RAM, the event is charged once. Then it's charged once for each extra GB of memory. For example:
-    - 128 MB RAM: 1 event, $0.00005
-    - 1 GB RAM: 1 event, $0.00005
-    - 4 GB RAM: 4 events, $0.0002
+  - 128 MB RAM: 1 event, $0.00005
+  - 1 GB RAM: 1 event, $0.00005
+  - 4 GB RAM: 4 events, $0.0002
 - You can increase the price of the event if you wish, but you **won't get more free compute**.
 - You can delete the event if you wish, but if you do, you will **lose the free 5 seconds** of compute.
 
@@ -413,7 +413,7 @@ For the simplicity of the example, we show only the LLM-token-cent event. In rea
       <td>1</td>
       <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
       <td>
-        <div style={{marginBottom: '4px'}}>$25.40 LLM usage:</div> 
+        <div style={{marginBottom: '4px'}}>$25.40 LLM usage:</div>
         <div>2,540 × <code>llm-token-cent</code></div>
       </td>
       <td>
