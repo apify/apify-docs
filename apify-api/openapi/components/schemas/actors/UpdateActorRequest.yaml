@@ -51,6 +51,14 @@ properties:
       - nullable: true
       - $ref: ./DefaultRunOptions.yaml
   taggedBuilds:
+    description: |
+      Object containing the Actor's tagged builds, where the key is the tag name (e.g., `latest`) and the value is an object containing the build ID.
+      The object you provide will completely overwrite all existing tagged builds for the Actor.
+
+      - To create or reassign a tag: Include it in the object with the desired `buildId`.
+      - To remove a specific tag: Submit the object without that tag's key.
+      - To remove all tags: Provide an empty object: `{}`.
+      - If this field is omitted or `null`, the existing tags will not be changed.
     type: object
     additionalProperties:
       type: object
