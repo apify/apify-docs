@@ -104,7 +104,7 @@ The easiest way to understand your tool's value is to look around. Are there sim
 
 Try competitor tools yourself (to assess the value and the quality they provide), check their SEO (to see how much traffic they get), and note ballpark figures. Think about what your Actor can do that competitors might be missing.
 
-Also, remember that your Actor is a package deal with the Apify platform. So all the platform's features automatically transfer onto your Actor and its value. Scheduling, monitoring runs, ways of exporting data, proxies, and integrations can all add value to your Actor (on top of its own functionalities). Be sure to factor this into your tool's value proposition and communicate that to the potential user.
+Also, remember that your Actor is a package deal with the Apify platform. All the platform's features automatically transfer onto your Actor and its value. Scheduling, monitoring runs, ways of exporting data, proxies, and integrations can all add value to your Actor (on top of its own functionalities). Be sure to factor this into your tool's value proposition and communicate that to the potential user.
 
 ### Do research in Apify Store
 
