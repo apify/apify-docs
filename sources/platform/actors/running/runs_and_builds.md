@@ -41,16 +41,16 @@ What's happening inside of an Actor is visible on the Actor run log in the Actor
 
 Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via [API](https://docs.apify.com/api/v2/actor-run-get) in the `meta.origin` field.
 
-| Name          | Origin                                                                      |
-| :------------ | :-------------------------------------------------------------------------- |
-| `DEVELOPMENT` | Manually from Apify Console in the Development mode (own Actor)             |
-| `WEB`         | Manually from Apify Console in "normal" mode (someone else's Actor or task) |
-| `API`         | From [Apify API](https://docs.apify.com/api)                                |
-| `CLI`         | From [Apify CLI](https://docs.apify.com/cli/)                               |
-| `SCHEDULER`   | Using a schedule                                                            |
-| `WEBHOOK`     | Using a webhook                                                             |
-| `ACTOR`       | From another Actor run                                                      |
-| `STANDBY`     | From [Actor Standby](./standby)                                             |
+|Name|Origin|
+|:---|:---|
+|`DEVELOPMENT`|Manually from Apify Console in the Development mode (own Actor)|
+|`WEB`|Manually from Apify Console in "normal" mode (someone else's Actor or task)|
+|`API`|From [Apify API](https://docs.apify.com/api)|
+|`CLI`|From [Apify CLI](https://docs.apify.com/cli/)|
+|`SCHEDULER`|Using a schedule|
+|`WEBHOOK`|Using a webhook|
+|`ACTOR`|From another Actor run|
+|`STANDBY`|From [Actor Standby](./standby)|
 
 ## Lifecycle
 
@@ -81,15 +81,16 @@ flowchart LR
 ---
 
 | Status     | Type         | Description                                 |
-| :--------- | :----------- | :------------------------------------------ |
+|:-----------|:-------------|:--------------------------------------------|
 | READY      | initial      | Started but not allocated to any worker yet |
 | RUNNING    | transitional | Executing on a worker machine               |
 | SUCCEEDED  | terminal     | Finished successfully                       |
 | FAILED     | terminal     | Run failed                                  |
 | TIMING-OUT | transitional | Timing out now                              |
 | TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by the user                   |
-| ABORTED    | terminal     | Aborted by the user                         |
+| ABORTING   | transitional | Being aborted by the user                       |
+| ABORTED    | terminal     | Aborted by the user                             |
+
 
 ### Aborting runs
 
@@ -118,7 +119,7 @@ You can also adjust timeout and memory or change Actor build before the resurrec
 1. Abort a broken run
 2. Update the Actor's code and build the new version
 3. Resurrect the run using the new build
-   :::
+:::
 
 ### Data retention
 
