@@ -132,33 +132,21 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 ## Best practices for PPE Actors
 
-Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
-
-You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
-
-### Set memory limits
-
-Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
-
-```json
-{
-    "actorSpecification": 1, 
-    "name": "name-of-my-scraper",
-    "version": "0.0",
-    "minMemoryMbytes": 512,
-    "maxMemoryMbytes": 1024,
-}
-```
-
-:::note Memory requirements for browser-based scraping
-
-When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
-
-:::
+Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
 ### Use synthetic start event `apify-actor-start`
 
-This event is automatically charged by the Apify platform when an Actor is started or resurrected.
+:::info TL;DR:
+
+We recommend using the synthetic Actor start event in PPE Actors. It benefits both you and your users.
+
+:::
+
+Starting an Actor takes time, and creates additional cost for the Actor creator, because the profit equals revenue minus platform costs. 
+
+One of the options to charge for the time spent on starting the Actor is to charge an “Actor start” event. Let’s say $1 for 1000 Actor starts. Unfortunately, this makes your Actor comparably expensive with other tools on the market (outside of [Apify Store](/platform/console/store)) that do not incur this startup cost.
+
+We want to make it easier for Apify Store creators to stay competitive. To do that, we have the Apify Actor synthetic start event `apify-actor-start`.
 
 Users of your Actor are charged one event for each GB of memory used by the Actor (at least one event per run). We _strongly_ suggest setting the price of this event to $0.0001 to remain competitive in the Store and attractive for your customers. If you define this event, you also save 5 seconds of Actor runtime from each Actor run, which won't be deducted from your payout profits.
 
@@ -186,6 +174,26 @@ If you have existing Actors, you can add this event manually in Apify Console.
 Your Actor might already have a start event defined, such as `actor-start` or another variant of the event name. In this case, you can choose whether to use the synthetic start event or keep the existing start event.
 
 If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console.
+
+### Set memory limits
+
+Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
+
+```json
+{
+    "actorSpecification": 1, 
+    "name": "name-of-my-scraper",
+    "version": "0.0",
+    "minMemoryMbytes": 512,
+    "maxMemoryMbytes": 1024,
+}
+```
+
+:::note Memory requirements for browser-based scraping
+
+When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
+
+:::
 
 ### Charge for invalid input
 
