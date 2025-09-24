@@ -34,7 +34,7 @@ properties:
   versions:
     type: array
     items:
-      $ref: './CreateOrUpdateEnvVarRequest.yaml'
+      $ref: "./CreateOrUpdateEnvVarRequest.yaml"
     description: ''
   pricingInfos:
     type: array
