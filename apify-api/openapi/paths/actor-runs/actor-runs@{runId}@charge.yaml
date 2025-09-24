@@ -7,7 +7,7 @@ post:
     The event you are charging for must be one of the configured events in your Actor. If the Actor is not set up as pay per event, or if the event is not configured,
     the endpoint will return an error. The endpoint must be called from the Actor run itself, with the same API token that the run was started with.
 
-    For more details about PPE pricing, see our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
+    For more details about pay-per-event (PPE) pricing, see our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
 
   operationId: PostChargeRun
   parameters:
