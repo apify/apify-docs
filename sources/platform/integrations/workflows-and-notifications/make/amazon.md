@@ -21,7 +21,7 @@ To use the module, you need an [Apify account](https://console.apify.com) and an
 
 1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-    ![Apify Console token for Make.png](images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
