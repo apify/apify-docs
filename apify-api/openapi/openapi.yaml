@@ -122,7 +122,7 @@ info:
     ```
 
     However, there are a few explicitly described exceptions, such as
-    Dataset [Get items](#/reference/datasets/item-collection/get-items) or
+    [Get dataset items](#/reference/datasets/item-collection/get-items) or
     Key-value store [Get record](#/reference/key-value-stores/record/get-record)
     API endpoints, which return data in other formats.
     In case of an error, the response has the HTTP status code in the range of
