@@ -7,7 +7,7 @@ slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Learn how to build new Actors or improving existing ones using AI code generation and vibe coding tools.**
+**Learn how to develop new Actors or improve existing ones using AI code generation and vibe coding tools.**
 
 ---
 
