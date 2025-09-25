@@ -178,7 +178,7 @@ await writeFile("products.csv", csvData);
 
 The program should now also produce a `data.csv` file. When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
 
-![CSV preview](images/csv.png)
+![CSV preview](../scraping_basics/images/csv.png)
 
 In the CSV format, if a value contains commas, we should enclose it in quotes. If it contains quotes, we should double them. When we open the file in a text editor of our choice, we can see that the library automatically handled this:
 
@@ -232,6 +232,6 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   1. Select the header row. Go to **Data > Create filter**.
   1. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
-  ![CSV in Google Sheets](images/csv-sheets.png)
+  ![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
 
 </details>
