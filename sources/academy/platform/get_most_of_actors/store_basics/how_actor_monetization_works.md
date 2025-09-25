@@ -33,7 +33,11 @@ Monetizing your Actor on the Apify platform involves several key steps:
   - 2nd user starts their trial but pays next month.
   - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
 
-Learn more about the rental pricing model in our [documentation](/platform/actors/publishing/monetize#rental-pricing-model).
+:::info Rental pricing details
+
+If you want more details about rental pricing, please refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
+
+:::
 
 ### Pay-per-result pricing model
 
@@ -49,7 +53,11 @@ Learn more about the rental pricing model in our [documentation](/platform/actor
   - Dataset storage: $1 per 1,000 GB-hours
 - _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
 
-Learn more about the pay-per-result pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-result-pricing-model).
+:::info Pay-per-result details
+
+If you want more details about PPR pricing, please refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
+
+:::
 
 ### Pay-per-event pricing model
 
@@ -77,7 +85,11 @@ Learn more about the pay-per-result pricing model in our [documentation](/platfo
     - This comes up to $1.625 of total revenue
   - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
 
-Learn more about the pay-per-event pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-event-pricing-model).
+:::info Pay-per-event details
+
+If you want more details about PPE pricing, please refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
+
+:::
 
 ## Setting up monetization
 
@@ -104,7 +116,7 @@ The easiest way to understand your tool's value is to look around. Are there sim
 
 Try competitor tools yourself (to assess the value and the quality they provide), check their SEO (to see how much traffic they get), and note ballpark figures. Think about what your Actor can do that competitors might be missing.
 
-Also, remember that your Actor is a package deal with the Apify platform. So all the platform's features automatically transfer onto your Actor and its value. Scheduling, monitoring runs, ways of exporting data, proxies, and integrations can all add value to your Actor (on top of its own functionalities). Be sure to factor this into your tool's value proposition and communicate that to the potential user.
+Also, remember that your Actor is a package deal with the Apify platform. All the platform's features automatically transfer onto your Actor and its value. Scheduling, monitoring runs, ways of exporting data, proxies, and integrations can all add value to your Actor (on top of its own functionalities). Be sure to factor this into your tool's value proposition and communicate that to the potential user.
 
 ### Do research in Apify Store
 
@@ -114,7 +126,7 @@ Learn more about what makes a good readme here: [How to create an Actor README](
 
 ### Rental, pay-per-result (PPR), or pay-per-event (PPE)
 
-Rental pricing is technically easier: you set the rental fee, and the user covers their CU usage. So all you have to define is how much you want to charge the users. With pay-per-result, you’ll need to include both CU usage and your margin. So you have to calculate how much the average run is going to cost for the user + define how much you want to charge them.
+Rental pricing is technically easier: you set the rental fee, and the user covers their CU usage. All you have to define is how much you want to charge the users. With pay-per-result, you’ll need to include both CU usage and your margin. You have to calculate how much the average run is going to cost for the user + define how much you want to charge them.
 
 To figure out the average cost per run for users, just run a few test runs and look at the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
 

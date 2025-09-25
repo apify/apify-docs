@@ -20,7 +20,7 @@ The details on how your cost is computed can be found in [Example of a PPE prici
 
 :::tip Additional benefits
 
-Actors that implement PPE pricing receive additional benefits, including increased visibility in Apify Store and enhanced discoverability for users looking for monetized solutions.
+Actors that implement PPE pricing receive additional benefits, including increased visibility in Apify Store and enhanced discoverability.
 
 :::
 
@@ -132,9 +132,52 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 ## Best practices for PPE Actors
 
-Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. This tool can handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API.
+Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
-You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
+### Use synthetic start event `apify-actor-start`
+
+:::info TL;DR:
+
+We recommend using the synthetic Actor start event in PPE Actors. It benefits both you and your users.
+
+:::
+
+Starting an Actor takes time, and creates additional cost for the Actor creator, because the profit equals revenue minus platform costs.
+
+One of the options to charge for the time spent on starting the Actor is to charge an “Actor start” event. Unfortunately, this makes your Actor comparably expensive with other tools on the market (outside of [Apify Store](/platform/console/store)) that do not incur this startup cost.
+
+We want to make it easier for Actor creators to stay competitive, but also help them to be profitable. Therefore, we have the Apify Actor synthetic start event `apify-actor-start`. This event is enabled by default for all new PPE Actors, and when you use it Apify will cover the compute unit cost of the first 5 seconds of every Actor run.
+
+The default price of the event is set intentionally low. This pricing means that the free 5 seconds of compute we provide costs us more than the revenue generated from the event. We've made this investment to **support our creator community** by reducing your startup costs while keeping your Actors competitively priced for users.
+
+#### How the synthetic start event works
+
+- The Apify Actor start event is **automatically enabled** for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
+- Apify **automatically charges** the event.
+  - You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code. If you attempt to charge this event yourself, the operation will fail.
+- The price of the event is **$0.00005**, which equals **$0.05 per 1,000 starts**.
+- The number of events charged **depends on the memory** of the Actor run. Up to and including 1 GB of RAM, the event is charged once. Then it's charged once for each extra GB of memory. For example:
+  - 128 MB RAM: 1 event, $0.00005
+  - 1 GB RAM: 1 event, $0.00005
+  - 4 GB RAM: 4 events, $0.0002
+- You can increase the price of the event if you wish, but you **won't get more free compute**.
+- You can delete the event if you wish, but if you do, you will **lose the free 5 seconds** of compute.
+
+#### Synthetic start event for new Actors
+
+For new Actors, this event is added automatically as you can see on the following screen:
+
+![New Actor - synthetic start event](../images/apify-actor-start.png)
+
+#### Synthetic start event for existing Actors
+
+If you have existing Actors, you can add this event manually in Apify Console in the Publication tab.
+
+#### Synthetic start event for Actors with start event
+
+Your Actor might already have a start event defined, such as `actor-start` or another variant of the event name. In this case, you can choose whether to use the synthetic start event or keep the existing start event.
+
+If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the Publication tab.
 
 ### Set memory limits
 
@@ -156,40 +199,17 @@ When using browser automation tools like Puppeteer or Playwright for web scrapin
 
 :::
 
-### Use synthetic start event `apify-actor-start`
-
-This event is automatically charged by the Apify platform when an Actor is started or resurrected.
-
-Users of your Actor are charged one event for each GB of memory used by the Actor (at least one event per run). We _strongly_ suggest setting the price of this event to $0.0001 to remain competitive in the Store and attractive for your customers. If you define this event, you also save 5 seconds of Actor runtime from each Actor run, which won't be deducted from your payout profits.
-
-:::note Automatic charging of synthetic start event
-
-You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code.
-
-If you attempt to charge this event yourself, the operation will fail.
-This event is _always_ charged automatically by the Apify platform whenever your Actor starts or is resurrected.
-
-:::
-
-#### Synthetic start event for new Actors
-
-For new Actors, this event is added automatically as you can see on the following screen:
-
-![New Actor - synthetic start event](../images/apify-actor-start.png)
-
-#### Synthetic start event for existing Actors
-
-If you have existing Actors, you can add this event manually in Apify Console.
-
-#### Synthetic start event for Actors with start event
-
-Your Actor might already have a start event defined, such as `actor-start` or another variant of the event name. In this case, you can choose whether to use the synthetic start event or keep the existing start event.
-
-If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console.
-
 ### Charge for invalid input
 
 Charge for things like URLs that appear valid but lead to errors (like 404s) since you had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
+
+:::info One call vs two calls
+
+The following code snippets show the single call option to both return error item and charge for the work done.
+
+If you prefer to return error item and charge for the work done in two calls, you can use the two calls option where you charge for the work done with `Actor.charge( ... )` and return the error item with `Actor.pushData( ... )`.
+
+:::
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -294,35 +314,158 @@ You can display a status message or push a record to the dataset to inform users
 
 If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
 
-## Example of a PPE pricing model
+## Examples of a PPE pricing model
 
-You make your Actor PPE and set the following pricing:
+### Example: simple PPE pricing
 
-- _`actor-start` event_: $0.10 per start
-- _`scraped-product` event_: $0.01 per product
-- _`scraped-product-detail` event_: $0.05 per detail
-- _`ai-analysis` event_: $0.15 per analysis
+- `scraped-product`: $0.01 per product - count every product record you return.
+- `scraped-product-detail`: $0.05 per detail - count every enriched product detail you provide.
 
-During the first month, three users use your Actor:
+#### Pricing breakdown by user
 
-- _User 1 (paid plan)_: Starts Actor 5 times, scrapes 1,000 products, makes 50 product details, runs 30 AI analyses
-  - Charges: 5 × $0.10 + 1,000 × $0.01 + 50 × $0.05 + 30 × $0.15 = $0.50 + $10.00 + $2.50 + $4.50 = $17.50
-- _User 2 (paid plan)_: Starts Actor 2 times, scrapes 500 products, makes 20 product details, runs 10 AI analyses
-  - Charges: 2 × $0.10 + 500 × $0.01 + 20 × $0.05 + 10 × $0.15 = $0.20 + $5.00 + $1.00 + $1.50 = $7.70
-- _User 3 (free plan)_: Starts Actor 1 time, scrapes 100 products, makes 5 product details, runs 3 AI analyses
-  - Charges: 1 × $0.10 + 100 × $0.01 + 5 × $0.05 + 3 × $0.15 = $0.10 + $1.00 + $0.25 + $0.45 = $1.80
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th style={{whiteSpace: 'nowrap'}}>Plan</th>
+      <th style={{width: '40%'}}>Events</th>
+      <th style={{width: '35%'}}>Charges</th>
+      <th style={{whiteSpace: 'nowrap'}}>Total</th>
+      <th style={{whiteSpace: 'nowrap'}}>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
+      <td>
+        <div style={{marginBottom: '4px'}}>1,000 × <code>scraped-product</code></div>
+        <div>50 × <code>scraped-product-detail</code></div>
+      </td>
+      <td>
+        <div style={{marginBottom: '4px'}}>1,000 × $0.01 = $10.00</div>
+        <div>50 × $0.05 = $2.50</div>
+      </td>
+      <td><strong>$12.50</strong></td>
+      <td>$3.20</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
+      <td>
+        <div style={{marginBottom: '4px'}}>500 × <code>scraped-product</code></div>
+        <div>20 × <code>scraped-product-detail</code></div>
+      </td>
+      <td>
+        <div style={{marginBottom: '4px'}}>500 × $0.01 = $5.00</div>
+        <div>20 × $0.05 = $1.00</div>
+      </td>
+      <td><strong>$6.00</strong></td>
+      <td>$1.50</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style={{whiteSpace: 'nowrap'}}>Free plan</td>
+      <td>
+        <div>5 × <code>scraped-product-detail</code></div>
+      </td>
+      <td>
+        <div style={{marginBottom: '4px'}}>100 × $0.01 = $1.00</div>
+        <div>5 × $0.05 = $0.25</div>
+      </td>
+      <td><strong>$1.25</strong></td>
+      <td>$0.40</td>
+    </tr>
+  </tbody>
+</table>
 
-Let's say the underlying platform usage for the first user is $3.20, for the second $1.50, and for the third $0.40.
+The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
 
-Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue breakdown is:
+#### Revenue breakdown
 
-- _Total revenue_: $17.50 + $7.70 = $25.20
-- _Total underlying cost_: $3.20 + $1.50 = $4.70
-- _Your profit_: 80% of revenue minus costs = 0.8 × $25.20 - $4.70 = $15.46
+- **Revenue (paid users only)**: $12.50 + $6.00 = **$18.50**
+- **Underlying cost (paid users only)**: $3.20 + $1.50 = **$4.70**
+- **Profit**: 0.8 × $18.50 − $4.70 = **$10.10**
+
+### Example: usage-indexed PPE pricing
+
+- `llm-token-cent`: $0.02 per $0.01 LLM spend - emit one event for each cent billed by your LLM provider.
+
+:::info Simplified example
+
+For the simplicity of the example, we show only the LLM-token-cent event. In reality, you can charge for any event you want.
+
+:::
+
+#### Pricing breakdown by user
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th style={{whiteSpace: 'nowrap'}}>Plan</th>
+      <th style={{width: '45%'}}>Events</th>
+      <th style={{width: '35%'}}>Charges</th>
+      <th style={{whiteSpace: 'nowrap'}}>Total</th>
+      <th style={{whiteSpace: 'nowrap'}}>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
+      <td>
+        <div style={{marginBottom: '4px'}}>$25.40 LLM usage:</div>
+        <div>2,540 × <code>llm-token-cent</code></div>
+      </td>
+      <td>
+        <div>2,540 × $0.02 = $50.80</div>
+      </td>
+      <td><strong>$50.80</strong></td>
+      <td>$2.60</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
+      <td>
+        <div style={{marginBottom: '4px'}}>$12.10 LLM usage:</div>
+        <div>1,210 × <code>llm-token-cent</code></div>
+      </td>
+      <td>
+        <div>1,210 × $0.02 = $24.20</div>
+      </td>
+      <td><strong>$24.20</strong></td>
+      <td>$1.20</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style={{whiteSpace: 'nowrap'}}>Free plan</td>
+      <td>
+        <div style={{marginBottom: '4px'}}>$3.90 LLM usage:</div>
+        <div>390 × <code>llm-token-cent</code></div>
+      </td>
+      <td>
+        <div>390 × $0.02 = $7.80</div>
+      </td>
+      <td><strong>$7.80</strong></td>
+      <td>$0.35</td>
+    </tr>
+  </tbody>
+</table>
+
+The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
+
+#### Revenue breakdown
+
+- **Revenue (paid users only)**: $50.80 + $24.20 = **$75.00**
+- **Underlying cost (paid users only)**: $2.60 + $1.20 = **$3.80**
+- **Profit**: 0.8 × $75.00 − $3.80 = **$56.20**
+
+This example illustrates the key trade-off of PPE pricing: while it's harder for users to predict exact costs upfront, it provides developers with a safer and more scalable revenue model that grows with actual usage.
 
 ## Event names
 
-To implement PPE pricing, you need to define specific events in your Actor code. You can retrieve the list of available pricing event names using the [Get Actor](https://apify.com/docs/api/v2/act-get) API endpoint.
+If you need to know your event names, you can retrieve the list of available pricing event names using the [Get Actor](https://apify.com/docs/api/v2/act-get) API endpoint.
 
 ## Next steps
 
