@@ -2,7 +2,7 @@
 title: Building new Actors with AI
 sidebar_position: 3
 sidebar_label: Build with AI
-description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
+description: Learn how to build new Actors using AI code generation and vibe coding tools such as Cursor or Visual Studio Code.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
@@ -14,8 +14,9 @@ toc_max_heading_level: 4
 import { RULES_AND_INSTRUCTIONS_PROMPT } from "@site/src/utils/ai-prompts";
 import PromptButton from "@site/src/components/PromptButton";
 
-Learn how to build new Actors using AI code generation and vibe coding tools such as Cursor or Visual Studio Code,
-by feeding them with right instructions and context from the `llms.txt` or `llms-full.txt` Markdown files.
+This guide provides best practices how to build new Actors or improve existing ones using AI code generation
+and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code,
+by providing the AI agents with the right instructions and context.
 
 ## `llms.txt` and `llms-full.txt`
 
