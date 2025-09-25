@@ -205,7 +205,7 @@ Use this URL as the Apify webhook target. Configure the webhook's authentication
 1. Notify Bubble when the run finishes
     - Create an Apify **Webhook** with event `ACTOR.RUN.SUCCEEDED`.
     - Set `actorId` from the Step 1 result.
-    - Set `databaseId` from the Step 1 result, where actor will store the result.
+    - Set `databaseId` from the Step 1 result, where Actor will store the result.
     - Set `idempotencyKey` to random value.
     - Set `requestUrl` to your Bubble backend workflow URL, for example: `https://your-app.bubbleapps.io/version-test/api/1.1/wf/webhook`.
     - ![Create a webhook](../images/bubble/step2_scraping.png)
