@@ -155,7 +155,7 @@ The default price of the event is set intentionally low. This pricing means that
 - The Apify Actor start event is **automatically enabled** for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
 - Apify **automatically charges** the event.
   - You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code. If you attempt to charge this event yourself, the operation will fail.
-- The price of the event is **$0.00005**, which equals **$0.05 per 1,000 starts**.
+- The default price of the event is **$0.00005**, which equals **$0.05 per 1,000 starts**. We recommend keeping the default price to keep your Actors competitive.
 - The number of events charged **depends on the memory** of the Actor run. Up to and including 1 GB of RAM, the event is charged once. Then it's charged once for each extra GB of memory. For example:
   - 128 MB RAM: 1 event, $0.00005
   - 1 GB RAM: 1 event, $0.00005
