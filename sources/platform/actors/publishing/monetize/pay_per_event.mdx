@@ -203,13 +203,7 @@ When using browser automation tools like Puppeteer or Playwright for web scrapin
 
 Charge for things like URLs that appear valid but lead to errors (like 404s) since you had to open the page to discover the error. Return error items with proper error codes and messages instead of failing the entire Actor run.
 
-:::info One call vs two calls
-
-The following code snippets show the single call option to both return error item and charge for the work done.
-
-If you prefer to return error item and charge for the work done in two calls, you can use the two calls option where you charge for the work done with `Actor.charge( ... )` and return the error item with `Actor.pushData( ... )`.
-
-:::
+The snippet below shows how you can charge for invalid inputs using `Actor.pushData` when a dataset item is created and the `scraped-result` event is charged.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
