@@ -16,7 +16,7 @@ The PPE pricing model offers a flexible monetization option for Actors on Apify 
 
 PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly. Common events include Actor start, dataset item creation, and external API calls.
 
-The details on how your cost is computed can be found in [Example of a PPE pricing model](#example-of-a-ppe-pricing-model).
+The details on how your cost is computed can be found in [Examples of a PPE pricing](#examples-of-a-ppe-pricing).
 
 :::tip Additional benefits
 
@@ -293,9 +293,9 @@ However, we acknowledge that some events don't produce tangible results (such as
 
 Examples:
 
-- _`scraped-product` event_: Each charge adds one product record to the dataset
-- _`processed-image` event_: Each charge adds one processed image to the dataset  
-- _`extracted-review` event_: Each charge adds one review to the dataset
+- _`post` event_: Each charge adds one social media post to the dataset
+- _`profile` event_: Each charge adds one user profile to the dataset  
+- _`processed-image` event_: Each charge adds one processed image to the dataset
 - _`ai-analysis` event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
 
 :::note Additional context
@@ -308,24 +308,36 @@ You can display a status message or push a record to the dataset to inform users
 
 If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
 
-## Examples of a PPE pricing model
+## Example of a PPE pricing
 
-### Example: simple PPE pricing
+You create a social media monitoring Actor with the following pricing:
 
-- `scraped-product`: $0.01 per product - count every product record you return.
-- `scraped-product-detail`: $0.05 per detail - count every enriched product detail you provide.
+- `post`: $0.002 per post - count every social media post you extract.
+- `profile`: $0.001 per profile - count every user profile you extract.
+- `sentiment-analysis`: $0.005 per post - count every post analyzed for sentiment, engagement metrics, and content classification using external LLM APIs.
 
-#### Pricing breakdown by user
+:::info Fixed pricing vs. usage-based pricing
+
+You have two main strategies for charging AI-related operations:
+
+1. **Fixed event pricing** (like `sentiment-analysis` above): Charge a fixed amount per operation, regardless of actual LLM costs
+2. **Usage-based pricing**: Use events like `llm-token` that charge based on actual LLM usage costs
+
+Fixed pricing is simpler for users to predict, while usage-based pricing more accurately reflects your actual costs.
+
+:::
+
+### Pricing breakdown by user
 
 <table>
   <thead>
     <tr>
       <th>User</th>
       <th style={{whiteSpace: 'nowrap'}}>Plan</th>
-      <th style={{width: '40%'}}>Events</th>
+      <th style={{width: '45%'}}>Events</th>
       <th style={{width: '35%'}}>Charges</th>
       <th style={{whiteSpace: 'nowrap'}}>Total</th>
-      <th style={{whiteSpace: 'nowrap'}}>Cost</th>
+      <th style={{whiteSpace: 'nowrap'}}>Platform cost</th>
     </tr>
   </thead>
   <tbody>
@@ -333,56 +345,64 @@ If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (
       <td>1</td>
       <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
       <td>
-        <div style={{marginBottom: '4px'}}>1,000 × <code>scraped-product</code></div>
-        <div>50 × <code>scraped-product-detail</code></div>
+        <div style={{marginBottom: '4px'}}>5,000 × <code>post</code></div>
+        <div style={{marginBottom: '4px'}}>50 × <code>profile</code></div>
+        <div>2,000 × <code>sentiment-analysis</code></div>
       </td>
       <td>
-        <div style={{marginBottom: '4px'}}>1,000 × $0.01 = $10.00</div>
-        <div>50 × $0.05 = $2.50</div>
+        <div style={{marginBottom: '4px'}}>5,000 × $0.002</div>
+        <div style={{marginBottom: '4px'}}>50 × $0.001</div>
+        <div>2,000 × $0.005</div>
       </td>
-      <td><strong>$12.50</strong></td>
-      <td>$3.20</td>
+      <td><strong>$20.05</strong></td>
+      <td>$2.50</td>
     </tr>
     <tr>
       <td>2</td>
       <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
       <td>
-        <div style={{marginBottom: '4px'}}>500 × <code>scraped-product</code></div>
-        <div>20 × <code>scraped-product-detail</code></div>
+        <div style={{marginBottom: '4px'}}>3,000 × <code>post</code></div>
+        <div style={{marginBottom: '4px'}}>20 × <code>profile</code></div>
+        <div>1,000 × <code>sentiment-analysis</code></div>
       </td>
       <td>
-        <div style={{marginBottom: '4px'}}>500 × $0.01 = $5.00</div>
-        <div>20 × $0.05 = $1.00</div>
+        <div style={{marginBottom: '4px'}}>3,000 × $0.002</div>
+        <div style={{marginBottom: '4px'}}>20 × $0.001</div>
+        <div>1,000 × $0.005</div>
       </td>
-      <td><strong>$6.00</strong></td>
+      <td><strong>$11.02</strong></td>
       <td>$1.50</td>
     </tr>
     <tr>
       <td>3</td>
       <td style={{whiteSpace: 'nowrap'}}>Free plan</td>
       <td>
-        <div style={{marginBottom: '4px'}}>100 × <code>scraped-product</code></div>
-        <div>5 × <code>scraped-product-detail</code></div>
+        <div style={{marginBottom: '4px'}}>1,000 × <code>post</code></div>
+        <div style={{marginBottom: '4px'}}>5 × <code>profile</code></div>
+        <div>200 × <code>sentiment-analysis</code></div>
       </td>
       <td>
-        <div style={{marginBottom: '4px'}}>100 × $0.01 = $1.00</div>
-        <div>5 × $0.05 = $0.25</div>
+        <div style={{marginBottom: '4px'}}>1,000 × $0.002</div>
+        <div style={{marginBottom: '4px'}}>5 × $0.001</div>
+        <div>200 × $0.005</div>
       </td>
-      <td><strong>$1.25</strong></td>
+      <td><strong>$3.01</strong></td>
       <td>$0.40</td>
     </tr>
   </tbody>
 </table>
 
+Your profit and costs are computed **only from the first two users** since they are on Apify paid plans.
+
 The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
 
-#### Revenue breakdown
+### Revenue breakdown
 
-- **Revenue (paid users only)**: $12.50 + $6.00 = **$18.50**
-- **Underlying cost (paid users only)**: $3.20 + $1.50 = **$4.70**
-- **Profit**: 0.8 × $18.50 − $4.70 = **$10.10**
+- **Revenue (paid users only)**: $20.05 + $11.02 = **$31.07**
+- **Platform cost (paid users only)**: $2.50 + $1.50 = **$4.00**
+- **Profit**: 0.8 × $31.07 − $4.00 = **$20.86**
 
-### Example: usage-indexed PPE pricing
+{/* ### Example: usage-indexed PPE pricing
 
 - `llm-token-cent`: $0.02 per $0.01 LLM spend - emit one event for each cent billed by your LLM provider.
 
@@ -390,9 +410,9 @@ The platform usage costs are just examples, but you can see the actual costs in 
 
 For the simplicity of the example, we show only the LLM-token-cent event. In reality, you can charge for any event you want.
 
-:::
+::: */}
 
-#### Pricing breakdown by user
+{/* #### Pricing breakdown by user
 
 <table>
   <thead>
@@ -456,7 +476,7 @@ The platform usage costs are just examples, but you can see the actual costs in 
 - **Underlying cost (paid users only)**: $2.60 + $1.20 = **$3.80**
 - **Profit**: 0.8 × $75.00 − $3.80 = **$56.20**
 
-This example illustrates the key trade-off of PPE pricing: while it's harder for users to predict exact costs upfront, it provides developers with a safer and more scalable revenue model that grows with actual usage.
+This example illustrates the key trade-off of PPE pricing: while it's harder for users to predict exact costs upfront, it provides developers with a safer and more scalable revenue model that grows with actual usage. */}
 
 ## Event names
 
