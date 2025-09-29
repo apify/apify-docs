@@ -32,6 +32,14 @@ get:
       schema:
         type: string
         example: someKey
+    - name: signature
+      in: query
+      description: Signature used to access the record.
+      required: false
+      style: simple
+      schema:
+        type: string
+        example: 2wTI46Bg8qWQrV7tavlPI
   responses:
     '200':
       description: ''
