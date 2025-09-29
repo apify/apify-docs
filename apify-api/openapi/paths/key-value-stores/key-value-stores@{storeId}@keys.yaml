@@ -48,6 +48,14 @@ get:
       schema:
         type: string
         example: post-images-
+    - name: signature
+      in: query
+      description: Signature used to access the keys.
+      required: false
+      style: simple
+      schema:
+        type: string
+        example: 2wTI46Bg8qWQrV7tavlPI
   responses:
     '200':
       description: ''
