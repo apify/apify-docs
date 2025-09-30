@@ -1,57 +1,54 @@
-.llmButtonsContainer {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: -8px;
-    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
-}
-
-.llmButtonsSeparator {
-    width: 1px;
-    height: 16px;
-    background-color: var(--ifm-hr-background-color);
-}
-
 .llmButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 30px;
+
+    margin-block: 8px;
+
     display: flex;
     align-items: center;
-    background-color: transparent;
-    border: none;
-    height: 16px;
+    gap: 4px;
+    border-radius: 8px;
+    padding-inline: 8px;
+    border: 1px solid var(--color-Neutral_SeparatorSubtle);
+    background-color: var(--color-Neutral_BackgroundMuted);
+
     cursor: pointer;
-    padding: 0;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: var(--color-Neutral_BackgroundMuted);
+    }
+}
+
+.llmButtonText {
+    border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+}
+
+.menuOption {
+    padding-block: 4px;
+    display: flex;
     gap: 4px;
 }
 
-.llmButtonIcon {
-    width: 16px;
-    height: 16px;
-    margin: 0 !important;
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: inline-block;
+.menuOptionIcon {
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
-.llmButtonIconBackgroundMarkdown {
-    background-image: url('https://docs.apify.com/img/markdown.svg');
-
+.menuOptionText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
-.llmButtonIconBackgroundCopy {
-    background-image: url('https://docs.apify.com/img/copy.svg');
-}
-
-/* Dark theme adjustments */
-[data-theme='dark'] .llmButtonIcon {
-    color: #e0e0e0;
-}
-
-[data-theme='dark'] .llmButtonIconBackgroundMarkdown {
-    background-image: url('https://docs.apify.com/img/markdown-dark-theme.svg');
-}
-
-[data-theme='dark'] .llmButtonIconBackgroundCopy {
-    background-image: url('https://docs.apify.com/img/copy-dark-theme.svg');
+.menuOptionExternalIcon {
+    flex-shrink: 0;
+    margin-top: 2px;
 }

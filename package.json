@@ -61,7 +61,8 @@
         "typescript-eslint": "^8.38.0"
     },
     "dependencies": {
-        "@apify/ui-library": "^1.0.0",
+        "@apify/ui-library": "^1.97.2",
+        "@apify/ui-icons": "^1.18.3",
         "@docusaurus/core": "^3.8.1",
         "@docusaurus/faster": "^3.8.1",
         "@docusaurus/plugin-client-redirects": "^3.8.1",
