@@ -2,7 +2,7 @@
 title: "Schedules"
 description: "Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API."
 sidebar_position: 3
-slug: /reference/schedules
+slug: /using-actors/schedules
 ---
 
 **Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.**
@@ -33,7 +33,7 @@ Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tas
 
 ## Setting up a new schedule
 
-Before setting up a new schedule, you should have the [Actor](./actors/index.mdx) or [task](./actors/running/tasks.md) you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the Actor or [task](platform/using-actors/tasks) you want to schedule prepared and tested.
 
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
@@ -49,20 +49,20 @@ Click on the name (by default it is **My Schedule**), there you can change its n
 
 You can adjust how often your Actor or task runs using the [schedule setup tool](#schedule-setup). You can find it by clicking on the **Schedule setup** card.
 
-![New schedule](./images/schedules-overview.png)
+![New schedule](../images/schedules-overview.png)
 
 Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Click on the **Add** dropdown and select whether you want to schedule an Actor or task.
 
-If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like [build](./actors/development/builds_and_runs/builds.md), timeout, [memory](./actors/running/usage_and_resources.md).
+If you're scheduling an Actor run, you'll be able to specify the Actor's [input](platform/using-actors/input-and-output) and running options like [build](platform/building-actors/builds-and-runs/builds), timeout, [memory](platform/using-actors/usage-and-resources).
 The **timeout** value is specified in seconds; a value of _0_ means there is no timeout, and the Actor runs until it finishes.
 
  If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
 
-![Add Actor to schedule](./images/schedules-actor-input.png)
+![Add Actor to schedule](../images/schedules-actor-input.png)
 
 If you're scheduling a task, just select the task you prepared earlier using the drop-down. If you need to override the task's input, you can pass it as a JSON object in the **Input JSON overrides** field.
 
-![Add task to schedule](./images/schedules-task-input.png)
+![Add task to schedule](../images/schedules-task-input.png)
 
 To add more Actors or tasks, just repeat the process.
 
@@ -74,7 +74,7 @@ For integrations, you can also add a [webhook](/platform/integrations/webhooks) 
 
 To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2/schedules-post) endpoint.
 
-You can find your [secret API token](./integrations/index.mdx) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
+You can find your [secret API token](/platform/integrations) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
@@ -115,7 +115,7 @@ For more information, refer to the [schedules](/api/v2/schedule-get) section in 
 
 The schedule setup tool uses [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. If you're familiar with how to use them and need a specific run schedule, you can dive right in. If not, don't worry - the setup tool has a visual custom schedule builder that provides a similar level of control as cron expressions, though it's not quite as powerful.
 
-![Schedule setup tool](./images/schedules-setup-tool.png)
+![Schedule setup tool](../images/schedules-setup-tool.png)
 
 The **Next runs** section shows when the next run will be, if you click on **Show more** button it will expand and show you the next five runs. You can use this live feedback to experiment until you find the correct configuration.
 
@@ -127,7 +127,7 @@ The schedule setup tool allows you to control the schedule's notifications. All 
 
 If you want to manage the notifications for your schedules in bulk, you can do this from the [Notifications](https://console.apify.com/settings/notifications) settings tab. As long as you have 15 schedules or less, you can manage their notifications all at once by clicking the **Manage notifications for specific schedules** button.
 
-![Schedule bulk notifications](./images/schedules-bulk-notifications.png)
+![Schedule bulk notifications](../images/schedules-bulk-notifications.png)
 
 ## Cron expressions
 

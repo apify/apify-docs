@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ---
 
-When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
+When developing an [Actor](/platform/using-actors) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
 
 ## Base Docker images
 
@@ -109,7 +109,7 @@ This means the system expects the source code to be in `main.js` by default. If 
 
 :::tip Optimization tips
 
-You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
+You can check out various optimization tips for Dockerfile in our [Performance](/platform/building-actors/performance) documentation.
 
 :::
 

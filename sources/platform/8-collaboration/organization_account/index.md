@@ -9,14 +9,14 @@ slug: /collaboration/organization-account
 
 ---
 
-Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../list_of_permissions.md) and to centralize your billing without having to share the credentials of a single personal account.
+Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](/platform/collaboration/list-of-permissions) and to centralize your billing without having to share the credentials of a single personal account.
 
-You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
+You can [switch](/platform/collaboration/organization-account/how-to-use) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
 
 You can set up an organization in two ways.
 
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
+* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](/platform/integrations) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
 > Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
@@ -38,7 +38,7 @@ You can create a new organization by clicking the **Create new organization** bu
 >
 > * **You will no longer be able to sign in to the converted user account.**
 > * **An organization cannot be converted back to a personal account.**
-> * **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up](./setup.md) the organization.**
+> * **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up](/platform/collaboration/organization-account/setup) the organization.**
 
 Before converting your personal account into an organization, make sure it has a **username**.
 
@@ -52,7 +52,7 @@ Next, set the organization's name and click **Convert**.
 
 And that's it! Your personal account becomes the organization, and you will be logged out automatically. You can now log into your new personal account with the same credentials as you are currently logged in with. This applies to both **password** and **OAuth** methods.
 
-For information on [adding members and assigning roles](./setup.md), see the Setup page.
+For information on [adding members and assigning roles](/platform/collaboration/organization-account/setup), see the Setup page.
 
 ## Billing {#billing}
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. Without state persistence, your job's progress is lost during migration, causing it to restart from the beginning on the new server. This can be costly and time-consuming.
+Long-running [Actor](/platform) jobs may need to migrate between servers. Without state persistence, your job's progress is lost during migration, causing it to restart from the beginning on the new server. This can be costly and time-consuming.
 
 To prevent data loss, long-running Actors should:
 

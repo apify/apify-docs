@@ -12,7 +12,7 @@ The secret input feature lets you mark specific input fields of an Actor as sens
 
 ## How to set a secret input field
 
-To make an input field secret, you need to add a `"isSecret": true` setting to the input field in the Actor's [input schema](./index.md), like this:
+To make an input field secret, you need to add a `"isSecret": true` setting to the input field in the Actor's [input schema](/platform/actors/development/actor-definition/input-schema), like this:
 
 <!-- eslint-skip -->
 ```json

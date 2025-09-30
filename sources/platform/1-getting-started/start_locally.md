@@ -1,8 +1,8 @@
 ---
 title: Local development
-sidebar_position: 1
+sidebar_position: 2
 description: Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.
-slug: /building-actors/quick-start/locally
+slug: /getting-started/locally
 ---
 
 **Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.**
@@ -71,7 +71,7 @@ You'll see output similar to this in your terminal:
 
 ```bash
 INFO  System info {"apifyVersion":"3.4.3","apifyClientVersion":"2.12.6","crawleeVersion":"3.13.10","osType":"Darwin","nodeVersion":"v22.17.0"}
-Extracted heading { level: 'h1', text: 'Your full‑stack platform for web scraping' }
+Extracted heading { level: 'h1', text: 'Your full‑stack platform for web scraping' }
 Extracted heading { level: 'h3', text: 'TikTok Scraper' }
 Extracted heading { level: 'h3', text: 'Google Maps Scraper' }
 Extracted heading { level: 'h3', text: 'Instagram Scraper' }
@@ -79,7 +79,7 @@ Extracted heading { level: 'h3', text: 'Instagram Scraper' }
 
 As you can see in the logs, the Actor extracts text from a web page. The main logic lives in `src/main.js`. Depending on your template, this file may be `src/main.ts` (TypeScript) or `src/main.py` (Python).
 
-In the next step, we’ll explore the results in more detail.
+In the next step, we'll explore the results in more detail.
 
 ### Step 3: Explore the Actor
 
@@ -154,5 +154,5 @@ Good job! 🎉 You're ready to develop your Actor. You can make changes to your 
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- Check [Continuous integration](../deployment/continuous_integration.md) documentation to automate your Actor development process.
-- After you finish building your first Actor, you can [share it with other users and even monetize it](../../publishing/index.mdx).
+- Check [Continuous integration](/platform/actors/deployment/continuous-integration) documentation to automate your Actor development process.
+- After you finish building your first Actor, you can [share it with other users and even monetize it](/platform/actors/publishing).

@@ -43,7 +43,7 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](/platform/collaboration). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -51,9 +51,9 @@ Utilize the **Actions** menu to modify the dataset's name, which also affects it
 
 The [Apify API](/api/v2/storage-datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](/platform/core-concepts/storage), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](platform/integrations/api#authentication)).
 
 To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2/datasets-get) endpoint.
 
@@ -151,7 +151,7 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 #### JavaScript SDK
 
-When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
+When working with a JavaScript [Actor](/platform/using-actors), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
 
 Additionally the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
 
@@ -225,7 +225,7 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 #### Python SDK
 
-For Python [Actors](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) is essential. The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use this class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. For further data manipulation you could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
+For Python [Actors](/platform/using-actors), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) is essential. The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use this class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. For further data manipulation you could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
 
 For datasets stored locally, the data is located at the following path:
 
@@ -380,7 +380,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](/platform/collaboration) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](/platform/collaboration/list-of-permissions).
 
 You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
 
@@ -388,7 +388,7 @@ For one-off sharing of specific records when access is restricted, you can gener
 
 ### Sharing datasets between runs
 
-You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
+You can access a dataset from any [Actor](/platform/using-actors) or [task](/platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
 
 To access a dataset from another run using the [Apify SDK](/sdk), open it using the same method as you would with any other dataset.
 

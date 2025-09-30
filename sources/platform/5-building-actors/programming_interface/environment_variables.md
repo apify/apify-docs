@@ -119,7 +119,7 @@ For sensitive data like API keys or passwords, enable the **Secret** option. Thi
 
 Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
 
-Learn more in [Builds](../builds_and_runs/builds.md).
+Learn more in [Builds](/platform/building-actors/builds-and-runs/builds).
 :::
 
 ## Access environment variables

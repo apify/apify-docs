@@ -24,7 +24,7 @@ You can switch into **Organization account** view using the account button in th
 
 In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it—no need to log in and out.
 
-The resources you can access and account details you can edit will depend on your [permissions](../list_of_permissions.md) in the organization.
+The resources you can access and account details you can edit will depend on your [permissions](/platform/collaboration/list-of-permissions) in the organization.
 
 > When switching between accounts, beware which account you start an Actor run in. If you accidentally start an organization's Actor run in your personal account, the run will be billed to your account (and vice versa).
 
@@ -44,7 +44,7 @@ The organization, its Actors, and its integrations will keep running as they are
 
 While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 
-As a member of an organization, you are assigned an [API token](../../integrations/index.mdx) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
+As a member of an organization, you are assigned an [API token](/platform/integrations) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
 ![Integration tokens](../images/organizations/integrations.png)
 

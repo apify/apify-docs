@@ -1,8 +1,8 @@
 ---
 title: Build with AI
-sidebar_position: 3
+sidebar_position: 4
 description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
-slug: /building-actors/quick-start/build-with-ai
+slug: /getting-started/build-with-ai
 toc_max_heading_level: 4
 ---
 

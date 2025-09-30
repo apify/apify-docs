@@ -1,8 +1,8 @@
 ---
 title: Web IDE
-sidebar_position: 2
+sidebar_position: 3
 description: Create your first Actor using the web IDE in Apify Console.
-slug: /building-actors/quick-start/web-ide
+slug: /getting-started/web-ide
 ---
 
 import Tabs from '@theme/Tabs';
@@ -153,5 +153,5 @@ Once you've made the desired changes, you can push the updated code back to the 
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- Check [Continuous integration](../deployment/continuous_integration.md) documentation to automate your Actor development process.
-- After you finish building your first Actor, you can [share it with other users and even monetize it](../../publishing/index.mdx).
+- Check [Continuous integration](/platform/actors/deployment/continuous-integration) documentation to automate your Actor development process.
+- After you finish building your first Actor, you can [share it with other users and even monetize it](/platform/actors/publishing).

@@ -54,7 +54,7 @@ You will end up on a template detail page where you can see all the important in
 
 ### Using the template in the Web IDE {#web-ide}
 
-By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it.
+By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/getting-started/web-ide) where you can see the code of the template and start editing it.
 
 > The Web IDE is a great tool for developing your Actor directly in Apify Console without the need to install or use any other software.
 

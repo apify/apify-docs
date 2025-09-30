@@ -1,23 +1,18 @@
 [
     {
-        "title": "Actors",
-        "description": "Learn how to develop, run and share own web scraping and automation tools.",
-        "to": "/platform/actors"
-    },
-    {
         "title": "Storage",
         "description": "Store anything from images and key-value pairs to structured output data.",
-        "to": "/platform/storage"
+        "to": "/platform/core-concepts/storage"
     },
     {
         "title": "Proxy",
         "description": "Learn to anonymously and reliably access websites in scraping/automation jobs.",
-        "to": "/platform/proxy"
+        "to": "/platform/core-concepts/proxy"
     },
     {
         "title": "Schedules",
         "description": "Learn how to automatically start your Actor and task runs.",
-        "to": "/platform/schedules"
+        "to": "/platform/using-actors/schedules"
     },
     {
         "title": "Integrations",

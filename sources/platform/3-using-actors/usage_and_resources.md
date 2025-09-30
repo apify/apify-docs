@@ -11,13 +11,13 @@ slug: /using-actors/usage-and-resources
 
 ## Resources
 
-[Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
+[Actors](/platform) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
 
 ![Setting an Actor's memory](./images/usage_and_resources/memory-settings.png)
 
 Assigning an Actor a specific **Memory** capacity, also determines the allocated CPU power and its disk size.
 
-Check out the [Limits](../../limits.md) page for detailed information on Actor memory, CPU limits, disk size and other limits.
+Check out the [Limits](/platform/reference/limits) page for detailed information on Actor memory, CPU limits, disk size and other limits.
 
 ### Memory
 
@@ -28,7 +28,7 @@ When invoking an Actor, the caller must specify the memory allocation for the Ac
 - The maximum allowed value is `32768MB`
 - Acceptable values include: `128MB`, `256MB`, `512MB`, `1024MB`, `2048MB`, `4096MB`, `8192MB`, `16384MB`, and `32768MB`
 
-Additionally, each user has a certain total limit of memory for running Actors. The sum of memory allocated for all running Actors and builds needs to be within this limit, otherwise the user cannot start a new Actor. For more details, see [limits](../../limits.md).
+Additionally, each user has a certain total limit of memory for running Actors. The sum of memory allocated for all running Actors and builds needs to be within this limit, otherwise the user cannot start a new Actor. For more details, see [limits](/platform/reference/limits).
 
 ### CPU
 

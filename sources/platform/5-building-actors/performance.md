@@ -56,4 +56,4 @@ We first copy the `package.json`, `package-lock.json` files , and install the de
 
 ### Use standardized images to accelerate Actor startup times
 
-Using one of [Apify's standardized images](https://github.com/apify/apify-actor-docker), can accelerate the Actor startup time. These images are cached on each worker machine, so only the layers you added in your Actor's [Dockerfile](./actor_definition/docker.md) need to be pulled.
+Using one of [Apify's standardized images](https://github.com/apify/apify-actor-docker), can accelerate the Actor startup time. These images are cached on each worker machine, so only the layers you added in your Actor's [Dockerfile](/platform/building-actors/actor-definition/dockerfile) need to be pulled.

@@ -14,22 +14,22 @@ import StoragePricingCalculator from "@site/src/components/StoragePricingCalcula
 
 ## Dataset
 
-[Dataset](./dataset.md) storage allows you to store a series of data objects, such as results from web scraping, crawling, or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel, or HTML formats.
+[Dataset](/platform/core-concepts/storage/dataset) storage allows you to store a series of data objects, such as results from web scraping, crawling, or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel, or HTML formats.
 
-![Dataset graphic](../images/datasets-overview.png)
+![Dataset graphic](../../images/datasets-overview.png)
 
 ## Key-value store
 
-The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
+The [key-value store](/platform/core-concepts/storage/key-value-store) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
 
-![Key-value store graphic](../images/key-value-overview.svg)
+![Key-value store graphic](../../images/key-value-overview.svg)
 
 
 ## Request queue
 
-[Request queues](./request_queue.md) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
+[Request queues](/platform/core-concepts/storage/request-queue) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
 
-![Request queue graphic](../images/request-queue-overview.svg)
+![Request queue graphic](../../images/request-queue-overview.svg)
 
 ## Basic usage
 
@@ -160,7 +160,7 @@ For example, storage names `janedoe~my-storage-1` and `janedoe~web-scrape-result
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to other Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](/platform/collaboration) to other Apify users to view or modify your storages. Check the [full list of permissions](/platform/collaboration/list-of-permissions).
 
 You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
 
@@ -174,11 +174,11 @@ If your storage resource is set to _restricted_, all API calls must include a va
 
 ### Sharing storages between runs
 
-Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Storage can be accessed from any [Actor](/platform/using-actors) or [task](/platform/using-actors/tasks) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
-[Datasets](./dataset.md) and [key-value stores](./key_value_store.md) support concurrent use by multiple Actors. Thus, several Actors or tasks can simultaneously write data to a single dataset or key-value store. Similarly, multiple runs can read data from datasets and key-value stores at the same time.
+[Datasets](/platform/core-concepts/storage/dataset) and [key-value stores](/platform/core-concepts/storage/key-value-store) support concurrent use by multiple Actors. Thus, several Actors or tasks can simultaneously write data to a single dataset or key-value store. Similarly, multiple runs can read data from datasets and key-value stores at the same time.
 
-[Request queues](./request_queue.md), on the other hand, only allow multiple runs to add new data. A request queue can only be processed by one Actor or task run at any one time.
+[Request queues](/platform/core-concepts/storage/request-queue), on the other hand, only allow multiple runs to add new data. A request queue can only be processed by one Actor or task run at any one time.
 
 > When multiple runs try to write data to a storage simultaneously, the order of data writing cannot be controlled. Data is written as each request is processed. <br/>
 > Similar principle applies in key-value stores and request queues, when a delete request for a record precedes a read request for the same record, the read request will fail.

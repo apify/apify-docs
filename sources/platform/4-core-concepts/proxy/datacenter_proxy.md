@@ -190,7 +190,7 @@ If you use the session at least once a day, it will never expire, with two possi
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 
-To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
+To learn more about [sessions](/platform/core-concepts/proxy/usage#sessions) and [IP address rotation](/platform/core-concepts/proxy/usage#ip-address-rotation), see the [proxy overview page](/platform/core-concepts/proxy).
 
 
 ### Examples using sessions

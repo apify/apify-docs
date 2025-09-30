@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies](./datacenter_proxy.md), traffic from residential proxies is indistinguishable from that of legitimate users.
+Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies](/platform/core-concepts/proxy/datacenter-proxy), traffic from residential proxies is indistinguishable from that of legitimate users.
 
 This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
@@ -22,7 +22,7 @@ Residential proxies support [IP address rotation](./usage.md#ip-address-rotation
 
 ## Connecting to residential proxy
 
-Connecting to residential proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences.
+Connecting to residential proxy works the same way as [datacenter proxy](/platform/core-concepts/proxy/datacenter-proxy), with two differences.
 
 1. The `groups` [username parameter](./usage.md#username-parameters) should always specify `RESIDENTIAL`.
 
@@ -30,7 +30,7 @@ Connecting to residential proxy works the same way as [datacenter proxy](./datac
 
 ### How to set a proxy group
 
-When using [standard libraries and languages](./datacenter_proxy.md), specify the `groups` parameter in the [username](./usage.md#username-parameters) as `groups-RESIDENTIAL`.
+When using [standard libraries and languages](/platform/core-concepts/proxy/datacenter-proxy), specify the `groups` parameter in the [username](/platform/core-concepts/proxy/usage#username-parameters) as `groups-RESIDENTIAL`.
 
 For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.com/package/got-scraping) JavaScript library will look like this:
 
@@ -73,7 +73,7 @@ async def main():
 
 ### How to set a proxy country
 
-When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`.
+When using [standard libraries and languages](/platform/core-concepts/proxy/datacenter-proxy), specify the `country` parameter in the [username](/platform/core-concepts/proxy/usage#username-parameters) as `country-COUNTRY-CODE`.
 
 For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
 
@@ -131,11 +131,11 @@ If the proxy server becomes unresponsive or the session expires, a new IP addres
 > If you really need to persist the same session, you can try sending some data using that session (e.g. every 20 seconds) to keep it alive.<br/>
 > Providing the connection is not interrupted, this will let you keep the IP address for longer.
 
-To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the proxy [overview page](./index.md).
+To learn more about [sessions](/platform/core-concepts/proxy/usage#sessions) and [IP address rotation](/platform/core-concepts/proxy/usage#ip-address-rotation), see the proxy [overview page](/platform/core-concepts/proxy).
 
 ## Tips to keep in mind
 
-[Residential](./index.md) proxies are less predictable than [datacenter](./datacenter_proxy.md) proxies and are priced differently (by number of IPs vs traffic used). Because of this, there are some important things to consider before using residential proxy in your solutions.
+[Residential](/platform/core-concepts/proxy) proxies are less predictable than [datacenter](/platform/core-concepts/proxy/datacenter-proxy) proxies and are priced differently (by number of IPs vs traffic used). Because of this, there are some important things to consider before using residential proxy in your solutions.
 
 ### Control traffic used by automated browsers {#control-traffic-used-by-automated-browsers}
 
@@ -153,4 +153,4 @@ If your solution requires quickly loaded content, the best option is to set a [s
 
 While sessions are persistent, they can be destroyed at any time if the host devices are turned off or disconnected.
 
-For this problem there is no easy solution. One option is to not use residential proxy for larger requests (and use [datacenter](./datacenter_proxy.md) proxy instead). If you have no other choice, expect that interruptions might happen and write your solution with this in mind.
+For this problem there is no easy solution. One option is to not use residential proxy for larger requests (and use [datacenter](/platform/core-concepts/proxy/datacenter-proxy) proxy instead). If you have no other choice, expect that interruptions might happen and write your solution with this in mind.

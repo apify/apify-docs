@@ -22,7 +22,7 @@ An Apify integration can be _general_, allowing users to integrate any Actor fro
 
 General integrations allow users to integrate Actors into their workflows by connecting Apify with other platforms. Examples include:
 
-- [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
+- [Zapier](/platform/integrations/zapier) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
 - [Keboola](/platform/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
 
 ### Actor-specific integrations
@@ -32,7 +32,7 @@ Actor-specific integrations are designed for targeted use cases. While they work
 - [Make Instagram Scraper integration](https://www.make.com/en/integrations/apify-instagram-scraper)
 - [Lindy.ai Instagram integration](https://www.lindy.ai/integrations/instagram)
 
-For more examples both general and Actor-specific, check [integrations](./index.mdx).
+For more examples both general and Actor-specific, check [integrations](/platform/integrations).
 
 ## Integrating with Apify
 
@@ -45,7 +45,7 @@ To integrate your service with Apify, you have two options:
 
 ### Building an integration Actor
 
-One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](./actors/integration_ready_actors.md).
+One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](/platform/integrations/actors/integration-ready-actors).
 
 ### Building an external integration
 

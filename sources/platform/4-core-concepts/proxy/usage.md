@@ -49,7 +49,7 @@ http://auto:apify_proxy_EaAFg6CFhc4eKk54Q1HbGDEiUTrk480uZv03@proxy.apify.com:800
 
 If you want to connect to Apify Proxy from Actors running on the Apify Platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
 
-If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
+If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](/platform/building-actors/programming-interface/environment-variables) provided to the Actor.
 By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
 
 | Parameter           | Source / explanation |
@@ -70,7 +70,7 @@ const connectionString = `http://auto:${APIFY_PROXY_PASSWORD}@${APIFY_PROXY_HOST
 
 The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session ID](#sessions)** and **country** for your proxy connection.
 
-For example, if you're using [datacenter proxies](./datacenter_proxy.md) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
+For example, if you're using [datacenter proxies](/platform/core-concepts/proxy/datacenter-proxy) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
 ```text
 groups-SHADER,session-new_job_123
@@ -150,9 +150,8 @@ Sessions allow you to use the same IP address for multiple connections. In cases
 To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
 
 We recommend you to use [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction when managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
-Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./
-residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for
-**26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the session. Google SERP proxies do not support sessions.
+Sessions are available for [datacenter](/platform/core-concepts/proxy/datacenter-proxy) and [residential](/platform/core-concepts/proxy/residential-proxy#session-persistence) proxies. For datacenter proxies, a session persists for
+**26 hours** ([more info](/platform/core-concepts/proxy/datacenter-proxy)). For residential proxies, it persists for **1 minute** ([more info](/platform/core-concepts/proxy/residential-proxy#session-persistence)) but you can prolong the lifetime by regularly using the session. Google SERP proxies do not support sessions.
 
 ## Proxy groups
 

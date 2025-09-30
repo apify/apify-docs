@@ -1,8 +1,8 @@
 ---
-title: "Monitoring"
+title: Monitoring
 description: "Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect."
 sidebar_position: 1
-slug: /monitoring-and-operations/monitoring
+slug: /monitoring
 ---
 
 **Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.**
@@ -48,7 +48,7 @@ When you set up an alert, you have four choices for how you want the metrics to 
 
 3. **Alert, when run status is one of following** - This type of alert is checked only after the run finishes. It makes possible to track the status of your finished runs and send an alert if the run finishes in a state you do not expect. If your Actor runs very often and suddenly starts failing, you will receive a single alert after the first failed run in 1 minute, and then aggregated alert every 15 minutes.
 
-4. **Alert for dataset field statistics** - If you have a [dataset schema](../actors/development/actor_definition/dataset_schema/validation.md) set up, then you can use the field statistics to set up an alert. You can use field statistics for example to track if some field is filled in all records, if some numeric value is too low/high (for example when tracking the price of a product over multiple sources), if the number of items in an array is too low/high (for example alert on Instagram Actor if post has a lot of comments) and many other tasks like these.
+4. **Alert for dataset field statistics** - If you have a [dataset schema](platform/building-actors/actor-definition/dataset-schema/validation) set up, then you can use the field statistics to set up an alert. You can use field statistics for example to track if some field is filled in all records, if some numeric value is too low/high (for example when tracking the price of a product over multiple sources), if the number of items in an array is too low/high (for example alert on Instagram Actor if post has a lot of comments) and many other tasks like these.
 
     :::important
 
@@ -107,7 +107,7 @@ These are just a few examples of what you can monitor. It's always recommended t
 
 ### Alternative solutions
 
-For more complex monitoring, you can use the [monitoring suite](https://apify.com/apify/monitoring), which is a collection of [Apify Actors](../actors/index.mdx) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com). The monitoring suite offers some features that are not **currently** available in Apify Console, such as:
+For more complex monitoring, you can use the [monitoring suite](https://apify.com/apify/monitoring), which is a collection of Apify Actors that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com). The monitoring suite offers some features that are not **currently** available in Apify Console, such as:
 
 1. Schema validation of the output
 2. Duplicate checks in the output

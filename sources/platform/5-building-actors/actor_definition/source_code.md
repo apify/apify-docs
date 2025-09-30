@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ---
 
-The Apify Actor's source code placement is defined by its [Dockerfile](./docker.md). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
+The Apify Actor's source code placement is defined by its [Dockerfile](/platform/building-actors/actor-definition/dockerfile). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
 
 You have the flexibility to choose any programming language, technologies, and dependencies (such as Chrome browser, Selenium, Cypress, or others) for your projects. The only requirement is to define a Dockerfile that builds the image for your Actor, including all dependencies and your source code.
 

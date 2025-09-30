@@ -10,11 +10,11 @@ slug: /collaboration
 ---
 Apify was built from the ground up as a collaborative platform. Whether you’re publishing your Actor in Apify Store or sharing a dataset with a teammate, collaboration is deeply integrated into how Apify works. You can share your resources (like Actors, runs, or storages) with others, manage permissions, or invite collaborators to your organization. By default, each system resource you create is only available to you, the owner. However, you can grant access to other users, making it easy to collaborate effectively and securely.
 
-While most resources can be shared by assigning permissions (see [Access Rights](./access_rights.md)), some resources can also be shared simply by using their unique links or IDs. There are two types of resources in terms of sharing:
+While most resources can be shared by assigning permissions (see [Access Rights](/platform/collaboration/access-rights)), some resources can also be shared simply by using their unique links or IDs. There are two types of resources in terms of sharing:
 
 - _Resources that require explicit access by default:_
-  - [Actors](../actors/running/index.md), [tasks](../actors/running/tasks.md)
-  - Can be shared only by inviting collaborators using [Access Rights](./access_rights.md)) or using [Organization Accounts](./organization_account/index.md)
+  - [Actors](/platform/using-actors), [tasks](/platform/using-actors/tasks)
+  - Can be shared only by inviting collaborators using [Access Rights](/platform/collaboration/access-rights)) or using [Organization Accounts](/platform/collaboration/organization-account)
 - _Resources supporting both explicit access and link sharing:_
   - Actor runs, Actor builds and storage resources (datasets, key-value stores, request queues)
   - Can be shared by inviting collaborators or simply by sharing a unique direct link
