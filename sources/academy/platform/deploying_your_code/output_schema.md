@@ -11,7 +11,7 @@ slug: /deploying-your-code/dataset-schema
 
 The dataset schema generates an interface that enables users to instantly preview their Actor results in real time.
 
-![Dataset Schema](../../../platform/actors/development/actor_definition/images/output-schema-example.png)
+![Dataset Schema](../../../platform/5-building-actors/actor_definition/images/output-schema-example.png)
 
 In this quick tutorial, you will learn how to set up an output tab for your own Actor.
 

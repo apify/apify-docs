@@ -53,7 +53,7 @@ The final step is to click on **API** in the top right corner of your Actor's pa
 
 And scroll through all of the links until you find the **Build Actor** API endpoint. Copy this endpoint's URL, then head back over to your GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
+![Adding a webhook to your GitHub repo](../../../platform/5-building-actors/deployment/images/ci-github-integration.png)
 
 And you're done! 🎉
 
