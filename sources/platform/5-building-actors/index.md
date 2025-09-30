@@ -24,7 +24,7 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Programming interface"
-        to="/platform/actors/development/programming-interface"
+        to="/platform/building-actors/programming-interface"
         desc="Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors."
     />
     <Card
@@ -39,7 +39,7 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Performance"
-        to="/platform/actors/development/performance"
+        to="/platform/building-actors/performance"
         desc="Learn how to get the maximum value out of your Actors, minimize costs, and maximize results."
     />
 </CardGrid>

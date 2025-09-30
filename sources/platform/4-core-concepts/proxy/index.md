@@ -83,17 +83,17 @@ Several types of proxy servers exist, each offering distinct advantages, disadva
     <Card
         title="Datacenter proxy"
         desc="The fastest and cheapest option. It uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
-        to="/platform/proxy/datacenter-proxy"
+        to="/platform/core-concepts/proxy/datacenter-proxy"
     />
     <Card
         title="Residential proxy"
         desc="IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked."
-        to="/platform/proxy/residential-proxy"
+        to="/platform/core-concepts/proxy/residential-proxy"
     />
     <Card
         title="Google SERP proxy"
         desc="Download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results."
-        to="/platform/proxy/google-serp-proxy"
+        to="/platform/core-concepts/proxy/google-serp-proxy"
     />
 </CardGrid>
 
