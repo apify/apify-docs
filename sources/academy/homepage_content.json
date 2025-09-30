@@ -1,13 +1,13 @@
 {
     "Beginner courses": [
         {
-            "title": "Web scraping basics for JavaScript devs",
+            "title": "Web scraping basics with JS",
             "link": "/academy/web-scraping-for-beginners",
             "description": "Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.",
             "imageUrl": "/img/academy/intro.svg"
         },
         {
-            "title": "Web scraping basics for Python devs",
+            "title": "Web scraping basics with Python",
             "link": "/academy/scraping-basics-python",
             "description": "Learn how to use Python to extract information from websites in this practical course, starting from the absolute basics.",
             "imageUrl": "/img/academy/intro.svg"

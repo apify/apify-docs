@@ -2,7 +2,8 @@
 title: Web scraping basics for JavaScript devs
 description: Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.
 sidebar_position: 1.5
-category: web scraping & automation
+sidebar_label: Web scraping basics with JS
+category: web scraping
 slug: /scraping-basics-javascript2
 unlisted: true
 ---
