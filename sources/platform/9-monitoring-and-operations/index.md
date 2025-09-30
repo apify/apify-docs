@@ -1,8 +1,13 @@
 ---
 title: "Monitoring & operations"
+description: "Monitor and optimize your Actors"
 slug: /monitoring-and-operations
 ---
 
 # Monitoring & operations
 
-Content will be migrated here in Phase 4.
+## Sections
+
+- **[Monitoring](/platform/monitoring-and-operations/monitoring)** - Performance monitoring and debugging
+
+See subsections for operational best practices.
