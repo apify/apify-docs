@@ -24,6 +24,10 @@ export default function LLMButtons() {
     const [isCopyingLoading, setCopyingIsLoading] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
 
+    const currentUrl = window.location.href;
+    const prompt = `Read from ${currentUrl} so I can ask questions about it.`;
+    const markdownUrl = `${currentUrl}.md`;
+
     const onCopyAsMarkdownClick = async () => {
         if (window.analytics) {
             window.analytics.track('Clicked', {
@@ -35,9 +39,6 @@ export default function LLMButtons() {
 
         try {
             setCopyingIsLoading(true);
-
-            const currentUrl = window.location.href;
-            const markdownUrl = `${currentUrl}.md`;
 
             // Fetch the markdown content
             const response = await fetch(markdownUrl);
@@ -71,11 +72,57 @@ export default function LLMButtons() {
         }
 
         try {
-            const currentUrl = window.location.href;
-            const markdownUrl = `${currentUrl}.md`;
             window.open(markdownUrl, '_blank');
         } catch (error) {
             console.error('Error opening markdown file:', error);
+        }
+    };
+
+    const onOpenInChatGPTClick = () => {
+        if (window.analytics) {
+            window.analytics.track('Clicked', {
+                app: 'docs',
+                button_text: 'Open in ChatGPT',
+                element: 'llm-buttons.openInChatGPT',
+            });
+        }
+
+        try {
+            window.open(`https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`, '_blank');
+        } catch (error) {
+            console.error('Error opening ChatGPT:', error);
+        }
+    };
+
+    const onOpenInClaudeClick = () => {
+        if (window.analytics) {
+            window.analytics.track('Clicked', {
+                app: 'docs',
+                button_text: 'Open in Claude',
+                element: 'llm-buttons.openInClaude',
+            });
+        }
+
+        try {
+            window.open(`https://claude.ai/new?q=${encodeURIComponent(prompt)}`, '_blank');
+        } catch (error) {
+            console.error('Error opening Claude:', error);
+        }
+    };
+
+    const onOpenInPerplexityClick = () => {
+        if (window.analytics) {
+            window.analytics.track('Clicked', {
+                app: 'docs',
+                button_text: 'Open in Perplexity',
+                element: 'llm-buttons.openInPerplexity',
+            });
+        }
+
+        try {
+            window.open(`https://www.perplexity.ai/search/new?q=${encodeURIComponent(prompt)}`, '_blank');
+        } catch (error) {
+            console.error('Error opening Perplexity:', error);
         }
     };
 
@@ -86,6 +133,15 @@ export default function LLMButtons() {
                 break;
             case 'viewAsMarkdown':
                 onViewAsMarkdownClick();
+                break;
+            case 'openInChatGPT':
+                onOpenInChatGPTClick();
+                break;
+            case 'openInClaude':
+                onOpenInClaudeClick();
+                break;
+            case 'openInPerplexity':
+                onOpenInPerplexityClick();
                 break;
             default:
                 break;
@@ -129,6 +185,30 @@ export default function LLMButtons() {
                     showExternalIcon: true,
                     icon: MarkdownIcon,
                     value: 'viewAsMarkdown',
+                },
+                {
+                    label: 'Open in ChatGPT',
+                    description: 'Ask questions about this page',
+                    showExternalIcon: true,
+                    // TODO: Replace icon once we have one
+                    icon: MarkdownIcon,
+                    value: 'openInChatGPT',
+                },
+                {
+                    label: 'Open in Claude',
+                    description: 'Ask questions about this page',
+                    showExternalIcon: true,
+                    // TODO: Replace icon once we have one
+                    icon: MarkdownIcon,
+                    value: 'openInClaude',
+                },
+                {
+                    label: 'Open in Perplexity',
+                    description: 'Ask questions about this page',
+                    showExternalIcon: true,
+                    // TODO: Replace icon once we have one
+                    icon: MarkdownIcon,
+                    value: 'openInPerplexity',
                 },
             ]}
             renderOption={(option) => (
