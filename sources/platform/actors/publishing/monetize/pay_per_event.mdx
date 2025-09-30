@@ -148,7 +148,7 @@ One of the options to charge for the time spent on starting the Actor is to char
 
 We want to make it easier for Actor creators to stay competitive, but also help them to be profitable. Therefore, we have the Apify Actor synthetic start event `apify-actor-start`. This event is enabled by default for all new PPE Actors, and when you use it Apify will cover the compute unit cost of the first 5 seconds of every Actor run.
 
-The default price of the event is set intentionally low. This pricing means that the free 5 seconds of compute we provide costs us more than the revenue generated from the event. We've made this investment to **support our creator community** by reducing your startup costs while keeping your Actors competitively priced for users.
+The default price of the event is set intentionally low. This pricing means that the free 5 seconds of compute we provide costs us more than the revenue generated from the event. We've made this investment to _support our creator community_ by reducing your startup costs while keeping your Actors competitively priced for users.
 
 #### How the synthetic start event works
 
@@ -171,13 +171,13 @@ For new Actors, this event is added automatically as you can see on the followin
 
 #### Synthetic start event for existing Actors
 
-If you have existing Actors, you can add this event manually in Apify Console in the Publication tab.
+If you have existing Actors, you can add this event manually in Apify Console in the **Publication** tab.
 
 #### Synthetic start event for Actors with start event
 
 Your Actor might already have a start event defined, such as `actor-start` or another variant of the event name. In this case, you can choose whether to use the synthetic start event or keep the existing start event.
 
-If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the Publication tab.
+If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the **Publication** tab.
 
 ### Set memory limits
 
@@ -320,8 +320,8 @@ You create a social media monitoring Actor with the following pricing:
 
 You have two main strategies for charging AI-related operations:
 
-1. **Fixed event pricing** (like `sentiment-analysis` above): Charge a fixed amount per operation, regardless of actual LLM costs
-2. **Usage-based pricing**: Use events like `llm-token` that charge based on actual LLM usage costs
+1. _Fixed event pricing_ (like `sentiment-analysis` above): Charge a fixed amount per operation, regardless of actual LLM costs
+2. _Usage-based pricing_: Use events like `llm-token` that charge based on actual LLM usage costs
 
 Fixed pricing is simpler for users to predict, while usage-based pricing more accurately reflects your actual costs.
 
@@ -392,15 +392,15 @@ Fixed pricing is simpler for users to predict, while usage-based pricing more ac
   </tbody>
 </table>
 
-Your profit and costs are computed **only from the first two users** since they are on Apify paid plans.
+Your profit and costs are computed _only from the first two users_ since they are on Apify paid plans.
 
 The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
 
 ### Revenue breakdown
 
-- **Revenue (paid users only)**: $20.05 + $11.02 = **$31.07**
-- **Platform cost (paid users only)**: $2.50 + $1.50 = **$4.00**
-- **Profit**: 0.8 × $31.07 − $4.00 = **$20.86**
+- _Revenue (paid users only): $20.05 + $11.02 = $31.07_
+- _Platform cost (paid users only): $2.50 + $1.50 = $4.00_
+- _Profit: 0.8 × $31.07 − $4.00 = $20.86_
 
 ## Event names
 

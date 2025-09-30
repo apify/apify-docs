@@ -35,7 +35,7 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 :::info Rental pricing details
 
-If you want more details about rental pricing, please refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
+If you want more details about rental pricing, refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
 
 :::
 
@@ -55,7 +55,7 @@ If you want more details about rental pricing, please refer to our [rental prici
 
 :::info Pay-per-result details
 
-If you want more details about PPR pricing, please refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
+If you want more details about PPR pricing, refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
 
 :::
 
@@ -87,7 +87,7 @@ If you want more details about PPR pricing, please refer to our [PPR documentati
 
 :::info Pay-per-event details
 
-If you want more details about PPE pricing, please refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
+If you want more details about PPE pricing, refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
 
 :::
 
