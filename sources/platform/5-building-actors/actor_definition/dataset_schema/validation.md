@@ -104,7 +104,7 @@ If the data you attempt to store in the dataset is _invalid_ (meaning any of the
 }
 ```
 
-The type of the AJV validation error object is [here](https://github.com/ajv-validator/ajv/blob/master/lib/types/index.ts#L86).
+The AJV validation error object type is defined in the [AJV TypeScript type definitions](https://github.com/ajv-validator/ajv/blob/master/lib/types/index.ts#L86).
 
 If you use the Apify JS client or Apify SDK and call `pushData` function you can access the validation errors in a `try catch` block like this:
 
