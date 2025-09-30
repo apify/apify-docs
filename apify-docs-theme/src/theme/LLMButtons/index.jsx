@@ -84,31 +84,28 @@ export default function LLMButtons() {
     return (
         <Menu
             components={{
-                MenuBase: ({ children, ref, ...props }) => {
-                    console.log(props);
-                    return (
-                        <div ref={ref} className={styles.llmButton}>
-                            <CopyIcon size={16} />
-                            <Text
-                                size="regular"
-                                className={styles.llmButtonText}
-                                onClick={onCopyAsMarkdownClick}
-                            >
-                                {isCopyingLoading
-                                    ? 'Copying...'
-                                    : isCopied
-                                    ? 'Copied!'
-                                    : 'Copy for LLM'}
-                            </Text>
-                            <ChevronDownIcon
-                                {...props}
-                                size="16"
-                                color={theme.color.neutral.icon}
-                                className={styles.chevronIcon}
-                            />
-                        </div>
-                    );
-                },
+                MenuBase: ({ children, ref, ...props }) => (
+                    <div ref={ref} className={styles.llmButton}>
+                        <CopyIcon size={16} />
+                        <Text
+                            size="regular"
+                            className={styles.llmButtonText}
+                            onClick={onCopyAsMarkdownClick}
+                        >
+                            {isCopyingLoading
+                                ? 'Copying...'
+                                : isCopied
+                                ? 'Copied!'
+                                : 'Copy for LLM'}
+                        </Text>
+                        <ChevronDownIcon
+                            {...props}
+                            size="16"
+                            color={theme.color.neutral.icon}
+                            className={styles.chevronIcon}
+                        />
+                    </div>
+                ),
             }}
             onSelect={onMenuOptionClick}
             options={[
