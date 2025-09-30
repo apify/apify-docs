@@ -26,7 +26,7 @@ Before connecting your AI to Apify, you'll need three things:
 
 ## Quick start
 
-You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup, or run the server locally for development and testing.
+You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
 ### Streamable HTTP with OAuth (recommended)
 
@@ -77,7 +77,7 @@ _MCP server configuration for other clients_: Use the [UI configuration tool](ht
 
 :::
 
-#### Text editor configuration
+#### Client configuration
 
 Here's how to add the Apify MCP server to popular text editors and AI assistants:
 
@@ -211,7 +211,7 @@ Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations 
 
 ### Local stdio
 
-For development environments, you can run the MCP server locally. This approach gives you more control over the server configuration and is ideal for testing.
+If your client doesn't support remote MCP servers using the `https://mcp.apify.com` URL, you can run the server locally instead. This method uses the stdio transport to connect directly through your local environment.
 
 Add this to your configuration file:
 
@@ -291,7 +291,6 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 
 - Always use the latest version of the server by appending `@latest` to your npm commands.
 - Monitor your API usage through Apify Console to stay within your plan limits.
-- For optimal performance, batch related operations when possible and use Actor webhooks for long-running tasks instead of polling for results.
 
 ## Rate limits and performance
 
