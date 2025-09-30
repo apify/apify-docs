@@ -7,9 +7,9 @@ swap:
     # Product name changes
     'apify dashboard': Apify Console
     'apify console': Apify Console
-    'Apify console': Apify Console
     'apify store': Apify Store
-    'Apify store': Apify Store
+    'the apify console': Apify Console
+    'the apify store': Apify Store
 
     # Capitalization fixes
     'apify freelancers': Apify freelancers
