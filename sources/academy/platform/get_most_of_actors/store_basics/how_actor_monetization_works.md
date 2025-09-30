@@ -114,7 +114,7 @@ Learn more about what makes a good readme here: [How to create an Actor README](
 
 ### Rental, pay-per-result (PPR), or pay-per-event (PPE)
 
-Rental pricing allows you charge a monthly fee for your Actor and users cover their own compute usage.
+Rental pricing allows you to charge a monthly fee for your Actor and users cover their own compute usage.
 
 Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 
