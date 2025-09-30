@@ -119,7 +119,7 @@ You can also navigate Apify Console via keyboard shortcuts.
 | [Saved tasks](/platform/actors/running/tasks)| View your saved tasks. |
 | [Schedules](/platform/schedules)| Schedule Actor runs & tasks to run at specified time. |
 | [Integrations](/platform/integrations)| View your integrations. |
-| [Development](/platform/actors/development)| &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
+| [Development](/platform/building-actors)| &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
 | [Proxy](/platform/proxy)| View your proxy usage & credentials |
 | [Storage](/platform/storage)| View stored results of your runs in various data formats. |
 | [Billing](/platform/console/billing)| Billing information, statistics and invoices. |
