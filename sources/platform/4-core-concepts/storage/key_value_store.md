@@ -20,7 +20,7 @@ Each Actor run is assigned its own key-value store when it is created. The store
 Key-value stores are mutable–you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/core-concepts/storage/usage#named-and-unnamed-storages)
 
 ## Basic usage
 
@@ -38,7 +38,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
 To view a key-value store's content, click on its **Store ID**.
-Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](/platform/collaboration) using the **Share** button.
+Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](/platform/core-concepts/storage/usage#named-and-unnamed-storages)) and grant [access rights](/platform/collaboration) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail.png)
@@ -49,7 +49,7 @@ The [Apify API](/api/v2/storage-key-value-stores) enables you programmatic acces
 
 If you are accessing your datasets using the `username~store-name` [store ID format](/platform/core-concepts/storage), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](platform/integrations/api#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](//platform/integrations/api#authentication)).
 
 To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2/key-value-stores-get) endpoint.
 
@@ -132,7 +132,7 @@ When working with a JavaScript [Actor](/platform/using-actors), the [JavaScript 
 
 Additionally, you can iterate over the keys in your store using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](/platform/using-actors/input-and-output) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](///platform/using-actors/input-and-output) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -196,7 +196,7 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 For Python [Actor](/platform/using-actors), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](/platform/using-actors/input-and-output) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](///platform/using-actors/input-and-output) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -262,7 +262,7 @@ For one-off sharing of specific records when access is restricted, you can gener
 
 ### Sharing key-value stores between runs
 
-You can access a key-value store from any [Actor](/platform/using-actors) or [task](/platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
+You can access a key-value store from any [Actor](/platform/using-actors) or [task](///platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
 
 To access a key-value store from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other store.
 
@@ -316,7 +316,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/core-concepts/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 

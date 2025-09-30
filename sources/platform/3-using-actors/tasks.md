@@ -10,7 +10,7 @@ sidebar_label: Tasks
 
 ---
 
-Actor tasks let you create multiple reusable configurations of a single Actor, adapted for specific use cases. For example, you can create one [_Web Scraper_](https://apify.com/apify/web-scraper) configuration (task) that scrapes the latest reviews from IMDb, another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [Schedules](/platform/reference/schedules), or [API](/api/v2/actor-task-runs-post).
+Actor tasks let you create multiple reusable configurations of a single Actor, adapted for specific use cases. For example, you can create one [_Web Scraper_](https://apify.com/apify/web-scraper) configuration (task) that scrapes the latest reviews from IMDb, another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [Schedules](/platform/using-actors/schedules), or [API](/api/v2/actor-task-runs-post).
 
 You can find all your tasks in the [Apify Console](https://console.apify.com/actors/tasks).
 
@@ -28,7 +28,7 @@ You can set up your task's input under the **Input** tab. A task's input configu
 
 An Actors' input fields may vary depending on their purpose, but they all follow the same principle: _you provide an Actor with the information it needs so it can do what you want it to do._
 
-You can set run options such as timeout and [memory](/platform/using-actors/usage-and-resources) in the **Run options** tab of the task's input configuration.
+You can set run options such as timeout and [memory](///platform/using-actors/usage-and-resources) in the **Run options** tab of the task's input configuration.
 
 ### Naming
 
@@ -46,7 +46,7 @@ Or using the **Start** button positioned following the input configuration.
 
 You can also run tasks using:
 
-- [Schedules](/platform/reference/schedules).
+- [Schedules](/platform/using-actors/schedules).
 - Directly via the [Apify API](/api/v2/actor-task-runs-post).
 - The [JavaScript API client](/api/client/js/reference/class/TaskClient).
 - The [Python API client](/api/client/python/reference/class/TaskClient).

@@ -19,7 +19,7 @@ import CardGrid from "@site/src/components/CardGrid";
 <CardGrid>
     <Card
         title="Actor definition"
-        to="/platform/actors/development/actor-definition"
+        to="/platform/using-actors/development/actor-definition"
         desc="Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory."
     />
     <Card
@@ -29,12 +29,12 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Deployment"
-        to="/platform/actors/development/deployment"
+        to="/platform/using-actors/development/deployment"
         desc="Learn how to deploy your Actors to the Apify platform and build them."
     />
     <Card
         title="Builds and runs"
-        to="/platform/actors/development/builds-and-runs"
+        to="/platform/using-actors/development/builds-and-runs"
         desc="Learn about Actor builds and runs, their lifecycle, versioning, and other properties."
     />
     <Card

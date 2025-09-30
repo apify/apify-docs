@@ -133,13 +133,13 @@ The Actor takes the `url` from the input and then:
 3. Extracts headings (H1 - H6) from the page.
 4. Stores the extracted data.
 
-The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
+The extracted data is stored in the [Dataset](/platform/core-concepts/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
 > Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template. Keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well. Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
 
 ## Build the Actor 🧱 {#build-an-actor}
 
-In order to run the Actor, you need to [build](/platform/actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
+In order to run the Actor, you need to [build](/platform/using-actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
 
 ![Build the Actor](./images/build-actor.png)
 

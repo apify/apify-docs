@@ -23,7 +23,7 @@ Before you begin, ensure that you have the following:
 - A [Pinecone database](https://www.pinecone.io/) and index set up.
 - A Pinecone index created & Pinecone API token obtained.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
-- An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
+- An [Apify API token](https://docs.apify.com///platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
 ### How to setup Pinecone database and create an index
 

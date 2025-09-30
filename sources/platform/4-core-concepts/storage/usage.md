@@ -174,7 +174,7 @@ If your storage resource is set to _restricted_, all API calls must include a va
 
 ### Sharing storages between runs
 
-Storage can be accessed from any [Actor](/platform/using-actors) or [task](/platform/using-actors/tasks) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Storage can be accessed from any [Actor](/platform/using-actors) or [task](///platform/using-actors/tasks) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
 [Datasets](/platform/core-concepts/storage/dataset) and [key-value stores](/platform/core-concepts/storage/key-value-store) support concurrent use by multiple Actors. Thus, several Actors or tasks can simultaneously write data to a single dataset or key-value store. Similarly, multiple runs can read data from datasets and key-value stores at the same time.
 

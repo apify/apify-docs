@@ -17,7 +17,7 @@ Welcome to the getting started tutorial! It will walk you through creating your 
 
 It doesn't matter whether you arrived here from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)). All of them are **Actors** and for now, let's think of an **Actor** as an application that you can use with your own configuration. **apify/web-scraper** is therefore an application called **web-scraper**, built by **apify**, that you can configure to scrape any webpage. We call these configurations **tasks**.
 
-> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). If you want to learn more about Actors in general, you can read our [Actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
+> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). If you want to learn more about Actors in general, you can read our [Actors page](https://apify.com/actors) or [browse the documentation](/platform/using-actors).
 
 You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **Actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the Actor that you can run repeatedly.
 
@@ -35,7 +35,7 @@ This takes you to the **Input and options** tab of the task configuration. Befor
 
 Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain to see that the Actor works.
 
-> This also helps with keeping your [compute unit](/platform/actors/running/usage-and-resources) (CU) consumption low. To get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
+> This also helps with keeping your [compute unit](/platform/using-actors/running/usage-and-resources) (CU) consumption low. To get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
 
 Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
@@ -254,7 +254,7 @@ When a **Pseudo URL** is set, the scraper attempts to enqueue matching links on 
 
 The `pageFunction` may only return nothing, `null`, `Object` or `Object[]`. If an `Object` is returned, it will be saved as a single result. Returning an `Array` of `Objects` will save each item in the array as a result.
 
-The scraping results are saved in a [dataset](/platform/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
+The scraping results are saved in a [dataset](/platform/core-concepts/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
 
 ```js
 async function pageFunction(context) {

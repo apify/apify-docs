@@ -158,7 +158,7 @@ When you run an Actor with a scoped token in this mode, Apify will inject a toke
 This way you can be sure that Actors won't accidentally—or intentionally—access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
 
 :::caution
-Restricted access mode is not supported for Actors running in [Standby mode](/platform/actors/running/standby). While you can send standby requests using a scoped token configured with restricted access, functionality is not guaranteed.
+Restricted access mode is not supported for Actors running in [Standby mode](/platform/using-actors/running/standby). While you can send standby requests using a scoped token configured with restricted access, functionality is not guaranteed.
 
 :::tip
 This restriction is _transitive_, which means that if the Actor runs another Actor, its access will be restricted as well.
@@ -166,7 +166,7 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 #### Default run storages
 
-When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
+When Apify [runs an Actor](/platform/using-actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
 You can configure whether the scoped token you are going use to run the Actor should get **Write**
 access to these default storages.

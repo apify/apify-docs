@@ -93,8 +93,8 @@ To use Apify as an action in your Applet:
    |-----------|-------------|----------------|
    | **Wait until run finishes** | Defines how the Actor should be executed. | `yes`, `no` |
    | **Input overrides** | JSON input that overrides the Actor's default input. | `{"key": "value"}` |
-   | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |
-   | **Memory** | Memory limit for the run in megabytes. See [Memory](/platform/actors/running/usage-and-resources#memory) for more information. | `256` |
+   | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/using-actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |
+   | **Memory** | Memory limit for the run in megabytes. See [Memory](/platform/using-actors/running/usage-and-resources#memory) for more information. | `256` |
 
 1. Click **Create action** to finish setting up the action.
 
@@ -125,9 +125,9 @@ To check if your Applet is working properly:
 
 ### Queries
 
-- **Get Dataset Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get Dataset Items**: Retrieves items from a [dataset](/platform/core-concepts/storage/dataset)
 - **Scrape Single URL**: Runs a scraper for a specified website and returns its content
-- **Get Key-Value Store Record**: Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get Key-Value Store Record**: Retrieves a value from a [key-value store](/platform/core-concepts/storage/key-value-store)
 
 ## Troubleshooting
 

@@ -160,7 +160,7 @@ const results = {
 
 Great! Now that everything is set up, it's time to run the Actor and admire your Actor's brand new output tab.
 
-> Need some extra guidance? Visit the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema) for more detailed information about how to implement this feature.
+> Need some extra guidance? Visit the [dataset schema documentation](/platform/using-actors/development/actor-definition/dataset-schema) for more detailed information about how to implement this feature.
 
 A few seconds after running the Actor, you should see its results displayed in the `Overview` table.
 

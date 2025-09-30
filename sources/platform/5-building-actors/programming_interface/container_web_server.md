@@ -36,7 +36,7 @@ The web server inside the container must listen on the port specified by the `AC
 
 1. Define the `ACTOR_WEB_SERVER_PORT` environment variable with your desired port number.
 
-Check out [Custom environment variables](/platform/building-actors/programming-interface/environment-variables) for more details.
+Check out [Custom environment variables](///platform/building-actors/programming-interface/environment-variables) for more details.
 
 ## Example: Start a simple web server
 

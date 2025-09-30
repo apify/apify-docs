@@ -33,7 +33,7 @@ Monetizing your Actor on the Apify platform involves several key steps:
   - 2nd user starts their trial but pays next month.
   - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
 
-Learn more about the rental pricing model in our [documentation](/platform/actors/publishing/monetize#rental-pricing-model).
+Learn more about the rental pricing model in our [documentation](/platform/publishing-and-monetization/publish/monetize#rental-pricing-model).
 
 ### Pay-per-result pricing model
 
@@ -49,7 +49,7 @@ Learn more about the rental pricing model in our [documentation](/platform/actor
   - Dataset storage: $1 per 1,000 GB-hours
 - _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
 
-Learn more about the pay-per-result pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-result-pricing-model).
+Learn more about the pay-per-result pricing model in our [documentation](/platform/publishing-and-monetization/publish/monetize#pay-per-result-pricing-model).
 
 ### Pay-per-event pricing model
 
@@ -77,7 +77,7 @@ Learn more about the pay-per-result pricing model in our [documentation](/platfo
     - This comes up to $1.625 of total revenue
   - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
 
-Learn more about the pay-per-event pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-event-pricing-model).
+Learn more about the pay-per-event pricing model in our [documentation](/platform/publishing-and-monetization/publish/monetize#pay-per-event-pricing-model).
 
 ## Setting up monetization
 
@@ -150,7 +150,7 @@ Example of useful pricing estimates from the **Analytics** tab:
 
 - Learn about [incentives behind monetization](https://apify.com/partners/actor-developers)
 - Detailed guide to [setting up monetization models](https://docs.apify.com/academy/get-most-of-actors/monetizing-your-actor)
-- Guide to [publishing Actors](https://docs.apify.com/platform/actors/publishing)
+- Guide to [publishing Actors](https://docs.apify.com/platform/publishing-and-monetization/publish)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Read a blog post from our CEO on the [reasoning behind monetizing Actors](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/)
 - Learn about the [Creator plan](https://apify.com/pricing/creator-plan), which allows you to create and freely test your own Actors for $1

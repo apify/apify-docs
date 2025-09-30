@@ -11,7 +11,7 @@ slug: /api/run-actor-and-retrieve-data-via-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The most popular way of [integrating](https://help.apify.com/en/collections/1669769-integrations) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Follow this tutorial to have an idea on how to approach this, it isn't as complicated as it sounds!
+The most popular way of [integrating](https://help.apify.com/en/collections/1669769-integrations) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/using-actors) or [task](/platform/using-actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Follow this tutorial to have an idea on how to approach this, it isn't as complicated as it sounds!
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a desktop client like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest).
 
@@ -25,7 +25,7 @@ If the Actor being run via API takes 5 minutes or less to complete a typical run
 
 ## Run an Actor or task {#run-an-actor-or-task}
 
-> If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are pre-configured inputs for Actors.
+> If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/platform/using-actors/running/tasks) documentation. In brief, tasks are pre-configured inputs for Actors.
 
 The API endpoints and usage (for both sync and async) for [Actors](/api/v2#tag/ActorsRun-collection/operation/act_runs_post) and [tasks](/api/v2/actor-task-runs-post) are essentially the same.
 
@@ -61,7 +61,7 @@ We can also add settings for the Actor (which will override the default settings
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
-This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds-and-runs/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
+This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/using-actors/development/builds-and-runs/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
 
 ### Input JSON {#input-json}
 
@@ -149,7 +149,7 @@ If your synchronous run exceeds the 5-minute time limit, the response will be a 
 
 ### Synchronous runs with dataset output {#synchronous-runs-with-dataset-output}
 
-Most Actor runs will store their data in the default [dataset](/platform/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [Actors](/api/v2/act-run-sync-get-dataset-items-post) and [tasks](/api/v2/actor-task-run-sync-get-dataset-items-post), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
+Most Actor runs will store their data in the default [dataset](/platform/core-concepts/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [Actors](/api/v2/act-run-sync-get-dataset-items-post) and [tasks](/api/v2/actor-task-run-sync-get-dataset-items-post), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
 
 Here is a Node.js example of calling a task via the API and logging the dataset items to the console:
 
@@ -186,7 +186,7 @@ items.forEach((item) => {
 
 ### Synchronous runs with key-value store output {#synchronous-runs-with-key-value-store-output}
 
-[Key-value stores](/platform/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [Actors](/api/v2/act-run-sync-post) and [tasks](/api/v2/actor-task-run-sync-post), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
+[Key-value stores](/platform/core-concepts/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [Actors](/api/v2/act-run-sync-post) and [tasks](/api/v2/actor-task-run-sync-post), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
 
 ## Asynchronous flow {#asynchronous-flow}
 
@@ -248,11 +248,11 @@ Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has 
 
 Unless you used the [synchronous call](#synchronous-flow) mentioned above, you will have to make one additional request to the API to retrieve the data.
 
-The **run info** JSON also contains the IDs of the default [dataset](/platform/storage/dataset) and [key-value store](/platform/storage/key-value-store) that are allocated separately for each run, which is usually everything you need. The fields are called `defaultDatasetId` and `defaultKeyValueStoreId`.
+The **run info** JSON also contains the IDs of the default [dataset](/platform/core-concepts/storage/dataset) and [key-value store](/platform/core-concepts/storage/key-value-store) that are allocated separately for each run, which is usually everything you need. The fields are called `defaultDatasetId` and `defaultKeyValueStoreId`.
 
 #### Retrieving a dataset {#retrieve-a-dataset}
 
-> If you are scraping products, or any list of items with similar fields, the [dataset](/platform/storage/dataset) should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside it.
+> If you are scraping products, or any list of items with similar fields, the [dataset](/platform/core-concepts/storage/dataset) should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside it.
 
 To retrieve the data from a dataset, send a GET request to the [**Get items**](/api/v2/dataset-items-get) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
 
@@ -272,7 +272,7 @@ https://api.apify.com/v2/datasets/DATASET_ID/items?format=csv&offset=250000
 
 #### Retrieving a key-value store {#retrieve-a-key-value-store}
 
-> [Key-value stores](/platform/storage/key-value-store) are mainly useful if you have a single output or any kind of files that cannot be [stringified](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) (such as images or PDFs).
+> [Key-value stores](/platform/core-concepts/storage/key-value-store) are mainly useful if you have a single output or any kind of files that cannot be [stringified](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) (such as images or PDFs).
 
 When you want to retrieve something from a key-value store, the `defaultKeyValueStoreId` is _not_ enough. You also need to know the name (or **key**) of the record you want to retrieve.
 

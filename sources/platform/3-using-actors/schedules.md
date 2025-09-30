@@ -33,7 +33,7 @@ Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tas
 
 ## Setting up a new schedule
 
-Before setting up a new schedule, you should have the Actor or [task](platform/using-actors/tasks) you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the Actor or [task](//platform/using-actors/tasks) you want to schedule prepared and tested.
 
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
@@ -53,7 +53,7 @@ You can adjust how often your Actor or task runs using the [schedule setup tool]
 
 Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Click on the **Add** dropdown and select whether you want to schedule an Actor or task.
 
-If you're scheduling an Actor run, you'll be able to specify the Actor's [input](platform/using-actors/input-and-output) and running options like [build](platform/building-actors/builds-and-runs/builds), timeout, [memory](platform/using-actors/usage-and-resources).
+If you're scheduling an Actor run, you'll be able to specify the Actor's [input](//platform/using-actors/input-and-output) and running options like [build](//platform/building-actors/builds-and-runs/builds), timeout, [memory](//platform/using-actors/usage-and-resources).
 The **timeout** value is specified in seconds; a value of _0_ means there is no timeout, and the Actor runs until it finishes.
 
  If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.

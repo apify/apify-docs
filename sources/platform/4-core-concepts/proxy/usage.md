@@ -49,7 +49,7 @@ http://auto:apify_proxy_EaAFg6CFhc4eKk54Q1HbGDEiUTrk480uZv03@proxy.apify.com:800
 
 If you want to connect to Apify Proxy from Actors running on the Apify Platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
 
-If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](/platform/building-actors/programming-interface/environment-variables) provided to the Actor.
+If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](///platform/building-actors/programming-interface/environment-variables) provided to the Actor.
 By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
 
 | Parameter           | Source / explanation |
@@ -147,7 +147,7 @@ Use [sessions](#sessions) to control how you rotate IP addresses. See our guide 
 
 Sessions allow you to use the same IP address for multiple connections. In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy and so the IP address. On the other hand by switching the IP address, you can avoid being blocked by the website.
 
-To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
+To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/core-concepts/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
 
 We recommend you to use [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction when managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
 Sessions are available for [datacenter](/platform/core-concepts/proxy/datacenter-proxy) and [residential](/platform/core-concepts/proxy/residential-proxy#session-persistence) proxies. For datacenter proxies, a session persists for

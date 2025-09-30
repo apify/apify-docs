@@ -23,7 +23,7 @@ Before you begin, ensure that you have the following:
 - A [Qdrant cluster](https://qdrant.tech) set up.
 - A Qdrant URL to the database and Qdrant API token.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
-- An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
+- An [Apify API token](https://docs.apify.com///platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
 ### How to setup Qdrant database and create a cluster
 

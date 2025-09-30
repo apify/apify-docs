@@ -13,7 +13,7 @@ Apify was built from the ground up as a collaborative platform. Whether you’re
 While most resources can be shared by assigning permissions (see [Access Rights](/platform/collaboration/access-rights)), some resources can also be shared simply by using their unique links or IDs. There are two types of resources in terms of sharing:
 
 - _Resources that require explicit access by default:_
-  - [Actors](/platform/using-actors), [tasks](/platform/using-actors/tasks)
+  - [Actors](/platform/using-actors), [tasks](///platform/using-actors/tasks)
   - Can be shared only by inviting collaborators using [Access Rights](/platform/collaboration/access-rights)) or using [Organization Accounts](/platform/collaboration/organization-account)
 - _Resources supporting both explicit access and link sharing:_
   - Actor runs, Actor builds and storage resources (datasets, key-value stores, request queues)
@@ -35,7 +35,7 @@ You can control access to your resources in four ways:
         <td>Apify's organization account allows multiple engineers to collaborate on team projects with role-specific access permissions.</td>
     </tr>
     <tr>
-        <td><strong><a href="/platform/actors/publishing">Publishing in Apify Store</a></strong></td>
-        <td>Another way to share your Actor with other users is to publish it in <a href="https://apify.com/store">Apify Store</a>. When publishing your Actor, you can make it a Paid Actor and get paid by the users benefiting from your tool. For more information, read the <a href="/platform/actors/publishing">publishing and monetization</a> section.</td>
+        <td><strong><a href="/platform/publishing-and-monetization/publish">Publishing in Apify Store</a></strong></td>
+        <td>Another way to share your Actor with other users is to publish it in <a href="https://apify.com/store">Apify Store</a>. When publishing your Actor, you can make it a Paid Actor and get paid by the users benefiting from your tool. For more information, read the <a href="/platform/publishing-and-monetization/publish">publishing and monetization</a> section.</td>
     </tr>
 </table>

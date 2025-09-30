@@ -65,7 +65,7 @@ The `eventChargeLimitReached` property checks if the current event type can be c
 
 :::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
 
-For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/using-actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
 
 :::
 
@@ -138,7 +138,7 @@ You can also choose not to use it, but then you must handle API integration and 
 
 ### Set memory limits
 
-Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
+Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/using-actors/development/actor-definition/actor-json) file to control platform usage costs.
 
 ```json
 {

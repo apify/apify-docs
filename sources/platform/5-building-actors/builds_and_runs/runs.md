@@ -17,12 +17,12 @@ You can start an Actor in several ways:
 
 - Manually from the [Apify Console](https://console.apify.com/actors) UI
 - Via the [Apify API](/api/v2/act-runs-post)
-- Using the [Scheduler](/platform/reference/schedules) provided by the Apify platform
+- Using the [Scheduler](/platform/using-actors/schedules) provided by the Apify platform
 - By one of the available [integrations](/platform/integrations)
 
 ## Input and environment variables
 
-The run receives input via the `INPUT` record of its default [key-value store](/platform/core-concepts/storage/key-value-store). Environment variables are also passed to the run. For more information about environment variables check the [Environment variables](/platform/building-actors/programming-interface/environment-variables) section.
+The run receives input via the `INPUT` record of its default [key-value store](/platform/core-concepts/storage/key-value-store). Environment variables are also passed to the run. For more information about environment variables check the [Environment variables](///platform/building-actors/programming-interface/environment-variables) section.
 
 ## Run duration and timeout
 

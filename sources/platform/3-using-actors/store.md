@@ -64,7 +64,7 @@ _Example_: You activate a 7-day trial of an Actor at _noon of April 1, 2021_. If
 
 ##### How am I charged for Actor rental?
 
-The rental fee for an Actor is automatically subtracted from your prepaid platform usage, similarly to, e.g. [compute units](/platform/using-actors/usage-and-resources). If you don't have enough usage prepaid, you will need to cover any overage in the next invoice.
+The rental fee for an Actor is automatically subtracted from your prepaid platform usage, similarly to, e.g. [compute units](///platform/using-actors/usage-and-resources). If you don't have enough usage prepaid, you will need to cover any overage in the next invoice.
 
 ##### Will I be automatically charged at the end of the free trial?
 
@@ -169,7 +169,7 @@ You would still pay for the long term storage of results, same as for pay per re
 
 #### Some Actors declare that I still need to pay for usage, how come?
 
-When an Actor operates in [Standby mode](https://docs.apify.com/platform/actors/running/standby), you control how the background runs scale and how efficiently they are utilized. In this case, you are responsible for paying the platform usage costs of these runs in addition to the event charges. Some selected Standby Actors may have this usage component waived, so always check the pricing page of the specific Actor to determine whether you will be charged for usage or only for events.
+When an Actor operates in [Standby mode](https://docs.apify.com/platform/using-actors/running/standby), you control how the background runs scale and how efficiently they are utilized. In this case, you are responsible for paying the platform usage costs of these runs in addition to the event charges. Some selected Standby Actors may have this usage component waived, so always check the pricing page of the specific Actor to determine whether you will be charged for usage or only for events.
 
 #### Where do I see how much I was charged for the pay per result Actors?
 
@@ -193,7 +193,7 @@ Please, in such a case, do not hesitate to contact the Actor author or our suppo
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](/platform/using-actors/usage-and-resources) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy).
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](///platform/using-actors/usage-and-resources) includes components such as compute units, operations on [storages](/platform/core-concepts/storage), and usage of [residential proxies](/platform/core-concepts/proxy/residential-proxy) or [SERPs](/platform/core-concepts/proxy/google-serp-proxy).
 
 ![Pay for usage Actor example](./images/store/pay-per-usage-actor-example.png)
 
@@ -201,7 +201,7 @@ When you use a pay per usage Actor, you are only charged for the platform usage 
 
 With this model, it's very easy to see how many platform resources each Actor run consumed, but it is quite difficult to estimate their usage beforehand. The best way to find the costs of free Actors upfront is to try out the Actor on a limited scope (for example, on a small number of pages) and evaluate the consumption. You can easily do that using our [free plan](https://apify.com/pricing).
 
-_For more information on platform usage cost see the [usage and resources](/platform/using-actors/usage-and-resources) page._
+_For more information on platform usage cost see the [usage and resources](///platform/using-actors/usage-and-resources) page._
 
 :::
 

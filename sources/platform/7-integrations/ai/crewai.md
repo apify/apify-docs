@@ -203,7 +203,7 @@ print(result)
 
 ## Resources
 
-- [Apify Actors](https://docs.apify.com/platform/actors)
+- [Apify Actors](https://docs.apify.com/platform/using-actors)
 - [CrewAI Documentation](https://docs.crewai.com/)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
 - [How to build an AI agent](https://blog.apify.com/how-to-build-an-ai-agent/)

@@ -25,7 +25,7 @@ Each build may have different features, input, or output. By fixing the build to
 
 ## Runs
 
-When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [Usage and resources](/platform/using-actors/usage-and-resources).
+When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [Usage and resources](///platform/using-actors/usage-and-resources).
 
 Each run has its own (default) [storages](../../storage) assigned, which it may but not necessarily need to use:
 

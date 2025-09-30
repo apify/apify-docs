@@ -18,7 +18,7 @@ Request queues enable you to enqueue and retrieve requests such as URLs with an 
 The storage system for request queues accommodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
 
 > Named request queues are retained indefinitely. <br/>
-> Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+> Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/core-concepts/storage/usage#named-and-unnamed-storages)
 
 ## Basic usage
 
@@ -37,7 +37,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](/platform/storage/usage#named-and-unnamed-storages)) and [access rights](/platform/collaboration) using the **Share** button.
+[retention period](/platform/core-concepts/storage/usage#named-and-unnamed-storages)) and [access rights](/platform/collaboration) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
@@ -48,7 +48,7 @@ The [Apify API](/api/v2/storage-request-queues) allows you programmatic access t
 
 If you are accessing your datasets using the `username~store-name` [store ID format](/platform/core-concepts/storage), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](platform/integrations/api#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](//platform/integrations/api#authentication)).
 
 To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2/request-queues-get) endpoint.
 
@@ -564,7 +564,7 @@ For one-off sharing of specific records when access is restricted, you can gener
 
 ### Sharing request queues between runs
 
-You can access a request queue from any [Actor](/platform/using-actors) or [task](/platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
+You can access a request queue from any [Actor](/platform/using-actors) or [task](///platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
 
 To access a request queue from another run using the [Apify SDK](/sdk), open it using the same method like you would do with any other request queue.
 
@@ -618,7 +618,7 @@ other_queue_client = apify_client.request_queue('jane-doe/old-queue')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/core-concepts/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 

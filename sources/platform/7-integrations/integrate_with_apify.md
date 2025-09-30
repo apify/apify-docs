@@ -39,7 +39,7 @@ For more examples both general and Actor-specific, check [integrations](/platfor
 To integrate your service with Apify, you have two options:
 
 - Build an external integration using the [Apify API](https://docs.apify.com/api/v2)
-- Build an [Apify Actor](https://docs.apify.com/platform/actors) that will be used as integration within [Apify Console](https://console.apify.com)
+- Build an [Apify Actor](https://docs.apify.com/platform/using-actors) that will be used as integration within [Apify Console](https://console.apify.com)
 
 ![Integration-ready Actors](./images/integration-ready-actors.png)
 
@@ -60,7 +60,7 @@ Apify supports two main authentication methods for secure API access.
 _OAuth 2.0_ - Use OAuth 2.0 to allow users to authorize your integration without sharing their credentials.
 <!-- TODO expand section possibly? -->
 
-_API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com/platform/integrations/api#api-token).
+_API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com///platform/integrations/api#api-token).
 
 ### API implementation
 
@@ -77,7 +77,7 @@ Recommended features:
 - Select Actor: The Actor list will be pre-populated with Actors that the user created or used, using the [List of Actors API](https://docs.apify.com/api/v2/acts-get) and enriched with Actors from the store, which the user has not run already using [API](https://docs.apify.com/api/v2/store-get).
 - Synchronous vs. asynchronous run: flow will wait until the run/task finishes (consider a timeout on your platform side)
 - Input UI: upon selecting an Actor, dynamically display specific Actor input and preload default example values based on the Actor Input schema. Alternatively, allow users to insert a JSON input for the Actor.
-- Additionally, it should include the option to choose [Actor build](https://docs.apify.com/platform/actors/running/runs-and-builds), [memory](https://docs.apify.com/platform/actors/running/usage-and-resources#memory), and [timeout](https://docs.apify.com/platform/actors/running/usage-and-resources#memory).
+- Additionally, it should include the option to choose [Actor build](https://docs.apify.com/platform/using-actors/running/runs-and-builds), [memory](https://docs.apify.com/platform/using-actors/running/usage-and-resources#memory), and [timeout](https://docs.apify.com/platform/using-actors/running/usage-and-resources#memory).
 - Field mapping: allowing users to map fields to data acquired in previous steps of the workflow.
 
 ##### Run a task

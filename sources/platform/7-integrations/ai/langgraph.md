@@ -156,5 +156,5 @@ for state in agent_executor.stream(
 
 ## Resources
 
-- [Apify Actors](https://docs.apify.com/platform/actors)
+- [Apify Actors](https://docs.apify.com/platform/using-actors)
 - [LangGraph - How to Create a ReAct Agent](https://langchain-ai.github.io/langgraph/how-tos/create-react-agent/)

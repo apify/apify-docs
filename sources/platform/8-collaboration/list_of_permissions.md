@@ -34,7 +34,7 @@ To learn about Apify Actors, check out the [documentation](/platform/using-actor
 | View runs            | View a list of Actor task runs and their details.          |
 | Manage access rights | Manage Actor task access rights.                           |
 
-To learn about Actor tasks, see the [documentation](/platform/using-actors/tasks).
+To learn about Actor tasks, see the [documentation](///platform/using-actors/tasks).
 
 ## Storage
 

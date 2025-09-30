@@ -11,7 +11,7 @@ unlisted: true
 
 The Google search modules from [Apify](https://apify.com) allows you to crawl Google Search Results Pages (SERPs) and extract data from those web pages in structured format such as JSON, XML, CSV, or Excel.
 
-To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in the Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
+To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com///platform/integrations/api#api-token), which you can find in the Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
 ## Connect Apify Scraper for Google Search  modules to Make
 

@@ -19,14 +19,14 @@ When a migration happens, you want to do a so-called "state transition", which m
 
 ## Learning 🧠 {#learning}
 
-Read this [article](/platform/actors/development/builds-and-runs/state-persistence) on migrations and dealing with state transitions.
+Read this [article](/platform/using-actors/development/builds-and-runs/state-persistence) on migrations and dealing with state transitions.
 
 Before moving forward, read about Actor [events](/sdk/js/docs/upgrading/upgrading-to-v3#events) and how to listen for them.
 
 ## Knowledge check 📝 {#quiz}
 
 1. Actors have an option in the **Settings** tab to **Restart on error**. Would you use this feature for regular Actors? When would you use this feature?
-2. Migrations happen randomly, but by [aborting **gracefully**](/platform/actors/running/runs-and-builds#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?
+2. Migrations happen randomly, but by [aborting **gracefully**](/platform/using-actors/running/runs-and-builds#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?
 3. Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping Actor? Are there any features in the Crawlee/Apify SDK that handle this under the hood?
 4. How can you intercept the migration event? How much time do you have after this event happens and before the Actor migrates?
 5. When would you persist data to the default key-value store instead of to a named key-value store?

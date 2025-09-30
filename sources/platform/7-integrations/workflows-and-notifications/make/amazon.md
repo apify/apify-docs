@@ -11,7 +11,7 @@ unlisted: true
 
 The Amazon Scraper module from [Apify](https://apify.com) allows you to extract product, search, or category data from Amazon.
 
-To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in the Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
+To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com///platform/integrations/api#api-token), which you can find in the Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
 ## Connect Apify Scraper for Amazon Data modules to Make
 

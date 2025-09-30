@@ -18,7 +18,7 @@ Dataset storage enables you to sequentially save and retrieve data. A unique dat
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
 > Named datasets are retained indefinitely.
-> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/core-concepts/storage/usage#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -43,7 +43,7 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](/platform/collaboration). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/core-concepts/storage/usage#data-retention), and to adjust [access rights](/platform/collaboration). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -53,7 +53,7 @@ The [Apify API](/api/v2/storage-datasets) enables you programmatic access to you
 
 If you are accessing your datasets using the `username~store-name` [store ID format](/platform/core-concepts/storage), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](platform/integrations/api#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](//platform/integrations/api#authentication)).
 
 To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2/datasets-get) endpoint.
 
@@ -388,7 +388,7 @@ For one-off sharing of specific records when access is restricted, you can gener
 
 ### Sharing datasets between runs
 
-You can access a dataset from any [Actor](/platform/using-actors) or [task](/platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
+You can access a dataset from any [Actor](/platform/using-actors) or [task](///platform/using-actors/tasks) run as long as you know its _name_ or _ID_.
 
 To access a dataset from another run using the [Apify SDK](/sdk), open it using the same method as you would with any other dataset.
 
@@ -442,7 +442,7 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+See the [Storage overview](/platform/core-concepts/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 

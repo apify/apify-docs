@@ -11,7 +11,7 @@ unlisted: true
 
 The TikTok Scraper modules from [Apify](https://apify.com) allow you to extract hashtag, comments, and profile data from TikTok.
 
-To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com///platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
 ## Connect Apify Scraper for TikTok Data modules to Make
 

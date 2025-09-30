@@ -11,7 +11,7 @@ slug: /building-actors/builds-and-runs/builds
 
 ## Understand Actor builds
 
-Before an Actor can be run, it needs to be built. The build process creates a snapshot of a specific version of the Actor's settings, including its [source code](/platform/building-actors/actor-definition/source-code) and [environment variables](/platform/building-actors/programming-interface/environment-variables). This snapshot is then used to create a Docker image containing everything the Actor needs for its run, such as `npm` packages, web browsers, etc.
+Before an Actor can be run, it needs to be built. The build process creates a snapshot of a specific version of the Actor's settings, including its [source code](/platform/building-actors/actor-definition/source-code) and [environment variables](///platform/building-actors/programming-interface/environment-variables). This snapshot is then used to create a Docker image containing everything the Actor needs for its run, such as `npm` packages, web browsers, etc.
 
 ### Build numbers
 
@@ -27,7 +27,7 @@ By default, builds have the following resource allocations:
 - Timeout: _1800_ seconds
 - Memory: `4096 MB`
 
-Check out the [Resource limits](/platform/using-actors/usage-and-resources) section for more details.
+Check out the [Resource limits](///platform/using-actors/usage-and-resources) section for more details.
 
 ## Versioning
 

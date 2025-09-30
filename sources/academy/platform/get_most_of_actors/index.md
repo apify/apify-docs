@@ -181,4 +181,4 @@ To help you succeed, we've created a comprehensive Actor marketing playbook. You
     />
 </CardGrid>
 <br/>
-Ready to grow your presence on the Apify platform? Check out our guide to [publishing your first Actor](/platform/actors/publishing).
+Ready to grow your presence on the Apify platform? Check out our guide to [publishing your first Actor](/platform/publishing-and-monetization/publish).
