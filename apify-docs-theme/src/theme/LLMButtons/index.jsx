@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 
-import styles from './styles.module.css';
-import { Menu, Text, theme, PlainMenuBaseComponent } from '@apify/ui-library';
 import {
+    ChevronDownIcon,
     CopyIcon,
     ExternalLinkIcon,
     MarkdownIcon,
-    ChevronDownIcon,
 } from '@apify/ui-icons';
+import { Menu, Text, theme } from '@apify/ui-library';
+
+import styles from './styles.module.css';
+
+function ButtonText({ isLoading, isCopied }) {
+    if (isLoading) {
+        return 'Copying...';
+    }
+    if (isCopied) {
+        return 'Copied!';
+    }
+    return 'Copy for LLM';
+}
 
 export default function LLMButtons() {
     const [isCopyingLoading, setCopyingIsLoading] = useState(false);
@@ -92,11 +103,7 @@ export default function LLMButtons() {
                             className={styles.llmButtonText}
                             onClick={onCopyAsMarkdownClick}
                         >
-                            {isCopyingLoading
-                                ? 'Copying...'
-                                : isCopied
-                                ? 'Copied!'
-                                : 'Copy for LLM'}
+                            <ButtonText isLoading={isCopyingLoading} isCopied={isCopied} />
                         </Text>
                         <ChevronDownIcon
                             {...props}

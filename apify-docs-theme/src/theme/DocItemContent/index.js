@@ -6,6 +6,7 @@ import LLMButtons from '@theme/LLMButtons';
 import MDXContent from '@theme/MDXContent';
 import clsx from 'clsx';
 import React from 'react';
+
 import styles from './styles.module.css';
 
 function useSyntheticTitle() {
