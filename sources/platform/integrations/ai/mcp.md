@@ -236,7 +236,7 @@ The server will download automatically on first use and connect using your API t
 By default, the MCP server loads essential tools for Actor discovery, documentation search, and the RAG Web Browser Actor. You can customize which tools
 are available by adding parameters to the server URL:
 
-`https://mcp.apify.com?tools=actors,docs,apify/web-scraper`
+`https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
 
 For minimal setups where you only need specific Actors:
 
@@ -287,9 +287,9 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 
 - For production deployments, explicitly specify which tools to load rather than relying on defaults. This ensures consistent behavior across updates:
 
-    `npx @apify/actors-mcp-server --tools apify/web-scraper,apify/google-search-scraper`
+    `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
 
-- Always use the latest version of the server by appending `@latest` to your npm commands.
+- For a local stdio server, always use the latest version of the server by appending `@latest` to your npm commands.
 - Monitor your API usage through Apify Console to stay within your plan limits.
 
 ## Rate limits and performance
