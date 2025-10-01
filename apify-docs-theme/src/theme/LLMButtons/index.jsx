@@ -3,9 +3,11 @@ import React, { useCallback, useState } from 'react';
 import {
     AnthropicIcon,
     ChatGptIcon,
+    CheckIcon,
     ChevronDownIcon,
     CopyIcon,
     ExternalLinkIcon,
+    LoaderIcon,
     MarkdownIcon,
     PerplexityIcon,
 } from '@apify/ui-icons';
@@ -147,11 +149,10 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
 
         // Show success feedback
         setCopyingStatus('copied');
-        setTimeout(() => setCopyingStatus('idle'), 2000);
     } catch (error) {
         console.error('Failed to copy markdown content:', error);
     } finally {
-        setCopyingStatus('idle');
+        setTimeout(() => setCopyingStatus('idle'), 2000);
     }
 };
 
@@ -198,7 +199,9 @@ const MenuBase = ({
                 className={styles.copyUpIconWrapper}
                 onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
             >
-                <CopyIcon size={16} />
+                {copyingStatus === 'loading' && <LoaderIcon size={16} />}
+                {copyingStatus === 'copied' && <CheckIcon size={16} />}
+                {copyingStatus === 'idle' && <CopyIcon size={16} />}
             </div>
             <Text
                 size="regular"
