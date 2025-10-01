@@ -2,7 +2,7 @@ const { parse } = require('node:url');
 
 const visit = import('unist-util-visit').then((m) => m.visit);
 
-const internalUrls = ['sdk.apify.com'];
+const internalUrls = ['docs.apify.com'];
 
 /**
  * @param {import('url').UrlWithStringQuery} href
