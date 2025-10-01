@@ -74,7 +74,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 
   ![Apify Auth](../../images/n8n-oauth.png)
   
-:::note
+:::note Credential Control
 
 For simplicity on n8n Cloud, use the API key method if you prefer manual control over credentials.
 
