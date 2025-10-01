@@ -39,7 +39,7 @@ The final step is to click on **API** in the top right corner of our Actor's pag
 
 And scroll through all of the links until we find the **Build Actor** API endpoint. Now we'll copy this endpoint's URL, head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your GitHub repository](../../../platform/actors/development/deployment/images/ci-github-integration.png)
+![Adding a webhook to your GitHub repository](../../../platform/5-building-actors/deployment/images/ci-github-integration.png)
 
 That's it! The Actor should now pull its source code from the repository and automatically build.
 
@@ -63,4 +63,4 @@ The next step is to test your Actor and experiment with the vast amount of featu
 
 ## Wrap up {#next}
 
-That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable Actor that can run on the Apify platform! The next step is to start looking into the [paid Actors](/platform/actors/publishing) program, which allows you to monetize your work.
+That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable Actor that can run on the Apify platform! The next step is to start looking into the [paid Actors](/platform/publishing-and-monetization/publish) program, which allows you to monetize your work.

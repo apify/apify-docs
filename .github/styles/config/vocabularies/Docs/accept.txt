@@ -53,7 +53,7 @@ proxied
 LLM
 embedder
 chatbot
-[Ll]angchain
+[Ll]angChain
 
 [Kk]eboola
 [Aa]irbyte
@@ -68,7 +68,7 @@ exploitability
 [Ww]hitepaper
 [Cc]ron
 scalably
-metamorph
+[Mm]etamorph
 hostname
 IPs
 unscoped

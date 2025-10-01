@@ -72,7 +72,7 @@ For example, if you host 50GB of data for 30 days:
 This means that storing 50 GB of data for 30 days results in 36,000 GB-hours.
 :::
 
-Read more about Actors in the Store and different pricing models from the perspective of your users in the [Store documentation](https://docs.apify.com/platform/actors/running/actors-in-store).
+Read more about Actors in the Store and different pricing models from the perspective of your users in the [Store documentation](https://docs.apify.com/platform/using-actors/running/actors-in-store).
 
 <details>
 <summary>Example - pay-per-result pricing model</summary>
@@ -86,7 +86,7 @@ Your profit is computed only from the first two users, since they are on Apify p
 
 To ensure profitable operation:
 
-- Set memory limits in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs
+- Set memory limits in your [`actor.json`](https://docs.apify.com/platform/using-actors/development/actor-definition/actor-json) file to control platform usage costs
 - Implement the `ACTOR_MAX_PAID_DATASET_ITEMS` check to prevent excess result generation
 - Test your Actor with various result volumes to determine optimal pricing
 

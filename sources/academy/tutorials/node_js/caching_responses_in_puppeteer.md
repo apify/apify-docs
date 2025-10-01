@@ -99,7 +99,7 @@ After implementing this code, we can run the scraper again.
 
 ![Good run results](./images/good-run-results.png)
 
-Looking at the statistics, caching responses in Puppeteer brought the traffic down from 177MB to 13.4MB, which is a reduction of data transfer by 92%. The related screenshots can be found [here](https://my.apify.com/storage/key-value/iWQ3mQE2XsLA2eErL).
+Looking at the statistics, caching responses in Puppeteer brought the traffic down from 177MB to 13.4MB, which is a reduction of data transfer by 92%. [View the related screenshots](https://my.apify.com/storage/key-value/iWQ3mQE2XsLA2eErL) in the key-value store.
 
 It did not speed up the crawler, but that is only because the crawler is set to wait until the network is nearly idle, and CNN has a lot of tracking and analytics scripts that keep the network busy.
 
