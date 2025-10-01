@@ -179,7 +179,7 @@ function getButtonText({ status }) {
         case 'loading':
             return 'Copying...';
         case 'copied':
-            return 'Copied!';
+            return 'Copied';
         default:
             return 'Copy for LLM';
     }
