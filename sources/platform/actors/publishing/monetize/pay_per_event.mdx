@@ -132,7 +132,7 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 ## Best practices for PPE Actors
 
-Use our SDKs ([JS](/sdk/js/) and, [Python](/sdk/python/) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
+Use our [SDKs](/sdk) (JS and, Python or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
 ### Use synthetic start event `apify-actor-start`
 
@@ -152,16 +152,16 @@ The default price of the event is set intentionally low. This pricing means that
 
 #### How the synthetic start event works
 
-- The Apify Actor start event is **automatically enabled** for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
-- Apify **automatically charges** the event.
+- The Apify Actor start event is _automatically enabled_ for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
+- Apify _automatically charges_ the event.
   - You must _not_ manually charge for the synthetic start event (`apify-actor-start`) in your Actor code. If you attempt to charge this event yourself, the operation will fail.
-- The default price of the event is **$0.00005**, which equals **$0.05 per 1,000 starts**. We recommend keeping the default price to keep your Actors competitive.
-- The number of events charged **depends on the memory** of the Actor run. Up to and including 1 GB of RAM, the event is charged once. Then it's charged once for each extra GB of memory. For example:
+- The default price of the event is _$0.00005_, which equals _$0.05 per 1,000 starts_. We recommend keeping the default price to keep your Actors competitive.
+- The number of events charged _depends on the memory_ of the Actor run. Up to and including 1 GB of RAM, the event is charged once. Then it's charged once for each extra GB of memory. For example:
   - 128 MB RAM: 1 event, $0.00005
   - 1 GB RAM: 1 event, $0.00005
   - 4 GB RAM: 4 events, $0.0002
-- You can increase the price of the event if you wish, but you **won't get more free compute**.
-- You can delete the event if you wish, but if you do, you will **lose the free 5 seconds** of compute.
+- You can increase the price of the event if you wish, but you _won't get more free compute_.
+- You can delete the event if you wish, but if you do, you will _lose the free 5 seconds_ of compute.
 
 #### Synthetic start event for new Actors
 
@@ -313,8 +313,8 @@ If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (
 You create a social media monitoring Actor with the following pricing:
 
 - `post`: $0.002 per post - count every social media post you extract.
-- `profile`: $0.001 per profile - count every user profile you extract.
-- `sentiment-analysis`: $0.005 per post - count every post analyzed for sentiment, engagement metrics, and content classification using external LLM APIs.
+- `profile`: $0.005 per profile - count every user profile you extract.
+- `sentiment-analysis`: $0.01 per post - count every post analyzed for sentiment, engagement metrics, and content classification using external LLM APIs.
 
 :::info Fixed pricing vs. usage-based pricing
 
@@ -346,15 +346,13 @@ Fixed pricing is simpler for users to predict, while usage-based pricing more ac
       <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
       <td>
         <div style={{marginBottom: '4px'}}>5,000 × <code>post</code></div>
-        <div style={{marginBottom: '4px'}}>50 × <code>profile</code></div>
-        <div>2,000 × <code>sentiment-analysis</code></div>
+        <div>1,000 × <code>sentiment-analysis</code></div>
       </td>
       <td>
         <div style={{marginBottom: '4px'}}>5,000 × $0.002</div>
-        <div style={{marginBottom: '4px'}}>50 × $0.001</div>
-        <div>2,000 × $0.005</div>
+        <div>1,000 × $0.01</div>
       </td>
-      <td><strong>$20.05</strong></td>
+      <td><strong>$20</strong></td>
       <td>$2.50</td>
     </tr>
     <tr>
@@ -362,15 +360,13 @@ Fixed pricing is simpler for users to predict, while usage-based pricing more ac
       <td style={{whiteSpace: 'nowrap'}}>Paid plan</td>
       <td>
         <div style={{marginBottom: '4px'}}>3,000 × <code>post</code></div>
-        <div style={{marginBottom: '4px'}}>20 × <code>profile</code></div>
-        <div>1,000 × <code>sentiment-analysis</code></div>
+        <div>500 × <code>sentiment-analysis</code></div>
       </td>
       <td>
         <div style={{marginBottom: '4px'}}>3,000 × $0.002</div>
-        <div style={{marginBottom: '4px'}}>20 × $0.001</div>
-        <div>1,000 × $0.005</div>
+        <div>500 × $0.01</div>
       </td>
-      <td><strong>$11.02</strong></td>
+      <td><strong>$11</strong></td>
       <td>$1.50</td>
     </tr>
     <tr>
@@ -378,15 +374,13 @@ Fixed pricing is simpler for users to predict, while usage-based pricing more ac
       <td style={{whiteSpace: 'nowrap'}}>Free plan</td>
       <td>
         <div style={{marginBottom: '4px'}}>1,000 × <code>post</code></div>
-        <div style={{marginBottom: '4px'}}>5 × <code>profile</code></div>
-        <div>200 × <code>sentiment-analysis</code></div>
+        <div>100 × <code>sentiment-analysis</code></div>
       </td>
       <td>
         <div style={{marginBottom: '4px'}}>1,000 × $0.002</div>
-        <div style={{marginBottom: '4px'}}>5 × $0.001</div>
-        <div>200 × $0.005</div>
+        <div>100 × $0.01</div>
       </td>
-      <td><strong>$3.01</strong></td>
+      <td><strong>$3</strong></td>
       <td>$0.40</td>
     </tr>
   </tbody>
@@ -398,9 +392,9 @@ The platform usage costs are just examples, but you can see the actual costs in 
 
 ### Revenue breakdown
 
-- _Revenue (paid users only): $20.05 + $11.02 = $31.07_
-- _Platform cost (paid users only): $2.50 + $1.50 = $4.00_
-- _Profit: 0.8 × $31.07 − $4.00 = $20.86_
+- **Revenue (paid users only)**: $20 + $11 = **$31**
+- **Platform cost (paid users only)**: $2.50 + $1.50 = **$4**
+- **Profit**: 0.8 × $31 − $4 = **$20.80**
 
 ## Event names
 
