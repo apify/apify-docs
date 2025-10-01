@@ -1,8 +1,6 @@
 .docItemContent {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 1.2rem;
     flex-wrap: wrap;
 }

@@ -1,16 +1,28 @@
+:global .menu-list[data-floating-ui-focusable] {
+    gap: 4px;
+}
+
+.llmMenu {
+    margin-bottom: 1.2rem;
+    margin-left: auto;
+}
+
+.llmButtonWrapper {
+    /* hack to make the dropdown menu align to the right */
+    width: 23.8rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .llmButton {
+    width: fit-content;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    height: 30px;
-
-    margin-block: 8px;
+    height: 3rem;
 
     display: flex;
     align-items: center;
-    gap: 4px;
     border-radius: 8px;
-    padding-inline: 8px;
     border: 1px solid var(--color-Neutral_SeparatorSubtle);
     background-color: var(--color-Neutral_BackgroundMuted);
 
@@ -22,33 +34,50 @@
     }
 }
 
+.copyUpIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.8rem;
+    padding-right: 0.4rem;
+    height: 100%;
+}
+
 .llmButtonText {
-    border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
     height: 100%;
     display: flex;
     align-items: center;
-    padding-right: 8px;
+    padding-right: 0.8rem;
+}
+
+.chevronIconWrapper {
+    border-left: 1px solid var(--color-Neutral_SeparatorSubtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0.8rem;
+    height: 100%;
 }
 
 .menuOption {
-    padding-block: 4px;
+    padding-block: 0.4rem;
     display: flex;
-    gap: 4px;
+    gap: 0.4rem;
 }
 
 .menuOptionIcon {
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 0.2rem;
 }
 
 .menuOptionText {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 0.2rem;
 }
 
 .menuOptionExternalIcon {
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 0.2rem;
 }
