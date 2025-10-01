@@ -293,7 +293,7 @@ module.exports = {
                         handlers: {
                             link: (node) => {
                                 const isUrlInternal = isInternal(node.url);
-                                const url = isUrlInternal ? `${config.absoluteUrl}${node.url}` : node.url;
+                                const url = isUrlInternal ? `${config.absoluteUrl}${node.url}.md` : node.url;
 
                                 if (node.title) return `[${node.title}](${url})`;
                                 return url;
