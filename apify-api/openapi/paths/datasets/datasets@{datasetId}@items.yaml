@@ -367,6 +367,14 @@ get:
       schema:
         type: boolean
         example: false
+    - name: signature
+      in: query
+      description: Signature used to access the items.
+      required: false
+      style: simple
+      schema:
+        type: string
+        example: 2wTI46Bg8qWQrV7tavlPI
   responses:
     '200':
       description: ''
