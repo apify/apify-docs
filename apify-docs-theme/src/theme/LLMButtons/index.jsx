@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import {
     ChevronDownIcon,
@@ -51,7 +51,10 @@ const DROPDOWN_OPTIONS = [
     },
 ];
 
-const onOpenInChatGPTClick = ({ prompt }) => {
+const getPrompt = (currentUrl) => `Read from ${currentUrl} so I can ask questions about it.`;
+const getMarkdownUrl = (currentUrl) => `${currentUrl}.md`;
+
+const onOpenInChatGPTClick = () => {
     if (window.analytics) {
         window.analytics.track('Clicked', {
             app: 'docs',
@@ -59,6 +62,8 @@ const onOpenInChatGPTClick = ({ prompt }) => {
             element: 'llm-buttons.openInChatGPT',
         });
     }
+
+    const prompt = getPrompt(window.location.href);
 
     try {
         window.open(
@@ -70,7 +75,7 @@ const onOpenInChatGPTClick = ({ prompt }) => {
     }
 };
 
-const onOpenInClaudeClick = ({ prompt }) => {
+const onOpenInClaudeClick = () => {
     if (window.analytics) {
         window.analytics.track('Clicked', {
             app: 'docs',
@@ -78,6 +83,8 @@ const onOpenInClaudeClick = ({ prompt }) => {
             element: 'llm-buttons.openInClaude',
         });
     }
+
+    const prompt = getPrompt(window.location.href);
 
     try {
         window.open(
@@ -89,7 +96,7 @@ const onOpenInClaudeClick = ({ prompt }) => {
     }
 };
 
-const onOpenInPerplexityClick = ({ prompt }) => {
+const onOpenInPerplexityClick = () => {
     if (window.analytics) {
         window.analytics.track('Clicked', {
             app: 'docs',
@@ -97,6 +104,8 @@ const onOpenInPerplexityClick = ({ prompt }) => {
             element: 'llm-buttons.openInPerplexity',
         });
     }
+
+    const prompt = getPrompt(window.location.href);
 
     try {
         window.open(
@@ -110,7 +119,7 @@ const onOpenInPerplexityClick = ({ prompt }) => {
     }
 };
 
-const onCopyAsMarkdownClick = async ({ setCopyingStatus, markdownUrl }) => {
+const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
     if (window.analytics) {
         window.analytics.track('Clicked', {
             app: 'docs',
@@ -118,6 +127,8 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus, markdownUrl }) => {
             element: 'llm-buttons.copyForLLM',
         });
     }
+
+    const markdownUrl = getMarkdownUrl(window.location.href);
 
     try {
         setCopyingStatus('loading');
@@ -144,7 +155,7 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus, markdownUrl }) => {
     }
 };
 
-const onViewAsMarkdownClick = ({ markdownUrl }) => {
+const onViewAsMarkdownClick = () => {
     if (window.analytics) {
         window.analytics.track('Clicked', {
             app: 'docs',
@@ -152,6 +163,8 @@ const onViewAsMarkdownClick = ({ markdownUrl }) => {
             element: 'llm-buttons.viewAsMarkdown',
         });
     }
+
+    const markdownUrl = getMarkdownUrl(window.location.href);
 
     try {
         window.open(markdownUrl, '_blank');
@@ -176,21 +189,20 @@ const MenuBase = ({
     ref,
     copyingStatus,
     setCopyingStatus,
-    markdownUrl,
     ...props
 }) => (
     <div ref={ref} className={styles.llmButtonWrapper}>
         <div className={styles.llmButton}>
             <div
                 className={styles.copyUpIconWrapper}
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus, markdownUrl })
+                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })
                 }
             >
                 <CopyIcon size={16} />
             </div>
             <Text
                 size="regular"
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus, markdownUrl })
+                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })
                 }
                 className={styles.llmButtonText}
             >
@@ -224,30 +236,27 @@ const Option = ({ Icon, label, description, showExternalIcon }) => (
 export default function LLMButtons() {
     const [copyingStatus, setCopyingStatus] = useState('idle');
 
-    const currentUrl = window.location.href;
-    const prompt = `Read from ${currentUrl} so I can ask questions about it.`;
-    const markdownUrl = `${currentUrl}.md`;
-    const onMenuOptionClick = (value) => {
+    const onMenuOptionClick = useCallback((value) => {
         switch (value) {
             case 'copyForLLM':
-                onCopyAsMarkdownClick({ setCopyingStatus, markdownUrl });
+                onCopyAsMarkdownClick({ setCopyingStatus });
                 break;
             case 'viewAsMarkdown':
-                onViewAsMarkdownClick({ markdownUrl });
+                onViewAsMarkdownClick();
                 break;
             case 'openInChatGPT':
-                onOpenInChatGPTClick({ prompt });
+                onOpenInChatGPTClick();
                 break;
             case 'openInClaude':
-                onOpenInClaudeClick({ prompt });
+                onOpenInClaudeClick();
                 break;
             case 'openInPerplexity':
-                onOpenInPerplexityClick({ prompt });
+                onOpenInPerplexityClick();
                 break;
             default:
                 break;
         }
-    };
+    }, []);
 
     return (
         <Menu
@@ -257,7 +266,6 @@ export default function LLMButtons() {
                     <MenuBase
                         copyingStatus={copyingStatus}
                         setCopyingStatus={setCopyingStatus}
-                        markdownUrl={markdownUrl}
                         {...props}
                     />
                 ),
