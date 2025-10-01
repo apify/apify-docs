@@ -1,10 +1,13 @@
 import React, { useCallback, useState } from 'react';
 
 import {
+    AnthropicIcon,
+    ChatGptIcon,
     ChevronDownIcon,
     CopyIcon,
     ExternalLinkIcon,
     MarkdownIcon,
+    PerplexityIcon,
 } from '@apify/ui-icons';
 import { Menu, Text, theme } from '@apify/ui-library';
 
@@ -29,24 +32,21 @@ const DROPDOWN_OPTIONS = [
         label: 'Open in ChatGPT',
         description: 'Ask questions about this page',
         showExternalIcon: true,
-        // TODO: Replace icon once we have one
-        Icon: MarkdownIcon,
+        Icon: ChatGptIcon,
         value: 'openInChatGPT',
     },
     {
         label: 'Open in Claude',
         description: 'Ask questions about this page',
         showExternalIcon: true,
-        // TODO: Replace icon once we have one
-        Icon: MarkdownIcon,
+        Icon: AnthropicIcon,
         value: 'openInClaude',
     },
     {
         label: 'Open in Perplexity',
         description: 'Ask questions about this page',
         showExternalIcon: true,
-        // TODO: Replace icon once we have one
-        Icon: MarkdownIcon,
+        Icon: PerplexityIcon,
         value: 'openInPerplexity',
     },
 ];

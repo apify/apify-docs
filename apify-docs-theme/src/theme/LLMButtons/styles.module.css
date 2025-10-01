@@ -1,5 +1,6 @@
 :global .menu-list[data-floating-ui-focusable] {
     gap: 0.4rem;
+    padding: 0.6rem;
 }
 
 .llmMenu {
@@ -9,7 +10,7 @@
 
 .llmButtonWrapper {
     /* hack to make the dropdown menu align to the right */
-    width: 23.8rem;
+    width: 23.3rem;
     display: flex;
     justify-content: flex-end;
 }
@@ -81,7 +82,7 @@
 
 .menuOptionIcon {
     flex-shrink: 0;
-    margin-top: 0.2rem;
+    margin-top: 0.4rem;
 }
 
 .menuOptionText {
