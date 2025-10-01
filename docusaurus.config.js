@@ -1,4 +1,5 @@
 const { join, resolve } = require('node:path');
+const { parse } = require('node:url');
 
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
@@ -292,7 +293,7 @@ module.exports = {
                     remarkStringify: {
                         handlers: {
                             link: (node) => {
-                                const isUrlInternal = isInternal(node.url);
+                                const isUrlInternal = isInternal(parse(node.url));
                                 const url = isUrlInternal ? `${config.absoluteUrl}${node.url}.md` : node.url;
 
                                 if (node.title) return `[${node.title}](${url})`;
