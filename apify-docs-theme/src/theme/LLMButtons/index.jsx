@@ -195,15 +195,13 @@ const MenuBase = ({
         <div className={styles.llmButton}>
             <div
                 className={styles.copyUpIconWrapper}
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })
-                }
+                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
             >
                 <CopyIcon size={16} />
             </div>
             <Text
                 size="regular"
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })
-                }
+                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
                 className={styles.llmButtonText}
             >
                 {getButtonText({ status: copyingStatus })}
@@ -272,7 +270,7 @@ export default function LLMButtons() {
             }}
             onSelect={onMenuOptionClick}
             options={DROPDOWN_OPTIONS}
-            renderOption={(props) => <Option {...props} />}
+            renderOption={Option}
         />
     );
 }
