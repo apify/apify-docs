@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { useCallback, useState } from 'react';
 
 import {
@@ -189,6 +190,7 @@ const MenuBase = ({
     ref,
     copyingStatus,
     setCopyingStatus,
+    chevronIconRef,
     ...props
 }) => (
     <div ref={ref} className={styles.llmButtonWrapper}>
@@ -207,7 +209,12 @@ const MenuBase = ({
                 {getButtonText({ status: copyingStatus })}
             </Text>
             <div {...props} className={styles.chevronIconWrapper}>
-                <ChevronDownIcon size="16" color={theme.color.neutral.icon} />
+                <ChevronDownIcon
+                    size="16"
+                    color={theme.color.neutral.icon}
+                    className={styles.chevronIcon}
+                    ref={chevronIconRef}
+                />
             </div>
         </div>
     </div>
@@ -233,6 +240,7 @@ const Option = ({ Icon, label, description, showExternalIcon }) => (
 
 export default function LLMButtons() {
     const [copyingStatus, setCopyingStatus] = useState('idle');
+    const chevronIconRef = React.useRef(null);
 
     const onMenuOptionClick = useCallback((value) => {
         switch (value) {
@@ -259,11 +267,17 @@ export default function LLMButtons() {
     return (
         <Menu
             className={styles.llmMenu}
+            onMenuOpen={(isOpen) => chevronIconRef.current?.classList.toggle(
+                    styles.chevronIconOpen,
+                    isOpen,
+                )
+            }
             components={{
                 MenuBase: (props) => (
                     <MenuBase
                         copyingStatus={copyingStatus}
                         setCopyingStatus={setCopyingStatus}
+                        chevronIconRef={chevronIconRef}
                         {...props}
                     />
                 ),
