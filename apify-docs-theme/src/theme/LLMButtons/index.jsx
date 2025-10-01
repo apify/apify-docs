@@ -17,7 +17,7 @@ import styles from './styles.module.css';
 
 const DROPDOWN_OPTIONS = [
     {
-        label: 'Copy page',
+        label: 'Copy for LLM',
         description: 'Copy page as Markdown for LLMs',
         showExternalIcon: false,
         Icon: CopyIcon,
