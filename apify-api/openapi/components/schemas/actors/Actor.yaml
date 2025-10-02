@@ -29,10 +29,6 @@ properties:
     type: string
     nullable: true
     example: My favourite actor!
-  restartOnError:
-    type: boolean
-    nullable: true
-    example: false
   isPublic:
     type: boolean
     example: false
