@@ -1740,18 +1740,6 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
 
 }
 
-.redocusaurus table code {
-    word-break: normal;
-}
-
-.redocusaurus .menu-content div:nth-child(2) ul {
-    padding-bottom: 0;
-}
-
-.redocusaurus .menu-content div:nth-child(2) div {
-    display: none;
-}
-
 .apiPage .tsd-panel-header .tsd-anchor-id {
     top: -13rem;
 }
@@ -1763,44 +1751,40 @@ iframe[src*="youtube"] {
     margin-bottom: 1.6rem;
 }
 
-.redocusaurus div[data-section-id] span[id] {
-    margin-top: -130px;
-    position: absolute;
-}
-
-.redocusaurus .openapi-clients-box {
-    display: block;
-    float: right;
-    padding-left: 6px;
-}
-
-.redocusaurus .openapi-clients-box-heading {
-    display: inline-block;
-    font-family: 'San Francisco', Helvetica, Arial, sans-serif;
-    color: #6C7590;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
-    padding-bottom: 6px;
-}
-
-.redocusaurus .openapi-clients-box-icon {
-    display: block;
-    padding-bottom: 6px;
-}
-
 .theme-api-markdown .openapi-clients-box {
     display: block;
     float: right;
-    padding-left: 6px;
+    padding-left: 12px;
+    padding-right: 6px;
+}
+
+.client-docs-link img {
+    border: 1px solid var(--color-neutral-action-secondary);
+    border-radius: 8px;
+}
+
+.client-docs-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 8px;
+    padding: 4px 8px 8px 0px;
+}
+
+a.client-docs-link {
+    font-weight: 500;
+    color: var(--color-neutral-text-muted);
+}
+
+.theme-admonition {
+    clear: right;
 }
 
 .theme-api-markdown .openapi-clients-box-heading {
     display: inline-block;
     font-family: 'San Francisco', Helvetica, Arial, sans-serif;
-    color: #6C7590;
+    color: var(--color-neutral-text-muted);
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -1811,7 +1795,7 @@ iframe[src*="youtube"] {
 
 .theme-api-markdown .openapi-clients-box-icon {
     display: block;
-    padding-bottom: 6px;
+    padding: 2px;
     margin: 0 !important;
 }
 
