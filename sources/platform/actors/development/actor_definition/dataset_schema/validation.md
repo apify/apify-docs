@@ -123,11 +123,15 @@ try {
   </TabItem>
   <TabItem value="Python" label="Python">
 ```python
-try:
-    await Actor.push_data(items)
-except ApifyApiError as error:
-    if "invalidItems" in error.data:
-        validation_errors = e.data["invalidItems"]
+from apify import Actor
+from apify_client.errors import ApifyApiError
+
+async with Actor:
+    try:
+        await Actor.push_data(items)
+    except ApifyApiError as error:
+        if 'invalidItems' in error.data:
+            validation_errors = error.data['invalidItems']
 ```
   </TabItem>
 </Tabs>
@@ -235,4 +239,3 @@ When you configure the dataset fields schema, we generate a field list and measu
 
 
 You can use them in [monitoring](../../../../monitoring#alert-configuration).
-
