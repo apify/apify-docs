@@ -16,5 +16,4 @@ properties:
     example: 2048
   restartOnError:
     type: boolean
-    nullable: true
     example: false

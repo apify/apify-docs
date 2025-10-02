@@ -1,8 +1,4 @@
 title: ActUpdate
-required:
-  - name
-  - isPublic
-  - versions
 type: object
 properties:
   name:
@@ -43,7 +39,6 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    nullable: true
     $ref: ./DefaultRunOptions.yaml
   taggedBuilds:
     type: object
@@ -66,3 +61,7 @@ properties:
     example:
       latest:
         buildId: z2EryhbfhgSyqj6Hn
+required:
+  - name
+  - isPublic
+  - versions

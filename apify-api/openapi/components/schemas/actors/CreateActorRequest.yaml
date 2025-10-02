@@ -42,5 +42,4 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    nullable: true
     $ref: ./DefaultRunOptions.yaml
