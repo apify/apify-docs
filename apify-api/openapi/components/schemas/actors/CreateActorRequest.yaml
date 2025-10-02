@@ -25,10 +25,6 @@ properties:
     type: string
     nullable: true
     example: My actor is the best
-  restartOnError:
-    type: boolean
-    nullable: true
-    example: false
   versions:
     type: array
     items:
@@ -46,6 +42,5 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    oneOf:
-      - nullable: true
-      - $ref: ./DefaultRunOptions.yaml
+    nullable: true
+    $ref: ./DefaultRunOptions.yaml

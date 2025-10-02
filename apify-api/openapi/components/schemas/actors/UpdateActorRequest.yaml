@@ -47,9 +47,8 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    oneOf:
-      - nullable: true
-      - $ref: ./DefaultRunOptions.yaml
+    nullable: true
+    $ref: ./DefaultRunOptions.yaml
   taggedBuilds:
     type: object
     description: |
