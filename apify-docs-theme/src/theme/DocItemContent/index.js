@@ -66,10 +66,12 @@ export default function DocItemContent({ children }) {
 
     return (
         <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
-            <div className={styles.docItemContent}>
-                {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
-                {shouldShowLLMButtons && <LLMButtons />}
-            </div>
+            {(syntheticTitle || shouldShowLLMButtons) && (
+                <div className={styles.docItemContent}>
+                    {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
+                    {shouldShowLLMButtons && <LLMButtons />}
+                </div>
+            )}
             <MDXContent>{children}</MDXContent>
         </div>
     );
