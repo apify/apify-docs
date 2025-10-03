@@ -2,16 +2,13 @@ const { parse } = require('node:url');
 
 const visit = import('unist-util-visit').then((m) => m.visit);
 
-const internalUrls = ['docs.apify.com'];
+const internalUrl = 'docs.apify.com';
 
 /**
  * @param {import('url').UrlWithStringQuery} href
  */
 exports.isInternal = (href) => {
-    return internalUrls.some(
-        (internalUrl) => href.host === internalUrl
-            || (!href.protocol && !href.host && (href.pathname || href.hash)),
-    );
+    return href.host === internalUrl || (!href.protocol && !href.host && (href.pathname || href.hash));
 };
 
 /**

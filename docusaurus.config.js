@@ -293,7 +293,10 @@ module.exports = {
                     remarkStringify: {
                         handlers: {
                             link: (node) => {
-                                const isUrlInternal = isInternal(parse(node.url));
+                                if (node.title?.startsWith('Direct link to')) return null;
+
+                                const parsedUrl = parse(node.url);
+                                const isUrlInternal = isInternal(parsedUrl);
                                 const url = isUrlInternal ? `${config.absoluteUrl}${node.url}.md` : node.url;
 
                                 if (node.title) return `[${node.title}](${url})`;
