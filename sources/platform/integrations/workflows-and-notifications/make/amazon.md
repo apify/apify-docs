@@ -4,6 +4,7 @@ description: Learn about Amazon scraper modules, extract product, search, or cat
 sidebar_label: Amazon
 sidebar_position: 6
 slug: /integrations/make/amazon
+unlisted: true
 ---
 
 ## Apify Scraper for Amazon Data

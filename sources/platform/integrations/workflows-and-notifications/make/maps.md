@@ -5,6 +5,7 @@ sidebar_label: Google Maps
 sidebar_position: 4
 slug: /integrations/make/maps
 toc_max_heading_level: 4
+unlisted: true
 ---
 
 ## Apify Scraper for Google Maps Leads

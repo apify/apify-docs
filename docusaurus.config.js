@@ -131,13 +131,6 @@ module.exports = {
         ],
     ]),
     plugins: [
-        [
-            'docusaurus-biel', {
-                project: 'zat23cvkm1',
-                headerTitle: 'Biel.ai chatbot',
-                version: 'latest',
-            },
-        ],
         'docusaurus-plugin-image-zoom',
         [
             '@docusaurus/plugin-content-docs',
@@ -207,7 +200,7 @@ module.exports = {
                                 // Find the first Heading h1 and add LLMButtons after it
                                 // eslint-disable-next-line max-len
                                 const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
-                                md = md.replace(headingRegex, '$1\n\n<LLMButtons />\n');
+                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
 
                                 return md;
                             },
@@ -217,7 +210,7 @@ module.exports = {
                                 // Find the first Heading h1 and add LLMButtons after it
                                 // eslint-disable-next-line max-len
                                 const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
-                                md = md.replace(headingRegex, '$1\n\n<LLMButtons />\n');
+                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
 
                                 return md;
                             },
@@ -368,6 +361,18 @@ module.exports = {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
+
+                // Remove import statements and JSX/MDX tags from content
+                const contentText = result.content
+                    .replace(/import\s+[^;]+;?/g, '') // Remove import statements
+                    .replace(/<[^>]+>/g, '') // Remove all tags (JSX/MDX)
+                    .replace(/\n+/g, ' ') // Replace newlines with space
+                    .replace(/\s+/g, ' ') // Collapse whitespace
+                    .trim();
+
+                const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
+
+                result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
             }
 
             return result;

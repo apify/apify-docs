@@ -1,0 +1,57 @@
+---
+title: Rental pricing model
+description: Learn how to monetize your Actor with the rental pricing model, offering users a free trial and a flat monthly fee, and understand how profit is calculated and the limitations of this approach.
+slug: /actors/publishing/monetize/rental
+sidebar_position: 1
+---
+
+**Learn how to monetize your Actor with the rental pricing model, offering users a free trial and a flat monthly fee, and understand how profit is calculated and the limitations of this approach.**
+
+---
+
+With the rental model, you can specify a free trial period and a monthly rental price. After the trial, users with an [Apify paid plan](https://apify.com/pricing) can continue using your Actor by paying the monthly fee. You can receive 80% of the total rental fees collected each month.
+
+## How is profit computed
+
+Your profit is calculated from the mentioned formula:
+
+`profit = 0.8 × rental fees`
+
+where:
+
+- _Rental fees_: The monthly rental fee set by the developer (for example, $30/month).
+
+Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
+
+## Disadvantages of the rental pricing model
+
+### User cost confusion
+
+Users consistently report confusion about rental pricing because they pay both the _monthly rental fee and platform usage costs_. A user might see an Actor priced at $20/month, only to discover their actual costs are $35-50 depending on usage. This can create confusion about total costs and make budgeting more difficult.
+
+### Limited revenue scalability
+
+The rental model, while easy to set up, is less profitable because its pricing doesn't scale with usage. Your revenue is capped at the monthly fee regardless of how much value users extract from your Actor.
+
+### AI compatibility limitations
+
+The growing limitation is AI compatibility. [Apify's MCP server](/platform/integrations/mcp) explicitly excludes rental Actors from search results, making them invisible to AI systems that dynamically select and execute tools. This significantly reduces your Actor's discoverability in AI workflows.
+
+## Consider pay-per-result or pay-per-event pricing models
+
+We recommend using the [pay-per-result](/platform/actors/publishing/monetize/pay-per-result) or [pay-per-event](/platform/actors/publishing/monetize/pay-per-event) models instead.
+
+## Example of a rental pricing model
+
+You make your Actor rental with _7-day free trial_ and then _$30/month_. During the first calendar month, three users start to use your Actor:
+
+- _User 1 (paid plan)_: Starts free trial on the 15th
+- _User 2 (paid plan)_: Starts free trial on the 25th  
+- _User 3 (free plan)_: Starts free trial on the 20th
+
+The first user pays their first rent 7 days after the free trial, i.e., on the 22nd of the month. The second user only starts paying the rent next month. The third user is on the Apify free plan, so after the free trial ends on the 27th of the month, they are not charged and cannot use the Actor further until they get a paid plan.
+
+Your profit is computed only from the first user, since they are the only one who paid during this month. The revenue breakdown is:
+
+- _Total revenue_: $30 (from User 1 only)
+- _Your profit_: 80% of revenue = 0.8 × $30 = $24

@@ -33,7 +33,11 @@ Monetizing your Actor on the Apify platform involves several key steps:
   - 2nd user starts their trial but pays next month.
   - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
 
-Learn more about the rental pricing model in our [documentation](/platform/actors/publishing/monetize#rental-pricing-model).
+:::info Rental pricing details
+
+If you want more details about rental pricing, refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
+
+:::
 
 ### Pay-per-result pricing model
 
@@ -42,14 +46,18 @@ Learn more about the rental pricing model in our [documentation](/platform/actor
 - _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
 - _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
 - _Cost breakdown_:
-  - Compute unit: $0.4 per CU
+  - Compute unit: $0.3 per CU
   - Residential proxies: $13 per GB
   - SERPs proxy: $3 per 1,000 SERPs
   - Data transfer (external): $0.20 per GB
   - Dataset storage: $1 per 1,000 GB-hours
 - _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
 
-Learn more about the pay-per-result pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-result-pricing-model).
+:::info Pay-per-result details
+
+If you want more details about PPR pricing, refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
+
+:::
 
 ### Pay-per-event pricing model
 
@@ -77,7 +85,11 @@ Learn more about the pay-per-result pricing model in our [documentation](/platfo
     - This comes up to $1.625 of total revenue
   - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
 
-Learn more about the pay-per-event pricing model in our [documentation](/platform/actors/publishing/monetize#pay-per-event-pricing-model).
+:::info Pay-per-event details
+
+If you want more details about PPE pricing, refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
+
+:::
 
 ## Setting up monetization
 
@@ -104,7 +116,7 @@ The easiest way to understand your tool's value is to look around. Are there sim
 
 Try competitor tools yourself (to assess the value and the quality they provide), check their SEO (to see how much traffic they get), and note ballpark figures. Think about what your Actor can do that competitors might be missing.
 
-Also, remember that your Actor is a package deal with the Apify platform. So all the platform's features automatically transfer onto your Actor and its value. Scheduling, monitoring runs, ways of exporting data, proxies, and integrations can all add value to your Actor (on top of its own functionalities). Be sure to factor this into your tool's value proposition and communicate that to the potential user.
+Also, remember that your Actor is a package deal with the Apify platform. All the platform's features automatically transfer onto your Actor and its value. Scheduling, monitoring runs, ways of exporting data, proxies, and integrations can all add value to your Actor (on top of its own functionalities). Be sure to factor this into your tool's value proposition and communicate that to the potential user.
 
 ### Do research in Apify Store
 
@@ -114,13 +126,19 @@ Learn more about what makes a good readme here: [How to create an Actor README](
 
 ### Rental, pay-per-result (PPR), or pay-per-event (PPE)
 
-Rental pricing is technically easier: you set the rental fee, and the user covers their CU usage. So all you have to define is how much you want to charge the users. With pay-per-result, you’ll need to include both CU usage and your margin. So you have to calculate how much the average run is going to cost for the user + define how much you want to charge them.
+Rental pricing allows you to charge a monthly fee for your Actor and users cover their own compute usage.
 
-To figure out the average cost per run for users, just run a few test runs and look at the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
+Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 
-From an average user's perspective, pay-per-result is often easier to grasp — $25 for a thousand pages, $5 for a thousand videos, $1 for a thousand images, etc. It gives users a clearer idea of what they’re paying for and allows them to estimate faster. But rental pricing has its fans, too — if your tool provides high value, users will come.
+Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
 
-Pay-per-event (PPE) lets you define pricing for individual events. You can charge for specific events directly from your Actor by calling our PPE charging API. The most common events will most likely be Actor start, dataset item, external API calls, etc. PPE is great for users who want to optimize their costs and value transparency. PPE is also a fairer pricing model for integration and AI-driven use cases, where dataset-based pricing doesn’t make sense.
+:::tip Additional benefits
+
+Actors that implement PPE receive additional benefits, including increased visibility in Apify Store and enhanced discoverability.
+
+:::
+
+To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
 
 ### Adapt when needed
 
