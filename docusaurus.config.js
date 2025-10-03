@@ -297,7 +297,7 @@ module.exports = {
 
                                 const parsedUrl = parse(node.url);
                                 const isUrlInternal = isInternal(parsedUrl);
-                                const url = isUrlInternal ? `${config.absoluteUrl}${node.url}.md` : node.url;
+                                const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
 
                                 if (node.title) return `[${node.title}](${url})`;
                                 return url;
