@@ -73,7 +73,7 @@ Remember that each key can only be used once per Git hosting service (GitHub, Bi
 
 ### Actor monorepos
 
-To manage multiple Actors in a single repository, use the `dockerContextDix` property in the [Actor definition](/platform/actors/development/actor-definition/actor-json) to set the Docker context directory (if not provided then the repository root is used). In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
+To manage multiple Actors in a single repository, use the `dockerContextDir` property in the [Actor definition](/platform/actors/development/actor-definition/actor-json) to set the Docker context directory (if not provided then the repository root is used). In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
 
 To enable sharing Dockerfiles between multiple Actors, the Actor build process passes the `ACTOR_PATH_IN_DOCKER_CONTEXT` build argument to the Docker build.
 It contains the relative path from `dockerContextDir` to the directory selected as the root of the Actor in the Apify Console (the "directory" part of the Actor's git URL).
