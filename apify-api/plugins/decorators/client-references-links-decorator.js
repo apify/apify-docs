@@ -34,8 +34,8 @@ function ClientReferencesLinksDecorator(target) {
     const pyLink = target[X_PY_DOC_URLS_PROPERTY];
     const jsLink = target[X_JS_DOC_URLS_PROPERTY];
 
-    const jsImgUrl = 'https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg';
-    const pyImgUrl = 'https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg';
+    const jsImgUrl = '/img/javascript-40x40.svg';
+    const pyImgUrl = '/img/python-40x40.svg';
 
     const jsAlt = 'Apify API JavaScript Client Reference';
     const pyAlt = 'Apify API Python Client Reference';
@@ -49,11 +49,13 @@ function ClientReferencesLinksDecorator(target) {
     }
 
     if (pyLink) {
-        prepend += `<a href="${pyLink}" target="_blank"><img src="${pyImgUrl}" class="openapi-clients-box-icon" alt="${pyAlt}"/></a>`;
+        prepend += `<a href="${pyLink}" target="_blank" class="client-docs-link">
+            <img src="${pyImgUrl}" class="openapi-clients-box-icon" width="24px" height="24px" alt="${pyAlt}"/>Python</a>`;
     }
 
     if (jsLink) {
-        prepend += `<a href="${jsLink}" target="_blank"><img src="${jsImgUrl}" class="openapi-clients-box-icon" alt="${jsAlt}" /></a>`;
+        prepend += `<a href="${jsLink}" target="_blank" class="client-docs-link">
+            <img src="${jsImgUrl}" class="openapi-clients-box-icon" width="24px" height="24px" alt="${jsAlt}" />JavaScript</a>`;
     }
 
     prepend += `</span>`;
