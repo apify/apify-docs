@@ -23,6 +23,10 @@ properties:
     type: string
     nullable: true
     example: My Actor
+  restartOnError:
+    type: boolean
+    example: false
+    deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
     type: array
     items:

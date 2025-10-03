@@ -29,6 +29,10 @@ properties:
     type: string
     nullable: true
     example: My favourite actor!
+  restartOnError:
+    type: boolean
+    example: false
+    deprecated: true # Use defaultRunOptions.restartOnError instead
   isPublic:
     type: boolean
     example: false
