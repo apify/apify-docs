@@ -1,57 +1,115 @@
-.llmButtonsContainer {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: -8px;
-    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
+:global .menu-list[data-floating-ui-focusable] {
+    gap: 0.4rem;
+    padding: 0.6rem;
 }
 
-.llmButtonsSeparator {
-    width: 1px;
-    height: 16px;
-    background-color: var(--ifm-hr-background-color);
+.llmMenu {
+    margin-top: 1.2rem;
+    width: fit-content;
+
+    @media (min-width: 768px) {
+        margin-left: auto;
+    }
+}
+
+.llmButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (min-width: 768px) {
+        /* hack to make the dropdown menu align to the right */
+        width: 23.3rem;
+    }
+}
+
+.llmMenuApiReferencePage {
+    margin-top: -0.8rem;
+    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
+    margin-left: 0 !important;
+    .llmButtonWrapper {
+        width: fit-content !important;
+    }
 }
 
 .llmButton {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    height: 3rem;
+
     display: flex;
     align-items: center;
-    background-color: transparent;
-    border: none;
-    height: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--color-Neutral_SeparatorSubtle);
+    background-color: var(--color-Neutral_BackgroundMuted);
+
     cursor: pointer;
-    padding: 0;
-    gap: 4px;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: var(--color-Neutral_BackgroundMuted);
+    }
 }
 
-.llmButtonIcon {
-    width: 16px;
-    height: 16px;
-    margin: 0 !important;
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: inline-block;
+.copyUpIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.8rem;
+    padding-right: 0.4rem;
+    height: 100%;
 }
 
-.llmButtonIconBackgroundMarkdown {
-    background-image: url('https://docs.apify.com/img/markdown.svg');
+.llmButtonText {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 0.8rem;
+    min-width: 9.3rem;
 
+    /* prevents font size glitch when loading the page */
+    margin: 0px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: Inter, sans-serif;
 }
 
-.llmButtonIconBackgroundCopy {
-    background-image: url('https://docs.apify.com/img/copy.svg');
+.chevronIconWrapper {
+    border-left: 1px solid var(--color-Neutral_SeparatorSubtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0.8rem;
+    height: 100%;
 }
 
-/* Dark theme adjustments */
-[data-theme='dark'] .llmButtonIcon {
-    color: #e0e0e0;
+.chevronIcon {
+    transition: transform 0.2s ease-in-out;
 }
 
-[data-theme='dark'] .llmButtonIconBackgroundMarkdown {
-    background-image: url('https://docs.apify.com/img/markdown-dark-theme.svg');
+.chevronIconOpen {
+    transform: rotate(180deg);
 }
 
-[data-theme='dark'] .llmButtonIconBackgroundCopy {
-    background-image: url('https://docs.apify.com/img/copy-dark-theme.svg');
+.menuOption {
+    padding-block: 0.4rem;
+    display: flex;
+    gap: 0.4rem;
+}
+
+.menuOptionIcon {
+    flex-shrink: 0;
+    margin-top: 0.4rem;
+}
+
+.menuOptionText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.menuOptionExternalIcon {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
 }
