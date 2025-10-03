@@ -186,41 +186,39 @@ function getButtonText({ status }) {
     }
 }
 
-const MenuBase = ({
-    children,
-    ref,
-    copyingStatus,
-    setCopyingStatus,
-    chevronIconRef,
-    ...props
-}) => (
-    <div ref={ref} className={styles.llmButtonWrapper}>
-        <div className={styles.llmButton}>
-            <div
-                className={styles.copyUpIconWrapper}
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
-            >
-                {copyingStatus === 'loading' && <LoaderIcon size={16} />}
-                {copyingStatus === 'copied' && <CheckIcon size={16} />}
-                {copyingStatus === 'idle' && <CopyIcon size={16} />}
-            </div>
-            <Text
-                size="regular"
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
-                className={styles.llmButtonText}
-            >
-                {getButtonText({ status: copyingStatus })}
-            </Text>
-            <div {...props} className={styles.chevronIconWrapper}>
-                <ChevronDownIcon
-                    size="16"
-                    color={theme.color.neutral.icon}
-                    className={styles.chevronIcon}
-                    ref={chevronIconRef}
-                />
+const MenuBase = React.forwardRef(
+    (
+        { children, copyingStatus, setCopyingStatus, chevronIconRef, ...props },
+        ref,
+    ) => (
+        <div ref={ref} className={styles.llmButtonWrapper}>
+            <div className={styles.llmButton}>
+                <div
+                    className={styles.copyUpIconWrapper}
+                    onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
+                >
+                    {copyingStatus === 'loading' && <LoaderIcon size={16} />}
+                    {copyingStatus === 'copied' && <CheckIcon size={16} />}
+                    {copyingStatus === 'idle' && <CopyIcon size={16} />}
+                </div>
+                <Text
+                    size="regular"
+                    onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
+                    className={styles.llmButtonText}
+                >
+                    {getButtonText({ status: copyingStatus })}
+                </Text>
+                <div {...props} className={styles.chevronIconWrapper}>
+                    <ChevronDownIcon
+                        size="16"
+                        color={theme.color.neutral.icon}
+                        className={styles.chevronIcon}
+                        ref={chevronIconRef}
+                    />
+                </div>
             </div>
         </div>
-    </div>
+    ),
 );
 
 const Option = ({ Icon, label, description, showExternalIcon }) => (
@@ -278,14 +276,15 @@ export default function LLMButtons({ isApiReferencePage = false }) {
                 )
             }
             components={{
-                MenuBase: (props) => (
+                MenuBase: React.forwardRef((props, ref) => (
                     <MenuBase
                         copyingStatus={copyingStatus}
                         setCopyingStatus={setCopyingStatus}
                         chevronIconRef={chevronIconRef}
+                        ref={ref}
                         {...props}
                     />
-                ),
+                )),
             }}
             onSelect={onMenuOptionClick}
             options={DROPDOWN_OPTIONS}
