@@ -5,6 +5,7 @@
 
 .llmMenu {
     margin-top: 1.2rem;
+    width: fit-content;
 
     @media (min-width: 768px) {
         margin-left: auto;
@@ -18,6 +19,15 @@
     @media (min-width: 768px) {
         /* hack to make the dropdown menu align to the right */
         width: 23.3rem;
+    }
+}
+
+.llmMenuApiReferencePage {
+    margin-top: -0.8rem;
+    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
+    margin-left: 0 !important;
+    .llmButtonWrapper {
+        width: fit-content !important;
     }
 }
 

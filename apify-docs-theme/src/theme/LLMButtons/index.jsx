@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { useCallback, useState } from 'react';
 
 import {
@@ -240,7 +241,7 @@ const Option = ({ Icon, label, description, showExternalIcon }) => (
     </div>
 );
 
-export default function LLMButtons() {
+export default function LLMButtons({ isApiReferencePage = false }) {
     const [copyingStatus, setCopyingStatus] = useState('idle');
     const chevronIconRef = React.useRef(null);
 
@@ -268,7 +269,9 @@ export default function LLMButtons() {
 
     return (
         <Menu
-            className={styles.llmMenu}
+            className={clsx(styles.llmMenu, {
+                [styles.llmMenuApiReferencePage]: isApiReferencePage,
+            })}
             onMenuOpen={(isOpen) => chevronIconRef.current?.classList.toggle(
                     styles.chevronIconOpen,
                     isOpen,
