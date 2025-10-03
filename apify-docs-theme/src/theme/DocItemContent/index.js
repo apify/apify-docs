@@ -7,6 +7,8 @@ import MDXContent from '@theme/MDXContent';
 import clsx from 'clsx';
 import React from 'react';
 
+import styles from './styles.module.css';
+
 function useSyntheticTitle() {
   const { metadata, frontMatter, contentTitle } = useDoc();
   const shouldRender = !frontMatter.hide_title && typeof contentTitle === 'undefined';
@@ -62,11 +64,15 @@ export default function DocItemContent({ children }) {
   const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path))
     && !disallowedPaths.some((path) => location.pathname.includes(path));
 
-  return (
-    <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
-      {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
-      {shouldShowLLMButtons && <LLMButtons />}
-      <MDXContent>{children}</MDXContent>
-    </div>
-  );
+    return (
+        <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
+            {(syntheticTitle || shouldShowLLMButtons) && (
+                <div className={styles.docItemContent}>
+                    {syntheticTitle && <Heading as="h1">{syntheticTitle}</Heading>}
+                    {shouldShowLLMButtons && <LLMButtons />}
+                </div>
+            )}
+            <MDXContent>{children}</MDXContent>
+        </div>
+    );
 }
