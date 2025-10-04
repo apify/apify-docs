@@ -264,7 +264,7 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor |
-| `call-actor` | actors | ✅ | Call an Actor and get its run results |
+| `call-actor`* | actors | ❔ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
@@ -279,8 +279,14 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 | `get-key-value-store-record`| storage |  | Get the value associated with a specific key in a key-value store |
 | `get-dataset-list` | storage |  | List all available datasets for the user |
 | `get-key-value-store-list`| storage |  | List all available key-value stores for the user |
-| `add-actor` | experimental |  | Add an Actor as a new tool for the user to call |
+| `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
 | `get-actor-output`* | - | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. | ✅ |
+
+:::note Dynamic tool discovery
+
+When using the `actors` tool category, clients that support dynamic tool discovery (like Claude.ai web and VS Code) automatically receive the `add-actor` tool instead of `call-actor` for enhanced Actor discovery capabilities.
+
+:::
 
 :::note Retrieving full output
 
