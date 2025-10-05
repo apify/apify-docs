@@ -58,7 +58,7 @@ The schema above defines one output called `files` which uses the `template` to 
 
 This allows the UI to know that when displaying the output of a run, it needs to display data from the key-value store.
 
-So the **Output** tab will then display the contents of the key-value store:
+The **Output** tab will then display the contents of the key-value store:
 
 ![Output tab in Run](images/output-schema-simple-example.png)
 
