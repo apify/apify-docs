@@ -46,7 +46,7 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
 1. n8n automatically retrieves and stores the OAuth2 tokens.
 
   ![Apify Auth](images/credentials.png)
-  
+
 :::note Cloud API Key management
 
 On n8n Cloud, you can use the API key method if you prefer to manage your credentials manually.
@@ -84,7 +84,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-    ![Apify Console token for n8n](../make/images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for n8n](../make/images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your n8n workflow interface.
