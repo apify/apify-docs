@@ -41,7 +41,13 @@ To view a key-value store's content, click on its **Store ID**.
 Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
-![Key-value stores detail](./images/key-value-stores-detail.png)
+
+![Key-value stores detail](./images/key-value-stores-detail-header.png)
+
+On the bottom of the page, you can view, download, and delete the individual records.
+
+![Key-value stores detail](./images/key-value-stores-detail-records.png)
+
 
 ### Apify API
 
