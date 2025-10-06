@@ -283,6 +283,7 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
+                siteDescription: 'The entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
