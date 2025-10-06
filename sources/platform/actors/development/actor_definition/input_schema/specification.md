@@ -234,6 +234,8 @@ The `anyDate` property renders a date picker that accepts both absolute and rela
 
 The `fileupload` editor enables users to specify a file as input. The input is passed to the Actor as a string. It is the Actor author's responsibility to interpret this string, including validating its existence and format.
 
+The editor makes it easier to users to upload the file to a key-value store of their choice.
+
 ![Apify Actor input schema - fileupload input](./images/input-schema-fileupload-input.png)
 
 The user provides either a URL or uploads the file to a key-value store (existing or new).
@@ -440,7 +442,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`select`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
+| `editor` | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`fileupload`</li><li>`select`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
 | `placeholderKey` | String | No | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor. |
 | `placeholderValue` | String | No | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
 | `patternKey` | String | No | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor. |
@@ -461,6 +463,8 @@ Usage of this field is based on the selected editor:
 Editor type `requestListSources` supports input in formats defined by the [sources](https://crawlee.dev/api/core/interface/RequestListOptions#sources) property of [RequestListOptions](https://crawlee.dev/api/core/interface/RequestListOptions).
 
 Editor type `globs` maps to the Crawlee's [GlobInput](https://crawlee.dev/api/core#GlobInput) used by the [UrlPatterObject](https://crawlee.dev/api/core#UrlPatternObject).
+
+Editor type `fileupload` enables users to specify list of files as input. The input is passed to the Actor as an array of strings. It is the Actor author's responsibility to interpret the strings, including validating the file existence and format. The editor makes it easier for users to upload the files to a key-value store they choose.
 
 Editor type `select` allows the user to pick items from a select, providing multiple choices. Please check this example of how to define the multiselect field:
 
