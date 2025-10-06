@@ -72,7 +72,7 @@ Finally, the agent receives the Actor results and can retrieve additional data i
 
 For more predictable workflows, you can pre-load specific Actors when connecting to the MCP server by adding them to the URL:
 
-```
+```text
 https://mcp.apify.com?payment=skyfire&actors=actor1,actor2,actor3
 ```
 
@@ -90,7 +90,7 @@ For direct API integration, you can use Skyfire PAY tokens to authenticate and p
 
 Instead of using a traditional Apify API token, pass your Skyfire PAY token in the request header:
 
-```
+```text
 skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN
 ```
 
