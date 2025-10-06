@@ -252,12 +252,6 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 :::
 
-### Dynamic tool discovery
-
-One of the most powerful features is the ability to discover and use new Actors on demand. It can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, add the Actor as a new tool, and execute it with appropriate parameters.
-
-This dynamic discovery means your AI can adapt to new tasks without manual configuration. Each discovered Actor becomes immediately available for future use in the conversation.
-
 ### Available tools
 
 | Tool name | Category | Enabled by default | Description |
@@ -289,7 +283,7 @@ The `get-actor-output` tool is automatically included with any Actor-related too
 
 :::
 
-### Dynamic tool discovery
+#### Dynamic tool discovery
 
 One of the most powerful features is the ability to discover and use new Actors on demand.
 It can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, add the Actor as a new tool, and execute it with appropriate parameters.
