@@ -252,19 +252,13 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 :::
 
-### Dynamic tool discovery
-
-One of the most powerful features is the ability to discover and use new Actors on demand. It can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, add the Actor as a new tool, and execute it with appropriate parameters.
-
-This dynamic discovery means your AI can adapt to new tasks without manual configuration. Each discovered Actor becomes immediately available for future use in the conversation.
-
 ### Available tools
 
 | Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor |
-| `call-actor` | actors | ✅ | Call an Actor and get its run results |
+| `call-actor`* | actors | ❔ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
@@ -279,14 +273,32 @@ This dynamic discovery means your AI can adapt to new tasks without manual confi
 | `get-key-value-store-record`| storage |  | Get the value associated with a specific key in a key-value store |
 | `get-dataset-list` | storage |  | List all available datasets for the user |
 | `get-key-value-store-list`| storage |  | List all available key-value stores for the user |
-| `add-actor` | experimental |  | Add an Actor as a new tool for the user to call |
-| `get-actor-output`* | - | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. | ✅ |
+| `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
+| `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
+
 
 :::note Retrieving full output
 
 The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor`, `add-actor`, or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
 
 :::
+
+#### Dynamic tool discovery
+
+One of the most powerful features is the ability to discover and use new Actors on demand.
+It can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, add the Actor as a new tool, and execute it with appropriate parameters.
+
+This dynamic discovery means your AI can adapt to new tasks without manual configuration.
+Each discovered Actor becomes immediately available for future use in the conversation.
+
+
+:::note Dynamic tool discovery
+
+When you use the `actors` tool category, clients that support dynamic tool discovery (such as Claude.ai web and VS Code) will automatically receive the `add-actor` tool instead of `call-actor` for enhanced Actor discovery capabilities.
+For a detailed overview of client support for dynamic discovery, see the [MCP client capabilities package](https://github.com/apify/mcp-client-capabilities).
+
+:::
+
 
 ## Advanced usage
 
