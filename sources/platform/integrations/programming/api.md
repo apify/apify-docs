@@ -175,6 +175,7 @@ You can configure whether the scoped token you are going use to run the Actor sh
 If it’s **on**, the token can implicitly access the default storage of the Actor runs it triggers, or in general, of any Actor run in your account that falls within its scope. This is useful if you want to allow a third-party service to run an Actor and then read the Actor’s output (think AI agents).
 
 If the toggle is **off**, the token can still trigger and inspect runs, but access to the default storages is restricted:
+
 - For accounts with **Restricted general resource access**, the token cannot read or write default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
 - For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
 
