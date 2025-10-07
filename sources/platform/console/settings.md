@@ -22,6 +22,11 @@ By clicking the **Settings** tab on the side menu, you will be presented with an
 * session information
 * account delete
 
+:::info
+The **Login & Privacy** tab (or **Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to see and edit the settings.
+:::
+
+
 ### Session Information
 
 In the **Session Information** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days, this customization helps ensure compliance with organization security policies.
