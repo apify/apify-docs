@@ -168,19 +168,19 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
-You can configure whether the scoped token you are going use to run the Actor should get **Write**
-access to these default storages.
+You can configure whether the scoped token you are going use to run the Actor should get access to these default storages.
 
 ![Configure whether the trigger token gets write access to the run default storages.](../images/api-token-scoped-default-storage-access.png)
 
+If it’s **on**, the token can implicitly access the default storage of the Actor runs it triggers, or in general, of any Actor run in your account that falls within its scope. This is useful if you want to allow a third-party service to run an Actor and then read the Actor’s output (think AI agents).
+
+If the toggle is **off**, the token can still trigger and inspect runs, but access to the default storages is restricted:
+- For accounts with **Restricted general resource access**, the token cannot read or write default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
+- For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
+
+
 :::tip
 Let's say your Actor produces a lot of data that you want to delete just after the Actor finishes. If you enable this toggle, your scoped token will be allowed to do that.
-:::
-
-:::caution
-Even if you disable this option, **the default storages can still be accessed anonymously using just their ID** (which can be obtained via the [run object](https://docs.apify.com/api/v2#tag/Actor-runsRun-object-and-its-storages)).
-
-Moreover, if a scoped token can run an Actor, it can also list all its runs, including their storage IDs, ultimately exposing their content as well. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
 :::
 
 ### Schedules
