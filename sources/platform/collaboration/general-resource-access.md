@@ -196,11 +196,10 @@ The link will include a signature **only if the general resource access is set t
 
 You can generate pre-signed URLs programmatically for datasets and key-value stores:
 
+- **Dataset items**
 ```js
 import { ApifyClient } from "apify-client";
 const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
-
-// Dataset items
 const dataset = client.dataset('my-dataset-id');
 
 // Creates pre-signed URL for items (expires in 7 days)
@@ -208,18 +207,23 @@ const itemsUrl = await dataset.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 36
 
 // Creates permanent pre-signed URL for items
 const permanentItemsUrl = await dataset.createItemsPublicUrl();
+```
 
-// Key-value store
+- **Key-value store list of keys**
+```js
 const store = client.keyValueStore('my-store-id');
-
-// Get permanent URL for a single record
-const recordUrl = store.getRecordPublicUrl('report.pdf');
 
 // Create pre-signed URL for list of keys (expires in 1 day)
 const keysPublicUrl = await store.createKeysPublicUrl({ expiresInSecs: 24 * 3600 });
 
 // Create permanent pre-signed URL for list of keys
 const permanentKeysPublicUrl = await store.createKeysPublicUrl();
+```
+
+- **Key-value store list of keys**
+```js
+// Get permanent URL for a single record
+const recordUrl = store.getRecordPublicUrl('report.pdf');
 ```
 
 :::tip Permanent signed URL
