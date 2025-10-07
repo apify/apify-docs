@@ -47,7 +47,9 @@ The default setting strikes a good balance for casual or internal use, but **Res
 You can switch to **Restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
 
 :::note Support in public Actors
+
 Because this is a new setting, some existing public Actors and integrations might not support it yet. Their authors need to update them to provide a valid token on all API calls.
+
 :::
 
 
@@ -260,7 +262,10 @@ To test your public Actor, run it using an account with **General resource acces
 
 :::
 
-In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior.
+In practice, this means that:
+- All API requests made by your Actor must include a valid API token.  
+- When using the Apify SDK or Apify Client, this is handled automatically.  
+- Avoid relying on URLs that require unrestricted access or authentication by default.
 
 
 :::caution Actor Runs Inherit User Permissions
@@ -268,3 +273,64 @@ In practice, this means that all API calls originating from the Actor need to ha
 Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
 :::
+
+### How to migrate Actors to support **Restricted** general resource access
+This section provides a practical guide and best practices to help you update your public Actors so they fully support **Restricted general resource access**.
+
+---
+
+#### 1. Always authenticate API requests
+
+All API requests from your Actor should use authenticated methods.
+When using the [Apify SDK](https://docs.apify.com/sdk/js/) or [Apify Client](https://docs.apify.com/api/client/js/), this is done automatically.
+
+If your Actor makes direct API calls, include the API token manually:
+```js
+  const response = await fetch(`https://api.apify.com/v2/key-value-stores/${storeId}`, {
+    headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+  });
+```
+
+#### 2. Generate pre-signed URLs for external sharing
+If your Actor outputs or shares links to storages (such as datasets or key-value store records), make sure to generate pre-signed URLs instead of hardcoding API URLs.
+
+Pre-signed URLs allow secure, tokenless access for external users.
+
+For example:
+
+```js
+import { ApifyClient } from "apify-client";
+
+// ❌ Avoid hardcoding raw API URLs
+const recordUrl = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${recordKey}`;
+
+// ✅ Use Apify Client methods instead
+const kvStore = client.keyValueStore(storeId);
+const recordUrl = kvStore.getRecordPublicUrl(recordKey);
+
+// Save pre-signed URL — accessible without authentication
+await Actor.pushData({ recordUrl });
+```
+
+For details on how to generate pre-signed URLs, see the section
+👉 [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+
+:::note Using Console URLs
+
+Datasets and key-value stores also include a `consoleUrl` property.
+Console URLs provide stable links to the resource’s page in Apify Console.
+Unauthenticated users will be prompted to sign in, ensuring they have required permissions.
+
+:::
+
+#### Test your Actor under restricted access
+Before publishing or updating your Actor, it’s important to verify that it works correctly for users with **restricted general resource access**.
+
+You can easily test this by switching your own account’s setting to **Restricted**, or by creating an organization under your account and enabling restricted access there. This approach ensures your tests accurately reflect how your public Actor will behave for end users.
+
+:::tip Make sure links work as expected
+
+Once you’ve enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs - especially those stored in results or notifications — work without requiring an API token.
+
+:::
+
