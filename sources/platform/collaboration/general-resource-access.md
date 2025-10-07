@@ -125,24 +125,116 @@ await datasetClient.update({
 
 Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, **storage resources** (like key-value stores, datasets, and request queues) support generating **pre-signed URLs**. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
 
-Pre-signed URLs:
+#### How pre-signed URLs work
+A pre-signed URL is a regular HTTPS link that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
+When the signed URL is used, Apify validates the signature and grants temporary access only to the file or record it refers to - no API token required.
 
-- Work even when General resource access is restricted
-- Expire automatically after 14 days (by default)
-- Are scoped to a single resource (prevents access to other records)
-- Are ideal for sharing screenshots, reports, or any other one-off files
+**Key properties**:
+- **Works with restricted resources** – Even if “General resource access” is set to **Restricted**, the signed URL will work without asking for API token.  
+**Time-limited (optional)** – Links can be either **temporary** (expiring after a specified duration) or **permanent**, depending on how they’re generated.  
+**Lightweight** - Ideal for embedding in emails, webhooks, reports, or notifications where authentication isn’t possible.
+
+#### What links can be pre-signed
+
+Only selected **dataset** and **key-value store** endpoints support pre-signed URLs.  
+This allows fine-grained control over what data can be shared without authentication.
+
+| Resource | Link | Validity | Notes |
+|-----------|-----------------------|------|-------|
+| **Datasets** | Dataset items (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
+| **Key-value stores** | List of keys (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
+| **Key-value stores** | Single record (`/v2/key-value-stores/:storeId/records/:recordKey`) | **Permanent only** | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
+
+:::info Automatically generated signed URLs
+
+When you retrieve dataset or key-value store details using:
+
+- `GET https://api.apify.com/v2/datasets/:datasetId`  
+- `GET https://api.apify.com/v2/key-value-stores/:storeId`
+
+the API response includes automatically generated fields:  
+
+- `itemsPublicUrl` – a pre-signed URL providing access to dataset items  
+- `keysPublicUrl` – a pre-signed URL providing access to key-value store keys  
+
+These automatically generated URLs are **valid for 14 days**.
+
+The response also contains:
+- `consoleUrl` - provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
+
+:::
+
+#### How to generate pre-signed URLs
+You can create pre-signed URLs either through the Apify Console or programmatically via the API or SDK.
+
+**In console:**
 
 To generate a pre-signed link, you can use the **Export** button in Console, or call the appropriate API client method.
 
-![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
+**1. Using the Apify Console**
 
-:::info Console links for resources
+:::note
 
-Resource objects returned by the API and clients (like `apify-client-js`) include a `consoleUrl` property. This provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
-
-This is ideal for use-cases like email notifications or other automated workflows.
+The link will include a signature **only if the general resource access is set to Restricted**. For unrestricted datasets, the link will work without a signature.
 
 :::
+
+- **Dataset items:**    
+  1. Click the **Export** button.  
+  2. In the modal that appears, click **Copy shareable link**.  
+
+  ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
+
+- **Key-value store records:**  
+  1. Open a key-value store.  
+  2. Navigate to the record you want to share.  
+  3. In the **Actions** column, click the link icon to **copy signed link**.  
+
+  ![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
+
+**2. Using the Apify Client**
+
+You can generate pre-signed URLs programmatically for datasets and key-value stores:
+
+```js
+import { ApifyClient } from "apify-client";
+const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
+
+// Dataset items
+const dataset = client.dataset('my-dataset-id');
+
+// Creates pre-signed URL for items (expires in 7 days)
+const itemsUrl = await dataset.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 3600 });
+
+// Creates permanent pre-signed URL for items
+const permanentItemsUrl = await dataset.createItemsPublicUrl();
+
+// Key-value store
+const store = client.keyValueStore('my-store-id');
+
+// Get permanent URL for a single record
+const recordUrl = store.getRecordPublicUrl('report.pdf');
+
+// Create pre-signed URL for list of keys (expires in 1 day)
+const keysPublicUrl = await store.createKeysPublicUrl({ expiresInSecs: 24 * 3600 });
+
+// Create permanent pre-signed URL for list of keys
+const permanentKeysPublicUrl = await store.createKeysPublicUrl();
+```
+
+:::tip Permanent signed URL
+
+If the `expiresInSecs` option is not specified, the generated link will be **permanent**.
+
+:::
+
+**3. Signing URLs manually (Advanced)**
+
+If you need finer control - for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
+
+👉 [See reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
+
+Manual signing uses standard **HMAC (SHA-256)** with `urlSigningSecretKey` of the resource and can be easily integrated.
 
 ### Sharing storages by name
 
