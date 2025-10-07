@@ -1,18 +1,16 @@
 ---
 title: Workato integration
-description: Learn how to connect Apify web scraping with Workato to automate data flows across your business applications.
+description: Learn how to integrate your Apify Actors with Workato for automated workflows.
 sidebar_label: Workato
 sidebar_position: 7
 slug: /integrations/workato
 ---
 
-**Learn how to connect Apify web scraping with Workato to automate data flows across your business applications.**
+**Learn how to integrate your Apify Actors with Workato for automated workflows.**
 
 ---
 
-[Workato](https://www.workato.com/) is an enterprise-grade automation platform that lets you build **recipes** (workflows) across applications using no-code connectors. The [Apify Workato Connector](https://apify.com) integrates web scraping capabilities into your enterprise workflows.
-
-Recipes start with a **trigger** (an event) and execute **actions** (operations). With the Apify connector, you can start scraping jobs, monitor tasks, and process scraped data throughout your tech stack.
+[Workato](https://www.workato.com/) is an automation platform where you build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run **Apify Actors** inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Get started
 
@@ -32,7 +30,7 @@ The Apify Workato Connector is available in the Workato Community Library. Here'
 
 ![Install connector](../images/workato/install-connector.png)
 
-After successful installation, the Apify connector will appear under **My Connectors** in your Workato workspace and will be available for use in your projects.
+After successful installation, the Apify connector will appear in **Connector SDK** under Tools tab in your Workato workspace and after releasing it will be available for use in your projects.
 
 ## Step 2: Connect your Apify account
 
@@ -62,13 +60,13 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 
 You can authenticate the connection using either:
 
-- **API Key** (Apify API token)
-- **OAuth 2.0**
+- **Apify API token**
+- **Sign in with Apify** (OAuth 2.0)
 
 #### Authenticate with API token
 
-1. In the Apify connection dialog, select **API Key** as the authentication type.
-2. Enter your **Apify API token**. In Apify Console, go to [**Settings → API & Integrations**](https://console.apify.com/settings/integrations) and copy your API token.
+1. In the Apify connection dialog, select **Apify API token** as the authentication type.
+2. Enter your **API Token**. In Apify Console, go to [**Settings → Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
 3. Click **Connect**. Workato will test the connection by making an authenticated call to verify your credentials.
 
 ![Workato API Key authentication](../images/workato/create-connection-api-key.png)
@@ -76,12 +74,13 @@ You can authenticate the connection using either:
 
 #### Authenticate with OAuth 2.0
 
-1. In the Apify connection dialog, select **OAuth 2.0** as the authentication type.
+1. In the Apify connection dialog, select **Sign in with Apify** as the authentication type.
 2. Click **Connect** to start the OAuth flow.
 3. Sign in to Apify and authorize Workato to access your account.
-4. After authorizing, you’ll be redirected back to Workato and the connection will be established.
+4. After authorizing, you'll be redirected back to Workato and the connection will be established.
 
 ![Workato OAuth 2.0 authentication](../images/workato/create-connection-oauth.png)
+![Workato API Key authentication](../images/workato/create-connection-oauth-success.png)
 
 Once the connection is created and authenticated, you can use it in any recipe.
 
@@ -89,7 +88,7 @@ Once the connection is created and authenticated, you can use it in any recipe.
 
 After connecting your Apify account, you can start creating recipes that use Apify triggers and actions. A recipe begins with a trigger (an event that starts the workflow) and includes one or more actions (operations to perform).
 
-## Selection and input methods
+### Selection and input methods
 
 The Apify connector provides dynamic dropdown lists (pick lists) and flexible input methods to make configuration easier:
 
@@ -97,7 +96,7 @@ The Apify connector provides dynamic dropdown lists (pick lists) and flexible in
 
 - **Selection method (pick list vs. manual ID):** Choose from fetched lists or switch to manual and paste an ID. If an item doesn't appear, make sure it exists in your account and has been used at least once, or paste its ID manually.
 - **Available pick lists:**
-  - **Actors**: Lists your Actors or store Actors, displaying the title and username/name
+  - **Actors**: Lists your recently used Actors or Apify Store Actors, displaying the title and username/name
   - **Tasks**: Lists your saved tasks, displaying the task title and Actor name
   - **Datasets**: Lists available datasets, sorted by most recent first
   - **Key-Value Stores**: Lists available stores, sorted by most recent first
@@ -105,7 +104,7 @@ The Apify connector provides dynamic dropdown lists (pick lists) and flexible in
 
 ### Input types
 
-- **Input type (schema‑based vs. JSON):** For Actor and Task inputs, when you choose an item from the pick list, the connector fetches the input schema and renders fields. In this case, the JSON field is not used. If schema fetching fails or you switch to manual input, the JSON field appears and you can paste valid JSON instead.
+- **Input type (schema‑based vs. JSON):** For Actor inputs, when you choose an Actor from the pick list, the connector fetches the input schema and renders dynamic fields based on the Actor's configuration. If schema fetching fails or you switch to manual input, a JSON input field appears where you can paste valid JSON instead. For Task inputs, you can optionally provide an override input as JSON to modify the task's pre-configured settings.
 
 :::tip Copy the Actor/Task input JSON
 
@@ -117,7 +116,7 @@ Open the Actor or Task Input page in Apify Console, switch format to JSON, and c
 
 ![Input modes](../images/workato/input-modes.png)
 
-## Where to find your IDs
+#### Where to find your IDs
 
 When using manual input instead of pick lists, you'll need to provide the correct resource IDs. Here's how to find them in Apify Console:
 
@@ -140,7 +139,7 @@ When using manual input instead of pick lists, you'll need to provide the correc
 
 :::tip Inline documentation
 
-Each connector trigger and action field in Workato includes inline help text describing the parameter and expected format. If you're unsure, hover the field label or click the information icon in the Workato editor.
+Each connector trigger and action field in Workato includes inline help text describing the parameter and expected format.
 
 :::
 
@@ -148,21 +147,21 @@ The Apify connector provides the following triggers that monitor your Apify acco
 
 ### Actor Run Finished
 
-**Triggers when a selected Actor run completes (succeeded, failed, timed out, or aborted).**
+**Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted).**
 
 This trigger monitors a specific Apify Actor and starts the recipe when any run of that Actor reaches a terminal status. You can:
 
-- Select the Actor from a dropdown populated by your available Actors (either your Actors or store Actors)
-- Choose to trigger on specific event types (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`)
+- Select the Actor from recently used Actors or Apify store Actors
+- Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`)
 - Access run details, status, and metadata in subsequent recipe steps
 
 ![Actor Run Finished trigger](../images/workato/trigger-actor.png)
 
 ### Task Run Finished  
 
-**Triggers when a selected Actor task run completes.**
+**Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted).**
 
-This trigger watches a specific saved task (an Actor with preset inputs) and fires when that task's run completes with any terminal status. You can choose specific event types to monitor (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`). This is particularly useful for:
+This trigger creates a webhook in your Apify account that will notify Workato when the selected Task run finishes with the specified statuses. This trigger watches a specific saved task (an Actor with preset inputs) and fires when that task's run completes with any terminal status. You can choose specific statuses to monitor (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`). This is particularly useful for:
 
 - Monitoring scheduled or recurring tasks
 - Building workflows dependent on specific data collection tasks
@@ -176,36 +175,44 @@ The Apify connector offers comprehensive actions to interact with the Apify plat
 
 ### Run Actor
 
-**Starts a run of any Apify Actor by its ID or name.**
+**Run an Apify Actor with customizable execution parameters.**
 
-This action initiates web scraping or automation tasks on-demand. You can:
+This action runs an Apify Actor with your specified input and execution parameters. You can choose to wait for completion or start the run asynchronously. Actors are reusable serverless programs that can scrape websites, process data, and automate workflows. You can:
 
-- Select from your available Actors or specify an Actor ID
-- Provide custom input JSON to override default settings
-- Configure run options like memory allocation and timeout
+- Select from your recently used Actors or Apify store Actors
+- Provide input using dynamic schema-based fields or raw JSON
+- Configure run options like memory allocation, timeout, and build version
 - Choose between synchronous (wait for completion) or asynchronous execution
+
+:::tip Input field descriptions
+
+Each input field includes helpful descriptions that guide you toward the correct format and expected values.
+
+Default values for input fields will be displayed as placeholders, giving you a starting point for configuration.
+
+:::
 
 ![Run Actor action](../images/workato/run-actor.png)
 
 ### Run Task
 
-**Runs a saved Apify task (an Actor with pre-configured inputs).**
+**Run an Apify Actor task with optional input overrides.**
 
-This action simplifies running recurring setups by executing tasks with predefined configurations. You can:
+This action runs an Apify Task with optional input overrides and execution parameters. Tasks are pre-configured Actor runs with saved input, making them ideal for repeated executions. You can optionally override the task's configured input. You can:
 
 - Select from your saved tasks or input specific Task ID
-- Override specific inputs with new JSON if needed
-- Configure task options like memory, build ID or timeout
+- Override the task's pre-configured input with new JSON if needed
+- Configure task options like memory, build version, or timeout
 
 ![Run Task action](../images/workato/run-task.png)
 
 ### Get Dataset Items
 
-**Fetches results from an Apify Dataset created by a run.**
+**Retrieves items from a dataset.**
 
-Datasets contain structured data (JSON, CSV, etc.) from your scrapers. This action:
+Select a dataset to dynamically generate output fields and retrieve its items. Datasets contain structured data (JSON, CSV, etc.) from your scrapers. This action:
 
-- Retrieves data records from specified datasets
+- Retrieves data records from specified datasets with dynamic schema detection
 - Supports pagination with limit and offset parameters
 - Returns structured data that can be passed to downstream recipe steps
 
@@ -213,25 +220,26 @@ Datasets contain structured data (JSON, CSV, etc.) from your scrapers. This acti
 
 ### Get Key-Value Store Record
 
-**Retrieves a specific record from an Apify Key-Value store.**
+**Retrieves a single record from a Key-Value Store.**
 
-Key-Value stores often contain metadata, logs, or files from Actor runs. This action:
+Select a Key-Value Store and a key to retrieve the corresponding record as a text string or binary file. Key-Value stores often contain metadata, logs, or files from Actor runs. This action:
 
-- Fetches named entries by key from specified stores
+- Fetches named entries by key from specified stores with dynamic key selection
 - Accesses configuration data, screenshots, or custom outputs
+- Supports both text and binary content types
 - Enables flexible data retrieval for various use cases
 
 ![Get Key-Value Store record](../images/workato/get-key-val.png)
 
 ### Scrape Single URL
 
-**Runs Apify's Website Content Crawler synchronously on one URL.**
+**Scrapes a single URL using a selected Apify crawler.**
 
-This action provides immediate, on-demand scraping capabilities:
+Provide a single URL and a desired crawler type to get structured scraped data from that page as a JSON object. This action provides immediate, on-demand scraping capabilities:
 
 - Scrapes content from a single specified URL
-- Offers multiple crawler types (headless browser, stealth browser, raw HTTP)
-- Returns extracted content in structured format (text, markdown, HTML)
+- Offers multiple crawler types (Adaptive, Firefox, Cheerio, JSDOM)
+- Returns extracted content in structured format (text, markdown, HTML, metadata)
 - Perfect for real-time data extraction triggered by recipes
 
 ![Scrape Single URL action](../images/workato/scrape-url.png)
@@ -270,7 +278,6 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - **Error handling:** Implement proper error handling for failed Actor runs using Workato's conditional logic
 - **Rate limiting:** Be mindful of API rate limits when designing high-frequency workflows
 - **Data validation:** Validate scraped data before sending to critical business systems
-
 
 ## Troubleshooting
 
