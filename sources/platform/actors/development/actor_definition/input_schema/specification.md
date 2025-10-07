@@ -464,8 +464,7 @@ Editor type `requestListSources` supports input in formats defined by the [sourc
 
 Editor type `globs` maps to the Crawlee's [GlobInput](https://crawlee.dev/api/core#GlobInput) used by the [UrlPatterObject](https://crawlee.dev/api/core#UrlPatternObject).
 
-Editor type `fileupload` enables users to specify list of files as input. The input is passed to the Actor as an array of strings. It is the Actor author's responsibility to interpret the strings, including validating the file existence and format. The editor makes it easier for users to upload the files to a key-value store they choose.
-
+Editor type `fileupload` enables users to specify a list of files as input. The input is passed to the Actor as an array of strings. The Actor author is responsible for interpreting the strings, including validating file existence and format. This editor simplifies the process for users to upload files to a key-value store of their choice.
 Editor type `select` allows the user to pick items from a select, providing multiple choices. Please check this example of how to define the multiselect field:
 
 ```json
