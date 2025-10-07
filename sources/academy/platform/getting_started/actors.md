@@ -5,7 +5,7 @@ sidebar_position: 1
 slug: /getting-started/actors
 ---
 
-# Actors {#actors}
+## Actors {#actors}
 
 **What is an Actor? How do we create them? Learn the basics of what Actors are, how they work, and try out an Actor yourself right on the Apify platform!**
 
