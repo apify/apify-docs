@@ -132,6 +132,7 @@ async with Actor:
     except ApifyApiError as error:
         if 'invalidItems' in error.data:
             validation_errors = error.data['invalidItems']
+
 ```
   </TabItem>
 </Tabs>

@@ -128,10 +128,12 @@ await datasetClient.update({
 Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, **storage resources** (like key-value stores, datasets, and request queues) support generating **pre-signed URLs**. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
 
 #### How pre-signed URLs work
+
 A pre-signed URL is a regular HTTPS link that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
 When the signed URL is used, Apify validates the signature and grants temporary access only to the file or record it refers to - no API token required.
 
 **Key properties**:
+
 - **Works with restricted resources** – Even if “General resource access” is set to **Restricted**, the signed URL will work without asking for API token.  
 **Time-limited (optional)** – Links can be either **temporary** (expiring after a specified duration) or **permanent**, depending on how they’re generated.  
 **Lightweight** - Ideal for embedding in emails, webhooks, reports, or notifications where authentication isn’t possible.
@@ -162,11 +164,13 @@ the API response includes automatically generated fields:
 These automatically generated URLs are **valid for 14 days**.
 
 The response also contains:
+
 - `consoleUrl` - provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
 
 :::
 
 #### How to generate pre-signed URLs
+
 You can create pre-signed URLs either through the Apify Console or programmatically via the API or SDK.
 
 **In console:**
@@ -181,7 +185,7 @@ The link will include a signature **only if the general resource access is set t
 
 :::
 
-- **Dataset items:**    
+- **Dataset items:**
   1. Click the **Export** button.  
   2. In the modal that appears, click **Copy shareable link**.  
 
@@ -199,6 +203,7 @@ The link will include a signature **only if the general resource access is set t
 You can generate pre-signed URLs programmatically for datasets and key-value stores:
 
 - **Dataset items**
+
 ```js
 import { ApifyClient } from "apify-client";
 const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
@@ -212,6 +217,7 @@ const permanentItemsUrl = await dataset.createItemsPublicUrl();
 ```
 
 - **Key-value store list of keys**
+
 ```js
 const store = client.keyValueStore('my-store-id');
 
@@ -223,6 +229,7 @@ const permanentKeysPublicUrl = await store.createKeysPublicUrl();
 ```
 
 - **Key-value store list of keys**
+
 ```js
 // Get permanent URL for a single record
 const recordUrl = store.getRecordPublicUrl('report.pdf');
@@ -263,6 +270,7 @@ To test your public Actor, run it using an account with **General resource acces
 :::
 
 In practice, this means that:
+
 - All API requests made by your Actor must include a valid API token.  
 - When using the Apify SDK or Apify Client, this is handled automatically.  
 - Avoid relying on URLs that require unrestricted access or authentication by default.
@@ -275,6 +283,7 @@ Keep in mind that when users run your public Actor, the Actor makes API calls un
 :::
 
 ### How to migrate Actors to support **Restricted** general resource access
+
 This section provides a practical guide and best practices to help you update your public Actors so they fully support **Restricted general resource access**.
 
 ---
@@ -285,6 +294,7 @@ All API requests from your Actor should use authenticated methods.
 When using the [Apify SDK](https://docs.apify.com/sdk/js/) or [Apify Client](https://docs.apify.com/api/client/js/), this is done automatically.
 
 If your Actor makes direct API calls, include the API token manually:
+
 ```js
   const response = await fetch(`https://api.apify.com/v2/key-value-stores/${storeId}`, {
     headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
@@ -292,6 +302,7 @@ If your Actor makes direct API calls, include the API token manually:
 ```
 
 #### 2. Generate pre-signed URLs for external sharing
+
 If your Actor outputs or shares links to storages (such as datasets or key-value store records), make sure to generate pre-signed URLs instead of hardcoding API URLs.
 
 Pre-signed URLs allow secure, tokenless access for external users.
@@ -324,6 +335,7 @@ Unauthenticated users will be prompted to sign in, ensuring they have required p
 :::
 
 #### Test your Actor under restricted access
+
 Before publishing or updating your Actor, it’s important to verify that it works correctly for users with **restricted general resource access**.
 
 You can easily test this by switching your own account’s setting to **Restricted**, or by creating an organization under your account and enabling restricted access there. This approach ensures your tests accurately reflect how your public Actor will behave for end users.
