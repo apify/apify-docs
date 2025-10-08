@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /getting-started/inputs-outputs
 ---
 
-## Inputs & outputs {#inputs-outputs}
-
 **Create an Actor from scratch which takes an input, processes that input, and then outputs a result that can be used elsewhere.**
 
 ---
