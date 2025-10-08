@@ -1,0 +1,55 @@
+---
+description: Cursor-specific documentation style rules for Apify docs
+globs: ["sources/**/*.md", "sources/**/*.mdx"]
+alwaysApply: true
+---
+
+# Cursor-Specific Documentation Rules
+
+## Context-Aware Writing
+
+When editing documentation in Cursor, consider the broader context:
+
+- **Cross-references**: When mentioning other pages, use Cursor's file navigation to verify links
+- **Consistency checks**: Use Cursor's search to ensure terminology consistency across files
+- **Code examples**: Leverage Cursor's syntax highlighting and validation for code blocks
+
+## Cursor-Specific Workflows
+
+### Using Cursor Chat for Documentation
+
+- Ask Cursor to "review this documentation for clarity and completeness"
+- Use "explain this technical concept in simpler terms" for complex topics
+- Request "suggest improvements for this tutorial structure"
+
+### Using Cmd+K for Quick Edits
+
+- Use `@AGENTS.md` to reference the main documentation standards
+- Use `@sources/**/*.md` to search across all documentation files
+- Use `@apify-api/**/*.yaml` to reference API specifications
+
+## File-Specific Guidance
+
+### For Platform Documentation (`sources/platform/**/*.md`)
+
+- Focus on practical, actionable guidance
+- Include real-world examples and use cases
+- Reference related API endpoints when applicable
+
+### For Academy Content (`sources/academy/**/*.md`)
+
+- Structure content for learning progression
+- Include hands-on exercises and examples
+- Provide clear prerequisites and next steps
+
+### For MDX Files
+
+- Leverage Cursor's MDX syntax highlighting
+- Use component imports and JSX syntax appropriately
+- Ensure proper frontmatter formatting
+
+## Quality Assurance in Cursor
+
+- Use Cursor's spell check for documentation files
+- Leverage Cursor's markdown preview for formatting verification
+- Use Cursor's search to find similar content and maintain consistency

@@ -4,6 +4,7 @@ description: Learn about Facebook scraper modules, extract posts, comments, and 
 sidebar_label: Facebook
 sidebar_position: 8
 slug: /integrations/make/facebook
+unlisted: true
 ---
 
 ## Apify Scraper for Facebook Data
@@ -28,7 +29,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. Connect your Apify account with Make, you need to get the Apify API token. In the Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 
-    ![Apify Console token for Make.png](images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
@@ -237,7 +238,6 @@ You’ll get:
 
 Looking for more than just Facebook? You can use other native Make apps powered by Apify:
 
-- [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok Data](/platform/integrations/make/tiktok)
 - [Google Search](/platform/integrations/make/search)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
@@ -245,5 +245,5 @@ Looking for more than just Facebook? You can use other native Make apps powered 
 - [AI crawling](/platform/integrations/make/ai-crawling)
 - [Amazon](/platform/integrations/make/amazon)
 
-And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
 

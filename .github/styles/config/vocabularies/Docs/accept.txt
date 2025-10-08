@@ -1,5 +1,3 @@
-\bApify\b(?:-\w+)?
-@apify\.com
 SDK(s)
 [Ss]torages
 Crawlee
@@ -18,6 +16,7 @@ node_modules
 SDK
 Dockerfile
 Docker's
+CAPTCHAs
 
 Docusaurus
 navbar
@@ -55,7 +54,6 @@ proxied
 LLM
 embedder
 chatbot
-[Ll]angchain
 
 [Kk]eboola
 [Aa]irbyte
@@ -70,7 +68,7 @@ exploitability
 [Ww]hitepaper
 [Cc]ron
 scalably
-metamorph
+[Mm]etamorph
 hostname
 IPs
 unscoped
@@ -83,14 +81,17 @@ preconfigured
 [Zz]apier
 [Tt]rello
 [Pp]refill
+[Gg]umloop
+[Rr]edocly
+[Aa]pify
 
 [Mm]ultiselect
 
 devs
 asyncio
 backlinks?
-captchas?
-Chatbot
+
+
 combinator
 deduplicating
 dev
@@ -122,3 +123,4 @@ walkthroughs?
 
 ul
 [Aa]gno
+pnpm

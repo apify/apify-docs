@@ -1,8 +1,9 @@
 ---
-title: Automated tests
+title: Automated tests for Actors
 description: Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing Actor.
 slug: /actors/development/automated-tests
 sidebar_position: 9
+sidebar_label: Automated tests
 ---
 
 **Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing Actor.**
@@ -11,8 +12,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
-
-# Automated tests for Actors
 
 Automated testing is crucial for maintaining the reliability and performance of your Actors over time. This guide will help you set up automated tests using the [Actor Testing Actor](https://apify.com/pocesar/actor-testing).
 

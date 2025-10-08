@@ -10,6 +10,8 @@ if (process.env.LOCALHOST) {
     absoluteUrl = process.env.APIFY_DOCS_ABSOLUTE_URL;
 }
 
+const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '');
+
 const themeConfig = {
     docs: {
         versionPersistence: 'localStorage',
@@ -130,17 +132,10 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
-                        label: 'Actor Whitepaper',
+                        label: 'Actor whitepaper',
                         href: 'https://whitepaper.actor',
                     },
                 ],
-            },
-            {
-                href: 'https://github.com/apify',
-                label: 'GitHub',
-                title: 'Apify on GitHub',
-                position: 'right',
-                className: 'icon',
             },
             {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
@@ -255,6 +250,10 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                        label: 'Discord',
+                    },
+                    {
                         label: 'Trust Center',
                         href: 'https://trust.apify.com',
                     },
@@ -271,9 +270,15 @@ const themeConfig = {
     algolia: {
         appId: 'N8EOCSBQGH',
         apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
-        indexName: 'test_test_apify_sdk',
+        indexName: 'apify_sdk_v2',
+        placeholder: 'Search documentation',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
+        },
+        translations: {
+            button: {
+                buttonText: 'Search documentation…',
+            },
         },
     },
     hubspot: {
@@ -309,8 +314,45 @@ const plugins = [
     },
 ];
 
+const scripts = [
+    // {
+    //     src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+    //     'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
+    //     'data-project-name': 'Apify',
+    //     'data-modal-title': 'Apify AI Assistant',
+    //     'data-project-color': '#666666',
+    //     'data-button-hide': 'true',
+    //     'data-search-mode-enabled': 'true',
+    //     'data-search-include-source-names': '["Docs"]',
+    //     'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
+    //     'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
+    //     'data-modal-override-open-id': 'ask-ai-input',
+    //     'data-modal-override-open-class': 'search-input',
+    //     'data-font-size-xs': '1.2rem',
+    //     'data-font-size-sm': '1.4rem',
+    //     'data-font-size-md': '1.6rem',
+    //     'data-font-size-lg': '1.8rem',
+    //     'data-font-size-xl': '2.0rem',
+    //     async: true,
+    // },
+    // {
+    //     src: 'https://cdn.jsdelivr.net/npm/@inkeep/cxkit-js@0.5/dist/embed.js',
+    //     type: 'module',
+    //     async: true,
+    // },
+];
+
+const customFields = {
+    // inkeepApiKey: process.env.LOCALHOST || process.env.DEV
+    //     ? 'bbbb9f1001a9b66f282431a80bb743a24e2bdefb85d4f1e4' // development, works with localhost
+    //     : '8af30e40009f26622237f75aab8256064c26a3063717c48a', // production, only works on apify.com (any subdomain)
+};
+
 module.exports = {
     themeConfig,
     plugins,
     absoluteUrl,
+    noIndex,
+    scripts,
+    customFields,
 };

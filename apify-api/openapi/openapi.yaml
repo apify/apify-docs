@@ -14,25 +14,22 @@ info:
     [JSON](http://www.json.org/) format with UTF-8 encoding,
     with a few exceptions that are explicitly described in the reference.
 
-    To access the API using [Node.js](https://nodejs.org/en/), we recommend the
-    [`apify-client`](https://docs.apify.com/api/client/js) [NPM
+    - To access the API using [Node.js](https://nodejs.org/en/), we recommend the [`apify-client`](https://docs.apify.com/api/client/js) [NPM
     package](https://www.npmjs.com/package/apify-client).
-
-    To access the API using [Python](https://www.python.org/), we recommend the
-    [`apify-client`](https://docs.apify.com/api/client/python) [PyPI
+    - To access the API using [Python](https://www.python.org/), we recommend the [`apify-client`](https://docs.apify.com/api/client/python) [PyPI
     package](https://pypi.org/project/apify-client/).
+
     The clients' functions correspond to the API endpoints and have the same
     parameters. This simplifies development of apps that depend on the Apify
     platform.
 
-    **Note:** All requests with JSON payloads need to specify the `Content-Type:
-    application/json` HTTP header!
-    All API endpoints support the `method` query parameter that can override the
-    HTTP method.
-    For example, if you want to call a POST endpoint using a GET request, simply
-    add the query parameter `method=POST` to the URL and send the GET request.
-    This feature is especially useful if you want to call Apify API endpoints
-    from services that can only send GET requests.
+    :::note Important Request Details
+
+    - `Content-Type` header: For requests with a JSON body, you must include the `Content-Type: application/json` header.
+
+    - Method override: You can override the HTTP method using the `method` query parameter. This is useful for clients that can only send `GET` requests. For example, to call a `POST` endpoint, append `?method=POST` to the URL of your `GET` request.
+
+    :::
 
     ## Authentication
     <span id="/introduction/authentication"></span>
@@ -375,7 +372,7 @@ info:
       <tr>
         <td><code>429</code></td>
         <td><code>rate-limit-exceeded</code></td>
-        <td>You have exceeded the rate limit of 30 requests per second</td>
+        <td>You have exceeded the rate limit of ... requests per second</td>
       </tr>
       <tr>
         <td><code>405</code></td>
@@ -401,18 +398,18 @@ info:
     ### Per-resource rate limit
     <span id="/introduction/rate-limiting/per-resource-rate-limit"></span>
 
-    The default per-resource rate limit is _30 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
+    The default per-resource rate limit is _60 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
     The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
     Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
-    These endpoints have a rate limit of _100 requests per second per resource_:
+    These endpoints have a rate limit of _200 requests per second per resource_:
 
     * CRUD ([get](#/reference/key-value-stores/record/get-record),
       [put](#/reference/key-value-stores/record/put-record),
       [delete](#/reference/key-value-stores/record/delete-record))
       operations on key-value store records
 
-    These endpoints have a rate limit of _200 requests per second per resource_:
+    These endpoints have a rate limit of _400 requests per second per resource_:
     * [Run Actor](#/reference/actors/run-collection/run-actor)
     * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
     * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
@@ -627,20 +624,8 @@ components:
   securitySchemes:
     httpBearer:
       $ref: components/securitySchemes/httpBearer.yaml
-    httpBearerActorBuilds:
-      $ref: components/securitySchemes/httpBearerActorBuilds.yaml
-    httpBearerStoreId:
-      $ref: components/securitySchemes/httpBearerStoreId.yaml
-    httpBearerQueueId:
-      $ref: components/securitySchemes/httpBearerQueueId.yaml
     apiKey:
       $ref: components/securitySchemes/apiKey.yaml
-    apiKeyActorBuilds:
-      $ref: components/securitySchemes/apiKeyActorBuilds.yaml
-    apiKeyStoreId:
-      $ref: components/securitySchemes/apiKeyStoreId.yaml
-    apiKeyQueueId:
-      $ref: components/securitySchemes/apiKeyQueueId.yaml
 security:
   - httpBearer: []
   - apiKey: []

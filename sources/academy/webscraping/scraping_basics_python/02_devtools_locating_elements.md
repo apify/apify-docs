@@ -135,7 +135,7 @@ We'll expand the result by clicking the small arrow, then hover our cursor over 
 
 ![Highlighting a querySelectorAll() result](./images/devtools-hover-queryselectorall.png)
 
-To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like in Python lists (or JavaScript arrays):
+To save the subwoofer in a variable for further inspection, we can use index access with brackets, just like with Python lists (or JavaScript arrays):
 
 ```js
 products = document.querySelectorAll('.product-item');
@@ -189,7 +189,11 @@ Go to Shein's [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewel
 
 Go to Guardian's [page about F1](https://www.theguardian.com/sport/formulaone). Use the **Console** to find all HTML elements representing the articles.
 
-Hint: Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
+:::tip Need a nudge?
+
+Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
+
+:::
 
 ![Articles on Guardian's page about F1](./images/devtools-exercise-guardian1.png)
 

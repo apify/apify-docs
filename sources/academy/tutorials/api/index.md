@@ -1,12 +1,12 @@
 ---
-title: API tutorials
+title: Tutorials on Apify API
 description: A collection of various tutorials explaining how to interact with the Apify platform programmatically using its API.
-sidebar_position: 20
+sidebar_position: 6
 category: tutorials
 slug: /api
 ---
 
-# API Tutorials 💻📚
+# Using Apify API
 
 **A collection of various tutorials explaining how to interact with the Apify platform programmatically using its API.**
 

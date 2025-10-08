@@ -17,7 +17,7 @@ An Actor is a combination of source code and various settings in a Docker contai
 A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. For more information visit Docker's [site](https://www.docker.com/resources/what-container/).
 :::
 
-With every new version of an Actor, a new build is created. Each Actor build has its number (for example, **1.2.34**), and some builds are tagged for easier use (for example, _latest_ or _beta_). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
+With every new version of an Actor, a new build is created. Each Actor build has its number (for example, **1.2.34**), and some builds are tagged for easier use (for example, _latest_ or _beta_). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options. To change which build a tag refers to, you can reassign it using the [Actor update](/api/v2/act-put) API endpoint.
 
 ![Actor run options](./images/runs_and_builds/actor-run-options.png)
 
@@ -99,7 +99,7 @@ You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** i
 - _Immediately_ - this is the default option. The Actor process is killed immediately with no grace period.
 - _Gracefully_ - the Actor run receives a signal about aborting via the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting aborted. This is helpful in cases where you plan to resurrect the run later because it gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
 
-You can abort a run in Apify Console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
+You can abort a run in Apify Console using the **Abort** button or via API using the [Abort run](/api/v2/actor-run-abort-post) endpoint.
 
 ### Resurrection of finished run
 
@@ -111,7 +111,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/act-run-resurrect-post) API endpoint.
 
 :::info Settings adjustments
 You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:

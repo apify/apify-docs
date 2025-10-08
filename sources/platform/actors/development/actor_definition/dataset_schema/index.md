@@ -1,11 +1,10 @@
 ---
-title: Dataset schema
+title: Dataset schema specification
 sidebar_position: 3
 description: Learn how to define and present your dataset schema in an user-friendly output UI.
 slug: /actors/development/actor-definition/dataset-schema
+sidebar_label: Dataset schema
 ---
-
-# Dataset Schema Specification
 
 **Learn how to define and present your dataset schema in an user-friendly output UI.**
 
@@ -172,7 +171,9 @@ You have two choices of how to organize files within the `.actor` folder.
         "overview": {
             "title": "Overview",
             "transformation": {},
-            "display": {}
+            "display": {
+                "component": "table"
+            }
         }
     }
 }
@@ -216,9 +217,9 @@ The dataset schema structure defines the various components and properties that 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `fields` | string[] | true | Selects fields to be presented in the output. <br/>The order of fields matches the order of columns <br/>in visualization UI. If a field value <br/>is missing, it will be presented as **undefined** in the UI. |
-| `unwind` | string | false | Deconstructs nested children into parent object, <br/>For example, with `unwind:["foo"]`, the object `{"foo": {"bar": "hello"}}` <br/> is transformed into `{"bar": "hello"}`. |
+| `unwind` | string[] | false | Deconstructs nested children into parent object, <br/>For example, with `unwind:["foo"]`, the object `{"foo": {"bar": "hello"}}` <br/> is transformed into `{"bar": "hello"}`. |
 | `flatten` | string[] | false | Transforms nested object into flat structure. <br/>For example, with `flatten:["foo"]` the object `{"foo":{"bar": "hello"}}` <br/> is transformed into `{"foo.bar": "hello"}`. |
-| `omit` | string | false | Removes the specified fields from the output. <br/>Nested fields names can be used as well. |
+| `omit` | string[] | false | Removes the specified fields from the output. <br/>Nested fields names can be used as well. |
 | `limit` | integer | false | The maximum number of results returned. <br/>Default is all results. |
 | `desc` | boolean | false | By default, results are sorted in ascending based on the write event into the dataset. <br/> If `desc:true`, the newest writes to the dataset will be returned first. |
 

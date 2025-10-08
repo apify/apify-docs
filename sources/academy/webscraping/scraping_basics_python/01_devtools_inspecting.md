@@ -59,7 +59,7 @@ HTML, a markup language, describes how everything on a page is organized, how el
 
 While HTML and CSS describe what the browser should display, [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) is a general-purpose programming language that adds interaction to the page.
 
-In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript. If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
+In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript. If you don't see it, press <kbd>ESC</kbd> to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
 
 ![Console in Chrome DevTools](./images/devtools-console.png)
 
@@ -143,7 +143,13 @@ We're not here for playing around with elements, though—we want to create a sc
 
 ### Find FIFA logo
 
-Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure out the URL of FIFA's logo image file. Hint: You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element with a `src` attribute.
+Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure out the URL of FIFA's logo image file.
+
+:::tip Need a nudge?
+
+You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element with a `src` attribute.
+
+:::
 
 <details>
   <summary>Solution</summary>

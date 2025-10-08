@@ -4,6 +4,7 @@ description: Learn about Amazon scraper modules, extract product, search, or cat
 sidebar_label: Amazon
 sidebar_position: 6
 slug: /integrations/make/amazon
+unlisted: true
 ---
 
 ## Apify Scraper for Amazon Data
@@ -20,7 +21,7 @@ To use the module, you need an [Apify account](https://console.apify.com) and an
 
 1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-    ![Apify Console token for Make.png](images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
@@ -226,7 +227,6 @@ For Amazon URLs, you can extract:
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok Data](/platform/integrations/make/tiktok)
 - [Google Search](/platform/integrations/make/search)
 - [Google Maps Emails Data](/platform/integrations/make/maps)
@@ -234,4 +234,4 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 - [AI crawling](/platform/integrations/make/ai-crawling)
 
 
-And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

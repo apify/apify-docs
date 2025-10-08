@@ -153,9 +153,6 @@ get:
     If you specify `desc=1` query parameter, the results are returned in the reverse order than they were stored (i.e. from newest to oldest items).
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
   operationId: dataset_items_get
-  security:
-    - apiKeyStoreId: []
-    - httpBearerStoreId: []
   parameters:
     - name: datasetId
       in: path
@@ -350,6 +347,15 @@ get:
       schema:
         type: boolean
         example: false
+    - name: view
+      in: query
+      description: |
+        Defines the view configuration for dataset items based on the schema definition.
+        This parameter determines how the data will be filtered and presented.
+        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
+      schema:
+        type: string
+        example: overview
     - name: skipFailedPages
       in: query
       description: |
@@ -361,6 +367,14 @@ get:
       schema:
         type: boolean
         example: false
+    - name: signature
+      in: query
+      description: Signature used to access the items.
+      required: false
+      style: simple
+      schema:
+        type: string
+        example: 2wTI46Bg8qWQrV7tavlPI
   responses:
     '200':
       description: ''

@@ -117,6 +117,7 @@ function SearchPageContent() {
     const {
         algolia: { appId, apiKey, indexName },
     } = useAlgoliaThemeConfig();
+    const titleFormatter = useTitleFormatter();
     const documentsFoundPlural = useDocumentsFoundPlural();
     const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
     const [searchQuery, setSearchQuery] = useSearchQueryString();
@@ -295,7 +296,7 @@ function SearchPageContent() {
     return (
         <Layout>
             <Head>
-                <title>{useTitleFormatter(getTitle())}</title>
+                <title>{titleFormatter.format(getTitle())}</title>
                 {/*
          We should not index search pages
           See https://github.com/facebook/docusaurus/pull/3233

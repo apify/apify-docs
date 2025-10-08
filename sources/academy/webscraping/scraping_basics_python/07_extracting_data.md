@@ -152,19 +152,33 @@ else:
     price = min_price
 ```
 
-Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save `float()` numbers in a way which isn't always reliable:
+Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save floating point numbers in a way which isn't always reliable:
 
 ```py
 >>> 0.1 + 0.2
 0.30000000000000004
 ```
 
-These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid `float()` when working with money. Let's instead use Python's built-in [`Decimal()`](https://docs.python.org/3/library/decimal.html) type:
+These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid floating point numbers when working with money. We won't store dollars, but cents:
+
+```py
+price_text = (
+    product
+    .select_one(".price")
+    .contents[-1]
+    .strip()
+    .replace("$", "")
+# highlight-next-line
+    .replace(".", "")
+    .replace(",", "")
+)
+```
+
+In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. For converting the text to a number we'll use `int()` instead of `float()`. This is how the whole program looks like now:
 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -182,13 +196,14 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     print(title, min_price, price, sep=" | ")
@@ -198,8 +213,8 @@ If we run the code above, we have nice, clean data about all the products!
 
 ```text
 $ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker | 74.95 | 74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 1398.00 | None
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | 7495 | 7495
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 139800 | None
 ...
 ```
 
@@ -214,12 +229,12 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 Change our scraper so that it extracts how many units of each product are on stock. Your program should print the following. Note the unit amounts at the end of each line:
 
 ```text
-JBL Flip 4 Waterproof Portable Bluetooth Speaker 672
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV 77
-Sony SACS9 10" Active Subwoofer 7
-Sony PS-HX500 Hi-Res USB Turntable 15
-Klipsch R-120SW Powerful Detailed Home Speaker - Unit 0
-Denon AH-C720 In-Ear Headphones 236
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77
+Sony SACS9 10" Active Subwoofer | 7
+Sony PS-HX500 Hi-Res USB Turntable | 15
+Klipsch R-120SW Powerful Detailed Home Speaker - Unit | 0
+Denon AH-C720 In-Ear Headphones | 236
 ...
 ```
 
@@ -255,7 +270,7 @@ Denon AH-C720 In-Ear Headphones 236
       else:
           units = int(units_text)
 
-      print(title, units)
+      print(title, units, sep=" | ")
   ```
 
 </details>
@@ -288,7 +303,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://docs
       else:
           units = 0
 
-      print(title, units)
+      print(title, units, sep=" | ")
   ```
 
 </details>
@@ -304,18 +319,21 @@ https://www.theguardian.com/sport/formulaone
 Your program should print something like the following. Note the dates at the end of each line:
 
 ```text
-Wolff confident Mercedes are heading to front of grid after Canada improvement 2024-06-10
-Frustrated Lando Norris blames McLaren team for missed chance 2024-06-09
-Max Verstappen wins Canadian Grand Prix: F1 – as it happened 2024-06-09
+Brad Pitt in the paddock: how F1 the Movie went deep to keep fans coming | Fri Jun 20 2025
+Wolff hits out at Red Bull protest after Russell’s Canadian GP win | Tue Jun 17 2025
+F1 the Movie review – spectacular macho melodrama handles Brad Pitt with panache | Tue Jun 17 2025
+Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian F1 GP | Mon Jun 16 2025
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - HTML's `time` element can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
 - Beautiful Soup gives you [access to attributes as if they were dictionary keys](https://beautiful-soup-4.readthedocs.io/en/latest/#attributes).
 - In Python you can create `datetime` objects using `datetime.fromisoformat()`, a [built-in method for parsing ISO 8601 strings](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat).
-- To get just the date part, you can call `.date()` on any `datetime` object.
+- To get the date, you can call `.strftime('%a %b %d %Y')` on `datetime` objects.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -335,11 +353,10 @@ Hints:
   for article in soup.select("#maincontent ul li"):
       title = article.select_one("h3").text.strip()
 
-      time_iso = article.select_one("time")["datetime"].strip()
-      published_at = datetime.fromisoformat(time_iso)
-      published_on = published_at.date()
+      date_iso = article.select_one("time")["datetime"].strip()
+      date = datetime.fromisoformat(date_iso)
 
-      print(title, published_on)
+      print(title, date.strftime('%a %b %d %Y'), sep=" | ")
   ```
 
 </details>

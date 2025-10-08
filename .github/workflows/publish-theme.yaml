@@ -13,12 +13,12 @@ jobs:
         outputs:
             theme_changed: ${{ steps.changed-theme-files.outputs.any_changed }}
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v5
                 with:
                     fetch-depth: 0
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v5
                 with:
                     node-version: 22
                     cache: 'npm'
@@ -30,7 +30,7 @@ jobs:
 
             -   name: Check changes in theme
                 id: changed-theme-files
-                uses: tj-actions/changed-files@v46
+                uses: tj-actions/changed-files@v47
                 with:
                     since_last_remote_commit: "true"
                     files: |
@@ -41,12 +41,12 @@ jobs:
         if: ${{ needs.look_for_change.outputs.theme_changed == 'true' || github.event_name == 'workflow_dispatch' }}
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v5
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v5
                 with:
                     node-version: 22
                     cache: 'npm'

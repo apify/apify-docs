@@ -1,4 +1,5 @@
 import Admonition from '@theme/Admonition';
+import LLMButtons from '@theme/LLMButtons';
 import MDXA from '@theme/MDXComponents/A';
 import MDXCode from '@theme/MDXComponents/Code';
 import MDXDetails from '@theme/MDXComponents/Details';
@@ -29,5 +30,6 @@ const MDXComponents = {
     admonition: Admonition,
     mermaid: Mermaid,
     RunnableCodeBlock,
+    LLMButtons,
 };
 export default MDXComponents;

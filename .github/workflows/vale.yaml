@@ -7,13 +7,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v5
                 with:
                     fetch-depth: 0
 
             -   name: Get changed files
                 id: changed-files
-                uses: tj-actions/changed-files@v46
+                uses: tj-actions/changed-files@v47
                 with:
                     files: '**/*.{md,mdx}'
                     files_ignore: |
@@ -31,6 +31,7 @@ jobs:
                     files: ${{ steps.changed-files.outputs.all_changed_files }}
                     separator: ','
                     fail_on_error: true
+                    filter_mode: nofilter
                     vale_flags: '--minAlertLevel=error'
                     reporter: github-pr-annotations
 
