@@ -176,7 +176,7 @@ If it’s **on**, the token can implicitly access the default storage of the Act
 
 If the toggle is **off**, the token can still trigger and inspect runs, but access to the default storages is restricted:
 
-- For accounts with **Restricted general resource access**, the token cannot read or write default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
+- For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
 - For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
 
 

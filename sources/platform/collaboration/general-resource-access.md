@@ -130,13 +130,12 @@ Even when a resource is restricted, you might still want to share it with someon
 #### How pre-signed URLs work
 
 A pre-signed URL is a regular HTTPS link that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
-When the signed URL is used, Apify validates the signature and grants temporary access only to the file or record it refers to - no API token required.
+When the signed URL is used, Apify validates the signature and grants access - no API token required.
 
 **Key properties**:
 
 - **Works with restricted resources** – Even if “General resource access” is set to **Restricted**, the signed URL will work without asking for API token.  
-**Time-limited (optional)** – Links can be either **temporary** (expiring after a specified duration) or **permanent**, depending on how they’re generated.  
-**Lightweight** - Ideal for embedding in emails, webhooks, reports, or notifications where authentication isn’t possible.
+- **Time-limited or permantent** – Links can be either **temporary** (expiring after a specified duration) or **permanent**, depending on how they’re generated.  
 
 #### What links can be pre-signed
 
@@ -171,7 +170,7 @@ The response also contains:
 
 #### How to generate pre-signed URLs
 
-You can create pre-signed URLs either through the Apify Console or programmatically via the API or SDK.
+You can create pre-signed URLs either through the Apify Console or programmatically via the Apify API client.
 
 **In console:**
 
@@ -263,12 +262,6 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General resource access** set to **Restricted**.
 
-:::tip Testing public access behavior
-
-To test your public Actor, run it using an account with **General resource access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
-
-:::
-
 In practice, this means that:
 
 - All API requests made by your Actor must include a valid API token.  
@@ -290,7 +283,7 @@ This section provides a practical guide and best practices to help you update yo
 
 #### 1. Always authenticate API requests
 
-All API requests from your Actor should use authenticated methods.
+All API requests from your Actor should be authenticated.
 When using the [Apify SDK](https://docs.apify.com/sdk/js/) or [Apify Client](https://docs.apify.com/api/client/js/), this is done automatically.
 
 If your Actor makes direct API calls, include the API token manually:
@@ -323,8 +316,8 @@ const recordUrl = kvStore.getRecordPublicUrl(recordKey);
 await Actor.pushData({ recordUrl });
 ```
 
-For details on how to generate pre-signed URLs, see the section
-👉 [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+
 
 :::note Using Console URLs
 
