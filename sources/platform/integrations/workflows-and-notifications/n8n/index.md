@@ -73,7 +73,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 1. n8n automatically retrieves and stores the OAuth2 tokens.
 
   ![Apify Auth](../../images/n8n-oauth.png)
-  
+
 :::note Credential Control
 
 For simplicity on n8n Cloud, use the API key method if you prefer manual control over credentials.
@@ -129,6 +129,30 @@ Actions allow you to perform operations like running an Actor within a workflow.
 1. Add any subsequent nodes (e.g. Google Sheets) to process or store the output
 1. Save and execute the workflow
     ![Apify Node](../../images/n8n-workflow-example.png)
+
+## Use Apify Node as an AI tool
+
+You can run Apify operations, retrieve the results, and use AI to process, analyze, and summarize the data, or generate insights and recommendations.
+
+  ![Apify Node](../../images/n8n-ai-tool-example.png)
+
+
+1. Create a new workflow.
+1. **Add a trigger**:  Search for and select **Chat Trigger**.
+1. **Add the AI Agent node**:  Click **Add Node**, search for **AI Agent**, and select it.
+1. Configure the AI Agent:
+    - **Chat Model**: Choose the language model you want to use.
+    - **Memory (optional)**: Enables the AI model to remember and reference past interactions.
+    - **Tools**: Search for **Apify**, select **Apify Tool**, and click  **Add to Workflow**. Choose any available operation and configure it.
+1. **Run the workflow**: Save it, then provide a prompt instructing the Agent to use the Apify tool with the operations you configured earlier.
+
+:::note
+
+  Let the AI model define the parameters in your node when possible. Click the _sparkle_ icon next to a parameter to have the AI fill it in for you.
+
+:::
+
+  ![Apify Node](../../images/n8n-ai-defined-param.png)
 
 ## Available Operations
 
