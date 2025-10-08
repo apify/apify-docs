@@ -27,7 +27,7 @@ If the input object doesn't conform the schema, the caller receives an error and
 
 You can use our [visual input schema editor](https://apify.github.io/input-schema-editor-react/) to guide you through the creation of the `INPUT_SCHEMA.json` file.
 
-To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/input_schema/src/schema.json).
+To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/json_schemas/schemas/input.schema.json).
 
 You can also use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
 
@@ -392,15 +392,137 @@ Rendered input:
 
 Properties:
 
-| Property | Value | Required | Description                                                                                                  |
-| --- | --- | --- |--------------------------------------------------------------------------------------------------------------|
-| `editor` | One of <ul><li>`json`</li><li>`proxy`</li><li>`hidden`</li></ul> | Yes | UI editor used for input.                                                                                    |
-| `patternKey` | String | No | Regular expression that will be used <br/>to validate the keys of the object.                                |
-| `patternValue` | String | No | Regular expression that will be used <br/>to validate the values of object.                                  |
-| `maxProperties` | Integer | No | Maximum number of properties <br/>the object can have.                                                       |
-| `minProperties` | Integer | No | Minimum number of properties <br/>the object can have.                                                       |
-| `nullable` | Boolean | No | Specifies whether null is <br/>an allowed value.                                                             |
-| `isSecret` | Boolean | No | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors. |
+| Property               | Value                                                                                  | Required | Description                                                                                                                                                                                                                      |
+|------------------------|----------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `editor`               | One of <ul><li>`json`</li><li>`proxy`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                                                                                        |
+| `patternKey`           | String                                                                                 | No       | Regular expression that will be used <br/>to validate the keys of the object.                                                                                                                                                    |
+| `patternValue`         | String                                                                                 | No       | Regular expression that will be used <br/>to validate the values of object.                                                                                                                                                      |
+| `maxProperties`        | Integer                                                                                | No       | Maximum number of properties <br/>the object can have.                                                                                                                                                                           |
+| `minProperties`        | Integer                                                                                | No       | Minimum number of properties <br/>the object can have.                                                                                                                                                                           |
+| `nullable`             | Boolean                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                                                                                                 |
+| `isSecret`             | Boolean                                                                                | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                                                                                     |
+| `properties`           | Object                                                                                 | No       | Defines the sub-schema properties for the object used for validation and UI rendering (`schemaBased` editor). See more info below.                                                                                               |
+| `additionalProperties` | Boolean                                                                                | No       | Controls if sub-properties not listed in `properties` are allowed. Defaults to `true`. Set to `false` to make requests with extra properties fail.                                                                               |
+| `required`             | String array                                                                           | No       | An array of sub-properties keys that are required. <br />Note: This applies only if the object field itself is present. If the object field is optional and not included in the input, its required subfields are not validated. |
+
+#### Object fields validation
+
+In the same way as in the root-level input schema, a schema can be defined for sub-properties of an object using the `properties` field.
+Each sub-property within this sub-schema can define the same fields as those available at the root level of the input schema, except for the fields that apply only at the root level: `sectionCaption`, `sectionDescription`, `prefill`, `example`, and `default`.
+
+Validation is performed both in the UI and during actor execution via the API.
+Sub-schema validation works independently of the editor selected for the parent object. It also respects the `additionalProperties` and `required` fields, allowing precise control over whether properties not defined in `properties` are permitted and which properties are mandatory.
+
+:::note
+
+Object sub-properties can also define their own sub-schemas recursively, without any limit on the nesting depth.
+
+:::
+
+
+Example of an object property with sub-schema properties:
+
+```json
+{
+    "title": "Configuration",
+    "type": "object",
+    "description": "Advanced configuration options",
+    "editor": "json",
+    "properties": {
+        "locale": {
+            "title": "Locale",
+            "type": "string",
+            "description": "Locale identifier.",
+            "pattern": "^[a-z]{2,3}-[A-Z]{2}$"
+        },
+        "timeout": {
+            "title": "Timeout",
+            "type": "integer",
+            "description": "Request timeout in seconds",
+            "minimum": 1,
+            "maximum": 300
+        },
+        "debugMode": {
+            "title": "Debug Mode",
+            "type": "boolean",
+            "description": "Enable verbose logging during scraping"
+        }
+    },
+    "required": ["locale", "timeout"],
+    "additionalProperties": false
+}
+```
+
+Rendered input:
+![Apify Actor input schema with sub-schema](./images/sub-schema-json.png)
+
+In this example, the object has validation rules for its properties:
+- The `timeout` property must be an integer between 1 and 300
+- The `locale` property must be a string matching the pattern `^[a-z]{2,3}-[A-Z]{2}$`
+- The `debugMode` property is optional and can be either `true` or `false`
+- The `timeout` and `locale` properties are required
+- No additional properties beyond those defined are allowed
+
+#### `schemaBased` editor
+
+Object with sub-schema defined can use the `schemaBased` editor, which provides a user-friendly interface for editing each property individually.
+It renders all properties based on their type (and `editor` field), providing a user-friendly interface for complex objects.
+This feature works for objects (and arrays of objects), enabling each property to have its own input field in the UI.
+
+Objects with a defined sub-schema can use the `schemaBased` editor, which provides a user-friendly interface for editing each property individually.
+It renders all properties based on their type (and optionally the `editor` field), making it ideal for visually managing complex object structures.
+This editor supports both single objects and arrays of objects (see [below](#array)), allowing each property to be represented with an appropriate input field in the UI.
+
+Example of updated previous field using the `schemaBased` editor:
+
+```json
+{
+    "title": "Configuration",
+    "type": "object",
+    "description": "Advanced configuration options",
+    "editor": "schemaBased",
+    "properties": {
+        "locale": {
+            "title": "Locale",
+            "type": "string",
+            "description": "Locale identifier.",
+            "pattern": "^[a-z]{2,3}-[A-Z]{2}$",
+            "editor": "textfield"
+        },
+        "timeout": {
+            "title": "Timeout",
+            "type": "integer",
+            "description": "Request timeout in seconds",
+            "minimum": 1,
+            "maximum": 300,
+            "editor": "number"
+        },
+        "debugMode": {
+            "title": "Debug Mode",
+            "type": "boolean",
+            "description": "Enable verbose logging during scraping",
+            "editor": "checkbox"
+        }
+    },
+    "required": ["locale", "timeout"],
+    "additionalProperties": false
+}
+```
+
+Rendered input:
+![Apify Actor input schema with sub-schema editor](./images/sub-schema-ui.png)
+
+Each sub-property is rendered with its own input field according to its type and `editor` configuration:
+
+- The `locale` property is rendered as a text field.
+- The `timeout` property is rendered as a numeric input with validation limits.
+- The `debugMode` property is rendered as a checkbox toggle.
+
+**Limitations:**
+
+The `schemaBased` editor supports only **top-level sub-properties** (level 1 nesting).
+While deeper nested properties can still define sub-schemas for validation, they cannot use the `schemaBased` editor for rendering.
+For example, if the Configuration object above included a property that was itself an object with its own sub-properties, those deeper levels would need to use a different editor, such as `json`.
 
 ### Array
 
@@ -438,19 +560,19 @@ Rendered input:
 
 Properties:
 
-| Property | Value | Required | Description |
-| --- | --- | --- | --- |
-| `editor` | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`select`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
-| `placeholderKey` | String | No | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor. |
-| `placeholderValue` | String | No | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
-| `patternKey` | String | No | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor. |
-| `patternValue` | String | No | Regular expression that <br/>will be used to validate the values <br/>of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
-| `maxItems` | Integer | No | Maximum number of items <br/>the array can contain. |
-| `minItems` | Integer | No | Minimum number of items <br/>the array can contain. |
-| `uniqueItems` | Boolean | No | Specifies whether the array <br/>should contain only unique values. |
-| `nullable` | Boolean | No | Specifies whether null is <br/>an allowed value. |
-| `items` | object | No | Specifies format of the items of the array, useful mainly for multiselect (see below) |
-| `isSecret` | Boolean | No | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors. |
+| Property           | Value                                                                                                                                                                                             | Required | Description                                                                                                                                                 |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `editor`           | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`select`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                   |
+| `placeholderKey`   | String                                                                                                                                                                                            | No       | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.                                                |
+| `placeholderValue` | String                                                                                                                                                                                            | No       | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.                         |
+| `patternKey`       | String                                                                                                                                                                                            | No       | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.                     |
+| `patternValue`     | String                                                                                                                                                                                            | No       | Regular expression that <br/>will be used to validate the values <br/>of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
+| `maxItems`         | Integer                                                                                                                                                                                           | No       | Maximum number of items <br/>the array can contain.                                                                                                         |
+| `minItems`         | Integer                                                                                                                                                                                           | No       | Minimum number of items <br/>the array can contain.                                                                                                         |
+| `uniqueItems`      | Boolean                                                                                                                                                                                           | No       | Specifies whether the array <br/>should contain only unique values.                                                                                         |
+| `nullable`         | Boolean                                                                                                                                                                                           | No       | Specifies whether null is <br/>an allowed value.                                                                                                            |
+| `items`            | object                                                                                                                                                                                            | No       | Specifies format of the items of the array, useful mainly for multiselect and for `schemaBased` editor (see below).                                         |
+| `isSecret`         | Boolean                                                                                                                                                                                           | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                |
 
 
 Usage of this field is based on the selected editor:
@@ -479,6 +601,134 @@ Editor type `select` allows the user to pick items from a select, providing mult
 ```
 
 To correctly define options for multiselect, you need to define the `items` property and then provide values and (optionally) labels in `enum` and `enumTitles` properties.
+
+#### Array items validation
+
+Arrays in the input schema can define an `items` field to specify the type and validation rules for each item.
+Each array item is validated according to its `type`. If the item is an `object`, it can define its own `properties`, `required`, and `additionalProperties` fields,
+working in the same way as a single object field (see [Object fields validation](#object-fields-validation)).
+
+Validation is performed both in the UI and during actor execution via the API.
+Array items can themselves be objects with sub-schemas, and objects within objects, recursively, without any limit on nesting depth.
+
+Example of an array of objects property with sub-schema:
+
+```json
+{
+    "title": "Request Headers",
+    "type": "array",
+    "description": "List of custom HTTP headers",
+    "editor": "json",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Header Name",
+                "description": "Name of the HTTP header",
+                "type": "string",
+                "minLength": 1
+            },
+            "value": {
+                "title": "Header Value",
+                "description": "Value of the HTTP header",
+                "type": "string",
+                "minLength": 1
+            }
+        },
+        "required": ["name", "value"],
+        "additionalProperties": false
+    },
+    "minItems": 1,
+    "maxItems": 20
+}
+```
+
+Rendered input:
+![Apify Actor input schema with sub-schema array](./images/sub-schema-array-json.png)
+
+In this example:
+
+- The array must contain between 1 and 20 items.
+- Each item must be an object with `name` and `value` properties.
+- Both `name` and `value` are required.
+- No additional properties beyond those defined are allowed.
+- The validation of each object item works the same as for a single object field (see [Object fields validation](#object-fields-validation)).
+
+#### `schemaBased` editor
+
+Arrays can use the `schemaBased` editor to provide a user-friendly interface for editing each item individually.
+It works for arrays of primitive types (like strings or numbers) as well as arrays of objects, rendering each item according to its type and optional `editor` configuration.
+
+This makes it easy to manage complex arrays in the UI while still enforcing validation rules defined in the items field.
+
+Example 1: Array of strings using the `schemaBased` editor:
+
+```json
+{
+    "title": "Start URLs",
+    "type": "array",
+    "description": "List of URLs for the scraper to visit",
+    "editor": "schemaBased",
+    "items": {
+        "type": "string"
+    },
+    "minItems": 1,
+    "maxItems": 50,
+    "uniqueItems": true
+}
+```
+
+Rendered input:
+![Apify Actor input schema with sub-schema array string](./images/sub-schema-array-string.png)
+
+- Each item is rendered as a text field.
+- The array must contain between 1 and 50 items.
+- Duplicate values are not allowed.
+
+Example 2: Array of objects using the `schemaBased` editor:
+
+```json
+{
+    "title": "Request Headers",
+    "type": "array",
+    "description": "List of custom HTTP headers",
+    "editor": "schemaBased",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Header Name",
+                "description": "Name of the HTTP header",
+                "type": "string",
+                "minLength": 1,
+                "editor": "textfield"
+            },
+            "value": {
+                "title": "Header Value",
+                "description": "Value of the HTTP header",
+                "type": "string",
+                "minLength": 1,
+                "editor": "textfield"
+            }
+        },
+        "required": ["name", "value"],
+        "additionalProperties": false
+    },
+    "minItems": 1,
+    "maxItems": 20
+}
+```
+
+Rendered input:
+![Apify Actor input schema with sub-schema array object](./images/sub-schema-array-object.png)
+
+- Each array item is represented as a group of input fields (`name` and `value`).
+- Validation ensures all required sub-properties are filled and no extra properties are allowed.
+- New items can be added up to the `maxItems` limit, and each item is validated individually.
+
+**Limitations:**
+
+As with objects, the sub-schema feature for arrays only works for level 1 sub-properties. While the objects in the array can have properties with their own schema definitions, those properties cannot themselves use the `schemaBased` editor.
 
 ### Resource type
 
