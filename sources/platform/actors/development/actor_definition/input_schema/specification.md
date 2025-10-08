@@ -457,6 +457,7 @@ Rendered input:
 ![Apify Actor input schema with sub-schema](./images/sub-schema-json.png)
 
 In this example, the object has validation rules for its properties:
+
 - The `timeout` property must be an integer between 1 and 300
 - The `locale` property must be a string matching the pattern `^[a-z]{2,3}-[A-Z]{2}$`
 - The `debugMode` property is optional and can be either `true` or `false`
