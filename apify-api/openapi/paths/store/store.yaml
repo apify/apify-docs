@@ -85,6 +85,16 @@ get:
             - PRICE_PER_DATASET_ITEM
             - PAY_PER_EVENT
         example: '''FREE'''
+    - name: allowsAgenticUsers
+      in: query
+      description: |
+        If true, only return Actors that allow agentic users. If false, only
+        return Actors that do not allow agentic users.
+      style: form
+      explode: true
+      schema:
+      type: boolean
+      example: true
   responses:
     '200':
       description: ''
