@@ -16,7 +16,7 @@ Some organizations might require two-factor authentication (2FA) to access their
 
 ## Setting up two-factor authentication
 
-To set up two-factor authentication, go to your [account settings](https://console.apify.com/settings/account) and scroll down to the **Two-factor authentication** section. Currently, there is only one option, which is the **Authenticator app**. If you have two-factor authentication already enabled, there will be a label **enabled** next to it.
+To set up two-factor authentication, go to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings. There, look for the **Two-factor authentication** section. Currently, there is only one option, which is the **Authenticator app**. If you have two-factor authentication already enabled, there will be a label **enabled** next to it.
 
 ![Apify Console two-factor authentication section](./images/console-account-two-factor-disabled.png)
 
@@ -67,7 +67,7 @@ After you enable two-factor authentication, the next time you attempt to sign in
 
 In case you lose access to your authenticator app, you can use the recovery codes to sign in to your account. To do that, click on the **recovery code or begin 2FA account recovery** link below the **Verify** button. This will redirect you to a view similar to the current one, but instead of code from the authenticator app, you will need to enter one of the 16 recovery codes you received during the setup process.
 
-If the provided recovery code is correct, you will proceed to Apify Console, the same as if you provided the code from the authenticator app. After gaining access to Apify Console, we recommend going to the [account settings](https://console.apify.com/settings/account), disabling the two-factor authentication there, and then enabling it again with the new authenticator app.
+If the provided recovery code is correct, you will proceed to Apify Console, the same as if you provided the code from the authenticator app. After gaining access to Apify Console, we recommend going to the [account settings](https://console.apify.com/settings/security), disabling the two-factor authentication there, and then enabling it again with the new authenticator app.
 
 :::info Removal of recovery codes
 When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact our support to help you regain access to your account.
