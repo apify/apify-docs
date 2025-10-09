@@ -313,7 +313,7 @@ module.exports = {
                                         // try to parse as URL, if successful, prefix with absolute URL
                                         try {
                                             const parsedUrl = parse(valuesArray[i + 1]);
-                                            if (isInternal(parsedUrl) && parsedUrl.pathname) {
+                                            if (isInternal(parsedUrl, config.absoluteUrl) && parsedUrl.pathname) {
                                                 splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
                                             }
                                         } catch {
