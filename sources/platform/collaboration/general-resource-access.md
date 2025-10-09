@@ -130,12 +130,9 @@ Even when a resource is restricted, you might still want to share it with someon
 #### How pre-signed URLs work
 
 A pre-signed URL is a regular HTTPS link that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
-When the signed URL is used, Apify validates the signature and grants access - no API token required.
+When a pre-signed URL is used, Apify validates the signature and grants access without requiring an API token.
 
-**Key properties**:
-
-- **Works with restricted resources** – Even if “General resource access” is set to **Restricted**, the signed URL will work without asking for API token.  
-- **Time-limited or permantent** – Links can be either **temporary** (expiring after a specified duration) or **permanent**, depending on how they’re generated.  
+The signature can be temporary (set to expire after a specified duration) or permanent, depending on the expiration date set when it's generated.
 
 #### What links can be pre-signed
 
@@ -168,15 +165,11 @@ The response also contains:
 
 :::
 
-#### How to generate pre-signed URLs
-
 You can create pre-signed URLs either through the Apify Console or programmatically via the Apify API client.
 
-**In console:**
+#### How to generate pre-signed URLs in Apify Console
 
 To generate a pre-signed link, you can use the **Export** button in Console, or call the appropriate API client method.
-
-**1. Using the Apify Console**
 
 :::note
 
@@ -184,24 +177,26 @@ The link will include a signature **only if the general resource access is set t
 
 :::
 
-- **Dataset items:**
-  1. Click the **Export** button.  
-  2. In the modal that appears, click **Copy shareable link**.  
+**Dataset items:**
 
-  ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
+1. Click the **Export** button.  
+2. In the modal that appears, click **Copy shareable link**.  
 
-- **Key-value store records:**  
-  1. Open a key-value store.  
-  2. Navigate to the record you want to share.  
-  3. In the **Actions** column, click the link icon to **copy signed link**.  
+![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
-  ![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
+**Key-value store records:**  
 
-**2. Using the Apify Client**
+1. Open a key-value store.  
+2. Navigate to the record you want to share.  
+3. In the **Actions** column, click the link icon to **copy signed link**.  
+
+![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
+
+#### How to generate pre-signed URLs using Apify Client
 
 You can generate pre-signed URLs programmatically for datasets and key-value stores:
 
-- **Dataset items**
+**Dataset items**
 
 ```js
 import { ApifyClient } from "apify-client";
@@ -215,7 +210,7 @@ const itemsUrl = await dataset.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 36
 const permanentItemsUrl = await dataset.createItemsPublicUrl();
 ```
 
-- **Key-value store list of keys**
+**Key-value store list of keys**
 
 ```js
 const store = client.keyValueStore('my-store-id');
@@ -227,7 +222,7 @@ const keysPublicUrl = await store.createKeysPublicUrl({ expiresInSecs: 24 * 3600
 const permanentKeysPublicUrl = await store.createKeysPublicUrl();
 ```
 
-- **Key-value store list of keys**
+**Key-value store record**
 
 ```js
 // Get permanent URL for a single record
@@ -240,7 +235,7 @@ If the `expiresInSecs` option is not specified, the generated link will be **per
 
 :::
 
-**3. Signing URLs manually (Advanced)**
+#### Signing URLs manually
 
 If you need finer control - for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
 
@@ -275,13 +270,13 @@ Keep in mind that when users run your public Actor, the Actor makes API calls un
 
 :::
 
-### How to migrate Actors to support **Restricted** general resource access
+### Migration guide to support restricted general resource access
 
 This section provides a practical guide and best practices to help you update your public Actors so they fully support **Restricted general resource access**.
 
 ---
 
-#### 1. Always authenticate API requests
+#### Always authenticate API requests
 
 All API requests from your Actor should be authenticated.
 When using the [Apify SDK](https://docs.apify.com/sdk/js/) or [Apify Client](https://docs.apify.com/api/client/js/), this is done automatically.
@@ -294,11 +289,9 @@ If your Actor makes direct API calls, include the API token manually:
   });
 ```
 
-#### 2. Generate pre-signed URLs for external sharing
+#### Generate pre-signed URLs for external sharing
 
 If your Actor outputs or shares links to storages (such as datasets or key-value store records), make sure to generate pre-signed URLs instead of hardcoding API URLs.
-
-Pre-signed URLs allow secure, tokenless access for external users.
 
 For example:
 
