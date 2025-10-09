@@ -1,4 +1,5 @@
 const { join, resolve } = require('node:path');
+const { parse } = require('node:url');
 
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
@@ -282,6 +283,7 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
+                siteDescription: 'The entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -292,9 +294,13 @@ module.exports = {
                     remarkStringify: {
                         handlers: {
                             link: (node) => {
-                                const isUrlInternal = isInternal(node.url);
-                                const url = isUrlInternal ? `${config.absoluteUrl}${node.url}` : node.url;
+                                if (node.title?.startsWith('Direct link to')) return '';
 
+                                const parsedUrl = parse(node.url);
+                                const isUrlInternal = isInternal(parsedUrl, config.absoluteUrl);
+                                const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
+
+                                if (isUrlInternal && !parsedUrl.pathname) return '';
                                 if (node.title) return `[${node.title}](${url})`;
                                 return url;
                             },
