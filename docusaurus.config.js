@@ -304,6 +304,29 @@ module.exports = {
                                 if (node.title) return `[${node.title}](${url})`;
                                 return url;
                             },
+                            code: (node) => {
+                                const apiMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'];
+                                const splitValueLines = node.value.trim().split('\n');
+
+                                splitValueLines.forEach((item, i) => {
+                                    if (apiMethods.some((method) => item.trim() === method)) {
+                                        // try to parse as URL, if successful, prefix with absolute URL
+                                        try {
+                                            const parsedUrl = parse(splitValueLines[i + 1]);
+                                            if (isInternal(parsedUrl, config.absoluteUrl) && parsedUrl.pathname) {
+                                                if (splitValueLines[i + 1]) splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
+                                            }
+                                        } catch {
+                                            // do nothing, leave the line as is
+                                        }
+                                    }
+                                });
+
+                                if (apiMethods.some((method) => node.value.trim().startsWith(method))) {
+                                    node.lang = node.lang?.toLowerCase();
+                                }
+                                return `\n\`\`\`${node.lang || ''}\n${splitValueLines.join('\n')}\n\`\`\`\n`;
+                            },
                         },
                     },
                     excludeRoutes: [
