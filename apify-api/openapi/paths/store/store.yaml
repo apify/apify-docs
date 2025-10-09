@@ -93,8 +93,8 @@ get:
       style: form
       explode: true
       schema:
-      type: boolean
-      example: true
+       type: boolean
+       example: true
   responses:
     '200':
       description: ''
