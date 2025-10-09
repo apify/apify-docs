@@ -306,15 +306,15 @@ module.exports = {
                             },
                             code: (node) => {
                                 const apiMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'];
-                                const splitValue = node.value.trim().split('\n');
+                                const splitValueLines = node.value.trim().split('\n');
 
-                                splitValue.forEach((item, i, valuesArray) => {
-                                    if (!apiMethods.some((method) => item.startsWith(method))) {
+                                splitValueLines.forEach((item, i, valuesArray) => {
+                                    if (apiMethods.some((method) => item.trim() === method)) {
                                         // try to parse as URL, if successful, prefix with absolute URL
                                         try {
                                             const parsedUrl = parse(valuesArray[i + 1]);
                                             if (isInternal(parsedUrl) && parsedUrl.pathname) {
-                                                valuesArray[i + 1] = `${config.absoluteUrl}${parsedUrl.pathname}`;
+                                                splitValueLines[i + 1] = `${config.absoluteUrl}${parsedUrl.pathname}`;
                                             }
                                         } catch {
                                             // do nothing, leave the line as is
@@ -323,9 +323,9 @@ module.exports = {
                                 });
 
                                 if (apiMethods.some((method) => node.value.trim().startsWith(method))) {
-                                    node.lang = node.lang.toLowerCase();
+                                    node.lang = node.lang?.toLowerCase();
                                 }
-                                return `\n\`\`\`${node.lang || ''}\n${node.value}\n\`\`\`\n`;
+                                return `\n\`\`\`${node.lang || ''}\n${splitValueLines.join('\n')}\n\`\`\`\n`;
                             },
                         },
                     },
