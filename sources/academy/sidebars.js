@@ -2,7 +2,7 @@ module.exports = {
     courses: [
         {
             type: 'category',
-            label: 'Web scraping & Automation',
+            label: 'Web scraping',
             collapsible: false,
             className: 'section-header',
             items: [
@@ -14,7 +14,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'AI',
+            label: 'AI agents',
             collapsible: false,
             className: 'section-header',
             items: [
