@@ -314,7 +314,7 @@ module.exports = {
                                         try {
                                             const parsedUrl = parse(valuesArray[i + 1]);
                                             if (isInternal(parsedUrl) && parsedUrl.pathname) {
-                                                splitValueLines[i + 1] = `${config.absoluteUrl}${parsedUrl.pathname}`;
+                                                splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
                                             }
                                         } catch {
                                             // do nothing, leave the line as is
