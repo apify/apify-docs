@@ -141,9 +141,9 @@ This allows fine-grained control over what data can be shared without authentica
 
 | Resource | Link | Validity | Notes |
 |-----------|-----------------------|------|-------|
-| **Datasets** | Dataset items (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
-| **Key-value stores** | List of keys (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
-| **Key-value stores** | Single record (`/v2/key-value-stores/:storeId/records/:recordKey`) | **Permanent only** | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
+| **Datasets** | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
+| **Key-value stores** | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
+| **Key-value stores** | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | **Permanent only** | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
 
 :::info Automatically generated signed URLs
 
