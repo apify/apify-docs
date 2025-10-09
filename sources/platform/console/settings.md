@@ -22,8 +22,10 @@ By clicking the **Settings** tab on the side menu, you will be presented with an
 * session information
 * account delete
 
-:::info
-The **Login & Privacy** tab (or **Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to see and edit the settings.
+:::info Verify your identity
+
+The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to view and edit the settings.
+
 :::
 
 
