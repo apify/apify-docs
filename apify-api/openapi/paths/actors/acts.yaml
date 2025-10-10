@@ -142,7 +142,6 @@ post:
           isPublic: false
           seoTitle: My Actor
           seoDescription: My Actor is the best
-          restartOnError: false
           versions:
             - versionNumber: '0.0'
               sourceType: SOURCE_FILES
@@ -161,6 +160,7 @@ post:
             build: latest
             timeoutSecs: 3600
             memoryMbytes: 2048
+            restartOnError: false
     required: true
   responses:
     '201':
@@ -183,7 +183,6 @@ post:
               name: MyActor
               username: jane35
               description: My favourite Actor!
-              restartOnError: false
               isPublic: false
               createdAt: '2019-07-08T11:27:57.401Z'
               modifiedAt: '2019-07-08T14:01:05.546Z'
@@ -225,6 +224,7 @@ post:
                 build: latest
                 timeoutSecs: 3600
                 memoryMbytes: 2048
+                restartOnError: false
               exampleRunInput:
                 body: '{ "helloWorld": 123 }'
                 contentType: application/json; charset=utf-8

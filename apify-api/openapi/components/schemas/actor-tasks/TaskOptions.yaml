@@ -13,3 +13,7 @@ properties:
     type: number
     nullable: true
     example: 128
+  restartOnError:
+    type: boolean
+    nullable: true
+    example: false
