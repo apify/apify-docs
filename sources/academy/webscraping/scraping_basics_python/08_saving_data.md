@@ -147,7 +147,7 @@ In the CSV format, if a value contains commas, we should enclose it in quotes. W
 
 When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
 
-![CSV example preview](images/csv-example.png)
+![CSV example preview](../scraping_basics/images/csv-example.png)
 
 Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we actually want is a CSV containing `Sony XBR-950G BRAVIA 4K HDR Ultra HD TV`, right? Let's do this! First, let's add `csv` to our imports:
 
@@ -174,7 +174,7 @@ with open("products.csv", "w") as file:
 
 The program should now also produce a CSV file with the following content:
 
-![CSV preview](images/csv.png)
+![CSV preview](../scraping_basics/images/csv.png)
 
 We've built a Python application that downloads a product listing, parses the data, and saves it in a structured format for further use. But the data still has gaps: for some products, we only have the min price, not the actual prices. In the next lesson, we'll attempt to scrape more details from all the product pages.
 
@@ -218,6 +218,6 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
   1. Select the header row. Go to **Data > Create filter**.
   1. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
-  ![CSV in Google Sheets](images/csv-sheets.png)
+  ![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
 
 </details>
