@@ -2,7 +2,7 @@
 title: Pay per event
 description: Learn how to monetize your Actor with pay-per-event (PPE) pricing, charging users for specific actions like Actor starts, dataset items, or API calls, and understand how to set profitable, transparent event-based pricing.
 slug: /actors/publishing/monetize/pay-per-event
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 **Learn how to monetize your Actor with pay-per-event (PPE) pricing, charging users for specific actions like Actor starts, dataset items, or API calls, and understand how to set profitable, transparent event-based pricing.**
@@ -108,7 +108,7 @@ async def charge_for_api_product_detail():
 
 async def main():
     await Actor.init()
-    
+
     # API call, or any other logic that you want to charge for
 
     charge_result = await charge_for_api_product_detail()
@@ -185,7 +185,7 @@ Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.
 
 ```json
 {
-    "actorSpecification": 1, 
+    "actorSpecification": 1,
     "name": "name-of-my-scraper",
     "version": "0.0",
     "minMemoryMbytes": 512,
@@ -213,7 +213,7 @@ import { Actor } from 'apify';
 
 const processUrl = async (url) => {
   const response = await fetch(url);
-    
+
   if (response.status === 404) {
     // Charge for the work done and return error item in one call
     await Actor.pushData({
@@ -221,7 +221,7 @@ const processUrl = async (url) => {
       error: "404",
       errorMessage: "Page not found"
     }, 'scraped-result');
-    
+
     return;
   }
 
@@ -232,7 +232,7 @@ await Actor.init();
 
 const input = await Actor.getInput();
 const { urls } = input;
-  
+
 for (const url of urls) {
   await processUrl(url);
 }
@@ -251,7 +251,7 @@ import requests
 
 async def process_url(url):
     response = requests.get(url)
-    
+
     if response.status_code == 404:
       # Charge for the work done and return error item in one call
       await Actor.push_data({
@@ -259,22 +259,22 @@ async def process_url(url):
           'error': '404',
           'errorMessage': 'Page not found'
       }, 'scraped-result')
-        
+
       return
 
     # Rest of the process_url function
 
 async def main():
     await Actor.init()
-    
+
     input_data = await Actor.get_input()
     urls = input_data.get('urls', [])
-    
+
     for url in urls:
         await process_url(url)
-    
+
     # Rest of the Actor logic
-    
+
     await Actor.exit()
 ```
 
@@ -294,7 +294,7 @@ However, we acknowledge that some events don't produce tangible results (such as
 Examples:
 
 - _`post` event_: Each charge adds one social media post to the dataset
-- _`profile` event_: Each charge adds one user profile to the dataset  
+- _`profile` event_: Each charge adds one user profile to the dataset
 - _`processed-image` event_: Each charge adds one processed image to the dataset
 - _`ai-analysis` event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
 
