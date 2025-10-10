@@ -23,42 +23,6 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 ## Monetization models
 
-### Rental pricing model
-
-![rental model example](images/rental-model.png)
-
-- _How it works_: you offer a free trial period and set a monthly fee. Users on Apify paid plans can continue using the Actor after the trial. You earn 80% of the monthly rental fees.
-- _Example_: you set a 7-day free trial and $30/month rental. If 3 users start using your Actor:
-  - 1st user on a paid plan pays $30 after the trial (you earn $24).
-  - 2nd user starts their trial but pays next month.
-  - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
-
-:::info Rental pricing details
-
-If you want more details about rental pricing, refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
-
-:::
-
-### Pay-per-result pricing model
-
-![pay per result model example](images/ppr-model.png)
-
-- _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
-- _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
-- _Cost breakdown_:
-  - Compute unit: $0.3 per CU
-  - Residential proxies: $13 per GB
-  - SERPs proxy: $3 per 1,000 SERPs
-  - Data transfer (external): $0.20 per GB
-  - Dataset storage: $1 per 1,000 GB-hours
-- _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
-
-:::info Pay-per-result details
-
-If you want more details about PPR pricing, refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
-
-:::
-
 ### Pay-per-event pricing model
 
 ![pay per event model example](images/ppe-model.png)
@@ -88,6 +52,42 @@ If you want more details about PPR pricing, refer to our [PPR documentation](/pl
 :::info Pay-per-event details
 
 If you want more details about PPE pricing, refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
+
+:::
+
+### Pay-per-result pricing model
+
+![pay per result model example](images/ppr-model.png)
+
+- _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
+- _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
+- _Cost breakdown_:
+  - Compute unit: $0.3 per CU
+  - Residential proxies: $13 per GB
+  - SERPs proxy: $3 per 1,000 SERPs
+  - Data transfer (external): $0.20 per GB
+  - Dataset storage: $1 per 1,000 GB-hours
+- _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
+
+:::info Pay-per-result details
+
+If you want more details about PPR pricing, refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
+
+:::
+
+### Rental pricing model
+
+![rental model example](images/rental-model.png)
+
+- _How it works_: you offer a free trial period and set a monthly fee. Users on Apify paid plans can continue using the Actor after the trial. You earn 80% of the monthly rental fees.
+- _Example_: you set a 7-day free trial and $30/month rental. If 3 users start using your Actor:
+  - 1st user on a paid plan pays $30 after the trial (you earn $24).
+  - 2nd user starts their trial but pays next month.
+  - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
+
+:::info Rental pricing details
+
+If you want more details about rental pricing, refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
 
 :::
 
