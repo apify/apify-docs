@@ -72,9 +72,9 @@ properties:
     type: string
     example: 0.1.1
   actorDefinition:
-      oneOf:
+      allOf:
         - $ref: "../actors/ActorDefinition.yaml"
-        - type: "null"
+      nullable: true
 example:
   id: HG7ML7M8z78YcAPEB
   actId: janedoe~my-actor
