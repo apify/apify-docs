@@ -71,7 +71,7 @@
         "@docusaurus/theme-common": "^3.8.1",
         "@docusaurus/theme-mermaid": "^3.8.1",
         "@giscus/react": "^3.0.0",
-        "@redocly/cli": "^1.27.1",
+        "@redocly/cli": "^2.0.0",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "clsx": "^2.0.0",
         "docusaurus-plugin-image-zoom": "^3.0.1",

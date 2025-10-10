@@ -8,21 +8,20 @@ extends:
 
 rules:
     # TODO we have quite a lot of errors in there, once we fix them, this should be flipped to `error` too
-    spec: warn
+    struct: warn
     no-unused-components: error
+    nullable-type-sibling: warn
 
-theme:
+openapi:
     htmlTemplate: openapi/docs/index.html
-
-    openapi:
-        expandDefaultResponse: true
-        expandDefaultRequest: true
-        expandResponses: all
-        schemasExpansionLevel: 2
-        jsonSamplesExpandLevel: 2
+    expandDefaultResponse: true
+    expandDefaultRequest: true
+    expandResponses: all
+    schemasExpansionLevel: 2
+    jsonSamplesExpandLevel: 2
 
 plugins:
-    - apify-api/plugins/apify.js
+    - apify-api/plugins/apify.mjs
 
 decorators:
     apify/legacy-doc-url-decorator: on
