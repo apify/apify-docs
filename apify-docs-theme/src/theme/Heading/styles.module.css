@@ -1,0 +1,46 @@
+.anchorWithStickyNavbar {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
+}
+
+.anchorWithHideOnScrollNavbar {
+  scroll-margin-top: 0.5rem;
+}
+
+.headingCopyIcon {
+  display: none;
+  transform: translateX(0.25rem);
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+}
+
+.headingCopyIcon svg {
+  stroke: var(--ifm-color-primary);
+  max-height: 1em !important;
+}
+
+h2:hover .headingCopyIcon,
+h3:hover .headingCopyIcon,
+h4:hover .headingCopyIcon,
+h5:hover .headingCopyIcon,
+h6:hover .headingCopyIcon {
+  display: inline-block;
+}
+
+.headingCopyIcon.copied {
+  display: inline-block !important;
+}
+
+.headingCopyIcon.copied svg {
+  display: none;
+}
+
+.headingCopyIcon.copied::after {
+  content: 'Copied!';
+  font-size: 12px;
+  color: var(--ifm-font-color-secondary);
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
