@@ -15,7 +15,7 @@ export default function Heading({ as: As, id, ...props }) {
         navbar: { hideOnScroll },
     } = useThemeConfig();
 
-    const [isCopied, handleClick] = useCopyToClipboard({
+    const { isCopied, copyToClipboard } = useCopyToClipboard({
         text: id ?? '',
         transform: (text) => {
             const url = new URL(window.location.href);
@@ -60,7 +60,7 @@ export default function Heading({ as: As, id, ...props }) {
             id={id}>
             {props.children}
             <a
-                onClick={handleClick}
+                onClick={copyToClipboard}
                 href={`#${id}`}
                 className={clsx(styles.headingCopyIcon, isCopied && styles.copied)}
                 aria-label={anchorTitle}
