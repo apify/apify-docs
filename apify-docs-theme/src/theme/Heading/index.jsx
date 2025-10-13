@@ -15,19 +15,24 @@ export default function Heading({ as: As, id, ...props }) {
         navbar: { hideOnScroll },
     } = useThemeConfig();
 
-    const { isCopied, copyToClipboard } = useCopyToClipboard({
-        text: id ?? '',
-        transform: (text) => {
-            const url = new URL(window.location.href);
-            url.hash = `#${text}`;
-            return url.toString();
-        },
-    });
+    const { isCopied, copyToClipboard } = useCopyToClipboard();
 
     // Register the anchor ID so Docusaurus can scroll to it
     useEffect(() => {
         if (id) {
             brokenLinks.collectAnchor(id);
+
+            // Handle scroll on page load if this heading matches the URL hash
+            const hash = decodeURIComponent(window.location.hash.slice(1));
+            if (hash === id) {
+                // Use setTimeout to ensure the page is fully rendered
+                setTimeout(() => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
         }
     }, [id, brokenLinks]);
 
@@ -35,6 +40,13 @@ export default function Heading({ as: As, id, ...props }) {
     if (As === 'h1' || !id) {
         return <As {...props} {...(id && { id })} />;
     }
+
+    const handleCopy = async (e) => {
+        e.preventDefault();
+        const url = new URL(window.location.href);
+        url.hash = `#${id ?? ''}`;
+        await copyToClipboard(url.toString());
+    };
 
     const anchorTitle = translate(
         {
@@ -60,7 +72,7 @@ export default function Heading({ as: As, id, ...props }) {
             id={id}>
             {props.children}
             <a
-                onClick={copyToClipboard}
+                onClick={handleCopy}
                 href={`#${id}`}
                 className={clsx(styles.headingCopyIcon, isCopied && styles.copied)}
                 aria-label={anchorTitle}
