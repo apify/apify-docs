@@ -2,12 +2,12 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 import { translate } from '@docusaurus/Translate';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { LinkIcon } from '@apify/ui-icons';
+import { useCopyToClipboard } from '@apify/ui-library';
 
 import styles from './styles.module.css';
-import { useCopyToClipboard } from './useCopyToClipboard';
 
 export default function Heading({ as: As, id, ...props }) {
     const brokenLinks = useBrokenLinks();
@@ -24,14 +24,16 @@ export default function Heading({ as: As, id, ...props }) {
         },
     });
 
-    // H1 headings shouldn't have the copy to clipboard button
-    if (As === 'h1') {
-        return <As {...props} />;
-    }
-
     // Register the anchor ID so Docusaurus can scroll to it
-    if (id) {
-        brokenLinks.collectAnchor(id);
+    useEffect(() => {
+        if (id) {
+            brokenLinks.collectAnchor(id);
+        }
+    }, [id, brokenLinks]);
+
+    // H1 headings and headings without an id shouldn't have the copy to clipboard button
+    if (As === 'h1' || !id) {
+        return <As {...props} {...(id && { id })} />;
     }
 
     const anchorTitle = translate(
