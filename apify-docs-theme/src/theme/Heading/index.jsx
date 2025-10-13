@@ -45,6 +45,7 @@ export default function Heading({ as: As, id, ...props }) {
         e.preventDefault();
         const url = new URL(window.location.href);
         url.hash = `#${id ?? ''}`;
+        window.location.hash = `#${id ?? ''}`;
         await copyToClipboard(url.toString());
     };
 
