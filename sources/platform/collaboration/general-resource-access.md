@@ -201,32 +201,32 @@ You can generate pre-signed URLs programmatically for datasets and key-value sto
 ```js
 import { ApifyClient } from "apify-client";
 const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
-const dataset = client.dataset('my-dataset-id');
+const datasetClient = client.dataset('my-dataset-id');
 
 // Creates pre-signed URL for items (expires in 7 days)
-const itemsUrl = await dataset.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 3600 });
+const itemsUrl = await datasetClient.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 3600 });
 
 // Creates permanent pre-signed URL for items
-const permanentItemsUrl = await dataset.createItemsPublicUrl();
+const permanentItemsUrl = await datasetClient.createItemsPublicUrl();
 ```
 
 **Key-value store list of keys**
 
 ```js
-const store = client.keyValueStore('my-store-id');
+const storeClient = client.keyValueStore('my-store-id');
 
 // Create pre-signed URL for list of keys (expires in 1 day)
-const keysPublicUrl = await store.createKeysPublicUrl({ expiresInSecs: 24 * 3600 });
+const keysPublicUrl = await storeClient.createKeysPublicUrl({ expiresInSecs: 24 * 3600 });
 
 // Create permanent pre-signed URL for list of keys
-const permanentKeysPublicUrl = await store.createKeysPublicUrl();
+const permanentKeysPublicUrl = await storeClient.createKeysPublicUrl();
 ```
 
 **Key-value store record**
 
 ```js
 // Get permanent URL for a single record
-const recordUrl = store.getRecordPublicUrl('report.pdf');
+const recordUrl = await storeClient.getRecordPublicUrl('report.pdf');
 ```
 
 :::tip Permanent signed URL
@@ -298,8 +298,8 @@ import { ApifyClient } from "apify-client";
 const recordUrl = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${recordKey}`;
 
 // ✅ Use Apify Client methods instead
-const kvStore = client.keyValueStore(storeId);
-const recordUrl = kvStore.getRecordPublicUrl(recordKey);
+const storeClient = client.keyValueStore(storeId);
+const recordUrl = await storeClient.getRecordPublicUrl(recordKey);
 
 // Save pre-signed URL — accessible without authentication
 await Actor.pushData({ recordUrl });
