@@ -58,6 +58,7 @@ jobs:
                         include $(pwd)/nginx.conf;
                     }
                     EOF
+                    sed -i 's|https://apify.github.io/apify-docs|http://localhost:3000|g' default.conf
                     mkdir -p $(pwd)/logs
                     nginx -c $(pwd)/default.conf
                     sleep 1
