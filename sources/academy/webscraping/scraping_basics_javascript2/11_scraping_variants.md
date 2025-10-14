@@ -346,7 +346,7 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 You can build a scraper now, can't you? Let's build another one! From the registry at [npmjs.com](https://www.npmjs.com/), scrape information about npm packages that match the following criteria:
 
-- Have the keyword "llm" (as in _large language model_)
+- Have the keyword "LLM" (as in _large language model_)
 - Updated within the last two years ("2 years ago" is okay; "3 years ago" is too old)
 
 Print an array of the top 5 packages with the most dependents. Each package should be represented by an object containing the following data:
@@ -382,7 +382,7 @@ Your output should look something like this:
 <details>
   <summary>Solution</summary>
 
-  After inspecting the registry, you'll notice that packages with the keyword "llm" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
+  After inspecting the registry, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
 
   ```js
   import * as cheerio from 'cheerio';
