@@ -169,7 +169,7 @@ You can create pre-signed URLs either through the Apify Console or programmatica
 
 #### How to generate pre-signed URLs in Apify Console
 
-To generate a pre-signed link, you can use the **Export** button in Console, or call the appropriate API client method.
+To generate a pre-signed link, you can use the **Export** button in Console.
 
 :::note
 
@@ -237,7 +237,7 @@ If the `expiresInSecs` option is not specified, the generated link will be **per
 
 #### Signing URLs manually
 
-If you need finer control - for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
+If you need finer control — for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
 
 👉 [See reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
 
@@ -257,14 +257,10 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General resource access** set to **Restricted**.
 
-In practice, this means that:
-
-- All API requests made by your Actor must include a valid API token.  
-- When using the Apify SDK or Apify Client, this is handled automatically.  
-- Avoid relying on URLs that require unrestricted access or authentication by default.
+In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
 
 
-:::caution Actor Runs Inherit User Permissions
+:::caution Actor runs inherit user permissions
 
 Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
@@ -328,7 +324,7 @@ You can easily test this by switching your own account’s setting to **Restrict
 
 :::tip Make sure links work as expected
 
-Once you’ve enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs - especially those stored in results or notifications — work without requiring an API token.
+Once you’ve enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs — especially those stored in results or notifications — work without requiring an API token.
 
 :::
 
