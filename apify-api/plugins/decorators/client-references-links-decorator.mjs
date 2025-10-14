@@ -63,7 +63,7 @@ function ClientReferencesLinksDecorator(target) {
     target.description = `${prepend}${target.description || ''}`;
 }
 
-module.exports = () => ({
+export default () => ({
     // Redocly is using a visitor pattern. What the following code does is that whenever the traverser leaves a node of
     // type Tag or Operation, it executes prependLegacyUrlAnchor on it.
     Tag: {
