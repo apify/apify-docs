@@ -70,7 +70,7 @@ This will be enough to work on Platform, Academy and OpenAPI. If you want to wor
 5. Add a record to `/etc/hosts`, which maps the `docs.apify.loc` to a localhost:
 
     ```text
-    127.0.01 docs.apify.loc
+    127.0.0.1 docs.apify.loc
     ```
 
 You should be able to open https://docs.apify.loc in your browser and run all the repositories jointly as one project.
