@@ -9,6 +9,9 @@ unlisted: true
 ---
 
 import DocCardList from '@theme/DocCardList';
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
+
+<LegacyJsCourseAdmonition />
 
 **Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.**
 

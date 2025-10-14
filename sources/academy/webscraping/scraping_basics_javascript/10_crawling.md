@@ -6,7 +6,10 @@ slug: /scraping-basics-javascript/crawling
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+
+<LegacyJsCourseAdmonition />
 
 **In this lesson, we'll follow links to individual product pages. We'll use the Fetch API to download them and Cheerio to process them.**
 

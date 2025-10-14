@@ -6,7 +6,10 @@ slug: /scraping-basics-javascript/devtools-locating-elements
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+
+<LegacyJsCourseAdmonition />
 
 **In this lesson we'll use the browser tools for developers to manually find products on an e-commerce website.**
 
