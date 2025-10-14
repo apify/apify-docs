@@ -6,7 +6,10 @@ slug: /scraping-basics-javascript/parsing-html
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+
+<LegacyJsCourseAdmonition />
 
 **In this lesson we'll look for products in the downloaded HTML. We'll use Cheerio to turn the HTML into objects which we can work with in our Node.js program.**
 

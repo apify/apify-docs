@@ -6,7 +6,10 @@ slug: /scraping-basics-javascript/locating-elements
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+
+<LegacyJsCourseAdmonition />
 
 **In this lesson we'll locate product data in the downloaded HTML. We'll use Cheerio to find those HTML elements which contain details about each product, such as title or price.**
 

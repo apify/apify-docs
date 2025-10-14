@@ -6,6 +6,10 @@ slug: /scraping-basics-javascript/platform
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
+
+<LegacyJsCourseAdmonition />
+
 **In this lesson, we'll deploy our application to a scraping platform that automatically runs it daily. We'll also use the platform's API to retrieve and work with the results.**
 
 ---

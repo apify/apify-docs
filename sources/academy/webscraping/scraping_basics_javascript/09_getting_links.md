@@ -6,7 +6,10 @@ slug: /scraping-basics-javascript/getting-links
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+
+<LegacyJsCourseAdmonition />
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use Cheerio to find the relevant bits of HTML.**
 

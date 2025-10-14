@@ -6,6 +6,10 @@ slug: /scraping-basics-javascript/saving-data
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
+
+<LegacyJsCourseAdmonition />
+
 **In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use the json2csv library to export the files.**
 
 ---

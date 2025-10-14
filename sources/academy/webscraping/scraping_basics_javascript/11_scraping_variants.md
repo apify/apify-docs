@@ -6,7 +6,10 @@ slug: /scraping-basics-javascript/scraping-variants
 unlisted: true
 ---
 
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+
+<LegacyJsCourseAdmonition />
 
 **In this lesson, we'll scrape the product detail pages to represent each product variant as a separate item in our dataset.**
 
