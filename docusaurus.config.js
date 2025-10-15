@@ -1,4 +1,5 @@
 const { join, resolve } = require('node:path');
+const { parse } = require('node:url');
 
 const clsx = require('clsx');
 const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
@@ -282,6 +283,7 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
+                siteDescription: 'The entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -292,11 +294,38 @@ module.exports = {
                     remarkStringify: {
                         handlers: {
                             link: (node) => {
-                                const isUrlInternal = isInternal(node.url);
-                                const url = isUrlInternal ? `${config.absoluteUrl}${node.url}` : node.url;
+                                if (node.title?.startsWith('Direct link to')) return '';
 
+                                const parsedUrl = parse(node.url);
+                                const isUrlInternal = isInternal(parsedUrl, config.absoluteUrl);
+                                const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
+
+                                if (isUrlInternal && !parsedUrl.pathname) return '';
                                 if (node.title) return `[${node.title}](${url})`;
                                 return url;
+                            },
+                            code: (node) => {
+                                const apiMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'];
+                                const splitValueLines = node.value.trim().split('\n');
+
+                                splitValueLines.forEach((item, i) => {
+                                    if (apiMethods.some((method) => item.trim() === method)) {
+                                        // try to parse as URL, if successful, prefix with absolute URL
+                                        try {
+                                            const parsedUrl = parse(splitValueLines[i + 1]);
+                                            if (isInternal(parsedUrl, config.absoluteUrl) && parsedUrl.pathname) {
+                                                if (splitValueLines[i + 1]) splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
+                                            }
+                                        } catch {
+                                            // do nothing, leave the line as is
+                                        }
+                                    }
+                                });
+
+                                if (apiMethods.some((method) => node.value.trim().startsWith(method))) {
+                                    node.lang = node.lang?.toLowerCase();
+                                }
+                                return `\n\`\`\`${node.lang || ''}\n${splitValueLines.join('\n')}\n\`\`\`\n`;
                             },
                         },
                     },

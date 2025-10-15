@@ -1,5 +1,5 @@
-const { existsSync } = require('node:fs');
-const path = require('node:path');
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 
 const X_CODE_SAMPLES_PROPERTY = 'x-codeSamples';
 
@@ -31,7 +31,7 @@ function CodeSamplesDecorator(target) {
 
     for (const { lang, label, langSuffix } of LANGUAGES) {
         const codeSamplePath = path.join(
-            __dirname,
+            import.meta.dirname,
             `../../openapi/code_samples/${lang.toLowerCase()}/${operationId}.${langSuffix}`,
         );
 
@@ -55,7 +55,7 @@ function CodeSamplesDecorator(target) {
     }
 }
 
-module.exports = () => ({
+export default () => ({
     // Redocly is using a visitor pattern. What the following code does is that whenever the traverser leaves a node of
     // type Tag or Operation, it executes CodeSamplesDecorator on it.
     Tag: {
