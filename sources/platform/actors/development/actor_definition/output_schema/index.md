@@ -152,7 +152,7 @@ The key-value store schema defines the collections of keys and their properties.
 
 ## Advanced examples
 
-The output schema and its `template` property allow a lot of flexibility to support a wide array of Actors. Here are some examples to help you get started.
+The output schema's `template` property support various Actor types. The following examples show common use cases:
 
 ### Linking dataset views and key value store collections
 
