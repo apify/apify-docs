@@ -154,7 +154,7 @@ The key-value store schema defines the collections of keys and their properties.
 
 The output schema's `template` property support various Actor types. The following examples show common use cases:
 
-### Linking dataset views and key value store collections
+### Linking dataset views and key-value store collections
 
 This example shows a schema definition for a basic social media scraper. The scraper downloads post data into the dataset, and video and subtitle files into the key-value store.
 
