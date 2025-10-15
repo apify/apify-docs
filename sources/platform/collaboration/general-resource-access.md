@@ -125,7 +125,7 @@ await datasetClient.update({
 
 ### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
 
-Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, **storage resources** (like key-value stores, datasets, and request queues) support generating **pre-signed URLs**. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
+Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, _storage resources_ (like key-value stores, datasets, and request queues) support generating _pre-signed URLs_. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
 
 #### How pre-signed URLs work
 
@@ -136,14 +136,14 @@ The signature can be temporary (set to expire after a specified duration) or per
 
 #### What links can be pre-signed
 
-Only selected **dataset** and **key-value store** endpoints support pre-signed URLs.  
+Only selected _dataset_ and _key-value store_ endpoints support pre-signed URLs.  
 This allows fine-grained control over what data can be shared without authentication.
 
 | Resource | Link | Validity | Notes |
 |-----------|-----------------------|------|-------|
-| **Datasets** | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
-| **Key-value stores** | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
-| **Key-value stores** | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | **Permanent only** | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
+| _Datasets_ | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
+| _Key-value stores_ | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
+| _Key-value stores_ | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | _Permanent only_ | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
 
 :::info Automatically generated signed URLs
 
@@ -157,7 +157,7 @@ the API response includes automatically generated fields:
 - `itemsPublicUrl` – a pre-signed URL providing access to dataset items  
 - `keysPublicUrl` – a pre-signed URL providing access to key-value store keys  
 
-These automatically generated URLs are **valid for 14 days**.
+These automatically generated URLs are _valid for 14 days_.
 
 The response also contains:
 
@@ -173,22 +173,22 @@ To generate a pre-signed link, you can use the **Export** button in Console.
 
 :::note
 
-The link will include a signature **only if the general resource access is set to Restricted**. For unrestricted datasets, the link will work without a signature.
+The link will include a signature _only if the general resource access is set to Restricted_. For unrestricted datasets, the link will work without a signature.
 
 :::
 
-**Dataset items:**
+##### Dataset items:
 
 1. Click the **Export** button.  
 2. In the modal that appears, click **Copy shareable link**.  
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
-**Key-value store records:**  
+##### Key-value store records:
 
 1. Open a key-value store.  
 2. Navigate to the record you want to share.  
-3. In the **Actions** column, click the link icon to **copy signed link**.  
+3. In the **Actions** column, click the link icon to copy signed link.  
 
 ![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
 
@@ -196,7 +196,7 @@ The link will include a signature **only if the general resource access is set t
 
 You can generate pre-signed URLs programmatically for datasets and key-value stores:
 
-**Dataset items**
+##### Dataset items:
 
 ```js
 import { ApifyClient } from "apify-client";
@@ -210,7 +210,7 @@ const itemsUrl = await datasetClient.createItemsPublicUrl({ expiresInSecs: 7 * 2
 const permanentItemsUrl = await datasetClient.createItemsPublicUrl();
 ```
 
-**Key-value store list of keys**
+##### Key-value store list of keys:
 
 ```js
 const storeClient = client.keyValueStore('my-store-id');
@@ -222,7 +222,7 @@ const keysPublicUrl = await storeClient.createKeysPublicUrl({ expiresInSecs: 24 
 const permanentKeysPublicUrl = await storeClient.createKeysPublicUrl();
 ```
 
-**Key-value store record**
+##### Key-value store record:
 
 ```js
 // Get permanent URL for a single record
@@ -231,7 +231,7 @@ const recordUrl = await storeClient.getRecordPublicUrl('report.pdf');
 
 :::tip Permanent signed URL
 
-If the `expiresInSecs` option is not specified, the generated link will be **permanent**.
+If the `expiresInSecs` option is not specified, the generated link will be _permanent_.
 
 :::
 
@@ -239,9 +239,9 @@ If the `expiresInSecs` option is not specified, the generated link will be **per
 
 If you need finer control — for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
 
-👉 [See reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
+[Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
 
-Manual signing uses standard **HMAC (SHA-256)** with `urlSigningSecretKey` of the resource and can be easily integrated.
+Manual signing uses standard _HMAC (SHA-256)_ with `urlSigningSecretKey` of the resource and can be easily integrated.
 
 ### Sharing storages by name
 
@@ -255,20 +255,20 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 ## Implications for public Actor developers
 
-If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General resource access** set to **Restricted**.
+If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
 
 In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
 
 
 :::caution Actor runs inherit user permissions
 
-Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
+Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the _General resource access_ configuration of the user account. The configuration of your developer account has no effect on the Actor users.
 
 :::
 
 ### Migration guide to support restricted general resource access
 
-This section provides a practical guide and best practices to help you update your public Actors so they fully support **Restricted general resource access**.
+This section provides a practical guide and best practices to help you update your public Actors so they fully support _Restricted general resource access_.
 
 ---
 
@@ -318,9 +318,9 @@ Unauthenticated users will be prompted to sign in, ensuring they have required p
 
 #### Test your Actor under restricted access
 
-Before publishing or updating your Actor, it’s important to verify that it works correctly for users with **restricted general resource access**.
+Before publishing or updating your Actor, it’s important to verify that it works correctly for users with _restricted general resource access_.
 
-You can easily test this by switching your own account’s setting to **Restricted**, or by creating an organization under your account and enabling restricted access there. This approach ensures your tests accurately reflect how your public Actor will behave for end users.
+You can easily test this by switching your own account’s setting to _Restricted_, or by creating an organization under your account and enabling restricted access there. This approach ensures your tests accurately reflect how your public Actor will behave for end users.
 
 :::tip Make sure links work as expected
 
