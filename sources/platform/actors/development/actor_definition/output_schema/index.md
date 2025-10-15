@@ -62,7 +62,7 @@ The **Output** tab will then display the contents of the key-value store:
 
 ![Output tab in Run](images/output-schema-simple-example.png)
 
-And if you call the `GET Run` API endpoint, it will contain an `output` property:
+The `GET Run` API endpoint response will include an `output` property.
 
 ```json
 "output": {
