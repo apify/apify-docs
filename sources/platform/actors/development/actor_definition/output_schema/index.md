@@ -32,7 +32,7 @@ await Actor.setValue(`image-1.jpeg`, imageBuffer, { contentType: 'image/jpeg' })
 await Actor.exit();
 ```
 
-To let users know that the output is stored in the key-value store, you can update the `.actor/actor.json` configuration like this:
+To specify that output is stored in the key-value store, update `.actor/actor.json`:
 
 ```json title=".actor/actor.json"
 {
