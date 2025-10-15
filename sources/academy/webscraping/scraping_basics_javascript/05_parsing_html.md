@@ -3,7 +3,6 @@ title: Parsing HTML with Node.js
 sidebar_label: Parsing HTML
 description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to parse HTML code of a product listing page.
 slug: /scraping-basics-javascript/parsing-html
-unlisted: true
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';

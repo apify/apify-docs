@@ -3,7 +3,6 @@ title: Inspecting web pages with browser DevTools
 sidebar_label: "DevTools: Inspecting"
 description: Lesson about using the browser tools for developers to inspect and manipulate the structure of a website.
 slug: /scraping-basics-javascript/devtools-inspecting
-unlisted: true
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
