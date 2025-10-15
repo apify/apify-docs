@@ -7,6 +7,10 @@ slug: /anti-scraping/mitigation/using-proxies
 
 **Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.**
 
+:::caution Updates coming
+This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to close it in a few months. This lesson will be updated to remove the dependency.
+:::
+
 ---
 
 In the [**Web scraping basics for JavaScript devs**](../../scraping_basics_legacy/crawling/pro_scraping.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.

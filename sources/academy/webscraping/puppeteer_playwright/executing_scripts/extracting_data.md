@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../scraping_basics_legacy/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website. Playwright & Puppeteer offer two main methods for data extraction:
+Now that we know how to execute scripts on a page, we're ready to learn a bit about data extraction. In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website. Playwright & Puppeteer offer two main methods for data extraction:
 
 1. Directly in `page.evaluate()` and other evaluate functions such as `page.$$eval()`.
 2. In the Node.js context using a parsing library such as [Cheerio](https://www.npmjs.com/package/cheerio)

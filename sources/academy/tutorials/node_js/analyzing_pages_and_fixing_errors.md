@@ -69,8 +69,6 @@ try {
 }
 ```
 
-Read more information about logging and error handling in our developer [best practices](../../webscraping/scraping_basics_legacy/best_practices.md) section.
-
 ### Saving snapshots {#saving-snapshots}
 
 By snapshots, we mean **screenshots** if you use a [browser with Puppeteer/Playwright](../../webscraping/puppeteer_playwright/index.md) and HTML saved into a [key-value store](https://crawlee.dev/api/core/class/KeyValueStore) that you can display in your own browser. Snapshots are useful throughout your code but especially important in error handling.

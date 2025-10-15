@@ -7,6 +7,10 @@ slug: /expert-scraping-with-apify/actors-webhooks
 
 **Learn more advanced details about Actors, how they work, and the default configurations they can take. Also, learn how to integrate your Actor with webhooks.**
 
+:::caution Updates coming
+This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to close it in a few months. This lesson will be updated to remove the dependency.
+:::
+
 ---
 
 Thus far, you've run Actors on the platform and written an Actor of your own, which you published to the platform yourself using the Apify CLI; therefore, it's fair to say that you are becoming more familiar and comfortable with the concept of **Actors**. Within this lesson, we'll take a more in-depth look at Actors and what they can do.
@@ -39,7 +43,7 @@ Prior to moving forward, please read over these resources:
 
 ## Our task {#our-task}
 
-In this task, we'll be building on top of what we already created in the [Web scraping basics for JavaScript devs](/academy/scraping-basics-javascript/legacy/challenge) course's final challenge, so keep those files safe!
+In this task, we'll be building on top of what we already created in the [Web scraping basics for JavaScript devs](../../webscraping/scraping_basics_legacy/challenge/index.md) course's final challenge, so keep those files safe!
 
 Once our Amazon Actor has completed its run, we will, rather than sending an email to ourselves, call an Actor through a webhook. The Actor called will be a new Actor that we will create together, which will take the dataset ID as input, then subsequently filter through all of the results and return only the cheapest one for each product. All of the results of the Actor will be pushed to its default dataset.
 

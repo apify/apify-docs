@@ -7,6 +7,10 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 
 **Learn how to integrate webhooks into your Actors. Webhooks are a super powerful tool, and can be used to do almost anything!**
 
+:::caution Updates coming
+This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to close it in a few months. This lesson will be updated to remove the dependency.
+:::
+
 ---
 
 In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted about the programming language, select **JavaScript**:
