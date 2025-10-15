@@ -119,7 +119,7 @@ subreddits?
 [Ss]ubwoofer
 Tripadvisor
 upvote
-walkthroughs?
+[Ww]alkthroughs?
 
 ul
 [Aa]gno
