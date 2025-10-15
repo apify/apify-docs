@@ -177,14 +177,14 @@ The link will include a signature _only if the general resource access is set to
 
 :::
 
-##### Dataset items:
+##### Dataset items
 
 1. Click the **Export** button.  
 2. In the modal that appears, click **Copy shareable link**.  
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
-##### Key-value store records:
+##### Key-value store records
 
 1. Open a key-value store.  
 2. Navigate to the record you want to share.  
@@ -196,7 +196,7 @@ The link will include a signature _only if the general resource access is set to
 
 You can generate pre-signed URLs programmatically for datasets and key-value stores:
 
-##### Dataset items:
+##### Dataset items
 
 ```js
 import { ApifyClient } from "apify-client";
@@ -210,7 +210,7 @@ const itemsUrl = await datasetClient.createItemsPublicUrl({ expiresInSecs: 7 * 2
 const permanentItemsUrl = await datasetClient.createItemsPublicUrl();
 ```
 
-##### Key-value store list of keys:
+##### Key-value store list of keys
 
 ```js
 const storeClient = client.keyValueStore('my-store-id');
@@ -222,7 +222,7 @@ const keysPublicUrl = await storeClient.createKeysPublicUrl({ expiresInSecs: 24 
 const permanentKeysPublicUrl = await storeClient.createKeysPublicUrl();
 ```
 
-##### Key-value store record:
+##### Key-value store record
 
 ```js
 // Get permanent URL for a single record
