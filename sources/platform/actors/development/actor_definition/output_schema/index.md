@@ -204,7 +204,7 @@ After you define `views` and `collection` in `dataset_schema.json` and `key_valu
 }
 ```
 
-The schema above defines five dataset outputs and two key-value store outputs. The dataset outputs link to specific views defined in `dataset_schema.json`, and the key-value store outputs use similar logic to target a specific collection defined in `key_value_store_schema.json`.
+The schema above defines five dataset outputs and two key-value store outputs. The dataset outputs link to views, and the key-value store output link to collections, both defined in their respective schema files.
 
 When a user runs the Actor in the Console, the UI will look like this:
 
