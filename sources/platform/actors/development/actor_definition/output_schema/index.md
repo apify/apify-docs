@@ -72,7 +72,7 @@ The `GET Run` API endpoint response will include an `output` property.
 
 ## Structure
 
-Output configuration files need to be located in the `.actor` folder within the Actor's root directory.
+Place the output configuration files in the `.actor` folder in the Actor's root directory.
 
 You have two choices for how to organize files within the `.actor` folder.
 
