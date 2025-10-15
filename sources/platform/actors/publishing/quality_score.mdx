@@ -21,17 +21,18 @@ The Actor quality score aggregates multiple performance and quality metrics into
 
 The platform provides in-app recommendations to help you identify improvement opportunities and optimize your Actor's quality score.
 
-There are seven quality categories:
+There are eight quality categories:
 
 - reliability
 - popularity
 - feedback and community
 - ease of use
-- congruency of texts
-- history of success
 - pricing transparency
+- trustworthiness
+- history of success
+- congruency of texts
 
-The following section provide detailed guidance on each quality category.
+The following section provides detailed guidance on each quality category.
 
 ## Quality score categories
 
@@ -59,10 +60,18 @@ Pricing transparency evaluates how clearly users can understand and predict the 
 
 Consider offering Store Discounts for Bronze, Silver, and Gold subscription tiers. These incentives reward committed platform users and can increase your Actor's adoption among engaged customers.
 
-### Congruency
+### Trustworthiness
 
-Congruency measures the consistency and coherence across your Actor's components. A well-designed Actor maintains alignment between its title, description, documentation, and schemas. Ensure that your [input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema), [dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema), [key-value store schema](https://docs.apify.com/platform/actors/development/actor-definition/key-value-store-schema), and README documentation all reflect consistent terminology and accurately describe the Actor's behavior. This coherence reduces user confusion and improves the overall experience.
+Trustworthiness evaluates whether your Actor follows the principle of least privilege by using limited permissions. This configuration provides clear boundaries around what the Actor can access, demonstrating adherence to platform security standards.
+
+Actors with limited permissions build user confidence and trust, making users more likely to adopt them. Conversely, the absence of limited permissions will negatively impact your quality score.
+
+Limited permissions are designed to support the vast majority of Actor use cases without restricting functionality. If your Actor requires access to resources beyond what limited permissions provide, contact the Apify support team to discuss your specific requirements.
 
 ### History of success
 
 Developers with a proven track record of publishing successful Actors receive recognition in their quality scores. This factor acknowledges the value of experienced developers who consistently deliver high-quality Actors to the platform.
+
+### Congruency
+
+Congruency measures the consistency and coherence across your Actor's components. A well-designed Actor maintains alignment between its title, description, documentation, and schemas. Ensure that your [input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema), [dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema), [key-value store schema](https://docs.apify.com/platform/actors/development/actor-definition/key-value-store-schema), and README documentation all reflect consistent terminology and accurately describe the Actor's behavior. This coherence reduces user confusion and improves the overall experience.
