@@ -24,11 +24,10 @@ To use the Apify integration with Workato, you will need:
 The Apify Workato Connector is available in the Workato Community Library. Here's how to install it:
 
 1. In your Workato workspace, navigate to **Community Library**.
-2. Click on **Custom Connectors**.
-3. Search for **Apify**.
-4. Click on the connector and then click **Install**.
+1. Click on **Custom Connectors**.
+1. Search for **Apify**.
+1. Click on the connector and then click **Install**.
 
-![Install connector](../images/workato/install-connector.png)
 
 After successful installation, the Apify connector will appear in **Connector SDK** under Tools tab in your Workato workspace and after releasing it will be available for use in your projects.
 
@@ -43,7 +42,7 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 1. Choose either **Start from scratch** or **Build a workflow app**.
 1. Name and create the project.
 
-![Create new project](../images/workato/create-project.png)
+![Screenshot showing how to create a new project in Workato](../images/workato/create-project.png)
 
 ### Create a connection in your project
 
@@ -52,9 +51,9 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 1. Select **Connection**.
 1. Search for **Apify** and choose the Apify connector.
 
-![Find Apify connector](../images/workato/create-connection-find-connector.png)
+![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
 
-![Connection selection](../images/workato/connection-selection.png)
+![Screenshot of the connection selection interface in Workato](../images/workato/connection-selection.png)
 
 ### Choose authentication type
 
@@ -66,21 +65,21 @@ You can authenticate the connection using either:
 #### Authenticate with API token
 
 1. In the Apify connection dialog, select **Apify API token** as the authentication type.
-2. Enter your **API Token**. In Apify Console, go to [**Settings → Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
-3. Click **Connect**. Workato will test the connection by making an authenticated call to verify your credentials.
+1. Enter your **API Token**. In Apify Console, go to [**Settings → Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
+1. Click **Connect**. Workato will test the connection by making an authenticated call to verify your credentials.
 
-![Workato API Key authentication](../images/workato/create-connection-api-key.png)
-![Workato API Key authentication](../images/workato/create-connection-api-success.png)
+![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
+![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
 
 #### Authenticate with OAuth 2.0
 
 1. In the Apify connection dialog, select **Sign in with Apify** as the authentication type.
-2. Click **Connect** to start the OAuth flow.
-3. Sign in to Apify and authorize Workato to access your account.
-4. After authorizing, you'll be redirected back to Workato and the connection will be established.
+1. Click **Connect** to start the OAuth flow.
+1. Sign in to Apify and authorize Workato to access your account.
+1. After authorizing, you'll be redirected back to Workato and the connection will be established.
 
-![Workato OAuth 2.0 authentication](../images/workato/create-connection-oauth.png)
-![Workato API Key authentication](../images/workato/create-connection-oauth-success.png)
+![Screenshot of the Workato OAuth 2.0 authentication interface](../images/workato/create-connection-oauth.png)
+![Screenshot showing successful OAuth authentication in Workato](../images/workato/create-connection-oauth-success.png)
 
 Once the connection is created and authenticated, you can use it in any recipe.
 
@@ -114,7 +113,7 @@ Open the Actor or Task Input page in Apify Console, switch format to JSON, and c
 
 :::
 
-![Input modes](../images/workato/input-modes.png)
+![Screenshot showing different input modes available in the Workato connector](../images/workato/input-modes.png)
 
 #### Where to find your IDs
 
@@ -155,7 +154,7 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 - Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`)
 - Access run details, status, and metadata in subsequent recipe steps
 
-![Actor Run Finished trigger](../images/workato/trigger-actor.png)
+![Screenshot of the Actor Run Finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
 ### Task Run Finished  
 
@@ -167,7 +166,7 @@ This trigger creates a webhook in your Apify account that will notify Workato wh
 - Building workflows dependent on specific data collection tasks
 - Processing results from tasks with predefined configurations
 
-![Task Run Finished trigger](../images/workato/trigger-task.png)
+![Screenshot of the Task Run Finished trigger configuration in Workato](../images/workato/trigger-task.png)
 
 ## Actions
 
@@ -192,7 +191,7 @@ Default values for input fields will be displayed as placeholders, giving you a 
 
 :::
 
-![Run Actor action](../images/workato/run-actor.png)
+![Screenshot of the Run Actor action configuration interface in Workato](../images/workato/run-actor.png)
 
 ### Run Task
 
@@ -204,19 +203,33 @@ This action runs an Apify Task with optional input overrides and execution param
 - Override the task's pre-configured input with new JSON if needed
 - Configure task options like memory, build version, or timeout
 
-![Run Task action](../images/workato/run-task.png)
+![Screenshot of the Run Task action configuration interface in Workato](../images/workato/run-task.png)
 
 ### Get Dataset Items
 
-**Retrieves items from a dataset.**
+**Retrieves items from a dataset with dynamic field mapping.**
 
-Select a dataset to dynamically generate output fields and retrieve its items. Datasets contain structured data (JSON, CSV, etc.) from your scrapers. This action:
+Select a dataset to dynamically generate output fields and retrieve its items. This action automatically analyzes the dataset structure and creates appropriate output fields for your recipe. Key features:
 
-- Retrieves data records from specified datasets with dynamic schema detection
-- Supports pagination with limit and offset parameters
-- Returns structured data that can be passed to downstream recipe steps
+- Automatically detects and creates output fields based on dataset structure
+- Retrieves data records from specified datasets with pagination support
+- Returns structured data ready for downstream recipe steps
 
-![Get Dataset Items action](../images/workato/get-dataset.png)
+#### Dynamic Schema Detection
+
+The connector samples your dataset to create appropriate output fields:
+
+- **Works best with consistent data**: When all items have the same field names and data types
+- **May have limitations with mixed data**: If items have different structures or field types
+- **Samples up to 25 items**: Fields that only appear after the first 25 items won't be detected
+
+:::tip Best practice
+
+For optimal results, use datasets where all items follow a consistent structure. Test with a small sample to verify field mappings work as expected.
+
+:::
+
+![Screenshot of the Get Dataset Items action configuration interface in Workato](../images/workato/get-dataset.png)
 
 ### Get Key-Value Store Record
 
@@ -229,7 +242,7 @@ Select a Key-Value Store and a key to retrieve the corresponding record as a tex
 - Supports both text and binary content types
 - Enables flexible data retrieval for various use cases
 
-![Get Key-Value Store record](../images/workato/get-key-val.png)
+![Screenshot of the Get Key-Value Store record action configuration interface in Workato](../images/workato/get-key-val.png)
 
 ### Scrape Single URL
 
@@ -242,7 +255,7 @@ Provide a single URL and a desired crawler type to get structured scraped data f
 - Returns extracted content in structured format (text, markdown, HTML, metadata)
 - Perfect for real-time data extraction triggered by recipes
 
-![Scrape Single URL action](../images/workato/scrape-url.png)
+![Screenshot of the Scrape Single URL action configuration interface in Workato](../images/workato/scrape-url.png)
 
 ## Long‑running scrapes and async pattern in Workato
 
@@ -251,14 +264,14 @@ Long-running scrapes can exceed typical step execution expectations. Use this as
 1. Start the run without waiting
    - In a recipe, add the **Run Actor** action and configure inputs as needed.
    - Run asynchronously (do not block downstream steps on completion).
-   - ![Run Actor action](../images/workato/run-actor.png)
+   - ![Screenshot showing the Run Actor action configuration with async option in Workato](../images/workato/run-actor.png)
 1. Continue when the run finishes
    - Build a separate recipe with the **Actor Run Finished** trigger.
    - Filter for the specific Actor or Task you started in Step 1.
-   - ![Actor Run Finished trigger](../images/workato/trigger-actor.png)
+   - ![Screenshot showing how to filter for specific Actor in the Run Finished trigger](../images/workato/trigger-actor.png)
 1. Fetch results and process
    - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
-   - ![Get Dataset Items action](../images/workato/get-dataset.png)
+   - ![Screenshot showing how to use dataset ID from trigger payload in Get Dataset Items action](../images/workato/get-dataset.png)
 
 ## Example use cases
 
@@ -285,7 +298,8 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - **Actor selection:** If an Actor doesn't appear in dropdowns, ensure it has been run at least once
 - **Timeout errors:** For long-running Actors, use asynchronous execution rather than waiting for completion
 - **Data format:** Ensure JSON inputs are properly formatted and match expected Actor input schema
-- (todo) **OAuth issues:** If using OAuth, make sure the redirect URI matches your Workato region (US or EU)
+- **OAuth issues:** If using OAuth, make sure the redirect URI matches your Workato region (US or EU)
 - **Resource not found errors:** Check that IDs are correct and case-sensitive
+- **Dataset field mapping issues:** If you experience incorrect data types or missing fields in the Get Dataset Items action datapil, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
 
 If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
