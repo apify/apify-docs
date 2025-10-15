@@ -30,16 +30,19 @@ function getOneTrustConsentContext() {
 
 export default ExecutionEnvironment.canUseDOM ? {
     onRouteUpdate() {
-        // Don't track page views on development
-        if (process.env.NODE_ENV === 'production' && window.analytics) {
-            window.analytics.page({
-                app: 'docs',
-                page_type: 'DOCS_PAGE',
-                path: window.location.pathname,
-                url: window.location.href,
-                search: window.location.search,
-                ...getOneTrustConsentContext(),
-            });
-        }
+        // this forces deferred execution that ensures `window.location` is in sync
+        setTimeout(() => {
+            // Don't track page views on development
+            if (process.env.NODE_ENV === 'production' && window.analytics) {
+                window.analytics.page({
+                    app: 'docs',
+                    page_type: 'DOCS_PAGE',
+                    path: window.location.pathname,
+                    url: window.location.href,
+                    search: window.location.search,
+                    ...getOneTrustConsentContext(),
+                });
+            }
+        }, 0);
     },
 } : null;
