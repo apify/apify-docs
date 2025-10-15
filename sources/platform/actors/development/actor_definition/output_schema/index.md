@@ -246,7 +246,7 @@ When the run in the Console, the user will then see this:
 
 ![Chat in Output tab](images/output-schema-chat-example.png)
 
-### Custom html as run output
+### Custom HTML as Actor run output
 
 This example shows an output schema of an Actor that runs Cypress tests. When it finishes, it generates an HTML report and stores it in the key-value store. We can then link to this file and show it as an output like this:
 
