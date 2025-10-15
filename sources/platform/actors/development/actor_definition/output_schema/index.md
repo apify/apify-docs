@@ -212,7 +212,7 @@ When a user runs the Actor in the Console, the UI will look like this:
 
 ### Using container URL to display chat client
 
-In this example, we have an Actor that internally runs a web server that allows users to connect to an LLM and chat with it.
+In this example, an Actor runs a web server that provides a chat interface to an LLM.
 The conversation history is then stored in the dataset.
 
 ```json title=".actor/output_schema.json"
