@@ -6,7 +6,11 @@ slug: /scraping-basics-javascript/legacy/data-extraction/node-js-scraper
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 **Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the Cheerio and Got-scraping libraries to make your job easier.**
+
+<LegacyAdmonition />
 
 ---
 

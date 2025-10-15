@@ -6,9 +6,13 @@ slug: /scraping-basics-javascript/legacy/crawling/scraping-the-data
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 # Scraping data {#scraping-data}
 
 **Learn how to add data extraction logic to your crawler, which will allow you to extract data from all the websites you crawled.**
+
+<LegacyAdmonition />
 
 ---
 

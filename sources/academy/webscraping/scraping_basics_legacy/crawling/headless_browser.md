@@ -8,10 +8,13 @@ noindex: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
 
 # Headless browsers {#headless-browser}
 
 **Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.**
+
+<LegacyAdmonition />
 
 ---
 

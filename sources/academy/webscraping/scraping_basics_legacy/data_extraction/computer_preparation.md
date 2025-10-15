@@ -6,9 +6,13 @@ slug: /scraping-basics-javascript/legacy/data-extraction/computer-preparation
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 # Prepare your computer for programming {#prepare-computer}
 
 **Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and npm and run a Hello World script.**
+
+<LegacyAdmonition />
 
 ---
 

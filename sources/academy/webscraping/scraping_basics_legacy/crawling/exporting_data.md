@@ -6,9 +6,13 @@ slug: /scraping-basics-javascript/legacy/crawling/exporting-data
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 # Exporting data {#exporting-data}
 
 **Learn how to export the data you scraped using Crawlee to CSV or JSON.**
+
+<LegacyAdmonition />
 
 ---
 

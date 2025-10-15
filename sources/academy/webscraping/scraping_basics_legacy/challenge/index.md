@@ -6,9 +6,13 @@ slug: /scraping-basics-javascript/legacy/challenge
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 # Challenge
 
 **Test your knowledge acquired in the previous sections of this course by building an Amazon scraper using Crawlee's CheerioCrawler!**
+
+<LegacyAdmonition />
 
 ---
 

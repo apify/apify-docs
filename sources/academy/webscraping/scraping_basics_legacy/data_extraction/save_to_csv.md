@@ -6,9 +6,13 @@ slug: /scraping-basics-javascript/legacy/data-extraction/save-to-csv
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 # Saving results to CSV {#saving-to-csv}
 
 **Learn how to save the results of your scraper's collected data to a CSV file that can be opened in Excel, Google Sheets, or any other spreadsheets program.**
+
+<LegacyAdmonition />
 
 ---
 
