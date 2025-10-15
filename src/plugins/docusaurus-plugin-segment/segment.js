@@ -29,15 +29,15 @@ function getOneTrustConsentContext() {
 }
 
 export default ExecutionEnvironment.canUseDOM ? {
-    onRouteUpdate({ location }) {
+    onRouteUpdate() {
         // Don't track page views on development
         if (process.env.NODE_ENV === 'production' && window.analytics) {
             window.analytics.page({
                 app: 'docs',
                 page_type: 'DOCS_PAGE',
-                path: location.pathname,
-                url: location.href,
-                search: location.search,
+                path: window.location.pathname,
+                url: window.location.href,
+                search: window.location.search,
                 ...getOneTrustConsentContext(),
             });
         }
