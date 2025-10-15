@@ -53,16 +53,18 @@ properties:
   taggedBuilds:
     type: object
     description: |
-      Object containing the Actor's tagged builds, where the key is the tag name (e.g., _latest_) and the value is an object containing the build ID.
-      The object you provide will completely overwrite all existing tagged builds for the Actor.
+      An object to modify the Actor's tagged builds. The key is the tag name (e.g., `latest`), and the value is either an object with a `buildId` or `null`.
 
-      - To create or reassign a tag: Include it in the object with the desired `buildId`.
-      - To remove a specific tag: Submit the object without that tag's key.
-      - To remove all tags: Provide an empty object: `{}`.
-      - If this field is omitted or `null`, the existing tags will not be changed.
+      This operation is a patch; any existing tags that you omit from this object will be preserved.
+
+      - **To create or reassign a tag:** Provide the tag name as a key with an object containing the desired `buildId`.
+      - **To remove a tag:** Provide the tag name as a key with a `null` value.
+      - **To preserve an existing tag:** Omit its key from this object.
+      - **To make no changes:** Omit this field entirely.
     nullable: true
     additionalProperties:
       type: object
+      nullable: true
       required:
         - buildId
       properties:
@@ -71,3 +73,4 @@ properties:
     example:
       latest:
         buildId: z2EryhbfhgSyqj6Hn
+      beta: null
