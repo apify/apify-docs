@@ -3,7 +3,7 @@ title: Extracting data with DevTools
 description: Continue learning how to extract data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.
 sidebar_position: 3
 slug: /scraping-basics-javascript/legacy/data-extraction/devtools-continued
-unlisted: true
+noindex: true
 ---
 
 **Continue learning how to extract data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.**

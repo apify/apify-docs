@@ -3,7 +3,7 @@ title: Headless browsers
 description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.
 sidebar_position: 8
 slug: /scraping-basics-javascript/legacy/crawling/headless-browser
-unlisted: true
+noindex: true
 ---
 
 import Tabs from '@theme/Tabs';

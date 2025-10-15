@@ -5,7 +5,7 @@ sidebar_position: 7
 sidebar_label: Web scraping basics with JS (old)
 category: web scraping
 slug: /scraping-basics-javascript/legacy
-unlisted: true
+noindex: true
 ---
 
 # Web scraping basics for JavaScript devs {#welcome}
