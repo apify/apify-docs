@@ -270,7 +270,7 @@ This example shows an output schema of an Actor that runs Cypress tests. When th
 
 The `reportUrl` in this case links directly to the key-value store record stored in the default key-value store.
 
-When the output run is finished, the record will be displayed in an `<iframe>` element in the Console like this:
+When the run finishes, Apify Console displays the HTML report in an iframe:
 
 ![HTML report in Output tab](images/output-schema-record-example.png)
 
