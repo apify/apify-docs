@@ -19,7 +19,7 @@ To use the Apify integration with Workato, you will need:
 - An [Apify account](https://console.apify.com/)
 - A [Workato account](https://www.workato.com/)
 
-## Step 1: Install the Apify Connector
+## Install the Apify Connector
 
 The Apify Workato Connector is available in the Workato Community Library. Here's how to install it:
 
@@ -31,7 +31,7 @@ The Apify Workato Connector is available in the Workato Community Library. Here'
 
 After successful installation, the Apify connector will appear in **Connector SDK** under Tools tab in your Workato workspace and after releasing it will be available for use in your projects.
 
-## Step 2: Connect your Apify account
+## Connect your Apify account
 
 Before using the Apify connector in recipes, create a connection inside a Workato project.
 
@@ -83,7 +83,7 @@ You can authenticate the connection using either:
 
 Once the connection is created and authenticated, you can use it in any recipe.
 
-## Step 3: Create your first recipe
+## Create your first recipe
 
 After connecting your Apify account, you can start creating recipes that use Apify triggers and actions. A recipe begins with a trigger (an event that starts the workflow) and includes one or more actions (operations to perform).
 
