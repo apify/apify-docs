@@ -5,7 +5,6 @@ sidebar_position: 1
 sidebar_label: Web scraping basics with JS
 category: web scraping
 slug: /scraping-basics-javascript
-unlisted: true
 ---
 
 import DocCardList from '@theme/DocCardList';

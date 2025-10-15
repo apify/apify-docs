@@ -3,7 +3,6 @@ title: Using a scraping platform with Node.js
 sidebar_label: Using a platform
 description: Lesson about building a Node.js application for watching prices. Using the Apify platform to deploy a scraper.
 slug: /scraping-basics-javascript/platform
-unlisted: true
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
