@@ -3,7 +3,7 @@ title: Exporting data
 description: Learn how to export the data you scraped using Crawlee to CSV or JSON.
 sidebar_position: 9
 slug: /scraping-basics-javascript/legacy/crawling/exporting-data
-unlisted: true
+noindex: true
 ---
 
 **Learn how to export the data you scraped using Crawlee to CSV or JSON.**

@@ -3,7 +3,7 @@ title: Starting with browser DevTools
 description: Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.
 sidebar_position: 1
 slug: /scraping-basics-javascript/legacy/data-extraction/browser-devtools
-unlisted: true
+noindex: true
 ---
 
 **Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.**

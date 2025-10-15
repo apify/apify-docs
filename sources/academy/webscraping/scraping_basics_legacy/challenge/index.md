@@ -3,7 +3,7 @@ title: Challenge
 description: Test your knowledge acquired in the previous sections of this course by building an Amazon scraper using Crawlee's CheerioCrawler!
 sidebar_position: 1.4
 slug: /scraping-basics-javascript/legacy/challenge
-unlisted: true
+noindex: true
 ---
 
 **Test your knowledge acquired in the previous sections of this course by building an Amazon scraper using Crawlee's CheerioCrawler!**
