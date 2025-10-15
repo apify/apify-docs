@@ -57,10 +57,40 @@ properties:
 
       This operation is a patch; any existing tags that you omit from this object will be preserved.
 
-      - **To create or reassign a tag:** Provide the tag name as a key with an object containing the desired `buildId`.
-      - **To remove a tag:** Provide the tag name as a key with a `null` value.
-      - **To preserve an existing tag:** Omit its key from this object.
-      - **To make no changes:** Omit this field entirely.
+      - **To create or reassign a tag**, provide the tag name with a `buildId`. e.g., to assign the _latest_ tag:
+
+        &nbsp;
+
+        ```json
+        {
+          "latest": {
+            "buildId": "z2EryhbfhgSyqj6Hn"
+          }
+        }
+        ```
+
+      - **To remove a tag**, provide the tag name with a `null` value. e.g., to remove the _beta_ tag:
+
+        &nbsp;
+
+        ```json
+        {
+          "beta": null
+        }
+        ```
+
+      - **To perform multiple operations**, combine them. The following reassigns _latest_ and removes _beta_, while preserving any other existing tags.
+
+        &nbsp;
+
+        ```json
+        {
+          "latest": {
+            "buildId": "z2EryhbfhgSyqj6Hn"
+          },
+          "beta": null
+        }
+        ```
     nullable: true
     additionalProperties:
       type: object
