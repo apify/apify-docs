@@ -276,7 +276,7 @@ When the run finishes, Apify Console displays the HTML report in an iframe:
 
 ### Actor with no output
 
-If your Actor has no output (for example, if it's an integration that performs an action and exits), it can be confusing for users, as they will see the empty **Output** tab and think the Actor did not work.
+If your Actor produces no output (for example, an integration Actor that performs an action), users might see the empty **Output** tab and think the Actor failed. To avoid this, specify that the Actor produces no output.
 
 You can force the Console to "know" that the Actor has no output by not defining any outputs in the output schema:
 
