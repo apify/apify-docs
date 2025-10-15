@@ -14,7 +14,7 @@ The Actor output schema builds upon the schemas for the [dataset](/platform/acto
 
 ## Example
 
-Consider a very simple example Actor that calls `Actor.setValue()` to save two files into the key-value store:
+The following example Actor calls `Actor.setValue()` to save two files to the key-value store:
 
 ```javascript title="main.js"
 import { Actor } from 'apify';
