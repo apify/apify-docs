@@ -6,7 +6,11 @@ slug: /scraping-basics-javascript/legacy/challenge/modularity
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 **Before you build your first web scraper with Crawlee, it is important to understand the concept of modularity in programming.**
+
+<LegacyAdmonition />
 
 ---
 

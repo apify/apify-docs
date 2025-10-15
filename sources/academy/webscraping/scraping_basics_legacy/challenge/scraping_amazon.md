@@ -6,7 +6,11 @@ slug: /scraping-basics-javascript/legacy/challenge/scraping-amazon
 noindex: true
 ---
 
+import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+
 **Build your first web scraper with Crawlee. Let's extract product information from Amazon to give you an idea of what real-world scraping looks like.**
+
+<LegacyAdmonition />
 
 ---
 

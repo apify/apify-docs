@@ -6,7 +6,11 @@ slug: /scraping-basics-javascript/legacy/best-practices
 noindex: true
 ---
 
+import LegacyAdmonition from '../scraping_basics/_legacy.mdx';
+
 **Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code.**
+
+<LegacyAdmonition />
 
 ---
 
