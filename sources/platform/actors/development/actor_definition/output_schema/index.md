@@ -158,7 +158,7 @@ The output schema's `template` property support various Actor types. The followi
 
 This example shows a schema definition for a basic social media scraper. The scraper downloads post data into the dataset, and video and subtitle files into the key-value store.
 
-If we correctly define `views` and `collection` in `dataset_schema.json` and `key_value_store_schema.json`, we can then use them in output schema like this:
+After you define `views` and `collection` in `dataset_schema.json` and `key_value_store.json`, you can use them in the output schema.
 
 ```json title=".actor/output_schema.json"
 {
