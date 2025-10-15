@@ -292,5 +292,5 @@ You can specify that the Actor produces no output and define an output schema wi
 }
 ```
 
-When you run an Actor with an output schema defined with no properties, the Console will default to showing the **Log** tab.
+When the output schema contains no properties, Apify Console displays the **Log** tab instead of the **Output** tab.
 
