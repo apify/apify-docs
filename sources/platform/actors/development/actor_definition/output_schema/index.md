@@ -56,7 +56,7 @@ To specify that output is stored in the key-value store, update `.actor/actor.js
 
 The schema defines one output called `files` that uses the `template` property to specify the URL for the default key-values store `GET keys` API endpoint.
 
-This allows the UI to know that when displaying the output of a run, it needs to display data from the key-value store.
+Apify Console uses this configuration to display key-value store data
 
 The **Output** tab will then display the contents of the key-value store:
 
