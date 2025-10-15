@@ -15,7 +15,7 @@ export default function LegacyJsCourseAdmonition({ param = 'legacy-js-course' })
           which is now archived.
         </p>
         <p>
-          You can still <a href={'/academy/scraping-basics-javascript/legacy' + value}>go through that page</a>,
+          You can still <a href={`/academy/scraping-basics-javascript/legacy${value}`}>go through that page</a>,
           but we recommend you to check out this new course instead. We plan to close the old course
           entirely in a few months.
         </p>
