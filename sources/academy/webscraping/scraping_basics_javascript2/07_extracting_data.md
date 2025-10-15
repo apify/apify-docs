@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/extracting-data
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll finish extracting product data from the downloaded HTML. With help of basic string manipulation we'll focus on cleaning and correctly representing the product price.**
 
