@@ -248,7 +248,7 @@ When the run in the Console, the user will then see this:
 
 ### Custom HTML as Actor run output
 
-This example shows an output schema of an Actor that runs Cypress tests. When it finishes, it generates an HTML report and stores it in the key-value store. We can then link to this file and show it as an output like this:
+This example shows an output schema of an Actor that runs Cypress tests. When the run finishes, the Actor generates an HTML report and store it in the key-value store. You can link to this file and show it as an output:
 
 ```json title=".actor/output_schema.json"
 {
