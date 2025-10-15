@@ -53,7 +53,7 @@ properties:
   taggedBuilds:
     type: object
     description: |
-      An object to modify the Actor's tagged builds. The key is the tag name (e.g., _latest_), and the value is either an object with a `buildId` or `null`.
+      An object to modify tags on the Actor's builds. The key is the tag name (e.g., _latest_), and the value is either an object with a `buildId` or `null`.
 
       This operation is a patch; any existing tags that you omit from this object will be preserved.
 
