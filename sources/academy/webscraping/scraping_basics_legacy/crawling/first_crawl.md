@@ -8,8 +8,6 @@ noindex: true
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
 
-# Your first crawl {#your-first-crawl}
-
 **Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Extract URLs from pages and use them to visit more websites.**
 
 <LegacyAdmonition />

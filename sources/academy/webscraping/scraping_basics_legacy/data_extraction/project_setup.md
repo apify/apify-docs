@@ -1,5 +1,5 @@
 ---
-title: Project setup
+title: Setting up your project
 description: Create a new project with npm and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.
 sidebar_position: 5
 slug: /scraping-basics-javascript/legacy/data-extraction/project-setup
@@ -7,8 +7,6 @@ noindex: true
 ---
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
-
-# Setting up your project {#setting-up}
 
 **Create a new project with npm and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.**
 

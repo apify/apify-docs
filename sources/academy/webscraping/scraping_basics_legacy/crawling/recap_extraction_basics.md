@@ -1,5 +1,5 @@
 ---
-title: Recap - Data extraction
+title: Recap of data extraction basics
 description: Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to extract and save the data.
 sidebar_position: 1
 slug: /scraping-basics-javascript/legacy/crawling/recap-extraction-basics
@@ -7,8 +7,6 @@ noindex: true
 ---
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
-
-# Recap of data extraction basics {#quick-recap}
 
 **Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to extract and save the data.**
 
