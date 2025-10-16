@@ -70,7 +70,7 @@ console.log('Tools available:', Object.keys(tools).join(', '));
 
 Create Apify OpenRouter LLM provider so we can run the AI agent:
 
-:::tip
+:::tip Single token
 
 By using the [Apify OpenRouter](https://apify.com/apify/openrouter) you don't need to provide an API key for the OpenRouter or any other LLM provider since only Apify API token is required - your token usage is automatically charged against your Apify account.
 
