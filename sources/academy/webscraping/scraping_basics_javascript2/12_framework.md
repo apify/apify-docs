@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/framework
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll rework our application for watching prices so that it builds on top of a scraping framework. We'll use Crawlee to make the program simpler, faster, and more robust.**
 
@@ -273,7 +273,7 @@ const crawler = new CheerioCrawler({
 
 That's it! If we run the program now, there should be a `storage` directory alongside the `index.js` file. Crawlee uses it to store its internal state. If we go to the `storage/datasets/default` subdirectory, we'll see over 30 JSON files, each representing a single item.
 
-![Single dataset item](images/dataset-item.png)
+![Single dataset item](../scraping_basics/images/dataset-item.png)
 
 We can also export all the items to a single file of our choice. We'll do it at the end of the program, after the crawler has finished scraping:
 
