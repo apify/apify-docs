@@ -16,7 +16,7 @@ slug: /integrations/vercel-ai-sdk
 
 :::note Explore Vercel AI SDK
 
-For more in-depth details on Vercel AI SDK, check out its [official documentation](https://ai-sdk.dev/docs/introduction).
+For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
 
 :::
 
