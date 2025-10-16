@@ -27,8 +27,8 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- **Apify API token**: To use Apify Actors in Vercel AI SDK, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-- **Node.js packages**: Install the following Node.js packages:
+- _Apify API token_: To use Apify Actors in Vercel AI SDK, you need an Apify API token. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- _Node.js packages_: Install the following Node.js packages:
 
     ```bash
     npm install @modelcontextprotocol/sdk @openrouter/ai-sdk-provider ai
