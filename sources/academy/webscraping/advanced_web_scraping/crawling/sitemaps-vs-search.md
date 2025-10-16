@@ -31,7 +31,7 @@ Sitemap is usually a simple XML file that contains a list of all pages on the we
 - _Does not directly reflect the website_ - There is no way you can ensure that all pages on the website are in the sitemap. The sitemap also can contain pages that were already removed and will return 404s. This is a major downside of sitemaps which prevents us from using them as the only source of URLs.
 - _Updated in intervals_ - Sitemaps are usually not updated in real-time. This means that you might miss some pages if you scrape them too soon after they were added to the website. Common update intervals are 1 day or 1 week.
 - _Hard to find or unavailable_ - Sitemaps are not always trivial to locate. They can be deployed on a CDN with unpredictable URLs. Sometimes they are not available at all.
-- _Streamed, compressed, and archived_ - Sitemaps are often streamed and archived with .tgz extensions and compressed with gzip. This means that you cannot use default HTTP client settings and must handle these cases with extra code or use a scraping framework.
+- _Streamed, compressed, and archived_ - Sitemaps are often streamed and archived with .tgz extensions and compressed with Gzip. This means that you cannot use default HTTP client settings and must handle these cases with extra code or use a scraping framework.
 
 ## Pros and cons of categories, search, and filters
 
