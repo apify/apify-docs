@@ -72,7 +72,7 @@ Create Apify OpenRouter LLM provider so we can run the AI agent:
 
 :::tip Single token
 
-By using the [Apify OpenRouter](https://apify.com/apify/openrouter) you don't need to provide an API key for the OpenRouter or any other LLM provider since only Apify API token is required - your token usage is automatically charged against your Apify account.
+By using the [Apify OpenRouter](https://apify.com/apify/openrouter) you don't need to provide a separate API key for OpenRouter or any other LLM provider. Only your Apify token is needed. All token costs go to your Apify account.
 
 :::
 
