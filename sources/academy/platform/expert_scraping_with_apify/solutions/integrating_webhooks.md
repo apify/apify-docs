@@ -1,7 +1,8 @@
 ---
-title: I - Integrating webhooks
+title: Integrating webhooks
 description: Learn how to integrate webhooks into your Actors. Webhooks are a super powerful tool, and can be used to do almost anything!
 sidebar_position: 1
+sidebar_label: I - Integrating webhooks
 slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 ---
 
