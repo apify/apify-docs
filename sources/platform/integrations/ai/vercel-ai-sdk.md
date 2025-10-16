@@ -46,7 +46,7 @@ import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 
 Connect to the Apify MCP server and get all available tools for the AI agent:
 
-:::warning
+:::warning Required setup
 
 Make sure to set the `APIFY_TOKEN` environment variable with your Apify API token before running the code.
 
