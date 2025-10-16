@@ -179,17 +179,15 @@ Your Actor might already have a start event defined, such as `actor-start` or an
 
 If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the **Publication** tab.
 
-### Use synthetic default dataset item event `apify-actor-default-dataset-item`
+### Use synthetic default dataset item event `apify-default-dataset-item`
 
-::::info Automatic per-item charging
+The `apify-default-dataset-item` synthetic event charges users for each item written to the run's default dataset. It lets you align PPE pricing with per-result use cases without adding charging code to your Actor.
 
-The `apify-actor-default-dataset-item` synthetic event charges users for each item written to the run's default dataset. It lets you align PPE pricing with per-result use cases without adding charging code to your Actor.
-
-::::
+This event simplifies migration from rental or pay-per-result Actors to the pay-per-event (PPE) model. No code changes are required.
 
 #### How the synthetic default dataset item event works
 
-- Apify automatically charges this event whenever your Actor writes an item to the default dataset (for example, when using `Actor.pushData` without opening a named dataset).
+- Apify automatically charges this event whenever your Actor writes an item to the default dataset (for example, when using `Actor.pushData`).
 - No code changes are required to charge this event.
 - You can remove the event in Apify Console if you don't want automatic charging for default dataset items. If you remove it, default dataset writes will no longer be charged automatically.
 - The event applies only to the default dataset of the run. Writes to other (non-default) datasets are not charged by this synthetic event.
