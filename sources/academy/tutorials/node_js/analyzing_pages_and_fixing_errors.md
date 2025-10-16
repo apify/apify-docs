@@ -5,8 +5,6 @@ sidebar_position: 14.1
 slug: /node-js/analyzing-pages-and-fixing-errors
 ---
 
-# How to analyze and fix errors when scraping a website {#scraping-with-sitemaps}
-
 **Learn how to deal with random crashes in your web-scraping and automation jobs. Find out the essentials of debugging and fixing problems in your crawlers.**
 
 ---
