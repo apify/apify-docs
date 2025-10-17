@@ -12,4 +12,4 @@ slug: /apify-actors
 
 This tutorial shows you how to add your existing RapidAPI project to Apify, giving you access to managed hosting, data storage, and a broader user base through Apify Store while maintaining your RapidAPI presence.
 
-- [Adding your RapidAPI project to Apify](./adding_rapidapi_project.mdx)
+- [Adding your RapidAPI project to Apify](./adding_rapidapi_project.md)
