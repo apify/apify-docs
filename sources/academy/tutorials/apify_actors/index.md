@@ -6,8 +6,6 @@ category: tutorials
 slug: /apify-actors
 ---
 
-# Apify Actors
-
 **Learn how to deploy your API project to the Apify platform.**
 
 ---

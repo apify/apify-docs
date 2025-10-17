@@ -22,7 +22,7 @@ You'll deploy your API as an [Apify Actor](https://apify.com/actors) - a serverl
 
 ### Prerequisites
 
-You’ll need an [Apify account](https://console.apify.com/sign-in) - **it’s free and no credit card is required**. For simple migration and deployment, we recommend installing the Apify CLI:
+You’ll need an [Apify account](https://console.apify.com/sign-in) - _it’s free and no credit card is required_. For simple migration and deployment, we recommend installing the Apify CLI:
 
 ```bash
 curl -fsSL https://apify.com/install-cli.sh | bash
@@ -64,8 +64,6 @@ app.use(express.json());
 
 The Apify platform performs readiness checks by sending GET requests to `/` with the `x-apify-container-server-readiness-probe` header. For better resource efficiency, consider checking for this header and returning a simple response early, rather than processing it as a full request. This optimization is particularly useful for resource-intensive Actors.
 
-:::
-
 ```js
 app.get('*', (req, res) => {
     if (req.headers['x-apify-container-server-readiness-probe']) {
@@ -74,6 +72,8 @@ app.get('*', (req, res) => {
     }
 });
 ```
+
+:::
 
 ### Step 3: Test your Actor locally
 
