@@ -189,6 +189,5 @@ jobs:
                       uv run --with doccmd --with ruff doccmd --language=py --language=python --command=\"ruff check --quiet\" "$file"
                     done
 
-            # TODO:
-            # - once we fix existing issues, switch to checking the whole sources/ directory
-            -   run: npm run lint:code:py
+            # TODO: once we fix existing issues, switch to checking the whole sources/ directory
+            # -   run: npm run lint:code:py
