@@ -1,12 +1,12 @@
 ---
 title: Adding your RapidAPI project to Apify
-description: If you've already published an API project on RapidAPI and want to reach a broader audience, Apify Store and its active user community can help you expand your reach. You can maintain your RapidAPI presence while tapping into the Apify ecosystem.
+description: If you've published an API project on RapidAPI, you can expand your project's visibility by listing it on Apify Store. This gives you access to Apify's developer community and ecosystem.
 sidebar_position: 1
 category: apify platform
 slug: /apify-actors/adding-rapidapi-project
 ---
 
-If you've already published an API project on [RapidAPI](https://rapidapi.com/) and want to reach a broader audience, Apify Store and its active user community can help you expand your reach. You can maintain your RapidAPI presence while tapping into the Apify ecosystem.
+If you've published an API project on [RapidAPI](https://rapidapi.com/), you can expand your project's visibility by listing it on Apify Store. This gives you access to Apify's developer community and ecosystem.
 
 ---
 
@@ -87,7 +87,7 @@ Now, check that your server is running. Check one of your endpoints, for example
 
 ### Step 4: Deploy your Actor to Apify
 
-Now push your Actor to the [Apify Console](https://console.apify.com/). You’ll be able to do this only if you’re logged in to your Apify account with the CLI. Run `apify info` to check, and if you’re not logged in yet, run `apify login`. This only needs to be done once. To push your project, run the following command:
+Now push your Actor to [Apify Console](https://console.apify.com/). You’ll be able to do this only if you’re logged in to your Apify account with the CLI. Run `apify info` to check, and if you’re not logged in yet, run `apify login`. This only needs to be done once. To push your project, run the following command:
 
 ```bash
 apify push
