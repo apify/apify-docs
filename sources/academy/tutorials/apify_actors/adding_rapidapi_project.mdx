@@ -60,9 +60,11 @@ app.use(express.json());
 // Rest of the logic
 ```
 
-**Tip:** The Apify platform performs readiness checks by sending GET requests to `/` with the `x-apify-container-server-readiness-probe` header. For better resource efficiency, consider checking for this header and returning a simple response early, rather than processing it as a full request. This optimization is particularly useful for resource-intensive Actors.
+:::tip
+The Apify platform performs readiness checks by sending GET requests to `/` with the `x-apify-container-server-readiness-probe` header. For better resource efficiency, consider checking for this header and returning a simple response early, rather than processing it as a full request. This optimization is particularly useful for resource-intensive Actors.
+:::
 
-```jsx
+```js
 app.get('*', (req, res) => {
     if (req.headers['x-apify-container-server-readiness-probe']) {
         console.log('Readiness probe');
@@ -73,19 +75,19 @@ app.get('*', (req, res) => {
 
 ### Step 3: Test your Actor locally
 
-Once you’ve added the Actor logic, you can test your Actor locally with the following command:
+Once you’ve added the Actor logic, test your Actor locally with the following command:
 
-```jsx
+```bash
 apify run
 ```
 
-Now, you can check that your server is running. For example, check your `/health` endpoint, or any other alternative.
+Now, check that your server is running. Check one of your endpoints, for example `/health`.
 
 ### Step 4: Deploy your Actor to Apify
 
 You can now push your Actor to [Apify Console](https://console.apify.com/) with the following command:
 
-```jsx
+```bash
 apify push
 ```
 
@@ -93,7 +95,7 @@ If you’re doing `apify push` for the first time, first run `apify login`. It a
 
 ### Step 5: Run your Actor
 
-After the deployment of your Actor, you’ll see a similar output in the terminal:
+After pushing your Actor to the platform, in the terminal you’ll see an output similar to this:
 
 ```bash
 2025-10-03T07:57:13.671Z ACTOR: Build finished.
@@ -102,11 +104,11 @@ Actor detail https://console.apify.com/actors/aOcUYdkQ28ResWFF9
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
-You can click the “Actor detail” link, or go to `Apify Console > My Actors`, and click on your Actor. Now, click on the Settings tab, and enable **Actor Standby**:
+You can click the **Actor detail** link, or go to **Apify Console > My Actors**, and click on your Actor. Now, click on the Settings tab, and enable **Actor Standby**:
 
 ![Standby Actor](.//adding_rapidapi_project/standby.png)
 
-:::info Actors can run in two modes
+:::info Two modes of Actors
 
 Actors can run in two modes: as batch processing jobs that execute a single task and stop, or in **Standby mode** as a web server. For use cases like deploying an API that needs to respond to incoming requests in real-time, Standby mode is the best choice. It keeps your Actor running continuously and ready to handle HTTP requests like a standard web server.
 
@@ -116,7 +118,7 @@ Once you’ve saved the settings, go to the **Standby** tab, and click the **Tes
 
 ## Next steps
 
-Ready to **monetize your Actor and start earning**? Check out these guides:
+Ready to monetize your Actor and start earning? Check out these guides:
 
 - [Set up monetization for your Actor](https://docs.apify.com/platform/actors/publishing/monetize)
 - [Publish your Actor on Apify Store](https://docs.apify.com/platform/actors/publishing/publish)
