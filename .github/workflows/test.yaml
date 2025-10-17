@@ -7,10 +7,10 @@ on:
 
 jobs:
     build:
-        name: Docs Build
+        name: Docs build
         runs-on: ubuntu-latest
         steps:
-            -   name: Checkout Source Code
+            -   name: Checkout Source code
                 uses: actions/checkout@v5
 
             -   name: Use Node.js 22
@@ -21,7 +21,7 @@ jobs:
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
 
-            -   name: Enable Corepack
+            -   name: Enable corepack
                 run: |
                     corepack enable
 
@@ -40,13 +40,13 @@ jobs:
                     sudo apt-get update
                     sudo apt-get install -y nginx
 
-            -   name: Start Docusaurus Server
+            -   name: Start Docusaurus server
                 run: |
                     nohup npx docusaurus serve --port 3000 --no-open &
                     sleep 5
                     curl -f http://localhost:3000 > /dev/null
 
-            -   name: Start Nginx with Project Config
+            -   name: Start Nginx with project config
                 run: |
                     cat > default.conf <<EOF
                     worker_processes auto;
@@ -63,7 +63,7 @@ jobs:
                     nginx -c $(pwd)/default.conf
                     sleep 1
 
-            -   name: Run Header Assertions
+            -   name: Run header assertions
                 run: |
                     set -euo pipefail
                     function assert_header() {
@@ -96,13 +96,13 @@ jobs:
                 run: nginx -c $(pwd)/default.conf -s stop
 
     lint_content:
-        name: Lint Markdown Content
+        name: Lint markdown content
         runs-on: ubuntu-latest
         steps:
-            -   name: Checkout Source Code
+            -   name: Checkout Source code
                 uses: actions/checkout@v5
 
-            -   name: Get Changed Files
+            -   name: Get changed files
                 id: changed-files
                 uses: tj-actions/changed-files@v47
                 with:
@@ -117,7 +117,7 @@ jobs:
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable Corepack
+            -   name: Enable corepack
                 run: |
                     corepack enable
 
@@ -137,10 +137,10 @@ jobs:
 
 
     lint_code_js:
-        name: Lint JavaScript Code
+        name: Lint JavaScript code
         runs-on: ubuntu-latest
         steps:
-            -   name: Checkout Source Code
+            -   name: Checkout Source code
                 uses: actions/checkout@v5
 
             -   name: Use Node.js 22
@@ -150,7 +150,7 @@ jobs:
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable Corepack
+            -   name: Enable corepack
                 run: |
                     corepack enable
 
@@ -163,13 +163,13 @@ jobs:
 
 
     lint_code_py:
-        name: Lint Python Code
+        name: Lint Python code
         runs-on: ubuntu-latest
         steps:
-            -   name: Checkout Source Code
+            -   name: Checkout source code
                 uses: actions/checkout@v5
 
-            -   name: Get Changed Files
+            -   name: Get changed files
                 id: changed-files
                 uses: tj-actions/changed-files@v47
                 with:
@@ -180,7 +180,7 @@ jobs:
             -   name: Get uv
                 uses: astral-sh/setup-uv@v7
 
-            -   name: List and Lint Changed Files
+            -   name: List and lint changed files
                 env:
                     ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
                 run: |
