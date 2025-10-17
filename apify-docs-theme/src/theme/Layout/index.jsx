@@ -17,7 +17,7 @@ export default function LayoutWrapper(props) {
             <Head>
                 {
                     shouldRenderAlternateLink
-                        ? <link rel="alternate" type="text/markdown" href={`${currentPath}.md`}/>
+                        ? <link rel="alternate" type="text/markdown" href={`${process.env.APIFY_DOCS_ABSOLUTE_URL}/${currentPath}.md`}/>
                         : null
                 }
             </Head>
