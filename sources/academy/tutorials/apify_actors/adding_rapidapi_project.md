@@ -60,8 +60,10 @@ app.use(express.json());
 // Rest of the logic
 ```
 
-:::tip
+:::tip Readiness checks
+
 The Apify platform performs readiness checks by sending GET requests to `/` with the `x-apify-container-server-readiness-probe` header. For better resource efficiency, consider checking for this header and returning a simple response early, rather than processing it as a full request. This optimization is particularly useful for resource-intensive Actors.
+
 :::
 
 ```js
@@ -85,22 +87,20 @@ Now, check that your server is running. Check one of your endpoints, for example
 
 ### Step 4: Deploy your Actor to Apify
 
-You can now push your Actor to [Apify Console](https://console.apify.com/) with the following command:
+Now push your Actor to the [Apify Console](https://console.apify.com/). You’ll be able to do this only if you’re logged in to your Apify account with the CLI. Run `apify info` to check, and if you’re not logged in yet, run `apify login`. This only needs to be done once. To push your project, run the following command:
 
 ```bash
 apify push
 ```
 
-If you’re doing `apify push` for the first time, first run `apify login`. It authenticates your Apify account and saves your credentials locally.
-
 ### Step 5: Run your Actor
 
 After pushing your Actor to the platform, in the terminal you’ll see an output similar to this:
 
-```bash
+```text
 2025-10-03T07:57:13.671Z ACTOR: Build finished.
 Actor build detail https://console.apify.com/actors/a0c...
-Actor detail https://console.apify.com/actors/aOcUYdkQ28ResWFF9
+Actor detail https://console.apify.com/actors/aOc...
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
