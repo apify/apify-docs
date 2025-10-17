@@ -20,7 +20,9 @@ If you prefer to use JavaScript, you can follow the  [JavaScript LangChain docum
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install langchain langchain-openai langchain-apify`
+```shell
+pip install langchain langchain-openai langchain-apify
+```
 
 After successful installation of all dependencies, we can start writing code.
 

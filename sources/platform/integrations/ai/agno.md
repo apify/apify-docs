@@ -38,7 +38,7 @@ While our examples use OpenAI, Agno supports other LLM providers as well. You'll
 - _Python environment_: Ensure Python is installed (version 3.8+ recommended).
 - _Required packages_: Install the following dependencies in your terminal:
 
-```bash
+```shell
 pip install agno apify-client
 ```
 

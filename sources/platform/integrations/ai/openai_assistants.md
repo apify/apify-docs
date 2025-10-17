@@ -29,7 +29,7 @@ The image below provides an overview of the entire process:
 
 Before we start creating the assistant, we need to install all dependencies:
 
-```bash
+```shell
 pip install apify-client openai
 ```
 
@@ -260,7 +260,7 @@ For more information on automating this process, check out the blog post [How we
 
 Before we start, we need to install all dependencies:
 
-```bash
+```shell
 pip install apify-client openai
 ```
 

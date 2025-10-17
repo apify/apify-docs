@@ -43,13 +43,13 @@ Langflow can either be installed locally or used in the cloud. The cloud version
 
 First, install the Langflow platform using Python package and project manager [uv](https://docs.astral.sh/uv/):
 
-```bash
+```shell
 uv pip install langflow
 ```
 
 After installing Langflow, you can start the platform:
 
-```bash
+```shell
 uv run langflow run
 ```
 

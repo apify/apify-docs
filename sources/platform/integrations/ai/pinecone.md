@@ -74,7 +74,9 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
 
 1. Install the Apify Python SDK by running the following command:
 
-    `pip install apify-client`
+    ```shell
+    pip install apify-client
+    ```
 
 1. Create a Python script and import all the necessary modules:
 
