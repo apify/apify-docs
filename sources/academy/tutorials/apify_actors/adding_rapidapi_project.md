@@ -10,7 +10,7 @@ If you've already published an API project on [RapidAPI](https://rapidapi.com/) 
 
 ---
 
-## Why add your project to Apify?
+## Why add your project to Apify
 
 By publishing your API on Apify, you'll reach thousands of active users in Apify Store. You'll also get access to the Apify platform's infrastructure: managed hosting, data storage, scheduling, advanced web scraping and crawling capabilities, and integrated proxy management. These tools help you reach more users and enhance your API's functionality.
 
