@@ -16,7 +16,7 @@ By publishing your API on Apify, you'll reach thousands of active users in Apify
 
 ## Step-by-step guide
 
-We'll demonstrate the approach on an app built on top of [Express.js](https://expressjs.com/), but with a few adaptations to the code, any API framework will work.
+The approach is demonstrated on an app built on top of [Express.js](https://expressjs.com/), but with a few adaptations to the code, any API framework will work.
 
 You'll deploy your API as an [Apify Actor](https://apify.com/actors) - a serverless cloud program that runs on the Apify platform. Actors can handle everything from simple automation to running web servers.
 
