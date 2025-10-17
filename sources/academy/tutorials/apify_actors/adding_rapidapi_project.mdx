@@ -28,15 +28,15 @@ You’ll need an [Apify account](https://console.apify.com/sign-in) - **it’s f
 curl -fsSL https://apify.com/install-cli.sh | bash
 ```
 
-:::info CLI installation
+:::info Other ways to install the CLI
 
-For more information, check the [CLI installation page](https://docs.apify.com/cli/docs/installation).
+Check the [CLI installation page](https://docs.apify.com/cli/docs/installation) for more details and all the options.
 
 :::
 
 ### Step 1: Initialize the Actor structure
 
-Once you have Apify CLI, you can run the following command:
+Once you have the Apify CLI, run the following command:
 
 ```bash
 apify init
@@ -46,9 +46,9 @@ The command sets up an Actor project in your current directory by creating `acto
 
 ### Step 2: Add Actor logic
 
-The first important thing is the initialization of the Actor. The second is the correct mapping of the PORT. Check the following example for inspiration:
+The initialization of the Actor is the first important thing. The second is the correct mapping of the PORT. Check the following example for inspiration:
 
-```jsx
+```js
 await Actor.init(); // Initializes the Actor
 
 const app = express();
