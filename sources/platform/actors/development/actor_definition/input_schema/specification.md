@@ -308,7 +308,12 @@ Properties:
 | `groupDescription` | String | No | Description displayed as help text <br/>displayed of group title. |
 | `nullable` | Boolean | No | Specifies whether null is <br/>an allowed value. |
 
-### Integer
+### Numeric types
+
+There are two numeric types supported in the input schema: `integer` and `number`.
+
+- The `integer` type represents whole numbers.
+- The `number` type can represent both integers and floating-point numbers.
 
 Example:
 
@@ -329,13 +334,14 @@ Rendered input:
 
 Properties:
 
-| Property | Value | Required | Description |
-| --- | --- | --- | --- |
-| `editor` | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No | Visual editor used for input field. |
-| `maximum` | Integer | No | Maximum allowed value. |
-| `minimum` | Integer | No | Minimum allowed value. |
-| `unit` | String | No | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
-| `nullable` | Boolean | No | Specifies whether null is an allowed value. |
+| Property   | Value                                               | Required | Description                                                                   |
+|------------|-----------------------------------------------------|----------|-------------------------------------------------------------------------------|
+| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number.                                                                          |
+| `editor`   | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No       | Visual editor used for input field.                                           |
+| `maximum`  | Integer or Number <br/>(based on the `type`)        | No       | Maximum allowed value.                                                        |
+| `minimum`  | Integer or Number <br/>(based on the `type`)             | No       | Minimum allowed value.                                                        |
+| `unit`     | String                                              | No       | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
+| `nullable` | Boolean                                             | No       | Specifies whether null is an allowed value.                                   |
 
 ### Object
 
