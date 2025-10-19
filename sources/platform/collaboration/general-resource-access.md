@@ -47,7 +47,9 @@ The default setting strikes a good balance for casual or internal use, but **Res
 You can switch to **Restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
 
 :::note Support in public Actors
+
 Because this is a new setting, some existing public Actors and integrations might not support it yet. Their authors need to update them to provide a valid token on all API calls.
+
 :::
 
 
@@ -123,26 +125,123 @@ await datasetClient.update({
 
 ### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
 
-Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, **storage resources** (like key-value stores, datasets, and request queues) support generating **pre-signed URLs**. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
+Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, _storage resources_ (like key-value stores, datasets, and request queues) support generating _pre-signed URLs_. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
 
-Pre-signed URLs:
+#### How pre-signed URLs work
 
-- Work even when General resource access is restricted
-- Expire automatically after 14 days (by default)
-- Are scoped to a single resource (prevents access to other records)
-- Are ideal for sharing screenshots, reports, or any other one-off files
+A pre-signed URL is a regular HTTPS link that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
+When a pre-signed URL is used, Apify validates the signature and grants access without requiring an API token.
 
-To generate a pre-signed link, you can use the **Export** button in Console, or call the appropriate API client method.
+The signature can be temporary (set to expire after a specified duration) or permanent, depending on the expiration date set when it's generated.
+
+#### What links can be pre-signed
+
+Only selected _dataset_ and _key-value store_ endpoints support pre-signed URLs.  
+This allows fine-grained control over what data can be shared without authentication.
+
+| Resource | Link | Validity | Notes |
+|-----------|-----------------------|------|-------|
+| _Datasets_ | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
+| _Key-value stores_ | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
+| _Key-value stores_ | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | _Permanent only_ | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
+
+:::info Automatically generated signed URLs
+
+When you retrieve dataset or key-value store details using:
+
+- `GET https://api.apify.com/v2/datasets/:datasetId`  
+- `GET https://api.apify.com/v2/key-value-stores/:storeId`
+
+the API response includes automatically generated fields:  
+
+- `itemsPublicUrl` – a pre-signed URL providing access to dataset items  
+- `keysPublicUrl` – a pre-signed URL providing access to key-value store keys  
+
+These automatically generated URLs are _valid for 14 days_.
+
+The response also contains:
+
+- `consoleUrl` - provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
+
+:::
+
+You can create pre-signed URLs either through the Apify Console or programmatically via the Apify API client.
+
+#### How to generate pre-signed URLs in Apify Console
+
+To generate a pre-signed link, you can use the **Export** button in Console.
+
+:::note
+
+The link will include a signature _only if the general resource access is set to Restricted_. For unrestricted datasets, the link will work without a signature.
+
+:::
+
+##### Dataset items
+
+1. Click the **Export** button.  
+2. In the modal that appears, click **Copy shareable link**.  
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
-:::info Console links for resources
+##### Key-value store records
 
-Resource objects returned by the API and clients (like `apify-client-js`) include a `consoleUrl` property. This provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
+1. Open a key-value store.  
+2. Navigate to the record you want to share.  
+3. In the **Actions** column, click the link icon to copy signed link.  
 
-This is ideal for use-cases like email notifications or other automated workflows.
+![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
+
+#### How to generate pre-signed URLs using Apify Client
+
+You can generate pre-signed URLs programmatically for datasets and key-value stores:
+
+##### Dataset items
+
+```js
+import { ApifyClient } from "apify-client";
+const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
+const datasetClient = client.dataset('my-dataset-id');
+
+// Creates pre-signed URL for items (expires in 7 days)
+const itemsUrl = await datasetClient.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 3600 });
+
+// Creates permanent pre-signed URL for items
+const permanentItemsUrl = await datasetClient.createItemsPublicUrl();
+```
+
+##### Key-value store list of keys
+
+```js
+const storeClient = client.keyValueStore('my-store-id');
+
+// Create pre-signed URL for list of keys (expires in 1 day)
+const keysPublicUrl = await storeClient.createKeysPublicUrl({ expiresInSecs: 24 * 3600 });
+
+// Create permanent pre-signed URL for list of keys
+const permanentKeysPublicUrl = await storeClient.createKeysPublicUrl();
+```
+
+##### Key-value store record
+
+```js
+// Get permanent URL for a single record
+const recordUrl = await storeClient.getRecordPublicUrl('report.pdf');
+```
+
+:::tip Permanent signed URL
+
+If the `expiresInSecs` option is not specified, the generated link will be _permanent_.
 
 :::
+
+#### Signing URLs manually
+
+If you need finer control — for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
+
+[Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
+
+Manual signing uses standard _HMAC (SHA-256)_ with `urlSigningSecretKey` of the resource and can be easily integrated.
 
 ### Sharing storages by name
 
@@ -156,19 +255,76 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 ## Implications for public Actor developers
 
-If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with **General resource access** set to **Restricted**.
+If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
 
-:::tip Testing public access behavior
+In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
 
-To test your public Actor, run it using an account with **General resource access** set to restricted. You can use your developer account, or create a temporary testing Apify account.
+
+:::caution Actor runs inherit user permissions
+
+Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the _General resource access_ configuration of the user account. The configuration of your developer account has no effect on the Actor users.
+
+:::
+
+### Migration guide to support restricted general resource access
+
+This section provides a practical guide and best practices to help you update your public Actors so they fully support _Restricted general resource access_.
+
+---
+
+#### Always authenticate API requests
+
+All API requests from your Actor should be authenticated.
+When using the [Apify SDK](https://docs.apify.com/sdk/js/) or [Apify Client](https://docs.apify.com/api/client/js/), this is done automatically.
+
+If your Actor makes direct API calls, include the API token manually:
+
+```js
+  const response = await fetch(`https://api.apify.com/v2/key-value-stores/${storeId}`, {
+    headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+  });
+```
+
+#### Generate pre-signed URLs for external sharing
+
+If your Actor outputs or shares links to storages (such as datasets or key-value store records), make sure to generate pre-signed URLs instead of hardcoding API URLs.
+
+For example:
+
+```js
+import { ApifyClient } from "apify-client";
+
+// ❌ Avoid hardcoding raw API URLs
+const recordUrl = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${recordKey}`;
+
+// ✅ Use Apify Client methods instead
+const storeClient = client.keyValueStore(storeId);
+const recordUrl = await storeClient.getRecordPublicUrl(recordKey);
+
+// Save pre-signed URL — accessible without authentication
+await Actor.pushData({ recordUrl });
+```
+
+To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+
+
+:::note Using Console URLs
+
+Datasets and key-value stores also include a `consoleUrl` property.
+Console URLs provide stable links to the resource’s page in Apify Console.
+Unauthenticated users will be prompted to sign in, ensuring they have required permissions.
 
 :::
 
-In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior.
+#### Test your Actor under restricted access
 
+Before publishing or updating your Actor, it’s important to verify that it works correctly for users with _restricted general resource access_.
 
-:::caution Actor Runs Inherit User Permissions
+You can easily test this by switching your own account’s setting to _Restricted_, or by creating an organization under your account and enabling restricted access there. This approach ensures your tests accurately reflect how your public Actor will behave for end users.
 
-Keep in mind that when users run your public Actor, the Actor makes API calls under the user account, not your developer account. This means that it follows the **General resource access** configuration of the user account. The configuration of your developer account has no effect on the Actor users.
+:::tip Make sure links work as expected
+
+Once you’ve enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs — especially those stored in results or notifications — work without requiring an API token.
 
 :::
+
