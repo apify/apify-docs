@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/crawling
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll follow links to individual product pages. We'll use the Fetch API to download them and Cheerio to process them.**
 
@@ -82,7 +82,7 @@ await writeFile('products.csv', await exportCSV(data));
 
 Each product URL points to a so-called _product detail page_, or PDP. If we open one of the product URLs in the browser, e.g. the one about [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), we can see that it contains a vendor name, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), number of reviews, product images, product variants, stock availability, description, and perhaps more.
 
-![Product detail page](./images/pdp.png)
+![Product detail page](../scraping_basics/images/pdp.png)
 
 Depending on what's valuable for our use case, we can now use the same techniques as in previous lessons to extract any of the above. As a demonstration, let's scrape the vendor name. In browser DevTools, we can see that the HTML around the vendor name has the following structure:
 
@@ -197,7 +197,7 @@ Scraping the vendor's name is nice, but the main reason we started checking the 
 
 Looking at the [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), it's clear that the listing only shows min prices, because some products have variants, each with a different price. And different stock availability. And different SKUs…
 
-![Morpheus revealing the existence of product variants](images/variants.png)
+![Morpheus revealing the existence of product variants](../scraping_basics/images/variants.png)
 
 In the next lesson, we'll scrape the product detail pages so that each product variant is represented as a separate item in our dataset.
 

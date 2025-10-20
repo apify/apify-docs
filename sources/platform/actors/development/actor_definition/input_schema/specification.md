@@ -27,7 +27,7 @@ If the input object doesn't conform the schema, the caller receives an error and
 
 You can use our [visual input schema editor](https://apify.github.io/input-schema-editor-react/) to guide you through the creation of the `INPUT_SCHEMA.json` file.
 
-To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/input_schema/src/schema.json).
+To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/json_schemas/schemas/input.schema.json).
 
 You can also use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
 
@@ -234,6 +234,8 @@ The `anyDate` property renders a date picker that accepts both absolute and rela
 
 The `fileupload` editor enables users to specify a file as input. The input is passed to the Actor as a string. It is the Actor author's responsibility to interpret this string, including validating its existence and format.
 
+The editor makes it easier to users to upload the file to a key-value store of their choice.
+
 ![Apify Actor input schema - fileupload input](./images/input-schema-fileupload-input.png)
 
 The user provides either a URL or uploads the file to a key-value store (existing or new).
@@ -306,7 +308,12 @@ Properties:
 | `groupDescription` | String | No | Description displayed as help text <br/>displayed of group title. |
 | `nullable` | Boolean | No | Specifies whether null is <br/>an allowed value. |
 
-### Integer
+### Numeric types
+
+There are two numeric types supported in the input schema: `integer` and `number`.
+
+- The `integer` type represents whole numbers.
+- The `number` type can represent both integers and floating-point numbers.
 
 Example:
 
@@ -327,13 +334,14 @@ Rendered input:
 
 Properties:
 
-| Property | Value | Required | Description |
-| --- | --- | --- | --- |
-| `editor` | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No | Visual editor used for input field. |
-| `maximum` | Integer | No | Maximum allowed value. |
-| `minimum` | Integer | No | Minimum allowed value. |
-| `unit` | String | No | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
-| `nullable` | Boolean | No | Specifies whether null is an allowed value. |
+| Property   | Value                                               | Required | Description                                                                   |
+|------------|-----------------------------------------------------|----------|-------------------------------------------------------------------------------|
+| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number.                                                                          |
+| `editor`   | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No       | Visual editor used for input field.                                           |
+| `maximum`  | Integer or Number <br/>(based on the `type`)        | No       | Maximum allowed value.                                                        |
+| `minimum`  | Integer or Number <br/>(based on the `type`)             | No       | Minimum allowed value.                                                        |
+| `unit`     | String                                              | No       | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
+| `nullable` | Boolean                                             | No       | Specifies whether null is an allowed value.                                   |
 
 ### Object
 
@@ -440,7 +448,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`select`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
+| `editor` | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`fileupload`</li><li>`select`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
 | `placeholderKey` | String | No | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor. |
 | `placeholderValue` | String | No | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
 | `patternKey` | String | No | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor. |
@@ -462,6 +470,7 @@ Editor type `requestListSources` supports input in formats defined by the [sourc
 
 Editor type `globs` maps to the Crawlee's [GlobInput](https://crawlee.dev/api/core#GlobInput) used by the [UrlPatterObject](https://crawlee.dev/api/core#UrlPatternObject).
 
+Editor type `fileupload` enables users to specify a list of files as input. The input is passed to the Actor as an array of strings. The Actor author is responsible for interpreting the strings, including validating file existence and format. This editor simplifies the process for users to upload files to a key-value store of their choice.
 Editor type `select` allows the user to pick items from a select, providing multiple choices. Please check this example of how to define the multiselect field:
 
 ```json

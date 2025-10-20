@@ -12,7 +12,7 @@ get:
     By default, the records are sorted by the `startedAt` field in ascending
     order. Therefore, you can use pagination to incrementally fetch all records while
     new ones are still being created. To sort the records in descending order, use
-    `desc=1` parameter. You can also filter runs by status ([available
+    `desc=1` parameter. You can also filter runs by `startedAt`` and `status`` fields ([available
     statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
   operationId: actorRuns_get
   parameters:
@@ -58,6 +58,28 @@ get:
       schema:
         type: string
         example: SUCCEEDED
+    - name: startedAfter
+      in: query
+      description: |
+        Filter runs that started after the specified date and time (inclusive).
+        The value must be a valid ISO 8601 datetime string (UTC).
+      style: form
+      explode: true
+      schema:
+        type: string
+        format: date-time
+        example: "2025-09-01T00:00:00.000Z"
+    - name: startedBefore
+      in: query
+      description: |
+        Filter runs that started before the specified date and time (inclusive).
+        The value must be a valid ISO 8601 datetime string (UTC).
+      style: form
+      explode: true
+      schema:
+        type: string
+        format: date-time
+        example: "2025-09-17T23:59:59.000Z"
   responses:
     # todo 404?
     '200':

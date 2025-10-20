@@ -16,6 +16,7 @@ node_modules
 SDK
 Dockerfile
 Docker's
+CAPTCHAs
 
 Docusaurus
 navbar
@@ -53,7 +54,6 @@ proxied
 LLM
 embedder
 chatbot
-[Ll]angchain
 
 [Kk]eboola
 [Aa]irbyte
@@ -68,7 +68,7 @@ exploitability
 [Ww]hitepaper
 [Cc]ron
 scalably
-metamorph
+[Mm]etamorph
 hostname
 IPs
 unscoped
@@ -90,8 +90,8 @@ preconfigured
 devs
 asyncio
 backlinks?
-captchas?
-Chatbot
+
+
 combinator
 deduplicating
 dev
@@ -119,7 +119,7 @@ subreddits?
 [Ss]ubwoofer
 Tripadvisor
 upvote
-walkthroughs?
+[Ww]alkthroughs?
 
 ul
 [Aa]gno

@@ -52,7 +52,7 @@
         "eslint": "^9.32.0",
         "eslint-plugin-react": "^7.37.5",
         "globals": "^16.0.0",
-        "markdownlint": "^0.38.0",
+        "markdownlint": "^0.39.0",
         "markdownlint-cli": "^0.45.0",
         "patch-package": "^8.0.0",
         "path-browserify": "^1.0.1",
@@ -61,7 +61,8 @@
         "typescript-eslint": "^8.38.0"
     },
     "dependencies": {
-        "@apify/ui-library": "^1.0.0",
+        "@apify/ui-library": "^1.97.2",
+        "@apify/ui-icons": "^1.19.0",
         "@docusaurus/core": "^3.8.1",
         "@docusaurus/faster": "^3.8.1",
         "@docusaurus/plugin-client-redirects": "^3.8.1",
@@ -70,7 +71,7 @@
         "@docusaurus/theme-common": "^3.8.1",
         "@docusaurus/theme-mermaid": "^3.8.1",
         "@giscus/react": "^3.0.0",
-        "@redocly/cli": "^1.27.1",
+        "@redocly/cli": "^2.0.0",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "clsx": "^2.0.0",
         "docusaurus-plugin-image-zoom": "^3.0.1",

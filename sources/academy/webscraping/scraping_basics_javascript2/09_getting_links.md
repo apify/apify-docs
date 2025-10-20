@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/getting-links
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use Cheerio to find the relevant bits of HTML.**
 
@@ -205,7 +205,7 @@ The program is much easier to read now. With the `parseProduct()` function handy
 
 We turned the whole program upside down, and at the same time, we didn't make any actual changes! This is [refactoring](https://en.wikipedia.org/wiki/Code_refactoring): improving the structure of existing code without changing its behavior.
 
-![Refactoring](images/refactoring.gif)
+![Refactoring](../scraping_basics/images/refactoring.gif)
 
 :::
 
@@ -213,7 +213,7 @@ We turned the whole program upside down, and at the same time, we didn't make an
 
 With everything in place, we can now start working on a scraper that also scrapes the product pages. For that, we'll need the links to those pages. Let's open the browser DevTools and remind ourselves of the structure of a single product item:
 
-![Product card's child elements](./images/child-elements.png)
+![Product card's child elements](../scraping_basics/images/child-elements.png)
 
 Several methods exist for transitioning from one page to another, but the most common is a link element, which looks like this:
 
