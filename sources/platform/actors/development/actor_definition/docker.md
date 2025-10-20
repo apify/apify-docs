@@ -2,7 +2,7 @@
 title: Dockerfile
 description: Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.
 slug: /actors/development/actor-definition/dockerfile
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 **Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.**
