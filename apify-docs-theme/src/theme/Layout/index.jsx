@@ -6,6 +6,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import React from 'react';
 
+import { absoluteUrl } from '../../absoluteUrl';
+
 export default function LayoutWrapper(props) {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
     const baseUrl = useBaseUrl('/');
@@ -17,7 +19,7 @@ export default function LayoutWrapper(props) {
             <Head>
                 {
                     shouldRenderAlternateLink
-                        ? <link rel="alternate" type="text/markdown" href={`${currentPath}.md`}/>
+                        ? <link rel="alternate" type="text/markdown" href={`${absoluteUrl}/${currentPath}.md`}/>
                         : null
                 }
             </Head>
