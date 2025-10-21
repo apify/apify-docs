@@ -538,6 +538,7 @@ module.exports = {
             '^/legal/*',
         ],
         ...config.customFields ?? [],
+        absoluteUrl: config.absoluteUrl,
     },
     clientModules: ['./clientModule.js'],
 };
