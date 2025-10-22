@@ -1,11 +1,10 @@
 ---
-title: IV - Apify API & client
+title: Apify API & client
 description: Gain an in-depth understanding of the two main ways of programmatically interacting with the Apify platform - through the API, and through a client.
 sidebar_position: 6.4
+sidebar_label: IV - Apify API & client
 slug: /expert-scraping-with-apify/apify-api-and-client
 ---
-
-# Apify API & client {#api-and-client}
 
 **Gain an in-depth understanding of the two main ways of programmatically interacting with the Apify platform - through the API, and through a client.**
 

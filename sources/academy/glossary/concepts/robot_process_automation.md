@@ -1,11 +1,9 @@
 ---
-title: Robotic process automation
+title: What is robotic process automation (RPA)
 description: Learn the basics of robotic process automation. Make your processes on the web and other software more efficient by automating repetitive tasks.
 sidebar_position: 8.7
 slug: /concepts/robotic-process-automation
 ---
-
-# What is robotic process automation (RPA)? {#what-is-robotic-process-automation-rpa}
 
 **Learn the basics of robotic process automation. Make your processes on the web and other software more efficient by automating repetitive tasks.**
 
