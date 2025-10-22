@@ -1,14 +1,5 @@
 /* eslint-disable global-require */
-
-let absoluteUrl = 'https://docs.apify.com';
-
-if (process.env.LOCALHOST) {
-    absoluteUrl = 'http://localhost:3000';
-} else if (process.env.DEV) {
-    absoluteUrl = 'http://docs.apify.loc';
-} else if (process.env.APIFY_DOCS_ABSOLUTE_URL) {
-    absoluteUrl = process.env.APIFY_DOCS_ABSOLUTE_URL;
-}
+const { absoluteUrl } = require('./absoluteUrl');
 
 const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '');
 
@@ -315,38 +306,22 @@ const plugins = [
 ];
 
 const scripts = [
-    // {
-    //     src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
-    //     'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
-    //     'data-project-name': 'Apify',
-    //     'data-modal-title': 'Apify AI Assistant',
-    //     'data-project-color': '#666666',
-    //     'data-button-hide': 'true',
-    //     'data-search-mode-enabled': 'true',
-    //     'data-search-include-source-names': '["Docs"]',
-    //     'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
-    //     'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
-    //     'data-modal-override-open-id': 'ask-ai-input',
-    //     'data-modal-override-open-class': 'search-input',
-    //     'data-font-size-xs': '1.2rem',
-    //     'data-font-size-sm': '1.4rem',
-    //     'data-font-size-md': '1.6rem',
-    //     'data-font-size-lg': '1.8rem',
-    //     'data-font-size-xl': '2.0rem',
-    //     async: true,
-    // },
-    // {
-    //     src: 'https://cdn.jsdelivr.net/npm/@inkeep/cxkit-js@0.5/dist/embed.js',
-    //     type: 'module',
-    //     async: true,
-    // },
+    {
+        src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+        'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
+        'data-project-name': 'Apify',
+        'data-modal-title': 'Apify AI Assistant',
+        'data-project-color': '#666666',
+        'data-button-hide': 'true',
+        'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
+        'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
+        'data-modal-override-open-id': 'ask-ai-input',
+        'data-modal-override-open-class': 'search-input',
+        'data-scale-factor': '1.6',
+        'data-modal-size': '800px',
+        async: true,
+    },
 ];
-
-const customFields = {
-    // inkeepApiKey: process.env.LOCALHOST || process.env.DEV
-    //     ? 'bbbb9f1001a9b66f282431a80bb743a24e2bdefb85d4f1e4' // development, works with localhost
-    //     : '8af30e40009f26622237f75aab8256064c26a3063717c48a', // production, only works on apify.com (any subdomain)
-};
 
 module.exports = {
     themeConfig,
@@ -354,5 +329,4 @@ module.exports = {
     absoluteUrl,
     noIndex,
     scripts,
-    customFields,
 };

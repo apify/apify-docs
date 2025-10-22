@@ -133,32 +133,53 @@ put:
       application/json:
         schema:
           $ref: "../../components/schemas/actors/UpdateActorRequest.yaml"
-        example:
-          name: MyActor
-          description: My favourite Actor!
-          isPublic: false
-          seoTitle: My Actor
-          seoDescription: My Actor is the best
-          title: My Actor
-          restartOnError: false
-          versions:
-            - versionNumber: '0.0'
-              sourceType: SOURCE_FILES
-              envVars:
-                - name: DOMAIN
-                  value: 'http://example.com'
-                  isSecret: false
-                - name: SECRET_PASSWORD
-                  value: MyTopSecretPassword123
-                  isSecret: true
-              applyEnvVarsToBuild: false
-              buildTag: latest
-              sourceFiles: []
-          categories: []
-          defaultRunOptions:
-            build: latest
-            timeoutSecs: 3600
-            memoryMbytes: 2048
+        examples:
+          common:
+            summary: 'Common example'
+            value:
+              name: MyActor
+              description: My favourite Actor!
+              isPublic: false
+              seoTitle: My Actor
+              seoDescription: My Actor is the best
+              title: My Actor
+              restartOnError: false
+              versions:
+                - versionNumber: '0.0'
+                  sourceType: SOURCE_FILES
+                  envVars:
+                    - name: DOMAIN
+                      value: 'http://example.com'
+                      isSecret: false
+                    - name: SECRET_PASSWORD
+                      value: MyTopSecretPassword123
+                      isSecret: true
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  sourceFiles: []
+              categories: []
+              defaultRunOptions:
+                build: latest
+                timeoutSecs: 3600
+                memoryMbytes: 2048
+          taggedBuildsCreateOrReassignTag:
+            summary: 'Create or reassign a build tag'
+            value:
+              taggedBuilds:
+                latest:
+                  buildId: 'z2EryhbfhgSyqj6Hn'
+          taggedBuildsRemoveTag:
+            summary: 'Remove a build tag'
+            value:
+              taggedBuilds:
+                latest: null
+          taggedBuildsMultipleOperations:
+            summary: 'Update multiple build tags at once'
+            value:
+              taggedBuilds:
+                latest:
+                  buildId: 'z2EryhbfhgSyqj6Hn'
+                beta: null
     required: true
   responses:
     '200':
