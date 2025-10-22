@@ -415,21 +415,19 @@ Properties:
 
 #### Object fields validation
 
-In the same way as in the root-level input schema, a schema can be defined for sub-properties of an object using the `properties` field.
+Like root-level input schemas, you can define a schema for sub-properties of an object using the `properties` field.
+
 Each sub-property within this sub-schema can define the same fields as those available at the root level of the input schema, except for the fields that apply only at the root level: `sectionCaption` and `sectionDescription`.
 
-Validation is performed both in the UI and during actor execution via the API.
-Sub-schema validation works independently of the editor selected for the parent object. It also respects the `additionalProperties` and `required` fields, allowing precise control over whether properties not defined in `properties` are permitted and which properties are mandatory.
+Validation is performed both in the UI and during Actor execution via the API. Sub-schema validation works independently of the editor selected for the parent object. It also respects the `additionalProperties` and `required` fields, giving you precise control over whether properties not defined in `properties` are permitted and which properties are mandatory.
 
-:::note
+:::note Recursive nesting
 
-Object sub-properties can also define their own sub-schemas recursively, without any limit on the nesting depth.
+Object sub-properties can define their own sub-schemas recursively with no nesting depth limit.
 
 :::
 
-Example of an object property with sub-schema properties:
-
-```json
+```json title="Example of an object property with sub-schema properties"
 {
     "title": "Configuration",
     "type": "object",
@@ -471,12 +469,12 @@ In this example, the object has validation rules for its properties:
 - The `timeout` and `locale` properties are required
 - No additional properties beyond those defined are allowed
 
-**Handling default and prefill values for object sub-properties:**
+##### Handling default and prefill values for object sub-properties
 
 When defining object with sub-properties, it's possible to set `default` and `prefill` values in two ways:
 
-1. **At the parent object level**: You can provide a complete object as the `default` or `prefill` value, which will set values for all sub-properties at once.
-2. **At the individual sub-property level**: You can specify `default` or `prefill` values for each sub-property separately within the `properties` definition.
+1. _At the parent object level_: You can provide a complete object as the `default` or `prefill` value, which will set values for all sub-properties at once.
+2. _At the individual sub-property level_: You can specify `default` or `prefill` values for each sub-property separately within the `properties` definition.
 
 When both methods are used, the values defined at the parent object level take precedence over those defined at the sub-property level.
 For example, in the input schema like this:
@@ -524,9 +522,7 @@ Objects with a defined sub-schema can use the `schemaBased` editor, which provid
 It renders all properties based on their type (and optionally the `editor` field), making it ideal for visually managing complex object structures.
 This editor supports both single objects and arrays of objects (see [below](#array)), allowing each property to be represented with an appropriate input field in the UI.
 
-Example of updated previous field using the `schemaBased` editor:
-
-```json
+```json title="Example of an object property with sub-schema properties using schemaBased editor"
 {
     "title": "Configuration",
     "type": "object",
@@ -569,7 +565,7 @@ Each sub-property is rendered with its own input field according to its type and
 - The `timeout` property is rendered as a numeric input with validation limits.
 - The `debugMode` property is rendered as a checkbox toggle.
 
-**Limitations:**
+##### Limitations
 
 The `schemaBased` editor supports only **top-level sub-properties** (level 1 nesting).
 While deeper nested properties can still define sub-schemas for validation, they cannot use the `schemaBased` editor for rendering.
@@ -662,12 +658,10 @@ Each array item is validated according to its `type` and inside the `items` fiel
 If the item type is an `object`, it can define its own `properties`, `required`, and `additionalProperties` fields,
 working in the same way as a single object field (see [Object fields validation](#object-fields-validation)).
 
-Validation is performed both in the UI and during actor execution via the API.
+Validation is performed both in the UI and during Actor execution via the API.
 Array items can themselves be objects with sub-schemas, and objects within objects, recursively, without any limit on nesting depth.
 
-Example of an array of objects property with sub-schema:
-
-```json
+```json title="Example of an array of objects property with sub-schema"
 {
     "title": "Request Headers",
     "type": "array",
@@ -708,12 +702,12 @@ In this example:
 - No additional properties beyond those defined are allowed.
 - The validation of each object item works the same as for a single object field (see [Object fields validation](#object-fields-validation)).
 
-**Handling default and prefill values array with object sub-properties:**
+##### Handling default and prefill values array with object sub-properties
 
 When defining an array of objects with sub-properties, it's possible to set `default` and `prefill` values in two ways:
 
-1. **At the parent array level**: You can provide an array of complete objects as the `default` or `prefill` value, which will be used only if there is no value specified for the field.
-2. **At the individual sub-property level**: You can specify `default` or `prefill` values for each sub-property within the `properties` definition of the object items. These values will be applied to each object in the array value.
+1. _At the parent array level_: You can provide an array of complete objects as the `default` or `prefill` value, which will be used only if there is no value specified for the field.
+2. _At the individual sub-property level_: You can specify `default` or `prefill` values for each sub-property within the `properties` definition of the object items. These values will be applied to each object in the array value.
 
 For example, having an input schema like this:
 
@@ -766,9 +760,7 @@ It works for arrays of primitive types (like strings or numbers) as well as arra
 
 This makes it easy to manage complex arrays in the UI while still enforcing validation rules defined in the items field.
 
-Example 1: Array of strings using the `schemaBased` editor:
-
-```json
+```json title="Example of an array of strings property with sub-schema"
 {
     "title": "Start URLs",
     "type": "array",
@@ -791,9 +783,7 @@ Rendered input:
 - The array must contain between 1 and 50 items.
 - Duplicate values are not allowed.
 
-Example 2: Array of objects using the `schemaBased` editor:
-
-```json
+```json title="Example of an array of objects property with sub-schema"
 {
     "title": "Request Headers",
     "type": "array",
@@ -832,7 +822,7 @@ Rendered input:
 - Validation ensures all required sub-properties are filled and no extra properties are allowed.
 - New items can be added up to the `maxItems` limit, and each item is validated individually.
 
-**Limitations:**
+##### Limitations
 
 As with objects, the sub-schema feature for arrays only works for level 1 sub-properties. While the objects in the array can have properties with their own schema definitions, those properties cannot themselves use the `schemaBased` editor.
 
