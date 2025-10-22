@@ -56,7 +56,7 @@ You can organize the files using one of these structures:
 
 ## Definitions
 
-The key-value store schema defines the collections of keys and their properties. It allows you to organize and validate data stored by the Actor, making it easier to manage and retrieve specific records.
+The output schema defines the collections of keys and their properties. It allows you to organize and validate data stored by the Actor, making it easier to manage and retrieve specific records.
 
 ### Output schema object definition
 
@@ -85,8 +85,8 @@ The key-value store schema defines the collections of keys and their properties.
 | `links.apiRunUrl`        | string       | API run url in format `https://api.apify.com/v2/actor-runs/:runId` |
 | `links.apiDefaultDatasetUrl`        | string       | API url of default dataset in format `https://api.apify.com/v2/datasets/:defaultDatasetId` |
 | `links.apiDefaultKeyValueStoreUrl`        | string       | API url of default key-value store in format `https://api.apify.com/v2/key-value-stores/:defaultKeyValueStoreId` |
-| `links.containerRunUrl`        | string       | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/` |
 | `run`        | object       | Contains information about the run same as it is returned from the `GET Run` API endpoint |
+| `run.containerUrl`        | string       | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/` |
 | `run.defaultDatasetId`  | string | ID of the default dataset  |
 | `run.defaultKeyValueStoreId`     | string       | ID of the default key-value store |
 
@@ -139,7 +139,7 @@ Then to specify that output is stored in the default dataset, create `.actor/out
 }
 ```
 
-To show, that the output is stored in the default key-value store, the schema defines a property called `results`.
+To show that the output is stored in the default dataset, the schema defines a property called `results`.
 
 The `title` is a human-readable name for the output, shown in the Apify Console.
 
@@ -206,7 +206,7 @@ Then to specify that output is stored in the key-value store, update `.actor/out
 }
 ```
 
-To show, that the output is stored in the default key-value store, the schema defines a property called `files`.
+To show that the output is stored in the default key-value store, the schema defines a property called `files`.
 
 The `template` uses a variable `{{links.apiDefaultKeyValueStoreUrl}}`, which is replaced with the URL of the default key-value store API endpoints when the Actor run finishes.
 
