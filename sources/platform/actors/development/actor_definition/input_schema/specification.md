@@ -471,9 +471,10 @@ In this example, the object has validation rules for its properties:
 - The `timeout` and `locale` properties are required
 - No additional properties beyond those defined are allowed
 
-**Handling default and prefill values for object sub-properties**
+**Handling default and prefill values for object sub-properties:**
 
 When defining object with sub-properties, it's possible to set `default` and `prefill` values in two ways:
+
 1. **At the parent object level**: You can provide a complete object as the `default` or `prefill` value, which will set values for all sub-properties at once.
 2. **At the individual sub-property level**: You can specify `default` or `prefill` values for each sub-property separately within the `properties` definition.
 
@@ -707,9 +708,10 @@ In this example:
 - No additional properties beyond those defined are allowed.
 - The validation of each object item works the same as for a single object field (see [Object fields validation](#object-fields-validation)).
 
-**Handling default and prefill values array with object sub-properties**
+**Handling default and prefill values array with object sub-properties:**
 
 When defining an array of objects with sub-properties, it's possible to set `default` and `prefill` values in two ways:
+
 1. **At the parent array level**: You can provide an array of complete objects as the `default` or `prefill` value, which will be used only if there is no value specified for the field.
 2. **At the individual sub-property level**: You can specify `default` or `prefill` values for each sub-property within the `properties` definition of the object items. These values will be applied to each object in the array value.
 
@@ -748,11 +750,13 @@ For example, having an input schema like this:
 ```
 
 If there is no value specified for the field, the array will default to containing one object:
+
 ```json
 [
     { "url": "https://apify.com", "port": 80 }
 ]
 ```
+
 However, if the user adds a new item to the array, the `port` sub-property of that new object will default to `8080`, as defined in the sub-property itself.
 
 #### `schemaBased` editor
