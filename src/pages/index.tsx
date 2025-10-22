@@ -30,6 +30,7 @@ import WebScrapingForBeginners from './img/academy_icons/web_scraping_for_beginn
 import Actors from './img/platform_icons/actors.svg';
 import Collaboration from './img/platform_icons/collaboration.svg';
 import Integrations from './img/platform_icons/integrations.svg';
+import MCP from './img/platform_icons/mcp.svg';
 import Monitoring from './img/platform_icons/monitoring.svg';
 import Proxy from './img/platform_icons/proxy.svg';
 import Schedules from './img/platform_icons/schedules.svg';
@@ -168,6 +169,12 @@ export default function Home() {
                             title="Security"
                             description="Learn about Apify platform security and data protection."
                             to="/platform/security"
+                        />
+                        <CardWithIcon
+                            icon={<MCP />}
+                            title="MCP"
+                            description="Discover and use Actors with AI agents and LLMs via Apify MCP server."
+                            to="/platform/integrations/mcp"
                         />
                     </div>
                 </div>
