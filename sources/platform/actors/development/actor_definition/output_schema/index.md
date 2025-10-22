@@ -85,8 +85,8 @@ The output schema defines the collections of keys and their properties. It allow
 | `links.apiRunUrl`        | string       | API run url in format `https://api.apify.com/v2/actor-runs/:runId` |
 | `links.apiDefaultDatasetUrl`        | string       | API url of default dataset in format `https://api.apify.com/v2/datasets/:defaultDatasetId` |
 | `links.apiDefaultKeyValueStoreUrl`        | string       | API url of default key-value store in format `https://api.apify.com/v2/key-value-stores/:defaultKeyValueStoreId` |
-| `links.containerRunUrl`        | string       | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/` |
 | `run`        | object       | Contains information about the run same as it is returned from the `GET Run` API endpoint |
+| `run.containerUrl`        | string       | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/` |
 | `run.defaultDatasetId`  | string | ID of the default dataset  |
 | `run.defaultKeyValueStoreId`     | string       | ID of the default key-value store |
 
@@ -297,7 +297,7 @@ The conversation history is then stored in the dataset.
         "clientUrl": {
             "type": "string",
             "title": "Chat client",
-            "template": "{{run.containerRunUrl}}"
+            "template": "{{run.containerUrl}}"
         },
         "chatHistory": {
             "type": "string",
