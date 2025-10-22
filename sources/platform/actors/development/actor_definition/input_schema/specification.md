@@ -416,7 +416,7 @@ Properties:
 #### Object fields validation
 
 In the same way as in the root-level input schema, a schema can be defined for sub-properties of an object using the `properties` field.
-Each sub-property within this sub-schema can define the same fields as those available at the root level of the input schema, except for the fields that apply only at the root level: `sectionCaption`, `sectionDescription`, `prefill`, `example`, and `default`.
+Each sub-property within this sub-schema can define the same fields as those available at the root level of the input schema, except for the fields that apply only at the root level: `sectionCaption` and `sectionDescription`.
 
 Validation is performed both in the UI and during actor execution via the API.
 Sub-schema validation works independently of the editor selected for the parent object. It also respects the `additionalProperties` and `required` fields, allowing precise control over whether properties not defined in `properties` are permitted and which properties are mandatory.
@@ -426,7 +426,6 @@ Sub-schema validation works independently of the editor selected for the parent 
 Object sub-properties can also define their own sub-schemas recursively, without any limit on the nesting depth.
 
 :::
-
 
 Example of an object property with sub-schema properties:
 
@@ -471,6 +470,48 @@ In this example, the object has validation rules for its properties:
 - The `debugMode` property is optional and can be either `true` or `false`
 - The `timeout` and `locale` properties are required
 - No additional properties beyond those defined are allowed
+
+**Handling default and prefill values for object sub-properties**
+
+When defining object with sub-properties, it's possible to set `default` and `prefill` values in two ways:
+1. **At the parent object level**: You can provide a complete object as the `default` or `prefill` value, which will set values for all sub-properties at once.
+2. **At the individual sub-property level**: You can specify `default` or `prefill` values for each sub-property separately within the `properties` definition.
+
+When both methods are used, the values defined at the parent object level take precedence over those defined at the sub-property level.
+For example, in the input schema like this:
+
+```json
+{
+    "title": "Configuration",
+    "type": "object",
+    "description": "Advanced configuration options",
+    "editor": "schemaBased",
+    "default": {
+        "timeout": 60
+    },
+    "properties": {
+        "locale": {
+            "title": "Locale",
+            "type": "string",
+            "description": "Locale identifier.",
+            "pattern": "^[a-z]{2,3}-[A-Z]{2}$",
+            "editor": "textfield",
+            "default": "en-US"
+        },
+        "timeout": {
+            "title": "Timeout",
+            "type": "integer",
+            "description": "Request timeout in seconds",
+            "minimum": 1,
+            "maximum": 300,
+            "editor": "number",
+            "default": 120
+        }
+    }
+}
+```
+
+The `timeout` sub-property will have a default value of `60` (from the parent object), while the `locale` sub-property will have a default value of `"en-US"` (from its own definition).
 
 #### `schemaBased` editor
 
@@ -615,7 +656,9 @@ To correctly define options for multiselect, you need to define the `items` prop
 #### Array items validation
 
 Arrays in the input schema can define an `items` field to specify the type and validation rules for each item.
-Each array item is validated according to its `type`. If the item is an `object`, it can define its own `properties`, `required`, and `additionalProperties` fields,
+Each array item is validated according to its `type` and inside the `items` field it's also possible to define additional validation rules such as `pattern`, `minimum`, `maximum`, etc., depending on the item type.
+
+If the item type is an `object`, it can define its own `properties`, `required`, and `additionalProperties` fields,
 working in the same way as a single object field (see [Object fields validation](#object-fields-validation)).
 
 Validation is performed both in the UI and during actor execution via the API.
@@ -664,6 +707,54 @@ In this example:
 - No additional properties beyond those defined are allowed.
 - The validation of each object item works the same as for a single object field (see [Object fields validation](#object-fields-validation)).
 
+**Handling default and prefill values array with object sub-properties**
+
+When defining an array of objects with sub-properties, it's possible to set `default` and `prefill` values in two ways:
+1. **At the parent array level**: You can provide an array of complete objects as the `default` or `prefill` value, which will be used only if there is no value specified for the field.
+2. **At the individual sub-property level**: You can specify `default` or `prefill` values for each sub-property within the `properties` definition of the object items. These values will be applied to each object in the array value.
+
+For example, having an input schema like this:
+
+```json
+{
+    "title": "Requests",
+    "type": "array",
+    "description": "List of HTTP requests",
+    "editor": "schemaBased",
+    "default": [
+        { "url": "https://apify.com", "port": 80 }
+    ],
+    "items": {
+        "type": "object",
+        "properties": {
+            "url": {
+                "title": "URL",
+                "type": "string",
+                "description": "Request URL",
+                "editor": "textfield"
+            },
+            "port": {
+                "title": "Port",
+                "type": "integer",
+                "description": "Request port",
+                "editor": "number",
+                "default": 8080
+            }
+        },
+        "required": ["url", "port"],
+        "additionalProperties": false
+    }
+}
+```
+
+If there is no value specified for the field, the array will default to containing one object:
+```json
+[
+    { "url": "https://apify.com", "port": 80 }
+]
+```
+However, if the user adds a new item to the array, the `port` sub-property of that new object will default to `8080`, as defined in the sub-property itself.
+
 #### `schemaBased` editor
 
 Arrays can use the `schemaBased` editor to provide a user-friendly interface for editing each item individually.
@@ -680,7 +771,8 @@ Example 1: Array of strings using the `schemaBased` editor:
     "description": "List of URLs for the scraper to visit",
     "editor": "schemaBased",
     "items": {
-        "type": "string"
+        "type": "string",
+        "pattern": "^https?:\\/\\/(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(?:\\/\\S*)?$"
     },
     "minItems": 1,
     "maxItems": 50,
