@@ -90,7 +90,7 @@ After that we can start the workflow and see the results.
 #### Scrape Single URL
 
 1. Add the **Scrape Single URL** tool.
-2. Enter the **URL** to scrape (e.g., `https://en.wikipedia.org/wiki/Deutsche_Bahn`).
+2. Enter the **URL** to scrape (e.g., `https://docs.apify.com/`).
 3. Select the **Crawler type**. **Raw HTTP** is recommended for speed to work within Dify's timeout limits.
 4. Add an **End** node and map its output variable to the `json` result.
 
@@ -112,8 +112,8 @@ After that we can start the workflow and see the results.
 2. Enter the **Store ID** and **Key** for the record you want to retrieve. (e.g., Store ID `fC0qZmL5RWIxoJG8z`, Record Key `INPUT`)
 3. Add an **End** node and map its output to the tool's `json` result.
 
-![Get Key-Value Store Node](../images/dify-dataset-input.png)
-![Get Key-Value Store Node](../images/dify-dataset-succeded.png)
+![Get Key-Value Store Node](../images/dify-key-value-input.png)
+![Get Key-Value Store Node](../images/dify-key-value-succeded.png)
 
 ## Use Apify as a trigger
 
