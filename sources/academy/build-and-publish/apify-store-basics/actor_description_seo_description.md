@@ -70,7 +70,7 @@ Setting the SEO description and SEO name is optional. If not set, the descriptio
 
 ![changing actor name and seo name](images/changing_Actor_name_and_SEO_name.png)
 
-Actor description specifically can also be quick-edited in this pop-up on the Actor's page in Apify Console.  Open the **Actor's page**, then click on **…** in the top right corner, and choose ✎ **Edit name or description**. Then set the URL in the **Unique name** ✎ field and click **Save**.
+Actor description specifically can also be quick-edited in this pop-up on the Actor's page in Apify Console. Open the **Actor's page**, then click on **…** in the top right corner, and choose ✎ **Edit name or description**. Then set the URL in the **Unique name** ✎ field and click **Save**.
 
 ![changing actor description](images/change_Actor_description.png)
 

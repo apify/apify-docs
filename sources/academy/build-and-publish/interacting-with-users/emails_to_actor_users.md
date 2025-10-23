@@ -46,7 +46,7 @@ New filter, faster scraping, changes in input schema, in output schema, a new In
 >
 >A bit of context: while Tripadvisor never limited the search for restaurants or attractions, hotel search was a different case; it always capped at 3000. Our smart search is designed to overcome that limit by including every city within your chosen location. We scrape hotels from each one, ensuring no hidden gems slip through the cracks. This feature is available for [Tripadvisor Scraper](https://console.apify.com/actors/dbEyMBriog95Fv8CW/console) and [Tripadvisor Hotels Scraper](https://console.apify.com/actors/qx7G70MC4WBE273SM/console).
 >
->So get ready for an unbeatable hotel-hunting experience. Give it a spin, and let us know what you think!
+>Get ready for an unbeatable hotel-hunting experience. Give it a spin, and let us know what you think!
 
 Introduce and explain the features, add a screenshot of a feature if it will show in the input schema, and ask for feedback.
 
@@ -109,7 +109,7 @@ Actor downtime, performance issues, Actor directly influenced by platform hiccup
 >
 >We've got a quick update on the Google Maps Scraper for you. If you've been running the Actor this week, you might have noticed some hiccups — scraping was failing for certain places, causing retries and overall slowness.
 >
->We apologize for any inconvenience this may have caused you. The **good news is those performance issues are now resolved**. So feel free to resurrect any affected runs using the "latest" build, should work like a charm now.
+>We apologize for any inconvenience this may have caused you. The **good news is those performance issues are now resolved**. Feel free to resurrect any affected runs using the "latest" build, should work like a charm now.
 >
 >Need a hand or have questions? Feel free to reply to this email.
 

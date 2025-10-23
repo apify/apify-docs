@@ -24,7 +24,7 @@ You can view all the issues related to your Actors by going to **Actors** > [**I
 
 ## What is the Issues tab for?
 
-The tab is a series of conversations between you and your users. There are existing systems like GitHub for that. So why create a separate system like an Issues tab? Since the Issues tab exists both in private space (Console) and public space (Actor's page on the web), it can fulfill two different sets of purposes.
+The tab is a series of conversations between you and your users. There are existing systems like GitHub for that. Why create a separate system like an Issues tab? Since the Issues tab exists both in private space (Console) and public space (Actor's page on the web), it can fulfill two different sets of purposes.
 
 ### Issues tab in Apify Console
 

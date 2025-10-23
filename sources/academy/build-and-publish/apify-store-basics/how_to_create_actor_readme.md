@@ -23,7 +23,7 @@ README files typically include information on:
 - How users can get started with the project
 - Where users can get help with your project
 
-We mean all of this and even more. At Apify, when we talk about READMEs, we refer to the public Actor detail page on Apify Store. Specifically, its first tab. The README exists in the same form both on the web and in Console. So what is it for?
+We mean all of this and even more. At Apify, when we talk about READMEs, we refer to the public Actor detail page on Apify Store. Specifically, its first tab. The README exists in the same form both on the web and in Console. What is it for then?
 
 Before we dive in, a little disclaimer: you don't need your Apify README to fulfill all its purposes. Technically, you could even publish an Actor with just a single word in the README. But you'd be missing out if you did that.
 
@@ -32,7 +32,7 @@ Your Actor’s README has at least four functions:
 1. _SEO_ - If your README is well-structured and includes important keywords — both in headings and across the text — it has a high chance of being noticed and promoted by Google. Organic search brings the most motivated type of potential users. If you win this game, you've won most of the SEO game.
 2. _First impression_ - Your README is one of the first points of contact with a potential user. If you come across as convincing, clear, and reassuring it could be the factor that will make a user try your Actor for their task.
 3. _Extended instruction_ - The README is also the space that explains specific complex input settings. For example, special formatting of the input, any coding-related, or extended functions. Of course, you could put that all in a blog post as well, but the README should be their first point of contact.
-4. _Support_ - Your users come back to the README when they face issues. So use it as a space to let them know that's where they can find links to the tutorials if they run into issues, describe common troubleshooting techniques, share tricks, or warn you about bugs.
+4. _Support_ - Your users come back to the README when they face issues. Use it as a space to let them know that's where they can find links to the tutorials if they run into issues, describe common troubleshooting techniques, share tricks, or warn you about bugs.
 
 ## README elements theory
 
@@ -92,7 +92,7 @@ You might think the part above the Actor detail page already indicates pricing. 
 - If it's price per result, you can extrapolate how many results a user can get on a free plan and also entice them with a larger plan and how many thousands of results they can get with that.
 - If it's a bundle that consists of a couple of Actors that are priced differently, you can use this section to talk about the difference between all the Actors involved and how that will affect the final price of a run.
 
-In any case, on top of setting expectations and reassuring users, this paragraph can get into Google. If somebody is Googling "How much does it cost to scrape [website]", they might come across this part of your README and it will lead them from Google search directly to your Actor's detail page. So you don't want to miss that opportunity.
+In any case, on top of setting expectations and reassuring users, this paragraph can get into Google. If somebody is Googling "How much does it cost to scrape [website]", they might come across this part of your README and it will lead them from Google search directly to your Actor's detail page. You don't want to miss that opportunity.
 
 ![readme example](images/readme.png)
 
@@ -108,7 +108,7 @@ If your datasets come out too complex and you want to save your users some scrol
 
 ### Other Actors
 
-Don't forget to promote your other Actors. While our system for Actor recommendation works - you can see related Actors at the bottom of the README — it only works within the same category or similar name. It won't recommend a completely different Actor from the same creator. So make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
+Don't forget to promote your other Actors. While our system for Actor recommendation works - you can see related Actors at the bottom of the README — it only works within the same category or similar name. It won't recommend a completely different Actor from the same creator. Make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
 
 ### FAQ, disclaimers, and support
 
@@ -157,7 +157,7 @@ From the point of view of retention, it doesn't mean you can't have long or comp
 
 ### Images and videos
 
-As for using screenshots and GIFs, put them in some sort of image hosting. Your own GitHub repository would be best because you have full control over it. Name the images with SEO in mind and try to keep them compressed but good enough quality. You don't want to load an image or GIF for too long.
+As for using screenshots and gifs, put them in some sort of image hosting. Your own GitHub repository would be best because you have full control over it. Name the images with SEO in mind and try to keep them compressed but good enough quality. You don't want to load an image or gif for too long.
 
 One trick is not only to add images but also to make them clickable. For some reason, people like clicking on images, at least they try to when we look at the heatmaps. You can lead the screenshot clicks towards a signup page, which is possible with Markdown.
 
@@ -190,7 +190,7 @@ A good README has to be a balance between what you want your page visitors to kn
 
 ### Table of contents
 
-The H1 of your page is the Actor name, so you don't have to set that up. Don't add more H1s. README headings should be H2 or H3. H2 headings will make up the table of contents on the right. So if you don't want the table to be too crowded, keep the H2s to the basics and push all the longer phrases and questions to H3s. H3s will stay hidden in the accordion in the default state until the visitor hovers their cursor over it. H4 readings can also be included, of course, but they won't show up as a part of the table of contents.
+The H1 of your page is the Actor name, so you don't have to set that up. Don't add more H1s. README headings should be H2 or H3. H2 headings will make up the table of contents on the right. If you don't want the table to be too crowded, keep the H2s to the basics and push all the longer phrases and questions to H3s. H3s will stay hidden in the accordion in the default state until the visitor hovers their cursor over it. H4 readings can also be included, of course, but they won't show up as a part of the table of contents.
 
 ### Keyword opportunities
 
@@ -232,7 +232,7 @@ Learn about [How to create a great input schema](/academy/actor-marketing-playbo
     - Link to a success story, a business use case, or a blog post.
 3. How to scrape (target site)
    - Link to "How to…" blogs, if one exists (or suggest one if it doesn't)
-   - Add a video tutorial or GIF from an ideal Actor run.
+   - Add a video tutorial or gif from an ideal Actor run.
 
 :::tip Embedding YouTube videos
 

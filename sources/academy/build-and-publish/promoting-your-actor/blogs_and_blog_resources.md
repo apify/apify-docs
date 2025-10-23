@@ -42,7 +42,7 @@ slug: /actor-marketing-playbook/promote-your-actor/blogs-and-blog-resources
 
 There are a variety of platforms where you can publish your blog posts to reach the right audience:
 
-1. [Dev.to](http://dev.to/): It's a developer-friendly platform where technical content gets a lot of visibility, and a great place to publish how-to guides, tutorials, and technical breakdowns of your Actor.
+1. [dev.to](http://dev.to/): It's a developer-friendly platform where technical content gets a lot of visibility, and a great place to publish how-to guides, tutorials, and technical breakdowns of your Actor.
 2. Medium: Allows you to reach a broader, less technical audience. It’s also good for writing about general topics like automation trends or how to improve data scraping practices.
 3. ScrapeDiary: Run by Apify, [scrapediary.com](http://scrapediary.com) is a blog specifically geared toward Apify community devs and web scraping topics. Publishing here is a great way to reach users already interested in scraping and automation. Contact us if you want to publish a blog post there.
 4. Personal blogs or company websites. If you have your own blog or a company site, post there. It’s the most direct way to control your content and engage your established audience.
@@ -116,6 +116,6 @@ To drive traffic to your blog and keep users engaged, reference your blog posts 
 ## Additional tips for blog success
 
 1. Consistency. Regular posting helps build an audience and makes sure you keep at it. Try to stick to a consistent schedule, whether it’s weekly, bi-weekly, or monthly. As Woody Allen said, “80 percent of success is showing up”.
-2. Guest blogging. Reach out to other blogs or platforms like [Dev.to](http://dev.to/) for guest blogging opportunities. This helps you tap into new audiences.
+2. Guest blogging. Reach out to other blogs or platforms like [dev.to](http://dev.to/) for guest blogging opportunities. This helps you tap into new audiences.
 3. Repurpose content. Once you’ve written a blog post, repurpose it. Turn it into a YouTube video, break it down into social media posts, or use it as the base for a webinar.
 4. Monitor performance. Use analytics to track how your blog is performing. Are people reading it? Is it driving traffic to your Actor? What keywords is it ranking for? Who are your competitors? Use this data to refine your content strategy.

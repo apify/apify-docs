@@ -135,9 +135,9 @@ Basically, the choice here depends on how much flexibility you need and how much
 
 [Universal scrapers](https://apify.com/scrapers/universal-web-scrapers) are simple to set up but are less flexible and configurable. Our [libraries](https://crawlee.dev/), on the other hand, enable the development of a standard [Node.js](https://nodejs.org/) or Python application, so be prepared to write a little more code. The reward for that is almost infinite flexibility.
 
-[Code templates](https://apify.com/templates) are sort of a middle ground between scrapers and libraries. But since they are built on libraries, they are still on the rather more coding than less coding side. They will only give you a starter code to begin with. So please take this into account when choosing the way to build your scraper, and if in doubt — just ask us, and we'll help you out.
+[Code templates](https://apify.com/templates) are sort of a middle ground between scrapers and libraries. But since they are built on libraries, they are still on the rather more coding than less coding side. They will only give you a starter code to begin with. Please take this into account when choosing the way to build your scraper, and if in doubt — just ask us, and we'll help you out.
 
-## Switching sides: how to transfer an existing solution from another platform
+## Switching sides: How to transfer an existing solution from another platform
 
 You can also take advantage of the Apify platform's features without having to modify your existing scraping or automation solutions.
 

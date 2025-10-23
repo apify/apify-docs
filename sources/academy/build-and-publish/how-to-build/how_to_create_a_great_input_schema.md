@@ -12,13 +12,20 @@ Optimizing your input schema. Learn to design and refine your input schema with 
 
 ## What is an input schema?
 
-So you've succeeded: your user has 1. found your Actor on Google, 2. explored the Actor's landing page, 3. decided to try it, and 4. created an Apify account. Now they’re on your Actor's page in Apify Console. The SEO fight is over. What’s next?
+You've succeeded: your user has:
+
+1. Found your Actor on Google.
+1. Explored the Actor's landing page.
+1. Decided to try it.
+1. Created an Apify account.
+
+Now they’re on your Actor's page in Apify Console. The SEO fight is over. What’s next?
 
 Your user is finally one-on-one with your Actor — specifically, its input schema. This is the moment when they try your Actor and decide whether to stick with it. The input schema is your representative here, and you want it to work in your favor.
 
 Technically, the input schema is a `JSON` object with various field types supported by the Apify platform, designed to simplify the use of the Actor. Based on the input schema you define, the Apify platform automatically generates a _user interface_ for your Actor.
 
-Of course, you can create an Actor without setting up an elaborate input schema. If your Actor is designed for users who don't need a good interface (e.g. they’ll use a JSON object and call it via API), you can skip this guide. But most users engage with Actors in Manual mode, aka the Actor interface. So, if your Actor is complex or you’re targeting regular users who need an intuitive interface, it's essential to consider their experience.
+Of course, you can create an Actor without setting up an elaborate input schema. If your Actor is designed for users who don't need a good interface (e.g. they’ll use a JSON object and call it via API), you can skip this guide. But most users engage with Actors in Manual mode, aka the Actor interface. If your Actor is complex or you’re targeting regular users who need an intuitive interface, it's essential to consider their experience.
 
 In this article, _we’ll refer to the input schema as the user interface_ of your Actor and focus exclusively on it.
 
@@ -56,7 +63,7 @@ A well-designed input schema is all about managing user expectations, reducing c
 
 You can see the full list of elements and their technical characteristics in [Docs](https://docs.apify.com/academy/deploying-your-code/input-schema): titles, tooltips, toggles, prefills, etc. That's not what this guide is about. It's not enough to just create an input schema, you should ideally aim to place and word its elements to the user's advantage: to alleviate the user's cognitive load and make the acquaintance and usage of your tool as smooth as possible.
 
-Unfortunately, when it comes to UX, there's only so much you can achieve armed with HTML alone. So here are the best elements to focus on, along with some best practices for using them effectively:
+Unfortunately, when it comes to UX, there's only so much you can achieve armed with HTML alone. Here are the best elements to focus on, along with some best practices for using them effectively:
 
 - **`description` at the top**
   - As the first thing users see, the description needs to provide crucial information and a sense of reassurance if things go wrong. Key points to mention: the easiest way to try the Actor, links to a guide, and any disclaimers or other similar Actors to try.
@@ -79,7 +86,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
     - There’s also a type of field that looks like a prefill but isn’t — usually a `default` field. It’s not counted as actual input but serves as a mock input to show users what to type or paste. It is gray and disappears after clicking on it. Use this to your advantage.
 - **toggle**
   - The toggle is a boolean field. A boolean field represents a yes/no choice.
-  - So how would you word this toggle: **Skip closed places** or **Scrape open places only**? And should the toggle be enabled or disabled by default?
+  - How would you word this toggle: **Skip closed places** or **Scrape open places only**? And should the toggle be enabled or disabled by default?
 
     ![Input schema toggle example](images/toggle-sshot.png)
 
