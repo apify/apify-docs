@@ -869,7 +869,7 @@ Rendered input:
 
 ![Apify Actor input schema datasets](./images/input-schema-datasets.png)
 
-##### Single value properties
+#### Single value properties
 
 | Property       | Value                                                                             | Required | Description                                                                                              |
 |----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|
@@ -880,7 +880,7 @@ Rendered input:
 | `minLength`    | Integer                                                                           | No       | Minimum length of the string.                                                                            |
 | `maxLength`    | Integer                                                                           | No       | Maximum length of the string.                                                                            |
 
-##### Multiple values properties
+#### Multiple values properties
 
 | Property       | Value                                                                             | Required | Description                                                                |
 |----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------|
