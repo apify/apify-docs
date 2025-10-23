@@ -36,13 +36,13 @@ Monetizing your Actor on the Apify platform involves several key steps:
   - `Page opened with a browser` at $0.002 - this is on top of `Pages scraped`
 - _Example_:
   - User A:
-    - Started the Actor 10 times = $0.05
+    - Started the Actor with 10GB of memory = $0.05
     - Scraped 1,000 pages = $2.00
     - 500 of those were scraped using residential proxy = $1.00
     - 300 of those were scraped using browser = $0.60
     - This comes up to $3.65 of total revenue
   - User B:
-    - Started the Actor 5 times = $0.025
+    - Started the Actor with 5GB of memory = $0.025
     - Scraped 500 pages = $1.00
     - 200 of those were scraped using residential proxy = $0.40
     - 100 of those were scraped using browser = $0.20
