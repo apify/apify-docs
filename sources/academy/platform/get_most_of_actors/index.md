@@ -4,6 +4,7 @@ description: Learn how to optimize and monetize your Actors on Apify Store by sh
 sidebar_position: 10
 category: apify platform
 slug: /actor-marketing-playbook
+unlisted: true
 ---
 
 **Learn how to optimize and monetize your Actors on Apify Store by sharing them with other platform users.**
