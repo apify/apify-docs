@@ -47,12 +47,6 @@ To help you succeed, we've created a comprehensive Actor marketing playbook. You
         smallImage
     />
     <Card
-        title="Ideas page and its use"
-        desc="Not sure what to build next? The Ideas page helps you find high-demand Actor concepts based on community requests and trending topics."
-        to="/academy/actor-marketing-playbook/store-basics/ideas-page"
-        smallImage
-    />
-    <Card
         title="Actor success stories"
         desc="Some developers have turned their Actors into profitable tools with steady user bases. This section shares real-world examples of what works, from product strategy to marketing tactics."
         to="/academy/actor-marketing-playbook/store-basics/actor-success-stories"
