@@ -124,7 +124,7 @@ const themeConfig = {
                     },
                     {
                        label: 'Apify MCP Server',
-                       href: 'https://github.com/apify-mcp-server',
+                       href: 'https://github.com/apify/apify-mcp-server',
                     },
                     {
                         label: 'Actor whitepaper',
