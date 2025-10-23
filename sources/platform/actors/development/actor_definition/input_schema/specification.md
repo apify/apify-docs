@@ -831,9 +831,9 @@ As with objects, the sub-schema feature for arrays only works for level 1 sub-pr
 Resource type identifies what kind of Apify Platform object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
 Currently, it supports storage resources only, allowing the reference of a Dataset, Key-Value Store or Request Queue.
 
-For Actor developers, the resource input value is a string representing the storage ID.
-The type of the property is either `string` or `array`. In case of `array` (for multiple resources) the return value is an array of IDs.
-In the user interface, a picker is provided for easy selection, where users can search and choose from their own storages or those they have access to.
+For Actor developers, the resource input value is a string representing either the resource ID or (unique) name.
+The type of the property is either `string` or `array`. In case of `array` (for multiple resources) the return value is an array of IDs or names.
+In the user interface, a picker (`resourcePicker` editor) is provided for easy selection, where users can search and choose from their own resources or those they have access to.
 
 Example of a Dataset input:
 
@@ -869,12 +869,23 @@ Rendered input:
 
 ![Apify Actor input schema datasets](./images/input-schema-datasets.png)
 
-Properties:
+##### Single value properties
 
-| Property       | Value                                                                             | Required | Description                                                                        |
-|----------------|-----------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------|
-| `type`         | One of <ul><li>`string`</li><li>`array`</li></ul>                                 | Yes      | Specifies the type of input - string for single value or array for multiple values |
-| `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.         |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                    |
-| `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain. Only for `type: array`              |
-| `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain. Only for `type: array`              |
+| Property       | Value                                                                             | Required | Description                                                                                              |
+|----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|
+| `type`         | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                 |
+| `editor`       | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                               |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                          |
+| `pattern`      | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
+| `minLength`    | Integer                                                                           | No       | Minimum length of the string.                                                                            |
+| `maxLength`    | Integer                                                                           | No       | Maximum length of the string.                                                                            |
+
+##### Multiple values properties
+
+| Property       | Value                                                                             | Required | Description                                                                |
+|----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------|
+| `type`         | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                   |
+| `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                            |
+| `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain.                             |
+| `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain.                             |
