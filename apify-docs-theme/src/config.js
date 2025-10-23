@@ -123,10 +123,6 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
-                       label: 'Apify MCP Server',
-                       href: 'https://github.com/apify/apify-mcp-server',
-                    },
-                    {
                         label: 'Actor whitepaper',
                         href: 'https://whitepaper.actor',
                     },
