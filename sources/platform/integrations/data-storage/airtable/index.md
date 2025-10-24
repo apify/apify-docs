@@ -52,6 +52,7 @@ Open the Apify extension and login using OAuth 2.0 with your Apify account. If y
 Apify extension helps you map and import data into your Airtable base
 
 ### Features
+
 - Run Actors
 - Run tasks
 - Get dataset items
@@ -60,7 +61,8 @@ Apify extension helps you map and import data into your Airtable base
     ![Apify extension overview](../../images/airtable/airtable_overview.png)
 
 ### Run Actor
-1. Select any Actor from `Apify store` or `recently used Actors` 
+
+1. Select any Actor from `Apify store` or `recently used Actors`
     ![Select Actor screen](../../images/airtable/airtable_actor_select.png)
 
 1. Fill in the Actor input form.
@@ -86,6 +88,7 @@ Apify extension has UI elements that allow you to map dataset fields to Airtable
     **Field Type:** Displays the type of the target Airtable field. For `new` mode you need to also specify this field.
 
 #### Select Fields to Map
+
     The preview window next to the mapping rows will help you view and pick fields from the dataset. 
     "." character in the labels point to the children elements of an object
 
@@ -110,22 +113,26 @@ it checks for fields in your table with label either `depth` or `crawl.depth`. I
 
 
 #### Duplicate filtering
+
     Select a **unique ID** on the data mapping step. The unique ID will be added to the list of mapping rows. 
     Make sure it points to the correct field in your table. While importing the data will be filtered by existing values in the table.
     ![Select unique ID](../../images/airtable/airtable_unique_id.png)
 
 #### Preview Mapped Data
+
     Preview the results and start the import 
 
     ![Preview Mapped Data](../../images/airtable/airtable_preview.png)
 
 ### Run Task
+
 You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
 
     ![Run task](../../images/airtable/airtable_task.png)
 
 
 ### Get Dataset
+
 Retrieve items from any Apify dataset and import them into your Airtable base with a single click.
 
     ![Get dataset](../../images/airtable/airtable_dataset.png)
