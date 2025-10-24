@@ -4,6 +4,7 @@ description: Learn how to optimize and monetize your Actors on Apify Store by sh
 sidebar_position: 10
 category: apify platform
 slug: /actor-marketing-playbook
+unlisted: true
 ---
 
 **Learn how to optimize and monetize your Actors on Apify Store by sharing them with other platform users.**
@@ -43,12 +44,6 @@ To help you succeed, we've created a comprehensive Actor marketing playbook. You
         title="How Actor monetization works"
         desc="Apify Store lets you earn revenue from your Actors, but success depends on pricing, user engagement, and quality. This section covers how subscriptions work, how to set competitive pricing, and what it takes to generate sustainable income."
         to="/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works"
-        smallImage
-    />
-    <Card
-        title="Ideas page and its use"
-        desc="Not sure what to build next? The Ideas page helps you find high-demand Actor concepts based on community requests and trending topics."
-        to="/academy/actor-marketing-playbook/store-basics/ideas-page"
         smallImage
     />
     <Card
