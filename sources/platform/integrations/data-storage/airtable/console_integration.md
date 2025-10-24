@@ -1,9 +1,9 @@
 ---
-title: Airtable integration
-description: Learn how to integrate Apify with Airtable
-sidebar_label: Airtable
+title: Airtable integration on Apify console
+description: Learn how to integrate Airtable on the Apify console
+sidebar_label: Console integration
 sidebar_position: 4
-slug: /integrations/airtable
+slug: /integrations/airtable/console
 ---
 
 **Learn how to integrate your Apify Actors with Airtable. This article shows you how to automatically upload results to your Airtable when an Actor run succeeds.**
@@ -26,11 +26,11 @@ To use the Apify integration for Airtable, ensure you have:
 1. In Apify Console, go to the [API & Integrations tab](https://console.apify.com/settings/integrations) in the **Settings** section.
 1. Under **Account-level integrations**, click **Add account**.
 
-    ![Add account button in Account-level integrations section of the settings](../images/airtable/connect-account-1.png)
+    ![Add account button in Account-level integrations section of the settings](../../images/airtable/connect-account-1.png)
 
 1. Select **Airtable** from the list of available services.
 
-    ![Connect with Airtable button among other buttons for connection of other available services](../images/airtable/connect-account-2.png)
+    ![Connect with Airtable button among other buttons for connection of other available services](../../images/airtable/connect-account-2.png)
 
 1. Follow the OAuth 2.0 authorization flow to securely connect your Airtable account.
 
@@ -42,7 +42,7 @@ To use the Apify integration for Airtable, ensure you have:
 
 1. Go to the **Integrations** tab and click **Upload data to Airtable**.
 
-    ![Airtable integration option among other available integrations](../images/airtable/set-up-integration-1.png)
+    ![Airtable integration option among other available integrations](../../images/airtable/set-up-integration-1.png)
 
 1. Select the upload mode:
    - **CREATE**: New table is created for each run of this integration.
@@ -55,9 +55,9 @@ To use the Apify integration for Airtable, ensure you have:
 
    To ensure uniqueness when using CREATE mode, use dynamic variables. If a table with the same name already exists in CREATE mode, a random token will be appended.
 
-    ![Airtable integration configuration form](../images/airtable/set-up-integration-2.png)
+    ![Airtable integration configuration form](../../images/airtable/set-up-integration-2.png)
 
 1. Save the integration. Once your Actor runs, you'll see its results uploaded to Airtable.
 
-    ![Airtable table filled with data](../images/airtable/set-up-integration-3.png)
+    ![Airtable table filled with data](../../images/airtable/set-up-integration-3.png)
 
