@@ -118,3 +118,15 @@ it checks for fields in your table with label either `depth` or `crawl.depth`. I
     Preview the results and start the import 
 
     ![Preview Mapped Data](../../images/airtable/airtable_preview.png)
+
+### Run Task
+You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
+
+    ![Run task](../../images/airtable/airtable_task.png)
+
+
+### Get Dataset
+Retrieve items from any Apify dataset and import them into your Airtable base with a single click.
+
+    ![Get dataset](../../images/airtable/airtable_dataset.png)
+
