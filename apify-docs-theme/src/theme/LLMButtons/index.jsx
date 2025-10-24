@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { useCallback, useState } from 'react';
 
 import {
+    AnthropicIcon,
     ChatGptIcon,
     CheckIcon,
     ChevronDownIcon,
@@ -38,6 +39,13 @@ const DROPDOWN_OPTIONS = [
         value: 'openInChatGPT',
     },
     {
+        label: 'Open in Claude',
+        description: 'Ask questions about this page',
+        showExternalIcon: true,
+        Icon: AnthropicIcon,
+        value: 'openInClaude',
+    },
+    {
         label: 'Open in Perplexity',
         description: 'Ask questions about this page',
         showExternalIcon: true,
@@ -47,7 +55,11 @@ const DROPDOWN_OPTIONS = [
 ];
 
 const getPrompt = (currentUrl) => `Read from ${currentUrl} so I can ask questions about it.`;
-const getMarkdownUrl = (currentUrl) => `${currentUrl}.md`;
+const getMarkdownUrl = (currentUrl) => {
+    const url = new URL(currentUrl);
+    url.pathname = `${url.pathname.replace(/\/$/, '')}.md`;
+    return url.toString();
+};
 
 const onOpenInChatGPTClick = () => {
     if (window.analytics) {
@@ -67,6 +79,27 @@ const onOpenInChatGPTClick = () => {
         );
     } catch (error) {
         console.error('Error opening ChatGPT:', error);
+    }
+};
+
+const onOpenInClaudeClick = () => {
+    if (window.analytics) {
+        window.analytics.track('Clicked', {
+            app: 'docs',
+            button_text: 'Open in Claude',
+            element: 'llm-buttons.openInClaude',
+        });
+    }
+
+    const prompt = getPrompt(window.location.href);
+
+    try {
+        window.open(
+            `https://claude.ai/new?q=${encodeURIComponent(prompt)}`,
+            '_blank',
+        );
+    } catch (error) {
+        console.error('Error opening Claude:', error);
     }
 };
 
@@ -226,6 +259,9 @@ export default function LLMButtons({ isApiReferencePage = false }) {
                 break;
             case 'openInChatGPT':
                 onOpenInChatGPTClick();
+                break;
+            case 'openInClaude':
+                onOpenInClaudeClick();
                 break;
             case 'openInPerplexity':
                 onOpenInPerplexityClick();

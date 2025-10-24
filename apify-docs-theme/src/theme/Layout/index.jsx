@@ -12,12 +12,14 @@ export default function LayoutWrapper(props) {
     const currentPath = useLocation().pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
     const shouldRenderAlternateLink = currentPath && currentPath !== '404';
 
+    const alternateMarkdownLink = useBaseUrl(`/${currentPath}.md`, { absolute: true });
+
     return (
         <>
             <Head>
                 {
                     shouldRenderAlternateLink
-                        ? <link rel="alternate" type="text/markdown" href={`${currentPath}.md`}/>
+                        ? <link rel="alternate" type="text/markdown" href={alternateMarkdownLink}/>
                         : null
                 }
             </Head>
