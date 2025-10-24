@@ -22,7 +22,9 @@ You can integrate Apify dataset or Apify Actor with LlamaIndex.
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install apify-client llama-index-core llama-index-readers-apify`
+```shell
+pip install apify-client llama-index-core llama-index-readers-apify
+```
 
 After successfully installing all dependencies, we can start writing Python code.
 
