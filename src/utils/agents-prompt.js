@@ -240,7 +240,7 @@ CMD npm start --silent
         "format:check": "prettier --check .",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
-        "test": "echo \"Error: oops, the Actor has no tests yet, sad!\" && exit 1"
+        "test": "echo 'Error: oops, the Actor has no tests yet, sad!' && exit 1"
     },
     "author": "It's not you it's me",
     "license": "ISC"
