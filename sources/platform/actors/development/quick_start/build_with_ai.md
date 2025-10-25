@@ -10,10 +10,29 @@ toc_max_heading_level: 4
 
 ---
 
-import { RULES_AND_INSTRUCTIONS_PROMPT } from "@site/src/utils/ai-prompts";
+import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
 
-This guide explains how to enhance your development workflow by leveraging `llms.txt` and `llms-full.txt` with an AI assistant. You will learn how to provide foundational context and further refine AI's behavior with specific rules and instruction files.
+This guide shows you how to build Actors efficiently with AI coding assistants. You'll learn how to use pre-built instructions, integrate Apify documentation into your AI editor, and apply best practices for AI-assisted development.
+
+## AI coding assistant instructions
+
+Use the following prompt in your favorite AI coding assistant:
+
+<PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
+
+### Quick Start
+
+- _Step 1_: Create directory: `mkdir my-new-actor`
+- _Step 2_: Open the directory in _Cursor_, _VS Code_, etc.
+- _Step 3_: Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
+- _Step 4_: Run it, and develop your first actor with the help of AI 🎉
+
+:::info Start in an AI coding assistant
+
+To maximize efficiency, copy the prompt to Cursor, VS Code with GitHub Copilot, or another AI coding assistant. The AI will follow the guide step-by-step, and you'll avoid copy-pasting from tools like ChatGPT or Claude.
+
+:::
 
 ## `llms.txt` and `llms-full.txt`
 
@@ -39,6 +58,8 @@ Search engines weren't built for Large Language Models (LLMs), but they needs co
     </tr>
   </tbody>
 </table>
+
+<!-- TODO: Consider to remove it to keep it simple... -->
 
 ### Use llms.txt and llms-full.txt
 
@@ -86,42 +107,17 @@ New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models c
 
 ![Ask about Apify](./images/claude.png)
 
-## View pages as markdown
+## Use Actor Templates with instructions
 
-Every page in Apify documentation is available in markdown format. Simply add `.md` to any documentation URL to access the raw markdown content.
+TODO:
 
-For example:
+- Just mention that you can init actor using `apify create` and use it in IDE with AGENTS.md
 
-- [https://docs.apify.com/platform](https://docs.apify.com/platform) → [https://docs.apify.com/platform.md](https://docs.apify.com/platform.md)
-- [https://docs.apify.com/api](https://docs.apify.com/api) → [https://docs.apify.com/api.md](https://docs.apify.com/api.md)
+## Provide context to assistants
 
-This is useful when you want to:
+TBD:
 
-- Copy documentation content for AI prompts
-- Reference exact markdown syntax
-- Access content programmatically
-
-## Add rules
-
-To get the most from AI Code Editors, add rules or instructions.
-
-See how to set up rules for your AI Code Editors:
-
-- [Cursor Rules](https://docs.cursor.com/en/context/rules)
-- [Windsurf Rules](https://docs.windsurf.com/windsurf/cascade/memories#rules)
-- [GitHub Copilot instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-
-### Apify rules and instructions
-
-The best rules and instructions are specific for individual use cases, but we provide a prompt to help you get start with creating rules and instructions:
-
-<PromptButton prompt={RULES_AND_INSTRUCTIONS_PROMPT}/>
-
-:::info Keep your rules and instructions up to date
-
-As the project evolves, you might introduce new things. Always make sure that your rules and instructions are up to date.
-
-:::
+- Mention "Copy for LLM" buttons
 
 ## Best practices
 
