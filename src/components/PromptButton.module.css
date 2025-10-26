@@ -85,7 +85,6 @@
 .copy-button:hover {
   background: var(--ifm-color-primary-darker);
   border-color: var(--ifm-color-primary-darker);
-  transform: translateY(-1px);
 }
 
 .copy-button:active {
@@ -128,7 +127,6 @@
 .toggle-button:hover {
   background: var(--ifm-color-primary);
   color: var(--ifm-color-primary-contrast-background);
-  transform: translateY(-1px);
 }
 
 .toggle-button:active {

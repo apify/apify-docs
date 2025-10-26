@@ -1,30 +1,32 @@
 ---
 title: Build with AI
 sidebar_position: 3
-description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
+description: Use pre-built prompts, use Apify docs via llms.txt, and follow best practices to effective vibe coding.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Set up your environment, choose tools, and build workflows for effective AI development.**
+**Use pre-built prompts, use Apify docs via llms.txt, and follow best practices to build Actors efficiently with AI assistants.**
 
 ---
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
+import InstallMCPButton from "@site/src/components/InstallMCPButton";
+import copyForLlm from "./images/copy-for-llm.png";
 
 This guide shows you how to build Actors efficiently with AI coding assistants. You'll learn how to use pre-built instructions, integrate Apify documentation into your AI editor, and apply best practices for AI-assisted development.
 
 ## AI coding assistant instructions
 
-Use the following prompt in your favorite AI coding assistant:
+Use the following prompt in your AI coding assistant ([Cursor](https://www.cursor.com/), [Claude Code](https://www.claude.com/product/claude-code), [GitHub Copilot](https://github.com/features/copilot), etc.):
 
 <PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
 
 ### Quick Start
 
 - _Step 1_: Create directory: `mkdir my-new-actor`
-- _Step 2_: Open the directory in _Cursor_, _VS Code_, etc.
+- _Step 2_: Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
 - _Step 3_: Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
 - _Step 4_: Run it, and develop your first actor with the help of AI 🎉
 
@@ -34,9 +36,51 @@ To maximize efficiency, copy the prompt to Cursor, VS Code with GitHub Copilot, 
 
 :::
 
-## `llms.txt` and `llms-full.txt`
+## Use Actor templates with AGENTS.md
 
-Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
+All [Actor Templates](https://apify.com/templates) have AGENTS.md that will help you with AI coding. If you prefer a more traditional approach, run the following command:
+
+:::info Install Apify CLI
+
+If you don't have Apify CLI installed, install it first. Check the [installation guide](/cli/docs/installation).
+
+:::
+
+```bash
+apify create
+```
+
+The command above will guide you through Apify Actor initialization, where you select an Actor Template that works for you. The result is an initialized Actor (with AGENTS.md) ready for development.
+
+## Use Apify MCP Server
+
+The Apify MCP Server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
+
+Install it by clicking one of the following buttons for your AI editor.
+
+### Cursor
+
+<InstallMCPButton link="https://cursor.com/en-US/install-mcp?name=apify&config=eyJ1cmwiOiJodHRwczovL21jcC5hcGlmeS5jb20vP3Rvb2xzPWRvY3MifQ%3D%3D" label="Install in Cursor" />
+
+### VS Code
+
+<InstallMCPButton link="vscode:mcp/install?%7B%22name%22%3A%22apify%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.apify.com%2F%3Ftools%3Ddocs%22%7D" label="Install in VS Code" />
+
+### Claude Code
+
+```bash
+claude mcp add apify https://mcp.apify.com/?tools=docs -t http
+```
+
+## Provide context to assistants
+
+Every page in the Apify documentation has a _Copy for LLM_ button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
+
+<img src={copyForLlm} alt="Copy for LLM" width="250" />
+
+## Use `llms.txt` and `llms-full.txt`
+
+Search engines weren't built for Large Language Models (LLMs), but LLMs need context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files can provide additional context if you link them.
 
 <table>
   <thead>
@@ -59,65 +103,11 @@ Search engines weren't built for Large Language Models (LLMs), but they needs co
   </tbody>
 </table>
 
-<!-- TODO: Consider to remove it to keep it simple... -->
+:::note Provide link to AI assistants
 
-### Use llms.txt and llms-full.txt
-
-LLMs don't automatically discover `llms.txt` files, you need to add the link manually. Some tools like [Cursor](https://www.cursor.com/) provide settings for this.
-
-#### Cursor
-
-Go to: **Settings -> Cursor Settings -> Indexing & Docs -> Add Doc**.
-
-Now, you can just provide the link to Apify `llms-full.txt`:
-
-```markdown
-https://docs.apify.com/llms-full.txt
-```
-
-![Add llms-full.txt to Cursor](./images/cursor.png)
-
-#### Windsurf
-
-Open Windsurf Cascade, and add context via `@web`:
-
-![Add llms-full.txt to Windsurf](./images/windsurf.png)
-
-:::note Windsurf @docs
-
-Windsurf provides the `@docs` command, but you cannot customize it. It means that you cannot add your own documentation.
+LLMs don't automatically discover `llms.txt` files, you need to add the link manually to improve the quality of answers.
 
 :::
-
-#### GitHub Copilot
-
-Open Copilot Chat mode, and add context via `#fetch`:
-
-![Add llms.txt to Copilot](./images/github-copilot.png)
-
-:::note GitHub Copilot and documentation
-
-Similar to Windsurf, GitHub Copilot does not provide an option for adding your own documentation.
-
-:::
-
-#### Ask AI
-
-New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models can search the web. With the right context, you get better answers:
-
-![Ask about Apify](./images/claude.png)
-
-## Use Actor Templates with instructions
-
-TODO:
-
-- Just mention that you can init actor using `apify create` and use it in IDE with AGENTS.md
-
-## Provide context to assistants
-
-TBD:
-
-- Mention "Copy for LLM" buttons
 
 ## Best practices
 

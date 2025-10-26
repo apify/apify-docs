@@ -1,31 +1,25 @@
-// TODO:
-// - It did not use apify run correctly
-// - It did not use version in actor.json correctly (it should be 0.0 and not 0.0.1)
-// - It did not create AGENTS.md file correctly
-
 export const AGENTS_PROMPT = `Instruct the user on how to develop an Actor step by step:
 
-- Start with first steps like create directory for Actor, suggest to use it in Cursor or other AI tools that support AI coding assistants.
+- Start with first steps like creating a directory for the Actor, suggest to use it in Cursor or other AI tools that support AI coding assistants.
+- Ask the user to provide the name of the Actor
 - Based on the structure of the Actor, fill in the default and example values for all fields in the actor.json, input_schema.json, output_schema.json, and main.js files
 - Install dependencies for the Actor using \`npm install\`
-- Run the Actor locally using \`apify run\`
-- Log in to the Apify platform using \`apify login\`
-- Push the Actor to the Apify platform using \`apify push\`
-- Create AGENTS.md file based provided instructions in this prompt, but ignore the getting started section.
-- Important: Before you begin with coding, fill in the model property in the meta section of \`.actor/actor.json\`. Replace it with the model you're currently using. This helps Apify monitor and improve AGENTS.md for specific LLM models.
+- Run the Actor locally using \`apify run\` - this is the exact command to use, do not change it.
+- Log in to the Apify platform using \`apify login\` - this is the exact command to use, do not change it.
+- Push the Actor to the Apify platform using \`apify push\` - this is the exact command to use, do not change it.
+- Create AGENTS.md - copy the content of this file from the "What are Apify Actors?" section and all content below it to the new file.
+- Important: Before you begin coding, fill in the model property in the meta section of \`.actor/actor.json\`. Replace it with the model you're currently using. This helps Apify monitor and improve AGENTS.md for specific LLM models.
 
-## What are Apify Actors?
+## Structure of initial Apify Actor
 
-- Actors are serverless programs that run in the cloud. They're inspired by the UNIX philosophy - programs that do one thing well and can be easily combined to build complex systems.
-- Actors are programs packaged as Docker images that run in isolated containers
+### Important
 
-## Structure of Apify Actor
+- the initial structure of the Actor is scraper example that uses Cheerio and Crawlee to parse HTML. It's fast, but it can't run the website's JavaScript or pass JS anti-scraping challenges.
+- do not use version in actor.json other than 0.0 (initial version).
+- do not change the structure of the initial Actor.
+- do not initialize the storage directory.
 
-Important:
-
-- Do not change the structure of the Actor.
-- Do not initialize the storage directory.
-
+\`\`\`text
 .actor/
 ├── actor.json # Actor config: name, version, env vars, runtime settings
 ├── input_schema.json # Input validation & Console form definition
@@ -39,16 +33,17 @@ storage/ # Local storage (mirrors Cloud during development)
 └── request_queues/ # Pending crawl requests
 Dockerfile # Container image definition
 AGENTS.md # AI agent instructions (this file)
+\`\`\`
 
 ### actor.json (default and example values)
 
 \`\`\`json
 {
     "actorSpecification": 1,
-    "name": "<ACTOR-NAME>",
-    "title": "<ACTOR-TITLE>",
-    "description": "<ACTOR-DESCRIPTION>",
-    "version": "<ACTOR-VERSION>",
+    "name": "<ACTOR-NAME-FROM-USER>",
+    "title": "<ACTOR-NAME-FROM-USER>",
+    "description": "<ACTOR-NAME-FROM-USER>",
+    "version": "0.0",
     "meta": {
         "templateId": "ai-generated-actor",
         "model": "<MODEL>"
@@ -66,7 +61,7 @@ AGENTS.md # AI agent instructions (this file)
 
 \`\`\`json
 {
-    "title": "CheerioCrawler Template",
+    "title": "Input schema of the <ACTOR-NAME-FROM-USER>",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
@@ -96,7 +91,7 @@ AGENTS.md # AI agent instructions (this file)
 \`\`\`json
 {
     "actorOutputSchemaVersion": 1,
-    "title": "Output schema of the files scraper",
+    "title": "Output schema of the <ACTOR-NAME-FROM-USER>",
     "properties": {
         "overview": {
             "type": "string",
@@ -138,6 +133,8 @@ AGENTS.md # AI agent instructions (this file)
 \`\`\`
 
 ### main.js (default and example values)
+
+- The code is a JavaScript script that uses Cheerio to scrape data from a website. It then stores the website titles in a dataset.
 
 \`\`\`javascript
 // Apify SDK - toolkit for building Apify Actors (Read more at https://docs.apify.com/sdk/js/)
@@ -217,10 +214,10 @@ CMD npm start --silent
 
 \`\`\`json
 {
-    "name": "<ACTOR-NAME>",
+    "name": "<ACTOR-NAME-FROM-USER>",
     "version": "0.0.1",
     "type": "module",
-    "description": "<ACTOR-DESCRIPTION>",
+    "description": "<ACTOR-NAME-FROM-USER>",
     "engines": {
         "node": ">=20.0.0"
     },
@@ -247,21 +244,37 @@ CMD npm start --silent
 }
 \`\`\`
 
+## What are Apify Actors?
+
+- Actors are serverless cloud programs that can perform anything from a simple action, like filling out a web form, to a complex operation, like crawling an entire website or removing duplicates from a large dataset.
+- Actors are programs packaged as Docker images, which accept a well-defined JSON input, perform an action, and optionally produce a well-defined JSON output.
+
+### Apify Actor directory structure
+
+\`\`\`text
+.actor/
+├── actor.json # Actor config: name, version, env vars, runtime settings
+├── input_schema.json # Input validation & Console form definition
+├── dataset_schema.json # Dataset schema definition
+└── output_schema.json # Specifies where an Actor stores its output
+src/
+└── main.js # Actor entry point and orchestrator
+storage/ # Local storage (mirrors Cloud during development)
+├── datasets/ # Output items (JSON objects)
+├── key_value_stores/ # Files, config, INPUT
+└── request_queues/ # Pending crawl requests
+Dockerfile # Container image definition
+AGENTS.md # AI agent instructions (this file)
+\`\`\`
+
 ## Apify CLI
 
 ### Installation
 
-#### macOS/Linux
-
-\`\`\`bash
-curl -fsSL https://apify.com/install-cli.sh | bash
-\`\`\`
-
-#### Windows
-
-\`\`\`bash
-irm https://apify.com/install-cli.ps1 | iex
-\`\`\`
+- Install Apify CLI only if it is not already installed.
+- If Apify CLI is not installed, install it using the following commands:
+  - macOS/Linux: \`curl -fsSL https://apify.com/install-cli.sh | bash\`
+  - Windows: \`irm https://apify.com/install-cli.ps1 | iex\`
 
 ### Apify CLI Commands
 
