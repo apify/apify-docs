@@ -13,7 +13,7 @@ toc_max_heading_level: 4
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
 import InstallMCPButton from "@site/src/components/InstallMCPButton";
-import copyForLlm from "./images/copy-for-llm.png";
+import copyForAI from "./images/copy-for-ai.png";
 
 This guide shows you how to build Actors efficiently with AI coding assistants. You'll learn how to use pre-built instructions, integrate Apify documentation into your AI editor, and apply best practices for AI-assisted development.
 
@@ -76,7 +76,7 @@ claude mcp add apify https://mcp.apify.com/?tools=docs -t http
 
 Every page in the Apify documentation has a _Copy for LLM_ button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
 
-<img src={copyForLlm} alt="Copy for LLM" width="250" />
+<img src={copyForAI} alt="Copy for LLM" width="250" />
 
 ## Use `llms.txt` and `llms-full.txt`
 
