@@ -26,8 +26,11 @@ Before you begin, make sure you have:
 To connect your Apify account, you need to configure the plugin with your Apify API token.
 
 1. In Dify, navigate to **Plugins** from the top menu.
-2. Find the **apify-integration** plugin and click **API Key Authorization Configuration**.
-3. In the pop-up menu, paste your Apify API token. You can find it in the [Apify Console](https://console.apify.com/settings/integrations).
+2. Click on the **Install plugin → Marketplace**
+3. Find the **apify-integration** plugin and install it.
+4. Return back to the **Plugins** page. There will be our plugin. 
+6. Open the plugin window and click on the **Add API Key**.
+5. In the pop-up menu, paste your Apify API token. You can find it in the [Apify Console](https://console.apify.com/settings/integrations).
 4. Click **Save**.
 
 ![Apify Auth in Dify](../images/dify-connection-popup.png)
