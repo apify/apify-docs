@@ -172,3 +172,9 @@ We can also use that variable inside a JSON object we send and see the results.
 ![Chatflow Payload Template](../images/dify-input-variable-webhook.png)
 
 ![Chatflow Payload Template](../images/dify-input-variable-webhook-succeded.png)
+
+## Troubleshooting
+
+- Ensure your JSON inputs in fields are valid and properly formatted.
+
+If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
