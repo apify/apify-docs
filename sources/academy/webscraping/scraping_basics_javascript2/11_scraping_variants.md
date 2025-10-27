@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript2/scraping-variants
 unlisted: true
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll scrape the product detail pages to represent each product variant as a separate item in our dataset.**
 
@@ -39,7 +39,7 @@ First, let's extract information about the variants. If we go to [Sony XBR-950G 
 
 Nice! We can extract the variant names, but we also need to extract the price for each variant. Switching the variants using the buttons shows us that the HTML changes dynamically. This means the page uses JavaScript to display this information.
 
-![Switching variants](images/variants-js.gif)
+![Switching variants](../scraping_basics/images/variants-js.gif)
 
 If we can't find a workaround, we'd need our scraper to run browser JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Cheerio as much as possible.
 
@@ -346,7 +346,7 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 You can build a scraper now, can't you? Let's build another one! From the registry at [npmjs.com](https://www.npmjs.com/), scrape information about npm packages that match the following criteria:
 
-- Have the keyword "llm" (as in _large language model_)
+- Have the keyword "LLM" (as in _large language model_)
 - Updated within the last two years ("2 years ago" is okay; "3 years ago" is too old)
 
 Print an array of the top 5 packages with the most dependents. Each package should be represented by an object containing the following data:
@@ -382,7 +382,7 @@ Your output should look something like this:
 <details>
   <summary>Solution</summary>
 
-  After inspecting the registry, you'll notice that packages with the keyword "llm" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
+  After inspecting the registry, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
 
   ```js
   import * as cheerio from 'cheerio';

@@ -5,6 +5,9 @@ get:
   description: |
     Returns dataset object for given dataset ID.
 
+    This does not return dataset items, only information about the storage itself.
+    To retrieve dataset items, use the [List dataset items](/api/v2/dataset-items-get) endpoint.
+
     :::note
 
     Keep in mind that attributes `itemCount` and `cleanItemCount` are not propagated right away after data are pushed into a dataset.

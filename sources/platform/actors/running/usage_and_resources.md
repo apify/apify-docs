@@ -54,7 +54,7 @@ The Actor has hard disk space limited by twice the amount of memory. For example
 
 ## Requirements
 
-Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. If you double the allocated memory, the run should be twice as fast and consume the same amount of compute units (1 * 1 = 0.5 * 2).
+Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. If you double the allocated memory, the run should be twice as fast and consume the same amount of [compute units](#what-is-a-compute-unit) (1 * 1 = 0.5 * 2).
 
 A good middle ground is `4096MB`. If you need the results faster, increase the memory (bear in mind the [next point](#maximum-memory), though). You can also try decreasing it to lower the pressure on the target site.
 
@@ -65,7 +65,7 @@ Autoscaling only applies to solutions that run multiple tasks (URLs) for at leas
 [//]: # (If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan]&#40;https://console.apify.com/billing-new#/subscription&#41;.)
 
 
-If the Actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like `4096MB`, and the whole run takes 15 minutes. That should consume 1 CU (4 \* 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month, and you get an estimated usage of 720 (1 \* 24 \* 30) CUs monthly.
+If the Actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like `4096MB`, and the whole run takes 15 minutes. That should consume 1 CU (4 \* 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month, and you get an estimated usage of 720 (1 \* 24 \* 30) [compute units](#what-is-a-compute-unit) monthly.
 
 :::tip Estimating usage
 
@@ -97,7 +97,7 @@ It's possible to [use multiple threads in Node.js-based Actor](https://dev.to/re
 
 When you run an Actor it generates platform usage that's charged to the user account. Platform usage comprises four main parts:
 
-- **Compute units**: CPU and memory resources consumed by the Actor.
+- **[Compute units](#what-is-a-compute-unit)**: CPU and memory resources consumed by the Actor.
 - **Data transfer**: The amount of data transferred between the web, Apify platform, and other external systems.
 - **Proxy costs**: Residential or SERP proxy usage.
 - **Storage operations**: Read, write, and other operations performed on the Key-value store, Dataset, and Request queue.

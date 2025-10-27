@@ -32,7 +32,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 1. Agree to the [risks](https://docs.n8n.io/integrations/community-nodes/risks/) of using community nodes and select **Install**.
 1. You can now use the node in your workflows.
 
-![Apify Install Node](../images/n8n-install-node-self-hosted.png)
+![Apify Install Node](../../images/n8n-install-node-self-hosted.png)
 
 ## Install the Apify Node (n8n Cloud)
 
@@ -42,7 +42,7 @@ For n8n Cloud users, installation is even simpler and doesn't require manual pac
 1. Search for **Apify** in the community node registry
 1. Click **Install node** to add the Apify node to your instance
 
-![Apify Install Node](../images/n8n-install-node-cloud.png)
+![Apify Install Node](../../images/n8n-install-node-cloud.png)
 
 :::note Verified community nodes visibility
 
@@ -63,7 +63,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 1. Enter your Apify API token. (find it in the [Apify Console](https://console.apify.com/settings/integrations)).
 1. Click **Save**.
 
-  ![Apify Auth](../images/n8n-api-auth.png)
+  ![Apify Auth](../../images/n8n-api-auth.png)
 
 ### OAuth2 (cloud instance only)
 
@@ -72,9 +72,9 @@ The Apify node offers two authentication methods to securely connect to your Api
 1. Select **Connect my account** and authorize with your Apify account.
 1. n8n automatically retrieves and stores the OAuth2 tokens.
 
-  ![Apify Auth](../images/n8n-oauth.png)
+  ![Apify Auth](../../images/n8n-oauth.png)
 
-:::note
+:::note Credential Control
 
 For simplicity on n8n Cloud, use the API key method if you prefer manual control over credentials.
 
@@ -92,7 +92,7 @@ Start by building a basic workflow in n8n, then add the Apify node to handle tas
 1. In the node's **Credentials** dropdown, choose the Apify credential you configured earlier. If you haven't configured any credentials, you can do so in this step. The process will be the same.
 1. You can now use Apify node as a trigger or action in your workflow.
 
-![Apify Node](../images/n8n-list-of-operations.png)
+![Apify Node](../../images/n8n-list-of-operations.png)
 
 ## Use Apify node as trigger
 
@@ -107,7 +107,7 @@ Triggers let your workflow respond automatically to events in Apify, such as whe
 1. Add subsequent nodes (e.g., HTTP Request, Google Sheets) to process or store the output.
 1. Save and execute the workflow.
 
-![Apify Node](../images/n8n-trigger-example.png)
+![Apify Node](../../images/n8n-trigger-example.png)
 
 ## Use Apify node as an action
 
@@ -122,13 +122,37 @@ Actions allow you to perform operations like running an Actor within a workflow.
     - **Memory**: Amount of memory allocated for the Actor run, in megabytes
     - **Build Tag**: Specifies the Actor build tag to run. By default, the run uses the build specified in the default run configuration for the Actor (typically `latest`)
     - **Wait for finish**: Whether to wait for the run to finish before continuing. If true, the node will wait for the run to complete (successfully or not) before moving to the next node
-    ![Apify Node](../images/n8n-run-actor-example.png)
+    ![Apify Node](../../images/n8n-run-actor-example.png)
 1. Add another Apify operation called **Get Dataset Items**.
     - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the output of the Actor run
-    ![Apify Node](../images/n8n-get-dataset-items-example.png)
+    ![Apify Node](../../images/n8n-get-dataset-items-example.png)
 1. Add any subsequent nodes (e.g. Google Sheets) to process or store the output
 1. Save and execute the workflow
-    ![Apify Node](../images/n8n-workflow-example.png)
+    ![Apify Node](../../images/n8n-workflow-example.png)
+
+## Use Apify Node as an AI tool
+
+You can run Apify operations, retrieve the results, and use AI to process, analyze, and summarize the data, or generate insights and recommendations.
+
+  ![Apify Node](../../images/n8n-ai-tool-example.png)
+
+
+1. Create a new workflow.
+1. **Add a trigger**:  Search for and select **Chat Trigger**.
+1. **Add the AI Agent node**:  Click **Add Node**, search for **AI Agent**, and select it.
+1. Configure the AI Agent:
+    - **Chat Model**: Choose the language model you want to use.
+    - **Memory (optional)**: Enables the AI model to remember and reference past interactions.
+    - **Tools**: Search for **Apify**, select **Apify Tool**, and click  **Add to Workflow**. Choose any available operation and configure it.
+1. **Run the workflow**: Save it, then provide a prompt instructing the Agent to use the Apify tool with the operations you configured earlier.
+
+:::note
+
+  Let the AI model define the parameters in your node when possible. Click the _sparkle_ icon next to a parameter to have the AI fill it in for you.
+
+:::
+
+  ![Apify Node](../../images/n8n-ai-defined-param.png)
 
 ## Available Operations
 
