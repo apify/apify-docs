@@ -14,3 +14,6 @@ properties:
   memoryMbytes:
     type: number
     example: 2048
+  restartOnError:
+    type: boolean
+    example: false

@@ -1,8 +1,4 @@
 title: ActUpdate
-required:
-  - name
-  - isPublic
-  - versions
 type: object
 properties:
   name:
@@ -29,8 +25,8 @@ properties:
     example: My Actor
   restartOnError:
     type: boolean
-    nullable: true
     example: false
+    deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
     type: array
     items:
@@ -47,9 +43,7 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    oneOf:
-      - nullable: true
-      - $ref: ./DefaultRunOptions.yaml
+    $ref: ./DefaultRunOptions.yaml
   taggedBuilds:
     type: object
     description: |
@@ -104,3 +98,8 @@ properties:
       latest:
         buildId: z2EryhbfhgSyqj6Hn
       beta: null
+required:
+  - name
+  - isPublic
+  - versions
+
