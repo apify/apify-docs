@@ -56,7 +56,11 @@ The command above will guide you through Apify Actor initialization, where you s
 
 The Apify MCP Server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
 
+:::info Use Apify MCP server configuration
+
 We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), which you can configure for your needs.
+
+:::
 
 ## Provide context to assistants
 
