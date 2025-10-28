@@ -10,7 +10,7 @@ Optimizing your input schema. Learn to design and refine your input schema with 
 
 ---
 
-## What is an input schema?
+## What is an input schema
 
 You've succeeded: your user has:
 
@@ -71,6 +71,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
       ![Input schema description example](images/description-sshot.png)
 
   - Descriptions can include multiple paragraphs. If you're adding a link, it’s best to use the `target_blank` property so your user doesn’t lose the original Actor page when clicking.
+
 - **`title` of the field (regular bold text)**
   - This is the default way to name a field.
   - Keep it brief. The user’s flow should be 1. title → 2. tooltip → 3. link in the tooltip. Ideally, the title alone should provide enough clarity. However, avoid overloading the title with too much information. Instead, make the title as concise as possible, expand details in the tooltip, and include a link in the tooltip for full instructions.
@@ -92,6 +93,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
 
     - You have to consider this when you're choosing how to word the toggle button and which choice to set up as the default. If you're making this more complex than it's needed (e.g. by using negation as the ‘yes’ choice), you're increasing your user's cognitive load. You also might get them to receive way less, or way more, data than they need from a default run.
     - In our example, we assume the default user wants to scrape all places but still have the option to filter out closed ones. However, they have to make that choice consciously, so we keep the toggle disabled by default. If the toggle were enabled by default, users might not notice it, leading them to think the tool isn't working properly when it returns fewer results than expected.
+
 - **sections or `sectionCaption` (BIG bold text) and `sectionDescription`**
   - A section looks like a wrapped toggle list.
 
@@ -118,7 +120,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
 
 :::tip
 
-Read more on the use of emojis: [Actors and emojis]
+Read more on the use of emojis: [Actors and emojis](academy/actor-marketing-playbook/actor-basics/actors-and-emojis)
 
 :::
 
