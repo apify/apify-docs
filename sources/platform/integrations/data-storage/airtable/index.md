@@ -71,6 +71,19 @@ Apify extension helps you map and import data into your Airtable base.
 1. Run the Actor and wait for results
 ![Run the Actor](../../images/airtable/airtable_actor_run.png)
 
+### Run Task
+
+You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
+
+![Run task](../../images/airtable/airtable_task.png)
+
+
+### Get Dataset
+
+Retrieve items from any Apify dataset and import them into your Airtable base with a single click.
+
+![Get dataset](../../images/airtable/airtable_dataset.png)
+
 ### Data Mapping
 
 This section will explain how to map your run results or dataset items into your Airtable base
@@ -98,7 +111,7 @@ The preview window next to the mapping rows will help you view and pick fields f
 ```bash
 {
     crawl: {
-    depth: 3,
+        depth: 'the field you selected',
     }
 }
 ```
@@ -126,17 +139,3 @@ Make sure it points to the correct field in your table. While importing the data
 Preview the results and start the import
 
 ![Preview Mapped Data](../../images/airtable/airtable_preview.png)
-
-### Run Task
-
-You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
-
-![Run task](../../images/airtable/airtable_task.png)
-
-
-### Get Dataset
-
-Retrieve items from any Apify dataset and import them into your Airtable base with a single click.
-
-![Get dataset](../../images/airtable/airtable_dataset.png)
-
