@@ -56,21 +56,7 @@ The command above will guide you through Apify Actor initialization, where you s
 
 The Apify MCP Server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
 
-Install it by clicking one of the following buttons for your AI editor.
-
-### Cursor
-
-<InstallMCPButton link="https://cursor.com/en-US/install-mcp?name=apify&config=eyJ1cmwiOiJodHRwczovL21jcC5hcGlmeS5jb20vP3Rvb2xzPWRvY3MifQ%3D%3D" label="Install in Cursor" />
-
-### VS Code
-
-<InstallMCPButton link="vscode:mcp/install?%7B%22name%22%3A%22apify%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.apify.com%2F%3Ftools%3Ddocs%22%7D" label="Install in VS Code" />
-
-### Claude Code
-
-```bash
-claude mcp add apify https://mcp.apify.com/?tools=docs -t http
-```
+We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), which you can configure for your needs.
 
 ## Provide context to assistants
 
