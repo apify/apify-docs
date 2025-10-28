@@ -25,16 +25,16 @@ To use the Apify integration for Airtable, ensure you have:
 
 You could integrate Apify with Airtable using one of two available options. This guide explain how to use the extension which is the recommended integration.
 
-- **Apify Extension** on Airtable website.
-- **console integration** on the Actor page.
+- _Apify extension_ on Airtable website.
+- _Console integration_ on the Actor page.
 
-This guide will explain how to use the **Apify extension**, for the console integration just go to the *Console integration* page in the docs.
+This guide will explain how to use the _Apify extension_, for Apify Console integration go to the _Console integration_ page in the docs.
 
 ## Setup
 
 ### Install Apify extension
 
-Go to [Airtable](https://airtable.com) and open the base you would like to work with. Press the **tools button** on the right side of the screen and press the **Add an extension button**.
+Go to [Airtable](https://airtable.com) and open the base you would like to work with. Press the **Tools** dropdown in the top right corner and click **Extensions**.
 
 ![Access the extensions tab on Airtable UI by pressing tools button](../../images/airtable/airtable_tools_button.png)
 
@@ -43,13 +43,13 @@ Search for Apify extenison and install it
 
 ![Search for the Apify extension on Airtable](../../images/airtable/airtable_search_apify_extenison.png)
 
-Open the Apify extension and login using OAuth 2.0 with your Apify account. If you dont have an account, visit [Apify Registration](https://console.apify.com/sign-up) page.
+Open the Apify extension and login using OAuth 2.0 with your Apify account. If you dont have an account, visit [Apify registration](https://console.apify.com/sign-up) page.
 
 ![Open Apify extension and login](../../images/airtable/airtable_login.png)
 
 ## Extension Overview
 
-Apify extension helps you map and import data into your Airtable base
+Apify extension helps you map and import data into your Airtable base.
 
 ### Features
 
@@ -109,14 +109,15 @@ The preview window next to the mapping rows will help you view and pick fields f
 
 Apify extension looks at the field labels in your table and matches them with dataset fields giving you a default list of mappings.
 
-**How does it work:** <br/>
+##### How does it work
+
 Source: `crawl.depth`
 it checks for fields in your table with label either `depth` or `crawl.depth`. If there is a match it adds a mapping row automatically.
 
 
 #### Duplicate filtering
 
-Select a **unique ID** on the data mapping step. The unique ID will be added to the list of mapping rows.
+Select a **Unique ID** on the data mapping step. The unique ID will be added to the list of mapping rows.
 Make sure it points to the correct field in your table. While importing the data will be filtered by existing values in the table.
 ![Select unique ID](../../images/airtable/airtable_unique_id.png)
 

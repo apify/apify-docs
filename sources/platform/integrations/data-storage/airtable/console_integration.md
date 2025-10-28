@@ -1,6 +1,6 @@
 ---
-title: Airtable integration on Apify console
-description: Learn how to integrate Airtable on the Apify console
+title: Airtable integration on Apify Console
+description: Learn how to integrate Airtable on Apify Console.
 sidebar_label: Console integration
 sidebar_position: 4
 slug: /integrations/airtable/console
