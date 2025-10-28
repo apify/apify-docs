@@ -126,6 +126,11 @@ Apify extension looks at the field labels in your table and matches them with da
 Source: `crawl.depth`
 it checks for fields in your table with label either `depth` or `crawl.depth`. If there is a match it adds a mapping row automatically.
 
+#### Import operations
+
+1. **CREATE**: New table is created for each run of this integration.
+2. **APPEND**: New records are added to the specified table. If the table does not yet exist, new one is created.
+3. **OVERWRITE**: All records in the specified table are replaced with new data. If the table does not yet exist, new one is created.
 
 #### Duplicate filtering
 
