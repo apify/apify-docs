@@ -120,7 +120,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
 
 :::tip
 
-Read more on the use of emojis: [Actors and emojis](academy/actor-marketing-playbook/actor-basics/actors-and-emojis)
+Read more on the use of emojis: [Actors and emojis](/academy/actor-marketing-playbook/actor-basics/actors-and-emojis)
 
 :::
 

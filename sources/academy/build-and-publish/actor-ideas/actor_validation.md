@@ -102,7 +102,7 @@ site:x.com extracting data from LinkedIn
 
 ### Hacker News and niche forums
 
-Platforms like [Hacker News](news.ycombinator.com) often have discussions on tech pain points and new tool launches. Search for keywords like _scrape Airbnb data_ to see if people have shown interest or if someone launched a similar tool and what the reaction was.
+Platforms like [Hacker News](https://news.ycombinator.com/) often have discussions on tech pain points and new tool launches. Search for keywords like _scrape Airbnb data_ to see if people have shown interest or if someone launched a similar tool and what the reaction was.
 
 Use the `site:` parameter:
 
