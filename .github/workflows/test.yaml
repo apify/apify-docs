@@ -16,7 +16,7 @@ jobs:
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
@@ -157,7 +157,7 @@ jobs:
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
@@ -190,7 +190,7 @@ jobs:
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
