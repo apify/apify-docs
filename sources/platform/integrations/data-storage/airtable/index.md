@@ -105,8 +105,7 @@ Apify extension has UI elements that allow you to map dataset fields to Airtable
 The preview window next to the mapping rows will help you view and pick fields from the dataset.
 "." character in the labels point to the children elements of an object
 
-**Example Source**: crawl.depth <br/>
-**Apify Field**:
+**Example Source**: crawl.depth
 
 ```bash
 {
