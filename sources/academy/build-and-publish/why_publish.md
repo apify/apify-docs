@@ -58,7 +58,7 @@ Apify Store is a growing library of thousands of Actors, most created by communi
 
 ### Maintain quality
 
-Public Actors require higher standards than private ones. Since users depend on your Actor, you'll need to commit to regular maintenance—reserve approximately 2 hours per week for bug fixes, updates, and user support. Thorough documentation is essential; write clear README files using simple language since users may not be developers. Set up automated testing or use manual testing to prevent user issues, and respond promptly to issues through the Issues tab, where your response time is publicly visible.
+Public Actors require higher standards than private ones. Since users depend on your Actor, you'll need to commit to regular maintenance—reserve approximately 2 hours per week for bug fixes, updates, and user support. Thorough documentation is essential; write clear README files using simple language since users may not be developers. Set up automated testing or use manual testing to prevent user issues, and respond promptly to issues through the Issues tab, where your response time is publicly visible. Learn more about metrics determining quality in [Actor quality score documentation](/platform/actors/publishing/quality-score).
 
 ### When you need to change things
 

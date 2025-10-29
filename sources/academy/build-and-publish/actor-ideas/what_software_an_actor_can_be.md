@@ -20,10 +20,10 @@ The most common type of Actor extracts data from websites. These Actors navigate
 
 Examples:
 
-- Site-specific scrapers (Amazon Product Scraper, LinkedIn Profile Scraper)
-- Search engine scrapers (Google Search Results, Bing Search)
-- Social media scrapers (X/Twitter Scraper, Instagram Scraper)
-- E-commerce data extractors (Shopify Store Scraper, eBay Price Monitor)
+- Site-specific scrapers ([Amazon Product Scraper](https://apify.com/junglee/amazon-crawler), [LinkedIn Profile Scraper](https://apify.com/curious_coder/linkedin-profile-scraper))
+- Search engine scrapers ([Google Search Results](https://apify.com/apify/google-search-scraper), [Bing Search](https://apify.com/curious_coder/bing-search-scraper))
+- Social media scrapers ([X/Twitter Scraper](https://apify.com/apidojo/twitter-scraper-lite), [Instagram Scraper](https://apify.com/apify/instagram-scraper))
+- E-commerce data extractors ([Shopify Store Scraper](https://apify.com/autofacts/shopify), [eBay Price Monitor](https://apify.com/dtrungtin/ebay-items-scraper))
 
 ### SaaS API wrappers
 
