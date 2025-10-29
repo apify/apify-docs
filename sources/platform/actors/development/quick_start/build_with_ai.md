@@ -27,10 +27,10 @@ The prompt guides AI coding assistants such as Cursor, Claude Code or GitHub Cop
 
 ### Quick Start
 
-- _Step 1_: Create directory: `mkdir my-new-actor`
-- _Step 2_: Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
-- _Step 3_: Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
-- _Step 4_: Run it, and develop your first actor with the help of AI
+1. Create directory: `mkdir my-new-actor`
+1. Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
+1. Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
+1. Run it, and develop your first actor with the help of AI
 
 :::info Avoid copy-pasting
 
