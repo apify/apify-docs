@@ -14,7 +14,7 @@
 }
 
 /* Apply margin-bottom only when the next sibling is not a heading */
-.prompt-card:not(:has(+ h1, + h2, + h3, + h4, + h5, + h6)) {
+.prompt-card:not(:has(+ h1, + h2, + h3, + h4, + h5, + h6)), .full-prompt-container:not(:has(+ h1, + h2, + h3, + h4, + h5, + h6)) {
   margin-bottom: var(--ifm-leading);
 }
 
@@ -131,6 +131,19 @@
 
 .toggle-button:active {
   transform: translateY(0);
+}
+
+/* Dark theme: make secondary button appear as white pill with dark text */
+html[data-theme='dark'] .toggle-button {
+  background: #ffffff;
+  color: #111827; /* nearly black for contrast */
+  border-color: #e5e7eb; /* subtle gray border */
+}
+
+html[data-theme='dark'] .toggle-button:hover {
+  background: #f8fafc; /* slight hover tint, keep white look */
+  color: #111827;
+  border-color: #d1d5db;
 }
 
 .full-prompt {

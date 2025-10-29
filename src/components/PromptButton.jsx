@@ -56,7 +56,7 @@ export default function PromptButton({ prompt = QUICK_START_PROMPT, title = 'Use
                         className={styles['toggle-button']}
                         onClick={togglePrompt}
                     >
-                        {showPrompt ? 'Hide the prompt' : 'Show the prompt'}
+                        {showPrompt ? 'Hide prompt' : 'Show prompt'}
                     </button>
                     <button
                         className={`${styles['copy-button']} ${copied ? styles.copied : ''}`}
