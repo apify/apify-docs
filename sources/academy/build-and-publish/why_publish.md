@@ -68,7 +68,7 @@ If you need to make breaking changes to your Actor, contact [community@apify.com
 
 Ready to publish? The process involves four main stages:
 
-1. Development: Build your Actor using Apify SDKs, Crawlee, or code templates
+1. Development: Build your Actor using [Apify SDKs](https://docs.apify.com/sdk), [Crawlee](https://crawlee.dev/), or [Actor templates](https://apify.com/templates)
 1. Publication: Set up display information, description, README, and
 monetization
 1. Testing: Ensure your Actor works reliably with automated or manual tests
