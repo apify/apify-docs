@@ -1,12 +1,12 @@
 ---
 title: Build with AI
 sidebar_position: 3
-description: Use pre-built prompts, use Apify docs via llms.txt, and follow best practices to effective vibe coding.
+description: Use pre-built prompts, refer to Apify Docs via llms.txt, and follow best practices for effective vibe coding.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Use pre-built prompts, use Apify docs via llms.txt, and follow best practices to build Actors efficiently with AI assistants.**
+**Use pre-built prompts, reference Apify Docs via llms.txt, and follow best practices to build Actors efficiently with AI coding assistants.**
 
 ---
 
@@ -28,11 +28,11 @@ Use the following prompt in your AI coding assistant ([Cursor](https://www.curso
 - _Step 1_: Create directory: `mkdir my-new-actor`
 - _Step 2_: Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
 - _Step 3_: Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
-- _Step 4_: Run it, and develop your first actor with the help of AI 🎉
+- _Step 4_: Run it, and develop your first actor with the help of AI
 
 :::info Start in an AI coding assistant
 
-To maximize efficiency, copy the prompt to Cursor, VS Code with GitHub Copilot, or another AI coding assistant. The AI will follow the guide step-by-step, and you'll avoid copy-pasting from tools like ChatGPT or Claude.
+Copy the prompt directly to your AI coding assistant (such as Cursor or VS Code with GitHub Copilot) to maximize efficiency.. The AI will follow the guide step-by-step, and you'll avoid copy-pasting from tools like ChatGPT or Claude.
 
 :::
 
