@@ -62,7 +62,7 @@ We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), w
 
 ## Provide context to assistants
 
-Every page in the Apify documentation has a _Copy for LLM_ button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
+Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
 
 <img src={copyForAI} alt="Copy for LLM" width="250" />
 
