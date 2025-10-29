@@ -40,7 +40,7 @@ The AI will follow the guide step-by-step, and you'll avoid copy-pasting from to
 
 ## Use Actor templates with AGENTS.md
 
-All [Actor Templates](https://apify.com/templates) have AGENTS.md that will help you with AI coding. You can use the [Apify CLI](/cli/docs) to create Actors from Actor Templates. 
+All [Actor Templates](https://apify.com/templates) have AGENTS.md that will help you with AI coding. You can use the [Apify CLI](/cli/docs) to create Actors from Actor Templates.
 
 ```bash
 apify create
