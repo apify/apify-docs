@@ -6,7 +6,7 @@ slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Use pre-built prompts, reference Apify Docs via llms.txt, and follow best practices to build Actors efficiently with AI coding assistants.**
+**Use pre-built prompts, reference Apify docs via llms.txt, and follow best practices to build Actors efficiently with AI coding assistants.**
 
 ---
 
