@@ -185,11 +185,21 @@ Enabling fields to be `null` :
 ```json
 {
     "name": {
-        "type": "string",
-        "nullable": true
+        "type": ["string", "null"]
     }
 }
 ```
+
+In case of enums `null` needs to be within the set of allowed values:
+
+```json
+{
+    "type": {
+        "enum": ["list", "detail", null]
+    }
+}
+```
+
 
 Define type of objects in array:
 
