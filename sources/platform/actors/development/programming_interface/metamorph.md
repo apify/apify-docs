@@ -41,6 +41,12 @@ There's a limit to how many times you can metamorph a single run. Refer to the [
 
 :::
 
+:::note Permissions
+
+Actors running under limited permissions can only metamorph into Actors that also run with limited permissions. See [how Actor permissions work](/actors/development/permissions#how-actor-permissions-work) for details.
+
+:::
+
 ## Example
 
 Let's walk through an example of using metamorph to create a hotel review scraper:
