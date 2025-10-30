@@ -57,26 +57,3 @@ After logging in, you can deploy the actor to Apify:
 apify push
 \`\`\`
 `;
-
-export const RULES_AND_INSTRUCTIONS_PROMPT = `Using the Apify documentation as reference, create a comprehensive rules file for [PLACEHOLDER (Cursor, Windsurf, GitHub Copilot, etc.)] focused on developing Apify Actors.
-
-Follow these best practices for creating effective rules:
-- Keep rules simple, concise, and specific (avoid vague or generic advice)
-- Use bullet points, numbered lists, and clear markdown formatting
-- Focus on actionable guidelines rather than explanations
-
-Create the rules file in the appropriate location:
-- For Cursor: Save as \`.cursor/rules/apify-development.md\`
-- For Windsurf: Save as \`.windsurf/rules/apify-development.md\`
-- For GitHub Copilot: Save as \`.github/copilot-instructions.md\`
-
-The rules should be:
-- Clear and specific for Apify platform development
-- Formatted as bullet points with section headers
-- Create rules based on existing code in the project
-
-Include sections for:
-- Actor development & structure
-- Apify SDK usage patterns
-
-Reference Apify documentation at https://docs.apify.com/llms-full.txt for accurate patterns and recommendations. Keep each rule concise and practical for actor development. Format as markdown with # headers and - bullet points.`;

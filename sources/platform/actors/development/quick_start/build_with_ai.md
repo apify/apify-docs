@@ -1,23 +1,74 @@
 ---
 title: Build with AI
 sidebar_position: 3
-description: Learn how to set up your environment, choose the right tools, and establish workflows for effective vibe coding
+description: Use pre-built prompts, refer to Apify docs via llms.txt, and follow best practices for effective vibe coding.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Set up your environment, choose tools, and build workflows for effective AI development.**
+**Use pre-built prompts, reference Apify docs via llms.txt, and follow best practices to build Actors efficiently with AI coding assistants.**
 
 ---
 
-import { RULES_AND_INSTRUCTIONS_PROMPT } from "@site/src/utils/ai-prompts";
+import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
+import InstallMCPButton from "@site/src/components/InstallMCPButton";
+import copyForAI from "./images/copy-for-ai.png";
 
-This guide explains how to enhance your development workflow by leveraging `llms.txt` and `llms-full.txt` with an AI assistant. You will learn how to provide foundational context and further refine AI's behavior with specific rules and instruction files.
+You will learn several approaches to building Apify Actors with the help of AI coding assistants. This guide includes independent instructions, tools, and best practices that you can use individually or combine together. Each section focuses on a specific part of the process such as prompt usage, Actor templates, Apify MCP server tools, or documentation integration, so you can follow only the parts that fit your development style.
 
-## `llms.txt` and `llms-full.txt`
+## AI coding assistant instructions
 
-Search engines weren't built for Large Language Models (LLMs), but they needs context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files follow the [growing standard](https://llmstxt.org/) for LLMs consumption.
+Use the following prompt in your AI coding assistant such as [Cursor](https://www.cursor.com/), [Claude Code](https://www.claude.com/product/claude-code) or [GitHub Copilot](https://github.com/features/copilot):
+
+<PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
+
+The prompt guides AI coding assistants such as Cursor, Claude Code or GitHub Copilot to help users create and deploy an Apify Actor step by step. It walks through setting up the Actor structure, configuring all required files, installing dependencies, running it locally, logging in, and pushing it to the Apify platform and following Apify’s best practices.
+
+### Quick Start
+
+1. Create directory: `mkdir my-new-actor`
+1. Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
+1. Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
+1. Run it, and develop your first actor with the help of AI
+
+:::info Avoid copy-pasting
+
+The AI will follow the guide step-by-step, and you'll avoid copy-pasting from tools like ChatGPT or Claude.
+
+:::
+
+## Use Actor templates with AGENTS.md
+
+All [Actor Templates](https://apify.com/templates) have AGENTS.md that will help you with AI coding. You can use the [Apify CLI](/cli/docs) to create Actors from Actor Templates.
+
+```bash
+apify create
+```
+
+If you do not have Apify CLI installed, see the [installation guide](/cli/docs/installation).
+
+The command above will guide you through Apify Actor initialization, where you select an Actor Template that works for you. The result is an initialized Actor (with AGENTS.md) ready for development.
+
+## Use Apify MCP Server
+
+The Apify MCP Server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
+
+:::info Use Apify MCP server configuration
+
+We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), which you can configure for your needs.
+
+:::
+
+## Provide context to assistants
+
+Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
+
+<img src={copyForAI} alt="Copy for LLM" width="250" />
+
+## Use `llms.txt` and `llms-full.txt`
+
+Search engines weren't built for Large Language Models (LLMs), but LLMs need context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files can provide additional context if you link them.
 
 <table>
   <thead>
@@ -40,86 +91,9 @@ Search engines weren't built for Large Language Models (LLMs), but they needs co
   </tbody>
 </table>
 
-### Use llms.txt and llms-full.txt
+:::note Provide link to AI assistants
 
-LLMs don't automatically discover `llms.txt` files, you need to add the link manually. Some tools like [Cursor](https://www.cursor.com/) provide settings for this.
-
-#### Cursor
-
-Go to: **Settings -> Cursor Settings -> Indexing & Docs -> Add Doc**.
-
-Now, you can just provide the link to Apify `llms-full.txt`:
-
-```markdown
-https://docs.apify.com/llms-full.txt
-```
-
-![Add llms-full.txt to Cursor](./images/cursor.png)
-
-#### Windsurf
-
-Open Windsurf Cascade, and add context via `@web`:
-
-![Add llms-full.txt to Windsurf](./images/windsurf.png)
-
-:::note Windsurf @docs
-
-Windsurf provides the `@docs` command, but you cannot customize it. It means that you cannot add your own documentation.
-
-:::
-
-#### GitHub Copilot
-
-Open Copilot Chat mode, and add context via `#fetch`:
-
-![Add llms.txt to Copilot](./images/github-copilot.png)
-
-:::note GitHub Copilot and documentation
-
-Similar to Windsurf, GitHub Copilot does not provide an option for adding your own documentation.
-
-:::
-
-#### Ask AI
-
-New to Apify? Ask questions and provide the `llms.txt` link. Popular AI models can search the web. With the right context, you get better answers:
-
-![Ask about Apify](./images/claude.png)
-
-## View pages as markdown
-
-Every page in Apify documentation is available in markdown format. Simply add `.md` to any documentation URL to access the raw markdown content.
-
-For example:
-
-- [https://docs.apify.com/platform](https://docs.apify.com/platform) → [https://docs.apify.com/platform.md](https://docs.apify.com/platform.md)
-- [https://docs.apify.com/api](https://docs.apify.com/api) → [https://docs.apify.com/api.md](https://docs.apify.com/api.md)
-
-This is useful when you want to:
-
-- Copy documentation content for AI prompts
-- Reference exact markdown syntax
-- Access content programmatically
-
-## Add rules
-
-To get the most from AI Code Editors, add rules or instructions.
-
-See how to set up rules for your AI Code Editors:
-
-- [Cursor Rules](https://docs.cursor.com/en/context/rules)
-- [Windsurf Rules](https://docs.windsurf.com/windsurf/cascade/memories#rules)
-- [GitHub Copilot instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-
-### Apify rules and instructions
-
-The best rules and instructions are specific for individual use cases, but we provide a prompt to help you get start with creating rules and instructions:
-
-<PromptButton prompt={RULES_AND_INSTRUCTIONS_PROMPT}/>
-
-:::info Keep your rules and instructions up to date
-
-As the project evolves, you might introduce new things. Always make sure that your rules and instructions are up to date.
+LLMs don't automatically discover `llms.txt` files, you need to add the link manually to improve the quality of answers.
 
 :::
 
