@@ -35,6 +35,10 @@ Actors with **limited permissions** receive [a restricted scoped token](link). T
 
 This approach ensures your Actor has everything it needs to function while protecting user data from unnecessary exposure.
 
+### Accessing user provided storages
+
+TODO: a section detailing how a limited permission actor can expand its scope
+
 ### Declaring permissions
 
 You can set the permission level for your Actor in the Apify Console under its **Settings** tab. All the existing Actors are configured to use full permissions, but the plan is to make limited permissions the default for all new Actors.
@@ -53,4 +57,4 @@ Initially, users will begin to see a gray, muted badge on your Actor's detail pa
 
 TODO: Section about current and future implications of keeping an actor on full
 
-TODO: Link to migration guide
+TODO: Link to migration guide or inline it fully
