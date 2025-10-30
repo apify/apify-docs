@@ -1,7 +1,7 @@
 ---
 title: Build with AI
 sidebar_position: 3
-description: Use pre-built prompts, refer to Apify Docs via llms.txt, and follow best practices for effective vibe coding.
+description: Use pre-built prompts, refer to Apify docs via llms.txt, and follow best practices for effective vibe coding.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
