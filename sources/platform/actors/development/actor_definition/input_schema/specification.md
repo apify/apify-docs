@@ -861,7 +861,8 @@ Example of multiple datasets input:
     "title": "Datasets",
     "type": "array",
     "description": "Select multiple datasets",
-    "resourceType": "dataset"
+    "resourceType": "dataset",
+    "resourcePermissions": ["READ"]
 }
 ```
 
@@ -876,5 +877,18 @@ Properties:
 | `type`         | One of <ul><li>`string`</li><li>`array`</li></ul>                                 | Yes      | Specifies the type of input - string for single value or array for multiple values |
 | `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.         |
 | `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                    |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes | Permissions requested for the referenced resource(s). Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource (for `type: array`). |
 | `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain. Only for `type: array`              |
 | `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain. Only for `type: array`              |
+
+### Resource permissions
+
+The `resourcePermissions` field expresses **what operations your Actor needs on the user-selected storage(s)**. It is evaluated at run start and used to expand a [Limited-permissions Actor's](../../permissions/index.md#) scope to be able to access the resource sent via Actor's input.
+
+- `["READ"]` — the Actor may read from the referenced resource(s).
+- `["READ", "WRITE"]` — the Actor may read and write to the referenced resource(s).
+
+Notes:
+- This setting does not change field visibility or it being required in the UI; it only defines runtime access for the selected resource(s).
+- For array fields (`type: array`), the same permissions apply to **each** selected resource.
+- If your Actor attempts an operation without the requested permission (e.g., attempts to write with a read-only access), the run will fail with an insufficient-permissions error.
