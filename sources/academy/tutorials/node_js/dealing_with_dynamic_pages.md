@@ -7,8 +7,6 @@ slug: /node-js/dealing-with-dynamic-pages
 
 import Example from '!!raw-loader!roa-loader!./dealing_with_dynamic_pages.js';
 
-# How to scrape from dynamic pages {#dealing-with-dynamic-pages}
-
 **Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?**
 
 ---
@@ -43,7 +41,7 @@ If you're in a brand new project, don't forget to initialize your project, then 
 npm init -y && npm i crawlee
 ```
 
-Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Data Extraction](../../webscraping/scraping_basics_javascript/data_extraction/index.md) lessons:
+Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Web scraping basics for JavaScript devs](/academy/scraping-basics-javascript) course:
 
 ```js
 import { CheerioCrawler } from 'crawlee';
