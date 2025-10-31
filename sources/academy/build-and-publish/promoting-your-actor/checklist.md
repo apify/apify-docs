@@ -41,7 +41,7 @@ Twitter's developer community is active and engaged. A well-crafted tweet with a
 
 Create a 30-60 second demo video or gif showing your Actor in action. Include relevant hashtags like #webscraping, #API, #automation, and #buildinpublic.
 
-<PromptButton prompt={TWITTER_POST_PROMPT} title="Prompt" />
+<PromptButton prompt={TWITTER_POST_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Share on LinkedIn with a demo
 
@@ -49,7 +49,7 @@ LinkedIn reaches professionals, decision-makers, and business users with purchas
 
 Create a 30-90 second demo video showing your Actor delivering business value. Upload the video directly to LinkedIn (native videos perform better than YouTube links). Focus your post on the business problem solved, not technical features. Use 3-5 relevant hashtags like #BusinessAutomation, #Productivity, #DataIntelligence, #Efficiency, or #MarketResearch.
 
-<PromptButton prompt={LINKEDIN_POST_PROMPT} title="Prompt" />
+<PromptButton prompt={LINKEDIN_POST_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Post in relevant Discord and Slack communities
 
@@ -168,7 +168,7 @@ Write a comprehensive "Best [CATEGORY]" roundup article (1,800-2,500 words) feat
 
 Write in first person with a conversational yet professional tone. Include pros and cons for each solution, add a comparison table, and share your genuine perspective.
 
-<PromptButton prompt={MEDIUM_ARTICLE_PROMPT} title="Prompt" />
+<PromptButton prompt={MEDIUM_ARTICLE_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "Best X" article for dev.to
 
@@ -178,7 +178,7 @@ Write a developer-focused "Best [CATEGORY] for Developers" article (1,500-2,000 
 
 Write like you're advising a fellow developer: casual and helpful. Be genuinely objective about all tools, include code examples or API snippets where relevant, and use markdown formatting with H2/H3 headers.
 
-<PromptButton prompt={DEVTO_ARTICLE_PROMPT} title="Prompt" />
+<PromptButton prompt={DEVTO_ARTICLE_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "Best X" article for Hashnode
 
@@ -188,7 +188,7 @@ Write a technical "Best [CATEGORY] for [SPECIFIC USE CASE]: A Developer's Guide"
 
 Include a TL;DR section at the top, use proper heading hierarchy for auto-generated table of contents, and add code examples with proper syntax highlighting. Write with technical authority but remain accessible.
 
-<PromptButton prompt={HASHNODE_ARTICLE_PROMPT} title="Prompt" />
+<PromptButton prompt={HASHNODE_ARTICLE_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "Best X" article for LinkedIn
 
@@ -198,7 +198,7 @@ Write a business-focused "Best [CATEGORY] for [BUSINESS OUTCOME]" article (1,200
 
 Use a professional, authoritative but accessible tone. Focus on business impact like time savings, cost efficiency, ROI, and productivity gains rather than technical features. Include comparison tables with business-relevant metrics.
 
-<PromptButton prompt={LINKEDIN_ARTICLE_PROMPT} title="Prompt" />
+<PromptButton prompt={LINKEDIN_ARTICLE_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "How to use [Actor]" tutorial for dev.to
 
@@ -208,7 +208,7 @@ Write a step-by-step tutorial (1,200-2,000 words) showing developers how to use 
 
 Structure: Introduction with hook, prerequisites, what they'll achieve, step-by-step guide (access the Actor, configure inputs, run it, view results, download data), understanding results, pro tips, troubleshooting, and next steps. Write like you're helping a friend get started.
 
-<PromptButton prompt={DEVTO_TUTORIAL_PROMPT} title="Prompt" />
+<PromptButton prompt={DEVTO_TUTORIAL_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "How to use [Actor]" tutorial for Hashnode
 
@@ -218,7 +218,7 @@ Write a comprehensive "Complete Guide: How to [ACHIEVE OUTCOME] Using [YOUR ACTO
 
 Include a TL;DR section, detailed step-by-step walkthrough with screenshots, API integration examples with code blocks, advanced usage patterns, troubleshooting guide, and best practices. Write with technical authority, but be thorough and maintain clarity.
 
-<PromptButton prompt={HASHNODE_TUTORIAL_PROMPT} title="Prompt" />
+<PromptButton prompt={HASHNODE_TUTORIAL_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "How to use [Actor]" tutorial for Medium
 
@@ -228,7 +228,7 @@ Write an accessible, engaging tutorial "How I [ACHIEVED OUTCOME] in Minutes Usin
 
 Take a story-driven approach with personal context. Write in first person, use simple jargon-free language, and make readers feel "I can do this too." Focus on the outcome and value, not technical complexity.
 
-<PromptButton prompt={MEDIUM_TUTORIAL_PROMPT} title="Prompt" />
+<PromptButton prompt={MEDIUM_TUTORIAL_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ### Create a "How to use [Actor]" tutorial for LinkedIn
 
@@ -238,7 +238,7 @@ Write a professional "How to [ACHIEVE BUSINESS OUTCOME] in [TIME] Using [YOUR AC
 
 Use professional, consultative tone focused on business value. Emphasize time savings, efficiency, and ROI. Include sections on business case, measuring success, professional best practices, and real-world business applications. Address common professional questions about security, cost, reliability, and team adoption.
 
-<PromptButton prompt={LINKEDIN_TUTORIAL_PROMPT} title="Prompt" />
+<PromptButton prompt={LINKEDIN_TUTORIAL_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ---
 
@@ -252,7 +252,7 @@ Create a GitHub repo with code examples, integration guides, or sample projects 
 
 Your README should include: project title with badges, short description, key features, quick start guide, installation and setup instructions, usage examples with code snippets, use cases section, configuration options, common questions and troubleshooting, links to Apify Store and documentation, contributing guidelines, and license.
 
-<PromptButton prompt={GITHUB_README_PROMPT} title="Prompt" />
+<PromptButton prompt={GITHUB_README_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
 ---
 
