@@ -5,8 +5,6 @@ sidebar_position: 9.1
 slug: /tools/apify-cli
 ---
 
-# The Apify CLI {#the-apify-cli}
-
 **Learn about, install, and log into the Apify CLI - your best friend for interacting with the Apify platform via your terminal.**
 
 ---

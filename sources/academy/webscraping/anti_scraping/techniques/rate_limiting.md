@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /anti-scraping/techniques/rate-limiting
 ---
 
-# Rate-limiting {#rate-limiting}
-
 **Learn about rate-limiting, a common tactic used by websites to avoid a large and non-human rate of requests coming from a single IP address.**
 
 ---

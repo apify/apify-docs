@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/common-use-cases/logging-into-a-website
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Logging into a website {#logging-into-a-website}
-
 **Understand the "login flow" - logging into a website, then maintaining a logged in status within different browser contexts for an efficient automation process.**
 
 ---

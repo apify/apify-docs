@@ -5,8 +5,6 @@ sidebar_position: 4
 slug: /anti-scraping/techniques/firewalls
 ---
 
-# Firewalls {#firewalls}
-
 **Understand what a web-application firewall is, how they work, and the various common techniques for avoiding them altogether.**
 
 ---

@@ -5,8 +5,6 @@ sidebar_position: 6
 slug: /expert-scraping-with-apify/solutions/rotating-proxies
 ---
 
-# Rotating proxies/sessions {#rotating-proxy-sessions}
-
 **Learn firsthand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.**
 
 ---

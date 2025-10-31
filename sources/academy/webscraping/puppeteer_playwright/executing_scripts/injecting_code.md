@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/executing-scripts/injecting-code
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Injecting code {#injecting-code}
-
 **Learn how to inject scripts prior to a page's load (pre-injecting), as well as how to expose functions to be run at a later time on the page.**
 
 ---

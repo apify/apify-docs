@@ -1,11 +1,9 @@
 ---
-title: Process scraped data with Python
+title: How to process data in Python using Pandas
 description: Learn how to process the resulting data of a web scraper in Python using the Pandas library, and how to visualize the processed data using Matplotlib.
 sidebar_position: 2  # should be after scrape_data_python.md
 slug: /python/process-data-using-python
 ---
-
-# How to process data in Python using Pandas
 
 **Learn how to process the resulting data of a web scraper in Python using the Pandas library, and how to visualize the processed data using Matplotlib.**
 

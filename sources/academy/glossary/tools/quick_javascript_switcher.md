@@ -5,8 +5,6 @@ sidebar_position: 9.9
 slug: /tools/quick-javascript-switcher
 ---
 
-# Quick JavaScript Switcher
-
 **Discover a handy tool for disabling JavaScript on a certain page to determine how it should be scraped. Great for detecting SPAs.**
 
 ---

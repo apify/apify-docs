@@ -1,11 +1,9 @@
 ---
-title: Project setup
+title: Setting up your project
 description: Create a new project with npm and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.
 sidebar_position: 5
 slug: /web-scraping-for-beginners/data-extraction/project-setup
 ---
-
-# Setting up your project {#setting-up}
 
 **Create a new project with npm and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.**
 

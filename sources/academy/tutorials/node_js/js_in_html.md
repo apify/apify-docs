@@ -5,8 +5,6 @@ sidebar_position: 14.5
 slug: /node-js/js-in-html
 ---
 
-# How to scrape hidden JavaScript objects in HTML {#what-is-js-in-html}
-
 **Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.**
 
 ---

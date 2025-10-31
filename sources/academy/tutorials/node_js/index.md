@@ -6,8 +6,6 @@ category: tutorials
 slug: /node-js
 ---
 
-# Scraping with Node.js
-
 **A collection of various Node.js tutorials on scraping sitemaps, optimizing your scrapers, using popular Node.js web scraping libraries, and more.**
 
 ---

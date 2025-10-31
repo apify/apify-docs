@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /api-scraping/general-api-scraping/handling-pagination
 ---
 
-# Handling pagination {#handling-pagination}
-
 **Learn about the three most popular API pagination techniques and how to handle each of them when scraping an API with pagination.**
 
 ---

@@ -5,8 +5,6 @@ sidebar_position: 6.7
 slug: /expert-scraping-with-apify/saving-useful-stats
 ---
 
-# Saving useful run statistics {#savings-useful-run-statistics}
-
 **Understand how to save statistics about an Actor's run, what types of statistics you can save, and why you might want to save them for a large-scale scraper.**
 
 ---

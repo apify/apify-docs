@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/proxies
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Using proxies {#using-proxies}
-
 **Understand how to use proxies in your Puppeteer and Playwright requests, as well as a couple of the most common use cases for proxies.**
 
 ---

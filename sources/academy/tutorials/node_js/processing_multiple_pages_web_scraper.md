@@ -11,8 +11,6 @@ Let's illustrate a solution to this problem by creating a scraper which starts w
 
 > This isn't an efficient solution to searching keywords on Google. You could directly enqueue search URLs like `https://www.google.cz/search?q=KEYWORD`.
 
-# Enqueuing start pages for all keywords
-
 > Solving a common problem with scraper automatically deduplicating the same URLs.
 
 First, we need to start the scraper on the page from which we're going to do our enqueuing. To do that, we create one start URL with the label "enqueue" and URL "https://example.com/". Now we can proceed to enqueue all the pages. The first part of our `pageFunction` will look like this:
@@ -47,7 +45,7 @@ To set the keywords, we're using the customData scraper parameter. This is usefu
 
 Since we're enqueuing the same page more than once, we need to set our own uniqueKey so the page will be added to the queue (by default uniqueKey is set to be the same as the URL). The label for the next page will be "fill-form". We're passing the keyword to the next page in the userData field (this can contain any data).
 
-# Inputting the keyword into Google
+## Inputting the keyword into Google
 
 Now we come to the next page (Google). We need to retrieve the keyword and input it into the Google search bar. This will be the next part of the pageFunction:
 

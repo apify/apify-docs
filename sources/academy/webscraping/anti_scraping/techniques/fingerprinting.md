@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /anti-scraping/techniques/fingerprinting
 ---
 
-# Fingerprinting {#fingerprinting}
-
 **Understand browser fingerprinting, an advanced technique used by browsers to track user data and even block bots from accessing them.**
 
 ---

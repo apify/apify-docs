@@ -6,8 +6,6 @@ category: tutorials
 slug: /api
 ---
 
-# Using Apify API
-
 **A collection of various tutorials explaining how to interact with the Apify platform programmatically using its API.**
 
 ---

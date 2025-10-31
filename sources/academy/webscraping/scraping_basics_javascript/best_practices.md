@@ -1,11 +1,9 @@
 ---
-title: Best practices
+title: Best practices when writing scrapers
 description: Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code.
 sidebar_position: 1.5
 slug: /web-scraping-for-beginners/best-practices
 ---
-
-# Best practices when writing scrapers {#best-practices}
 
 **Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code.**
 

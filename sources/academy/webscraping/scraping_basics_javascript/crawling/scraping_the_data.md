@@ -5,8 +5,6 @@ sidebar_position: 6
 slug: /web-scraping-for-beginners/crawling/scraping-the-data
 ---
 
-# Scraping data {#scraping-data}
-
 **Learn how to add data extraction logic to your crawler, which will allow you to extract data from all the websites you crawled.**
 
 ---

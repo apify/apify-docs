@@ -5,8 +5,6 @@ sidebar_position: 9.3
 slug: /tools/postman
 ---
 
-# What is Postman? {#what-is-postman}
-
 **Learn about Postman, a valuable tool for testing requests and proxies when building scalable web scrapers.**
 
 ---

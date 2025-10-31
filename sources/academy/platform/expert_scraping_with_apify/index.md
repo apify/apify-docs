@@ -6,8 +6,6 @@ category: apify platform
 slug: /expert-scraping-with-apify
 ---
 
-# Expert scraping with Apify {#expert-scraping}
-
 **After learning the basics of Actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.**
 
 ---

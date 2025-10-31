@@ -6,8 +6,6 @@ category: tutorials
 slug: /tutorials
 ---
 
-# Tutorials 📚
-
 **Learn about various different specific topics related to web-scraping and web-automation with the Apify Academy tutorial lessons!**
 
 ---

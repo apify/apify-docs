@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /expert-scraping-with-apify/solutions/using-storage-creating-tasks
 ---
 
-# Using storage & creating tasks {#using-storage-creating-tasks}
-
 ## Quiz answers 📝 {#quiz-answers}
 
 **Q: What is the relationship between Actors and tasks?**

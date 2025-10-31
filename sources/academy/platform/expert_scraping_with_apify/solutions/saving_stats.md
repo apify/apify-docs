@@ -5,8 +5,6 @@ sidebar_position: 7
 slug: /expert-scraping-with-apify/solutions/saving-stats
 ---
 
-# Saving run stats {#saving-stats}
-
 **Implement the saving of general statistics about an Actor's run, as well as adding request-specific statistics to dataset items.**
 
 ---

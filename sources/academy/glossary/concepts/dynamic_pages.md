@@ -1,11 +1,9 @@
 ---
-title: Dynamic pages
+title: Dynamic pages and single-page applications
 description: Understand what makes a page dynamic, and how a page being dynamic might change your approach when writing a scraper for it.
 sidebar_position: 8.3
 slug: /concepts/dynamic-pages
 ---
-
-# Dynamic pages and single-page applications (SPAs) {#dynamic-pages}
 
 **Understand what makes a page dynamic, and how a page being dynamic might change your approach when writing a scraper for it.**
 

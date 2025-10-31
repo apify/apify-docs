@@ -5,8 +5,6 @@ sidebar_position: 5
 slug: /web-scraping-for-beginners/crawling/first-crawl
 ---
 
-# Your first crawl {#your-first-crawl}
-
 **Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Extract URLs from pages and use them to visit more websites.**
 
 ---

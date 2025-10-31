@@ -5,8 +5,6 @@ sidebar_position: 4
 slug: /web-scraping-for-beginners/challenge/scraping-amazon
 ---
 
-# Scraping Amazon
-
 **Build your first web scraper with Crawlee. Let's extract product information from Amazon to give you an idea of what real-world scraping looks like.**
 
 ---

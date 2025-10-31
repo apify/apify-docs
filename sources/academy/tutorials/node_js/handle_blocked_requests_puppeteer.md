@@ -7,8 +7,6 @@ slug: /node-js/handle-blocked-requests-puppeteer
 
 One of the main defense mechanisms websites use to ensure they are not scraped by bots is allowing only a limited number of requests from a specific IP address. That's why Apify provides a [proxy](https://docs.apify.com/platform/proxy) component with intelligent rotation. With a large enough pool of proxies, you can multiply the number of allowed requests per day to cover your crawling needs. Let's look at how we can rotate proxies when using our [JavaScript SDK](https://github.com/apify/apify-sdk-js).
 
-# BasicCrawler
-
 > Getting around website defense mechanisms when crawling.
 
 You can use `handleRequestFunction` to set up proxy rotation for a [BasicCrawler](https://crawlee.dev/api/basic-crawler/class/BasicCrawler). The following example shows how to use a fresh proxy on each request if you make requests through the popular [request-promise](https://www.npmjs.com/package/request-promise) npm package:
@@ -33,7 +31,7 @@ const crawler = new Apify.BasicCrawler({
 
 Each time `handleRequestFunction` is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not burn through your proxies.
 
-# Puppeteer Crawler
+## Puppeteer Crawler
 
 With [PuppeteerCrawler](/sdk/js/docs/api/puppeteer-crawler) the situation is a little more complicated. That's because you have to restart the browser to change the proxy the browser is using. By default, PuppeteerCrawler restarts the browser every 100 requests, which can lead to a number of requests being wasted because the IP address the browser is using is already blocked by the website.
 

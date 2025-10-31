@@ -5,8 +5,6 @@ sidebar_position: 3.1
 slug: /anti-scraping/techniques
 ---
 
-# Anti-scraping techniques {#anti-scraping-techniques}
-
 **Understand the various common (and obscure) anti-scraping techniques used by websites to prevent bots from accessing their content.**
 
 ---

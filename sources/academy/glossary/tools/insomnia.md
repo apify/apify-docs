@@ -5,8 +5,6 @@ sidebar_position: 9.2
 slug: /tools/insomnia
 ---
 
-# What is Insomnia {#what-is-insomnia}
-
 **Learn about Insomnia, a valuable tool for testing requests and proxies when building scalable web scrapers.**
 
 ---

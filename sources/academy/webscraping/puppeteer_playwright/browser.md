@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/browser
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Browser {#browser}
-
 **Understand what the Browser object is in Puppeteer/Playwright, how to create one, and a bit about how to interact with one.**
 
 ---

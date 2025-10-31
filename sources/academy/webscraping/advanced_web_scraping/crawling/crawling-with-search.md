@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /advanced-web-scraping/crawling/crawling-with-search
 ---
 
-# Scraping websites with search
-
 In this lesson, we will start with a simpler example of scraping HTML based websites with limited pagination.
 
 Limiting pagination is a common practice on e-commerce sites. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.

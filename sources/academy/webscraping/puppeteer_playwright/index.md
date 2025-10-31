@@ -1,5 +1,5 @@
 ---
-title: Puppeteer & Playwright
+title: Puppeteer and Playwright course
 description: Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.
 sidebar_position: 3
 category: web scraping & automation
@@ -8,8 +8,6 @@ slug: /puppeteer-playwright
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Puppeteer & Playwright course {#puppeteer-playwright-course}
 
 **Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.**
 

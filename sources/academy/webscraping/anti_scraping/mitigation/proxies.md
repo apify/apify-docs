@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /anti-scraping/mitigation/proxies
 ---
 
-# Proxies {#about-proxies}
-
 **Learn all about proxies, how they work, and how they can be leveraged in a scraper to avoid blocking and other anti-scraping tactics.**
 
 ---

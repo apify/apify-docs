@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/page/page-methods
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Page methods {#page-methods}
-
 **Understand that the Page object has many different methods to offer, and learn how to use two of them to capture a page's title and take a screenshot.**
 
 ---

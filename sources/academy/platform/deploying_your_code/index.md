@@ -9,8 +9,6 @@ slug: /deploying-your-code
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Deploying your code to Apify {#deploying}
-
 **In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor.**
 
 ---

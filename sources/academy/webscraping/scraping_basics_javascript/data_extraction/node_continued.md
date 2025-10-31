@@ -173,6 +173,4 @@ Congratulations! You completed the **Basics of data extraction** section of the 
 
 Great job! 👏🎉
 
-# Next up {#next}
-
 What's next? While we were able to extract the data, it's not super useful to have it printed to the terminal. In the [next, bonus lesson](./save_to_csv.md), we will learn how to convert the data to a CSV and save it to a file.

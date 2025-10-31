@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /expert-scraping-with-apify/solutions/managing-source
 ---
 
-# Managing source
-
 **View in-depth answers for all three of the quiz questions that were provided in the corresponding lesson about managing source code.**
 
 ---
