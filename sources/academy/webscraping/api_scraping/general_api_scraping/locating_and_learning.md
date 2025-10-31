@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /api-scraping/general-api-scraping/locating-and-learning
 ---
 
-# Locating API endpoints {#locating-endpoints}
-
 **Learn how to effectively locate a website's API endpoints, and learn how to use them to get the data you want faster and more reliably.**
 
 ---

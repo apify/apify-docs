@@ -8,8 +8,6 @@ slug: /getting-started/apify-client
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Apify client {#apify-client}
-
 **Interact with the Apify API in your code by using the apify-client package, which is available for both JavaScript and Python.**
 
 ---

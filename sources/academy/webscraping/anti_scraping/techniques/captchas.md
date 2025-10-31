@@ -5,8 +5,6 @@ sidebar_position: 5
 slug: /anti-scraping/techniques/captchas
 ---
 
-# Captchas {#captchas}
-
 **Learn about the reasons a bot might be presented a captcha, the best ways to avoid captchas in the first place, and how to programmatically solve them.**
 
 ---

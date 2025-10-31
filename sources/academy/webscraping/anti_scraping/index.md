@@ -6,8 +6,6 @@ category: web scraping & automation
 slug: /anti-scraping
 ---
 
-# Anti-scraping protections {#anti-scraping-protections}
-
 **Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.**
 
 ---

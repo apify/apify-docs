@@ -6,8 +6,6 @@ category: apify platform
 slug: /getting-started
 ---
 
-# Getting started {#getting-started}
-
 **Get started with the Apify platform by creating an account and learning about the Apify Console, which is where all Apify Actors are born!**
 
 ---

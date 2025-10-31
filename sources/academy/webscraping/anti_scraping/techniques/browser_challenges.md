@@ -5,8 +5,6 @@ sidebar_position: 5
 slug: /anti-scraping/techniques/browser-challenges
 ---
 
-# Browser challenges {#fingerprinting}
-
 > Learn how to navigate browser challenges like Cloudflare's to effectively scrape data from protected websites.
 
 ## Browser challenges

@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/page/interacting-with-a-page
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Interacting with a page {#interacting-with-a-page}
-
 **Learn how to programmatically do actions on a page such as clicking, typing, and pressing keys. Also, discover a common roadblock that comes up when automating.**
 
 ---

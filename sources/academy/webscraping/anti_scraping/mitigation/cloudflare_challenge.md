@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /anti-scraping/mitigation/cloudflare-challenge.md
 ---
 
-# Bypassing Cloudflare browser check {#cloudflare-challenge}
-
 **Learn how to bypass Cloudflare browser challenge with Crawlee.**
 
 ---

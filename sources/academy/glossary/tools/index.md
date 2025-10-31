@@ -6,8 +6,6 @@ category: glossary
 slug: /tools
 ---
 
-# Tools 🔧 {#tools}
-
 **Discover a variety of tools that can be used to enhance the scraper development process, or even unlock doors to new scraping possibilities.**
 
 ---

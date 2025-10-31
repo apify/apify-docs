@@ -5,8 +5,6 @@ sidebar_position: 7.7
 slug: /puppeteer-playwright/common-use-cases
 ---
 
-# Common use cases {#common-use-cases}
-
 **Learn about some of the most common use cases of Playwright and Puppeteer, and how to handle these use cases when you run into them.**
 
 ---
@@ -18,6 +16,6 @@ You can do about anything with a headless browser, but, there are some extremely
 3. Solving browser challenges (ex. captchas)
 4. More!
 
-# Next up {#next}
+## Next up {#next}
 
 The [first lesson](./logging_into_a_website.md) of this section is all about logging into a website and running multiple concurrent operations within a user's account.
