@@ -46,12 +46,6 @@ To help you succeed, we've created a comprehensive Actor marketing playbook. You
         to="/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works"
         smallImage
     />
-    <Card
-        title="Actor success stories"
-        desc="Some developers have turned their Actors into profitable tools with steady user bases. This section shares real-world examples of what works, from product strategy to marketing tactics."
-        to="/academy/actor-marketing-playbook/store-basics/actor-success-stories"
-        smallImage
-    />
 </CardGrid>
 
 ## Actor basics
