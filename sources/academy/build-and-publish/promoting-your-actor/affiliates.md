@@ -6,7 +6,7 @@ category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/affiliates
 ---
 
-The Apify Affiliate Program offers you a way to earn recurring commissions while helping others discover automation and web scraping solutions. Whether you promote Apify Store or refer customers to Apify's professional services, you can monetize your expertise and network.
+Earn recurring commissions through the Apify Affiliate Program while helping others discover automation and web scraping solutions. Whether you promote Apify Store or refer customers to Apify's professional services, you can monetize your expertise and network.
 
 The program rewards collaboration with up to 30% recurring commission and up to $2,500 per customer for professional services referrals. With no time limits on commissions, transparent tracking, and flexible payout options, it's built for long-term partnerships.
 
@@ -37,7 +37,7 @@ Apify offers a $5 free trial that renews monthly, giving your referrals time to 
 
 ### Use word of mouth
 
-Tell clients, business contacts, or colleagues how Apify solves their lead generation, data collection, and automation challenges. Personal recommendations carry weight, especially when you can speak to real use cases.
+Tell clients, business contacts, or colleagues how Apify solves their lead generation, data collection, and automation challenges. Personal recommendations are effective, especially when you can speak to real use cases.
 
 ### Create educational content
 
@@ -85,7 +85,7 @@ These opportunities help you build visibility and strengthen relationships with 
 
 ### Transparent dashboard
 
-Track referrals in real-time through a dashboard that shows:
+Track referrals in real time through a dashboard that shows:
 
 - Active referrals
 - Commission earnings
@@ -110,7 +110,7 @@ You'll receive your first payment within 30 days of your first successful referr
 1. _Provide context_: explain how Apify solves specific problems rather than just listing features. Use real examples and use cases.
 1. _Follow up_: engage with people who click your links. Answer questions and provide additional resources to help them get started.
 1. _Combine strategies_: use multiple channels to promote Apify. Cross-reference blog posts in videos, mention tutorials in newsletters, and share content on social media.
-1. _Track what works_: monitor which content and channels drive the most conversions, then double down on what performs best.
+1. _Track what works_: monitor which content and channels drive the most conversions, then focus more on what performs best.
 
 ---
 
