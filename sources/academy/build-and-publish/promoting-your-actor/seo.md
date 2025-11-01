@@ -6,11 +6,11 @@ category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/seo
 ---
 
-SEO means optimizing your content to rank high for your target queries in search engines such as Google, Bing, etc. SEO is a great way to get more users for your Actors. It’s also free, and it can bring you traffic for years. This guide will give you a simple framework to rank better for your targeted queries.
+SEO means optimizing your content to rank high for your target queries in search engines such as Google, Bing, etc. SEO is a great way to get more users for your Actors. It’s also free, and it can bring you traffic for years. This guide will give you a simple framework to rank better for your targeted queries. These SEO practices also help your content appear in AI-powered search engines like Perplexity and AI-generated answers from ChatGPT, Claude, and Gemini.
 
 ## Search intent
 
-Matching the search intent of potential users is super important when creating your Actor's README. The information you include should directly address the problems or needs that led users to search for a solution like yours. For example:
+Matching the search intent of potential users is essential when creating your Actor's README. The information you include should directly address the problems or needs that led users to search for a solution like yours. For example:
 
 - _User goals_: What are users trying to accomplish?
 - _Pain points_: What challenges are they facing?
@@ -76,13 +76,13 @@ Now, you can expand the “People Also Ask” questions. Click on each question 
 
 Another way to collect more keywords is to use the official Google Keyword Planner. Go to [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) and open the tool. You need a Google Ads account, so just create one for free if you don’t have one already.
 
-After you’re in the tool, click on “Discover new keywords”, make sure you’re in the “Start with keywords” tab, enter your Actor's main function or purpose, and then select the United States as the region and English as the language. Click “Get results” to see keywords related to your actor.
+After you’re in the tool, click on “Discover new keywords”, make sure you’re in the “Start with keywords” tab, enter your Actor's main function or purpose, and then select the United States as the region and English as the language. Click “Get results” to see keywords related to your Actor.
 
 Write them down.
 
 ### Ahrefs Keyword Generator
 
-Go to [Ahrefs Keyword Generator](https://ahrefs.com/keyword-generator), enter your Actor's main function or purpose, and click “Find keywords.” You should see a list of keywords related to your actor.
+Go to [Ahrefs Keyword Generator](https://ahrefs.com/keyword-generator), enter your Actor's main function or purpose, and click “Find keywords.” You should see a list of keywords related to your Actor.
 
 Write them down.
 
