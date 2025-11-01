@@ -1,15 +1,17 @@
 ---
 title: Apify Open Source Fair Share Program Terms
-description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.
+description: Outdated Open Source Fair Share Program Terms.
 sidebar_position: 5
 sidebar_label: Fair Share Program Terms
 category: legal
-slug: /fair-share-program-terms-and-conditions
+slug: /old/fair-share-program-terms-and-conditions
 ---
 
 # Apify Open Source Fair Share Program Terms and Conditions
 
 <!-- vale off -->
+
+You are reading terms and conditions that are no longer effective.
 
 Effective Date: February 14, 2025
 
