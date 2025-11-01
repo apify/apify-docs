@@ -49,7 +49,7 @@ If possible, have team members or collaborators available to help respond to com
 
 :::tip Leverage Apify
 
-You can also give a shoutout to Apify, this way your Actor will also notified to the community of Apify on Product Hunt: [https://www.producthunt.com/stories/introducing-shoutouts](https://www.producthunt.com/stories/introducing-shoutouts)
+You can also give a shoutout to Apify, this way your Actor will also be notified to the community of Apify on Product Hunt: [https://www.producthunt.com/stories/introducing-shoutouts](https://www.producthunt.com/stories/introducing-shoutouts)
 
 :::
 
