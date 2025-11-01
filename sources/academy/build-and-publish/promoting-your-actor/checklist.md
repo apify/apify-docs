@@ -39,7 +39,7 @@ import { QUORA_ANSWER_PROMPT } from "@site/src/utils/quora-answer-prompt";
 
 Twitter's developer community is active and engaged. A well-crafted tweet with a video demo can reach thousands of potential users.
 
-Create a 30-60 second demo video or gif showing your Actor in action. Include relevant hashtags like #webscraping, #API, #automation, and #buildinpublic.
+Create a 30-60-second demo video or gif showing your Actor in action. Include relevant hashtags like #webscraping, #API, #automation, and #buildinpublic.
 
 <PromptButton prompt={TWITTER_POST_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
@@ -47,7 +47,7 @@ Create a 30-60 second demo video or gif showing your Actor in action. Include re
 
 LinkedIn reaches professionals, decision-makers, and business users with purchasing power. The platform's algorithm favors native video content, giving it 5x more reach than link posts.
 
-Create a 30-90 second demo video showing your Actor delivering business value. Upload the video directly to LinkedIn (native videos perform better than YouTube links). Focus your post on the business problem solved, not technical features. Use 3-5 relevant hashtags like #BusinessAutomation, #Productivity, #DataIntelligence, #Efficiency, or #MarketResearch.
+Create a 30-90-second demo video showing your Actor delivering business value. Upload the video directly to LinkedIn (native videos perform better than YouTube links). Focus your post on the business problem solved, not technical features. Use 3-5 relevant hashtags like #BusinessAutomation, #Productivity, #DataIntelligence, #Efficiency, or #MarketResearch.
 
 <PromptButton prompt={LINKEDIN_POST_PROMPT} title="Use pre-built prompt for your AI assistant" />
 
@@ -65,7 +65,7 @@ Join communities related to data for AI, web scraping, automation, data science,
 
 Video content ranks well on YouTube and Google. It's perfect for developers who prefer visual learning. Videos get embedded and shared, multiplying your reach.
 
-Record a 5-10 minute screen recording showing your Actor in action. Use Loom, OBS, or your computer's built-in recorder. Distribute your video across multiple channels:
+Record a 5-10-minute screen recording showing your Actor in action. Use Loom, OBS, or your computer's built-in recorder. Distribute your video across multiple channels:
 
 - YouTube
 - LinkedIn
@@ -136,7 +136,7 @@ Write a Reddit-native post that explains the problem, your solution, and invites
 
 Stack Overflow answers rank well in search and are frequently referenced by AI systems. Providing helpful answers that mention your Actor creates lasting SEO value.
 
-Search for questions related to your Actor's use case (e.g., "web scraping", "API integration"). Provide genuinely helpful answers that solve the problem, and mention your Actor as one potential solution.
+Search for questions related to your Actor's use case (e.g. "web scraping", "API integration"). Provide genuinely helpful answers that solve the problem, and mention your Actor as one potential solution.
 
 ### Contribute to Quora discussions
 
@@ -164,7 +164,7 @@ Learn more in the [Blogs and blog resources guide](/academy/actor-marketing-play
 
 Medium has excellent SEO and a massive audience of professionals and developers. Publishing on Medium and submitting to relevant publications like "Better Programming" or "The Startup" can reach thousands of readers. Medium articles frequently appear in Google search results and AI-generated answers.
 
-Write a comprehensive "Best [CATEGORY]" roundup article (1,800-2,500 words) featuring 6-8 solutions with your Actor prominently positioned. Create a Medium account if you don't have one, and publish it. Use all 5 available tags strategically (e.g., "web scraping", "APIs", "automation", "developer tools", "[your specific niche]"). Submit your article to relevant Medium publications to multiply your reach by 10x or more.
+Write a comprehensive "Best [CATEGORY]" roundup article (1,800-2,500 words) featuring 6-8 solutions with your Actor prominently positioned. Create a Medium account if you don't have one, and publish it. Use all 5 available tags strategically (e.g. "web scraping", "APIs", "automation", "developer tools", "[your specific niche]"). Submit your article to relevant Medium publications to multiply your reach by 10x or more.
 
 Write in first person with a conversational yet professional tone. Include pros and cons for each solution, add a comparison table, and share your genuine perspective.
 
@@ -174,7 +174,7 @@ Write in first person with a conversational yet professional tone. Include pros 
 
 dev.to is the go-to platform for developers seeking tools and tutorials. It has a highly engaged community and strong domain authority, so your articles rank well in search engines. The community actively comments and shares, boosting visibility. dev.to content is frequently referenced by AI tools.
 
-Write a developer-focused "Best [CATEGORY] for Developers" article (1,500-2,000 words) featuring 6-8 solutions. Create a dev.to account if needed and publish your article. Add relevant tags (up to 4 tags, e.g., #webdev, #api, #productivity, #tools). Engage with comments. The dev.to community values authentic interaction.
+Write a developer-focused "Best [CATEGORY] for Developers" article (1,500-2,000 words) featuring 6-8 solutions. Create a dev.to account if needed and publish your article. Add relevant tags (up to 4 tags, e.g. #webdev, #api, #productivity, #tools). Engage with comments. The dev.to community values authentic interaction.
 
 Write like you're advising a fellow developer: casual and helpful. Be genuinely objective about all tools, include code examples or API snippets where relevant, and use markdown formatting with H2/H3 headers.
 
@@ -204,7 +204,7 @@ Use a professional, authoritative but accessible tone. Focus on business impact 
 
 dev.to is the platform for developer tutorials. It has a massive, engaged community that actively searches for and shares how-to content. Tutorials rank exceptionally well in Google and are frequently referenced by AI systems when developers ask "how to" questions.
 
-Write a step-by-step tutorial (1,200-2,000 words) showing developers how to use your Actor to achieve a specific outcome. Create a dev.to account if you don't have one, then publish your article with up to 4 relevant tags (e.g., #tutorial, #webdev, #api, #automation).
+Write a step-by-step tutorial (1,200-2,000 words) showing developers how to use your Actor to achieve a specific outcome. Create a dev.to account if you don't have one, then publish your article with up to 4 relevant tags (e.g. #tutorial, #webdev, #api, #automation).
 
 Structure: Introduction with hook, prerequisites, what they'll achieve, step-by-step guide (access the Actor, configure inputs, run it, view results, download data), understanding results, pro tips, troubleshooting, and next steps. Write like you're helping a friend get started.
 
