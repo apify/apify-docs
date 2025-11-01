@@ -10,18 +10,18 @@ slug: /actor-marketing-playbook/promote-your-actor/social-media
 
 Now, before we start listing social media platforms, it might be important to acknowledge something.
 
-Developers are notorious for not using social media that much. Or they use social media exclusively in the context of their own interests: that won’t find them new users, but rather colleagues or collaborators.
+Developers typically don't use social media as frequently. Or they use social media exclusively in the context of their own interests: that won’t find them new users, but rather colleagues or collaborators.
 
-That's a good start, and maybe it's enough. A developer that can also “do” social media is a unicorn. These are super rare. And if you want to really promote your Actor, you'll need to become that unicorn. Before we start, you need to understand the benefits of this activity.
+That's a good start, and maybe it's enough. A developer that can also "do" social media is a unicorn. These skills are rare. And if you want to really promote your Actor, you'll need to become that unicorn. Before we start, you need to understand the benefits of this activity.
 
 ---
 
 ## Why be active on social media
 
-Engaging with your users on social media offers a lot of benefits beyond just promoting your Actor. Let’s look at some of the main reasons why being active online can be a game-changer for your Actor’s success:
+Engaging with your users on social media offers a lot of benefits beyond just promoting your Actor. Let's look at some of the main reasons why being active online can significantly impact your Actor's success:
 
-1. Social platforms make it easy to gather real-time feedback and also provide support in real-time. You can quickly learn what users love, what they struggle with, and what features they’d like to see. This can guide your Actor’s future development. It also allows you to build trust and credibility with your audience.
-2. Shot in the dark: social media exposes your Actor to new users who might not find you through search engines alone. A shared post or retweet can dramatically expand your reach, helping you grow your user base.
+1. Social platforms make it easy to gather real-time feedback and also provide support in real time. You can quickly learn what users love, what they struggle with, and what features they’d like to see. This can guide your Actor’s future development. It also allows you to build trust and credibility with your audience.
+2. Expanded reach: social media exposes your Actor to new users who might not find you through search engines alone. A shared post or retweet can dramatically expand your reach, helping you grow your user base.
 3. Consistent activity on social platforms creates more backlinks to your Actor’s page, which can improve its search engine ranking and drive organic traffic.
 
 ## Where to engage: Choosing the right platforms
@@ -49,26 +49,25 @@ Choosing the right platforms is key to reaching your target audience. Here's a b
 
 Now that you know where to engage and why it’s important, here are some best practices to help you make the most of social media:
 
-1. _Offer value beyond promotion_: If you look around, you'll see that the golden rule of social media these days is to educate and entertain. Focus on sharing useful information related to your Actor. Post tips on automation, web scraping techniques, or industry insights that can help your audience. When you do promote your Actor, users will see it as part of a valuable exchange, not just an ad. Besides, constantly posting promotional content turns anybody off.
+1. _Offer value beyond promotion_: If you look around, you'll see that the golden rule of social media these days is to educate and entertain. Focus on sharing useful information related to your Actor. Post tips on automation, web scraping techniques, or industry insights that can help your audience. When you do promote your Actor, users will see it as part of a valuable exchange, not just an ad. Besides, constantly posting promotional content reduces engagement.
 2. _Post consistently_: The most important rule for social media is to show up. Whether it’s a weekly post about new features or daily tips for using your Actor more effectively, maintaining a regular posting schedule keeps your audience connected.
 3. _Visuals matter_: Screenshots, GIFs, and short videos can explain more than text ever could. Show users how your Actor works, the results it scrapes, or how automation saves time.
 4. _Widen your reach_: Web scraping is a niche topic. Find ways to talk about it more widely. If you stumble upon ways to relate it to wider topics: news, science, research, even politics and art, use it. Or you can go more technical and talk about various libraries and languages you can use to build it.
 5. _Use relevant hashtags_: Hashtags like #webscraping, #automation, #programming, and #IT help you reach a wider audience on platforms like Twitter and TikTok. Stick to a few relevant hashtags per post to avoid clutter.
 6. _Engage actively_: Social media is a two-way street. Reply to comments, thank users for sharing your content, create stitches, and answer questions. Building relationships with your users helps foster loyalty and builds a sense of community around your Actor.
-7. _Use polls and Q&As_: Interactive content like polls or Q&A sessions can drive engagement. Ask users what features they’d like to see next or run a live Q&A to answer questions about using your Actor. These tools encourage participation and provide valuable insights.
-8. _Collaborate with other creators_.
+7. _Use polls and Q&As_: Interactive content like polls or Q&A sessions can drive engagement. Ask users what features they'd like to see next or run a live Q&A to answer questions about using your Actor. These tools encourage participation and provide valuable insights.
 
 ## Caveats to social media engagement
 
 1. _Over-promotion_: Constantly pushing your Actor without offering value can turn users away. Balance your promotional content with educational posts, interesting links, or insights into the development process. Users are more likely to engage when they feel like they’re learning something, rather than just being sold to.
-2. _Handling negative feedback_: Social media is a public forum, and not all feedback will be positive. Be prepared to address user concerns or criticism professionally. Responding kindly (or funnily) to criticism shows you’re committed to improving your tool and addressing users' needs.
+2. _Handling negative feedback_: Social media is a public forum, and not all feedback will be positive. Be prepared to address user concerns or criticism professionally. Responding kindly (or with humor) to criticism shows you’re committed to improving your tool and addressing users' needs.
 3. _Managing multiple platforms_: Social media management can be time-consuming, especially if you’re active on multiple platforms. Focus on one or two platforms that matter most to your audience instead of spreading yourself too thin.
 4. _Algorithm changes_: Social media platforms often tweak their algorithms, which can impact your content’s visibility. Stay updated on these changes, and adjust your strategy accordingly. If a post doesn’t perform well, experiment with different formats (videos, visuals, polls) to see what resonates with your audience.
 5. _Privacy and compliance_: Very important here to be mindful of sharing user data or results, especially if your Actor handles sensitive information. Make sure your posts comply with privacy laws and don’t inadvertently expose any personal data.
 
 ## For inspiration
 
-It's sometimes hard to think of a good reason to scream into the void that is social media. Here are 25 scenarios where you might use social media to promote your Actor or your work:
+Finding engaging content ideas for social media can be challenging. Here are 25 scenarios where you might use social media to promote your Actor or your work:
 
 1. _Funny interaction with a user_: Share a humorous tweet or post about a quirky question or feedback from a user that highlights your Actor’s unique features.
 2. _Roadblock story_: Post about a challenging bug you encountered while developing your Actor and how you solved it, including a screenshot or snippet of code.
