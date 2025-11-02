@@ -12,11 +12,11 @@ slug: /actor-marketing-playbook/promote-your-actor/video-tutorials
 
 ## Why videos and live streams matter
 
-1. _Visual engagement_. Videos allow you to show rather than just tell. Demonstrating how your Actor works or solving a problem in makes the content more engaging and easier to understand. For complex tools, visual explanations can be much more effective than text alone.
+1. _Visual engagement_. Videos allow you to show rather than just tell. Demonstrating how your Actor works or solving a problem makes the content more engaging and easier to understand. For complex tools, visual explanations can be much more effective than text alone.
 2. _Enhanced communication_. Live streams offer a unique opportunity for direct interaction. You can answer questions, address concerns, and gather immediate feedback from your audience, creating a more dynamic and personal connection.
 3. _Increased reach_. Platforms like YouTube and TikTok have massive user bases, giving you access to a broad audience. Videos can also be shared across various social media channels, extending your reach even further.
 
-Learn more about the rules of live streams in our next section: [Webinars](/academy/actor-marketing-playbook/promote-your-actor/webinars)
+Learn more about the rules of live streams in the next section: [Webinars](/academy/actor-marketing-playbook/promote-your-actor/webinars)
 
 ## Optimizing videos for SEO
 
