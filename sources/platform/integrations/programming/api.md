@@ -1,7 +1,7 @@
 ---
 title: API integration
 description: Learn how to integrate with Apify via API.
-sidebar_label: API
+sidebar_label: API integration
 sidebar_position: 1
 slug: /integrations/api
 ---
@@ -33,8 +33,25 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 You can authenticate the Apify API in two ways. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
-Note that some API endpoints, such as [Get list of keys](/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys),
+Note that some API endpoints, such as [Get list of keys](/api/v2/key-value-store-keys-get),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
+
+## Expiration
+
+API tokens include security features to protect your account and data. You can set an expiration date for your API tokens, ensuring they become invalid after a specified period. This is particularly useful for temporary access or when working with third-party services.
+
+![Creating token with expiration date in Apify Console](../images/api-token-expiration-date.png)
+
+## Rotation
+
+If you suspect that a token has been compromised or accidentally exposed, you can rotate it through the Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
+
+![Rotate token in Apify Console](../images/api-token-rotate.png)
+
+For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
+
+![Leaked token in Apify Console](../images/api-token-leaked.png)
+
 
 ## Organization accounts
 
@@ -46,7 +63,7 @@ The Personal API tokens are different from your own Personal API tokens mentione
 
 On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
 
-## API tokens with limited permissions {#limited-permissions}
+## API tokens with limited permissions
 
 By default, tokens can access all data in your account. If that is not desirable, you can choose to limit the permissions of your token, so that it can only access data needed for the particular use case. We call these tokens **scoped**.
 
@@ -151,19 +168,20 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
-You can configure whether the scoped token you are going use to run the Actor should get **Write**
-access to these default storages.
+You can configure whether the scoped token you are going use to run the Actor should get access to these default storages.
 
 ![Configure whether the trigger token gets write access to the run default storages.](../images/api-token-scoped-default-storage-access.png)
 
+If it’s **on**, the token can implicitly access the default storage of the Actor runs it triggers, or in general, of any Actor run in your account that falls within its scope. This is useful if you want to allow a third-party service to run an Actor and then read the Actor’s output (think AI agents).
+
+If the toggle is **off**, the token can still trigger and inspect runs, but access to the default storages is restricted:
+
+- For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
+- For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
+
+
 :::tip
 Let's say your Actor produces a lot of data that you want to delete just after the Actor finishes. If you enable this toggle, your scoped token will be allowed to do that.
-:::
-
-:::caution
-Even if you disable this option, **the default storages can still be accessed anonymously using just their ID** (which can be obtained via the [run object](https://docs.apify.com/api/v2#tag/Actor-runsRun-object-and-its-storages)).
-
-Moreover, if a scoped token can run an Actor, it can also list all its runs, including their storage IDs, ultimately exposing their content as well. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
 :::
 
 ### Schedules

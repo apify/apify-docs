@@ -15,6 +15,9 @@ get:
     order, therefore you can use pagination to incrementally fetch all Actors while new
     ones are still being created. To sort the records in descending order, use the `desc=1` parameter.
 
+    You can also sort by your last run by using the `sortBy=stats.lastRunStartedAt` query parameter.
+    In this case, descending order means the most recently run Actor appears first.
+
   operationId: acts_get
   parameters:
     - name: my
@@ -58,6 +61,15 @@ get:
       schema:
         type: boolean
         example: true
+    - name: sortBy
+      in: query
+      description: |
+        Field to sort the records by. The default is `createdAt`. You can also use `stats.lastRunStartedAt` to sort
+        by the most recently ran Actors.
+      schema:
+        type: string
+        enum: [createdAt, stats.lastRunStartedAt]
+        example: createdAt
   responses:
     '200':
       description: ''
@@ -130,7 +142,6 @@ post:
           isPublic: false
           seoTitle: My Actor
           seoDescription: My Actor is the best
-          restartOnError: false
           versions:
             - versionNumber: '0.0'
               sourceType: SOURCE_FILES
@@ -149,6 +160,7 @@ post:
             build: latest
             timeoutSecs: 3600
             memoryMbytes: 2048
+            restartOnError: false
     required: true
   responses:
     '201':
@@ -171,7 +183,6 @@ post:
               name: MyActor
               username: jane35
               description: My favourite Actor!
-              restartOnError: false
               isPublic: false
               createdAt: '2019-07-08T11:27:57.401Z'
               modifiedAt: '2019-07-08T14:01:05.546Z'
@@ -213,6 +224,7 @@ post:
                 build: latest
                 timeoutSecs: 3600
                 memoryMbytes: 2048
+                restartOnError: false
               exampleRunInput:
                 body: '{ "helloWorld": 123 }'
                 contentType: application/json; charset=utf-8

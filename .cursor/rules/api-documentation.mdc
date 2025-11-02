@@ -1,0 +1,62 @@
+---
+description: Cursor-specific rules for OpenAPI specifications and API documentation
+globs: ["apify-api/**/*.yaml", "apify-api/**/*.js"]
+alwaysApply: true
+---
+
+# Cursor-Specific API Documentation Rules
+
+## Cursor OpenAPI Workflow
+
+### Using Cursor for OpenAPI Editing
+
+- Leverage Cursor's YAML syntax highlighting for OpenAPI files
+- Use Cursor's JSON schema validation for OpenAPI specifications
+- Use Cursor's autocomplete for OpenAPI keywords and properties
+
+### Cursor-Specific API Documentation Tasks
+
+- Use Cursor Chat to "validate this OpenAPI specification"
+- Ask "generate code examples for this endpoint"
+- Request "check for consistency across similar endpoints"
+
+## Cursor Code Sample Generation
+
+### Using Cmd+K for API References
+
+- Use `@apify-api/openapi/paths/**/*.yaml` to reference endpoint definitions
+- Use `@apify-api/openapi/components/schemas/**/*.yaml` to reference data models
+- Use `@AGENTS.md` to reference API documentation standards
+
+### Cursor-Specific Code Sample Workflow
+
+```yaml
+# When editing OpenAPI files in Cursor:
+# 1. Use Cursor's YAML validation
+# 2. Leverage autocomplete for OpenAPI keywords
+# 3. Use Cursor Chat to generate examples
+# 4. Use Cursor's search to find similar patterns
+```
+
+## File-Specific Cursor Rules
+
+### For OpenAPI Specification Files (`apify-api/openapi/**/*.yaml`)
+
+- Use Cursor's YAML syntax highlighting and validation
+- Leverage Cursor's autocomplete for OpenAPI 3.0 keywords
+- Use Cursor's search to find similar endpoint patterns
+- Use Cursor Chat to validate OpenAPI compliance
+
+### For Generated Code Samples (`apify-api/openapi/code_samples/**/*.js`)
+
+- Use Cursor's JavaScript syntax highlighting
+- Leverage Cursor's autocomplete for JavaScript APIs
+- Use Cursor's search to find similar code patterns
+- Use Cursor Chat to improve code examples
+
+## Cursor Quality Assurance for APIs
+
+- Use Cursor's YAML validation for OpenAPI files
+- Leverage Cursor's search to ensure endpoint naming consistency
+- Use Cursor Chat to review API documentation completeness
+- Use Cursor's autocomplete to maintain OpenAPI specification standards

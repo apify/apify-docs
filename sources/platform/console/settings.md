@@ -1,12 +1,12 @@
 ---
-title: Settings
-description: Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.
-sidebar_position: 3
+title: Account settings
+description: Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.
+sidebar_position: 4
 category: platform
 slug: /console/settings
 ---
 
-**Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.**
+**Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.**
 
 ---
 
@@ -21,6 +21,13 @@ By clicking the **Settings** tab on the side menu, you will be presented with an
 * login information
 * session information
 * account delete
+
+:::info Verify your identity
+
+The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to view and edit the settings.
+
+:::
+
 
 ### Session Information
 

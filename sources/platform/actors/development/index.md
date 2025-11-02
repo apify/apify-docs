@@ -1,6 +1,7 @@
 ---
-title: Development
+title: Actor development
 desc: Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
+sidebar_label: Development
 sidebar_position: 7.4
 slug: /actors/development
 ---
@@ -11,7 +12,7 @@ slug: /actors/development
 
 This section will guide you through the whole story of [Actor](../index.mdx) development.
 
-You can follow chapters sequentially from [Quick start](./quick_start/index.mdx), where you learn how to create your first Actor in just a few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](/sources/platform/actors/development/performance.md) section, where you learn how to fine-tune your Actor to get the most out of the Apify platform.
+You can follow chapters sequentially from [Quick start](/platform/actors/development/quick-start), where you learn how to create your first Actor in just a few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](/sources/platform/actors/development/performance.md) section, where you learn how to fine-tune your Actor to get the most out of the Apify platform.
 
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";

@@ -1,6 +1,6 @@
 ---
 title: Actors in Store
-description: Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
+description: Apify Store is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
 #display H2 to H4 heading
@@ -8,7 +8,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
+**[Apify Store](https://apify.com/store) is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
 
 ---
 
@@ -118,7 +118,7 @@ You will still be charged for the timed storage of the data in the same fashion 
 
 You can set a limit on how many items an Actor should return and the amount you will be charged in Options on the Actor detail page in the section below the Actor input.
 
-![Max items for pay-per-result](./images/store/pay_per_result_max_items.png)
+![Max items for pay-per-result](./images/store/max-items-for-pay-per-result.png)
 
 ##### Can I publish an Actor that is paid per result?
 
@@ -166,6 +166,10 @@ You would still pay for all interactions after the Actor run finishes, same as f
 #### Do I pay for the storage of results on the Apify platform?
 
 You would still pay for the long term storage of results, same as for pay per result Actors.
+
+#### Some Actors declare that I still need to pay for usage, how come?
+
+When an Actor operates in [Standby mode](https://docs.apify.com/platform/actors/running/standby), you control how the background runs scale and how efficiently they are utilized. In this case, you are responsible for paying the platform usage costs of these runs in addition to the event charges. Some selected Standby Actors may have this usage component waived, so always check the pricing page of the specific Actor to determine whether you will be charged for usage or only for events.
 
 #### Where do I see how much I was charged for the pay per result Actors?
 

@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/framework
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll rework our application for watching prices so that it builds on top of a scraping framework. We'll use Crawlee to make the program simpler, faster, and more robust.**
 
@@ -21,7 +21,7 @@ Before rewriting our code, let's point out several caveats in our current soluti
 - _Browser means rewrite:_ We got lucky extracting variants. If the website didn't include a fallback, we might have had no choice but to spin up a browser instance and automate clicking on buttons. Such a change in the underlying technology would require a complete rewrite of our program.
 - _No error handling:_ The scraper stops if it encounters issues. It should allow for skipping problematic products with warnings or retrying downloads when the website returns temporary errors.
 
-In this lesson, we'll tackle all the above issues while keeping the code concise thanks to a scraping framework.
+In this lesson, we'll address all of the above issues while keeping the code concise with the help of a scraping framework. We'll use [Crawlee](https://crawlee.dev/), not only because we created it, but also because we believe it's the best tool for the job.
 
 :::info Why Crawlee and not Scrapy
 
@@ -66,12 +66,12 @@ if __name__ == '__main__':
 In the code, we do the following:
 
 1. We import the necessary modules and define an asynchronous `main()` function.
-2. Inside `main()`, we first create a crawler object, which manages the scraping process. In this case, it's a crawler based on Beautiful Soup.
-3. Next, we define a nested asynchronous function called `handle_listing()`. It receives a `context` parameter, and Python type hints show it's of type `BeautifulSoupCrawlingContext`. Type hints help editors suggest what we can do with the object.
-4. We use a Python decorator (the line starting with `@`) to register `handle_listing()` as the _default handler_ for processing HTTP responses.
-5. Inside the handler, we extract the page title from the `soup` object and print its text without whitespace.
-6. At the end of the function, we run the crawler on a product listing URL and await its completion.
-7. The last two lines ensure that if the file is executed directly, Python will properly run the `main()` function using its asynchronous event loop.
+1. Inside `main()`, we first create a crawler object, which manages the scraping process. In this case, it's a crawler based on Beautiful Soup.
+1. Next, we define a nested asynchronous function called `handle_listing()`. It receives a `context` parameter, and Python type hints show it's of type `BeautifulSoupCrawlingContext`. Type hints help editors suggest what we can do with the object.
+1. We use a Python decorator (the line starting with `@`) to register `handle_listing()` as the _default handler_ for processing HTTP responses.
+1. Inside the handler, we extract the page title from the `soup` object and print its text without whitespace.
+1. At the end of the function, we run the crawler on a product listing URL and await its completion.
+1. The last two lines ensure that if the file is executed directly, Python will properly run the `main()` function using its asynchronous event loop.
 
 Don't worry if some of this is new. We don't need to know exactly how [`asyncio`](https://docs.python.org/3/library/asyncio.html), decorators, or type hints work. Let's stick to the practical side and observe what the program does when executed:
 
@@ -181,7 +181,7 @@ https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-tu
 └───────────────────────────────┴──────────┘
 ```
 
-In the final stats, we can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially.
+In the final stats, we can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially. These requests are not made all at once without planning. They are scheduled and sent in a way that doesn't overload the target server. And if they do, Crawlee can automatically retry them.
 
 ## Extracting data
 
@@ -207,9 +207,9 @@ The code above assumes the `.select_one()` call doesn't return `None`. If your e
 
 :::
 
-Now for the price. We're not doing anything new here—just import `Decimal` and copy-paste the code from our old scraper.
+Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
 
-The only change will be in the selector. In `main.py`, we looked for `.price` within a `product_soup` object representing a product card. Now, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
+The only change will be in the selector. In `oldmain.py`, we look for `.price` within a `product_soup` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```py
 async def main():
@@ -224,22 +224,22 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
         }
         print(item)
 ```
 
-Finally, the variants. We can reuse the `parse_variant()` function as-is, and in the handler we'll again take inspiration from what we had in `main.py`. The full program will look like this:
+Finally, the variants. We can reuse the `parse_variant()` function as-is, and in the handler we'll again take inspiration from what we have in `oldmain.py`. The full program will look like this:
 
 ```py
 import asyncio
-from decimal import Decimal
 from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
@@ -257,13 +257,14 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
             "variant_name": None,
         }
         if variants := context.soup.select(".product-form__option.no-js option"):
@@ -277,9 +278,10 @@ async def main():
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
@@ -294,7 +296,7 @@ Crawlee doesn't do much to help with locating and extracting the data—that par
 
 ## Saving data
 
-When we're at _letting the framework take care of everything else_, let's take a look at what it can do about saving data. As of now the product detail page handler prints each item as soon as the item is ready. Instead, we can push the item to Crawlee's default dataset:
+Now that we're _letting the framework take care of everything else_, let's see what it can do about saving data. As of now, the product detail page handler logs each item as soon as it's ready. Instead, we can push the item to Crawlee's default dataset:
 
 ```py
 async def main():
@@ -319,7 +321,7 @@ async def main():
 
 That's it! If we run the program now, there should be a `storage` directory alongside the `main.py` file. Crawlee uses it to store its internal state. If we go to the `storage/datasets/default` subdirectory, we'll see over 30 JSON files, each representing a single item.
 
-![Single dataset item](images/dataset-item.png)
+![Single dataset item](../scraping_basics/images/dataset-item.png)
 
 We can also export all the items to a single file of our choice. We'll do it at the end of the `main()` function, after the crawler has finished scraping:
 
@@ -342,7 +344,6 @@ Crawlee gives us stats about HTTP requests and concurrency, but we don't get muc
 
 ```py
 import asyncio
-from decimal import Decimal
 from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
 async def main():
@@ -364,13 +365,14 @@ async def main():
             .contents[-1]
             .strip()
             .replace("$", "")
+            .replace(".", "")
             .replace(",", "")
         )
         item = {
             "url": context.request.url,
             "title": context.soup.select_one(".product-meta__title").text.strip(),
             "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-            "price": Decimal(price_text),
+            "price": int(price_text),
             "variant_name": None,
         }
         if variants := context.soup.select(".product-form__option.no-js option"):
@@ -393,9 +395,10 @@ async def main():
 def parse_variant(variant):
     text = variant.text.strip()
     name, price_text = text.split(" - ")
-    price = Decimal(
+    price = int(
         price_text
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     return {"variant_name": name, "price": price}
@@ -450,10 +453,12 @@ If you export the dataset as JSON, it should look something like this:
 ]
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - Use Python's `datetime.strptime(text, "%d/%m/%Y").date()` to parse dates in the `DD/MM/YYYY` format. Check out the [docs](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime) for more details.
 - To locate the Instagram URL, use the attribute selector `a[href*='instagram']`. Learn more about attribute selectors in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -533,7 +538,6 @@ If you export the dataset as JSON, it should look something like this:
 To scrape IMDb data, you'll need to construct a `Request` object with the appropriate search URL for each movie title. The following code snippet gives you an idea of how to do this:
 
 ```py
-...
 from urllib.parse import quote_plus
 
 async def main():
@@ -549,10 +553,13 @@ async def main():
         await context.add_requests(requests)
 
     ...
-...
 ```
 
-When navigating to the first search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
+:::tip Need a nudge?
+
+When navigating to the first IMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -570,7 +577,7 @@ When navigating to the first search result, you might find it helpful to know th
       @crawler.router.default_handler
       async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
           requests = []
-          for name_cell in context.soup.select(".list-tbl-global .tbl-cell-name"):
+          for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
               name = name_cell.text.strip()
               imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
               requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))

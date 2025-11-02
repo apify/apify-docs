@@ -1,10 +1,15 @@
+// eslint-disable-next-line simple-import-sort/imports
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import RouterLink from '@docusaurus/Link';
 import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import React, { useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 import { ApifySearch } from '@apify/docs-search-modal';
+
+// needs to be imported as the last thing, so that it can override the default styles
+// TODO: update simple-import-sort to allow importing css as last.
+import './styles.css';
 
 /**
  * Tests whether the given href is pointing to the current docusaurus instance (so we can use the router link).
@@ -35,7 +40,7 @@ export function Link(props) {
     return <a {...props}>{props.children}</a>;
 }
 
-export default function SearchBar() {
+export default function SearchBar({ onClick }) {
     const { siteConfig } = useDocusaurusContext();
     const location = useLocation();
     const history = useHistory();
@@ -57,13 +62,54 @@ export default function SearchBar() {
 
     return (
         <BrowserOnly>
-            {() => <ApifySearch
-                algoliaAppId={siteConfig.themeConfig.algolia.appId}
-                algoliaIndexName='test_test_apify_sdk'
-                algoliaKey={siteConfig.themeConfig.algolia.apiKey}
-                filters={`version:${getVersion()}`}
-                navigate={navigate}
-            />}
+            {() => (
+                <div className="SearchButton-Container">
+
+                <div onClick={onClick} className="AlgoliaContainer" style={{ marginRight: '12px' }}>
+                    <ApifySearch
+                        algoliaAppId={siteConfig.themeConfig.algolia.appId}
+                        algoliaIndexName='apify_sdk_v2'
+                        algoliaKey={siteConfig.themeConfig.algolia.apiKey}
+                        filters={`version:${getVersion()}`}
+                        navigate={navigate}
+                    />
+                </div>
+                <KapaAIButton />
+                </div>
+            )}
+        </BrowserOnly>
+    );
+}
+
+function KapaAIButton({ onClick }) {
+    const [opened, setOpened] = useState(false);
+
+    onClick = () => {
+        if (opened) {
+            return;
+        }
+
+        setOpened(true);
+
+        if (window.Kapa && typeof window.Kapa.open === 'function') {
+            window.Kapa.open();
+            window.Kapa('onModalClose', () => {
+                setOpened(false);
+            });
+        } else {
+            console.error('Kapa.ai widget is not available.');
+        }
+    };
+
+    return (
+        <BrowserOnly>
+            {() => (
+                <div onClick={onClick}>
+                    <button type="button" className="AskAI-Button" aria-label="Ask AI">
+                        Ask AI
+                    </button>
+                </div>
+            )}
         </BrowserOnly>
     );
 }

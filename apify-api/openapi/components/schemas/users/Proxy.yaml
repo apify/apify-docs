@@ -10,4 +10,4 @@ properties:
   groups:
     type: array
     items:
-      - $ref: ./ProxyGroup.yaml
+      $ref: ./ProxyGroup.yaml

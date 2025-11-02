@@ -5,8 +5,6 @@ sidebar_position: 12.1
 slug: /collaboration/organization-account
 ---
 
-# Organization account
-
 **Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.**
 
 ---
@@ -22,11 +20,11 @@ You can set up an organization in two ways.
 
 > Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
-## Availability and pricing {#availability-and-pricing}
+## Availability and pricing
 
 The organization account is available on all our plans. [Visit our pricing page](https://apify.com/pricing) for more information.
 
-## Create a new organization {#create-a-new-organization}
+## Create a new organization
 
 You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://console.apify.com/account#/myorganizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
 
@@ -34,7 +32,7 @@ You can create a new organization by clicking the **Create new organization** bu
 
 **You can own up to 5 and be a member of as many organizations as you need.**
 
-## Convert an existing account {#convert-an-existing-account}
+## Convert an existing account
 
 > **When you convert an existing user account into an organization,**
 >

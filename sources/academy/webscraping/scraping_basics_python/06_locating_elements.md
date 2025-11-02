@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/locating-elements
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll locate product data in the downloaded HTML. We'll use BeautifulSoup to find those HTML elements which contain details about each product, such as title or price.**
 
@@ -60,7 +60,7 @@ To get details about each product in a structured way, we'll need a different ap
 
 As in the browser DevTools lessons, we need to change the code so that it locates child elements for each product card.
 
-![Product card's child elements](./images/child-elements.png)
+![Product card's child elements](../scraping_basics/images/child-elements.png)
 
 We should be looking for elements which have the `product-item__title` and `price` classes. We already know how that translates to CSS selectors:
 
@@ -162,7 +162,7 @@ We can use Beautiful Soup's `.contents` property to access individual nodes. It 
 ["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
-It seems like we can read the last element to get the actual amount from a list like the above. Let's fix our program:
+It seems like we can read the last element to get the actual amount. Let's fix our program:
 
 ```py
 import httpx
@@ -228,6 +228,16 @@ Algeria
 Angola
 Benin
 Botswana
+Burkina Faso
+Burundi
+Cameroon
+Cape Verde
+Central African Republic
+Chad
+Comoros
+Democratic Republic of the Congo
+Republic of the Congo
+Djibouti
 ...
 ```
 
@@ -260,10 +270,16 @@ Botswana
 
 ### Use CSS selectors to their max
 
-Simplify the code from previous exercise. Use a single for loop and a single CSS selector. You may want to check out the following pages:
+Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
+
+:::tip Need a nudge?
+
+You may want to check out the following pages:
 
 - [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
 - [`:nth-child()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
+
+:::
 
 <details>
   <summary>Solution</summary>

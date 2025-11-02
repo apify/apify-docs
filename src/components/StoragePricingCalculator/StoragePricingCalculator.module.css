@@ -1,0 +1,298 @@
+.calculator {
+  border: 1px solid var(--color-neutral-border, #b3b8d2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  border-color: var(--color-neutral-field-border, #4a5568);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-heading-color);
+  font-size: 2.2rem;
+}
+
+.header p {
+  margin: 0;
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.3rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.selectionRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.section h4 {
+  margin: 0;
+  color: var(--ifm-heading-color);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--color-neutral-border, #e2e8f0);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  min-height: 4.5rem;
+  flex: 1;
+}
+
+.dark .radioOption {
+  border-color: var(--color-neutral-field-border, #4a5568);
+}
+
+/* Dark mode selected state */
+.dark .radioOption:has(input[type="radio"]:checked) {
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.15);
+  box-shadow: 0 0 0 1px var(--ifm-color-primary);
+}
+
+.radioOption:hover {
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.05);
+}
+
+.radioOption input[type="radio"] {
+  display: none; /* Hide the radio button indicator */
+}
+
+/* Selected state for radio options */
+.radioOption:has(input[type="radio"]:checked) {
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1);
+  box-shadow: 0 0 0 1px var(--ifm-color-primary);
+}
+
+.radioContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.radioContent strong {
+  color: var(--ifm-heading-color);
+  font-size: 1.3rem;
+}
+
+.radioContent span {
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+  font-size: 1.3rem;
+}
+
+.inputGroup input {
+  padding: 0.75rem;
+  border: 1px solid var(--color-neutral-border, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 1.2rem;
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  color: var(--ifm-color-content);
+  transition: border-color 0.2s ease;
+}
+
+.dark .inputGroup input {
+  border-color: var(--color-neutral-field-border, #4a5568);
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+.inputGroupFullWidth {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  grid-column: 1 / -1;
+}
+
+.inputGroupFullWidth label {
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+  font-size: 1.3rem;
+}
+
+.inputGroupFullWidth input {
+  padding: 0.75rem;
+  border: 1px solid var(--color-neutral-border, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 1.2rem;
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  color: var(--ifm-color-content);
+  transition: border-color 0.2s ease;
+}
+
+.dark .inputGroupFullWidth input {
+  border-color: var(--color-neutral-field-border, #4a5568);
+}
+
+.inputGroupFullWidth input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+.results {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+.results h4 {
+  margin: 0 0 1rem 0;
+  color: var(--ifm-heading-color);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.costBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.costItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(var(--ifm-color-primary-rgb), 0.1);
+  font-size: 1.3rem;
+}
+
+.costItem:last-of-type {
+  border-bottom: none;
+}
+
+.costItem span:first-child {
+  color: var(--ifm-color-content);
+}
+
+.costItem span:last-child {
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+}
+
+.totalCost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  border-top: 2px solid var(--ifm-color-primary);
+  font-size: 1.6rem;
+}
+
+.totalCost strong {
+  color: var(--ifm-heading-color);
+}
+
+.totalCost strong:last-child {
+  color: var(--ifm-color-primary);
+  font-size: 1.8rem;
+}
+
+/* Admonition spacing */
+.calculator :global(.theme-admonition) {
+  margin: 1rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .calculator {
+    padding: 1rem;
+  }
+
+  .selectionRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .inputGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .radioOption {
+    padding: 0.75rem;
+  }
+
+  .results {
+    padding: 1rem;
+  }
+
+  .costItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .totalCost {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

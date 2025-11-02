@@ -1,14 +1,7 @@
 /* eslint-disable global-require */
+const { absoluteUrl } = require('./absoluteUrl');
 
-let absoluteUrl = 'https://docs.apify.com';
-
-if (process.env.LOCALHOST) {
-    absoluteUrl = 'http://localhost:3000';
-} else if (process.env.DEV) {
-    absoluteUrl = 'http://docs.apify.loc';
-} else if (process.env.APIFY_DOCS_ABSOLUTE_URL) {
-    absoluteUrl = process.env.APIFY_DOCS_ABSOLUTE_URL;
-}
+const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '');
 
 const themeConfig = {
     docs: {
@@ -130,17 +123,10 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
-                        label: 'Actor Whitepaper',
+                        label: 'Actor whitepaper',
                         href: 'https://whitepaper.actor',
                     },
                 ],
-            },
-            {
-                href: 'https://github.com/apify',
-                label: 'GitHub',
-                title: 'Apify on GitHub',
-                position: 'right',
-                className: 'icon',
             },
             {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
@@ -255,6 +241,10 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                     {
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                        label: 'Discord',
+                    },
+                    {
                         label: 'Trust Center',
                         href: 'https://trust.apify.com',
                     },
@@ -271,9 +261,15 @@ const themeConfig = {
     algolia: {
         appId: 'N8EOCSBQGH',
         apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
-        indexName: 'test_test_apify_sdk',
+        indexName: 'apify_sdk_v2',
+        placeholder: 'Search documentation',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
+        },
+        translations: {
+            button: {
+                buttonText: 'Search documentation…',
+            },
         },
     },
     hubspot: {
@@ -309,8 +305,28 @@ const plugins = [
     },
 ];
 
+const scripts = [
+    {
+        src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+        'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
+        'data-project-name': 'Apify',
+        'data-modal-title': 'Apify AI Assistant',
+        'data-project-color': '#666666',
+        'data-button-hide': 'true',
+        'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
+        'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
+        'data-modal-override-open-id': 'ask-ai-input',
+        'data-modal-override-open-class': 'search-input',
+        'data-scale-factor': '1.6',
+        'data-modal-size': '800px',
+        async: true,
+    },
+];
+
 module.exports = {
     themeConfig,
     plugins,
     absoluteUrl,
+    noIndex,
+    scripts,
 };

@@ -2,7 +2,7 @@
 title: Dockerfile
 description: Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.
 slug: /actors/development/actor-definition/dockerfile
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 **Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.**
@@ -26,7 +26,7 @@ All Apify Docker images are pre-cached on Apify servers to speed up Actor builds
 
 ### Node.js base images
 
-These images come with Node.js (versions `16`, `18`, `20`, or `22`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
+These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
 
 | Image | Description |
 | ----- | ----------- |
@@ -41,7 +41,7 @@ See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details
 
 ### Python base images
 
-These images come with Python (version `3.8`, `3.9`, `3.10`, `3.11`, or `3.12`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
+These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
 
 | Image | Description |
 | ----- | ----------- |
@@ -61,9 +61,9 @@ To use a custom `Dockerfile`, you can either:
 If no `Dockerfile` is provided, the system uses the following default:
 
 ```dockerfile
-FROM apify/actor-node:20
+FROM apify/actor-node:24
 
-COPY package*.json ./
+COPY --chown=myuser:myuser package*.json ./
 
 RUN npm --quiet set progress=false \
  && npm install --only=prod --no-optional \
@@ -74,7 +74,7 @@ RUN npm --quiet set progress=false \
  && echo "NPM version:" \
  && npm --version
 
-COPY . ./
+COPY --chown=myuser:myuser . ./
 ```
 
 For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).
@@ -112,3 +112,109 @@ This means the system expects the source code to be in `main.js` by default. If 
 You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
 
 :::
+
+## Updating older Dockerfiles
+
+All Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
+
+If you encounter an issue that is not listed here, or need more guidance on how to update your Dockerfile, please [open an issue in the apify-actor-docker GitHub repository](https://github.com/apify/apify-actor-docker/issues/new).
+
+:::danger Action required
+
+As of **August 25, 2025** the base Docker images display a deprecation warning that links you here. This warning will be removed start of **February 2026**, so you should update your Dockerfiles to ensure forward compatibility.
+
+:::
+
+### User and working directory
+
+To improve security, the affected images no longer run as the `root` user. Instead, they use a dedicated non-root user, `myuser`, and a consistent working directory at `/home/myuser`. This configuration is now the standard for all Apify base Docker images.
+
+### Common issues
+
+#### Crawlee templates automatically installing `git` in Python images
+
+If you've built your Actor using a [Crawlee](https://crawlee.dev/) template, you might have the following line in your `Dockerfile`:
+
+```dockerfile
+RUN apt update && apt install -yq git && rm -rf /var/lib/apt/lists/*
+```
+
+You can safely remove this line, as the `git` package is now installed in the base image.
+
+#### `uv` package manager fails to install dependencies
+
+If you are using the `uv` package manager, you might have the following line in your `Dockerfile`:
+
+```dockerfile
+ENV UV_PROJECT_ENVIRONMENT="/usr/local"
+```
+
+With the move to a non-root user, this variable will cause `uv` to throw a permission error. You can safely remove this line, or, if you need it set to a custom path, adjust it to point to a location in the `/home/myuser` directory.
+
+#### Copying files with the correct permissions
+
+When using the `COPY` instruction to copy your files to the container, you should append the `--chown=myuser:myuser` flag to the command to ensure the `myuser` user owns the files.
+
+Here are a few common examples:
+
+```dockerfile
+COPY --chown=myuser:myuser requirements.txt ./
+
+COPY --chown=myuser:myuser . ./
+```
+
+:::warning
+
+If your `Dockerfile` contains a `RUN` instruction similar to the following one, you should remove it:
+
+```dockerfile
+RUN chown -R myuser:myuser /home/myuser
+```
+
+Instead, add the `--chown` flag to the `COPY` instruction:
+
+```dockerfile
+COPY --chown=myuser:myuser . ./
+```
+
+Running `chown` across multiple files needlessly slows down the build process. Using the flag on `COPY` is much more efficient.
+
+:::
+
+#### An `apify` user is being added by a template
+
+If your `Dockerfile` has instructions similar to the following, they were likely added by an older template:
+
+```dockerfile
+# Create and run as a non-root user.
+RUN adduser -h /home/apify -D apify && \
+    chown -R apify:apify ./
+USER apify
+```
+
+You should remove these lines, as the new user is now `myuser`. Don't forget to update your `COPY` instructions to use the `--chown` flag with the `myuser` user.
+
+```dockerfile
+COPY --chown=myuser:myuser . ./
+```
+
+#### Installing dependencies that require root access
+
+The `root` user is still available in the Docker images. If you must run steps that require root access (like installing system packages with `apt` or `apk`), you can temporarily switch to the `root` user.
+
+```dockerfile
+FROM apify/actor-node:24
+
+# Switch to root temporarily to install dependencies
+USER root
+
+RUN apt update \
+    && apt install -y <dependencies here>
+
+# Switch back to the non-root user
+USER myuser
+
+# ... your other instructions
+```
+
+If your Actor needs to run as `root` for a specific reason, you can add the `USER root` instruction after `FROM`. However, for a majority of Actors, this is not necessary.

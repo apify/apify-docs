@@ -54,6 +54,14 @@ post:
       example: 10
       description: |
         Optional maximum cost of the run, in USD. Used for pay-per-event Actors. The value can only be increased beyond the value specified when the Actor run was started.
+    - name: restartOnError
+      in: query
+      required: false
+      schema:
+        type: boolean
+      example: false
+      description: |
+        Determines whether the resurrected run will be restarted if it fails. By default, the resurrected run uses the same setting as before.
   responses:
     '200':
       description: ''

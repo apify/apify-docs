@@ -1,5 +1,5 @@
 ---
-title: Deploying your code
+title: Deploying your code to Apify
 description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor.
 sidebar_position: 9
 category: apify platform

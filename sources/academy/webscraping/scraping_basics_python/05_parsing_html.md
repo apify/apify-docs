@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/parsing-html
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll look for products in the downloaded HTML. We'll use BeautifulSoup to turn the HTML into objects which we can work with in our Python program.**
 
@@ -13,7 +13,7 @@ import Exercises from './_exercises.mdx';
 
 From lessons about browser DevTools we know that the HTML elements representing individual products have a `class` attribute which, among other values, contains `product-item`.
 
-![Products have the ‘product-item’ class](./images/product-item.png)
+![Products have the ‘product-item’ class](../scraping_basics/images/product-item.png)
 
 As a first step, let's try counting how many products are on the listing page.
 
@@ -25,7 +25,10 @@ While somewhat possible, such an approach is tedious, fragile, and unreliable. T
 
 :::info Why regex can't parse HTML
 
-While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732454/325365) is funny, it doesn't go much into explaining. In formal language theory, HTML's hierarchical and nested structure makes it a [context-free language](https://en.wikipedia.org/wiki/Context-free_language). Regular expressions match patterns in [regular languages](https://en.wikipedia.org/wiki/Regular_language), which are much simpler. This difference makes it hard for a regex to handle HTML's nested tags. HTML's complex syntax rules and various edge cases also add to the difficulty.
+While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732454/325365) is funny, it doesn't go very deep into the reasoning:
+
+- In **formal language theory**, HTML's hierarchical, nested structure makes it a [context-free language](https://en.wikipedia.org/wiki/Context-free_language). **Regular expressions**, by contrast, match patterns in [regular languages](https://en.wikipedia.org/wiki/Regular_language), which are much simpler.
+- Because of this difference, regex alone struggles with HTML's nested tags. On top of that, HTML has **complex syntax rules** and countless **edge cases**, which only add to the difficulty.
 
 :::
 
@@ -39,7 +42,7 @@ Successfully installed beautifulsoup4-4.0.0 soupsieve-0.0
 
 Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` element, which represents the main heading of the page.
 
-![Element of the main heading](./images/h1.png)
+![Element of the main heading](../scraping_basics/images/h1.png)
 
 We'll update our code to the following:
 
@@ -63,7 +66,7 @@ $ python main.py
 [<h1 class="collection__title heading h1">Sales</h1>]
 ```
 
-Our code lists all `h1` elements it can find on the page. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
+Our code lists all `h1` elements it can find in the HTML we gave it. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
 
 ```py
 headings = soup.select("h1")
@@ -80,7 +83,7 @@ Sales
 
 :::note Dynamic websites
 
-The Warehouse returns full HTML in its initial response, but many other sites add content via JavaScript after the page loads or after user interaction. In such cases, what we see in DevTools may differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
 
 :::
 
@@ -117,12 +120,12 @@ That's it! We've managed to download a product listing, parse its HTML, and coun
 
 <Exercises />
 
-### Scrape F1 teams
+### Scrape F1 Academy teams
 
-Print a total count of F1 teams listed on this page:
+Print a total count of F1 Academy teams listed on this page:
 
 ```text
-https://www.formula1.com/en/teams
+https://www.f1academy.com/Racing-Series/Teams
 ```
 
 <details>
@@ -132,20 +135,20 @@ https://www.formula1.com/en/teams
   import httpx
   from bs4 import BeautifulSoup
 
-  url = "https://www.formula1.com/en/teams"
+  url = "https://www.f1academy.com/Racing-Series/Teams"
   response = httpx.get(url)
   response.raise_for_status()
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".group")))
+  print(len(soup.select(".teams-driver-item")))
   ```
 
 </details>
 
-### Scrape F1 drivers
+### Scrape F1 Academy drivers
 
-Use the same URL as in the previous exercise, but this time print a total count of F1 drivers.
+Use the same URL as in the previous exercise, but this time print a total count of F1 Academy drivers.
 
 <details>
   <summary>Solution</summary>
@@ -154,13 +157,13 @@ Use the same URL as in the previous exercise, but this time print a total count 
   import httpx
   from bs4 import BeautifulSoup
 
-  url = "https://www.formula1.com/en/teams"
+  url = "https://www.f1academy.com/Racing-Series/Teams"
   response = httpx.get(url)
   response.raise_for_status()
 
   html_code = response.text
   soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".f1-team-driver-name")))
+  print(len(soup.select(".driver")))
   ```
 
 </details>

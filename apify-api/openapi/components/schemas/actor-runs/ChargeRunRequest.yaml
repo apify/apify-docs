@@ -1,12 +1,12 @@
 title: ChargeRunRequest
 required:
   - eventName
-  - eventCount
+  - count
 type: object
 properties:
   eventName:
     type: string
     example: ANALYZE_PAGE
-  eventCount:
+  count:
     type: number
     example: 1

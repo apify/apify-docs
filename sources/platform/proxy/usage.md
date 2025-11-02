@@ -1,11 +1,9 @@
 ---
-title: Usage
+title: Proxy usage
 description: Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.
 sidebar_position: 10.1
 slug: /proxy/usage
 ---
-
-# Usage
 
 **Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
 
@@ -145,7 +143,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 
 Use [sessions](#sessions) to control how you rotate IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
 
-## Sessions {#sessions}
+## Sessions
 
 Sessions allow you to use the same IP address for multiple connections. In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy and so the IP address. On the other hand by switching the IP address, you can avoid being blocked by the website.
 

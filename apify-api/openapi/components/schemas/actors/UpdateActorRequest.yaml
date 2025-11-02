@@ -1,8 +1,4 @@
 title: ActUpdate
-required:
-  - name
-  - isPublic
-  - versions
 type: object
 properties:
   name:
@@ -29,8 +25,8 @@ properties:
     example: My Actor
   restartOnError:
     type: boolean
-    nullable: true
     example: false
+    deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
     type: array
     items:
@@ -47,6 +43,63 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    oneOf:
-      - nullable: true
-      - $ref: ./DefaultRunOptions.yaml
+    $ref: ./DefaultRunOptions.yaml
+  taggedBuilds:
+    type: object
+    description: |
+      An object to modify tags on the Actor's builds. The key is the tag name (e.g., _latest_), and the value is either an object with a `buildId` or `null`.
+
+      This operation is a patch; any existing tags that you omit from this object will be preserved.
+
+      - **To create or reassign a tag**, provide the tag name with a `buildId`. e.g., to assign the _latest_ tag:
+
+        &nbsp;
+
+        ```json
+        {
+          "latest": {
+            "buildId": "z2EryhbfhgSyqj6Hn"
+          }
+        }
+        ```
+
+      - **To remove a tag**, provide the tag name with a `null` value. e.g., to remove the _beta_ tag:
+
+        &nbsp;
+
+        ```json
+        {
+          "beta": null
+        }
+        ```
+
+      - **To perform multiple operations**, combine them. The following reassigns _latest_ and removes _beta_, while preserving any other existing tags.
+
+        &nbsp;
+
+        ```json
+        {
+          "latest": {
+            "buildId": "z2EryhbfhgSyqj6Hn"
+          },
+          "beta": null
+        }
+        ```
+    nullable: true
+    additionalProperties:
+      type: object
+      nullable: true
+      required:
+        - buildId
+      properties:
+        buildId:
+          type: string
+    example:
+      latest:
+        buildId: z2EryhbfhgSyqj6Hn
+      beta: null
+required:
+  - name
+  - isPublic
+  - versions
+

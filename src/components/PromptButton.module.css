@@ -1,0 +1,203 @@
+.prompt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.6rem;
+  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Apply margin-bottom only when the next sibling is not a heading */
+.prompt-card:not(:has(+ h1, + h2, + h3, + h4, + h5, + h6)), .full-prompt-container:not(:has(+ h1, + h2, + h3, + h4, + h5, + h6)) {
+  margin-bottom: var(--ifm-leading);
+}
+
+/* Light purple glow effect */
+.prompt-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.prompt-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.prompt-text {
+  font-size: 1.4rem;
+  color: var(--ifm-color-content);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.prompt-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.4;
+}
+
+.cursor-icon {
+  font-size: 1.6rem;
+  color: var(--ifm-color-emphasis-600);
+  transform: rotate(-45deg);
+}
+
+.sparkle-icon {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.copy-button {
+  width: 150px;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) ease;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.copy-button:hover {
+  background: var(--ifm-color-primary-darker);
+  border-color: var(--ifm-color-primary-darker);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+}
+
+.copy-button.copied {
+  background: var(--ifm-color-success);
+  border-color: var(--ifm-color-success);
+}
+
+.copy-button.copied:hover {
+  background: var(--ifm-color-success-darker);
+  border-color: var(--ifm-color-success-darker);
+}
+
+.button-container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.toggle-button {
+  width: 150px;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) ease;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.toggle-button:hover {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+}
+
+/* Dark theme: make secondary button appear as white pill with dark text */
+html[data-theme='dark'] .toggle-button {
+  background: #ffffff;
+  color: #111827; /* nearly black for contrast */
+  border-color: #e5e7eb; /* subtle gray border */
+}
+
+html[data-theme='dark'] .toggle-button:hover {
+  background: #f8fafc; /* slight hover tint, keep white look */
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.full-prompt {
+  margin-top: 1.2rem;
+  padding: 1.2rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.full-prompt-container {
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+.full-prompt-container .full-prompt {
+  margin-top: 0;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+}
+
+.full-prompt pre {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--ifm-color-content);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .prompt-card {
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: center;
+  }
+
+  .prompt-content {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .copy-button,
+  .toggle-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,82 @@
+---
+description: Cursor-specific content formatting rules for MDX and markdown files
+globs: ["sources/**/*.md", "sources/**/*.mdx"]
+alwaysApply: true
+---
+
+# Cursor-Specific Content Formatting
+
+## Cursor MDX/Markdown Features
+
+### Syntax Highlighting in Cursor
+
+- Use language-specific code blocks for proper syntax highlighting
+- Leverage Cursor's MDX component autocomplete
+- Use Cursor's markdown preview for real-time formatting verification
+
+### Cursor-Specific Code Block Handling
+
+```markdown
+# For JavaScript examples
+```javascript
+// Cursor will provide syntax highlighting and autocomplete
+const example = "properly formatted";
+```
+
+# For YAML frontmatter
+
+```yaml
+---
+title: "Example"
+description: "Description"
+---
+```
+
+# For API examples
+
+```bash
+curl -X GET "https://api.apify.com/v2/acts"
+```
+
+
+## Cursor Workflow for Formatting
+
+### Using Cursor Chat for Formatting Help
+
+- Ask "format this markdown table properly"
+- Request "add syntax highlighting to this code block"
+- Use "check this frontmatter for proper YAML syntax"
+
+### Using Cmd+K for Quick Formatting
+
+- Use `@` to reference formatting standards
+- Use `@sources/**/*.mdx` to find similar MDX patterns
+- Use `@apify-api/**/*.yaml` to reference API examples
+
+## Cursor-Specific Admonition Handling
+
+When using admonitions in Cursor:
+
+```markdown
+:::note Cursor Tip
+Use Cursor's markdown preview to verify admonition formatting
+:::
+
+:::tip Cursor Feature
+Leverage Cursor's autocomplete for consistent admonition syntax
+:::
+```
+
+## File-Specific Formatting Rules
+
+### For MDX Files (`sources/**/*.mdx`)
+
+- Use Cursor's MDX syntax highlighting
+- Leverage component imports with proper TypeScript support
+- Use Cursor's JSX autocomplete for custom components
+
+### For Markdown Files (`sources/**/*.md`)
+
+- Use Cursor's markdown preview for formatting verification
+- Leverage Cursor's spell check for content quality
+- Use Cursor's link validation for internal references

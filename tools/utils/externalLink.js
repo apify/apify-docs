@@ -2,17 +2,14 @@ const { parse } = require('node:url');
 
 const visit = import('unist-util-visit').then((m) => m.visit);
 
-const internalUrls = ['sdk.apify.com'];
+const internalUrl = 'docs.apify.com';
 
 /**
  * @param {import('url').UrlWithStringQuery} href
  */
-function isInternal(href) {
-    return internalUrls.some(
-        (internalUrl) => href.host === internalUrl
-            || (!href.protocol && !href.host && (href.pathname || href.hash)),
-    );
-}
+exports.isInternal = (href, hostName) => {
+    return href.host === hostName || (!href.protocol && !href.host && (href.pathname || href.hash));
+};
 
 /**
  * @type {import('unified').Plugin}
@@ -27,7 +24,7 @@ exports.externalLinkProcessor = () => {
             ) {
                 const href = parse(node.properties.href);
 
-                if (!isInternal(href)) {
+                if (!exports.isInternal(href, internalUrl)) {
                     node.properties.target = '_blank';
                     node.properties.rel = 'noopener';
                 } else {

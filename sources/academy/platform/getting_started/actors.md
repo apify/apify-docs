@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /getting-started/actors
 ---
 
-# Actors {#actors}
-
 **What is an Actor? How do we create them? Learn the basics of what Actors are, how they work, and try out an Actor yourself right on the Apify platform!**
 
 ---
@@ -37,7 +35,7 @@ After the Actor has completed its run (you'll know this when you see **SEO audit
 
 ## The "Actors" tab {#actors-tab}
 
-While still on the platform, click on the tab with the **< >** icon which says **Actors**. This tab is your one-stop-shop for seeing which Actors you've used recently, and which ones you've developed yourself. You will be frequently using this tab when developing and testing on the Apify platform.
+While still on the platform, click on the tab with the **&lt;/&gt;** icon which says **Actors**. This tab is your one-stop-shop for seeing which Actors you've used recently, and which ones you've developed yourself. You will be frequently using this tab when developing and testing on the Apify platform.
 
 ![The "Actors" tab on the Apify platform](./images/actors-tab.jpg)
 

@@ -54,7 +54,7 @@ In the end, we'd like our final output to look something like this:
         "itemUrl": "https://www.amazon.com/Apple-iPhone-Unlocked-Certified-Refurbished/dp/B00YD547Q6/ref=sr_1_2?s=wireless&ie=UTF8&qid=1539772626&sr=1-2&keywords=iphone",
         "description": "What's in the box: Certified Refurbished iPhone 6 Space Gray 16GB Unlocked , USB Cable/Adapter. Comes in a Generic Box with a 1 Year Limited Warranty.",
         "keyword": "iphone",
-        "seller name": "Blutek Intl",
+        "sellerName": "Blutek Intl",
         "offer": "$162.97"
     },
     {

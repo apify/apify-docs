@@ -5,6 +5,7 @@ sidebar_label: Google Maps
 sidebar_position: 4
 slug: /integrations/make/maps
 toc_max_heading_level: 4
+unlisted: true
 ---
 
 ## Apify Scraper for Google Maps Leads
@@ -23,7 +24,7 @@ For more details, follow the tutorial below.
 
 1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
 
-    ![Apify Console token for Make.png](images/Apify_Console_token_for_Make.png)
+    ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
@@ -82,7 +83,7 @@ Categories can be general (e.g., "restaurant") which includes all variations lik
   "rating": 4.6,
   "reviewsCount": 182,
   "featuredInLists": ["Best Chinese Food", "Top Rated Restaurants"],
-  
+
   // Complete address information for targeted outreach
   "address": "175 Main St, Staten Island, NY 10307",
   "neighborhood": "Tottenville",
@@ -92,25 +93,25 @@ Categories can be general (e.g., "restaurant") which includes all variations lik
   "state": "New York",
   "countryCode": "US",
   "plusCode": "GQ62+8M Staten Island, New York",
-  
+
   // Multiple contact channels
   "website": "http://kimsislandsi.com/",
   "phone": "(718) 356-5168",
   "phoneUnformatted": "+17183565168",
   "email": "info@kimsislandsi.com", // From website enrichment
-  
+
   // Business qualification data
   "yearsInBusiness": 12,
   "claimThisBusiness": false, // Verified listing
   "popular": true,
   "temporarilyClosed": false,
-  
+
   // Precise location for territory planning
   "location": {
     "lat": 40.5107736,
     "lng": -74.2482624
   },
-  
+
   // Operational insights for scheduling outreach
   "openingHours": {
     "Monday": "11:00 AM - 10:00 PM",
@@ -185,7 +186,7 @@ This module provides the most flexible options for defining where and how to sea
   "title": "Bluestone Lane Chelsea Piers Café",
   "price": "$20–30",
   "categoryName": "Coffee shop",
-  
+
   // Address and location data
   "address": "62 Chelsea Piers Pier 62, New York, NY 10011",
   "neighborhood": "Manhattan",
@@ -199,17 +200,17 @@ This module provides the most flexible options for defining where and how to sea
     "lng": -74.0087457
   },
   "plusCode": "GQ62+8M Staten Island, New York",
-  
+
   // Contact information
   "website": "https://bluestonelane.com/?y_source=1_MjMwNjk1NDAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
   "phone": "(718) 374-6858",
   "phoneUnformatted": "+17183746858",
-  
+
   // Rating and reviews
   "totalScore": 4.3,
   "reviewsCount": 425,
   "imagesCount": 659,
-  
+
   // Business identifiers
   "claimThisBusiness": false,
   "permanentlyClosed": false,
@@ -218,7 +219,7 @@ This module provides the most flexible options for defining where and how to sea
   "categories": ["Coffee shop", "Cafe"],
   "fid": "0x89c25957cf20350d:0xc0d1df36ed3dc4b6",
   "cid": "13894131752416167094",
-  
+
   // Operating hours
   "openingHours": [
     {"day": "Monday", "hours": "7 AM to 6 PM"},
@@ -229,7 +230,7 @@ This module provides the most flexible options for defining where and how to sea
     {"day": "Saturday", "hours": "7 AM to 6 PM"},
     {"day": "Sunday", "hours": "7 AM to 6 PM"}
   ],
-  
+
   // Business attributes and amenities
   "additionalInfo": {
     "Service options": [
@@ -305,7 +306,7 @@ This module provides the most flexible options for defining where and how to sea
       {"High chairs": true}
     ]
   },
-  
+
   // Image and metadata
   "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMl6-SnuqYEeE3mD54M0q5D5nysRUZQj1BB0g8=w408-h272-k-no",
   "kgmid": "/g/11ph8zh6sg",
@@ -352,11 +353,10 @@ This module provides the most flexible options for defining where and how to sea
 
 There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
 
-- [Instagram Data](/platform/integrations/make/instagram)
 - [TikTok](/platform/integrations/make/tiktok)
 - [Google Search](/platform/integrations/make/search)
 - [YouTube Data](/platform/integrations/make/youtube)
 - [AI crawling](/platform/integrations/make/ai-crawling)
 - [Amazon](/platform/integrations/make/amazon)
 
-And more! Because you can access any of our 4,500+ scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

@@ -29,7 +29,6 @@ Producing results line by line is an efficient approach to handling large datase
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -49,13 +48,14 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     # highlight-next-line
@@ -65,11 +65,11 @@ for product in soup.select(".product-item"):
 print(data)
 ```
 
-Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list at once.
+Before looping over the products, we prepare an empty list. Then, instead of printing each line, we append the data of each product to the list in the form of a Python dictionary. At the end of the program, we print the entire list. The program should now print the results as a single large Python list:
 
 ```text
 $ python main.py
-[{'title': 'JBL Flip 4 Waterproof Portable Bluetooth Speaker', 'min_price': Decimal('74.95'), 'price': Decimal('74.95')}, {'title': 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV', 'min_price': Decimal('1398.00'), 'price': None}, ...]
+[{'title': 'JBL Flip 4 Waterproof Portable Bluetooth Speaker', 'min_price': 7495, 'price': 7495}, {'title': 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV', 'min_price': 139800, 'price': None}, ...]
 ```
 
 :::tip Pretty print
@@ -78,11 +78,52 @@ If you find the complex data structures printed by `print()` difficult to read, 
 
 :::
 
+## Saving data as JSON
+
+The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of objects in the JavaScript programming language, which is similar to the syntax of Python dictionaries.
+
+In Python, we can read and write JSON using the [`json`](https://docs.python.org/3/library/json.html) standard library module. We'll begin with imports:
+
+```py
+import httpx
+from bs4 import BeautifulSoup
+# highlight-next-line
+import json
+```
+
+Next, instead of printing the data, we'll finish the program by exporting it to JSON. Let's replace the line `print(data)` with the following:
+
+```py
+with open("products.json", "w") as file:
+    json.dump(data, file)
+```
+
+That's it! If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
+
+<!-- eslint-skip -->
+```json title=products.json
+[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "7495", "price": "7495"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "139800", "price": null}, ...]
+```
+
+If you skim through the data, you'll notice that the `json.dump()` function handled some potential issues, such as escaping double quotes found in one of the titles by adding a backslash:
+
+```json
+{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "15800", "price": "15800"}
+```
+
+:::tip Pretty JSON
+
+While a compact JSON file without any whitespace is efficient for computers, it can be difficult for humans to read. You can pass `indent=2` to `json.dump()` for prettier output.
+
+Also, if your data contains non-English characters, set `ensure_ascii=False`. By default, Python encodes everything except [ASCII](https://en.wikipedia.org/wiki/ASCII), which means it would save [Bún bò Nam Bô](https://vi.wikipedia.org/wiki/B%C3%BAn_b%C3%B2_Nam_B%E1%BB%99) as `B\\u00fan b\\u00f2 Nam B\\u00f4`.
+
+:::
+
 ## Saving data as CSV
 
 The CSV format is popular among data analysts because a wide range of tools can import it, including spreadsheets apps like LibreOffice Calc, Microsoft Excel, Apple Numbers, and Google Sheets.
 
-In Python, it's convenient to read and write CSV files, thanks to the [`csv`](https://docs.python.org/3/library/csv.html) standard library module. First let's try something small in the Python's interactive REPL to familiarize ourselves with the basic usage:
+In Python, we can read and write CSV using the [`csv`](https://docs.python.org/3/library/csv.html) standard library module. First let's try something small in the Python's interactive REPL to familiarize ourselves with the basic usage:
 
 ```py
 >>> import csv
@@ -102,25 +143,28 @@ Alice,24,"kickbox, Python"
 Bob,42,"reading, TypeScript"
 ```
 
-In the CSV format, if values contain commas, we should enclose them in quotes. You can see that the writer automatically handled this.
+In the CSV format, if a value contains commas, we should enclose it in quotes. When we open the file in a text editor of our choice, we can see that the writer automatically handled this.
 
-When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it as well. If you're using a different operating system, try opening the file with any spreadsheet program you have.
+When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
 
-![CSV example preview](images/csv-example.png)
+![CSV example preview](../scraping_basics/images/csv-example.png)
 
 Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we actually want is a CSV containing `Sony XBR-950G BRAVIA 4K HDR Ultra HD TV`, right? Let's do this! First, let's add `csv` to our imports:
 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
+import json
 # highlight-next-line
 import csv
 ```
 
-Next, instead of printing the data, we'll finish the program by exporting it to CSV. Replace `print(data)` with the following:
+Next, let's add one more data export to end of the source code of our scraper:
 
 ```py
+with open("products.json", "w") as file:
+    json.dump(data, file)
+
 with open("products.csv", "w") as file:
     writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
     writer.writeheader()
@@ -128,74 +172,9 @@ with open("products.csv", "w") as file:
         writer.writerow(row)
 ```
 
-If we run our scraper now, it won't display any output, but it will create a `products.csv` file in the current working directory, which contains all the data about the listed products.
+The program should now also produce a CSV file with the following content:
 
-![CSV preview](images/csv.png)
-
-## Saving data as JSON
-
-The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of objects in the JavaScript programming language, which is similar to the syntax of Python dictionaries.
-
-In Python, there's a [`json`](https://docs.python.org/3/library/json.html) standard library module, which is so straightforward that we can start using it in our code right away. We'll need to begin with imports:
-
-```py
-import httpx
-from bs4 import BeautifulSoup
-from decimal import Decimal
-import csv
-# highlight-next-line
-import json
-```
-
-Next, let’s append one more export to end of the source code of our scraper:
-
-```py
-with open("products.json", "w") as file:
-    json.dump(data, file)
-```
-
-That’s it! If we run the program now, it should also create a `products.json` file in the current working directory:
-
-```text
-$ python main.py
-Traceback (most recent call last):
-  ...
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type Decimal is not JSON serializable
-```
-
-Ouch! JSON supports integers and floating-point numbers, but there's no guidance on how to handle `Decimal`. To maintain precision, it's common to store monetary values as strings in JSON files. But this is a convention, not a standard, so we need to handle it manually. We'll pass a custom function to `json.dump()` to serialize objects that it can't handle directly:
-
-```py
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
-with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
-```
-
-Now the program should work as expected, producing a JSON file with the following content:
-
-<!-- eslint-skip -->
-```json title=products.json
-[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "74.95", "price": "74.95"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "1398.00", "price": null}, ...]
-```
-
-If you skim through the data, you'll notice that the `json.dump()` function handled some potential issues, such as escaping double quotes found in one of the titles by adding a backslash:
-
-```json
-{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "158.00", "price": "158.00"}
-```
-
-:::tip Pretty JSON
-
-While a compact JSON file without any whitespace is efficient for computers, it can be difficult for humans to read. You can pass `indent=2` to `json.dump()` for prettier output.
-
-Also, if your data contains non-English characters, set `ensure_ascii=False`. By default, Python encodes everything except [ASCII](https://en.wikipedia.org/wiki/ASCII), which means it would save [Bún bò Nam Bô](https://vi.wikipedia.org/wiki/B%C3%BAn_b%C3%B2_Nam_B%E1%BB%99) as `B\\u00fan b\\u00f2 Nam B\\u00f4`.
-
-:::
+![CSV preview](../scraping_basics/images/csv.png)
 
 We've built a Python application that downloads a product listing, parses the data, and saves it in a structured format for further use. But the data still has gaps: for some products, we only have the min price, not the actual prices. In the next lesson, we'll attempt to scrape more details from all the product pages.
 
@@ -203,28 +182,11 @@ We've built a Python application that downloads a product listing, parses the da
 
 ## Exercises
 
-In this lesson, you learned how to create export files in two formats. The following challenges are designed to help you empathize with the people who'd be working with them.
-
-### Process your CSV
-
-Open the `products.csv` file in a spreadsheet app. Use the app to find all products with a min price greater than $500.
-
-<details>
-  <summary>Solution</summary>
-
-  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
-
-  1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  2. Select the header row. Go to **Data > Create filter**.
-  3. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
-
-  ![CSV in Google Sheets](images/csv-sheets.png)
-
-</details>
+In this lesson, we created export files in two formats. The following challenges are designed to help you empathize with the people who'd be working with them.
 
 ### Process your JSON
 
-Write a new Python program that reads `products.json`, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
+Write a new Python program that reads the `products.json` file we created in this lesson, finds all products with a min price greater than $500, and prints each one using [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
 
 <details>
   <summary>Solution</summary>
@@ -232,14 +194,30 @@ Write a new Python program that reads `products.json`, finds all products with a
   ```py
   import json
   from pprint import pp
-  from decimal import Decimal
 
   with open("products.json", "r") as file:
       products = json.load(file)
 
   for product in products:
-      if Decimal(product["min_price"]) > 500:
+      if int(product["min_price"]) > 500:
           pp(product)
   ```
+
+</details>
+
+### Process your CSV
+
+Open the `products.csv` file we created in the lesson using a spreadsheet application. Then, in the app, find all products with a min price greater than $500.
+
+<details>
+  <summary>Solution</summary>
+
+  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
+
+  1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
+  1. Select the header row. Go to **Data > Create filter**.
+  1. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+
+  ![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
 
 </details>

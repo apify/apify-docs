@@ -6,6 +6,7 @@ slug: /old/store-publishing-terms-and-conditions-december-2022
 ---
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 ## Version History
 

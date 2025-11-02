@@ -10,6 +10,7 @@ slug: /old/fair-share-program-terms-and-conditions
 # Apify Open Source Fair Share Program Terms and Conditions
 
 <!-- vale off -->
+<!-- markdownlint-disable -->
 
 You are reading terms and conditions that are no longer effective.
 

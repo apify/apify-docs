@@ -1,22 +1,28 @@
 const { join, resolve } = require('node:path');
+const { parse } = require('node:url');
 
 const clsx = require('clsx');
-const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
+const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
-const { externalLinkProcessor } = require('./tools/utils/externalLink');
+const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
+const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
     title: 'Apify Documentation',
     tagline: 'Apify Documentation',
     url: config.absoluteUrl,
+    noIndex: config.noIndex,
     baseUrl: '/',
     trailingSlash: false,
     organizationName: 'apify',
     projectName: 'apify-docs',
-    scripts: ['/js/custom.js'],
+    scripts: [
+        '/js/custom.js',
+        ...config.scripts ?? [],
+    ],
     future: {
         experimental_faster: {
             // swcJsLoader: true,
@@ -126,6 +132,7 @@ module.exports = {
         ],
     ]),
     plugins: [
+        'docusaurus-plugin-image-zoom',
         [
             '@docusaurus/plugin-content-docs',
             {
@@ -190,6 +197,21 @@ module.exports = {
                                     md = md.replace('&lt;!--', '<!--');
                                     md = md.replace('--&gt;', '-->');
                                 }
+
+                                // Find the first Heading h1 and add LLMButtons after it
+                                // eslint-disable-next-line max-len
+                                const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
+                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
+
+                                return md;
+                            },
+                            createInfoPageMD: (pageData) => {
+                                let md = createInfoPageMD(pageData);
+
+                                // Find the first Heading h1 and add LLMButtons after it
+                                // eslint-disable-next-line max-len
+                                const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
+                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
 
                                 return md;
                             },
@@ -257,6 +279,82 @@ module.exports = {
                 };
             },
         }),
+        [
+            '@signalwire/docusaurus-plugin-llms-txt',
+            /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
+            ({
+                siteDescription: 'The entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt',
+                content: {
+                    includeVersionedDocs: false,
+                    enableLlmsFullTxt: true,
+                    includeBlog: true,
+                    includeGeneratedIndex: false,
+                    includePages: true,
+                    relativePaths: false,
+                    remarkStringify: {
+                        handlers: {
+                            link: (node) => {
+                                if (node.title?.startsWith('Direct link to')) return '';
+
+                                const parsedUrl = parse(node.url);
+                                const isUrlInternal = isInternal(parsedUrl, config.absoluteUrl);
+                                const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
+
+                                if (isUrlInternal && !parsedUrl.pathname) return '';
+                                if (node.title) return `[${node.title}](${url})`;
+                                return url;
+                            },
+                            code: (node) => {
+                                const apiMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'];
+                                const splitValueLines = node.value.trim().split('\n');
+
+                                splitValueLines.forEach((item, i) => {
+                                    if (apiMethods.some((method) => item.trim() === method)) {
+                                        // try to parse as URL, if successful, prefix with absolute URL
+                                        try {
+                                            const parsedUrl = parse(splitValueLines[i + 1]);
+                                            if (isInternal(parsedUrl, config.absoluteUrl) && parsedUrl.pathname) {
+                                                if (splitValueLines[i + 1]) splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
+                                            }
+                                        } catch {
+                                            // do nothing, leave the line as is
+                                        }
+                                    }
+                                });
+
+                                if (apiMethods.some((method) => node.value.trim().startsWith(method))) {
+                                    node.lang = node.lang?.toLowerCase();
+                                }
+                                return `\n\`\`\`${node.lang || ''}\n${splitValueLines.join('\n')}\n\`\`\`\n`;
+                            },
+                        },
+                    },
+                    excludeRoutes: [
+                        '/',
+                    ],
+                    routeRules: [
+                        {
+                            route: '/api/**',
+                            categoryName: 'Apify API',
+                        },
+                        {
+                            route: '/academy/**',
+                            categoryName: 'Apify academy',
+                        },
+                        {
+                            route: '/legal/**',
+                            categoryName: 'Legal documents',
+                        },
+                        {
+                            route: '/platform/**',
+                            categoryName: 'Platform documentation',
+                        },
+                    ],
+                    // Add custom remark processing to remove LLM button text
+                    remarkPlugins: [removeLlmButtons],
+                },
+            }),
+        ],
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
@@ -292,6 +390,18 @@ module.exports = {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
+
+                // Remove import statements and JSX/MDX tags from content
+                const contentText = result.content
+                    .replace(/import\s+[^;]+;?/g, '') // Remove import statements
+                    .replace(/<[^>]+>/g, '') // Remove all tags (JSX/MDX)
+                    .replace(/\n+/g, ' ') // Replace newlines with space
+                    .replace(/\s+/g, ' ') // Collapse whitespace
+                    .trim();
+
+                const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
+
+                result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
             }
 
             return result;
@@ -305,6 +415,9 @@ module.exports = {
                 ...config.themeConfig.prism.additionalLanguages,
                 'http', 'bash', 'ruby', 'java', 'scala', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
             ],
+        },
+        zoom: {
+            selector: '.markdown img:not(a img)',
         },
         languageTabs: [
             {
@@ -424,6 +537,7 @@ module.exports = {
             '^/legal',
             '^/legal/*',
         ],
+        ...config.customFields ?? [],
     },
     clientModules: ['./clientModule.js'],
 };

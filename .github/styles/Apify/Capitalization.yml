@@ -1,20 +1,9 @@
-extends: existence
-message: "The word '%s' should always be capitalized."
+extends: substitution
+message: "Use '%s' instead of '%s'."
 ignorecase: false
 level: error
-tokens:
-  # Before the word there should be no: /, -, #, word character
-  # (avoids anchors, URLs, identifiers, and words like 'factors')
-  #
-  # After the word there should be no: /, } (avoids paths or URLs)
-  # Also no . followed by a word character (avoids 'actors.md')
-  - '(?<![\/\-#\w])actors(?![\/\}])(?!\.\w)'
-
-  # Before the word there should be no: /, -, #, ., `, word character
-  # (avoids anchors, URLs, identifiers, code, and words like 'factors')
-  #
-  # After the word there should be no: /, }, -, word character (avoids paths or URLs)
-  # Also no " =" (avoids code like "actor = ...")
-  # Also no . followed by a word character (avoids 'actor.md' or 'actor.update()')
-  - '(?<![\/\-#\.`\w])actor(?![\/\}\-\w])(?! =)(?!\.\w)'
-nonword: false
+nonword: true
+scope: text,~alt,~code
+swap:
+  '\bactor\b': Actor
+  '\bactors\b': Actors

@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/getting-links
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use BeautifulSoup to find the relevant bits of HTML.**
 
@@ -33,9 +33,8 @@ Over the course of the previous lessons, the code of our program grew to almost 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
-import csv
 import json
+import csv
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -54,30 +53,26 @@ for product in soup.select(".product-item"):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     data.append({"title": title, "min_price": min_price, "price": price})
+
+with open("products.json", "w") as file:
+    json.dump(data, file)
 
 with open("products.csv", "w") as file:
     writer = csv.DictWriter(file, fieldnames=["title", "min_price", "price"])
     writer.writeheader()
     for row in data:
         writer.writerow(row)
-
-def serialize(obj):
-    if isinstance(obj, Decimal):
-        return str(obj)
-    raise TypeError("Object not JSON serializable")
-
-with open("products.json", "w") as file:
-    json.dump(data, file, default=serialize)
 ```
 
 Let's introduce several functions to make the whole thing easier to digest. First, we can turn the beginning of our program into this `download()` function, which takes a URL and returns a `BeautifulSoup` instance:
@@ -103,19 +98,28 @@ def parse_product(product):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price}
 ```
 
-Now the CSV export. We'll make a small change here. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
+Now the JSON export. For better readability, let's make a small change here and set the indentation level to two spaces:
+
+```py
+def export_json(file, data):
+    # highlight-next-line
+    json.dump(data, file, indent=2)
+```
+
+The last function we'll add will take care of the CSV export. We'll make a small change here as well. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
 
 ```py
 def export_csv(file, data):
@@ -133,27 +137,13 @@ The code above assumes the `data` variable contains at least one item, and that 
 
 :::
 
-The last function we'll add will take care of the JSON export. For better readability of the JSON export, let's make a small change here too and set the indentation level to two spaces:
-
-```py
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    # highlight-next-line
-    json.dump(data, file, default=serialize, indent=2)
-```
-
 Now let's put it all together:
 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
-import csv
 import json
+import csv
 
 def download(url):
     response = httpx.get(url)
@@ -171,16 +161,20 @@ def parse_product(product):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price}
+
+def export_json(file, data):
+    json.dump(data, file, indent=2)
 
 def export_csv(file, data):
     fieldnames = list(data[0].keys())
@@ -188,14 +182,6 @@ def export_csv(file, data):
     writer.writeheader()
     for row in data:
         writer.writerow(row)
-
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    json.dump(data, file, default=serialize, indent=2)
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
@@ -205,11 +191,11 @@ for product in listing_soup.select(".product-item"):
     item = parse_product(product)
     data.append(item)
 
-with open("products.csv", "w") as file:
-    export_csv(file, data)
-
 with open("products.json", "w") as file:
     export_json(file, data)
+
+with open("products.csv", "w") as file:
+    export_csv(file, data)
 ```
 
 The program is much easier to read now. With the `parse_product()` function handy, we could also replace the convoluted loop with one that only takes up four lines of code.
@@ -218,7 +204,7 @@ The program is much easier to read now. With the `parse_product()` function hand
 
 We turned the whole program upside down, and at the same time, we didn't make any actual changes! This is [refactoring](https://en.wikipedia.org/wiki/Code_refactoring): improving the structure of existing code without changing its behavior.
 
-![Refactoring](images/refactoring.gif)
+![Refactoring](../scraping_basics/images/refactoring.gif)
 
 :::
 
@@ -226,7 +212,7 @@ We turned the whole program upside down, and at the same time, we didn't make an
 
 With everything in place, we can now start working on a scraper that also scrapes the product pages. For that, we'll need the links to those pages. Let's open the browser DevTools and remind ourselves of the structure of a single product item:
 
-![Product card's child elements](./images/child-elements.png)
+![Product card's child elements](../scraping_basics/images/child-elements.png)
 
 Several methods exist for transitioning from one page to another, but the most common is a link element, which looks like this:
 
@@ -254,13 +240,13 @@ In the previous code example, we've also added the URL to the dictionary returne
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
   },
   {
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
+    "min_price": "139800",
     "price": null,
     "url": "/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
   },
@@ -277,9 +263,8 @@ Browsers reading the HTML know the base address and automatically resolve such l
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
-import csv
 import json
+import csv
 # highlight-next-line
 from urllib.parse import urljoin
 ```
@@ -319,13 +304,13 @@ When we run the scraper now, we should see full URLs in our exports:
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
   },
   {
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
+    "min_price": "139800",
     "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
   },
@@ -406,8 +391,8 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
   from bs4 import BeautifulSoup
   from urllib.parse import urljoin
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
+  listing_url = "https://www.theguardian.com/sport/formulaone"
+  response = httpx.get(listing_url)
   response.raise_for_status()
 
   html_code = response.text
@@ -415,7 +400,7 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 
   for item in soup.select("#maincontent ul li"):
       link = item.select_one("a")
-      url = urljoin(url, link["href"])
+      url = urljoin(listing_url, link["href"])
       print(url)
   ```
 

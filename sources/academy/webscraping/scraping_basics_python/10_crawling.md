@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/crawling
 ---
 
-import Exercises from './_exercises.mdx';
+import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson, we'll follow links to individual product pages. We'll use HTTPX to download them and BeautifulSoup to process them.**
 
@@ -18,9 +18,8 @@ Thanks to the refactoring, we have functions ready for each of the tasks, so we 
 ```py
 import httpx
 from bs4 import BeautifulSoup
-from decimal import Decimal
-import csv
 import json
+import csv
 from urllib.parse import urljoin
 
 def download(url):
@@ -41,16 +40,20 @@ def parse_product(product, base_url):
         .contents[-1]
         .strip()
         .replace("$", "")
+        .replace(".", "")
         .replace(",", "")
     )
     if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
+        min_price = int(price_text.removeprefix("From "))
         price = None
     else:
-        min_price = Decimal(price_text)
+        min_price = int(price_text)
         price = min_price
 
     return {"title": title, "min_price": min_price, "price": price, "url": url}
+
+def export_json(file, data):
+    json.dump(data, file, indent=2)
 
 def export_csv(file, data):
     fieldnames = list(data[0].keys())
@@ -58,14 +61,6 @@ def export_csv(file, data):
     writer.writeheader()
     for row in data:
         writer.writerow(row)
-
-def export_json(file, data):
-    def serialize(obj):
-        if isinstance(obj, Decimal):
-            return str(obj)
-        raise TypeError("Object not JSON serializable")
-
-    json.dump(data, file, default=serialize, indent=2)
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
@@ -75,18 +70,18 @@ for product in listing_soup.select(".product-item"):
     item = parse_product(product, listing_url)
     data.append(item)
 
-with open("products.csv", "w") as file:
-    export_csv(file, data)
-
 with open("products.json", "w") as file:
     export_json(file, data)
+
+with open("products.csv", "w") as file:
+    export_csv(file, data)
 ```
 
 ## Extracting vendor name
 
 Each product URL points to a so-called _product detail page_, or PDP. If we open one of the product URLs in the browser, e.g. the one about [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), we can see that it contains a vendor name, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), number of reviews, product images, product variants, stock availability, description, and perhaps more.
 
-![Product detail page](./images/pdp.png)
+![Product detail page](../scraping_basics/images/pdp.png)
 
 Depending on what's valuable for our use case, we can now use the same techniques as in previous lessons to extract any of the above. As a demonstration, let's scrape the vendor name. In browser DevTools, we can see that the HTML around the vendor name has the following structure:
 
@@ -125,7 +120,7 @@ Depending on what's valuable for our use case, we can now use the same technique
 It looks like using a CSS selector to locate the element with the `product-meta__vendor` class, and then extracting its text, should be enough to get the vendor name as a string:
 
 ```py
-vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+vendor = soup.select_one(".product-meta__vendor").text.strip()
 ```
 
 But where do we put this line in our program?
@@ -135,8 +130,6 @@ But where do we put this line in our program?
 In the `data` loop we're already going through all the products. Let's expand it to include downloading the product detail page, parsing it, extracting the vendor's name, and adding it as a new key in the item's dictionary:
 
 ```py
-...
-
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
 
@@ -148,8 +141,6 @@ for product in listing_soup.select(".product-item"):
     # highlight-next-line
     item["vendor"] = product_soup.select_one(".product-meta__vendor").text.strip()
     data.append(item)
-
-...
 ```
 
 If we run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
@@ -159,14 +150,14 @@ If we run the program now, it'll take longer to finish since it's making 24 more
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
-    "min_price": "74.95",
-    "price": "74.95",
+    "min_price": "7495",
+    "price": "7495",
     "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker",
     "vendor": "JBL"
   },
   {
     "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
-    "min_price": "1398.00",
+    "min_price": "139800",
     "price": null,
     "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv",
     "vendor": "Sony"
@@ -177,11 +168,11 @@ If we run the program now, it'll take longer to finish since it's making 24 more
 
 ## Extracting price
 
-Scraping the vendor's name is nice, but the main reason we started checking the detail pages in the first place was to figure out how to get a price for each product. From the product listing, we could only scrape the min price, and remember—we’re building a Python app to track prices!
+Scraping the vendor's name is nice, but the main reason we started checking the detail pages in the first place was to figure out how to get a price for each product. From the product listing, we could only scrape the min price, and remember—we're building a Python app to track prices!
 
 Looking at the [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), it's clear that the listing only shows min prices, because some products have variants, each with a different price. And different stock availability. And different SKUs…
 
-![Morpheus revealing the existence of product variants](images/variants.png)
+![Morpheus revealing the existence of product variants](../scraping_basics/images/variants.png)
 
 In the next lesson, we'll scrape the product detail pages so that each product variant is represented as a separate item in our dataset.
 
@@ -191,7 +182,7 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 ### Scrape calling codes of African countries
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
+Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
@@ -210,7 +201,11 @@ https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+:::tip Need a nudge?
+
+Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -246,7 +241,7 @@ Hint: Locating cells in tables is sometimes easier if you know how to [navigate 
 
 ### Scrape authors of F1 news articles
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
+Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
@@ -263,10 +258,12 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 ...
 ```
 
-Hints:
+:::tip Need a nudge?
 
 - You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on their attribute values.
 - Sometimes a person authors the article, but other times it's contributed by a news agency.
+
+:::
 
 <details>
   <summary>Solution</summary>
@@ -282,7 +279,7 @@ Hints:
       return BeautifulSoup(response.text, "html.parser")
 
   def parse_author(article_soup):
-      link = article_soup.select_one('aside a[rel="author"]')
+      link = article_soup.select_one('a[rel="author"]')
       if link:
           return link.text.strip()
       address = article_soup.select_one('aside address')
