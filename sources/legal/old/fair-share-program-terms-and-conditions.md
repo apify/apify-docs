@@ -4,7 +4,7 @@ description: Outdated Open Source Fair Share Program Terms.
 sidebar_position: 5
 sidebar_label: Fair Share Program Terms
 category: legal
-slug: /old/fair-share-program-terms-and-conditions
+slug: /fair-share-program-terms-and-conditions
 ---
 
 # Apify Open Source Fair Share Program Terms and Conditions
