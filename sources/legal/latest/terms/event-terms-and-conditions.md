@@ -17,13 +17,13 @@ These Event Terms and Conditions ("**Terms**") apply to all Events organized or 
 
 **By registering for, or participating in, any Event, you agree to these Terms. If you disagree with these Terms, please do not register or attend any Event.**
 
-## 1. Event Information.
+## 1. Event Information
 
 1.1. Event details — including name, date, time, format, location (if applicable), registration process, and fees (if applicable) — will be specified on the Event registration page or ticketing portal (e.g., Lu.ma, Eventbrite, etc.).
 
 1.2. You agree to comply with all applicable terms and conditions or codes of conduct set by any third-party platform or venue used to host the Event. If these Terms differ from the specific Event details, the Event-specific information prevails for that Event only.
 
-## 2. Registration and Attendance.
+## 2. Registration and Attendance
 
 2.1. Registration is required unless stated otherwise. You must provide accurate and complete information when registering.
 
@@ -31,17 +31,17 @@ These Event Terms and Conditions ("**Terms**") apply to all Events organized or 
 
 2.3. Tickets or registrations are personal unless explicitly stated as transferable.
 
-## 3. Payments.
+## 3. Payments
 
 3.1. Where applicable, Event fees are payable at registration through the platform indicated. Unless stated otherwise, Event fees are non-cancellable and non-refundable.
 
-## 4. Event Changes and Cancellations.
+## 4. Event Changes and Cancellations
 
 4.1. We reserve the right to modify the Event program, speakers, timing, or venue, or switch to an online or hybrid format if necessary due to organizational or external circumstances. We reserve the right to cancel the Event at any time. In such a case, any paid registration fees will be fully refunded. However, Apify will not be liable for changes or cancellations caused by circumstances beyond its reasonable control, including but not limited to natural disasters, pandemics, governmental restrictions, or technical outages.
 
 4.2. We are not responsible for any services provided by third parties (including, but not limited to, accommodations, transportation, or catering), even if recommended or facilitated by us.
 
-## 5. Conduct and Compliance. 
+## 5. Conduct and Compliance
 
 5.1. We are committed to providing a welcoming and safe environment for all attendees.
 
