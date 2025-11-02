@@ -6,11 +6,11 @@ category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/webinars
 ---
 
-Webinars and live streams are a fantastic way to connect with your audience, showcase your Actor's capabilities, and gather feedback from users. Though the term webinar might sound outdated these days, the concept of a live video tutorial is alive and well in the world of marketing and promotion.
+Webinars and live streams are a fantastic way to connect with your audience, showcase your Actor's capabilities, and gather feedback from users. Live video tutorials remain an effective tool in marketing and promotion.
 
 Whether you're introducing a new feature, answering questions, or walking through a common use case, a live event can create more personal engagement, boost user trust, and open the door for valuable two-way communication.
 
-But how do you get started? Here's a friendly guide on where to host, how to prepare, and what to do before, during, and after your webinar.
+But how do you get started? Here's a guide on where to host, how to prepare, and what to do before, during, and after your webinar.
 
 ---
 
@@ -19,7 +19,7 @@ But how do you get started? Here's a friendly guide on where to host, how to pre
 Here are a few reasons why live streams are ideal for promoting your Actor:
 
 - _Demo_. You can show your Actor in action and highlight its most powerful features. You can tell a story about how you built it. You can also show how your Actor interacts with other tools and platforms and what its best uses are. A live demo lets users see immediately how your tool solves their problems.
-- _Building trust and rapport_. Interacting directly with your users builds trust and rapport. Even showing up and showing your face/voice, it's a chance to let your users meet you and get a feel for the team behind the Actor.
+- _Building trust and rapport_. Interacting directly with your users builds trust and rapport. Appearing live and sharing your face or voice allows users to connect with you personally and get a feel for the team behind the Actor.
 - _Live Q&A_. Users often have questions that can be hard to fully address in documentation, README, or tutorials. A live session allows for Q&A, so you can explain complex features and demonstrate how to overcome common issues.
 - _Tutorial or training_. If you don't have time for complex graphics, this is an easy replacement for a video tutorial until you do. Remember that some platforms (YouTube) give the option of publishing the webinar after it's over. You can reuse it later in other content as well as a guide. Also, if you’ve noticed users struggling with particular features, a webinar is a great way to teach them directly.
 
@@ -33,8 +33,7 @@ It all goes back to where you have or would like to have your audience and wheth
     1. _YouTube_: ideal for reaching a broad audience. It’s free and easy to set up. You can also make recordings available for future viewing.
     2. _TikTok_: same, ideal for reaching a broad audience, free and easy to set up. However, live video will disappear once the broadcast has ended. TikTok does allow you to save your livestreams. You won't be able to republish them to the platform (we assume your live stream will be longer than 10 minutes). But you can later re-upload it elsewhere.
     3. _Twitch_: Known for gaming, Twitch has become a space for tech demos, coding live streams, and webinars. If your target audience enjoys an interactive and casual format, Twitch might be a good fit.
-    4. _LinkedIn_: If your audience is more professional, LinkedIn Live could be a good fit to present your Actor there. Once a stream is complete, it will remain on the feed of your LinkedIn Page or profile as a video that was ‘previously recorded live’.
-    5. Facebook: Not recommended.
+    4. _LinkedIn_: If your audience is more professional, LinkedIn Live could be a good fit to present your Actor there. Once a stream is complete, it will remain on the feed of your LinkedIn Page or profile as a video that was 'previously recorded live'.
 2. General platforms:
     1. _Zoom_ or _Google Meet_: More personal, these are great for smaller webinars where you might want closer interaction. They also give you control over who attends.
 
@@ -85,7 +84,7 @@ Test your setup before going live. Here’s what to focus on:
 - _Test the Actor live_. If you're demoing your Actor, ensure it works smoothly. Avoid running scripts that take too long or have potential bugs during the live session.
 - _Audio quality_. People are far more likely to tolerate a blurry video than bad audio. Use a good-quality microphone to ensure you’re heard clearly.
 - Screen sharing. If you’re doing a live demo, make sure you know how to seamlessly switch between windows and share your screen effectively.
-- _Backup plan_. Have a backup plan in case something goes wrong. This could be as simple as a recorded version of your presentation to share if things go south during the live session.
+- _Backup plan_. Have a backup plan in case something goes wrong. This could be as simple as a recorded version of your presentation to share if technical issues arise during the live session.
 - _Make it interactive_. Consider using polls or a live Q&A session to keep the audience engaged. Maybe have a support person assisting with that side of things while you're speaking.
 
 ## Best practices during the live stream
@@ -99,7 +98,7 @@ When the time comes, here’s how to make the most of your webinar or live strea
 - _Invite questions and engage your audience_. Encourage users to ask questions throughout the session. This creates a more conversational tone and helps you address their concerns in real time. You can also ask a simple question or poll to get the chat going. Try to direct the Q&A into one place so you don't have to switch tabs. Throughout the presentation, pause for questions and make sure you're addressing any confusion in real time.
 - _Wrap up with a clear call to action_. Whether it’s to try your Actor, leave a review, or sign up for a future live, finish with a clear CTA. Let them know the next step to take.
 
-This works for when it's a simple tutorial walkthrough and if you have a code-along session, the practices work for it as well.s
+This works for when it's a simple tutorial walkthrough and if you have a code-along session, the practices work for it as well.
 
 ## After the live session
 
