@@ -11,7 +11,7 @@ slug: /getting-started/creating-actors
 
 You can create an Actor in several ways. You can create one from your own source code hosted in a Git repository or in your local machine, for example. But in this tutorial, we'll focus on the easiest method: selecting an Actor code template. We don't need to install any special software, and everything can be done directly in Apify Console using an Apify account.
 
-## Choose the source {#choose-the-source}
+## Choose the source
 
 Once you're in Apify Console, go to [Actors](https://console.apify.com/actors), and click on the **Develop new** button in the top right-hand corner.
 
@@ -155,7 +155,7 @@ Learn more about the Actor input and output [in the next page](/academy/getting-
 
 :::
 
-## Build the Actor 🧱 {#build-an-actor}
+## Build the Actor
 
 In order to run the Actor, you need to [build](/platform/actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
 
@@ -165,7 +165,7 @@ After you've clicked the **Build** button, it'll take around 5–10 seconds to c
 
 ![Start button](./images/start.png)
 
-## Fill the input {#fill-input}
+## Fill the input
 
 And now we are ready to run the Actor. But before we do that, let's give the Actor some input by going to the `Input` tab.
 

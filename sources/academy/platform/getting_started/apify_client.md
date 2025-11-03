@@ -8,8 +8,6 @@ slug: /getting-started/apify-client
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Apify client {#apify-client}
-
 **Interact with the Apify API in your code by using the apify-client package, which is available for both JavaScript and Python.**
 
 ---
@@ -18,13 +16,13 @@ Now that you've gotten your toes wet with interacting with the Apify API through
 
 This lesson will provide code examples for both Node.js and Python, so regardless of the language you are using, you can follow along!
 
-## Examples {#examples}
+## Examples
 
 You can access `apify-client` examples in the Console Actor detail page. Click the **API** button and then the **API Client** dropdown button.
 
 ![API button](./images/api-button.png)
 
-## Installing and importing {#installing-and-importing}
+## Installing and importing
 
 If you are going to use the client in Node.js, use this command within one of your projects to install the package through npm:
 
@@ -60,7 +58,7 @@ from apify_client import ApifyClient
 </TabItem>
 </Tabs>
 
-## Running an Actor {#running-an-actor}
+## Running an Actor
 
 In the last lesson, we ran the **adding-actor** and retrieved its dataset items. That's exactly what we're going to do now; however, by using the Apify client instead.
 
@@ -124,7 +122,7 @@ Learn more about the `.call()` function in our [API documentation](/api/client/j
 
 :::
 
-## Downloading dataset items {#downloading-dataset-items}
+## Downloading dataset items
 
 Once an Actor's run has completed, it will return a **run info** object that looks something like this:
 
@@ -224,7 +222,7 @@ print(items)
 </TabItem>
 </Tabs>
 
-## Updating an Actor {#updating-actor}
+## Updating an Actor
 
 If you check the **Settings** tab within your **adding-actor**, you'll notice that the default timeout being set to the Actor is **360 seconds**. This is a bit overkill considering the fact that the Actor is only adding two numbers together - the run should never take more than 20 seconds (even this is a generous number). The default memory being allocated to the Actor is **256 MB**, which is reasonable for our purposes.
 
@@ -280,7 +278,7 @@ After running the code, go back to the **Settings** page of **adding-actor**. If
 
 ![New run defaults](./images/new-defaults.jpg)
 
-## Overview {#overview}
+## Overview
 
 You can do so much more with the Apify client than running Actors, updating Actors, and downloading dataset items. The purpose of this lesson was to get you comfortable using the client in your own projects, as it's the absolute best developer tool for integrating the Apify platform with an external system.
 

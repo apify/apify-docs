@@ -6,8 +6,6 @@ category: apify platform
 slug: /getting-started
 ---
 
-# Getting started {#getting-started}
-
 **Get started with the Apify platform by creating an account and learning about the Apify Console, which is where all Apify Actors are born!**
 
 ---
@@ -18,7 +16,7 @@ Your gateway to the Apify platform is your Apify account. The great thing about 
 2. Check your email, you should have a verification email with a link. Click it!
 3. Done! 👍
 
-## Getting to know the platform {#getting-to-know-the-platform}
+## Getting to know the platform
 
 Now that you have an account, you have access to [Apify Console](https://console.apify.com?asrc=developers_portal), which is a wonderful place where you can use all of the features the platform has to offer, as well as manage and test your own projects.
 
