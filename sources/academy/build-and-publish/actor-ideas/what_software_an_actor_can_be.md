@@ -55,9 +55,11 @@ Examples:
 - [Monolith](https://apify.com/snshn/monolith)
 - [Crawl4AI](https://apify.com/janbuchar/crawl4ai)
 
-For inspiration, check out the [Open-source category](https://apify.com/store/categories/open-source) in Apify Store.
+For inspiration, check out the [Open-source category](https://apify.com/store/categories/open-source) in Apify Store,
+or the following list:
 
-Here is a short list of open-source projects that might be suitable for turning into Actors:
+<details>
+  <summary>GitHub projects potentially suitable for turning into Actors</summary>
 
 - https://github.com/bytedance/Dolphin
 - https://github.com/google/langextract
@@ -82,6 +84,7 @@ Here is a short list of open-source projects that might be suitable for turning 
 - https://github.com/TheAgenticAI/TheAgenticBrowser
 - https://github.com/zcaceres/markdownify-mcp
 
+</details>
 
 :::tip Open Source Fair Share
 
