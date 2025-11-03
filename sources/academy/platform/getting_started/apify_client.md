@@ -38,7 +38,7 @@ In Python, you can install it from PyPI with this command:
 pip install apify-client
 ```
 
-After installing the package, let's make a file named **client** and import the Apify client like so:
+After installing the package, let's make a file named `client.js` (or `client.py` for Python) and import the Apify client like so:
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
@@ -86,7 +86,11 @@ client = ApifyClient(token='YOUR_TOKEN')
 </TabItem>
 </Tabs>
 
-> If you are planning on publishing your code to a public GitHub/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
+:::caution Environment variables
+
+If you are planning on publishing your code to a public GitHub/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
+
+:::
 
 Now that we've got our instance, we can point to an Actor using the [`client.actor()`](/api/client/js/reference/class/ApifyClient#actor) function, then call the Actor with some input with the [`.call()`](/api/client/js/reference/class/ApifyClient#actor) function - the first parameter of which is the input for the Actor.
 
@@ -114,7 +118,11 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 </TabItem>
 </Tabs>
 
-> Learn more about the `.call()` function in our [API documentation](/api/client/js/reference/class/ApifyClient#actor).
+:::info Learn more
+
+Learn more about the `.call()` function in our [API documentation](/api/client/js/reference/class/ApifyClient#actor).
+
+:::
 
 ## Downloading dataset items {#downloading-dataset-items}
 

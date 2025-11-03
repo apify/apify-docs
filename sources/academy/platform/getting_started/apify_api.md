@@ -27,7 +27,11 @@ You should see a long list of API endpoints that you can copy and paste elsewher
 https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync?token=YOUR_TOKEN
 ```
 
-> In this lesson, we'll only be focusing on this one endpoint, as it is the most popularly used one; however, don't let this limit your curiosity! Take a look at the other endpoints in the **API** window to learn about everything you can do to your Actor programmatically.
+:::note Single endpoint
+
+In this lesson, we'll only be focusing on this one endpoint, as it is the most popularly used one, however, don't let this limit your curiosity! Take a look at the other endpoints in the **API** window to learn about everything you can do to your Actor programmatically.
+
+:::
 
 Now, let's move over to our favorite HTTP client (in this lesson we'll use [Insomnia](../../glossary/tools/insomnia.md) in order to prepare and send the request).
 
@@ -47,7 +51,11 @@ https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-it
 
 Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/act-run-sync-get-dataset-items-post)
 
-> Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
+:::caution Token security
+
+Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
+
+:::
 
 ## Sending the request {#sending-the-request}
 
@@ -65,7 +73,7 @@ And there it is! The Actor was run with our inputs of **num1** and **num2**, the
 
 ## Apify API's many features {#api-many-features}
 
-What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can [manage datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), [add to request queues]/api/v2/storage-request-queues), [update Actors](/api/v2/storage-request-queues-requests), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
+What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can manage [datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), add to [request queues](/api/v2/storage-request-queues), [update Actors](/api/v2/act-put), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
 
 ## Next up {#next}
 

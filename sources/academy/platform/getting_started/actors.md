@@ -17,7 +17,11 @@ When you deploy your script to the Apify platform, it is then called an **Actor*
 
 Once an Actor has been pushed to the Apify platform, they can be shared to the world through the [Apify Store](https://apify.com/store), and even monetized after going public.
 
-> Though the majority of Actors that are currently on the Apify platform are scrapers, crawlers, or automation software, Actors are not limited to scraping. They can be any program running in a Docker container.
+:::note Beyond scraping
+
+Though the majority of Actors that are currently on the Apify platform are scrapers, crawlers, or automation software, Actors are not limited to scraping. They can be any program running in a Docker container.
+
+:::
 
 ## Actors on the Apify platform {#actors-on-platform}
 
