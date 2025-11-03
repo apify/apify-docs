@@ -13,7 +13,7 @@ You can do about anything with a headless browser, but, there are some extremely
 
 1. Login flow (logging into an account)
 2. Paginating through results on a website
-3. Solving browser challenges (ex. captchas)
+3. Solving browser challenges (ex. CAPTCHAs)
 4. More!
 
 ## Next up {#next}

@@ -32,9 +32,9 @@ const title = await page.title();
 // Log the title to the console
 console.log(title);
 ```
-
+<!-- vale off -->
 ## Screenshotting {#screenshotting}
-
+<!-- vale on -->
 The `page.screenshot()` function will return a buffer which can be written to the filesystem as an image:
 
 ```js

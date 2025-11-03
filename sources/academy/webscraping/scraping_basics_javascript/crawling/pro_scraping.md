@@ -51,7 +51,7 @@ To use Crawlee, we have to install it from npm. Let's add it to our project from
 npm install crawlee
 ```
 
-After the installation completes, create a new file called **crawlee.js** and add the following code to it:
+After the installation completes, create a new file called `crawlee.js` and add the following code to it:
 
 ```js title=crawlee.js
 import { CheerioCrawler } from 'crawlee';

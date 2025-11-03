@@ -45,7 +45,7 @@ idempotency
 backoff
 
 Authy
-reCaptcha
+reCAPTCHA?
 OAuth
 untrusted
 unencrypted

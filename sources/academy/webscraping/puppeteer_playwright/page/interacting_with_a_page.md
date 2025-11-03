@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 The **Page** object has a whole boat-load of functions which can be used to interact with the loaded page. We're not going to go over every single one of them right now, but we _will_ use a few of the most common ones to add some functionality to our current project.
 
-Let's say that we want to automate searching for **hello world** on Google, then click on the first result and log the title of the page to the console, then take a screenshot and write it it to the filesystem. In order to understand how we're going to automate this, let's break down how we would do it manually:
+Let's say that we want to automate searching for **hello world** on Google, then click on the first result and log the title of the page to the console, then take a screenshot and write it to the filesystem. In order to understand how we're going to automate this, let's break down how we would do it manually:
 
 1. Click on the button which accepts Google's cookies policy (To see how it looks, open Google in an anonymous window.)
 2. Type **hello world** into the search bar

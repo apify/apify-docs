@@ -21,7 +21,7 @@ This is a complete block which usually has a response status code of **403**. Us
 
 ## Captcha page {#captcha}
 
-Probably the most common blocking method. The website gives you a chance to prove that you are not a bot by presenting you with a captcha. We'll be covering captchas within this course.
+Probably the most common blocking method. The website gives you a chance to prove that you are not a bot by presenting you with a captcha. We'll be covering CAPTCHAs within this course.
 
 ## Redirect {#redirect}
 
