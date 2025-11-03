@@ -21,6 +21,7 @@ which users setup, integrate into their workflow, and let run in the background,
 rather than consumer-facing applications that users need to interact with.
 
 Actors can run in two modes:
+
 - In **batch mode**, they take a well-defined input,
   perform a job, and produce a well-defined output. This is useful for longer-running operations,
   such as web crawling or data processing.
@@ -153,14 +154,14 @@ sourced from the Apify community.
 
 1. **Publish your Actor**: Deploy your Actor on Apify Store and make it live.
 
-1. **Claim the idea**: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as _Completed_ and link it to your Actor.
+1. **Claim the idea**: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as *Completed* and link it to your Actor.
    To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
 
 1. **Monitor and optimize**: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
 
 #### Multiple developers for one idea
 
-Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the _Completed_ tag and a link from the Actor ideas page.
+Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the *Completed* tag and a link from the Actor ideas page.
 
 Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features.
 
