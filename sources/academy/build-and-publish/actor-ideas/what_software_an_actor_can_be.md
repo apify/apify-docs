@@ -6,8 +6,7 @@ category: build-and-publish
 slug: /build-and-publish/actor-ideas/find-actor-ideas
 ---
 
-Learn what kind of software tools are suitable to be packaged and published as Actors on Apify,
-and where you can find inspiration what to build.
+Learn what kind of software tools are suitable to be packaged and published as Actors on Apify, and where you can find inspiration what to build.
 
 ---
 
@@ -15,21 +14,17 @@ and where you can find inspiration what to build.
 
 [Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
 
-They are useful for backend automation jobs,
-which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
+They are useful for backend automation jobs, which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
 
 Actors can run in two modes:
 
-- In _batch mode_, they take a well-defined input,
-  perform a job, and produce a well-defined output. This is useful for longer-running operations,
+- In _batch mode_, they take a well-defined input, perform a job, and produce a well-defined output. This is useful for longer-running operations,
   such as web crawling or data processing.
-- In _standby mode_, they run as a web server at a specific public URL.
-  This is useful for request-response style applications, such as APIs or MCP servers.
+- In _standby mode_, they run as a web server at a specific public URL. This is useful for request-response style applications, such as APIs or MCP servers.
 
 ### Web scrapers and crawlers
 
-This is the most common type of Actors on [Apify Store](https://apify.com/store).
-These Actors navigate websites, collect information from web pages, and store structured data in datasets for further processing.
+This is the most common type of Actors on [Apify Store](https://apify.com/store). These Actors navigate websites, collect information from web pages, and store structured data in datasets for further processing.
 
 Examples:
 
@@ -41,8 +36,7 @@ Examples:
 
 ### SaaS API wrappers
 
-These Actors wrap existing SaaS services as Actors to make them accessible through the Apify platform
-and its many integrations.
+These Actors wrap existing SaaS services as Actors to make them accessible through the Apify platform and its many integrations.
 
 Examples:
 
@@ -52,9 +46,7 @@ Examples:
 
 ### Open-source libraries
 
-Many open-source automation or data processing tools do not have a presence in the cloud,
-and need to be installed locally in "just five easy steps". Wrap those tools as Actors
-and make it easy for users to try and integrate those tools.
+Many open-source automation or data processing tools do not have a presence in the cloud, and need to be installed locally in "just five easy steps". Wrap those tools as Actors and make it easy for users to try and integrate those tools.
 
 Examples:
 
@@ -117,9 +109,13 @@ For more inspiration, check out the [MCP server category](https://apify.com/stor
 
 ### AI agents
 
-Build Actors that use LLMs to perform complex tasks autonomously.
-These Actors can navigate websites, make decisions, and complete multistep workflows.
-Note that Actors are cloud-based **sandboxes** that can securely run any AI-generated code.
+Build Actors that use LLMs to perform complex tasks autonomously. These Actors can navigate websites, make decisions, and complete multistep workflows.
+
+:::note Secure execution
+
+Actors are cloud-based sandboxes that can securely run any AI-generated code.
+
+:::
 
 For inspiration, check out the [Agents category](https://apify.com/store/categories/agents) in Apify Store.
 
@@ -131,14 +127,12 @@ Any repetitive job matching the following criteria might be suitable for turning
 - The task is isolated and can be described and delegated to another person.
 - There are at least a few hundred people in the world dealing with this problem.
 
-If you look closely, you'll start seeing opportunities for new Actors everywhere.
-Be creative!
+If you look closely, you'll start seeing opportunities for new Actors everywhere. Be creative!
 
 
 ## Use the Actor ideas page
 
-The [Actor ideas](https://apify.com/ideas) page is where you can find inspiration for new Actors
-sourced from the Apify community.
+The [Actor ideas](https://apify.com/ideas) page is where you can find inspiration for new Actors sourced from the Apify community.
 
 ### Browse and claim ideas
 
@@ -153,7 +147,8 @@ sourced from the Apify community.
 1. _Publish your Actor_: Deploy your Actor on Apify Store and make it live.
 
 1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
-   To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
+
+   1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
 
 1. _Monitor and optimize_: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
 
@@ -167,12 +162,13 @@ Competition motivates developers to improve the code. You can still build the Ac
 ### Submit your own ideas
 
 The Ideas page is also where you contribute concepts to drive innovation in the community.
+
 Here's how you can contribute too:
 
-- **Submit ideas**: Share Actor concepts through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas).
+- _Submit ideas_: Share Actor concepts through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas).
 Provide clear details about what the tool should do and how it should work.
 
-- **Engage with the community**: Upvote ideas you find intriguing. More support
+- _Engage with the community_: Upvote ideas you find intriguing. More support
 increases the likelihood a developer will build it.
 
 ## Find ideas from other sources
