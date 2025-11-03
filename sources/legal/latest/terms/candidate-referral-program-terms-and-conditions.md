@@ -1,7 +1,7 @@
 ---
 title: Apify Candidate Referral Program
 description: Apify Candidate Referral Program is a public promise of a remuneration for referred candidates.
-sidebar_position: 6
+sidebar_position: 5
 sidebar_label: Candidate Referral Program Terms
 category: legal
 slug: /candidate-referral-program-terms
