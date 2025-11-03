@@ -15,8 +15,7 @@ and where you can find inspiration what do build.
 
 [Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps,
 which are easy to develop, share, integrate, and build upon.
-
-Actors running on the Apify platform are generally useful for backend automation jobs,
+They generally useful for backend automation jobs,
 which users setup, integrate into their workflow, and let run in the background,
 rather than consumer-facing applications that users need to interact with.
 
