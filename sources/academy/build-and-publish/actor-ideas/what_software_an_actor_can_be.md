@@ -126,7 +126,7 @@ For inspiration, see the [Agents category](https://apify.com/store/categories/ag
 
 ### Other
 
-Any repetetive job matching the following criteria might be suitable for turning into an Actor:
+Any repetitive job matching the following criteria might be suitable for turning into an Actor:
 
 - The job is better to be run in background in the cloud and forgotten.
 - The task is isolated and can be described and delegated to another person.
