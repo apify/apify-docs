@@ -1,30 +1,29 @@
 ---
 title: Find ideas for new Actors
-description: Learn what kind of software tools are suitable to be packaged and published as Apify Actors and where you can find ideas and inspiration what do build.
+description: Learn what kind of software tools are suitable to be packaged and published as Apify Actors and where you can find ideas and inspiration what to build.
 sidebar_position: 1
 category: build-and-publish
 slug: /build-and-publish/actor-ideas/find-actor-ideas
 ---
 
 Learn what kind of software tools are suitable to be packaged and published as Actors on Apify,
-and where you can find inspiration what do build.
+and where you can find inspiration what to build.
 
 ---
 
 ## What can you build as an Actor
 
-[Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps,
-which are easy to develop, share, integrate, and build upon.
-They generally useful for backend automation jobs,
-which users setup, integrate into their workflow, and let run in the background,
-rather than consumer-facing applications that users need to interact with.
+[Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
+
+They are useful for backend automation jobs,
+which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
 
 Actors can run in two modes:
 
-- In **batch mode**, they take a well-defined input,
+- In _batch mode_, they take a well-defined input,
   perform a job, and produce a well-defined output. This is useful for longer-running operations,
   such as web crawling or data processing.
-- In **standby mode**, where they run as web server at a specific public URL.
+- In _standby mode_, they run as a web server at a specific public URL.
   This is useful for request-response style applications, such as APIs or MCP servers.
 
 ### Web scrapers and crawlers
@@ -64,7 +63,7 @@ Examples:
 - [Monolith](https://apify.com/snshn/monolith)
 - [Crawl4AI](https://apify.com/janbuchar/crawl4ai)
 
-For inspiration, see the [Open-source category](https://apify.com/store/categories/agents) in Apify Store.
+For inspiration, check out the [Open-source category](https://apify.com/store/categories/open-source) in Apify Store.
 
 Here is a short list of open-source projects that might be suitable for turning into Actors:
 
@@ -102,7 +101,7 @@ to help them support their projects.
 ### MCP servers and tools for AI
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) lets AI agents interact with external tools and data sources.
-Many MCP servers are still stand-alone packages needed to be installed locally, which is both inefficient and insecure,
+Many MCP servers are still stand-alone packages that need to be installed locally, which is both inefficient and insecure,
 or require an external service account.
 Publishing these packages as Actors makes the MCP servers remote and accessible through the Apify platform and ecosystem,
 including the new agentic payments protocols.
@@ -114,7 +113,7 @@ Examples:
 - [Firecrawl MCP Server](https://apify.com/agentify/firecrawl-mcp-server)
 - [Brave Search MCP Server](https://apify.com/agentify/brave-search-mcp-server)
 
-For more inspiration, see the [MCP server category](https://apify.com/store/categories/mcp-servers) in Apify Store.
+For more inspiration, check out the [MCP server category](https://apify.com/store/categories/mcp-servers) in Apify Store.
 
 ### AI agents
 
@@ -122,13 +121,13 @@ Build Actors that use LLMs to perform complex tasks autonomously.
 These Actors can navigate websites, make decisions, and complete multistep workflows.
 Note that Actors are cloud-based **sandboxes** that can securely run any AI-generated code.
 
-For inspiration, see the [Agents category](https://apify.com/store/categories/agents) in Apify Store.
+For inspiration, check out the [Agents category](https://apify.com/store/categories/agents) in Apify Store.
 
 ### Other
 
 Any repetitive job matching the following criteria might be suitable for turning into an Actor:
 
-- The job is better to be run in background in the cloud and forgotten.
+- The job is better to be run in the background in the cloud and forgotten.
 - The task is isolated and can be described and delegated to another person.
 - There are at least a few hundred people in the world dealing with this problem.
 
@@ -143,24 +142,24 @@ sourced from the Apify community.
 
 ### Browse and claim ideas
 
-1. **Browse the page**: Visit [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
+1. _Visit_ [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
 
-1. **Select an Actor idea**: Review the details and requirements. Check the status—if it's marked *Open to develop*, you can start building.
+1. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.
 
-1. **Build your Actor**: Develop your Actor based on the idea. You don't need to notify Apify during development.
+1. _Build your Actor_: Develop your Actor based on the idea. You don't need to notify Apify during development.
 
-1. **Prepare for launch**: Ensure your Actor meets quality standards and has a comprehensive README with installation instructions, usage details, and examples.
+1. _Prepare for launch_: Ensure your Actor meets quality standards and has a comprehensive README with installation instructions, usage details, and examples.
 
-1. **Publish your Actor**: Deploy your Actor on Apify Store and make it live.
+1. _Publish your Actor_: Deploy your Actor on Apify Store and make it live.
 
-1. **Claim the idea**: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as *Completed* and link it to your Actor.
+1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
    To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
 
-1. **Monitor and optimize**: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
+1. _Monitor and optimize_: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
 
 #### Multiple developers for one idea
 
-Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the *Completed* tag and a link from the Actor ideas page.
+Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
 
 Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features.
 
