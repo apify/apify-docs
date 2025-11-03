@@ -59,7 +59,7 @@ For inspiration, check out the [Open-source category](https://apify.com/store/ca
 or the following list:
 
 <details>
-  <summary>GitHub projects suitable for Actorization</summary>
+  <summary>GitHub projects potentially suitable for turning into Actors</summary>
 
 - https://github.com/bytedance/Dolphin
 - https://github.com/google/langextract
@@ -85,11 +85,6 @@ or the following list:
 - https://github.com/zcaceres/markdownify-mcp
 
 </details>
-
-
-Here is a short list of open-source projects that might be suitable for turning into Actors:
-
-
 
 :::tip Open Source Fair Share
 
