@@ -1,14 +1,14 @@
 ---
 title: OpenAI Agents SDK integration
 sidebar_label: OpenAI Agents SDK
-description: Learn how to integrate Apify with OpenAI Agents SDK using Model Context Protocol to build AI agents with web data access.
+description: Learn how to integrate Apify with the OpenAI Agents SDK using the Model Context Protocol to build AI agents with web data access.
 sidebar_position: 11
 slug: /integrations/openai-agents
 ---
 
 The _OpenAI Agents Python SDK_ enables you to build AI agents powered by OpenAI's language models that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://openai.com/research/model-context-protocol). By connecting to the Apify MCP server, your agents can access Apify's extensive library of Actors to perform web scraping, data extraction, and automation tasks in real time.
 
-For more in-depth details on OpenAI Agents SDK, check out its [official documentation](https://openai.github.io/openai-agents-python/).
+For more details about the OpenAI Agents SDK, see the [official documentation](https://openai.github.io/openai-agents-python/).
 
 ## Prerequisites
 
@@ -65,7 +65,6 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
 
 #### Configuration options
 
