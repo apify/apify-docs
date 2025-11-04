@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-const buttonText = 'Get started';
+const buttonText = 'Go to Console';
 
 function clickHandler() {
     if (window.analytics) {
