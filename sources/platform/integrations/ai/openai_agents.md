@@ -10,19 +10,19 @@ slug: /integrations/openai-agents
 
 ---
 
-The [OpenAI Agents Python SDK](https://openai.github.io/openai-agents-python/) is a framework for building AI agents powered by OpenAI's language models. It provides a simple way to create agents that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://openai.com/research/model-context-protocol).
+The [OpenAI Agents Python SDK](https://openai.github.io/openai-agents-python/) is a framework for building AI agents powered by OpenAI's language models.
+It provides a way to create agents that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://openai.com/research/model-context-protocol).
 For more in-depth details on OpenAI Agents SDK, check out its [official documentation](https://openai.github.io/openai-agents-python/).
 
 ## How to use Apify with OpenAI Agents SDK
 
-This guide demonstrates how to use Apify Actors with OpenAI Agents SDK by connecting to the Apify MCP server. You'll build an agent that can search the web and use Apify Actors to gather information.
+This guide demonstrates how to use Apify Actors with OpenAI Agents SDK by connecting to the Apify MCP server.
+You'll build an agent that can search the web and use Apify Actors to gather information.
 
 ### Prerequisites
 
 - **Apify API token**: To use Apify Actors in OpenAI Agents SDK, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-
 - **OpenAI API key**: In order to work with agents in OpenAI Agents SDK, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
-
 - **Python packages**: You need to install the following Python packages:
 
     ```bash
@@ -77,7 +77,8 @@ async def main() -> None:
 asyncio.run(main())
 ```
 
-The `MCPServerStreamableHttp` connects to the Apify MCP server using HTTP streaming. Key configuration options:
+The `MCPServerStreamableHttp` connects to the Apify MCP server using streamable HTTP.
+Key configuration options:
 
 - `params`: Dictionary containing:
   - `url`: The MCP server URL (`https://mcp.apify.com` for Apify)
@@ -123,7 +124,7 @@ Visit the [Apify MCP server configuration page](https://mcp.apify.com) to see av
 
 ### Example: Instagram profile analysis
 
-If you want to test the whole example, you can simply create a new file, `openai_agents_integration.py`, and copy the whole code into it.
+If you want to test the whole example, you can simply create a new file, `openai_agents_instagram.py`, and copy the whole code into it.
 
 ```python
 import asyncio
@@ -166,39 +167,49 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-To run it, you can use the following command: `python openai_agents_integration.py`
+To run it, you can use the following command: `python openai_agents_instagram.py`
 
-### Testing MCP servers with OpenAI Agent MCP Tester
+### Agent testing of different MCP servers
 
-The [OpenAI Agent MCP Tester](https://apify.com/jiri.spilka/openai-agent-mcp-tester) Actor automates testing of MCP servers using OpenAI agents. It connects to multiple MCP servers, tests available tools using a two-agent orchestrator pattern (planner and executor), and generates detailed reports.
+You can use the OpenAI Agents SDK to test MCP servers and verify they're working correctly.
+The agent can list available tools and execute them to ensure proper functionality.
 
-You can use this Actor to test your MCP server integration:
+Here's an example of testing the Apify MCP server:
 
-1. Navigate to the [OpenAI Agent MCP Tester Actor page](https://apify.com/jiri.spilka/openai-agent-mcp-tester)
-2. Provide the MCP server URLs you want to test
-3. Add authentication headers if required
-4. Start the test
-5. Review the generated comprehensive report
+```python
+async def main() -> None:
+    # Connect to Apify MCP server for testing
+    async with MCPServerStreamableHttp(
+        name="Apify MCP Server",
+        params={
+            "url": "https://mcp.apify.com",
+            "headers": {"Authorization": f"Bearer {os.environ['APIFY_TOKEN']}"},
+            "timeout": 120,
+        },
+        cache_tools_list=True,
+        max_retry_attempts=3,
+    ) as server:
+        # List available tools
+        tools = await server.list_tools()
+        print(f"Available tools: {[tool.name for tool in tools]}")
 
-The Actor accepts the following input:
+        # Create a test agent
+        agent = Agent(
+            name="Tester",
+            instructions="Test the available MCP tools by calling them with appropriate parameters.",
+            mcp_servers=[server],
+        )
 
-```json
-{
-  "mcpUrls": [
-    "https://mcp.apify.com"
-  ],
-  "headers": {
-    "Authorization": "Bearer your-token"
-  }
-}
+        # Test a simple query
+        result = await Runner.run(
+            agent, "List all available tools and test the search-actors tool with query 'instagram'"
+        )
+        print(result.final_output)
+
+asyncio.run(main())
 ```
-
-The Actor provides detailed test results including:
-- Individual test records for each tool (dataset output)
-- Overall test summaries with pass/fail statistics (key-value store output)
-- Detailed explanations for each test result
-
-For more information about the architecture and usage, see the [GitHub repository](https://github.com/apify/openai-agent-mcp-tester).
+For comprehensive example with error handling and reporting, refer [OpenAI Agent MCP Tester](https://apify.com/jiri.spilka/openai-agent-mcp-tester) Actor.
+This Actor automates the testing process using OpenAI agents with a two-agent orchestrator pattern (planner and executor), generating detailed reports with pass/fail status for each tool.
 
 ## Related integrations
 

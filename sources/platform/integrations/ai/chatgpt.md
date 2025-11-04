@@ -8,11 +8,7 @@ slug: /integrations/chatgpt
 
 **Learn how to integrate Apify Actors with ChatGPT to provide web context in real-time.**
 
-There are three main ways to integrate the Apify MCP server with OpenAI:
-
-- **ChatGPT**: Add the server as a custom connector tool in ChatGPT (requires developer mode) — **this guide**
-- **OpenAI Assistants API**: Use Apify Actors with OpenAI Assistants via function calling — see [OpenAI Assistants integration](/platform/integrations/openai-assistants)
-- **OpenAI Agents SDK**: Integrate the server within OpenAI agents using the Agents SDK — see [OpenAI Agents SDK integration](/platform/integrations/openai-agents)
+---
 
 ChatGPT provides easy conversational access to OpenAI's large language models (LLMs).
 Until recently, ChatGPT could access third-party data only through plugins or direct API calls.
