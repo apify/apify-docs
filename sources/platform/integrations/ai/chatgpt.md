@@ -99,6 +99,11 @@ By default, the Apify MCP server exposes a set of tools that lets you search and
 - Tool selection and execution can be **slow**, especially with the latest GPT models.
 - **Custom connectors** are only available in ChatGPT **Developer Mode**.
 
+## Related integrations
+
+- [OpenAI Assistants integration](/platform/integrations/openai-assistants) — Use Apify Actors with OpenAI Assistants API via function calling
+- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) — Integrate Apify MCP server with OpenAI Agents SDK
+
 ## References
 
 - [ChatGPT Developer Mode](https://platform.openai.com/docs/guides/developer-mode)

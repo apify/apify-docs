@@ -8,23 +8,10 @@ slug: /integrations/openai-agents
 
 **Learn how to integrate Apify Actors with OpenAI Agents SDK using Model Context Protocol.**
 
-There are three main ways to integrate the Apify MCP server with OpenAI:
-
-- **ChatGPT**: Add the server as a custom connector tool in ChatGPT (requires developer mode) — see [ChatGPT integration](/platform/integrations/chatgpt)
-- **OpenAI Assistants API**: Use Apify Actors with OpenAI Assistants via function calling — see [OpenAI Assistants integration](/platform/integrations/openai-assistants)
-- **OpenAI Agents SDK**: Integrate the server within OpenAI agents using the Agents SDK — **this guide**
-
 ---
 
-## What is OpenAI Agents SDK
-
 The [OpenAI Agents Python SDK](https://openai.github.io/openai-agents-python/) is a framework for building AI agents powered by OpenAI's language models. It provides a simple way to create agents that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://openai.com/research/model-context-protocol).
-
-:::note Explore OpenAI Agents SDK
-
 For more in-depth details on OpenAI Agents SDK, check out its [official documentation](https://openai.github.io/openai-agents-python/).
-
-:::
 
 ## How to use Apify with OpenAI Agents SDK
 
@@ -213,6 +200,11 @@ The Actor provides detailed test results including:
 
 For more information about the architecture and usage, see the [GitHub repository](https://github.com/apify/openai-agent-mcp-tester).
 
+## Related integrations
+
+- [ChatGPT integration](/platform/integrations/chatgpt) — Add Apify MCP server as a custom connector in ChatGPT
+- [OpenAI Assistants integration](/platform/integrations/openai-assistants) — Use Apify Actors with OpenAI Assistants API via function calling
+
 ## Resources
 
 - [OpenAI Agents Python SDK documentation](https://openai.github.io/openai-agents-python/)
@@ -222,9 +214,3 @@ For more information about the architecture and usage, see the [GitHub repositor
 - [Apify MCP server](https://mcp.apify.com)
 - [Apify MCP documentation](https://docs.apify.com/platform/integrations/mcp)
 - [Model Context Protocol specification](https://modelcontextprotocol.io/)
-
-promptIn this tutorial, we will show you how to setup with ChagtGPT and OpenAI Agents using the Model Context Protocol (MCP) server provided by Apify. There are three main ways to integrate the Apify MCP server with OpenAI:
-- *ChatGPT*: Add the server as a custom connector tool in ChatGPT (requires developer mode).
-- *OpenAI API*: Use the server within the responses API endpoint.
-- *OpenAI Agents SDK*: Integrate the server within OpenAI agents using the Agents SDK.
-
