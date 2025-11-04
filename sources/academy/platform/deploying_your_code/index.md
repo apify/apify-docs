@@ -13,10 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This section will discuss how to use your newfound knowledge of the Apify platform and Actors from the [**Getting started**](../getting_started/index.md) section to deploy your existing project's code to the Apify platform as an Actor.
+This section discusses how to use your newfound knowledge of the Apify platform and Actors from the [**Getting started**](../getting_started/index.md) section to deploy your existing project's code to the Apify platform as an Actor.
 Any program running in a Docker container can become an Apify Actor.
-
-![The deployment workflow](../../images/deployment-workflow.png)
 
 Apify provides detailed guidance on how to deploy Node.js and Python programs as Actors, but apart from that you're not limited in what programming language you choose for your scraper.
 
@@ -28,12 +26,12 @@ Here are a few examples of Actors in other languages:
 - [Go Actor](https://apify.com/jirimoravcik/go-actor-example)
 - [Julia Actor](https://apify.com/jirimoravcik/julia-actor-example)
 
-## The "actorification" workflow {#workflow}
+## The "Actorization" workflow {#workflow}
 
 Follow these four main steps to turn a piece of code into an Actor:
 
 1. Handle [accepting inputs and writing outputs](./inputs_outputs.md).
-2. Create an [input schema](./input_schema.md) **(optional)**.
+2. Create an [input schema](./input_schema.md) _(optional)_.
 3. Add a [Dockerfile](./docker_file.md).
 4. [Deploy](./deploying.md) to the Apify platform!
 
@@ -71,10 +69,14 @@ print(add_all_numbers([1, 2, 3, 4])) # -> 10
 </TabItem>
 </Tabs>
 
-> For all lessons in this section, we'll have examples for both Node.js and Python so that you can follow along in either language.
+:::note Language examples
+
+For all lessons in this section, we'll have examples for both Node.js and Python so that you can follow along in either language.
+
+:::
 
 <!-- We've pushed this code to GitHub and are ready to turn it into an Actor that takes any number of integers as input, adds them all up, then stores the solution as its output. -->
 
-## Next up {#next}
+## Next up
 
 [Next lesson](./inputs_outputs.md), we'll be learning how to accept input into our Actor as well as deliver output.

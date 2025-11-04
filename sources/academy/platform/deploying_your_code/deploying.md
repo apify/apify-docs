@@ -1,11 +1,11 @@
 ---
 title: Publishing your Actor
-description: Push local code to the platform, or create a new Actor on the console and integrate it with a Git repository to optionally automatically rebuild any new changes.
+description: Push local code to the platform, or create an Actor and integrate it with a Git repository for automatic rebuilds.
 sidebar_position: 5
 slug: /deploying-your-code/deploying
 ---
 
-**Push local code to the platform, or create a new Actor on the console and integrate it with a Git repository to optionally automatically rebuild any new changes.**
+**Push local code to the platform, or create an Actor and integrate it with a Git repository for automatic rebuilds.**
 
 ---
 
@@ -15,7 +15,11 @@ Once you've **actorified** your code, there are two ways to deploy it to the Api
 
 Before we deploy our project onto the Apify platform, let's ensure that we've pushed the changes we made in the last 3 lessons into our remote GitHub repository.
 
-> The benefit of using this method is that any time you push to the Git repository, the code on the platform is also updated and the Actor is automatically rebuilt. Also, you don't have to use a GitHub repository - you can use GitLab or any other service you'd like.
+:::tip Git integration
+
+The benefit of using this method is that any time you push to the Git repository, the code on the platform is also updated and the Actor is automatically rebuilt. Also, you don't have to use a GitHub repository - you can use GitLab or any other service you'd like.
+
+:::
 
 ### Creating the Actor
 
@@ -45,13 +49,21 @@ That's it! The Actor should now pull its source code from the repository and aut
 
 ## Without a GitHub repository (using the Apify CLI) {#with-apify-cli}
 
-> If you don't yet have the Apify CLI, learn how to install it and log in by following along with [this brief lesson](../../glossary/tools/apify_cli.md) about it.
+:::info CLI prerequisite
+
+If you don't yet have the Apify CLI, learn how to install it and log in by following along with [this brief lesson](../../glossary/tools/apify_cli.md) about it.
+
+:::
 
 If you're logged in to the Apify CLI, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no GitHub repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **.actor/actor.json** file at the root of the project. If you don't already have one, you can use `apify init .` to automatically generate one for you.
 
-One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the **storage** and **node_modules** will be pushed. These files are unnecessary to push, as they are both generated on the platform.
+One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the `storage` and `node_modules` will be pushed. These files are unnecessary to push, as they are both generated on the platform.
 
-> The `apify push` command should only really be used for quickly pushing and testing Actors on the platform during development. If you are ready to make your Actor public, use a Git repository instead, as you will reap the benefits of using Git and others will be able to contribute to the project.
+:::caution Development only
+
+The `apify push` command should only really be used for quickly pushing and testing Actors on the platform during development. If you are ready to make your Actor public, use a Git repository instead, as you will reap the benefits of using Git and others will be able to contribute to the project.
+
+:::
 
 ## Deployed! {#deployed}
 

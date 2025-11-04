@@ -156,5 +156,5 @@ Good job! 🎉 You're ready to develop your Actor. You can make changes to your 
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- Check [Continuous integration](../deployment/continuous_integration.md) documentation to automate your Actor development process.
-- After you finish building your first Actor, you can [share it with other users and even monetize it](../../publishing/index.mdx).
+- Check [Continuous integration](/platform/actors/development/deployment/continuous-integration) documentation to automate your Actor development process.
+- After you finish building your first Actor, you can [share it with other users and even monetize it](/platform/actors/publishing).
