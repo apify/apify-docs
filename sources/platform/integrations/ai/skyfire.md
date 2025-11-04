@@ -12,7 +12,7 @@ Currently, Apify supports agentic payments through **Skyfire**, a payment networ
 
 :::info Experimental Feature
 
-Please keep in mind that agentic payments is an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
+Please keep in mind that agentic payments are an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
 
 :::
 
@@ -88,7 +88,7 @@ For more predictable workflows, you can pre-load specific Actors when connecting
 https://mcp.apify.com?payment=skyfire&actors=actor1,actor2,actor3
 ```
 
-Replace `actor1,actor2,actor3` with the actual Actor IDs you want to make available, such as `junglee/Amazon-crawler,streamers/youtube-scraper`.
+Replace `actor1,actor2,actor3` with the actual Actor IDs you want to make available, such as `junglee/free-amazon-product-scraper,streamers/youtube-scraper`.
 
 ### Actor Discovery
 
