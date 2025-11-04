@@ -2,7 +2,7 @@
 title: OpenAI Agents SDK integration
 sidebar_label: OpenAI Agents SDK
 description: Learn how to integrate Apify with the OpenAI Agents SDK using the Model Context Protocol to build AI agents with web data access.
-sidebar_position: 11
+sidebar_position: 13
 slug: /integrations/openai-agents
 ---
 

@@ -2,7 +2,7 @@
 title: ChatGPT Integration
 sidebar_label: ChatGPT
 description: Learn how to integrate Apify with ChatGPT to provide web context in real-time.
-sidebar_position: 11
+sidebar_position: 12
 slug: /integrations/chatgpt
 ---
 
