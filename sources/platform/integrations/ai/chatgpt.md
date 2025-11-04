@@ -17,6 +17,7 @@ In this tutorial, we will show you how to set up ChatGPT using the Model Context
 ## Prerequisites
 
 To use Apify MCP server with ChatGPT, you need to have:
+
 - An Apify account and an [API token](https://docs.apify.com/platform/integrations/api#api-token).
 - An OpenAI account with access to ChatGPT.
 - ChatGPT account with developer mode enabled.
@@ -83,15 +84,17 @@ You can use any Apify Actor available on the [Apify Store](https://apify.com/sto
 By default, Apify MCP exposes a set of tools that helps you to search any Actor and use it within ChatGPT.
 
 To use any Actor, you can prompt ChatGPT like this:
+
 - "Find and run an Actor that scrapes Instagram profiles, and get profile of @natgeo"
 
 
 ## Limitations
+
 - MCP connection in ChatGPT is still in beta and may have some limitations or bugs.
 - The tool selection and calling is quite slow, especially when using GPT-5 model family.
 - ChatGPT custom connectors are only available to users with developer mode enabled.
 
-## References:
+## References
 
 - [ChatGPT developer mode](https://platform.openai.com/docs/guides/developer-mode)
 - [Connectors and MCP servers](https://platform.openai.com/docs/guides/tools-connectors-mcp)
