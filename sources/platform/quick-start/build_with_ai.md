@@ -1,12 +1,12 @@
 ---
-title: Build with AI
+title: Build Actors with AI
 sidebar_position: 3
 description: Use pre-built prompts, refer to Apify docs via llms.txt, and follow best practices for effective vibe coding.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Use pre-built prompts, reference Apify docs via llms.txt, and follow best practices to build Actors efficiently with AI coding assistants.**
+**Use pre-built prompts, reference Apify documentation through `/llms.txt`, and follow best practices to build Actors efficiently with AI coding assistants.**
 
 ---
 
