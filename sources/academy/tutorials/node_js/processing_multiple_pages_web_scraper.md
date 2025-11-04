@@ -9,9 +9,11 @@ Sometimes you need to process the same URL several times, but each time with a d
 
 Let's illustrate a solution to this problem by creating a scraper which starts with an array of keywords and inputs each of them to Google, one by one. Then it retrieves the results.
 
-> This isn't an efficient solution to searching keywords on Google. You could directly enqueue search URLs like `https://www.google.cz/search?q=KEYWORD`.
+:::note Tutorial focus
 
-> Solving a common problem with scraper automatically deduplicating the same URLs.
+This tutorial demonstrates how to handle a common scenario where scrapers automatically deduplicate URLs. For the most efficient Google searches in production, directly enqueue search URLs like `https://www.google.cz/search?q=KEYWORD` instead of the form-submission approach shown here.
+
+:::
 
 First, we need to start the scraper on the page from which we're going to do our enqueuing. To do that, we create one start URL with the label "enqueue" and URL "https://example.com/". Now we can proceed to enqueue all the pages. The first part of our `pageFunction` will look like this:
 
