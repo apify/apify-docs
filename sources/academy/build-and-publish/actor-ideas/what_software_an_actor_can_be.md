@@ -149,20 +149,20 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 1. _Publish your Actor_: Deploy your Actor on Apify Store and make it live.
 
-1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
+    <!-- 1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
 
-   1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
+    1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea. -->
 
 1. _Monitor and optimize_: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
 
-#### Multiple developers for one idea
+<!-- #### Multiple developers for one idea
 
 Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
 
-Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features.
+Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features. -->
 
 
-### Submit your own ideas
+<!-- ### Submit your own ideas
 
 The Ideas page is also where you contribute concepts to drive innovation in the community.
 
@@ -172,7 +172,7 @@ Here's how you can contribute too:
 Provide clear details about what the tool should do and how it should work.
 
 - _Engage with the community_: Upvote ideas you find intriguing. More support
-increases the likelihood a developer will build it.
+increases the likelihood a developer will build it. -->
 
 ## Find ideas from other sources
 
