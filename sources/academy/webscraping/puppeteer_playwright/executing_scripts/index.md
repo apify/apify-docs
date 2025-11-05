@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/executing-scripts
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Executing scripts {#executing-scripts}
-
 **Understand the two different contexts which your code can be run in, and how to run custom scripts in the context of the browser.**
 
 ---

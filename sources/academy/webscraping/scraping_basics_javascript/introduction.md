@@ -6,8 +6,6 @@ category: courses
 slug: /web-scraping-for-beginners/introduction
 ---
 
-# Introduction {#introduction}
-
 **Start learning about web scraping, web crawling, data extraction, and popular tools to start developing your own scraper.**
 
 ---

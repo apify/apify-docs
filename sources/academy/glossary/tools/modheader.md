@@ -5,8 +5,6 @@ sidebar_position: 9.5
 slug: /tools/modheader
 ---
 
-# What is ModHeader? {#what-is-modheader}
-
 **Discover a super useful Chrome extension called ModHeader, which allows you to modify your browser's HTTP request headers.**
 
 ---

@@ -5,8 +5,6 @@ sidebar_position: 9.8
 slug: /tools/user-agent-switcher
 ---
 
-# User-Agent Switcher
-
 **Learn how to switch your User-Agent header to different values in order to monitor how a certain site responds to the changes.**
 
 ---

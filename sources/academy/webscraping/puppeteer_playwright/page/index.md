@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/page
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Opening a page {#opening-a-page}
-
 **Learn how to create and open a Page with a Browser, and how to use it to visit and programmatically interact with a website.**
 
 ---

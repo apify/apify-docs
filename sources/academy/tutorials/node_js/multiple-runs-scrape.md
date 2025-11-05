@@ -5,8 +5,6 @@ sidebar_position: 15.10
 slug: /node-js/multiple-runs-scrape
 ---
 
-# Scrape website in parallel with multiple Actor runs
-
 **Learn how to run multiple instances of an Actor to scrape a website faster. This tutorial will guide you through the process of setting up your scraper.**
 
 ---

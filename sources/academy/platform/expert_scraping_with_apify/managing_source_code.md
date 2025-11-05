@@ -5,8 +5,6 @@ sidebar_position: 6.2
 slug: /expert-scraping-with-apify/managing-source-code
 ---
 
-# Managing source code {#managing-source-code}
-
 **Learn how to manage your Actor's source code more efficiently by integrating it with a GitHub repository. This is standard on the Apify platform.**
 
 ---

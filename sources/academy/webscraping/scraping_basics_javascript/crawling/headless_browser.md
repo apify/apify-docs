@@ -8,8 +8,6 @@ slug: /web-scraping-for-beginners/crawling/headless-browser
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Headless browsers {#headless-browser}
-
 **Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.**
 
 ---

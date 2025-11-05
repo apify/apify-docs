@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/executing-scripts/collecting-data
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Extracting data {#extracting-data}
-
 **Learn how to extract data from a page with evaluate functions, then how to parse it by using a second library called Cheerio.**
 
 ---

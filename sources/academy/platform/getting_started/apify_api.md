@@ -1,5 +1,5 @@
 ---
-title: Apify API
+title: The Apify API
 description: Learn how to use the Apify API to programmatically call your Actors, retrieve data stored on the platform, view Actor logs, and more!
 sidebar_position: 4
 slug: /getting-started/apify-api

@@ -5,8 +5,6 @@ sidebar_position: 7
 slug: /web-scraping-for-beginners/crawling/pro-scraping
 ---
 
-# Professional scraping 👷 {#pro-scraping}
-
 **Learn how to build scrapers quicker and get better and more robust results by using Crawlee, an open-source library for scraping in Node.js.**
 
 ---
@@ -53,7 +51,7 @@ To use Crawlee, we have to install it from npm. Let's add it to our project from
 npm install crawlee
 ```
 
-After the installation completes, create a new file called **crawlee.js** and add the following code to it:
+After the installation completes, create a new file called `crawlee.js` and add the following code to it:
 
 ```js title=crawlee.js
 import { CheerioCrawler } from 'crawlee';

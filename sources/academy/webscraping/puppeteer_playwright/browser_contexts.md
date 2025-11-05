@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/browser-contexts
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Creating multiple browser contexts {#creating-browser-contexts}
-
 **Learn what a browser context is, how to create one, how to emulate devices, and how to use browser contexts to automate multiple sessions at one time.**
 
 ---

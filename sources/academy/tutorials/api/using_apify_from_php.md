@@ -4,8 +4,6 @@ description: Learn how to access Apify's REST API endpoints from your PHP projec
 slug: /php/use-apify-from-php
 ---
 
-# How to use Apify from PHP
-
 Apify's [RESTful API](https://docs.apify.com/api/v2#) allows you to use the platform from basically anywhere. Many projects are and will continue to be built using [PHP](https://www.php.net/). This tutorial enables you to use Apify in these projects in PHP and frameworks built on it.
 
 Apify does not have an official PHP client (yet), so we are going to use [guzzle](https://github.com/guzzle/guzzle), a great library for HTTP requests. By covering a few fundamental endpoints, this tutorial will show you the principles you can use for all Apify API endpoints.

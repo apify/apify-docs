@@ -5,8 +5,6 @@ sidebar_position: 9.6
 slug: /tools/switchyomega
 ---
 
-# What is SwitchyOmega? {#what-is-switchyomega}
-
 **Discover SwitchyOmega, a Chrome extension to manage and switch between proxies, which is extremely useful when testing proxies for a scraper.**
 
 ---
