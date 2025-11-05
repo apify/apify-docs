@@ -1,17 +1,17 @@
 ---
 title: Managing Actor inputs and outputs
-description: Learn to accept input into your Actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.
+description: Learn to accept input into your Actor, process it, and return output. This concept applies to Actors in any language.
 sidebar_position: 1
 slug: /deploying-your-code/inputs-outputs
 ---
 
-**Learn to accept input into your Actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.**
+**Learn to accept input into your Actor, process it, and return output. This concept applies to Actors in any language.**
 
 ---
 
 Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. Apify provides a convenient way to handle inputs and deliver outputs.
 
-An important thing to understand regarding inputs and outputs is that they are read/written differently depending on where the Actor is running:
+Understanding inputs and outputs is essential because they are read/written differently depending on where the Actor is running:
 
 - If your Actor is running locally, the inputs/outputs are usually provided in the filesystem, and environment variables are injected either by you, the developer, or by the Apify CLI by running the project with the `apify run` command.
 
@@ -160,7 +160,11 @@ await Actor.exit();
 
 Just as with the custom `get_input()` utility function, you can write a custom `set_output()` function as well if you cannot use the Apify SDK.
 
-> You can read and write your output anywhere; however, it is standard practice to use a folder named **storage**.
+:::note Storage location
+
+You can read and write your output anywhere; however, it is standard practice to use a folder named `storage`.
+
+:::
 
 ```py
 # index.py
