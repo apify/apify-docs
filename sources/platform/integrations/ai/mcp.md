@@ -84,7 +84,13 @@ Here's how to add the Apify MCP server to popular text editors and AI assistants
 <Tabs>
 <TabItem value="cursor" label="Cursor">
 
-To add Apify MCP server to Cursor:
+:::tip One-click installation
+
+The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install button for Cursor that automatically applies the configuration to your client.
+
+:::
+
+To add Apify MCP server to Cursor manually:
 
 1. Create or open the `.cursor/mcp.json` file.
 1. Add the following to the configuration file:
@@ -130,7 +136,13 @@ To add Apify MCP server to Cursor:
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-VS Code supports MCP through GitHub Copilot's agent mode(requires Copilot subscription):
+:::tip One-click installation
+
+The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install button for VS Code that automatically applies the configuration to your client.
+
+:::
+
+VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subscription):
 
 1. Ensure you have GitHub Copilot installed
 1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run _MCP: Open User Configuration_ command.

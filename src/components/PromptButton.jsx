@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { QUICK_START_PROMPT } from '../utils/ai-prompts';
+import { QUICK_START_PROMPT } from '../utils/quick-start-prompt';
 import styles from './PromptButton.module.css';
 
 export default function PromptButton({ prompt = QUICK_START_PROMPT, title = 'Use pre-built prompt to get started faster.' }) {
@@ -56,7 +56,7 @@ export default function PromptButton({ prompt = QUICK_START_PROMPT, title = 'Use
                         className={styles['toggle-button']}
                         onClick={togglePrompt}
                     >
-                        {showPrompt ? 'Hide the prompt' : 'Show the prompt'}
+                        {showPrompt ? 'Hide prompt' : 'Show prompt'}
                     </button>
                     <button
                         className={`${styles['copy-button']} ${copied ? styles.copied : ''}`}
