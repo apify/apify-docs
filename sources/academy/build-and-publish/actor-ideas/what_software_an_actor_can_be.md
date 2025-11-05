@@ -139,6 +139,14 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 ### Browse and claim ideas
 
+:::note Join The Apify $1M Challenge
+
+Build and publish new tools on Apify and have multiple chances to win big prizes.
+
+[Join the challenge now.](https://apify.com/challenge)
+
+:::
+
 1. _Visit_ [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
 
 1. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.
@@ -149,20 +157,20 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 1. _Publish your Actor_: Deploy your Actor on Apify Store and make it live.
 
-1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
+    <!-- 1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
 
-   1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
+    1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea. -->
 
 1. _Monitor and optimize_: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
 
-#### Multiple developers for one idea
+<!-- #### Multiple developers for one idea
 
 Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
 
-Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features.
+Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features. -->
 
 
-### Submit your own ideas
+<!-- ### Submit your own ideas
 
 The Ideas page is also where you contribute concepts to drive innovation in the community.
 
@@ -172,7 +180,7 @@ Here's how you can contribute too:
 Provide clear details about what the tool should do and how it should work.
 
 - _Engage with the community_: Upvote ideas you find intriguing. More support
-increases the likelihood a developer will build it.
+increases the likelihood a developer will build it. -->
 
 ## Find ideas from other sources
 
