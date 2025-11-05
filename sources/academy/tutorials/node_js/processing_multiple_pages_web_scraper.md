@@ -11,7 +11,7 @@ Let's illustrate a solution to this problem by creating a scraper which starts w
 
 :::note Tutorial focus
 
-This tutorial demonstrates how to handle a common scenario where scrapers automatically deduplicate URLs. For the most efficient Google searches in production, directly enqueue search URLs like `https://www.google.cz/search?q=KEYWORD` instead of the form-submission approach shown here.
+This tutorial demonstrates how to handle a common scenario where scrapers automatically deduplicate URLs. For the most efficient Google searches in production, directly enqueue search URLs like `https://www.google.com/search?q=KEYWORD` instead of the form-submission approach shown here.
 
 :::
 
