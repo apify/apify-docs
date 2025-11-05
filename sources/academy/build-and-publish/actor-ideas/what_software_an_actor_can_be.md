@@ -139,11 +139,11 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 ### Browse and claim ideas
 
-:::tip Join The Apify $1M Challenge
+:::note Join The Apify $1M Challenge
 
-Build and publish new tools on Apify and have chance to win big prizes.
+Build and publish new tools on Apify and have multiple chances to win big prizes.
 
-Visit the [Challenge](https://apify.com/challenge) website to learn more.
+[Join the challenge now.](https://apify.com/challenge)
 
 :::
 
