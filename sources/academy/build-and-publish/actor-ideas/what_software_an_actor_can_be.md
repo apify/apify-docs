@@ -104,7 +104,7 @@ including the new agentic payments protocols.
 Examples:
 
 - [Playwright MCP Server](https://apify.com/jiri.spilka/playwright-mcp-server)
-- [Browserbase MCP Server](https://apify.com/mcp-servers/browserbase-mcp-server)
+- [Browserbase MCP Server](https://apify.com/agentify/browserbase-mcp-server/api/mcp)
 - [Firecrawl MCP Server](https://apify.com/agentify/firecrawl-mcp-server)
 - [Brave Search MCP Server](https://apify.com/agentify/brave-search-mcp-server)
 
