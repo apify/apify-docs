@@ -34,7 +34,7 @@ When a user runs an Actor, it receives an Apify API token. Traditionally, this t
 Actors with **limited permissions** receive a restricted token. This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases. A limited-permission Actor can:
 
 - Read and write to its default storages.
-- Update the current run’s status, abort the run, or [metamorph](../programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
+- Update the current run’s status, abort the run, or [metamorph](../development/programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
 - Read basic user information (whether the user is paying, proxy password, public profile) from the environment.
 - Read or also write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
 - Run any other Actor with limited permissions.
