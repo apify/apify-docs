@@ -881,14 +881,17 @@ Properties:
 | `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain. Only for `type: array`              |
 | `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain. Only for `type: array`              |
 
-### Resource permissions
+#### Resource permissions
 
-The `resourcePermissions` field expresses **what operations your Actor needs on the user-selected storage(s)**. It is evaluated at run start and used to expand a [Limited-permissions Actor's](../../permissions/index.md#) scope to be able to access the resource sent via Actor's input.
+If your actor actor runs with limited permissions it needs to declare what kind of access needs to the resources supplied via the input.  The `resourcePermissions` field expresses **what operations your Actor needs on the user-selected storage(s)**. It is evaluated at run start and used to expand a [Limited-permissions Actor's](../../permissions/index.md#) scope to be able to access the resource sent via Actor's input.
 
 - `["READ"]` — the Actor may read from the referenced resource(s).
 - `["READ", "WRITE"]` — the Actor may read and write to the referenced resource(s).
 
-Notes:
+:::note Keep in mind
 - This setting does not change field visibility or it being required in the UI; it only defines runtime access for the selected resource(s).
 - For array fields (`type: array`), the same permissions apply to **each** selected resource.
 - If your Actor attempts an operation without the requested permission (e.g., attempts to write with a read-only access), the run will fail with an insufficient-permissions error.
+- Your users will [see what permissions you require in the input's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store)
+
+:::

@@ -5,29 +5,30 @@ sidebar_position: 7.5
 slug: /actors/development/permissions
 ---
 
-**Learn how to declare and manage permissions for your Actor, what access levels mean, and how to build secure, trusted Actors for Apify users.**
+**Learn how to declare and manage permissions for your Actor, what permission levels mean, and how to build secure, trusted Actors for Apify users.**
 
 ---
 
 Every time a user runs your Actor, it runs under their Apify account. **Actor Permissions** is an Actor level setting that defines the level of access your Actor needs to be able to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
 
 There are two levels of access your Actors can request:
-- **Limited permissions (preferred):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
+- **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
-Most Actors should
+Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actor permission level.
+When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actors permission level.
 
 Actors with **full permissions** receive a token with full access to the users account, this token grants access to the user's entire Apify account via Apify API.
 
-Actors with **limited permissions** receive [a restricted scoped token](link). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases. A limited-permission Actor can:
+Actors with **limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
+ A limited-permission Actor can:
 - Read and write to its default storages.
-- Update the current run’s status, abort the run, or metamorph to another Actor (as long as it also has limited permissions).
-- Read basic user information (whether the user is paying, proxy password, public profile).
+- Update the current run’s status, abort the run, or [metamorph](../programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
+- Read basic user information (whether the user is paying, proxy password, public profile) from the environment.
 - Read or also write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
 - Run any other Actor with limited permissions.
 - Create any additional storage, and write to that storage.
@@ -35,9 +36,6 @@ Actors with **limited permissions** receive [a restricted scoped token](link). T
 
 This approach ensures your Actor has everything it needs to function while protecting user data from unnecessary exposure.
 
-### Accessing user provided storages
-
-TODO: a section detailing how a limited permission actor can expand its scope
 
 ### Declaring permissions
 
@@ -47,14 +45,93 @@ You can set the permission level for your Actor in the Apify Console under its *
 
 ### End-user experience
 
-Initially, users will begin to see a gray, muted badge on your Actor's detail page indicating whether it requires "Limited permissions" or "Full permissions". At this stage, the experience of running an Actor will not change for the user.
+Currently, users will see a gray, muted badge on your Actor's detail page indicating whether it requires "Limited permissions" or "Full permissions". At this stage, the experience of running an Actor will not change for the user.
 
 ![User experience for users viewing limited permission Actor in console](./images/end_user_ux_limited_permissions.png)
 
 ![User experience for users viewing full permission Actor in console](./images/end_user_ux_full_permissions.png)
 
+:::warning
+
+Actor permissions are a new feature. With the initial release, the distinction between full-permissions and limited-permissions Actors is primarily informational, but it will become increasingly significant over time. Users will be asked to explicitly confirm when running full-permissions Actors, and these Actors may receive a lower[Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store. Whenever possible, prefer limited permissions and request only the access your Actor truly needs.
+
+:::
+
+
+### Accessing user provided storages
+
+Limited-permissions Actors can access storages that users explicitly provide via the Actor input. Use the input schema to add a storage picker and declare exactly which operations your Actor needs.
+
+- Add a field with `editor: "resourcePicker"`.
+- Set `resourceType` to one of `dataset`, `keyValueStore`, or `requestQueue`.
+- Specify `resourcePermissions` with the minimal required scope: `"READ"` or `"READ", "WRITE"`.
+
+Example input schema field (single resource):
+
+```json
+{
+  "title": "Output dataset",
+  "type": "string",
+  "editor": "resourcePicker",
+  "resourceType": "dataset",
+  "resourcePermissions": ["READ", "WRITE"]
+}
+```
+
+Selecting multiple resources:
+
+- Use `type: "array"` to let users choose more than one storage.
+- The same `resourcePermissions` apply to each selected resource.
+
+```json
+{
+  "title": "Source datasets",
+  "type": "array",
+  "editor": "resourcePicker",
+  "resourceType": "dataset",
+  "resourcePermissions": ["READ"],
+  "minItems": 1
+}
+```
+
+Behavior at run time:
+
+- The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
+- If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
+
+See the full input schema reference for details: [Input schema specification](../actor_definition/input_schema/specification.md).
+
 ### Impact of permission level
 
-TODO: Section about current and future implications of keeping an actor on full
+Current implications:
 
-TODO: Link to migration guide or inline it fully
+- Your Actor’s detail page shows a visible permission badge (limited vs full).
+- Limited-permissions Actors align with the least-privilege principle and typically lead to higher user trust and adoption.
+- Users may be prompted to explicitly confirm before running full-permissions Actors (progressively rolling out).
+
+Future implications:
+
+- Full-permissions Actors may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce ranking and visibility in the store.
+- Additional friction may be added to running full-permissions Actors (e.g., stronger confirmations and warnings).
+- Some platform features and recommendations may prioritize limited-permissions Actors by default.
+
+:::info
+
+To learn how to migrate your Actors to run under limited permissions, see the [Migration guide](./migration_guide.md)
+
+:::
+
+## Requesting full permissions
+
+Designing your Actors to work under limited permissions is the recommended approach, it helps your Actor get higher [Actor Quality score](../../publishing/quality_score.mdx#Trustworthiness), . However, some use cases do legitimately require more access to users data (e.g. to perform administrative tasks, manage or orchestrate other actors. etc.). If your Actor falls in this category or cannot function with limited permissions for another reason:
+
+- To keep user trust and set correct user expectations, explain why you need Full permissions access in your Actor's README
+- Set the permission level in the Actor’s **Settings** in Console to **Full permissions**.
+- Be aware of [UX implications](#end-user-experience) and impact on [Actor Quality score](../../publishing/quality_score.mdx) for full-permission Actors.
+
+
+:::info
+
+Actor permissions are a new feature. If something is preventing you from migrating to limited permissions or you have a use case that you think should work under limited permissions and it does not, please reach out to support or talk to us on the community forum.
+
+:::
