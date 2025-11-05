@@ -18,7 +18,7 @@ The approach is similar to mobile platforms (Android, iOS) where each app has to
 The permissions model follows the principle of least privilege. Actors run only with the access they explicitly request, giving users transparency and control over what the Actor can access in their account.
 
 There are two permission levels:
-  - **Limited permissions (default)** — Actors with this permission level have restricted access, primarily to their own storages, the data they generate and resources they are given explicit access to. They cannot access any other user data on the Apify platform.
+  - **Limited permissions (default)** — Actors with this permission level have restricted access, primarily to their own storages, the data they generate and resources they are given an explicit access to. They cannot access any other data in your Apify account.
   - **Full permissions** — grants the Actor a access to all data in your Apify account.
 
 
@@ -33,15 +33,15 @@ When a user runs an Actor, it receives an Apify API token. Traditionally, this t
 
 Actors with **limited permissions** receive a restricted token. This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases. A limited-permission Actor can:
 
-- 🔑 Read and write to its default storages.
-- 🔑 Update the current run’s status, abort the run, or metamorph to another Actor (as long as it also has limited permissions).
-- 🔑 Read basic user information (whether the user is paying, proxy password, public profile).
-- 🔑 Read or also write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
-- 🔑 Run any other Actor with limited permissions.
-- 🔑 Create any additional storage, and write to that storage.
-- 🔑 Read and write to storages created in previous runs.
+- Read and write to its default storages.
+- Update the current run’s status, abort the run, or [metamorph](../programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
+- Read basic user information (whether the user is paying, proxy password, public profile) from the environment.
+- Read or also write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
+- Run any other Actor with limited permissions.
+- Create any additional storage, and write to that storage.
+- Read and write to storages created in previous runs.
 
-This approach ensures your Actor has everything it needs to function while protecting user data from unnecessary exposure.
+This approach ensures the Actor has everything it needs to function while protecting your data from unnecessary exposure.
 
 
 ### Recognizing permission levels in Console and Store
