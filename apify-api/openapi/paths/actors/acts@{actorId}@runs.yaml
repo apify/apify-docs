@@ -275,6 +275,20 @@ post:
       schema:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+    - name: forcePermissionLevel
+      in: query
+      description: |
+        Overrides the Actor's configured permission level for this run only. Useful for testing limited permissions
+        before migrating your Actor or temporarily elevating/restricting access. If not provided, the Actor's default
+        permission level is used. For more information on permissions see [the documentation](https://docs.apify.com/platform/actors/development/permissions)
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - LIMITED_PERMISSIONS
+          - FULL_PERMISSIONS
+        example: LIMITED_PERMISSIONS
   requestBody:
     description: ''
     content:
