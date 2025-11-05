@@ -18,7 +18,6 @@ Recommended minimum SDK versions:
 
 Before you start it's helpful to understand [what access restrictions do limited permission impose](./index#how-actor-permissions-work).
 
-
 ## How to test my Actor with limited permissions before migrating
 
 You can override permission level for a single run using run options under Actor Source tab in Console:
@@ -81,7 +80,7 @@ To support limited permissions, change it to this:
 {
     "title": "Output",
     "type": "string",
-		"description": "Select a dataset for the Actor results",
+        "description": "Select a dataset for the Actor results",
     "resourceType": "dataset",
     "resourcePermissions": ["READ", "WRITE"],
     "editor": "textfield", // If you want to preserve the plain "string" input UI, instead of rich resource picker.
@@ -115,14 +114,14 @@ const NEW_CACHE_STORE_NAME = 'my-actor-cache-updated';
 let store;
 
 if (process.env.ACTOR_PERMISSION_LEVEL === 'LIMITED_PERMISSIONS') {
-	// If the Actor is running with limited permissions and we need to create
-	// a new store. The platform will remember that the store was created by this Actor
-	// and will allow access in all follow-up runs.
-	store = await Actor.openKeyValueStore(NEW_CACHE_STORE_NAME);
+    // If the Actor is running with limited permissions and we need to create
+    // a new store. The platform will remember that the store was created by this Actor
+    // and will allow access in all follow-up runs.
+    store = await Actor.openKeyValueStore(NEW_CACHE_STORE_NAME);
 } else {
   // If the Actor is still running with full permissions and we should use
-	// the existing store.
-	store = await Actor.openKeyValueStore(OLD_CACHE_STORE_NAME);
+    // the existing store.
+    store = await Actor.openKeyValueStore(OLD_CACHE_STORE_NAME);
 }
 ```
 
@@ -145,5 +144,3 @@ const { userIsPaying } = Actor.getEnv();
 ## The Actor uses proxy
 
 Similarly, if your Actor needs the user's proxy password, it should get it from the `APIFY_PROXY_PASSWORD` environment variable instead of calling the `/users/me` endpoint, or  preferably just rely on the SDK to take care of the documentation.
-
-

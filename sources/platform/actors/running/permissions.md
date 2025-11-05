@@ -18,8 +18,8 @@ The approach is similar to mobile platforms (Android, iOS) where each app has to
 The permissions model follows the principle of least privilege. Actors run only with the access they explicitly request, giving users transparency and control over what the Actor can access in their account.
 
 There are two permission levels:
-  - **Limited permissions (default)** — Actors with this permission level have restricted access, primarily to their own storages, the data they generate and resources they are given an explicit access to. They cannot access any other data in your Apify account.
-  - **Full permissions** — grants the Actor a access to all data in your Apify account.
+- **Limited permissions (default)** — Actors with this permission level have restricted access, primarily to their own storages, the data they generate and resources they are given an explicit access to. They cannot access any other data in your Apify account.
+- **Full permissions** — grants the Actor a access to all data in your Apify account.
 
 
 This model protects your data and strengthens platform security by clearly showing what level of access each Actor requires.
@@ -55,6 +55,3 @@ When you browse Actors in Apify Console or Store, you’ll notice a small badge 
 ![Full-permissions badge shown on Actor detail page](../development/permissions/images/end_user_ux_full_permissions.png)
 
 Over time, the distinction between these permission levels will be more visible — for example, Actors requiring full permissions will have an orange badge, might rank lower in the Store or show additional confirmation dialogs. Whenever possible, prefer Actors that use **limited permissions**: they’re safer, easier to trust, and still powerful enough for most workflows.
-
-
-

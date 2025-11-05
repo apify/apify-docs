@@ -12,6 +12,7 @@ slug: /actors/development/permissions
 Every time a user runs your Actor, it runs under their Apify account. **Actor Permissions** is an Actor level setting that defines the level of access your Actor needs to be able to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
 
 There are two levels of access your Actors can request:
+
 - **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
@@ -26,6 +27,7 @@ Actors with **full permissions** receive a token with full access to the users a
 Actors with **limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
  A limited-permission Actor can:
+
 - Read and write to its default storages.
 - Update the current run’s status, abort the run, or [metamorph](../programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
 - Read basic user information (whether the user is paying, proxy password, public profile) from the environment.
