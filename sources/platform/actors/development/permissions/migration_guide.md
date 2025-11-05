@@ -9,14 +9,14 @@ slug: /actors/development/permissions/migration-guide
 
 ---
 
-Use this guide to migrate existing Actors to use [limited permissions](./index.md#how-actor-permissions-work). The general prerequisite is to update to the latest [Apify SDK](https://docs.apify.com/sdk).
+Use this guide to migrate existing Actors to use [limited permissions](index.md#how-actor-permissions-work). The general prerequisite is to update to the latest [Apify SDK](https://docs.apify.com/sdk).
 
 Recommended minimum SDK versions:
 
 - JavaScript SDK: [apify@3.4.4](https://github.com/apify/apify-sdk-js/releases/tag/apify%403.4.4)
 - Python SDK: [v3.0.0](https://github.com/apify/apify-sdk-python/releases/tag/v3.0.0)
 
-Before you start it's helpful to understand [what access restrictions do limited permission impose](./index#how-actor-permissions-work).
+Before you start it's helpful to understand [what access restrictions limited permission impose](index.md#how-actor-permissions-work).
 
 ## How to test my Actor with limited permissions before migrating
 
