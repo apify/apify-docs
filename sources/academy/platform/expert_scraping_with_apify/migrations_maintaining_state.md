@@ -1,11 +1,10 @@
 ---
-title: V - Migrations & maintaining state
+title: Migrations & maintaining state
 description: Learn about what Actor migrations are and how to handle them properly so that the state is not lost and runs can safely be resurrected.
 sidebar_position: 6.5
+sidebar_label: V - Migrations & maintaining state
 slug: /expert-scraping-with-apify/migrations-maintaining-state
 ---
-
-# Migrations & maintaining state {#migrations-maintaining-state}
 
 **Learn about what Actor migrations are and how to handle them properly so that the state is not lost and runs can safely be resurrected.**
 
