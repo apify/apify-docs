@@ -1,11 +1,9 @@
 ---
-title: Cookies, headers, and tokens
+title: Dealing with headers, cookies, and tokens
 description: Learn about how some APIs require certain cookies, headers, and/or tokens to be present in a request in order for data to be received.
 sidebar_position: 2
 slug: /api-scraping/general-api-scraping/cookies-headers-tokens
 ---
-
-# Dealing with headers, cookies, and tokens {#challenges}
 
 **Learn about how some APIs require certain cookies, headers, and/or tokens to be present in a request in order for data to be received.**
 
@@ -17,8 +15,8 @@ Luckily, there are ways to retrieve and set cookies for requests prior to sendin
 
 ## Cookies {#cookies}
 
-1. For sites that heavily rely on cookies for user-verification and request authorization, certain generic requests (such as to the website's main page, or to the target page) will return back a (or multiple) `set-cookie` header(s).
-2. The `set-cookie` response header(s) can be parsed and used as the `cookie` header in the headers of a request. A great package for parsing these values from a response's headers is [`set-cookie-parser`](https://www.npmjs.com/package/set-cookie-parser). With this package, cookies can be parsed from headers like so:
+1. For sites that heavily rely on cookies for user-verification and request authorization, certain generic requests (such as to the website's main page, or to the target page) will return back a (or multiple) `set-cookie` headers.
+2. The `set-cookie` response headers can be parsed and used as the `cookie` header in the headers of a request. A great package for parsing these values from a response's headers is [`set-cookie-parser`](https://www.npmjs.com/package/set-cookie-parser). With this package, cookies can be parsed from headers like so:
 
 ```js
 import axios from 'axios';

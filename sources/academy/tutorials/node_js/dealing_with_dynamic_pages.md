@@ -7,8 +7,6 @@ slug: /node-js/dealing-with-dynamic-pages
 
 import Example from '!!raw-loader!roa-loader!./dealing_with_dynamic_pages.js';
 
-# How to scrape from dynamic pages {#dealing-with-dynamic-pages}
-
 **Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?**
 
 ---

@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 ---
 
-# Integrating webhooks {#integrating-webhooks}
-
 **Learn how to integrate webhooks into your Actors. Webhooks are a super powerful tool, and can be used to do almost anything!**
 
 ---

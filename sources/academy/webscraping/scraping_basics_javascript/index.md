@@ -7,8 +7,6 @@ category: web scraping
 slug: /web-scraping-for-beginners
 ---
 
-# Web scraping basics for JavaScript devs {#welcome}
-
 **Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.**
 
 ---

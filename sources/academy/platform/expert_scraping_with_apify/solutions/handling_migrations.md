@@ -5,8 +5,6 @@ sidebar_position: 5
 slug: /expert-scraping-with-apify/solutions/handling-migrations
 ---
 
-# Handling migrations {#handling-migrations}
-
 **Get real-world experience of maintaining a stateful object stored in memory, which will be persisted through migrations and even graceful aborts.**
 
 ---

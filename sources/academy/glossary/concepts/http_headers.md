@@ -5,8 +5,6 @@ sidebar_position: 8.1
 slug: /concepts/http-headers
 ---
 
-# HTTP headers {#headers}
-
 **Understand what HTTP headers are, what they're used for, and three of the biggest differences between HTTP/1.1 and HTTP/2 headers.**
 
 ---

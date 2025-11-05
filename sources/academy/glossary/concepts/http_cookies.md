@@ -5,8 +5,6 @@ sidebar_position: 8.2
 slug: /concepts/http-cookies
 ---
 
-# HTTP cookies {#cookies}
-
 **Learn a bit about what cookies are, and how they are utilized in scrapers to appear logged-in, view specific data, or even avoid blocking.**
 
 ---
