@@ -6,8 +6,6 @@ category: apify platform
 slug: /apify-platform
 ---
 
-# Introduction to the Apify platform {#about-the-platform}
-
 **Learn all about the Apify platform, all of the tools it offers, and how it can improve your overall development experience.**
 
 ---

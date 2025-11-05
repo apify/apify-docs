@@ -1,0 +1,19 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left nodes (API input) -->
+    <circle cx="3" cy="5" r="1.5" fill="#1672EB"/>
+    <circle cx="3" cy="10" r="1.5" fill="#1672EB"/>
+    <circle cx="3" cy="15" r="1.5" fill="#1672EB"/>
+
+    <!-- Middle nodes (processing) -->
+    <circle cx="10" cy="3" r="1.5" fill="#1672EB"/>
+    <circle cx="10" cy="10" r="2" fill="#1672EB"/>
+    <circle cx="10" cy="17" r="1.5" fill="#1672EB"/>
+
+    <!-- Right nodes (AI output) -->
+    <circle cx="17" cy="5" r="1.5" fill="#1672EB"/>
+    <circle cx="17" cy="10" r="1.5" fill="#1672EB"/>
+    <circle cx="17" cy="15" r="1.5" fill="#1672EB"/>
+
+    <!-- Connections - creating a web of interconnected paths -->
+    <path d="M4.5 5L8.5 3M4.5 10L8 10M4.5 15L8.5 17M11.5 3L15.5 5M12 10L15.5 10M11.5 17L15.5 15M4.5 5L8 10M4.5 15L8 10M11.5 3L15.5 10M11.5 17L15.5 10" stroke="#1672EB" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+</svg>
