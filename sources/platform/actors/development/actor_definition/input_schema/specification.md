@@ -877,7 +877,7 @@ Rendered input:
 | `type`         | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                 |
 | `editor`       | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                               |
 | `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                          |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resource(s). Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes.|
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes.|
 | `pattern`      | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
 | `minLength`    | Integer                                                                           | No       | Minimum length of the string.                                                                            |
 | `maxLength`    | Integer                                                                           | No       | Maximum length of the string.                                                                            |
@@ -895,7 +895,7 @@ Rendered input:
 
 #### Resource permissions
 
-If your Actor runs with limited permissions it needs to declare what kind of access needs to the resources supplied via the input. The `resourcePermissions` field expresses **what operations your Actor needs on the user-selected storage(s)**. It is evaluated at run start and used to expand a [Limited-permissions Actors](../../permissions/index.md#) scope to be able to access the resource sent via Actor's input.
+If your Actor runs with limited permissions it needs to declare what kind of access needs to the resources supplied via the input. The `resourcePermissions` field expresses **what operations your Actor needs on the user-selected storages**. It is evaluated at run start and used to expand a [Limited-permissions Actors](../../permissions/index.md#) scope to be able to access the resource sent via Actor's input.
 
 - `["READ"]` — the Actor may read from the referenced resources.
 - `["READ", "WRITE"]` — the Actor may read and write to the referenced resources.
