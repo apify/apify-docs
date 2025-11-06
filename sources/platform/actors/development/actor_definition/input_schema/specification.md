@@ -523,7 +523,7 @@ For example, in the input schema like this:
 
 The `timeout` sub-property will have a default value of `60` (from the parent object), while the `locale` sub-property will have a default value of `"en-US"` (from its own definition).
 
-#### `schemaBased` editor
+#### Schema-based editor
 
 Object with sub-schema defined can use the `schemaBased` editor, which provides a user-friendly interface for editing each property individually.
 It renders all properties based on their type (and `editor` field), providing a user-friendly interface for complex objects.
