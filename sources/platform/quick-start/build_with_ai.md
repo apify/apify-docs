@@ -16,9 +16,7 @@ import PromptButton from "@site/src/components/PromptButton";
 import InstallMCPButton from "@site/src/components/InstallMCPButton";
 import copyForAI from "./images/copy-for-ai.png";
 
-This guide provides best practices for building new Actors or improving existing ones using AI code generation
-and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code,
-by providing the AI agents with the right instructions and context.
+This guide provides best practices for building new Actors or improving existing ones using AI code generation and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code, by providing the AI agents with the right instructions and context.
 
 ## AI coding assistant instructions
 
