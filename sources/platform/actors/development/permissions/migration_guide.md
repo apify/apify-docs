@@ -140,7 +140,7 @@ If the existing contents of the named storage are critical for your Actor to kee
 
 ### The Actor needs to know whether the user is paying
 
-Some Actors have different logic for free and paying users. Previously you could retrieve this information by calling the `/users/me` API endpoint. However, Actors running under limited permissions don't have access to that endpoint, to get this information, your Actor should read the `APIFY_USER_IS_PAYING` environment variable, or directly use the SDK to obtain the value:
+Some Actors have different logic for free and paying users. Previously you could retrieve this information by calling the `/users/me` API endpoint. However, Actors running under limited permissions don't have access to that endpoint. To get this information, your Actor should read the `APIFY_USER_IS_PAYING` environment variable, or directly use the SDK to obtain the value:
 
 ```ts
 const { userIsPaying } = Actor.getEnv();
