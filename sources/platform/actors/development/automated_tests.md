@@ -124,7 +124,7 @@ await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
 },
 
 // This also checks for existence of the key-value key
-{ keyName: 'apify.com-scroll_losless-comp' },
+{ keyName: 'apify.com-scroll_lossless-comp' },
 );
 ```
 
