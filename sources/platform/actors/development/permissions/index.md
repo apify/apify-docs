@@ -38,6 +38,11 @@ Actors with **limited permissions** receive [a restricted scoped token](../../..
 
 This approach ensures your Actor has everything it needs to function while protecting user data from unnecessary exposure.
 
+:::info
+
+To learn how to migrate your Actors to run under limited permissions, see the [Migration guide](./migration_guide.md)
+
+:::
 
 ### Declaring permissions
 
@@ -47,7 +52,7 @@ You can set the permission level for your Actor in the Apify Console under its *
 
 ### End-user experience
 
-Currently, users will see a gray, muted badge on your Actor's detail page indicating whether it requires "Limited permissions" or "Full permissions". At this stage, the experience of running an Actor will not change for the user.
+Currently, users will see a visible permission badge on your Actor's detail page indicating whether it requires "Limited permissions" or "Full permissions". At this stage, the experience of running an Actor will not change for the user.
 
 ![User experience for users viewing limited permission Actor in console](./images/end_user_ux_limited_permissions.png)
 
@@ -55,7 +60,14 @@ Currently, users will see a gray, muted badge on your Actor's detail page indica
 
 :::warning
 
-Actor permissions are a new feature. With the initial release, the distinction between full-permissions and limited-permissions Actors is primarily informational, but it will become increasingly significant over time. Users will be asked to explicitly confirm when running full-permissions Actors, and these Actors may receive a lower[Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store. Whenever possible, prefer limited permissions and request only the access your Actor truly needs.
+Actor permissions are a new feature. With the initial release, the distinction between full-permissions and limited-permissions Actors is primarily informational, but it will become increasingly significant over time.
+
+Future changes may include:
+- Stronger confirmations and/or warnings added when running full-permissions Actors
+- Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store.
+- Some platform features and recommendations may prioritize limited-permissions Actors by default.
+
+Whenever possible, design your Actors to use limited permissions and request only access they truly need.
 
 :::
 
@@ -103,37 +115,17 @@ Behavior at run time:
 
 See the full [input schema reference for details.](../actor_definition/input_schema/specification.md).
 
-### Impact of permission level
+### Requesting full permissions
 
-Current implications:
+Designing your Actors to work under limited permissions is the recommended approach, it helps improve your Actor’s [Actor Quality score](../../publishing/quality_score.mdx#trustworthiness) and increases user trust and adoption. However, some use cases do legitimately require broader access to user data (e.g., to perform administrative tasks or orchestrate other Actors). If your Actor falls in this category or cannot function with limited permissions for another reason:
 
-- Your Actor’s detail page shows a visible permission badge (limited vs full).
-- Limited-permissions Actors align with the least-privilege principle and typically lead to higher user trust and adoption.
-- Users may be prompted to explicitly confirm before running full-permissions Actors (progressively rolling out).
-
-Future implications:
-
-- Full-permissions Actors may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce ranking and visibility in the store.
-- Additional friction may be added to running full-permissions Actors (e.g., stronger confirmations and warnings).
-- Some platform features and recommendations may prioritize limited-permissions Actors by default.
-
-:::info
-
-To learn how to migrate your Actors to run under limited permissions, see the [Migration guide](./migration_guide.md)
-
-:::
-
-## Requesting full permissions
-
-Designing your Actors to work under limited permissions is the recommended approach, it helps your Actor get higher [Actor Quality score](../../publishing/quality_score.mdx#Trustworthiness), . However, some use cases do legitimately require more access to users data (e.g. to perform administrative tasks, manage or orchestrate other actors. etc.). If your Actor falls in this category or cannot function with limited permissions for another reason:
-
-- To keep user trust and set correct user expectations, explain why you need Full permissions access in your Actor's README
+- Explain why you need full permissions in your Actor's README. This will help keep user trust and set correct user expectations.
 - Set the permission level in the Actor’s **Settings** in Console to **Full permissions**.
-- Be aware of [UX implications](#end-user-experience) and impact on [Actor Quality score](../../publishing/quality_score.mdx) for full-permission Actors.
+- Be aware of the [UX implications](#end-user-experience) and impact on [Actor Quality score](../../publishing/quality_score.mdx) for full-permission Actors.
 
 
 :::info
 
-Actor permissions are a new feature. If something is preventing you from migrating to limited permissions or you have a use case that you think should work under limited permissions and it does not, please reach out to support or talk to us on the community forum.
+Actor permissions are a new feature. If something is preventing you from migrating to limited permissions or you have a use case that you think should work under limited permissions and it does not, please reach out to support or talk to us on [the community forum](https://discord.com/invite/crawlee-apify-801163717915574323).
 
 :::
