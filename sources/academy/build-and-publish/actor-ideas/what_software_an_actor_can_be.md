@@ -48,7 +48,7 @@ For inspiration, see:
 
 - [RapidAPI Hub](https://rapidapi.com/hub)
 - [Google Cloud APIs](https://cloud.google.com/apis)
-- [{API}Market](https://api.market/)
+- [\{API\}Market](https://api.market/)
 - [openapi](https://openapi.com/products)
 
 ### Open-source libraries
