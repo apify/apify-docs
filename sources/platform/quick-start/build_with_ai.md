@@ -2,7 +2,7 @@
 title: Build Actors with AI
 sidebar_position: 3
 sidebar_label: Build with AI
-description: Learn how to build new Actors or improving existing ones using AI code generation and vibe coding tools.
+description: Learn how to build new Actors or improve existing ones using AI code generation and vibe coding tools.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
