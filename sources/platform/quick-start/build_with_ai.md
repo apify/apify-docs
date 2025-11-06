@@ -1,12 +1,13 @@
 ---
 title: Build Actors with AI
 sidebar_position: 3
-description: Use pre-built prompts, refer to Apify docs via llms.txt, and follow best practices for effective vibe coding.
+sidebar_label: Build with AI
+description: Learn how to build new Actors or improving existing ones using AI code generation and vibe coding tools.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Use pre-built prompts, reference Apify documentation through `/llms.txt`, and follow best practices to build Actors efficiently with AI coding assistants.**
+**Learn how to develop new Actors or improve existing ones using AI code generation and vibe coding tools.**
 
 ---
 
@@ -15,7 +16,9 @@ import PromptButton from "@site/src/components/PromptButton";
 import InstallMCPButton from "@site/src/components/InstallMCPButton";
 import copyForAI from "./images/copy-for-ai.png";
 
-You will learn several approaches to building Apify Actors with the help of AI coding assistants. This guide includes independent instructions, tools, and best practices that you can use individually or combine together. Each section focuses on a specific part of the process such as prompt usage, Actor templates, Apify MCP server tools, or documentation integration, so you can follow only the parts that fit your development style.
+This guide provides best practices for building new Actors or improving existing ones using AI code generation
+and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code,
+by providing the AI agents with the right instructions and context.
 
 ## AI coding assistant instructions
 
@@ -66,30 +69,17 @@ Every page in the Apify documentation has a **Copy for LLM** button. You can use
 
 <img src={copyForAI} alt="Copy for LLM" width="250" />
 
-## Use `llms.txt` and `llms-full.txt`
+## Use `/llms.txt` files
 
-Search engines weren't built for Large Language Models (LLMs), but LLMs need context. That's why we've created [`llms.txt`](https://docs.apify.com/llms.txt) and [`llms-full.txt`](https://docs.apify.com/llms-full.txt) for our documentation. These files can provide additional context if you link them.
+The entire Apify documentation is available in Markdown format to make it easy to
+digest by LLMs and AI coding tools. There are two special files:
 
-<table>
-  <thead>
-    <tr>
-      <th>File</th>
-      <th>Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>llms.txt</code></td>
-      <td>Contains index of the docs page in Markdown, with links to all subpages in Markdown.</td>
-    </tr>
-    <tr>
-      <td>
-        <code style={{ whiteSpace: 'nowrap' }}>llms-full.txt</code>
-      </td>
-      <td>Contains a full dump of documentation in Markdown.</td>
-    </tr>
-  </tbody>
-</table>
+- **https://docs.apify.com/llms.txt**: A Markdown file with an index to all documentation pages in Markdown format. This is based on the [llmstxt.org](https://llmstxt.org/) standard.
+- **https://docs.apify.com/llms-full.txt**: A single Markdown file with a complete dump of the entire Apify documentation.
+
+Note that for each Apify documentation page, you can get the Markdown version by adding `.md` to the URL. For example:
+
+https://docs.apify.com/platform/actors => https://docs.apify.com/platform/actors.md
 
 :::note Provide link to AI assistants
 
