@@ -11,10 +11,7 @@ sidebar_label: Input schema specification
 
 ---
 
-Actor input schema is a JSON file which defines the schema and description of the input object and its properties accepted by the
-Actor on start. The file adheres to [JSON schema](https://json-schema.org/) with our extensions,
-and describes a single Actor input object
-and its properties, including documentation, default value, and user interface definition.
+Actor input schema is a JSON file which defines the schema and description of the input object and its properties accepted by the Actor on start. The file adheres to [JSON schema](https://json-schema.org/) with our extensions, and describes a single Actor input object and its properties, including documentation, default value, and user interface definition.
 
 The Actor input schema file is used to:
 
