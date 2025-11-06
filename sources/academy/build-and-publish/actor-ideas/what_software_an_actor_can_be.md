@@ -36,13 +36,20 @@ Examples:
 
 ### SaaS API wrappers
 
-These Actors wrap existing SaaS services as Actors to make them accessible through the Apify platform and its many integrations.
+These Actors wrap existing SaaS services as Actors to make them accessible through the Apify platform and its many integrations, potentially with additional services built on top.
 
-Examples:
+Example Actors:
 
 - [OpenRouter](https://apify.com/apify/openrouter)
 - [Parsera](https://apify.com/parsera-labs/parsera)
 - [Super Scraper API](https://apify.com/apify/super-scraper-api)
+
+For inspiration, see:
+
+- [RapidAPI Hub](https://rapidapi.com/hub)
+- [Google Cloud APIs](https://cloud.google.com/apis)
+- [\{API\}Market](https://api.market/)
+- [openapi](https://openapi.com/products)
 
 ### Open-source libraries
 
@@ -117,10 +124,16 @@ Build Actors that use LLMs to perform complex tasks autonomously. These Actors c
 :::note Secure execution
 
 Actors are cloud-based sandboxes that can securely run any AI-generated code.
+As LLMs are [generally better](https://www.anthropic.com/engineering/code-execution-with-mcp)
+at generating code than selecting tools, one can use Actors to generate task-specific code and
+expose it using Actor interface to other apps and agents.
 
 :::
 
-For inspiration, check out the [Agents category](https://apify.com/store/categories/agents) in Apify Store.
+For inspiration, see:
+
+- [Agents category](https://apify.com/store/categories/agents) in Apify Store
+- [agent.ai marketplace](https://agent.ai/)
 
 ### Other
 
@@ -190,5 +203,6 @@ Beyond the [Actor ideas](https://apify.com/ideas) page, you can find new Actor i
 - Your experience: Draw from problems you've encountered in your work
 - Community discussions: Browse Reddit, Twitter, Stack Overflow, and forums for user pain points
 - Competitor analysis: Research existing tools and identify gaps
+- Other portals, such as [Indiehackers](https://www.indiehackers.com/), [Superframeworks](https://superframeworks.beehiiv.com/t/startup-ideas), etc.
 
 Once you get one, learn how to [validate your Actor idea](/academy/build-and-publish/actor-ideas/actor-validation).

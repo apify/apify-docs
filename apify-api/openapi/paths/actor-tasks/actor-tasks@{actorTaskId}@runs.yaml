@@ -153,7 +153,7 @@ post:
     To fetch the Actor run results that are typically stored in the default
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
     received in the response JSON to the
-    [Get items](#/reference/datasets/item-collection/get-items) API endpoint.
+    [Get dataset items](#/reference/datasets/item-collection/get-items) API endpoint.
   operationId: actorTask_runs_post
   parameters:
     - name: actorTaskId

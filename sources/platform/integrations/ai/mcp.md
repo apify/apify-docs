@@ -12,7 +12,10 @@ toc_max_heading_level: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The _Apify Model Context Protocol (MCP) Server_ enables AI applications to connect to Apify's extensive library of Actors. Tools allowing your AI agents to perform web scraping, data extraction, and automation tasks in real time.
+The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
+using [Model Context Protocol](https://modelcontextprotocol.io/). The server enables AI agents to
+discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
+and enabled AI coding assistants to access Apify documentation and tutorials.
 
 ![Apify MCP Server](../../images/apify_mcp_server.png)
 
