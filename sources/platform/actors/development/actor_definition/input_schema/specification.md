@@ -11,10 +11,7 @@ sidebar_label: Input schema specification
 
 ---
 
-Actor input schema is a JSON file which defines the schema and description of the input object and its properties accepted by the
-Actor on start. The file adheres to [JSON schema](https://json-schema.org/) with our extensions,
-and describes a single Actor input object
-and its properties, including documentation, default value, and user interface definition.
+Actor input schema is a JSON file which defines the schema and description of the input object and its properties accepted by the Actor on start. The file adheres to [JSON schema](https://json-schema.org/) with our extensions, and describes a single Actor input object and its properties, including documentation, default value, and user interface definition.
 
 The Actor input schema file is used to:
 
@@ -155,8 +152,7 @@ Most types also support additional properties defining, for example, the UI inpu
 
 ### String
 
-String is the most common input field type, and provide
-a number of editors and validations properties:
+String is the most common input field type, and provide a number of editors and validations properties:
 
 | Property | Value | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |----------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -172,8 +168,7 @@ a number of editors and validations properties:
 
 :::note Regex escape
 
-When using escape characters `\` for the regular expression in the `pattern` field, be sure to escape them to avoid invalid JSON issues. For example, the regular expression
-`https:\/\/(www\.)?apify\.com\/.+` would become `https:\\/\\/(www\\.)?apify\\.com\\/.+`.
+When using escape characters `\` for the regular expression in the `pattern` field, be sure to escape them to avoid invalid JSON issues. For example, the regular expression `https:\/\/(www\.)?apify\.com\/.+` would become `https:\\/\\/(www\\.)?apify\\.com\\/.+`.
 
 :::
 

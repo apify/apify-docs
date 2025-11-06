@@ -2,7 +2,7 @@
 title: Build Actors with AI
 sidebar_position: 3
 sidebar_label: Build with AI
-description: Learn how to build new Actors or improving existing ones using AI code generation and vibe coding tools.
+description: Learn how to build new Actors or improve existing ones using AI code generation and vibe coding tools.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
@@ -16,9 +16,7 @@ import PromptButton from "@site/src/components/PromptButton";
 import InstallMCPButton from "@site/src/components/InstallMCPButton";
 import copyForAI from "./images/copy-for-ai.png";
 
-This guide provides best practices for building new Actors or improving existing ones using AI code generation
-and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code,
-by providing the AI agents with the right instructions and context.
+This guide provides best practices for building new Actors or improving existing ones using AI code generation and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code, by providing the AI agents with the right instructions and context.
 
 ## AI coding assistant instructions
 
