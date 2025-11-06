@@ -11,11 +11,18 @@ sidebar_label: Input schema specification
 
 ---
 
-The Actor input schema serves three main purposes:
+Actor input schema is a JSON file which defines the schema and description of the input object and its properties accepted by the
+Actor on start. The file adheres to [JSON schema](https://json-schema.org/) with our extensions,
+and describes a single Actor input object
+and its properties, including documentation, default value, and user interface definition.
 
-- It ensures the input data supplied to the Actor adhere to specified requirements and validation rules.
-- It is used by the Apify platform to generate a user-friendly interface for configuring and running your Actor.
-- It simplifies invoking your Actors from external systems by generating calling code and connectors for integrations.
+The Actor input schema file is used to:
+
+- Validate the passed input JSON object on Actor run, so that Actors don't need to perform input validation and error handling in their code.
+- Render user interface for Actors to make it easy for users to run and test them manually.
+- Generate Actor API documentation and integration code examples on the web or in CLI, making Actors easy to integrate for users.
+- Simplify integration of Actors into automation workflows such as Zapier or Make, by providing smart connectors that smartly pre-populate and link Actor input properties.
+
 
 To define an input schema for an Actor, set `input` field in the `.actor/actor.json` file to an input schema object (described below), or path to a JSON file containing the input schema object.
 For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory—but note that this functionality is deprecated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
@@ -114,7 +121,7 @@ Even though the structure of the Actor input schema is similar to JSON schema, t
 
 :::
 
-## Fields
+## Input fields
 
 Each field of your input is described under its key in the `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object`, or `boolean` type, and its specification contains the following properties:
 
