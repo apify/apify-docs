@@ -127,6 +127,6 @@ Designing your Actors to work under limited permissions is the recommended appro
 
 :::info
 
-Actor permissions are a new feature. If something is preventing you from migrating to limited permissions or you have a use case that you think should work under limited permissions and it does not, please reach out to support or talk to us on [the community forum](https://discord.com/invite/crawlee-apify-801163717915574323).
+Actor permissions are a new feature. If something is preventing you from migrating to limited permissions or you have a use case that you think should work under limited permissions and it does not, please reach out to support or talk to us on [the community forum](https://discord.gg/eN73Xdhtqc).
 
 :::

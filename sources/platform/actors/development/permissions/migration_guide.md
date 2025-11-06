@@ -136,7 +136,7 @@ The goal here is to create the new storage **only once the Actor runs with limit
 
 :::
 
-If the existing contents of the named storage are critical for your Actor to keep functioning for the existing users and it is impossible, costly or highly impractical to migrate, contact support or reach out to us on the community forum. We can discuss the available options.
+If the existing contents of the named storage are critical for your Actor to keep functioning for the existing users and it is impossible, costly or highly impractical to migrate, contact support or reach out to us [on the community forum](https://discord.gg/eN73Xdhtqc). We can discuss the available options.
 
 ### The Actor needs to know whether the user is paying
 
