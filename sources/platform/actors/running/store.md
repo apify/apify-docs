@@ -149,7 +149,7 @@ Pay per event Actor pricing model is very similar to the pay per result model. Y
 
 #### How do I know Actor is paid per events?
 
-You will the that the Actor is paid per events next to the Actor name.
+You will see that the Actor is paid per events next to the Actor name.
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 

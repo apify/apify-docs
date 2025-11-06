@@ -297,7 +297,7 @@ import { CheerioCrawler, Dataset } from 'crawlee';
 
 interface Input {
     startUrls: string[];
-    persistRquestQueueName: string;
+    persistRequestQueueName: string;
 }
 
 await Actor.init();
