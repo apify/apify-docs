@@ -20,9 +20,9 @@ Most Actors should use limited permissions to request only the specific access t
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actors permission level.
+When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actor's permission level.
 
-Actors with **full permissions** receive a token with full access to the users account, this token grants access to the user's entire Apify account via Apify API.
+Actors with **full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
 
 Actors with **limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
@@ -30,8 +30,8 @@ Actors with **limited permissions** receive [a restricted scoped token](../../..
 
 - Read and write to its default storages.
 - Update the current run’s status, abort the run, or [metamorph](../programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
-- Read basic user information (whether the user is paying, proxy password, public profile) from the environment.
-- Read or also write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
+- Read basic user information (whether the user is paying, their proxy password or public profile) from the environment.
+- Read and/or write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
 - Run any other Actor with limited permissions.
 - Create any additional storage, and write to that storage.
 - Read and write to storages created in previous runs.
