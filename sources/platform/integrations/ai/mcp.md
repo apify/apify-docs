@@ -12,7 +12,7 @@ toc_max_heading_level: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Apify [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server allows AI applications and agents to search and run Actors from [Apify Store](https://apify.com/store) as tools for web scraping, data extraction, or automation,
+The Apify's [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server allows AI applications and agents to search and run Actors from [Apify Store](https://apify.com/store) as tools for web scraping, data extraction, or automation,
 as well as access Apify documentation and tutorials from your AI coding environments.
 
 ![Apify MCP Server](../../images/apify_mcp_server.png)
