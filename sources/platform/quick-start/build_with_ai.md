@@ -69,15 +69,18 @@ Every page in the Apify documentation has a **Copy for LLM** button. You can use
 
 ## Use `/llms.txt` files
 
-The entire Apify documentation is available in Markdown format to make it easy to
-digest by LLMs and AI coding tools. There are two special files:
+The entire Apify documentation is available in Markdown format for use with LLMs and AI coding tools. Two consolidated files are available:
 
-- **https://docs.apify.com/llms.txt**: A Markdown file with an index to all documentation pages in Markdown format. This is based on the [llmstxt.org](https://llmstxt.org/) standard.
-- **https://docs.apify.com/llms-full.txt**: A single Markdown file with a complete dump of the entire Apify documentation.
+- `https://docs.apify.com/llms.txt`: A Markdown file with an index of all documentation pages in Markdown format, based on the [llmstxt.org](https://llmstxt.org/) standard.
+- `https://docs.apify.com/llms-full.txt`: All Apify documentation consolidated in a single Markdown file.
 
-Note that for each Apify documentation page, you can get the Markdown version by adding `.md` to the URL. For example:
+:::tip Access Markdown source
 
-https://docs.apify.com/platform/actors => https://docs.apify.com/platform/actors.md
+Add `.md` to any documentation page URL to view its Markdown source.
+
+Example: `https://docs.apify.com/platform/actors` > `https://docs.apify.com/platform/actors.md`
+
+:::
 
 :::note Provide link to AI assistants
 
