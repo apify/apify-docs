@@ -5,8 +5,6 @@ sidebar_position: 4
 slug: /expert-scraping-with-apify/solutions/using-api-and-client
 ---
 
-# Using the Apify API & JavaScript client {#using-api-and-client}
-
 **Learn how to interact with the Apify API directly through the well-documented RESTful routes, or by using the proprietary Apify JavaScript client.**
 
 ---

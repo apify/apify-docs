@@ -5,8 +5,6 @@ sidebar_position: 9.4
 slug: /tools/proxyman
 ---
 
-# What's Proxyman? {#what-is-proxyman}
-
 **Learn about Proxyman, a tool for viewing all network requests that are coming through your system. Filter by response type, by a keyword, or by application.**
 
 ---

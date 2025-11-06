@@ -1,0 +1,71 @@
+---
+title: Actor development quick start
+sidebar_label: Quick start
+sidebar_position: 0.5
+description: Create your first Actor using the Apify Web IDE or locally in your IDE.
+slug: /actors/development/quick-start
+---
+
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
+**Create your first Actor using the Apify Web IDE or locally in your IDE.**
+
+---
+
+:::info Before you build
+
+Before you start building your own Actor, try out a couple of existing Actors from [Apify Store](https://apify.com/store). See the [Running Actors](/platform/actors/running) section for more information on running existing Actors.
+
+:::
+
+## Technology stack
+
+Any code that can run inside of a Docker container can be turned into Apify [Actor](/platform/actors). This gives you freedom in choosing your technical stack, including programming language and technologies.
+
+But to fully benefit from running on top of the Apify platform, we recommend you choose either JavaScript/Node.js or Python, where Apify provides first-level support regarding its SDK, API clients, and learning materials.
+
+For these languages, you can also [choose from many code templates](https://apify.com/templates) that help you to kickstart your project quickly.
+
+![Actor Templates](./images/templates.png)
+
+## Development paths
+
+You can develop Actor in two ways:
+
+### Local development
+
+Develop your Actor locally in your IDE and only deploy to the Apify platform when it is production ready.
+
+This way, you benefit from your local setup for a better development and debugging experience. After you are done with the development, you can [deploy](/platform/actors/development/deployment) your Actor to the Apify platform.
+
+<CardGrid>
+    <Card
+        title="Start Locally in Your IDE"
+        to="/platform/actors/development/quick-start/locally"
+    />
+</CardGrid>
+
+### Web IDE
+
+Using the Web IDE in [Apify Console](https://console.apify.com).
+
+This is the fastest way to kick-start your Actor development and try out the Apify platform.
+
+<CardGrid>
+    <Card
+        title="Start in Apify Web IDE"
+        to="/platform/actors/development/quick-start/web-ide"
+    />
+</CardGrid>
+
+## Build with AI
+
+Use the Apify toolset to build with AI:
+
+<CardGrid>
+    <Card
+        title="Build with AI"
+        to="/platform/actors/development/quick-start/build-with-ai"
+    />
+</CardGrid>

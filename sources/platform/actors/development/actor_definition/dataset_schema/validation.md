@@ -104,12 +104,13 @@ If the data you attempt to store in the dataset is _invalid_ (meaning any of the
 }
 ```
 
-The type of the AJV validation error object is [here](https://github.com/ajv-validator/ajv/blob/master/lib/types/index.ts#L86).
+For the complete AJV validation error object type definition, refer to the [AJV type definitions on GitHub](https://github.com/ajv-validator/ajv/blob/master/lib/types/index.ts#L86).
 
 If you use the Apify JS client or Apify SDK and call `pushData` function you can access the validation errors in a `try catch` block like this:
 
 <Tabs>
   <TabItem value="Javascript" label="Javascript" default>
+
 ```javascript
 try {
     const response = await Actor.pushData(items);
@@ -120,15 +121,22 @@ try {
     });
 }
 ```
+
   </TabItem>
   <TabItem value="Python" label="Python">
+
 ```python
-try:
-    await Actor.push_data(items)
-except ApifyApiError as error:
-    if "invalidItems" in error.data:
-        validation_errors = e.data["invalidItems"]
+from apify import Actor
+from apify_client.errors import ApifyApiError
+
+async with Actor:
+    try:
+        await Actor.push_data(items)
+    except ApifyApiError as error:
+        if 'invalidItems' in error.data:
+            validation_errors = error.data['invalidItems']
 ```
+
   </TabItem>
 </Tabs>
 
@@ -177,11 +185,21 @@ Enabling fields to be `null` :
 ```json
 {
     "name": {
-        "type": "string",
-        "nullable": true
+        "type": ["string", "null"]
     }
 }
 ```
+
+In case of enums `null` needs to be within the set of allowed values:
+
+```json
+{
+    "type": {
+        "enum": ["list", "detail", null]
+    }
+}
+```
+
 
 Define type of objects in array:
 
@@ -235,4 +253,3 @@ When you configure the dataset fields schema, we generate a field list and measu
 
 
 You can use them in [monitoring](../../../../monitoring#alert-configuration).
-

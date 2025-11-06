@@ -1,10 +1,24 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
-ignorecase: false
+ignorecase: true
 level: warning
+scope: text
 swap:
-    Apify Dashboard: Apify Console
-    apify freelancers: Apify freelancers
-    Apify Platform: Apify platform
-    '(?:[Tt]he\s)?[Aa]pify\sproxy': Apify Proxy
+    # Product name changes
+    'apify dashboard': Apify Console
+    'apify console': Apify Console
+    'apify store': Apify Store
+    'the apify console': Apify Console
+    'the apify store': Apify Store
+
+    # Capitalization fixes
+    'apify freelancers': Apify freelancers
+    'apify platform': Apify platform
+
+    # Proxy variations (simplified)
+    'apify proxy': Apify Proxy
+    'the apify proxy': Apify Proxy
+
+    # Common abbreviations
     circa: approx.
+    'ca\.': circa

@@ -6,8 +6,6 @@ category: web scraping & automation
 slug: /api-scraping
 ---
 
-# API scraping
-
 **Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.**
 
 ---

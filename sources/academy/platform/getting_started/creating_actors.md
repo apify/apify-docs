@@ -5,17 +5,15 @@ sidebar_position: 2
 slug: /getting-started/creating-actors
 ---
 
-# Creating Actors {#creating-actors}
-
 **This lesson offers hands-on experience in building and running Actors in Apify Console using a template. By the end of it, you will be able to build and run your first Actor using an Actor template.**
 
 ---
 
 You can create an Actor in several ways. You can create one from your own source code hosted in a Git repository or in your local machine, for example. But in this tutorial, we'll focus on the easiest method: selecting an Actor code template. We don't need to install any special software, and everything can be done directly in Apify Console using an Apify account.
 
-## Choose the source {#choose-the-source}
+## Choose the source
 
-Once you're in Apify Console, go to [Development](https://console.apify.com/actors/development/my-actors), and click on the **Develop new** button in the top right-hand corner.
+Once you're in Apify Console, go to [Actors](https://console.apify.com/actors), and click on the **Develop new** button in the top right-hand corner.
 
 ![Develop an Actor button](./images/develop-new-actor.png)
 
@@ -42,7 +40,11 @@ You can also push your existing code from your local machine using [Apify CLI](/
 
 Python, JavaScript, and TypeScript have several template options that you can use.
 
-> You can select one from the list on this page or you can browse all the templates in the template library by clicking on the **View all templates** button in the right corner.
+:::tip Template library
+
+You can select one from the list on this page or you can browse all the templates in the template library by clicking on the **View all templates** button in the right corner.
+
+:::
 
 For example, let's choose the **Start with JavaScript** template and click on the template card.
 
@@ -56,7 +58,11 @@ You will end up on a template detail page where you can see all the important in
 
 By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it.
 
-> The Web IDE is a great tool for developing your Actor directly in Apify Console without the need to install or use any other software.
+:::tip Web IDE
+
+The Web IDE is a great tool for developing your Actor directly in Apify Console without the need to install or use any other software.
+
+:::
 
 ![Web IDE](./images/create-actor-web-ide.png)
 
@@ -64,7 +70,11 @@ By clicking **Use this template** button you will create the Actor in Apify Cons
 
 If you want to use the template locally, you can again use our [Apify CLI](/cli) to download the template to your local machine.
 
-> Creating an Actor from a template locally is a great option if you want to develop your code using your local environment and IDE and then push the final solution back to the Apify Console.
+:::tip Local development
+
+Creating an Actor from a template locally is a great option if you want to develop your code using your local environment and IDE and then push the final solution back to the Apify Console.
+
+:::
 
 When you click on the **Use locally** button, you'll be presented with instructions on how to create an Actor from this template in your local environment.
 
@@ -135,9 +145,17 @@ The Actor takes the `url` from the input and then:
 
 The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
-> Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template. Keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well. Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
+:::tip Customize template
 
-## Build the Actor 🧱 {#build-an-actor}
+Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template.
+
+Keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well.
+
+Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
+
+:::
+
+## Build the Actor
 
 In order to run the Actor, you need to [build](/platform/actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
 
@@ -147,7 +165,7 @@ After you've clicked the **Build** button, it'll take around 5–10 seconds to c
 
 ![Start button](./images/start.png)
 
-## Fill the input {#fill-input}
+## Fill the input
 
 And now we are ready to run the Actor. But before we do that, let's give the Actor some input by going to the `Input` tab.
 
@@ -168,12 +186,6 @@ After the Actor finishes, you can preview or download the extracted data by clic
 ![Export results](./images/actor-run-dataset.png)
 
 And that's it! You've just created your first Actor and extracted data from a website 🎉.
-
-## Getting stuck? Check out the tips 💡 {#get-help-with-tips}
-
-If you ever get stuck, you can always click on the **Tips** button in the top right corner of the page. It will show you a list of tips that are relevant to the Actor development.
-
-![Tips](./images/actor-tips.png)
 
 ## Next up {#next}
 

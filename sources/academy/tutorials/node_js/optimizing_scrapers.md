@@ -5,8 +5,6 @@ sidebar_position: 14.6
 slug: /node-js/optimizing-scrapers
 ---
 
-# How to optimize and speed up your web scraper {#optimizing-scrapers}
-
 **We all want our scrapers to run as cost-effective as possible. Learn how to think about performance in the context of web scraping and automation.**
 
 ---
