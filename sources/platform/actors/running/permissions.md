@@ -47,13 +47,13 @@ This approach ensures the Actor has everything it needs to function while protec
 
 ### Recognizing permission levels in Console and Store
 
-When you browse Actors in Apify Console or Store, you’ll notice a small badge next to each Actor showing its permission level. Hover over the badge to see a short explanation of what access that Actor will have when it runs under your account.
+When you browse Actors in Apify Console or Store, you’ll notice a small badge next to each Actor showing its permission level. Hover over the badge to see a short explanation of what access that Actor will have when it runs under your account. Here's how they appear in the Console.
 
-**Limited permissions Actors**
+**Limited permissions Actors:**
 
 ![Limited-permissions badge shown on Actor detail page](../development/permissions/images/end_user_ux_limited_permissions.png)
 
-**Full permissions Actors**
+**Full permissions Actors:**
 
 ![Full-permissions badge shown on Actor detail page](../development/permissions/images/end_user_ux_full_permissions.png)
 

@@ -63,6 +63,7 @@ Currently, users will see a visible permission badge on your Actor's detail page
 Actor permissions are a new feature. With the initial release, the distinction between full-permissions and limited-permissions Actors is primarily informational, but it will become increasingly significant over time.
 
 Future changes may include:
+
 - Stronger confirmations and/or warnings added when running full-permissions Actors
 - Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store.
 - Some platform features and recommendations may prioritize limited-permissions Actors by default.
