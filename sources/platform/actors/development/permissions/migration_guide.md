@@ -16,17 +16,15 @@ Recommended minimum SDK versions:
 - JavaScript SDK: [apify@3.4.4](https://github.com/apify/apify-sdk-js/releases/tag/apify%403.4.4)
 - Python SDK: [v3.0.0](https://github.com/apify/apify-sdk-python/releases/tag/v3.0.0)
 
-Before you start it's helpful to understand [what access restrictions limited permission impose](index.md#how-actor-permissions-work).
+Before you start it's helpful to understand [what access restrictions limited permissions impose](index.md#how-actor-permissions-work).
 
-## How to test my Actor with limited permissions before migrating
+## How to test your Actor with limited permissions before migrating
 
 You can override permission level for a single run using run options under Actor Source tab in Console:
 
-![Force Actor permissions for a single runs.](./images/actor_run_permission_override.png)
+![Forcing Actor permissions for a single run.](./images/actor_run_permission_override.png)
 
-Force Actor permissions for a single runs.
-
-You can do the same using Apify Client as well:
+You can do the same using the Apify Client as well:
 
 ```tsx
 await apifyClient.actor(actorId).call(input, {
@@ -34,7 +32,7 @@ await apifyClient.actor(actorId).call(input, {
 });
 ```
 
-Or using just API:
+Or just using the API:
 
 ```tsx
  POST https://api.apify.com/v2/acts/<actor_id>/runs?**forcePermissionLevel=LIMITED_PERMISSIONS**
@@ -43,21 +41,28 @@ Or using just API:
 
 ## Common migration paths
 
-We expect that most public Actors can be migrated to limited permissions with minor, if any, adjustments.
+We expect that most public Actors can be migrated to limited permissions with minor, if any, adjustments. The general prerequisite is to **update the Actor to use the latest [Apify SDK](https://docs.apify.com/sdk)**. To assess what, if anything, needs to change in your Actor, review the following:
 
-The general prerequisite is to **update the Actor to use the latest [Apify SDK](https://docs.apify.com/sdk)**. Below you can read a guide that covers various, more advanced cases.
+- How your Actor uses storages: if it only writes to default storages, no changes needed.
+- Whether it calls other Actors: targets must also use limited permissions.
+- Whether it accesses user-provided storages: declare `resourceType` and `resourcePermissions` in `input_schema.json`.
+- Whether it uses named storages: rename/recreate and migrate data to retain access under limited permissions.
+- Whether it needs to know if the user is paying: use `APIFY_USER_IS_PAYING` or the SDK.
+- Whether it needs the user's proxy password: use `APIFY_PROXY_PASSWORD` or the SDK.
 
-Once you have updated and [tested](#how-to-test-my-actor-with-limited-permissions-before-migrating) your Actor, you can change the permissions in the Actor setting. The setting will take immediate effect.
+Once you have updated and [tested](#how-to-test-your-actor-with-limited-permissions-before-migrating) your Actor, you can change the permissions in the Actor settings. The setting will take immediate effect.
+
+Below you can read a guide covering common migration paths for more advanced cases in greater detail.
 
 ### The Actor only pushes data to default storages
 
 This is the most common and simplest use case. If your Actor only reads its input and writes results to its default dataset, key-value store, or request queue, **no changes are needed**. Limited permissions fully support this behavior out of the box.
 
-## The Actor calls other Actors
+### The Actor calls other Actors
 
 An Actor with limited permissions can only call other Actors that also have limited permissions. If your Actor calls another one, you will need to ensure the target Actor has been migrated first.
 
-## The Actor accesses storages provided by the user
+### The Actor accesses storages provided by the user
 
 If your Actor is designed to read from or write to a storage that the user provides via an input field, you must explicitly declare what access you need in Actor’s schema.
 
@@ -87,7 +92,7 @@ To support limited permissions, change it to this:
 }
 ```
 
-Now when the platform runs your Actor, it’ll automatically add the user provided storage the Actor’s scope so that it can access it.
+Now when the platform runs your Actor, it’ll automatically add the user provided storage to the Actor’s scope so that it can access it.
 
 :::info Backward compatibility
 
@@ -95,7 +100,7 @@ The user can provide the resource both via its name and its ID. If you have exis
 
 :::
 
-## The Actor accesses named storages
+### The Actor accesses named storages
 
 Actors sometimes use named storages for caching or persisting state across runs. With limited permissions, an Actor can create a named storage on its first run and will automatically retain access to it in all subsequent runs by the same user.
 
@@ -131,9 +136,9 @@ The goal here is to create the new storage **only once the Actor runs with limit
 
 :::
 
-**If the existing contents of the named storage is critical for your Actor to keep functioning for the existing users** (as in, you can’t afford removing the storage), reach out to us. We can discuss the available options.
+If the existing contents of the named storage are critical for your Actor to keep functioning for the existing users and it is impossible, costly or highly impractical to migrate, contact support or reach out to us on the community forum. We can discuss the available options.
 
-## The Actor needs to know whether the user is paying
+### The Actor needs to know whether the user is paying
 
 Some Actors have different logic for free and paying users. Previously you could retrieve this information by calling the `/users/me` API endpoint. However, Actors running under limited permissions don't have access to that endpoint, to get this information, your Actor should read the `APIFY_USER_IS_PAYING` environment variable, or directly use the SDK to obtain the value:
 
@@ -141,6 +146,6 @@ Some Actors have different logic for free and paying users. Previously you could
 const { userIsPaying } = Actor.getEnv();
 ```
 
-## The Actor uses proxy
+### The Actor uses Proxy
 
-Similarly, if your Actor needs the user's proxy password, it should get it from the `APIFY_PROXY_PASSWORD` environment variable instead of calling the `/users/me` endpoint, or  preferably just rely on the SDK to take care of the documentation.
+Similarly, if your Actor uses [Proxy](../../../proxy/index.md) and needs to retrieve the user's proxy password, it should get it from the `APIFY_PROXY_PASSWORD` environment variable instead of calling the `/users/me` endpoint or, preferably, rely directly on the SDK to handle proxy configuration automatically.
