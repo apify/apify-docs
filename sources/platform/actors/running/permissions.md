@@ -49,10 +49,12 @@ This approach ensures the Actor has everything it needs to function while protec
 
 When you browse Actors in Apify Console or Store, you’ll notice a small badge next to each Actor showing its permission level. Hover over the badge to see a short explanation of what access that Actor will have when it runs under your account.
 
-** Limited permissions Actor **
+**Limited permissions Actors**
+
 ![Limited-permissions badge shown on Actor detail page](../development/permissions/images/end_user_ux_limited_permissions.png)
 
-** Full permissions Actor **
+**Full permissions Actors**
+
 ![Full-permissions badge shown on Actor detail page](../development/permissions/images/end_user_ux_full_permissions.png)
 
-Over time, the distinction between these permission levels will be more visible — for example, Actors requiring full permissions will have an orange badge, might rank lower in the Store or show additional confirmation dialogs. Whenever possible, prefer Actors that use **limited permissions**: they’re safer, easier to trust, and still powerful enough for most workflows.
+Over time, the distinction between these permission levels will become more prominent. For example, Actors requiring full permissions may display an orange badge, appear lower in Store rankings, or show extra confirmation dialogs when you run them. Whenever possible, choose Actors that use **limited permissions**. They are safer, easier to trust, and sufficient for most workflows.
