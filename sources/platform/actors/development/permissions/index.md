@@ -44,7 +44,7 @@ To learn how to migrate your Actors to run under limited permissions, see the [M
 
 :::
 
-### Declaring permissions
+### Configuring Actor permissions level
 
 You can set the permission level for your Actor in the Apify Console under its **Settings** tab. All the existing Actors are configured to use full permissions, but the plan is to make limited permissions the default for all new Actors.
 
@@ -90,7 +90,7 @@ Example input schema field (single resource):
 Selecting multiple resources:
 
 - Use `type: "array"` to let users choose more than one storage.
-- The same `resourcePermissions` apply to each selected resource.
+- Each selected resource will have the same `resourcePermissions`
 
 ```json
 {
