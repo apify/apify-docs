@@ -41,14 +41,11 @@ Or just using the API:
 
 ## Common migration paths
 
-We expect that most public Actors can be migrated to limited permissions with minor, if any, adjustments. The general prerequisite is to **update the Actor to use the latest [Apify SDK](https://docs.apify.com/sdk)**. To assess what, if anything, needs to change in your Actor, review the following:
+We expect that most public Actors can be migrated to limited permissions with minor, if any, adjustments. The general prerequisite is to **update the Actor to use the latest [Apify SDK](https://docs.apify.com/sdk)**. To assess what, if anything, needs to change in your Actor, review these areas:
 
-- How your Actor uses storages: if it only writes to default storages, no changes needed.
-- Whether it calls other Actors: targets must also use limited permissions.
-- Whether it accesses user-provided storages: declare `resourceType` and `resourcePermissions` in `input_schema.json`.
-- Whether it uses named storages: rename/recreate and migrate data to retain access under limited permissions.
-- Whether it needs to know if the user is paying: use `APIFY_USER_IS_PAYING` or the SDK.
-- Whether it needs the user's proxy password: use `APIFY_PROXY_PASSWORD` or the SDK.
+- How your actor uses storages (e.g. named storages and storages provided via input)
+- Whether it requests correct resource access for user-provided storages
+- Whether it needs to access information about the user (namely if the user is paying or access their proxy configuration)
 
 Once you have updated and [tested](#how-to-test-your-actor-with-limited-permissions-before-migrating) your Actor, you can change the permissions in the Actor settings. The setting will take immediate effect.
 
