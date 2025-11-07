@@ -119,7 +119,7 @@ For more inspiration, check out the [MCP server category](https://apify.com/stor
 
 ### AI agents
 
-Build Actors that use LLMs to perform complex tasks autonomously. These Actors can navigate websites, make decisions, and complete multistep workflows.
+Build Actors that use LLMs to perform complex tasks autonomously. These Actors can navigate websites, make decisions, and complete multistep workflows. The Actor can either run the agent directly or just wrap an existing agent running elsewhere and call it using an API.
 
 :::note Secure execution
 
@@ -134,6 +134,8 @@ For inspiration, see:
 
 - [Agents category](https://apify.com/store/categories/agents) in Apify Store
 - [agent.ai marketplace](https://agent.ai/)
+- [AI Agents Directory](https://aiagentsdirectory.com/landscape)
+- [Awesome AI Agents by E2B](https://github.com/e2b-dev/awesome-ai-agents)
 
 ### Other
 
