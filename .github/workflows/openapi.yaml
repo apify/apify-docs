@@ -39,3 +39,47 @@ jobs:
 #                with:
 #                    python-version: '3.10'
 #            -   run: python -m pip install schemathesis==3.35.0
+
+    validate-go-codegen:
+        name: Validate Go client generation
+        runs-on: ubuntu-latest
+        needs: build
+
+        steps:
+            - uses: actions/checkout@v5
+
+            - name: Use Node.js 24
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+                  cache: "npm"
+                  cache-dependency-path: "package-lock.json"
+
+            - name: Enable corepack
+              run: |
+                  corepack enable
+
+            - name: Install Dependencies
+              run: npm ci --force
+
+            - name: Build OpenAPI spec
+              run: npm run redoc:build:clean:yaml
+
+            - name: Setup Go
+              uses: actions/setup-go@v5
+              with:
+                  go-version: "1.25"
+
+            - name: Install oapi-codegen as tool
+              working-directory: codegen/oapi-codegen-go
+              run: go get -tool github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen@latest
+
+            - name: Generate Go client
+              working-directory: codegen/oapi-codegen-go
+              run: go tool oapi-codegen -config oapi-codegen.yaml ../../static/api/openapi.yaml
+
+            - name: Build generated client
+              working-directory: codegen/oapi-codegen-go
+              run: |
+                  go mod tidy
+                  go build ./...
