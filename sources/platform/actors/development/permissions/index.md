@@ -67,13 +67,13 @@ Whenever possible, design your Actors to use limited permissions and request onl
 
 ### Accessing user provided storages
 
-By default, limited-permissions Actors can't access users storages. However, they can access storages that users explicitly provide via the Actor input. To do so, use the input schema to add a storage picker and declare exactly which operations your Actor needs.
+By default, limited-permissions Actors can't access user storages. However, they can access storages that users explicitly provide via the Actor input. To do so, use the input schema to add a storage picker and declare exactly which operations your Actor needs.
 
 - Add a field with `editor: "resourcePicker"`.
 - Set `resourceType` to one of `dataset`, `keyValueStore`, or `requestQueue`.
 - Specify `resourcePermissions` with the minimal required scope: `"READ"` or `"READ", "WRITE"`.
 
-Actors running under full permissions are assumed to have full (i.e. read/write/manage) access to user storages, in that case the `resourcePermissions` field does not have to be set.
+Actors running under full permissions are assumed to have full (i.e. read/write/manage) access to user storages. In that case the `resourcePermissions` field does not have to be set.
 
 Example input schema field (single resource):
 
