@@ -28,7 +28,6 @@ jobs:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - run: |
-                  npm ci
                   npm run redoc:test
 
     validate-go-codegen:
