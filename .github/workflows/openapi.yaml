@@ -58,6 +58,8 @@ jobs:
               uses: actions/setup-go@v5
               with:
                   go-version: "1.25"
+                  # Disable caching since go.sum is gitignored and regenerated on each run.
+                  cache: false
 
             - name: Install oapi-codegen as tool
               working-directory: codegen/oapi-codegen-go
