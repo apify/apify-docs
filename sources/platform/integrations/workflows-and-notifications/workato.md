@@ -10,7 +10,7 @@ slug: /integrations/workato
 
 ---
 
-[Workato](https://www.workato.com/) is an automation platform where you build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run **Apify Actors** inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
+[Workato](https://www.workato.com/) is an automation platform where you can build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Get started
 
@@ -21,15 +21,15 @@ To use the Apify integration with Workato, you will need:
 
 ## Install the Apify Connector
 
-The Apify Workato Connector is available in the Workato Community Library. Here's how to install it:
+The Apify Workato Connector is available in the Workato Community library. Here's how to install it:
 
-1. In your Workato workspace, navigate to **Community Library**.
-1. Click on **Custom Connectors**.
+1. In your Workato workspace, navigate to **Community library**.
+1. Click on **Custom connectors**.
 1. Search for **Apify**.
 1. Click on the connector and then click **Install**.
 
 
-After successful installation, the Apify connector will appear in **Connector SDK** under Tools tab in your Workato workspace and after releasing it will be available for use in your projects.
+After installation, the Apify connector appears in **Connector SDK** under the **Tools** tab. After you release the connector, you can use it in your projects.
 
 ## Connect your Apify account
 
@@ -37,7 +37,7 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 
 ### Create a project (if you don’t have one)
 
-1. In Workato, go to **Workspace → Projects**.
+1. In Workato, go to **Workspace > Projects**.
 1. Click **Create project**.
 1. Choose either **Start from scratch** or **Build a workflow app**.
 1. Name and create the project.
@@ -65,7 +65,7 @@ You can authenticate the connection using either:
 #### Authenticate with API token
 
 1. In the Apify connection dialog, select **Apify API token** as the authentication type.
-1. Enter your **API Token**. In Apify Console, go to [**Settings → Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
+1. Enter your **API Token**. In Apify Console, go to [**Settings > Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
 1. Click **Connect**. Workato will test the connection by making an authenticated call to verify your credentials.
 
 ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
@@ -89,16 +89,16 @@ After connecting your Apify account, you can start creating recipes that use Api
 
 ### Selection and input methods
 
-The Apify connector provides dynamic dropdown lists (pick lists) and flexible input methods to make configuration easier:
+_The Apify connector provides dynamic dropdown lists (pick lists) and flexible input methods to make configuration easier._
 
 ### Pick lists and selection methods
 
 - **Selection method (pick list vs. manual ID):** Choose from fetched lists or switch to manual and paste an ID. If an item doesn't appear, make sure it exists in your account and has been used at least once, or paste its ID manually.
-- **Available pick lists:**
+- Available pick lists:
   - **Actors**: Lists your recently used Actors or Apify Store Actors, displaying the title and username/name
   - **Tasks**: Lists your saved tasks, displaying the task title and Actor name
   - **Datasets**: Lists available datasets, sorted by most recent first
-  - **Key-Value Stores**: Lists available stores, sorted by most recent first
+  - **Key-value stores**: Lists available stores, sorted by most recent first
   - **Store Keys**: Dynamically shows keys available in the selected store
 
 ### Input types
@@ -119,18 +119,18 @@ Open the Actor or Task Input page in Apify Console, switch format to JSON, and c
 
 When using manual input instead of pick lists, you'll need to provide the correct resource IDs. Here's how to find them in Apify Console:
 
-- **Actor ID**: [Actor detail page](https://console.apify.com/actors) → API panel or URL.
+- **Actor ID**: [Actor detail page](https://console.apify.com/actors) > API panel or URL.
   - Example URL: `https://console.apify.com/actors/<actorId>`
   - Actor name format: owner~name (for example, `apify~website-scraper`)
-- **Task ID**: [Task detail page](https://console.apify.com/actors/tasks) → API panel or URL.
+- **Task ID**: [Task detail page](https://console.apify.com/actors/tasks) > API panel or URL.
   - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
-- **Dataset ID**: [Storage → Datasets](https://console.apify.com/storage/datasets) → Dataset detail → API panel or URL.
+- **Dataset ID**: [Storage > Datasets](https://console.apify.com/storage/datasets) > Dataset detail > API panel or URL.
   - Example URL: `https://console.apify.com/storage/datasets/<datasetId>`
-  - Also available in the table on the `Storage → Datasets` page
-- **Key-value store ID**: [Storage → Key-value stores](https://console.apify.com/storage/key-value-stores) → Store detail → API panel or URL.
-  - Example URL: `https://console.apify.com/storage/key-value-stores/<storeId>`
-  - Also available in the table on the `Storage → Key-value stores` page
-- **Webhook ID**: [Actors](https://console.apify.com/actors) → Actor → Integrations.
+  - Also available in the table on the `Storage > Datasets` page
+- **Key-value store ID**: [Storage > Key-value stores](https://console.apify.com/storage/Key-value-stores) > Store detail > API panel or URL.
+  - Example URL: `https://console.apify.com/storage/Key-value-stores/<storeId>`
+  - Also available in the table on the `Storage > Key-value stores` page
+- **Webhook ID**: [Actors](https://console.apify.com/actors) > Actor > Integrations.
   - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
 
 
@@ -146,7 +146,7 @@ The Apify connector provides the following triggers that monitor your Apify acco
 
 ### Actor Run Finished
 
-**Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted).**
+_Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted)._
 
 This trigger monitors a specific Apify Actor and starts the recipe when any run of that Actor reaches a terminal status. You can:
 
@@ -158,7 +158,7 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 
 ### Task Run Finished  
 
-**Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted).**
+_Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted)._
 
 This trigger creates a webhook in your Apify account that will notify Workato when the selected Task run finishes with the specified statuses. This trigger watches a specific saved task (an Actor with preset inputs) and fires when that task's run completes with any terminal status. You can choose specific statuses to monitor (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`). This is particularly useful for:
 
@@ -170,11 +170,11 @@ This trigger creates a webhook in your Apify account that will notify Workato wh
 
 ## Actions
 
-The Apify connector offers comprehensive actions to interact with the Apify platform:
+_The Apify connector offers comprehensive actions to interact with the Apify platform._
 
 ### Run Actor
 
-**Run an Apify Actor with customizable execution parameters.**
+_Run an Apify Actor with customizable execution parameters._
 
 This action runs an Apify Actor with your specified input and execution parameters. You can choose to wait for completion or start the run asynchronously. Actors are reusable serverless programs that can scrape websites, process data, and automate workflows. You can:
 
@@ -195,7 +195,7 @@ Default values for input fields will be displayed as placeholders, giving you a 
 
 ### Run Task
 
-**Run an Apify Actor task with optional input overrides.**
+_Run an Apify Actor task with optional input overrides._
 
 This action runs an Apify Task with optional input overrides and execution parameters. Tasks are pre-configured Actor runs with saved input, making them ideal for repeated executions. You can optionally override the task's configured input. You can:
 
@@ -207,7 +207,7 @@ This action runs an Apify Task with optional input overrides and execution param
 
 ### Get Dataset Items
 
-**Retrieves items from a dataset with dynamic field mapping.**
+_Retrieves items from a dataset with dynamic field mapping._
 
 Select a dataset to dynamically generate output fields and retrieve its items. This action automatically analyzes the dataset structure and creates appropriate output fields for your recipe. Key features:
 
@@ -219,9 +219,9 @@ Select a dataset to dynamically generate output fields and retrieve its items. T
 
 The connector samples your dataset to create appropriate output fields:
 
-- **Works best with consistent data**: When all items have the same field names and data types
-- **May have limitations with mixed data**: If items have different structures or field types
-- **Samples up to 25 items**: Fields that only appear after the first 25 items won't be detected
+- _Works best with consistent data_: When all items have the same field names and data types
+- _May have limitations with mixed data_: If items have different structures or field types
+- _Samples up to 25 items_: Fields that only appear after the first 25 items won't be detected
 
 :::tip Best practice
 
@@ -231,22 +231,22 @@ For optimal results, use datasets where all items follow a consistent structure.
 
 ![Screenshot of the Get Dataset Items action configuration interface in Workato](../images/workato/get-dataset.png)
 
-### Get Key-Value Store Record
+### Get Key-value store Record
 
-**Retrieves a single record from a Key-Value Store.**
+_Retrieves a single record from a Key-value store._
 
-Select a Key-Value Store and a key to retrieve the corresponding record as a text string or binary file. Key-Value stores often contain metadata, logs, or files from Actor runs. This action:
+Select a Key-value store and a key to retrieve the corresponding record as a text string or binary file. Key-value stores often contain metadata, logs, or files from Actor runs. This action:
 
 - Fetches named entries by key from specified stores with dynamic key selection
 - Accesses configuration data, screenshots, or custom outputs
 - Supports both text and binary content types
 - Enables flexible data retrieval for various use cases
 
-![Screenshot of the Get Key-Value Store record action configuration interface in Workato](../images/workato/get-key-val.png)
+![Screenshot of the Get Key-value store record action configuration interface in Workato](../images/workato/get-key-val.png)
 
 ### Scrape Single URL
 
-**Scrapes a single URL using a selected Apify crawler.**
+_Scrapes a single URL using a selected Apify crawler._
 
 Provide a single URL and a desired crawler type to get structured scraped data from that page as a JSON object. This action provides immediate, on-demand scraping capabilities:
 
@@ -279,27 +279,27 @@ Long-running scrapes can exceed typical step execution expectations. Use this as
 
 Workato's visual interface makes it easy to connect Apify data with other business applications:
 
-- **Data pills:** Use output fields from Apify triggers and actions as inputs for subsequent steps
-- **Field mapping:** Visually map scraped data fields to CRM, database, or spreadsheet columns  
-- **Conditional logic:** Build workflows that respond differently based on Actor run status or data content
-- **Data transformation:** Apply filters, formatting, and calculations to scraped data before sending to target systems
+- _Data pills:_ Use output fields from Apify triggers and actions as inputs for subsequent steps
+- _Field mapping:_ Visually map scraped data fields to CRM, database, or spreadsheet columns  
+- _Conditional logic:_ Build workflows that respond differently based on Actor run status or data content
+- _Data transformation:_ Apply filters, formatting, and calculations to scraped data before sending to target systems
 
 ### Best practices
 
-- **Use tasks for recurring workflows:** Create and use Apify tasks for consistent, repeatable scraping jobs
-- **Handle async operations:** For long-running Actors, use asynchronous execution and separate triggers to monitor completion
-- **Error handling:** Implement proper error handling for failed Actor runs using Workato's conditional logic
-- **Rate limiting:** Be mindful of API rate limits when designing high-frequency workflows
-- **Data validation:** Validate scraped data before sending to critical business systems
+- _Use tasks for recurring workflows:_ Create and use Apify tasks for consistent, repeatable scraping jobs
+- _Handle async operations:_ For long-running Actors, use asynchronous execution and separate triggers to monitor completion
+- _Error handling:_ Implement proper error handling for failed Actor runs using Workato's conditional logic
+- _Rate limiting:_ Be mindful of API rate limits when designing high-frequency workflows
+- _Data validation:_ Validate scraped data before sending to critical business systems
 
 ## Troubleshooting
 
-- **Connection issues:** Verify your API token has the necessary permissions and hasn't expired
-- **Actor selection:** If an Actor doesn't appear in dropdowns, ensure it has been run at least once
-- **Timeout errors:** For long-running Actors, use asynchronous execution rather than waiting for completion
-- **Data format:** Ensure JSON inputs are properly formatted and match expected Actor input schema
-- **OAuth issues:** If using OAuth, make sure the redirect URI matches your Workato region (US or EU)
-- **Resource not found errors:** Check that IDs are correct and case-sensitive
-- **Dataset field mapping issues:** If you experience incorrect data types or missing fields in the Get Dataset Items action datapil, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
+- _Connection issues:_ Verify your API token has the necessary permissions and hasn't expired
+- _Actor selection:_ If an Actor doesn't appear in dropdowns, ensure it has been run at least once
+- _Timeout errors:_ For long-running Actors, use asynchronous execution rather than waiting for completion
+- _Data format:_ Ensure JSON inputs are properly formatted and match expected Actor input schema
+- _OAuth issues:_ If using OAuth, make sure the redirect URI matches your Workato region (US or EU)
+- _Resource not found errors:_ Check that IDs are correct and case-sensitive
+- _Dataset field mapping issues:_ If you experience incorrect data types or missing fields in the Get Dataset Items action data pill, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
 
 If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
