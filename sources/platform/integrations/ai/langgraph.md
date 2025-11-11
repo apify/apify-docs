@@ -2,7 +2,7 @@
 title: 🦜🔘➡️ LangGraph integration
 sidebar_label: LangGraph
 description: Learn how to build AI Agents with Apify and LangGraph 🦜🔘➡️.
-sidebar_position: 6
+sidebar_position: 8
 slug: /integrations/langgraph
 ---
 

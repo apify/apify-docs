@@ -2,7 +2,7 @@
 title: Lindy integration
 description: Learn how to integrate Apify with Lindy.
 sidebar_label: Lindy
-sidebar_position: 7
+sidebar_position: 9
 slug: /integrations/lindy
 ---
 
