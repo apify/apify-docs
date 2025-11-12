@@ -105,12 +105,13 @@ The Apify extension provides UI elements that allow you to map dataset fields to
 The preview window next to the mapping rows will help you view and pick fields from the dataset.
 A period (`.`) in field labels indicates nested elements within an object.
 
-```bash title="Example of `crawl.depth`"
+```json
 {
     crawl: {
         depth: 'the field you selected',
     }
 }
+```
 
 ![Preview dataset fields](../../images/airtable/airtable_field_previews.png)
 
