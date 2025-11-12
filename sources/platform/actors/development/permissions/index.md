@@ -120,8 +120,8 @@ Designing your Actors to work under limited permissions is the recommended appro
 - Be aware of the [UX implications](#end-user-experience) and impact on [Actor Quality score](../../publishing/quality_score.mdx) for full-permission Actors.
 
 
-:::info
+:::info Need help with Actor permissions?
 
-Actor permissions are a new feature. If something is preventing you from migrating to limited permissions or you have a use case that you think should work under limited permissions and it does not, please reach out to support or talk to us on [the community forum](https://discord.gg/eN73Xdhtqc).
+If you cannot migrate to limited permissions or have a use case that should work under limited permissions but does not, contact support or ask on [the community forum](https://discord.gg/eN73Xdhtqc).
 
 :::
