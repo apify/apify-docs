@@ -906,16 +906,14 @@ Rendered input:
 
 #### Resource permissions
 
-If your Actor runs with limited permissions it needs to declare what kind of access needs to the resources supplied via the input. The `resourcePermissions` field expresses **what operations your Actor needs on the user-selected storages**. It is evaluated at run start and used to expand a [Limited-permissions Actors](../../permissions/index.md#) scope to be able to access the resource sent via Actor's input.
+If your Actor runs with limited permissions, it must declare what access it needs to resources supplied via input. The `resourcePermissions` field defines which operations your Actor can perform on user-selected storages. This field is evaluated at run start and expands the Actor's [limited permissions](../../permissions/index.md) scope to access resources sent via input.
 
-- `["READ"]` — the Actor may read from the referenced resources.
-- `["READ", "WRITE"]` — the Actor may read and write to the referenced resources.
+- `["READ"]` - The Actor can read from the referenced resources.
+- `["READ", "WRITE"]` -  The Actor can read from and write to the referenced resources.
 
-:::note Keep in mind
+:::note Runtime behavior
 
-- This setting does not change field visibility or it being required in the UI; it only defines runtime access for the selected resources.
-- For array fields (`type: array`), the same permissions apply to **each** selected resource.
-- If your Actor attempts an operation without the requested permission (e.g., attempts to write with a read-only access), the run will fail with an insufficient-permissions error.
-- Your users will [see what permissions you require in the input's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store)
+This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store).
+
 
 :::

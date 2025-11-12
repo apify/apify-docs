@@ -9,9 +9,9 @@ slug: /actors/development/permissions
 
 ---
 
-Every time a user runs your Actor, it runs under their Apify account. **Actor Permissions** is an Actor level setting that defines the level of access your Actor needs to be able to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
+Every time a user runs your Actor, it runs under their Apify account. **Actor permissions** define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
 
-There are two levels of access your Actors can request:
+Your Actors can request two levels of access:
 
 - **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
@@ -22,45 +22,46 @@ Most Actors should use limited permissions to request only the specific access t
 
 When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actor's permission level.
 
-Actors with **full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
+Actors with _full permissions_ receive a token that grants complete access to the user's Apify account via the Apify API.
 
 Actors with **limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
  A limited-permission Actor can:
 
 - Read and write to its default storages.
-- Update the current run’s status, abort the run, or [metamorph](../programming_interface/metamorph.md) to another Actor (as long as it also has limited permissions).
-- Read basic user information (whether the user is paying, their proxy password or public profile) from the environment.
-- Read and/or write to storages provided via Actor input (sample scenario: the user provides the Actor with a dataset that the Actor should write into).
-- Run any other Actor with limited permissions.
 - Create any additional storage, and write to that storage.
 - Read and write to storages created in previous runs.
+- Update the current run's status or abort the run.
+- [Metamorph](../programming_interface/metamorph.md) to another Actor with limited permissions.
+- Read and write to storages provided via Actor input (for example, when the user provides a dataset that the Actor should write into).
+- Read basic user information from the environment (whether the user is paying, their proxy password, or public profile).
+- Run any other Actor with limited permissions.
 
 This approach ensures your Actor has everything it needs to function while protecting user data from unnecessary exposure.
 
-:::info
+:::info Migrating to limited permissions
 
-To learn how to migrate your Actors to run under limited permissions, see the [Migration guide](./migration_guide.md)
+To learn how to migrate your Actors to run under limited permissions, check out the [Migration guide](./migration_guide.md)
 
 :::
 
 ### Configuring Actor permissions level
 
-You can set the permission level for your Actor in the Apify Console under its **Settings** tab. All the existing Actors are configured to use full permissions, but the plan is to make limited permissions the default for all new Actors.
+You can set the permission level for your Actor in the Apify Console under its **Settings** tab. All the existing Actors are configured to use full permissions.
 
 ![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
 
 ### End-user experience
 
-Currently, users will see a visible permission badge on your Actor's detail page indicating whether it requires "Limited permissions" or "Full permissions". At this stage, the experience of running an Actor will not change for the user.
+Users see a visible permission badge on your Actor's detail page indicating whether it requires **Limited permissions** or **Full permissions**. The experience of running an Actor remains the same for users.
 
 ![User experience for users viewing limited permission Actor in console](./images/end_user_ux_limited_permissions.png)
 
 ![User experience for users viewing full permission Actor in console](./images/end_user_ux_full_permissions.png)
 
-:::warning
+:::warning Impact on Actor Quality score
 
-Whenever possible, design your Actors to use limited permissions and request only access they truly need. Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store.
+When possible, design your Actors to use limited permissions and request only the access they truly need. Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store.
 
 :::
 
