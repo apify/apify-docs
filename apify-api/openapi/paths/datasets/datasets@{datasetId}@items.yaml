@@ -1,7 +1,7 @@
 get:
   tags:
     - Storage/Datasets
-  summary: Get items
+  summary: Get dataset items
   description: |
     Returns data stored in the dataset in a desired format.
 

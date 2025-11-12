@@ -265,8 +265,8 @@ export default function Home() {
                 </div>
             </Section>
             <Section
-                heading="Web scraping Academy"
-                description='Free practical courses on web scraping and browser automation. Go from beginner to expert, all in one place.'
+                heading="Apify Academy"
+                description='Free practical courses on web scraping and the Apify platform. Go from beginner to expert, all in one place.'
             >
                 <div className={styles.sectionLayoutWrapper}>
                     <div className={styles.cards}>
