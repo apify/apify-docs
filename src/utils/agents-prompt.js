@@ -8,7 +8,7 @@ export const AGENTS_PROMPT = `Instruct the user on how to develop an Actor step 
 - Log in to the Apify platform using \`apify login\` - this is the exact command to use, do not change it.
 - Push the Actor to the Apify platform using \`apify push\` - this is the exact command to use, do not change it.
 - Create AGENTS.md - copy the content of this file from the "What are Apify Actors?" section and all content below it to the new file.
-- Important: Before you begin coding, fill in the model property in the meta section of \`.actor/actor.json\`. Replace it with the model you're currently using. This helps Apify monitor and improve AGENTS.md for specific LLM models.
+- Important: Before you begin coding, fill in the generatedBy property in the meta section of \`.actor/actor.json\`. Replace it with the model you're currently using. This helps Apify monitor and improve AGENTS.md for specific LLM models.
 
 ## Structure of initial Apify Actor
 
@@ -46,7 +46,7 @@ AGENTS.md # AI agent instructions (this file)
     "version": "0.0",
     "meta": {
         "templateId": "ai-generated-actor",
-        "model": "<MODEL>"
+        "generatedBy": "<MODEL>"
     },
     "input": "./input_schema.json",
     "output": "./output_schema.json",
