@@ -5,8 +5,6 @@ sidebar_position: 9.7
 slug: /tools/edit-this-cookie
 ---
 
-# What's EditThisCookie? {#what-is-it}
-
 **Learn how to add, delete, and modify different cookies in your browser for testing purposes using the EditThisCookie Chrome extension.**
 
 ---

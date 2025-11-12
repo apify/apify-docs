@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /anti-scraping/techniques/fingerprinting
 ---
 
-# Fingerprinting {#fingerprinting}
-
 **Understand browser fingerprinting, an advanced technique used by browsers to track user data and even block bots from accessing them.**
 
 ---
@@ -87,7 +85,7 @@ navigator.permissions.query('some_permission');
 
 ### With canvases {#with-canvases}
 
-This technique is based on rendering [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) scenes to a canvas element and observing the pixels rendered. WebGL rendering is tightly connected with the hardware, and therefore provides high entropy. Here's a quick breakdown of how it works:
+This technique is based on rendering [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) scenes to a canvas element and observing the rendered pixels. WebGL rendering is tightly connected with the hardware, and therefore provides high entropy. Here's a quick breakdown of how it works:
 
 1. A JavaScript script creates a [`<canvas>` element](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) and renders some font or a custom shape.
 2. The script then gets the pixel-map from the `<canvas>` element.

@@ -5,8 +5,6 @@ sidebar_position: 5
 slug: /puppeteer-playwright/common-use-cases/scraping-iframes
 ---
 
-# Scraping iFrames
-
 **Extracting data from iFrames can be frustrating. In this tutorial, we will learn how to scrape information from iFrames using Puppeteer or Playwright.**
 
 ---
@@ -17,7 +15,7 @@ Getting information from inside iFrames is a known pain, especially for new deve
 
 If you are using basic methods of page objects like `page.evaluate()`, you are actually already working with frames. Behind the scenes, Puppeteer will call `page.mainFrame().evaluate()`, so most of the methods you are using with page object can be used the same way with frame object. To access frames, you need to loop over the main frame's child frames and identify the one you want to use.
 
-As a demonstration, we'll scrape the Twitter widget iFrame from [IMDB](https://www.imdb.com/).
+As a demonstration, we'll scrape the Twitter widget iFrame from [IMDb](https://www.imdb.com/).
 
 ```js
 import puppeteer from 'puppeteer';

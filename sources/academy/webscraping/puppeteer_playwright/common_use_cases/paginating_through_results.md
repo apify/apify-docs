@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/common-use-cases/paginating-through-results
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Paginating through results {#paginating-through-results}
-
 **Learn how to paginate through results on websites that use either pagination based on page numbers or dynamic lazy loading.**
 
 ---

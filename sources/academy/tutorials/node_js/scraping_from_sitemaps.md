@@ -7,8 +7,6 @@ slug: /node-js/scraping-from-sitemaps
 
 import Example from '!!raw-loader!roa-loader!./scraping_from_sitemaps.js';
 
-# How to scrape from sitemaps {#scraping-with-sitemaps}
-
 :::tip Processing sitemaps automatically with Crawlee
 
 Crawlee allows you to scrape sitemaps with ease. If you are using Crawlee, you can skip the following steps and just gather all the URLs from the sitemap in a few lines of code.

@@ -1,6 +1,6 @@
 ---
 title: Creating Actor Dockerfile
-description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
+description: Learn to write a Dockerfile for your project so it can run in a Docker container on the Apify platform.
 sidebar_position: 4
 slug: /deploying-your-code/docker-file
 ---
@@ -8,19 +8,27 @@ slug: /deploying-your-code/docker-file
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.**
+**Learn to write a Dockerfile for your project so it can run in a Docker container on the Apify platform.**
 
 ---
 
 The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every Actor must have a Dockerfile, as Actors run in Docker containers.
 
-> Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common practice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to run the Actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Python, Rust, GO, etc).
+:::note Local testing
+
+Actors on the platform are always run in Docker containers, however, they can also be run in local Docker containers. This is not common practice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to run the Actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Python, Rust, GO, etc).
+
+:::
 
 ## Base images {#base-images}
 
-If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running Actors on the platform, which can be found on [Docker Hub](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
+If your project doesn't already contain a Dockerfile, don't worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running Actors on the platform, which can be found on [Docker Hub](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
 
-> Tip: You can see all of Apify's Docker images [on DockerHub](https://hub.docker.com/u/apify).
+:::tip DockerHub images
+
+You can see all of Apify's Docker images [on DockerHub](https://hub.docker.com/u/apify).
+
+:::
 
 At the base level, each Docker image contains a base operating system and usually also a programming language runtime (such as Node.js or Python). You can also find images with preinstalled libraries or install them yourself during the build step.
 
@@ -30,13 +38,21 @@ Once you find the base image you need, you can add it as the initial `FROM` stat
 FROM apify/actor-node:16
 ```
 
-> For syntax highlighting in your Dockerfiles, download the [**Docker** VSCode extension](https://code.visualstudio.com/docs/containers/overview#_installation).
+:::tip VSCode extension
+
+For syntax highlighting in your Dockerfiles, download the [Docker VSCode extension](https://code.visualstudio.com/docs/containers/overview#_installation).
+
+:::
 
 ## Writing the file {#writing-the-file}
 
 The rest of the Dockerfile is about copying the source code from the local filesystem into the container's filesystem, installing libraries, and setting the `RUN` command (which falls back to the parent image).
 
-> If you are not using a base image from Apify, then you should specify how to launch the source code of your Actor with the `CMD` instruction.
+:::info Custom images
+
+If you are not using a base image from Apify, then you should specify how to launch the source code of your Actor with the `CMD` instruction.
+
+:::
 
 Here's the Dockerfile for our Node.js example project's Actor:
 

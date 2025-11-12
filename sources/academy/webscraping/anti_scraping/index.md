@@ -6,8 +6,6 @@ category: web scraping & automation
 slug: /anti-scraping
 ---
 
-# Anti-scraping protections {#anti-scraping-protections}
-
 **Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.**
 
 ---
@@ -113,7 +111,7 @@ Because we here at Apify scrape for a living, we have discovered many popular an
 
 This is the most straightforward and standard protection, which is mainly implemented to prevent DDoS attacks, but it also works for blocking scrapers. Websites using rate limiting don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
 
-> Learn more about rate limiting [here](./techniques/rate_limiting.md)
+> Learn more about rate limiting in our [rate limiting guide](./techniques/rate_limiting.md)
 
 ### Header checking
 
@@ -135,7 +133,7 @@ This technique is commonly used to entirely block the bot from accessing the web
 
 ### Interval analysis
 
-This technique is based on analyzing the time intervals of the visit of a website. If the times are very similar, the entity is added to the greylist. This method’s premise is that the bot runs in regular intervals by, for example, a CRON job that starts every Monday. It is a long-term strategy, so it should be used as an extension. This technique needs only the information from the HTTP request to identify the frequency of the visits.
+This technique is based on analyzing the time intervals of the visit of a website. If the times are very similar, the entity is added to the greylist. This method’s premise is that the bot runs in regular intervals by, for example, a Cron job that starts every Monday. It is a long-term strategy, so it should be used as an extension. This technique needs only the information from the HTTP request to identify the frequency of the visits.
 
 ### Browser fingerprinting
 
