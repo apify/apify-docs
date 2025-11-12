@@ -22,9 +22,9 @@ Most Actors should use limited permissions to request only the specific access t
 
 When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actor's permission level.
 
-Actors with _full permissions_ receive a token that grants complete access to the user's Apify account via the Apify API.
+Actors with **Full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
 
-Actors with **limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
+Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
  A limited-permission Actor can:
 
