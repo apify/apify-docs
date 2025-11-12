@@ -278,10 +278,10 @@ post:
     - name: forcePermissionLevel
       in: query
       description: |
-		Overrides the Actor's permission level for this specific run. Use to test restricted permissions
-		before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this 
-		parameter, the Actor uses its configured default permission level. For more information on permissions, see the 
-		[documentation](https://docs.apify.com/platform/actors/development/permissions).
+        Overrides the Actor's permission level for this specific run. Use to test restricted permissions
+        before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
+        parameter, the Actor uses its configured default permission level. For more information on permissions, see the
+        [documentation](https://docs.apify.com/platform/actors/development/permissions).
       style: form
       explode: true
       schema:
