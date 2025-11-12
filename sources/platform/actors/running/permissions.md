@@ -57,4 +57,4 @@ When you browse Actors in Apify Console or Store, you’ll notice a small badge 
 
 ![Full-permissions badge shown on Actor detail page](../development/permissions/images/end_user_ux_full_permissions.png)
 
-Over time, the distinction between these permission levels will become more prominent. For example, Actors requiring full permissions may display an orange badge, appear lower in Store rankings, or show extra confirmation dialogs when you run them. Whenever possible, choose Actors that use **limited permissions**. They are safer, easier to trust, and sufficient for most workflows.
+Whenever possible, choose Actors that use **limited permissions**. They are safer, easier to trust, and sufficient for most workflows.
