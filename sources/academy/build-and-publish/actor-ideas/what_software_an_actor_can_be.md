@@ -50,6 +50,8 @@ For inspiration, see:
 - [Google Cloud APIs](https://cloud.google.com/apis)
 - [\{API\}Market](https://api.market/)
 - [openapi](https://openapi.com/products)
+- [n8n Workflow Automation Templates](https://n8n.io/workflows/)
+- [Make Template gallery](https://www.make.com/en/templates)
 
 ### Open-source libraries
 
@@ -136,6 +138,7 @@ For inspiration, see:
 - [agent.ai marketplace](https://agent.ai/)
 - [AI Agents Directory](https://aiagentsdirectory.com/landscape)
 - [Awesome AI Agents by E2B](https://github.com/e2b-dev/awesome-ai-agents)
+- [n8n Workflow Automation Templates](https://n8n.io/workflows/)
 
 ### Other
 
