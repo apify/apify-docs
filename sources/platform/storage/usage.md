@@ -131,17 +131,22 @@ Go to the [API documentation](/api/v2#rate-limiting) for details and to learn wh
 
 ## Data retention
 
-Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. Unnamed datasets and runs beyond the latest ten will be automatically deleted after 7 days unless otherwise specified. Named datasets are retained indefinitely.
+On the free plan, Apify stores the ten most recent runs for a maximum of 4 months. On paid plans, the retention period of the plan applies. Unnamed storages and runs beyond the latest ten will be automatically deleted according to these retention periods. Named storages are retained indefinitely.
 
 ### Preserving your storages
 
-To ensure indefinite retention of your storages, assign them a name. This can be done via Apify Console or through our API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
+To ensure indefinite retention of selected storages, assign them a name. This can be done via Apify Console or through our API.
 
-![Finding your store's ID](./images/find-store-id.png)
+1. In [Apify Console](https://console.apify.com), head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.
+1. Check that store's details to find its ID:
 
-Find and open your storage by clicking the ID, click on the **Actions** menu, choose **Rename**, and enter its new name in the field. Your storage will now be preserved indefinitely.
+   ![Finding your store's ID](./images/find-store-id.png)
 
-To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2/actor-run-get) endpoint. You can then give it a new name using the `Update \[storage\]` endpoint. For example, [Update dataset](/api/v2/dataset-put).
+1. Click the ID to open the storage details.
+1. Click on the **Actions** menu and choose **Rename**.
+1. Enter a new name in the field. Your storage will now be preserved indefinitely.
+
+To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2/actor-run-get) endpoint. You can then give it a new name using the `Update [storage]` endpoint. For example, [Update dataset](/api/v2/dataset-put).
 
 Our SDKs and clients each have unique naming conventions for storages. For more information check out documentation:
 
