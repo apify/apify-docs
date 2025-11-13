@@ -113,7 +113,7 @@ See the full [input schema reference for details.](../actor_definition/input_sch
 
 ### Requesting full permissions
 
-Designing your Actors to work under limited permissions is the recommended approach, it helps improve your Actor’s [Actor Quality score](../../publishing/quality_score.mdx#trustworthiness) and increases user trust and adoption. However, some use cases do legitimately require broader access to user data (e.g., to perform administrative tasks or orchestrate other Actors). If your Actor falls in this category or cannot function with limited permissions for another reason:
+Designing your Actors to work under limited permissions is the recommended approach, it helps improve your [Actor Quality score](../../publishing/quality_score.mdx#trustworthiness) and increases user trust and adoption. However, some use cases do legitimately require broader access to user data (e.g., to perform administrative tasks or orchestrate other Actors). If your Actor falls in this category or cannot function with limited permissions for another reason:
 
 - Explain why you need full permissions in your Actor's README. This will help keep user trust and set correct user expectations.
 - Set the permission level in the Actor’s **Settings** in Console to **Full permissions**.
