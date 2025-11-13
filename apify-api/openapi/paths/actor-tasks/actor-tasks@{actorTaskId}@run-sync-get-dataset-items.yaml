@@ -58,11 +58,11 @@ get:
     - name: maxItems
       in: query
       description: |
-        The maximum number of items that the task run should return. This is
-        useful for pay-per-result tasks, as it allows you to limit the number of
-        results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+        Specifies the maximum number of dataset items that will be charged for pay-per-result actors.
+        This does NOT guarantee that the Actor will return only this many items.
+        It only ensures you won't be charged for more than this number of items.
+        Only works for pay-per-result actors.
+        Value can be accessed in the actor run using `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
       schema:
@@ -451,11 +451,11 @@ post:
     - name: maxItems
       in: query
       description: |
-        The maximum number of items that the task run should return. This is
-        useful for pay-per-result tasks, as it allows you to limit the number of
-        results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+        Specifies the maximum number of dataset items that will be charged for pay-per-result actors.
+        This does NOT guarantee that the Actor will return only this many items.
+        It only ensures you won't be charged for more than this number of items.
+        Only works for pay-per-result actors.
+        Value can be accessed in the actor run using `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
       schema:
