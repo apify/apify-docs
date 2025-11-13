@@ -75,10 +75,7 @@ jobs:
             -   name: Deploy theme to npm
                 run: |
                     cd $GITHUB_WORKSPACE/apify-docs-theme
-                    npm publish --provenance
-                env:
-                    GIT_USER: "barjin:${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}"
-                    GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+                    npm publish
 
             -   name: Wait until the new theme version is available on npm
                 run: |
