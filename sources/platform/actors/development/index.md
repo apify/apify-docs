@@ -1,6 +1,6 @@
 ---
 title: Actor development
-desc: Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
+description: Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
 sidebar_label: Development
 sidebar_position: 7.4
 slug: /actors/development
@@ -9,6 +9,14 @@ slug: /actors/development
 **Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.**
 
 ---
+
+:::note Join The Apify $1M Challenge
+
+Build and publish new tools on Apify and have multiple chances to win big prizes.
+
+[Join the challenge now.](https://apify.com/challenge)
+
+:::
 
 This section will guide you through the whole story of [Actor](../index.mdx) development.
 
