@@ -3,11 +3,11 @@
 name: Deploy Nginx Configuration
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'nginx.conf'
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'nginx.conf'
   workflow_dispatch:
 
 jobs:
