@@ -8,6 +8,10 @@
         "types",
         "static"
     ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/apify/apify-docs.git"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "echo 'Building @apify/docs-theme!'"
