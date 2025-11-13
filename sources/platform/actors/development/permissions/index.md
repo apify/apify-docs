@@ -13,7 +13,7 @@ Every time a user runs your Actor, it runs under their Apify account. **Actor pe
 
 Your Actors can request two levels of access:
 
-- **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
+- **Limited permissions:**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
 Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
