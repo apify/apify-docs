@@ -55,7 +55,7 @@ jobs:
               run: npm run redoc:build:clean:yaml
 
             - name: Setup Go
-              uses: actions/setup-go@v5
+              uses: actions/setup-go@v6
               with:
                   go-version: "1.25"
                   # Disable caching since go.sum is gitignored and regenerated on each run.
