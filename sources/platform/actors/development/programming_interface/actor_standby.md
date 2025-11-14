@@ -62,7 +62,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.config.web_server_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.configuration.web_server_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
@@ -131,7 +131,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.config.standby_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.configuration.standby_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
@@ -167,7 +167,7 @@ from apify import Actor
 
 async def main() -> None:
     async with Actor:
-        if Actor.config.meta_origin == 'STANDBY':
+        if Actor.configuration.meta_origin == 'STANDBY':
             # Start your Standby server here
         else:
             # Perform the standard Actor operations here
