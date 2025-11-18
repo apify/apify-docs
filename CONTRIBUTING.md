@@ -332,6 +332,7 @@ Add languages by adding new folders at the appropriate path level.
 3. **Prose**:
 
     - Use [Vale](https://vale.sh/) for content linting
+    - Run `vale sync` to download styles
     - Configure exceptions in `accepts.txt`
 
 ## Pull request process
