@@ -5,6 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/downloading-html
 ---
 
+import TestedExercise from '@site/src/components/TestedExercise';
 import Exercises from '../scraping_basics/_exercises.mdx';
 
 **In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
@@ -150,14 +151,23 @@ https://www.aliexpress.com/w/wholesale-darth-vader.html
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
+  <TestedExercise>
+    ```py
+    import httpx
 
-  url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
-  response = httpx.get(url)
-  response.raise_for_status()
-  print(response.text)
-  ```
+    url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
+    response = httpx.get(url)
+    response.raise_for_status()
+    print(response.text)
+    ```
+
+    ```bats
+    @test "outputs the HTML with darth vader products" {
+      run uv python exercise.py
+      assert_output --partial 'Need more help to find the most popular darth vader?'
+    }
+    ```
+  </TestedExercise>
 
 </details>
 
