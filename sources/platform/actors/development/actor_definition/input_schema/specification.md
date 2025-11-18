@@ -872,7 +872,8 @@ Example of multiple datasets input:
     "title": "Datasets",
     "type": "array",
     "description": "Select multiple datasets",
-    "resourceType": "dataset"
+    "resourceType": "dataset",
+    "resourcePermissions": ["READ"]
 }
 ```
 
@@ -887,6 +888,7 @@ Rendered input:
 | `type`         | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                 |
 | `editor`       | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                               |
 | `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                          |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes.|
 | `pattern`      | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
 | `minLength`    | Integer                                                                           | No       | Minimum length of the string.                                                                            |
 | `maxLength`    | Integer                                                                           | No       | Maximum length of the string.                                                                            |
@@ -898,5 +900,20 @@ Rendered input:
 | `type`         | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                   |
 | `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
 | `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                            |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
 | `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain.                             |
 | `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain.                             |
+
+#### Resource permissions
+
+If your Actor runs with limited permissions, it must declare what access it needs to resources supplied via input. The `resourcePermissions` field defines which operations your Actor can perform on user-selected storages. This field is evaluated at run start and expands the Actor's [limited permissions](../../permissions/index.md) scope to access resources sent via input.
+
+- `["READ"]` - The Actor can read from the referenced resources.
+- `["READ", "WRITE"]` -  The Actor can read from and write to the referenced resources.
+
+:::note Runtime behavior
+
+This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store).
+
+
+:::
