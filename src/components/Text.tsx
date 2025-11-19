@@ -63,14 +63,14 @@ const TEXT_VARIANTS_CSS = {
 type TextComponentProps = TextBaseProps & {
     type?: 'body' | 'code';
     size?: 'large' | 'regular' | 'small';
-    weight?: 'normal' |'medium' | 'bold';
+    weight?: 'normal' | 'medium' | 'bold';
     as?: React.ElementType;
 };
 
 type TextCssProps = {
     $type?: 'body' | 'code';
     $size?: 'large' | 'regular' | 'small';
-    $weight?: 'normal' |'medium' | 'bold';
+    $weight?: 'normal' | 'medium' | 'bold';
 };
 
 const getTextCss = ({ $type = 'body', $size = 'regular', $weight = 'normal' }: TextCssProps) => {
