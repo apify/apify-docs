@@ -48,23 +48,16 @@ If you're using [OpenCode](https://opencode.ai/), add this configuration to your
   "mcp": {
     "skyfire": {
       "enabled": true,
-      "type": "local",
-      "command": [
-        "npx",
-        "mcp-remote",
-        "https://mcp.skyfire.xyz/mcp",
-        "--header",
-        "skyfire-api-key: YOUR_SKYFIRE_API_KEY"
-      ]
+      "type": "remote",
+      "url": "https://mcp.skyfire.xyz/mcp",
+      "headers": {
+        "skyfire-api-key": "YOUR_SKYFIRE_API_KEY"
+      }
     },
     "apify": {
       "enabled": true,
-      "type": "local",
-      "command": [
-        "npx",
-        "mcp-remote",
-        "https://mcp.apify.com?payment=skyfire"
-      ]
+      "type": "remote",
+      "url": "https://mcp.apify.com?payment=skyfire"
     }
   }
 }
