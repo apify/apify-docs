@@ -25,11 +25,9 @@ function HeroPromotion({ badge, label, labelMobile, href }: HeroPromotionProps) 
                     <span className={styles.heroPromotionLabelDesktop}>
                         {label}
                     </span>
-                    {labelMobile && (
-                        <span className={styles.heroPromotionLabelMobile}>
-                            {labelMobile}
-                        </span>
-                    )}
+                    <span className={styles.heroPromotionLabelMobile}>
+                        {labelMobile || label}
+                    </span>
                 </Text>
                 <ArrowRightIcon
                     className={styles.heroPromotionArrow}
