@@ -16,8 +16,6 @@
 @media (min-width: 768px) {
     .heroBannerContent {
         max-width: 738px;
-        align-items: flex-start;
-        text-align: left;
     }
     .heroBanner {
         margin-bottom: 0;
@@ -91,4 +89,71 @@ html[data-theme='dark'] .heroBanner p {
     .codeBlock code {
         font-size: 0.7em;
     }
+}
+
+.heroBanner .heroPromotionLink {
+    border-radius: 1000px;
+    border: 1px solid var(--color-Neutral_SeparatorSubtle);
+    background: var(--color-Neutral_Background);
+    display: flex;
+    padding: 0.8rem 1.2rem;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+
+    @media (max-width: 767px) {
+        padding: 0.8rem 1.6rem;
+        flex-direction: column;
+    }
+
+    &:hover {
+        background: var(--color-Neutral_Hover);
+
+        .heroPromotionArrow {
+            transform: translateX(4px);
+        }
+    }
+}
+
+.heroBanner .heroPromotionContent {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.heroBanner .heroPromotionBadge {
+    border-radius: 1.2rem;
+    background: var(--color-primary-chip-background);
+    color: var(--color-primary-chip-text);
+    display: flex;
+    padding: 0.2rem 0.8rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.heroBanner .heroPromotionLabel {
+    color: var(--color-neutral-text);
+}
+
+.heroBanner .heroPromotionLabelDesktop {
+    display: inline;
+}
+
+.heroBanner .heroPromotionLabelMobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .heroBanner .heroPromotionLabelDesktop {
+        display: none;
+    }
+    .heroBanner .heroPromotionLabelMobile {
+        display: inline;
+    }
+}
+
+.heroBanner .heroPromotionArrow {
+    color: var(--color-neutral-icon);
+    transition: transform 0.2s;
 }
