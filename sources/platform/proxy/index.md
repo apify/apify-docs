@@ -11,15 +11,15 @@ import TabItem from '@theme/TabItem';
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
-**Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.**
+**Learn how to use Apify Proxy to anonymously access websites, change IP addresses, and reduce blocking in your scraping and automation jobs.**
 
 ---
 
-> [Apify Proxy](https://apify.com/proxy) allows you to change your IP address when web scraping to reduce the chance of being [blocked](/academy/anti-scraping/techniques) because of your geographical location.
+:::info
+[Apify Proxy](https://apify.com/proxy) monitors the health of your IP pool and automatically rotates addresses to help avoid [blocking](/academy/anti-scraping/techniques). Note that while proxies significantly reduce blocking risks, they cannot eliminate them entirely. You may still encounter blocks depending on the target website's anti-scraping measures.
+:::
 
-You can use proxies in your [Actors](../actors/index.mdx) or any other application that supports HTTP proxies. Apify Proxy monitors the health of your IP pool and intelligently rotates addresses to prevent IP address-based blocking.
-
-You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in Apify Console. For pricing information, visit [apify.com/pricing](https://apify.com/pricing).
+You can use proxies in your [Actors](../actors/index.mdx) or any other application that supports HTTP proxies. You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in Apify Console. For pricing information, visit [apify.com/pricing](https://apify.com/pricing).
 
 
 ## Quickstart
@@ -88,7 +88,7 @@ Several types of proxy servers exist, each offering distinct advantages, disadva
     />
     <Card
         title="Residential proxy"
-        desc="IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked."
+        desc="IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked, but are more expensive than datacenter proxies."
         to="/platform/proxy/residential-proxy"
     />
     <Card
@@ -98,3 +98,4 @@ Several types of proxy servers exist, each offering distinct advantages, disadva
     />
 </CardGrid>
 
+You can also integrate your own proxy servers with Apify Actors instead of using Apify Proxy. Learn more about [using your own proxies](./your_own_proxies.md).
