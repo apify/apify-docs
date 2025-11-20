@@ -11,16 +11,15 @@
     align-items: center;
     gap: 1.6rem;
     text-align: center;
-
-    &.heroAlignLeft {
-        align-items: flex-start;
-        text-align: left;
-    }
 }
 
 @media (min-width: 768px) {
     .heroBannerContent {
         max-width: 738px;
+        &.heroAlignLeft {
+            align-items: flex-start;
+            text-align: left;
+        }
     }
     .heroBanner {
         margin-bottom: 0;
@@ -28,11 +27,15 @@
 }
 
 @media (min-width: 1024px) {
-    .heroBannerContent { max-width: 896px; }
+    .heroBannerContent {
+        max-width: 896px;
+    }
 }
 
 @media (min-width: 1440px) {
-    .heroBannerContent { max-width: 1200px; }
+    .heroBannerContent {
+        max-width: 1200px;
+    }
 }
 
 .heroBanner {
@@ -42,7 +45,7 @@
 }
 
 .heroBanner .heroDescription {
-   color: var(--color-neutral-text-muted);
+    color: var(--color-neutral-text-muted);
 }
 
 html .heroBanner p {
