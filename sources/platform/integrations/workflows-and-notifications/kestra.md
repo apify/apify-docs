@@ -98,6 +98,6 @@ tasks:
 If you encounter issues, start by double-checking basics.
 
 - **Authentication errors**: Verify your API token in [Secrets](https://kestra.io/docs/concepts/secret).
-- **Operation failures**: Check input parameters, JSON syntax, and resource IDs in your Apify account.
+- **Operation failures**: Check input parameters, YAML syntax, and resource IDs in your Apify account.
 
 Feel free to explore other resources and contribute to the integration on [GitHub](https://github.com/kestra-io/plugin-apify).
