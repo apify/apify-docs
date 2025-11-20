@@ -24,11 +24,15 @@ To use the Apify integration with Power Automate, you will need:
 You can use the Apify Connector directly within Microsoft Power Automate.
 
 1. Log in to your Power Automate account.
-2. Navigate to **Connectors** or search for "Apify" when adding a new step to your flow.
-3. Select the **Apify** connector.
-
-![Search for Apify connector in Power Automate](TODO-screenshot-search-connector.png)
-
+1. Navigate to the **Connectors** tab on the left sidebar to check the page of the connector.
+  - If you don't see the **Connectors** tab, click **More** in the left sidebar.
+  - Find **Connectors** in the list and click the **Pin** icon to pin it to your sidebar for easy access.
+  - ![Pin Connectors tab in Power Automate](../images/power-automate/screenshot-pin-connectors-tab.png)
+1. Open the **Connectors** tab and search for "Apify".
+  - ![Search for Apify in Connectors tab](../images/power-automate/screenshot-search-apify-connectors.png)
+1. Select the **Apify** connector from the search results.
+1. A page with connector info will show up, displaying all available triggers and flows (actions) you can use right away for your automation projects.
+  - ![Apify Connector page with triggers and actions](../images/power-automate/screenshot-apify-connector-page.png)
 
 
 ## Connect your Apify account
@@ -36,9 +40,9 @@ You can use the Apify Connector directly within Microsoft Power Automate.
 Before using the Apify connector in flows, create a connection in Power Automate.
 
 1. When you add an Apify action or trigger for the first time, you will be prompted to create a connection.
-2. You can also manage connections under **Data > Connections**.
+1. You can also manage connections under **Data > Connections**.
 
-![Create new connection in Power Automate](TODO-screenshot-create-connection.png)
+![Create new connection in Power Automate](../images/power-automate/screenshot-create-connection.png)
 
 ### Choose authentication type
 
@@ -47,12 +51,12 @@ The Apify Connector supports **OAuth 2.0** authentication.
 #### Authenticate with OAuth 2.0
 
 1. Select **Sign in with Apify**.
-2. You will be redirected to the Apify login page (if not already logged in).
-3. Authorize the connector to access your account.
+1. You will be redirected to the Apify login page (if not already logged in).
+1. Authorize the connector to access your account.
    - The connector requires the following scopes:
      - `profile`: To view account details.
      - `full_api_access`: To run Actors, tasks, and access datasets.
-4. Once authorized, you will be redirected back to Power Automate, and the connection will be ready to use.
+1. Once authorized, you will be redirected back to Power Automate, and the connection will be ready to use.
 
 ![OAuth authorization screen](TODO-screenshot-oauth.png)
 
