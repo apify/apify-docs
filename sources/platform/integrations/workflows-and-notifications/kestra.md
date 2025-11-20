@@ -27,19 +27,6 @@ The Apify plugin uses API key authentication. Store your API key in [Kestra Secr
 
 To add your Apify API token, go to the Secrets section in the Kestra UI and create a new secret with the key `APIFY_API_KEY` and your token as the value.
 
-## Create a flow with the Apify Plugin
-
-Start by building a basic flow in Kestra,
-then add any Apify Task to handle jobs like running Actors
-or fetching data.
-
-1. Create a new flow in Kestra.
-1. Select **Add Node**, search for **Apify**, and select it.
-1. Choose the desired **Resource** and **Operation**.
-1. In the **Credentials** dropdown, select your Apify credential. If you haven't configured credentials yet, you can add them here.
-
-You can now use Apify node as a trigger or action in your workflow.
-
 ## Use Apify Tasks as an action
 
 Tasks allow you to perform operations like running an Actor within a workflow.
