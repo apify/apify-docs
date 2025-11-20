@@ -11,6 +11,11 @@
     align-items: center;
     gap: 1.6rem;
     text-align: center;
+
+    &.heroAlignLeft {
+        align-items: flex-start;
+        text-align: left;
+    }
 }
 
 @media (min-width: 768px) {

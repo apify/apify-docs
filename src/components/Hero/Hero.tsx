@@ -41,14 +41,15 @@ function HeroPromotion({ badge, label, labelMobile, href }: HeroPromotionProps) 
 interface HeroProps {
     heading: string;
     description: React.ReactNode | string;
+    align?: 'left' | 'center';
     promotion?: HeroPromotionProps;
     className?: string;
 }
 
-export default function Hero({ heading, description, promotion, className }: HeroProps) {
+export default function Hero({ heading, description, promotion, align = 'left', className }: HeroProps) {
     return (
         <header className={clsx(styles.heroBanner, className)}>
-            <div className={clsx(styles.heroBannerContent)}>
+            <div className={clsx(styles.heroBannerContent, { [styles.heroAlignLeft]: align === 'left' })}>
                 {promotion && <HeroPromotion {...promotion} />}
                 <div>
                     <Heading type='title3Xl' className={styles.tagline}>{heading}</Heading>
