@@ -10,10 +10,9 @@ slug: /integrations/kestra
 
 ---
 
-[Kestra](https://kestra.io/) is an open-source, event-driven orchestration platform that unifies workflows for all engineers.
-With the [Apify plugin for Kestra](https://github.com/kestra-io/plugin-kestra), you can seamlessly connect Apify Actors and storage to your workflows.
-Run scrapers, extract structured data — all defined declaratively in YAML and orchestrated directly from the UI.
-In this guide, you'll learn how to set up and incorporate authentication into a Kestra flows.
+[Kestra](https://kestra.io/) is an open-source, event-driven orchestration platform. The [Apify plugin for Kestra](https://github.com/kestra-io/plugin-kestra) connects Apify Actors and storage to your workflows. Run scrapers, extract structured data — all defined declaratively in YAML and orchestrated directly from the UI.
+
+This guide shows you how to set up the integration, configure authentication, and create a workflow that runs an Actor and processes its results.
 
 ## Prerequisites
 
@@ -26,16 +25,9 @@ Once installed, the next step is authentication.
 
 ## Authentication
 
-The Apify plugin for Kestra uses **API Key authentication** to securely connect with your Apify account.
-This method works for both self-hosted and cloud instances.
+The Apify plugin uses API key authentication. Store your API key in [Kestra Secrets](https://kestra.io/docs/concepts/secret) through the UI or environment variables. In the open-source version, manage Secrets using base64-encoded environment variables. You can also use [Kestra's KV Store](https://kestra.io/docs/concepts/kv-store) to persist API keys across executions and workflows.
 
-You can store and manage your API key directly in [Kestra Secrets](https://kestra.io/docs/concepts/secret)
-in the UI or through environment variables, ensuring credentials stay secure and flows remain declarative. In the open-source version, Secrets can be managed using base64-encoded environment variables.
-
-For open-source deployments, you can also use [Kestra’s KV Store](https://kestra.io/docs/concepts/kv-store)
-to persist and share API keys (or other values) across executions and workflows.
-
-With authentication configured, you can now define flows that integrate the Apify plugin — orchestrating scrapers, data extraction, and event-driven tasks directly from Kestra.
+To add your Apify API token, go to the Secrets section in the Kestra UI and create a new secret with the key `APIFY_API_KEY` and your token as the value.
 
 ## Create a flow with the Apify Plugin
 
@@ -46,8 +38,9 @@ or fetching data.
 1. Create a new flow in Kestra.
 1. Select **Add Node**, search for **Apify**, and select it.
 1. Choose the desired **Resource** and **Operation**.
-1. In the node's **Credentials** dropdown, choose the Apify credential you configured earlier. If you haven't configured any credentials, you can do so in this step. The process will be the same.
-1. You can now use Apify node as a trigger or action in your workflow.
+1. In the **Credentials** dropdown, select your Apify credential. If you haven't configured credentials yet, you can add them here.
+
+You can now use Apify node as a trigger or action in your workflow.
 
 ## Use Apify Tasks as an action
 
@@ -71,6 +64,7 @@ Tasks allow you to perform operations like running an Actor within a workflow.
 1. Now save and run your flow.
 
 Your completed template should match the template below.
+
 ```yaml
 id: run_actor_and_fetch_dataset
 namespace: company.team
