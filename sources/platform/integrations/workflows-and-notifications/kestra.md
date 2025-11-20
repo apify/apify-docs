@@ -1,12 +1,12 @@
 ---
 title: Kestra integration
-description: Connect Apify with Kestra to orchestrate workflows — run flows, extract structured data, and react to Actor or task events in real time.
+description: Connect Apify with Kestra to orchestrate workflows — run flows, extract structured data, and react to Actor or task events.
 sidebar_label: Kestra
 sidebar_position: 7
 slug: /integrations/kestra
 ---
 
-**Connect Apify with Kestra to orchestrate workflows — run flows, extract structured data, and react to Actor or task events in real time.**
+**Connect Apify with Kestra to orchestrate workflows — run flows, extract structured data, and react to Actor or task events.**
 
 ---
 
