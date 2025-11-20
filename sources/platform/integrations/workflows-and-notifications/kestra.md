@@ -21,8 +21,6 @@ Before you begin, make sure you have:
 - An [Apify account](https://console.apify.com/)
 - A [Kestra instance](https://kestra.io/docs/getting-started/quickstart) (self‑hosted or cloud)
 
-Once installed, the next step is authentication.
-
 ## Authentication
 
 The Apify plugin uses API key authentication. Store your API key in [Kestra Secrets](https://kestra.io/docs/concepts/secret) through the UI or environment variables. In the open-source version, manage Secrets using base64-encoded environment variables. You can also use [Kestra's KV Store](https://kestra.io/docs/concepts/kv-store) to persist API keys across executions and workflows.
