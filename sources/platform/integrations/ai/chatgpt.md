@@ -27,11 +27,11 @@ Before connecting ChatGPT to Apify, you'll need:
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
 - _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
-- _ChatGPT with Developer Mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer Mode is active, the message input box is outlined in orange).
+- _ChatGPT with Developer mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer mode is active, the message input box is outlined in orange).
 
 ## Create an MCP connector
 
-1. In ChatGPT, go to **Settings → Apps & Connectors → Create**. If you don't see the **Create** button, enable developer mode or reload the page.
+1. In ChatGPT, go to **Settings > Apps & Connectors > Create**. If you don't see the **Create** button, enable Developer mode or reload the page.
 
 2. Fill in the following fields:
 
@@ -43,7 +43,7 @@ Before connecting ChatGPT to Apify, you'll need:
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
     - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
 
-3. Click **Create** to proceed to the authentication page.
+3. Select **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
 
 ![ChatGPT Create connection](../images/chatgpt-connector.png)
@@ -65,7 +65,7 @@ You can still use these Actors with ChatGPT by including them when initially set
 Once your connector is ready:
 
 1. Open a **new chat** in ChatGPT.
-2. Click the **+** button near the message composer and select **More**.
+2. Select the **+** button near the message composer and select **More**.
 3. Choose your **Apify MCP connector** to add it to the conversation.
 4. Ask ChatGPT to use Apify tools, for example:
 
