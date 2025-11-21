@@ -67,7 +67,7 @@ Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you
 
 ### How It Works
 
-1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors (the Actor description informs the agent that a Skyfire PAY token is needed).
+1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors (the Actor description informs the agent that a payment token is needed).
 2. The agent calls the Skyfire MCP server to create a payment token with sufficient funds.
 3. The agent then calls the Actor tool with the payment token.
 4. The Apify platform validates the token and starts the Actor run.
