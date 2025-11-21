@@ -1,5 +1,5 @@
 ---
-title: ChatGPT Integration
+title: ChatGPT integration
 sidebar_label: ChatGPT
 description: Learn how to integrate Apify with ChatGPT to provide web context in real-time.
 sidebar_position: 12
@@ -10,7 +10,7 @@ slug: /integrations/chatgpt
 
 ---
 
-The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of Actors through the [Model Context Protocol (MCP)](https://openai.com/research/model-context-protocol). This allows ChatGPT to use Apify tools and Actors directly in conversations, providing real-time web data access and automation capabilities.
+The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of Actors through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro). This allows ChatGPT to use Apify tools and Actors directly in conversations, providing real-time web data access and automation capabilities.
 
 In this tutorial, you'll learn how to connect ChatGPT to the **Apify MCP server** using a custom connector.
 
@@ -21,12 +21,7 @@ Before connecting ChatGPT to Apify, you'll need:
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
 - _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
-- _ChatGPT with Developer Mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors.
-
-## Enable developer mode in ChatGPT
-
-You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) in ChatGPT to add custom connectors like the Apify MCP server.
-When Developer Mode is active, the message input box is outlined in orange.
+- _ChatGPT with Developer Mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer Mode is active, the message input box is outlined in orange).
 
 ## Create an MCP connector
 
@@ -39,7 +34,7 @@ When Developer Mode is active, the message input box is outlined in orange.
     - **MCP Server URL** – choose one of the following:
         - `https://mcp.apify.com` — use the default set of Apify tools
         - `https://mcp.apify.com?tools=actors,docs,mtrunkat/url-list-download-html` — use specific tools
-          (See [mcp.apify.com](https://mcp.apify.com) for details.)
+        - Refer to [mcp.apify.com](https://mcp.apify.com) for details
     - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
 
 ![ChatGPT Create connection](../images/chatgpt-connector.png)
