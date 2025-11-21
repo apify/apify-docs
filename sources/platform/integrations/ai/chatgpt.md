@@ -67,7 +67,7 @@ You can still use these Actors with ChatGPT by including them when initially set
 Once your connector is ready:
 
 1. Open a **new chat** in ChatGPT.
-2. Click the **+** button near the message composer and select **More**.
+2. Select the **+** button near the message composer and select **More**.
 3. Choose your **Apify MCP connector** to add it to the conversation.
 4. Ask ChatGPT to use Apify tools, for example:
 
