@@ -415,8 +415,8 @@ for m in client.beta.threads.messages.list(thread_id=run.thread_id):
 
 ## Related integrations
 
-- [ChatGPT integration](/platform/integrations/chatgpt) — Add Apify MCP server as a custom connector in ChatGPT
-- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) — Integrate Apify MCP server with OpenAI Agents SDK
+- [ChatGPT integration](/platform/integrations/chatgpt) - Add Apify MCP server as a custom connector in ChatGPT
+- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
 
 ## Resources
 
