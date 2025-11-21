@@ -8,14 +8,14 @@ slug: /integrations/openai-agents
 
 The _OpenAI Agents Python SDK_ enables you to build AI agents powered by OpenAI's language models that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://openai.com/research/model-context-protocol). By connecting to the Apify MCP server, your agents can access Apify's extensive library of Actors to perform web scraping, data extraction, and automation tasks in real time.
 
-For more details about the OpenAI Agents SDK, see the [official documentation](https://openai.github.io/openai-agents-python/).
+For more details about the OpenAI Agents SDK, refer to the [official documentation](https://openai.github.io/openai-agents-python/).
 
 ## Prerequisites
 
 Before integrating Apify with OpenAI Agents SDK, you'll need:
 
-- _An Apify account_ - Sign up for an Apify account, if you don't have one.
-- _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
+- _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the Apify MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _OpenAI API key_ - Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys). You need this to use OpenAI Agents SDK.
 - _Python packages_ - Install the required packages:
 
@@ -23,7 +23,7 @@ Before integrating Apify with OpenAI Agents SDK, you'll need:
     pip install agents openai
     ```
 
-### Building a web search agent with Apify MCP
+## Building a web search agent with Apify MCP
 
 You can connect to the Apify MCP server using streamable HTTP with Bearer token authentication. Use your Apify API token by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
 
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-#### Configuration options
+### Configuration options
 
 The `MCPServerStreamableHttp` connects to the Apify MCP server using streamable HTTP. Key configuration options:
 
@@ -74,12 +74,12 @@ The `MCPServerStreamableHttp` connects to the Apify MCP server using streamable 
   - `url`: The MCP server URL (`https://mcp.apify.com` for Apify)
   - `headers`: Authentication headers (Bearer token for Apify)
   - `timeout`: Request timeout in seconds
-- `cache_tools_list`: Caches the tool list to reduce API calls
+- `cache_tools_list`: A boolean property that specifies whether to cache the tool list to reduce API calls
 - `max_retry_attempts`: Number of retry attempts for failed requests
 
 :::note Tool execution may take some time
 
-The agent may take some time to execute tool calls, especially when using web scraping Actors or searching the web. Actor runs can take time to complete depending on their task complexity.
+The agent may take some time (seconds or even minutes) to execute tool calls, especially when using web scraping Actors or searching the web. Actor runs can take time to complete depending on their task complexity.
 
 :::
 
@@ -112,7 +112,7 @@ async with MCPServerStreamableHttp(
 
 :::tip Easy configuration
 
-Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your code.
+Use the [UI MCP configurator](https://mcp.apify.com/) to select your tools in a user interface, then copy the configuration to your code.
 
 :::
 
@@ -206,7 +206,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-### Agent to test MCP servers
+### MCP server testing Agent
 
 You can use the OpenAI Agents SDK to test MCP servers and verify they're working correctly. The agent can list available tools and execute them to ensure proper functionality:
 
@@ -271,8 +271,8 @@ For a comprehensive example with error handling and reporting, refer to the [Ope
 
 ## Related integrations
 
-- [ChatGPT integration](/platform/integrations/chatgpt) — Add Apify MCP server as a custom connector in ChatGPT
-- [OpenAI Assistants integration](/platform/integrations/openai-assistants) — Use Apify Actors with OpenAI Assistants API via function calling
+- [ChatGPT integration](/platform/integrations/chatgpt) - Add Apify MCP server as a custom connector in ChatGPT
+- [OpenAI Assistants integration](/platform/integrations/openai-assistants) - Use Apify Actors with OpenAI Assistants API via function calling
 
 ## Resources
 

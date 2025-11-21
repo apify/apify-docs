@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to connect ChatGPT to the **Apify MCP server*
 
 Before connecting ChatGPT to Apify, you'll need:
 
-- _An Apify account_ - Sign up for an Apify account, if you don't have one.
+- _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
 - _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
 - _ChatGPT with Developer Mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors.
@@ -42,17 +42,17 @@ When Developer Mode is active, the message input box is outlined in orange.
           (See [mcp.apify.com](https://mcp.apify.com) for details.)
     - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
 
-![ChatGPT Create connect](../images/chatgpt-connector.png)
+![ChatGPT Create connection](../images/chatgpt-connector.png)
 
-:::caution ChatGPT currently cannot change selected tools after connector creation
-At the moment, ChatGPT does not allow modifying the selected tools after the connector is created.
-If you need to add or remove tools later, you’ll need to create a new connector.
+:::caution Cannot modify tools after creation
+ChatGPT does not allow modifying the selected tools after the connector is created.
+If you need to add or remove tools later, you'll need to create a new connector.
+:::
 
+:::note Social media scrapers
 If you try to use a connector with social media scrapers like Instagram or TikTok, you may see the error:
 "Something went wrong with setting up the connection."
-This error typically occurs for social media scrapers like Instagram, TikTok, etc.
-But you can still use these Actors with ChatGPT by including them when initially setting up the connector.
-
+You can still use these Actors with ChatGPT by including them when initially setting up the connector.
 :::
 
 ## Authorize access
@@ -96,12 +96,12 @@ You can use any [Apify Actor](https://apify.com/store) with ChatGPT. By default,
 
 ## Related integrations
 
-- [OpenAI Assistants integration](/platform/integrations/openai-assistants) — Use Apify Actors with OpenAI Assistants API via function calling
-- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) — Integrate Apify MCP server with OpenAI Agents SDK
+- [OpenAI Assistants integration](/platform/integrations/openai-assistants) - Use Apify Actors with OpenAI Assistants API via function calling
+- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
 
 ## Resources
 
-- [ChatGPT Developer Mode](https://platform.openai.com/docs/guides/developer-mode) - Learn how to enable Developer Mode in ChatGPT
+- [ChatGPT Developer mode](https://platform.openai.com/docs/guides/developer-mode) - Learn how to enable Developer Mode in ChatGPT
 - [Connectors and MCP servers](https://platform.openai.com/docs/guides/tools-connectors-mcp) - Official OpenAI documentation on using MCP servers with ChatGPT
 - [Apify MCP server](https://mcp.apify.com) - Interactive configuration tool for the Apify MCP server
 - [Apify MCP documentation](/platform/integrations/mcp) - Complete guide to using the Apify MCP server
