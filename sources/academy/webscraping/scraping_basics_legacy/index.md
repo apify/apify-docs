@@ -22,7 +22,7 @@ This course is made by [Apify](https://apify.com), the web scraping and automati
 
 If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, see the [Apify platform course](../../platform/apify_platform.md), where we'll teach you all about Apify serverless infrastructure, proxies, API, scheduling, webhooks and much more.
 
-## Why learn scraper development? {#why-learn}
+## Why learn scraper development {#why-learn}
 
 With so many point-and-click tools and no-code software that can help you extract data from websites, what is the point of learning web scraper development? Contrary to what their marketing departments say, a point-and-click or no-code tool will never be as flexible, as powerful, or as optimized as a custom-built scraper.
 
