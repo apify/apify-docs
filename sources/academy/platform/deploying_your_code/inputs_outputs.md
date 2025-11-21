@@ -1,17 +1,17 @@
 ---
 title: Managing Actor inputs and outputs
-description: Learn to accept input into your Actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.
+description: Learn to accept input into your Actor, process it, and return output. This concept applies to Actors in any language.
 sidebar_position: 1
 slug: /deploying-your-code/inputs-outputs
 ---
 
-**Learn to accept input into your Actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.**
+**Learn to accept input into your Actor, process it, and return output. This concept applies to Actors in any language.**
 
 ---
 
 Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. Apify provides a convenient way to handle inputs and deliver outputs.
 
-An important thing to understand regarding inputs and outputs is that they are read/written differently depending on where the Actor is running:
+Understanding inputs and outputs is essential because they are read/written differently depending on where the Actor is running:
 
 - If your Actor is running locally, the inputs/outputs are usually provided in the filesystem, and environment variables are injected either by you, the developer, or by the Apify CLI by running the project with the `apify run` command.
 
@@ -90,19 +90,19 @@ Alternatively, when writing in a language other than JavaScript, we can create o
 
 ```py
 # index.py
-from apify_client import ApifyClient
-from os import environ
 import json
+from os import environ
+from apify_client import ApifyClient
 
 client = ApifyClient(token='YOUR_TOKEN')
 
 # If being run on the platform, the "APIFY_IS_AT_HOME" environment variable
 # will be "1". Otherwise, it will be undefined/None
-def is_on_apify ():
+def is_on_apify():
     return 'APIFY_IS_AT_HOME' in environ
 
 # Get the input
-def get_input ():
+def get_input():
     if not is_on_apify():
         with open('./apify_storage/key_value_stores/default/INPUT.json') as actor_input:
             return json.load(actor_input)
@@ -110,7 +110,7 @@ def get_input ():
     kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
     return kv_store.get_record('INPUT')['value']
 
-def add_all_numbers (nums):
+def add_all_numbers(nums):
     total = 0
 
     for num in nums:
@@ -119,9 +119,7 @@ def add_all_numbers (nums):
     return total
 
 actor_input = get_input()['numbers']
-
 solution = add_all_numbers(actor_input)
-
 print(solution)
 ```
 
@@ -160,20 +158,24 @@ await Actor.exit();
 
 Just as with the custom `get_input()` utility function, you can write a custom `set_output()` function as well if you cannot use the Apify SDK.
 
-> You can read and write your output anywhere; however, it is standard practice to use a folder named **storage**.
+:::note Storage location
+
+You can read and write your output anywhere; however, it is standard practice to use a folder named `storage`.
+
+:::
 
 ```py
 # index.py
-from apify_client import ApifyClient
-from os import environ
 import json
+from os import environ
+from apify_client import ApifyClient
 
 client = ApifyClient(token='YOUR_TOKEN')
 
-def is_on_apify ():
+def is_on_apify():
     return 'APIFY_IS_AT_HOME' in environ
 
-def get_input ():
+def get_input():
     if not is_on_apify():
         with open('./apify_storage/key_value_stores/default/INPUT.json') as actor_input:
             return json.load(actor_input)
@@ -182,15 +184,15 @@ def get_input ():
     return kv_store.get_record('INPUT')['value']
 
 # Push the solution to the dataset
-def set_output (data):
+def set_output(data):
     if not is_on_apify():
         with open('./apify_storage/datasets/default/solution.json', 'w') as output:
             return output.write(json.dumps(data, indent=2))
 
     dataset = client.dataset(environ.get('APIFY_DEFAULT_DATASET_ID'))
-    dataset.push_items('OUTPUT', value=[json.dumps(data, indent=4)])
+    dataset.push_items([json.dumps(data, indent=4)])
 
-def add_all_numbers (nums):
+def add_all_numbers(nums):
     total = 0
 
     for num in nums:
@@ -199,10 +201,8 @@ def add_all_numbers (nums):
     return total
 
 actor_input = get_input()['numbers']
-
 solution = add_all_numbers(actor_input)
-
-set_output({ 'solution': solution })
+set_output({'solution': solution})
 ```
 
 ## Testing locally {#testing-locally}

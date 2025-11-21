@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /anti-scraping/techniques/geolocation
 ---
 
-# Geolocation {#geolocation}
-
 **Learn about the geolocation techniques to determine where requests are coming from, and a bit about how to avoid being blocked based on geolocation.**
 
 ---

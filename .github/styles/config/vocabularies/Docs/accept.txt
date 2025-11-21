@@ -45,7 +45,7 @@ idempotency
 backoff
 
 Authy
-reCaptcha
+reCAPTCHA?
 OAuth
 untrusted
 unencrypted
@@ -118,7 +118,7 @@ SKUs?
 subreddits?
 [Ss]ubwoofer
 Tripadvisor
-upvote
+[Uu]pvote
 [Ww]alkthroughs?
 
 ul

@@ -6,8 +6,6 @@ category: glossary
 slug: /glossary
 ---
 
-# Why a glossary? {#why-a-glossary}
-
 **Browse important web scraping concepts, tools and topics in succinct articles explaining common web development terms in a web scraping and automation context.**
 
 ---

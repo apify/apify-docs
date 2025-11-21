@@ -36,9 +36,13 @@ await Actor.pushData({ solution });
 await Actor.exit();
 ```
 
-Then, replace everything in **INPUT_SCHEMA.json**  with this:
+Then, replace everything in `INPUT_SCHEMA.json` with this:
 
-> This step isn't necessary, as the Actor will still be able to take input in JSON format without it; however, we are providing the content for this Actor's input schema in this lesson, as it will give the Apify platform a blueprint off of which it can generate a nice UI for your inputs, as well as validate their values.
+:::note Optional step
+
+This step isn't necessary, as the Actor will still be able to take input in JSON format without it, however, we are providing the content for this Actor's input schema in this lesson, as it will give the Apify platform a blueprint off of which it can generate a nice UI for your inputs, as well as validate their values.
+
+:::
 
 ```json
 {
@@ -63,7 +67,11 @@ Then, replace everything in **INPUT_SCHEMA.json**  with this:
 }
 ```
 
-> If you're interested in learning more about how the code works, and what the **INPUT_SCHEMA.json** means, read about [inputs](/sdk/js/docs/examples/accept-user-input) and [adding data to a dataset](/sdk/js/docs/examples/add-data-to-dataset) in the Apify SDK documentation, and refer to the [input schema docs](/platform/actors/development/actor-definition/input-schema/specification/v1#integer).
+:::tip Learn more
+
+If you're interested in learning more about how the code works, and what the `INPUT_SCHEMA.json` means, read about [inputs](/sdk/js/docs/examples/accept-user-input) and [adding data to a dataset](/sdk/js/docs/examples/add-data-to-dataset) in the Apify SDK documentation, and refer to the [input schema docs](/platform/actors/development/actor-definition/input-schema/specification/v1#integer).
+
+:::
 
 Finally, **Save** and **Build** the Actor just as you did in the previous lesson.
 

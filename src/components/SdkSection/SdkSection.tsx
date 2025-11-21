@@ -93,7 +93,7 @@ export default function SdkSection({
                         />
                         <Heading type="titleXl" style={{ verticalAlign: 'center' }}>{title}</Heading>
                     </div>
-                    <Text size='medium' color={theme.color.neutral.textMuted}>
+                    <Text size="large" color={theme.color.neutral.textMuted}>
                         {description}
                     </Text>
                 </div>

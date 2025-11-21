@@ -14,7 +14,7 @@ toc_max_heading_level: 4
 
 :::info Publishing and monetizing Actors
 
-Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Getting the most of your public Actors in Apify Store](/academy/actor-marketing-playbook) section of the Apify Developers Academy.
+Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
 
 :::
 
@@ -149,7 +149,7 @@ Pay per event Actor pricing model is very similar to the pay per result model. Y
 
 #### How do I know Actor is paid per events?
 
-You will the that the Actor is paid per events next to the Actor name.
+You will see that the Actor is paid per events next to the Actor name.
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 

@@ -11,12 +11,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
@@ -144,7 +144,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Get changed files
                 id: changed-files
@@ -157,7 +157,7 @@ jobs:
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
@@ -185,12 +185,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 

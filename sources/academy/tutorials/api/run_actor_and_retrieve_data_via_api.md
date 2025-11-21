@@ -254,7 +254,7 @@ The **run info** JSON also contains the IDs of the default [dataset](/platform/s
 
 > If you are scraping products, or any list of items with similar fields, the [dataset](/platform/storage/dataset) should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside it.
 
-To retrieve the data from a dataset, send a GET request to the [**Get items**](/api/v2/dataset-items-get) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
+To retrieve the data from a dataset, send a GET request to the [**Get dataset items**](/api/v2/dataset-items-get) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
 
 ```cURL
 https://api.apify.com/v2/datasets/DATASET_ID/items

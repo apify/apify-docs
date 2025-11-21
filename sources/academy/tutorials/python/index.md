@@ -6,8 +6,6 @@ category: tutorials
 slug: /python
 ---
 
-# Scraping with Python
-
 **A collection of various Python tutorials to aid you in your journey to becoming a master web scraping and automation developer.**
 
 ---
