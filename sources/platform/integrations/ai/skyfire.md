@@ -38,7 +38,7 @@ Before using agentic payments through MCP, you need:
 
 Configure your MCP client to connect to both the Skyfire and Apify MCP servers. When connecting to the Apify MCP server for agentic payments, you must include the `?payment=skyfire` query parameter in the server URL. This enables the agentic payment flow and informs the agent about payment requirements.
 
-#### OpenCode Configuration Example
+#### OpenCode ccnfiguration example
 
 If you're using [OpenCode](https://opencode.ai/), add this configuration to your `opencode.json` file (see [OpenCode configuration docs](https://opencode.ai/docs/config/) for file location on your system):
 
@@ -65,7 +65,7 @@ If you're using [OpenCode](https://opencode.ai/), add this configuration to your
 
 Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you can obtain from your [Skyfire dashboard](https://app.skyfire.xyz/).
 
-### How It Works
+### How it works
 
 When an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of five dollars. The agent automatically calls the Skyfire MCP server to create a payment token with sufficient funds.
 
@@ -85,7 +85,7 @@ https://mcp.apify.com?payment=skyfire&tools=actor1,actor2,actor3
 
 Replace `actor1,actor2,actor3` with the actual Actor IDs you want to make available, such as `junglee/free-amazon-product-scraper,streamers/youtube-scraper`.
 
-### Actor Discovery
+### Actor discovery
 
 When not pre-loading Actors, agents can discover suitable Actors dynamically using the search tools. The search automatically filters results to show only Actors that support agentic payments.
 
@@ -119,11 +119,9 @@ curl -X POST \
 
 You can also use the asynchronous [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor) if you don't need to wait for results immediately.
 
-### Retrieving Results
+### Retrieving results
 
 After your Actor run completes, you can retrieve results using the [dataset endpoints](https://docs.apify.com/api/v2#/reference/datasets) or [key-value store endpoints](https://docs.apify.com/api/v2#/reference/key-value-stores). Include the same `skyfire-pay-id` header to authenticate these requests.
-
-## Limitations
 
 ### Supported Actors
 
@@ -131,11 +129,11 @@ Not all Actors in the Apify Store can be run using agentic payments.
 
 Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
 
-### Payment Requirements
+### Payment requirements
 
 Your Skyfire PAY token must have at least **$5** available to run Actors. However, you'll only be charged for actual usage. If an Actor run costs less than five dollars, the unused funds remain available in your token for future runs or return to your Skyfire wallet when the token expires.
 
-### Unsupported Features
+### Unsupported features
 
 The following operations are not supported with agentic payments:
 
