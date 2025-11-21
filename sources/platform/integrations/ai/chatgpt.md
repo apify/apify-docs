@@ -90,9 +90,9 @@ You can use any [Apify Actor](https://apify.com/store) with ChatGPT. By default,
 
 ## Limitations
 
-- MCP integration in ChatGPT is still in **beta** and may have some limitations or bugs.
-- Tool selection and execution can be **slow**, especially with the latest GPT models.
-- **Custom connectors** are only available in ChatGPT **Developer Mode**.
+- MCP integration in ChatGPT is still in *beta* and may have some limitations or bugs.
+- Tool selection and execution can be *slow*, especially with the latest GPT models.
+- *Custom connectors* are only available in ChatGPT *Developer mode*.
 
 ## Related integrations
 
