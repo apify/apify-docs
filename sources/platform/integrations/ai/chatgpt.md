@@ -55,11 +55,9 @@ ChatGPT does not allow modifying the selected tools after the connector is creat
 If you need to add or remove tools later, you'll need to create a new connector.
 :::
 
-:::note Social media scrapers
-If you try to use a connector with social media scrapers like Instagram or TikTok, you may see the error:
+**Note:** If you try to use a connector with social media scrapers like Instagram or TikTok, you may see the error:
 "Something went wrong with setting up the connection."
 You can still use these Actors with ChatGPT by including them when initially setting up the connector.
-:::
 
 
 ## Try the MCP connector in ChatGPT
