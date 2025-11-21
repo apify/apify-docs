@@ -16,9 +16,7 @@ This allows ChatGPT to use Apify tools and Actors directly in conversations, pro
 You can use any [Apify Actor](https://apify.com/store) with ChatGPT.
 By default, the Apify MCP server exposes a set of tools that lets you search and use Actors directly.
 
-**Example query:**
-
-> "Find and run an Actor that scrapes Instagram profiles, and get the profile of @natgeo"
+**An example query:** "Find and run an Actor that scrapes Instagram profiles, and get the profile of @natgeo"
 
 In this tutorial, you'll learn how to connect ChatGPT to the **Apify MCP server** using a custom connector.
 
@@ -45,7 +43,12 @@ Before connecting ChatGPT to Apify, you'll need:
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
     - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
 
+3. Click **Create** to proceed to the authentication page.
+You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
+
 ![ChatGPT Create connection](../images/chatgpt-connector.png)
+
+Once authorized, you’ll return to ChatGPT and see a success message with a list of tools available from the Apify MCP server.
 
 :::caution Cannot modify tools after creation
 ChatGPT does not allow modifying the selected tools after the connector is created.
@@ -58,13 +61,6 @@ If you try to use a connector with social media scrapers like Instagram or TikTo
 You can still use these Actors with ChatGPT by including them when initially setting up the connector.
 :::
 
-3. Authorize access
-
-Click **Create** to proceed to the authentication page.
-You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
-Ensure you're logged into the correct Apify account before approving access.
-
-Once authorized, you’ll return to ChatGPT and see a success message with a list of tools available from the Apify MCP server.
 
 ## Try the MCP connector in ChatGPT
 
