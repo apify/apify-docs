@@ -27,6 +27,8 @@ You can override the permission level for a single run using run options under t
 You can do the same using the Apify Client as well:
 
 ```ts
+import { ACTOR_PERMISSION_LEVEL } from '@apify/consts';
+
 await apifyClient.actor(actorId).call(input, {
     forcePermissionLevel: ACTOR_PERMISSION_LEVEL.LIMITED_PERMISSIONS,
 });
@@ -35,7 +37,7 @@ await apifyClient.actor(actorId).call(input, {
 Or just using the API:
 
 ```tsx
- POST https://api.apify.com/v2/acts/<actor_id>/runs?**forcePermissionLevel=LIMITED_PERMISSIONS**
+ POST https://api.apify.com/v2/acts/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
 ```
 
 
