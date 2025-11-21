@@ -43,7 +43,7 @@ Before connecting ChatGPT to Apify, you'll need:
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
     - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
 
-3. Click **Create** to proceed to the authentication page.
+3. Select **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
 
 ![ChatGPT Create connection](../images/chatgpt-connector.png)
