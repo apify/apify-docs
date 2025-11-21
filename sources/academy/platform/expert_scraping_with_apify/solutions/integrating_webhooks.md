@@ -9,7 +9,9 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 **Learn how to integrate webhooks into your Actors. Webhooks are a super powerful tool, and can be used to do almost anything!**
 
 :::caution Updates coming
+
 This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to completely retire it in a few months. This lesson will be updated to remove the dependency.
+
 :::
 
 ---
