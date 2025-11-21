@@ -10,7 +10,15 @@ slug: /integrations/chatgpt
 
 ---
 
-The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of Actors through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro). This allows ChatGPT to use Apify tools and Actors directly in conversations, providing real-time web data access and automation capabilities.
+The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of Actors through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+This allows ChatGPT to use Apify tools and Actors directly in conversations, providing real-time web data access and automation capabilities.
+
+You can use any [Apify Actor](https://apify.com/store) with ChatGPT.
+By default, the Apify MCP server exposes a set of tools that lets you search and use Actors directly.
+
+**Example query:**
+
+> "Find and run an Actor that scrapes Instagram profiles, and get the profile of @natgeo"
 
 In this tutorial, you'll learn how to connect ChatGPT to the **Apify MCP server** using a custom connector.
 
@@ -32,8 +40,8 @@ Before connecting ChatGPT to Apify, you'll need:
     - **Name** – a user-facing title, e.g., `apify-mcp`
     - **Description** – a short description of what the connector does
     - **MCP Server URL** – choose one of the following:
-        - `https://mcp.apify.com` — use the default set of Apify tools
-        - `https://mcp.apify.com?tools=actors,docs,mtrunkat/url-list-download-html` — use specific tools
+        - `https://mcp.apify.com` - use the default set of Apify tools
+        - `https://mcp.apify.com?tools=actors,docs,mtrunkat/url-list-download-html` - use specific tools
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
     - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
 
@@ -50,7 +58,7 @@ If you try to use a connector with social media scrapers like Instagram or TikTo
 You can still use these Actors with ChatGPT by including them when initially setting up the connector.
 :::
 
-## Authorize access
+3. Authorize access
 
 Click **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
@@ -74,20 +82,11 @@ You should see ChatGPT calling Apify tools — such as the [RAG Web Browser](htt
 
 ![ChatGPT Apify tools](../images/chatgpt-with-rag-web-browser.png)
 
-## Use any Actor with ChatGPT
-
-You can use any [Apify Actor](https://apify.com/store) with ChatGPT. By default, the Apify MCP server exposes a set of tools that lets you search and use Actors directly.
-
-**Example query:**
-
-> "Find and run an Actor that scrapes Instagram profiles, and get the profile of @natgeo"
-
-
 ## Limitations
 
-- MCP integration in ChatGPT is still in *beta* and may have some limitations or bugs.
-- Tool selection and execution can be *slow*, especially with the latest GPT models.
-- *Custom connectors* are only available in ChatGPT *Developer mode*.
+- MCP integration in ChatGPT is still in _beta_ and may have some limitations or bugs.
+- Tool selection and execution can be _slow_, especially with the latest GPT models.
+- _Custom connectors_ are only available in ChatGPT _Developer mode_.
 
 ## Related integrations
 
