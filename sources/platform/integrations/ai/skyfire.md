@@ -82,7 +82,7 @@ Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you
 For more predictable workflows, you can pre-load specific Actors when connecting to the MCP server by adding them to the URL:
 
 ```text
-https://mcp.apify.com?payment=skyfire&actors=actor1,actor2,actor3
+https://mcp.apify.com?payment=skyfire&tools=actor1,actor2,actor3
 ```
 
 Replace `actor1,actor2,actor3` with the actual Actor IDs you want to make available, such as `junglee/free-amazon-product-scraper,streamers/youtube-scraper`.
