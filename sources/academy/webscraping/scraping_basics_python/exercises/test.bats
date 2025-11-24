@@ -3,6 +3,6 @@ setup() {
 }
 
 @test "outputs the HTML with Star Wars products" {
-  run uv run --with httpx python "$DIR/scrape_lego.py"
+  run uv run --with httpx python "$DIR/lego.py"
   [[ "$output" == *"Millennium Falcon"* ]]
 }

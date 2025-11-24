@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/parsing-html
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import F1AcademyTeamsExercise from '!!raw-loader!roa-loader!./exercises/scrape_f1academy_teams.mjs';
+import F1AcademyTeamsExercise from '!!raw-loader!roa-loader!./exercises/f1academy_teams.mjs';
 
 <LegacyJsCourseAdmonition />
 

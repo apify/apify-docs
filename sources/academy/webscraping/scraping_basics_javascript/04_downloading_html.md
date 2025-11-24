@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/downloading-html
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import LegoExercise from '!!raw-loader!roa-loader!./exercises/scrape_lego.mjs';
+import LegoExercise from '!!raw-loader!roa-loader!./exercises/lego.mjs';
 
 <LegacyJsCourseAdmonition />
 
