@@ -4,8 +4,6 @@ required:
   - timeoutSecs
   - memoryMbytes
   - diskMbytes
-  - maxItems
-  - maxTotalChargeUsd
 type: object
 properties:
   build:

@@ -66,33 +66,8 @@ post:
         type: number
         format: double
         example: 256
-    - name: maxItems
-      in: query
-      description: |
-        The maximum number of items that the Actor run should return. This is
-        useful for pay-per-result Actors, as it allows you to limit the number
-        of results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 1000
-    - name: maxTotalChargeUsd
-      in: query
-      description: |
-        Specifies the maximum cost of the Actor run. This parameter is
-        used only for pay-per-event Actors. It allows you to limit the amount
-        charged to your subscription. You can access the maximum cost in your
-        Actor by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 5
+    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
+    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
     - name: restartOnError
       in: query
       description: |
