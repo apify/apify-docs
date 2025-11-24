@@ -2,8 +2,8 @@ name: maxTotalChargeUsd
 in: query
 required: false
 description: |
-  Specifies the maximum cost of the task run. This parameter is
-  useful for pay-per-event tasks, as it allows you to limit the amount
+  Specifies the maximum cost of the run. This parameter is
+  useful for pay-per-event Actors, as it allows you to limit the amount
   charged to your subscription. You can access the maximum cost in your Actor
   by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
 style: form
