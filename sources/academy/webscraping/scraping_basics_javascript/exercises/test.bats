@@ -3,11 +3,11 @@ setup() {
 }
 
 @test "outputs the HTML with Star Wars products" {
-  run npx node "$DIR/scrape_lego.mjs"
+  run npx node "$DIR/lego.mjs"
   [[ "$output" == *"Millennium Falcon"* ]]
 }
 
 @test "outputs the number of F1 Academy teams" {
-  run npx --package=cheerio node "$DIR/scrape_f1academy_teams.mjs"
+  run npx --package=cheerio node "$DIR/f1academy_teams.mjs"
   [[ "$output" == "6" ]]
 }
