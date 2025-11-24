@@ -1,11 +1,13 @@
 name: Test Academy
 
 on:
+    # TODO, this is just temporary:
     push:
         branches: [ "honzajavorek/test-exercises" ]
-    schedule:
-        - cron: "0 3 * * 1"  # at 3am UTC on Mondays
-    workflow_dispatch:  # allows running this workflow manually from the Actions tab
+
+    # schedule:
+    #     - cron: "0 3 * * 1"  # at 3am UTC on Mondays
+    # workflow_dispatch:  # allows running this workflow manually from the Actions tab
 
 jobs:
     test-exercises:
