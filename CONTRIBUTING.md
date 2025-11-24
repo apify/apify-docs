@@ -335,6 +335,12 @@ Add languages by adding new folders at the appropriate path level.
     - Run `vale sync` to download styles
     - Configure exceptions in `accepts.txt`
 
+### Testing
+
+- **Broken links**: [Periodic GitHub Action](.github/workflows/lychee.yml) checks broken links by [lychee](https://lychee.cli.rs/). If the Action fails, we manually fix the issues.
+
+- **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `npm run test:academy`. If the Action fails, we rework the exercises.
+
 ## Pull request process
 
 1. Follow [Conventional Commits](https://www.conventionalcommits.org/)
