@@ -8,7 +8,7 @@ slug: /integrations/skyfire
 
 Agentic payments enable AI agents to autonomously run Apify Actors using third-party payment providers, without requiring traditional Apify user accounts. This allows agents to discover, execute, and pay for web scraping and automation tasks independently.
 
-Currently, Apify supports agentic payments through **Skyfire**, a payment network specifically designed for AI agents.
+Currently, Apify supports agentic payments through **Skyfire**, a payment network specifically designed for AI agents, but we are planning to integrate additional providers in a foreseeable future.
 
 :::info Experimental Feature
 
@@ -37,6 +37,10 @@ Before using agentic payments through MCP, you need:
 ### Configuration
 
 Configure your MCP client to connect to both the Skyfire and Apify MCP servers. When connecting to the Apify MCP server for agentic payments, you must include the `?payment=skyfire` query parameter in the server URL. This enables the agentic payment flow and informs the agent about payment requirements.
+
+```text
+https://mcp.apify.com?payment=skyfire
+```
 
 #### OpenCode ccnfiguration example
 
@@ -84,6 +88,7 @@ https://mcp.apify.com?payment=skyfire&tools=actor1,actor2,actor3
 ```
 
 Replace `actor1,actor2,actor3` with the actual Actor IDs you want to make available, such as `junglee/free-amazon-product-scraper,streamers/youtube-scraper`.
+See which Actors [support agentic payments](#supported-actors).
 
 ### Actor discovery
 
@@ -92,6 +97,13 @@ When not pre-loading Actors, agents can discover suitable Actors dynamically usi
 ## Using Skyfire with Apify API
 
 For direct API integration, you can use Skyfire PAY tokens to authenticate and pay for Actor runs.
+
+:::info Note
+
+Using Skyfire PAY tokens is intended to use with MCP and all of those operations are handle by the MCP client.
+This information here mostly for completeness if somebody decides they want to try it out directly.
+
+:::
 
 ### Authentication
 
@@ -129,6 +141,10 @@ Not all Actors in the Apify Store can be run using agentic payments.
 
 Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
 
+```text
+https://api.apify.com/v2/store?allowsAgenticUsers=true
+```
+
 ### Payment requirements
 
 Your Skyfire PAY token must have at least **$5** available to run Actors. However, you'll only be charged for actual usage. If an Actor run costs less than five dollars, the unused funds remain available in your token for future runs or return to your Skyfire wallet when the token expires.
@@ -144,7 +160,7 @@ The following operations are not supported with agentic payments:
 
 ## Resources
 
-- **[Model Context Protocol Documentation](https://docs.apify.com/platform/integrations/mcp)** - Complete guide to using the Apify MCP server
-- **[Skyfire Documentation](https://skyfire.xyz/)** - Official Skyfire guides and API reference
-- **[Apify API Reference](https://docs.apify.com/api/v2)** - Complete API documentation for direct integration
-- **[Actor Permissions](https://docs.apify.com/platform/actors/development/permissions)** - Understanding Actor permission levels
+- **[Model Context Protocol documentation](https://docs.apify.com/platform/integrations/mcp)** - Complete guide to using the Apify MCP server
+- **[Skyfire documentation](https://skyfire.xyz/)** - Official Skyfire guides and API reference
+- **[Apify API reference](https://docs.apify.com/api/v2)** - Complete API documentation for direct integration
+- **[Actor permissions](https://docs.apify.com/platform/actors/development/permissions)** - Understanding Actor permission levels
