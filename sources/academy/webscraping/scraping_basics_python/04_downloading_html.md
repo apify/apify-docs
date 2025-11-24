@@ -146,7 +146,7 @@ Letting our program visibly crash on error is enough for our purposes. Now, let'
 Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with LEGO search results:
 
 ```text
-https://www.lego.com/themes/star-wars
+https://www.lego.com/en-us/themes/star-wars
 ```
 
 <details>

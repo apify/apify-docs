@@ -5,8 +5,10 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/downloading-html
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import LegoExercise from '!!raw-loader!roa-loader!./exercises/scrape_lego.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -184,28 +186,17 @@ Letting our program visibly crash on error is enough for our purposes. Now, let'
 
 <Exercises />
 
-### Scrape AliExpress
+### Scrape LEGO
 
-Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with AliExpress search results:
+Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with LEGO search results:
 
 ```text
-https://www.aliexpress.com/w/wholesale-darth-vader.html
+https://www.lego.com/en-us/themes/star-wars
 ```
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  const url = "https://www.aliexpress.com/w/wholesale-darth-vader.html";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    console.log(await response.text());
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
-
+  <CodeBlock language="js">{LegoExercise.code}</CodeBlock>
 </details>
 
 ### Save downloaded HTML as a file

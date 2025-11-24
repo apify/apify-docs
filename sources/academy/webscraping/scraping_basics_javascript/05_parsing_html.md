@@ -5,8 +5,10 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/parsing-html
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import F1AcademyTeamsExercise from '!!raw-loader!roa-loader!./exercises/scrape_f1academy_teams.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -183,22 +185,7 @@ https://www.f1academy.com/Racing-Series/Teams
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const url = "https://www.f1academy.com/Racing-Series/Teams";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    console.log($(".teams-driver-item").length);
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
-
+  <CodeBlock language="js">{F1AcademyTeamsExercise.code}</CodeBlock>
 </details>
 
 ### Scrape F1 Academy drivers
