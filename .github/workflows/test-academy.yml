@@ -25,7 +25,9 @@ jobs:
                 uses: astral-sh/setup-uv@v7
 
             -   name: Install Bats
-                run: npm install --only=dev
+                run: |
+                    corepack enable
+                    npm install --only=dev
 
             -   name: Test
                 run: npm run test:academy
