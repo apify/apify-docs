@@ -39,7 +39,7 @@ async def main() -> None:
             )
 
     await crawler.run(["https://www.netflix.com/tudum/top10"])
-    await crawler.export_data_json(path="dataset.json", ensure_ascii=False, indent=2)  # type: ignore[attr-defined]
+    await crawler.export_data("dataset.json")
 
 
 if __name__ == "__main__":

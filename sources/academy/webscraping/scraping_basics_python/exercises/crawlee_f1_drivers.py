@@ -47,7 +47,7 @@ async def main() -> None:
         )
 
     await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
-    await crawler.export_data_json(path="dataset.json", ensure_ascii=False, indent=2)  # type: ignore[attr-defined]
+    await crawler.export_data("dataset.json")
 
 
 if __name__ == "__main__":
