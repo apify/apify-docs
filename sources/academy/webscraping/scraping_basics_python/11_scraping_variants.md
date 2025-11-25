@@ -346,7 +346,6 @@ You can find everything you need for working with dates and times in Python's [`
   After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
 
   <CodeBlock language="py">{PythonJobsDatabaseExercise.code}</CodeBlock>
-
 </details>
 
 ### Find the shortest CNN article which made it to the Sports homepage
