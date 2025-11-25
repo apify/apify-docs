@@ -46,15 +46,15 @@ Use Standard Settings to quickly search the web and extract content with optimiz
 The module supports two modes:
 
 - _Search mode_ (keywords)
-  - Queries Google Search with your keywords (supports advanced operators)
-  - Retrieves the top N organic results
-  - Loads each result and extracts the main content
-  - Returns Markdown-formatted content
+    - Queries Google Search with your keywords (supports advanced operators)
+    - Retrieves the top N organic results
+    - Loads each result and extracts the main content
+    - Returns Markdown-formatted content
 
 - _Direct URL mode_ (URL)
-  - Navigates to a specific URL
-  - Extracts page content
-  - Skips Google Search
+    - Navigates to a specific URL
+    - Extracts page content
+    - Skips Google Search
 
 #### How it works
 
@@ -64,28 +64,28 @@ When you provide keywords, the module runs Google Search, parses the results, an
 
 ```json title="Standard Settings output (shortened)"
 {
-  "query": "web browser for RAG pipelines -site:reddit.com",
-  "crawl": {
-    "httpStatusCode": 200,
-    "httpStatusMessage": "OK",
-    "loadedAt": "2025-06-30T10:15:23.456Z",
-    "uniqueKey": "https://example.com/article",
-    "requestStatus": "handled"
-  },
-  "searchResult": {
-    "title": "Building RAG Pipelines with Web Browsers",
-    "description": "Integrate web browsing into your RAG pipeline for real-time retrieval.",
-    "url": "https://example.com/article",
-    "resultType": "organic",
-    "rank": 1
-  },
-  "metadata": {
-    "title": "Building RAG Pipelines with Web Browsers",
-    "description": "Add web browsing to RAG systems",
-    "languageCode": "en",
-    "url": "https://example.com/article"
-  },
-  "markdown": "# Building RAG Pipelines with Web Browsers\n\n..."
+    "query": "web browser for RAG pipelines -site:reddit.com",
+    "crawl": {
+        "httpStatusCode": 200,
+        "httpStatusMessage": "OK",
+        "loadedAt": "2025-06-30T10:15:23.456Z",
+        "uniqueKey": "https://example.com/article",
+        "requestStatus": "handled"
+    },
+    "searchResult": {
+        "title": "Building RAG Pipelines with Web Browsers",
+        "description": "Integrate web browsing into your RAG pipeline for real-time retrieval.",
+        "url": "https://example.com/article",
+        "resultType": "organic",
+        "rank": 1
+    },
+    "metadata": {
+        "title": "Building RAG Pipelines with Web Browsers",
+        "description": "Add web browsing to RAG systems",
+        "languageCode": "en",
+        "url": "https://example.com/article"
+    },
+    "markdown": "# Building RAG Pipelines with Web Browsers\n\n..."
 }
 ```
 
@@ -123,36 +123,36 @@ Advanced Settings give you full control over search and extraction. Use it for c
 
 ```json title="Advanced Settings output (shortened)"
 {
-  "query": "advanced RAG implementation strategies",
-  "crawl": {
-    "httpStatusCode": 200,
-    "httpStatusMessage": "OK",
-    "loadedUrl": "https://ai-research.com/rag-strategies",
-    "loadedTime": "2025-06-30T10:45:12.789Z",
-    "referrerUrl": "https://www.google.com/search?q=advanced+RAG+implementation+strategies",
-    "uniqueKey": "https://ai-research.com/rag-strategies",
-    "requestStatus": "handled",
-    "depth": 0
-  },
-  "searchResult": {
-    "title": "Advanced RAG Implementation: A Complete Guide",
-    "description": "Cutting-edge strategies for RAG systems.",
-    "url": "https://ai-research.com/rag-strategies",
-    "resultType": "organic",
-    "rank": 1
-  },
-  "metadata": {
-    "canonicalUrl": "https://ai-research.com/rag-strategies",
-    "title": "Advanced RAG Implementation: A Complete Guide | AI Research",
-    "description": "Vector DBs, chunking, and optimization techniques.",
-    "languageCode": "en"
-  },
-  "markdown": "# Advanced RAG Implementation: A Complete Guide\n\n...",
-  "debug": {
-    "extractorUsed": "readableText",
-    "elementsRemoved": 47,
-    "elementsClicked": 3
-  }
+    "query": "advanced RAG implementation strategies",
+    "crawl": {
+        "httpStatusCode": 200,
+        "httpStatusMessage": "OK",
+        "loadedUrl": "https://ai-research.com/rag-strategies",
+        "loadedTime": "2025-06-30T10:45:12.789Z",
+        "referrerUrl": "https://www.google.com/search?q=advanced+RAG+implementation+strategies",
+        "uniqueKey": "https://ai-research.com/rag-strategies",
+        "requestStatus": "handled",
+        "depth": 0
+    },
+    "searchResult": {
+        "title": "Advanced RAG Implementation: A Complete Guide",
+        "description": "Cutting-edge strategies for RAG systems.",
+        "url": "https://ai-research.com/rag-strategies",
+        "resultType": "organic",
+        "rank": 1
+    },
+    "metadata": {
+        "canonicalUrl": "https://ai-research.com/rag-strategies",
+        "title": "Advanced RAG Implementation: A Complete Guide | AI Research",
+        "description": "Vector DBs, chunking, and optimization techniques.",
+        "languageCode": "en"
+    },
+    "markdown": "# Advanced RAG Implementation: A Complete Guide\n\n...",
+    "debug": {
+        "extractorUsed": "readableText",
+        "elementsRemoved": 47,
+        "elementsClicked": 3
+    }
 }
 ```
 

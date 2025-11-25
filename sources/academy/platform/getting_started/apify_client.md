@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Now that you've gotten your toes wet with interacting with the Apify API through raw HTTP requests, you're ready to become familiar with the **Apify client**, which is a package available for both JavaScript and Python that allows you to interact with the API in your code without  explicitly needing to make any GET or POST requests.
+Now that you've gotten your toes wet with interacting with the Apify API through raw HTTP requests, you're ready to become familiar with the **Apify client**, which is a package available for both JavaScript and Python that allows you to interact with the API in your code without explicitly needing to make any GET or POST requests.
 
 This lesson will provide code examples for both Node.js and Python, so regardless of the language you are using, you can follow along!
 

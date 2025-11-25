@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/legacy
 noindex: true
 ---
 
-import LegacyAdmonition from '../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../scraping_basics/\_legacy.mdx';
 
 **Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.**
 
@@ -36,10 +36,10 @@ When we set out to create the Academy, we wanted to build a complete guide to we
 
 This is what you'll learn in the **Web scraping basics for JavaScript devs** course:
 
-* [Web scraping basics for JavaScript devs](./index.md)
-  * [Basics of data extraction](./data_extraction/index.md)
-  * [Basics of crawling](./crawling/index.md)
-  * [Best practices](./best_practices.md)
+- [Web scraping basics for JavaScript devs](./index.md)
+    - [Basics of data extraction](./data_extraction/index.md)
+    - [Basics of crawling](./crawling/index.md)
+    - [Best practices](./best_practices.md)
 
 ## Requirements {#requirements}
 
@@ -55,17 +55,17 @@ Ideally, you should have at least a moderate understanding of the following conc
 
 It is recommended to understand at least the fundamentals of JavaScript and be proficient with Node.js prior to starting this course. If you are not yet comfortable with asynchronous programming (with promises and `async...await`), loops (and the different types of loops in JavaScript), modularity, or working with external packages, we would recommend studying the following resources before coming back and continuing this section:
 
-* [`async...await` (YouTube)](https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship)
-* [JavaScript loops (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-* [Modularity in Node.js](https://javascript.plainenglish.io/how-to-use-modular-patterns-in-nodejs-982f0e5c8f6e)
+- [`async...await` (YouTube)](https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship)
+- [JavaScript loops (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+- [Modularity in Node.js](https://javascript.plainenglish.io/how-to-use-modular-patterns-in-nodejs-982f0e5c8f6e)
 
 ### General web development {#general-web-development}
 
 Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because their knowledge will be **assumed** (unless we're showing something out of the ordinary).
 
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-* [DevTools](./data_extraction/browser_devtools.md)
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+- [DevTools](./data_extraction/browser_devtools.md)
 
 ### jQuery or Cheerio {#jquery-or-cheerio}
 

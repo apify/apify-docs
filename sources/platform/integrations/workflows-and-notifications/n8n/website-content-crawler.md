@@ -45,7 +45,7 @@ On n8n Cloud, instance owners can toggle visibility of verified community nodes 
 1. Select **Connect my account** and authorize with your Apify account.
 1. n8n automatically retrieves and stores the OAuth2 tokens.
 
-  ![Apify Auth](images/credentials.png)
+![Apify Auth](images/credentials.png)
 
 :::note Cloud API Key management
 
@@ -55,7 +55,6 @@ See the [**Connect** section for n8n self-hosted](#connect-self-hosted) for deta
 :::
 
 With authentication set up, you can now create workflows that incorporate the Apify node.
-
 
 ## n8n self-hosted setup
 
@@ -96,7 +95,6 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 ![Apify token on n8n](images/token.png)
 
-
 ## Website Content Crawler by Apify module
 
 This module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
@@ -132,22 +130,22 @@ For each crawled web page, you'll receive:
 
 ```json title="Sample output (shortened)"
 {
-  "url": "https://docs.apify.com/academy/web-scraping-for-beginners",
-  "crawl": {
-    "loadedUrl": "https://docs.apify.com/academy/web-scraping-for-beginners",
-    "loadedTime": "2025-04-22T14:33:20.514Z",
-    "referrerUrl": "https://docs.apify.com/academy",
-    "depth": 1,
-    "httpStatusCode": 200
-  },
-  "metadata": {
-    "canonicalUrl": "https://docs.apify.com/academy/web-scraping-for-beginners",
-    "title": "Web scraping for beginners | Apify Documentation",
-    "description": "Learn the basics of web scraping with a step-by-step tutorial and practical exercises.",
-    "languageCode": "en",
-    "markdown": "# Web scraping for beginners\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\n## What is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\n## Why learn web scraping?\n\n- **Data collection**: Gather information for research, analysis, or business intelligence\n- **Automation**: Save time by automating repetitive data collection tasks\n- **Integration**: Connect web data with your applications or databases\n- **Monitoring**: Track changes on websites automatically\n\n## Getting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n...",
-    "text": "Web scraping for beginners\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\nWhat is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\nWhy learn web scraping?\n\n- Data collection: Gather information for research, analysis, or business intelligence\n- Automation: Save time by automating repetitive data collection tasks\n- Integration: Connect web data with your applications or databases\n- Monitoring: Track changes on websites automatically\n\nGetting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n..."
-  }
+    "url": "https://docs.apify.com/academy/web-scraping-for-beginners",
+    "crawl": {
+        "loadedUrl": "https://docs.apify.com/academy/web-scraping-for-beginners",
+        "loadedTime": "2025-04-22T14:33:20.514Z",
+        "referrerUrl": "https://docs.apify.com/academy",
+        "depth": 1,
+        "httpStatusCode": 200
+    },
+    "metadata": {
+        "canonicalUrl": "https://docs.apify.com/academy/web-scraping-for-beginners",
+        "title": "Web scraping for beginners | Apify Documentation",
+        "description": "Learn the basics of web scraping with a step-by-step tutorial and practical exercises.",
+        "languageCode": "en",
+        "markdown": "# Web scraping for beginners\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\n## What is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\n## Why learn web scraping?\n\n- **Data collection**: Gather information for research, analysis, or business intelligence\n- **Automation**: Save time by automating repetitive data collection tasks\n- **Integration**: Connect web data with your applications or databases\n- **Monitoring**: Track changes on websites automatically\n\n## Getting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n...",
+        "text": "Web scraping for beginners\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\nWhat is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\nWhy learn web scraping?\n\n- Data collection: Gather information for research, analysis, or business intelligence\n- Automation: Save time by automating repetitive data collection tasks\n- Integration: Connect web data with your applications or databases\n- Monitoring: Track changes on websites automatically\n\nGetting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n..."
+    }
 }
 ```
 

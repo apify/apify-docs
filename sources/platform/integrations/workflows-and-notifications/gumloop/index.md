@@ -32,11 +32,11 @@ Retrieving data from Apify Actors is included in your Gumloop subscription. Apif
 
 Each tool has a corresponding Gumloop credit cost. Each Gumloop subscription comes with a set of credits.
 
-| Sample prompt | Tool | Credit cost per use |
-| :--- | :--- | :--- |
-| Retrieve profile details for an Instagram user | Get Profile Details | 5 credits/profile |
-| Get videos for a specific hashtag | Get Hashtag Videos | 3 credits/video |
-| Show 5 most recent reviews for a restaurant | Get Place Reviews | 3 credits/review |
+| Sample prompt                                  | Tool                | Credit cost per use |
+| :--------------------------------------------- | :------------------ | :------------------ |
+| Retrieve profile details for an Instagram user | Get Profile Details | 5 credits/profile   |
+| Get videos for a specific hashtag              | Get Hashtag Videos  | 3 credits/video     |
+| Show 5 most recent reviews for a restaurant    | Get Place Reviews   | 3 credits/review    |
 
 ## General integration (Apify Task Runner)
 
@@ -62,13 +62,13 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
 1. _Add Apify Task Runner node to your workflow_
 
-   Open a new Gumloop pipeline page. Search for **Apify Task Runner** in the **Node Library**, and drag and drop the node onto your canvas.
+    Open a new Gumloop pipeline page. Search for **Apify Task Runner** in the **Node Library**, and drag and drop the node onto your canvas.
 
     ![Apify Task Runner in Node Library](images/apify_task_runner_node_library.png)
 
 1. _Create and save tasks in Apify_
 
-   The Apify Task Runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
+    The Apify Task Runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
 
     ![Create a task on an Actor](images/create_apify_task.png)
 

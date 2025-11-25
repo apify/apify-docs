@@ -84,9 +84,10 @@ In Console. Open the **Actor's page**, then click on **…** in the top right co
 
 ![set the actor url](images/how-and-where-to-set-the-actor-url.png)
 
-
 ## FAQ
+
 <!-- markdownlint-disable MD001 -->
+
 #### Can Actor URL be different from Actor name?
 
 Yes. While they can be the same, they don’t have to be. For the best user experience, keeping them identical is recommended, but you can experiment with the Actor's name. Just avoid changing the Actor URL.
@@ -106,4 +107,3 @@ Yes, you can. But it will most likely lower your chances of being noticed by Goo
 #### Does changing my Apify account name affect the Actor URL?
 
 Yes. If you're changing from _justanotherdev/pentagon-scraper_ to _dev/pentagon-scraper_, it counts as a new page. Essentially, the consequences are the same as after changing the technical name of the Actor.
-

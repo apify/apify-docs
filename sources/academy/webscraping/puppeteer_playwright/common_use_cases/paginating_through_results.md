@@ -77,9 +77,8 @@ const browser = await puppeteer.launch({ headless: false });
 const firstPage = await browser.newPage();
 await firstPage.goto(REPOSITORIES_URL);
 
-const lastPageLabel = await firstPage.$eval(
-    'a[aria-label*="Page "]:nth-last-child(2)',
-    (element) => element.getAttribute('aria-label'),
+const lastPageLabel = await firstPage.$eval('a[aria-label*="Page "]:nth-last-child(2)', (element) =>
+    element.getAttribute('aria-label'),
 );
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 console.log(lastPageNumber);
@@ -171,9 +170,8 @@ const browser = await puppeteer.launch({ headless: false });
 const firstPage = await browser.newPage();
 await firstPage.goto(REPOSITORIES_URL);
 
-const lastPageLabel = await firstPage.$eval(
-    'a[aria-label*="Page "]:nth-last-child(2)',
-    (element) => element.getAttribute('aria-label'),
+const lastPageLabel = await firstPage.$eval('a[aria-label*="Page "]:nth-last-child(2)', (element) =>
+    element.getAttribute('aria-label'),
 );
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 
@@ -235,22 +233,23 @@ Now let's scrape repositories for each of these numbers. We'll create promises f
 
 ```js
 const pageNumbers = [...Array(lastPageNumber + 1).keys()].slice(2);
-const promises = pageNumbers.map((pageNumber) => (async () => {
-    const paginatedPage = await browser.newPage();
+const promises = pageNumbers.map((pageNumber) =>
+    (async () => {
+        const paginatedPage = await browser.newPage();
 
-    // Construct the URL by setting the ?page=... parameter to value of pageNumber
-    const url = new URL(REPOSITORIES_URL);
-    url.searchParams.set('page', pageNumber);
+        // Construct the URL by setting the ?page=... parameter to value of pageNumber
+        const url = new URL(REPOSITORIES_URL);
+        url.searchParams.set('page', pageNumber);
 
-    // Scrape the page
-    await paginatedPage.goto(url.href);
-    const results = await scrapeRepos(paginatedPage);
+        // Scrape the page
+        await paginatedPage.goto(url.href);
+        const results = await scrapeRepos(paginatedPage);
 
-    // Push results to the repositories array
-    repositories.push(...results);
+        // Push results to the repositories array
+        repositories.push(...results);
 
-    await paginatedPage.close();
-})(),
+        await paginatedPage.close();
+    })(),
 );
 await Promise.all(promises);
 
@@ -308,22 +307,23 @@ repositories.push(...(await scrapeRepos(firstPage)));
 await firstPage.close();
 
 const pageNumbers = [...Array(lastPageNumber + 1).keys()].slice(2);
-const promises = pageNumbers.map((pageNumber) => (async () => {
-    const paginatedPage = await browser.newPage();
+const promises = pageNumbers.map((pageNumber) =>
+    (async () => {
+        const paginatedPage = await browser.newPage();
 
-    // Construct the URL by setting the ?page=... parameter to value of pageNumber
-    const url = new URL(REPOSITORIES_URL);
-    url.searchParams.set('page', pageNumber);
+        // Construct the URL by setting the ?page=... parameter to value of pageNumber
+        const url = new URL(REPOSITORIES_URL);
+        url.searchParams.set('page', pageNumber);
 
-    // Scrape the page
-    await paginatedPage.goto(url.href);
-    const results = await scrapeRepos(paginatedPage);
+        // Scrape the page
+        await paginatedPage.goto(url.href);
+        const results = await scrapeRepos(paginatedPage);
 
-    // Push results to the repositories array
-    repositories.push(...results);
+        // Push results to the repositories array
+        repositories.push(...results);
 
-    await paginatedPage.close();
-})(),
+        await paginatedPage.close();
+    })(),
 );
 await Promise.all(promises);
 
@@ -363,9 +363,8 @@ const firstPage = await browser.newPage();
 
 await firstPage.goto(REPOSITORIES_URL);
 
-const lastPageLabel = await firstPage.$eval(
-    'a[aria-label*="Page "]:nth-last-child(2)',
-    (element) => element.getAttribute('aria-label'),
+const lastPageLabel = await firstPage.$eval('a[aria-label*="Page "]:nth-last-child(2)', (element) =>
+    element.getAttribute('aria-label'),
 );
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 
@@ -375,22 +374,23 @@ repositories.push(...(await scrapeRepos(page)));
 await firstPage.close();
 
 const pageNumbers = [...Array(lastPageNumber + 1).keys()].slice(2);
-const promises = pageNumbers.map((pageNumber) => (async () => {
-    const paginatedPage = await browser.newPage();
+const promises = pageNumbers.map((pageNumber) =>
+    (async () => {
+        const paginatedPage = await browser.newPage();
 
-    // Construct the URL by setting the ?page=... parameter to value of pageNumber
-    const url = new URL(REPOSITORIES_URL);
-    url.searchParams.set('page', pageNumber);
+        // Construct the URL by setting the ?page=... parameter to value of pageNumber
+        const url = new URL(REPOSITORIES_URL);
+        url.searchParams.set('page', pageNumber);
 
-    // Scrape the page
-    await paginatedPage.goto(url.href);
-    const results = await scrapeRepos(paginatedPage);
+        // Scrape the page
+        await paginatedPage.goto(url.href);
+        const results = await scrapeRepos(paginatedPage);
 
-    // Push results to the repositories array
-    repositories.push(...results);
+        // Push results to the repositories array
+        repositories.push(...results);
 
-    await paginatedPage.close();
-})(),
+        await paginatedPage.close();
+    })(),
 );
 await Promise.all(promises);
 
@@ -460,9 +460,13 @@ await browser.close();
 </Tabs>
 
 ### Auto scrolling {#auto-scrolling}
+
 <!-- vale off -->
+
 Now, what we'll do is grab the height in pixels of a result item to have somewhat of a reference to how much we should scroll each time, as well as create a variable for keeping track of how many pixels have been scrolled.
+
 <!-- vale on -->
+
 ```js
 // Grab the height of result item in pixels, which will be used to scroll down
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);

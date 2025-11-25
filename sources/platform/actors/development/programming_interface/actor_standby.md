@@ -83,7 +83,6 @@ You must return a response; otherwise, the Actor run will never be marked as rea
 
 :::
 
-
 See example code below that distinguishes between "normal" and "readiness probe" requests.
 
 <Tabs groupId="main">

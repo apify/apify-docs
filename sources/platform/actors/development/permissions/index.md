@@ -13,7 +13,7 @@ Every time a user runs your Actor, it runs under their Apify account. **Actor pe
 
 Your Actors can request two levels of access:
 
-- **Limited permissions:**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
+- **Limited permissions:** Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
 Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
@@ -26,7 +26,7 @@ Actors with **Full permissions** receive a token that grants complete access to 
 
 Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
- A limited-permission Actor can:
+A limited-permission Actor can:
 
 - Read and write to its default storages.
 - Create any additional storage, and write to that storage.
@@ -65,7 +65,6 @@ When possible, design your Actors to use limited permissions and request only th
 
 :::
 
-
 ### Accessing user provided storages
 
 By default, limited-permissions Actors can't access user storages. However, they can access storages that users explicitly provide via the Actor input. To do so, use the input schema to add a storage picker and declare exactly which operations your Actor needs.
@@ -80,11 +79,11 @@ Example input schema field (single resource):
 
 ```json
 {
-  "title": "Output dataset",
-  "type": "string",
-  "editor": "resourcePicker",
-  "resourceType": "dataset",
-  "resourcePermissions": ["READ", "WRITE"]
+    "title": "Output dataset",
+    "type": "string",
+    "editor": "resourcePicker",
+    "resourceType": "dataset",
+    "resourcePermissions": ["READ", "WRITE"]
 }
 ```
 
@@ -95,12 +94,12 @@ Selecting multiple resources:
 
 ```json
 {
-  "title": "Source datasets",
-  "type": "array",
-  "editor": "resourcePicker",
-  "resourceType": "dataset",
-  "resourcePermissions": ["READ"],
-  "minItems": 1
+    "title": "Source datasets",
+    "type": "array",
+    "editor": "resourcePicker",
+    "resourceType": "dataset",
+    "resourcePermissions": ["READ"],
+    "minItems": 1
 }
 ```
 
@@ -118,7 +117,6 @@ Designing your Actors to work under limited permissions is the recommended appro
 - Explain why you need full permissions in your Actor's README. This will help keep user trust and set correct user expectations.
 - Set the permission level in the Actor’s **Settings** in Console to **Full permissions**.
 - Be aware of the [UX implications](#end-user-experience) and impact on [Actor Quality score](../../publishing/quality_score.mdx) for full-permission Actors.
-
 
 :::info Need help with Actor permissions?
 

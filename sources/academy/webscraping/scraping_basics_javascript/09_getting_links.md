@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/getting-links
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -38,46 +38,48 @@ import * as cheerio from 'cheerio';
 import { writeFile } from 'fs/promises';
 import { AsyncParser } from '@json2csv/node';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  const data = $(".product-item").toArray().map(element => {
-    const $productItem = $(element);
+    const data = $('.product-item')
+        .toArray()
+        .map((element) => {
+            const $productItem = $(element);
 
-    const $title = $productItem.find(".product-item__title");
-    const title = $title.text().trim();
+            const $title = $productItem.find('.product-item__title');
+            const title = $title.text().trim();
 
-    const $price = $productItem.find(".price").contents().last();
-    const priceRange = { minPrice: null, price: null };
-    const priceText = $price
-      .text()
-      .trim()
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "");
+            const $price = $productItem.find('.price').contents().last();
+            const priceRange = { minPrice: null, price: null };
+            const priceText = $price
+                .text()
+                .trim()
+                .replace('$', '')
+                .replace('.', '')
+                .replace(',', '');
 
-    if (priceText.startsWith("From ")) {
-        priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-    } else {
-        priceRange.minPrice = parseInt(priceText);
-        priceRange.price = priceRange.minPrice;
-    }
+            if (priceText.startsWith('From ')) {
+                priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+            } else {
+                priceRange.minPrice = parseInt(priceText);
+                priceRange.price = priceRange.minPrice;
+            }
 
-    return { title, ...priceRange };
-  });
+            return { title, ...priceRange };
+        });
 
-  const jsonData = JSON.stringify(data);
-  await writeFile('products.json', jsonData);
+    const jsonData = JSON.stringify(data);
+    await writeFile('products.json', jsonData);
 
-  const parser = new AsyncParser();
-  const csvData = await parser.parse(data).promise();
-  await writeFile('products.csv', csvData);
+    const parser = new AsyncParser();
+    const csvData = await parser.parse(data).promise();
+    await writeFile('products.csv', csvData);
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -85,13 +87,13 @@ Let's introduce several functions to make the whole thing easier to digest. Firs
 
 ```js
 async function download(url) {
-  const response = await fetch(url);
-  if (response.ok) {
-    const html = await response.text();
-    return cheerio.load(html);
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
+    const response = await fetch(url);
+    if (response.ok) {
+        const html = await response.text();
+        return cheerio.load(html);
+    } else {
+        throw new Error(`HTTP ${response.status}`);
+    }
 }
 ```
 
@@ -99,26 +101,21 @@ Next, we can put parsing into a `parseProduct()` function, which takes the produ
 
 ```js
 function parseProduct($productItem) {
-  const $title = $productItem.find(".product-item__title");
-  const title = $title.text().trim();
+    const $title = $productItem.find('.product-item__title');
+    const title = $title.text().trim();
 
-  const $price = $productItem.find(".price").contents().last();
-  const priceRange = { minPrice: null, price: null };
-  const priceText = $price
-    .text()
-    .trim()
-    .replace("$", "")
-    .replace(".", "")
-    .replace(",", "");
+    const $price = $productItem.find('.price').contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price.text().trim().replace('$', '').replace('.', '').replace(',', '');
 
-  if (priceText.startsWith("From ")) {
-      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-  } else {
-      priceRange.minPrice = parseInt(priceText);
-      priceRange.price = priceRange.minPrice;
-  }
+    if (priceText.startsWith('From ')) {
+        priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
 
-  return { title, ...priceRange };
+    return { title, ...priceRange };
 }
 ```
 
@@ -126,7 +123,7 @@ Now the JSON export. For better readability, let's make a small change here and 
 
 ```js
 function exportJSON(data) {
-  return JSON.stringify(data, null, 2);
+    return JSON.stringify(data, null, 2);
 }
 ```
 
@@ -134,8 +131,8 @@ The last function we'll add will take care of the CSV export:
 
 ```js
 async function exportCSV(data) {
-  const parser = new AsyncParser();
-  return await parser.parse(data).promise();
+    const parser = new AsyncParser();
+    return await parser.parse(data).promise();
 }
 ```
 
@@ -147,55 +144,52 @@ import { writeFile } from 'fs/promises';
 import { AsyncParser } from '@json2csv/node';
 
 async function download(url) {
-  const response = await fetch(url);
-  if (response.ok) {
-    const html = await response.text();
-    return cheerio.load(html);
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
+    const response = await fetch(url);
+    if (response.ok) {
+        const html = await response.text();
+        return cheerio.load(html);
+    } else {
+        throw new Error(`HTTP ${response.status}`);
+    }
 }
 
 function parseProduct($productItem) {
-  const $title = $productItem.find(".product-item__title");
-  const title = $title.text().trim();
+    const $title = $productItem.find('.product-item__title');
+    const title = $title.text().trim();
 
-  const $price = $productItem.find(".price").contents().last();
-  const priceRange = { minPrice: null, price: null };
-  const priceText = $price
-    .text()
-    .trim()
-    .replace("$", "")
-    .replace(".", "")
-    .replace(",", "");
+    const $price = $productItem.find('.price').contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price.text().trim().replace('$', '').replace('.', '').replace(',', '');
 
-  if (priceText.startsWith("From ")) {
-      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-  } else {
-      priceRange.minPrice = parseInt(priceText);
-      priceRange.price = priceRange.minPrice;
-  }
+    if (priceText.startsWith('From ')) {
+        priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
 
-  return { title, ...priceRange };
+    return { title, ...priceRange };
 }
 
 function exportJSON(data) {
-  return JSON.stringify(data, null, 2);
+    return JSON.stringify(data, null, 2);
 }
 
 async function exportCSV(data) {
-  const parser = new AsyncParser();
-  return await parser.parse(data).promise();
+    const parser = new AsyncParser();
+    return await parser.parse(data).promise();
 }
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const data = $(".product-item").toArray().map(element => {
-  const $productItem = $(element);
-  const item = parseProduct($productItem);
-  return item;
-});
+const data = $('.product-item')
+    .toArray()
+    .map((element) => {
+        const $productItem = $(element);
+        const item = parseProduct($productItem);
+        return item;
+    });
 
 await writeFile('products.json', exportJSON(data));
 await writeFile('products.csv', await exportCSV(data));
@@ -240,6 +234,7 @@ function parseProduct($productItem) {
 In the previous code example, we've also added the URL to the object returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   {
@@ -283,20 +278,23 @@ function parseProduct($productItem, baseURL) {
 Now we'll pass the base URL to the function in the main body of our program:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const data = $(".product-item").toArray().map(element => {
-  const $productItem = $(element);
-  // highlight-next-line
-  const item = parseProduct($productItem, listingURL);
-  return item;
-});
+const data = $('.product-item')
+    .toArray()
+    .map((element) => {
+        const $productItem = $(element);
+        // highlight-next-line
+        const item = parseProduct($productItem, listingURL);
+        return item;
+    });
 ```
 
 When we run the scraper now, we should see full URLs in our exports:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   {
@@ -342,26 +340,27 @@ https://en.wikipedia.org/wiki/Botswana
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(listingURL);
+const listingURL =
+    'https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa';
+const response = await fetch(listingURL);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
-      const nameCell = $(element);
-      const link = nameCell.find("a").first();
-      const url = new URL(link.attr("href"), listingURL).href;
-      console.log(url);
+    for (const element of $('.wikitable tr td:nth-child(3)').toArray()) {
+        const nameCell = $(element);
+        const link = nameCell.find('a').first();
+        const url = new URL(link.attr('href'), listingURL).href;
+        console.log(url);
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>
 
@@ -386,31 +385,31 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const listingURL = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(listingURL);
+const listingURL = 'https://www.theguardian.com/sport/formulaone';
+const response = await fetch(listingURL);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $("#maincontent ul li").toArray()) {
-      const link = $(element).find("a").first();
-      const url = new URL(link.attr("href"), listingURL).href;
-      console.log(url);
+    for (const element of $('#maincontent ul li').toArray()) {
+        const link = $(element).find('a').first();
+        const url = new URL(link.attr('href'), listingURL).href;
+        console.log(url);
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
-  Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
+Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
 
-  ```text
-  https://www.theguardian.com/sport/article/2024/sep/02/example
-  https://www.theguardian.com/sport/article/2024/sep/02/example#comments
-  ```
+```text
+https://www.theguardian.com/sport/article/2024/sep/02/example
+https://www.theguardian.com/sport/article/2024/sep/02/example#comments
+```
 
 </details>

@@ -22,9 +22,9 @@ You'll be presented with a page featuring two ways to get started with a new Act
 1. Creating an Actor from existing source code (using Git providers or pushing the code from your local machine using Apify CLI)
 2. Creating an Actor from a code template
 
-|                               Existing source code                                |                                  Code templates                                  |
-|:---------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-|  ![Create and Actor from source code](./images/create-actor-from-source-code.png) | ![Create an Actor from code templates](./images/create-actor-from-templates.png) |
+|                               Existing source code                               |                                  Code templates                                  |
+| :------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+| ![Create and Actor from source code](./images/create-actor-from-source-code.png) | ![Create an Actor from code templates](./images/create-actor-from-templates.png) |
 
 ## Creating Actor from existing source code {#existing-source-code}
 

@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/extracting-data
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll finish extracting product data from the downloaded HTML. With help of basic string manipulation we'll focus on cleaning and correctly representing the product price.**
 
@@ -86,7 +86,7 @@ for product in soup.select(".product-item"):
 
 ## Removing white space
 
-Often, the strings we extract from a web page start or end with some amount of whitespace, typically space characters or newline characters, which come from the [indentation](https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming) of the HTML tags.
+Often, the strings we extract from a web page start or end with some amount of whitespace, typically space characters or newline characters, which come from the [indentation](<https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming>) of the HTML tags.
 
 We call the operation of removing whitespace _stripping_ or _trimming_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it. Let's add Python's built-in [.strip()](https://docs.python.org/3/library/stdtypes.html#str.strip):
 
@@ -241,37 +241,37 @@ Denon AH-C720 In-Ear Headphones | 236
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for product in soup.select(".product-item"):
-      title = product.select_one(".product-item__title").text.strip()
+for product in soup.select(".product-item"):
+    title = product.select_one(".product-item__title").text.strip()
 
-      units_text = (
-          product
-          .select_one(".product-item__inventory")
-          .text
-          .removeprefix("In stock,")
-          .removeprefix("Only")
-          .removesuffix(" left")
-          .removesuffix("units")
-          .strip()
-      )
-      if "Sold out" in units_text:
-          units = 0
-      else:
-          units = int(units_text)
+    units_text = (
+        product
+        .select_one(".product-item__inventory")
+        .text
+        .removeprefix("In stock,")
+        .removeprefix("Only")
+        .removesuffix(" left")
+        .removesuffix("units")
+        .strip()
+    )
+    if "Sold out" in units_text:
+        units = 0
+    else:
+        units = int(units_text)
 
-      print(title, units, sep=" | ")
-  ```
+    print(title, units, sep=" | ")
+```
 
 </details>
 
@@ -282,29 +282,29 @@ Simplify the code from previous exercise. Use [regular expressions](https://docs
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import re
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import re
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for product in soup.select(".product-item"):
-      title = product.select_one(".product-item__title").text.strip()
+for product in soup.select(".product-item"):
+    title = product.select_one(".product-item__title").text.strip()
 
-      units_text = product.select_one(".product-item__inventory").text
-      if re_match := re.search(r"\d+", units_text):
-          units = int(re_match.group())
-      else:
-          units = 0
+    units_text = product.select_one(".product-item__inventory").text
+    if re_match := re.search(r"\d+", units_text):
+        units = int(re_match.group())
+    else:
+        units = 0
 
-      print(title, units, sep=" | ")
-  ```
+    print(title, units, sep=" | ")
+```
 
 </details>
 
@@ -338,25 +338,25 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from datetime import datetime
+```py
+import httpx
+from bs4 import BeautifulSoup
+from datetime import datetime
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://www.theguardian.com/sport/formulaone"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for article in soup.select("#maincontent ul li"):
-      title = article.select_one("h3").text.strip()
+for article in soup.select("#maincontent ul li"):
+    title = article.select_one("h3").text.strip()
 
-      date_iso = article.select_one("time")["datetime"].strip()
-      date = datetime.fromisoformat(date_iso)
+    date_iso = article.select_one("time")["datetime"].strip()
+    date = datetime.fromisoformat(date_iso)
 
-      print(title, date.strftime('%a %b %d %Y'), sep=" | ")
-  ```
+    print(title, date.strftime('%a %b %d %Y'), sep=" | ")
+```
 
 </details>

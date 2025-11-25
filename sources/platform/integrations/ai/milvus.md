@@ -37,7 +37,6 @@ It will be automatically created when data is uploaded to the database.
 
 Once the cluster is ready, and you have the `URI` and `Token`, you can set up the integration with Apify.
 
-
 ### Integration Methods
 
 You can integrate Apify with Milvus using either the Apify Console or the Apify Python SDK.
@@ -86,13 +85,11 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
 
 1. Call the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl the Milvus documentation and Zilliz website and extract text content from the web pages:
 
-
     ```python
     actor_call = client.actor("apify/website-content-crawler").call(
         run_input={"maxCrawlPages": 10, "startUrls": [{"url": "https://milvus.io/"}, {"url": "https://zilliz.com/"}]}
     )
     ```
-
 
 1. Call Apify's Milvus integration and store all data in the Milvus Vector Database:
 

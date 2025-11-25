@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/challenge/scraping-amazon
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Build your first web scraper with Crawlee. Let's extract product information from Amazon to give you an idea of what real-world scraping looks like.**
 
@@ -29,7 +29,6 @@ router.addHandler(labels.PRODUCT, async ({ $ }) => {
     console.log(description); // works!
 });
 ```
-
 
 Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman](../../../glossary/tools/proxyman.md) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
@@ -66,16 +65,18 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
     const element = $('div#productDescription');
 
     // Add to the request queue
-    await crawler.addRequests([{
-        url: `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${data.asin}&pc=dp`,
-        label: labels.OFFERS,
-        userData: {
-            data: {
-                ...data,
-                description: element.text().trim(),
+    await crawler.addRequests([
+        {
+            url: `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${data.asin}&pc=dp`,
+            label: labels.OFFERS,
+            userData: {
+                data: {
+                    ...data,
+                    description: element.text().trim(),
+                },
             },
         },
-    }]);
+    ]);
 });
 ```
 
@@ -95,7 +96,6 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
             sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
             offer: element.find('.a-price .a-offscreen').text().trim(),
         });
-
     }
 });
 ```

@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/scraping-variants
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -22,20 +22,43 @@ First, let's extract information about the variants. If we go to [Sony XBR-950G 
 
 ```html
 <div class="block-swatch-list">
-  <div class="block-swatch">
-    <input class="block-swatch__radio product-form__single-selector is-filled" type="radio" name="template--14851594125363__main-1916221128755-1" id="template--14851594125363__main-1916221128755-1-1" value="55&quot;" checked="" data-option-position="1">
-    <label class="block-swatch__item" for="template--14851594125363__main-1916221128755-1-1" title="55&quot;">
-    <!-- highlight-next-line -->
-    <span class="block-swatch__item-text">55"</span>
-    </label>
-  </div>
-  <div class="block-swatch">
-    <input class="block-swatch__radio product-form__single-selector" type="radio" name="template--14851594125363__main-1916221128755-1" id="template--14851594125363__main-1916221128755-1-2" value="65&quot;" data-option-position="1">
-    <label class="block-swatch__item" for="template--14851594125363__main-1916221128755-1-2" title="65&quot;">
-    <!-- highlight-next-line -->
-    <span class="block-swatch__item-text">65"</span>
-    </label>
-  </div>
+    <div class="block-swatch">
+        <input
+            class="block-swatch__radio product-form__single-selector is-filled"
+            type="radio"
+            name="template--14851594125363__main-1916221128755-1"
+            id="template--14851594125363__main-1916221128755-1-1"
+            value='55"'
+            checked=""
+            data-option-position="1"
+        />
+        <label
+            class="block-swatch__item"
+            for="template--14851594125363__main-1916221128755-1-1"
+            title='55"'
+        >
+            <!-- highlight-next-line -->
+            <span class="block-swatch__item-text">55"</span>
+        </label>
+    </div>
+    <div class="block-swatch">
+        <input
+            class="block-swatch__radio product-form__single-selector"
+            type="radio"
+            name="template--14851594125363__main-1916221128755-1"
+            id="template--14851594125363__main-1916221128755-1-2"
+            value='65"'
+            data-option-position="1"
+        />
+        <label
+            class="block-swatch__item"
+            for="template--14851594125363__main-1916221128755-1-2"
+            title='65"'
+        >
+            <!-- highlight-next-line -->
+            <span class="block-swatch__item-text">65"</span>
+        </label>
+    </div>
 </div>
 ```
 
@@ -49,21 +72,23 @@ After a bit of detective work, we notice that not far below the `block-swatch-li
 
 ```html
 <div class="no-js product-form__option">
-  <label class="product-form__option-name text--strong" for="product-select-1916221128755">Variant</label>
-  <div class="select-wrapper select-wrapper--primary is-filled">
-    <select id="product-select-1916221128755" name="id">
-      <!-- highlight-next-line -->
-      <option value="17550242349107" data-sku="SON-695219-XBR-55">
-        <!-- highlight-next-line -->
-        55" - $1,398.00
-      </option>
-      <!-- highlight-next-line -->
-      <option value="17550242414643" data-sku="SON-985594-XBR-65" selected="selected">
-        <!-- highlight-next-line -->
-        65" - $2,198.00
-      </option>
-    </select>
-  </div>
+    <label class="product-form__option-name text--strong" for="product-select-1916221128755"
+        >Variant</label
+    >
+    <div class="select-wrapper select-wrapper--primary is-filled">
+        <select id="product-select-1916221128755" name="id">
+            <!-- highlight-next-line -->
+            <option value="17550242349107" data-sku="SON-695219-XBR-55">
+                <!-- highlight-next-line -->
+                55" - $1,398.00
+            </option>
+            <!-- highlight-next-line -->
+            <option value="17550242414643" data-sku="SON-985594-XBR-65" selected="selected">
+                <!-- highlight-next-line -->
+                65" - $2,198.00
+            </option>
+        </select>
+    </div>
 </div>
 ```
 
@@ -74,27 +99,29 @@ These elements aren't visible to regular visitors. They're there just in case br
 Using our knowledge of Cheerio, we can locate the `option` elements and extract the data we need. We'll loop over the options, extract variant names, and create a corresponding array of items for each product:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const promises = $(".product-item").toArray().map(async element => {
-  const $productItem = $(element);
-  const item = parseProduct($productItem, listingURL);
+const promises = $('.product-item')
+    .toArray()
+    .map(async (element) => {
+        const $productItem = $(element);
+        const item = parseProduct($productItem, listingURL);
 
-  const $p = await download(item.url);
-  item.vendor = $p(".product-meta__vendor").text().trim();
+        const $p = await download(item.url);
+        item.vendor = $p('.product-meta__vendor').text().trim();
 
-  // highlight-start
-  const $options = $p(".product-form__option.no-js option");
-  const items = $options.toArray().map(optionElement => {
-    const $option = $(optionElement);
-    const variantName = $option.text().trim();
-    return { variantName, ...item };
-  });
-  // highlight-end
+        // highlight-start
+        const $options = $p('.product-form__option.no-js option');
+        const items = $options.toArray().map((optionElement) => {
+            const $option = $(optionElement);
+            const variantName = $option.text().trim();
+            return { variantName, ...item };
+        });
+        // highlight-end
 
-  return item;
-});
+        return item;
+    });
 const data = await Promise.all(promises);
 ```
 
@@ -105,25 +132,27 @@ We loop over the variants using `.map()` method to create an array of item copie
 Let's adjust the loop so it returns a promise that resolves to an array of items instead of a single item. If a product has no variants, we'll return an array with a single item, setting `variantName` to `null`:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const promises = $(".product-item").toArray().map(async element => {
-  const $productItem = $(element);
-  const item = parseProduct($productItem, listingURL);
+const promises = $('.product-item')
+    .toArray()
+    .map(async (element) => {
+        const $productItem = $(element);
+        const item = parseProduct($productItem, listingURL);
 
-  const $p = await download(item.url);
-  item.vendor = $p(".product-meta__vendor").text().trim();
+        const $p = await download(item.url);
+        item.vendor = $p('.product-meta__vendor').text().trim();
 
-  const $options = $p(".product-form__option.no-js option");
-  const items = $options.toArray().map(optionElement => {
-    const $option = $(optionElement);
-    const variantName = $option.text().trim();
-    return { variantName, ...item };
-  });
-  // highlight-next-line
-  return items.length > 0 ? items : [{ variantName: null, ...item }];
-});
+        const $options = $p('.product-form__option.no-js option');
+        const items = $options.toArray().map((optionElement) => {
+            const $option = $(optionElement);
+            const variantName = $option.text().trim();
+            return { variantName, ...item };
+        });
+        // highlight-next-line
+        return items.length > 0 ? items : [{ variantName: null, ...item }];
+    });
 // highlight-start
 const itemLists = await Promise.all(promises);
 const data = itemLists.flat();
@@ -135,6 +164,7 @@ After modifying the loop, we also updated how we collect the items into the `dat
 If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -153,6 +183,7 @@ If we run the program now, we'll see 34 items in total. Some items don't have va
 Some products will break into several items, each with a different variant name. We don't know their exact prices from the product listing, just the min price. In the next step, we should be able to parse the actual price from the variant name for those items.
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -179,6 +210,7 @@ Some products will break into several items, each with a different variant name.
 Perhaps surprisingly, some products with variants will have the price field set. That's because the shop sells all variants of the product for the same price, so the product listing shows the price as a fixed amount, like _$74.95_, instead of _from $74.95_.
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -200,17 +232,9 @@ The items now contain the variant as text, which is good for a start, but we wan
 
 ```js
 function parseVariant($option) {
-  const [variantName, priceText] = $option
-    .text()
-    .trim()
-    .split(" - ");
-  const price = parseInt(
-    priceText
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "")
-  );
-  return { variantName, price };
+    const [variantName, priceText] = $option.text().trim().split(' - ');
+    const price = parseInt(priceText.replace('$', '').replace('.', '').replace(',', ''));
+    return { variantName, price };
 }
 ```
 
@@ -226,83 +250,72 @@ import { writeFile } from 'fs/promises';
 import { AsyncParser } from '@json2csv/node';
 
 async function download(url) {
-  const response = await fetch(url);
-  if (response.ok) {
-    const html = await response.text();
-    return cheerio.load(html);
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
+    const response = await fetch(url);
+    if (response.ok) {
+        const html = await response.text();
+        return cheerio.load(html);
+    } else {
+        throw new Error(`HTTP ${response.status}`);
+    }
 }
 
 function parseProduct($productItem, baseURL) {
-  const $title = $productItem.find(".product-item__title");
-  const title = $title.text().trim();
-  const url = new URL($title.attr("href"), baseURL).href;
+    const $title = $productItem.find('.product-item__title');
+    const title = $title.text().trim();
+    const url = new URL($title.attr('href'), baseURL).href;
 
-  const $price = $productItem.find(".price").contents().last();
-  const priceRange = { minPrice: null, price: null };
-  const priceText = $price
-    .text()
-    .trim()
-    .replace("$", "")
-    .replace(".", "")
-    .replace(",", "");
+    const $price = $productItem.find('.price').contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price.text().trim().replace('$', '').replace('.', '').replace(',', '');
 
-  if (priceText.startsWith("From ")) {
-      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-  } else {
-      priceRange.minPrice = parseInt(priceText);
-      priceRange.price = priceRange.minPrice;
-  }
+    if (priceText.startsWith('From ')) {
+        priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
 
-  return { url, title, ...priceRange };
+    return { url, title, ...priceRange };
 }
 
 async function exportJSON(data) {
-  return JSON.stringify(data, null, 2);
+    return JSON.stringify(data, null, 2);
 }
 
 async function exportCSV(data) {
-  const parser = new AsyncParser();
-  return await parser.parse(data).promise();
+    const parser = new AsyncParser();
+    return await parser.parse(data).promise();
 }
 
 // highlight-start
 function parseVariant($option) {
-  const [variantName, priceText] = $option
-    .text()
-    .trim()
-    .split(" - ");
-  const price = parseInt(
-    priceText
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "")
-  );
-  return { variantName, price };
+    const [variantName, priceText] = $option.text().trim().split(' - ');
+    const price = parseInt(priceText.replace('$', '').replace('.', '').replace(',', ''));
+    return { variantName, price };
 }
 // highlight-end
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const promises = $(".product-item").toArray().map(async element => {
-  const $productItem = $(element);
-  const item = parseProduct($productItem, listingURL);
+const promises = $('.product-item')
+    .toArray()
+    .map(async (element) => {
+        const $productItem = $(element);
+        const item = parseProduct($productItem, listingURL);
 
-  const $p = await download(item.url);
-  item.vendor = $p(".product-meta__vendor").text().trim();
+        const $p = await download(item.url);
+        item.vendor = $p('.product-meta__vendor').text().trim();
 
-  const $options = $p(".product-form__option.no-js option");
-  const items = $options.toArray().map(optionElement => {
-    // highlight-next-line
-    const variant = parseVariant($(optionElement));
-    // highlight-next-line
-    return { ...item, ...variant };
-  });
-  return items.length > 0 ? items : [{ variantName: null, ...item }];
-});
+        const $options = $p('.product-form__option.no-js option');
+        const items = $options.toArray().map((optionElement) => {
+            // highlight-next-line
+            const variant = parseVariant($(optionElement));
+            // highlight-next-line
+            return { ...item, ...variant };
+        });
+        return items.length > 0 ? items : [{ variantName: null, ...item }];
+    });
 const itemLists = await Promise.all(promises);
 const data = itemLists.flat();
 
@@ -313,6 +326,7 @@ await writeFile('products.csv', await exportCSV(data));
 Let's run the scraper and see if all the items in the data contain prices:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -384,67 +398,58 @@ Your output should look something like this:
 <details>
   <summary>Solution</summary>
 
-  After inspecting the registry, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
+After inspecting the registry, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  async function download(url) {
+async function download(url) {
     const response = await fetch(url);
     if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
+        const html = await response.text();
+        return cheerio.load(html);
     } else {
-      throw new Error(`HTTP ${response.status}`);
+        throw new Error(`HTTP ${response.status}`);
     }
-  }
+}
 
-  const listingURL = "https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count";
-  const $ = await download(listingURL);
+const listingURL = 'https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count';
+const $ = await download(listingURL);
 
-  const promises = $("section").toArray().map(async element => {
-    const $card = $(element);
+const promises = $('section')
+    .toArray()
+    .map(async (element) => {
+        const $card = $(element);
 
-    const details = $card
-      .children()
-      .first()
-      .children()
-      .last()
-      .text()
-      .split("•");
-    const updatedText = details[2].trim();
-    const dependents = parseInt(details[3].replace("dependents", "").trim());
+        const details = $card.children().first().children().last().text().split('•');
+        const updatedText = details[2].trim();
+        const dependents = parseInt(details[3].replace('dependents', '').trim());
 
-    if (updatedText.includes("years ago")) {
-      const yearsAgo = parseInt(updatedText.replace("years ago", "").trim());
-      if (yearsAgo > 2) {
-        return null;
-      }
-    }
+        if (updatedText.includes('years ago')) {
+            const yearsAgo = parseInt(updatedText.replace('years ago', '').trim());
+            if (yearsAgo > 2) {
+                return null;
+            }
+        }
 
-    const $link = $card.find("a").first();
-    const name = $link.text().trim();
-    const url = new URL($link.attr("href"), listingURL).href;
-    const description = $card.find("p").text().trim();
+        const $link = $card.find('a').first();
+        const name = $link.text().trim();
+        const url = new URL($link.attr('href'), listingURL).href;
+        const description = $card.find('p').text().trim();
 
-    const downloadsText = $card
-      .children()
-      .last()
-      .text()
-      .replace(",", "")
-      .trim();
-    const downloads = parseInt(downloadsText);
+        const downloadsText = $card.children().last().text().replace(',', '').trim();
+        const downloads = parseInt(downloadsText);
 
-    return { name, url, description, dependents, downloads };
-  });
+        return { name, url, description, dependents, downloads };
+    });
 
-  const data = await Promise.all(promises);
-  console.log(data.filter(item => item !== null).splice(0, 5));
-  ```
+const data = await Promise.all(promises);
+console.log(data.filter((item) => item !== null).splice(0, 5));
+```
 
-  Since the HTML doesn't contain any descriptive classes, we must rely on its structure. We're using [`.children()`](https://cheerio.js.org/docs/api/classes/Cheerio#children) to carefully navigate the HTML element tree.
+Since the HTML doesn't contain any descriptive classes, we must rely on its structure. We're using [`.children()`](https://cheerio.js.org/docs/api/classes/Cheerio#children) to carefully navigate the HTML element tree.
 
-  For items older than 2 years, we return `null` instead of an item. Before printing the results, we use [.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to remove these empty values and [.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) the array down to just 5 items.
+For items older than 2 years, we return `null` instead of an item. Before printing the results, we use [.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to remove these empty values and [.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) the array down to just 5 items.
 
 </details>
 
@@ -463,38 +468,40 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  async function download(url) {
+async function download(url) {
     const response = await fetch(url);
     if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
+        const html = await response.text();
+        return cheerio.load(html);
     } else {
-      throw new Error(`HTTP ${response.status}`);
+        throw new Error(`HTTP ${response.status}`);
     }
-  }
+}
 
-  const listingURL = "https://edition.cnn.com/sport";
-  const $ = await download(listingURL);
+const listingURL = 'https://edition.cnn.com/sport';
+const $ = await download(listingURL);
 
-  const promises = $(".layout__main .card").toArray().map(async element => {
-    const $link = $(element).find("a").first();
-    const articleURL = new URL($link.attr("href"), listingURL).href;
+const promises = $('.layout__main .card')
+    .toArray()
+    .map(async (element) => {
+        const $link = $(element).find('a').first();
+        const articleURL = new URL($link.attr('href'), listingURL).href;
 
-    const $a = await download(articleURL);
-    const content = $a(".article__content").text().trim();
+        const $a = await download(articleURL);
+        const content = $a('.article__content').text().trim();
 
-    return { url: articleURL, length: content.length };
-  });
+        return { url: articleURL, length: content.length };
+    });
 
-  const data = await Promise.all(promises);
-  const nonZeroData = data.filter(({ url, length }) => length > 0);
-  nonZeroData.sort((a, b) => a.length - b.length);
-  const shortestItem = nonZeroData[0];
+const data = await Promise.all(promises);
+const nonZeroData = data.filter(({ url, length }) => length > 0);
+nonZeroData.sort((a, b) => a.length - b.length);
+const shortestItem = nonZeroData[0];
 
-  console.log(shortestItem.url);
-  ```
+console.log(shortestItem.url);
+```
 
 </details>

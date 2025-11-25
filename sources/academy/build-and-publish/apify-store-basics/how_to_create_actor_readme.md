@@ -173,7 +173,6 @@ If you want to add snippets of code anywhere in your README, you can use [Carbo
 
 If you need quick Markdown guidance, check out [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
 
-
 ## README and SEO
 
 Your README is your landing page.
@@ -231,8 +230,8 @@ Learn about [How to create a great input schema](/academy/actor-marketing-playbo
     - Business use cases
     - Link to a success story, a business use case, or a blog post.
 3. How to scrape (target site)
-   - Link to "How to…" blogs, if one exists (or suggest one if it doesn't)
-   - Add a video tutorial or gif from an ideal Actor run.
+    - Link to "How to…" blogs, if one exists (or suggest one if it doesn't)
+    - Add a video tutorial or gif from an ideal Actor run.
 
 :::tip Embedding YouTube videos
 
@@ -246,13 +245,13 @@ For better user experience, Apify Console automatically renders every YouTube UR
     - This can be used as a boilerplate text for the legal section, but you should use your own judgment and also customize it with the site name.
 
     > Our scrapers are ethical and do not extract any private user data, such as email addresses, gender, or location. They only extract what the user has chosen to share publicly. We therefore believe that our scrapers, when used for ethical purposes by Apify users, are safe. However, you should be aware that your results could contain personal data. Personal data is protected by the GDPR in the European Union and by other regulations around the world. You should not scrape personal data unless you have a legitimate reason to do so. If you're unsure whether your reason is legitimate, consult your lawyers. You can also read our blog post on the legality of web scraping
-    >
+
 2. Input
     - Each Actor detail page has an input tab, so you just need to refer to that. If you like, you can add a screenshot showing the user what the input fields will look like.
     - This is an example of how to refer to the input tab:
 
     > Twitter Scraper has the following input options. Click on the input tab for more information.
-    >
+
 3. Output
     - Mention "You can download the dataset extracted by (Actor name) in various formats such as JSON, HTML, CSV, or Excel.”
     - Add a simplified JSON dataset example, like here https://apify.com/compass/crawler-google-places#output-example

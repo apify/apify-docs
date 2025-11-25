@@ -8,7 +8,7 @@ noindex: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.**
 
@@ -70,10 +70,12 @@ const crawler = new PlaywrightCrawler({
     },
 });
 
-await crawler.addRequests([{
-    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
-    label: 'start-url',
-}]);
+await crawler.addRequests([
+    {
+        url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+        label: 'start-url',
+    },
+]);
 
 await crawler.run();
 ```
@@ -83,7 +85,6 @@ await crawler.run();
 The `parseWithCheerio` function is available even in `CheerioCrawler` and all the other Crawlee crawlers. If you think you'll often switch up the crawlers, you can use it to further reduce the number of needed line changes.
 
 :::
-
 
 When you run the code with `node browser.js`, you'll see a browser window open and then the individual pages getting scraped, each in a new browser tab.
 
@@ -191,10 +192,12 @@ const crawler = new PlaywrightCrawler({
     },
 });
 
-await crawler.addRequests([{
-    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
-    label: 'start-url',
-}]);
+await crawler.addRequests([
+    {
+        url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+        label: 'start-url',
+    },
+]);
 
 await crawler.run();
 ```

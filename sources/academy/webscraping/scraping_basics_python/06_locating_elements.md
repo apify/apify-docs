@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/locating-elements
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll locate product data in the downloaded HTML. We'll use BeautifulSoup to find those HTML elements which contain details about each product, such as title or price.**
 
@@ -145,8 +145,8 @@ For each product, our scraper also prints the text `Sale price`. Let's look at t
 
 ```html
 <span class="price">
-  <span class="visually-hidden">Sale price</span>
-  $74.95
+    <span class="visually-hidden">Sale price</span>
+    $74.95
 </span>
 ```
 
@@ -244,27 +244,27 @@ Djibouti
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for table in soup.select(".wikitable"):
-      for row in table.select("tr"):
-          cells = row.select("td")
-          if cells:
-              third_column = cells[2]
-              title_link = third_column.select_one("a")
-              print(title_link.text)
-  ```
+for table in soup.select(".wikitable"):
+    for row in table.select("tr"):
+        cells = row.select("td")
+        if cells:
+            third_column = cells[2]
+            title_link = third_column.select_one("a")
+            print(title_link.text)
+```
 
-  Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
+Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
 
 </details>
 
@@ -284,20 +284,20 @@ You may want to check out the following pages:
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
-      print(name_cell.select_one("a").text)
-  ```
+for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
+    print(name_cell.select_one("a").text)
+```
 
 </details>
 
@@ -321,19 +321,19 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://www.theguardian.com/sport/formulaone"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for title in soup.select("#maincontent ul li h3"):
-      print(title.text)
-  ```
+for title in soup.select("#maincontent ul li h3"):
+    print(title.text)
+```
 
 </details>

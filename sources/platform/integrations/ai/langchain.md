@@ -16,7 +16,7 @@ In this example, we'll use the [Website Content Crawler](https://apify.com/apify
 Then we feed the documents into a vector index and answer questions from it.
 
 This example demonstrates how to integrate Apify with LangChain using the Python language.
-If you prefer to use JavaScript, you can follow the  [JavaScript LangChain documentation](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/apify_dataset/).
+If you prefer to use JavaScript, you can follow the [JavaScript LangChain documentation](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/apify_dataset/).
 
 Before we start with the integration, we need to install all dependencies:
 

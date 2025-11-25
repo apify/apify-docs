@@ -33,43 +33,45 @@ Producing results line by line is an efficient approach to handling large datase
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
-
-  // highlight-next-line
-  const data = $(".product-item").toArray().map(element => {
-    const $productItem = $(element);
-
-    const $title = $productItem.find(".product-item__title");
-    const title = $title.text().trim();
-
-    const $price = $productItem.find(".price").contents().last();
-    const priceRange = { minPrice: null, price: null };
-    const priceText = $price
-      .text()
-      .trim()
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "");
-
-    if (priceText.startsWith("From ")) {
-        priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-    } else {
-        priceRange.minPrice = parseInt(priceText);
-        priceRange.price = priceRange.minPrice;
-    }
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
     // highlight-next-line
-    return { title, ...priceRange };
-  });
-  // highlight-next-line
-  console.log(data);
+    const data = $('.product-item')
+        .toArray()
+        .map((element) => {
+            const $productItem = $(element);
+
+            const $title = $productItem.find('.product-item__title');
+            const title = $title.text().trim();
+
+            const $price = $productItem.find('.price').contents().last();
+            const priceRange = { minPrice: null, price: null };
+            const priceText = $price
+                .text()
+                .trim()
+                .replace('$', '')
+                .replace('.', '')
+                .replace(',', '');
+
+            if (priceText.startsWith('From ')) {
+                priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+            } else {
+                priceRange.minPrice = parseInt(priceText);
+                priceRange.price = priceRange.minPrice;
+            }
+
+            // highlight-next-line
+            return { title, ...priceRange };
+        });
+    // highlight-next-line
+    console.log(data);
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -117,7 +119,7 @@ We'll begin with importing the `writeFile` function from the Node.js standard li
 ```js
 import * as cheerio from 'cheerio';
 // highlight-next-line
-import { writeFile } from "fs/promises";
+import { writeFile } from 'fs/promises';
 ```
 
 Next, instead of printing the data, we'll finish the program by exporting it to JSON. Let's replace the line `console.log(data)` with the following:
@@ -130,6 +132,7 @@ await writeFile('products.json', jsonData);
 That's it! If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [{"title":"JBL Flip 4 Waterproof Portable Bluetooth Speaker","minPrice":7495,"price":7495},{"title":"Sony XBR-950G BRAVIA 4K HDR Ultra HD TV","minPrice":139800,"price":null},...]
 ```
@@ -137,7 +140,11 @@ That's it! If we run our scraper now, it won't display any output, but it will c
 If you skim through the data, you'll notice that the `JSON.stringify()` function handled some potential issues, such as escaping double quotes found in one of the titles by adding a backslash:
 
 ```json
-{"title":"Sony SACS9 10\" Active Subwoofer","minPrice":15800,"price":15800}
+{
+    "title": "Sony SACS9 10\" Active Subwoofer",
+    "minPrice": 15800,
+    "price": 15800
+}
 ```
 
 :::tip Pretty JSON
@@ -163,7 +170,7 @@ Once installed, we can add the following line to our imports:
 
 ```js
 import * as cheerio from 'cheerio';
-import { writeFile } from "fs/promises";
+import { writeFile } from 'fs/promises';
 // highlight-next-line
 import { AsyncParser } from '@json2csv/node';
 ```
@@ -176,7 +183,7 @@ await writeFile('products.json', jsonData);
 
 const parser = new AsyncParser();
 const csvData = await parser.parse(data).promise();
-await writeFile("products.csv", csvData);
+await writeFile('products.csv', csvData);
 ```
 
 The program should now also produce a `data.csv` file. When browsing the directory on macOS, we can see a nice preview of the file's contents, which proves that the file is correct and that other programs can read it. If you're using a different operating system, try opening the file with any spreadsheet program you have.
@@ -210,15 +217,13 @@ Write a new Node.js program that reads the `products.json` file we created in th
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import { readFile } from "fs/promises";
+```js
+import { readFile } from 'fs/promises';
 
-  const jsonData = await readFile("products.json");
-  const data = JSON.parse(jsonData);
-  data
-    .filter(row => row.minPrice > 50000)
-    .forEach(row => console.log(row));
-  ```
+const jsonData = await readFile('products.json');
+const data = JSON.parse(jsonData);
+data.filter((row) => row.minPrice > 50000).forEach((row) => console.log(row));
+```
 
 </details>
 
@@ -229,12 +234,12 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
 <details>
   <summary>Solution</summary>
 
-  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
+Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
-  1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  1. Select the header row. Go to **Data > Create filter**.
-  1. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
+1. Select the header row. Go to **Data > Create filter**.
+1. Use the filter icon that appears next to `minPrice`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
-  ![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
+![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
 
 </details>

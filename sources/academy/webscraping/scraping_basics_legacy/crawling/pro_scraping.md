@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/crawling/pro-scraping
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn how to build scrapers quicker and get better and more robust results by using Crawlee, an open-source library for scraping in Node.js.**
 
@@ -89,7 +89,7 @@ You'll see "**Crawlee works!**" printed to the console. If it doesn't work, it m
 
 ## Prepare the scraper {#coding-the-scraper}
 
- `CheerioCrawler` automatically visits URLs, downloads HTML using **Got-Scraping**, and parses it with **Cheerio**. The benefit of this over writing the code yourself is that it automatically handles the URL queue, errors, retries, proxies, parallelizes the downloads, and much more. Overall, it removes the need to write a lot of boilerplate code.
+`CheerioCrawler` automatically visits URLs, downloads HTML using **Got-Scraping**, and parses it with **Cheerio**. The benefit of this over writing the code yourself is that it automatically handles the URL queue, errors, retries, proxies, parallelizes the downloads, and much more. Overall, it removes the need to write a lot of boilerplate code.
 
 To create a crawler with Crawlee, you only need to provide it with a request handler - a function that gets executed for each page it visits.
 
@@ -121,9 +121,7 @@ const crawler = new CheerioCrawler({
 });
 
 // Add the Sales category of Warehouse store to the queue of URLs.
-await crawler.addRequests([
-    'https://warehouse-theme-metal.myshopify.com/collections/sales',
-]);
+await crawler.addRequests(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
 
 await crawler.run();
 ```
@@ -170,12 +168,14 @@ const crawler = new CheerioCrawler({
 
 // Instead of using a string with URL, we're now
 // using a request object to add more options.
-await crawler.addRequests([{
-    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
-    // We label the Request to identify
-    // it later in the requestHandler.
-    label: 'start-url',
-}]);
+await crawler.addRequests([
+    {
+        url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+        // We label the Request to identify
+        // it later in the requestHandler.
+        label: 'start-url',
+    },
+]);
 
 await crawler.run();
 ```
@@ -226,10 +226,12 @@ const crawler = new CheerioCrawler({
     },
 });
 
-await crawler.addRequests([{
-    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
-    label: 'start-url',
-}]);
+await crawler.addRequests([
+    {
+        url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+        label: 'start-url',
+    },
+]);
 
 await crawler.run();
 ```

@@ -62,7 +62,6 @@ However, if the Actor is **only** supposed to be used as integration, we can use
 - `connectionString: string` - Credentials for the database connection
 - `tableName: string` - Name of table / collection
 
-
 In this case, users only need to provide the "static" part of the input:
 
 ```json

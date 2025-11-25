@@ -48,7 +48,6 @@ const crawler = new PuppeteerCrawler({
     handlePageFunction: async ({ request, page, puppeteerPool }) => {
         // you are on the page now
     },
-
 });
 ```
 

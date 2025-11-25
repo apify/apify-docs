@@ -18,13 +18,13 @@ Using the Gumloop YouTube MCP node, you can simply prompt the YouTube data you n
 
 You can pull the following types of data from YouTube using Gumloop’s YouTube node (via Apify). Each action has a credit cost:
 
-| Tool/Action | Description | Credit Cost |
-| :---- | :---- | :---- |
-| Search videos | Search YouTube by keywords and get video results with filtering, metadata, and content info. | 3 credit per item |
-| Get video details | Retrieve detailed stats and content info for specific videos via URL or ID. | 4 credit per item |
-| Get channel videos | Get videos from a specific YouTube channel with full metadata and context. | 3 credit per item |
-| Get playlist videos | Fetch videos from a YouTube playlist with metadata and playlist details. | 3 credit per item |
-| Get channel details | Get channel metadata including subscriber count, total videos, description, and more. | 5 credit per item |
+| Tool/Action         | Description                                                                                  | Credit Cost       |
+| :------------------ | :------------------------------------------------------------------------------------------- | :---------------- |
+| Search videos       | Search YouTube by keywords and get video results with filtering, metadata, and content info. | 3 credit per item |
+| Get video details   | Retrieve detailed stats and content info for specific videos via URL or ID.                  | 4 credit per item |
+| Get channel videos  | Get videos from a specific YouTube channel with full metadata and context.                   | 3 credit per item |
+| Get playlist videos | Fetch videos from a YouTube playlist with metadata and playlist details.                     | 3 credit per item |
+| Get channel details | Get channel metadata including subscriber count, total videos, description, and more.        | 5 credit per item |
 
 ## Retrieve YouTube data in Gumloop
 
@@ -41,7 +41,6 @@ You can pull the following types of data from YouTube using Gumloop’s YouTube 
     ![YouTube node prompt field](images/youtube/prompt.jpeg)
 
     :::tip Prompting tips
-
     - MCP nodes only have access to the tools listed so your prompt should be scoped to YouTube.
     - You can mix and match different tools (e.g., search for videos → get video details → extract channel info).
 
@@ -70,4 +69,3 @@ You can pull the following types of data from YouTube using Gumloop’s YouTube 
 - [TikTok](/platform/integrations/gumloop/tiktok)
 - [Instagram](/platform/integrations/gumloop/instagram)
 - [Google Maps](/platform/integrations/gumloop/maps)
-

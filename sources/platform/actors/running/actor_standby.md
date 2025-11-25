@@ -44,16 +44,18 @@ You can provide your [API token](../../integrations/programming/api.md#api-token
     ```
 
 2. Append the token as a query parameter named `token` to the request URL.
-This approach can be useful if you cannot modify the request headers.
+   This approach can be useful if you cannot modify the request headers.
 
     ```text
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
     ```
 
 :::tip
+
 You can use [scoped tokens](/platform/integrations/api#limited-permissions) to send standby requests. This is useful for allowing third-party services to interact with your Actor without granting access to your entire account.
 
 However, [restricting what an Actor can access](/platform/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) using a scoped token is not supported when running in Standby mode.
+
 :::
 
 ## Can I still run the Actor in normal mode

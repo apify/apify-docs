@@ -150,39 +150,39 @@ And before we push to the platform, let's not forget to write an input schema in
 
 ```json
 {
-  "title": "Actor Caller",
-  "type": "object",
-  "schemaVersion": 1,
-  "properties": {
-    "memory": {
-      "title": "Memory",
-      "type": "integer",
-      "description": "Select memory in megabytes.",
-      "default": 4096,
-      "maximum": 32768,
-      "unit": "MB"
+    "title": "Actor Caller",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "memory": {
+            "title": "Memory",
+            "type": "integer",
+            "description": "Select memory in megabytes.",
+            "default": 4096,
+            "maximum": 32768,
+            "unit": "MB"
+        },
+        "useClient": {
+            "title": "Use client?",
+            "type": "boolean",
+            "description": "Specifies whether the Apify JS client, or the pure Apify API should be used.",
+            "default": true
+        },
+        "fields": {
+            "title": "Fields",
+            "type": "array",
+            "description": "Enter the dataset fields to export to CSV",
+            "prefill": ["title", "url", "price"],
+            "editor": "stringList"
+        },
+        "maxItems": {
+            "title": "Max items",
+            "type": "integer",
+            "description": "Fill the maximum number of items to export.",
+            "default": 10
+        }
     },
-    "useClient": {
-      "title": "Use client?",
-      "type": "boolean",
-      "description": "Specifies whether the Apify JS client, or the pure Apify API should be used.",
-      "default": true
-    },
-    "fields": {
-      "title": "Fields",
-      "type": "array",
-      "description": "Enter the dataset fields to export to CSV",
-      "prefill": ["title", "url", "price"],
-      "editor": "stringList"
-    },
-    "maxItems": {
-      "title": "Max items",
-      "type": "integer",
-      "description": "Fill the maximum number of items to export.",
-      "default": 10
-    }
-  },
-  "required": ["useClient", "memory", "fields", "maxItems"]
+    "required": ["useClient", "memory", "fields", "maxItems"]
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: How to process data in Python using Pandas
 description: Learn how to process the resulting data of a web scraper in Python using the Pandas library, and how to visualize the processed data using Matplotlib.
-sidebar_position: 2  # should be after scrape_data_python.md
+sidebar_position: 2 # should be after scrape_data_python.md
 slug: /python/process-data-using-python
 ---
 
@@ -132,4 +132,3 @@ And that's it! Now you can save the changes in the editor, and then click **Buil
 Looking at the results, Honolulu seems like the right choice now, don't you think? 🙂
 
 ![Weather prediction plot created by the BBC Weather Parser Actor](./images/bbc-weather-prediction.png)
-

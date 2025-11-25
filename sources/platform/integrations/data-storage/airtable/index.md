@@ -10,7 +10,7 @@ slug: /integrations/airtable
 
 ---
 
-[Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With the Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
+[Airtable](https://www.airtable.com/) is a cloud-based platform for organizing, managing, and collaborating on data. With the Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
 
 This integration uses OAuth 2.0, a secure authorization protocol, to connect your Airtable account to Apify and manage data transfers.
 
@@ -39,6 +39,7 @@ Go to [Airtable](https://airtable.com) and open the base you would like to work 
 ![Access the extensions tab on Airtable UI by pressing tools button](../../images/airtable/airtable_tools_button.png)
 
 <!-- TODO: improve pictures when Apify integration is published -->
+
 Search for Apify extenison and install it
 
 ![Search for the Apify extension on Airtable](../../images/airtable/airtable_search_apify_extenison.png)
@@ -65,20 +66,19 @@ The extension provides the following capabilities:
 ### Run Actor
 
 1. Select any Actor from **Apify store** or **recently used Actors**
-![Select Actor screen](../../images/airtable/airtable_actor_select.png)
+   ![Select Actor screen](../../images/airtable/airtable_actor_select.png)
 
 1. Fill in the Actor input form.
-![Configure Actor screen](../../images/airtable/airtable_configure_actor.png)
+   ![Configure Actor screen](../../images/airtable/airtable_configure_actor.png)
 
 1. Run the Actor and wait for results
-![Run the Actor](../../images/airtable/airtable_actor_run.png)
+   ![Run the Actor](../../images/airtable/airtable_actor_run.png)
 
 ### Run task
 
 You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
 
 ![Run task](../../images/airtable/airtable_task.png)
-
 
 ### Get dataset items
 
@@ -107,8 +107,8 @@ A period (`.`) in field labels indicates nested elements within an object.
 
 ```json
 {
-    crawl: {
-        depth: 'the field you selected',
+    "crawl": {
+        "depth": "the field you selected"
     }
 }
 ```

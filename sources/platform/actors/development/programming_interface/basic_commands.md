@@ -34,7 +34,6 @@ await Actor.exit();
 
 Alternatively, use the `main()` function for environments that don't support top-level awaits. The `main()` function is syntax-sugar for `init()` and `exit()`. It will call `init()` before it executes its callback and `exit()` after the callback resolves.
 
-
 ```js
 import { Actor } from 'apify';
 
@@ -230,7 +229,6 @@ async def main():
 
 To exit immediately without calling exit handlers:
 
-
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
@@ -273,7 +271,9 @@ import { Actor } from 'apify';
 await Actor.init();
 // ...
 // Actor will finish with 'FAILED' status
-await Actor.exit('Could not finish the crawl, try increasing memory', { exitCode: 1 });
+await Actor.exit('Could not finish the crawl, try increasing memory', {
+    exitCode: 1,
+});
 ```
 
 </TabItem>

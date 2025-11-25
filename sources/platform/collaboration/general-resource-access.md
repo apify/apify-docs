@@ -20,9 +20,9 @@ This setting affects the following resources:
 - Actor runs
 - Actor builds
 - Storages:
-  - Datasets
-  - Key-value stores
-  - Request queues
+    - Datasets
+    - Key-value stores
+    - Request queues
 
 Access to resources that require explicit access — such as Actors, tasks or schedules are not affected by this setting.
 
@@ -52,11 +52,9 @@ Because this is a new setting, some existing public Actors and integrations migh
 
 :::
 
-
 ### Exceptions
 
 Even if your access is set to **Restricted** there are a few built-in exceptions that make collaboration and platform features work seamlessly. These are explained in the sections below.
-
 
 #### Builds of public Actors
 
@@ -83,7 +81,7 @@ If you’re using a public Actor from the Apify Store, you can choose to automat
 - When enabled, your runs of public Actors are automatically visible to the Actor’s creator
 - Shared runs include logs, input, and output storages (dataset, key-value store, request queue)
 
-This sharing works even if your account has  **General resource access** set to **Restricted** — the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
+This sharing works even if your account has **General resource access** set to **Restricted** — the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
 
 You can disable this behavior at any time by turning off the setting in your account.
 
@@ -95,9 +93,9 @@ This automatic sharing ensures the developer can view all the context they need 
 
 - Full access to the run itself (logs, input, status)
 - Automatic access to the run’s default storages:
-  - Dataset
-  - Key-value store
-  - Request queue
+    - Dataset
+    - Key-value store
+    - Request queue
 
 The access is granted through explicit, behind-the-scenes permissions (not anonymous or public access), and is limited to just that run and its related storages. No other resources in your account are affected.
 
@@ -107,7 +105,7 @@ This means you don’t need to manually adjust permissions or share multiple lin
 
 ## Per-resource access control
 
-The account level access control can be changed on individual resources. This can be done by setting the general access level to other than Restricted  in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
+The account level access control can be changed on individual resources. This can be done by setting the general access level to other than Restricted in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
 
 ![Setup resource level access control](./images/general-resouce-access/share-resource-dialog.png)
 
@@ -117,7 +115,7 @@ You can also set the general access on a resource programmatically using the Api
 ```js
 const datasetClient = apifyClient.dataset(datasetId);
 await datasetClient.update({
-    generalAccess: STORAGE_GENERAL_ACCESS.ANYONE_WITH_ID_CAN_READ
+    generalAccess: STORAGE_GENERAL_ACCESS.ANYONE_WITH_ID_CAN_READ,
 });
 ```
 
@@ -139,23 +137,23 @@ The signature can be temporary (set to expire after a specified duration) or per
 Only selected _dataset_ and _key-value store_ endpoints support pre-signed URLs.  
 This allows fine-grained control over what data can be shared without authentication.
 
-| Resource | Link | Validity | Notes |
-|-----------|-----------------------|------|-------|
-| _Datasets_ | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
-| _Key-value stores_ | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
-| _Key-value stores_ | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | _Permanent only_ | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
+| Resource           | Link                                                                                                     | Validity               | Notes                                                                                                   |
+| ------------------ | -------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| _Datasets_         | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`)                             | Temporary or Permanent | The link provides access to all dataset items.                                                          |
+| _Key-value stores_ | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`)                  | Temporary or Permanent | Returns the list of keys in a store.                                                                    |
+| _Key-value stores_ | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | _Permanent only_       | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
 
 :::info Automatically generated signed URLs
 
 When you retrieve dataset or key-value store details using:
 
-- `GET https://api.apify.com/v2/datasets/:datasetId`  
+- `GET https://api.apify.com/v2/datasets/:datasetId`
 - `GET https://api.apify.com/v2/key-value-stores/:storeId`
 
-the API response includes automatically generated fields:  
+the API response includes automatically generated fields:
 
-- `itemsPublicUrl` – a pre-signed URL providing access to dataset items  
-- `keysPublicUrl` – a pre-signed URL providing access to key-value store keys  
+- `itemsPublicUrl` – a pre-signed URL providing access to dataset items
+- `keysPublicUrl` – a pre-signed URL providing access to key-value store keys
 
 These automatically generated URLs are _valid for 14 days_.
 
@@ -179,16 +177,16 @@ The link will include a signature _only if the general resource access is set to
 
 ##### Dataset items
 
-1. Click the **Export** button.  
-2. In the modal that appears, click **Copy shareable link**.  
+1. Click the **Export** button.
+2. In the modal that appears, click **Copy shareable link**.
 
 ![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
 
 ##### Key-value store records
 
-1. Open a key-value store.  
-2. Navigate to the record you want to share.  
-3. In the **Actions** column, click the link icon to copy signed link.  
+1. Open a key-value store.
+2. Navigate to the record you want to share.
+3. In the **Actions** column, click the link icon to copy signed link.
 
 ![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
 
@@ -199,12 +197,14 @@ You can generate pre-signed URLs programmatically for datasets and key-value sto
 ##### Dataset items
 
 ```js
-import { ApifyClient } from "apify-client";
+import { ApifyClient } from 'apify-client';
 const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
 const datasetClient = client.dataset('my-dataset-id');
 
 // Creates pre-signed URL for items (expires in 7 days)
-const itemsUrl = await datasetClient.createItemsPublicUrl({ expiresInSecs: 7 * 24 * 3600 });
+const itemsUrl = await datasetClient.createItemsPublicUrl({
+    expiresInSecs: 7 * 24 * 3600,
+});
 
 // Creates permanent pre-signed URL for items
 const permanentItemsUrl = await datasetClient.createItemsPublicUrl();
@@ -216,7 +216,9 @@ const permanentItemsUrl = await datasetClient.createItemsPublicUrl();
 const storeClient = client.keyValueStore('my-store-id');
 
 // Create pre-signed URL for list of keys (expires in 1 day)
-const keysPublicUrl = await storeClient.createKeysPublicUrl({ expiresInSecs: 24 * 3600 });
+const keysPublicUrl = await storeClient.createKeysPublicUrl({
+    expiresInSecs: 24 * 3600,
+});
 
 // Create permanent pre-signed URL for list of keys
 const permanentKeysPublicUrl = await storeClient.createKeysPublicUrl();
@@ -245,7 +247,7 @@ Manual signing uses standard _HMAC (SHA-256)_ with `urlSigningSecretKey` of the 
 
 ### Sharing storages by name
 
-A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
+A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
 
 :::tip Exposing public named datasets
 
@@ -258,7 +260,6 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
 
 In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
-
 
 :::caution Actor runs inherit user permissions
 
@@ -280,9 +281,9 @@ When using the [Apify SDK](https://docs.apify.com/sdk/js/) or [Apify Client](htt
 If your Actor makes direct API calls, include the API token manually:
 
 ```js
-  const response = await fetch(`https://api.apify.com/v2/key-value-stores/${storeId}`, {
+const response = await fetch(`https://api.apify.com/v2/key-value-stores/${storeId}`, {
     headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
-  });
+});
 ```
 
 #### Generate pre-signed URLs for external sharing
@@ -292,7 +293,7 @@ If your Actor outputs or shares links to storages (such as datasets or key-value
 For example:
 
 ```js
-import { ApifyClient } from "apify-client";
+import { ApifyClient } from 'apify-client';
 
 // ❌ Avoid hardcoding raw API URLs
 const recordUrl = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${recordKey}`;
@@ -306,7 +307,6 @@ await Actor.pushData({ recordUrl });
 ```
 
 To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
-
 
 :::note Using Console URLs
 
@@ -327,4 +327,3 @@ You can easily test this by switching your own account’s setting to _Restricte
 Once you’ve enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs — especially those stored in results or notifications — work without requiring an API token.
 
 :::
-

@@ -101,6 +101,7 @@ with open("products.json", "w") as file:
 That's it! If we run our scraper now, it won't display any output, but it will create a `products.json` file in the current working directory, which contains all the data about the listed products:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "7495", "price": "7495"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "139800", "price": null}, ...]
 ```
@@ -108,7 +109,11 @@ That's it! If we run our scraper now, it won't display any output, but it will c
 If you skim through the data, you'll notice that the `json.dump()` function handled some potential issues, such as escaping double quotes found in one of the titles by adding a backslash:
 
 ```json
-{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "15800", "price": "15800"}
+{
+    "title": "Sony SACS9 10\" Active Subwoofer",
+    "min_price": "15800",
+    "price": "15800"
+}
 ```
 
 :::tip Pretty JSON
@@ -191,17 +196,17 @@ Write a new Python program that reads the `products.json` file we created in thi
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import json
-  from pprint import pp
+```py
+import json
+from pprint import pp
 
-  with open("products.json", "r") as file:
-      products = json.load(file)
+with open("products.json", "r") as file:
+    products = json.load(file)
 
-  for product in products:
-      if int(product["min_price"]) > 500:
-          pp(product)
-  ```
+for product in products:
+    if int(product["min_price"]) > 500:
+        pp(product)
+```
 
 </details>
 
@@ -212,12 +217,12 @@ Open the `products.csv` file we created in the lesson using a spreadsheet applic
 <details>
   <summary>Solution</summary>
 
-  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
+Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
 
-  1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
-  1. Select the header row. Go to **Data > Create filter**.
-  1. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
+1. Go to **File > Import**, choose **Upload**, and select the file. Import the data using the default settings. You should see a table with all the data.
+1. Select the header row. Go to **Data > Create filter**.
+1. Use the filter icon that appears next to `min_price`. Choose **Filter by condition**, select **Greater than**, and enter **500** in the text field. Confirm the dialog. You should see only the filtered data.
 
-  ![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
+![CSV in Google Sheets](../scraping_basics/images/csv-sheets.png)
 
 </details>

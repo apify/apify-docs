@@ -15,8 +15,8 @@ One of these connectors is the Apify Dataset connector, which makes it simple to
 
 To use Airbyte's Apify connector you need to:
 
-* Have an Apify account.
-* Have an Airbyte account.
+- Have an Apify account.
+- Have an Airbyte account.
 
 ## Set up Apify connector in Airbyte
 

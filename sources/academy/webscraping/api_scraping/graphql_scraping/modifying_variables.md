@@ -14,7 +14,7 @@ In the introduction of this course, we searched for the term **test** on the [Ch
 ```json
 {
     "query": "query SearchQuery($query: String!, $count: Int!, $cursor: String) {\n    organization {\n        ...SearchList_organization\n        id\n    }\n    }\n    fragment SearchList_organization on Organization {\n    media(\n        first: $count\n        after: $cursor\n        query: $query\n        recency_weight: 0.6\n        recency_days: 30\n        include_private: false\n        include_unpublished: false\n    ) {\n        hitCount\n        edges {\n        node {\n            _score\n            id\n            ...StandardListCard_video\n            __typename\n        }\n        cursor\n        }\n        pageInfo {\n        endCursor\n        hasNextPage\n        }\n    }\n    }\n    fragment StandardListCard_video on Slugable {\n    ...Thumbnail_video\n    ...StandardTextCard_media\n    slug\n    id\n    __typename\n    }\n    fragment Thumbnail_video on Slugable {\n    original_thumbnails: thumbnails(aspect_ratio: ORIGINAL) {\n        small\n        medium\n        large\n    }\n    sd_thumbnails: thumbnails(aspect_ratio: SD) {\n        small\n        medium\n        large\n    }\n    hd_thumbnails: thumbnails(aspect_ratio: HD) {\n        small\n        medium\n        large\n    }\n    film_thumbnails: thumbnails(aspect_ratio: FILM) {\n        small\n        medium\n        large\n    }\n    square_thumbnails: thumbnails(aspect_ratio: SQUARE) {\n        small\n        medium\n        large\n    }\n    }\n    fragment StandardTextCard_media on Slugable {\n    public_at\n    updated_at\n    title\n    hero_video {\n        duration\n    }\n    description\n    }",
-    "variables": { "query": "test","count": 10,"cursor": null },
+    "variables": { "query": "test", "count": 10, "cursor": null },
     "operationName": "SearchQuery"
 }
 ```
@@ -29,8 +29,8 @@ query SearchQuery($query: String!, $count: Int!, $cursor: String) {
         ...SearchList_organization
         id
     }
-    }
-    fragment SearchList_organization on Organization {
+}
+fragment SearchList_organization on Organization {
     media(
         first: $count
         after: $cursor
@@ -42,28 +42,28 @@ query SearchQuery($query: String!, $count: Int!, $cursor: String) {
     ) {
         hitCount
         edges {
-        node {
-            _score
-            id
-            ...StandardListCard_video
-            __typename
-        }
-        cursor
+            node {
+                _score
+                id
+                ...StandardListCard_video
+                __typename
+            }
+            cursor
         }
         pageInfo {
-        endCursor
-        hasNextPage
+            endCursor
+            hasNextPage
         }
     }
-    }
-    fragment StandardListCard_video on Slugable {
+}
+fragment StandardListCard_video on Slugable {
     ...Thumbnail_video
     ...StandardTextCard_media
     slug
     id
     __typename
-    }
-    fragment Thumbnail_video on Slugable {
+}
+fragment Thumbnail_video on Slugable {
     original_thumbnails: thumbnails(aspect_ratio: ORIGINAL) {
         small
         medium
@@ -89,8 +89,8 @@ query SearchQuery($query: String!, $count: Int!, $cursor: String) {
         medium
         large
     }
-    }
-    fragment StandardTextCard_media on Slugable {
+}
+fragment StandardTextCard_media on Slugable {
     public_at
     updated_at
     title
@@ -106,7 +106,7 @@ If the query provided in the payload you find in the **Network** tab is good eno
 ```json
 {
     "...": "...",
-    "variables": { "query": "cats","count": 10,"cursor": null }
+    "variables": { "query": "cats", "count": 10, "cursor": null }
 }
 ```
 

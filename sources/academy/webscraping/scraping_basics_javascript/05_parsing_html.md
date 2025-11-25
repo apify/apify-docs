@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/parsing-html
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -59,15 +59,15 @@ We'll update our code to the following:
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
-  console.log($("h1"));
+    const html = await response.text();
+    const $ = cheerio.load(html);
+    console.log($('h1'));
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -104,16 +104,16 @@ The item has many properties, such as references to its parent or sibling elemen
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
-  // highlight-next-line
-  console.log($("h1").text());
+    const html = await response.text();
+    const $ = cheerio.load(html);
+    // highlight-next-line
+    console.log($('h1').text());
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -139,16 +139,16 @@ Scanning through [usage examples](https://cheerio.js.org/docs/basics/selecting) 
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
-  // highlight-next-line
-  console.log($(".product-item").length);
+    const html = await response.text();
+    const $ = cheerio.load(html);
+    // highlight-next-line
+    console.log($('.product-item').length);
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -184,20 +184,20 @@ https://www.f1academy.com/Racing-Series/Teams
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const url = "https://www.f1academy.com/Racing-Series/Teams";
-  const response = await fetch(url);
+const url = 'https://www.f1academy.com/Racing-Series/Teams';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
-    console.log($(".teams-driver-item").length);
-  } else {
+    console.log($('.teams-driver-item').length);
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>
 
@@ -208,19 +208,19 @@ Use the same URL as in the previous exercise, but this time print a total count 
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const url = "https://www.f1academy.com/Racing-Series/Teams";
-  const response = await fetch(url);
+const url = 'https://www.f1academy.com/Racing-Series/Teams';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
-    console.log($(".driver").length);
-  } else {
+    console.log($('.driver').length);
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>

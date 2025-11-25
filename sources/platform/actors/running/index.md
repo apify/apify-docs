@@ -47,7 +47,6 @@ Shortly you will see the first results popping up:
 
 ![Actor results](./images/actor-results.png)
 
-
 And you can use the export button at the bottom left to export the data in multiple formats:
 
 ![Export results](./images/export-results.png)
@@ -93,7 +92,6 @@ console.dir(items);
 ```
 
 </TabItem>
-
 
 <TabItem value="Python" label="Python">
 

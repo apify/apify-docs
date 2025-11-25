@@ -55,12 +55,14 @@ const crawler = new CheerioCrawler({
     },
 });
 
-await crawler.addRequests([{
-    url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can identify it
-    // later in the requestHandler.
-    label: 'START',
-}]);
+await crawler.addRequests([
+    {
+        url: 'https://demo-webstore.apify.org/search/on-sale',
+        // By labeling the Request, we can identify it
+        // later in the requestHandler.
+        label: 'START',
+    },
+]);
 
 await crawler.run();
 ```
@@ -71,7 +73,11 @@ In order to implement a proxy pool, we will first need some proxies. We'll quick
 import { ProxyConfiguration } from 'crawlee';
 
 const proxyConfiguration = new ProxyConfiguration({
-    proxyUrls: ['http://45.42.177.37:3128', 'http://43.128.166.24:59394', 'http://51.79.49.178:3128'],
+    proxyUrls: [
+        'http://45.42.177.37:3128',
+        'http://43.128.166.24:59394',
+        'http://51.79.49.178:3128',
+    ],
 });
 ```
 

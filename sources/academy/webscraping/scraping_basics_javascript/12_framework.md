@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/framework
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -85,11 +85,14 @@ import { CheerioCrawler } from 'crawlee';
 const crawler = new CheerioCrawler({
     // highlight-start
     async requestHandler({ $, log, request, enqueueLinks }) {
-      if (request.label === 'DETAIL') {
-        log.info(request.url);
-      } else {
-        await enqueueLinks({ label: 'DETAIL', selector: '.product-list a.product-item__title' });
-      }
+        if (request.label === 'DETAIL') {
+            log.info(request.url);
+        } else {
+            await enqueueLinks({
+                label: 'DETAIL',
+                selector: '.product-list a.product-item__title',
+            });
+        }
     },
     // highlight-end
 });
@@ -126,9 +129,12 @@ const crawler = new CheerioCrawler({
                 title: $('.product-meta__title').text().trim(),
                 vendor: $('.product-meta__vendor').text().trim(),
             };
-            log.info("Item scraped", item);
+            log.info('Item scraped', item);
         } else {
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+            await enqueueLinks({
+                selector: '.product-list a.product-item__title',
+                label: 'DETAIL',
+            });
         }
     },
 });
@@ -143,17 +149,17 @@ const crawler = new CheerioCrawler({
     async requestHandler({ $, request, enqueueLinks, log }) {
         if (request.label === 'DETAIL') {
             // highlight-next-line
-            const $price = $(".product-form__info-content .price").contents().last();
+            const $price = $('.product-form__info-content .price').contents().last();
             const priceRange = { minPrice: null, price: null };
             const priceText = $price
                 .text()
                 .trim()
-                .replace("$", "")
-                .replace(".", "")
-                .replace(",", "");
+                .replace('$', '')
+                .replace('.', '')
+                .replace(',', '');
 
-            if (priceText.startsWith("From ")) {
-                priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+            if (priceText.startsWith('From ')) {
+                priceRange.minPrice = parseInt(priceText.replace('From ', ''));
             } else {
                 priceRange.minPrice = parseInt(priceText);
                 priceRange.price = priceRange.minPrice;
@@ -161,13 +167,16 @@ const crawler = new CheerioCrawler({
 
             const item = {
                 url: request.url,
-                title: $(".product-meta__title").text().trim(),
+                title: $('.product-meta__title').text().trim(),
                 vendor: $('.product-meta__vendor').text().trim(),
                 ...priceRange,
             };
-            log.info("Item scraped", item);
+            log.info('Item scraped', item);
         } else {
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+            await enqueueLinks({
+                selector: '.product-list a.product-item__title',
+                label: 'DETAIL',
+            });
         }
     },
 });
@@ -179,33 +188,25 @@ Finally, the variants. We can reuse the `parseVariant()` function as-is. In the 
 import { CheerioCrawler } from 'crawlee';
 
 function parseVariant($option) {
-  const [variantName, priceText] = $option
-    .text()
-    .trim()
-    .split(" - ");
-  const price = parseInt(
-    priceText
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "")
-  );
-  return { variantName, price };
+    const [variantName, priceText] = $option.text().trim().split(' - ');
+    const price = parseInt(priceText.replace('$', '').replace('.', '').replace(',', ''));
+    return { variantName, price };
 }
 
 const crawler = new CheerioCrawler({
     async requestHandler({ $, request, enqueueLinks, log }) {
         if (request.label === 'DETAIL') {
-            const $price = $(".product-form__info-content .price").contents().last();
+            const $price = $('.product-form__info-content .price').contents().last();
             const priceRange = { minPrice: null, price: null };
             const priceText = $price
                 .text()
                 .trim()
-                .replace("$", "")
-                .replace(".", "")
-                .replace(",", "");
+                .replace('$', '')
+                .replace('.', '')
+                .replace(',', '');
 
-            if (priceText.startsWith("From ")) {
-                priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+            if (priceText.startsWith('From ')) {
+                priceRange.minPrice = parseInt(priceText.replace('From ', ''));
             } else {
                 priceRange.minPrice = parseInt(priceText);
                 priceRange.price = priceRange.minPrice;
@@ -213,7 +214,7 @@ const crawler = new CheerioCrawler({
 
             const item = {
                 url: request.url,
-                title: $(".product-meta__title").text().trim(),
+                title: $('.product-meta__title').text().trim(),
                 vendor: $('.product-meta__vendor').text().trim(),
                 ...priceRange,
                 // highlight-next-line
@@ -221,18 +222,21 @@ const crawler = new CheerioCrawler({
             };
 
             // highlight-start
-            const $variants = $(".product-form__option.no-js option");
+            const $variants = $('.product-form__option.no-js option');
             if ($variants.length === 0) {
-              log.info("Item scraped", item);
+                log.info('Item scraped', item);
             } else {
-              for (const element of $variants.toArray()) {
-                const variant = parseVariant($(element));
-                log.info("Item scraped", { ...item, ...variant });
-              }
+                for (const element of $variants.toArray()) {
+                    const variant = parseVariant($(element));
+                    log.info('Item scraped', { ...item, ...variant });
+                }
             }
             // highlight-end
         } else {
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+            await enqueueLinks({
+                selector: '.product-list a.product-item__title',
+                label: 'DETAIL',
+            });
         }
     },
 });
@@ -295,17 +299,9 @@ Crawlee gives us stats about HTTP requests and concurrency, but once we started 
 import { CheerioCrawler } from 'crawlee';
 
 function parseVariant($option) {
-  const [variantName, priceText] = $option
-    .text()
-    .trim()
-    .split(" - ");
-  const price = parseInt(
-    priceText
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "")
-  );
-  return { variantName, price };
+    const [variantName, priceText] = $option.text().trim().split(' - ');
+    const price = parseInt(priceText.replace('$', '').replace('.', '').replace(',', ''));
+    return { variantName, price };
 }
 
 const crawler = new CheerioCrawler({
@@ -314,17 +310,17 @@ const crawler = new CheerioCrawler({
             // highlight-next-line
             log.info(`Product detail page: ${request.url}`);
 
-            const $price = $(".product-form__info-content .price").contents().last();
+            const $price = $('.product-form__info-content .price').contents().last();
             const priceRange = { minPrice: null, price: null };
             const priceText = $price
                 .text()
                 .trim()
-                .replace("$", "")
-                .replace(".", "")
-                .replace(",", "");
+                .replace('$', '')
+                .replace('.', '')
+                .replace(',', '');
 
-            if (priceText.startsWith("From ")) {
-                priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+            if (priceText.startsWith('From ')) {
+                priceRange.minPrice = parseInt(priceText.replace('From ', ''));
             } else {
                 priceRange.minPrice = parseInt(priceText);
                 priceRange.price = priceRange.minPrice;
@@ -332,29 +328,32 @@ const crawler = new CheerioCrawler({
 
             const item = {
                 url: request.url,
-                title: $(".product-meta__title").text().trim(),
+                title: $('.product-meta__title').text().trim(),
                 vendor: $('.product-meta__vendor').text().trim(),
                 ...priceRange,
                 variantName: null,
             };
 
-            const $variants = $(".product-form__option.no-js option");
+            const $variants = $('.product-form__option.no-js option');
             if ($variants.length === 0) {
-              // highlight-next-line
-              log.info('Saving a product');
-              pushData(item);
-            } else {
-              for (const element of $variants.toArray()) {
-                const variant = parseVariant($(element));
                 // highlight-next-line
-                log.info('Saving a product variant');
-                pushData({ ...item, ...variant });
-              }
+                log.info('Saving a product');
+                pushData(item);
+            } else {
+                for (const element of $variants.toArray()) {
+                    const variant = parseVariant($(element));
+                    // highlight-next-line
+                    log.info('Saving a product variant');
+                    pushData({ ...item, ...variant });
+                }
             }
         } else {
             // highlight-next-line
             log.info('Looking for product detail pages');
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+            await enqueueLinks({
+                selector: '.product-list a.product-item__title',
+                label: 'DETAIL',
+            });
         }
     },
 });
@@ -390,6 +389,7 @@ Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Acade
 If you export the dataset as JSON, it should look something like this:
 
 <!-- eslint-skip -->
+
 ```json
 [
   {
@@ -422,42 +422,42 @@ If you export the dataset as JSON, it should look something like this:
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import { CheerioCrawler } from 'crawlee';
+```js
+import { CheerioCrawler } from 'crawlee';
 
-  const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, pushData }) {
-      if (request.label === 'DRIVER') {
-        const info = {};
-        for (const itemElement of $('.common-driver-info li').toArray()) {
-          const name = $(itemElement).find('span').text().trim();
-          const value = $(itemElement).find('h4').text().trim();
-          info[name] = value;
-        }
-        const detail = {};
-        for (const linkElement of $('.driver-detail--cta-group a').toArray()) {
-          const name = $(linkElement).find('p').text().trim();
-          const value = $(linkElement).find('h2').text().trim();
-          detail[name] = value;
-        });
-        const [dobDay, dobMonth, dobYear] = info['DOB'].split("/");
-        pushData({
-          url: request.url,
-          name: $('h1').text().trim(),
-          team: detail['Team'],
-          nationality: info['Nationality'],
-          dob: `${dobYear}-${dobMonth}-${dobDay}`,
-          instagram_url: $(".common-social-share a[href*='instagram']").attr('href'),
-        });
-      } else {
-        await enqueueLinks({ selector: '.teams-driver-item a', label: 'DRIVER' });
+const crawler = new CheerioCrawler({
+  async requestHandler({ $, request, enqueueLinks, pushData }) {
+    if (request.label === 'DRIVER') {
+      const info = {};
+      for (const itemElement of $('.common-driver-info li').toArray()) {
+        const name = $(itemElement).find('span').text().trim();
+        const value = $(itemElement).find('h4').text().trim();
+        info[name] = value;
       }
-    },
-  });
+      const detail = {};
+      for (const linkElement of $('.driver-detail--cta-group a').toArray()) {
+        const name = $(linkElement).find('p').text().trim();
+        const value = $(linkElement).find('h2').text().trim();
+        detail[name] = value;
+      });
+      const [dobDay, dobMonth, dobYear] = info['DOB'].split("/");
+      pushData({
+        url: request.url,
+        name: $('h1').text().trim(),
+        team: detail['Team'],
+        nationality: info['Nationality'],
+        dob: `${dobYear}-${dobMonth}-${dobDay}`,
+        instagram_url: $(".common-social-share a[href*='instagram']").attr('href'),
+      });
+    } else {
+      await enqueueLinks({ selector: '.teams-driver-item a', label: 'DRIVER' });
+    }
+  },
+});
 
-  await crawler.run(['https://www.f1academy.com/Racing-Series/Drivers']);
-  await crawler.exportData('dataset.json');
-  ```
+await crawler.run(['https://www.f1academy.com/Racing-Series/Drivers']);
+await crawler.exportData('dataset.json');
+```
 
 </details>
 
@@ -472,6 +472,7 @@ The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listin
 If you export the dataset as JSON, it should look something like this:
 
 <!-- eslint-skip -->
+
 ```json
 [
   {
@@ -516,40 +517,49 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import { CheerioCrawler, Request } from 'crawlee';
-  import { escape } from 'node:querystring';
+```js
+import { CheerioCrawler, Request } from 'crawlee';
+import { escape } from 'node:querystring';
 
-  const crawler = new CheerioCrawler({
+const crawler = new CheerioCrawler({
     async requestHandler({ $, request, enqueueLinks, pushData, addRequests }) {
-      if (request.label === 'IMDB') {
-        // handle IMDB film page
-        pushData({
-          url: request.url,
-          title: $('h1').text().trim(),
-          rating: $("[data-testid='hero-rating-bar__aggregate-rating__score']").first().text().trim(),
-        });
-      } else if (request.label === 'IMDB_SEARCH') {
-        // handle IMDB search results
-        await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
-
-      } else if (request.label === 'NETFLIX') {
-        // handle Netflix table
-        const $buttons = $('[data-uia="top10-table-row-title"] button');
-        const requests = $buttons.toArray().map(buttonElement => {
-          const name = $(buttonElement).text().trim();
-          const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
-          return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
-        });
-        await addRequests($requests.get());
-      } else {
-        throw new Error(`Unexpected request label: ${request.label}`);
-      }
+        if (request.label === 'IMDB') {
+            // handle IMDB film page
+            pushData({
+                url: request.url,
+                title: $('h1').text().trim(),
+                rating: $("[data-testid='hero-rating-bar__aggregate-rating__score']")
+                    .first()
+                    .text()
+                    .trim(),
+            });
+        } else if (request.label === 'IMDB_SEARCH') {
+            // handle IMDB search results
+            await enqueueLinks({
+                selector: '.find-result-item a',
+                label: 'IMDB',
+                limit: 1,
+            });
+        } else if (request.label === 'NETFLIX') {
+            // handle Netflix table
+            const $buttons = $('[data-uia="top10-table-row-title"] button');
+            const requests = $buttons.toArray().map((buttonElement) => {
+                const name = $(buttonElement).text().trim();
+                const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
+                return new Request({
+                    url: imdbSearchUrl,
+                    label: 'IMDB_SEARCH',
+                });
+            });
+            await addRequests($requests.get());
+        } else {
+            throw new Error(`Unexpected request label: ${request.label}`);
+        }
     },
-  });
+});
 
-  await crawler.run(['https://www.netflix.com/tudum/top10']);
-  await crawler.exportData('dataset.json');
-  ```
+await crawler.run(['https://www.netflix.com/tudum/top10']);
+await crawler.exportData('dataset.json');
+```
 
 </details>

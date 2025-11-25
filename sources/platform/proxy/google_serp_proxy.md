@@ -16,9 +16,9 @@ Google SERP proxy allows you to extract search results from Google Search-powere
 
 Our Google SERP proxy currently supports the below services.
 
-* Google Search (`http://www.google.<country domain>/search`).
-* Google Shopping (`http://www.google.<country domain>/shopping/product/<product ID>`).
-* Google Shopping Search (`http://www.google.<country domain>/search?tbm=shop`).
+- Google Search (`http://www.google.<country domain>/search`).
+- Google Shopping (`http://www.google.<country domain>/shopping/product/<product ID>`).
+- Google Shopping Search (`http://www.google.<country domain>/search?tbm=shop`).
 
 > Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
 
@@ -52,10 +52,9 @@ You must use the correct Google domain to get results for your desired country c
 
 For example:
 
-* Search results from the USA: `http://www.google.com/search?q=<query>`
+- Search results from the USA: `http://www.google.com/search?q=<query>`
 
-
-* Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
+- Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
 
 See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
 
@@ -186,7 +185,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -209,7 +207,6 @@ print(opener.open(f"http://www.google.com/search?{query}").read())
 ```
 
 </TabItem>
-
 
 <TabItem value="Python 2" label="Python 2">
 
@@ -237,7 +234,6 @@ print(opener.open(url).read())
 ```
 
 </TabItem>
-
 
 <TabItem value="PHP" label="PHP">
 

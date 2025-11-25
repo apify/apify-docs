@@ -21,14 +21,14 @@ At Apify, we try to make building web scraping and automation straightforward. Y
 
 Since scraping and automation come in various forms, we decided to build not just one, but _six_ scrapers. This way, you can always pick the right tool for the job. Let's take a look at each particular tool and its advantages and disadvantages.
 
-| Scraper | Technology | Advantages | Disadvantages | Best for |
-| --- | --- | --- | --- | --- |
-| 🌐 Web Scraper | Headless Chrome Browser | Simple, fully JavaScript-rendered pages | Executes only client-side JavaScript | Websites with heavy client-side JavaScript |
-| 👐 Puppeteer Scraper | Headless Chrome Browser | Powerful Puppeteer functions,  executes both server-side and client-side JavaScript | More complex | Advanced scraping with client/server-side JS |
-| 🎭 Playwright Scraper | Cross-browser support with Playwright library | Cross-browser support, executes both server-side and client-side JavaScript | More complex | Cross-browser scraping with advanced features |
-| 🍩 Cheerio Scraper | HTTP requests + Cheerio parser (JQuery-like for servers) | Simple, fast, cost-effective | Pages may not be fully rendered (lacks JavaScript rendering), executes only server-side JavaScript | High-speed, cost-effective scraping |
-| ⚠️ JSDOM Scraper | JSDOM library (Browser-like DOM API) | + Handles client-side JavaScript<br/>+ Faster than full-browser solutions<br/>+ Ideal for light scripting | Not for heavy dynamic JavaScript, executes server-side code only, depends on pre-installed NPM modules | Speedy scraping with light client-side JS |
-| 🍲 BeautifulSoup Scraper | Python-based, HTTP requests + BeautifulSoup parser | Python-based, supports recursive crawling and URL lists | No full-featured web browser, not suitable for dynamic JavaScript-rendered pages | Python users needing simple, recursive crawling |
+| Scraper                  | Technology                                               | Advantages                                                                                                | Disadvantages                                                                                          | Best for                                        |
+| ------------------------ | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| 🌐 Web Scraper           | Headless Chrome Browser                                  | Simple, fully JavaScript-rendered pages                                                                   | Executes only client-side JavaScript                                                                   | Websites with heavy client-side JavaScript      |
+| 👐 Puppeteer Scraper     | Headless Chrome Browser                                  | Powerful Puppeteer functions, executes both server-side and client-side JavaScript                        | More complex                                                                                           | Advanced scraping with client/server-side JS    |
+| 🎭 Playwright Scraper    | Cross-browser support with Playwright library            | Cross-browser support, executes both server-side and client-side JavaScript                               | More complex                                                                                           | Cross-browser scraping with advanced features   |
+| 🍩 Cheerio Scraper       | HTTP requests + Cheerio parser (JQuery-like for servers) | Simple, fast, cost-effective                                                                              | Pages may not be fully rendered (lacks JavaScript rendering), executes only server-side JavaScript     | High-speed, cost-effective scraping             |
+| ⚠️ JSDOM Scraper         | JSDOM library (Browser-like DOM API)                     | + Handles client-side JavaScript<br/>+ Faster than full-browser solutions<br/>+ Ideal for light scripting | Not for heavy dynamic JavaScript, executes server-side code only, depends on pre-installed NPM modules | Speedy scraping with light client-side JS       |
+| 🍲 BeautifulSoup Scraper | Python-based, HTTP requests + BeautifulSoup parser       | Python-based, supports recursive crawling and URL lists                                                   | No full-featured web browser, not suitable for dynamic JavaScript-rendered pages                       | Python users needing simple, recursive crawling |
 
 ### How do I choose the right universal web scraper to start with?
 
@@ -40,7 +40,6 @@ Since scraping and automation come in various forms, we decided to build not jus
 - Use 👐 [Puppeteer Scraper](https://apify.com/apify/puppeteer-scraper) for advanced, powerful scraping where you need both client-side and server-side JavaScript handling.
 - Use ⚠️ [JSDOM Scraper](https://apify.com/apify/jsdom-scraper) for lightweight, speedy scraping with minimal client-side JavaScript requirements.
 - Use 🍲 [BeautifulSoup Scraper](https://apify.com/apify/beautifulsoup-scraper) for Python-based scraping, especially with recursive crawling and processing URL lists.
-
 
 To make it easier, here's a short questionnaire that guides you on selecting the best scraper based on your specific use case:
 
@@ -76,7 +75,6 @@ This should help you navigate through the options and choose the right scraper b
 
 </details>
 
-
 📚 Resources:
 
 - How to use [Web Scraper](https://www.youtube.com/watch?v=5kcaHAuGxmY) to scrape any website
@@ -87,11 +85,10 @@ This should help you navigate through the options and choose the right scraper b
 
 Similar to our universal scrapers, our [code templates](https://apify.com/templates) also provide a quick start for developing web scrapers, automation scripts, and testing tools. Built on popular libraries like BeautifulSoup for Python or Playwright for JavaScript, they save time on setup, allowing you to focus on customization. Though they require more coding than universal scrapers, they're ideal for those who want a flexible foundation while still needing room to tailor their solutions.
 
-| Code template | Supported libraries | Purpose | Pros | Cons |
-| --- | --- | --- | --- | --- |
-| 🐍 Python | Requests, BeautifulSoup, Scrapy, Selenium, Playwright | Creating scrapers Automation Testing tools | - Simplifies setup - Supports major Python libraries | - Requires more manual coding (than universal scrapers)- May be restrictive for complex tasks |
-| ☕️ JavaScript | Playwright, Selenium, Cheerio, Cypress, LangChain | Creating scrapers Automation Testing tools | - Eases development with pre-set configurations - Flexibility with JavaScript and TypeScript | - Requires more manual coding (than universal scrapers)- May be restrictive for tasks needing full control |
-
+| Code template | Supported libraries                                   | Purpose                                    | Pros                                                                                         | Cons                                                                                                       |
+| ------------- | ----------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 🐍 Python     | Requests, BeautifulSoup, Scrapy, Selenium, Playwright | Creating scrapers Automation Testing tools | - Simplifies setup - Supports major Python libraries                                         | - Requires more manual coding (than universal scrapers)- May be restrictive for complex tasks              |
+| ☕️ JavaScript | Playwright, Selenium, Cheerio, Cypress, LangChain     | Creating scrapers Automation Testing tools | - Eases development with pre-set configurations - Flexibility with JavaScript and TypeScript | - Requires more manual coding (than universal scrapers)- May be restrictive for tasks needing full control |
 
 📚 Resources:
 
@@ -127,7 +124,6 @@ While these tools are distinct, they can be combined. For example, you can use C
 - Step-by-step video guide: [building an Amazon Scraper](https://www.youtube.com/watch?v=yTRHomGg9uQ) in Node.js with Crawlee
 - Webinar on how to use [Crawlee Python](https://www.youtube.com/watch?v=ip8Ii0eLfRY)
 - Introduction to Apify's [Python SDK](https://www.youtube.com/watch?v=C8DmvJQS3jk)
-
 
 ## Code templates vs. universal scrapers vs. libraries
 

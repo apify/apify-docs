@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/scraping-variants
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson, we'll scrape the product detail pages to represent each product variant as a separate item in our dataset.**
 
@@ -19,20 +19,43 @@ First, let's extract information about the variants. If we go to [Sony XBR-950G 
 
 ```html
 <div class="block-swatch-list">
-  <div class="block-swatch">
-    <input class="block-swatch__radio product-form__single-selector is-filled" type="radio" name="template--14851594125363__main-1916221128755-1" id="template--14851594125363__main-1916221128755-1-1" value="55&quot;" checked="" data-option-position="1">
-    <label class="block-swatch__item" for="template--14851594125363__main-1916221128755-1-1" title="55&quot;">
-    <!-- highlight-next-line -->
-    <span class="block-swatch__item-text">55"</span>
-    </label>
-  </div>
-  <div class="block-swatch">
-    <input class="block-swatch__radio product-form__single-selector" type="radio" name="template--14851594125363__main-1916221128755-1" id="template--14851594125363__main-1916221128755-1-2" value="65&quot;" data-option-position="1">
-    <label class="block-swatch__item" for="template--14851594125363__main-1916221128755-1-2" title="65&quot;">
-    <!-- highlight-next-line -->
-    <span class="block-swatch__item-text">65"</span>
-    </label>
-  </div>
+    <div class="block-swatch">
+        <input
+            class="block-swatch__radio product-form__single-selector is-filled"
+            type="radio"
+            name="template--14851594125363__main-1916221128755-1"
+            id="template--14851594125363__main-1916221128755-1-1"
+            value='55"'
+            checked=""
+            data-option-position="1"
+        />
+        <label
+            class="block-swatch__item"
+            for="template--14851594125363__main-1916221128755-1-1"
+            title='55"'
+        >
+            <!-- highlight-next-line -->
+            <span class="block-swatch__item-text">55"</span>
+        </label>
+    </div>
+    <div class="block-swatch">
+        <input
+            class="block-swatch__radio product-form__single-selector"
+            type="radio"
+            name="template--14851594125363__main-1916221128755-1"
+            id="template--14851594125363__main-1916221128755-1-2"
+            value='65"'
+            data-option-position="1"
+        />
+        <label
+            class="block-swatch__item"
+            for="template--14851594125363__main-1916221128755-1-2"
+            title='65"'
+        >
+            <!-- highlight-next-line -->
+            <span class="block-swatch__item-text">65"</span>
+        </label>
+    </div>
 </div>
 ```
 
@@ -46,21 +69,23 @@ After a bit of detective work, we notice that not far below the `block-swatch-li
 
 ```html
 <div class="no-js product-form__option">
-  <label class="product-form__option-name text--strong" for="product-select-1916221128755">Variant</label>
-  <div class="select-wrapper select-wrapper--primary is-filled">
-    <select id="product-select-1916221128755" name="id">
-      <!-- highlight-next-line -->
-      <option value="17550242349107" data-sku="SON-695219-XBR-55">
-        <!-- highlight-next-line -->
-        55" - $1,398.00
-      </option>
-      <!-- highlight-next-line -->
-      <option value="17550242414643" data-sku="SON-985594-XBR-65" selected="selected">
-        <!-- highlight-next-line -->
-        65" - $2,198.00
-      </option>
-    </select>
-  </div>
+    <label class="product-form__option-name text--strong" for="product-select-1916221128755"
+        >Variant</label
+    >
+    <div class="select-wrapper select-wrapper--primary is-filled">
+        <select id="product-select-1916221128755" name="id">
+            <!-- highlight-next-line -->
+            <option value="17550242349107" data-sku="SON-695219-XBR-55">
+                <!-- highlight-next-line -->
+                55" - $1,398.00
+            </option>
+            <!-- highlight-next-line -->
+            <option value="17550242414643" data-sku="SON-985594-XBR-65" selected="selected">
+                <!-- highlight-next-line -->
+                65" - $2,198.00
+            </option>
+        </select>
+    </div>
 </div>
 ```
 
@@ -103,6 +128,7 @@ Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https
 If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -121,6 +147,7 @@ If we run the program now, we'll see 34 items in total. Some items don't have va
 Some products will break into several items, each with a different variant name. We don't know their exact prices from the product listing, just the min price. In the next step, we should be able to parse the actual price from the variant name for those items.
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -147,6 +174,7 @@ Some products will break into several items, each with a different variant name.
 Perhaps surprisingly, some products with variants will have the price field set. That's because the shop sells all variants of the product for the same price, so the product listing shows the price as a fixed amount, like _$74.95_, instead of _from $74.95_.
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -272,6 +300,7 @@ with open("products.csv", "w") as file:
 Let's run the scraper and see if all the items in the data contain prices:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   ...
@@ -340,35 +369,35 @@ You can find everything you need for working with dates and times in Python's [`
 <details>
   <summary>Solution</summary>
 
-  After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
+After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
 
-  ```py
-  from pprint import pp
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-  from datetime import datetime, date, timedelta
+```py
+from pprint import pp
+import httpx
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from datetime import datetime, date, timedelta
 
-  today = date.today()
-  jobs_url = "https://www.python.org/jobs/type/database/"
-  response = httpx.get(jobs_url)
-  response.raise_for_status()
-  soup = BeautifulSoup(response.text, "html.parser")
+today = date.today()
+jobs_url = "https://www.python.org/jobs/type/database/"
+response = httpx.get(jobs_url)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, "html.parser")
 
-  for job in soup.select(".list-recent-jobs li"):
-      link = job.select_one(".listing-company-name a")
+for job in soup.select(".list-recent-jobs li"):
+    link = job.select_one(".listing-company-name a")
 
-      time = job.select_one(".listing-posted time")
-      posted_at = datetime.fromisoformat(time["datetime"])
-      posted_on = posted_at.date()
-      posted_ago = today - posted_on
+    time = job.select_one(".listing-posted time")
+    posted_at = datetime.fromisoformat(time["datetime"])
+    posted_on = posted_at.date()
+    posted_ago = today - posted_on
 
-      if posted_ago <= timedelta(days=60):
-          title = link.text.strip()
-          company = list(job.select_one(".listing-company-name").stripped_strings)[-1]
-          url = urljoin(jobs_url, link["href"])
-          pp({"title": title, "company": company, "url": url, "posted_on": posted_on})
-  ```
+    if posted_ago <= timedelta(days=60):
+        title = link.text.strip()
+        company = list(job.select_one(".listing-company-name").stripped_strings)[-1]
+        url = urljoin(jobs_url, link["href"])
+        pp({"title": title, "company": company, "url": url, "posted_on": posted_on})
+```
 
 </details>
 
@@ -387,32 +416,32 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+```py
+import httpx
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+def download(url):
+    response = httpx.get(url)
+    response.raise_for_status()
+    return BeautifulSoup(response.text, "html.parser")
 
-  listing_url = "https://edition.cnn.com/sport"
-  listing_soup = download(listing_url)
+listing_url = "https://edition.cnn.com/sport"
+listing_soup = download(listing_url)
 
-  data = []
-  for card in listing_soup.select(".layout__main .card"):
-      link = card.select_one(".container__link")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      if content := article_soup.select_one(".article__content"):
-          length = len(content.get_text())
-          data.append((length, article_url))
+data = []
+for card in listing_soup.select(".layout__main .card"):
+    link = card.select_one(".container__link")
+    article_url = urljoin(listing_url, link["href"])
+    article_soup = download(article_url)
+    if content := article_soup.select_one(".article__content"):
+        length = len(content.get_text())
+        data.append((length, article_url))
 
-  data.sort()
-  shortest_item = data[0]
-  item_url = shortest_item[1]
-  print(item_url)
-  ```
+data.sort()
+shortest_item = data[0]
+item_url = shortest_item[1]
+print(item_url)
+```
 
 </details>

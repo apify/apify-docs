@@ -7,7 +7,7 @@ noindex: true
 ---
 
 import Example from '!!raw-loader!roa-loader!./finding_links.js';
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn what a link looks like in HTML and how to find and extract their URLs when web scraping using both DevTools and Node.js.**
 

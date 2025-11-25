@@ -31,7 +31,7 @@ Before you begin, ensure that you have the following:
 
 1. Specify the following details: index name, vector dimension, vector distance metric, deployment type (serverless or pod), and cloud provider.
 
-   ![Pinecone index configuration](../images/pinecone-create-index.png)
+    ![Pinecone index configuration](../images/pinecone-create-index.png)
 
 Once the index is created and ready, you can proceed with integrating Apify.
 
@@ -55,7 +55,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Pinecone integration. You can learn more about the input parameters at the [Pinecone integration input schema](https://apify.com/apify/pinecone-integration/input-schema).
 
-   ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
+    ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
 
 :::note Pinecone index configuration
 

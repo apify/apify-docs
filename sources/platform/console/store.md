@@ -17,11 +17,10 @@ Use the search box at the top of the page to find Actors by service names, such 
 Alternatively, you can explore Actors grouped under predefined categories below the search box.
 You can also organize the results from the store by different criteria, including:
 
-* Category
-* Pricing model
-* Developers
-* Relevance
-
+- Category
+- Pricing model
+- Developers
+- Relevance
 
 Once you select an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
 

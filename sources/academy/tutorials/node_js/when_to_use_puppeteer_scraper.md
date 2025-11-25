@@ -82,10 +82,7 @@ However, when using Puppeteer Scraper, this code:
 
 ```js
 await context.page.waitFor('button');
-await Promise.all([
-    context.page.waitForNavigation(),
-    context.page.click('button'),
-]);
+await Promise.all([context.page.waitForNavigation(), context.page.click('button')]);
 ```
 
 Will work as expected and after the `Promise.all()` call resolves, you will have the next page loaded and ready for scraping.

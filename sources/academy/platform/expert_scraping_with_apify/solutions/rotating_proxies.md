@@ -40,9 +40,7 @@ const crawler = new CheerioCrawler({
         // We can add options for each
         // session created by the session
         // pool here
-        sessionOptions: {
-
-        },
+        sessionOptions: {},
     },
     maxConcurrency: 50,
     // ...

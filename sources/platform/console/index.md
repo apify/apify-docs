@@ -81,47 +81,48 @@ The Apify Console homepage provides an overview of your account setup. The heade
 - **Suggested Actors for You**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
 
 - **Actor Runs**: This section is divided into two tabs:
-  - **Recent**: View your latest Actor runs.
-  - **Scheduled**: Check your upcoming scheduled runs and tasks.
+    - **Recent**: View your latest Actor runs.
+    - **Scheduled**: Check your upcoming scheduled runs and tasks.
 
 Use the side menu to navigate other parts of Apify Console easily.
 
 <!-- markdownlint-disable-next-line -->
-#### Keyboard shortcuts
+
+### Keyboard shortcuts
 
 You can also navigate Apify Console via keyboard shortcuts.
 
 <details>
 <summary>Keyboard Shortcuts</summary>
 
-|Shortcut| Tab |
-|:---|:----|
-|Show shortcuts | Shift? |
-|Home| GH  |
-|Store| GO  |
-|Actors| GA  |
-|Development| GD |
-|Saved tasks| GT  |
-|Runs| GR  |
-|Integrations | GI |
-|Schedules| GU  |
-|Storage| GE  |
-|Proxy| GP  |
-|Settings| GS  |
-|Billing| GB  |
+| Shortcut       | Tab    |
+| :------------- | :----- |
+| Show shortcuts | Shift? |
+| Home           | GH     |
+| Store          | GO     |
+| Actors         | GA     |
+| Development    | GD     |
+| Saved tasks    | GT     |
+| Runs           | GR     |
+| Integrations   | GI     |
+| Schedules      | GU     |
+| Storage        | GE     |
+| Proxy          | GP     |
+| Settings       | GS     |
+| Billing        | GB     |
 
 </details>
 
-| Tab name | Description |
-|:---|:---|
-| [Apify Store](/platform/console/store)| Search for Actors that suit your web-scraping needs. |
-| [Actors](/platform/actors)| View recent & bookmarked Actors. |
-| [Runs](/platform/actors/running/runs-and-builds)| View your recent runs. |
-| [Saved tasks](/platform/actors/running/tasks)| View your saved tasks. |
-| [Schedules](/platform/schedules)| Schedule Actor runs & tasks to run at specified time. |
-| [Integrations](/platform/integrations)| View your integrations. |
-| [Development](/platform/actors/development)| &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
-| [Proxy](/platform/proxy)| View your proxy usage & credentials |
-| [Storage](/platform/storage)| View stored results of your runs in various data formats. |
-| [Billing](/platform/console/billing)| Billing information, statistics and invoices. |
-| [Settings](/platform/console/settings)| Settings of your account. |
+| Tab name                                         | Description                                                                                                                                                                                                     |
+| :----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Apify Store](/platform/console/store)           | Search for Actors that suit your web-scraping needs.                                                                                                                                                            |
+| [Actors](/platform/actors)                       | View recent & bookmarked Actors.                                                                                                                                                                                |
+| [Runs](/platform/actors/running/runs-and-builds) | View your recent runs.                                                                                                                                                                                          |
+| [Saved tasks](/platform/actors/running/tasks)    | View your saved tasks.                                                                                                                                                                                          |
+| [Schedules](/platform/schedules)                 | Schedule Actor runs & tasks to run at specified time.                                                                                                                                                           |
+| [Integrations](/platform/integrations)           | View your integrations.                                                                                                                                                                                         |
+| [Development](/platform/actors/development)      | &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
+| [Proxy](/platform/proxy)                         | View your proxy usage & credentials                                                                                                                                                                             |
+| [Storage](/platform/storage)                     | View stored results of your runs in various data formats.                                                                                                                                                       |
+| [Billing](/platform/console/billing)             | Billing information, statistics and invoices.                                                                                                                                                                   |
+| [Settings](/platform/console/settings)           | Settings of your account.                                                                                                                                                                                       |

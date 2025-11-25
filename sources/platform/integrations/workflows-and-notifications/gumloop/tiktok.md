@@ -17,13 +17,13 @@ Using the Gumloop TikTok MCP node, you can simply prompt the TikTok data you nee
 
 You can pull the following types of data from TikTok using Gumloop’s TikTok node (via Apify). Each action has a credits cost.
 
-| Tool/Action | Description | Credit Cost |
-| :---- | :---- | :---- |
-| Get hashtag videos | Fetch videos from TikTok hashtags with captions, engagement metrics, play counts, and author information. | 3 credits per item |
-| Get profile videos | Get videos from TikTok user profiles with video metadata, engagement stats, music info, and timestamps. | 3 credits per item |
-| Get profile followers | Retrieve followers or following lists from TikTok profiles, including usernames, follower counts, and bios. | 3 credits per item |
-| Get video details | Get comprehensive data on a specific TikTok video using its URL—includes engagement and video-level metrics. | 5 credits per item |
-| Search videos | Search TikTok for videos and users using queries. Returns video details and user profile info. | 3 credits per item |
+| Tool/Action           | Description                                                                                                  | Credit Cost        |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------- | :----------------- |
+| Get hashtag videos    | Fetch videos from TikTok hashtags with captions, engagement metrics, play counts, and author information.    | 3 credits per item |
+| Get profile videos    | Get videos from TikTok user profiles with video metadata, engagement stats, music info, and timestamps.      | 3 credits per item |
+| Get profile followers | Retrieve followers or following lists from TikTok profiles, including usernames, follower counts, and bios.  | 3 credits per item |
+| Get video details     | Get comprehensive data on a specific TikTok video using its URL—includes engagement and video-level metrics. | 5 credits per item |
+| Search videos         | Search TikTok for videos and users using queries. Returns video details and user profile info.               | 3 credits per item |
 
 ## Retrieve Tiktok Data in Gumloop
 
@@ -40,7 +40,6 @@ You can pull the following types of data from TikTok using Gumloop’s TikTok no
     ![TikTok node prompt field](images/tiktok/prompt.jpeg)
 
     :::tip Prompting tips
-
     - MCP nodes only have access to the tools listed so your prompt should be scoped to TikTok.
     - You can mix and match different tools (e.g., search a hashtag → get profile videos → retrieve engagement data).
 

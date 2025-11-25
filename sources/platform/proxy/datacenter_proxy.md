@@ -20,14 +20,14 @@ You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-
 
 ## Features
 
-* Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
-* Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
-* Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
-* Ensures proxies are located in specific countries using IP geolocation.
-* Allows selection of groups of proxy servers with specific characteristics.
-* Supports persistent sessions that enable you to keep the same IP address for certain parts of your crawls.
-* Measures statistics of traffic for specific users and hostnames.
-* Allows selection of proxy servers by country.
+- Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
+- Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
+- Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
+- Ensures proxies are located in specific countries using IP geolocation.
+- Allows selection of groups of proxy servers with specific characteristics.
+- Supports persistent sessions that enable you to keep the same IP address for certain parts of your crawls.
+- Measures statistics of traffic for specific users and hostnames.
+- Allows selection of proxy servers by country.
 
 ## Datacenter proxy types
 
@@ -88,7 +88,6 @@ await Actor.exit();
 
 </TabItem>
 
-
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
 ```javascript
@@ -139,7 +138,6 @@ if __name__ == '__main__':
 
 </TabItem>
 
-
 <TabItem value="gotScraping()" label="gotScraping()">
 
 ```javascript
@@ -185,13 +183,12 @@ This IP/session ID combination is persisted and expires 26 hours later. Each add
 
 If you use the session at least once a day, it will never expire, with two possible exceptions:
 
-* The proxy server stops responding and is marked as dead during a health check.
-* If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
+- The proxy server stops responding and is marked as dead during a health check.
+- If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 
 To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
-
 
 ### Examples using sessions
 
@@ -214,16 +211,12 @@ const crawler = new PuppeteerCrawler({
     },
 });
 
-await crawler.run([
-    'https://proxy.apify.com/?format=json',
-    'https://proxy.apify.com',
-]);
+await crawler.run(['https://proxy.apify.com/?format=json', 'https://proxy.apify.com']);
 
 await Actor.exit();
 ```
 
 </TabItem>
-
 
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
@@ -279,7 +272,6 @@ if __name__ == '__main__':
 ```
 
 </TabItem>
-
 
 <TabItem value="gotScraping()" label="gotScraping()">
 
@@ -350,7 +342,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -377,7 +368,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="Python 2" label="Python 2">
 
 ```python
@@ -401,7 +391,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="PHP" label="PHP">
 
 ```php
@@ -419,7 +408,6 @@ if ($response) echo $response;
 ```
 
 </TabItem>
-
 
 <TabItem value="PHP (Guzzle)" label="PHP (Guzzle)">
 

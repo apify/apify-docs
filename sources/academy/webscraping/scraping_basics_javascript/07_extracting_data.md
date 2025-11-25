@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/extracting-data
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -38,16 +38,16 @@ It's because some products have variants with different prices. Later in the cou
 Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix?
 
 ```js
-const priceText = $price.text().replace("From ", "");
+const priceText = $price.text().replace('From ', '');
 ```
 
 In other cases, they'd tell us the data must include the range. And in cases when we just don't know, the safest option is to include all the information we have and leave the decision on what's important to later stages. One approach could be having the exact and minimum prices as separate values. If we don't know the exact price, we leave it empty:
 
 ```js
 const priceRange = { minPrice: null, price: null };
-const priceText = $price.text()
-if (priceText.startsWith("From ")) {
-    priceRange.minPrice = priceText.replace("From ", "");
+const priceText = $price.text();
+if (priceText.startsWith('From ')) {
+    priceRange.minPrice = priceText.replace('From ', '');
 } else {
     priceRange.minPrice = priceText;
     priceRange.price = priceRange.minPrice;
@@ -65,39 +65,39 @@ The whole program would look like this:
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for (const element of $(".product-item").toArray()) {
-    const $productItem = $(element);
+    for (const element of $('.product-item').toArray()) {
+        const $productItem = $(element);
 
-    const $title = $productItem.find(".product-item__title");
-    const title = $title.text();
+        const $title = $productItem.find('.product-item__title');
+        const title = $title.text();
 
-    const $price = $productItem.find(".price").contents().last();
-    const priceRange = { minPrice: null, price: null };
-    const priceText = $price.text();
-    if (priceText.startsWith("From ")) {
-        priceRange.minPrice = priceText.replace("From ", "");
-    } else {
-        priceRange.minPrice = priceText;
-        priceRange.price = priceRange.minPrice;
+        const $price = $productItem.find('.price').contents().last();
+        const priceRange = { minPrice: null, price: null };
+        const priceText = $price.text();
+        if (priceText.startsWith('From ')) {
+            priceRange.minPrice = priceText.replace('From ', '');
+        } else {
+            priceRange.minPrice = priceText;
+            priceRange.price = priceRange.minPrice;
+        }
+
+        console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
     }
-
-    console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
-  }
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
 ## Removing white space
 
-Often, the strings we extract from a web page start or end with some amount of whitespace, typically space characters or newline characters, which come from the [indentation](https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming) of the HTML tags.
+Often, the strings we extract from a web page start or end with some amount of whitespace, typically space characters or newline characters, which come from the [indentation](<https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming>) of the HTML tags.
 
 We call the operation of removing whitespace _trimming_ or _stripping_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it. Let's add JavaScript's built-in [.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim):
 
@@ -126,11 +126,7 @@ The demonstration above is inside the Node.js' [interactive REPL](https://nodejs
 We need to remove the dollar sign and the decimal commas. For this type of cleaning, [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) are often the best tool for the job, but in this case [`.replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) is also sufficient:
 
 ```js
-const priceText = $price
-  .text()
-  .trim()
-  .replace("$", "")
-  .replace(",", "");
+const priceText = $price.text().trim().replace('$', '').replace(',', '');
 ```
 
 ## Representing money in programs
@@ -139,9 +135,9 @@ Now we should be able to add `parseFloat()`, so that we have the prices not as a
 
 ```js
 const priceRange = { minPrice: null, price: null };
-const priceText = $price.text()
-if (priceText.startsWith("From ")) {
-    priceRange.minPrice = parseFloat(priceText.replace("From ", ""));
+const priceText = $price.text();
+if (priceText.startsWith('From ')) {
+    priceRange.minPrice = parseFloat(priceText.replace('From ', ''));
 } else {
     priceRange.minPrice = parseFloat(priceText);
     priceRange.price = priceRange.minPrice;
@@ -159,12 +155,12 @@ These errors are small and usually don't matter, but sometimes they can add up a
 
 ```js
 const priceText = $price
-  .text()
-  .trim()
-  .replace("$", "")
-// highlight-next-line
-  .replace(".", "")
-  .replace(",", "");
+    .text()
+    .trim()
+    .replace('$', '')
+    // highlight-next-line
+    .replace('.', '')
+    .replace(',', '');
 ```
 
 In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. This is how the whole program looks like now:
@@ -172,39 +168,34 @@ In this case, removing the dot from the price text is the same as if we multipli
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for (const element of $(".product-item").toArray()) {
-    const $productItem = $(element);
+    for (const element of $('.product-item').toArray()) {
+        const $productItem = $(element);
 
-    const $title = $productItem.find(".product-item__title");
-    const titleText = $title.text().trim();
+        const $title = $productItem.find('.product-item__title');
+        const titleText = $title.text().trim();
 
-    const $price = $productItem.find(".price").contents().last();
-    const priceRange = { minPrice: null, price: null };
-    const priceText = $price
-      .text()
-      .trim()
-      .replace("$", "")
-      .replace(".", "")
-      .replace(",", "");
+        const $price = $productItem.find('.price').contents().last();
+        const priceRange = { minPrice: null, price: null };
+        const priceText = $price.text().trim().replace('$', '').replace('.', '').replace(',', '');
 
-    if (priceText.startsWith("From ")) {
-        priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-    } else {
-        priceRange.minPrice = parseInt(priceText);
-        priceRange.price = priceRange.minPrice;
+        if (priceText.startsWith('From ')) {
+            priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+        } else {
+            priceRange.minPrice = parseInt(priceText);
+            priceRange.price = priceRange.minPrice;
+        }
+
+        console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
     }
-
-    console.log(`${title} | ${priceRange.minPrice} | ${priceRange.price}`);
-  }
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -240,47 +231,47 @@ Denon AH-C720 In-Ear Headphones | 236
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  function parseUnitsText(text) {
+function parseUnitsText(text) {
     const count = text
-      .replace("In stock,", "")
-      .replace("Only", "")
-      .replace(" left", "")
-      .replace("units", "")
-      .trim();
-    return count === "Sold out" ? 0 : parseInt(count);
-  }
+        .replace('In stock,', '')
+        .replace('Only', '')
+        .replace(' left', '')
+        .replace('units', '')
+        .trim();
+    return count === 'Sold out' ? 0 : parseInt(count);
+}
 
-  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
-  const response = await fetch(url);
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $(".product-item").toArray()) {
-      const $productItem = $(element);
+    for (const element of $('.product-item').toArray()) {
+        const $productItem = $(element);
 
-      const title = $productItem.find(".product-item__title");
-      const title = $title.text().trim();
+        const title = $productItem.find('.product-item__title');
+        const title = $title.text().trim();
 
-      const unitsText = $productItem.find(".product-item__inventory").text();
-      const unitsCount = parseUnitsText(unitsText);
+        const unitsText = $productItem.find('.product-item__inventory').text();
+        const unitsCount = parseUnitsText(unitsText);
 
-      console.log(`${title} | ${unitsCount}`);
+        console.log(`${title} | ${unitsCount}`);
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
-  :::tip Conditional (ternary) operator
+:::tip Conditional (ternary) operator
 
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
+For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
 
-  :::
+:::
 
 </details>
 
@@ -291,45 +282,45 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  function parseUnitsText(text) {
+function parseUnitsText(text) {
     const match = text.match(/\d+/);
     if (match) {
-      return parseInt(match[0]);
+        return parseInt(match[0]);
     }
     return 0;
-  }
+}
 
-  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
-  const response = await fetch(url);
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $(".product-item").toArray()) {
-      const $productItem = $(element);
+    for (const element of $('.product-item').toArray()) {
+        const $productItem = $(element);
 
-      const $title = $productItem.find(".product-item__title");
-      const title = $title.text().trim();
+        const $title = $productItem.find('.product-item__title');
+        const title = $title.text().trim();
 
-      const unitsText = $productItem.find(".product-item__inventory").text();
-      const unitsCount = parseUnitsText(unitsText);
+        const unitsText = $productItem.find('.product-item__inventory').text();
+        const unitsCount = parseUnitsText(unitsText);
 
-      console.log(`${title} | ${unitsCount}`);
+        console.log(`${title} | ${unitsCount}`);
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
-  :::tip Conditional (ternary) operator
+:::tip Conditional (ternary) operator
 
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
+For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
 
-  :::
+:::
 
 </details>
 
@@ -363,34 +354,28 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const url = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(url);
+const url = 'https://www.theguardian.com/sport/formulaone';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $("#maincontent ul li").toArray()) {
-      const $article = $(element);
+    for (const element of $('#maincontent ul li').toArray()) {
+        const $article = $(element);
 
-      const title = $article
-        .find("h3")
-        .text()
-        .trim();
-      const dateText = $article
-        .find("time")
-        .attr("datetime")
-        .trim();
-      const date = new Date(dateText);
+        const title = $article.find('h3').text().trim();
+        const dateText = $article.find('time').attr('datetime').trim();
+        const date = new Date(dateText);
 
-      console.log(`${title} | ${date.toDateString()}`);
+        console.log(`${title} | ${date.toDateString()}`);
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>

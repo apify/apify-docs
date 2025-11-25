@@ -203,25 +203,25 @@ Proxy configuration is a type of [Actor input](https://docs.apify.com/platform/a
 
 ```json title=".actor/inputSchema.json"
 {
-  "title": "Crawlee Cheerio Scraper",
-  "type": "object",
-  "schemaVersion": 1,
-  "properties": {
-    "proxyConfig": {
-      "title": "Proxy config",
-      "description": "Proxy configuration",
-      "type": "object",
-      "editor": "proxy",
-      "prefill": {
-        "useApifyProxy": true,
-        "apifyProxyGroups": []
-      },
-      "default": {
-        "useApifyProxy": true,
-        "apifyProxyGroups": []
-      }
+    "title": "Crawlee Cheerio Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "proxyConfig": {
+            "title": "Proxy config",
+            "description": "Proxy configuration",
+            "type": "object",
+            "editor": "proxy",
+            "prefill": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": []
+            },
+            "default": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": []
+            }
+        }
     }
-  }
 }
 ```
 
@@ -229,13 +229,13 @@ Now let's connect this file to the actor configuration. In `actor.json`, we'll a
 
 ```json title=".actor/actor.json"
 {
-  "actorSpecification": 1,
-  "name": "warehouse-watchdog",
-  "version": "0.0",
-  "buildTag": "latest",
-  "environmentVariables": {},
-  // highlight-next-line
-  "input": "./inputSchema.json"
+    "actorSpecification": 1,
+    "name": "warehouse-watchdog",
+    "version": "0.0",
+    "buildTag": "latest",
+    "environmentVariables": {},
+    // highlight-next-line
+    "input": "./inputSchema.json"
 }
 ```
 

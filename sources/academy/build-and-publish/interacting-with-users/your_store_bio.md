@@ -15,7 +15,7 @@ This space is all about helping you shine and promote your tools and skills. Her
 - Share your contact email, website, GitHub, X (Twitter), LinkedIn, or Discord handles.
 - Summarize what you’ve been doing in Apify Store, your main skills, big achievements, and any relevant experience.
 - Offer more ways for people to connect with you, such as links for booking a meeting, discounts, a subscription option for your email newsletter, or your YouTube channel or blog.
-  - You can even add a Linktree to keep things neat.
+    - You can even add a Linktree to keep things neat.
 - Highlight your other tools on different platforms.
 - Get creative by adding banners and GIFs to give your profile some personality.
 

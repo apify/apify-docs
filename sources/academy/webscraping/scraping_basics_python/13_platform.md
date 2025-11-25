@@ -205,9 +205,7 @@ Inside `warehouse-watchdog`, there's a directory called `.actor`. Within it, we'
             "title": "Start URLs",
             "type": "array",
             "description": "URLs to start with",
-            "prefill": [
-                { "url": "https://apify.com" }
-            ],
+            "prefill": [{ "url": "https://apify.com" }],
             "editor": "requestListSources"
         }
     },

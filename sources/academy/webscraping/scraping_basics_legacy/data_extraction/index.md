@@ -7,7 +7,7 @@ slug: /scraping-basics-javascript/legacy/data-extraction
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data extraction.**
 

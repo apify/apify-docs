@@ -16,7 +16,6 @@ Last Updated: January 13, 2025
 
 ---
 
-
 <i>If you wish to execute this DPA, continue [here](https://eform.pandadoc.com/?eform=5344745e-5f8e-44eb-bcbd-1a2f45dbd692) and follow instructions in the PandaDoc form.</i>
 
 ---
@@ -205,7 +204,6 @@ Contact person’s name, position and contact details:
 Apify Privacy Team, privacy[at]apify[dot]com
 Activities relevant to the data transferred under these Clauses: Processing necessary to provide the Apify Platform and other Services by Apify to Customer and for any disclosures of Personal Data in accordance with the Agreement.
 Role: Processor or Subprocessor, as applicable
-
 
 Data importer:
 Name: Customer's name identified in the Agreement

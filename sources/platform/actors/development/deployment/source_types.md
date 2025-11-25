@@ -13,9 +13,9 @@ This section explains the various sources types available for Apify Actors and h
 
 - [Web IDE](#web-ide)
 - [Git repository](#git-repository)
-  - [Private repositories](#private-repositories)
-    - [How to configure deployment keys](#how-to-configure-deployment-keys)
-  - [Actor monorepos](#actor-monorepos)
+    - [Private repositories](#private-repositories)
+        - [How to configure deployment keys](#how-to-configure-deployment-keys)
+    - [Actor monorepos](#actor-monorepos)
 - [Zip file](#zip-file)
 - [GitHub Gist](#github-gist)
 

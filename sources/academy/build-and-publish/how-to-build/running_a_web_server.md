@@ -62,11 +62,7 @@ Now we need to read the following environment variables:
 - **APIFY_DEFAULT_KEY_VALUE_STORE_ID** is the ID of the default key-value store of this Actor where we can store screenshots.
 
 ```js
-const {
-    APIFY_CONTAINER_PORT,
-    APIFY_CONTAINER_URL,
-    APIFY_DEFAULT_KEY_VALUE_STORE_ID,
-} = process.env;
+const { APIFY_CONTAINER_PORT, APIFY_CONTAINER_URL, APIFY_DEFAULT_KEY_VALUE_STORE_ID } = process.env;
 ```
 
 Next, we'll create an array of the processed URLs where the **n**th URL has its screenshot stored under the key **n**.jpg in the key-value store.
@@ -133,7 +129,9 @@ app.post('/add-url', async (req, res) => {
     await browser.close();
 
     // ... save screenshot to key-value store and add URL to processedUrls.
-    await Actor.setValue(`${processedUrls.length}.jpg`, screenshot, { contentType: 'image/jpeg' });
+    await Actor.setValue(`${processedUrls.length}.jpg`, screenshot, {
+        contentType: 'image/jpeg',
+    });
     processedUrls.push(url);
 
     res.redirect('/');
@@ -162,11 +160,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const {
-    APIFY_CONTAINER_PORT,
-    APIFY_CONTAINER_URL,
-    APIFY_DEFAULT_KEY_VALUE_STORE_ID,
-} = process.env;
+const { APIFY_CONTAINER_PORT, APIFY_CONTAINER_URL, APIFY_DEFAULT_KEY_VALUE_STORE_ID } = process.env;
 
 const processedUrls = [];
 
@@ -219,7 +213,9 @@ app.post('/add-url', async (req, res) => {
     await browser.close();
 
     // ... save screenshot to key-value store and add URL to processedUrls.
-    await Actor.setValue(`${processedUrls.length}.jpg`, screenshot, { contentType: 'image/jpeg' });
+    await Actor.setValue(`${processedUrls.length}.jpg`, screenshot, {
+        contentType: 'image/jpeg',
+    });
     processedUrls.push(url);
 
     res.redirect('/');

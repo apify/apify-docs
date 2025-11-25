@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/framework
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson, we'll rework our application for watching prices so that it builds on top of a scraping framework. We'll use Crawlee to make the program simpler, faster, and more robust.**
 
@@ -431,6 +431,7 @@ Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Acade
 If you export the dataset as JSON, it should look something like this:
 
 <!-- eslint-skip -->
+
 ```json
 [
   {
@@ -463,48 +464,48 @@ If you export the dataset as JSON, it should look something like this:
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import asyncio
-  from datetime import datetime
+```py
+import asyncio
+from datetime import datetime
 
-  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
-  async def main():
-      crawler = BeautifulSoupCrawler()
+async def main():
+    crawler = BeautifulSoupCrawler()
 
-      @crawler.router.default_handler
-      async def handle_listing(context: BeautifulSoupCrawlingContext):
-          await context.enqueue_links(selector=".teams-driver-item a", label="DRIVER")
+    @crawler.router.default_handler
+    async def handle_listing(context: BeautifulSoupCrawlingContext):
+        await context.enqueue_links(selector=".teams-driver-item a", label="DRIVER")
 
-      @crawler.router.handler("DRIVER")
-      async def handle_driver(context: BeautifulSoupCrawlingContext):
-          info = {}
-          for row in context.soup.select(".common-driver-info li"):
-              name = row.select_one("span").text.strip()
-              value = row.select_one("h4").text.strip()
-              info[name] = value
+    @crawler.router.handler("DRIVER")
+    async def handle_driver(context: BeautifulSoupCrawlingContext):
+        info = {}
+        for row in context.soup.select(".common-driver-info li"):
+            name = row.select_one("span").text.strip()
+            value = row.select_one("h4").text.strip()
+            info[name] = value
 
-          detail = {}
-          for row in context.soup.select(".driver-detail--cta-group a"):
-              name = row.select_one("p").text.strip()
-              value = row.select_one("h2").text.strip()
-              detail[name] = value
+        detail = {}
+        for row in context.soup.select(".driver-detail--cta-group a"):
+            name = row.select_one("p").text.strip()
+            value = row.select_one("h2").text.strip()
+            detail[name] = value
 
-          await context.push_data({
-              "url": context.request.url,
-              "name": context.soup.select_one("h1").text.strip(),
-              "team": detail["Team"],
-              "nationality": info["Nationality"],
-              "dob": datetime.strptime(info["DOB"], "%d/%m/%Y").date(),
-              "instagram_url": context.soup.select_one(".common-social-share a[href*='instagram']").get("href"),
-          })
+        await context.push_data({
+            "url": context.request.url,
+            "name": context.soup.select_one("h1").text.strip(),
+            "team": detail["Team"],
+            "nationality": info["Nationality"],
+            "dob": datetime.strptime(info["DOB"], "%d/%m/%Y").date(),
+            "instagram_url": context.soup.select_one(".common-social-share a[href*='instagram']").get("href"),
+        })
 
-      await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
-      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
+    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
 
-  if __name__ == '__main__':
-      asyncio.run(main())
-  ```
+if __name__ == '__main__':
+    asyncio.run(main())
+```
 
 </details>
 
@@ -519,6 +520,7 @@ The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listin
 If you export the dataset as JSON, it should look something like this:
 
 <!-- eslint-skip -->
+
 ```json
 [
   {
@@ -564,44 +566,44 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import asyncio
-  from urllib.parse import quote_plus
+```py
+import asyncio
+from urllib.parse import quote_plus
 
-  from crawlee import Request
-  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
+from crawlee import Request
+from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
 
-  async def main():
-      crawler = BeautifulSoupCrawler()
+async def main():
+    crawler = BeautifulSoupCrawler()
 
-      @crawler.router.default_handler
-      async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
-          requests = []
-          for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
-              name = name_cell.text.strip()
-              imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
-              requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
-          await context.add_requests(requests)
+    @crawler.router.default_handler
+    async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
+        requests = []
+        for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
+            name = name_cell.text.strip()
+            imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
+            requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
+        await context.add_requests(requests)
 
-      @crawler.router.handler("IMDB_SEARCH")
-      async def handle_imdb_search(context: BeautifulSoupCrawlingContext):
-          await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
+    @crawler.router.handler("IMDB_SEARCH")
+    async def handle_imdb_search(context: BeautifulSoupCrawlingContext):
+        await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
 
-      @crawler.router.handler("IMDB")
-      async def handle_imdb(context: BeautifulSoupCrawlingContext):
-          rating_selector = "[data-testid='hero-rating-bar__aggregate-rating__score']"
-          rating_text = context.soup.select_one(rating_selector).text.strip()
-          await context.push_data({
-              "url": context.request.url,
-              "title": context.soup.select_one("h1").text.strip(),
-              "rating": rating_text,
-          })
+    @crawler.router.handler("IMDB")
+    async def handle_imdb(context: BeautifulSoupCrawlingContext):
+        rating_selector = "[data-testid='hero-rating-bar__aggregate-rating__score']"
+        rating_text = context.soup.select_one(rating_selector).text.strip()
+        await context.push_data({
+            "url": context.request.url,
+            "title": context.soup.select_one("h1").text.strip(),
+            "rating": rating_text,
+        })
 
-      await crawler.run(["https://www.netflix.com/tudum/top10"])
-      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.run(["https://www.netflix.com/tudum/top10"])
+    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
 
-  if __name__ == '__main__':
-      asyncio.run(main())
-  ```
+if __name__ == '__main__':
+    asyncio.run(main())
+```
 
 </details>

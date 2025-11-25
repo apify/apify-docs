@@ -179,7 +179,6 @@ for doc in results["retriever"]["documents"]:
 
 To run it, you can use the following command: `python apify_integration.py`
 
-
 ## Resources
 
 - [Apify-haystack integration documentation](https://haystack.deepset.ai/integrations/apify)

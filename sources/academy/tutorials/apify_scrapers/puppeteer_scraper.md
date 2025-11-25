@@ -7,7 +7,7 @@ sidebar_position: 4
 slug: /apify-scrapers/puppeteer-scraper
 ---
 
-[//]: # (TODO: Should be updated)
+[//]: # 'TODO: Should be updated'
 
 #
 
@@ -30,8 +30,8 @@ so that you can start using it for some of the most typical scraping tasks, but 
 you'll need to visit its [documentation](https://pptr.dev/) and really dive deep into its intricacies.
 
 > The purpose of Puppeteer Scraper is to remove some of the difficulty faced when using Puppeteer by wrapping
-it in a nice, manageable UI. It provides almost all of its features in a format that is much easier to grasp
-when first trying to scrape using Puppeteer.
+> it in a nice, manageable UI. It provides almost all of its features in a format that is much easier to grasp
+> when first trying to scrape using Puppeteer.
 
 ### Web Scraper differences
 
@@ -49,18 +49,18 @@ Puppeteer Scraper is powerful (and the [Apify SDK](https://sdk.apify.com) is sup
 Now that's out of the way, let's open one of the Actor detail pages in the Store, for example the Web Scraper page and use our DevTools-Fu to scrape some data.
 
 > If you're wondering why we're using Web Scraper as an example instead of Puppeteer Scraper,
-it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
+> it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
 
 ## Building our Page function
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 
-   1. **URL** - The URL that goes directly to the Actor's detail page.
-   2. **Unique identifier** - Such as **apify/web-scraper**.
-   3. **Title** - The title visible in the Actor's detail page.
-   4. **Description** - The Actor's description.
-   5. **Last modification date** - When the Actor was last modified.
-   6. **Number of runs** - How many times the Actor was run.
+1. **URL** - The URL that goes directly to the Actor's detail page.
+2. **Unique identifier** - Such as **apify/web-scraper**.
+3. **Title** - The title visible in the Actor's detail page.
+4. **Description** - The Actor's description.
+5. **Last modification date** - When the Actor was last modified.
+6. **Number of runs** - How many times the Actor was run.
 
 ![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/scraping-practice.webp)
 
@@ -87,10 +87,7 @@ And as we already know, there's only one.
 // Using Puppeteer
 async function pageFunction(context) {
     const { page } = context;
-    const title = await page.$eval(
-        'header h1',
-        ((el) => el.textContent),
-    );
+    const title = await page.$eval('header h1', (el) => el.textContent);
 
     return {
         title,
@@ -113,14 +110,8 @@ the `<header>` element too, same as the title. Moreover, the actual description 
 ```js
 async function pageFunction(context) {
     const { page } = context;
-    const title = await page.$eval(
-        'header h1',
-        ((el) => el.textContent),
-    );
-    const description = await page.$eval(
-        'header span.actor-description',
-        ((el) => el.textContent),
-    );
+    const title = await page.$eval('header h1', (el) => el.textContent);
+    const description = await page.$eval('header span.actor-description', (el) => el.textContent);
 
     return {
         title,
@@ -138,18 +129,11 @@ The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 ```js
 async function pageFunction(context) {
     const { page } = context;
-    const title = await page.$eval(
-        'header h1',
-        ((el) => el.textContent),
-    );
-    const description = await page.$eval(
-        'header span.actor-description',
-        ((el) => el.textContent),
-    );
+    const title = await page.$eval('header h1', (el) => el.textContent);
+    const description = await page.$eval('header span.actor-description', (el) => el.textContent);
 
-    const modifiedTimestamp = await page.$eval(
-        'ul.ActorHeader-stats time',
-        (el) => el.getAttribute('datetime'),
+    const modifiedTimestamp = await page.$eval('ul.ActorHeader-stats time', (el) =>
+        el.getAttribute('datetime'),
     );
     const modifiedDate = new Date(Number(modifiedTimestamp));
 
@@ -180,24 +164,17 @@ a complex selector and then do a transformation on the result.
 ```js
 async function pageFunction(context) {
     const { page } = context;
-    const title = await page.$eval(
-        'header h1',
-        ((el) => el.textContent),
-    );
-    const description = await page.$eval(
-        'header span.actor-description',
-        ((el) => el.textContent),
-    );
+    const title = await page.$eval('header h1', (el) => el.textContent);
+    const description = await page.$eval('header span.actor-description', (el) => el.textContent);
 
-    const modifiedTimestamp = await page.$eval(
-        'ul.ActorHeader-stats time',
-        (el) => el.getAttribute('datetime'),
+    const modifiedTimestamp = await page.$eval('ul.ActorHeader-stats time', (el) =>
+        el.getAttribute('datetime'),
     );
     const modifiedDate = new Date(Number(modifiedTimestamp));
 
     const runCountText = await page.$eval(
         'ul.ActorHeader-stats > li:nth-of-type(3)',
-        ((el) => el.textContent),
+        (el) => el.textContent,
     );
     const runCount = Number(runCountText.match(/[\d,]+/)[0].replace(',', ''));
 
@@ -234,29 +211,19 @@ async function pageFunction(context) {
 
     // ...
 
-    const uniqueIdentifier = url
-        .split('/')
-        .slice(-2)
-        .join('/');
+    const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
-    const title = await page.$eval(
-        'header h1',
-        ((el) => el.textContent),
-    );
-    const description = await page.$eval(
-        'header span.actor-description',
-        ((el) => el.textContent),
-    );
+    const title = await page.$eval('header h1', (el) => el.textContent);
+    const description = await page.$eval('header span.actor-description', (el) => el.textContent);
 
-    const modifiedTimestamp = await page.$eval(
-        'ul.ActorHeader-stats time',
-        (el) => el.getAttribute('datetime'),
+    const modifiedTimestamp = await page.$eval('ul.ActorHeader-stats time', (el) =>
+        el.getAttribute('datetime'),
     );
     const modifiedDate = new Date(Number(modifiedTimestamp));
 
     const runCountText = await page.$eval(
         'ul.ActorHeader-stats > li:nth-of-type(3)',
-        ((el) => el.textContent),
+        (el) => el.textContent,
     );
     const runCount = Number(runCountText.match(/[\d,]+/)[0].replace(',', ''));
 
@@ -288,35 +255,20 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         // Get attributes in parallel to speed up the process.
-        const titleP = page.$eval(
-            'header h1',
-            (el) => el.textContent,
-        );
-        const descriptionP = page.$eval(
-            'header span.actor-description',
-            (el) => el.textContent,
-        );
-        const modifiedTimestampP = page.$eval(
-            'ul.ActorHeader-stats time',
-            (el) => el.getAttribute('datetime'),
+        const titleP = page.$eval('header h1', (el) => el.textContent);
+        const descriptionP = page.$eval('header span.actor-description', (el) => el.textContent);
+        const modifiedTimestampP = page.$eval('ul.ActorHeader-stats time', (el) =>
+            el.getAttribute('datetime'),
         );
         const runCountTextP = page.$eval(
             'ul.ActorHeader-stats > li:nth-of-type(3)',
             (el) => el.textContent,
         );
 
-        const [
-            title,
-            description,
-            modifiedTimestamp,
-            runCountText,
-        ] = await Promise.all([
+        const [title, description, modifiedTimestamp, runCountText] = await Promise.all([
             titleP,
             descriptionP,
             modifiedTimestampP,
@@ -339,10 +291,10 @@ async function pageFunction(context) {
 ```
 
 > You have definitely noticed that we changed up the code a little bit. This is because the back and forth communication
-between Node.js and browser takes some time and it slows down the scraper. To limit the effect of this, we changed
-all the functions to start at the same time and only wait for all of them to finish at the end. This is called
-concurrency or parallelism. Unless the functions need to be executed in a specific order, it's often a good idea
-to run them concurrently to speed things up.
+> between Node.js and browser takes some time and it slows down the scraper. To limit the effect of this, we changed
+> all the functions to start at the same time and only wait for all of them to finish at the end. This is called
+> concurrency or parallelism. Unless the functions need to be executed in a specific order, it's often a good idea
+> to run them concurrently to speed things up.
 
 ### Test run
 
@@ -357,8 +309,8 @@ actually scrape all the Actors, just the first page of results. That's because t
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
 > This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may use links
-that take you to the next page. If you encounter those, make a **Pseudo URL** for those links and they will
-be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
+> that take you to the next page. If you encounter those, make a **Pseudo URL** for those links and they will
+> be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
 
 ### Waiting for dynamic content
 
@@ -376,13 +328,13 @@ It would never stop waiting. It is therefore up to you, the programmer, to wait 
 #### The `context.page.waitFor()` function
 
 `waitFor()` is a function that's available on the Puppeteer `page` object that's in turn available on
-the `context` argument of the  `pageFunction` (as you already know from previous chapters). It helps you with,
+the `context` argument of the `pageFunction` (as you already know from previous chapters). It helps you with,
 well, waiting for stuff. It accepts either a number of milliseconds to wait, a selector to await in the page,
 or a function to execute. It will stop waiting once the time elapses, the selector appears or the provided function
 returns `true`.
 
 > See [`page.waitFor()`](https://pptr.dev/#?product=Puppeteer&show=api-pagewaitforselectororfunctionortimeout-options-args)
-in the Puppeteer documentation.
+> in the Puppeteer documentation.
 
 ```js
 // Waits for 2 seconds.
@@ -452,7 +404,6 @@ We've shown two function calls, but how do we make this work together in the `pa
 
 ```js
 async function pageFunction(context) {
-
     // ...
 
     let timeout; // undefined
@@ -460,14 +411,13 @@ async function pageFunction(context) {
     for (;;) {
         log.info('Waiting for the "Show more" button.');
         try {
-        // Default timeout first time.
+            // Default timeout first time.
             await page.waitFor(buttonSelector, { timeout });
             // 2 sec timeout after the first.
             timeout = 2000;
         } catch (err) {
-        // Ignore the timeout error.
-            log.info('Could not find the "Show more button", '
-            + 'we\'ve reached the end.');
+            // Ignore the timeout error.
+            log.info('Could not find the "Show more button", ' + "we've reached the end.");
             break;
         }
         log.info('Clicking the "Show more" button.');
@@ -475,7 +425,6 @@ async function pageFunction(context) {
     }
 
     // ...
-
 }
 ```
 
@@ -509,8 +458,7 @@ async function pageFunction(context) {
                 timeout = 2000;
             } catch (err) {
                 // Ignore the timeout error.
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
+                log.info('Could not find the "Show more button", ' + "we've reached the end.");
                 break;
             }
             log.info('Clicking the "Show more" button.');
@@ -524,35 +472,20 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         // Get attributes in parallel to speed up the process.
-        const titleP = page.$eval(
-            'header h1',
-            (el) => el.textContent,
-        );
-        const descriptionP = page.$eval(
-            'header span.actor-description',
-            (el) => el.textContent,
-        );
-        const modifiedTimestampP = page.$eval(
-            'ul.ActorHeader-stats time',
-            (el) => el.getAttribute('datetime'),
+        const titleP = page.$eval('header h1', (el) => el.textContent);
+        const descriptionP = page.$eval('header span.actor-description', (el) => el.textContent);
+        const modifiedTimestampP = page.$eval('ul.ActorHeader-stats time', (el) =>
+            el.getAttribute('datetime'),
         );
         const runCountTextP = page.$eval(
             'ul.ActorHeader-stats > li:nth-of-type(3)',
             (el) => el.textContent,
         );
 
-        const [
-            title,
-            description,
-            modifiedTimestamp,
-            runCountText,
-        ] = await Promise.all([
+        const [title, description, modifiedTimestamp, runCountText] = await Promise.all([
             titleP,
             descriptionP,
             modifiedTimestampP,
@@ -575,7 +508,7 @@ async function pageFunction(context) {
 ```
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate
-through all the Actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again and click on **Preview****. You should have a table of all the Actor's details in front of you. If you do, great job!
+through all the Actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again and click on **Preview\*\***. You should have a table of all the Actor's details in front of you. If you do, great job!
 You've successfully scraped Apify Store. And if not, no worries, go through the code examples again,
 it's probably just a typo.
 
@@ -606,9 +539,12 @@ that encapsulate all the different logic. You can, for example, define a functio
 ```js
 async function pageFunction(context) {
     switch (context.request.userData.label) {
-        case 'START': return handleStart(context);
-        case 'DETAIL': return handleDetail(context);
-        default: throw new Error('Unknown request label.');
+        case 'START':
+            return handleStart(context);
+        case 'DETAIL':
+            return handleDetail(context);
+        default:
+            throw new Error('Unknown request label.');
     }
 
     async function handleStart({ log, page }) {
@@ -624,8 +560,7 @@ async function pageFunction(context) {
                 timeout = 2000;
             } catch (err) {
                 // Ignore the timeout error.
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
+                log.info('Could not find the "Show more button", ' + "we've reached the end.");
                 break;
             }
             log.info('Clicking the "Show more" button.');
@@ -633,46 +568,26 @@ async function pageFunction(context) {
         }
     }
 
-    async function handleDetail({
-        request,
-        log,
-        skipLinks,
-        page,
-    }) {
+    async function handleDetail({ request, log, skipLinks, page }) {
         const { url } = request;
         log.info(`Scraping ${url}`);
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         // Get attributes in parallel to speed up the process.
-        const titleP = page.$eval(
-            'header h1',
-            (el) => el.textContent,
-        );
-        const descriptionP = page.$eval(
-            'header span.actor-description',
-            (el) => el.textContent,
-        );
-        const modifiedTimestampP = page.$eval(
-            'ul.ActorHeader-stats time',
-            (el) => el.getAttribute('datetime'),
+        const titleP = page.$eval('header h1', (el) => el.textContent);
+        const descriptionP = page.$eval('header span.actor-description', (el) => el.textContent);
+        const modifiedTimestampP = page.$eval('ul.ActorHeader-stats time', (el) =>
+            el.getAttribute('datetime'),
         );
         const runCountTextP = page.$eval(
             'ul.ActorHeader-stats > li:nth-of-type(3)',
             (el) => el.textContent,
         );
 
-        const [
-            title,
-            description,
-            modifiedTimestamp,
-            runCountText,
-        ] = await Promise.all([
+        const [title, description, modifiedTimestamp, runCountText] = await Promise.all([
             titleP,
             descriptionP,
             modifiedTimestampP,
@@ -695,7 +610,7 @@ async function pageFunction(context) {
 ```
 
 > If you're confused by the functions being declared below their executions, it's called hoisting and it's a feature
-of JavaScript. It helps you put what matters on top, if you so desire.
+> of JavaScript. It helps you put what matters on top, if you so desire.
 
 ## Bonus 2: Using jQuery with Puppeteer Scraper
 
@@ -708,7 +623,7 @@ you can use jQuery with Puppeteer Scraper too.
 To be able to use jQuery, we first need to introduce it to the browser. The [`Apify.utils.puppeteer.injectJQuery`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) function will help us with the task.
 
 > Friendly warning: Injecting jQuery into a page may break the page itself, if it expects a specific version
-of jQuery to be available and you override it with an incompatible one. Be careful.
+> of jQuery to be available and you override it with an incompatible one. Be careful.
 
 You can either call this function directly in your `pageFunction`, or you can set up jQuery injection in the
 **Pre goto function** in the **Input and options** section.
@@ -736,9 +651,12 @@ Let's try refactoring the Bonus 1 version of the `pageFunction` to use jQuery.
 ```js
 async function pageFunction(context) {
     switch (context.request.userData.label) {
-        case 'START': return handleStart(context);
-        case 'DETAIL': return handleDetail(context);
-        default: throw new Error(`Unknown label: ${context.request.userData.label}`);
+        case 'START':
+            return handleStart(context);
+        case 'DETAIL':
+            return handleDetail(context);
+        default:
+            throw new Error(`Unknown label: ${context.request.userData.label}`);
     }
 
     async function handleStart({ log, page }) {
@@ -751,8 +669,7 @@ async function pageFunction(context) {
                 await page.waitFor(buttonSelector, { timeout });
                 timeout = 2000;
             } catch (err) {
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
+                log.info('Could not find the "Show more button", ' + "we've reached the end.");
                 break;
             }
             log.info('Clicking the "Show more" button.');
@@ -761,13 +678,7 @@ async function pageFunction(context) {
     }
 
     async function handleDetail(contextInner) {
-        const {
-            request,
-            log,
-            skipLinks,
-            page,
-            Apify,
-        } = contextInner;
+        const { request, log, skipLinks, page, Apify } = contextInner;
 
         // Inject jQuery
         await Apify.utils.puppeteer.injectJQuery(page);
@@ -777,10 +688,7 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         // Use jQuery only inside page.evaluate (inside browser)
         const results = await page.evaluate(() => {
@@ -788,9 +696,7 @@ async function pageFunction(context) {
                 title: $('header h1').text(),
                 description: $('header span.actor-description').text(),
                 modifiedDate: new Date(
-                    Number(
-                        $('ul.ActorHeader-stats time').attr('datetime'),
-                    ),
+                    Number($('ul.ActorHeader-stats time').attr('datetime')),
                 ).toISOString(),
                 runCount: Number(
                     $('ul.ActorHeader-stats > li:nth-of-type(3)')
@@ -812,8 +718,8 @@ async function pageFunction(context) {
 ```
 
 > There's an important takeaway from the example code. You can only use jQuery in the browser scope, even though you're
-injecting it outside of the browser. We're using the [`page.evaluate()`](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args)
-function to run the script in the context of the browser and the return value is passed back to Node.js. Keep this in mind.
+> injecting it outside of the browser. We're using the [`page.evaluate()`](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args)
+> function to run the script in the context of the browser and the return value is passed back to Node.js. Keep this in mind.
 
 ## Final word
 
@@ -824,7 +730,6 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 - Check out the [Apify SDK](https://docs.apify.com/sdk) and its [Getting started](https://docs.apify.com/sdk/js/docs/guides/apify-platform) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 - [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
 - Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/contact-sales) from an Apify-certified developer.
-
 
 **Learn how to scrape a website using Apify's Puppeteer Scraper. Build an Actor's page function, extract information from a web page and download your data.**
 

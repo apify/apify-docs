@@ -40,7 +40,7 @@ For the Actor's base structure, we use Apify CLI and create a new Actor with the
 
 ```shell
 apify create orchestrator-actor
-````
+```
 
 If you don't have Apify CLI installed, check out our installation [instructions](https://docs.apify.com/cli/docs/installation).
 
@@ -59,6 +59,7 @@ Here’s the breakdown of the necessary input:
 <TabItem value="main.ts" label="main.ts">
 
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
+
 ```ts
 import { Actor, log } from 'apify';
 
@@ -76,7 +77,7 @@ const {
     targetActorId,
     targetActorInput = {},
     targetActorRunOptions = {},
-} = await Actor.getInput<Input>() ?? {} as Input;
+} = (await Actor.getInput<Input>()) ?? ({} as Input);
 const { apifyClient } = Actor;
 
 if (!targetActorId) throw new Error('Missing the "targetActorId" input!');
@@ -96,18 +97,21 @@ const requestQueue = await Actor.openRequestQueue();
 const dataset = await Actor.openDataset();
 ```
 
-
 ### State
 
 The Orchestrator Actor will maintain the state of the scraping runs to track progress and manage continuity. It will record the state of Actor runs, initializing this tracking with the first run.
 This persistent state ensures that, in migration or restart (resurrection) cases, the Actor can resume the same runs without losing progress.
 
 <!-- eslint-disable react-hooks/rules-of-hooks -->
+
 ```ts
 import { Actor, log } from 'apify';
 
 const { apifyClient } = Actor;
-const state = await Actor.useState<State>('actor-state', { parallelRunIds: [], isInitialized: false });
+const state = await Actor.useState<State>('actor-state', {
+    parallelRunIds: [],
+    isInitialized: false,
+});
 
 if (state.isInitialized) {
     for (const runId of state.parallelRunIds) {
@@ -120,17 +124,23 @@ if (state.isInitialized) {
         if (run.status === 'RUNNING') {
             log.info('Parallel run is already running.', { runId });
         } else {
-            log.info(`Parallel run was in state ${run.status}, resurrecting.`, { runId });
+            log.info(`Parallel run was in state ${run.status}, resurrecting.`, {
+                runId,
+            });
             await runClient.resurrect(targetActorRunOptions);
         }
     }
 } else {
     for (let i = 0; i < parallelRunsCount; i++) {
-        const run = await Actor.start(targetActorId, {
-            ...targetActorInput,
-            datasetId: dataset.id,
-            requestQueueId: requestQueue.id,
-        }, targetActorRunOptions);
+        const run = await Actor.start(
+            targetActorId,
+            {
+                ...targetActorInput,
+                datasetId: dataset.id,
+                requestQueueId: requestQueue.id,
+            },
+            targetActorRunOptions,
+        );
         log.info(`Started parallel run with ID: ${run.id}`, { runId: run.id });
         state.parallelRunIds.push(run.id);
     }
@@ -181,10 +191,7 @@ interface Input {
     datasetId: string;
 }
 
-const {
-    requestQueueId,
-    datasetId,
-} = await Actor.getInput<Input>() ?? {} as Input;
+const { requestQueueId, datasetId } = (await Actor.getInput<Input>()) ?? ({} as Input);
 
 const requestQueue = await Actor.openRequestQueue(requestQueueId);
 const dataset = await Actor.openDataset(datasetId);

@@ -11,6 +11,8 @@
     "no-multiple-blanks": {
         "maximum": 2
     },
+    "table-column-style": false,
+    "ul-indent": false,
     "no-space-in-emphasis": false,
     "link-fragments": false,
     "no-duplicate-heading": {

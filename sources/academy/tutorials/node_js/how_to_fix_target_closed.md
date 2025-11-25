@@ -40,7 +40,9 @@ const crawler = new PlaywrightCrawler({
         async ({ page, context }) => {
             // Some action that takes time, we don't await here
             // Try/catch all non awaited code because it can cause unhandled rejection which crashes the whole process
-            const responsePromise = page.waitForResponse('https://example.com/resource').catch((e) => e);
+            const responsePromise = page
+                .waitForResponse('https://example.com/resource')
+                .catch((e) => e);
             // Attach the promise to the context which is accessible to requestHandler
             context.responsePromise = responsePromise;
         },
@@ -50,7 +52,9 @@ const crawler = new PlaywrightCrawler({
         const response = await context.responsePromise;
         // Check if it errored out, otherwise proceed with parsing it
         if (typeof response === 'string' || response instanceof Error) {
-            throw new Error(`Failed to load resource from response`, { cause: response });
+            throw new Error(`Failed to load resource from response`, {
+                cause: response,
+            });
         }
         // Now process the response and continue with the code synchronously
     },

@@ -70,12 +70,12 @@ To call Apify Actors in Langflow, you need to add the **Apify Actors** component
 From the bundle menu, add **Apify Actors** component:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
-Next,  configure the Apify Actors components. First, input your API token (learn how to get it at [Integrations](https://docs.apify.com/platform/integrations/api)).
+Next, configure the Apify Actors components. First, input your API token (learn how to get it at [Integrations](https://docs.apify.com/platform/integrations/api)).
 Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
 Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (full Actor input schema can be found in the [RAG Web Browser input schema](https://apify.com/apify/rag-web-browser/input-schema)):
 
 ```json
-{"query": "what is monero?", "maxResults": 3}
+{ "query": "what is monero?", "maxResults": 3 }
 ```
 
 Click **Run**.
@@ -88,6 +88,7 @@ The output should look similar to this:
 ![Flow - Apify Actors Output Data](../images/langflow/apify_actors_output_data.png)
 
 To filter only the `metadata` and `markdown` fields, set **Output fields** to `metadata,markdown`. Additionally, enable **Flatten output** by setting it to `true`. This will output only the metadata and text content from the search results.
+
 > Flattening is necessary when you need to access nested dictionary fields in the output data object; they cannot be accessed directly otherwise in the Data object.
 
 ![Flow - Apify Actors Output Filter](../images/langflow/apify_actors_output_filter.png)

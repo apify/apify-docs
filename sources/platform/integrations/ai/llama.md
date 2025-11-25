@@ -32,7 +32,6 @@ To use the Apify Actor, import `ApifyActor` and `Document`, and set your [Apify 
 The following example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl an entire website, which will extract text content from the web pages.
 The extracted text is formatted as a llama_index `Document` and can be fed to a vector store or language model like GPT.
 
-
 ```python
 from llama_index.core import Document
 from llama_index.readers.apify import ApifyActor
@@ -75,5 +74,5 @@ documents = reader.load_data(
 
 ## Resources
 
-* [Apify loaders](https://llamahub.ai/l/readers/llama-index-readers-apify)
-* [LlamaIndex documentation](https://docs.llamaindex.ai/en/stable/)
+- [Apify loaders](https://llamahub.ai/l/readers/llama-index-readers-apify)
+- [LlamaIndex documentation](https://docs.llamaindex.ai/en/stable/)

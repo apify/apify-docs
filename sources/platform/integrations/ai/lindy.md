@@ -30,12 +30,10 @@ This section demonstrates how to integrate Apify's data extraction capabilities 
 
     ![Lindy workflow creation options, with "Start from scratch" selected](images/lindy/lindy-scratch.png)
 
-
 1. Choose a trigger that will initiate your automation. For this demonstration, we will select **Chat with Lindy/Message received**. This allows you to trigger the Apify Actor simply by sending a message to Lindy.
 
     ![Lindy workflow editor, showing trigger selection, with "Select Trigger" highlighted](images/lindy/lindy-trigger.png)
     ![Lindy workflow editor, showing trigger selection, with "Chat with Lindy/Message received" chosen](images/lindy/lindy-received.png)
-
 
 1. After setting the trigger, select **Perform an Action**.
 
@@ -65,13 +63,13 @@ Lindy offers different triggers (e.g., _email received_, _Slack message received
 After the Apify Actor run is initiated, you can define what happens next, depending on your needs:
 
 - **When Actor Run Starts:**
-  - You might want to send a notification.
-  - Log the start time.
-  - Run a pre-processing step.
+    - You might want to send a notification.
+    - Log the start time.
+    - Run a pre-processing step.
 - **After Results Are Available:** Once the Apify Actor completes and its results are ready, you can:
-  - Retrieve the Actor's output data from its dataset.
-  - Pass the extracted data to Lindy's AI for summarization, analysis, content generation, or other AI-driven tasks.
-  - Route the data to other services (e.g., Google Sheets, databases, email notifications) using Lindy's action modules.
+    - Retrieve the Actor's output data from its dataset.
+    - Pass the extracted data to Lindy's AI for summarization, analysis, content generation, or other AI-driven tasks.
+    - Route the data to other services (e.g., Google Sheets, databases, email notifications) using Lindy's action modules.
 
 ## Available Actions in Lindy for Apify
 

@@ -464,28 +464,21 @@ await requestQueueClient.batchAddRequests([
 ]);
 
 // Locks the first two requests at the head of the queue.
-const processingRequestsClientOne = await requestQueueClient.listAndLockHead(
-    {
-        limit: 2,
-        lockSecs: 120,
-    },
-);
+const processingRequestsClientOne = await requestQueueClient.listAndLockHead({
+    limit: 2,
+    lockSecs: 120,
+});
 
 // Checks when the lock will expire. The locked request will have a lockExpiresAt attribute.
 const lockedRequest = processingRequestsClientOne.items[0];
-const lockedRequestDetail = await requestQueueClient.getRequest(
-    lockedRequest.id,
-);
+const lockedRequestDetail = await requestQueueClient.getRequest(lockedRequest.id);
 console.log(`Request locked until ${lockedRequestDetail?.lockExpiresAt}`);
 
 // Prolongs the lock of the first request or unlocks it.
-await requestQueueClient.prolongRequestLock(
-    lockedRequest.id,
-    { lockSecs: 120 },
-);
-await requestQueueClient.deleteRequestLock(
-    lockedRequest.id,
-);
+await requestQueueClient.prolongRequestLock(lockedRequest.id, {
+    lockSecs: 120,
+});
+await requestQueueClient.deleteRequestLock(lockedRequest.id);
 
 await Actor.exit();
 ```
@@ -514,31 +507,32 @@ const requestQueueClient = client.requestQueue(requestQueue.id, {
 
 // Get all requests from the queue and check one locked by the first Actor.
 const requests = await requestQueueClient.listRequests();
-const requestsLockedByAnotherRun = requests.items.filter((request) => request.lockByClient === 'requestqueueone');
+const requestsLockedByAnotherRun = requests.items.filter(
+    (request) => request.lockByClient === 'requestqueueone',
+);
 const requestLockedByAnotherRunDetail = await requestQueueClient.getRequest(
     requestsLockedByAnotherRun[0].id,
 );
 
 // Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
-const processingRequestsClientTwo = await requestQueueClient.listAndLockHead(
-    {
-        limit: 10,
-        lockSecs: 60,
-    },
-);
+const processingRequestsClientTwo = await requestQueueClient.listAndLockHead({
+    limit: 10,
+    lockSecs: 60,
+});
 const wasBothRunsLockedSameRequest = !!processingRequestsClientTwo.items.find(
     (request) => request.id === requestLockedByAnotherRunDetail.id,
 );
 
-console.log(`Was the request locked by the first run locked by the second run? ${wasBothRunsLockedSameRequest}`);
+console.log(
+    `Was the request locked by the first run locked by the second run? ${wasBothRunsLockedSameRequest}`,
+);
 console.log(`Request locked until ${requestLockedByAnotherRunDetail?.lockExpiresAt}`);
 
 // Other clients cannot modify the lock; attempting to do so will throw an error.
 try {
-    await requestQueueClient.prolongRequestLock(
-        requestLockedByAnotherRunDetail.id,
-        { lockSecs: 60 },
-    );
+    await requestQueueClient.prolongRequestLock(requestLockedByAnotherRunDetail.id, {
+        lockSecs: 60,
+    });
 } catch (err) {
     // This will throw an error.
 }

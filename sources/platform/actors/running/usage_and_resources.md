@@ -37,15 +37,16 @@ The CPU allocation for an Actor is automatically computed based on the assigned 
 - For every `4096MB` of memory, the Actor receives one full CPU core
 - If the memory allocation is not a multiple of `4096MB`, the CPU core allocation is calculated proportionally
 - Examples:
-  - `512MB` = 1/8 of a CPU core
-  - `1024MB` = 1/4 of a CPU core
-  - `8192MB` = 2 CPU cores
+    - `512MB` = 1/8 of a CPU core
+    - `1024MB` = 1/4 of a CPU core
+    - `8192MB` = 2 CPU cores
 
 #### CPU usage spikes
 
 ![A usage spike on an Actor's start-up](./images/usage_and_resources/memory-cpu-usage-spike.png)
 
-[//]: # (Is it still relevant though? Does it still get CPU boost?)
+[//]: # 'Is it still relevant though? Does it still get CPU boost?'
+
 Sometimes, you see the Actor's CPU use go over 100%. This is not unusual. To help an Actor start up faster, it is allocated a free CPU boost. For example, if an Actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core, so it gets started quicker.
 
 ### Disk
@@ -54,16 +55,14 @@ The Actor has hard disk space limited by twice the amount of memory. For example
 
 ## Requirements
 
-Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. If you double the allocated memory, the run should be twice as fast and consume the same amount of [compute units](#what-is-a-compute-unit) (1 * 1 = 0.5 * 2).
+Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. If you double the allocated memory, the run should be twice as fast and consume the same amount of [compute units](#what-is-a-compute-unit) (1 _ 1 = 0.5 _ 2).
 
 A good middle ground is `4096MB`. If you need the results faster, increase the memory (bear in mind the [next point](#maximum-memory), though). You can also try decreasing it to lower the pressure on the target site.
 
 Autoscaling only applies to solutions that run multiple tasks (URLs) for at least 30 seconds. If you need to scrape just one URL or use Actors like [Google Sheets](https://apify.com/lukaskrivka/google-sheets) that do just a single isolated job, we recommend you lower the memory.
 
-[//]: # (TODO: It's pretty outdated, we now have platform credits in pricing)
-
-[//]: # (If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan]&#40;https://console.apify.com/billing-new#/subscription&#41;.)
-
+[//]: # "TODO: It's pretty outdated, we now have platform credits in pricing"
+[//]: # 'If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan](https://console.apify.com/billing-new#/subscription).'
 
 If the Actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like `4096MB`, and the whole run takes 15 minutes. That should consume 1 CU (4 \* 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month, and you get an estimated usage of 720 (1 \* 24 \* 30) [compute units](#what-is-a-compute-unit) monthly.
 
@@ -108,7 +107,7 @@ To view the usage of an Actor run, navigate to the **Runs** section and check ou
 
 ![Runs usage](./images/usage_and_resources/usage-and-resources-runs-usage.png)
 
- For a more detailed breakdown, click on the specific run you want to examine and then on the **?** icon next to the **Usage** label.
+For a more detailed breakdown, click on the specific run you want to examine and then on the **?** icon next to the **Usage** label.
 
 ![Actors run usage details](./images/usage_and_resources/usage-and-resources-runs-usage-details.png)
 

@@ -72,10 +72,12 @@ If you're scraping sitemaps (or anything else, really), [Crawlee](https://crawle
 First, let's add the beer URLs from the sitemap to the [`RequestList`](https://crawlee.dev/api/core/class/RequestList) using our regular expression to match only the (craft!!) beer URLs and not pages of breweries, contact page, etc.
 
 ```js
-const requestList = await RequestList.open(null, [{
-    requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
-    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
-}]);
+const requestList = await RequestList.open(null, [
+    {
+        requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
+        regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
+    },
+]);
 ```
 
 Now, let's use [`PuppeteerCrawler`](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) to scrape the created `RequestList` with [Puppeteer](https://pptr.dev/) and push it to the final dataset.

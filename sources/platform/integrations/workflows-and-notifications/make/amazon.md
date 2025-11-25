@@ -39,7 +39,7 @@ Once connected, you can build workflows to automate Amazon data extraction and i
 
 After connecting the app, you can use the Search module as a native scraper to extract public Amazon data. Here’s what you get:
 
-### Extract  Amazon data
+### Extract Amazon data
 
 Get data via [Apify's Amazon Scraper](https://apify.com/junglee/free-amazon-product-scraper). Fill in the URLs of products, searches, or categories you want to gather information about.
 
@@ -56,49 +56,49 @@ For Amazon URLs, you can extract:
 ```json title="Example"
 [
     {
-    "title": "Logitech M185 Wireless Mouse, 2.4GHz with USB Mini Receiver, 12-Month Battery Life, 1000 DPI Optical Tracking, Ambidextrous PC/Mac/Laptop - Swift Grey",
-    "asin": "B004YAVF8I",
-    "brand": "Logitech",
-    "stars": 4.5,
-    "reviewsCount": 37418,
-    "thumbnailImage": "https://m.media-amazon.com/images/I/5181UFuvoBL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
-    "breadCrumbs": "Electronics›Computers & Accessories›Computer Accessories & Peripherals›Keyboards, Mice & Accessories›Mice",
-    "description": "Logitech Wireless Mouse M185. A simple, reliable mouse with plug-and-play wireless, a 1-year battery life and 3-year limited hardware warranty.(Battery life may vary based on user and computing conditions.) System Requirements: Windows Vista Windows 7 Windows 8 Windows 10|Mac OS X 10.5 or later|Chrome OS|Linux kernel 2.6+|USB port",
-    "price": {
-    "value": 13.97,
-    "currency": "$"
-    },
-    "url": "https://www.amazon.com/dp/B004YAVF8I"
-    },
-    {
-    "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, USB-C, Bluetooth, Windows, Linux, Chrome - Graphite",
-    "asin": "B09HM94VDS",
-    "brand": "Logitech",
-    "stars": 4.5,
-    "reviewsCount": 9333,
-    "thumbnailImage": "https://m.media-amazon.com/images/I/41+eEANAv3L._AC_SY300_SX300_.jpg",
-    "breadCrumbs": "Electronics›Computers & Accessories›Computer Accessories & Peripherals›Keyboards, Mice & Accessories›Mice",
-    "description": "Logitech MX Master 3S Performance Wireless Mouse Introducing Logitech MX Master 3S – an iconic mouse remastered. Now with Quiet Clicks(2) and 8K DPI any-surface tracking for more feel and performance than ever before. Product details: Weight: 4.97 oz (141 g) Dimensions: 2 x 3.3 x 4.9 in (51 x 84.3 x 124.9 mm) Compatible with Windows, macOS, Linux, Chrome OS, iPadOS, Android operating systems (8) Rechargeable Li-Po (500 mAh) battery Sensor technology: Darkfield high precision Buttons: 7 buttons (Left/Right-click, Back/Forward, App-Switch, Wheel mode-shift, Middle click), Scroll Wheel, Thumbwheel, Gesture button Wireless operating distance: 33 ft (10 m) (9)Footnotes: (1) 4 mm minimum glass thickness (2) Compared to MX Master 3, MX Master 3S has 90% less Sound Power Level left and right click, measured at 1m (3) Compared to regular Logitech mouse without an electromagnetic scroll wheel (4) Compared to Logitech Master 2S mouse with Logitech Options installed and Smooth scrolling enabled (5) Requires Logi Options+ software, available for Windows and macOS (6) Not compatible with Logitech Unifying technology (7) Battery life may vary based on user and computing conditions. (8) Device basic functions will be supported without software for operating systems other than Windows and macOS (9) Wireless range may vary depending on operating environment and computer setup",
-    "price": {
-    "value": 89.99,
-    "currency": "$"
-    },
-    "url": "https://www.amazon.com/dp/B09HM94VDS"
+        "title": "Logitech M185 Wireless Mouse, 2.4GHz with USB Mini Receiver, 12-Month Battery Life, 1000 DPI Optical Tracking, Ambidextrous PC/Mac/Laptop - Swift Grey",
+        "asin": "B004YAVF8I",
+        "brand": "Logitech",
+        "stars": 4.5,
+        "reviewsCount": 37418,
+        "thumbnailImage": "https://m.media-amazon.com/images/I/5181UFuvoBL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+        "breadCrumbs": "Electronics›Computers & Accessories›Computer Accessories & Peripherals›Keyboards, Mice & Accessories›Mice",
+        "description": "Logitech Wireless Mouse M185. A simple, reliable mouse with plug-and-play wireless, a 1-year battery life and 3-year limited hardware warranty.(Battery life may vary based on user and computing conditions.) System Requirements: Windows Vista Windows 7 Windows 8 Windows 10|Mac OS X 10.5 or later|Chrome OS|Linux kernel 2.6+|USB port",
+        "price": {
+            "value": 13.97,
+            "currency": "$"
+        },
+        "url": "https://www.amazon.com/dp/B004YAVF8I"
     },
     {
-    "title": "Apple Magic Mouse - White Multi-Touch Surface ",
-    "asin": "B0DL72PK1P",
-    "brand": "Apple",
-    "stars": 4.6,
-    "reviewsCount": 18594,
-    "thumbnailImage": "",
-    "breadCrumbs": "",
-    "description": null,
-    "price": {
-    "value": 78.99,
-    "currency": "$"
+        "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, USB-C, Bluetooth, Windows, Linux, Chrome - Graphite",
+        "asin": "B09HM94VDS",
+        "brand": "Logitech",
+        "stars": 4.5,
+        "reviewsCount": 9333,
+        "thumbnailImage": "https://m.media-amazon.com/images/I/41+eEANAv3L._AC_SY300_SX300_.jpg",
+        "breadCrumbs": "Electronics›Computers & Accessories›Computer Accessories & Peripherals›Keyboards, Mice & Accessories›Mice",
+        "description": "Logitech MX Master 3S Performance Wireless Mouse Introducing Logitech MX Master 3S – an iconic mouse remastered. Now with Quiet Clicks(2) and 8K DPI any-surface tracking for more feel and performance than ever before. Product details: Weight: 4.97 oz (141 g) Dimensions: 2 x 3.3 x 4.9 in (51 x 84.3 x 124.9 mm) Compatible with Windows, macOS, Linux, Chrome OS, iPadOS, Android operating systems (8) Rechargeable Li-Po (500 mAh) battery Sensor technology: Darkfield high precision Buttons: 7 buttons (Left/Right-click, Back/Forward, App-Switch, Wheel mode-shift, Middle click), Scroll Wheel, Thumbwheel, Gesture button Wireless operating distance: 33 ft (10 m) (9)Footnotes: (1) 4 mm minimum glass thickness (2) Compared to MX Master 3, MX Master 3S has 90% less Sound Power Level left and right click, measured at 1m (3) Compared to regular Logitech mouse without an electromagnetic scroll wheel (4) Compared to Logitech Master 2S mouse with Logitech Options installed and Smooth scrolling enabled (5) Requires Logi Options+ software, available for Windows and macOS (6) Not compatible with Logitech Unifying technology (7) Battery life may vary based on user and computing conditions. (8) Device basic functions will be supported without software for operating systems other than Windows and macOS (9) Wireless range may vary depending on operating environment and computer setup",
+        "price": {
+            "value": 89.99,
+            "currency": "$"
+        },
+        "url": "https://www.amazon.com/dp/B09HM94VDS"
     },
-    "url": "https://www.amazon.com/dp/B0DL72PK1P"
+    {
+        "title": "Apple Magic Mouse - White Multi-Touch Surface ",
+        "asin": "B0DL72PK1P",
+        "brand": "Apple",
+        "stars": 4.6,
+        "reviewsCount": 18594,
+        "thumbnailImage": "",
+        "breadCrumbs": "",
+        "description": null,
+        "price": {
+            "value": 78.99,
+            "currency": "$"
+        },
+        "url": "https://www.amazon.com/dp/B0DL72PK1P"
     }
 ]
 ```
@@ -232,6 +232,5 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [YouTube Data](/platform/integrations/make/youtube)
 - [AI crawling](/platform/integrations/make/ai-crawling)
-
 
 And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

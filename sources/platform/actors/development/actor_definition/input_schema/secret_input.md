@@ -15,6 +15,7 @@ The secret input feature lets you mark specific input fields of an Actor as sens
 To make an input field secret, you need to add a `"isSecret": true` setting to the input field in the Actor's [input schema](./index.md), like this:
 
 <!-- eslint-skip -->
+
 ```json
 {
     // ...
@@ -26,9 +27,9 @@ To make an input field secret, you need to add a `"isSecret": true` setting to t
             "description": "A secret, encrypted input field",
             "editor": "textfield",
             "isSecret": true
-        },
+        }
         // ...
-    },
+    }
     // ...
 }
 ```
@@ -54,6 +55,7 @@ This feature supports `string`, `object`, and `array` input types. Available edi
 When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted. Decryption of string fields is supported since [JavaScript SDK](https://docs.apify.com/sdk/js/) 3.1.0; support for objects and arrays was added in [JavaScript SDK](https://docs.apify.com/sdk/js/) 3.4.2 and [Python SDK](https://docs.apify.com/sdk/python/) 2.7.0.
 
 <!-- eslint-skip -->
+
 ```js
 > await Actor.getInput();
 {
@@ -65,6 +67,7 @@ When you read the Actor input through `Actor.getInput()`, the encrypted fields a
 If you read the `INPUT` key from the Actor run's default key-value store directly, you will still get the original, encrypted input value.
 
 <!-- eslint-skip -->
+
 ```js
 > await Actor.getValue('INPUT');
 {
@@ -80,7 +83,6 @@ The encryption mechanism used for encrypting the secret input fields is the same
 The RSA key is unique for each combination of user and Actor, ensuring that no Actor can decrypt input intended for runs of another Actor by the same user, and no user can decrypt input runs of the same Actor by a different user. This isolation of decryption keys enhances the security of sensitive input data.
 
 During Actor execution, the decryption keys are passed as environment variables, restricting the decryption of secret input fields to occur solely within the context of the Actor run. This approach prevents unauthorized access to sensitive input data outside the Actor's execution environment.
-
 
 ## Example Actor
 

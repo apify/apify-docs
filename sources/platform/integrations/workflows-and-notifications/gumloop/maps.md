@@ -18,14 +18,13 @@ Using the Gumloop Google Maps MCP node, you can simply prompt the location data 
 
 You can pull the following types of place data from Google Maps using Gumloop’s Google Maps node (via Apify). Each action has a credit cost.
 
-| Tool/Action | Description | Credit Cost |
-| :---- | :---- | :---- |
-| Search places | Search for places on Google Maps using location and search terms. | 3 credits per item |
-| Get place details | Retrieve detailed information about a specific place using its URL or place ID. | 5 credits per item |
-| Search by category | Search for places by a specific category (e.g. cafes, gyms) on Google Maps. | 3 credits per item |
-| Get place reviews | Fetch reviews for specific locations, including text, rating, and reviewer info. | 3 credits per item |
-| Find places in area | Return all visible places within a defined map area or bounding box. | 3 credits per item |
-
+| Tool/Action         | Description                                                                      | Credit Cost        |
+| :------------------ | :------------------------------------------------------------------------------- | :----------------- |
+| Search places       | Search for places on Google Maps using location and search terms.                | 3 credits per item |
+| Get place details   | Retrieve detailed information about a specific place using its URL or place ID.  | 5 credits per item |
+| Search by category  | Search for places by a specific category (e.g. cafes, gyms) on Google Maps.      | 3 credits per item |
+| Get place reviews   | Fetch reviews for specific locations, including text, rating, and reviewer info. | 3 credits per item |
+| Find places in area | Return all visible places within a defined map area or bounding box.             | 3 credits per item |
 
 ## Retrieve Google Maps data in Gumloop
 
@@ -42,7 +41,6 @@ You can pull the following types of place data from Google Maps using Gumloop’
     ![Google Maps node prompt field](images/maps/prompt.jpeg)
 
     :::tip Prompting tips
-
     - MCP nodes only have access to the tools listed so your prompt should be scoped to Google Maps.
     - You can mix and match different tools (e.g., search for gyms in Vancouver → get place details → pull reviews).
 

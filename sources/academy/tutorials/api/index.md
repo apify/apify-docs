@@ -14,4 +14,3 @@ This section explains how you can run [Apify Actors](/platform/actors) using Api
 
 - [JavaScript](/api/client/js/)
 - [Python](/api/client/python)
-

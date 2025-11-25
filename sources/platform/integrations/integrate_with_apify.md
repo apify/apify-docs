@@ -58,6 +58,7 @@ An alternative way is to let your users manage the connection directly on your s
 Apify supports two main authentication methods for secure API access.
 
 _OAuth 2.0_ - Use OAuth 2.0 to allow users to authorize your integration without sharing their credentials.
+
 <!-- TODO expand section possibly? -->
 
 _API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com/platform/integrations/api#api-token).
@@ -117,9 +118,9 @@ Recommended features:
 
 - _URL_: that you intend to scrape (string)
 - _Crawler type_: Dropdown menu, allowing users to choose from the following options:
-  - _Headless web browser_ - Useful for websites with anti-scraping protections and JavaScript rendering. It recognizes common blocking patterns like CAPTCHAs and automatically retries blocked requests through new sessions.
-  - _Stealthy web browser (default)_ - Another headless web browser with anti-blocking measures enabled. Try this if you encounter anti-bot protections while scraping.
-  - _Raw HTTP client_ - High-performance crawling mode that uses raw HTTP requests to fetch pages. It's faster and cheaper, but might not work on all websites.
+    - _Headless web browser_ - Useful for websites with anti-scraping protections and JavaScript rendering. It recognizes common blocking patterns like CAPTCHAs and automatically retries blocked requests through new sessions.
+    - _Stealthy web browser (default)_ - Another headless web browser with anti-blocking measures enabled. Try this if you encounter anti-bot protections while scraping.
+    - _Raw HTTP client_ - High-performance crawling mode that uses raw HTTP requests to fetch pages. It's faster and cheaper, but might not work on all websites.
 
 ##### Universal API call
 
@@ -160,10 +161,10 @@ Users access Apify through your platform without needing an Apify account. Apify
 To help Apify monitor and support your integration, every API request should identify your platform. You can do this in one of two ways:
 
 - Preferred:
-  - Use the `x-apify-integration-platform` header with your platform name (e.g., make.com, zapier).
-  - If your platform has multiple Apify apps, also include the `x-apify-integration-app-id` header with the unique app ID.
+    - Use the `x-apify-integration-platform` header with your platform name (e.g., make.com, zapier).
+    - If your platform has multiple Apify apps, also include the `x-apify-integration-app-id` header with the unique app ID.
 - Alternative:
-  - Set a custom `User-Agent` header that identifies your platform.
+    - Set a custom `User-Agent` header that identifies your platform.
 
 These identifiers enable better analytics and support for your integration.
 
@@ -175,25 +176,25 @@ These identifiers enable better analytics and support for your integration.
 
 - [Apify API Reference](https://docs.apify.com/api/v2)
 - Client libraries
-  - [JavaScript/TypeScript/Node.js](https://docs.apify.com/api/client/js/)
-  - [Python](https://docs.apify.com/api/client/python/)
+    - [JavaScript/TypeScript/Node.js](https://docs.apify.com/api/client/js/)
+    - [Python](https://docs.apify.com/api/client/python/)
 
 ### Reference implementations
 
 For inspiration, check out the public repositories of Apify's existing external integrations:
 
 - Zapier
-  - [Zapier integration documentation](https://docs.apify.com/platform/integrations/zapier)
-  - [Source code on Github](https://github.com/apify/apify-zapier-integration)
+    - [Zapier integration documentation](https://docs.apify.com/platform/integrations/zapier)
+    - [Source code on Github](https://github.com/apify/apify-zapier-integration)
 - Make.com
-  - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
+    - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
 - Keboola
-  - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
-  - [Source code on GitHub](https://github.com/apify/keboola-ex-apify/) (JavaScript)
-  - [Google Maps Reviews Scraper integration](https://github.com/apify/keboola-gmrs/) (Actor-specific)
+    - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
+    - [Source code on GitHub](https://github.com/apify/keboola-ex-apify/) (JavaScript)
+    - [Google Maps Reviews Scraper integration](https://github.com/apify/keboola-gmrs/) (Actor-specific)
 - Airbyte
-  - [Source code on GitHub](https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-apify-dataset) (Python)
+    - [Source code on GitHub](https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-apify-dataset) (Python)
 - Pipedream
-  - [Source code on GitHub](https://github.com/PipedreamHQ/pipedream/tree/65e79d1d66cf0f2fca5ad20a18acd001f5eea069/components/apify)
+    - [Source code on GitHub](https://github.com/PipedreamHQ/pipedream/tree/65e79d1d66cf0f2fca5ad20a18acd001f5eea069/components/apify)
 
 For technical support, please contact us at [integrations@apify.com](mailto:integrations@apify.com).

@@ -14,16 +14,16 @@ import TabItem from '@theme/TabItem';
 
 Each Actor run has a status, represented by the `status` field. The following table describes the possible values:
 
-|Status|Type|Description|
-|--- |--- |--- |
-|`READY`|initial|Started but not allocated to any worker yet|
-|`RUNNING`|transitional|Executing on a worker|
-|`SUCCEEDED`|terminal|Finished successfully|
-|`FAILED`|terminal|Run failed|
-|`TIMING-OUT`|transitional|Timing out now|
-|`TIMED-OUT`|terminal|Timed out|
-|`ABORTING`|transitional|Being aborted by user|
-|`ABORTED`|terminal|Aborted by user|
+| Status       | Type         | Description                                 |
+| ------------ | ------------ | ------------------------------------------- |
+| `READY`      | initial      | Started but not allocated to any worker yet |
+| `RUNNING`    | transitional | Executing on a worker                       |
+| `SUCCEEDED`  | terminal     | Finished successfully                       |
+| `FAILED`     | terminal     | Run failed                                  |
+| `TIMING-OUT` | transitional | Timing out now                              |
+| `TIMED-OUT`  | terminal     | Timed out                                   |
+| `ABORTING`   | transitional | Being aborted by user                       |
+| `ABORTED`    | terminal     | Aborted by user                             |
 
 ## Status messages
 

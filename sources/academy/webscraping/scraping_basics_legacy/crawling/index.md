@@ -7,7 +7,7 @@ slug: /scraping-basics-javascript/legacy/crawling
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn how to crawl the web with your scraper. How to extract links and URLs from web pages and how to manage the collected links to visit new pages.**
 

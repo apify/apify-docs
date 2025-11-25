@@ -41,7 +41,6 @@ With the new configuration created, you can now configure the data source to ret
 
 ![Keboola component configuration](../images/keboola/keboola-configure-component.png)
 
-
 #### Choose an action
 
 In the next step, you can choose the action you want to perform:
@@ -66,7 +65,7 @@ In the specifications step, you can set up various options for your Actor run:
 
 - **Actor**: Select the Actor you want to run from your Apify account.
 - **Input Table**: Choose a table from the Keboola platform to be sent to the Actor as input data.
-- **Output field**:  Comma-separated list of fields to be picked from the dataset.
+- **Output field**: Comma-separated list of fields to be picked from the dataset.
 - **Memory**: Adjust the memory settings if needed (the default values can be kept).
 - **Build**: Adjust if you want to run a specific build of an Actor. Tag or number of the build to run.
 - **Actor Input**: Pass any JSON data as input to the Actor.

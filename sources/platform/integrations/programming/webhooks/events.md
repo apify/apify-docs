@@ -5,8 +5,7 @@ sidebar_position: 1
 slug: /integrations/webhooks/events
 ---
 
-
-**Specify the types of events  that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, termination or timeout.**
+**Specify the types of events that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, termination or timeout.**
 
 ---
 
@@ -18,12 +17,12 @@ Actor run events are triggered when an Actor run is created or transitions to a 
 
 ### Event types
 
-* `ACTOR.RUN.CREATED` - A new Actor run has been created.
-* `ACTOR.RUN.SUCCEEDED` - An Actor run finished with status `SUCCEEDED`.
-* `ACTOR.RUN.FAILED` - An Actor run finished with status `FAILED`.
-* `ACTOR.RUN.ABORTED` - An Actor run finished with status `ABORTED`.
-* `ACTOR.RUN.TIMED_OUT` - An Actor run finished with status `TIMED-OUT`.
-* `ACTOR.RUN.RESURRECTED` - An Actor run has been resurrected.
+- `ACTOR.RUN.CREATED` - A new Actor run has been created.
+- `ACTOR.RUN.SUCCEEDED` - An Actor run finished with status `SUCCEEDED`.
+- `ACTOR.RUN.FAILED` - An Actor run finished with status `FAILED`.
+- `ACTOR.RUN.ABORTED` - An Actor run finished with status `ABORTED`.
+- `ACTOR.RUN.TIMED_OUT` - An Actor run finished with status `TIMED-OUT`.
+- `ACTOR.RUN.RESURRECTED` - An Actor run has been resurrected.
 
 ### Event data
 
@@ -31,9 +30,9 @@ The following data is provided for Actor run events:
 
 ```json5
 {
-    "actorId": "ID of the triggering Actor.",
-    "actorTaskId": "If task was used, its ID.",
-    "actorRunId": "ID of the triggering Actor run.",
+    actorId: 'ID of the triggering Actor.',
+    actorTaskId: 'If task was used, its ID.',
+    actorRunId: 'ID of the triggering Actor run.',
 }
 ```
 
@@ -51,11 +50,11 @@ Actor build events are triggered when an Actor build is created or transitions i
 
 ### Event types
 
-* `ACTOR.BUILD.CREATED` - A new Actor build has been created.
-* `ACTOR.BUILD.SUCCEEDED` - An Actor build finished with the status `SUCCEEDED`.
-* `ACTOR.BUILD.FAILED` - An Actor build finished with the status `FAILED`.
-* `ACTOR.BUILD.ABORTED` - An Actor build finished with the status `ABORTED`.
-* `ACTOR.BUILD.TIMED_OUT` - An Actor build finished with the status `TIMED-OUT`.
+- `ACTOR.BUILD.CREATED` - A new Actor build has been created.
+- `ACTOR.BUILD.SUCCEEDED` - An Actor build finished with the status `SUCCEEDED`.
+- `ACTOR.BUILD.FAILED` - An Actor build finished with the status `FAILED`.
+- `ACTOR.BUILD.ABORTED` - An Actor build finished with the status `ABORTED`.
+- `ACTOR.BUILD.TIMED_OUT` - An Actor build finished with the status `TIMED-OUT`.
 
 ### Event Data
 
@@ -63,7 +62,7 @@ The following data is provided for Actor build events:
 
 ```json5
 {
-    "actorId": "ID of the triggering Actor.",
-    "actorBuildId": "ID of the triggering Actor build.",
+    actorId: 'ID of the triggering Actor.',
+    actorBuildId: 'ID of the triggering Actor build.',
 }
 ```

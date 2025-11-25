@@ -7,7 +7,7 @@ sidebar_position: 3
 slug: /apify-scrapers/cheerio-scraper
 ---
 
-[//]: # (TODO: Should be updated)
+[//]: # 'TODO: Should be updated'
 
 #
 
@@ -34,18 +34,18 @@ Now that's out of the way, let's open one of the Actor detail pages in the Store
 **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) page, and use our DevTools-Fu to scrape some data.
 
 > If you're wondering why we're using Web Scraper as an example instead of Cheerio Scraper,
-it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
+> it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
 
 ## Building our Page function
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 
-   1. **URL** - The URL that goes directly to the Actor's detail page.
-   2. **Unique identifier** - Such as **apify/web-scraper**.
-   3. **Title** - The title visible in the Actor's detail page.
-   4. **Description** - The Actor's description.
-   5. **Last modification date** - When the Actor was last modified.
-   6. **Number of runs** - How many times the Actor was run.
+1. **URL** - The URL that goes directly to the Actor's detail page.
+2. **Unique identifier** - Such as **apify/web-scraper**.
+3. **Title** - The title visible in the Actor's detail page.
+4. **Description** - The Actor's description.
+5. **Last modification date** - When the Actor was last modified.
+6. **Number of runs** - How many times the Actor was run.
 
 ![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/scraping-practice.webp)
 
@@ -110,11 +110,7 @@ async function pageFunction(context) {
     return {
         title: $('header h1').text(),
         description: $('header span.actor-description').text(),
-        modifiedDate: new Date(
-            Number(
-                $('ul.ActorHeader-stats time').attr('datetime'),
-            ),
-        ),
+        modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
     };
 }
 ```
@@ -137,11 +133,7 @@ async function pageFunction(context) {
     return {
         title: $('header h1').text(),
         description: $('header span.actor-description').text(),
-        modifiedDate: new Date(
-            Number(
-                $('ul.ActorHeader-stats time').attr('datetime'),
-            ),
-        ),
+        modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
         runCount: Number(
             $('ul.ActorHeader-stats > li:nth-of-type(3)')
                 .text()
@@ -175,21 +167,14 @@ async function pageFunction(context) {
     const { url } = request;
     // ... rest of your code can come here
 
-    const uniqueIdentifier = url
-        .split('/')
-        .slice(-2)
-        .join('/');
+    const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
     return {
         url,
         uniqueIdentifier,
         title: $('header h1').text(),
         description: $('header span.actor-description').text(),
-        modifiedDate: new Date(
-            Number(
-                $('ul.ActorHeader-stats time').attr('datetime'),
-            ),
-        ),
+        modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
         runCount: Number(
             $('ul.ActorHeader-stats > li:nth-of-type(3)')
                 .text()
@@ -216,21 +201,14 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
             uniqueIdentifier,
             title: $('header h1').text(),
             description: $('header span.actor-description').text(),
-            modifiedDate: new Date(
-                Number(
-                    $('ul.ActorHeader-stats time').attr('datetime'),
-                ),
-            ),
+            modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
             runCount: Number(
                 $('ul.ActorHeader-stats > li:nth-of-type(3)')
                     .text()
@@ -255,9 +233,9 @@ actually scrape all the Actors, just the first page of results. That's because t
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
 > This is a typical JavaScript pagination, sometimes called infinite scroll. Other pages may use links
-that take you to the next page. If you encounter those, make a Pseudo URL for those links and they
-will be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL
-it's processing.
+> that take you to the next page. If you encounter those, make a Pseudo URL for those links and they
+> will be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL
+> it's processing.
 
 If you paid close attention, you may now see a problem. How do we click a button in the page when we're working
 with Cheerio? We don't have a browser to do it and we only have the HTML of the page to work with. The simple
@@ -305,9 +283,9 @@ we need is there, in the `data.props.pageProps.items` array. Great!
 ![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/inspect-data.webp)
 
 > It's obvious that all the information we set to scrape is available in this one data object,
-so you might already be wondering, can I make one request to the store to get this JSON
-and then parse it out and be done with it in a single request? Yes you can! And that's the power
-of clever page analysis.
+> so you might already be wondering, can I make one request to the store to get this JSON
+> and then parse it out and be done with it in a single request? Yes you can! And that's the power
+> of clever page analysis.
 
 ### Using the data to enqueue all Actor details
 
@@ -339,8 +317,8 @@ We iterate through the items we found, build Actor detail URLs from the availabl
 those URLs into the request queue. We need to specify the label too, otherwise our page function wouldn't know
 how to route those requests.
 
->If you're wondering how we know the structure of the URL, see the [Getting started
-with Apify Scrapers](./getting_started.md) tutorial again.
+> If you're wondering how we know the structure of the URL, see the [Getting started
+> with Apify Scrapers](./getting_started.md) tutorial again.
 
 ### Plugging it into the Page function
 
@@ -374,21 +352,14 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
             uniqueIdentifier,
             title: $('header h1').text(),
             description: $('header span.actor-description').text(),
-            modifiedDate: new Date(
-                Number(
-                    $('ul.ActorHeader-stats time').attr('datetime'),
-                ),
-            ),
+            modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
             runCount: Number(
                 $('ul.ActorHeader-stats > li:nth-of-type(3)')
                     .text()
@@ -406,10 +377,10 @@ You should have a table of all the Actor's details in front of you. If you do, g
 scraped Apify Store. And if not, no worries, go through the code examples again, it's probably just a typo.
 
 > There's an important caveat. The way we implemented pagination here is in no way a generic system that you can
-use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way
-to get all results with Cheerio only and other times it takes hours of research. Keep this in mind when choosing
-the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
-define a correct Pseudo URL. Do your research first before giving up on Cheerio Scraper.
+> use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way
+> to get all results with Cheerio only and other times it takes hours of research. Keep this in mind when choosing
+> the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
+> define a correct Pseudo URL. Do your research first before giving up on Cheerio Scraper.
 
 ## Downloading the scraped data
 
@@ -436,9 +407,12 @@ that encapsulate all the different logic. You can, for example, define a functio
 ```js
 async function pageFunction(context) {
     switch (context.request.userData.label) {
-        case 'START': return handleStart(context);
-        case 'DETAIL': return handleDetail(context);
-        default: throw new Error('Unknown request label.');
+        case 'START':
+            return handleStart(context);
+        case 'DETAIL':
+            return handleDetail(context);
+        default:
+            throw new Error('Unknown request label.');
     }
 
     async function handleStart({ log, waitFor, $ }) {
@@ -466,21 +440,14 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
             uniqueIdentifier,
             title: $('header h1').text(),
             description: $('header span.actor-description').text(),
-            modifiedDate: new Date(
-                Number(
-                    $('ul.ActorHeader-stats time').attr('datetime'),
-                ),
-            ),
+            modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
             runCount: Number(
                 $('ul.ActorHeader-stats > li:nth-of-type(3)')
                     .text()
@@ -493,7 +460,7 @@ async function pageFunction(context) {
 ```
 
 > If you're confused by the functions being declared below their executions, it's called hoisting and it's a feature
-of JavaScript. It helps you put what matters on top, if you so desire.
+> of JavaScript. It helps you put what matters on top, if you so desire.
 
 ## Final word
 
@@ -501,10 +468,9 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## What's next
 
-* Check out the [Apify SDK](https://docs.apify.com/sdk) and its [Getting started](https://docs.apify.com/sdk/js/docs/guides/apify-platform) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-* [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
-* Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/contact-sales) from an Apify-certified developer.
-
+- Check out the [Apify SDK](https://docs.apify.com/sdk) and its [Getting started](https://docs.apify.com/sdk/js/docs/guides/apify-platform) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
+- Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/contact-sales) from an Apify-certified developer.
 
 **Learn how to scrape a website using Apify's Cheerio Scraper. Build an Actor's page function, extract information from a web page and download your data.**
 

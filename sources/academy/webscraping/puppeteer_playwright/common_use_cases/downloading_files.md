@@ -19,7 +19,10 @@ Let's start with the easiest technique. This method tells the browser in what fo
 
 ```js
 const client = await page.target().createCDPSession();
-await client.send('Page.setDownloadBehavior', { behavior: 'allow', downloadPath: './my-downloads' });
+await client.send('Page.setDownloadBehavior', {
+    behavior: 'allow',
+    downloadPath: './my-downloads',
+});
 ```
 
 We use the mysterious `client` API which gives us access to all the functions of the underlying [Chrome DevTools Protocol](https://pptr.dev/api/puppeteer.cdpsession) (Puppeteer & Playwright are built on top of it). Basically, it extends Puppeteer's functionality. Then we can download the file by clicking on the button.

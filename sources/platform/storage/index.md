@@ -16,7 +16,6 @@ import StoragePricingCalculator from "@site/src/components/StoragePricingCalcula
 
 The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our [REST API](/api/v2) [Apify API Clients](/api) or [SDKs](/sdk).
 
-
 <CardGrid>
     <Card
         title="Dataset"
@@ -34,4 +33,3 @@ The Apify platform provides three types of storage accessible both within our [A
         to="/platform/storage/request-queue"
     />
 </CardGrid>
-

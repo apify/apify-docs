@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/crawling/exporting-data
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn how to export the data you scraped using Crawlee to CSV or JSON.**
 
@@ -101,10 +101,12 @@ const crawler = new PlaywrightCrawler({
     },
 });
 
-await crawler.addRequests([{
-    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
-    label: 'start-url',
-}]);
+await crawler.addRequests([
+    {
+        url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+        label: 'start-url',
+    },
+]);
 
 await crawler.run();
 await Dataset.exportToCSV('results');

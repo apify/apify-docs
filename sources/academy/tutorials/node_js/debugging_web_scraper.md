@@ -66,6 +66,7 @@ results;
 If you don't want to deal with copy/pasting a proper snippet, you can always paste the whole pageFunction. You will have to mock the context object when calling it. If you use some advanced tricks, this might not work but in most cases copy pasting this code should do it. This code is only for debugging your Page Function for a particular page. It does not crawl the website and the output is not saved anywhere.
 
 <!-- eslint-disable -->
+
 ```js
 async function pageFunction(context) {
     // this is your pageFunction
@@ -80,8 +81,12 @@ pageFunction({
         console.log('(waitFor)');
         await new Promise((res) => setTimeout(res, ms));
     },
-    enqueueRequest() { console.log('(enqueuePage)', arguments); },
-    skipLinks() { console.log('(skipLinks)', arguments); },
+    enqueueRequest() {
+        console.log('(enqueuePage)', arguments);
+    },
+    skipLinks() {
+        console.log('(skipLinks)', arguments);
+    },
     jQuery: $,
 });
 ```

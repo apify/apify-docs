@@ -45,7 +45,7 @@ Get profile details via [Apify's TikTok Profile Scraper](https://apify.com/clock
 
 For each TikTok profile, you will extract:
 
-- _Basic profile details_: name, nickname, bio, ID,  and profile URL.
+- _Basic profile details_: name, nickname, bio, ID, and profile URL.
 - _Account status_: whether the account is verified or not, and if it's a business and seller account.
 - _Follower and engagement metrics_: number of followers and accounts followed.
 - _Profile avatar_: avatar URLs.
@@ -54,7 +54,7 @@ For each TikTok profile, you will extract:
 ```json title="Profile data, shortened sample"
 [
     {
-         "authorMeta": {
+        "authorMeta": {
             "id": "6987048613642159109",
             "name": "nasaofficial",
             "profileUrl": "https://www.tiktok.com/@nasaofficial",
@@ -80,14 +80,14 @@ For each TikTok profile, you will extract:
             "video": 0,
             "digg": 0
         },
-        "input": "https://www.tiktok.com/@nasaofficial",
+        "input": "https://www.tiktok.com/@nasaofficial"
     }
 ]
 ```
 
 ### Extract TikTok comments
 
-Retrieve comments from videos by calling [Apify's TikTok Comments Scraper](https://apify.com/clockworks/tiktok-comments-scraper).  To set up this module, you will need to add TikTok video URLs to extract the comments from, the desired number of comments, and optionally, the maximum number of replies per comment.
+Retrieve comments from videos by calling [Apify's TikTok Comments Scraper](https://apify.com/clockworks/tiktok-comments-scraper). To set up this module, you will need to add TikTok video URLs to extract the comments from, the desired number of comments, and optionally, the maximum number of replies per comment.
 
 For each TikTok video, you will extract:
 
@@ -119,8 +119,8 @@ For each TikTok video, you will extract:
         "uid": "7095709566285480965",
         "cid": "7338091744464978720",
         "avatarThumbnail": "https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/2c511269b14f70cca0c11c3285ddc668~tplv-tiktokx-cropcenter:100:100.jpg?dr=10399&nonce=11659&refresh_token=c2a577eebaa68fc73aac11e9b99fefcb&x-expires=1739973600&x-signature=LUTudhynytGwrfL9MKFHKO8v7EA%3D&idc=no1a&ps=13740610&shcp=ff37627b&shp=30310797&t=4d5b0474"
-    },
- ]
+    }
+]
 ```
 
 ### Extract TikTok hashtags

@@ -193,7 +193,7 @@ page.on('response', async (res) => {
         const json = await res.json();
         console.log(json);
     } catch (err) {
-        console.error('Response wasn\'t JSON or failed to parse response.');
+        console.error("Response wasn't JSON or failed to parse response.");
     }
 });
 ```
@@ -211,7 +211,7 @@ page.on('response', async (res) => {
         const json = await res.json();
         console.log(json);
     } catch (err) {
-        console.error('Response wasn\'t JSON or failed to parse response.');
+        console.error("Response wasn't JSON or failed to parse response.");
     }
 });
 ```
@@ -376,7 +376,9 @@ const page = await browser.newPage();
 // Only listen for requests matching this regular expression
 page.route(/soundcloud.com\/tiesto/, async (route) => {
     // Continue  the route, but replace "tiesto" in the URL with "mestomusic"
-    return route.continue({ url: route.request().url().replace('tiesto', 'mestomusic') });
+    return route.continue({
+        url: route.request().url().replace('tiesto', 'mestomusic'),
+    });
 });
 
 await page.goto('https://soundcloud.com/tiesto/following');

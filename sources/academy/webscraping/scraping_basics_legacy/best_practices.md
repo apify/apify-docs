@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/best-practices
 noindex: true
 ---
 
-import LegacyAdmonition from '../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../scraping_basics/\_legacy.mdx';
 
 **Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code.**
 
@@ -14,7 +14,7 @@ import LegacyAdmonition from '../scraping_basics/_legacy.mdx';
 
 ---
 
-Every developer has their own style, which evolves as they grow and learn. While one dev might prefer a more  [functional](https://en.wikipedia.org/wiki/Functional_programming) style, another might find an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) approach to be more intuitive. We at Apify understand this, and have written this best practices lesson with that in mind.
+Every developer has their own style, which evolves as they grow and learn. While one dev might prefer a more [functional](https://en.wikipedia.org/wiki/Functional_programming) style, another might find an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) approach to be more intuitive. We at Apify understand this, and have written this best practices lesson with that in mind.
 
 The goal of this lesson is not to force you into a specific paradigm or to make you think that you're doing things wrong, but instead to provide you some insight into the standards and best practices that we at Apify follow to ensure readable, maintainable, scalable code.
 
@@ -40,7 +40,7 @@ If you're writing your scraper in JavaScript, use [ES6](https://www.w3schools.co
 
 ### No magic numbers {#no-magic-numbers}
 
-Avoid using [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)) as much as possible. Either declare them as a **constant** variable in your **constants.js** file, or if they are only used once, add a comment explaining what the number is.
+Avoid using [magic numbers](<https://en.wikipedia.org/wiki/Magic_number_(programming)>) as much as possible. Either declare them as a **constant** variable in your **constants.js** file, or if they are only used once, add a comment explaining what the number is.
 
 Don't write code like this:
 
@@ -75,7 +75,7 @@ Here is an example of an "incorrect" log message:
 300  https://example.com/1234  1234
 ```
 
-And here is  that log message translated into something that makes much more sense to the end user:
+And here is that log message translated into something that makes much more sense to the end user:
 
 ```text
 Index 1234 --- https://example.com/1234 --- took 300 ms

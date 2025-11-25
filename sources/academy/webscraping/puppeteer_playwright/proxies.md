@@ -77,7 +77,6 @@ const browser = await chromium.launch({
     proxy: {
         // Pass in the server URL
         server: proxy,
-
     },
 });
 const page = await browser.newPage();
@@ -142,7 +141,6 @@ const browser = await chromium.launch({
     headless: false,
     proxy: {
         server: `http://${username}:${password}@${proxy}`,
-
     },
 });
 ```

@@ -62,7 +62,9 @@ for (const frame of page.mainFrame().childFrames()) {
 Here we used some more advanced techniques to find a nested `<iframe>`. Now when we have it assigned to our twitterFrame object, the hard work is over and we can start working with it (almost) like with a regular page object.
 
 ```js
-const textFeed = await twitterFrame.$$eval('.timeline-Tweet-text', (pElements) => pElements.map((elem) => elem.textContent));
+const textFeed = await twitterFrame.$$eval('.timeline-Tweet-text', (pElements) =>
+    pElements.map((elem) => elem.textContent),
+);
 
 for (const text of textFeed) {
     console.log(text);

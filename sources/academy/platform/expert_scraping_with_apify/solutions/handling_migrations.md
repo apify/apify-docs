@@ -71,18 +71,20 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
         // and initialize its collected offers count to 0
         tracker.incrementASIN(element.attr('data-asin'));
 
-        await crawler.addRequest([{
-            url,
-            label: labels.PRODUCT,
-            userData: {
-                data: {
-                    title: titleElement.first().text().trim(),
-                    asin: element.attr('data-asin'),
-                    itemUrl: url,
-                    keyword,
+        await crawler.addRequest([
+            {
+                url,
+                label: labels.PRODUCT,
+                userData: {
+                    data: {
+                        title: titleElement.first().text().trim(),
+                        asin: element.attr('data-asin'),
+                        itemUrl: url,
+                        keyword,
+                    },
                 },
             },
-        }]);
+        ]);
     }
 });
 
@@ -91,16 +93,18 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
     const element = $('div#productDescription');
 
-    await crawler.addRequests([{
-        url: OFFERS_URL(data.asin),
-        label: labels.OFFERS,
-        userData: {
-            data: {
-                ...data,
-                description: element.text().trim(),
+    await crawler.addRequests([
+        {
+            url: OFFERS_URL(data.asin),
+            label: labels.OFFERS,
+            userData: {
+                data: {
+                    ...data,
+                    description: element.text().trim(),
+                },
             },
         },
-    }]);
+    ]);
 });
 
 router.addHandler(labels.OFFERS, async ({ $, request }) => {

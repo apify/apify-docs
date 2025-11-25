@@ -56,7 +56,6 @@ When you close the setup process, you should see that your two-factor authentica
 
 ![Apify Console two-factor authentication section enabled](./images/console-account-two-factor-enabled.png)
 
-
 ## Verification after sign-in
 
 After you enable two-factor authentication, the next time you attempt to sign in, you'll need to enter a code before you can get into the Apify Console. To do that, open your authenticator app and enter the code for your Apify account into the **Code** field. After you enter the code, click on the **Verify** button, and if the provided code is correct, you will proceed to Apify Console.
@@ -72,7 +71,6 @@ If the provided recovery code is correct, you will proceed to Apify Console, the
 :::info Removal of recovery codes
 When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact our support to help you regain access to your account.
 :::
-
 
 ![Apify Console two-factor authentication with recovery code form](./images/console-two-factor-use-recovery-code.png)
 
