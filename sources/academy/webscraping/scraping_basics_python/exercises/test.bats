@@ -1,6 +1,19 @@
-setup() {
+setup_file() {
   cd "$BATS_TEST_DIRNAME"
 }
+
+teardown_file() {
+  rm -rf storage dataset.json
+}
+
+# retry_run() {
+#   for attempt in 1 2 3; do
+#     run "$@"
+#     (( status == 0 )) && return 0
+#     sleep 1
+#   done
+#   return "$status"
+# }
 
 @test "outputs the HTML with Star Wars products" {
   run uv run --with=httpx python lego.py
