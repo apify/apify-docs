@@ -465,54 +465,7 @@ If you export the dataset as JSON, it should look something like this:
 
 <details>
   <summary>Solution</summary>
-
-<<<<<<< HEAD
-  ```py
-  import asyncio
-  from datetime import datetime
-
-  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
-
-  async def main():
-      crawler = BeautifulSoupCrawler()
-
-      @crawler.router.default_handler
-      async def handle_listing(context: BeautifulSoupCrawlingContext):
-          await context.enqueue_links(selector=".teams-driver-item a", label="DRIVER")
-
-      @crawler.router.handler("DRIVER")
-      async def handle_driver(context: BeautifulSoupCrawlingContext):
-          info = {}
-          for row in context.soup.select(".common-driver-info li"):
-              name = row.select_one("span").text.strip()
-              value = row.select_one("h4").text.strip()
-              info[name] = value
-
-          detail = {}
-          for row in context.soup.select(".driver-detail--cta-group a"):
-              name = row.select_one("p").text.strip()
-              value = row.select_one("h2").text.strip()
-              detail[name] = value
-
-          await context.push_data({
-              "url": context.request.url,
-              "name": context.soup.select_one("h1").text.strip(),
-              "team": detail["Team"],
-              "nationality": info["Nationality"],
-              "dob": datetime.strptime(info["DOB"], "%d/%m/%Y").date(),
-              "instagram_url": context.soup.select_one(".common-social-share a[href*='instagram']").get("href"),
-          })
-
-      await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
-      await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
-
-  if __name__ == '__main__':
-      asyncio.run(main())
-  ```
-=======
   <CodeBlock language="py">{CrawleeF1DriversExercise.code}</CodeBlock>
->>>>>>> 0c85c800 (refactor: make exercises testable)
-
 </details>
 
 ### Use Crawlee to find the ratings of the most popular Netflix films
@@ -570,7 +523,5 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="py">{CrawleeNetflixRatingsExercise.code}</CodeBlock>
-
 </details>

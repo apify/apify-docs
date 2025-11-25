@@ -133,9 +133,7 @@ https://www.f1academy.com/Racing-Series/Teams
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="py">{F1AcademyTeamsExercise.code}</CodeBlock>
-
 </details>
 
 ### Scrape F1 Academy drivers
@@ -144,7 +142,5 @@ Use the same URL as in the previous exercise, but this time print a total count 
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="py">{F1AcademyDriversExercise.code}</CodeBlock>
-
 </details>

@@ -344,9 +344,7 @@ https://en.wikipedia.org/wiki/Botswana
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{WikipediaCountryLinksExercise.code}</CodeBlock>
-
 </details>
 
 ### Scrape links to F1 news
@@ -369,7 +367,6 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{GuardianF1LinksExercise.code}</CodeBlock>
 
   Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:

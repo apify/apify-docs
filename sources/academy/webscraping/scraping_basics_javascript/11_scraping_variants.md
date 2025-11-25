@@ -411,7 +411,5 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{CnnSportsShortestArticleExercise.code}</CodeBlock>
-
 </details>

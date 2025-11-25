@@ -239,9 +239,7 @@ Locating cells in tables is sometimes easier if you know how to [filter](https:/
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{WikipediaCallingCodesExercise.code}</CodeBlock>
-
 </details>
 
 ### Scrape authors of F1 news articles
@@ -272,7 +270,5 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{GuardianF1AuthorsExercise.code}</CodeBlock>
-
 </details>

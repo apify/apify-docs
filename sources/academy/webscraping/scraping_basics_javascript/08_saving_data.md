@@ -211,9 +211,7 @@ Write a new Node.js program that reads the `products.json` file we created in th
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{ProcessProductsJsonExercise.code}</CodeBlock>
-
 </details>
 
 ### Process your CSV

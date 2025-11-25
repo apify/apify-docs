@@ -244,9 +244,7 @@ Denon AH-C720 In-Ear Headphones | 236
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="py">{WarehouseUnitsExercise.code}</CodeBlock>
-
 </details>
 
 ### Use regular expressions
@@ -255,9 +253,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://docs
 
 <details>
   <summary>Solution</summary>
-
-    <CodeBlock language="py">{WarehouseUnitsRegexExercise.code}</CodeBlock>
-
+  <CodeBlock language="py">{WarehouseUnitsRegexExercise.code}</CodeBlock>
 </details>
 
 ### Scrape publish dates of F1 news
@@ -289,7 +285,5 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 
 <details>
   <summary>Solution</summary>
-
-    <CodeBlock language="py">{GuardianPublishDatesExercise.code}</CodeBlock>
-
+  <CodeBlock language="py">{GuardianPublishDatesExercise.code}</CodeBlock>
 </details>

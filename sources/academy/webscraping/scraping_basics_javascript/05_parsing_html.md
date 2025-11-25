@@ -195,7 +195,5 @@ Use the same URL as in the previous exercise, but this time print a total count 
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{F1AcademyDriversExercise.code}</CodeBlock>
-
 </details>
