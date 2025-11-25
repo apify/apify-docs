@@ -2,7 +2,7 @@ name: Test Academy
 
 on:
     schedule:
-        - cron: "0 3 * * 1"  # at 3am UTC on Mondays
+        - cron: "0 3 1 * *"  # at 3am UTC on 1st day of month
     workflow_dispatch:  # allows running this workflow manually from the Actions tab
 
 jobs:
