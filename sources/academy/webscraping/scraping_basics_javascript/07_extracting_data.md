@@ -243,7 +243,6 @@ Denon AH-C720 In-Ear Headphones | 236
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{WarehouseUnitsExercise.code}</CodeBlock>
 
   :::tip Conditional (ternary) operator
@@ -260,7 +259,6 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{WarehouseUnitsRegexExercise.code}</CodeBlock>
 
   :::tip Conditional (ternary) operator
@@ -300,7 +298,5 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{GuardianPublishDatesExercise.code}</CodeBlock>
-
 </details>

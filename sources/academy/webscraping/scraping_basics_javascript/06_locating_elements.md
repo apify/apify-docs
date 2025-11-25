@@ -242,7 +242,6 @@ Djibouti
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{WikipediaCountriesExercise.code}</CodeBlock>
 
   Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
@@ -264,9 +263,7 @@ You may want to check out the following pages:
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{WikipediaCountriesSingleSelectorExercise.code}</CodeBlock>
-
 </details>
 
 ### Scrape F1 news
@@ -288,7 +285,5 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="js">{GuardianF1TitlesExercise.code}</CodeBlock>
-
 </details>

@@ -465,9 +465,7 @@ If you export the dataset as JSON, it should look something like this:
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="py">{CrawleeF1DriversExercise.code}</CodeBlock>
-
 </details>
 
 ### Use Crawlee to find the ratings of the most popular Netflix films
@@ -525,7 +523,5 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 
 <details>
   <summary>Solution</summary>
-
   <CodeBlock language="py">{CrawleeNetflixRatingsExercise.code}</CodeBlock>
-
 </details>
