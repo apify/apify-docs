@@ -193,9 +193,7 @@ Write a new Python program that reads the `products.json` file we created in thi
 
 <details>
   <summary>Solution</summary>
-
-    <CodeBlock language="py">{ProcessProductsJsonExercise.code}</CodeBlock>
-
+  <CodeBlock language="py">{ProcessProductsJsonExercise.code}</CodeBlock>
 </details>
 
 ### Process your CSV
