@@ -70,11 +70,11 @@ teardown() {
 }
 
 @test "filters products from JSON" {
-  echo '[{"title":"Premium Speakers","minPrice":75000,"price":75000},{"title":"Budget Headphones","minPrice":25000,"price":25000}]' > products.json
+  echo '[{"title":"Premium Speakers","min_price":75000,"price":75000},{"title":"Budget Headphones","min_price":25000,"price":25000}]' > products.json
 
   run uv run python process_products_json.py
 
-  [[ "$output" == "{ title: 'Premium Speakers', minPrice: 75000, price: 75000 }" ]]
+  [[ "$output" == "{'title': 'Premium Speakers', 'min_price': 75000, 'price': 75000}" ]]
 }
 
 @test "lists Wikipedia country links" {
@@ -140,6 +140,6 @@ teardown() {
   (( status == 0 ))
   [[ -f dataset.json ]]
   [[ $(cat dataset.json | jq '. | length') == "10" ]]
-  [[ $(cat dataset.json | jq -c '.[0] | keys') == '["url","title","rating"]' ]]
+  [[ $(cat dataset.json | jq -c '.[0] | keys') == '["rating","title","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.imdb.com/title/"* ]]
 }

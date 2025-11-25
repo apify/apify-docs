@@ -16,15 +16,13 @@ const crawler = new CheerioCrawler({
       }
     } else if (request.label === 'IMDB_SEARCH') {
       await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
-    } else if (request.label === 'NETFLIX') {
+    } else {
       const requests = $("[data-uia='top10-table-row-title'] button").toArray().map((buttonElement) => {
         const name = $(buttonElement).text().trim();
         const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
         return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
       });
       await addRequests(requests);
-    } else {
-      throw new Error(`Unexpected request label: ${request.label}`);
     }
   },
 });
