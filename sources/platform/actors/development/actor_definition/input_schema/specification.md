@@ -370,10 +370,10 @@ Properties:
 
 | Property   | Value                                               | Required | Description                                                                   |
 |------------|-----------------------------------------------------|----------|-------------------------------------------------------------------------------|
-| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number.                                                                          |
+| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number. |
 | `editor`   | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No       | Visual editor used for input field.                                           |
 | `maximum`  | Integer or Number <br/>(based on the `type`)        | No       | Maximum allowed value.                                                        |
-| `minimum`  | Integer or Number <br/>(based on the `type`)             | No       | Minimum allowed value.                                                        |
+| `minimum`  | Integer or Number <br/>(based on the `type`)        | No       | Minimum allowed value.                                                        |
 | `unit`     | String                                              | No       | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
 | `nullable` | Boolean                                             | No       | Specifies whether null is an allowed value.                                   |
 
@@ -939,26 +939,26 @@ Rendered input:
 
 #### Single value properties
 
-| Property       | Value                                                                             | Required | Description                                                                                              |
-|----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|
-| `type`         | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                 |
-| `editor`       | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                               |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                          |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes.|
-| `pattern`      | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
-| `minLength`    | Integer                                                                           | No       | Minimum length of the string.                                                                            |
-| `maxLength`    | Integer                                                                           | No       | Maximum length of the string.                                                                            |
+| Property              | Value                                                                             | Required | Description                                                                                                                       |
+|-----------------------|-----------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `type`                | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                                          |
+| `editor`              | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                                                        |
+| `resourceType`        | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                                                   |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul>        | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. |
+| `pattern`             | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run.                          |
+| `minLength`           | Integer                                                                           | No       | Minimum length of the string.                                                                                                     |
+| `maxLength`           | Integer                                                                           | No       | Maximum length of the string.                                                                                                     |
 
 #### Multiple values properties
 
-| Property       | Value                                                                             | Required | Description                                                                |
-|----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------|
-| `type`         | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                   |
-| `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                            |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
-| `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain.                             |
-| `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain.                             |
+| Property              | Value                                                                             | Required | Description                                                                                                                                                           |
+|-----------------------|-----------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`                | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                                                                                                            |
+| `editor`              | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                                                                                            |
+| `resourceType`        | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                                                                                       |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul>        | Yes      | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
+| `minItems`            | Integer                                                                           | No       | Minimum number of items the array can contain.                                                                                                                        |
+| `maxItems`            | Integer                                                                           | No       | Maximum number of items the array can contain.                                                                                                                        |
 
 #### Resource permissions
 
