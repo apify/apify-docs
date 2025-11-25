@@ -18,3 +18,9 @@ properties:
   diskMbytes:
     type: number
     example: 2048
+  maxItems:
+    type: number
+    example: 1000
+  maxTotalChargeUsd:
+    type: number
+    example: 5
