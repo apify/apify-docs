@@ -16,7 +16,7 @@ function parseNumber(text) {
 const listingUrl = 'https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count';
 const $ = await download(listingUrl);
 
-const promises = $('section').toArray().map(async element => {
+const promises = $('section').toArray().map(async (element) => {
   const $card = $(element);
   const $link = $card.find('a').first();
   if (!$link.length) {
@@ -30,7 +30,7 @@ const promises = $('section').toArray().map(async element => {
     .last()
     .text()
     .split('•')
-    .map(item => item.trim());
+    .map((item) => item.trim());
 
   const updatedText = details[2] ?? '';
   const dependentsText = details[3] ?? '';
@@ -57,5 +57,5 @@ const promises = $('section').toArray().map(async element => {
   return { name, url, description, dependents, downloads };
 });
 
-const data = (await Promise.all(promises)).filter(item => item);
+const data = (await Promise.all(promises)).filter((item) => item);
 console.log(data.slice(0, 5));

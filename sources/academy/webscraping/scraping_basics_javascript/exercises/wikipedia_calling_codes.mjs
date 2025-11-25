@@ -13,7 +13,7 @@ const listingUrl = 'https://en.wikipedia.org/wiki/List_of_sovereign_states_and_d
 const $ = await download(listingUrl);
 
 const cells = $('.wikitable tr td:nth-child(3)');
-const promises = cells.toArray().map(async element => {
+const promises = cells.toArray().map(async (element) => {
   const $nameCell = $(element);
   const $link = $nameCell.find('a').first();
   if (!$link.length) {
@@ -27,7 +27,8 @@ const promises = cells.toArray().map(async element => {
     .first();
 
   const callingCode = $label.length
-    ? $label.parent().find('td.infobox-data').first().text().trim()
+    ? $label.parent().find('td.infobox-data').first().text()
+.trim()
     : '';
 
   console.log(`${countryUrl} ${callingCode || null}`);

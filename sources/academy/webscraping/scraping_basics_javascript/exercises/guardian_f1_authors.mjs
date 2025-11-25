@@ -12,7 +12,7 @@ async function download(url) {
 const listingUrl = 'https://www.theguardian.com/sport/formulaone';
 const $ = await download(listingUrl);
 
-const promises = $('#maincontent ul li').toArray().map(async element => {
+const promises = $('#maincontent ul li').toArray().map(async (element) => {
   const $item = $(element);
   const $link = $item.find('a').first();
   if (!$link.length) {
