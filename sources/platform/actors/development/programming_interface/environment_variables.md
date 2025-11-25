@@ -198,13 +198,13 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        old_token = Actor.config.token
+        old_token = Actor.configuration.token
         Actor.log.info(f'old_token = {old_token}')
 
         # use different token
-        Actor.config.token = 's0m3n3wt0k3n'
+        Actor.configuration.token = 's0m3n3wt0k3n'
 
-        new_token = Actor.config.token
+        new_token = Actor.configuration.token
         Actor.log.info(f'new_token = {new_token}')
 ```
 
