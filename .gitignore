@@ -29,4 +29,6 @@ codegen/*/go.sum
 .github/styles/Microsoft
 .github/styles/write-good
 sources/academy/**/exercises/storage
+sources/academy/**/exercises/node_modules
+sources/academy/**/exercises/package*.json
 sources/academy/**/exercises/dataset.json
