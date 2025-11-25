@@ -1,5 +1,6 @@
-import { CheerioCrawler, Request } from 'crawlee';
 import { escape } from 'node:querystring';
+
+import { CheerioCrawler, Request } from 'crawlee';
 
 const crawler = new CheerioCrawler({
   async requestHandler({ $, request, enqueueLinks, pushData, addRequests }) {
@@ -16,7 +17,7 @@ const crawler = new CheerioCrawler({
     } else if (request.label === 'IMDB_SEARCH') {
       await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
     } else if (request.label === 'NETFLIX') {
-      const requests = $("[data-uia='top10-table-row-title'] button").toArray().map(buttonElement => {
+      const requests = $("[data-uia='top10-table-row-title'] button").toArray().map((buttonElement) => {
         const name = $(buttonElement).text().trim();
         const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
         return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });

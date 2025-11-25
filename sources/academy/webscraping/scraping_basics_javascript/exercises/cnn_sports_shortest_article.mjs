@@ -13,7 +13,7 @@ const listingUrl = 'https://edition.cnn.com/sport';
 const $ = await download(listingUrl);
 
 const results = await Promise.all(
-  $('.layout__main .card').toArray().map(async element => {
+  $('.layout__main .card').toArray().map(async (element) => {
     const $element = $(element);
     const $link = $element.find('a').first();
     if (!$link.length) {
@@ -29,10 +29,10 @@ const results = await Promise.all(
     }
 
     return { url: articleUrl, length: content.length };
-  })
+  }),
 );
 
-const nonEmpty = results.filter(item => item && item.length > 0);
+const nonEmpty = results.filter((item) => item && item.length > 0);
 nonEmpty.sort((a, b) => a.length - b.length);
 
 if (nonEmpty.length > 0) {
