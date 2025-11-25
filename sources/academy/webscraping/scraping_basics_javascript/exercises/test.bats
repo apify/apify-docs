@@ -111,7 +111,7 @@ teardown_file() {
   run node guardian_f1_authors.mjs
 
   [[ "$output" == *' F1 '* ]]
-  [[ "$output" == *'Giles Richards: '* ]]  # writes most of them (we'll have to change this if they fire'him)
+  [[ "$output" == *'Giles Richards: '* ]]  # writes most of them (we'll have to change this if they fire him)
   [[ "$output" == *'Guardian sport: '* || "$output" == *'PM Media: '* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
