@@ -7,8 +7,6 @@ slug: /node-js/caching-responses-in-puppeteer
 
 import Example from '!!raw-loader!roa-loader!./caching_responses_in_puppeteer.js';
 
-# How to optimize Puppeteer by caching responses {#caching-responses-in-puppeteer}
-
 **Learn why it is important for performance to cache responses in memory when intercepting requests in Puppeteer and how to implement it in your code.**
 
 ---
@@ -99,7 +97,7 @@ After implementing this code, we can run the scraper again.
 
 ![Good run results](./images/good-run-results.png)
 
-Looking at the statistics, caching responses in Puppeteer brought the traffic down from 177MB to 13.4MB, which is a reduction of data transfer by 92%. The related screenshots can be found [here](https://my.apify.com/storage/key-value/iWQ3mQE2XsLA2eErL).
+Looking at the statistics, caching responses in Puppeteer brought the traffic down from 177MB to 13.4MB, which is a reduction of data transfer by 92%. The related screenshots can be found [in the Apify storage](https://my.apify.com/storage/key-value/iWQ3mQE2XsLA2eErL).
 
 It did not speed up the crawler, but that is only because the crawler is set to wait until the network is nearly idle, and CNN has a lot of tracking and analytics scripts that keep the network busy.
 

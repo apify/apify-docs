@@ -401,7 +401,7 @@ module.exports = {
 
                 const sentenceMatch = contentText.match(/^(.*?[.!?])\s/);
 
-                result.frontMatter.description = sentenceMatch ? sentenceMatch[1].trim() : contentText;
+                result.frontMatter.description ??= sentenceMatch ? sentenceMatch[1].trim() : contentText;
             }
 
             return result;

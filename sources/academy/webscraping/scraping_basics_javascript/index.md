@@ -1,75 +1,72 @@
 ---
 title: Web scraping basics for JavaScript devs
-description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
+description: Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.
 sidebar_position: 1
 sidebar_label: Web scraping basics with JS
 category: web scraping
-slug: /web-scraping-for-beginners
+slug: /scraping-basics-javascript
 ---
 
-# Web scraping basics for JavaScript devs {#welcome}
+import DocCardList from '@theme/DocCardList';
+import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 
-**Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.**
+<LegacyJsCourseAdmonition />
+
+**Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.**
 
 ---
 
-Welcome to **Web scraping basics for JavaScript devs**, a comprehensive, practical and long form web scraping course that will take you from an absolute beginner to a successful web scraper developer. If you're looking for a quick start, we recommend trying [this tutorial](https://blog.apify.com/web-scraping-javascript-nodejs/) instead.
+In this course we'll use JavaScript to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
-This course is made by [Apify](https://apify.com), the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
+![E-commerce listing on the left, JSON with data on the right](../scraping_basics/images/scraping.webp)
 
-If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, see the [Apify platform course](../../platform/apify_platform.md), where we'll teach you all about Apify serverless infrastructure, proxies, API, scheduling, webhooks and much more.
+## What we'll do
 
-## Why learn scraper development? {#why-learn}
+- Inspect pages using browser DevTools.
+- Download web pages using the Fetch API.
+- Extract data from web pages using the Cheerio library.
+- Save extracted data in various formats (e.g. CSV which MS Excel or Google Sheets can open) using the json2csv library.
+- Follow links programmatically (crawling).
+- Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
-With so many point-and-click tools and no-code software that can help you extract data from websites, what is the point of learning web scraper development? Contrary to what their marketing departments say, a point-and-click or no-code tool will never be as flexible, as powerful, or as optimized as a custom-built scraper.
+## Who this course is for
 
-Any software can do only what it was programmed to do. If you build your own scraper, it can do anything you want. And you can always quickly change it to do more, less, or the same, but faster or cheaper. The possibilities are endless once you know how scraping really works.
+Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of other web technologies or scraping.
 
-Scraper development is a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and understand how they work internally, what technologies they use and how they communicate with their servers. You will also master your chosen programming language and core programming concepts. When you truly understand web scraping, learning other technologies like React or Next.js will be a piece of cake.
+## Requirements
 
-## Course Summary {#summary}
+- A macOS, Linux, or Windows machine with a web browser and Node.js installed.
+- Familiarity with JavaScript basics: variables, conditions, loops, functions, strings, arrays, objects, files, classes, promises, imports, and exceptions.
+- Comfort with building a Node.js package and installing dependencies with `npm`.
+- Familiarity with running commands in Terminal (macOS/Linux) or Command Prompt (Windows).
 
-When we set out to create the Academy, we wanted to build a complete guide to web scraping - a course that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques and technologies. All lessons include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
+## You may want to know
 
-This is what you'll learn in the **Web scraping basics for JavaScript devs** course:
+Let's explore the key reasons to take this course. What is web scraping good for, and what career opportunities does it enable for you?
 
-* [Web scraping basics for JavaScript devs](./index.md)
-  * [Basics of data extraction](./data_extraction/index.md)
-  * [Basics of crawling](./crawling/index.md)
-  * [Best practices](./best_practices.md)
+### Why learn scraping
 
-## Requirements {#requirements}
+The internet is full of useful data, but most of it isn't offered in a structured way that's easy to process programmatically. That's why you need scraping, a set of approaches to download websites and extract data from them.
 
-You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the course and provide external references that can help you level up your web scraping and web development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
+Scraper development is also a fun and challenging way to learn web development, web technologies, and understand the internet. You'll reverse-engineer websites, understand how they work internally, discover what technologies they use, and learn how they communicate with servers. You'll also master your chosen programming language and core programming concepts. Understanding web scraping gives you a head start in learning web technologies such as HTML, CSS, JavaScript, frontend frameworks (like React or Next.js), HTTP, REST APIs, GraphQL APIs, and more.
 
-> If you don't already have basic programming knowledge and would like to be well-prepared for this course, we recommend learning about [JavaScript basics](https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/) and [CSS Selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors).
+### Why build your own scrapers
 
-As you progress to the more advanced courses, the coding will get more challenging, but will still be manageable to a person with an intermediate level of programming skills.
+Scrapers are programs specifically designed to mine data from the internet. Point-and-click or no-code scraping solutions do exist, but they only take you so far. While simple to use, they lack the flexibility and optimization needed to handle advanced cases. Only custom-built scrapers can tackle more difficult challenges. And unlike ready-made solutions, they can be fine-tuned to perform tasks more efficiently, at a lower cost, or with greater precision.
 
-Ideally, you should have at least a moderate understanding of the following concepts:
+### Why become a scraper dev
 
-### JavaScript + Node.js {#javascript-and-node}
+As a scraper developer, you are not limited by whether certain data is available programmatically through an official API—the entire web becomes your API! Here are some things you can do if you understand scraping:
 
-It is recommended to understand at least the fundamentals of JavaScript and be proficient with Node.js prior to starting this course. If you are not yet comfortable with asynchronous programming (with promises and `async...await`), loops (and the different types of loops in JavaScript), modularity, or working with external packages, we would recommend studying the following resources before coming back and continuing this section:
+- Improve your productivity by building personal tools, such as your own real estate or rare sneakers watchdog.
+- Companies can hire you to build custom scrapers mining data important for their business.
+- Become an invaluable asset to data journalism, data science, or nonprofit teams working to make the world a better place.
+- You can publish your scrapers on platforms like the [Apify Store](https://apify.com/store) and earn money by renting them out to others.
 
-* [`async...await` (YouTube)](https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship)
-* [JavaScript loops (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-* [Modularity in Node.js](https://javascript.plainenglish.io/how-to-use-modular-patterns-in-nodejs-982f0e5c8f6e)
+### Why learn with Apify
 
-### General web development {#general-web-development}
+We are [Apify](https://apify.com), a web scraping and automation platform. We do our best to build this course on top of open source technologies. That means what you learn applies to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how a scraping platform can simplify your life, but that lesson is optional and designed to fit within our [free tier](https://apify.com/pricing).
 
-Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because their knowledge will be **assumed** (unless we're showing something out of the ordinary).
+## Course content
 
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-* [DevTools](./data_extraction/browser_devtools.md)
-
-### jQuery or Cheerio {#jquery-or-cheerio}
-
-We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package a lot to parse data from HTML. This package provides an API using jQuery syntax to help traverse downloaded HTML within Node.js.
-
-## Next up {#next}
-
-The course begins with a small bit of theory and moves into some realistic and practical examples of extracting data from the most popular websites on the internet using your browser console. [Let's get to it!](./introduction.md)
-
-> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling](./crawling/index.md) section.
+<DocCardList />

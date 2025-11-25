@@ -11,8 +11,6 @@ What beginners are missing are basic tools and tricks to get things done quickly
 
 Pressing F12 while browsing with Chrome, Firefox, or other popular browsers opens up the browser console, the magic toolbox of any web developer. The console allows you to run a code in the context of the website you are in. Don't worry, you cannot mess the site up (well, unless you start doing really nasty tricks) as the page content is downloaded on your computer and any change is only local to your PC.
 
-# Running code in a browser console
-
 > Test your Page Function's code directly in your browser's console.
 
 First, you need to inject jQuery. You can try to paste and run this snippet.

@@ -2,7 +2,7 @@
 title: Source code
 description: Learn about the Actor's source code placement and its structure.
 slug: /actors/development/actor-definition/source-code
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 **Learn about the Actor's source code placement and its structure.**
