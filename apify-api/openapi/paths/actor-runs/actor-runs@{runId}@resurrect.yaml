@@ -24,7 +24,7 @@ post:
       schema:
         type: string
       example: 0.1.234
-      description: Specifies the Actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
+      description: Specifies the Actor build to run. It can be either a build tag or build number. By default, the run is resurrected with the same build that it originally used. Specifically, if a run is first started with the `latest` tag, which resolves to version `0.0.3` at the time, a run resurrected without the `build` parameter will continue running with the version `0.0.3`, even if the `latest` tag already points to a newer build.
     - name: timeout
       in: query
       required: false
