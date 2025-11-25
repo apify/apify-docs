@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Premium Speakers",
+    "min_price": "750",
+    "price": "750"
+  },
+  {
+    "title": "Budget Headphones",
+    "min_price": "250",
+    "price": "250"
+  }
+]

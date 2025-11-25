@@ -5,8 +5,11 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/crawling
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WikipediaCallingCodesExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_calling_codes.mjs';
+import GuardianF1AuthorsExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_authors.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -237,43 +240,7 @@ Locating cells in tables is sometimes easier if you know how to [filter](https:/
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  async function download(url) {
-    const response = await fetch(url);
-    if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
-    } else {
-      throw new Error(`HTTP ${response.status}`);
-    }
-  }
-
-  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const $ = await download(listingURL);
-
-  const $cells = $(".wikitable tr td:nth-child(3)");
-  const promises = $cells.toArray().map(async element => {
-    const $nameCell = $(element);
-    const $link = $nameCell.find("a").first();
-    const countryURL = new URL($link.attr("href"), listingURL).href;
-
-    const $c = await download(countryURL);
-    const $label = $c("th.infobox-label")
-      .filter((i, element) => $c(element).text().trim() == "Calling code")
-      .first();
-    const callingCode = $label
-      .parent()
-      .find("td.infobox-data")
-      .first()
-      .text()
-      .trim();
-
-    console.log(`${countryURL} ${callingCode || null}`);
-  });
-  await Promise.all(promises);
-  ```
+  <CodeBlock language="js">{WikipediaCallingCodesExercise.code}</CodeBlock>
 
 </details>
 
@@ -306,36 +273,6 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  async function download(url) {
-    const response = await fetch(url);
-    if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
-    } else {
-      throw new Error(`HTTP ${response.status}`);
-    }
-  }
-
-  const listingURL = "https://www.theguardian.com/sport/formulaone";
-  const $ = await download(listingURL);
-
-  const promises = $("#maincontent ul li").toArray().map(async element => {
-    const $item = $(element);
-    const $link = $item.find("a").first();
-    const authorURL = new URL($link.attr("href"), listingURL).href;
-
-    const $a = await download(authorURL);
-    const title = $a("h1").text().trim();
-
-    const author = $a('a[rel="author"]').text().trim();
-    const address = $a('aside address').text().trim();
-
-    console.log(`${author || address || null}: ${title}`);
-  });
-  await Promise.all(promises);
-  ```
+  <CodeBlock language="js">{GuardianF1AuthorsExercise.code}</CodeBlock>
 
 </details>

@@ -5,6 +5,9 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/saving-data
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+import ProcessProductsJsonExercise from '!!raw-loader!roa-loader!./exercises/process_products_json.py';
+
 **In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use Python's standard library to export the files.**
 
 ---
@@ -191,17 +194,7 @@ Write a new Python program that reads the `products.json` file we created in thi
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import json
-  from pprint import pp
-
-  with open("products.json", "r") as file:
-      products = json.load(file)
-
-  for product in products:
-      if int(product["min_price"]) > 500:
-          pp(product)
-  ```
+    <CodeBlock language="py">{ProcessProductsJsonExercise.code}</CodeBlock>
 
 </details>
 

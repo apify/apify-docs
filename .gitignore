@@ -28,3 +28,4 @@ codegen/*/generated/
 codegen/*/go.sum
 .github/styles/Microsoft
 .github/styles/write-good
+sources/academy/**/exercises/storage

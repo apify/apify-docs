@@ -1,0 +1,32 @@
+import { CheerioCrawler, Request } from 'crawlee';
+import { escape } from 'node:querystring';
+
+const crawler = new CheerioCrawler({
+  async requestHandler({ $, request, enqueueLinks, pushData, addRequests }) {
+    if (request.label === 'IMDB') {
+      const title = $('h1').text().trim();
+      const rating = $("[data-testid='hero-rating-bar__aggregate-rating__score']").first().text().trim();
+      if (title && rating) {
+        await pushData({
+          url: request.url,
+          title,
+          rating,
+        });
+      }
+    } else if (request.label === 'IMDB_SEARCH') {
+      await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
+    } else if (request.label === 'NETFLIX') {
+      const requests = $("[data-uia='top10-table-row-title'] button").toArray().map(buttonElement => {
+        const name = $(buttonElement).text().trim();
+        const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
+        return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
+      });
+      await addRequests(requests);
+    } else {
+      throw new Error(`Unexpected request label: ${request.label}`);
+    }
+  },
+});
+
+await crawler.run(['https://www.netflix.com/tudum/top10']);
+await crawler.exportData('dataset.json');

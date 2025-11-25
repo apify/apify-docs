@@ -5,8 +5,12 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/locating-elements
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WikipediaCountriesExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries.mjs';
+import WikipediaCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries_single_selector.mjs';
+import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_titles.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -239,35 +243,7 @@ Djibouti
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const tableElement of $(".wikitable").toArray()) {
-      const $table = $(tableElement);
-      const $rows = $table.find("tr");
-
-      for (const rowElement of $rows.toArray()) {
-        const $row = $(rowElement);
-        const $cells = $row.find("td");
-
-        if ($cells.length > 0) {
-          const $thirdColumn = $($cells[2]);
-          const $link = $thirdColumn.find("a").first();
-          console.log($link.text());
-        }
-      }
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{WikipediaCountriesExercise.code}</CodeBlock>
 
   Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
 
@@ -289,25 +265,7 @@ You may want to check out the following pages:
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
-      const $nameCell = $(element);
-      const $link = $nameCell.find("a").first();
-      console.log($link.text());
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{WikipediaCountriesSingleSelectorExercise.code}</CodeBlock>
 
 </details>
 
@@ -331,22 +289,6 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const url = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $("#maincontent ul li h3").toArray()) {
-      console.log($(element).text());
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{GuardianF1TitlesExercise.code}</CodeBlock>
 
 </details>

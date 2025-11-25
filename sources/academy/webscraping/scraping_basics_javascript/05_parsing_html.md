@@ -9,6 +9,7 @@ import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import F1AcademyTeamsExercise from '!!raw-loader!roa-loader!./exercises/f1academy_teams.mjs';
+import F1AcademyDriversExercise from '!!raw-loader!roa-loader!./exercises/f1academy_drivers.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -195,19 +196,6 @@ Use the same URL as in the previous exercise, but this time print a total count 
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const url = "https://www.f1academy.com/Racing-Series/Teams";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    console.log($(".driver").length);
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{F1AcademyDriversExercise.code}</CodeBlock>
 
 </details>
