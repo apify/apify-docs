@@ -5,8 +5,11 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/framework
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import CrawleeF1DriversExercise from '!!raw-loader!roa-loader!./exercises/crawlee_f1_drivers.mjs';
+import CrawleeNetflixRatingsExercise from '!!raw-loader!roa-loader!./exercises/crawlee_netflix_ratings.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -422,42 +425,7 @@ If you export the dataset as JSON, it should look something like this:
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import { CheerioCrawler } from 'crawlee';
-
-  const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, pushData }) {
-      if (request.label === 'DRIVER') {
-        const info = {};
-        for (const itemElement of $('.common-driver-info li').toArray()) {
-          const name = $(itemElement).find('span').text().trim();
-          const value = $(itemElement).find('h4').text().trim();
-          info[name] = value;
-        }
-        const detail = {};
-        for (const linkElement of $('.driver-detail--cta-group a').toArray()) {
-          const name = $(linkElement).find('p').text().trim();
-          const value = $(linkElement).find('h2').text().trim();
-          detail[name] = value;
-        });
-        const [dobDay, dobMonth, dobYear] = info['DOB'].split("/");
-        pushData({
-          url: request.url,
-          name: $('h1').text().trim(),
-          team: detail['Team'],
-          nationality: info['Nationality'],
-          dob: `${dobYear}-${dobMonth}-${dobDay}`,
-          instagram_url: $(".common-social-share a[href*='instagram']").attr('href'),
-        });
-      } else {
-        await enqueueLinks({ selector: '.teams-driver-item a', label: 'DRIVER' });
-      }
-    },
-  });
-
-  await crawler.run(['https://www.f1academy.com/Racing-Series/Drivers']);
-  await crawler.exportData('dataset.json');
-  ```
+  <CodeBlock language="js">{CrawleeF1DriversExercise.code}</CodeBlock>
 
 </details>
 
@@ -516,40 +484,6 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import { CheerioCrawler, Request } from 'crawlee';
-  import { escape } from 'node:querystring';
-
-  const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, pushData, addRequests }) {
-      if (request.label === 'IMDB') {
-        // handle IMDB film page
-        pushData({
-          url: request.url,
-          title: $('h1').text().trim(),
-          rating: $("[data-testid='hero-rating-bar__aggregate-rating__score']").first().text().trim(),
-        });
-      } else if (request.label === 'IMDB_SEARCH') {
-        // handle IMDB search results
-        await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
-
-      } else if (request.label === 'NETFLIX') {
-        // handle Netflix table
-        const $buttons = $('[data-uia="top10-table-row-title"] button');
-        const requests = $buttons.toArray().map(buttonElement => {
-          const name = $(buttonElement).text().trim();
-          const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
-          return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
-        });
-        await addRequests($requests.get());
-      } else {
-        throw new Error(`Unexpected request label: ${request.label}`);
-      }
-    },
-  });
-
-  await crawler.run(['https://www.netflix.com/tudum/top10']);
-  await crawler.exportData('dataset.json');
-  ```
+  <CodeBlock language="js">{CrawleeNetflixRatingsExercise.code}</CodeBlock>
 
 </details>

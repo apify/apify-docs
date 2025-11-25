@@ -5,7 +5,10 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/framework
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import CrawleeF1DriversExercise from '!!raw-loader!roa-loader!./exercises/crawlee_f1_drivers.py';
+import CrawleeNetflixRatingsExercise from '!!raw-loader!roa-loader!./exercises/crawlee_netflix_ratings.py';
 
 **In this lesson, we'll rework our application for watching prices so that it builds on top of a scraping framework. We'll use Crawlee to make the program simpler, faster, and more robust.**
 
@@ -463,6 +466,7 @@ If you export the dataset as JSON, it should look something like this:
 <details>
   <summary>Solution</summary>
 
+<<<<<<< HEAD
   ```py
   import asyncio
   from datetime import datetime
@@ -505,6 +509,9 @@ If you export the dataset as JSON, it should look something like this:
   if __name__ == '__main__':
       asyncio.run(main())
   ```
+=======
+  <CodeBlock language="py">{CrawleeF1DriversExercise.code}</CodeBlock>
+>>>>>>> 0c85c800 (refactor: make exercises testable)
 
 </details>
 
@@ -564,44 +571,6 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import asyncio
-  from urllib.parse import quote_plus
-
-  from crawlee import Request
-  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
-
-  async def main():
-      crawler = BeautifulSoupCrawler()
-
-      @crawler.router.default_handler
-      async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
-          requests = []
-          for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
-              name = name_cell.text.strip()
-              imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
-              requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
-          await context.add_requests(requests)
-
-      @crawler.router.handler("IMDB_SEARCH")
-      async def handle_imdb_search(context: BeautifulSoupCrawlingContext):
-          await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
-
-      @crawler.router.handler("IMDB")
-      async def handle_imdb(context: BeautifulSoupCrawlingContext):
-          rating_selector = "[data-testid='hero-rating-bar__aggregate-rating__score']"
-          rating_text = context.soup.select_one(rating_selector).text.strip()
-          await context.push_data({
-              "url": context.request.url,
-              "title": context.soup.select_one("h1").text.strip(),
-              "rating": rating_text,
-          })
-
-      await crawler.run(["https://www.netflix.com/tudum/top10"])
-      await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
-
-  if __name__ == '__main__':
-      asyncio.run(main())
-  ```
+  <CodeBlock language="py">{CrawleeNetflixRatingsExercise.code}</CodeBlock>
 
 </details>

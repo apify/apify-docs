@@ -5,7 +5,9 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/saving-data
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
+import ProcessProductsJsonExercise from '!!raw-loader!roa-loader!./exercises/process_products_json.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -210,15 +212,7 @@ Write a new Node.js program that reads the `products.json` file we created in th
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import { readFile } from "fs/promises";
-
-  const jsonData = await readFile("products.json");
-  const data = JSON.parse(jsonData);
-  data
-    .filter(row => row.minPrice > 50000)
-    .forEach(row => console.log(row));
-  ```
+  <CodeBlock language="js">{ProcessProductsJsonExercise.code}</CodeBlock>
 
 </details>
 

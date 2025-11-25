@@ -5,7 +5,11 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/extracting-data
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WarehouseUnitsExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units.py';
+import WarehouseUnitsRegexExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units_regex.py';
+import GuardianPublishDatesExercise from '!!raw-loader!roa-loader!./exercises/guardian_publish_dates.py';
 
 **In this lesson we'll finish extracting product data from the downloaded HTML. With help of basic string manipulation we'll focus on cleaning and correctly representing the product price.**
 
@@ -241,37 +245,7 @@ Denon AH-C720 In-Ear Headphones | 236
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
-
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-
-  for product in soup.select(".product-item"):
-      title = product.select_one(".product-item__title").text.strip()
-
-      units_text = (
-          product
-          .select_one(".product-item__inventory")
-          .text
-          .removeprefix("In stock,")
-          .removeprefix("Only")
-          .removesuffix(" left")
-          .removesuffix("units")
-          .strip()
-      )
-      if "Sold out" in units_text:
-          units = 0
-      else:
-          units = int(units_text)
-
-      print(title, units, sep=" | ")
-  ```
+  <CodeBlock language="py">{WarehouseUnitsExercise.code}</CodeBlock>
 
 </details>
 
@@ -282,29 +256,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://docs
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import re
-  import httpx
-  from bs4 import BeautifulSoup
-
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
-
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-
-  for product in soup.select(".product-item"):
-      title = product.select_one(".product-item__title").text.strip()
-
-      units_text = product.select_one(".product-item__inventory").text
-      if re_match := re.search(r"\d+", units_text):
-          units = int(re_match.group())
-      else:
-          units = 0
-
-      print(title, units, sep=" | ")
-  ```
+    <CodeBlock language="py">{WarehouseUnitsRegexExercise.code}</CodeBlock>
 
 </details>
 
@@ -338,25 +290,6 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from datetime import datetime
-
-  url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(url)
-  response.raise_for_status()
-
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-
-  for article in soup.select("#maincontent ul li"):
-      title = article.select_one("h3").text.strip()
-
-      date_iso = article.select_one("time")["datetime"].strip()
-      date = datetime.fromisoformat(date_iso)
-
-      print(title, date.strftime('%a %b %d %Y'), sep=" | ")
-  ```
+    <CodeBlock language="py">{GuardianPublishDatesExercise.code}</CodeBlock>
 
 </details>

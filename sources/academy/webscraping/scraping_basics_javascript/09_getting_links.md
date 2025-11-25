@@ -5,8 +5,11 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/getting-links
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WikipediaCountryLinksExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_country_links.mjs';
+import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -342,26 +345,7 @@ https://en.wikipedia.org/wiki/Botswana
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(listingURL);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
-      const nameCell = $(element);
-      const link = nameCell.find("a").first();
-      const url = new URL(link.attr("href"), listingURL).href;
-      console.log(url);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{WikipediaCountryLinksExercise.code}</CodeBlock>
 
 </details>
 
@@ -386,25 +370,7 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const listingURL = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(listingURL);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $("#maincontent ul li").toArray()) {
-      const link = $(element).find("a").first();
-      const url = new URL(link.attr("href"), listingURL).href;
-      console.log(url);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{GuardianF1LinksExercise.code}</CodeBlock>
 
   Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
 
