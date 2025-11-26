@@ -60,9 +60,9 @@ If you need to add or remove tools later, you'll need to create a new connector.
 Once your connector is ready:
 
 1. Open a **new chat** in ChatGPT.
-2. Select the **+** button near the message composer and select **More**.
-3. Choose your **Apify MCP connector** to add it to the conversation.
-4. Ask ChatGPT to use Apify tools, for example:
+1. Click the **+** button near the message composer and select **More**.
+1. Choose your **Apify MCP connector** to add it to the conversation.
+1. Ask ChatGPT to use Apify tools, for example:
 
    > “Search the web and summarize recent trends in AI agents”
 
