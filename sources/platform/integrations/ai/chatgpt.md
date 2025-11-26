@@ -48,17 +48,12 @@ You’ll be redirected to the Apify website to authorize ChatGPT to access your 
 
 ![ChatGPT Create connection](../images/chatgpt-connector.png)
 
-Once authorized, you’ll return to ChatGPT and see a success message with a list of tools available from the Apify MCP server.
+Once authorized, you'll return to ChatGPT and see a success message with a list of tools available from the Apify MCP server.
 
 :::caution Cannot modify tools after creation
 ChatGPT does not allow modifying the selected tools after the connector is created.
 If you need to add or remove tools later, you'll need to create a new connector.
 :::
-
-**Note:** If you try to use a connector with social media scrapers like Instagram or TikTok, you may see the error:
-"Something went wrong with setting up the connection."
-You can still use these Actors with ChatGPT by including them when initially setting up the connector.
-
 
 ## Try the MCP connector in ChatGPT
 
@@ -81,6 +76,7 @@ You should see ChatGPT calling Apify tools — such as the [RAG Web Browser](htt
 - MCP integration in ChatGPT is still in _beta_ and may have some limitations or bugs.
 - Tool selection and execution can be _slow_, especially with the latest GPT models.
 - _Custom connectors_ are only available in ChatGPT _Developer mode_.
+- When creating connectors that include social media scrapers (Instagram, TikTok), you may encounter setup errors. These Actors work correctly once included during initial connector creation, but cannot be added later.
 
 ## Related integrations
 
