@@ -60,7 +60,7 @@ A common situation in web scraping that's out of your control.
 >
 > We've got some news regarding your favorite Actor – [Facebook Ads Scraper](https://console.apify.com/actors/JJghSZmShuco4j9gJ/console). Recently, Facebook Ads have changed their data format. To keep our Actor running smoothly, we'll be adapting to these changes by slightly tweaking the Actor Output. Don't worry; it's a breeze! Some of the output data might just appear under new titles.
 >
-> This change will take place on October 10; please\*\* \*\*make sure to remap your integrations accordingly.
+> This change will take place on October 10; please make sure to remap your integrations accordingly.
 >
 > Need a hand or have questions? Our support team is just one friendly message away.
 
