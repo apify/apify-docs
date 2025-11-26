@@ -13,7 +13,9 @@ slug: /schedules
 Schedules allow you to run your Actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 :::note Timezone & Daylight Savings Time
+
 Schedules allow timezone settings and support daylight saving time shifts (DST).
+
 :::
 
 You can set up and manage your Schedules using:
@@ -26,8 +28,10 @@ You can set up and manage your Schedules using:
 When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking an Actor or task using the [Apify REST API](/api/v2/schedules).
 
 :::note Events Startup Variability
+
 In most cases, scheduled events are fired within one second of their scheduled time. <br/>
 However, runs can be delayed because of a system overload or a server shutting down.
+
 :::
 
 Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tasks.
@@ -39,7 +43,9 @@ Before setting up a new schedule, you should have the [Actor](./actors/index.mdx
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
 :::info Name Length
+
 Your schedule's name should be 3–63 characters long.
+
 :::
 
 ### Apify Console
@@ -78,7 +84,9 @@ To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST`
 You can find your [secret API token](./integrations/index.mdx) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
+
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
+
 :::
 
 In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's _actions_.

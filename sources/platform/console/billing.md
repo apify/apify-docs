@@ -27,7 +27,9 @@ The **Historical usage** tab provides a detailed view of your monthly platform u
 The tab features an adjustable bar chart. This chart can be customized to display statistics either on a monthly or daily basis. Additionally, you can view these statistics as absolute or cumulative numbers, providing flexibility in how you analyze your usage data.
 
 :::info Monthly usage data
+
 Since billing cycles can shift, the data in the **Historical usage** tab is shown for calendar months.
+
 :::
 
 ![Apify Console historical usage view](./images/console-billing-historical-usage.png)

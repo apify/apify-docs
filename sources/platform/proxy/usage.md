@@ -20,7 +20,9 @@ http://<username>:<password>@<hostname>:<port>
 ```
 
 :::caution
+
 All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks, as **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+
 :::
 
 ### External connection
@@ -36,7 +38,9 @@ If you need to test Apify Proxy before you subscribe, please [contact our suppor
 | Password  | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password.               |
 
 :::caution
+
 If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify Platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
+
 :::
 
 Example connection string for external connections:
