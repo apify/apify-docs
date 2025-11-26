@@ -72,6 +72,7 @@ or the following list:
 
 - https://github.com/bytedance/Dolphin
 - https://github.com/google/langextract
+- https://github.com/ytdl-org/youtube-dl
 - https://github.com/virattt/ai-hedge-fund
 - https://github.com/jamesturk/scrapeghost/
 - https://github.com/idosal/git-mcp
