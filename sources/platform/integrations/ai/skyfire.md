@@ -1,24 +1,24 @@
 ---
 title: Agentic Payments with Skyfire
 sidebar_label: Skyfire
-description: Learn how to use agentic payments with to enable AI agents to autonomously run Apify Actors.
+description: Learn how to use agentic payments with Skyfire to enable AI agents to autonomously run Apify Actors.
 sidebar_position: 18
 slug: /integrations/skyfire
 ---
 
 Agentic payments enable AI agents to autonomously run Apify Actors using third-party payment providers, without requiring traditional Apify user accounts. This allows agents to discover, execute, and pay for web scraping and automation tasks independently.
 
-Currently, Apify supports agentic payments through **Skyfire**, a payment network specifically designed for AI agents, but we are planning to integrate additional providers in a foreseeable future.
+Apify supports agentic payments through _Skyfire_, a payment network specifically designed for AI agents.
 
-:::info Experimental Feature
+:::warning Experimental Feature
 
-Please keep in mind that agentic payments are an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
+Keep in mind that agentic payments are an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
 
 :::
 
 ## What is Skyfire?
 
-[Skyfire](https://skyfire.xyz/) is a payment network built specifically for AI agents, enabling autonomous transactions with digital wallets and spending controls. It provides the infrastructure necessary for agents to make payments on behalf of users, allowing truly autonomous AI-driven workflows.
+[Skyfire](https://skyfire.xyz/) is a payment network built specifically for AI agents, enabling autonomous transactions with digital wallets and spending controls. It provides the infrastructure necessary for agents to make payments on behalf of users, allowing autonomous AI-driven workflows.
 
 With Skyfire integration, agents can discover available Apify Actors, execute scraping and automation tasks, and pay for services using pre-funded Skyfire tokens, all without human intervention.
 
@@ -30,9 +30,9 @@ The [Apify MCP server](https://docs.apify.com/platform/integrations/mcp) provide
 
 Before using agentic payments through MCP, you need:
 
-1. **A Skyfire account** with a funded wallet - [sign up at Skyfire](https://app.skyfire.xyz/)
-2. **An MCP client** that supports multiple server connections, such as [OpenCode](https://opencode.ai/), Claude Desktop with MCP support, or other compatible clients
-3. **Both MCP servers configured**: Skyfire's MCP server and Apify's MCP server
+1. _A Skyfire account_ with a funded wallet - [sign up at Skyfire](https://app.skyfire.xyz/)
+2. _An MCP client_ that supports multiple server connections, such as [OpenCode](https://opencode.ai/), [Claude Desktop](https://claude.com/download) with MCP support, or other compatible clients
+3. _Both MCP servers configured_: Skyfire's MCP server and Apify's MCP server
 
 ### Configuration
 
@@ -42,7 +42,7 @@ Configure your MCP client to connect to both the Skyfire and Apify MCP servers. 
 https://mcp.apify.com?payment=skyfire
 ```
 
-#### OpenCode ccnfiguration example
+#### OpenCode configuration example
 
 If you're using [OpenCode](https://opencode.ai/), add this configuration to your `opencode.json` file (see [OpenCode configuration docs](https://opencode.ai/docs/config/) for file location on your system):
 
@@ -71,11 +71,17 @@ Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you
 
 ### How it works
 
-When an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of five dollars. The agent automatically calls the Skyfire MCP server to create a payment token with sufficient funds.
+WWhen an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows:
 
-The agent then calls the Actor tool with the payment token. The Apify platform validates the token and starts the Actor run. When the run completes, the agent receives the Actor results and can retrieve additional data if needed.
+1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors.
+2. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5.
+3. The agent automatically calls the Skyfire MCP server to create a payment token with sufficient funds.
+4. The agent calls the Actor tool with the payment token.
+5. The Apify platform validates the token and starts the Actor run.
+6. When the run completes, the agent receives the Actor results and can retrieve additional data if needed.
+7. Finally, Apify's billing system charges the Skyfire PAY token for the actual usage cost.
 
-Finally Apify's billing system charges the Skyfire PAY token for the actual usage cost. Any unused funds remain available in the token for future runs or are returned to your Skyfire wallet when the token expires. This means you won't lose money if the actual usage is less than the five dollar minimum.
+Any unused funds remain available in the token for future runs or are returned to your Skyfire wallet when the token expires. This means you will not lose money if the actual usage is less than the $5 minimum.
 
 ![The flow](../images/skyfire-apify-agentic-flow.png)
 
@@ -98,10 +104,9 @@ When not pre-loading Actors, agents can discover suitable Actors dynamically usi
 
 For direct API integration, you can use Skyfire PAY tokens to authenticate and pay for Actor runs.
 
-:::info Note
+:::info Handled by MCP
 
-Using Skyfire PAY tokens is intended to use with MCP and all of those operations are handle by the MCP client.
-This information here mostly for completeness if somebody decides they want to try it out directly.
+The MCP client handles these operations automatically when using Skyfire PAY tokens.
 
 :::
 
@@ -115,9 +120,9 @@ skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN
 
 ### Running an Actor
 
-Make a standard Actor run request to the [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor), but include the Skyfire PAY token in the header. Here's an example using the synchronous run endpoint:
+Make a standard Actor run request to the [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor), but include the Skyfire PAY token in the header.
 
-```bash
+```bash title="Example of using the synchronous run endpoint"
 curl -X POST \
   'https://api.apify.com/v2/acts/ACTOR_ID/run-sync' \
   -H 'skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN' \
@@ -147,7 +152,7 @@ https://api.apify.com/v2/store?allowsAgenticUsers=true
 
 ### Payment requirements
 
-Your Skyfire PAY token must have at least **$5** available to run Actors. However, you'll only be charged for actual usage. If an Actor run costs less than five dollars, the unused funds remain available in your token for future runs or return to your Skyfire wallet when the token expires.
+Your Skyfire PAY token must have at least _$5_ available to run Actors. However, you will only be charged for actual usage. If an Actor run costs less than 5$, the unused funds remain available in your token for future runs or return to your Skyfire wallet when the token expires.
 
 ### Unsupported features
 
