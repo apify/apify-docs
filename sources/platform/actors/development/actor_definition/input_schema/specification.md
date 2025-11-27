@@ -177,7 +177,7 @@ When using escape characters `\` for the regular expression in the `pattern` fie
 
 Enables you to provide a list of predefined values for the string, including display titles.
 
-##### Strict selection with `enum`
+##### Select from predefined values
 
 When you need to restrict input to a specific set of values, use the `enum` property:
 
@@ -197,25 +197,25 @@ The `select` editor is rendered as drop-down in user interface:
 
 ![Apify Actor input schema - country input](./images/input-schema-country.png)
 
-##### Suggested values with `enumSuggestedValues`
+##### Select with custom input
 
 When you want to suggest values but still allow custom input, use the `enumSuggestedValues` property:
 
 ```json
 {
-    "title": "Country",
+    "title": "Tag",
     "type": "string",
-    "description": "Select your country",
+    "description": "Select or enter a custom tag",
     "editor": "select",
-    "default": "us",
-    "enumSuggestedValues": ["us", "de", "fr"],
-    "enumTitles": ["USA", "Germany", "France"]
+    "default": "web",
+    "enumSuggestedValues": ["web", "scraping", "automation"],
+    "enumTitles": ["Web", "Scraping", "Automation"]
 }
 ```
 
-This creates a select dropdown with suggested values, but users can also enter custom values:
+This creates a select dropdown with suggested values, but users can also enter custom value:
 
-![Apify Actor input schema - country input suggestion](./images/input-schema-country-suggestion.png)
+![Apify Actor input schema - tag input suggestion](./images/input-schema-tag-suggestion.png)
 
 #### Code editor
 
@@ -670,8 +670,11 @@ Editor type `fileupload` enables users to specify a list of files as input. The 
 #### Select editor for arrays (multiselect)
 
 The `select` editor for arrays allows users to pick multiple items from a dropdown list. This creates a multiselect field in the UI.
+You can either only allow users to select from a set of predefined values, or allow them to specify custom values in addition to suggested values.
 
-##### Strict multiselect with `enum`
+To correctly define options for multiselect, you need to define the `items` property and then provide values in `enum`/`enumSuggestedValues` and (optionally) labels in `enumTitles` properties.
+
+##### Select from predefined values
 
 When you need to restrict selections to a specific set of values, use the `enum` property:
 
@@ -691,9 +694,9 @@ When you need to restrict selections to a specific set of values, use the `enum`
 
 This creates a multiselect dropdown where users can only select from the predefined values:
 
-![Apify Actor input schema - multiselect field](./images/input-schema-country-multi.png)
+![Apify Actor input schema - multiselect with predefined values](./images/input-schema-country-multi.png)
 
-##### Suggested values with `enumSuggestedValues`
+##### Select with custom input
 
 When you want to suggest values but still allow custom input, use the `enumSuggestedValues` property:
 
@@ -713,9 +716,7 @@ When you want to suggest values but still allow custom input, use the `enumSugge
 
 This creates a multiselect dropdown with suggested values, but users can also enter custom values:
 
-![Apify Actor input schema - multiselect field suggestion](./images/input-schema-country-multi-suggestion.png)
-
-To correctly define options for multiselect, you need to define the `items` property and then provide values and (optionally) labels in `enum`/`enumSuggestedValues` and `enumTitles` properties.
+![Apify Actor input schema - multiselect with custom values](./images/input-schema-tags-multi-suggestion.png)
 
 #### Array items validation
 
