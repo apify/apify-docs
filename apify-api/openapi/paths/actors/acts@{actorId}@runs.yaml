@@ -167,7 +167,7 @@ post:
 
     To fetch the Actor run results that are typically stored in the default
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
-    received in the response JSON to the [Get items](#/reference/datasets/item-collection/get-items)
+    received in the response JSON to the [Get dataset items](#/reference/datasets/item-collection/get-items)
     API endpoint.
   operationId: act_runs_post
   parameters:
@@ -202,34 +202,17 @@ post:
         type: number
         format: double
         example: 256
-    - name: maxItems
+    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
+    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - name: restartOnError
       in: query
       description: |
-        The maximum number of items that the Actor run should return. This is
-        useful for pay-per-result Actors, as it allows you to limit the number
-        of results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+        Determines whether the run will be restarted if it fails.
       style: form
       explode: true
       schema:
-        type: number
-        format: double
-        example: 1000
-    - name: maxTotalChargeUsd
-      in: query
-      description: |
-        Specifies the maximum cost of the Actor run. This parameter is
-        useful for pay-per-event Actors, as it allows you to limit the amount
-        charged to your subscription. You can access the
-        maximum cost in your Actor by using the
-        `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 5
+        type: boolean
+        example: false
     - name: build
       in: query
       description: |
@@ -266,6 +249,21 @@ post:
       schema:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+    - name: forcePermissionLevel
+      in: query
+      description: |
+        Overrides the Actor's permission level for this specific run. Use to test restricted permissions
+        before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
+        parameter, the Actor uses its configured default permission level. For more information on permissions, see the
+        [documentation](https://docs.apify.com/platform/actors/development/permissions).
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - LIMITED_PERMISSIONS
+          - FULL_PERMISSIONS
+        example: LIMITED_PERMISSIONS
   requestBody:
     description: ''
     content:

@@ -30,6 +30,7 @@ import WebScrapingForBeginners from './img/academy_icons/web_scraping_for_beginn
 import Actors from './img/platform_icons/actors.svg';
 import Collaboration from './img/platform_icons/collaboration.svg';
 import Integrations from './img/platform_icons/integrations.svg';
+import MCP from './img/platform_icons/mcp.svg';
 import Monitoring from './img/platform_icons/monitoring.svg';
 import Proxy from './img/platform_icons/proxy.svg';
 import Schedules from './img/platform_icons/schedules.svg';
@@ -62,9 +63,17 @@ export default function Home() {
         <Layout>
             <Hero
                 heading="Apify Documentation"
+                align="center"
+                promotion={{
+                    badge: 'New',
+                    label: 'Join the Apify $1M Challenge. Build to win!',
+                    labelMobile: 'Join the Apify $1M Challenge!',
+                    href: 'https://apify.com/challenge',
+                }}
                 description={
-                    <Text color={theme.color.neutral.textMuted} size='large'>
-                        Learn how to extract value from the web with the Apify platform.
+                    <Text color={theme.color.neutral.textMuted} size="large">
+                        Learn how to extract value from the web with the Apify
+                        platform.
                     </Text>
                 }
             />
@@ -73,7 +82,7 @@ export default function Home() {
                     <div className={styles.bannerContent}>
                         <div className={styles.bannerContentDescription}>
                             <Heading type="titleXl">Getting started</Heading>
-                            <Text size='medium' color={theme.color.neutral.textMuted}>
+                            <Text size="large" color={theme.color.neutral.textMuted}>
                                 Apify is all about Actors—a new way to package your code to make it easy to share, integrate, and build upon.
                             </Text>
                             <ThemedImage
@@ -169,6 +178,12 @@ export default function Home() {
                             description="Learn about Apify platform security and data protection."
                             to="/platform/security"
                         />
+                        <CardWithIcon
+                            icon={<MCP />}
+                            title="MCP"
+                            description="Discover and use Actors with AI agents and LLMs via Apify MCP server."
+                            to="/platform/integrations/mcp"
+                        />
                     </div>
                 </div>
             </Section>
@@ -258,8 +273,8 @@ export default function Home() {
                 </div>
             </Section>
             <Section
-                heading="Web scraping Academy"
-                description='Free practical courses on web scraping and browser automation. Go from beginner to expert, all in one place.'
+                heading="Apify Academy"
+                description='Free practical courses on web scraping and the Apify platform. Go from beginner to expert, all in one place.'
             >
                 <div className={styles.sectionLayoutWrapper}>
                     <div className={styles.cards}>
@@ -267,7 +282,7 @@ export default function Home() {
                             icon={<WebScrapingForBeginners />}
                             title="Web scraping for beginners"
                             description="Learn the basics of web scraping and how to develop your own scraper."
-                            to="/academy/web-scraping-for-beginners"
+                            to="/academy/scraping-basics-javascript"
                         />
                         <CardWithIcon
                             icon={<ApifyPlatformCourse />}

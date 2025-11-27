@@ -2,7 +2,7 @@
 title: Pay per event
 description: Learn how to monetize your Actor with pay-per-event (PPE) pricing, charging users for specific actions like Actor starts, dataset items, or API calls, and understand how to set profitable, transparent event-based pricing.
 slug: /actors/publishing/monetize/pay-per-event
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 **Learn how to monetize your Actor with pay-per-event (PPE) pricing, charging users for specific actions like Actor starts, dataset items, or API calls, and understand how to set profitable, transparent event-based pricing.**
@@ -12,7 +12,7 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The PPE pricing model offers a flexible monetization option for Actors on Apify Store. Unlike pay per result, PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
+The PPE pricing model offers a flexible monetization option for Actors on Apify Store. Unlike [pay per result](/platform/actors/publishing/monetize/pay-per-result), PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
 
 PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly. Common events include Actor start, dataset item creation, and external API calls.
 
@@ -108,7 +108,7 @@ async def charge_for_api_product_detail():
 
 async def main():
     await Actor.init()
-    
+
     # API call, or any other logic that you want to charge for
 
     charge_result = await charge_for_api_product_detail()
@@ -136,7 +136,7 @@ Use our [SDKs](/sdk) (JS and, Python or use [`apify actor charge`](/cli/docs/nex
 
 ### Use synthetic start event `apify-actor-start`
 
-:::info Synthetic Actor recommended
+:::info Synthetic Actor start event recommended
 
 We recommend using the synthetic Actor start event in PPE Actors. It benefits both you and your users.
 
@@ -179,13 +179,26 @@ Your Actor might already have a start event defined, such as `actor-start` or an
 
 If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the **Publication** tab.
 
+### Use synthetic default dataset item event `apify-default-dataset-item`
+
+The `apify-default-dataset-item` synthetic event charges users for each item written to the run's default dataset. It lets you align PPE pricing with per-result use cases without adding charging code to your Actor.
+
+This event simplifies migration from pay-per-result (PPR) Actors to the pay-per-event (PPE) model. No code changes are required.
+
+#### How the synthetic default dataset item event works
+
+- Apify automatically charges this event whenever your Actor writes an item to the default dataset (for example, when using `Actor.pushData`).
+- No code changes are required to charge this event.
+- You can remove the event in Apify Console if you don't want automatic charging for default dataset items. If you remove it, default dataset writes will no longer be charged automatically.
+- The event applies only to the default dataset of the run. Writes to other (non-default) datasets are not charged by this synthetic event.
+
 ### Set memory limits
 
 Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) file to control platform usage costs.
 
 ```json
 {
-    "actorSpecification": 1, 
+    "actorSpecification": 1,
     "name": "name-of-my-scraper",
     "version": "0.0",
     "minMemoryMbytes": 512,
@@ -213,7 +226,7 @@ import { Actor } from 'apify';
 
 const processUrl = async (url) => {
   const response = await fetch(url);
-    
+
   if (response.status === 404) {
     // Charge for the work done and return error item in one call
     await Actor.pushData({
@@ -221,7 +234,7 @@ const processUrl = async (url) => {
       error: "404",
       errorMessage: "Page not found"
     }, 'scraped-result');
-    
+
     return;
   }
 
@@ -232,7 +245,7 @@ await Actor.init();
 
 const input = await Actor.getInput();
 const { urls } = input;
-  
+
 for (const url of urls) {
   await processUrl(url);
 }
@@ -251,7 +264,7 @@ import requests
 
 async def process_url(url):
     response = requests.get(url)
-    
+
     if response.status_code == 404:
       # Charge for the work done and return error item in one call
       await Actor.push_data({
@@ -259,22 +272,22 @@ async def process_url(url):
           'error': '404',
           'errorMessage': 'Page not found'
       }, 'scraped-result')
-        
+
       return
 
     # Rest of the process_url function
 
 async def main():
     await Actor.init()
-    
+
     input_data = await Actor.get_input()
     urls = input_data.get('urls', [])
-    
+
     for url in urls:
         await process_url(url)
-    
+
     # Rest of the Actor logic
-    
+
     await Actor.exit()
 ```
 
@@ -294,7 +307,7 @@ However, we acknowledge that some events don't produce tangible results (such as
 Examples:
 
 - _`post` event_: Each charge adds one social media post to the dataset
-- _`profile` event_: Each charge adds one user profile to the dataset  
+- _`profile` event_: Each charge adds one user profile to the dataset
 - _`processed-image` event_: Each charge adds one processed image to the dataset
 - _`ai-analysis` event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
 

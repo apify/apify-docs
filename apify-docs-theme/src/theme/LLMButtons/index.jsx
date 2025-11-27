@@ -55,7 +55,11 @@ const DROPDOWN_OPTIONS = [
 ];
 
 const getPrompt = (currentUrl) => `Read from ${currentUrl} so I can ask questions about it.`;
-const getMarkdownUrl = (currentUrl) => `${currentUrl}.md`;
+const getMarkdownUrl = (currentUrl) => {
+    const url = new URL(currentUrl);
+    url.pathname = `${url.pathname.replace(/\/$/, '')}.md`;
+    return url.toString();
+};
 
 const onOpenInChatGPTClick = () => {
     if (window.analytics) {

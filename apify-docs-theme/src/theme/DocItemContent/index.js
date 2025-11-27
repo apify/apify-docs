@@ -54,6 +54,7 @@ export default function DocItemContent({ children }) {
     '/platform',
     '/sdk',
     '/cli',
+    '/academy',
   ];
 
   // Define paths that should not show LLMButtons (e.g., changelog pages)

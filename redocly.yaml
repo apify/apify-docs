@@ -1,0 +1,29 @@
+# See https://redoc.ly/docs/cli/configuration/ for more information.
+apis:
+    main@v1:
+        root: apify-api/openapi/openapi.yaml
+
+extends:
+    - recommended
+
+rules:
+    # TODO we have quite a lot of errors in there, once we fix them, this should be flipped to `error` too
+    struct: warn
+    no-unused-components: error
+    nullable-type-sibling: warn
+
+openapi:
+    htmlTemplate: openapi/docs/index.html
+    expandDefaultResponse: true
+    expandDefaultRequest: true
+    expandResponses: all
+    schemasExpansionLevel: 2
+    jsonSamplesExpandLevel: 2
+
+plugins:
+    - apify-api/plugins/apify.mjs
+
+decorators:
+    apify/legacy-doc-url-decorator: on
+    apify/client-references-links-decorator: on
+    apify/code-samples-decorator: on

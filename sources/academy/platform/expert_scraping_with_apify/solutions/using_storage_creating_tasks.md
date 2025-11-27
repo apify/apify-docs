@@ -1,11 +1,10 @@
 ---
-title: III - Using storage & creating tasks
+title: Using storage & creating tasks
 description: Get quiz answers and explanations for the lesson about using storage and creating tasks on the Apify platform.
 sidebar_position: 3
+sidebar_label: III - Using storage & creating tasks
 slug: /expert-scraping-with-apify/solutions/using-storage-creating-tasks
 ---
-
-# Using storage & creating tasks {#using-storage-creating-tasks}
 
 ## Quiz answers 📝 {#quiz-answers}
 

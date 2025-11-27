@@ -5,8 +5,6 @@ sidebar_position: 3
 slug: /anti-scraping/mitigation/cloudflare-challenge.md
 ---
 
-# Bypassing Cloudflare browser check {#cloudflare-challenge}
-
 **Learn how to bypass Cloudflare browser challenge with Crawlee.**
 
 ---
@@ -28,7 +26,7 @@ const crawler = new PlaywrightCrawler({
 
 It's important to note that by removing default blocked status code handling, you should also add custom session retire logic on blocked pages to reduce retries. Additionally, you should add waiting logic to start the automation logic only after the Cloudflare challenge is solved and the page is redirected. This can be accomplished by waiting for a common selector that is available on all pages, such as a header logo.
 
-In some cases, the browser may not pass the check and you may be presented with a captcha, indicating that your IP address has been graylisted. If you are working with a large pool of proxies you can retire the session and use another IP. However, if you have a small pool of proxies you might want to whitelist the IP. To do this, you'll need to solve the captcha to improve your IP address's reputation. You can find various captcha-solving services, such as [AntiCaptcha](https://anti-captcha.com/), that you can use for this purpose. For more info check the section about [Captchas](../techniques/captchas.md).
+In some cases, the browser may not pass the check and you may be presented with a captcha, indicating that your IP address has been graylisted. If you are working with a large pool of proxies you can retire the session and use another IP. However, if you have a small pool of proxies you might want to whitelist the IP. To do this, you'll need to solve the captcha to improve your IP address's reputation. You can find various captcha-solving services, such as [AntiCaptcha](https://anti-captcha.com/), that you can use for this purpose. For more info check the section about [CAPTCHAs](../techniques/captchas.md).
 
 ![Cloudflare captcha](https://images.ctfassets.net/slt3lc6tev37/6sN2VXiUaJpjxqVfTbZEJd/9a4e13cbf08ce29797167c133c534e1f/image1.png)
 

@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /api-scraping/graphql-scraping/introspection
 ---
 
-# Introspection {#introspection}
-
 **Understand what introspection is, and how it can help you understand a GraphQL API to take advantage of the features it has to offer before writing any code.**
 
 ---

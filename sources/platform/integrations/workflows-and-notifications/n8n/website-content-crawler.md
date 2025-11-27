@@ -16,7 +16,7 @@ To use these modules, you need an [API token](https://docs.apify.com/platform/in
 Before you begin, make sure you have:
 
 - An [Apify account](https://console.apify.com/)
-- An [n8n instance](https://docs.n8n.io/getting-started/) (self‑hosted or cloud)
+- An [n8n instance](https://docs.n8n.io/learning-path/) (self‑hosted or cloud)
 
 ## n8n Cloud setup
 

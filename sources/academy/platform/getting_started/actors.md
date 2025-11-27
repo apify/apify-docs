@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /getting-started/actors
 ---
 
-# Actors {#actors}
-
 **What is an Actor? How do we create them? Learn the basics of what Actors are, how they work, and try out an Actor yourself right on the Apify platform!**
 
 ---
@@ -19,13 +17,17 @@ When you deploy your script to the Apify platform, it is then called an **Actor*
 
 Once an Actor has been pushed to the Apify platform, they can be shared to the world through the [Apify Store](https://apify.com/store), and even monetized after going public.
 
-> Though the majority of Actors that are currently on the Apify platform are scrapers, crawlers, or automation software, Actors are not limited to scraping. They can be any program running in a Docker container.
+:::note Beyond scraping
+
+Though the majority of Actors that are currently on the Apify platform are scrapers, crawlers, or automation software, Actors are not limited to scraping. They can be any program running in a Docker container.
+
+:::
 
 ## Actors on the Apify platform {#actors-on-platform}
 
-For a super quick and dirty understanding of what a published Actor looks like, and how it works, let's run an SEO audit of **apify.com** using the [SEO audit Actor](https://apify.com/misceres/seo-audit-tool).
+For a super quick and dirty understanding of what a published Actor looks like, and how it works, let's run an SEO audit of _apify.com_ using the [SEO audit Actor](https://apify.com/misceres/seo-audit-tool).
 
-On the front page of the Actor, click the green **Try for free** button. If you're logged into your Apify account which you created during the [**Getting started**](./index.md) lesson, you'll be taken to the Apify Console and greeted with a page that looks like this:
+On the front page of the Actor, click the green **Try for free** button. If you're logged into your Apify account which you created during the [Getting started](./index.md) lesson, you'll be taken to the Apify Console and greeted with a page that looks like this:
 
 ![Actor configuration](./images/seo-actor-config.png)
 
@@ -37,7 +39,7 @@ After the Actor has completed its run (you'll know this when you see **SEO audit
 
 ## The "Actors" tab {#actors-tab}
 
-While still on the platform, click on the tab with the **< >** icon which says **Actors**. This tab is your one-stop-shop for seeing which Actors you've used recently, and which ones you've developed yourself. You will be frequently using this tab when developing and testing on the Apify platform.
+While still on the platform, click on the tab with the **&lt;/&gt;** icon which says **Actors**. This tab is your one-stop-shop for seeing which Actors you've used recently, and which ones you've developed yourself. You will be frequently using this tab when developing and testing on the Apify platform.
 
 ![The "Actors" tab on the Apify platform](./images/actors-tab.jpg)
 

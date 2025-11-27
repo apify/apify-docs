@@ -1,13 +1,18 @@
 ---
-title: I - Webhooks & advanced Actor overview
+title: Webhooks & advanced Actor overview
 description: Learn more advanced details about Actors, how they work, and the default configurations they can take. Also, learn how to integrate your Actor with webhooks.
 sidebar_position: 6.1
+sidebar_label: I - Webhooks & advanced Actor overview
 slug: /expert-scraping-with-apify/actors-webhooks
 ---
 
-# Webhooks & advanced Actor overview {#webhooks-and-advanced-actors}
-
 **Learn more advanced details about Actors, how they work, and the default configurations they can take. Also, learn how to integrate your Actor with webhooks.**
+
+:::caution Updates coming
+
+This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to completely retire it in a few months. This lesson will be updated to remove the dependency.
+
+:::
 
 ---
 
@@ -15,7 +20,7 @@ Thus far, you've run Actors on the platform and written an Actor of your own, wh
 
 ## Advanced Actor overview {#advanced-actors}
 
-In this course, we'll be working out of the Amazon scraper project from the **Web scraping basics for JavaScript devs** course. If you haven't already built that project, you can do it in three short lessons [here](../../webscraping/scraping_basics_javascript/challenge/index.md). We've made a few small modifications to the project with the Apify SDK, but 99% of the code is still the same.
+In this course, we'll be working out of the Amazon scraper project from the **Web scraping basics for JavaScript devs** course. If you haven't already built that project, you can do it in [three short lessons](../../webscraping/scraping_basics_legacy/challenge/index.md). We've made a few small modifications to the project with the Apify SDK, but 99% of the code is still the same.
 
 Take another look at the files within your Amazon scraper project. You'll notice that there is a **Dockerfile**. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
 
@@ -41,7 +46,7 @@ Prior to moving forward, please read over these resources:
 
 ## Our task {#our-task}
 
-In this task, we'll be building on top of what we already created in the [Web scraping basics for JavaScript devs](/academy/web-scraping-for-beginners/challenge) course's final challenge, so keep those files safe!
+In this task, we'll be building on top of what we already created in the [Web scraping basics for JavaScript devs](../../webscraping/scraping_basics_legacy/challenge/index.md) course's final challenge, so keep those files safe!
 
 Once our Amazon Actor has completed its run, we will, rather than sending an email to ourselves, call an Actor through a webhook. The Actor called will be a new Actor that we will create together, which will take the dataset ID as input, then subsequently filter through all of the results and return only the cheapest one for each product. All of the results of the Actor will be pushed to its default dataset.
 

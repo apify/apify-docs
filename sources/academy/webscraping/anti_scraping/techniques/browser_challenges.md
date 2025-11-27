@@ -5,8 +5,6 @@ sidebar_position: 5
 slug: /anti-scraping/techniques/browser-challenges
 ---
 
-# Browser challenges {#fingerprinting}
-
 > Learn how to navigate browser challenges like Cloudflare's to effectively scrape data from protected websites.
 
 ## Browser challenges
@@ -31,4 +29,4 @@ If you want to learn how to bypass Cloudflare challenge visit the [Bypassing Clo
 
 ## Next up {#next}
 
-In the [next lesson](./captchas.md), we'll be covering **captchas**, which were mentioned throughout this lesson. It's important to note that attempting to solve a captcha programmatically is the last resort - always try to avoid being presented with the captcha in the first place by using the techniques mentioned in this lesson.
+In the [next lesson](./captchas.md), we'll be covering **CAPTCHAs**, which were mentioned throughout this lesson. It's important to note that attempting to solve a captcha programmatically is the last resort - always try to avoid being presented with the captcha in the first place by using the techniques mentioned in this lesson.

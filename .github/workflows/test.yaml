@@ -11,12 +11,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v5
+                uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
@@ -35,12 +35,116 @@ jobs:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
+            -   name: Install Nginx
+                run: |
+                    sudo apt-get update
+                    sudo apt-get install -y nginx
+
+            -   name: Start Docusaurus server
+                run: |
+                    nohup npx docusaurus serve --port 3000 --no-open &
+                    sleep 5
+                    curl -f http://localhost:3000 > /dev/null
+
+            -   name: Start Nginx with project config
+                run: |
+                    cat > default.conf <<EOF
+                    worker_processes auto;
+                    error_log $(pwd)/logs/error.log;
+                    pid $(pwd)/logs/nginx.pid;
+                    events {}
+                    http {
+                        access_log $(pwd)/logs/access.log;
+                        include $(pwd)/nginx.conf;
+                    }
+                    EOF
+                    sed -i 's|https://apify.github.io/apify-docs|http://localhost:3000|g' default.conf
+                    mkdir -p $(pwd)/logs
+                    nginx -c $(pwd)/default.conf
+                    sleep 1
+
+            -   name: Run header assertions
+                run: |
+                    set -euo pipefail
+                    function assert_header() {
+                        url=$1
+                        header=$2
+                        expected=$3
+                        shift 3
+                        extra_args=("$@")
+                        actual=$(curl -s -D - -o /dev/null "${extra_args[@]}" "$url" | grep -i "^$header" | tr -d '\r' || true)
+                        echo "→ $url → $actual"
+                        echo "$actual" | grep -q "$expected" || (echo "❌ Expected '$expected' in '$header' for $url" && exit 1)
+                    }
+
+                    echo "🧪 Checking Nginx responses... (apify-docs)"
+                    assert_header "http://localhost:8080/" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/platform/proxy/usage" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/platform/proxy/usage.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/platform/proxy/usage" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/img/docs-og.png" "Content-Type" "image/png"
+                    assert_header "http://localhost:8080/img/javascript-40x40.svg" "Content-Type" "image/svg"
+                    assert_header "http://localhost:8080/llms.txt" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking Nginx responses... (apify-sdk-js)"
+                    assert_header "http://localhost:8080/sdk/js" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/sdk/js" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/sdk/js/llms.txt" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/sdk/js/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking Nginx responses... (apify-sdk-python)"
+                    assert_header "http://localhost:8080/sdk/python" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/sdk/python" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/sdk/python/docs/changelog.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/sdk/python/llms.txt" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/sdk/python/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking Nginx responses... (apify-client-js)"
+                    assert_header "http://localhost:8080/api/client/js" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/api/client/js" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/api/client/js/docs/changelog.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/api/client/js/llms.txt" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/client/js/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking Nginx responses... (apify-client-python)"
+                    assert_header "http://localhost:8080/api/client/python" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/api/client/python" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/api/client/python/docs/changelog.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/api/client/python/llms.txt" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/client/python/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking Nginx responses... (apify-cli)"
+                    assert_header "http://localhost:8080/cli" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/cli" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/cli/docs/changelog.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/cli/llms.txt" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/cli/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "✅ All Nginx header checks passed."
+
+            -   name: Stop Nginx
+                if: always()
+                run: nginx -c $(pwd)/default.conf -s stop
+
     lint_content:
         name: Lint markdown content
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Get changed files
                 id: changed-files
@@ -51,9 +155,9 @@ jobs:
                     separator: ","
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v5
+                uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
@@ -81,12 +185,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Use Node.js 22
-                uses: actions/setup-node@v5
+                uses: actions/setup-node@v6
                 with:
-                    node-version: 22
+                    node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 

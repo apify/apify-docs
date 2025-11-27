@@ -36,6 +36,10 @@ const ActorTemplatesWrapper = styled.div`
     margin: 0 auto;
     gap: ${theme.space.space24};
 
+    > a {
+        display: flex;
+    }
+
     @media (min-width: ${theme.layout.tablet}) {
         grid-template-columns: repeat(2, 1fr);
     }

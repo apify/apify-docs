@@ -180,7 +180,7 @@ const gotoFunction = async ({ request, page }) => {
 };
 ```
 
-Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) for reference) since the other requests will probably have similar problem.
+Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check the [handling blocked requests guide](/academy/node-js/handle-blocked-requests-puppeteer) for reference) since the other requests will probably have similar problem.
 
 ```js
 const handlePageFunction = async ({ request, page, puppeteerPool }) => {

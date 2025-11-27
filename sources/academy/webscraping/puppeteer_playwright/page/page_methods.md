@@ -8,8 +8,6 @@ slug: /puppeteer-playwright/page/page-methods
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Page methods {#page-methods}
-
 **Understand that the Page object has many different methods to offer, and learn how to use two of them to capture a page's title and take a screenshot.**
 
 ---
@@ -34,9 +32,9 @@ const title = await page.title();
 // Log the title to the console
 console.log(title);
 ```
-
+<!-- vale off -->
 ## Screenshotting {#screenshotting}
-
+<!-- vale on -->
 The `page.screenshot()` function will return a buffer which can be written to the filesystem as an image:
 
 ```js

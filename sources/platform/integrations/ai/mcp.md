@@ -12,7 +12,10 @@ toc_max_heading_level: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The _Apify Model Context Protocol (MCP) Server_ enables AI applications to connect to Apify's extensive library of Actors. Tools allowing your AI agents to perform web scraping, data extraction, and automation tasks in real time.
+The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
+using [Model Context Protocol](https://modelcontextprotocol.io/). The server enables AI agents to
+discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
+and enabled AI coding assistants to access Apify documentation and tutorials.
 
 ![Apify MCP Server](../../images/apify_mcp_server.png)
 
@@ -84,7 +87,13 @@ Here's how to add the Apify MCP server to popular text editors and AI assistants
 <Tabs>
 <TabItem value="cursor" label="Cursor">
 
-To add Apify MCP server to Cursor:
+:::tip One-click installation
+
+The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install button for Cursor that automatically applies the configuration to your client.
+
+:::
+
+To add Apify MCP server to Cursor manually:
 
 1. Create or open the `.cursor/mcp.json` file.
 1. Add the following to the configuration file:
@@ -130,7 +139,13 @@ To add Apify MCP server to Cursor:
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-VS Code supports MCP through GitHub Copilot's agent mode(requires Copilot subscription):
+:::tip One-click installation
+
+The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install button for VS Code that automatically applies the configuration to your client.
+
+:::
+
+VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subscription):
 
 1. Ensure you have GitHub Copilot installed
 1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run _MCP: Open User Configuration_ command.
@@ -180,7 +195,7 @@ VS Code supports MCP through GitHub Copilot's agent mode(requires Copilot subscr
 
 :::tip One-click installation
 
-Download and run the [Apify MCP Server DXT file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.dxt) for one-click installation.
+Download and run the [Apify MCP Server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
 
 :::
 
