@@ -74,10 +74,10 @@ Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you
 WWhen an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows:
 
 1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors.
-2. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5.
-3. The agent automatically calls the Skyfire MCP server to create a payment token with sufficient funds.
-4. The agent calls the Actor tool with the payment token.
-5. The Apify platform validates the token and starts the Actor run.
+2. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5 and calls the Skyfire MCP server to create it.
+3. The agent calls the Actor tool with the payment token.
+4. The Apify platform validates the token and starts the Actor run.
+5. The Actor does the work and delivers results.
 6. When the run completes, the agent receives the Actor results and can retrieve additional data if needed.
 7. Finally, Apify's billing system charges the Skyfire PAY token for the actual usage cost.
 
