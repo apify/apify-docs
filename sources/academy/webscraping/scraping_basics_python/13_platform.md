@@ -30,7 +30,7 @@ That said, the main goal of this lesson is to show how deploying to _any platfor
 
 First, let's [create a new Apify account](https://console.apify.com/sign-up). We'll go through a few checks to confirm we're human and our email is valid—annoying but necessary to prevent abuse of the platform.
 
-Apify serves both as an infrastructure where to privately deploy and run own scrapers, and as a marketplace, where anyone can offer their ready scrapers to others for rent. But let's hold off on exploring the Apify Store for now.
+Apify serves both as an infrastructure where to privately deploy and run own scrapers, and as a marketplace, where anyone can offer their ready scrapers to others for rent. But let's hold off on exploring Apify Store for now.
 
 ## Getting access from the command line
 

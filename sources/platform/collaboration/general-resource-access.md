@@ -62,7 +62,7 @@ Even if your access is set to **Restricted** there are a few built-in exceptions
 
 Builds of public Actors are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General resource access** setting.
 
-This ensures that public Actors in the Apify Store continue to work as expected. For example, if you open a public Actor in Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
+This ensures that public Actors in Apify Store continue to work as expected. For example, if you open a public Actor in Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
 
 This exception exists to maintain usability and avoid breaking workflows that rely on public Actors. It only applies to builds of Actors that are marked as **public**. For private Actors, build access still follows the general resource access setting of the owner’s account.
 
@@ -77,7 +77,7 @@ When you share an Actor with a collaborator, you can choose to share read-only a
 
 #### Automatically sharing runs with public Actor creators
 
-If you’re using a public Actor from the Apify Store, you can choose to automatically share your runs of that Actor with its creator. This helps developers monitor usage and troubleshoot issues more effectively.
+If you’re using a public Actor from Apify Store, you can choose to automatically share your runs of that Actor with its creator. This helps developers monitor usage and troubleshoot issues more effectively.
 
 - This setting is opt-in and can be enabled under **Account Settings → Privacy**
 - When enabled, your runs of public Actors are automatically visible to the Actor’s creator
@@ -140,7 +140,7 @@ Only selected _dataset_ and _key-value store_ endpoints support pre-signed URLs.
 This allows fine-grained control over what data can be shared without authentication.
 
 | Resource | Link | Validity | Notes |
-|-----------|-----------------------|------|-------|
+| ----------- | ----------------------- | ------ | ------- |
 | _Datasets_ | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
 | _Key-value stores_ | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
 | _Key-value stores_ | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | _Permanent only_ | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
@@ -255,7 +255,7 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 ## Implications for public Actor developers
 
-If you own a public Actor in the Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
+If you own a public Actor in Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
 
 In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
 
