@@ -13,7 +13,6 @@ toc_max_heading_level: 4
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
-import InstallMCPButton from "@site/src/components/InstallMCPButton";
 import copyForAI from "./images/copy-for-ai.png";
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code, by providing the AI agents with the right instructions and context.
@@ -60,6 +59,34 @@ The Apify MCP Server has tools to search and fetch documentation. If you set it 
 We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), which you can configure for your needs.
 
 :::
+
+### Claude
+
+1. Go to *Settings* > *Connectors* in Claude.
+2. Click *Add custom connector*.
+3. Set the name to `Apify` and the URL to `https://mcp.apify.com/?tools=docs`.
+4. When chatting, click the *+* button and select the *Apify* connector to add documentation context.
+
+### Cursor
+
+1. Open the command palette with `Cmd+Shift+P` (or `Ctrl+Shift+P` on Windows).
+2. Search for and select *Open MCP settings*.
+3. Add the following configuration to `mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "apify": {
+      "url": "https://mcp.apify.com/?tools=docs"
+    }
+  }
+}
+```
+
+### VS Code
+
+1. Install an MCP-compatible extension.
+2. Add the Apify server URL: `https://mcp.apify.com/?tools=docs`
 
 ## Provide context to assistants
 
