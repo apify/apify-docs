@@ -14,7 +14,7 @@ An HTML element is a building block of an HTML document. It is used to represent
 You can also add **attributes** to an element to provide additional information or to control how the element behaves. For example, the `src` attribute is used to specify the source of an image, like this:
 
 ```html
-<img src="image.jpg" alt="A description of the image">
+<img src="image.jpg" alt="A description of the image" />
 ```
 
 In JavaScript, you can use the **DOM** (Document Object Model) to interact with elements on a web page. For example, you can use the [`querySelector()` method](./querying_css_selectors.md) to select an element by its [CSS selector](./css_selectors.md), like this:

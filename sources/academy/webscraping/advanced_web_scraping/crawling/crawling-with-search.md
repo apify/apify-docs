@@ -1,5 +1,5 @@
 ---
-title: Crawling with search 
+title: Crawling with search
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 sidebar_position: 3
 slug: /advanced-web-scraping/crawling/crawling-with-search
@@ -205,10 +205,12 @@ const crawler = new CheerioCrawler({
             // The filter is either good enough of we have to split it
             if (numberOfProducts <= MAX_PRODUCTS_PAGINATION) {
                 // We pass the URL for scraping, we could optimize it so the page is not opened again
-                await crawler.addRequests([{
-                    url: `${request.url}&page=1`,
-                    userData: { label: 'PAGINATION' },
-                }]);
+                await crawler.addRequests([
+                    {
+                        url: `${request.url}&page=1`,
+                        userData: { label: 'PAGINATION' },
+                    },
+                ]);
             } else {
                 // Here we have to split the filter
                 // To be continued...
@@ -237,9 +239,7 @@ export function splitFilter(filter) {
     }
 
     // We crate a middle value for the split. If max in null, we will use double min as the middle value
-    const middle = max
-        ? min + Math.floor((max - min) / 2)
-        : min * 2;
+    const middle = max ? min + Math.floor((max - min) / 2) : min * 2;
 
     // We have to do the Math.max and Math.min to prevent having min > max
     const filterMin = {

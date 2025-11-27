@@ -15,7 +15,6 @@ The most popular way of [integrating](https://help.apify.com/en/collections/1669
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a desktop client like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest).
 
-
 Apify API offers two ways of interacting with it:
 
 - [Synchronously](#synchronous-flow)

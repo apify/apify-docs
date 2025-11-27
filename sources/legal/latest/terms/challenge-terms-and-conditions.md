@@ -35,7 +35,7 @@ Participation in this Challenge is free and does not require the purchase of any
 - Spamming: Promote your new Actors via Apify's Discord, Apify Console messaging, or Actor reviews.
 - Low-Quality Submissions: Publish too many low-quality or spammy Actors, notwithstanding the fact that you may have published other Actors that are high-quality.
 
-1.4. Individuals or entities are not eligible to participate in the Challenge if they fail our KYC/KYB verification, are listed on any sanctions list, or are incorporated, headquartered, or controlled by residents in Russia.
+    1.4. Individuals or entities are not eligible to participate in the Challenge if they fail our KYC/KYB verification, are listed on any sanctions list, or are incorporated, headquartered, or controlled by residents in Russia.
 
 ## 2. Actor Requirements
 
@@ -46,7 +46,7 @@ Participation in this Challenge is free and does not require the purchase of any
 2.3. **Ineligible Actors**. The following types of Actors are not eligible for any rewards and may result in disqualification:
 
 - Actors that use third-party software under a license that prohibits commercial use or redistribution of the resulting Actor.
-- Actors for scraping the following services or websites:  YouTube, LinkedIn, Instagram, Facebook, TikTok, X, Apollo.io, Amazon, Google Maps, Google Search, Google Trends. Notwithstanding the foregoing, Actors that perform non-scraping functionality (e.g., AI agents, etc.) may be eligible.
+- Actors for scraping the following services or websites: YouTube, LinkedIn, Instagram, Facebook, TikTok, X, Apollo.io, Amazon, Google Maps, Google Search, Google Trends. Notwithstanding the foregoing, Actors that perform non-scraping functionality (e.g., AI agents, etc.) may be eligible.
 - "Rental" or Pay per Result Actors. (Eligible Actors must be Pay per Usage or Pay per Event (or both).)
 - Any existing Actors that have been renamed, substantially re-used, or based on a project existing prior to the Challenge start date.
 

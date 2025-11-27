@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/crawling
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -24,57 +24,54 @@ import { writeFile } from 'fs/promises';
 import { AsyncParser } from '@json2csv/node';
 
 async function download(url) {
-  const response = await fetch(url);
-  if (response.ok) {
-    const html = await response.text();
-    return cheerio.load(html);
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
+    const response = await fetch(url);
+    if (response.ok) {
+        const html = await response.text();
+        return cheerio.load(html);
+    } else {
+        throw new Error(`HTTP ${response.status}`);
+    }
 }
 
 function parseProduct($productItem, baseURL) {
-  const $title = $productItem.find(".product-item__title");
-  const title = $title.text().trim();
-  const url = new URL($title.attr("href"), baseURL).href;
+    const $title = $productItem.find('.product-item__title');
+    const title = $title.text().trim();
+    const url = new URL($title.attr('href'), baseURL).href;
 
-  const $price = $productItem.find(".price").contents().last();
-  const priceRange = { minPrice: null, price: null };
-  const priceText = $price
-    .text()
-    .trim()
-    .replace("$", "")
-    .replace(".", "")
-    .replace(",", "");
+    const $price = $productItem.find('.price').contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price.text().trim().replace('$', '').replace('.', '').replace(',', '');
 
-  if (priceText.startsWith("From ")) {
-      priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-  } else {
-      priceRange.minPrice = parseInt(priceText);
-      priceRange.price = priceRange.minPrice;
-  }
+    if (priceText.startsWith('From ')) {
+        priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
 
-  return { url, title, ...priceRange };
+    return { url, title, ...priceRange };
 }
 
 function exportJSON(data) {
-  return JSON.stringify(data, null, 2);
+    return JSON.stringify(data, null, 2);
 }
 
 async function exportCSV(data) {
-  const parser = new AsyncParser();
-  return await parser.parse(data).promise();
+    const parser = new AsyncParser();
+    return await parser.parse(data).promise();
 }
 
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const data = $(".product-item").toArray().map(element => {
-  const $productItem = $(element);
-  // highlight-next-line
-  const item = parseProduct($productItem, listingURL);
-  return item;
-});
+const data = $('.product-item')
+    .toArray()
+    .map((element) => {
+        const $productItem = $(element);
+        // highlight-next-line
+        const item = parseProduct($productItem, listingURL);
+        return item;
+    });
 
 await writeFile('products.json', exportJSON(data));
 await writeFile('products.csv', await exportCSV(data));
@@ -90,40 +87,34 @@ Depending on what's valuable for our use case, we can now use the same technique
 
 ```html
 <div class="product-meta">
-  <h1 class="product-meta__title heading h1">
-    Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
-  </h1>
-  <div class="product-meta__label-list">
-    ...
-  </div>
-  <div class="product-meta__reference">
-    <!-- highlight-next-line -->
-    <a class="product-meta__vendor link link--accented" href="/collections/sony">
+    <h1 class="product-meta__title heading h1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h1>
+    <div class="product-meta__label-list">...</div>
+    <div class="product-meta__reference">
         <!-- highlight-next-line -->
-        Sony
-    <!-- highlight-next-line -->
-    </a>
-    <span class="product-meta__sku">
-      SKU:
-      <span class="product-meta__sku-number">SON-985594-XBR-65</span>
-    </span>
-  </div>
-  <a href="#product-reviews" class="product-meta__reviews-badge link" data-offset="30">
-    <div class="rating">
-      <div class="rating__stars" role="img" aria-label="4.0 out of 5.0 stars">
-        ...
-      </div>
-      <span class="rating__caption">3 reviews</span>
+        <a class="product-meta__vendor link link--accented" href="/collections/sony">
+            <!-- highlight-next-line -->
+            Sony
+            <!-- highlight-next-line -->
+        </a>
+        <span class="product-meta__sku">
+            SKU:
+            <span class="product-meta__sku-number">SON-985594-XBR-65</span>
+        </span>
     </div>
-  </a>
-  ...
+    <a href="#product-reviews" class="product-meta__reviews-badge link" data-offset="30">
+        <div class="rating">
+            <div class="rating__stars" role="img" aria-label="4.0 out of 5.0 stars">...</div>
+            <span class="rating__caption">3 reviews</span>
+        </div>
+    </a>
+    ...
 </div>
 ```
 
 It looks like using a CSS selector to locate the element with the `product-meta__vendor` class, and then extracting its text, should be enough to get the vendor name as a string:
 
 ```js
-const vendor = $(".product-meta__vendor").text().trim();
+const vendor = $('.product-meta__vendor').text().trim();
 ```
 
 But where do we put this line in our program?
@@ -135,15 +126,17 @@ In the `.map()` loop, we're already going through all the products. Let's expand
 First, we need to make the loop asynchronous so that we can use `await download()` for each product. We'll add the `async` keyword to the inner function and rename the collection to `promises`, since it will now store promises that resolve to items rather than the items themselves. We'll pass it to `await Promise.all()` to resolve all the promises and retrieve the actual items.
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
 // highlight-next-line
-const promises = $(".product-item").toArray().map(async element => {
-  const $productItem = $(element);
-  const item = parseProduct($productItem, listingURL);
-  return item;
-});
+const promises = $('.product-item')
+    .toArray()
+    .map(async (element) => {
+        const $productItem = $(element);
+        const item = parseProduct($productItem, listingURL);
+        return item;
+    });
 // highlight-next-line
 const data = await Promise.all(promises);
 ```
@@ -151,20 +144,22 @@ const data = await Promise.all(promises);
 The program behaves the same as before, but now the code is prepared to make HTTP requests from within the inner function. Let's do it:
 
 ```js
-const listingURL = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const listingURL = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const $ = await download(listingURL);
 
-const promises = $(".product-item").toArray().map(async element => {
-  const $productItem = $(element);
-  const item = parseProduct($productItem, listingURL);
+const promises = $('.product-item')
+    .toArray()
+    .map(async (element) => {
+        const $productItem = $(element);
+        const item = parseProduct($productItem, listingURL);
 
-  // highlight-next-line
-  const $p = await download(item.url);
-  // highlight-next-line
-  item.vendor = $p(".product-meta__vendor").text().trim();
+        // highlight-next-line
+        const $p = await download(item.url);
+        // highlight-next-line
+        item.vendor = $p('.product-meta__vendor').text().trim();
 
-  return item;
-});
+        return item;
+    });
 const data = await Promise.all($promises.get());
 ```
 
@@ -173,6 +168,7 @@ We download each product detail page and parse its HTML using Cheerio. The `$p` 
 If we run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   {
@@ -237,43 +233,39 @@ Locating cells in tables is sometimes easier if you know how to [filter](https:/
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  async function download(url) {
+async function download(url) {
     const response = await fetch(url);
     if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
+        const html = await response.text();
+        return cheerio.load(html);
     } else {
-      throw new Error(`HTTP ${response.status}`);
+        throw new Error(`HTTP ${response.status}`);
     }
-  }
+}
 
-  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const $ = await download(listingURL);
+const listingURL =
+    'https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa';
+const $ = await download(listingURL);
 
-  const $cells = $(".wikitable tr td:nth-child(3)");
-  const promises = $cells.toArray().map(async element => {
+const $cells = $('.wikitable tr td:nth-child(3)');
+const promises = $cells.toArray().map(async (element) => {
     const $nameCell = $(element);
-    const $link = $nameCell.find("a").first();
-    const countryURL = new URL($link.attr("href"), listingURL).href;
+    const $link = $nameCell.find('a').first();
+    const countryURL = new URL($link.attr('href'), listingURL).href;
 
     const $c = await download(countryURL);
-    const $label = $c("th.infobox-label")
-      .filter((i, element) => $c(element).text().trim() == "Calling code")
-      .first();
-    const callingCode = $label
-      .parent()
-      .find("td.infobox-data")
-      .first()
-      .text()
-      .trim();
+    const $label = $c('th.infobox-label')
+        .filter((i, element) => $c(element).text().trim() == 'Calling code')
+        .first();
+    const callingCode = $label.parent().find('td.infobox-data').first().text().trim();
 
     console.log(`${countryURL} ${callingCode || null}`);
-  });
-  await Promise.all(promises);
-  ```
+});
+await Promise.all(promises);
+```
 
 </details>
 
@@ -306,36 +298,38 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  async function download(url) {
+async function download(url) {
     const response = await fetch(url);
     if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
+        const html = await response.text();
+        return cheerio.load(html);
     } else {
-      throw new Error(`HTTP ${response.status}`);
+        throw new Error(`HTTP ${response.status}`);
     }
-  }
+}
 
-  const listingURL = "https://www.theguardian.com/sport/formulaone";
-  const $ = await download(listingURL);
+const listingURL = 'https://www.theguardian.com/sport/formulaone';
+const $ = await download(listingURL);
 
-  const promises = $("#maincontent ul li").toArray().map(async element => {
-    const $item = $(element);
-    const $link = $item.find("a").first();
-    const authorURL = new URL($link.attr("href"), listingURL).href;
+const promises = $('#maincontent ul li')
+    .toArray()
+    .map(async (element) => {
+        const $item = $(element);
+        const $link = $item.find('a').first();
+        const authorURL = new URL($link.attr('href'), listingURL).href;
 
-    const $a = await download(authorURL);
-    const title = $a("h1").text().trim();
+        const $a = await download(authorURL);
+        const title = $a('h1').text().trim();
 
-    const author = $a('a[rel="author"]').text().trim();
-    const address = $a('aside address').text().trim();
+        const author = $a('a[rel="author"]').text().trim();
+        const address = $a('aside address').text().trim();
 
-    console.log(`${author || address || null}: ${title}`);
-  });
-  await Promise.all(promises);
-  ```
+        console.log(`${author || address || null}: ${title}`);
+    });
+await Promise.all(promises);
+```
 
 </details>

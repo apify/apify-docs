@@ -6,9 +6,10 @@ externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/
 sidebar_position: 2
 slug: /apify-scrapers/web-scraper
 ---
+
 <!-- When changing the TITLE property, make sure to edit the dependent integration test: https://github.com/apify/apify-web/blob/develop/tests/e2e/cypress/integration/docs.js so it doesn't break  -->
 
-[//]: # (TODO: Should be updated)
+[//]: # 'TODO: Should be updated'
 
 #
 
@@ -28,7 +29,7 @@ and a lot of people familiar with JavaScript already know how to use it.
 
 > [Check out the jQuery docs](https://api.jquery.com/) if you're not familiar with it. And if you don't want to use it, that's okay. Everything can be done using pure JavaScript, too.
 
-To add jQuery, all we need to do is turn on **Inject jQuery** under the  **Input and options** tab.
+To add jQuery, all we need to do is turn on **Inject jQuery** under the **Input and options** tab.
 This will add a `context.jQuery` function that you can use.
 
 Now that's out of the way, let's open one of the Actor detail pages in the Store, for example
@@ -38,12 +39,12 @@ the [Web Scraper](https://apify.com/apify/web-scraper) page and use our DevTools
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 
-   1. **URL** - The URL that goes directly to the Actor's detail page.
-   2. **Unique identifier** - Such as **apify/web-scraper**.
-   3. **Title** - The title visible in the Actor's detail page.
-   4. **Description** - The Actor's description.
-   5. **Last modification date** - When the Actor was last modified.
-   6. **Number of runs** - How many times the Actor was run.
+1. **URL** - The URL that goes directly to the Actor's detail page.
+2. **Unique identifier** - Such as **apify/web-scraper**.
+3. **Title** - The title visible in the Actor's detail page.
+4. **Description** - The Actor's description.
+5. **Last modification date** - When the Actor was last modified.
+6. **Number of runs** - How many times the Actor was run.
 
 ![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/scraping-practice.webp)
 
@@ -111,11 +112,7 @@ async function pageFunction(context) {
     return {
         title: $('header h1').text(),
         description: $('header span.actor-description').text(),
-        modifiedDate: new Date(
-            Number(
-                $('ul.ActorHeader-stats time').attr('datetime'),
-            ),
-        ),
+        modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
     };
 }
 ```
@@ -139,11 +136,7 @@ async function pageFunction(context) {
     return {
         title: $('header h1').text(),
         description: $('header span.actor-description').text(),
-        modifiedDate: new Date(
-            Number(
-                $('ul.ActorHeader-stats time').attr('datetime'),
-            ),
-        ),
+        modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
         runCount: Number(
             $('ul.ActorHeader-stats > li:nth-of-type(3)')
                 .text()
@@ -185,11 +178,7 @@ async function pageFunction(context) {
         uniqueIdentifier,
         title: $('header h1').text(),
         description: $('header span.actor-description').text(),
-        modifiedDate: new Date(
-            Number(
-                $('ul.ActorHeader-stats time').attr('datetime'),
-            ),
-        ),
+        modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
         runCount: Number(
             $('ul.ActorHeader-stats > li:nth-of-type(3)')
                 .text()
@@ -217,21 +206,14 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
             uniqueIdentifier,
             title: $('header h1').text(),
             description: $('header span.actor-description').text(),
-            modifiedDate: new Date(
-                Number(
-                    $('ul.ActorHeader-stats time').attr('datetime'),
-                ),
-            ),
+            modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
             runCount: Number(
                 $('ul.ActorHeader-stats > li:nth-of-type(3)')
                     .text()
@@ -256,8 +238,8 @@ actually scrape all the Actors, just the first page of results. That's because t
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
 > This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may use links
-that take you to the next page. If you encounter those, make a **Pseudo URL** for those links and they will
-be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
+> that take you to the next page. If you encounter those, make a **Pseudo URL** for those links and they will
+> be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
 
 ### Waiting for dynamic content
 
@@ -346,7 +328,6 @@ We've shown two function calls, but how do we make this work together in the `pa
 
 ```js
 async function pageFunction(context) {
-
     // ...
 
     let timeoutMillis; // undefined
@@ -354,14 +335,13 @@ async function pageFunction(context) {
     for (;;) {
         log.info('Waiting for the "Show more" button.');
         try {
-        // Default timeout first time.
+            // Default timeout first time.
             await waitFor(buttonSelector, { timeoutMillis });
             // 2 sec timeout after the first.
             timeoutMillis = 2000;
         } catch (err) {
-        // Ignore the timeout error.
-            log.info('Could not find the "Show more button", '
-            + 'we\'ve reached the end.');
+            // Ignore the timeout error.
+            log.info('Could not find the "Show more button", ' + "we've reached the end.");
             break;
         }
         log.info('Clicking the "Show more" button.');
@@ -369,7 +349,6 @@ async function pageFunction(context) {
     }
 
     // ...
-
 }
 ```
 
@@ -390,12 +369,7 @@ function on the first line.
 
 ```js
 async function pageFunction(context) {
-    const { request,
-        log,
-        skipLinks,
-        jQuery: $,
-        waitFor,
-    } = context;
+    const { request, log, skipLinks, jQuery: $, waitFor } = context;
 
     if (request.userData.label === 'START') {
         log.info('Store opened!');
@@ -410,8 +384,7 @@ async function pageFunction(context) {
                 timeoutMillis = 2000;
             } catch (err) {
                 // Ignore the timeout error.
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
+                log.info('Could not find the "Show more button", ' + "we've reached the end.");
                 break;
             }
             log.info('Clicking the "Show more" button.');
@@ -424,21 +397,14 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
             uniqueIdentifier,
             title: $('header h1').text(),
             description: $('header span.actor-description').text(),
-            modifiedDate: new Date(
-                Number(
-                    $('ul.ActorHeader-stats time').attr('datetime'),
-                ),
-            ),
+            modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
             runCount: Number(
                 $('ul.ActorHeader-stats > li:nth-of-type(3)')
                     .text()
@@ -482,9 +448,12 @@ that encapsulate all the different logic. You can, for example, define a functio
 ```js
 async function pageFunction(context) {
     switch (context.request.userData.label) {
-        case 'START': return handleStart(context);
-        case 'DETAIL': return handleDetail(context);
-        default: throw new Error('Unknown request label.');
+        case 'START':
+            return handleStart(context);
+        case 'DETAIL':
+            return handleDetail(context);
+        default:
+            throw new Error('Unknown request label.');
     }
 
     async function handleStart({ log, waitFor }) {
@@ -500,8 +469,7 @@ async function pageFunction(context) {
                 timeoutMillis = 2000;
             } catch (err) {
                 // Ignore the timeout error.
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
+                log.info('Could not find the "Show more button", ' + "we've reached the end.");
                 break;
             }
             log.info('Clicking the "Show more" button.');
@@ -509,32 +477,20 @@ async function pageFunction(context) {
         }
     }
 
-    async function handleDetail({
-        request,
-        log,
-        skipLinks,
-        jQuery: $,
-    }) {
+    async function handleDetail({ request, log, skipLinks, jQuery: $ }) {
         const { url } = request;
         log.info(`Scraping ${url}`);
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
             uniqueIdentifier,
             title: $('header h1').text(),
             description: $('header span.actor-description').text(),
-            modifiedDate: new Date(
-                Number(
-                    $('ul.ActorHeader-stats time').attr('datetime'),
-                ),
-            ),
+            modifiedDate: new Date(Number($('ul.ActorHeader-stats time').attr('datetime'))),
             runCount: Number(
                 $('ul.ActorHeader-stats > li:nth-of-type(3)')
                     .text()
@@ -547,7 +503,7 @@ async function pageFunction(context) {
 ```
 
 > If you're confused by the functions being declared below their executions, it's called hoisting and it's a feature
-of JavaScript. It helps you put what matters on top, if you so desire.
+> of JavaScript. It helps you put what matters on top, if you so desire.
 
 ## Final word
 
@@ -558,7 +514,6 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 - Check out the [Apify SDK](https://docs.apify.com/sdk) and its [Getting started](https://docs.apify.com/sdk/js/docs/guides/apify-platform) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 - [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
 - Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/contact-sales) from an Apify-certified developer.
-
 
 **Learn how to scrape a website using Apify's Web Scraper. Build an Actor's page function, extract information from a web page and download your data.**
 

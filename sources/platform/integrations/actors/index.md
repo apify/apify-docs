@@ -25,12 +25,12 @@ To integrate one Actor with another:
 
 1. Navigate to the **Integrations** tab in the Actor's detail page.
 2. Select `Apify (Connect Actor or Task)`.
-![Add integration](./images/integrations_add.png)
+   ![Add integration](./images/integrations_add.png)
 3. Find the Actor or task you want to integrate with and click `Connect`.
 
 This leads you to a setup screen, where you can provide:
 
-- **Triggers**: Events that will trigger the integrated Actor. These are the same as webhook [event types](/platform/integrations/webhooks/events) (*run succeeded*, *build failed*, etc.)
+- **Triggers**: Events that will trigger the integrated Actor. These are the same as webhook [event types](/platform/integrations/webhooks/events) (_run succeeded_, _build failed_, etc.)
 
 ![Integration trigger select](./images/integration_triggers.png)
 

@@ -9,6 +9,7 @@ slug: /integrations/bubble
 **Learn how to integrate your Apify Actors with Bubble for automated workflows and notifications.**
 
 ---
+
 [Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
 :::tip Explore the live demo
@@ -60,8 +61,7 @@ For security, avoid hardcoding the token in action settings. Store it on the `Us
 When configuring Apify actions in a workflow (check out screenshot below), set the token field dynamically to:
 
 - `Current User's apify_api_token`
-  - ![Current User's API token](../images/bubble/data_select_user_api_key.png)
-
+    - ![Current User's API token](../images/bubble/data_select_user_api_key.png)
 
 ## Using the integration
 
@@ -72,14 +72,14 @@ Once the plugin is configured, you can start building automated workflows.
 Apify's Bubble plugin exposes two ways to interact with Apify:
 
 - **Actions (workflow steps)**: Executed inside a Bubble workflow (both page workflows and backend workflows). Use these to trigger side effects like running an Actor or Task, or creating a webhook. They run during the workflow execution and can optionally wait for the result (if timeout is greater than 0).
-  - Examples: **Run Actor**, **Run Actor Task**, **Create Webhook**, **Delete Webhook**.
-  - Location in Bubble: **Workflow editor → Add an action → Plugins → Apify**
-  - ![Apify Plugin's actions](../images/bubble/plugin_actions.png)
+    - Examples: **Run Actor**, **Run Actor Task**, **Create Webhook**, **Delete Webhook**.
+    - Location in Bubble: **Workflow editor → Add an action → Plugins → Apify**
+    - ![Apify Plugin's actions](../images/bubble/plugin_actions.png)
 
 - **Data calls (data sources)**: Used as data sources in element properties and expressions. They fetch data from Apify and return it as lists/objects that you can bind to UI (for example, a repeating group) or use inside expressions.
-  - Examples: **Fetch Data From Dataset JSON As Data**, **List Actor Runs**, **Get Record As Text/Image/File** from key-value store, **List User Datasets/Actors/Tasks**.
-  - Location in Bubble: In any property input where a data source is expected click **Insert dynamic data**, under **Data sources** select **Get Data from an External API**, and choose the desired Apify data call.
-  - ![Apify Plugin's data calls](../images/bubble/data_calls_preview.png)
+    - Examples: **Fetch Data From Dataset JSON As Data**, **List Actor Runs**, **Get Record As Text/Image/File** from key-value store, **List User Datasets/Actors/Tasks**.
+    - Location in Bubble: In any property input where a data source is expected click **Insert dynamic data**, under **Data sources** select **Get Data from an External API**, and choose the desired Apify data call.
+    - ![Apify Plugin's data calls](../images/bubble/data_calls_preview.png)
 
 :::tip Inline documentation
 
@@ -87,17 +87,16 @@ Each Apify plugin action and data call input in Bubble includes inline documenta
 
 :::
 
-
 ### Dynamic values in inputs and data calls
 
 Dynamic values are available across Apify plugin fields. Use Bubble's **Insert dynamic data** to bind values from your app.
 
 - For instance you can source values from:
-  - **Page/UI elements**: inputs, dropdowns, multi-selects, radio buttons, checkboxes
-  - **Database Things and fields**
-  - **Current User**
-  - **Previous workflow steps** (e.g., Step 2's Run Actor result's `defaultDatasetId` or `runId`)
-  - **Get Data from an External API**: data calls
+    - **Page/UI elements**: inputs, dropdowns, multi-selects, radio buttons, checkboxes
+    - **Database Things and fields**
+    - **Current User**
+    - **Previous workflow steps** (e.g., Step 2's Run Actor result's `defaultDatasetId` or `runId`)
+    - **Get Data from an External API**: data calls
 
 #### Examples
 
@@ -105,7 +104,7 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
 
 ```json
 {
-  "url": "Input URL's value"
+    "url": "Input URL's value"
 }
 ```
 
@@ -114,7 +113,6 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
 When inserting dynamic data, Bubble replaces the selected text. Place your cursor exactly where you want the expression in the JSON; avoid selecting the entire field.
 
 :::
-
 
 ## Run Apify plugin actions from Bubble events
 
@@ -141,21 +139,20 @@ Create workflows that run Apify plugin actions in response to events in your Bub
 Find IDs directly in Apify Console. Each resource page shows the ID in the API panel and in the page URL.
 
 - **Actor ID**: Actor detail page → API panel or URL.
-  - Example URL: `https://console.apify.com/actors/<actorId>`
-  - Actor name format: owner/name (e.g., `apify/website-scraper`)
+    - Example URL: `https://console.apify.com/actors/<actorId>`
+    - Actor name format: owner/name (e.g., `apify/website-scraper`)
 - **Task ID**: Task detail page → API panel or URL.
-  - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
+    - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
 - **Dataset ID**: Storage → Datasets → Dataset detail → API panel or URL.
-  - Example URL: `https://console.apify.com/storage/datasets/<datasetId>`
-  - Also available in the table in `Storage → Datasets` page
+    - Example URL: `https://console.apify.com/storage/datasets/<datasetId>`
+    - Also available in the table in `Storage → Datasets` page
 - **Key-value store ID**: Storage → Key-value stores → Store detail → API panel or URL.
-  - Example URL: `https://console.apify.com/storage/key-value-stores/<storeId>`
-  - Also available in the table in `Storage → Key-value stores` page
+    - Example URL: `https://console.apify.com/storage/key-value-stores/<storeId>`
+    - Also available in the table in `Storage → Key-value stores` page
 - **Webhook ID**: Actors → Actor → Integrations.
-  - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
+    - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
 
 You can also discover IDs via the plugin responses and data calls (e.g., **List User Datasets**, **List Actor Runs**), which return objects with `id` fields you can pass into other actions/data calls.
-
 
 ## Display Apify data in your application
 
@@ -174,12 +171,12 @@ There are two common approaches:
 
 - This example lists the current user's datasets and displays them in a repeating group.
 - Add a **Repeating group** to the page.
-  1. Add data to a variable: create a custom state (for example, on the page) that will hold the list of datasets, and set it to the plugin's **List User Datasets** data call.
-      - ![Step 1 — Set variable with user's datasets](../images/bubble/user_dataset_repeating_group_set.png)
-  1. Set the type: in the repeating group's settings, set **Type of content** to match the dataset object your variable returns.
-      - ![Step 2 — Repeating group type of content](../images/bubble/user_dataset_repeating_group.png)
-  1. Bind the variable: set the repeating group's **Data source** to the variable from Step 1.
-      - ![Step 3 — Repeating group data source](../images/bubble/user_dataset_repeating_group_source.png)
+    1. Add data to a variable: create a custom state (for example, on the page) that will hold the list of datasets, and set it to the plugin's **List User Datasets** data call.
+        - ![Step 1 — Set variable with user's datasets](../images/bubble/user_dataset_repeating_group_set.png)
+    1. Set the type: in the repeating group's settings, set **Type of content** to match the dataset object your variable returns.
+        - ![Step 2 — Repeating group type of content](../images/bubble/user_dataset_repeating_group.png)
+    1. Bind the variable: set the repeating group's **Data source** to the variable from Step 1.
+        - ![Step 3 — Repeating group data source](../images/bubble/user_dataset_repeating_group_source.png)
 - Inside the repeating group cell, bind dataset fields (for example, `Current cell's item name`, `id`, `createdAt`).
 - ![Step 4 — Repeating group data cell](../images/bubble/user_dataset_repeating_group_cell.png)
 
@@ -293,6 +290,5 @@ Bubble workflows have execution time limits. For long‑running Actors, set the 
 ### Data format issues
 
 Check that your JSON input is valid when providing **Input overrides** and that dynamic expressions resolve to valid JSON values. Verify the structure of the dataset output when displaying it in your app.
-
 
 If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

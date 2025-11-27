@@ -59,9 +59,11 @@ app.get('/', (req, res) => {
     res.send('Hello world from Express app!');
 });
 
-app.listen(port, () => console.log(`Web server is listening
+app.listen(port, () =>
+    console.log(`Web server is listening
     and can be accessed at
-    ${process.env.ACTOR_WEB_SERVER_URL}!`));
+    ${process.env.ACTOR_WEB_SERVER_URL}!`),
+);
 
 // Let the Actor run for an hour
 await new Promise((r) => setTimeout(r, 60 * 60 * 1000));

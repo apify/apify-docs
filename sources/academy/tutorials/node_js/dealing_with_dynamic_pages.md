@@ -146,9 +146,9 @@ Let's run this and check our dataset results...
 
 ```json
 {
-  "title": "women's shoes",
-  "price": "$40.00 USD",
-  "image": "https://demo-webstore.apify.org/_next/image?url=https%3A%2F%2Fdummyjson.com%2Fimage%2Fi%2Fproducts%2F46%2F1.jpg&w=3840&q=85"
+    "title": "women's shoes",
+    "price": "$40.00 USD",
+    "image": "https://demo-webstore.apify.org/_next/image?url=https%3A%2F%2Fdummyjson.com%2Fimage%2Fi%2Fproducts%2F46%2F1.jpg&w=3840&q=85"
 }
 ```
 

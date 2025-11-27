@@ -16,7 +16,6 @@ A [**BrowserContext**](https://playwright.dev/docs/api/class-browsercontext) is 
 
 When we create a **Browser** object by using the `launch()` function, a single [browser context](https://playwright.dev/docs/browser-contexts) is automatically created. In order to create more, we use the [`browser.newContext()`](https://playwright.dev/docs/api/class-browser#browser-new-context) function in Playwright, and [`browser.createIncognitoBrowserContext`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-browsercreateincognitobrowsercontextoptions) in Puppeteer.
 
-
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
@@ -48,7 +47,9 @@ import { chromium } from 'playwright';
 
 // Here, we launch a persistent browser context. The first
 // argument is the location to store the data.
-const browser = await chromium.launchPersistentContext('./persistent-context', { headless: false });
+const browser = await chromium.launchPersistentContext('./persistent-context', {
+    headless: false,
+});
 
 const page = await browser.newPage();
 
@@ -140,7 +141,10 @@ Then, we'll make both `iPhonePage` and `androidPage` visit [deviceinfo.me](https
 
 ```js
 // Go to deviceinfo.me on both at the same time
-await Promise.all([iPhonePage.goto('https://www.deviceinfo.me/'), androidPage.goto('https://www.deviceinfo.me/')]);
+await Promise.all([
+    iPhonePage.goto('https://www.deviceinfo.me/'),
+    androidPage.goto('https://www.deviceinfo.me/'),
+]);
 
 // Wait for 10 seconds on both before shutting down
 await Promise.all([iPhonePage.waitForTimeout(10000), androidPage.waitForTimeout(10000)]);
@@ -165,7 +169,10 @@ Let's go ahead and use this function to loop through all of our browser contexts
 for (const context of browser.contexts()) {
     // In Playwright, lots of events are supported in the "on" function of
     // a BrowserContext instance
-    context.on('request', (req) => req.url() === 'https://www.deviceinfo.me/' && console.log('Site visited'));
+    context.on(
+        'request',
+        (req) => req.url() === 'https://www.deviceinfo.me/' && console.log('Site visited'),
+    );
 }
 ```
 

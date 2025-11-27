@@ -20,7 +20,6 @@ The Actor input schema file is used to:
 - Generate Actor API documentation and integration code examples on the web or in CLI, making Actors easy to integrate for users.
 - Simplify integration of Actors into automation workflows such as Zapier or Make, by providing smart connectors that smartly pre-populate and link Actor input properties.
 
-
 To define an input schema for an Actor, set `input` field in the `.actor/actor.json` file to an input schema object (described below), or path to a JSON file containing the input schema object.
 For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory—but note that this functionality is deprecated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
 
@@ -43,30 +42,27 @@ Imagine a simple web crawler that accepts an array of start URLs and a JavaScrip
 
 ```json5
 {
-    "title": "Cheerio Crawler input",
-    "description": "To update crawler to another site, you need to change startUrls and pageFunction options!",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {
-        "startUrls": {
-            "title": "Start URLs",
-            "type": "array",
-            "description": "URLs to start with",
-            "prefill": [
-                { "url": "http://example.com" },
-                { "url": "http://example.com/some-path" }
-            ],
-            "editor": "requestListSources"
+    title: 'Cheerio Crawler input',
+    description: 'To update crawler to another site, you need to change startUrls and pageFunction options!',
+    type: 'object',
+    schemaVersion: 1,
+    properties: {
+        startUrls: {
+            title: 'Start URLs',
+            type: 'array',
+            description: 'URLs to start with',
+            prefill: [{ url: 'http://example.com' }, { url: 'http://example.com/some-path' }],
+            editor: 'requestListSources',
         },
-        "pageFunction": {
-            "title": "Page function",
-            "type": "string",
-            "description": "Function executed for each request",
-            "prefill": "async () => { return $('title').text(); }",
-            "editor": "javascript"
-        }
+        pageFunction: {
+            title: 'Page function',
+            type: 'string',
+            description: 'Function executed for each request',
+            prefill: "async () => { return $('title').text(); }",
+            editor: 'javascript',
+        },
     },
-    "required": ["startUrls", "pageFunction"]
+    required: ['startUrls', 'pageFunction'],
 }
 ```
 
@@ -79,12 +75,12 @@ If you switch the input to the **JSON** display using the toggle, then you will 
 ```json
 {
     "startUrls": [
-    {
-        "url": "http://example.com"
-    },
-    {
-        "url": "http://example.com/some-path"
-    }
+        {
+            "url": "http://example.com"
+        },
+        {
+            "url": "http://example.com/some-path"
+        }
     ],
     "pageFunction": "async () => { return $('title').text(); }"
 }
@@ -97,20 +93,22 @@ If you switch the input to the **JSON** display using the toggle, then you will 
     "title": "Cheerio Crawler input",
     "type": "object",
     "schemaVersion": 1,
-    "properties": { /* define input fields here */ },
+    "properties": {
+        /* define input fields here */
+    },
     "required": []
 }
 ```
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `title` | String | Yes | Any text describing your input schema. |
-| `description` | String | No | Help text for the input that will be <br/>displayed above the UI fields. |
-| `type` | String | Yes | This is fixed and must be set <br/>to string `object`. |
-| `schemaVersion` | Integer | Yes | The version of the input schema <br/>specification against which <br/>your schema is written. <br/>Currently, only version `1` is out. |
-| `properties` | Object | Yes | This is an object mapping each field key <br/>to its specification. |
-| `required` | String | No | An array of field keys that are required. |
-| `additionalProperties` | Boolean | No | Controls if properties not listed in `properties` are allowed. Defaults to `true`. <br/>Set to `false` to make requests with extra properties fail. |
+| Property               | Type    | Required | Description                                                                                                                                         |
+| ---------------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`                | String  | Yes      | Any text describing your input schema.                                                                                                              |
+| `description`          | String  | No       | Help text for the input that will be <br/>displayed above the UI fields.                                                                            |
+| `type`                 | String  | Yes      | This is fixed and must be set <br/>to string `object`.                                                                                              |
+| `schemaVersion`        | Integer | Yes      | The version of the input schema <br/>specification against which <br/>your schema is written. <br/>Currently, only version `1` is out.              |
+| `properties`           | Object  | Yes      | This is an object mapping each field key <br/>to its specification.                                                                                 |
+| `required`             | String  | No       | An array of field keys that are required.                                                                                                           |
+| `additionalProperties` | Boolean | No       | Controls if properties not listed in `properties` are allowed. Defaults to `true`. <br/>Set to `false` to make requests with extra properties fail. |
 
 :::note Input schema differences
 
@@ -122,16 +120,16 @@ Even though the structure of the Actor input schema is similar to JSON schema, t
 
 Each field of your input is described under its key in the `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object`, or `boolean` type, and its specification contains the following properties:
 
-| Property | Value | Required | Description |
-| --- | --- | --- | --- |
-| `type` | One of <ul><li>`string`</li><li>`array`</li><li>`object`</li><li>`boolean`</li><li>`integer`</li></ul> | Yes | Allowed type for the input value. <br/>Cannot be mixed. |
-| `title` | String | Yes | Title of the field in UI. |
-| `description` | String | Yes | Description of the field that will be <br/>displayed as help text in Actor input UI. |
-| `default` | Must match `type` property. | No | Default value that will be <br/>used when no value is provided. |
-| `prefill` | Must match `type` property. | No | Value that will be prefilled <br/>in the Actor input interface. |
-| `example` | Must match `type` property. | No | Sample value of this field <br/>for the Actor to be displayed when <br/>Actor is published in Apify Store. |
-| `sectionCaption` | String | No | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
-| `sectionDescription` | String | No | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open. |
+| Property             | Value                                                                                                  | Required | Description                                                                                                                                                                                                                                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`               | One of <ul><li>`string`</li><li>`array`</li><li>`object`</li><li>`boolean`</li><li>`integer`</li></ul> | Yes      | Allowed type for the input value. <br/>Cannot be mixed.                                                                                                                                                                                                                                                   |
+| `title`              | String                                                                                                 | Yes      | Title of the field in UI.                                                                                                                                                                                                                                                                                 |
+| `description`        | String                                                                                                 | Yes      | Description of the field that will be <br/>displayed as help text in Actor input UI.                                                                                                                                                                                                                      |
+| `default`            | Must match `type` property.                                                                            | No       | Default value that will be <br/>used when no value is provided.                                                                                                                                                                                                                                           |
+| `prefill`            | Must match `type` property.                                                                            | No       | Value that will be prefilled <br/>in the Actor input interface.                                                                                                                                                                                                                                           |
+| `example`            | Must match `type` property.                                                                            | No       | Sample value of this field <br/>for the Actor to be displayed when <br/>Actor is published in Apify Store.                                                                                                                                                                                                |
+| `sectionCaption`     | String                                                                                                 | No       | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
+| `sectionDescription` | String                                                                                                 | No       | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.                                                                           |
 
 ### Prefill vs. default vs. required
 
@@ -145,7 +143,6 @@ Here is a rule of thumb for whether an input field should have a `prefill`, `def
 
 In summary, you can use each option independently or use a combination of **Prefill + Required** or **Prefill + Default**, but the combination of **Default + Required** doesn't make sense to use.
 
-
 ## Input types
 
 Most types also support additional properties defining, for example, the UI input editor.
@@ -154,17 +151,17 @@ Most types also support additional properties defining, for example, the UI inpu
 
 String is the most common input field type, and provide a number of editors and validations properties:
 
-| Property | Value | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|----------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `editor` | One of:<br/>- `textfield`<br/>- `textarea`<br/>- `javascript`<br/>- `python`<br/>- `select`<br/>- `datepicker`<br/>- `fileupload`<br/>- `hidden` | Yes | Visual editor used for the input field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `pattern` | String | No | Regular expression that will be used to validate the input. If validation fails, the Actor will not run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `minLength` | Integer | No | Minimum length of the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `maxLength` | Integer | No | Maximum length of the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `enum` | [String] | Required if `editor` is `select` | Using this field, you can limit values to the given array of strings. Input will be displayed as select box.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `enumTitles` | [String] | No | Titles for the `enum` keys described.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `nullable` | Boolean | No | Specifies whether `null` is an allowed value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `isSecret` | Boolean | No | Specifies whether the input field will be stored encrypted. Only available with `textfield`, `textarea` and `hidden` editors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `dateType` | One of <ul><li>`absolute`</li><li>`relative`</li><li>`absoluteOrRelative`</li></ul> | No | This property, which is only available with `datepicker` editor, specifies what date format should visual editor accept (The JSON editor accepts any string without validation.).<br/><br/><ul><li>`absolute` value enables date input in `YYYY-MM-DD` format. To parse returned string regex like this can be used: `^(\d{4})-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])$`.</li><br/><li>`relative` value enables relative date input in <br/>`{number} {unit}` format. <br/>Supported units are: days, weeks, months, years.<br/><br/>The input is passed to the Actor as plain text (e.g., "3 weeks"). To parse it, regex like this can be used: `^(\d+)\s*(day\|week\|month\|year)s?$`.</li><br/><li>`absoluteOrRelative` value enables both absolute and relative formats and user can switch between them. It's up to Actor author to parse a determine actual used format - regexes above can be used to check whether the returned string match one of them.</li></ul><br/>Defaults to `absolute`. |
+| Property     | Value                                                                                                                                            | Required                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `editor`     | One of:<br/>- `textfield`<br/>- `textarea`<br/>- `javascript`<br/>- `python`<br/>- `select`<br/>- `datepicker`<br/>- `fileupload`<br/>- `hidden` | Yes                              | Visual editor used for the input field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `pattern`    | String                                                                                                                                           | No                               | Regular expression that will be used to validate the input. If validation fails, the Actor will not run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `minLength`  | Integer                                                                                                                                          | No                               | Minimum length of the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `maxLength`  | Integer                                                                                                                                          | No                               | Maximum length of the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `enum`       | [String]                                                                                                                                         | Required if `editor` is `select` | Using this field, you can limit values to the given array of strings. Input will be displayed as select box.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `enumTitles` | [String]                                                                                                                                         | No                               | Titles for the `enum` keys described.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `nullable`   | Boolean                                                                                                                                          | No                               | Specifies whether `null` is an allowed value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `isSecret`   | Boolean                                                                                                                                          | No                               | Specifies whether the input field will be stored encrypted. Only available with `textfield`, `textarea` and `hidden` editors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `dateType`   | One of <ul><li>`absolute`</li><li>`relative`</li><li>`absoluteOrRelative`</li></ul>                                                              | No                               | This property, which is only available with `datepicker` editor, specifies what date format should visual editor accept (The JSON editor accepts any string without validation.).<br/><br/><ul><li>`absolute` value enables date input in `YYYY-MM-DD` format. To parse returned string regex like this can be used: `^(\d{4})-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])$`.</li><br/><li>`relative` value enables relative date input in <br/>`{number} {unit}` format. <br/>Supported units are: days, weeks, months, years.<br/><br/>The input is passed to the Actor as plain text (e.g., "3 weeks"). To parse it, regex like this can be used: `^(\d+)\s*(day\|week\|month\|year)s?$`.</li><br/><li>`absoluteOrRelative` value enables both absolute and relative formats and user can switch between them. It's up to Actor author to parse a determine actual used format - regexes above can be used to check whether the returned string match one of them.</li></ul><br/>Defaults to `absolute`. |
 
 :::note Regex escape
 
@@ -193,7 +190,6 @@ The `select` editor is rendered as drop-down in user interface:
 
 ![Apify Actor input schema - country input](./images/input-schema-country.png)
 
-
 #### Code editor
 
 If the input string is code, you can use either `javascript` or `python` editor
@@ -214,7 +210,6 @@ For example:
 Rendered input:
 
 ![Apify Actor input schema page function](./images/input-schema-page-function.png)
-
 
 #### Date picker
 
@@ -268,7 +263,6 @@ While the `datepicker` editor doesn't support setting time values visually, you 
 
 When implementing time-based fields, make sure to explain to your users through the description that the time values should be provided in UTC. This helps prevent timezone-related issues.
 
-
 #### File upload
 
 The `fileupload` editor enables users to specify a file as input. The input is passed to the Actor as a string. It is the Actor author's responsibility to interpret this string, including validating its existence and format.
@@ -280,7 +274,6 @@ The editor makes it easier to users to upload the file to a key-value store of t
 The user provides either a URL or uploads the file to a key-value store (existing or new).
 
 ![Apify Actor input schema - fileupload input options](./images/input-schema-fileupload-modal.png)
-
 
 ### Boolean type
 
@@ -312,12 +305,12 @@ Rendered input:
 
 Properties:
 
-| Property | Value | Required | Description |
-| --- | --- | --- | --- |
-| `editor` | One of <ul><li>`checkbox`</li><li>`hidden`</li></ul> | No | Visual editor used for the input field. |
-| `groupCaption` | String | No | If you want to group <br/>multiple checkboxes together, <br/>add this option to the first <br/>of the group. |
-| `groupDescription` | String | No | Description displayed as help text <br/>displayed of group title. |
-| `nullable` | Boolean | No | Specifies whether null is <br/>an allowed value. |
+| Property           | Value                                                | Required | Description                                                                                                  |
+| ------------------ | ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `editor`           | One of <ul><li>`checkbox`</li><li>`hidden`</li></ul> | No       | Visual editor used for the input field.                                                                      |
+| `groupCaption`     | String                                               | No       | If you want to group <br/>multiple checkboxes together, <br/>add this option to the first <br/>of the group. |
+| `groupDescription` | String                                               | No       | Description displayed as help text <br/>displayed of group title.                                            |
+| `nullable`         | Boolean                                              | No       | Specifies whether null is <br/>an allowed value.                                                             |
 
 ### Numeric types
 
@@ -346,11 +339,11 @@ Rendered input:
 Properties:
 
 | Property   | Value                                               | Required | Description                                                                   |
-|------------|-----------------------------------------------------|----------|-------------------------------------------------------------------------------|
-| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number.                                                                          |
+| ---------- | --------------------------------------------------- | -------- | ----------------------------------------------------------------------------- |
+| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number. |
 | `editor`   | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No       | Visual editor used for input field.                                           |
 | `maximum`  | Integer or Number <br/>(based on the `type`)        | No       | Maximum allowed value.                                                        |
-| `minimum`  | Integer or Number <br/>(based on the `type`)             | No       | Minimum allowed value.                                                        |
+| `minimum`  | Integer or Number <br/>(based on the `type`)        | No       | Minimum allowed value.                                                        |
 | `unit`     | String                                              | No       | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
 | `nullable` | Boolean                                             | No       | Specifies whether null is an allowed value.                                   |
 
@@ -412,7 +405,7 @@ Rendered input:
 Properties:
 
 | Property               | Value                                                                                  | Required | Description                                                                                                                                                                                                                      |
-|------------------------|----------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | -------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `editor`               | One of <ul><li>`json`</li><li>`proxy`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                                                                                        |
 | `patternKey`           | String                                                                                 | No       | Regular expression that will be used <br/>to validate the keys of the object.                                                                                                                                                    |
 | `patternValue`         | String                                                                                 | No       | Regular expression that will be used <br/>to validate the values of object.                                                                                                                                                      |
@@ -619,7 +612,7 @@ Rendered input:
 Properties:
 
 | Property           | Value                                                                                                                                                                                                                  | Required | Description                                                                                                                                                 |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `editor`           | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`fileupload`</li><li>`select`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                   |
 | `placeholderKey`   | String                                                                                                                                                                                                                 | No       | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.                                                |
 | `placeholderValue` | String                                                                                                                                                                                                                 | No       | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.                         |
@@ -631,7 +624,6 @@ Properties:
 | `nullable`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                            |
 | `items`            | object                                                                                                                                                                                                                 | No       | Specifies format of the items of the array, useful mainly for multiselect and for `schemaBased` editor (see below).                                         |
 | `isSecret`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                |
-
 
 Usage of this field is based on the selected editor:
 
@@ -728,9 +720,7 @@ For example, having an input schema like this:
     "type": "array",
     "description": "List of HTTP requests",
     "editor": "schemaBased",
-    "default": [
-        { "url": "https://apify.com", "port": 80 }
-    ],
+    "default": [{ "url": "https://apify.com", "port": 80 }],
     "items": {
         "type": "object",
         "properties": {
@@ -757,9 +747,7 @@ For example, having an input schema like this:
 If there is no value specified for the field, the array will default to containing one object:
 
 ```json
-[
-    { "url": "https://apify.com", "port": 80 }
-]
+[{ "url": "https://apify.com", "port": 80 }]
 ```
 
 However, if the user adds a new item to the array, the `port` sub-property of that new object will default to `8080`, as defined in the sub-property itself.
@@ -883,37 +871,36 @@ Rendered input:
 
 #### Single value properties
 
-| Property       | Value                                                                             | Required | Description                                                                                              |
-|----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|
-| `type`         | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                 |
-| `editor`       | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                               |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                          |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes.|
-| `pattern`      | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
-| `minLength`    | Integer                                                                           | No       | Minimum length of the string.                                                                            |
-| `maxLength`    | Integer                                                                           | No       | Maximum length of the string.                                                                            |
+| Property              | Value                                                                             | Required | Description                                                                                                                       |
+| --------------------- | --------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                                          |
+| `editor`              | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                                                        |
+| `resourceType`        | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                                                   |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul>        | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. |
+| `pattern`             | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run.                          |
+| `minLength`           | Integer                                                                           | No       | Minimum length of the string.                                                                                                     |
+| `maxLength`           | Integer                                                                           | No       | Maximum length of the string.                                                                                                     |
 
 #### Multiple values properties
 
-| Property       | Value                                                                             | Required | Description                                                                |
-|----------------|-----------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------|
-| `type`         | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                   |
-| `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                            |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes      | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
-| `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain.                             |
-| `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain.                             |
+| Property              | Value                                                                             | Required | Description                                                                                                                                                           |
+| --------------------- | --------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                                                                                                            |
+| `editor`              | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                                                                                            |
+| `resourceType`        | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                                                                                       |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul>        | Yes      | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
+| `minItems`            | Integer                                                                           | No       | Minimum number of items the array can contain.                                                                                                                        |
+| `maxItems`            | Integer                                                                           | No       | Maximum number of items the array can contain.                                                                                                                        |
 
 #### Resource permissions
 
 If your Actor runs with limited permissions, it must declare what access it needs to resources supplied via input. The `resourcePermissions` field defines which operations your Actor can perform on user-selected storages. This field is evaluated at run start and expands the Actor's [limited permissions](../../permissions/index.md) scope to access resources sent via input.
 
 - `["READ"]` - The Actor can read from the referenced resources.
-- `["READ", "WRITE"]` -  The Actor can read from and write to the referenced resources.
+- `["READ", "WRITE"]` - The Actor can read from and write to the referenced resources.
 
 :::note Runtime behavior
 
 This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store).
-
 
 :::

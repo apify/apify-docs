@@ -76,22 +76,22 @@ For each crawled web page, you'll receive:
 
 ```json title="Sample output (shortened)"
 {
-  "url": "https://docs.apify.com/academy/scraping-basics-javascript",
-  "crawl": {
-    "loadedUrl": "https://docs.apify.com/academy/scraping-basics-javascript",
-    "loadedTime": "2025-04-22T14:33:20.514Z",
-    "referrerUrl": "https://docs.apify.com/academy",
-    "depth": 1,
-    "httpStatusCode": 200
-  },
-  "metadata": {
-    "canonicalUrl": "https://docs.apify.com/academy/scraping-basics-javascript",
-    "title": "Web scraping basics for JavaScript devs | Apify Documentation",
-    "description": "Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.",
-    "languageCode": "en",
-    "markdown": "# Web scraping basics for JavaScript devs\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\n## What is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\n## Why learn web scraping?\n\n- **Data collection**: Gather information for research, analysis, or business intelligence\n- **Automation**: Save time by automating repetitive data collection tasks\n- **Integration**: Connect web data with your applications or databases\n- **Monitoring**: Track changes on websites automatically\n\n## Getting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n...",
-    "text": "Web scraping basics for JavaScript devs\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\nWhat is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\nWhy learn web scraping?\n\n- Data collection: Gather information for research, analysis, or business intelligence\n- Automation: Save time by automating repetitive data collection tasks\n- Integration: Connect web data with your applications or databases\n- Monitoring: Track changes on websites automatically\n\nGetting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n..."
-  }
+    "url": "https://docs.apify.com/academy/scraping-basics-javascript",
+    "crawl": {
+        "loadedUrl": "https://docs.apify.com/academy/scraping-basics-javascript",
+        "loadedTime": "2025-04-22T14:33:20.514Z",
+        "referrerUrl": "https://docs.apify.com/academy",
+        "depth": 1,
+        "httpStatusCode": 200
+    },
+    "metadata": {
+        "canonicalUrl": "https://docs.apify.com/academy/scraping-basics-javascript",
+        "title": "Web scraping basics for JavaScript devs | Apify Documentation",
+        "description": "Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.",
+        "languageCode": "en",
+        "markdown": "# Web scraping basics for JavaScript devs\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\n## What is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\n## Why learn web scraping?\n\n- **Data collection**: Gather information for research, analysis, or business intelligence\n- **Automation**: Save time by automating repetitive data collection tasks\n- **Integration**: Connect web data with your applications or databases\n- **Monitoring**: Track changes on websites automatically\n\n## Getting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n...",
+        "text": "Web scraping basics for JavaScript devs\n\nWelcome to our comprehensive web scraping tutorial for beginners. This guide will take you through the fundamentals of extracting data from websites, with practical examples and exercises.\n\nWhat is web scraping?\n\nWeb scraping is the process of extracting data from websites. It involves making HTTP requests to web servers, downloading HTML pages, and parsing them to extract the desired information.\n\nWhy learn web scraping?\n\n- Data collection: Gather information for research, analysis, or business intelligence\n- Automation: Save time by automating repetitive data collection tasks\n- Integration: Connect web data with your applications or databases\n- Monitoring: Track changes on websites automatically\n\nGetting started\n\nTo begin web scraping, you'll need to understand the basics of HTML, CSS selectors, and HTTP. This tutorial will guide you through these concepts step by step.\n\n..."
+    }
 }
 ```
 

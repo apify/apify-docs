@@ -18,7 +18,6 @@ If we run an Actor that measures extracted downloaded data from each response un
 
 ![Actor loading](./images/actor-load.png)
 
-
 Now if we want to optimize this to keep the webpage looking the same, but ignore unnecessary requests, then after
 
 ```js
@@ -45,13 +44,7 @@ Here is the code used:
 await page.setRequestInterception(true);
 page.on('request', (request) => {
     const url = request.url();
-    const filters = [
-        'livefyre',
-        'moatad',
-        'analytics',
-        'controltag',
-        'chartbeat',
-    ];
+    const filters = ['livefyre', 'moatad', 'analytics', 'controltag', 'chartbeat'];
     const shouldAbort = filters.some((urlPart) => url.includes(urlPart));
     if (shouldAbort) request.abort();
     else request.continue();
@@ -61,7 +54,6 @@ page.on('request', (request) => {
 With this code set up this is the output:
 
 ![Improved Actor loading](./images/improved-actor-loading.png)
-
 
 And except for different ads, the page should look the same.
 

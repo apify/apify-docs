@@ -48,7 +48,6 @@ This Privacy Policy also does not apply to personal data about current and forme
 - [Changes to our Privacy Policy](#changes-to-our-privacy-policy)
 - [Contact Us](#contact-us)
 
-
 ## Personal Data We Collect
 
 ### Personal Data You Provide to Us
@@ -195,4 +194,3 @@ Vodičkova 704/36, Nové Město
 110 00 Praha 1
 Czech Republic
 Attn: Apify Legal Team
-

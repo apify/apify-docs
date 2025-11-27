@@ -9,11 +9,11 @@ A good way to debug your puppeteer crawler in Apify Actors is to save a screensh
 
 ```js
 /**
-* Store screen from puppeteer page to Apify key-value store
-* @param page - Instance of puppeteer Page class https://pptr.dev/api/puppeteer.page
-* @param [key] - Function stores your screen in Apify key-value store under this key
-* @return {Promise<void>}
-*/
+ * Store screen from puppeteer page to Apify key-value store
+ * @param page - Instance of puppeteer Page class https://pptr.dev/api/puppeteer.page
+ * @param [key] - Function stores your screen in Apify key-value store under this key
+ * @return {Promise<void>}
+ */
 const saveScreen = async (page, key = 'debug-screen') => {
     const screenshotBuffer = await page.screenshot({ fullPage: true });
     await Apify.setValue(key, screenshotBuffer, { contentType: 'image/png' });

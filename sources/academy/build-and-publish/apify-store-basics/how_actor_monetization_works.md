@@ -28,26 +28,26 @@ Monetizing your Actor on the Apify platform involves several key steps:
 ![pay per event model example](images/ppe-model.png)
 
 - _How it works_: you charge users based on specific events triggered programmatically by your Actor's code. You earn 80% of the revenue minus platform usage costs.
-- - _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
+- _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
 - _Event cost example_: you set the following events for your Actor:
-  - `Actor start per 1 GB of memory` at $0.005
-  - `Pages scraped` at $0.002
-  - `Page opened with residential proxy` at $0.002 - this is on top of `Pages scraped`
-  - `Page opened with a browser` at $0.002 - this is on top of `Pages scraped`
+    - `Actor start per 1 GB of memory` at $0.005
+    - `Pages scraped` at $0.002
+    - `Page opened with residential proxy` at $0.002 - this is on top of `Pages scraped`
+    - `Page opened with a browser` at $0.002 - this is on top of `Pages scraped`
 - _Example_:
-  - User A:
-    - Started the Actor with 10GB of memory = $0.05
-    - Scraped 1,000 pages = $2.00
-    - 500 of those were scraped using residential proxy = $1.00
-    - 300 of those were scraped using browser = $0.60
-    - This comes up to $3.65 of total revenue
-  - User B:
-    - Started the Actor with 5GB of memory = $0.025
-    - Scraped 500 pages = $1.00
-    - 200 of those were scraped using residential proxy = $0.40
-    - 100 of those were scraped using browser = $0.20
-    - This comes up to $1.625 of total revenue
-  - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
+    - User A:
+        - Started the Actor with 10GB of memory = $0.05
+        - Scraped 1,000 pages = $2.00
+        - 500 of those were scraped using residential proxy = $1.00
+        - 300 of those were scraped using browser = $0.60
+        - This comes up to $3.65 of total revenue
+    - User B:
+        - Started the Actor with 5GB of memory = $0.025
+        - Scraped 500 pages = $1.00
+        - 200 of those were scraped using residential proxy = $0.40
+        - 100 of those were scraped using browser = $0.20
+        - This comes up to $1.625 of total revenue
+    - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
 
 :::info Pay-per-event details
 
@@ -62,11 +62,11 @@ If you want more details about PPE pricing, refer to our [PPE documentation](/pl
 - _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
 - _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
 - _Cost breakdown_:
-  - Compute unit: $0.3 per CU
-  - Residential proxies: $13 per GB
-  - SERPs proxy: $3 per 1,000 SERPs
-  - Data transfer (external): $0.20 per GB
-  - Dataset storage: $1 per 1,000 GB-hours
+    - Compute unit: $0.3 per CU
+    - Residential proxies: $13 per GB
+    - SERPs proxy: $3 per 1,000 SERPs
+    - Data transfer (external): $0.20 per GB
+    - Dataset storage: $1 per 1,000 GB-hours
 - _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
 
 :::info Pay-per-result details
@@ -81,9 +81,9 @@ If you want more details about PPR pricing, refer to our [PPR documentation](/pl
 
 - _How it works_: you offer a free trial period and set a monthly fee. Users on Apify paid plans can continue using the Actor after the trial. You earn 80% of the monthly rental fees.
 - _Example_: you set a 7-day free trial and $30/month rental. If 3 users start using your Actor:
-  - 1st user on a paid plan pays $30 after the trial (you earn $24).
-  - 2nd user starts their trial but pays next month.
-  - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
+    - 1st user on a paid plan pays $30 after the trial (you earn $24).
+    - 2nd user starts their trial but pays next month.
+    - 3rd user on a free plan finishes the trial without upgrading to a paid plan and can’t use the Actor further.
 
 :::info Rental pricing details
 
@@ -160,7 +160,7 @@ Example of useful pricing estimates from the **Analytics** tab:
 
 :::tip Use emails!
 
-📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here:  [Emails to Actor users]
+📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here: [Emails to Actor users]
 
 :::
 
@@ -172,4 +172,3 @@ Example of useful pricing estimates from the **Analytics** tab:
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Read a blog post from our CEO on the [reasoning behind monetizing Actors](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/)
 - Learn about the [Creator plan](https://apify.com/pricing/creator-plan), which allows you to create and freely test your own Actors for $1
-

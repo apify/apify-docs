@@ -145,7 +145,6 @@ One of the most successful and advanced methods is collecting the browser's "fin
 
 The honeypot approach is based on providing links that only bots can see. A typical example is hidden pagination. Usually, the bot needs to go through all the pages in the pagination, so the website's last "fake" page has a hidden link for the user, but has the same selector as the real one. Once the bot visits the link, it is automatically blacklisted. This method needs only the HTTP information.
 
-
 ## First up {#first}
 
 In our [first section](./techniques/index.md), we'll be discussing more in-depth about the various anti-scraping methods and techniques websites use, as well as how to mitigate these protections.

@@ -34,45 +34,44 @@ Apify sets several system environment variables for each Actor run. These variab
 
 Here's a table of key system environment variables:
 
-| Environment Variable | Description |
-|----------------------|-------------|
-| `ACTOR_ID` | ID of the Actor. |
-| `ACTOR_FULL_NAME` | Full technical name of the Actor, in the format `owner-username/actor-name`. |
-| `ACTOR_RUN_ID` | ID of the Actor run. |
-| `ACTOR_BUILD_ID` | ID of the Actor build used in the run. |
-| `ACTOR_BUILD_NUMBER` | Build number of the Actor build used in the run. |
-| `ACTOR_BUILD_TAGS` | A comma-separated list of tags of the Actor build used in the run. Note that this environment variable is assigned at the time of start of the Actor and doesn't change over time, even if the assigned build tags change. |
-| `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
-| `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
-| `ACTOR_DEFAULT_DATASET_ID` | Unique identifier for the default dataset associated with the current Actor run. |
-| `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | Unique identifier for the default key-value store associated with the current Actor run. |
-| `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | Unique identifier for the default request queue associated with the current Actor run. |
-| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input).  |
-| `ACTOR_MAX_PAID_DATASET_ITEMS` | For paid-per-result Actors, the user-set limit on returned results. Do not exceed this limit. |
-| `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
-| `ACTOR_RESTART_ON_ERROR` | If **1**, the Actor run will be restarted if it fails. |
-| `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
-| `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
-| `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
-| `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
-| `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
-| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
-| `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
-| `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
-| `ACTOR_STARTED_AT` | Date when the Actor was started. |
-| `ACTOR_TIMEOUT_AT` | Date when the Actor will time out. |
-| `APIFY_TOKEN` | API token of the user who started the Actor. |
-| `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
-| `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
-| `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
-| `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. |
-| `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
-| `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
-| `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
-| `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
-| `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
-| `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
-
+| Environment Variable                 | Description                                                                                                                                                                                                                                                                       |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ACTOR_ID`                           | ID of the Actor.                                                                                                                                                                                                                                                                  |
+| `ACTOR_FULL_NAME`                    | Full technical name of the Actor, in the format `owner-username/actor-name`.                                                                                                                                                                                                      |
+| `ACTOR_RUN_ID`                       | ID of the Actor run.                                                                                                                                                                                                                                                              |
+| `ACTOR_BUILD_ID`                     | ID of the Actor build used in the run.                                                                                                                                                                                                                                            |
+| `ACTOR_BUILD_NUMBER`                 | Build number of the Actor build used in the run.                                                                                                                                                                                                                                  |
+| `ACTOR_BUILD_TAGS`                   | A comma-separated list of tags of the Actor build used in the run. Note that this environment variable is assigned at the time of start of the Actor and doesn't change over time, even if the assigned build tags change.                                                        |
+| `ACTOR_TASK_ID`                      | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API.                                                                                                                                                                                     |
+| `ACTOR_EVENTS_WEBSOCKET_URL`         | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform.                                                                                                                                          |
+| `ACTOR_DEFAULT_DATASET_ID`           | Unique identifier for the default dataset associated with the current Actor run.                                                                                                                                                                                                  |
+| `ACTOR_DEFAULT_KEY_VALUE_STORE_ID`   | Unique identifier for the default key-value store associated with the current Actor run.                                                                                                                                                                                          |
+| `ACTOR_DEFAULT_REQUEST_QUEUE_ID`     | Unique identifier for the default request queue associated with the current Actor run.                                                                                                                                                                                            |
+| `ACTOR_INPUT_KEY`                    | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input).                                                                                                                                                   |
+| `ACTOR_MAX_PAID_DATASET_ITEMS`       | For paid-per-result Actors, the user-set limit on returned results. Do not exceed this limit.                                                                                                                                                                                     |
+| `ACTOR_MAX_TOTAL_CHARGE_USD`         | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit.                                                                                                                                                                                               |
+| `ACTOR_RESTART_ON_ERROR`             | If **1**, the Actor run will be restarted if it fails.                                                                                                                                                                                                                            |
+| `APIFY_HEADLESS`                     | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available).                                                                                                                                                                              |
+| `APIFY_IS_AT_HOME`                   | Contains **1** if the Actor is running on Apify servers.                                                                                                                                                                                                                          |
+| `ACTOR_MEMORY_MBYTES`                | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries.                                                                                                                                     |
+| `ACTOR_PERMISSION_LEVEL`             | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access.                                                                                 |
+| `APIFY_PROXY_PASSWORD`               | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run.                                                                                                                          |
+| `APIFY_PROXY_PORT`                   | TCP port number to be used for connecting to the Apify Proxy.                                                                                                                                                                                                                     |
+| `APIFY_PROXY_STATUS_URL`             | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing.                                                                                                                                    |
+| `ACTOR_STANDBY_URL`                  | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode.                                                                                                                                              |
+| `ACTOR_STARTED_AT`                   | Date when the Actor was started.                                                                                                                                                                                                                                                  |
+| `ACTOR_TIMEOUT_AT`                   | Date when the Actor will time out.                                                                                                                                                                                                                                                |
+| `APIFY_TOKEN`                        | API token of the user who started the Actor.                                                                                                                                                                                                                                      |
+| `APIFY_USER_ID`                      | ID of the user who started the Actor. May differ from the Actor owner.                                                                                                                                                                                                            |
+| `APIFY_USER_IS_PAYING`               | If it is `1`, it means that the user who started the Actor is a paying user.                                                                                                                                                                                                      |
+| `ACTOR_WEB_SERVER_PORT`              | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
+| `ACTOR_WEB_SERVER_URL`               | Unique public URL for accessing the Actor run web server from the outside world.                                                                                                                                                                                                  |
+| `APIFY_API_PUBLIC_BASE_URL`          | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`.                                                                                                                                                        |
+| `APIFY_DEDICATED_CPUS`               | Number of CPU cores reserved for the Actor, based on allocated memory.                                                                                                                                                                                                            |
+| `APIFY_WORKFLOW_KEY`                 | Identifier used for grouping related runs and API calls together.                                                                                                                                                                                                                 |
+| `APIFY_META_ORIGIN`                  | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation.                                                                                                                                  |
+| `APIFY_INPUT_SECRETS_KEY_FILE`       | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input).                                                                                                                                                  |
+| `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`.                                                                                                                                                                                                  |
 
 <!-- vale Microsoft.RangeFormat = NO -->
 
@@ -81,6 +80,7 @@ Here's a table of key system environment variables:
 All date-related variables use the UTC timezone and are in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (e.g., _2022-07-13T14:23:37.281Z_).
 
 :::
+
 <!-- vale Microsoft.RangeFormat = YES -->
 
 ## Set up environment variables in `actor.json`
@@ -89,13 +89,13 @@ Actor owners can define custom environment variables in `.actor/actor.json`. All
 
 ```json
 {
-  "actorSpecification": 1,
-  "name": "dataset-to-mysql",
-  "version": "0.1",
-  "buildTag": "latest",
-  "environmentVariables": {
-    "MYSQL_USER": "my_username",
-  }
+    "actorSpecification": 1,
+    "name": "dataset-to-mysql",
+    "version": "0.1",
+    "buildTag": "latest",
+    "environmentVariables": {
+        "MYSQL_USER": "my_username"
+    }
 }
 ```
 
@@ -139,7 +139,7 @@ import { Actor } from 'apify';
 await Actor.init();
 
 // get MYSQL_USER
-const mysql_user = process.env.MYSQL_USER
+const mysql_user = process.env.MYSQL_USER;
 
 // print MYSQL_USER to console
 console.log(mysql_user);

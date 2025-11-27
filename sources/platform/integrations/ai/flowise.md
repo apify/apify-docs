@@ -66,5 +66,5 @@ For more information visit the Flowise [documentation](https://flowiseai.com/).
 
 ## Resources
 
-* [Flowise](https://flowiseai.com/)
-* [Flowise documentation](https://github.com/FlowiseAI/Flowise#quick-start)
+- [Flowise](https://flowiseai.com/)
+- [Flowise documentation](https://github.com/FlowiseAI/Flowise#quick-start)

@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/getting-links
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use BeautifulSoup to find the relevant bits of HTML.**
 
@@ -236,6 +236,7 @@ def parse_product(product):
 In the previous code example, we've also added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   {
@@ -300,6 +301,7 @@ for product in listing_soup.select(".product-item"):
 When we run the scraper now, we should see full URLs in our exports:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   {
@@ -345,23 +347,23 @@ https://en.wikipedia.org/wiki/Botswana
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+```py
+import httpx
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(listing_url)
-  response.raise_for_status()
+listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+response = httpx.get(listing_url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
-      link = name_cell.select_one("a")
-      url = urljoin(listing_url, link["href"])
-      print(url)
-  ```
+for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
+    link = name_cell.select_one("a")
+    url = urljoin(listing_url, link["href"])
+    print(url)
+```
 
 </details>
 
@@ -386,29 +388,29 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+```py
+import httpx
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-  listing_url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(listing_url)
-  response.raise_for_status()
+listing_url = "https://www.theguardian.com/sport/formulaone"
+response = httpx.get(listing_url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
 
-  for item in soup.select("#maincontent ul li"):
-      link = item.select_one("a")
-      url = urljoin(listing_url, link["href"])
-      print(url)
-  ```
+for item in soup.select("#maincontent ul li"):
+    link = item.select_one("a")
+    url = urljoin(listing_url, link["href"])
+    print(url)
+```
 
-  Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
+Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
 
-  ```text
-  https://www.theguardian.com/sport/article/2024/sep/02/example
-  https://www.theguardian.com/sport/article/2024/sep/02/example#comments
-  ```
+```text
+https://www.theguardian.com/sport/article/2024/sep/02/example
+https://www.theguardian.com/sport/article/2024/sep/02/example#comments
+```
 
 </details>

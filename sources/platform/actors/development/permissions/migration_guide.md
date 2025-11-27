@@ -40,7 +40,6 @@ Or just using the API:
  POST https://api.apify.com/v2/acts/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
 ```
 
-
 ## Common migration paths
 
 Most public Actors can migrate to limited permissions with minor adjustments, if any. The general prerequisite is to **update the Actor to use the latest [Apify SDK](https://docs.apify.com/sdk)**. To assess what needs to change in your Actor, review these areas:
@@ -74,7 +73,7 @@ For example, your Actor allows the user to provide a custom dataset for the Acto
 {
     "title": "Output",
     "type": "string",
-    "description": "Select a dataset for the Actor results",
+    "description": "Select a dataset for the Actor results"
 }
 ```
 
@@ -84,10 +83,10 @@ To support limited permissions, change it to this:
 {
     "title": "Output",
     "type": "string",
-        "description": "Select a dataset for the Actor results",
+    "description": "Select a dataset for the Actor results",
     "resourceType": "dataset",
     "resourcePermissions": ["READ", "WRITE"],
-    "editor": "textfield", // If you want to preserve the plain "string" input UI, instead of rich resource picker.
+    "editor": "textfield" // If you want to preserve the plain "string" input UI, instead of rich resource picker.
 }
 ```
 
@@ -123,7 +122,7 @@ if (process.env.ACTOR_PERMISSION_LEVEL === 'LIMITED_PERMISSIONS') {
     // and will allow access in all follow-up runs.
     store = await Actor.openKeyValueStore(NEW_CACHE_STORE_NAME);
 } else {
-  // If the Actor is still running with full permissions and we should use
+    // If the Actor is still running with full permissions and we should use
     // the existing store.
     store = await Actor.openKeyValueStore(OLD_CACHE_STORE_NAME);
 }

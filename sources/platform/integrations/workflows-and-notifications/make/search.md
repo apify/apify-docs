@@ -13,7 +13,7 @@ The Google search modules from [Apify](https://apify.com) allows you to crawl Go
 
 To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in the Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
-## Connect Apify Scraper for Google Search  modules to Make
+## Connect Apify Scraper for Google Search modules to Make
 
 1. Create an account at [Apify](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
@@ -55,46 +55,46 @@ For each Google Search query, you will extract:
 
 ```json title="Search results data, shortened sample"
 {
-  "searchQuery": {
-    "term": "javascript",
-    "page": 1,
-    "type": "SEARCH",
-    "countryCode": "us",
-    "languageCode": "en",
-    "locationUule": null,
-    "device": "DESKTOP"
-  },
-  "url": "https://www.google.com/search?q=javascript&hl=en&gl=us&num=10",
-  "hasNextPage": true,
-  "resultsCount": 13600000000,
-  "organicResults": [
-    {
-      "title": "JavaScript Tutorial",
-      "url": "https://www.w3schools.com/js/",
-      "displayedUrl": "https://www.w3schools.com › js",
-      "description": "JavaScript is the world's most popular programming language. JavaScript is the programming language of the Web. JavaScript is easy to learn.",
-      "position": 1,
-      "emphasizedKeywords": ["JavaScript", "JavaScript", "JavaScript", "JavaScript"],
-      "siteLinks": []
-    }
-  ],
-  "paidResults": [
-    {
-      "title": "JavaScript Online Course - Start Learning JavaScript",
-      "url": "https://www.example-ad.com/javascript",
-      "displayedUrl": "https://www.example-ad.com",
-      "description": "Learn JavaScript from scratch with our comprehensive online course. Start your coding journey today!",
-      "position": 1,
-      "type": "SHOPPING"
-    }
-  ],
-  "peopleAlsoAsk": [
-    {
-      "question": "What is JavaScript used for?",
-      "answer": "JavaScript is used for creating interactive elements on websites, browser games, frontend of web applications, mobile applications, and server applications...",
-      "url": "https://www.example.com/javascript-uses"
-    }
-  ]
+    "searchQuery": {
+        "term": "javascript",
+        "page": 1,
+        "type": "SEARCH",
+        "countryCode": "us",
+        "languageCode": "en",
+        "locationUule": null,
+        "device": "DESKTOP"
+    },
+    "url": "https://www.google.com/search?q=javascript&hl=en&gl=us&num=10",
+    "hasNextPage": true,
+    "resultsCount": 13600000000,
+    "organicResults": [
+        {
+            "title": "JavaScript Tutorial",
+            "url": "https://www.w3schools.com/js/",
+            "displayedUrl": "https://www.w3schools.com › js",
+            "description": "JavaScript is the world's most popular programming language. JavaScript is the programming language of the Web. JavaScript is easy to learn.",
+            "position": 1,
+            "emphasizedKeywords": ["JavaScript", "JavaScript", "JavaScript", "JavaScript"],
+            "siteLinks": []
+        }
+    ],
+    "paidResults": [
+        {
+            "title": "JavaScript Online Course - Start Learning JavaScript",
+            "url": "https://www.example-ad.com/javascript",
+            "displayedUrl": "https://www.example-ad.com",
+            "description": "Learn JavaScript from scratch with our comprehensive online course. Start your coding journey today!",
+            "position": 1,
+            "type": "SHOPPING"
+        }
+    ],
+    "peopleAlsoAsk": [
+        {
+            "question": "What is JavaScript used for?",
+            "answer": "JavaScript is used for creating interactive elements on websites, browser games, frontend of web applications, mobile applications, and server applications...",
+            "url": "https://www.example.com/javascript-uses"
+        }
+    ]
 }
 ```
 

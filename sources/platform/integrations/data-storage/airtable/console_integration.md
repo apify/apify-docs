@@ -10,7 +10,7 @@ slug: /integrations/airtable/console
 
 ---
 
-[Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
+[Airtable](https://www.airtable.com/) is a cloud-based platform for organizing, managing, and collaborating on data. With Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
 
 This integration uses OAuth 2.0, a secure authorization protocol, to connect your Airtable account to Apify and manage data transfers.
 
@@ -45,19 +45,18 @@ To use the Apify integration for Airtable, ensure you have:
     ![Airtable integration option among other available integrations](../../images/airtable/set-up-integration-1.png)
 
 1. Select the upload mode:
-   - **CREATE**: New table is created for each run of this integration.
-   - **APPEND**: New records are added to the specified table. If the table does not yet exist, new one is created.
-   - **OVERWRITE**: All records in the specified table are replaced with new data. If the table does not yet exist, new one is created.
+    - **CREATE**: New table is created for each run of this integration.
+    - **APPEND**: New records are added to the specified table. If the table does not yet exist, new one is created.
+    - **OVERWRITE**: All records in the specified table are replaced with new data. If the table does not yet exist, new one is created.
 
 1. Select a connected Airtable account and choose the base where the Actor run results will be uploaded.
 
 1. Enter a table name or select an existing one.
 
-   To ensure uniqueness when using CREATE mode, use dynamic variables. If a table with the same name already exists in CREATE mode, a random token will be appended.
+    To ensure uniqueness when using CREATE mode, use dynamic variables. If a table with the same name already exists in CREATE mode, a random token will be appended.
 
     ![Airtable integration configuration form](../../images/airtable/set-up-integration-2.png)
 
 1. Save the integration. Once your Actor runs, you'll see its results uploaded to Airtable.
 
     ![Airtable table filled with data](../../images/airtable/set-up-integration-3.png)
-

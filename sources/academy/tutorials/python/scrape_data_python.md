@@ -332,4 +332,3 @@ And that's it! Now you can save the changes in the editor, and then click **Buil
 Looking at the results, Honolulu seems like the right choice now, don't you think? 🙂
 
 ![Weather prediction plot created by the BBC Weather Parser Actor](./images/bbc-weather-prediction.png)
-

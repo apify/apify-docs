@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/downloading-html
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -94,7 +94,7 @@ SyntaxError: Cannot use import statement outside a module
 Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing `All is OK`. The [documentation of the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) provides us with examples how to use it. Inspired by those, our code will look like this:
 
 ```js
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 console.log(await response.text());
 ```
@@ -155,13 +155,13 @@ https://warehouse-theme-metal.myshopify.com/does/not/exist
 We could check the value of `response.status` against a list of allowed numbers, but the Fetch API already provides `response.ok`, a property which returns `false` if our request wasn't successful:
 
 ```js
-const url = "https://warehouse-theme-metal.myshopify.com/does/not/exist";
+const url = 'https://warehouse-theme-metal.myshopify.com/does/not/exist';
 const response = await fetch(url);
 
 if (response.ok) {
-  console.log(await response.text());
+    console.log(await response.text());
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -195,16 +195,16 @@ https://www.aliexpress.com/w/wholesale-darth-vader.html
 <details>
   <summary>Solution</summary>
 
-  ```js
-  const url = "https://www.aliexpress.com/w/wholesale-darth-vader.html";
-  const response = await fetch(url);
+```js
+const url = 'https://www.aliexpress.com/w/wholesale-darth-vader.html';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     console.log(await response.text());
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>
 
@@ -219,27 +219,27 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 <details>
   <summary>Solution</summary>
 
-  Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
+Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
 
-  ```text
-  node index.js > products.html
-  ```
+```text
+node index.js > products.html
+```
 
-  If you want to use Node.js instead, it offers several ways how to create files. The solution below uses the [Promises API](https://nodejs.org/api/fs.html#promises-api):
+If you want to use Node.js instead, it offers several ways how to create files. The solution below uses the [Promises API](https://nodejs.org/api/fs.html#promises-api):
 
-  ```js
-  import { writeFile } from 'node:fs/promises';
+```js
+import { writeFile } from 'node:fs/promises';
 
-  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
-  const response = await fetch(url);
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     await writeFile('products.html', html);
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>
 
@@ -254,20 +254,21 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
 <details>
   <summary>Solution</summary>
 
-  Node.js offers several ways how to create files. The solution below uses [Promises API](https://nodejs.org/api/fs.html#promises-api):
+Node.js offers several ways how to create files. The solution below uses [Promises API](https://nodejs.org/api/fs.html#promises-api):
 
-  ```js
-  import { writeFile } from 'node:fs/promises';
+```js
+import { writeFile } from 'node:fs/promises';
 
-  const url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg";
-  const response = await fetch(url);
+const url =
+    'https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const buffer = Buffer.from(await response.arrayBuffer());
     await writeFile('tv.jpg', buffer);
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>

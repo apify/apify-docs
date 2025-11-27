@@ -137,21 +137,21 @@ The next step is to fill out the fields we'd like back, and we've got our final 
 
 ```graphql
 query SearchQuery($query: String!) {
-  organization {
-    media(query: $query, max_age: $max_age , first: 1000) {
-      edges {
-        node {
-          title # title
-          public_at # this will be publishDate
-          hero_video {
-            video_urls {
-              url # the first URL from these results will be videoUrl
+    organization {
+        media(query: $query, max_age: $max_age, first: 1000) {
+            edges {
+                node {
+                    title # title
+                    public_at # this will be publishDate
+                    hero_video {
+                        video_urls {
+                            url # the first URL from these results will be videoUrl
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }
 ```
 
@@ -201,7 +201,10 @@ const testInput = { hours: 48, query: 'stocks' };
 
 // the API takes max_input in the format of minutes * 60
 // to calculate this value, we do hours * 60^2
-const variables = { query: testInput.query, max_age: Math.round(testInput.hours) * 60 ** 2 };
+const variables = {
+    query: testInput.query,
+    max_age: Math.round(testInput.hours) * 60 ** 2,
+};
 ```
 
 The final step is to take the query and variable and marry them within a `gotScraping()` call, which will return the API response:
@@ -260,10 +263,17 @@ const GET_LATEST = gql`
 const testInput = { hours: 48, query: 'stocks' };
 
 // Calculate and prepare our variables
-const variables = { query: testInput.query, max_age: Math.round(testInput.hours) * 60 ** 2 };
+const variables = {
+    query: testInput.query,
+    max_age: Math.round(testInput.hours) * 60 ** 2,
+};
 
 // Make the request
-const { body: { data: { organization } } } = await gotScraping('https://api.cheddar.com/graphql', {
+const {
+    body: {
+        data: { organization },
+    },
+} = await gotScraping('https://api.cheddar.com/graphql', {
     responseType: 'json',
     method: 'POST',
     headers: { 'X-App-Token': token, 'Content-Type': 'application/json' },

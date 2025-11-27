@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/challenge
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Test your knowledge acquired in the previous sections of this course by building an Amazon scraper using Crawlee's CheerioCrawler!**
 
@@ -73,7 +73,6 @@ In the end, we'd like our final output to look something like this:
         "...": "..."
     }
 ]
-
 ```
 
 > The `asin` is the ID of the product, which is data present on the Amazon website.

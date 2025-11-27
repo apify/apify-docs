@@ -22,11 +22,11 @@ You can change descriptions and names as many times as you want.
 
 ## Regular description vs. SEO description
 
-|  | Actor description & name | SEO description & name |
-|---|---|---|
-| Name length | 40-50 characters | 40-50 characters |
-| Description length | 300 characters | 145-155 characters |
-| Visibility  | Visible on Store | Visible on Google |
+|                    | Actor description & name | SEO description & name |
+| ------------------ | ------------------------ | ---------------------- |
+| Name length        | 40-50 characters         | 40-50 characters       |
+| Description length | 300 characters           | 145-155 characters     |
+| Visibility         | Visible on Store         | Visible on Google      |
 
 ### Description & Actor name
 
@@ -58,7 +58,7 @@ Learn more about search intent here: [SEO](/academy/actor-marketing-playbook/pro
 
 ## Where can Actor descriptions be set?
 
-Both descriptions can be found and edited on the very right **Publication tab →  Display information.** It has to be done separately for each Actor.
+Both descriptions can be found and edited on the very right **Publication tab → Display information.** It has to be done separately for each Actor.
 
 :::note
 
@@ -81,33 +81,31 @@ When writing a description, less is more. You only have a few seconds to capture
 ### Use variations and experiment 🔄
 
 - _SEO name vs. regular name_:
-  - name: Airbnb Scraper
-  - SEO name: Airbnb Data Scraper
+    - name: Airbnb Scraper
+    - SEO name: Airbnb Data Scraper
 - _Keywords on the web page_:<br/>
-Include variations, e.g. Airbnb API, Airbnb data, Airbnb data scraper, Airbnb rentals, Airbnb listings
-  - No-code scraping tool to extract Airbnb data: host info, prices, dates, location, and reviews.
-  - Scrape Airbnb listings without official Airbnb API!
+  Include variations, e.g. Airbnb API, Airbnb data, Airbnb data scraper, Airbnb rentals, Airbnb listings
+    - No-code scraping tool to extract Airbnb data: host info, prices, dates, location, and reviews.
+    - Scrape Airbnb listings without official Airbnb API!
 - _Scraping/automation process variations_:<br/>
-Use terms, e.g. crawl, crawler, scraping tool, finder, scraper, data extraction tool, extract data, get data
-  - Scrape XYZ data, scraped data, data scraper, data crawler.
+  Use terms, e.g. crawl, crawler, scraping tool, finder, scraper, data extraction tool, extract data, get data
+    - Scrape XYZ data, scraped data, data scraper, data crawler.
 
 ### Choose how to start your sentences 📝
 
 - _Noun-first (descriptive)_:
-  - Data extraction tool to extract Airbnb data: host info, prices, dates, location, and reviews.
+    - Data extraction tool to extract Airbnb data: host info, prices, dates, location, and reviews.
 - _Imperative-first (motivating)_:
-  - Try a free web scraping tool to extract Airbnb data: host info, prices, dates, location, and reviews.
-
+    - Try a free web scraping tool to extract Airbnb data: host info, prices, dates, location, and reviews.
 
 ### Keep it short and SEO-focused ✂️
 
 - _Be concise and direct_: clearly state what your Actor does. Avoid unnecessary fluff and boilerplate text.
-  - ✅ Scrapes job listings from Indeed and gathers...
-  - ❌ *This Actor scrapes job listings from Indeed in order to gather...
+    - ✅ Scrapes job listings from Indeed and gathers...
+    - ❌ \*This Actor scrapes job listings from Indeed in order to gather...
 - _Optimize for search engines_: include popular keywords related to your Actor’s functionality that users might search for.
-  - ✅ This Indeed scraper helps you collect job data efficiently. Use the tool to gather...
-  - ❌ This tool will search through job listings on Indeed and offers you...
-
+    - ✅ This Indeed scraper helps you collect job data efficiently. Use the tool to gather...
+    - ❌ This tool will search through job listings on Indeed and offers you...
 
 ### List the data your Actor works with 📝
 
@@ -123,17 +121,17 @@ Use terms, e.g. crawl, crawler, scraping tool, finder, scraper, data extraction 
 ### Highlight your strong suits 🌟
 
 - Ease of use, no coding, user-friendly:
-  - Easy scraping tool to extract Airbnb data.
+    - Easy scraping tool to extract Airbnb data.
 - Fast and scalable:
-  - Scrape whole cities or extract data from hundreds of Airbnb rentals in seconds.
+    - Scrape whole cities or extract data from hundreds of Airbnb rentals in seconds.
 - Free (only if the trial run can cover $5 free credits):
-  - Try a free scraping tool to extract Airbnb data: host info, prices, dates, location, and reviews.
-  - Extract host information, locations, availability, stars, reviews, images, and host/guest details for free.
+    - Try a free scraping tool to extract Airbnb data: host info, prices, dates, location, and reviews.
+    - Extract host information, locations, availability, stars, reviews, images, and host/guest details for free.
 - Available platform features (various formats, API, integrations, scheduling):
-  - Export scraped data in formats like HTML, JSON, and Excel.
+    - Export scraped data in formats like HTML, JSON, and Excel.
 - Additional tips:
-  - Avoid ending lists with etc.
-  - Consider adding relevant emojis for visual appeal.
+    - Avoid ending lists with etc.
+    - Consider adding relevant emojis for visual appeal.
 
 ### Break it down 🔠
 
@@ -146,7 +144,9 @@ Examples:
 1. Export scraped data, run the scraper via API, schedule and monitor runs, or integrate with other tools.
 
 ## FAQ
+
 <!-- markdownlint-disable MD001 -->
+
 #### Can the Actor's meta description and description be the same?
 
 Yes, they can, as long as they have the same (shorter) length (under 150 characters). But they can also be different - there's no harm in that.

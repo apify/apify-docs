@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/crawling
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson, we'll follow links to individual product pages. We'll use HTTPX to download them and BeautifulSoup to process them.**
 
@@ -87,33 +87,27 @@ Depending on what's valuable for our use case, we can now use the same technique
 
 ```html
 <div class="product-meta">
-  <h1 class="product-meta__title heading h1">
-    Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
-  </h1>
-  <div class="product-meta__label-list">
-    ...
-  </div>
-  <div class="product-meta__reference">
-    <!-- highlight-next-line -->
-    <a class="product-meta__vendor link link--accented" href="/collections/sony">
+    <h1 class="product-meta__title heading h1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h1>
+    <div class="product-meta__label-list">...</div>
+    <div class="product-meta__reference">
         <!-- highlight-next-line -->
-        Sony
-    <!-- highlight-next-line -->
-    </a>
-    <span class="product-meta__sku">
-      SKU:
-      <span class="product-meta__sku-number">SON-985594-XBR-65</span>
-    </span>
-  </div>
-  <a href="#product-reviews" class="product-meta__reviews-badge link" data-offset="30">
-    <div class="rating">
-      <div class="rating__stars" role="img" aria-label="4.0 out of 5.0 stars">
-        ...
-      </div>
-      <span class="rating__caption">3 reviews</span>
+        <a class="product-meta__vendor link link--accented" href="/collections/sony">
+            <!-- highlight-next-line -->
+            Sony
+            <!-- highlight-next-line -->
+        </a>
+        <span class="product-meta__sku">
+            SKU:
+            <span class="product-meta__sku-number">SON-985594-XBR-65</span>
+        </span>
     </div>
-  </a>
-  ...
+    <a href="#product-reviews" class="product-meta__reviews-badge link" data-offset="30">
+        <div class="rating">
+            <div class="rating__stars" role="img" aria-label="4.0 out of 5.0 stars">...</div>
+            <span class="rating__caption">3 reviews</span>
+        </div>
+    </a>
+    ...
 </div>
 ```
 
@@ -146,6 +140,7 @@ for product in listing_soup.select(".product-item"):
 If we run the program now, it'll take longer to finish since it's making 24 more HTTP requests. But in the end, it should produce exports with a new field containing the vendor's name:
 
 <!-- eslint-skip -->
+
 ```json title=products.json
 [
   {
@@ -210,32 +205,32 @@ Locating cells in tables is sometimes easier if you know how to [navigate up](ht
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+```py
+import httpx
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+def download(url):
+    response = httpx.get(url)
+    response.raise_for_status()
+    return BeautifulSoup(response.text, "html.parser")
 
-  def parse_calling_code(soup):
-      for label in soup.select("th.infobox-label"):
-          if label.text.strip() == "Calling code":
-              data = label.parent.select_one("td.infobox-data")
-              return data.text.strip()
-      return None
+def parse_calling_code(soup):
+    for label in soup.select("th.infobox-label"):
+        if label.text.strip() == "Calling code":
+            data = label.parent.select_one("td.infobox-data")
+            return data.text.strip()
+    return None
 
-  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  listing_soup = download(listing_url)
-  for name_cell in listing_soup.select(".wikitable tr td:nth-child(3)"):
-      link = name_cell.select_one("a")
-      country_url = urljoin(listing_url, link["href"])
-      country_soup = download(country_url)
-      calling_code = parse_calling_code(country_soup)
-      print(country_url, calling_code)
-  ```
+listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+listing_soup = download(listing_url)
+for name_cell in listing_soup.select(".wikitable tr td:nth-child(3)"):
+    link = name_cell.select_one("a")
+    country_url = urljoin(listing_url, link["href"])
+    country_soup = download(country_url)
+    calling_code = parse_calling_code(country_soup)
+    print(country_url, calling_code)
+```
 
 </details>
 
@@ -268,34 +263,34 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
+```py
+import httpx
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
+def download(url):
+    response = httpx.get(url)
+    response.raise_for_status()
+    return BeautifulSoup(response.text, "html.parser")
 
-  def parse_author(article_soup):
-      link = article_soup.select_one('a[rel="author"]')
-      if link:
-          return link.text.strip()
-      address = article_soup.select_one('aside address')
-      if address:
-          return address.text.strip()
-      return None
+def parse_author(article_soup):
+    link = article_soup.select_one('a[rel="author"]')
+    if link:
+        return link.text.strip()
+    address = article_soup.select_one('aside address')
+    if address:
+        return address.text.strip()
+    return None
 
-  listing_url = "https://www.theguardian.com/sport/formulaone"
-  listing_soup = download(listing_url)
-  for item in listing_soup.select("#maincontent ul li"):
-      link = item.select_one("a")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      title = article_soup.select_one("h1").text.strip()
-      author = parse_author(article_soup)
-      print(f"{author}: {title}")
-  ```
+listing_url = "https://www.theguardian.com/sport/formulaone"
+listing_soup = download(listing_url)
+for item in listing_soup.select("#maincontent ul li"):
+    link = item.select_one("a")
+    article_url = urljoin(listing_url, link["href"])
+    article_soup = download(article_url)
+    title = article_soup.select_one("h1").text.strip()
+    author = parse_author(article_soup)
+    print(f"{author}: {title}")
+```
 
 </details>

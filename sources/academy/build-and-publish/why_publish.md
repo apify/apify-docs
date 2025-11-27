@@ -28,7 +28,7 @@ Apify Store offers flexible pricing models that let you match your Actor's value
 
 - Pay-per-event (PPE): Charge for any custom events your Actor triggers (maximum flexibility, AI/MCP compatible, priority store placement)
 - Pay-per-result (PPR): Set pricing based on dataset items generated
-(predictable costs for users, unlimited revenue potential)
+  (predictable costs for users, unlimited revenue potential)
 - Rental: Charge a flat monthly fee for continuous access (users cover their own platform usage costs)
 
 All models give you 80% of revenue, with platform usage costs deducted for PPR and PPE models.
@@ -70,7 +70,7 @@ Ready to publish? The process involves four main stages:
 
 1. Development: Build your Actor using [Apify SDKs](https://docs.apify.com/sdk), [Crawlee](https://crawlee.dev/), or [Actor templates](https://apify.com/templates)
 1. Publication: Set up display information, description, README, and
-monetization
+   monetization
 1. Testing: Ensure your Actor works reliably with automated or manual tests
 1. Promotion: Optimize for SEO, share on social media, and create tutorials
 

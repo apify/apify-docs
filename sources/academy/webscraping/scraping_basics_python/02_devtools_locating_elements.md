@@ -1,11 +1,11 @@
 ---
 title: Locating HTML elements on a web page with browser DevTools
-sidebar_label: "DevTools: Locating HTML elements"
+sidebar_label: 'DevTools: Locating HTML elements'
 description: Lesson about using the browser tools for developers to manually find products on an e-commerce website.
 slug: /scraping-basics-python/devtools-locating-elements
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to manually find products on an e-commerce website.**
 
@@ -46,9 +46,7 @@ At this stage, we could use the **Store as global variable** option to send the 
 Scrapers typically rely on [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors) to locate elements on a page, and these selectors often target elements based on their `class` attributes. The product card we highlighted has markup like this:
 
 ```html
-<div class="product-item product-item--vertical 1/3--tablet-and-up 1/4--desk">
-  ...
-</div>
+<div class="product-item product-item--vertical 1/3--tablet-and-up 1/4--desk">...</div>
 ```
 
 The `class` attribute can hold multiple values separated by whitespace. This particular element has four classes. Let's move to the **Console** and experiment with CSS selectors to locate this element.
@@ -73,9 +71,9 @@ The [type selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Type_select
 
 ```html
 <article>
-  <!-- highlight-next-line -->
-  <h1>Title</h1>
-  <p>Paragraph.</p>
+    <!-- highlight-next-line -->
+    <h1>Title</h1>
+    <p>Paragraph.</p>
 </article>
 ```
 
@@ -83,14 +81,14 @@ The [class selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_sele
 
 ```html
 <article>
-  <h1>Title</h1>
-  <!-- highlight-next-line -->
-  <h2 class="heading">Subtitle</h2>
-  <p>Paragraph</p>
-  <p>
+    <h1>Title</h1>
     <!-- highlight-next-line -->
-    <strong class="heading">Heading</strong>
-  </p>
+    <h2 class="heading">Subtitle</h2>
+    <p>Paragraph</p>
+    <p>
+        <!-- highlight-next-line -->
+        <strong class="heading">Heading</strong>
+    </p>
 </article>
 ```
 
@@ -98,10 +96,10 @@ You can combine selectors to narrow results. For example, `p.lead` matches `p` e
 
 ```html
 <article>
-  <!-- highlight-next-line -->
-  <p class="lead">Lead paragraph.</p>
-  <p>Paragraph</p>
-  <section class="lead"><p>Paragraph</p></section>
+    <!-- highlight-next-line -->
+    <p class="lead">Lead paragraph.</p>
+    <p>Paragraph</p>
+    <section class="lead"><p>Paragraph</p></section>
 </article>
 ```
 
@@ -111,7 +109,7 @@ How did we know `.product-item` selects a product card? By inspecting the markup
 
 Multiple approaches often exist for creating a CSS selector that targets the element we want. We should pick selectors that are simple, readable, unique, and semantically tied to the data. These are **resilient selectors**. They're the most reliable and likely to survive website updates. We better avoid randomly generated attributes like `class="F4jsL8"`, as they tend to change without warning.
 
-The product card has four classes: `product-item`, `product-item--vertical`, `1/3--tablet-and-up`, and `1/4--desk`. Only the first one checks all the boxes. A product card *is* a product item, after all. The others seem more about styling—defining how the element looks on the screen—and are probably tied to CSS rules.
+The product card has four classes: `product-item`, `product-item--vertical`, `1/3--tablet-and-up`, and `1/4--desk`. Only the first one checks all the boxes. A product card _is_ a product item, after all. The others seem more about styling—defining how the element looks on the screen—and are probably tied to CSS rules.
 
 This class is also unique enough in the page's context. If it were something generic like `item`, there would be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, we can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
 
@@ -157,12 +155,12 @@ On English Wikipedia's [Main Page](https://en.wikipedia.org/wiki/Main_Page), use
 <details>
   <summary>Solution</summary>
 
-  1. Open the [Main Page](https://en.wikipedia.org/wiki/Main_Page).
-  1. Activate the element selection tool in your DevTools.
-  1. Click on several headings to examine the markup.
-  1. Notice that all headings are `h2` elements with the `mp-h2` class.
-  1. In the **Console**, execute `document.querySelectorAll('h2')`.
-  1. At the time of writing, this selector returns 8 headings. Each corresponds to a box, and there are no other `h2` elements on the page. Thus, the selector is sufficient as is.
+1. Open the [Main Page](https://en.wikipedia.org/wiki/Main_Page).
+1. Activate the element selection tool in your DevTools.
+1. Click on several headings to examine the markup.
+1. Notice that all headings are `h2` elements with the `mp-h2` class.
+1. In the **Console**, execute `document.querySelectorAll('h2')`.
+1. At the time of writing, this selector returns 8 headings. Each corresponds to a box, and there are no other `h2` elements on the page. Thus, the selector is sufficient as is.
 
 </details>
 
@@ -175,13 +173,13 @@ Go to Shein's [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewel
 <details>
   <summary>Solution</summary>
 
-  1. Visit the [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewelry-Accessories-sc-017291431.html) page. Close any pop-ups or promotions.
-  1. Activate the element selection tool in your DevTools.
-  1. Click on the first product to inspect its markup. Repeat with a few others.
-  1. Observe that all products are `section` elements with multiple classes, including `product-card`.
-  1. Since `section` is a generic wrapper, focus on the `product-card` class.
-  1. In the **Console**, execute `document.querySelectorAll('.product-card')`.
-  1. At the time of writing, this selector returns 120 results, all representing products. No further narrowing is necessary.
+1. Visit the [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewelry-Accessories-sc-017291431.html) page. Close any pop-ups or promotions.
+1. Activate the element selection tool in your DevTools.
+1. Click on the first product to inspect its markup. Repeat with a few others.
+1. Observe that all products are `section` elements with multiple classes, including `product-card`.
+1. Since `section` is a generic wrapper, focus on the `product-card` class.
+1. In the **Console**, execute `document.querySelectorAll('.product-card')`.
+1. At the time of writing, this selector returns 120 results, all representing products. No further narrowing is necessary.
 
 </details>
 
@@ -200,13 +198,13 @@ Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs
 <details>
   <summary>Solution</summary>
 
-  1. Open the [page about F1](https://www.theguardian.com/sport/formulaone).
-  1. Activate the element selection tool in your DevTools.
-  1. Click on an article to inspect its structure. Check several articles, including the ones with smaller cards.
-  1. Note that all articles are `li` elements, but their classes (e.g., `dcr-1qmyfxi`) are dynamically generated and unreliable.
-  1. Using `document.querySelectorAll('li')` returns too many results, including unrelated items like navigation links.
-  1. Inspect the page structure. The `main` element contains the primary content, including articles. Use the descendant combinator to target `li` elements within `main`.
-  1. In the **Console**, execute `document.querySelectorAll('main li')`.
-  1. At the time of writing, this selector returns 21 results. All appear to represent articles, so the solution works!
+1. Open the [page about F1](https://www.theguardian.com/sport/formulaone).
+1. Activate the element selection tool in your DevTools.
+1. Click on an article to inspect its structure. Check several articles, including the ones with smaller cards.
+1. Note that all articles are `li` elements, but their classes (e.g., `dcr-1qmyfxi`) are dynamically generated and unreliable.
+1. Using `document.querySelectorAll('li')` returns too many results, including unrelated items like navigation links.
+1. Inspect the page structure. The `main` element contains the primary content, including articles. Use the descendant combinator to target `li` elements within `main`.
+1. In the **Console**, execute `document.querySelectorAll('main li')`.
+1. At the time of writing, this selector returns 21 results. All appear to represent articles, so the solution works!
 
 </details>

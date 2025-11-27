@@ -150,7 +150,6 @@ Any repetitive job matching the following criteria might be suitable for turning
 
 If you look closely, you'll start seeing opportunities for new Actors everywhere. Be creative!
 
-
 ## Use the Actor ideas page
 
 The [Actor ideas](https://apify.com/ideas) page is where you can find inspiration for new Actors sourced from the Apify community.
@@ -166,27 +165,22 @@ Build and publish new tools on Apify and have multiple chances to win big prizes
 :::
 
 1. _Visit_ [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
+2. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.
+3. _Build your Actor_: Develop your Actor based on the idea. You don't need to notify Apify during development.
+4. _Prepare for launch_: Ensure your Actor meets quality standards and has a comprehensive README with installation instructions, usage details, and examples.
+5. _Publish your Actor_: Deploy your Actor on Apify Store and make it live.
+6. _Monitor and optimize_: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
 
-1. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.
-
-1. _Build your Actor_: Develop your Actor based on the idea. You don't need to notify Apify during development.
-
-1. _Prepare for launch_: Ensure your Actor meets quality standards and has a comprehensive README with installation instructions, usage details, and examples.
-
-1. _Publish your Actor_: Deploy your Actor on Apify Store and make it live.
-
-    <!-- 1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
-
-    1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea. -->
-
-1. _Monitor and optimize_: Track your Actor's performance and user feedback. Make improvements to keep your Actor current.
+<!--
+1. _Claim the idea_: After publishing, email [ideas@apify.com](mailto:ideas@apify.com) with your Actor URL and the original idea. Apify will tag the idea as **Completed** and link it to your Actor.
+1. To claim an idea, ensure your Actor is functional, README contains relevant information, and your Actor closely aligns with the original idea.
+-->
 
 <!-- #### Multiple developers for one idea
 
 Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
 
 Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features. -->
-
 
 <!-- ### Submit your own ideas
 

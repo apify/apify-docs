@@ -71,7 +71,7 @@ flowchart LR
 ---
 
 | Status     | Type         | Description                                 |
-|------------|--------------|---------------------------------------------|
+| ---------- | ------------ | ------------------------------------------- |
 | READY      | initial      | Started but not allocated to any worker yet |
 | RUNNING    | transitional | Executing on a worker machine               |
 | SUCCEEDED  | terminal     | Finished successfully                       |

@@ -13,21 +13,25 @@ slug: /schedules
 Schedules allow you to run your Actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 :::note Timezone & Daylight Savings Time
+
 Schedules allow timezone settings and support daylight saving time shifts (DST).
+
 :::
 
 You can set up and manage your Schedules using:
 
-* [Apify Console](https://console.apify.com/schedules)
-* [Apify API](/api/v2/schedules)
-* [JavaScript API client](https://docs.apify.com/api/client/js/reference/class/ScheduleClient)
-* [Python API client](https://docs.apify.com/api/client/python/reference/class/ScheduleClient)
+- [Apify Console](https://console.apify.com/schedules)
+- [Apify API](/api/v2/schedules)
+- [JavaScript API client](https://docs.apify.com/api/client/js/reference/class/ScheduleClient)
+- [Python API client](https://docs.apify.com/api/client/python/reference/class/ScheduleClient)
 
 When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking an Actor or task using the [Apify REST API](/api/v2/schedules).
 
 :::note Events Startup Variability
+
 In most cases, scheduled events are fired within one second of their scheduled time. <br/>
 However, runs can be delayed because of a system overload or a server shutting down.
+
 :::
 
 Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tasks.
@@ -39,7 +43,9 @@ Before setting up a new schedule, you should have the [Actor](./actors/index.mdx
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
 :::info Name Length
+
 Your schedule's name should be 3–63 characters long.
+
 :::
 
 ### Apify Console
@@ -57,7 +63,7 @@ Next, you'll need to give the schedule something to run. This is where the Actor
 If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like [build](./actors/development/builds_and_runs/builds.md), timeout, [memory](./actors/running/usage_and_resources.md).
 The **timeout** value is specified in seconds; a value of _0_ means there is no timeout, and the Actor runs until it finishes.
 
- If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
+If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
 
 ![Add Actor to schedule](./images/schedules-actor-input.png)
 
@@ -78,7 +84,9 @@ To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST`
 You can find your [secret API token](./integrations/index.mdx) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
+
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
+
 :::
 
 In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's _actions_.
@@ -135,13 +143,13 @@ If you want to manage the notifications for your schedules in bulk, you can do t
 A cron expression has the following structure:
 
 | Position | Field        | Values                         | Wildcards | Optional |
-|:---------|:-------------|:-------------------------------|:----------|:---------|
-| 1        | second       | 0 - 59                         | , - * /   | yes      |
-| 2        | minute       | 0 - 59                         | , - * /   | no       |
-| 3        | hour         | 0 - 23                         | , - * /   | no       |
-| 4        | day of month | 1 - 31                         | , - * /   | no       |
-| 5        | month        | 1 - 12                         | , - * /   | no       |
-| 6        | day of week  | 0 - 7 <br/> (0 or 7 is Sunday) | , - * /   | no       |
+| :------- | :----------- | :----------------------------- | :-------- | :------- |
+| 1        | second       | 0 - 59                         | , - \* /  | yes      |
+| 2        | minute       | 0 - 59                         | , - \* /  | no       |
+| 3        | hour         | 0 - 23                         | , - \* /  | no       |
+| 4        | day of month | 1 - 31                         | , - \* /  | no       |
+| 5        | month        | 1 - 12                         | , - \* /  | no       |
+| 6        | day of week  | 0 - 7 <br/> (0 or 7 is Sunday) | , - \* /  | no       |
 
 For example, the expression `30 5 16 * * 1` will start an Actor at 16:05:30 every Monday.
 
@@ -149,15 +157,15 @@ The minimum interval between runs is 10 seconds; if your next run is scheduled s
 
 ### Examples of cron expressions
 
-* `0 8 * * *`  -  every day at 8 AM.
-* `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
-* `*/3 * * * *` - every 3rd minute.
-* `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
+- `0 8 * * *` - every day at 8 AM.
+- `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
+- `*/3 * * * *` - every 3rd minute.
+- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
 
 Additionally, you can use the following shortcut expressions:
 
-* `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
-* `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
-* `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
-* `@daily` = `0 0 * * *` - run once a day, at midnight.
-* `@hourly` = `0 * * * *` - on the hour, every hour.
+- `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
+- `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
+- `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
+- `@daily` = `0 0 * * *` - run once a day, at midnight.
+- `@hourly` = `0 * * * *` - on the hour, every hour.

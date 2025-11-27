@@ -45,11 +45,9 @@ Also, an object including these values should be persisted during the run in th 
 
 ```json
 {
-    "errors": { // all of the errors for every request path
-        "some-site.com/products/123": [
-            "error1",
-            "error2"
-        ]
+    "errors": {
+        // all of the errors for every request path
+        "some-site.com/products/123": ["error1", "error2"]
     },
     "totalSaved": 43 // total number of saved items throughout the entire run
 }

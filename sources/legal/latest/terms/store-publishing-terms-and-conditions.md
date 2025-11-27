@@ -64,7 +64,6 @@ We are authorized to unpublish and/or delete such an Actor, in our sole discreti
 
 **7.1.** By publishing your Actor on Apify Store you are allowing us to view the source code of that Actor. We may only access and inspect the source code in limited circumstances where our interference is necessary for legal, compliance or security reasons, for example, when investigating the presence of any Prohibited Activities.
 
-
 ## 8. Maintenance of the Actor
 
 **8.1.** By publishing your Actor you agree to use your best effort to maintain it in working condition and make updates to it from time to time as needed, in order to maintain a continuing functionality.

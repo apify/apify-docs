@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/challenge/modularity
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Before you build your first web scraper with Crawlee, it is important to understand the concept of modularity in programming.**
 
@@ -48,20 +48,22 @@ router.addHandler('START', async ({ $, crawler, request }) => {
 
         // scrape some data from each and to a request
         // to the crawler for its page
-        await crawler.addRequests([{
-            url,
-            label: 'PRODUCT',
-            userData: {
-                // Pass the scraped data about the product to the next
-                // request so that it can be used there
-                data: {
-                    title: titleElement.first().text().trim(),
-                    asin: element.attr('data-asin'),
-                    itemUrl: url,
-                    keyword,
+        await crawler.addRequests([
+            {
+                url,
+                label: 'PRODUCT',
+                userData: {
+                    // Pass the scraped data about the product to the next
+                    // request so that it can be used there
+                    data: {
+                        title: titleElement.first().text().trim(),
+                        asin: element.attr('data-asin'),
+                        itemUrl: url,
+                        keyword,
+                    },
                 },
             },
-        }]);
+        ]);
     }
 });
 

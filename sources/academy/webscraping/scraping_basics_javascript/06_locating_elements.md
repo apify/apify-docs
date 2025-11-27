@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/locating-elements
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
@@ -19,19 +19,19 @@ In the previous lesson we've managed to print text of the page's main heading or
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
-  // highlight-start
-  for (const element of $(".product-item").toArray()) {
-    console.log($(element).text());
-  }
-  // highlight-end
+    const html = await response.text();
+    const $ = cheerio.load(html);
+    // highlight-start
+    for (const element of $('.product-item').toArray()) {
+        console.log($(element).text());
+    }
+    // highlight-end
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -73,26 +73,26 @@ We should be looking for elements which have the `product-item__title` and `pric
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for (const element of $(".product-item").toArray()) {
-    const $productItem = $(element);
+    for (const element of $('.product-item').toArray()) {
+        const $productItem = $(element);
 
-    const $title = $productItem.find(".product-item__title");
-    const title = $title.text();
+        const $title = $productItem.find('.product-item__title');
+        const title = $title.text();
 
-    const $price = $productItem.find(".price");
-    const price = $price.text();
+        const $price = $productItem.find('.price');
+        const price = $price.text();
 
-    console.log(`${title} | ${price}`);
-  }
+        console.log(`${title} | ${price}`);
+    }
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -121,8 +121,8 @@ In the output we can see that the price isn't located precisely. For each produc
 
 ```html
 <span class="price">
-  <span class="visually-hidden">Sale price</span>
-  $74.95
+    <span class="visually-hidden">Sale price</span>
+    $74.95
 </span>
 ```
 
@@ -169,27 +169,27 @@ It seems like we can read the last element to get the actual amount. Let's fix o
 ```js
 import * as cheerio from 'cheerio';
 
-const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
+const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 const response = await fetch(url);
 
 if (response.ok) {
-  const html = await response.text();
-  const $ = cheerio.load(html);
+    const html = await response.text();
+    const $ = cheerio.load(html);
 
-  for (const element of $(".product-item").toArray()) {
-    const $productItem = $(element);
+    for (const element of $('.product-item').toArray()) {
+        const $productItem = $(element);
 
-    const $title = $productItem.find(".product-item__title");
-    const title = $title.text();
+        const $title = $productItem.find('.product-item__title');
+        const title = $title.text();
 
-    // highlight-next-line
-    const $price = $productItem.find(".price").contents().last();
-    const price = $price.text();
+        // highlight-next-line
+        const $price = $productItem.find('.price').contents().last();
+        const price = $price.text();
 
-    console.log(`${title} | ${price}`);
-  }
+        console.log(`${title} | ${price}`);
+    }
 } else {
-  throw new Error(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
 }
 ```
 
@@ -239,37 +239,38 @@ Djibouti
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(url);
+const url =
+    'https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const tableElement of $(".wikitable").toArray()) {
-      const $table = $(tableElement);
-      const $rows = $table.find("tr");
+    for (const tableElement of $('.wikitable').toArray()) {
+        const $table = $(tableElement);
+        const $rows = $table.find('tr');
 
-      for (const rowElement of $rows.toArray()) {
-        const $row = $(rowElement);
-        const $cells = $row.find("td");
+        for (const rowElement of $rows.toArray()) {
+            const $row = $(rowElement);
+            const $cells = $row.find('td');
 
-        if ($cells.length > 0) {
-          const $thirdColumn = $($cells[2]);
-          const $link = $thirdColumn.find("a").first();
-          console.log($link.text());
+            if ($cells.length > 0) {
+                const $thirdColumn = $($cells[2]);
+                const $link = $thirdColumn.find('a').first();
+                console.log($link.text());
+            }
         }
-      }
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
-  Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
+Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
 
 </details>
 
@@ -289,25 +290,26 @@ You may want to check out the following pages:
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(url);
+const url =
+    'https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
-      const $nameCell = $(element);
-      const $link = $nameCell.find("a").first();
-      console.log($link.text());
+    for (const element of $('.wikitable tr td:nth-child(3)').toArray()) {
+        const $nameCell = $(element);
+        const $link = $nameCell.find('a').first();
+        console.log($link.text());
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>
 
@@ -331,22 +333,22 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
 <details>
   <summary>Solution</summary>
 
-  ```js
-  import * as cheerio from 'cheerio';
+```js
+import * as cheerio from 'cheerio';
 
-  const url = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(url);
+const url = 'https://www.theguardian.com/sport/formulaone';
+const response = await fetch(url);
 
-  if (response.ok) {
+if (response.ok) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    for (const element of $("#maincontent ul li h3").toArray()) {
-      console.log($(element).text());
+    for (const element of $('#maincontent ul li h3').toArray()) {
+        console.log($(element).text());
     }
-  } else {
+} else {
     throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+}
+```
 
 </details>

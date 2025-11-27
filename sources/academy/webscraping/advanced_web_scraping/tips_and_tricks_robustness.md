@@ -61,10 +61,7 @@ Assuming any action has been successful without direct proof is dangerous. Dispr
 
 ```js
 async function submitPayment() {
-    await Promise.all([
-        page.click('submitPayment'),
-        page.waitForNavigation(),
-    ]);
+    await Promise.all([page.click('submitPayment'), page.waitForNavigation()]);
 
     try {
         await page.waitForFunction(
@@ -84,10 +81,7 @@ async function submitPayment() {
 
 ```js
 async function submitPayment() {
-    await Promise.all([
-        page.click('submitPayment'),
-        page.waitForNavigation(),
-    ]);
+    await Promise.all([page.click('submitPayment'), page.waitForNavigation()]);
 
     return OUTPUT.paymentSuccess;
 }

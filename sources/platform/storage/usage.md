@@ -24,7 +24,6 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 
 ![Key-value store graphic](../images/key-value-overview.svg)
 
-
 ## Request queue
 
 [Request queues](./request_queue.md) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
@@ -35,10 +34,10 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 
 You can access your storage in several ways:
 
-* [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
-* [Apify API](/api/v2/storage-key-value-stores) - to access your storages programmatically.
-* [API clients](/api) - to access your storages from any Node.js/Python application.
-* [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
+- [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
+- [Apify API](/api/v2/storage-key-value-stores) - to access your storages programmatically.
+- [API clients](/api) - to access your storages from any Node.js/Python application.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console
 
@@ -55,7 +54,9 @@ Additionally, you can quickly share the contents and details of your storage by 
 ![Storage API](./images/overview-api.png)
 
 <!-- vale Microsoft.Dashes = NO -->
+
 These URLs link to API _endpoints_—the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
+
 <!-- vale Microsoft.Dashes = YES -->
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
@@ -67,9 +68,9 @@ The [Apify API](/api/v2/storage-key-value-stores) allows you to access your stor
 
 In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
-* `WkzbQMuFYuamGv3YF` - the store's alphanumerical ID if the store is unnamed.
-* `~store-name` - the store's name prefixed with tilde (`~`) character if the store is named (e.g. `~ecommerce-scraping-results`)
-* `username~store-name` - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to a different account (e.g. `janedoe~ecommerce-scraping-results`). Note that in this case, the store's owner needs to grant you access first.
+- `WkzbQMuFYuamGv3YF` - the store's alphanumerical ID if the store is unnamed.
+- `~store-name` - the store's name prefixed with tilde (`~`) character if the store is named (e.g. `~ecommerce-scraping-results`)
+- `username~store-name` - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to a different account (e.g. `janedoe~ecommerce-scraping-results`). Note that in this case, the store's owner needs to grant you access first.
 
 For read (GET) requests, it is enough to use a store's alphanumerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
@@ -87,8 +88,8 @@ You can visit [API Clients](/api) documentations for more information.
 
 The Apify SDKs are libraries in JavaScript or Python that provide tools for building your own Actors.<br />
 
-* JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
-* Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
+- JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
+- Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
 ## Estimate your costs
 
@@ -109,12 +110,12 @@ Use this tool to estimate storage costs by plan and storage type.
 
 All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is _60 requests per second_. However, there are exceptions limited to _400 requests per second_ per storage object, including:
 
-* [Push items](/api/v2/dataset-items-post) to dataset.
-* CRUD ([add](/api/v2/request-queue-requests-post),
-[get](/api/v2/request-queue-request-get),
-[update](/api/v2/request-queue-request-put),
-[delete](/api/v2/request-queue-request-delete))
-operations of _request queue_ requests.
+- [Push items](/api/v2/dataset-items-post) to dataset.
+- CRUD ([add](/api/v2/request-queue-requests-post),
+  [get](/api/v2/request-queue-request-get),
+  [update](/api/v2/request-queue-request-put),
+  [delete](/api/v2/request-queue-request-delete))
+  operations of _request queue_ requests.
 
 If a client exceeds this limit, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
 
@@ -145,8 +146,8 @@ To name your storage via API, get its ID from the run that generated it using th
 
 Our SDKs and clients each have unique naming conventions for storages. For more information check out documentation:
 
-* [SDKs](/sdk)
-* [API Clients](/api)
+- [SDKs](/sdk)
+- [API Clients](/api)
 
 ## Named and unnamed storages
 
@@ -195,21 +196,21 @@ Learn how restricted access works in [General resource access](/platform/collabo
 Named storages are only removed upon your request.<br/>
 You can delete storages in the following ways:
 
-* [Apify Console](https://console.apify.com/storage) - using the **Actions** button in the store's detail page.
-* [JavaScript SDK](/sdk/js) - using the `.drop()` method of the
+- [Apify Console](https://console.apify.com/storage) - using the **Actions** button in the store's detail page.
+- [JavaScript SDK](/sdk/js) - using the `.drop()` method of the
   [Dataset](/sdk/js/api/apify/class/Dataset#drop),
   [Key-value store](/sdk/js/api/apify/class/KeyValueStore#drop),
   or [Request queue](/sdk/js/api/apify/class/RequestQueue#drop) class.
-* [Python SDK](/sdk/python) - using the `.drop()` method of the
+- [Python SDK](/sdk/python) - using the `.drop()` method of the
   [Dataset](/sdk/python/reference/class/Dataset#drop),
   [Key-value store](/sdk/python/reference/class/KeyValueStore#drop),
   or [Request queue](/sdk/python/reference/class/RequestQueue#drop) class.
-* [JavaScript API client](/api/client/js) - using the `.delete()` method in the
+- [JavaScript API client](/api/client/js) - using the `.delete()` method in the
   [dataset](/api/client/js/reference/class/DatasetClient),
   [key-value store](/api/client/js/reference/class/KeyValueStoreClient),
   or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
-* [Python API client](/api/client/python) - using the `.delete()` method in the
+- [Python API client](/api/client/python) - using the `.delete()` method in the
   [dataset](/api/client/python#datasetclient),
   [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
   or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
-* [API](/api/v2/key-value-store-delete) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.
+- [API](/api/v2/key-value-store-delete) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.

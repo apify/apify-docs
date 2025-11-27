@@ -137,4 +137,4 @@ The Apify platform also introduces usage limits based on the billing plan to pro
 
 View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
 
- <img src={require("./images/limits/usage-limits.png").default} title="Apify Security Whitepaper" />
+<img src={require("./images/limits/usage-limits.png").default} title="Apify Security Whitepaper" />

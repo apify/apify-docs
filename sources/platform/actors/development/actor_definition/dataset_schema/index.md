@@ -35,7 +35,6 @@ await Actor.pushData({
     objectField: {},
 });
 
-
 // Exit successfully
 await Actor.exit();
 ```
@@ -197,42 +196,42 @@ The dataset schema structure defines the various components and properties that 
 
 ### DatasetSchema object definition
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actorSpecification` | integer | true | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
-| `fields` | JSONSchema compatible object | true | Schema of one dataset object. <br/>Use JsonSchema Draft 2020–12 or <br/>other compatible formats. |
-| `views` | DatasetView object | true | An object with a description of an API <br/>and UI views. |
+| Property             | Type                         | Required | Description                                                                                                  |
+| -------------------- | ---------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `actorSpecification` | integer                      | true     | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
+| `fields`             | JSONSchema compatible object | true     | Schema of one dataset object. <br/>Use JsonSchema Draft 2020–12 or <br/>other compatible formats.            |
+| `views`              | DatasetView object           | true     | An object with a description of an API <br/>and UI views.                                                    |
 
 ### DatasetView object definition
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `title` | string | true | The title is visible in UI in the Output tab <br/>and in the API. |
-| `description` | string | false | The description is only available in the API response. |
-| `transformation` | ViewTransformation object | true | The definition of data transformation <br/> applied when dataset data is loaded from <br/>Dataset API. |
-| `display` | ViewDisplay object | true | The definition of Output tab UI visualization. |
+| Property         | Type                      | Required | Description                                                                                            |
+| ---------------- | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `title`          | string                    | true     | The title is visible in UI in the Output tab <br/>and in the API.                                      |
+| `description`    | string                    | false    | The description is only available in the API response.                                                 |
+| `transformation` | ViewTransformation object | true     | The definition of data transformation <br/> applied when dataset data is loaded from <br/>Dataset API. |
+| `display`        | ViewDisplay object        | true     | The definition of Output tab UI visualization.                                                         |
 
 ### ViewTransformation object definition
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | string[] | true | Selects fields to be presented in the output. <br/>The order of fields matches the order of columns <br/>in visualization UI. If a field value <br/>is missing, it will be presented as **undefined** in the UI. |
-| `unwind` | string[] | false | Deconstructs nested children into parent object, <br/>For example, with `unwind:["foo"]`, the object `{"foo": {"bar": "hello"}}` <br/> is transformed into `{"bar": "hello"}`. |
-| `flatten` | string[] | false | Transforms nested object into flat structure. <br/>For example, with `flatten:["foo"]` the object `{"foo":{"bar": "hello"}}` <br/> is transformed into `{"foo.bar": "hello"}`. |
-| `omit` | string[] | false | Removes the specified fields from the output. <br/>Nested fields names can be used as well. |
-| `limit` | integer | false | The maximum number of results returned. <br/>Default is all results. |
-| `desc` | boolean | false | By default, results are sorted in ascending based on the write event into the dataset. <br/> If `desc:true`, the newest writes to the dataset will be returned first. |
+| Property  | Type     | Required | Description                                                                                                                                                                                                      |
+| --------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fields`  | string[] | true     | Selects fields to be presented in the output. <br/>The order of fields matches the order of columns <br/>in visualization UI. If a field value <br/>is missing, it will be presented as **undefined** in the UI. |
+| `unwind`  | string[] | false    | Deconstructs nested children into parent object, <br/>For example, with `unwind:["foo"]`, the object `{"foo": {"bar": "hello"}}` <br/> is transformed into `{"bar": "hello"}`.                                   |
+| `flatten` | string[] | false    | Transforms nested object into flat structure. <br/>For example, with `flatten:["foo"]` the object `{"foo":{"bar": "hello"}}` <br/> is transformed into `{"foo.bar": "hello"}`.                                   |
+| `omit`    | string[] | false    | Removes the specified fields from the output. <br/>Nested fields names can be used as well.                                                                                                                      |
+| `limit`   | integer  | false    | The maximum number of results returned. <br/>Default is all results.                                                                                                                                             |
+| `desc`    | boolean  | false    | By default, results are sorted in ascending based on the write event into the dataset. <br/> If `desc:true`, the newest writes to the dataset will be returned first.                                            |
 
 ### ViewDisplay object definition
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `component` | string | true | Only the `table` component is available. |
-| `properties` | Object | false | An object with keys matching the `transformation.fields` <br/> and `ViewDisplayProperty` as values. If properties are not set, the table will be rendered automatically with fields formatted as `strings`, `arrays` or `objects`. |
+| Property     | Type   | Required | Description                                                                                                                                                                                                                        |
+| ------------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `component`  | string | true     | Only the `table` component is available.                                                                                                                                                                                           |
+| `properties` | Object | false    | An object with keys matching the `transformation.fields` <br/> and `ViewDisplayProperty` as values. If properties are not set, the table will be rendered automatically with fields formatted as `strings`, `arrays` or `objects`. |
 
 ### ViewDisplayProperty object definition
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `label` | string | false | In the Table view, the label will be visible as the table column's header. |
-| `format` | One of <ul><li>`text`</li><li>`number`</li><li>`date`</li><li>`link`</li><li>`boolean`</li><li>`image`</li><li>`array`</li><li>`object`</li></ul> | false | Describes how output data values are formatted to be rendered in the Output tab UI. |
+| Property | Type                                                                                                                                              | Required | Description                                                                         |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| `label`  | string                                                                                                                                            | false    | In the Table view, the label will be visible as the table column's header.          |
+| `format` | One of <ul><li>`text`</li><li>`number`</li><li>`date`</li><li>`link`</li><li>`boolean`</li><li>`image`</li><li>`array`</li><li>`object`</li></ul> | false    | Describes how output data values are formatted to be rendered in the Output tab UI. |

@@ -13,7 +13,7 @@ slug: /old/store-publishing-terms-and-conditions-december-2022
 You are reading terms and conditions that are no longer effective. If you're a new user, the [latest terms](../latest/terms/store-publishing-terms-and-conditions.md) apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
 
 | Version                                                            | Effective from   | Effective until |
-|--------------------------------------------------------------------|------------------|-----------------|
+| ------------------------------------------------------------------ | ---------------- | --------------- |
 | [Latest](../latest/terms/store-publishing-terms-and-conditions.md) | May 13, 2024     |                 |
 | December 2022 (This document)                                      | December 1, 2022 | June 12, 2024   |
 
@@ -30,7 +30,6 @@ Actors (i.e. the serverless cloud programs running on the Platform as defined in
 ## 2. Acceptance of these Terms
 
 By clicking a button “I agree”, you claim that you are over 18 years old and agree to adhere to these Apify Store Terms, in addition to the [Terms and the terms of personal data protection](../latest/policies/privacy-policy.md). If you act on behalf of a company when accepting these Apify Store Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term “you” shall mean the relevant company).
-
 
 ## 3. Actor name, description and price
 
@@ -58,7 +57,6 @@ Without limitation to clause 5.2 above, we reserve the right to delete, unpublis
 
 By publishing your Actor on the Platform you are allowing us to view the code of that Actor. We may only access and inspect the code in limited circumstances where our interference is necessary for legal, compliance or security reasons, e.g. when investigating presence of any Prohibited Content, suspicion of credentials stealing or account hacking.
 
-
 ## 8. Maintenance of the Actor
 
 By publishing your Actor you agree to use your best effort to maintain it in working condition and make updates to it from time to time as needed, in order to maintain a continuing functionality.
@@ -77,7 +75,6 @@ If your Actor does not provide the declared functionality (a “**Faulty Actor**
 
 **11.2.** In addition to responding according to clause 11.1 above, you agree to respond to us, should we contact you regarding your Actor via email marked “urgent” in its subject, within three business days.
 
-
 ## 12. Pricing options
 
 When you decide to set your Actor as paid, you may choose one of the two following options for setting its price:
@@ -85,7 +82,6 @@ When you decide to set your Actor as paid, you may choose one of the two followi
 **12.1. Monthly Rental** which means that each user of your Actor will pay a flat monthly rental fee for any their use of that Actor. You will set the price as X USD per month; or
 
 **12.2. Price per Result** model which means that each user of your Actor will pay a fee calculated according to the number of results for each run of that Actor; You will set the price as X USD per 1,000 results. In this model the users do not pay for the Platform usage.
-
 
 ## 13. Payments to you
 

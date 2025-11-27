@@ -22,13 +22,13 @@ async function pageFunction(context) {
     const $ = context.jQuery;
 
     if (context.request.userData.label === 'enqueue') {
-    // parse input keywords
+        // parse input keywords
         const keywords = context.customData;
 
         // process all the keywords
         for (const keyword of keywords) {
-        // enqueue the page and pass the keyword in
-        // the interceptRequestData attribute
+            // enqueue the page and pass the keyword in
+            // the interceptRequestData attribute
             await context.enqueueRequest({
                 url: 'https://google.com',
                 uniqueKey: `${Math.random()}`,
@@ -86,7 +86,6 @@ async function pageFunction(context) {
 
         // process all the results
         $('.rc').each((index, elem) => {
-
             // wrap element in jQuery
             const gResult = $(elem);
 

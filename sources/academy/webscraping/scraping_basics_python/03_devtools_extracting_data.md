@@ -1,11 +1,11 @@
 ---
 title: Extracting data from a web page with browser DevTools
-sidebar_label: "DevTools: Extracting data"
+sidebar_label: 'DevTools: Extracting data'
 description: Lesson about using the browser tools for developers to manually extract product data from an e-commerce website.
 slug: /scraping-basics-python/devtools-extracting-data
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to manually extract product data from an e-commerce website.**
 
@@ -83,15 +83,15 @@ At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/a
 <details>
   <summary>Solution</summary>
 
-  1. Open the [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/).
-  1. Sort the products by price, from high to low, so the most expensive plant appears first in the listing.
-  1. Activate the element selection tool in your DevTools.
-  1. Click on the price of the first and most expensive plant.
-  1. Notice that the price is structured into two elements, with the integer separated from the currency, under a class named `plp-price__integer`. This structure is convenient for extracting the value.
-  1. In the **Console**, execute `document.querySelector('.plp-price__integer')`. This returns the element representing the first price in the listing. Since `document.querySelector()` returns the first matching element, it directly selects the most expensive plant's price.
-  1. Save the element in a variable by executing `price = document.querySelector('.plp-price__integer')`.
-  1. Convert the price text into a number by executing `parseInt(price.textContent)`.
-  1. At the time of writing, this returns `699`, meaning [699 SEK](https://www.google.com/search?q=699%20sek).
+1. Open the [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/).
+1. Sort the products by price, from high to low, so the most expensive plant appears first in the listing.
+1. Activate the element selection tool in your DevTools.
+1. Click on the price of the first and most expensive plant.
+1. Notice that the price is structured into two elements, with the integer separated from the currency, under a class named `plp-price__integer`. This structure is convenient for extracting the value.
+1. In the **Console**, execute `document.querySelector('.plp-price__integer')`. This returns the element representing the first price in the listing. Since `document.querySelector()` returns the first matching element, it directly selects the most expensive plant's price.
+1. Save the element in a variable by executing `price = document.querySelector('.plp-price__integer')`.
+1. Convert the price text into a number by executing `parseInt(price.textContent)`.
+1. At the time of writing, this returns `699`, meaning [699 SEK](https://www.google.com/search?q=699%20sek).
 
 </details>
 
@@ -104,13 +104,13 @@ On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selecto
 <details>
   <summary>Solution</summary>
 
-  1. Open the [Movies page](https://www.fandom.com/topics/movies).
-  1. Activate the element selection tool in your DevTools.
-  1. Click on the list item for the top Fandom wiki in the category.
-  1. Notice that it has a class `topic_explore-wikis__link`.
-  1. In the **Console**, execute `document.querySelector('.topic_explore-wikis__link')`. This returns the element representing the top list item. They use the selector only for the **Top Wikis** list, and because `document.querySelector()` returns the first matching element, you're almost done.
-  1. Save the element in a variable by executing `item = document.querySelector('.topic_explore-wikis__link')`.
-  1. Get the element's text without extra white space by executing `item.textContent.trim()`. At the time of writing, this returns `"Pixar Wiki"`.
+1. Open the [Movies page](https://www.fandom.com/topics/movies).
+1. Activate the element selection tool in your DevTools.
+1. Click on the list item for the top Fandom wiki in the category.
+1. Notice that it has a class `topic_explore-wikis__link`.
+1. In the **Console**, execute `document.querySelector('.topic_explore-wikis__link')`. This returns the element representing the top list item. They use the selector only for the **Top Wikis** list, and because `document.querySelector()` returns the first matching element, you're almost done.
+1. Save the element in a variable by executing `item = document.querySelector('.topic_explore-wikis__link')`.
+1. Get the element's text without extra white space by executing `item.textContent.trim()`. At the time of writing, this returns `"Pixar Wiki"`.
 
 </details>
 
@@ -123,13 +123,13 @@ On the Guardian's [F1 news page](https://www.theguardian.com/sport/formulaone), 
 <details>
   <summary>Solution</summary>
 
-  1. Open the [F1 news page](https://www.theguardian.com/sport/formulaone).
-  1. Activate the element selection tool in your DevTools.
-  1. Click on the first post.
-  1. Notice that the markup does not provide clear, reusable class names for this task. The structure uses generic tag names and randomized classes, requiring you to rely on the element hierarchy and order instead.
-  1. In the **Console**, execute `post = document.querySelector('#maincontent ul li')`. This returns the element representing the first post.
-  1. Extract the post's title by executing `post.querySelector('h3').textContent`.
-  1. Extract the lead paragraph by executing `post.querySelector('span div').textContent`.
-  1. Extract the photo URL by executing `post.querySelector('img').src`.
+1. Open the [F1 news page](https://www.theguardian.com/sport/formulaone).
+1. Activate the element selection tool in your DevTools.
+1. Click on the first post.
+1. Notice that the markup does not provide clear, reusable class names for this task. The structure uses generic tag names and randomized classes, requiring you to rely on the element hierarchy and order instead.
+1. In the **Console**, execute `post = document.querySelector('#maincontent ul li')`. This returns the element representing the first post.
+1. Extract the post's title by executing `post.querySelector('h3').textContent`.
+1. Extract the lead paragraph by executing `post.querySelector('span div').textContent`.
+1. Extract the photo URL by executing `post.querySelector('img').src`.
 
 </details>

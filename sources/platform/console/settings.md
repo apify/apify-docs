@@ -14,20 +14,19 @@ slug: /console/settings
 
 By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
 
-* account email
-* username
-* profile information
-* theme
-* login information
-* session information
-* account delete
+- account email
+- username
+- profile information
+- theme
+- login information
+- session information
+- account delete
 
 :::info Verify your identity
 
 The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to view and edit the settings.
 
 :::
-
 
 ### Session Information
 

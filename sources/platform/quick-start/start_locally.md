@@ -39,9 +39,9 @@ The CLI will ask you to:
 3. Select a development template
    :::info Explore Actor templates
 
-   Browse the [full list of templates](https://apify.com/templates) to find the best fit for your Actor.
+    Browse the [full list of templates](https://apify.com/templates) to find the best fit for your Actor.
 
-   :::
+    :::
 
 The CLI will:
 
@@ -85,11 +85,13 @@ In the next step, we’ll explore the results in more detail.
 ### Step 3: Explore the Actor
 
 Let's explore the Actor structure.
+
 <!-- vale Apify.Capitalization = NO -->
+
 #### The `.actor` folder
 
-
 The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
+
 <!-- vale Apify.Capitalization = YES -->
 
 #### Actor's `input`

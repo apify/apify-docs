@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/parsing-html
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll look for products in the downloaded HTML. We'll use BeautifulSoup to turn the HTML into objects which we can work with in our Python program.**
 
@@ -131,18 +131,18 @@ https://www.f1academy.com/Racing-Series/Teams
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://www.f1academy.com/Racing-Series/Teams"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://www.f1academy.com/Racing-Series/Teams"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".teams-driver-item")))
-  ```
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
+print(len(soup.select(".teams-driver-item")))
+```
 
 </details>
 
@@ -153,17 +153,17 @@ Use the same URL as in the previous exercise, but this time print a total count 
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
+```py
+import httpx
+from bs4 import BeautifulSoup
 
-  url = "https://www.f1academy.com/Racing-Series/Teams"
-  response = httpx.get(url)
-  response.raise_for_status()
+url = "https://www.f1academy.com/Racing-Series/Teams"
+response = httpx.get(url)
+response.raise_for_status()
 
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-  print(len(soup.select(".driver")))
-  ```
+html_code = response.text
+soup = BeautifulSoup(html_code, "html.parser")
+print(len(soup.select(".driver")))
+```
 
 </details>

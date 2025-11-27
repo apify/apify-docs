@@ -41,15 +41,9 @@ import { FingerprintGenerator } from 'fingerprint-generator';
 // Instantiate the fingerprint generator with
 // configuration options
 const fingerprintGenerator = new FingerprintGenerator({
-    browsers: [
-        { name: 'firefox', minVersion: 80 },
-    ],
-    devices: [
-        'desktop',
-    ],
-    operatingSystems: [
-        'windows',
-    ],
+    browsers: [{ name: 'firefox', minVersion: 80 }],
+    devices: ['desktop'],
+    operatingSystems: ['windows'],
 });
 
 // Grab a fingerprint from the fingerprint generator
@@ -76,15 +70,9 @@ const browser = await chromium.launch();
 // Instantiate the fingerprint generator with
 // configuration options
 const fingerprintGenerator = new FingerprintGenerator({
-    browsers: [
-        { name: 'firefox', minVersion: 80 },
-    ],
-    devices: [
-        'desktop',
-    ],
-    operatingSystems: [
-        'windows',
-    ],
+    browsers: [{ name: 'firefox', minVersion: 80 }],
+    devices: ['desktop'],
+    operatingSystems: ['windows'],
 });
 
 // Grab a fingerprint

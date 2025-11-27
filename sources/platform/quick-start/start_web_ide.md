@@ -100,16 +100,16 @@ Install <code>[apify-cli](https://docs.apify.com/cli/)</code> :
 <Tabs>
   <TabItem value="macOS/Linux" label="macOS/Linux">
 
-  ```bash
-  brew install apify-cli
-  ```
+```bash
+brew install apify-cli
+```
 
   </TabItem>
   <TabItem value="other platforms" label="Other platforms">
 
-  ```bash
-  npm -g install apify-cli
-  ```
+```bash
+npm -g install apify-cli
+```
 
   </TabItem>
 </Tabs>
@@ -137,7 +137,6 @@ To pull your Actor:
     ```
 
     As `your-actor-name`, you can use either:
-
     - The unique name of the Actor (e.g., `apify/hello-world`)
     - The ID of the Actor (e.g., `E2jjCZBezvAZnX8Rb`)
 

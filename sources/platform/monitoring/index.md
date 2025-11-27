@@ -29,13 +29,13 @@ The monitoring system is free for all users. You can use it to monitor as many A
 Currently, the monitoring option offers the following features:
 
 1. Chart showing **statuses** of runs of the Actor or saved task over last 30 days.
-    ![Daily run statuses](./images/daily-run-statuses.png)
+   ![Daily run statuses](./images/daily-run-statuses.png)
 
 2. Chart displaying **metrics** of the last 200 runs of the Actor or saved task.
-    ![Run statistics](./images/run-statistics-chart.png)
+   ![Run statistics](./images/run-statistics-chart.png)
 
 3. Option to set up **alerts** with notifications based on the run metrics.
-    ![Alerts](./images/alerts.png)
+   ![Alerts](./images/alerts.png)
 
 > Both charts can also be added to your Apify Console home page so you can quickly see if there are any issues every time you open Apify Console.
 
@@ -82,7 +82,7 @@ The email and Slack alert notifications both contain the same information. You w
 
 While the in-app notification will contain less information, it will point you directly to the Actor or task that triggered the alert:
 
- <img src={require("./images/in-app-notification.png").default} title="In app notification" width="70%" />
+<img src={require("./images/in-app-notification.png").default} title="In app notification" width="70%" />
 
 ## Other
 

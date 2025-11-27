@@ -35,7 +35,6 @@ Before you begin, ensure that you have the following:
 
 With the cluster ready and its URL and API key in hand, you can proceed with integrating Apify.
 
-
 ### Integration Methods
 
 You can integrate Apify with Qdrant using either the Apify Console or the Apify Python SDK.
@@ -56,7 +55,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. If you haven't created a collection, it can be created automatically with the specified model. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration).
 
-   ![Qdrant integration configuration](../images/qdrant-integration-setup.png)
+    ![Qdrant integration configuration](../images/qdrant-integration-setup.png)
 
 - For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Qdrant integration description](https://apify.com/apify/qdrant-integration).
 

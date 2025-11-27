@@ -100,11 +100,11 @@ The final step is to update the Lambda function to implement the OpenAPI schema 
 
 1. Open the Lambda function you created and copy-paste the [Python lambda function](https://raw.githubusercontent.com/apify/rag-web-browser/refs/heads/master/docs/aws-lambda-call-rag-web-browser.py).
 1. Replace `APIFY_API_TOKEN` in the code with your Apify API token. Alternatively, store the token as an environment variable:
-   - Go to the Configuration tab.
-   - Select Environment Variables.
-   - Add a new variable by specifying a key and value.
+    - Go to the Configuration tab.
+    - Select Environment Variables.
+    - Add a new variable by specifying a key and value.
 1. Configure the Lambda function:
-   - Set the memory allocation to 128 MB and timeout duration to 60 seconds.
+    - Set the memory allocation to 128 MB and timeout duration to 60 seconds.
 1. Save the Lambda function and deploy it.
 
 #### Step 4: Test the agent

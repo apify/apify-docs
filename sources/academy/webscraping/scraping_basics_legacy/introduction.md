@@ -7,7 +7,7 @@ slug: /scraping-basics-javascript/legacy/introduction
 noindex: true
 ---
 
-import LegacyAdmonition from '../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../scraping_basics/\_legacy.mdx';
 
 **Start learning about web scraping, web crawling, data extraction, and popular tools to start developing your own scraper.**
 

@@ -29,9 +29,9 @@ Example of Actor testing tasks
 
 When creating test tasks:
 
-* Include a test for your Actor's default configuration
-* Set a low `maxItem` value to conserve credits
-* For large data tests, reduce test frequency to conserve credits
+- Include a test for your Actor's default configuration
+- Set a low `maxItem` value to conserve credits
+- For large data tests, reduce test frequency to conserve credits
 
 ## Configure the Actor Testing Actor
 
@@ -49,19 +49,14 @@ await expectAsync(runResult).toHaveStatus('SUCCEEDED');
 </TabItem>
 <TabItem value="Crash information from the log" label="Crash information from the log">
 
-
 ```js
 await expectAsync(runResult).withLog((log) => {
     // Neither ReferenceError or TypeErrors should ever occur
     // in production code – they mean the code is over-optimistic
     // The errors must be dealt with gracefully and displayed with a helpful message to the user
-    expect(log)
-        .withContext(runResult.format('ReferenceError'))
-        .not.toContain('ReferenceError');
+    expect(log).withContext(runResult.format('ReferenceError')).not.toContain('ReferenceError');
 
-    expect(log)
-        .withContext(runResult.format('TypeError'))
-        .not.toContain('TypeError');
+    expect(log).withContext(runResult.format('TypeError')).not.toContain('TypeError');
 });
 ```
 
@@ -71,9 +66,7 @@ await expectAsync(runResult).withLog((log) => {
 ```js
 await expectAsync(runResult).withStatistics((stats) => {
     // In most cases, you want it to be as close to zero as possible
-    expect(stats.requestsRetries)
-        .withContext(runResult.format('Request retries'))
-        .toBeLessThan(3);
+    expect(stats.requestsRetries).withContext(runResult.format('Request retries')).toBeLessThan(3);
 
     // What is the expected run time for the number of items?
     expect(stats.crawlerRuntimeMillis)
@@ -88,14 +81,10 @@ await expectAsync(runResult).withStatistics((stats) => {
 ```js
 await expectAsync(runResult).withDataset(({ dataset, info }) => {
     // If you're sure, always set this number to be your exact maxItems
-    expect(info.cleanItemCount)
-        .withContext(runResult.format('Dataset cleanItemCount'))
-        .toBe(3); // or toBeGreaterThan(1) or toBeWithinRange(1,3)
+    expect(info.cleanItemCount).withContext(runResult.format('Dataset cleanItemCount')).toBe(3); // or toBeGreaterThan(1) or toBeWithinRange(1,3)
 
     // Make sure the dataset isn't empty
-    expect(dataset.items)
-        .withContext(runResult.format('Dataset items array'))
-        .toBeNonEmptyArray();
+    expect(dataset.items).withContext(runResult.format('Dataset items array')).toBeNonEmptyArray();
 
     const results = dataset.items;
 
@@ -105,9 +94,7 @@ await expectAsync(runResult).withDataset(({ dataset, info }) => {
             .withContext(runResult.format('Direct url'))
             .toStartWith('https://www.yelp.com/biz/');
 
-        expect(result.bizId)
-            .withContext(runResult.format('Biz ID'))
-            .toBeNonEmptyString();
+        expect(result.bizId).withContext(runResult.format('Biz ID')).toBeNonEmptyString();
     }
 });
 ```
@@ -116,15 +103,14 @@ await expectAsync(runResult).withDataset(({ dataset, info }) => {
 <TabItem value="Information about the key-value store" label="Information about the key-value store">
 
 ```js
-await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
-    // Check for the proper content type of the saved key-value item
-    expect(contentType)
-        .withContext(runResult.format('KVS contentType'))
-        .toBe('image/gif');
-},
+await expectAsync(runResult).withKeyValueStore(
+    ({ contentType }) => {
+        // Check for the proper content type of the saved key-value item
+        expect(contentType).withContext(runResult.format('KVS contentType')).toBe('image/gif');
+    },
 
-// This also checks for existence of the key-value key
-{ keyName: 'apify.com-scroll_lossless-comp' },
+    // This also checks for existence of the key-value key
+    { keyName: 'apify.com-scroll_lossless-comp' },
 );
 ```
 

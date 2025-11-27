@@ -28,7 +28,6 @@ The Apify Workato Connector is available in the Workato Community library. Here'
 1. Search for **Apify**.
 1. Click on the connector and then click **Install**.
 
-
 After installation, the Apify connector appears in **Connector SDK** under the **Tools** tab. After you release the connector, you can use it in your projects.
 
 ## Connect your Apify account
@@ -95,11 +94,11 @@ _The Apify connector provides dynamic dropdown lists (pick lists) and flexible i
 
 - **Selection method (pick list vs. manual ID):** Choose from fetched lists or switch to manual and paste an ID. If an item doesn't appear, make sure it exists in your account and has been used at least once, or paste its ID manually.
 - Available pick lists:
-  - **Actors**: Lists your recently used Actors or Apify Store Actors, displaying the title and username/name
-  - **Tasks**: Lists your saved tasks, displaying the task title and Actor name
-  - **Datasets**: Lists available datasets, sorted by most recent first
-  - **Key-value stores**: Lists available stores, sorted by most recent first
-  - **Store Keys**: Dynamically shows keys available in the selected store
+    - **Actors**: Lists your recently used Actors or Apify Store Actors, displaying the title and username/name
+    - **Tasks**: Lists your saved tasks, displaying the task title and Actor name
+    - **Datasets**: Lists available datasets, sorted by most recent first
+    - **Key-value stores**: Lists available stores, sorted by most recent first
+    - **Store Keys**: Dynamically shows keys available in the selected store
 
 ### Input types
 
@@ -120,19 +119,18 @@ Open the Actor or Task Input page in Apify Console, switch format to JSON, and c
 When using manual input instead of pick lists, you'll need to provide the correct resource IDs. Here's how to find them in Apify Console:
 
 - **Actor ID**: [Actor detail page](https://console.apify.com/actors) > API panel or URL.
-  - Example URL: `https://console.apify.com/actors/<actorId>`
-  - Actor name format: owner~name (for example, `apify~website-scraper`)
+    - Example URL: `https://console.apify.com/actors/<actorId>`
+    - Actor name format: owner~name (for example, `apify~website-scraper`)
 - **Task ID**: [Task detail page](https://console.apify.com/actors/tasks) > API panel or URL.
-  - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
+    - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
 - **Dataset ID**: [Storage > Datasets](https://console.apify.com/storage/datasets) > Dataset detail > API panel or URL.
-  - Example URL: `https://console.apify.com/storage/datasets/<datasetId>`
-  - Also available in the table on the `Storage > Datasets` page
+    - Example URL: `https://console.apify.com/storage/datasets/<datasetId>`
+    - Also available in the table on the `Storage > Datasets` page
 - **Key-value store ID**: [Storage > Key-value stores](https://console.apify.com/storage/Key-value-stores) > Store detail > API panel or URL.
-  - Example URL: `https://console.apify.com/storage/Key-value-stores/<storeId>`
-  - Also available in the table on the `Storage > Key-value stores` page
+    - Example URL: `https://console.apify.com/storage/Key-value-stores/<storeId>`
+    - Also available in the table on the `Storage > Key-value stores` page
 - **Webhook ID**: [Actors](https://console.apify.com/actors) > Actor > Integrations.
-  - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
-
+    - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
 
 ## Triggers
 
@@ -156,7 +154,7 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 
 ![Screenshot of the Actor Run Finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
-### Task Run Finished  
+### Task Run Finished
 
 _Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted)._
 
@@ -262,16 +260,16 @@ Provide a single URL and a desired crawler type to get structured scraped data f
 Long-running scrapes can exceed typical step execution expectations. Use this asynchronous pattern to keep recipes reliable and scalable.
 
 1. Start the run without waiting
-   - In a recipe, add the **Run Actor** action and configure inputs as needed.
-   - Run asynchronously (do not block downstream steps on completion).
-   - ![Screenshot showing the Run Actor action configuration with async option in Workato](../images/workato/run-actor.png)
+    - In a recipe, add the **Run Actor** action and configure inputs as needed.
+    - Run asynchronously (do not block downstream steps on completion).
+    - ![Screenshot showing the Run Actor action configuration with async option in Workato](../images/workato/run-actor.png)
 1. Continue when the run finishes
-   - Build a separate recipe with the **Actor Run Finished** trigger.
-   - Filter for the specific Actor or Task you started in Step 1.
-   - ![Screenshot showing how to filter for specific Actor in the Run Finished trigger](../images/workato/trigger-actor.png)
+    - Build a separate recipe with the **Actor Run Finished** trigger.
+    - Filter for the specific Actor or Task you started in Step 1.
+    - ![Screenshot showing how to filter for specific Actor in the Run Finished trigger](../images/workato/trigger-actor.png)
 1. Fetch results and process
-   - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
-   - ![Screenshot showing how to use dataset ID from trigger payload in Get Dataset Items action](../images/workato/get-dataset.png)
+    - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
+    - ![Screenshot showing how to use dataset ID from trigger payload in Get Dataset Items action](../images/workato/get-dataset.png)
 
 ## Example use cases
 
@@ -280,7 +278,7 @@ Long-running scrapes can exceed typical step execution expectations. Use this as
 Workato's visual interface makes it easy to connect Apify data with other business applications:
 
 - _Data pills:_ Use output fields from Apify triggers and actions as inputs for subsequent steps
-- _Field mapping:_ Visually map scraped data fields to CRM, database, or spreadsheet columns  
+- _Field mapping:_ Visually map scraped data fields to CRM, database, or spreadsheet columns
 - _Conditional logic:_ Build workflows that respond differently based on Actor run status or data content
 - _Data transformation:_ Apply filters, formatting, and calculations to scraped data before sending to target systems
 

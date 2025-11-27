@@ -15,8 +15,8 @@ You can [switch](./how_to_use.md) between your personal and organization account
 
 You can set up an organization in two ways.
 
-* [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
+- [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
+- [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
 > Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
@@ -36,9 +36,9 @@ You can create a new organization by clicking the **Create new organization** bu
 
 > **When you convert an existing user account into an organization,**
 >
-> * **You will no longer be able to sign in to the converted user account.**
-> * **An organization cannot be converted back to a personal account.**
-> * **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up](./setup.md) the organization.**
+> - **You will no longer be able to sign in to the converted user account.**
+> - **An organization cannot be converted back to a personal account.**
+> - **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up](./setup.md) the organization.**
 
 Before converting your personal account into an organization, make sure it has a **username**.
 

@@ -1,6 +1,6 @@
 ---
 title: Dataset validation
-description:  Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.
+description: Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.
 slug: /actors/development/actor-definition/dataset-schema/validation
 ---
 
@@ -95,10 +95,12 @@ If the data you attempt to store in the dataset is _invalid_ (meaning any of the
         "type": "schema-validation-error",
         "message": "Schema validation failed",
         "data": {
-            "invalidItems": [{
-                "itemPosition": "<array index in the received array of items>",
-                "validationErrors": "<Complete list of AJV validation error objects>"
-            }]
+            "invalidItems": [
+                {
+                    "itemPosition": "<array index in the received array of items>",
+                    "validationErrors": "<Complete list of AJV validation error objects>"
+                }
+            ]
         }
     }
 }
@@ -200,7 +202,6 @@ In case of enums `null` needs to be within the set of allowed values:
 }
 ```
 
-
 Define type of objects in array:
 
 ```json
@@ -245,11 +246,10 @@ When you configure the dataset fields schema, we generate a field list and measu
 - **Null count:** how many items in the dataset have the field set to null
 - **Empty count:** how many items in the dataset are `undefined` , meaning that for example empty string is not considered empty
 - **Minimum and maximum**
-  - For numbers, this is calculated directly
-  - For strings, this field tracks string length
-  - For arrays, this field tracks the number of items in the array
-  - For objects, this tracks the number of keys
-  - For booleans, this tracks whether the boolean was set to true. Minimum is always 0, but maximum can be either 1 or 0 based on whether at least one item in the dataset has the boolean field set to true.
-
+    - For numbers, this is calculated directly
+    - For strings, this field tracks string length
+    - For arrays, this field tracks the number of items in the array
+    - For objects, this tracks the number of keys
+    - For booleans, this tracks whether the boolean was set to true. Minimum is always 0, but maximum can be either 1 or 0 based on whether at least one item in the dataset has the boolean field set to true.
 
 You can use them in [monitoring](../../../../monitoring#alert-configuration).

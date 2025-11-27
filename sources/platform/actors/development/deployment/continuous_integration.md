@@ -13,17 +13,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Automating your Actor development process can save time and reduce errors, especially for projects  with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
+Automating your Actor development process can save time and reduce errors, especially for projects with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
 
 You can automate Actor builds and tests using your Git repository's automated workflows like [GitHub Actions](https://github.com/features/actions) or [Bitbucket Pipelines](https://www.atlassian.com/software/bitbucket/features/pipelines).
-
 
 :::tip Using Bitbucket?
 
 Follow our step-by-step guide to set up continuous integration for your Actors with Bitbucket Pipelines: [Read the Bitbucket CI guide](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
 
 :::
-
 
 Set up continuous integration for your Actors using one of these methods:
 
@@ -37,15 +35,15 @@ Choose the method that best fits your workflow.
 1. Push your Actor to a GitHub repository.
 1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
 
-      ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
-      ```
+    ```cURL
+    https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
+    ```
 
-   :::note API token
+    :::note API token
 
-   Make sure you select the correct API token from the dropdown.
+    Make sure you select the correct API token from the dropdown.
 
-   :::
+    :::
 
 1. In your GitHub repository, go to Settings > Webhooks > Add webhook.
 1. Paste the API URL into the Payload URL field and add the webhook.
@@ -62,35 +60,35 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
     ![Apify token in app](./images/ci-token.png)
 
 1. Add your Apify token to GitHub secrets
-   1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
-   1. Name the secret and paste in your token
+    1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
+    1. Name the secret and paste in your token
 
-     ![Add Apify token to secrets](./images/ci-add-token.png)
+    ![Add Apify token to secrets](./images/ci-add-token.png)
 
 1. Add the Build Actor API endpoint URL to GitHub secrets
-   1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
-   1. In Apify Console, go to your Actor's detail page, click the API tab in the top right, and then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
+    1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
+    1. In Apify Console, go to your Actor's detail page, click the API tab in the top right, and then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
 
-       :::note API token
+        :::note API token
 
-      Make sure you select the correct API token from the dropdown.
+        Make sure you select the correct API token from the dropdown.
 
-      :::
+        :::
 
-      ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
-      ```
+        ```cURL
+        https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
+        ```
 
-   1. Name the secret & paste in your API endpoint
+    1. Name the secret & paste in your API endpoint
 
-      ![Add build Actor URL to secrets](./images/ci-add-build-url.png)
+        ![Add build Actor URL to secrets](./images/ci-add-build-url.png)
 
 1. Create GitHub Actions workflow files:
-   1. In your repository, create the `.github/workflows` directory
-   1. Add `latest.yml`. If you want, you can also add `beta.yml` to build Actors from the develop branch (or other branches).
+    1. In your repository, create the `.github/workflows` directory
+    1. Add `latest.yml`. If you want, you can also add `beta.yml` to build Actors from the develop branch (or other branches).
 
-    <Tabs groupId="main">
-    <TabItem value="latest.yml" label="latest.yml">
+     <Tabs groupId="main">
+     <TabItem value="latest.yml" label="latest.yml">
 
     :::note Use your secret names
 
@@ -101,29 +99,28 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
     ```yaml
     name: Test and build latest version
     on:
-      push:
-        branches:
-          - master
-          - main
+        push:
+            branches:
+                - master
+                - main
     jobs:
-      test-and-build:
-        runs-on: ubuntu-latest
-        steps:
-          # Install dependencies and run tests
-          - uses: actions/checkout@v2
-          - run: npm install && npm run test
-          # Build latest version
-          - uses: distributhor/workflow-webhook@v1
-            env:
-              webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
-              webhook_secret: ${{ secrets.APIFY_TOKEN }}
-
+        test-and-build:
+            runs-on: ubuntu-latest
+            steps:
+                # Install dependencies and run tests
+                - uses: actions/checkout@v2
+                - run: npm install && npm run test
+                # Build latest version
+                - uses: distributhor/workflow-webhook@v1
+                  env:
+                      webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
+                      webhook_secret: ${{ secrets.APIFY_TOKEN }}
     ```
 
     With this setup, pushing to the `main` or `master` branch tests the code and builds a new latest version.
 
-    </TabItem>
-    <TabItem value="beta.yml" label="beta.yml">
+     </TabItem>
+     <TabItem value="beta.yml" label="beta.yml">
 
     :::note Use your secret names
 
@@ -134,28 +131,27 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
     ```yaml
     name: Test and build beta version
     on:
-      push:
-        branches:
-          - develop
+        push:
+            branches:
+                - develop
     jobs:
-      test-and-build:
-        runs-on: ubuntu-latest
-        steps:
-          # Install dependencies and run tests
-          - uses: actions/checkout@v2
-          - run: npm install && npm run test
-          # Build beta version
-          - uses: distributhor/workflow-webhook@v1
-            env:
-              webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
-              webhook_secret: ${{ secrets.APIFY_TOKEN }}
-
+        test-and-build:
+            runs-on: ubuntu-latest
+            steps:
+                # Install dependencies and run tests
+                - uses: actions/checkout@v2
+                - run: npm install && npm run test
+                # Build beta version
+                - uses: distributhor/workflow-webhook@v1
+                  env:
+                      webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
+                      webhook_secret: ${{ secrets.APIFY_TOKEN }}
     ```
 
     With this setup, pushing to the `develop` branch tests the code and builds a new beta version.
 
-    </TabItem>
-    </Tabs>
+     </TabItem>
+     </Tabs>
 
 ## Conclusion
 

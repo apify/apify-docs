@@ -18,16 +18,16 @@ Using the Gumloop Instagram MCP node, you can prompt the Instagram data you need
 
 You can pull the following types of data from public Instagram accounts using Gumloop’s Instagram node (via Apify). Each action has a credit cost.
 
-| Tool/Action | Description | Credit Cost |
-| :---- | :---- | :---- |
-| Get profile posts | Fetch posts from a public Instagram profile, including captions, images, like and comment counts, and metadata. | 3 credits per item |
-| Get post comments | Retrieve all comments on a specific post, with author info, timestamps, and like counts. | 3 credits per item |
-| Get hashtag posts | Search by hashtag and return matching posts with full details. | 3 credits per item |
-| Find users | Look up Instagram users by name or handle and return profile metadata like bio, follower/following counts, etc. | 3 credits per item |
-| Get profile details | Extract detailed metadata from a profile, including follower count, bio, and verification status. | 5 credits per item |
-| Get profile stories | Get media URLs, timestamps, and view counts from an Instagram profile’s stories. | 3 credits per item |
-| Get profile reels | Fetch reels with captions, engagement metrics, play counts, and music info. | 3 credits per item |
-| Get tagged posts | Return posts where a specific user is tagged, with full post details. | 3 credits per item |
+| Tool/Action         | Description                                                                                                     | Credit Cost        |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------- | :----------------- |
+| Get profile posts   | Fetch posts from a public Instagram profile, including captions, images, like and comment counts, and metadata. | 3 credits per item |
+| Get post comments   | Retrieve all comments on a specific post, with author info, timestamps, and like counts.                        | 3 credits per item |
+| Get hashtag posts   | Search by hashtag and return matching posts with full details.                                                  | 3 credits per item |
+| Find users          | Look up Instagram users by name or handle and return profile metadata like bio, follower/following counts, etc. | 3 credits per item |
+| Get profile details | Extract detailed metadata from a profile, including follower count, bio, and verification status.               | 5 credits per item |
+| Get profile stories | Get media URLs, timestamps, and view counts from an Instagram profile’s stories.                                | 3 credits per item |
+| Get profile reels   | Fetch reels with captions, engagement metrics, play counts, and music info.                                     | 3 credits per item |
+| Get tagged posts    | Return posts where a specific user is tagged, with full post details.                                           | 3 credits per item |
 
 ## Retrieve Instagram data in Gumloop
 
@@ -44,7 +44,6 @@ You can pull the following types of data from public Instagram accounts using Gu
     ![Instagram node prompt field](images/instagram/prompt.jpeg)
 
     :::tip Prompting tips
-
     - MCP nodes only have access to the tools listed so your prompt should be scoped to Instagram.
     - You can mix and match different tools (get 10 latest videos for a hashtag and retrieve profile data for each post).
 

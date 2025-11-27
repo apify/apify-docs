@@ -93,5 +93,4 @@ When we made the tab public, we took inspiration from StackOverflow’s SEO stra
 
     Politeness goes a long way! Make sure your responses are respectful and straight to the point. It helps to keep things professional, even if the issue seems minor.
 
-
 https://rewind.com/blog/best-practices-for-using-github-issues/

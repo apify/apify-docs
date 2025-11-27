@@ -74,54 +74,54 @@ Categories can be general (e.g., "restaurant") which includes all variations lik
 
 ```json title="Business lead data, shortened sample"
 {
-  "searchString": "Restaurant in Staten Island",
-  "rank": 3,
-  "title": "Kim's Island",
-  "placeId": "ChIJJaKM4pyKwokRCZ8XaBNj_Gw",
-  "categoryName": "Chinese restaurant",
-  "price": "$10–20",
-  "rating": 4.6,
-  "reviewsCount": 182,
-  "featuredInLists": ["Best Chinese Food", "Top Rated Restaurants"],
+    "searchString": "Restaurant in Staten Island",
+    "rank": 3,
+    "title": "Kim's Island",
+    "placeId": "ChIJJaKM4pyKwokRCZ8XaBNj_Gw",
+    "categoryName": "Chinese restaurant",
+    "price": "$10–20",
+    "rating": 4.6,
+    "reviewsCount": 182,
+    "featuredInLists": ["Best Chinese Food", "Top Rated Restaurants"],
 
-  // Complete address information for targeted outreach
-  "address": "175 Main St, Staten Island, NY 10307",
-  "neighborhood": "Tottenville",
-  "street": "175 Main St",
-  "city": "Staten Island",
-  "postalCode": "10307",
-  "state": "New York",
-  "countryCode": "US",
-  "plusCode": "GQ62+8M Staten Island, New York",
+    // Complete address information for targeted outreach
+    "address": "175 Main St, Staten Island, NY 10307",
+    "neighborhood": "Tottenville",
+    "street": "175 Main St",
+    "city": "Staten Island",
+    "postalCode": "10307",
+    "state": "New York",
+    "countryCode": "US",
+    "plusCode": "GQ62+8M Staten Island, New York",
 
-  // Multiple contact channels
-  "website": "http://kimsislandsi.com/",
-  "phone": "(718) 356-5168",
-  "phoneUnformatted": "+17183565168",
-  "email": "info@kimsislandsi.com", // From website enrichment
+    // Multiple contact channels
+    "website": "http://kimsislandsi.com/",
+    "phone": "(718) 356-5168",
+    "phoneUnformatted": "+17183565168",
+    "email": "info@kimsislandsi.com", // From website enrichment
 
-  // Business qualification data
-  "yearsInBusiness": 12,
-  "claimThisBusiness": false, // Verified listing
-  "popular": true,
-  "temporarilyClosed": false,
+    // Business qualification data
+    "yearsInBusiness": 12,
+    "claimThisBusiness": false, // Verified listing
+    "popular": true,
+    "temporarilyClosed": false,
 
-  // Precise location for territory planning
-  "location": {
-    "lat": 40.5107736,
-    "lng": -74.2482624
-  },
+    // Precise location for territory planning
+    "location": {
+        "lat": 40.5107736,
+        "lng": -74.2482624
+    },
 
-  // Operational insights for scheduling outreach
-  "openingHours": {
-    "Monday": "11:00 AM - 10:00 PM",
-    "Tuesday": "11:00 AM - 10:00 PM",
-    "Wednesday": "11:00 AM - 10:00 PM",
-    "Thursday": "11:00 AM - 10:00 PM",
-    "Friday": "11:00 AM - 11:00 PM",
-    "Saturday": "11:00 AM - 11:00 PM",
-    "Sunday": "12:00 PM - 9:30 PM"
-  }
+    // Operational insights for scheduling outreach
+    "openingHours": {
+        "Monday": "11:00 AM - 10:00 PM",
+        "Tuesday": "11:00 AM - 10:00 PM",
+        "Wednesday": "11:00 AM - 10:00 PM",
+        "Thursday": "11:00 AM - 10:00 PM",
+        "Friday": "11:00 AM - 11:00 PM",
+        "Saturday": "11:00 AM - 11:00 PM",
+        "Sunday": "12:00 PM - 9:30 PM"
+    }
 }
 ```
 
@@ -178,140 +178,127 @@ This module provides the most flexible options for defining where and how to sea
 
 ```json title="Advances output data, shortened sample"
 {
-  "searchString": "coffee shop",
-  "rank": 9,
-  "searchPageUrl": "https://www.google.com/maps/search/coffee%20shop/@40.748508724216016,-74.0186770781978,17z?hl=en",
-  "searchPageLoadedUrl": "https://www.google.com/maps/search/coffee%20shop/@40.748508724216016,-74.0186770781978,17z?hl=en",
-  "isAdvertisement": false,
-  "title": "Bluestone Lane Chelsea Piers Café",
-  "price": "$20–30",
-  "categoryName": "Coffee shop",
+    "searchString": "coffee shop",
+    "rank": 9,
+    "searchPageUrl": "https://www.google.com/maps/search/coffee%20shop/@40.748508724216016,-74.0186770781978,17z?hl=en",
+    "searchPageLoadedUrl": "https://www.google.com/maps/search/coffee%20shop/@40.748508724216016,-74.0186770781978,17z?hl=en",
+    "isAdvertisement": false,
+    "title": "Bluestone Lane Chelsea Piers Café",
+    "price": "$20–30",
+    "categoryName": "Coffee shop",
 
-  // Address and location data
-  "address": "62 Chelsea Piers Pier 62, New York, NY 10011",
-  "neighborhood": "Manhattan",
-  "street": "62 Chelsea Piers Pier 62",
-  "city": "New York",
-  "postalCode": "10011",
-  "state": "New York",
-  "countryCode": "US",
-  "location": {
-    "lat": 40.7485378,
-    "lng": -74.0087457
-  },
-  "plusCode": "GQ62+8M Staten Island, New York",
+    // Address and location data
+    "address": "62 Chelsea Piers Pier 62, New York, NY 10011",
+    "neighborhood": "Manhattan",
+    "street": "62 Chelsea Piers Pier 62",
+    "city": "New York",
+    "postalCode": "10011",
+    "state": "New York",
+    "countryCode": "US",
+    "location": {
+        "lat": 40.7485378,
+        "lng": -74.0087457
+    },
+    "plusCode": "GQ62+8M Staten Island, New York",
 
-  // Contact information
-  "website": "https://bluestonelane.com/?y_source=1_MjMwNjk1NDAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-  "phone": "(718) 374-6858",
-  "phoneUnformatted": "+17183746858",
+    // Contact information
+    "website": "https://bluestonelane.com/?y_source=1_MjMwNjk1NDAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "phone": "(718) 374-6858",
+    "phoneUnformatted": "+17183746858",
 
-  // Rating and reviews
-  "totalScore": 4.3,
-  "reviewsCount": 425,
-  "imagesCount": 659,
+    // Rating and reviews
+    "totalScore": 4.3,
+    "reviewsCount": 425,
+    "imagesCount": 659,
 
-  // Business identifiers
-  "claimThisBusiness": false,
-  "permanentlyClosed": false,
-  "temporarilyClosed": false,
-  "placeId": "ChIJDTUgz1dZwokRtsQ97Tbf0cA",
-  "categories": ["Coffee shop", "Cafe"],
-  "fid": "0x89c25957cf20350d:0xc0d1df36ed3dc4b6",
-  "cid": "13894131752416167094",
+    // Business identifiers
+    "claimThisBusiness": false,
+    "permanentlyClosed": false,
+    "temporarilyClosed": false,
+    "placeId": "ChIJDTUgz1dZwokRtsQ97Tbf0cA",
+    "categories": ["Coffee shop", "Cafe"],
+    "fid": "0x89c25957cf20350d:0xc0d1df36ed3dc4b6",
+    "cid": "13894131752416167094",
 
-  // Operating hours
-  "openingHours": [
-    {"day": "Monday", "hours": "7 AM to 6 PM"},
-    {"day": "Tuesday", "hours": "7 AM to 6 PM"},
-    {"day": "Wednesday", "hours": "7 AM to 6 PM"},
-    {"day": "Thursday", "hours": "7 AM to 6 PM"},
-    {"day": "Friday", "hours": "7 AM to 6 PM"},
-    {"day": "Saturday", "hours": "7 AM to 6 PM"},
-    {"day": "Sunday", "hours": "7 AM to 6 PM"}
-  ],
+    // Operating hours
+    "openingHours": [
+        { "day": "Monday", "hours": "7 AM to 6 PM" },
+        { "day": "Tuesday", "hours": "7 AM to 6 PM" },
+        { "day": "Wednesday", "hours": "7 AM to 6 PM" },
+        { "day": "Thursday", "hours": "7 AM to 6 PM" },
+        { "day": "Friday", "hours": "7 AM to 6 PM" },
+        { "day": "Saturday", "hours": "7 AM to 6 PM" },
+        { "day": "Sunday", "hours": "7 AM to 6 PM" }
+    ],
 
-  // Business attributes and amenities
-  "additionalInfo": {
-    "Service options": [
-      {"Outdoor seating": true},
-      {"Curbside pickup": true},
-      {"No-contact delivery": true},
-      {"Delivery": true},
-      {"Onsite services": true},
-      {"Takeout": true},
-      {"Dine-in": true}
-    ],
-    "Highlights": [
-      {"Great coffee": true},
-      {"Great tea selection": true},
-      {"Live music": true},
-      {"Live performances": true},
-      {"Rooftop seating": true}
-    ],
-    "Popular for": [
-      {"Breakfast": true},
-      {"Lunch": true},
-      {"Solo dining": true},
-      {"Good for working on laptop": true}
-    ],
-    "Accessibility": [
-      {"Wheelchair accessible entrance": true},
-      {"Wheelchair accessible parking lot": true},
-      {"Wheelchair accessible restroom": true},
-      {"Wheelchair accessible seating": true}
-    ],
-    "Offerings": [
-      {"Coffee": true},
-      {"Comfort food": true},
-      {"Organic dishes": true},
-      {"Prepared foods": true},
-      {"Quick bite": true},
-      {"Small plates": true},
-      {"Vegetarian options": true}
-    ],
-    "Dining options": [
-      {"Breakfast": true},
-      {"Brunch": true},
-      {"Lunch": true},
-      {"Catering": true},
-      {"Dessert": true},
-      {"Seating": true}
-    ],
-    "Amenities": [
-      {"Restroom": true},
-      {"Wi-Fi": true},
-      {"Free Wi-Fi": true}
-    ],
-    "Atmosphere": [
-      {"Casual": true},
-      {"Cozy": true},
-      {"Trendy": true}
-    ],
-    "Crowd": [
-      {"Family-friendly": true},
-      {"LGBTQ+ friendly": true},
-      {"Transgender safespace": true}
-    ],
-    "Planning": [
-      {"Accepts reservations": true}
-    ],
-    "Payments": [
-      {"Credit cards": true},
-      {"Debit cards": true},
-      {"NFC mobile payments": true}
-    ],
-    "Children": [
-      {"Good for kids": true},
-      {"High chairs": true}
-    ]
-  },
+    // Business attributes and amenities
+    "additionalInfo": {
+        "Service options": [
+            { "Outdoor seating": true },
+            { "Curbside pickup": true },
+            { "No-contact delivery": true },
+            { "Delivery": true },
+            { "Onsite services": true },
+            { "Takeout": true },
+            { "Dine-in": true }
+        ],
+        "Highlights": [
+            { "Great coffee": true },
+            { "Great tea selection": true },
+            { "Live music": true },
+            { "Live performances": true },
+            { "Rooftop seating": true }
+        ],
+        "Popular for": [
+            { "Breakfast": true },
+            { "Lunch": true },
+            { "Solo dining": true },
+            { "Good for working on laptop": true }
+        ],
+        "Accessibility": [
+            { "Wheelchair accessible entrance": true },
+            { "Wheelchair accessible parking lot": true },
+            { "Wheelchair accessible restroom": true },
+            { "Wheelchair accessible seating": true }
+        ],
+        "Offerings": [
+            { "Coffee": true },
+            { "Comfort food": true },
+            { "Organic dishes": true },
+            { "Prepared foods": true },
+            { "Quick bite": true },
+            { "Small plates": true },
+            { "Vegetarian options": true }
+        ],
+        "Dining options": [
+            { "Breakfast": true },
+            { "Brunch": true },
+            { "Lunch": true },
+            { "Catering": true },
+            { "Dessert": true },
+            { "Seating": true }
+        ],
+        "Amenities": [{ "Restroom": true }, { "Wi-Fi": true }, { "Free Wi-Fi": true }],
+        "Atmosphere": [{ "Casual": true }, { "Cozy": true }, { "Trendy": true }],
+        "Crowd": [
+            { "Family-friendly": true },
+            { "LGBTQ+ friendly": true },
+            { "Transgender safespace": true }
+        ],
+        "Planning": [{ "Accepts reservations": true }],
+        "Payments": [
+            { "Credit cards": true },
+            { "Debit cards": true },
+            { "NFC mobile payments": true }
+        ],
+        "Children": [{ "Good for kids": true }, { "High chairs": true }]
+    },
 
-  // Image and metadata
-  "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMl6-SnuqYEeE3mD54M0q5D5nysRUZQj1BB0g8=w408-h272-k-no",
-  "kgmid": "/g/11ph8zh6sg",
-  "url": "https://www.google.com/maps/search/?api=1&query=Bluestone%20Lane%20Chelsea%20Piers%20Caf%C3%A9&query_place_id=ChIJDTUgz1dZwokRtsQ97Tbf0cA",
-  "scrapedAt": "2025-04-22T14:23:34.961Z"
+    // Image and metadata
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMl6-SnuqYEeE3mD54M0q5D5nysRUZQj1BB0g8=w408-h272-k-no",
+    "kgmid": "/g/11ph8zh6sg",
+    "url": "https://www.google.com/maps/search/?api=1&query=Bluestone%20Lane%20Chelsea%20Piers%20Caf%C3%A9&query_place_id=ChIJDTUgz1dZwokRtsQ97Tbf0cA",
+    "scrapedAt": "2025-04-22T14:23:34.961Z"
 }
 ```
 

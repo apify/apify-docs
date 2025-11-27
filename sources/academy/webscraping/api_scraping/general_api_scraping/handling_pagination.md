@@ -200,7 +200,7 @@ Sometimes, APIs have limited pagination. That means that they limit the total nu
 
 ## Next up {#next}
 
-[//]: # (In this lesson, you learned about how to use API parameters and properties returned in an API response to paginate through results. [Next up]&#40;link api_scraping/general_api_scraping/using_api_filters.md&#41;, you'll gain a solid understanding of using API filtering parameters.)
+[//]: # "In this lesson, you learned about how to use API parameters and properties returned in an API response to paginate through results. [Next up](link api_scraping/general_api_scraping/using_api_filters.md), you'll gain a solid understanding of using API filtering parameters."
 
 This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come! Thus far, you've learned how to:
 
@@ -210,6 +210,6 @@ This is the last lesson in the API scraping tutorial for now, but be on the look
 4. Modify/set headers
 5. Farm API tokens using Puppeteer
 6. Use paginated APIs
-<!-- 7. Utilize API filters to narrow down results -->
+ <!-- 7. Utilize API filters to narrow down results -->
 
 If you'd still like to read more about API scraping, check out the [**GraphQL scraping**](../graphql_scraping/index.md) course! GraphQL is the king of API scraping.

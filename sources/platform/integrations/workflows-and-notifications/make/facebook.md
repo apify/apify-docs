@@ -61,39 +61,39 @@ For each given Facebook group URL, you will extract:
 
 ```json title="Profile data, shortened sample"
 [
-  {
-    "facebookUrl": "https://www.facebook.com/groups/WeirdSecondhandFinds",
-    "url": "https://www.facebook.com/groups/WeirdSecondhandFinds/permalink/3348022435381946/",
-    "time": "2025-04-09T15:34:31.000Z",
-    "user": {
-      "name": "Author name"
-    },
-    "text": "4/9/2025 - This glass fish was found at a friend's yard sale and for some reason it had to come home with me. Any ideas on how to display it?",
-    "reactionLikeCount": 704,
-    "reactionLoveCount": 185,
-    "reactionWowCount": 10,
-    "reactionCareCount": 6,
-    "reactionHahaCount": 3,
-    "attachments": [
-      {
-        "url": "https://www.facebook.com/media/set/?set=pcb.3348022435381946&type=1",
-        "thumbnail": "https://scontent.fcgh33-1.fna.fbcdn.net/v/t39.30808-6/490077910_10228674979643758_5977579619381197326_n.jpg?stp=dst-jpg_s600x600_tt6"
-      }
-    ],
-    "likesCount": 908,
-    "sharesCount": 3,
-    "commentsCount": 852,
-    "topComments": [
-      {
-        "commentUrl": "https://www.facebook.com/groups/WeirdSecondhandFinds/permalink/3348022435381946/?comment_id=3348201365364053",
-        "text": "Would this work okay? Water and floating candle?",
-        "profileName": "Bonnie FireUrchin Lambourn",
-        "likesCount": 2
-      }
-    ],
-    "facebookId": "650812835102933",
-    "groupTitle": "Weird (and Wonderful) Secondhand Finds That Just Need To Be Shared"
-  }
+    {
+        "facebookUrl": "https://www.facebook.com/groups/WeirdSecondhandFinds",
+        "url": "https://www.facebook.com/groups/WeirdSecondhandFinds/permalink/3348022435381946/",
+        "time": "2025-04-09T15:34:31.000Z",
+        "user": {
+            "name": "Author name"
+        },
+        "text": "4/9/2025 - This glass fish was found at a friend's yard sale and for some reason it had to come home with me. Any ideas on how to display it?",
+        "reactionLikeCount": 704,
+        "reactionLoveCount": 185,
+        "reactionWowCount": 10,
+        "reactionCareCount": 6,
+        "reactionHahaCount": 3,
+        "attachments": [
+            {
+                "url": "https://www.facebook.com/media/set/?set=pcb.3348022435381946&type=1",
+                "thumbnail": "https://scontent.fcgh33-1.fna.fbcdn.net/v/t39.30808-6/490077910_10228674979643758_5977579619381197326_n.jpg?stp=dst-jpg_s600x600_tt6"
+            }
+        ],
+        "likesCount": 908,
+        "sharesCount": 3,
+        "commentsCount": 852,
+        "topComments": [
+            {
+                "commentUrl": "https://www.facebook.com/groups/WeirdSecondhandFinds/permalink/3348022435381946/?comment_id=3348201365364053",
+                "text": "Would this work okay? Water and floating candle?",
+                "profileName": "Bonnie FireUrchin Lambourn",
+                "likesCount": 2
+            }
+        ],
+        "facebookId": "650812835102933",
+        "groupTitle": "Weird (and Wonderful) Secondhand Finds That Just Need To Be Shared"
+    }
 ]
 ```
 
@@ -150,87 +150,87 @@ You’ll get:
 - _Comments_: Number of comments on the post
 - _Shares_: Number of times the post has been shared
 - _Media info_:
-  - _URLs_: Links to media files
-  - _Type_: Whether it's an image or video
-  - _Dimensions_: Size of the media
+    - _URLs_: Links to media files
+    - _Type_: Whether it's an image or video
+    - _Dimensions_: Size of the media
 - _Owner info_:
-  - _Username_: Account name of the post owner
-  - _User ID_: Unique identifier for the owner
-  - _Full name_: Full name of the account holder
+    - _Username_: Account name of the post owner
+    - _User ID_: Unique identifier for the owner
+    - _Full name_: Full name of the account holder
 - _Tags_: Hashtags used in the post
 - _Location_: Geographic location tagged in the post (if available)
 
 ```json title="Example (shortened)"
 [
-  {
-    "facebookUrl": "https://www.facebook.com/nasa",
-    "postId": "1215784396583601",
-    "pageName": "NASA",
-    "url": "https://www.facebook.com/NASA/posts/pfbid029aLb3sDGnXuYA5P7DK5uRT7Upf39X5fwCBFcRz9C3M4EMShwJWNwLLaXA5RdYeyKl",
-    "time": "2025-04-07T19:09:00.000Z",
-    "user": {
-      "id": "100044561550831",
-      "name": "NASA - National Aeronautics and Space Administration",
-      "profileUrl": "https://www.facebook.com/NASA",
-      "profilePic": "https://scontent.fbog3-2.fna.fbcdn.net/v/t39.30808-1/243095782_416661036495945_3843362260429099279_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pGNKYYiG82gQ7kNvwGLgqmB&_nc_oc=AdmpIOT7GNKe9qxJgFM-EEuF78UvDx97YygzhxiRXW5nXDyZmQScZzHnWAFlGmn8VBk"
+    {
+        "facebookUrl": "https://www.facebook.com/nasa",
+        "postId": "1215784396583601",
+        "pageName": "NASA",
+        "url": "https://www.facebook.com/NASA/posts/pfbid029aLb3sDGnXuYA5P7DK5uRT7Upf39X5fwCBFcRz9C3M4EMShwJWNwLLaXA5RdYeyKl",
+        "time": "2025-04-07T19:09:00.000Z",
+        "user": {
+            "id": "100044561550831",
+            "name": "NASA - National Aeronautics and Space Administration",
+            "profileUrl": "https://www.facebook.com/NASA",
+            "profilePic": "https://scontent.fbog3-2.fna.fbcdn.net/v/t39.30808-1/243095782_416661036495945_3843362260429099279_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pGNKYYiG82gQ7kNvwGLgqmB&_nc_oc=AdmpIOT7GNKe9qxJgFM-EEuF78UvDx97YygzhxiRXW5nXDyZmQScZzHnWAFlGmn8VBk"
+        },
+        "text": "It’s your time to shine! This Citizen Science Month, contribute to a NASA Citizen Science project that will help improve life on Earth and solve cosmic mysteries.",
+        "link": "https://science.nasa.gov/citizen-science/",
+        "likes": 2016,
+        "comments": 171,
+        "shares": 217,
+        "media": [
+            {
+                "thumbnail": "https://scontent.fbog3-3.fna.fbcdn.net/v/t39.30808-6/489419147_1215784366583604_2492050236576327908_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YI6mnyIKJmwQ7kNvwGVLR7C&_nc_oc=AdklMZgJuQZ-r924q5F9ikY0F5E_LF2gbzNnepx75qTmtJ-jDnq6Ve-VkIQ1hcaCDhA"
+            }
+        ]
     },
-    "text": "It’s your time to shine! This Citizen Science Month, contribute to a NASA Citizen Science project that will help improve life on Earth and solve cosmic mysteries.",
-    "link": "https://science.nasa.gov/citizen-science/",
-    "likes": 2016,
-    "comments": 171,
-    "shares": 217,
-    "media": [
-      {
-        "thumbnail": "https://scontent.fbog3-3.fna.fbcdn.net/v/t39.30808-6/489419147_1215784366583604_2492050236576327908_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YI6mnyIKJmwQ7kNvwGVLR7C&_nc_oc=AdklMZgJuQZ-r924q5F9ikY0F5E_LF2gbzNnepx75qTmtJ-jDnq6Ve-VkIQ1hcaCDhA"
-      }
-    ]
-  },
-  {
-    "facebookUrl": "https://www.facebook.com/nasa",
-    "postId": "1215717559923618",
-    "pageName": "NASA",
-    "url": "https://www.facebook.com/NASA/posts/pfbid01SDwDikd344679WW4Er1F1UAB3cfpBH4Ud54RJEaTtD1Fih2xSzjtsCsYXgbh93Ll",
-    "time": "2025-04-07T17:04:00.000Z",
-    "user": {
-      "id": "100044561550831",
-      "name": "NASA - National Aeronautics and Space Administration",
-      "profileUrl": "https://www.facebook.com/NASA",
-      "profilePic": "https://scontent.fbog3-2.fna.fbcdn.net/v/t39.30808-1/243095782_416661036495945_3843362260429099279_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pGNKYYiG82gQ7kNvwGLgqmB&_nc_oc=AdmpIOT7GNKe9qxJgFM-EEuF78UvDx97YygzhxiRXW5nXDyZmQScZzHnWAFlGmn8VBk"
+    {
+        "facebookUrl": "https://www.facebook.com/nasa",
+        "postId": "1215717559923618",
+        "pageName": "NASA",
+        "url": "https://www.facebook.com/NASA/posts/pfbid01SDwDikd344679WW4Er1F1UAB3cfpBH4Ud54RJEaTtD1Fih2xSzjtsCsYXgbh93Ll",
+        "time": "2025-04-07T17:04:00.000Z",
+        "user": {
+            "id": "100044561550831",
+            "name": "NASA - National Aeronautics and Space Administration",
+            "profileUrl": "https://www.facebook.com/NASA",
+            "profilePic": "https://scontent.fbog3-2.fna.fbcdn.net/v/t39.30808-1/243095782_416661036495945_3843362260429099279_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pGNKYYiG82gQ7kNvwGLgqmB&_nc_oc=AdmpIOT7GNKe9qxJgFM-EEuF78UvDx97YygzhxiRXW5nXDyZmQScZzHnWAFlGmn8VBk"
+        },
+        "text": "NASA's Hubble Space Telescope has studied Uranus for more than 20 years and is still learning more about its gas.",
+        "link": "https://go.nasa.gov/3RIapAw",
+        "likes": 1878,
+        "comments": 144,
+        "shares": 215,
+        "media": [
+            {
+                "thumbnail": "https://scontent.fbog3-1.fna.fbcdn.net/v/t39.30808-6/489532065_1215717536590287_873488674466633974_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kAiP3avgomkQ7kNvwGOb-YS&_nc_oc=Adn31Ca9oiQ5ieTtUtFqcr45R4jdJdVxei1kMR1kj-RLDehS-fyEVJD1fY2-5IItLe0"
+            }
+        ]
     },
-    "text": "NASA's Hubble Space Telescope has studied Uranus for more than 20 years and is still learning more about its gas.",
-    "link": "https://go.nasa.gov/3RIapAw",
-    "likes": 1878,
-    "comments": 144,
-    "shares": 215,
-    "media": [
-      {
-        "thumbnail": "https://scontent.fbog3-1.fna.fbcdn.net/v/t39.30808-6/489532065_1215717536590287_873488674466633974_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kAiP3avgomkQ7kNvwGOb-YS&_nc_oc=Adn31Ca9oiQ5ieTtUtFqcr45R4jdJdVxei1kMR1kj-RLDehS-fyEVJD1fY2-5IItLe0"
-      }
-    ]
-  },
-  {
-    "facebookUrl": "https://www.facebook.com/nasa",
-    "postId": "1212614090233965",
-    "pageName": "NASA",
-    "url": "https://www.facebook.com/NASA/videos/958890849561531/",
-    "time": "2025-04-03T18:06:29.000Z",
-    "user": {
-      "id": "100044561550831",
-      "name": "NASA - National Aeronautics and Space Administration",
-      "profileUrl": "https://www.facebook.com/NASA",
-      "profilePic": "https://scontent.fssz1-1.fna.fbcdn.net/v/t39.30808-1/243095782_416661036495945_3843362260429099279_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pGNKYYiG82gQ7kNvwGLgqmB&_nc_oc=AdmpIOT7GNKe9qxJgFM-EEuF78UvDx97YygzhxiRXW5nXDyZmQScZzHnWAFlGmn8VBk"
-    },
-    "text": "Rocket? Stacking. Crew training? Underway. Mission patch? Ready to go.",
-    "link": "https://go.nasa.gov/41ZErWJ",
-    "likes": 1813,
-    "comments": 190,
-    "shares": 456,
-    "media": [
-      {
-        "thumbnail": "https://scontent.fssz1-1.fna.fbcdn.net/v/t15.5256-10/488073346_1027101039315356_6805938007276905855_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7965db&_nc_ohc=M4hIzfAIbdAQ7kNvwFnbXVw&_nc_oc=AdmJODt8am5l58TuwIbYLbEMK_w9IFb6uaUqiq7SCtNI9ouf4Xd_nZcifKpRLWSsclg"
-      }
-    ]
-  }
+    {
+        "facebookUrl": "https://www.facebook.com/nasa",
+        "postId": "1212614090233965",
+        "pageName": "NASA",
+        "url": "https://www.facebook.com/NASA/videos/958890849561531/",
+        "time": "2025-04-03T18:06:29.000Z",
+        "user": {
+            "id": "100044561550831",
+            "name": "NASA - National Aeronautics and Space Administration",
+            "profileUrl": "https://www.facebook.com/NASA",
+            "profilePic": "https://scontent.fssz1-1.fna.fbcdn.net/v/t39.30808-1/243095782_416661036495945_3843362260429099279_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pGNKYYiG82gQ7kNvwGLgqmB&_nc_oc=AdmpIOT7GNKe9qxJgFM-EEuF78UvDx97YygzhxiRXW5nXDyZmQScZzHnWAFlGmn8VBk"
+        },
+        "text": "Rocket? Stacking. Crew training? Underway. Mission patch? Ready to go.",
+        "link": "https://go.nasa.gov/41ZErWJ",
+        "likes": 1813,
+        "comments": 190,
+        "shares": 456,
+        "media": [
+            {
+                "thumbnail": "https://scontent.fssz1-1.fna.fbcdn.net/v/t15.5256-10/488073346_1027101039315356_6805938007276905855_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7965db&_nc_ohc=M4hIzfAIbdAQ7kNvwFnbXVw&_nc_oc=AdmJODt8am5l58TuwIbYLbEMK_w9IFb6uaUqiq7SCtNI9ouf4Xd_nZcifKpRLWSsclg"
+            }
+        ]
+    }
 ]
 ```
 
@@ -246,4 +246,3 @@ Looking for more than just Facebook? You can use other native Make apps powered 
 - [Amazon](/platform/integrations/make/amazon)
 
 And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
-

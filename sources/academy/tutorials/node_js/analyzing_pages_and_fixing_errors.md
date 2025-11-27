@@ -65,7 +65,9 @@ try {
     // ...
 } catch (error) {
     // You know where the code crashed so you can explain here
-    throw new Error('Request failed during login with an error', { cause: error });
+    throw new Error('Request failed during login with an error', {
+        cause: error,
+    });
 }
 ```
 
@@ -105,7 +107,9 @@ try {
     const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`;
 
     // You know where the code crashed so you can explain here
-    throw new Error('Request failed during login with an error', { cause: error });
+    throw new Error('Request failed during login with an error', {
+        cause: error,
+    });
 }
 // ...
 ```
@@ -163,7 +167,9 @@ try {
     await reportingDataset.pushData(report);
 
     // You know where the code crashed so you can explain here
-    throw new Error('Request failed during login with an error', { cause: error });
+    throw new Error('Request failed during login with an error', {
+        cause: error,
+    });
 }
 // ...
 await Actor.exit();

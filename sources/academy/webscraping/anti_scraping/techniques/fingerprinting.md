@@ -21,7 +21,7 @@ To collect a good fingerprint, websites must collect them from various places.
 
 ### From HTTP headers {#from-http-headers}
 
-Several [HTTP headers](../../../glossary/concepts/http_headers.md) can be used to create a fingerprint about a user. Here  are some of the main ones:
+Several [HTTP headers](../../../glossary/concepts/http_headers.md) can be used to create a fingerprint about a user. Here are some of the main ones:
 
 1. **User-Agent** provides information about the browser and its operating system (including its versions).
 2. **Accept** tells the server what content types the browser can render and send, and **Content-Encoding** provides data about the content compression.
@@ -40,25 +40,25 @@ Most of the attributes that are used for fingerprinting are stored under the `wi
 
 Here is a list of some of the most crucial properties on the `window` object used for fingerprinting:
 
-| Property | Example | Description |
-| - | - | - |
-| `screen.width` | `1680` | Defines the width of the device screen. |
-| `screen.height` | `1050` | Defines the height of the device screen. |
-| `screen.availWidth` | `1680` | The portion of the screen width available to the browser window. |
-| `screen.availHeight` | `1050` | The portion of the screen height available to the browser window. |
-| `navigator.userAgent` | `'Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0'` | Same as the HTTP header. |
-| `navigator.platform` | `'MacIntel'` | The platform the browser is running on. |
-| `navigator.cookieEnabled` | `true` | Whether or not the browser accepts cookies. |
-| `navigator.doNotTrack` | `'1'` | Indicates the browser's Do Not Track settings. |
-| `navigator.buildID` | `20181001000000` | The build ID of the browser. |
-| `navigator.product` | `'Gecko'` | The layout engine used. |
-| `navigator.productSub` | `20030107` | The version of the layout engine used. |
-| `navigator.vendor` | `'Google Inc.'` | Vendor of the browser. |
-| `navigator.hardwareConcurrency` | `4` | The number of logical processors the user's computer has available to run threads on. |
-| `navigator.javaEnabled` | `false` | Whether or not the user has enabled Java. |
-| `navigator.deviceMemory` | `8` | Approximately the amount of user memory (in gigabytes). |
-| `navigator.language` | `'en-US'` | The user's primary language. |
-| `navigator.languages` | `['en-US', 'cs-CZ', 'es']` | Other user languages. |
+| Property                        | Example                                                                  | Description                                                                           |
+| ------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `screen.width`                  | `1680`                                                                   | Defines the width of the device screen.                                               |
+| `screen.height`                 | `1050`                                                                   | Defines the height of the device screen.                                              |
+| `screen.availWidth`             | `1680`                                                                   | The portion of the screen width available to the browser window.                      |
+| `screen.availHeight`            | `1050`                                                                   | The portion of the screen height available to the browser window.                     |
+| `navigator.userAgent`           | `'Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0'` | Same as the HTTP header.                                                              |
+| `navigator.platform`            | `'MacIntel'`                                                             | The platform the browser is running on.                                               |
+| `navigator.cookieEnabled`       | `true`                                                                   | Whether or not the browser accepts cookies.                                           |
+| `navigator.doNotTrack`          | `'1'`                                                                    | Indicates the browser's Do Not Track settings.                                        |
+| `navigator.buildID`             | `20181001000000`                                                         | The build ID of the browser.                                                          |
+| `navigator.product`             | `'Gecko'`                                                                | The layout engine used.                                                               |
+| `navigator.productSub`          | `20030107`                                                               | The version of the layout engine used.                                                |
+| `navigator.vendor`              | `'Google Inc.'`                                                          | Vendor of the browser.                                                                |
+| `navigator.hardwareConcurrency` | `4`                                                                      | The number of logical processors the user's computer has available to run threads on. |
+| `navigator.javaEnabled`         | `false`                                                                  | Whether or not the user has enabled Java.                                             |
+| `navigator.deviceMemory`        | `8`                                                                      | Approximately the amount of user memory (in gigabytes).                               |
+| `navigator.language`            | `'en-US'`                                                                | The user's primary language.                                                          |
+| `navigator.languages`           | `['en-US', 'cs-CZ', 'es']`                                               | Other user languages.                                                                 |
 
 ### From function calls {#from-function-calls}
 
@@ -121,44 +121,44 @@ When all is said and done, this is what a browser fingerprint might look like:
 
 ```json
 {
-  "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
-  "cookiesEnabled": true,
-  "timezone": "Europe/Prague",
-  "timezoneOffset": -60,
-  "audioCodecs": {
-    "ogg": "probably",
-    "mp3": "maybe",
-    "wav": "probably",
-    "m4a": "maybe",
-    "aac": "maybe"
-  },
-  "videoCodecs": {
-    "ogg": "probably",
-    "h264": "probably",
-    "webm": "probably"
-  },
-  "videoCard": [
-    "Intel Open Source Technology Center",
-    "Mesa DRI Intel(R) HD Graphics 4600 (HSW GT2)"
-  ],
-  "productSub": "20100101",
-  "hardwareConcurrency": 8,
-  "multimediaDevices": {
-    "speakers": 0,
-    "micros": 0,
-    "webcams": 0
-  },
-  "platform": "Linux x86_64",
-  "pluginsSupport": true,
-  "screenResolution": [ 1920, 1080 ],
-  "availableScreenResolution": [ 1920, 1080 ],
-  "colorDepth": 24,
-  "touchSupport": {
-    "maxTouchPoints": 0,
-    "touchEvent": false,
-    "touchStart": false
-  },
-  "languages": [ "en-US", "en" ]
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+    "cookiesEnabled": true,
+    "timezone": "Europe/Prague",
+    "timezoneOffset": -60,
+    "audioCodecs": {
+        "ogg": "probably",
+        "mp3": "maybe",
+        "wav": "probably",
+        "m4a": "maybe",
+        "aac": "maybe"
+    },
+    "videoCodecs": {
+        "ogg": "probably",
+        "h264": "probably",
+        "webm": "probably"
+    },
+    "videoCard": [
+        "Intel Open Source Technology Center",
+        "Mesa DRI Intel(R) HD Graphics 4600 (HSW GT2)"
+    ],
+    "productSub": "20100101",
+    "hardwareConcurrency": 8,
+    "multimediaDevices": {
+        "speakers": 0,
+        "micros": 0,
+        "webcams": 0
+    },
+    "platform": "Linux x86_64",
+    "pluginsSupport": true,
+    "screenResolution": [1920, 1080],
+    "availableScreenResolution": [1920, 1080],
+    "colorDepth": 24,
+    "touchSupport": {
+        "maxTouchPoints": 0,
+        "touchEvent": false,
+        "touchStart": false
+    },
+    "languages": ["en-US", "en"]
 }
 ```
 

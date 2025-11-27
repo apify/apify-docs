@@ -24,7 +24,7 @@ const REQUEST_QUEUE_ID = 'pFCvCasdvsyvyZdfD'; // Replace with your valid request
 const allRequests = [];
 let exclusiveStartId = null;
 // List all requests from the queue, we have to do it in a loop because the request queue list is paginated
-for (; ;) {
+for (;;) {
     const { items: requests } = await Actor.apifyClient
         .requestQueue(REQUEST_QUEUE_ID)
         .listRequests({ exclusiveStartId, limit: 1000 });
@@ -41,7 +41,9 @@ for (; ;) {
 console.log(`Loaded ${allRequests.length} requests from the queue`);
 
 // Now we filter the failed requests
-const failedRequests = allRequests.filter((request) => (request.errorMessages?.length || 0) > (request.retryCount || 0));
+const failedRequests = allRequests.filter(
+    (request) => (request.errorMessages?.length || 0) > (request.retryCount || 0),
+);
 
 // We need to update them 1 by 1 to the pristine state
 for (const request of failedRequests) {

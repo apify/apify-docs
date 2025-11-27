@@ -50,14 +50,14 @@ To create an Applet that starts when Apify event occurs:
 1. In the **If this** section, click **Add**.
 1. Search for and select **Apify** in the service list.
 
- ![Apify Choose Service](../images/ifttt-choose-service.png)
+![Apify Choose Service](../images/ifttt-choose-service.png)
 
 1. Select a trigger from the available options:
 
 - **Actor Run Finished**: Triggers when a selected Actor run completes
 - **Task Run Finished**: Triggers when a selected Actor task run completes
 
- ![Apify Choose Trigger](../images/ifttt-choose-trigger.png)
+![Apify Choose Trigger](../images/ifttt-choose-trigger.png)
 
 1. Configure the trigger by selecting the specific Actor or task.
 1. Click **Create trigger** to continue.
@@ -75,30 +75,30 @@ To use Apify as an action in your Applet:
 - **Run Actor**: Starts an Actor run
 - **Run Task**: Starts an Actor Task run
 
- ![Apify Choose Action](../images/ifttt-choose-action.png)
+![Apify Choose Action](../images/ifttt-choose-action.png)
 
 1. Select the Actor or task you want to use from the dropdown menu.
 
- :::note
+:::note
 
- IFTTT displays up to 50 recent items in a dropdown. If your Actor or task isn't visible, try using it at least once via API or in the Apify Console to make it appear in the list.
+IFTTT displays up to 50 recent items in a dropdown. If your Actor or task isn't visible, try using it at least once via API or in the Apify Console to make it appear in the list.
 
- :::
+:::
 
- ![Apify Actor Customization](../images/ifttt-actor-config.png)
+![Apify Actor Customization](../images/ifttt-actor-config.png)
 
 1. Configure the action parameters:
 
-   | Parameter | Description | Example Values |
-   |-----------|-------------|----------------|
-   | **Wait until run finishes** | Defines how the Actor should be executed. | `yes`, `no` |
-   | **Input overrides** | JSON input that overrides the Actor's default input. | `{"key": "value"}` |
-   | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |
-   | **Memory** | Memory limit for the run in megabytes. See [Memory](/platform/actors/running/usage-and-resources#memory) for more information. | `256` |
+    | Parameter                   | Description                                                                                                                                               | Example Values        |
+    | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+    | **Wait until run finishes** | Defines how the Actor should be executed.                                                                                                                 | `yes`, `no`           |
+    | **Input overrides**         | JSON input that overrides the Actor's default input.                                                                                                      | `{"key": "value"}`    |
+    | **Build**                   | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |
+    | **Memory**                  | Memory limit for the run in megabytes. See [Memory](/platform/actors/running/usage-and-resources#memory) for more information.                            | `256`                 |
 
 1. Click **Create action** to finish setting up the action.
 
- ![Apify Actor Customization](../images/ifttt-applet-overview.png)
+![Apify Actor Customization](../images/ifttt-applet-overview.png)
 
 1. Give your Applet a name and click **Finish** to save it.
 
@@ -109,7 +109,7 @@ To check if your Applet is working properly:
 1. Go to your Applet's detail page.
 1. Clicke the **View activity** button to see the execution history.
 
- ![Apify Actor Customization](../images/ifttt-applet-inspect.png)
+![Apify Actor Customization](../images/ifttt-applet-inspect.png)
 
 ## Available triggers, actions, and queries
 

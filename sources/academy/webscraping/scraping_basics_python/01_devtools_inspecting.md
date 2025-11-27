@@ -1,11 +1,11 @@
 ---
 title: Inspecting web pages with browser DevTools
-sidebar_label: "DevTools: Inspecting"
+sidebar_label: 'DevTools: Inspecting'
 description: Lesson about using the browser tools for developers to inspect and manipulate the structure of a website.
 slug: /scraping-basics-python/devtools-inspecting
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of a website.**
 
@@ -43,8 +43,8 @@ Think of [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) elements as
 
 ```html
 <article id="article-123">
-  <h1 class="heading">First Level Heading</h1>
-  <p>Paragraph with <em>emphasized text</em>.</p>
+    <h1 class="heading">First Level Heading</h1>
+    <p>Paragraph with <em>emphasized text</em>.</p>
 </article>
 ```
 
@@ -52,8 +52,8 @@ HTML, a markup language, describes how everything on a page is organized, how el
 
 ```css
 .heading {
-  color: blue;
-  text-transform: uppercase;
+    color: blue;
+    text-transform: uppercase;
 }
 ```
 
@@ -76,9 +76,7 @@ We'll click the icon and hover your cursor over Wikipedia's subtitle, **The Free
 The highlighted section should look something like this:
 
 ```html
-<strong class="jsl10n localized-slogan" data-jsl10n="portal.slogan">
-  The Free Encyclopedia
-</strong>
+<strong class="jsl10n localized-slogan" data-jsl10n="portal.slogan"> The Free Encyclopedia </strong>
 ```
 
 If we were experienced creators of scrapers, our eyes would immediately spot what's needed to make a program that fetches Wikipedia's subtitle. The program would need to download the page's source code, find a `strong` element with `localized-slogan` in its `class` attribute, and extract its text.
@@ -88,15 +86,11 @@ If we were experienced creators of scrapers, our eyes would immediately spot wha
 In HTML, whitespace isn't significant, i.e., it only makes the code readable. The following code snippets are equivalent:
 
 ```html
-<strong>
-  The Free Encyclopedia
-</strong>
+<strong> The Free Encyclopedia </strong>
 ```
 
 ```html
-  <strong>The Free
-Encyclopedia
-</strong>
+<strong>The Free Encyclopedia </strong>
 ```
 
 :::
@@ -154,13 +148,13 @@ You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/
 <details>
   <summary>Solution</summary>
 
-  1. Go to [fifa.com](https://www.fifa.com/).
-  1. Activate the element selection tool.
-  1. Click on the logo.
-  1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
-  1. In the console, type `temp1.src` and hit **Enter**.
+1. Go to [fifa.com](https://www.fifa.com/).
+1. Activate the element selection tool.
+1. Click on the logo.
+1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
+1. In the console, type `temp1.src` and hit **Enter**.
 
-  ![DevTools exercise result](../scraping_basics/images/devtools-exercise-fifa.png)
+![DevTools exercise result](../scraping_basics/images/devtools-exercise-fifa.png)
 
 </details>
 
@@ -171,12 +165,12 @@ Open a news website, such as [CNN](https://cnn.com). Use the Console to change t
 <details>
   <summary>Solution</summary>
 
-  1. Go to [cnn.com](https://cnn.com).
-  1. Activate the element selection tool.
-  1. Click on a heading.
-  1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
-  1. In the console, type `temp1.textContent = 'Something something'` and hit **Enter**.
+1. Go to [cnn.com](https://cnn.com).
+1. Activate the element selection tool.
+1. Click on a heading.
+1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
+1. In the console, type `temp1.textContent = 'Something something'` and hit **Enter**.
 
-  ![DevTools exercise result](../scraping_basics/images/devtools-exercise-cnn.png)
+![DevTools exercise result](../scraping_basics/images/devtools-exercise-cnn.png)
 
 </details>

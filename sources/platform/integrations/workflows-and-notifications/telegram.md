@@ -101,7 +101,6 @@ The best way to do it's to:
 
     ![BotFather conversation with new HTTP API token](../images/botfather-HTTP-API-blurred.png)
 
-
 ### Step 2: Create action for your new Telegram bot
 
 Once you've setup your new bot within Zapier, it's time to setup an action.

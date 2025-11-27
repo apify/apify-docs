@@ -24,7 +24,6 @@ For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sd
 
 Apify is a marketplace of ready-to-use web scraping and automation tools, AI agents, and MCP servers that you can equip your own AI with. This guide demonstrates how to use Apify tools with a simple AI agent built with Vercel AI SDK.
 
-
 ### Prerequisites
 
 - _Apify API token_: To use Apify Actors in Vercel AI SDK, you need an Apify API token. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
@@ -56,13 +55,13 @@ Make sure to set the `APIFY_TOKEN` environment variable with your Apify API toke
 // Connect to the Apify MCP server and get the available tools
 const url = new URL('https://mcp.apify.com');
 const mcpClient = await createMCPClient({
-  transport: new StreamableHTTPClientTransport(url, {
-      requestInit: {
-        headers: {
-            "Authorization": `Bearer ${process.env.APIFY_TOKEN}`
-        }
-      }
-  }),
+    transport: new StreamableHTTPClientTransport(url, {
+        requestInit: {
+            headers: {
+                Authorization: `Bearer ${process.env.APIFY_TOKEN}`,
+            },
+        },
+    }),
 });
 const tools = await mcpClient.tools();
 console.log('Tools available:', Object.keys(tools).join(', '));
@@ -82,8 +81,8 @@ const openrouter = createOpenRouter({
     baseURL: 'https://openrouter.apify.actor/api/v1',
     apiKey: 'api-key-not-required',
     headers: {
-        "Authorization": `Bearer ${process.env.APIFY_TOKEN}`
-    }
+        Authorization: `Bearer ${process.env.APIFY_TOKEN}`,
+    },
 });
 ```
 
@@ -98,7 +97,12 @@ const response = await generateText({
     messages: [
         {
             role: 'user',
-            content: [{ type: 'text', text: 'Find a pub near the Ferry Building in San Francisco using the Google Maps scraper.' }],
+            content: [
+                {
+                    type: 'text',
+                    text: 'Find a pub near the Ferry Building in San Francisco using the Google Maps scraper.',
+                },
+            ],
         },
     ],
 });

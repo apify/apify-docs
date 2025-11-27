@@ -34,7 +34,9 @@ const setupProxy = async (port) => {
         proxy.listen({ port, silent: true }, (err) => {
             if (err) return reject(err);
             // Add CA certificate to chromium and return initialize proxy object
-            execPromise('certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n mitm-ca -i ./.http-mitm-proxy/certs/ca.pem')
+            execPromise(
+                'certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n mitm-ca -i ./.http-mitm-proxy/certs/ca.pem',
+            )
                 .then(() => resolve(proxy))
                 .catch(reject);
         });

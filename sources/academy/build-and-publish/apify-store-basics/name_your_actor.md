@@ -19,10 +19,10 @@ Ideally, you should choose a name that clearly shows what your Actor does and in
 Your Actor's name consists of four parts: actual name, SEO name, URL, and GitHub repository name.
 
 - Actor name (name shown in Apify Store), e.g. _Booking Scraper_.
-  - Actor SEO name (name shown on Google Search, optional), e.g. _Booking.com Hotel Data Scraper_.
-  - If the SEO name is not set, the Actor name will be the default name shown on Google.
+    - Actor SEO name (name shown on Google Search, optional), e.g. _Booking.com Hotel Data Scraper_.
+    - If the SEO name is not set, the Actor name will be the default name shown on Google.
 - Actor URL (technical name), e.g. _booking-scraper_.
-  - More on it on [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) page.
+    - More on it on [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) page.
 - GitHub repository name (best to keep it similar to the other ones, for convenience), e.g. _actor-booking-scraper_.
 
 ## Actor name

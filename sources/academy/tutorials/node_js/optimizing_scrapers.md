@@ -34,6 +34,5 @@ It is about how you use these tools. The small amount of code you write in your 
 **Ranking of the tools from the most efficient to the least:**
 
 1. **JSON API** (HTTP call + JSON parse) - Scraping an API (public or internal) is the best option. The response is usually smaller than the HTML page and the data are already structured and cheap to parse. Usable for about 30% of websites.
-2. **Pure HTML** (HTTP call + HTML parse) -  All data is on the main single HTML page. Often the HTML contains script and JSON data that are rich and nicely structured. Some pages can be quite big and the parsing is slower than for JSON. But it is still 10–20 times faster than a browser. Usable for about 90% of websites.
+2. **Pure HTML** (HTTP call + HTML parse) - All data is on the main single HTML page. Often the HTML contains script and JSON data that are rich and nicely structured. Some pages can be quite big and the parsing is slower than for JSON. But it is still 10–20 times faster than a browser. Usable for about 90% of websites.
 3. **Browser** (hundreds of HTTP calls, script execution, rendering) - Browsers are huge beasts. They do so much work to allow for smooth human interaction which makes them really inefficient for scraping. Use a browser only if it helps you bypass anti-scraping protection or if you need to interact with the page.
-

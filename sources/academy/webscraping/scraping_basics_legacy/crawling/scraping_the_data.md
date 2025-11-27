@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/crawling/scraping-the-data
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn how to add data extraction logic to your crawler, which will allow you to extract data from all the websites you crawled.**
 
@@ -26,7 +26,8 @@ Let's start writing a script that extracts data from this single PDP. We can use
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
-const productUrl = 'https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones';
+const productUrl =
+    'https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones';
 const response = await gotScraping(productUrl);
 const html = response.body;
 
@@ -97,7 +98,8 @@ Save it into a new file called `product.js` and run it with `node product.js` to
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
-const productUrl = 'https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones';
+const productUrl =
+    'https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones';
 const response = await gotScraping(productUrl);
 const html = response.body;
 

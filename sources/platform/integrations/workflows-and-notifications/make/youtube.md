@@ -52,122 +52,122 @@ For YouTube URLs, you can extract:
 
 ```json title="Channel data sample"
 {
-  "id": "HV6OlMPn5sI",
-  "title": "Raimu - The Spirit Within 🍃 [lofi hip hop/relaxing beats]",
-  "duration": "29:54",
-  "channelName": "Lofi Girl",
-  "channelUrl": "https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow",
-  "date": "10 months ago",
-  "url": "https://www.youtube.com/watch?v=HV6OlMPn5sI",
-  "viewCount": 410458,
-  "fromYTUrl": "https://www.youtube.com/@LofiGirl/videos",
-  "channelDescription": "\"That girl studying by the window non-stop\"\n\n🎧 | Listen on Spotify, Apple music and more\n→   https://bit.ly/lofigirl-playlists\n\n💬 | Join the Lofi Girl community \n→   https://bit.ly/lofigirl-discord\n→   https://bit.ly/lofigirl-reddit\n\n🌎 | Lofi Girl on all social media\n→   https://bit.ly/lofigirl-sociaI",
-  "channelDescriptionLinks": [
-    {
-        "text": "Discord",
-        "url": "https://discord.com/invite/hUKvJnw"
-    },
-    {
-        "text": "Tiktok",
-        "url": "https://www.tiktok.com/@lofigirl/"
-    },
-    {
-        "text": "Instagram",
-        "url": "https://www.instagram.com/lofigirl/"
-    },
-    {
-        "text": "Twitter",
-        "url": "https://twitter.com/lofigirl"
-    },
-    {
-        "text": "Spotify",
-        "url": "https://open.spotify.com/playlist/0vvXsWCC9xrXsKd4FyS8kM"
-    },
-    {
-        "text": "Apple music",
-        "url": "https://music.apple.com/fr/playlist/lofi-hip-hop-music-beats-to-relax-study-to/pl.u-2aoq8mqiGo7J6A0"
-    },
-    {
-        "text": "Merch",
-        "url": "https://lofigirlshop.com/"
-    }
-  ],
-  "channelJoinedDate": "Mar 18, 2015",
-  "channelLocation": "France",
-  "channelTotalVideos": 409,
-  "channelTotalViews": "1,710,167,563",
-  "numberOfSubscribers": 13100000,
-  "isMonetized": true,
-  "inputChannelUrl": "https://www.youtube.com/@LofiGirl/about"
+    "id": "HV6OlMPn5sI",
+    "title": "Raimu - The Spirit Within 🍃 [lofi hip hop/relaxing beats]",
+    "duration": "29:54",
+    "channelName": "Lofi Girl",
+    "channelUrl": "https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow",
+    "date": "10 months ago",
+    "url": "https://www.youtube.com/watch?v=HV6OlMPn5sI",
+    "viewCount": 410458,
+    "fromYTUrl": "https://www.youtube.com/@LofiGirl/videos",
+    "channelDescription": "\"That girl studying by the window non-stop\"\n\n🎧 | Listen on Spotify, Apple music and more\n→   https://bit.ly/lofigirl-playlists\n\n💬 | Join the Lofi Girl community \n→   https://bit.ly/lofigirl-discord\n→   https://bit.ly/lofigirl-reddit\n\n🌎 | Lofi Girl on all social media\n→   https://bit.ly/lofigirl-sociaI",
+    "channelDescriptionLinks": [
+        {
+            "text": "Discord",
+            "url": "https://discord.com/invite/hUKvJnw"
+        },
+        {
+            "text": "Tiktok",
+            "url": "https://www.tiktok.com/@lofigirl/"
+        },
+        {
+            "text": "Instagram",
+            "url": "https://www.instagram.com/lofigirl/"
+        },
+        {
+            "text": "Twitter",
+            "url": "https://twitter.com/lofigirl"
+        },
+        {
+            "text": "Spotify",
+            "url": "https://open.spotify.com/playlist/0vvXsWCC9xrXsKd4FyS8kM"
+        },
+        {
+            "text": "Apple music",
+            "url": "https://music.apple.com/fr/playlist/lofi-hip-hop-music-beats-to-relax-study-to/pl.u-2aoq8mqiGo7J6A0"
+        },
+        {
+            "text": "Merch",
+            "url": "https://lofigirlshop.com/"
+        }
+    ],
+    "channelJoinedDate": "Mar 18, 2015",
+    "channelLocation": "France",
+    "channelTotalVideos": 409,
+    "channelTotalViews": "1,710,167,563",
+    "numberOfSubscribers": 13100000,
+    "isMonetized": true,
+    "inputChannelUrl": "https://www.youtube.com/@LofiGirl/about"
 }
 ```
 
 ```json title="Video data sample"
 {
-  "title": "Stromae - Santé (Live From The Tonight Show Starring Jimmy Fallon)",
-  "id": "CW7gfrTlr0Y",
-  "url": "https://www.youtube.com/watch?v=CW7gfrTlr0Y",
-  "thumbnailUrl": "https://i.ytimg.com/vi/CW7gfrTlr0Y/maxresdefault.jpg",
-  "viewCount": 35582192,
-  "date": "2021-12-21",
-  "likes": 512238,
-  "location": null,
-  "channelName": "StromaeVEVO",
-  "channelUrl": "http://www.youtube.com/@StromaeVEVO",
-  "numberOfSubscribers": 6930000,
-  "duration": "00:03:17",
-  "commentsCount": 14,
-  "text": "Stromae - Santé (Live From The Tonight Show Starring Jimmy Fallon on NBC)\nListen to \"La solassitude\" here: https://stromae.lnk.to/la-solassitude\nOrder my new album \"Multitude\" here: https://stromae.lnk.to/multitudeID\n--\nhttps://www.stromae.com/fr/\nhttps://www.tiktok.com/@stromae\nhttps://www.facebook.com/stromae\nhttps://www.instagram.com/stromae\nhttps://twitter.com/stromae\n   / @stromae  \n--\nMosaert\nPaul Van Haver (Stromae) : creative direction\nCoralie Barbier : creative direction and fashion design\nLuc Van Haver : creative direction\nGaëlle Birenbaum : communication & project manager\nEvence Guinet-Dannonay : executive assistant\nGaëlle Cools : content & community manager\nRoxane Hauzeur : textile product manager\nDiego Mitrugno : office manager\n\nPartizan\nProducer : Auguste Bas\nLine Producer : Zélie Deletrain \nProduction coordinator : Lou Bardou-Jacquet \nProduction assistant : Hugo Dao\nProduction assistant : Adrien Bossa\nProduction assistant : Basile Jan\n\nDirector : Julien Soulier \n1st assistant director : Mathieu Perez \n2nd assistant director : Leila Gentet \n\nDirector of Photography : Kaname Onoyama \n1st assistant operator : Micaela albanese\n2nd assistant operator : Florian Rey \nDoP Mantee : Zhaopeng Zhong\nMaking of : Adryen Barreyat\n\nHead Gaffer : Sophie Delorme \nElectrician : Sacha Brauman\nElectrician: Tom Devianne\nLighting designer : Aurélien Dayot\nPrelight electrician : Emmanuel Malherbe\n\nHead Grip : Dioclès Desrieux \nBest Boy grip : Eloi Perrin \nPrelight Grip : Vladimir Duranovic \n\nLocation manager : Léo Rodriguez \nLocation manager assistant : Grégoire Décatoire \nLocation manager assistant : Mathieu Barazer \n\nStylist : Sandra Gonzalez \nStylist assistant : Sarah Bernard\n\nMake Up and Hair Artist : Camille Roche \nMake up Artist : Carla Lange \nMake Up and Hair Artist : Victoria Pinto \n\nSound Engineer : Lionel Capouillez \nBackliner : Nicolas Fradet \n\nProduction Designer : Penelope Hemon \n\nChoreographer : Marion Motin \nChoreographer assistant : Jeanne Michel \n\nPost production : Royal Post\nPost-Production Director : Cindy Durand Paucsik\nEditor : Marco Novoa\nEditor assistant : Térence Nury \nGrader : Vincent Amor\nVFX Supervisor : Julien Laudicina\nGraphic designer : Quentin Mesureux \nGraphic designer : Lucas Ponçon \nFilm Lab Assistant : Hadrian Kalmbach\n\nMusicians:\nFlorian Rossi \nManoli Avgoustinatos\nSimon Schoovaerts \nYoshi Masuda \n\nDancers: \nJuliana Casas\nLydie Alberto \nRobinson Cassarino\nYohann Hebi daher\nChris Fargeot \nAudrey Hurtis \nElodie Hilsum\nDaya jones \nThéophile Bensusan \nBrandon Masele \nJean Michel Premier \nKevin Bago\nAchraf Bouzefour\nPauline Journe \nCaroline Bouquet \nManon Bouquet\nAshley Biscette \nJocelyn Laurent \nOumrata Konan\nKylian Toto\nEnzo Lesne \nSalomon Mpondo-Dicka\nSandrine Monar \nKarl-Ruben Noel\n\n#Stromae #Sante #JimmyFallon",
-  "descriptionLinks": [
-    {
-      "url": "https://stromae.lnk.to/la-solassitude",
-      "text": "https://stromae.lnk.to/la-solassitude"
-    },
-    {
-      "url": "https://stromae.lnk.to/multitudeID",
-      "text": "https://stromae.lnk.to/multitudeID"
-    },
-    {
-      "url": "https://www.stromae.com/fr/",
-      "text": "https://www.stromae.com/fr/"
-    },
-    {
-      "url": "https://www.tiktok.com/@stromae",
-      "text": "https://www.tiktok.com/@stromae"
-    },
-    {
-      "url": "https://www.facebook.com/stromae",
-      "text": "https://www.facebook.com/stromae"
-    },
-    {
-      "url": "https://www.instagram.com/stromae",
-      "text": "https://www.instagram.com/stromae"
-    },
-    {
-      "url": "https://twitter.com/stromae",
-      "text": "https://twitter.com/stromae"
-    },
-    {
-      "url": "https://www.youtube.com/channel/UCXF0YCBWewAj3RytJUAivGA",
-      "text": "   / @stromae  "
-    },
-    {
-      "url": "https://www.youtube.com/hashtag/stromae",
-      "text": "#Stromae"
-    },
-    {
-      "url": "https://www.youtube.com/hashtag/sante",
-      "text": "#Sante"
-    },
-    {
-      "url": "https://www.youtube.com/hashtag/jimmyfallon",
-      "text": "#JimmyFallon"
-    }
-  ],
-  "subtitles": null,
-  "comments": null,
-  "isMonetized": true,
-  "commentsTurnedOff": false
+    "title": "Stromae - Santé (Live From The Tonight Show Starring Jimmy Fallon)",
+    "id": "CW7gfrTlr0Y",
+    "url": "https://www.youtube.com/watch?v=CW7gfrTlr0Y",
+    "thumbnailUrl": "https://i.ytimg.com/vi/CW7gfrTlr0Y/maxresdefault.jpg",
+    "viewCount": 35582192,
+    "date": "2021-12-21",
+    "likes": 512238,
+    "location": null,
+    "channelName": "StromaeVEVO",
+    "channelUrl": "http://www.youtube.com/@StromaeVEVO",
+    "numberOfSubscribers": 6930000,
+    "duration": "00:03:17",
+    "commentsCount": 14,
+    "text": "Stromae - Santé (Live From The Tonight Show Starring Jimmy Fallon on NBC)\nListen to \"La solassitude\" here: https://stromae.lnk.to/la-solassitude\nOrder my new album \"Multitude\" here: https://stromae.lnk.to/multitudeID\n--\nhttps://www.stromae.com/fr/\nhttps://www.tiktok.com/@stromae\nhttps://www.facebook.com/stromae\nhttps://www.instagram.com/stromae\nhttps://twitter.com/stromae\n   / @stromae  \n--\nMosaert\nPaul Van Haver (Stromae) : creative direction\nCoralie Barbier : creative direction and fashion design\nLuc Van Haver : creative direction\nGaëlle Birenbaum : communication & project manager\nEvence Guinet-Dannonay : executive assistant\nGaëlle Cools : content & community manager\nRoxane Hauzeur : textile product manager\nDiego Mitrugno : office manager\n\nPartizan\nProducer : Auguste Bas\nLine Producer : Zélie Deletrain \nProduction coordinator : Lou Bardou-Jacquet \nProduction assistant : Hugo Dao\nProduction assistant : Adrien Bossa\nProduction assistant : Basile Jan\n\nDirector : Julien Soulier \n1st assistant director : Mathieu Perez \n2nd assistant director : Leila Gentet \n\nDirector of Photography : Kaname Onoyama \n1st assistant operator : Micaela albanese\n2nd assistant operator : Florian Rey \nDoP Mantee : Zhaopeng Zhong\nMaking of : Adryen Barreyat\n\nHead Gaffer : Sophie Delorme \nElectrician : Sacha Brauman\nElectrician: Tom Devianne\nLighting designer : Aurélien Dayot\nPrelight electrician : Emmanuel Malherbe\n\nHead Grip : Dioclès Desrieux \nBest Boy grip : Eloi Perrin \nPrelight Grip : Vladimir Duranovic \n\nLocation manager : Léo Rodriguez \nLocation manager assistant : Grégoire Décatoire \nLocation manager assistant : Mathieu Barazer \n\nStylist : Sandra Gonzalez \nStylist assistant : Sarah Bernard\n\nMake Up and Hair Artist : Camille Roche \nMake up Artist : Carla Lange \nMake Up and Hair Artist : Victoria Pinto \n\nSound Engineer : Lionel Capouillez \nBackliner : Nicolas Fradet \n\nProduction Designer : Penelope Hemon \n\nChoreographer : Marion Motin \nChoreographer assistant : Jeanne Michel \n\nPost production : Royal Post\nPost-Production Director : Cindy Durand Paucsik\nEditor : Marco Novoa\nEditor assistant : Térence Nury \nGrader : Vincent Amor\nVFX Supervisor : Julien Laudicina\nGraphic designer : Quentin Mesureux \nGraphic designer : Lucas Ponçon \nFilm Lab Assistant : Hadrian Kalmbach\n\nMusicians:\nFlorian Rossi \nManoli Avgoustinatos\nSimon Schoovaerts \nYoshi Masuda \n\nDancers: \nJuliana Casas\nLydie Alberto \nRobinson Cassarino\nYohann Hebi daher\nChris Fargeot \nAudrey Hurtis \nElodie Hilsum\nDaya jones \nThéophile Bensusan \nBrandon Masele \nJean Michel Premier \nKevin Bago\nAchraf Bouzefour\nPauline Journe \nCaroline Bouquet \nManon Bouquet\nAshley Biscette \nJocelyn Laurent \nOumrata Konan\nKylian Toto\nEnzo Lesne \nSalomon Mpondo-Dicka\nSandrine Monar \nKarl-Ruben Noel\n\n#Stromae #Sante #JimmyFallon",
+    "descriptionLinks": [
+        {
+            "url": "https://stromae.lnk.to/la-solassitude",
+            "text": "https://stromae.lnk.to/la-solassitude"
+        },
+        {
+            "url": "https://stromae.lnk.to/multitudeID",
+            "text": "https://stromae.lnk.to/multitudeID"
+        },
+        {
+            "url": "https://www.stromae.com/fr/",
+            "text": "https://www.stromae.com/fr/"
+        },
+        {
+            "url": "https://www.tiktok.com/@stromae",
+            "text": "https://www.tiktok.com/@stromae"
+        },
+        {
+            "url": "https://www.facebook.com/stromae",
+            "text": "https://www.facebook.com/stromae"
+        },
+        {
+            "url": "https://www.instagram.com/stromae",
+            "text": "https://www.instagram.com/stromae"
+        },
+        {
+            "url": "https://twitter.com/stromae",
+            "text": "https://twitter.com/stromae"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCXF0YCBWewAj3RytJUAivGA",
+            "text": "   / @stromae  "
+        },
+        {
+            "url": "https://www.youtube.com/hashtag/stromae",
+            "text": "#Stromae"
+        },
+        {
+            "url": "https://www.youtube.com/hashtag/sante",
+            "text": "#Sante"
+        },
+        {
+            "url": "https://www.youtube.com/hashtag/jimmyfallon",
+            "text": "#JimmyFallon"
+        }
+    ],
+    "subtitles": null,
+    "comments": null,
+    "isMonetized": true,
+    "commentsTurnedOff": false
 }
 ```
 

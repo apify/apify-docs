@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/challenge/initializing-and-setting-up
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.**
 
@@ -45,14 +45,16 @@ const crawler = new CheerioCrawler({
 });
 
 log.info('Starting the crawl.');
-await crawler.run([{
-    // Turn the keyword into a link we can make a request with
-    url: `https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
-    label: 'START',
-    userData: {
-        keyword,
+await crawler.run([
+    {
+        // Turn the keyword into a link we can make a request with
+        url: `https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
+        label: 'START',
+        userData: {
+            keyword,
+        },
     },
-}]);
+]);
 log.info('Crawl finished.');
 ```
 
@@ -71,11 +73,11 @@ Finally, we'll add the following input file to **INPUT.json** in the project's r
 
 ```json
 {
-  "keyword": "iphone"
+    "keyword": "iphone"
 }
 ```
 
-> This is how we'll be inputting data into our scraper from now on. Don't worry though, from now on, we'll only need  to work in the **main.js** and **routes.js** files!
+> This is how we'll be inputting data into our scraper from now on. Don't worry though, from now on, we'll only need to work in the **main.js** and **routes.js** files!
 
 ## Next up {#next}
 

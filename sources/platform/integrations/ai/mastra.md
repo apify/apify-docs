@@ -35,9 +35,9 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
 - _Node.js_: Ensure you have Node.js installed.
 - _Packages_: Install the following packages:
 
-  ```bash
-  npm install @mastra/core @mastra/mcp @ai-sdk/openai
-  ```
+    ```bash
+    npm install @mastra/core @mastra/mcp @ai-sdk/openai
+    ```
 
 ### Building the TikTok profile search and analysis agent
 
@@ -54,8 +54,8 @@ import { openai } from '@ai-sdk/openai';
 Next, set the environment variables for the Apify API token and OpenAI API key:
 
 ```typescript
-process.env.APIFY_TOKEN = "your-apify-token";
-process.env.OPENAI_API_KEY = "your-openai-api-key";
+process.env.APIFY_TOKEN = 'your-apify-token';
+process.env.OPENAI_API_KEY = 'your-openai-api-key';
 // For Anthropic use
 // process.env.ANTHROPIC_API_KEY = "your-anthropic-api-key";
 ```
@@ -68,7 +68,7 @@ const mcpClient = new MastraMCPClient({
     server: {
         url: new URL('https://mcp.apify.com/sse'),
         requestInit: {
-            headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
+            headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
         },
         // The EventSource package augments EventSourceInit with a "fetch" parameter.
         // You can use this to set additional headers on the outgoing request.
@@ -78,8 +78,8 @@ const mcpClient = new MastraMCPClient({
                 const headers = new Headers(init?.headers || {});
                 headers.set('authorization', `Bearer ${process.env.APIFY_TOKEN}`);
                 return fetch(input, { ...init, headers });
-            }
-        }
+            },
+        },
     },
     timeout: 300_000, // 5 minutes tool call timeout
 });
@@ -99,19 +99,21 @@ Instantiate the agent with the OpenAI model:
 ```typescript
 const agent = new Agent({
     name: 'Social Media Agent',
-    instructions: 'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
+    instructions:
+        'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
     // You can swap to any other AI-SDK LLM provider
-    model: openai('gpt-4o-mini')
+    model: openai('gpt-4o-mini'),
 });
 ```
 
 Generate a response using the agent and the Apify tools:
 
 ```typescript
-const prompt = 'Search the web for the OpenAI TikTok profile URL, then extract and summarize its data.';
+const prompt =
+    'Search the web for the OpenAI TikTok profile URL, then extract and summarize its data.';
 console.log(`Generating response for prompt: ${prompt}`);
 const response = await agent.generate(prompt, {
-    toolsets: { apify: tools }
+    toolsets: { apify: tools },
 });
 ```
 
@@ -164,8 +166,8 @@ import { openai } from '@ai-sdk/openai';
 // For Anthropic use
 // import { anthropic } from '@ai-sdk/anthropic';
 
-process.env.APIFY_TOKEN = "your-apify-token";
-process.env.OPENAI_API_KEY = "your-openai-api-key";
+process.env.APIFY_TOKEN = 'your-apify-token';
+process.env.OPENAI_API_KEY = 'your-openai-api-key';
 // For Anthropic use
 // process.env.ANTHROPIC_API_KEY = "your-anthropic-api-key";
 
@@ -174,18 +176,18 @@ const mcpClient = new MastraMCPClient({
     server: {
         url: new URL('https://mcp.apify.com/sse'),
         requestInit: {
-            headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
+            headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
         },
         // The EventSource package augments EventSourceInit with a "fetch" parameter.
         // You can use this to set additional headers on the outgoing request.
         // Based on this example: https://github.com/modelcontextprotocol/typescript-sdk/issues/118
         eventSourceInit: {
             async fetch(input: Request | URL | string, init?: RequestInit) {
-            const headers = new Headers(init?.headers || {});
-            headers.set('authorization', `Bearer ${process.env.APIFY_TOKEN}`);
-            return fetch(input, { ...init, headers });
-            }
-        }
+                const headers = new Headers(init?.headers || {});
+                headers.set('authorization', `Bearer ${process.env.APIFY_TOKEN}`);
+                return fetch(input, { ...init, headers });
+            },
+        },
     },
     timeout: 300_000, // 5 minutes tool call timeout
 });
@@ -197,15 +199,17 @@ const tools = await mcpClient.tools();
 
 const agent = new Agent({
     name: 'Social Media Agent',
-    instructions: 'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
+    instructions:
+        'You’re a social media data extractor. Find TikTok URLs and analyze profiles with precision.',
     // You can swap to any other AI-SDK LLM provider
-    model: openai('gpt-4o-mini')
+    model: openai('gpt-4o-mini'),
 });
 
-const prompt = 'Search the web for the OpenAI TikTok profile URL, then extract and summarize its data.';
+const prompt =
+    'Search the web for the OpenAI TikTok profile URL, then extract and summarize its data.';
 console.log(`Generating response for prompt: ${prompt}`);
 const response = await agent.generate(prompt, {
-    toolsets: { apify: tools }
+    toolsets: { apify: tools },
 });
 
 console.log(response.text);

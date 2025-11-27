@@ -8,7 +8,7 @@ noindex: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.**
 
@@ -85,7 +85,6 @@ $('a.product-item__title');
 </TabItem>
 </Tabs>
 
-
 When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the product detail page URLs.
 
 ```js title=DevTools
@@ -101,7 +100,6 @@ If you try this in Node.js instead of DevTools, you will not get the full URLs, 
 :::
 
 ![Product URLs printed to console](./images/filtering-product-urls.png)
-
 
 ## Filtering with pattern-matching {#pattern-matching-filter}
 

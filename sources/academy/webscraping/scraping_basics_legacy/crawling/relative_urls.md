@@ -6,7 +6,7 @@ slug: /scraping-basics-javascript/legacy/crawling/relative-urls
 noindex: true
 ---
 
-import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
+import LegacyAdmonition from '../../scraping_basics/\_legacy.mdx';
 
 **Learn about absolute and relative URLs used on web pages and how to work with them when parsing HTML with Cheerio in your scraper.**
 

@@ -28,14 +28,14 @@ All Apify Docker images are pre-cached on Apify servers to speed up Actor builds
 
 These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
 
-| Image | Description |
-| ----- | ----------- |
-| [`actor-node`](https://hub.docker.com/r/apify/actor-node/) | Slim Alpine Linux image with only essential tools. Does not include headless browsers. |
-| [`actor-node-puppeteer-chrome`](https://hub.docker.com/r/apify/actor-node-puppeteer-chrome/) | Debian image with Chromium, Google Chrome, and the [`puppeteer`](https://github.com/puppeteer/puppeteer) library. |
-| [`actor-node-playwright-chrome`](https://hub.docker.com/r/apify/actor-node-playwright-chrome/) | Debian image with Chromium, Google Chrome, and the [`playwright`](https://github.com/microsoft/playwright) library. |
-| [`actor-node-playwright-firefox`](https://hub.docker.com/r/apify/actor-node-playwright-firefox/) | Debian image with Firefox and the [`playwright`](https://github.com/microsoft/playwright) library . |
-| [`actor-node-playwright-webkit`](https://hub.docker.com/r/apify/actor-node-playwright-webkit/) | Ubuntu image with WebKit and the [`playwright`](https://github.com/microsoft/playwright) library. |
-| [`actor-node-playwright`](https://hub.docker.com/r/apify/actor-node-playwright/) | Ubuntu image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers (Chromium, Google Chrome, Firefox, WebKit). |
+| Image                                                                                            | Description                                                                                                                                |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`actor-node`](https://hub.docker.com/r/apify/actor-node/)                                       | Slim Alpine Linux image with only essential tools. Does not include headless browsers.                                                     |
+| [`actor-node-puppeteer-chrome`](https://hub.docker.com/r/apify/actor-node-puppeteer-chrome/)     | Debian image with Chromium, Google Chrome, and the [`puppeteer`](https://github.com/puppeteer/puppeteer) library.                          |
+| [`actor-node-playwright-chrome`](https://hub.docker.com/r/apify/actor-node-playwright-chrome/)   | Debian image with Chromium, Google Chrome, and the [`playwright`](https://github.com/microsoft/playwright) library.                        |
+| [`actor-node-playwright-firefox`](https://hub.docker.com/r/apify/actor-node-playwright-firefox/) | Debian image with Firefox and the [`playwright`](https://github.com/microsoft/playwright) library .                                        |
+| [`actor-node-playwright-webkit`](https://hub.docker.com/r/apify/actor-node-playwright-webkit/)   | Ubuntu image with WebKit and the [`playwright`](https://github.com/microsoft/playwright) library.                                          |
+| [`actor-node-playwright`](https://hub.docker.com/r/apify/actor-node-playwright/)                 | Ubuntu image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers (Chromium, Google Chrome, Firefox, WebKit). |
 
 See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details.
 
@@ -43,11 +43,11 @@ See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details
 
 These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
 
-| Image | Description |
-| ----- | ----------- |
-| [`actor-python`](https://hub.docker.com/r/apify/actor-python) | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers. |
-| [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers. |
-| [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
+| Image                                                                               | Description                                                                                                                                                 |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`actor-python`](https://hub.docker.com/r/apify/actor-python)                       | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers.                                                                   |
+| [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers.                                                             |
+| [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium)     | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
 
 ## Custom Dockerfile
 

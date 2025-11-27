@@ -104,7 +104,7 @@ import { Actor } from 'apify';
 
 await Actor.init();
 // ...
-const previousCrawlingState = await Actor.getValue('my-crawling-state') || {};
+const previousCrawlingState = (await Actor.getValue('my-crawling-state')) || {};
 // ...
 await Actor.exit();
 ```

@@ -66,57 +66,56 @@ You can see the full list of elements and their technical characteristics in [Do
 Unfortunately, when it comes to UX, there's only so much you can achieve armed with HTML alone. Here are the best elements to focus on, along with some best practices for using them effectively:
 
 - **`description` at the top**
-  - As the first thing users see, the description needs to provide crucial information and a sense of reassurance if things go wrong. Key points to mention: the easiest way to try the Actor, links to a guide, and any disclaimers or other similar Actors to try.
+    - As the first thing users see, the description needs to provide crucial information and a sense of reassurance if things go wrong. Key points to mention: the easiest way to try the Actor, links to a guide, and any disclaimers or other similar Actors to try.
 
-      ![Input schema description example](images/description-sshot.png)
+        ![Input schema description example](images/description-sshot.png)
 
-  - Descriptions can include multiple paragraphs. If you're adding a link, it’s best to use the `target_blank` property so your user doesn’t lose the original Actor page when clicking.
+    - Descriptions can include multiple paragraphs. If you're adding a link, it’s best to use the `target_blank` property so your user doesn’t lose the original Actor page when clicking.
 
 - **`title` of the field (regular bold text)**
-  - This is the default way to name a field.
-  - Keep it brief. The user’s flow should be 1. title → 2. tooltip → 3. link in the tooltip. Ideally, the title alone should provide enough clarity. However, avoid overloading the title with too much information. Instead, make the title as concise as possible, expand details in the tooltip, and include a link in the tooltip for full instructions.
+    - This is the default way to name a field.
+    - Keep it brief. The user’s flow should be 1. title → 2. tooltip → 3. link in the tooltip. Ideally, the title alone should provide enough clarity. However, avoid overloading the title with too much information. Instead, make the title as concise as possible, expand details in the tooltip, and include a link in the tooltip for full instructions.
 
-    ![Input schema input example](images/title-sshot.png)
+        ![Input schema input example](images/title-sshot.png)
 
 - **`prefill`, the default input**
-  - this is your chance to show rather than tell
-    - Keep the **prefilled number** low. Set it to 0 if it's irrelevant for a default run.
-    - Make the **prefilled text** example simple and easy to remember.
-    - If your Actor accepts various URL formats, add a few different **prefilled URLs** to show that possibility.
-    - Use the **prefilled date** format that the user is expected to follow. This way, they can learn the correct format without needing to check the tooltip.
-    - There’s also a type of field that looks like a prefill but isn’t — usually a `default` field. It’s not counted as actual input but serves as a mock input to show users what to type or paste. It is gray and disappears after clicking on it. Use this to your advantage.
+    - this is your chance to show rather than tell
+        - Keep the **prefilled number** low. Set it to 0 if it's irrelevant for a default run.
+        - Make the **prefilled text** example simple and easy to remember.
+        - If your Actor accepts various URL formats, add a few different **prefilled URLs** to show that possibility.
+        - Use the **prefilled date** format that the user is expected to follow. This way, they can learn the correct format without needing to check the tooltip.
+        - There’s also a type of field that looks like a prefill but isn’t — usually a `default` field. It’s not counted as actual input but serves as a mock input to show users what to type or paste. It is gray and disappears after clicking on it. Use this to your advantage.
 - **toggle**
-  - The toggle is a boolean field. A boolean field represents a yes/no choice.
-  - How would you word this toggle: **Skip closed places** or **Scrape open places only**? And should the toggle be enabled or disabled by default?
+    - The toggle is a boolean field. A boolean field represents a yes/no choice.
+    - How would you word this toggle: **Skip closed places** or **Scrape open places only**? And should the toggle be enabled or disabled by default?
 
-    ![Input schema toggle example](images/toggle-sshot.png)
-
-    - You have to consider this when you're choosing how to word the toggle button and which choice to set up as the default. If you're making this more complex than it's needed (e.g. by using negation as the ‘yes’ choice), you're increasing your user's cognitive load. You also might get them to receive way less, or way more, data than they need from a default run.
-    - In our example, we assume the default user wants to scrape all places but still have the option to filter out closed ones. However, they have to make that choice consciously, so we keep the toggle disabled by default. If the toggle were enabled by default, users might not notice it, leading them to think the tool isn't working properly when it returns fewer results than expected.
+        ![Input schema toggle example](images/toggle-sshot.png)
+        - You have to consider this when you're choosing how to word the toggle button and which choice to set up as the default. If you're making this more complex than it's needed (e.g. by using negation as the ‘yes’ choice), you're increasing your user's cognitive load. You also might get them to receive way less, or way more, data than they need from a default run.
+        - In our example, we assume the default user wants to scrape all places but still have the option to filter out closed ones. However, they have to make that choice consciously, so we keep the toggle disabled by default. If the toggle were enabled by default, users might not notice it, leading them to think the tool isn't working properly when it returns fewer results than expected.
 
 - **sections or `sectionCaption` (BIG bold text) and `sectionDescription`**
-  - A section looks like a wrapped toggle list.
+    - A section looks like a wrapped toggle list.
 
-      ![Input schema sections example](images/sections-sshot.png)
+        ![Input schema sections example](images/sections-sshot.png)
 
-  - It is useful to section off non-default ways of input or extra features. If your tool is complex, don't leave all fields in the first section. Just group them by topic and section them off (see the screenshot above ⬆️)
-    - You can add a description to every section. Use `sectionDescription` only if you need to provide extra information about the section (see the screenshot below ⬇️.
-    - sometimes `sectionDescription` is used as a space for disclaimers so the user is informed of the risks from the outset instead of having to click on the tooltip.
+    - It is useful to section off non-default ways of input or extra features. If your tool is complex, don't leave all fields in the first section. Just group them by topic and section them off (see the screenshot above ⬆️)
+        - You can add a description to every section. Use `sectionDescription` only if you need to provide extra information about the section (see the screenshot below ⬇️.
+        - sometimes `sectionDescription` is used as a space for disclaimers so the user is informed of the risks from the outset instead of having to click on the tooltip.
 
-    ![Input schema section description example](images/section-description-sshot.png)
+        ![Input schema section description example](images/section-description-sshot.png)
 
 - tooltips or `description` to the title
-  - To see the tooltip's text, the user needs to click on the `?` icon.
-  - This is your space to explain the title and what's going to happen in that field: any terminology, referrals to other fields of the tool, examples that don't fit the prefill, or caveats can be detailed here. Using HTML, you can add links, line breaks, code, and other regular formatting here. Use this space to add links to relevant guides, video tutorials, screenshots, issues, or readme parts if needed.
-  - Wording in titles vs. tooltips. Titles are usually nouns. They have a neutral tone and simply inform on what content this field is accepting (**Usernames**).
-    - Tooltips to those titles are usually verbs in the imperative that tell the user what to do (_Add, enter, use_).
-    - This division is not set in stone, but the reason why the tooltip is an imperative verb is because, if the user is clicking on the tooltip, we assume they are looking for clarifications or instructions on what to do.
+    - To see the tooltip's text, the user needs to click on the `?` icon.
+    - This is your space to explain the title and what's going to happen in that field: any terminology, referrals to other fields of the tool, examples that don't fit the prefill, or caveats can be detailed here. Using HTML, you can add links, line breaks, code, and other regular formatting here. Use this space to add links to relevant guides, video tutorials, screenshots, issues, or readme parts if needed.
+    - Wording in titles vs. tooltips. Titles are usually nouns. They have a neutral tone and simply inform on what content this field is accepting (**Usernames**).
+        - Tooltips to those titles are usually verbs in the imperative that tell the user what to do (_Add, enter, use_).
+        - This division is not set in stone, but the reason why the tooltip is an imperative verb is because, if the user is clicking on the tooltip, we assume they are looking for clarifications or instructions on what to do.
 
-    ![Input schema tooltips example](images/tooltips-sshot.png)
+        ![Input schema tooltips example](images/tooltips-sshot.png)
 
 - emojis (visual component)
-  - Use them to attract attention or as visual shortcuts. Use emojis consistently to invoke a user's iconic memory. The visual language should match across the whole input schema (and README) so the user can understand what section or field is referred to without reading the whole title.
-    - Don't overload the schema with emojis. They attract attention, so you need to use them sparingly.
+    - Use them to attract attention or as visual shortcuts. Use emojis consistently to invoke a user's iconic memory. The visual language should match across the whole input schema (and README) so the user can understand what section or field is referred to without reading the whole title.
+        - Don't overload the schema with emojis. They attract attention, so you need to use them sparingly.
 
 :::tip
 
@@ -165,7 +164,7 @@ The version above was the improved input schema. Here's what this tool's input s
 
 - _User feedback_. If they're asking obvious things, complaining, or consistently making silly mistakes with input, take notes. Feedback from users can help you understand their experience and identify areas for improvement.
 - _High churn rates_. If your users are trying your tool but quickly abandon it, this is a sign they are having difficulties with your schema.
-- _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source).** This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier.
+- _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer**](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source). This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier.
 
 ## Resources
 

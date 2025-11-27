@@ -81,7 +81,6 @@ This `Dockerfile` does the following tasks:
 
 By copying the `package.json` and `package-lock.json` files and installing dependencies before the rest of the source code, you can take advantage of Docker's caching mechanism. This approach ensures that dependencies are only reinstalled when the `package.json` or `package-lock.json` files change, significantly reducing build times. Since the installation of dependencies is often the most time-consuming part of the build process, this optimization can lead to substantial performance improvements, especially for larger projects with many dependencies.
 
-
 :::
 
 ### `package.json`

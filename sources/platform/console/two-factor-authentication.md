@@ -45,7 +45,9 @@ In this step, you will see 16 recovery codes. If you ever lose access to your au
 Under the recovery codes, you will find two fields for your recovery information. These two fields are what the support team will ask you to provide in case you lose access to your authenticator app and also to your recovery codes. We will never use the phone number for anything other than to verify your identity and help you regain access to your account, only as a last resort. Ideally, the personal information you provide will be enough to verify your identity. Always provide both the kind of personal information you provide and the actual information.
 
 :::info Personal information
+
 What kind of personal information you provide is completely up to you. It does not even have to be personal, as long as it's secure and easy to remember. For example, it can be the name of your pet, the name of your favorite book, some secret code, or anything else. Keep in mind who has access to that information. While you can use the name of your pet, if you share information about your pet on public social media, it's not a good choice because anyone on the internet can access it. The same goes for any other information you provide.
+
 :::
 
 You will not be able to enable the two-factor authentication until you click on the **Download** / **Copy** buttons or copy the codes manually. After you do that, the **Continue** button will light up, and you can click on it to enable the two-factor authentication. The authentication process will then enable the two-factor authentication for your account and show a confirmation.
@@ -55,7 +57,6 @@ You will not be able to enable the two-factor authentication until you click on 
 When you close the setup process, you should see that your two-factor authentication is enabled in the account settings.
 
 ![Apify Console two-factor authentication section enabled](./images/console-account-two-factor-enabled.png)
-
 
 ## Verification after sign-in
 
@@ -70,9 +71,10 @@ In case you lose access to your authenticator app, you can use the recovery code
 If the provided recovery code is correct, you will proceed to Apify Console, the same as if you provided the code from the authenticator app. After gaining access to Apify Console, we recommend going to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings, disabling the two-factor authentication there, and then enabling it again with the new authenticator app.
 
 :::info Removal of recovery codes
-When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact our support to help you regain access to your account.
-:::
 
+When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact our support to help you regain access to your account.
+
+:::
 
 ![Apify Console two-factor authentication with recovery code form](./images/console-two-factor-use-recovery-code.png)
 
@@ -91,7 +93,9 @@ If you lose access to your authenticator app and do not have any recovery codes 
 For our support team to help you recover your account, you will need to provide them with the personal information you have configured during the two-factor authentication setup. If you provide the correct information, the support team will help you regain access to your account.
 
 :::caution
+
 The support team will not give you any clues about the information you provided; they will only verify if it is correct.
+
 :::
 
 You can always check what information you provided by going to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings, to the **Two-factor authentication** section, and clicking on the **Recovery settings** button, then you should see a view like this:

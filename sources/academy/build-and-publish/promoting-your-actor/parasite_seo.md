@@ -13,7 +13,6 @@ slug: /actor-marketing-playbook/promote-your-actor/parasite-seo
 Here’s a full definition, from Authority Hackers:
 
 > Parasite SEO involves publishing a quality piece of content on an established, high-authority external site to rank on search engines. This gives you the benefit of the host’s high traffic, boosting your chances for leads and successful conversions. These high DR websites have a lot of authority and trust in the eyes of Google
->
 
 As you can see, you’re leveraging the existing authority of a third-party site where you can publish content promoting your Actors, and the content should rank better and faster as you publish it on an established site.
 

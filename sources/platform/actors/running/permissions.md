@@ -1,6 +1,6 @@
 ---
 title: Permissions
-description: "Learn how Actor permissions work for running and building Actors: available permission levels, requesting and granting permissions, and security best practices."
+description: 'Learn how Actor permissions work for running and building Actors: available permission levels, requesting and granting permissions, and security best practices.'
 sidebar_position: 5
 slug: /actors/running/permissions
 ---
@@ -17,7 +17,6 @@ The approach is similar to mobile platforms (Android, iOS) where each app explic
 
 ::::
 
-
 The permissions model follows the principle of least privilege. Actors run only with the access they explicitly request, giving you transparency and control over what the Actor can access in their account.
 
 There are two permission levels:
@@ -25,11 +24,9 @@ There are two permission levels:
 - **Limited permissions:** Actors with this permission level have restricted access, primarily to their own storages, the data they generate, and resources they are given an explicit access to. They cannot access any other data in your Apify account.
 - **Full permissions (default):** Grants the Actor a access to all data in your Apify account.
 
-
 This model protects your data and strengthens platform security by clearly showing what level of access each Actor requires.
 
 Actors using **Limited permissions** are safer to run and suit most tasks. Actors that need **full permissions** (for example to perform administrative tasks in your account, manage your datasets or schedules) clearly indicate this in their detail page.
-
 
 ## How Actor permissions work
 
@@ -49,7 +46,6 @@ A limited-permission Actor can:
 - Run any other Actor with limited permissions.
 
 This approach ensures the Actor has everything it needs to function while protecting your data from unnecessary exposure.
-
 
 ### Recognizing permission levels in Console and Store
 

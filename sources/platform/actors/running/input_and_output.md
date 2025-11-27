@@ -33,12 +33,11 @@ As part of the input, you can also specify run options such as [Build](../develo
 
 ![Run options](./images/input_and_output/actor-options.png)
 
-| Option | Description |
-|:---|:---|
-| Build | Tag or number of the build to run (e.g. **latest** or **1.2.34**). |
+| Option  | Description                                                                 |
+| :------ | :-------------------------------------------------------------------------- |
+| Build   | Tag or number of the build to run (e.g. **latest** or **1.2.34**).          |
 | Timeout | Timeout for the Actor run in seconds. Zero value means there is no timeout. |
-| Memory | Amount of memory allocated for the Actor run, in megabytes. |
-
+| Memory  | Amount of memory allocated for the Actor run, in megabytes.                 |
 
 ## Output
 

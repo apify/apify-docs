@@ -85,7 +85,7 @@ page.on('response', async (response) => {
             status: response.status(),
             headers: response.headers(),
             body: buffer,
-            expires: Date.now() + (maxAge * 1000),
+            expires: Date.now() + maxAge * 1000,
         };
     }
 });

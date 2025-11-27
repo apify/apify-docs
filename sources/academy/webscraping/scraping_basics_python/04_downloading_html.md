@@ -5,7 +5,7 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/downloading-html
 ---
 
-import Exercises from '../scraping_basics/_exercises.mdx';
+import Exercises from '../scraping_basics/\_exercises.mdx';
 
 **In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
 
@@ -150,14 +150,14 @@ https://www.aliexpress.com/w/wholesale-darth-vader.html
 <details>
   <summary>Solution</summary>
 
-  ```py
-  import httpx
+```py
+import httpx
 
-  url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
-  response = httpx.get(url)
-  response.raise_for_status()
-  print(response.text)
-  ```
+url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
+response = httpx.get(url)
+response.raise_for_status()
+print(response.text)
+```
 
 </details>
 
@@ -172,23 +172,23 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 <details>
   <summary>Solution</summary>
 
-  Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
+Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
 
-  ```text
-  python main.py > products.html
-  ```
+```text
+python main.py > products.html
+```
 
-  If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
-  ```py
-  import httpx
-  from pathlib import Path
+```py
+import httpx
+from pathlib import Path
 
-  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
-  response.raise_for_status()
-  Path("products.html").write_text(response.text)
-  ```
+url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+response = httpx.get(url)
+response.raise_for_status()
+Path("products.html").write_text(response.text)
+```
 
 </details>
 
@@ -203,16 +203,16 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
 <details>
   <summary>Solution</summary>
 
-  Python offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+Python offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
-  ```py
-  from pathlib import Path
-  import httpx
+```py
+from pathlib import Path
+import httpx
 
-  url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg"
-  response = httpx.get(url)
-  response.raise_for_status()
-  Path("tv.jpg").write_bytes(response.content)
-  ```
+url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg"
+response = httpx.get(url)
+response.raise_for_status()
+Path("tv.jpg").write_bytes(response.content)
+```
 
 </details>

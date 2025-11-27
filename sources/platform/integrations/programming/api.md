@@ -26,7 +26,7 @@ To access the Apify API in your integrations, you need to authenticate using you
 
 :::caution
 Do not share the API token with untrusted parties, or use it directly from client-side code,
-unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
+unless you fully understand the consequences! You can also consider [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
 :::
 
 ## Authentication
@@ -51,7 +51,6 @@ If you suspect that a token has been compromised or accidentally exposed, you ca
 For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
 
 ![Leaked token in Apify Console](../images/api-token-leaked.png)
-
 
 ## Organization accounts
 
@@ -178,7 +177,6 @@ If the toggle is **off**, the token can still trigger and inspect runs, but acce
 
 - For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
 - For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
-
 
 :::tip
 Let's say your Actor produces a lot of data that you want to delete just after the Actor finishes. If you enable this toggle, your scoped token will be allowed to do that.

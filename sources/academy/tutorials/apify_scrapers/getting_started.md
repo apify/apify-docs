@@ -7,7 +7,7 @@ sidebar_position: 1
 slug: /apify-scrapers/getting-started
 ---
 
-[//]: # (TODO: Should be updated)
+[//]: # 'TODO: Should be updated'
 
 #
 
@@ -37,7 +37,7 @@ Scroll down to the **Performance and limits** section and set the **Max pages pe
 
 > This also helps with keeping your [compute unit](/platform/actors/running/usage-and-resources) (CU) consumption low. To get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
 
-Now click **Save & Run**! *(in the bottom-left part of your screen)*
+Now click **Save & Run**! _(in the bottom-left part of your screen)_
 
 ### The run detail
 
@@ -97,12 +97,12 @@ Since this is a tutorial, we'll be scraping our own website. [Apify Store](https
 
 We want to create a scraper that scrapes all the Actors in the store and collects the following attributes for each Actor:
 
-   1. **URL** - The URL that goes directly to the Actor's detail page.
-   2. **Unique identifier** - Such as **apify/web-scraper**.
-   3. **Title** - The title visible in the Actor's detail page.
-   4. **Description** - The Actor's description.
-   5. **Last modification date** - When the Actor was last modified.
-   6. **Number of runs** - How many times the Actor was run.
+1. **URL** - The URL that goes directly to the Actor's detail page.
+2. **Unique identifier** - Such as **apify/web-scraper**.
+3. **Title** - The title visible in the Actor's detail page.
+4. **Description** - The Actor's description.
+5. **Last modification date** - When the Actor was last modified.
+6. **Number of runs** - How many times the Actor was run.
 
 Some of this information may be scraped directly from the listing pages, but for the rest, we will need to visit the detail pages of all the Actors.
 
@@ -120,7 +120,7 @@ We also need to somehow distinguish the **Start URL** from all the other URLs th
 
 ```json
 {
-  "label": "START"
+    "label": "START"
 }
 ```
 
@@ -184,7 +184,7 @@ Let's use the above **Pseudo URL** in our task. We should also add a label as we
 
 ```json
 {
-  "label": "DETAIL"
+    "label": "DETAIL"
 }
 ```
 
@@ -268,8 +268,8 @@ async function pageFunction(context) {
 
 will produce the following table:
 
-| title | url |
-| ----- | --- |
+| title                                                | url               |
+| ---------------------------------------------------- | ----------------- |
 | Web Scraping, Data Extraction and Automation - Apify | https://apify.com |
 
 ## Scraper lifecycle
@@ -279,12 +279,12 @@ or in other words, what the scraper actually does when it scrapes. It's quite st
 
 The scraper:
 
- 1. Visits the first **Start URL** and waits for the page to load.
- 2. Executes the `pageFunction`.
- 3. Finds all the elements matching the **Link selector** and extracts their `href` attributes (URLs).
- 4. Uses the **pseudo URLs** to filter the extracted URLs and throws away those that don't match.
- 5. Enqueues the matching URLs to the end of the crawling queue.
- 6. Closes the page and selects a new URL to visit, either from the **Start URL**s if there are any left, or from the beginning of the crawling queue.
+1. Visits the first **Start URL** and waits for the page to load.
+2. Executes the `pageFunction`.
+3. Finds all the elements matching the **Link selector** and extracts their `href` attributes (URLs).
+4. Uses the **pseudo URLs** to filter the extracted URLs and throws away those that don't match.
+5. Enqueues the matching URLs to the end of the crawling queue.
+6. Closes the page and selects a new URL to visit, either from the **Start URL**s if there are any left, or from the beginning of the crawling queue.
 
 > When you're not using the request queue, the scraper repeats steps 1 and 2. You would not use the request queue when you already know all the URLs you want to visit. For example, when you have a pre-existing list of a thousand URLs that you uploaded as a text file. Or when scraping a single URL.
 
@@ -314,10 +314,7 @@ async function pageFunction(context) {
         await skipLinks();
 
         // Do some scraping.
-        const uniqueIdentifier = url
-            .split('/')
-            .slice(-2)
-            .join('/');
+        const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
         return {
             url,
