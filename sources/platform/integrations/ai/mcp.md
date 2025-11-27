@@ -277,17 +277,17 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
-| `get-actor-run` | runs |  | Get detailed information about a specific Actor run |
-| `get-actor-run-list` | runs |  | Get a list of an Actor's runs, filterable by status |
-| `get-actor-log` | runs |  | Retrieve the logs for a specific Actor run |
-| `get-dataset` | storage |  | Get metadata about a specific dataset |
-| `get-dataset-items` | storage |  | Retrieve items from a dataset with support for filtering and pagination |
-| `get-dataset-schema` | storage |  | Generate a JSON schema from dataset items |
-| `get-key-value-store` | storage |  | Get metadata about a specific key-value store |
-| `get-key-value-store-keys`| storage |  | List the keys within a specific key-value store |
-| `get-key-value-store-record`| storage |  | Get the value associated with a specific key in a key-value store |
-| `get-dataset-list` | storage |  | List all available datasets for the user |
-| `get-key-value-store-list`| storage |  | List all available key-value stores for the user |
+| `get-actor-run` | runs | | Get detailed information about a specific Actor run |
+| `get-actor-run-list` | runs | | Get a list of an Actor's runs, filterable by status |
+| `get-actor-log` | runs | | Retrieve the logs for a specific Actor run |
+| `get-dataset` | storage | | Get metadata about a specific dataset |
+| `get-dataset-items` | storage | | Retrieve items from a dataset with support for filtering and pagination |
+| `get-dataset-schema` | storage | | Generate a JSON schema from dataset items |
+| `get-key-value-store` | storage | | Get metadata about a specific key-value store |
+| `get-key-value-store-keys` | storage | | List the keys within a specific key-value store |
+| `get-key-value-store-record` | storage | | Get the value associated with a specific key in a key-value store |
+| `get-dataset-list` | storage | | List all available datasets for the user |
+| `get-key-value-store-list` | storage | | List all available key-value stores for the user |
 | `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
 | `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
