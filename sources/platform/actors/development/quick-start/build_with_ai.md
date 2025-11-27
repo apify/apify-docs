@@ -62,15 +62,15 @@ We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), w
 
 ### Claude
 
-1. Go to *Settings* > *Connectors* in Claude.
-2. Click *Add custom connector*.
+1. Go to _Settings_ > _Connectors_ in Claude.
+2. Click _Add custom connector_.
 3. Set the name to `Apify` and the URL to `https://mcp.apify.com/?tools=docs`.
-4. When chatting, click the *+* button and select the *Apify* connector to add documentation context.
+4. When chatting, click the _+_ button and select the _Apify_ connector to add documentation context.
 
 ### Cursor
 
 1. Open the command palette with `Cmd+Shift+P` (or `Ctrl+Shift+P` on Windows).
-2. Search for and select *Open MCP settings*.
+2. Search for and select _Open MCP settings_.
 3. Add the following configuration to `mcp.json`:
 
 ```json
