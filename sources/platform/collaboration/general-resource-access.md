@@ -140,7 +140,7 @@ Only selected _dataset_ and _key-value store_ endpoints support pre-signed URLs.
 This allows fine-grained control over what data can be shared without authentication.
 
 | Resource | Link | Validity | Notes |
-|-----------|-----------------------|------|-------|
+| ----------- | ----------------------- | ------ | ------- |
 | _Datasets_ | [Dataset items](/api/v2/dataset-items-get) (`/v2/datasets/:datasetId/items`) | Temporary or Permanent | The link provides access to all dataset items. |
 | _Key-value stores_ | [List of keys](/api/v2/key-value-store-keys-get) (`/v2/key-value-stores/:storeId/keys`) | Temporary or Permanent | Returns the list of keys in a store. |
 | _Key-value stores_ | [Single record](/api/v2/key-value-store-record-get) (`/v2/key-value-stores/:storeId/records/:recordKey`) | _Permanent only_ | The public URL for a specific record is always permanent - it stays valid as long as the record exists. |
