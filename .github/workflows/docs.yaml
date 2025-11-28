@@ -53,7 +53,7 @@ jobs:
 
             -   name: Invalidate CloudFront cache
                 run: |
-                    gh workflow run invalidate-cloudfront.yaml \
+                    gh workflow run invalidate-cloudfront.yml \
                         --repo apify/apify-docs-private \
                         --field deployment=apify-docs
                     echo "✅ CloudFront cache invalidation workflow triggered successfully"
