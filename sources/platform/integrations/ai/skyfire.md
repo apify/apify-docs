@@ -97,7 +97,6 @@ If you're using [Claude Desktop](https://claude.com/download), add this configur
 }
 ```
 
-
 </TabItem>
 </Tabs>
 
