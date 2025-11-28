@@ -31,8 +31,8 @@ The [Apify MCP server](https://docs.apify.com/platform/integrations/mcp) provide
 Before using agentic payments through MCP, you need:
 
 1. _A Skyfire account_ with a funded wallet - [sign up at Skyfire](https://app.skyfire.xyz/)
-2. _An MCP client_ that supports multiple server connections, such as [OpenCode](https://opencode.ai/), [Claude Desktop](https://claude.com/download) with MCP support, or other compatible clients
-3. _Both MCP servers configured_: Skyfire's MCP server and Apify's MCP server
+1. _An MCP client_ that supports multiple server connections, such as [OpenCode](https://opencode.ai/), [Claude Desktop](https://claude.com/download) with MCP support, or other compatible clients
+1. _Both MCP servers configured_: Skyfire's MCP server and Apify's MCP server
 
 ### Configuration
 
@@ -74,12 +74,12 @@ Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you
 WWhen an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows:
 
 1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors.
-2. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5 and calls the Skyfire MCP server to create it.
-3. The agent calls the Actor tool with the payment token.
-4. The Apify platform validates the token and starts the Actor run.
-5. The Actor does the work and delivers results.
-6. When the run completes, the agent receives the Actor results and can retrieve additional data if needed.
-7. Finally, Apify's billing system charges the Skyfire PAY token for the actual usage cost.
+1. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5 and calls the Skyfire MCP server to create it.
+1. The agent calls the Actor tool with the payment token.
+1. The Apify platform validates the token and starts the Actor run.
+1. The Actor does the work and delivers results.
+1. When the run completes, the agent receives the Actor results and can retrieve additional data if needed.
+1. Finally, Apify's billing system charges the Skyfire PAY token for the actual usage cost.
 
 Any unused funds remain available in the token for future runs or are returned to your Skyfire wallet when the token expires. This means you will not lose money if the actual usage is less than the $5 minimum.
 
