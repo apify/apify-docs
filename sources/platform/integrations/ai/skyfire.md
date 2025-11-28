@@ -42,7 +42,8 @@ Configure your MCP client to connect to both the Skyfire and Apify MCP servers. 
 https://mcp.apify.com?payment=skyfire
 ```
 
-#### OpenCode configuration example
+<Tabs>
+<TabItem value="OpenCode" label="OpenCode" >
 
 If you're using [OpenCode](https://opencode.ai/), add this configuration to your `opencode.json` file (see [OpenCode configuration docs](https://opencode.ai/docs/config/) for file location on your system):
 
@@ -66,6 +67,39 @@ If you're using [OpenCode](https://opencode.ai/), add this configuration to your
   }
 }
 ```
+
+</TabItem>
+<TabItem value="Claude Desktop" label="Claude Desktop" >
+
+If you're using [Claude Desktop](https://claude.com/download), add this configuration to your `claude_desktop_config.json` file (see [Claude Desktop configuration docs](https://modelcontextprotocol.io/docs/develop/connect-local-servers) for file location on your system) and restart the application:
+
+```json
+{
+  "mcpServers": {
+    "skyfire": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.skyfire.xyz/mcp",
+        "--header",
+        "skyfire-api-key: YOUR_SKYFIRE_API_KEY"
+      ]
+    },
+    "apify": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.apify.com?payment=skyfire"
+      ]
+    }
+  },
+  "isUsingBuiltInNodeForMcp": true
+}
+```
+
+
+</TabItem>
+</Tabs>
 
 Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you can obtain from your [Skyfire dashboard](https://app.skyfire.xyz/).
 
