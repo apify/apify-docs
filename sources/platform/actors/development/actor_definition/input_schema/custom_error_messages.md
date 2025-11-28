@@ -30,13 +30,13 @@ For example, consider the following input field using the `pattern` validation k
 
 Input that don't satisfy the pattern, will produce an error message like:
 
-```
+```text
 Field "email" should match pattern "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$".
 ```
 
 However, a message such as the following would be much more understandable for the user:
 
-```
+```text
 Field "email" must be a valid email address.
 ```
 
