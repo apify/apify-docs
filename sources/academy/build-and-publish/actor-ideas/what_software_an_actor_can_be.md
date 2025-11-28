@@ -188,17 +188,9 @@ Apify Store can host multiple Actors with similar functions. However, the "first
 Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features. -->
 
 
-<!-- ### Submit your own ideas
+### Submit your own ideas
 
-The Ideas page is also where you contribute concepts to drive innovation in the community.
-
-Here's how you can contribute too:
-
-- _Submit ideas_: Share Actor concepts through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas).
-Provide clear details about what the tool should do and how it should work.
-
-- _Engage with the community_: Upvote ideas you find intriguing. More support
-increases the likelihood a developer will build it. -->
+You can submit your own Actor ideas through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas). Provide clear details about what the tool should do and how it should work.
 
 ## Find ideas from other sources
 
