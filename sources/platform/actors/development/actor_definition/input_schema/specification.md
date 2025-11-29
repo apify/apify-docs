@@ -130,6 +130,7 @@ Each field of your input is described under its key in the `inputSchema.properti
 | `default` | Must match `type` property. | No | Default value that will be <br/>used when no value is provided. |
 | `prefill` | Must match `type` property. | No | Value that will be prefilled <br/>in the Actor input interface. |
 | `example` | Must match `type` property. | No | Sample value of this field <br/>for the Actor to be displayed when <br/>Actor is published in Apify Store. |
+| `errorMessage` | Object | No | Custom error messages for validation keywords. <br/>See [custom error messages](./custom_error_messages.md) <br/>for more details. |
 | `sectionCaption` | String | No | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
 | `sectionDescription` | String | No | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open. |
 
