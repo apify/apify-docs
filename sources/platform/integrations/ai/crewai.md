@@ -30,7 +30,7 @@ This guide demonstrates how to integrate Apify Actors with CrewAI by building a 
 - **OpenAI API key**: To power the agents in CrewAI, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 - **Python packages**: Install the following Python packages:
 
-    ```bash
+    ```shell
     pip install 'crewai[tools]' langchain-apify langchain-openai
     ```
 

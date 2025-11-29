@@ -32,7 +32,7 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
 
 - **Python packages**:  You need to install the following Python packages:
 
-    ```bash
+    ```shell
     pip install langgraph langchain-apify langchain-openai
     ```
 
