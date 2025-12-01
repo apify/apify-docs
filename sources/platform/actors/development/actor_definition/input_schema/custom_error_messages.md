@@ -8,15 +8,13 @@ slug: /actors/development/actor-definition/input-schema/custom-error-messages
 
 ---
 
-When an input fails validation against an Actor's input schema, the resulting errors are processed and displayed to the user. By default, these messages are generic and may not clearly convey the specific semantic meaning behind validation rules.
+When an input fails validation against an Actor's input schema, the resulting errors are processed and displayed to the user. By default, these messages are generic and may not clearly explain what the validation rule actually means.
 
 Custom error messages allow Actor developers to define tailored feedback messages for input validation errors, making it easier for users to understand what is required and improving overall usability.
 
 ## The problem with generic error messages
 
-Some validation rules defined by Actor developers carry specific semantic meaning that cannot be clearly conveyed by generic error messages.
-
-For example, consider the following input field using the `pattern` validation keyword:
+Some validation rules have a specific purpose that generic error messages don't explain well. For example, consider the following input field using the `pattern` validation keyword:
 
 ```json
 {
@@ -28,7 +26,7 @@ For example, consider the following input field using the `pattern` validation k
 }
 ```
 
-Input that don't satisfy the pattern, will produce an error message like:
+Input that doesn't satisfy the pattern will produce an error message like:
 
 ```text
 Field "email" should match pattern "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$".
@@ -40,9 +38,9 @@ However, a message such as the following would be much more understandable for t
 Field "email" must be a valid email address.
 ```
 
-## Using the `errorMessage` keyword
+## Custom error messages for input fields
 
-Each property in the [input schema](./index.md) can include an `errorMessage` field that defines custom error messages to be displayed when validation of that field fails.
+Each property in the [input schema](./index.md) can include an `errorMessage` field that defines a custom error message to be displayed when validation of that field fails.
 
 The `errorMessage` must be an object that maps *validation keywords* (e.g., `type`, `pattern`, `minLength`) to their respective custom messages.
 
@@ -62,9 +60,11 @@ The `errorMessage` must be an object that maps *validation keywords* (e.g., `typ
 
 If a validation error occurs for a keyword that is not listed in the `errorMessage` object, the system will fall back to the default error message.
 
-::::note
-Custom error messages are especially useful for complex validation rules like regular expressions, where the default error message would show the entire pattern, which is not user-friendly. See [best practices](#best-practices) for more guidance.
-::::
+:::note User-Friendly Messages
+
+Custom error messages are especially useful for complex validation rules like regular expressions, where the default error message would show the entire pattern, which is not user-friendly. Refer to the [best practices](#best-practices) for more guidance.
+
+:::
 
 ### Supported validation keywords
 
@@ -102,11 +102,12 @@ It's possible to define custom error messages in sub-properties as well. For obj
 
 ## Best practices
 
-While custom error messages can improve the user experience by providing clearer guidance, it's generally better to rely on the default error messages unless there's a specific need for customization. Only use custom error messages when they significantly help users understand the requirements better than the default messages.
+Custom error messages can be useful in specific cases, but they aren't always necessary. In most situations, the default validation messages are clear enough and ensure consistency across the platform. Use custom messages only when they meaningfully improve clarity—for example, when the default message would expose an unreadable regular expression or fail to explain a non-obvious requirement.
 
-If you do decide to use custom error messages, follow these best practices:
+If you choose to add custom messages, keep the following in mind:
 
-1. **Be specific** - Clearly explain what is required or what went wrong
-2. **Be concise** - Keep messages short and to the point
-3. **Be helpful** - Provide guidance on how to fix the issue
-4. **Be consistent** - Use a similar tone and style across all messages
+1. Be specific – The message should clarify what went wrong.
+1. Be concise – Avoid long or overly detailed explanations.
+1. Be helpful – Focus on what the user needs to change.
+1. Be consistent – Align with the tone and style used elsewhere in your project.
+
