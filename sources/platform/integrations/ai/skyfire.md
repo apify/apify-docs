@@ -1,5 +1,5 @@
 ---
-title: Agentic Payments with Skyfire
+title: Agentic payments with Skyfire
 sidebar_label: Skyfire
 description: Learn how to use agentic payments with Skyfire to enable AI agents to autonomously run Apify Actors.
 sidebar_position: 18
@@ -13,7 +13,7 @@ Agentic payments enable AI agents to autonomously run Apify Actors using third-p
 
 Apify supports agentic payments through _Skyfire_, a payment network specifically designed for AI agents.
 
-:::warning Experimental Feature
+:::warning Experimental feature
 
 Keep in mind that agentic payments are an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
 
@@ -48,7 +48,7 @@ https://mcp.apify.com?payment=skyfire
 <Tabs>
 <TabItem value="OpenCode" label="OpenCode" >
 
-If you're using [OpenCode](https://opencode.ai/), add this configuration to your `opencode.json` file (see [OpenCode configuration docs](https://opencode.ai/docs/config/) for file location on your system):
+If you're using [OpenCode](https://opencode.ai/), add this configuration to your `opencode.json` file (refer to [OpenCode configuration docs](https://opencode.ai/docs/config/) for file location on your system):
 
 ```json
 {
@@ -74,7 +74,7 @@ If you're using [OpenCode](https://opencode.ai/), add this configuration to your
 </TabItem>
 <TabItem value="Claude Desktop" label="Claude Desktop" >
 
-If you're using [Claude Desktop](https://claude.com/download), add this configuration to your `claude_desktop_config.json` file (see [Claude Desktop configuration docs](https://modelcontextprotocol.io/docs/develop/connect-local-servers) for file location on your system) and restart the application:
+If you're using [Claude Desktop](https://claude.com/download), add this configuration to your `claude_desktop_config.json` file (refer to [Claude Desktop configuration docs](https://modelcontextprotocol.io/docs/develop/connect-local-servers) for file location on your system) and restart the application:
 
 ```json
 {
@@ -103,11 +103,11 @@ If you're using [Claude Desktop](https://claude.com/download), add this configur
 </TabItem>
 </Tabs>
 
-Replace `YOUR_SKYFIRE_API_KEY` with your actual Skyfire buyer API key, which you can obtain from your [Skyfire dashboard](https://app.skyfire.xyz/).
+Replace `YOUR_SKYFIRE_API_KEY` with Skyfire buyer API key, which you can obtain from your [Skyfire dashboard](https://app.skyfire.xyz/).
 
 ### How it works
 
-WWhen an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows:
+When an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows:
 
 1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors.
 1. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5 and calls the Skyfire MCP server to create it.
