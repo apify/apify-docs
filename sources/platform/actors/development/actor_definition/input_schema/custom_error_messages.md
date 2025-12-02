@@ -103,11 +103,3 @@ It's possible to define custom error messages in sub-properties as well. For obj
 ## Best practices
 
 Custom error messages can be useful in specific cases, but they aren't always necessary. In most situations, the default validation messages are clear enough and ensure consistency across the platform. Use custom messages only when they meaningfully improve clarity—for example, when the default message would expose an unreadable regular expression or fail to explain a non-obvious requirement.
-
-If you choose to add custom messages, keep the following in mind:
-
-1. Be specific – The message should clarify what went wrong.
-1. Be concise – Avoid long or overly detailed explanations.
-1. Be helpful – Focus on what the user needs to change.
-1. Be consistent – Align with the tone and style used elsewhere in your project.
-
