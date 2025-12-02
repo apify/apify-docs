@@ -60,7 +60,7 @@ The `errorMessage` must be an object that maps *validation keywords* (e.g., `typ
 
 If a validation error occurs for a keyword that is not listed in the `errorMessage` object, the system will fall back to the default error message.
 
-:::note User-Friendly Messages
+:::note User-friendly messages
 
 Custom error messages are especially useful for complex validation rules like regular expressions, where the default error message would show the entire pattern, which is not user-friendly. Refer to the [best practices](#best-practices) for more guidance.
 
