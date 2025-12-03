@@ -115,7 +115,7 @@ This is the most straightforward and standard protection, which is mainly implem
 
 ### Header checking
 
-This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific [header](../../glossary/concepts/http_headers.md) sets which they send along with every request. The most commonly known header that helps to detect bots is the `User-Agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `User-Agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
+This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific header sets which they send along with every request. The most commonly known header that helps to detect bots is the `User-Agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `User-Agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
 
 ### URL analysis
 

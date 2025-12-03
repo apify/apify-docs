@@ -96,11 +96,6 @@ module.exports = {
                             to: `/academy/tutorials`,
                             activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
                         },
-                        {
-                            label: 'Glossary',
-                            to: `/academy/glossary`,
-                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'glossary')).join('$|')}$`,
-                        },
                     ],
                 },
             }),

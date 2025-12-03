@@ -31,7 +31,7 @@ In this lesson, we'll only be focusing on this one endpoint, as it is the most p
 
 :::
 
-Now, let's move over to our favorite HTTP client (in this lesson we'll use [Insomnia](../../glossary/tools/insomnia.md) in order to prepare and send the request).
+Now, let's move over to our favorite HTTP client (in this lesson we'll use Insomnia in order to prepare and send the request).
 
 ## Providing input
 
@@ -51,7 +51,7 @@ Additional parameters can be passed to this endpoint. You can learn about them i
 
 :::caution Token security
 
-Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
+Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as Postman or Insomnia, provide a convenient way to configure the Authorization header for all your API requests.
 
 :::
 

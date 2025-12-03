@@ -23,7 +23,7 @@ Cheddar website was changed and the below example no longer works there. Nonethe
 
 :::
 
-In order to perform introspection on our [target website](https://www.cheddar.com), we need to make a request to their GraphQL API with this introspection query using [Insomnia](../../../glossary/tools/insomnia.md) or another HTTP client that supports GraphQL:
+In order to perform introspection on our [target website](https://www.cheddar.com), we need to make a request to their GraphQL API with this introspection query using Insomnia or another HTTP client that supports GraphQL:
 
 > To make a GraphQL query in Insomnia, make sure you've set the HTTP method to **POST** and the request body type to **GraphQL Query**.
 
@@ -201,7 +201,7 @@ If the target website is smart, they will have introspection disabled. One of th
 
 ![Introspection disabled](./images/introspection-disabled.png)
 
-In these cases, it is still possible to get some information about the API when using [Insomnia](../../../glossary/tools/insomnia.md) or [Postman](../../../glossary/tools/postman.md), due to the autocomplete that they provide. If we remember from the [Building a query](#building-a-query) section of this lesson, we were able to receive autocomplete suggestions when we entered a non-existent field into the query. Though this is not as great as seeing an entire visualization of the API in GraphQL Voyager, it can still be quite helpful.
+In these cases, it is still possible to get some information about the API when using Insomnia or Postman, due to the autocomplete that they provide. If we remember from the [Building a query](#building-a-query) section of this lesson, we were able to receive autocomplete suggestions when we entered a non-existent field into the query. Though this is not as great as seeing an entire visualization of the API in GraphQL Voyager, it can still be quite helpful.
 
 ## Next up {#next}
 
