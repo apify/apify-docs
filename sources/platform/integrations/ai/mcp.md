@@ -329,7 +329,7 @@ The server collects anonymous information about tool usage, including:
 - Basic information about used tools (calls, success/failure, duration)
 - MCP client attributes (client name, version, capabilities)
 
-By default, telemetry is *enabled* for all tool calls.
+By default, telemetry is _enabled_ for all tool calls.
 
 ### Opt out of telemetry
 
