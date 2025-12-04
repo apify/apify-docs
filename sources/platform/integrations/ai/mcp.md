@@ -316,22 +316,24 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 ## Telemetry
 
-The MCP Server collects telemetry data about tool calls and MCP clients to help Apify understand usage patterns and improve the service.
+The MCP server collects telemetry data about tool calls and MCP clients to help Apify understand usage patterns and improve the service.
 Participation in this program is optional and you may opt out if you prefer not to share any information.
 
 ### Data collection
 
 All telemetry data is collected and stored securely.
-We do not collect any sensitive information such as conversation, arguments passed to tools, API tokens, or personal data.
+We do not collect any sensitive information such as conversations, arguments passed to tools, API tokens, or personal data.
 
 The server collects anonymous information about tool usage, including:
 
-- Usage of all tools (calls, success/failure, duration)
+- Basic information about used tools (calls, success/failure, duration)
 - MCP client attributes (client name, version, capabilities)
 
-By default, telemetry is **enabled** for all tool calls.
+By default, telemetry is *enabled* for all tool calls.
 
-### Remote server
+### Opt out of telemetry
+
+#### Remote server
 
 For the remote server (`mcp.apify.com`), you can opt out of telemetry by adding the `telemetry-enabled=false` query parameter to the server URL:
 
@@ -339,20 +341,14 @@ For the remote server (`mcp.apify.com`), you can opt out of telemetry by adding 
 https://mcp.apify.com?telemetry-enabled=false
 ```
 
-### Local stdio server
+#### Local stdio server
 
-For the local stdio server, you can opt out of telemetry by setting the `--telemetry-enabled` CLI flag to `false` or the `TELEMETRY_ENABLED` environment variable to `false`.
+For the local stdio server, opt out of telemetry using a CLI flag or an environment variable. When both the CLI flag and environment variable are set, the CLI flag takes precedence.
 
-CLI flags take precedence over environment variables.
+- _CLI flag_: set the `--telemetry-enabled` CLI flag to `false`:
 
-```bash
-# Disable via CLI flag
-npx @apify/actors-mcp-server --telemetry-enabled=false
-
-# Or set environment variable
-export TELEMETRY_ENABLED=false
-npx @apify/actors-mcp-server
-```
+  ```bash
+  npx @apify/actors-mcp-server --telemetry-enabled=false
 
 ## Advanced usage
 
