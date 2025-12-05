@@ -158,11 +158,13 @@ When translated to a tree of Python objects, the element with class `price` will
 
 We can use Beautiful Soup's `.contents` property to access individual nodes. It returns a list of nodes like this:
 
-```py
+```text
 ["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
 It seems like we can read the last element to get the actual amount. Let's fix our program:
+
+<!-- group doccmd[all]: start -->
 
 ```py
 import httpx
@@ -197,6 +199,8 @@ The results seem to be correct, but they're hard to verify because the prices vi
 ```py
 print(title, price, sep=" | ")
 ```
+
+<!-- group doccmd[all]: end -->
 
 The output is much nicer this way:
 

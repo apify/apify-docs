@@ -34,6 +34,12 @@ It's because some products have variants with different prices. Later in the cou
 
 Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix?
 
+<!-- group doccmd[all]: start -->
+
+<!-- invisible-code-block: py
+product = object
+-->
+
 ```py
 price_text = product.select_one(".price").contents[-1]
 price = price_text.removeprefix("From ")
@@ -51,6 +57,8 @@ else:
     price = min_price
 ```
 
+<!-- group doccmd[all]: end -->
+
 :::tip Built-in string methods
 
 If you're not proficient in Python's string methods, [.startswith()](https://docs.python.org/3/library/stdtypes.html#str.startswith) checks the beginning of a given string, and [.removeprefix()](https://docs.python.org/3/library/stdtypes.html#str.removeprefix) removes something from the beginning of a given string.
@@ -58,6 +66,8 @@ If you're not proficient in Python's string methods, [.startswith()](https://doc
 :::
 
 The whole program would look like this:
+
+<!-- group doccmd[all]: start -->
 
 ```py
 import httpx
@@ -112,7 +122,7 @@ These might be useful in some complex scenarios, but in our case, they won't mak
 
 We got rid of the `From` and possible whitespace, but we still can't save the price as a number in our Python program:
 
-```py
+```pycon
 >>> price = "$1,998.00"
 >>> float(price)
 Traceback (most recent call last):
@@ -154,7 +164,7 @@ else:
 
 Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save floating point numbers in a way which isn't always reliable:
 
-```py
+```pycon
 >>> 0.1 + 0.2
 0.30000000000000004
 ```
@@ -173,6 +183,8 @@ price_text = (
     .replace(",", "")
 )
 ```
+
+<!-- group doccmd[all]: end -->
 
 In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. For converting the text to a number we'll use `int()` instead of `float()`. This is how the whole program looks like now:
 

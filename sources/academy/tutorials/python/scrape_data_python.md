@@ -63,7 +63,7 @@ In the page that opens, you can see your newly created Actor. In the **Settings*
 
 First we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't care about versions of these packages, so we list just their names:
 
-```py
+```text
 # Add your dependencies here.
 # See https://pip.pypa.io/en/latest/cli/pip_install/#requirements-file-format
 # for how to format them
@@ -77,6 +77,8 @@ requests
 Finally, we can get to writing the main logic for the Actor, which will live in the `main.py` file. Let's delete everything currently in it and start from an empty file.
 
 First, we need to import all the packages we will use in the code:
+
+<!-- group doccmd[all]: start -->
 
 ```py
 from datetime import datetime, time, timedelta, timezone
@@ -205,6 +207,8 @@ default_dataset_client.push_items(weather_data)
 print(f'Results have been saved to the dataset with ID {os.environ["APIFY_DEFAULT_DATASET_ID"]}')
 ```
 
+<!-- group doccmd[all]: end -->
+
 ### Running the Actor
 
 And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The Actor will get built, the built Actor image will get saved for future reuse, and then it will be executed. You can follow the progress of the Actor build and the Actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the Actor source view. Once the Actor finishes running, you can view the scraped data in the **Dataset** tab in the Actor run view.
@@ -231,7 +235,7 @@ In the page that opens, you can see your newly created Actor. In the **Settings*
 
 First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't care about versions of these packages, so we list just their names:
 
-```py
+```text
 # Add your dependencies here.
 # See https://pip.pypa.io/en/latest/cli/pip_install/#requirements-file-format
 # for how to format them
@@ -243,6 +247,8 @@ pandas
 The Actor's main logic will live in the `main.py` file. Let's delete everything currently in it and start from an empty file.
 
 Next, we'll import all the packages we will use in the code:
+
+<!-- group doccmd[all]: start -->
 
 ```py
 from io import BytesIO
@@ -326,6 +332,8 @@ with BytesIO() as buf:
 print(f'Result is available at {os.environ["APIFY_API_PUBLIC_BASE_URL"]}'
       + f'/v2/key-value-stores/{os.environ["APIFY_DEFAULT_KEY_VALUE_STORE_ID"]}/records/prediction.png')
 ```
+
+<!-- group doccmd[all]: end -->
 
 And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The Actor will get built, the built Actor image will get saved for future re-use, and then it will be executed. You can follow the progress of the Actor build and the Actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the Actor source view. Once the Actor finishes running, it will output the URL where you can access the plot we created in its log.
 

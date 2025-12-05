@@ -118,7 +118,8 @@ await Actor.exit();
 
 ```python
 from apify import Actor
-import requests, asyncio
+import asyncio
+import requests
 
 async def main():
     async with Actor:
@@ -258,7 +259,8 @@ await Actor.exit();
 
 ```python
 from apify import Actor
-import requests, asyncio
+import asyncio
+import requests
 
 async def main():
     async with Actor:
