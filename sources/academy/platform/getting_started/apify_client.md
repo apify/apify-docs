@@ -189,7 +189,7 @@ from apify_client import ApifyClient
 
 client = ApifyClient(token='YOUR_TOKEN')
 
-actor = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
+run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
     'num1': 4,
     'num2': 2
 })
