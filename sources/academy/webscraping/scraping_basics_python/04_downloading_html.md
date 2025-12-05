@@ -34,7 +34,7 @@ Now let's test that all works. Inside the project directory we'll create a new f
 ```py
 import httpx
 
-print("OK")
+print("OK", httpx.__version__)
 ```
 
 Running it as a Python program will verify that our setup is okay and we've installed HTTPX:
