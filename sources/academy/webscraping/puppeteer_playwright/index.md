@@ -23,7 +23,7 @@ Both packages were developed by the same team and are very similar, which is why
 
 When automating a headless browser, you can do a whole lot more in comparison to making HTTP requests for static content. In fact, you can programmatically do pretty much anything a human could do with a browser, such as clicking elements, taking screenshots, typing into text areas, etc.
 
-Additionally, since the requests aren't static, [dynamic content](../../glossary/concepts/dynamic_pages.md) can be rendered and interacted with (or, data from the dynamic content can be scraped). Turn on the [headful mode](https://playwright.dev/docs/api/class-testoptions#test-options-headless) (`headless: false`) to see exactly what the browser is doing.
+Additionally, since the requests aren't static, dynamic content can be rendered and interacted with (or, data from the dynamic content can be scraped). Turn on the [headful mode](https://playwright.dev/docs/api/class-testoptions#test-options-headless) (`headless: false`) to see exactly what the browser is doing.
 
 Browsers can also be effective for [overcoming anti-scraping measures](../anti_scraping/index.md), especially if the website is running [JavaScript browser challenges](../anti_scraping/techniques/browser_challenges.md).
 

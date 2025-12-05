@@ -160,7 +160,6 @@ sources/
 └── academy/           # Educational content
     ├── tutorials/     # Step-by-step guides
     ├── webscraping/   # Web scraping courses
-    └── glossary/      # Terminology and definitions
 ```
 
 ## Quality Standards

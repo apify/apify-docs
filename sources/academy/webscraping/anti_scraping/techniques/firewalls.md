@@ -22,7 +22,7 @@ WAFs work on a similar premise as regular firewalls. Web admins define the rules
 1. The visitor sends a request to the webpage.
 2. The request is intercepted by the firewall.
 3. The firewall decides if presenting a challenge (captcha) is necessary. If the user already solved a captcha in the past or nothing is suspicious, it will immediately forward the request to the application's server.
-4. A captcha is presented which must be solved. Once it is solved, a [cookie](../../../glossary/concepts/http_cookies.md) is stored in the visitor's browser.
+4. A captcha is presented which must be solved. Once it is solved, a cookie is stored in the visitor's browser.
 5. The request is forwarded to the application's server.
 
 ![Cloudflare WAP workflow](./images/cloudflare-graphic.jpg)
@@ -32,9 +32,9 @@ Since there are multiple providers, it is essential to say that the challenges a
 ## Bypassing web-application firewalls {#bypassing-firewalls}
 
 - Using [proxies](../mitigation/proxies.md).
-- Mocking [headers](../../../glossary/concepts/http_headers.md).
+- Mocking headers.
 - Overriding the browser's [fingerprint](./fingerprinting.md) (most effective).
-- Farming the [cookies](../../../glossary/concepts/http_cookies.md) from a website with a headless browser, then using the farmed cookies to do HTTP based scraping (most performant).
+- Farming the cookies from a website with a headless browser, then using the farmed cookies to do HTTP based scraping (most performant).
 
 As you likely already know, there is no solution that fits all. If you are struggling to get past a WAF provider, you can try using Firefox with Playwright.
 

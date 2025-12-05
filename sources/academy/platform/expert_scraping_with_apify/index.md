@@ -22,7 +22,7 @@ Before developing a pro-level Apify scraper, there are some important things you
 
 If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5–10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to the [Using a scraping framework with Node.js](../../webscraping/scraping_basics_javascript/12_framework.md) lesson of the **Web scraping basics for JavaScript devs** course. To familiarize yourself with the Apify SDK, you can refer to the [Apify Platform](../apify_platform.md) category.
 
-The Apify CLI will play a core role in the running and testing of the Actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson](../../glossary/tools/apify_cli.md).
+The Apify CLI will play a core role in the running and testing of the Actor you will build, so if you haven't gotten it installed already, please refer to this short lesson.
 
 ### Git {#git}
 

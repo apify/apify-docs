@@ -13,7 +13,7 @@ Geolocation is yet another way websites can detect and block access or show limi
 
 ## Cookies & headers {#cookies-headers}
 
-Certain websites might use certain location-specific/language-specific [headers](../../../glossary/concepts/http_headers.md)/[cookies](../../../glossary/concepts/http_cookies.md) to geolocate a user. Some examples of these headers are `Accept-Language` and `CloudFront-Viewer-Country` (which is a custom HTTP header from [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-cloudfront-headers.html)).
+Certain websites might use certain location-specific/language-specific headers/cookies to geolocate a user. Some examples of these headers are `Accept-Language` and `CloudFront-Viewer-Country` (which is a custom HTTP header from [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-cloudfront-headers.html)).
 
 On targets which are utilizing just cookies and headers to identify the location from which a request is coming from, it is pretty straightforward to make requests which appear like they are coming from somewhere else.
 
@@ -21,7 +21,7 @@ On targets which are utilizing just cookies and headers to identify the location
 
 The oldest (and still most common) way of geolocating is based on the IP address used to make the request. Sometimes, country-specific sites block themselves from being accessed from any other country (some Chinese, Indian, Israeli, and Japanese websites do this).
 
-[Proxies](../mitigation/proxies.md) can be used in a scraper to bypass restrictions and to make requests from a different location. Oftentimes, proxies need to be used in combination with location-specific [cookies](../../../glossary/concepts/http_cookies.md)/[headers](../../../glossary/concepts/http_headers.md).
+[Proxies](../mitigation/proxies.md) can be used in a scraper to bypass restrictions and to make requests from a different location. Oftentimes, proxies need to be used in combination with location-specific cookies/headers.
 
 ## Override/emulate geolocation when using a browser-based scraper {#override-emulate-geolocation}
 

@@ -31,7 +31,7 @@ router.addHandler(labels.PRODUCT, async ({ $ }) => {
 ```
 
 
-Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman](../../../glossary/tools/proxyman.md) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
+Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up Proxyman to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
 ![View offers button](./images/view-offers-button.jpg)
 
