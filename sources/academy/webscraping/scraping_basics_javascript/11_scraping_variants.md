@@ -5,8 +5,11 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/scraping-variants
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import NpmLlmPackagesExercise from '!!raw-loader!roa-loader!./exercises/npm_llm_packages.mjs';
+import CnnSportsShortestArticleExercise from '!!raw-loader!roa-loader!./exercises/cnn_sports_shortest_article.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -386,61 +389,7 @@ Your output should look something like this:
 
   After inspecting the registry, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
 
-  ```js
-  import * as cheerio from 'cheerio';
-
-  async function download(url) {
-    const response = await fetch(url);
-    if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
-    } else {
-      throw new Error(`HTTP ${response.status}`);
-    }
-  }
-
-  const listingURL = "https://www.npmjs.com/search?page=0&q=keywords%3Allm&sortBy=dependent_count";
-  const $ = await download(listingURL);
-
-  const promises = $("section").toArray().map(async element => {
-    const $card = $(element);
-
-    const details = $card
-      .children()
-      .first()
-      .children()
-      .last()
-      .text()
-      .split("•");
-    const updatedText = details[2].trim();
-    const dependents = parseInt(details[3].replace("dependents", "").trim());
-
-    if (updatedText.includes("years ago")) {
-      const yearsAgo = parseInt(updatedText.replace("years ago", "").trim());
-      if (yearsAgo > 2) {
-        return null;
-      }
-    }
-
-    const $link = $card.find("a").first();
-    const name = $link.text().trim();
-    const url = new URL($link.attr("href"), listingURL).href;
-    const description = $card.find("p").text().trim();
-
-    const downloadsText = $card
-      .children()
-      .last()
-      .text()
-      .replace(",", "")
-      .trim();
-    const downloads = parseInt(downloadsText);
-
-    return { name, url, description, dependents, downloads };
-  });
-
-  const data = await Promise.all(promises);
-  console.log(data.filter(item => item !== null).splice(0, 5));
-  ```
+  <CodeBlock language="js">{NpmLlmPackagesExercise.code}</CodeBlock>
 
   Since the HTML doesn't contain any descriptive classes, we must rely on its structure. We're using [`.children()`](https://cheerio.js.org/docs/api/classes/Cheerio#children) to carefully navigate the HTML element tree.
 
@@ -462,39 +411,5 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  async function download(url) {
-    const response = await fetch(url);
-    if (response.ok) {
-      const html = await response.text();
-      return cheerio.load(html);
-    } else {
-      throw new Error(`HTTP ${response.status}`);
-    }
-  }
-
-  const listingURL = "https://edition.cnn.com/sport";
-  const $ = await download(listingURL);
-
-  const promises = $(".layout__main .card").toArray().map(async element => {
-    const $link = $(element).find("a").first();
-    const articleURL = new URL($link.attr("href"), listingURL).href;
-
-    const $a = await download(articleURL);
-    const content = $a(".article__content").text().trim();
-
-    return { url: articleURL, length: content.length };
-  });
-
-  const data = await Promise.all(promises);
-  const nonZeroData = data.filter(({ url, length }) => length > 0);
-  nonZeroData.sort((a, b) => a.length - b.length);
-  const shortestItem = nonZeroData[0];
-
-  console.log(shortestItem.url);
-  ```
-
+  <CodeBlock language="js">{CnnSportsShortestArticleExercise.code}</CodeBlock>
 </details>

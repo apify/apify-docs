@@ -1,0 +1,31 @@
+name: Test Academy
+
+on:
+    schedule:
+        - cron: "0 3 1 * *"  # at 3am UTC on 1st day of month
+    workflow_dispatch:  # allows running this workflow manually from the Actions tab
+
+jobs:
+    test-exercises:
+        name: Test Academy Exercises
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v6
+
+            -   name: Setup Node.js
+                uses: actions/setup-node@v6
+                with:
+                    cache: npm
+                    cache-dependency-path: package-lock.json
+
+            -   name: Setup Python
+                uses: astral-sh/setup-uv@v7
+
+            -   name: Install Bats
+                run: |
+                    corepack enable
+                    npm install --only=dev
+
+            -   name: Test
+                run: npm run test:academy

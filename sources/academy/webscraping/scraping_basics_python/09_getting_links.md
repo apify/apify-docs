@@ -5,7 +5,10 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/getting-links
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WikipediaCountryLinksExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_country_links.py';
+import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.py';
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use BeautifulSoup to find the relevant bits of HTML.**
 
@@ -344,25 +347,7 @@ https://en.wikipedia.org/wiki/Botswana
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-
-  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  response = httpx.get(listing_url)
-  response.raise_for_status()
-
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-
-  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
-      link = name_cell.select_one("a")
-      url = urljoin(listing_url, link["href"])
-      print(url)
-  ```
-
+  <CodeBlock language="py">{WikipediaCountryLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news
@@ -385,24 +370,7 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-
-  listing_url = "https://www.theguardian.com/sport/formulaone"
-  response = httpx.get(listing_url)
-  response.raise_for_status()
-
-  html_code = response.text
-  soup = BeautifulSoup(html_code, "html.parser")
-
-  for item in soup.select("#maincontent ul li"):
-      link = item.select_one("a")
-      url = urljoin(listing_url, link["href"])
-      print(url)
-  ```
+  <CodeBlock language="py">{GuardianF1LinksExercise.code}</CodeBlock>
 
   Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
 

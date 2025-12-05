@@ -5,7 +5,9 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/downloading-html
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import LegoExercise from '!!raw-loader!roa-loader!./exercises/lego.py';
 
 **In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
 
@@ -139,26 +141,17 @@ Letting our program visibly crash on error is enough for our purposes. Now, let'
 
 <Exercises />
 
-### Scrape AliExpress
+### Scrape LEGO
 
-Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with AliExpress search results:
+Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with LEGO search results:
 
 ```text
-https://www.aliexpress.com/w/wholesale-darth-vader.html
+https://www.lego.com/en-us/themes/star-wars
 ```
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import httpx
-
-  url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
-  response = httpx.get(url)
-  response.raise_for_status()
-  print(response.text)
-  ```
-
+  <CodeBlock language="py">{LegoExercise.code}</CodeBlock>
 </details>
 
 ### Save downloaded HTML as a file
