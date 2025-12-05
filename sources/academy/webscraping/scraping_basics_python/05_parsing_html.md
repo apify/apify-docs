@@ -46,6 +46,8 @@ Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to w
 
 We'll update our code to the following:
 
+<!-- group doccmd[all]: start -->
+
 ```py
 import httpx
 from bs4 import BeautifulSoup
@@ -73,6 +75,8 @@ headings = soup.select("h1")
 first_heading = headings[0]
 print(first_heading.text)
 ```
+
+<!-- group doccmd[all]: end -->
 
 If we run our scraper again, it prints the text of the first `h1` element:
 

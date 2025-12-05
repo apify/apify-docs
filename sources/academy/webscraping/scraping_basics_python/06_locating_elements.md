@@ -164,6 +164,8 @@ We can use Beautiful Soup's `.contents` property to access individual nodes. It 
 
 It seems like we can read the last element to get the actual amount. Let's fix our program:
 
+<!-- group doccmd[all]: start -->
+
 ```py
 import httpx
 from bs4 import BeautifulSoup
@@ -197,6 +199,8 @@ The results seem to be correct, but they're hard to verify because the prices vi
 ```py
 print(title, price, sep=" | ")
 ```
+
+<!-- group doccmd[all]: end -->
 
 The output is much nicer this way:
 
