@@ -158,7 +158,7 @@ When translated to a tree of Python objects, the element with class `price` will
 
 We can use Beautiful Soup's `.contents` property to access individual nodes. It returns a list of nodes like this:
 
-```py
+```text
 ["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
