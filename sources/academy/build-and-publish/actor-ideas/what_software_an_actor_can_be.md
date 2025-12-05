@@ -12,7 +12,7 @@ Learn what kind of software tools are suitable to be packaged and published as A
 
 ## What can you build as an Actor
 
-[Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
+[Actors](https://docs.apify.com/platform/actors) are a new way for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
 
 They are useful for backend automation jobs, which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
 

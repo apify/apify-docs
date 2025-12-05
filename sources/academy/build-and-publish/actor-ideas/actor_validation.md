@@ -8,6 +8,8 @@ slug: /build-and-publish/actor-ideas/actor-validation
 
 Before investing time into building an Actor, validate that people actually need it. This guide shows you how to assess market demand using free tools and research techniques.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/00PA7a548W0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Assess your motivation
 
 Ask yourself: _Do you want to build this?_
