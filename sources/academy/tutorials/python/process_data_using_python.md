@@ -31,7 +31,7 @@ In the page that opens, you can see your newly created Actor. In the **Settings*
 
 First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't care about versions of these packages, so we list just their names:
 
-```py
+```text
 # Add your dependencies here.
 # See https://pip.pypa.io/en/latest/cli/pip_install/#requirements-file-format
 # for how to format them
