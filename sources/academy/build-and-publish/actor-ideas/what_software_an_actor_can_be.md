@@ -12,7 +12,7 @@ Learn what kind of software tools are suitable to be packaged and published as A
 
 ## What can you build as an Actor
 
-[Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
+[Actors](https://docs.apify.com/platform/actors) are a new way for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
 
 They are useful for backend automation jobs, which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
 
@@ -21,6 +21,8 @@ Actors can run in two modes:
 - In _batch mode_, they take a well-defined input, perform a job, and produce a well-defined output. This is useful for longer-running operations,
   such as web crawling or data processing.
 - In _standby mode_, they run as a web server at a specific public URL. This is useful for request-response style applications, such as APIs or MCP servers.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/00PA7a548W0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Web scrapers and crawlers
 
