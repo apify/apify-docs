@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
@@ -144,7 +144,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Get changed files
                 id: changed-files
@@ -185,7 +185,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
 
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6

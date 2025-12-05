@@ -225,7 +225,7 @@ Discount offers are optional and determined by Actor owners. Not all Actors part
 
 Additional discounts are available for Enterprise customers.
 
-To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in the Apify Store.
+To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in Apify Store.
 
 ![Apify Store discounts](./images/store/apify_store_discounts_web.png)
 

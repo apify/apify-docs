@@ -2,7 +2,7 @@
 title: 🤖🚀 CrewAI integration
 sidebar_label: CrewAI
 description: Learn how to build AI Agents with Apify and CrewAI 🤖🚀.
-sidebar_position: 2
+sidebar_position: 3
 slug: /integrations/crewai
 ---
 

@@ -63,9 +63,17 @@ export default function Home() {
         <Layout>
             <Hero
                 heading="Apify Documentation"
+                align="center"
+                promotion={{
+                    badge: 'New',
+                    label: 'Join the Apify $1M Challenge. Build to win!',
+                    labelMobile: 'Join the Apify $1M Challenge!',
+                    href: 'https://apify.com/challenge',
+                }}
                 description={
-                    <Text color={theme.color.neutral.textMuted} size='large'>
-                        Learn how to extract value from the web with the Apify platform.
+                    <Text color={theme.color.neutral.textMuted} size="large">
+                        Learn how to extract value from the web with the Apify
+                        platform.
                     </Text>
                 }
             />
@@ -74,7 +82,7 @@ export default function Home() {
                     <div className={styles.bannerContent}>
                         <div className={styles.bannerContentDescription}>
                             <Heading type="titleXl">Getting started</Heading>
-                            <Text size='medium' color={theme.color.neutral.textMuted}>
+                            <Text size="large" color={theme.color.neutral.textMuted}>
                                 Apify is all about Actors—a new way to package your code to make it easy to share, integrate, and build upon.
                             </Text>
                             <ThemedImage
@@ -274,7 +282,7 @@ export default function Home() {
                             icon={<WebScrapingForBeginners />}
                             title="Web scraping for beginners"
                             description="Learn the basics of web scraping and how to develop your own scraper."
-                            to="/academy/web-scraping-for-beginners"
+                            to="/academy/scraping-basics-javascript"
                         />
                         <CardWithIcon
                             icon={<ApifyPlatformCourse />}
