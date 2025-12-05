@@ -349,6 +349,14 @@ For the local stdio server, opt out of telemetry using a CLI flag or an environm
 
   ```bash
   npx @apify/actors-mcp-server --telemetry-enabled=false
+  ```
+
+- _Environment variable_: set the `TELEMETRY_ENABLED` environment variable to `false`:
+
+  ```bash
+  export TELEMETRY_ENABLED=false
+  npx @apify/actors-mcp-server
+  ```
 
 ## Advanced usage
 
