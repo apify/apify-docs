@@ -148,7 +148,7 @@ if (priceText.startsWith("From ")) {
 
 Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save floating point numbers in a way which isn't always reliable:
 
-```py
+```pycon
 > 0.1 + 0.2
 0.30000000000000004
 ```
