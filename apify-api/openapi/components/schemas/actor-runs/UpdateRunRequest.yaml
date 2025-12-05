@@ -1,7 +1,4 @@
 title: UpdateRunRequest
-required:
-  - runId
-  - statusMessage
 type: object
 properties:
   runId:
@@ -13,3 +10,10 @@ properties:
   isStatusMessageTerminal:
     type: boolean
     example: true
+  generalAccess:
+    type: string
+    enum:
+      - RESTRICTED
+      - ANYONE_WITH_ID_CAN_READ
+      - FOLLOW_USER_SETTING
+    example: RESTRICTED

@@ -1,9 +1,15 @@
 title: UpdateDatasetRequest
-required:
-  - name
 type: object
 properties:
   name:
     type: string
+  generalAccess:
+    type: string
+    enum:
+      - RESTRICTED
+      - ANYONE_WITH_ID_CAN_READ
+      - FOLLOW_USER_SETTING
+    example: RESTRICTED
 example:
   name: new-dataset-name
+  generalAccess: RESTRICTED

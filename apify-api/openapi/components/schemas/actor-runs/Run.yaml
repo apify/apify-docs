@@ -15,6 +15,7 @@ required:
   - defaultRequestQueueId
   - buildNumber
   - containerUrl
+  - generalAccess
 type: object
 properties:
   id:
@@ -66,6 +67,13 @@ properties:
     type: number
     nullable: true
     example: 0
+  generalAccess:
+    type: string
+    enum:
+      - RESTRICTED
+      - ANYONE_WITH_ID_CAN_READ
+      - FOLLOW_USER_SETTING
+    example: RESTRICTED
   defaultKeyValueStoreId:
     type: string
     example: eJNzqsbPiopwJcgGQ
