@@ -22,8 +22,6 @@ Actors can run in two modes:
   such as web crawling or data processing.
 - In _standby mode_, they run as a web server at a specific public URL. This is useful for request-response style applications, such as APIs or MCP servers.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/00PA7a548W0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ### Web scrapers and crawlers
 
 This is the most common type of Actors on [Apify Store](https://apify.com/store). These Actors navigate websites, collect information from web pages, and store structured data in datasets for further processing.
