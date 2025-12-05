@@ -52,6 +52,13 @@ Make sure to set the `APIFY_TOKEN` environment variable with your Apify API toke
 
 :::
 
+
+:::tip Easy configuration
+
+Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your client.
+
+:::
+
 ```typescript
 // Connect to the Apify MCP server and get the available tools
 const url = new URL('https://mcp.apify.com');
