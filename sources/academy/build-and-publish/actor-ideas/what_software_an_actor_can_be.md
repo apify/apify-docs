@@ -191,7 +191,7 @@ Competition motivates developers to improve the code. You can still build the Ac
 
 ### Submit your own ideas
 
-You can submit your own Actor ideas through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas). Provide clear details about what the tool should do and how it should work.
+You can submit your own Actor ideas through [this form](https://apify.com/ideas?modal=ACTOR_IDEA). Please provide clear details about what the tool should do and how it should work.
 
 ## Find ideas from other sources
 
