@@ -46,3 +46,10 @@ properties:
   consoleUrl:
     type: string
     example: 'https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC'  
+  generalAccess:
+    type: string
+    enum:
+      - RESTRICTED
+      - ANYONE_WITH_ID_CAN_READ
+      - FOLLOW_USER_SETTING
+    example: RESTRICTED
