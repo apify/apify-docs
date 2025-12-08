@@ -14,6 +14,8 @@ toc_max_heading_level: 4
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
 import copyForAI from "./images/copy-for-ai.png";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code, by providing the AI agents with the right instructions and context.
 
