@@ -70,15 +70,15 @@ To add Apify MCP server to Cursor manually:
 1. Create or open the `.cursor/mcp.json` file.
 1. Add the following to the configuration file:
 
-	```json
-	{
-	  "mcpServers": {
-	    "apify": {
-	      "url": "https://mcp.apify.com/?tools=docs"
-	    }
-	  }
-	}
-	```
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com/?tools=docs"
+        }
+      }
+    }
+    ```
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
@@ -91,15 +91,15 @@ VS Code supports MCP through MCP-compatible extensions like _GitHub Copilot_, _C
    - For _MCP-compatible extension_: Go to the MCP Servers tab in the extension interface.
 1. Add the Apify server configuration:
 
-	```json
-	{
-	  "mcpServers": {
-	    "apify": {
-	      "url": "https://mcp.apify.com/?tools=docs"
-	    }
-	  }
-	}
-	```
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com/?tools=docs"
+        }
+      }
+    }
+    ```
 
 </TabItem>
 <TabItem value="claude" label="Claude">
