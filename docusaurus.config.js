@@ -533,10 +533,6 @@ module.exports = {
     },
     staticDirectories: ['apify-docs-theme/static', 'static'],
     customFields: {
-        forbiddenGiscusDocRegExpStrings: [
-            '^/legal',
-            '^/legal/*',
-        ],
         ...config.customFields ?? [],
     },
     clientModules: ['./clientModule.js'],
