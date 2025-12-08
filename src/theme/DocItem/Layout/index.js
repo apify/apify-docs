@@ -1,7 +1,5 @@
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import { useLocation } from '@docusaurus/router';
-import { useColorMode, useWindowSize } from '@docusaurus/theme-common';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useWindowSize } from '@docusaurus/theme-common';
 import ContentVisibility from '@theme/ContentVisibility';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import DocItemFooter from '@theme/DocItem/Footer';
@@ -12,7 +10,7 @@ import DocItemContent from '@theme/DocItemContent';
 import DocVersionBadge from '@theme/DocVersionBadge';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import clsx from 'clsx';
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import styles from './styles.module.css';
 
