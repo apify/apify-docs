@@ -38,7 +38,6 @@ properties:
     example: false
   actorPermissionLevel:
       type: string
-      nullable: true
       enum:
         - LIMITED_PERMISSIONS
         - FULL_PERMISSIONS
