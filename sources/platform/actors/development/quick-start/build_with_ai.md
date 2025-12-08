@@ -62,34 +62,55 @@ We have prepared the [Apify MCP server configuration](https://mcp.apify.com/), w
 
 :::
 
-### Claude
+<Tabs>
+<TabItem value="cursor" label="Cursor">
 
-1. Go to _Settings_ > _Connectors_ in Claude.
-2. Click _Add custom connector_.
-3. Set the name to `Apify` and the URL to `https://mcp.apify.com/?tools=docs`.
-4. When chatting, click the _+_ button and select the _Apify_ connector to add documentation context.
+To add Apify MCP server to Cursor manually:
 
-### Cursor
+1. Create or open the `.cursor/mcp.json` file.
+1. Add the following to the configuration file:
 
-1. Open the command palette with `Cmd+Shift+P` (or `Ctrl+Shift+P` on Windows).
-2. Search for and select _Open MCP settings_.
-3. Add the following configuration to `mcp.json`:
+	```json
+	{
+	  "mcpServers": {
+	    "apify": {
+	      "url": "https://mcp.apify.com/?tools=docs"
+	    }
+	  }
+	}
+	```
 
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "url": "https://mcp.apify.com/?tools=docs"
-    }
-  }
-}
-```
+</TabItem>
+<TabItem value="vscode" label="VS Code">
 
-### VS Code
+VS Code supports MCP through MCP-compatible extensions like _GitHub Copilot_, _Cline_, or _Roo Code_.
 
-1. Install an MCP-compatible extension.
-2. Add the Apify server URL: `https://mcp.apify.com/?tools=docs`
+1. Install an MCP-compatible extension (e.g., GitHub Copilot, Cline).
+1. Locate the extension's MCP settings or configuration file (often `mcp.json`).
+   - For _GitHub Copilot_: Run the **MCP: Open User Configuration** command.
+   - For _MCP-compatible extension_: Go to the MCP Servers tab in the extension interface.
+1. Add the Apify server configuration:
 
+	```json
+	{
+	  "mcpServers": {
+	    "apify": {
+	      "url": "https://mcp.apify.com/?tools=docs"
+	    }
+	  }
+	}
+	```
+
+</TabItem>
+<TabItem value="claude" label="Claude">
+
+1. Go to **Settings** > **Connectors** in Claude.
+1. Click **Add custom connector**.
+1. Set the name to `Apify` and the URL to `https://mcp.apify.com/?tools=docs`.
+1. When chatting, select the **+** button and choose the **Apify** connector to add documentation context.
+
+</TabItem>
+</Tabs>
 ## Provide context to assistants
 
 Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
