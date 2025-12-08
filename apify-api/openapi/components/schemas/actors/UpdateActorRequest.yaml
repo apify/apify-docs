@@ -11,6 +11,13 @@ properties:
   isPublic:
     type: boolean
     example: false
+  actorPermissionLevel:
+    type: string
+    nullable: true
+    enum:
+      - LIMITED_PERMISSIONS
+      - FULL_PERMISSIONS
+    example: LIMITED_PERMISSIONS
   seoTitle:
     type: string
     nullable: true
@@ -102,4 +109,3 @@ required:
   - name
   - isPublic
   - versions
-

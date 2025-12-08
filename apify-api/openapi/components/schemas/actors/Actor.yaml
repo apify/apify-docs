@@ -36,6 +36,13 @@ properties:
   isPublic:
     type: boolean
     example: false
+  actorPermissionLevel:
+      type: string
+      nullable: true
+      enum:
+        - LIMITED_PERMISSIONS
+        - FULL_PERMISSIONS
+      example: LIMITED_PERMISSIONS
   createdAt:
     type: string
     example: '2019-07-08T11:27:57.401Z'
