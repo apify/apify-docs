@@ -16,7 +16,7 @@ slug: /integrations/google-adk
 
 :::note Explore Google ADK
 
-For more in-depth details, check out [Google ADK documentation](https://google.github.io/adk-docs/).
+For more details, check out [Google ADK documentation](https://google.github.io/adk-docs/).
 
 :::
 
