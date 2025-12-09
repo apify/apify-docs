@@ -1,5 +1,5 @@
 ---
-title: 🇬 Google ADK integration
+title: Google ADK integration
 sidebar_label: Google ADK
 description: Learn how to integrate Apify Actors as tools for AI with Google Agent Development Kit (ADK).
 sidebar_position: 2
