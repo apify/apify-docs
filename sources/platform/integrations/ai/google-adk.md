@@ -6,7 +6,7 @@ sidebar_position: 2
 slug: /integrations/google-adk
 ---
 
-**Learn how to integrate Apify Actors as tools for AI with Google ADK.**
+**Learn how to integrate Apify Actors as tools for AI with Agent Development Kit (ADK).**
 
 ---
 
