@@ -22,7 +22,7 @@ For more in-depth details, check out [Google ADK documentation](https://google.g
 
 ## How to use Apify with Google ADK
 
-Apify is a marketplace of ready-to-use web scraping and automation tools, AI agents, and MCP servers that you can equip your own AI with. This guide demonstrates how to use Apify tools with a simple AI agent built with Google ADK.
+Apify is a marketplace of web scraping and automation tools, AI agents, and MCP servers that you can integrate with your AI agents. This guide shows how to use Apify tools with an AI agent built with Google ADK.
 
 
 ### Prerequisites
