@@ -34,7 +34,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
     pip install google-adk
     ```
 
-### Building a simple pub search AI agent using Apify Google Maps scraper
+### Build a pub search AI agent
 
 First, create an agent project:
 
