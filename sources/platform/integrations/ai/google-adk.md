@@ -27,7 +27,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: To use Apify Actors in Google ADK, you need an Apify API token. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- _Apify API token_: To use Apify Actors in Google ADK, you need an Apify API token. To obtain your token, check [Apify documentation](/platform/integrations/api#api-token).
 - _Python packages_: Install the following Python packages:
 
     ```bash
