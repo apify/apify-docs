@@ -65,9 +65,8 @@ export default function Home() {
                 heading="Apify Documentation"
                 align="center"
                 promotion={{
-                    badge: 'New',
-                    label: 'Join the Apify $1M Challenge. Build to win!',
-                    labelMobile: 'Join the Apify $1M Challenge!',
+                    badge: 'Build',
+                    label: 'Win big in $1M Challenge',
                     href: 'https://apify.com/challenge',
                 }}
                 description={
