@@ -44,7 +44,7 @@ adk create pub_search_agent
 
 Create and configure the agent to use the Apify MCP server tools:
 
-:::warning Required setup
+:::warning Set your API token
 
 Make sure to set the `APIFY_TOKEN` environment variable in the `.env` file with your Apify API token before running the code.
 
