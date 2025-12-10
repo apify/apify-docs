@@ -20,7 +20,7 @@ Even though DevTools stands for developer tools, everyone can use them to inspec
 
 ## Elements tab {#elements-tab}
 
-When you first open Chrome DevTools on Wikipedia, you will start on the Elements tab (In Firefox it's called the **Inspector**). You can use this tab to inspect the page's HTML on the left hand side, and its CSS on the right. The items in the HTML view are called [**elements**](../../../glossary/concepts/html_elements.md).
+When you first open Chrome DevTools on Wikipedia, you will start on the Elements tab (In Firefox it's called the **Inspector**). You can use this tab to inspect the page's HTML on the left hand side, and its CSS on the right. The items in the HTML view are called **elements**.
 
 ![Elements tab in Chrome DevTools](./images/browser-devtools-elements-tab.png)
 

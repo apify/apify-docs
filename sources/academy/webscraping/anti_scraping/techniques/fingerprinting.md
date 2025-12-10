@@ -21,7 +21,7 @@ To collect a good fingerprint, websites must collect them from various places.
 
 ### From HTTP headers {#from-http-headers}
 
-Several [HTTP headers](../../../glossary/concepts/http_headers.md) can be used to create a fingerprint about a user. Here  are some of the main ones:
+Several HTTP headers can be used to create a fingerprint about a user. Here  are some of the main ones:
 
 1. **User-Agent** provides information about the browser and its operating system (including its versions).
 2. **Accept** tells the server what content types the browser can render and send, and **Content-Encoding** provides data about the content compression.
