@@ -68,12 +68,7 @@ properties:
     nullable: true
     example: 0
   generalAccess:
-    type: string
-    enum:
-      - RESTRICTED
-      - ANYONE_WITH_ID_CAN_READ
-      - FOLLOW_USER_SETTING
-    example: RESTRICTED
+    $ref: ../common/GeneralAccessEnum.yaml
   defaultKeyValueStoreId:
     type: string
     example: eJNzqsbPiopwJcgGQ

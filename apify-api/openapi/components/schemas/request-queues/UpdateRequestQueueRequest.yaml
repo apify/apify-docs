@@ -4,12 +4,7 @@ properties:
   name:
     type: string
   generalAccess:
-    type: string
-    enum:
-      - RESTRICTED
-      - ANYONE_WITH_ID_CAN_READ
-      - FOLLOW_USER_SETTING
-    example: RESTRICTED
+    $ref: ../common/GeneralAccessEnum.yaml
 example:
   name: new-request-queue-name
   generalAccess: RESTRICTED

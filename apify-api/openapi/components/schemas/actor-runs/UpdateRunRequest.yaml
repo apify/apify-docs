@@ -11,9 +11,4 @@ properties:
     type: boolean
     example: true
   generalAccess:
-    type: string
-    enum:
-      - RESTRICTED
-      - ANYONE_WITH_ID_CAN_READ
-      - FOLLOW_USER_SETTING
-    example: RESTRICTED
+    $ref: ../common/GeneralAccessEnum.yaml
