@@ -48,7 +48,7 @@ Then, under the **Organizations** [tab](https://console.apify.com/account#/myorg
 
 ![Convert your account to an organization](../images/organizations/convert-to-organization.png)
 
-Next, enter an organization name and click **Convert**.
+Next, enter an organization name and select **Convert**.
 
 The name you enter here becomes the organization's display name only. The original account **username** stays the same, so any public Actors or API references (for example `my_profile/my_actor`) keep their existing URLs. A new personal account is created for you with the same login credentials and a username derived from the original one (for example `my_profile-owner`). Use that new personal account to manage and own the organization.
 
