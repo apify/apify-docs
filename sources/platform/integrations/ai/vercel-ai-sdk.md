@@ -27,7 +27,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: To use Apify Actors in Vercel AI SDK, you need an Apify API token. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash
@@ -44,20 +44,7 @@ import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 ```
 
-Connect to the Apify MCP server and get all available tools for the AI agent:
-
-:::warning Required setup
-
-Make sure to set the `APIFY_TOKEN` environment variable with your Apify API token before running the code.
-
-:::
-
-
-:::tip Easy configuration
-
-Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your client.
-
-:::
+Connect to the Apify MCP server and get all available tools for the AI agent. You can use the [UI configurator](https://mcp.apify.com/) to select your tools visually and generate the configuration code below:
 
 ```typescript
 // Connect to the Apify MCP server and get the available tools
