@@ -188,7 +188,7 @@ put:
     - Actor runs
   summary: Update run
   description: |
-    This endpoint can be used both to update the run’s status message and to configure its general resource access level.
+    This endpoint can be used to update both the run’s status message and to configure its general resource access level.
 
     **Status message:**
 
@@ -207,9 +207,9 @@ put:
     
     Allowed values:
 
-    * `FOLLOW_USER_SETTING` - The run inherits the general access setting from the account-level.
+    * `FOLLOW_USER_SETTING` - The run inherits the general access setting from the account level.
     * `ANYONE_WITH_ID_CAN_READ` - The run can be viewed anonymously by anyone who has its ID.
-    * `RESTRICTED` - Only users with explicit access to the resources can access the run.
+    * `RESTRICTED` - Only users with explicit access to the resource can access the run.
 
     When a run is accessible anonymously, all of the run’s default storages and logs also become accessible anonymously.
   operationId: actorRun_put
