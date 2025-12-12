@@ -12,9 +12,32 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::warning Legacy pricing model
+
+Pay per result is a deprecated and will be replaced by Pay per event by the end of January 2026. [Migrate to PPE in one click](#one-click-migration-to-ppe)
+
+:::
+
 In this model, you set a price per 1,000 results. Users are charged based on the number of results your Actor produces and stores in the run's default dataset. Your profit is calculated as 80% of the revenue minus platform usage costs.
 
 The details on how your cost is computed can be found in [Example of a PPR pricing model](#example-of-a-ppr-pricing-model).
+
+## One click migration to PPE
+
+Select your PPR Actor, go to the Publication tab, open the Monetization section, and click the `Migrate to Pay per event` button.
+
+![Migration button](../images/ppr-to-ppe-migration-button.png)
+
+### What happens during migration
+
+The migration switches your pricing model from Pay per result to Pay per event. Your price per 1,000 results is automatically converted to an equivalent `apify-default-dataset-item` [event](./pay-per-event#use-synthetic-default-dataset-item-event-apify-default-dataset-item) price.
+
+**Code changes:** No changes to your Actor code are required if it already respects the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable (the maximum results limit set by users).
+
+**After migration:** With Pay per event, you can define additional custom events beyond dataset items. See [PPE best practices](./pay-per-event#best-practices-for-ppe-actors) for guidance.
+
+**Respecting user spending limits:** You can continue using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable to check user-specified limits. However, we recommend using the Apify SDK's built-in methods, which automatically handle spending limits for you. [Learn more](./pay-per-event#respect-user-spending-limits).
+
 
 ## How is profit computed
 
