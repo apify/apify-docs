@@ -1,0 +1,5 @@
+type: string
+enum:
+  - LIMITED_PERMISSIONS
+  - FULL_PERMISSIONS
+example: LIMITED_PERMISSIONS

@@ -37,11 +37,7 @@ properties:
     type: boolean
     example: false
   actorPermissionLevel:
-      type: string
-      enum:
-        - LIMITED_PERMISSIONS
-        - FULL_PERMISSIONS
-      example: LIMITED_PERMISSIONS
+    $ref: ./ActorPermissionLevel.yaml
   createdAt:
     type: string
     example: '2019-07-08T11:27:57.401Z'

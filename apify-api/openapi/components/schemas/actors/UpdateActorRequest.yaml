@@ -12,12 +12,8 @@ properties:
     type: boolean
     example: false
   actorPermissionLevel:
-    type: string
     nullable: true
-    enum:
-      - LIMITED_PERMISSIONS
-      - FULL_PERMISSIONS
-    example: LIMITED_PERMISSIONS
+    $ref: ./ActorPermissionLevel.yaml
   seoTitle:
     type: string
     nullable: true
