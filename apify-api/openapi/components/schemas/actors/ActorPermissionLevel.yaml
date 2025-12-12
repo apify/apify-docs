@@ -1,4 +1,7 @@
 type: string
+description: >
+  Permission level the Actor is run under.
+  For more information, see the [Actor permissions documentation](https://docs.apify.com/platform/actors/development/permissions).
 enum:
   - LIMITED_PERMISSIONS
   - FULL_PERMISSIONS
