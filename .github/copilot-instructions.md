@@ -105,7 +105,7 @@ slug: /path/to/page
 
 #### Text Formatting Conventions
 
-- **Bold** for UI elements, buttons, tabs, menu items: "Click **Save & Run**"
+- **Bold** for UI elements, buttons, tabs, menu items only: "Click **Save & Run**"
 - *Italics* for emphasis (use sparingly)
 - `code` for inline code, file paths, API parameters: "Set `timeout` in `INPUT.json`"
 - Code blocks MUST specify language: ` ```javascript `, ` ```python `, ` ```bash `
