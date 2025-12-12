@@ -140,6 +140,7 @@ put:
               name: MyActor
               description: My favourite Actor!
               isPublic: false
+              actorPermissionLevel: 'LIMITED_PERMISSIONS'
               seoTitle: My Actor
               seoDescription: My Actor is the best
               title: My Actor
@@ -197,6 +198,7 @@ put:
               username: jane35
               description: My favourite Actor!
               isPublic: false
+              actorPermissionLevel: 'LIMITED_PERMISSIONS'
               createdAt: '2019-07-08T11:27:57.401Z'
               modifiedAt: '2019-07-08T14:01:05.546Z'
               stats:

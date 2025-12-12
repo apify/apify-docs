@@ -1,0 +1,8 @@
+type: string
+description: >
+  Determines permissions that the Actor requires to run.
+  For more information, see the [Actor permissions documentation](https://docs.apify.com/platform/actors/development/permissions).
+enum:
+  - LIMITED_PERMISSIONS
+  - FULL_PERMISSIONS
+example: LIMITED_PERMISSIONS
