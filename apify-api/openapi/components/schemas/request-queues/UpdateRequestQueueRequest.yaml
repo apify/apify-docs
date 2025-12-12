@@ -1,9 +1,10 @@
 title: UpdateRequestQueueRequest
-required:
-  - name
 type: object
 properties:
   name:
     type: string
+  generalAccess:
+    $ref: ../common/GeneralAccessEnum.yaml
 example:
   name: new-request-queue-name
+  generalAccess: RESTRICTED

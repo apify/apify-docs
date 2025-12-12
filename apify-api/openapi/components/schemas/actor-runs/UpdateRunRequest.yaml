@@ -1,7 +1,4 @@
 title: UpdateRunRequest
-required:
-  - runId
-  - statusMessage
 type: object
 properties:
   runId:
@@ -13,3 +10,5 @@ properties:
   isStatusMessageTerminal:
     type: boolean
     example: true
+  generalAccess:
+    $ref: ../common/GeneralAccessEnum.yaml

@@ -15,6 +15,7 @@ required:
   - defaultRequestQueueId
   - buildNumber
   - containerUrl
+  - generalAccess
 type: object
 properties:
   id:
@@ -66,6 +67,8 @@ properties:
     type: number
     nullable: true
     example: 0
+  generalAccess:
+    $ref: ../common/GeneralAccessEnum.yaml
   defaultKeyValueStoreId:
     type: string
     example: eJNzqsbPiopwJcgGQ
