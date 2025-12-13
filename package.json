@@ -40,6 +40,7 @@
         "lint:md:fix": "markdownlint '**/*.md' --fix",
         "lint:code": "eslint .",
         "lint:code:fix": "eslint . --fix",
+        "test:academy": "bats --print-output-on-failure -r .",
         "postinstall": "patch-package",
         "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs"
     },
@@ -48,6 +49,7 @@
         "@apify/tsconfig": "^0.1.0",
         "@types/react": "^19.0.0",
         "babel-plugin-styled-components": "^2.1.4",
+        "bats": "^1.13.0",
         "cross-env": "^10.0.0",
         "eslint": "^9.32.0",
         "eslint-plugin-react": "^7.37.5",
@@ -61,8 +63,8 @@
         "typescript-eslint": "^8.38.0"
     },
     "dependencies": {
-        "@apify/ui-library": "^1.97.2",
         "@apify/ui-icons": "^1.19.0",
+        "@apify/ui-library": "^1.97.2",
         "@docusaurus/core": "^3.8.1",
         "@docusaurus/faster": "^3.8.1",
         "@docusaurus/plugin-client-redirects": "^3.8.1",
