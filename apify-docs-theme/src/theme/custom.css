@@ -313,10 +313,6 @@ html[data-theme='dark'] {
     font-size: 1.4rem;
 }
 
-.tsd-panel-header .tsd-flag-group {
-    margin-right: 0.8rem;
-}
-
 .tsd-comment {
     margin-bottom: var(--tsd-spacing-vertical);
 }
@@ -656,7 +652,7 @@ article .card h2 {
 }
 
 .tsd-panel-header .tsd-flag-group {
-    margin-right: .5rem;
+    margin-right: .8rem;
     margin-left: .5rem;
 }
 
