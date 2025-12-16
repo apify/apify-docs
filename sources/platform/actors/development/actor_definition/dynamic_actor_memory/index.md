@@ -63,6 +63,7 @@ You can access variables in two ways:
 input.foo + 512
 runOptions.maxItems + 256
 ```
+
 1. Double-brace syntax
 
 ```js
@@ -121,6 +122,7 @@ After evaluation:
 
 - 900 → 1024 MB
 - 3,600 → 4096 MB
+
 1. It is clamped to actor-defined min/max (`minMemoryMbytes` / `maxMemoryMbytes`).
 2. It is clamped to platform limits (128 MB to 32 GB).
 
@@ -130,24 +132,27 @@ If the calculation results in an error, the Actor will start with a fixed defaul
 
 ### Example expressions
 
-1. Simple memory based on URL count
+#### Simple memory based on URL count
 
 ```js
 get(input, 'startUrls.length', 1) * 512
 ```
-1. Conditional logic
+
+#### Conditional logic
 
 ```js
 get(input, 'scrapeDetailed', false) ? 4096 : 1024
 ```
-1. More complex calculation
+
+#### More complex calculation
 
 ```js
 urls = get(input, 'startUrls.length', 0);
 reviewsMultiplier = max(get(input, 'maxReviews', 1) / 10, 1);
 urls * reviewsMultiplier * 128
 ```
-1. Using double-brace variables
+
+#### Using double-brace variables
 
 ```js
 {{input.itemsToProcess}} * 64
