@@ -79,7 +79,7 @@ _You can mix both styles._
 - Math functions: `min()`, `max()`, `ceil()`, `floor()`, `round()`, `log()`, `exp()`, `log10()`
 - Conditional logic:
 
-```
+```js
 condition ? valueIfTrue : valueIfFalse
 ```
 
@@ -160,9 +160,9 @@ urls * reviewsMultiplier * 128
 
 ### Testing expressions
 
-#### Use NPM package
+#### Use npm package
 
-You can use our [NPM package](https://www.npmjs.com/package/@apify/actor-memory-expression) not only to calculate memory for your expression, but also to write unit tests and verify the behavior of your expressions locally.
+You can use our [npm package](https://www.npmjs.com/package/@apify/actor-memory-expression) not only to calculate memory for your expression, but also to write unit tests and verify the behavior of your expressions locally.
 
 ```shell
 npm install @apify/actor-memory-expression
@@ -195,4 +195,4 @@ apify actor calculate-memory --input ./input.json --maxTotalChargeUsd=25
 - Dynamic memory _automatically adjusts memory_ based on input and run options.
 - The result is used as default memory, but users can override it.
 - Use `get()`, arithmetic, math functions, and conditional logic to define expressions.
-- Test expressions locally with the NPM package or CLI.
+- Test expressions locally with the npm package or CLI.
