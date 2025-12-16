@@ -5,6 +5,7 @@
 ### Project Overview
 
 Docusaurus-based documentation site combining:
+
 - **Platform docs** (`/sources/platform/`) - Product documentation
 - **Academy** (`/sources/academy/`) - Educational courses
 - **API reference** (`/apify-api/`) - Generated from OpenAPI specs
@@ -20,9 +21,11 @@ Docusaurus-based documentation site combining:
 
 1. **Source of truth**: `apify-api/openapi/openapi.yaml` (splits into `/paths` and `/components`)
 2. **Redocly plugins** (`apify-api/plugins/apify.mjs`) inject custom behavior:
+
    - `code-samples-decorator.mjs` - Auto-adds code samples if files exist in `/code_samples/{js,curl}/`
    - `legacy-doc-url-decorator.mjs` - Adds backward-compatible URLs
    - `client-references-links-decorator.mjs` - Links to client library docs
+
 3. **Build command**: `npm run api:rebuild` = clean + bundle with Redocly + generate with Docusaurus
 4. **Output**: Markdown files in `apify-api/docs/` (gitignored, regenerated on each build)
 
@@ -31,6 +34,7 @@ Docusaurus-based documentation site combining:
 #### Custom Theme System
 
 Shared theme in `apify-docs-theme/` workspace:
+
 - Single source of truth for navigation, styling, components
 - Used across all 6+ documentation repos
 - Changes here propagate via CI to all projects
@@ -41,6 +45,7 @@ Shared theme in `apify-docs-theme/` workspace:
 #### OpenAPI Code Samples
 
 Add code samples by creating files in `apify-api/openapi/code_samples/{javascript,curl}/`:
+
 - Filename MUST match `operationId` from OpenAPI spec
 - Example: `actorRun_get.js` for operation with `operationId: "actorRun_get"`
 - Decorator auto-detects and adds `x-codeSamples` property
@@ -57,6 +62,7 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 #### LLMs.txt Generation
 
 Post-build (`scripts/joinLlmsFiles.mjs` + `indentLlmsFile.mjs`):
+
 - Combines `llms.txt` from all sections into root
 - Used by AI tools for context (via `@signalwire/docusaurus-plugin-llms-txt`)
 - Edit source `llms.txt` files in content dirs, not the generated root one
@@ -105,7 +111,7 @@ slug: /path/to/page
 
 #### Text Formatting Conventions
 
-- **Bold** for UI elements, buttons, tabs, menu items only: "Click **Save & Run**"
+- **Bold** for UI elements, buttons, tabs, menu items only: "Click **Save & Run**". Never use bold for emphasis.
 - *Italics* for emphasis (use sparingly)
 - `code` for inline code, file paths, API parameters: "Set `timeout` in `INPUT.json`"
 - Code blocks MUST specify language: ` ```javascript `, ` ```python `, ` ```bash `
@@ -146,6 +152,7 @@ Something that could cause issues.
 #### Terminology & Word List
 
 Use exact capitalization and phrasing:
+
 - **Apify Actor** (never "Apify actor")
 - **Apify Proxy**
 - **Apify Console** (never "the Apify Console")
@@ -157,6 +164,7 @@ Use exact capitalization and phrasing:
 ### Content Review Checklist
 
 When reviewing or creating documentation:
+
 - **Clarity**: Instructions are easy to understand
 - **Consistency**: Uniform terminology (see word list above) and style throughout
 - **Grammar & Spelling**: Correct errors, use American English
@@ -167,16 +175,19 @@ When reviewing or creating documentation:
 ### Documentation Type Guidelines
 
 **Platform documentation** (`sources/platform/**/*.md`):
+
 - Focus on practical, actionable guidance
 - Include real-world examples and use cases
 - Reference related API endpoints when applicable
 
 **Academy content** (`sources/academy/**/*.md`):
+
 - Structure content for learning progression
 - Include hands-on exercises and examples
 - Provide clear prerequisites and next steps
 
 **MDX files** (`sources/**/*.mdx`):
+
 - Use component imports and JSX syntax appropriately
 - Ensure proper frontmatter formatting
 - Test component rendering during development
