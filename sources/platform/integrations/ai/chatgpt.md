@@ -10,13 +10,11 @@ slug: /integrations/chatgpt
 
 ---
 
-The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of Actors through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
-This allows ChatGPT to use Apify tools and Actors directly in conversations, providing real-time web data access and automation capabilities.
+The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+This allows ChatGPT to access real-time web data and automation capabilities by using Apify tools directly in conversations.
+By default, the Apify MCP server exposes a set of tools that let you search and run any Actor.
 
-You can use any [Apify Actor](https://apify.com/store) with ChatGPT.
-By default, the Apify MCP server exposes a set of tools that lets you search and use Actors directly.
-
-**An example query:** "Find and run an Actor that scrapes Instagram profiles, and get the profile of @natgeo"
+**Example query:** "Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo"
 
 In this tutorial, you'll learn how to connect ChatGPT to the **Apify MCP server** using a custom connector.
 
@@ -76,7 +74,7 @@ You should see ChatGPT calling Apify tools — such as the [RAG Web Browser](htt
 - MCP integration in ChatGPT is still in _beta_ and may have some limitations or bugs.
 - Tool selection and execution can be _slow_, especially with the latest GPT models.
 - _Custom connectors_ are only available in ChatGPT _Developer mode_.
-- When creating connectors that include social media scrapers (Instagram, TikTok), you may encounter setup errors. These Actors work correctly once included during initial connector creation, but cannot be added later.
+- When creating connectors that include social media scrapers (Instagram, TikTok), OpenAI may display a Safety Scan warning indicating that some tools might fetch sensitive data.
 
 ## Related integrations
 
