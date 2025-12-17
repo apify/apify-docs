@@ -76,3 +76,11 @@ async def main():
 
 </TabItem>
 </Tabs>
+
+## Communicating limitations
+
+If your Actor has specific limitations for users on the Apify free plan (e.g., restricted features, limited results), it is crucial to communicate these clearly to avoid confusion.
+
+- **Status messages**: Use `setStatusMessage` or the exit message to explain why a run finished early or failed (e.g., "Daily limit for free plan reached. Upgrade to continue.").
+- **Avoid false errors**: Do not return generic system errors or fail the run in a way that looks like a platform issue. This frustrates users and makes troubleshooting difficult.
+- **Documentation**: Clearly state any limitations in your Actor's `README` and input schema descriptions so users know what to expect before running the Actor.

@@ -40,6 +40,14 @@ The following table compares the two main pricing models available for monetizin
 | Custom event billing    | Not available                 | Not available                 | ✅ Charge for any event       |
 | Per-result billing      | Not available                 | ✅ Charge per dataset item    | Optional (via event; automatic via `apify-default-dataset-item`) |
 
+## Handling free users
+
+When monetizing your Actor, you might want to limit features or usage for users on the Apify free plan. If you choose to do this, you **must** handle it transparently:
+
+- **Communicate upfront**: Clearly state any limitations in your Actor's `README` and input schema. Users should know about restrictions _before_ they run the Actor.
+- **Graceful exits**: If a free user hits a limit, do not crash the Actor or return a system error. Instead, exit gracefully with a clear [status message](/platform/actors/development/programming-interface/status-messages#communicating-limitations) explaining the limit (e.g., "Free tier limit reached").
+- **Avoid confusion**: Never make a policy restriction look like a bug or platform error.
+
 ## Setting up monetization
 
 Navigate to your [Actor page](https://console.apify.com/actors?tab=my) in Apify Console, choose the Actor that you want to monetize, and select the Publication tab.
