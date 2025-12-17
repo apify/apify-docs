@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 Each Actor run has a status, represented by the `status` field. The following table describes the possible values:
 
 |Status|Type|Description|
-|--- |--- |--- |
+|---|---|---|
 |`READY`|initial|Started but not allocated to any worker yet|
 |`RUNNING`|transitional|Executing on a worker|
 |`SUCCEEDED`|terminal|Finished successfully|
