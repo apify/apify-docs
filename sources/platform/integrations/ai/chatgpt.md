@@ -16,7 +16,7 @@ By default, the Apify MCP server exposes a set of tools that let you search and 
 
 **Example query:** "Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo"
 
-In this tutorial, you'll learn how to connect ChatGPT to the **Apify MCP server** using a custom connector.
+In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server_ using a custom connector.
 
 ## Prerequisites
 
