@@ -14,7 +14,7 @@ The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive li
 This allows ChatGPT to access real-time web data and automation capabilities by using Apify tools directly in conversations.
 By default, the Apify MCP server exposes a set of tools that let you search and run any Actor.
 
-**Example query:** "Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo"
+_Example query_: "Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo"
 
 In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server_ using a custom connector.
 
