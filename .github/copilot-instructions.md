@@ -95,6 +95,7 @@ Post-build (`scripts/joinLlmsFiles.mjs` + `indentLlmsFile.mjs`):
 #### Frontmatter Requirements
 
 Every `.md`/`.mdx` file needs:
+
 ```yaml
 ---
 title: "Sentence case title (action-oriented)"
