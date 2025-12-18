@@ -1,6 +1,6 @@
 ---
 title: Dynamic Actor memory
-description: Learn how to automatically adjust your Actor's memory based on input size and run options, so you can optimize performance and reduce costs without manual configuration..
+description: Learn how to automatically adjust your Actor's memory based on input size and run options, so you can optimize performance and reduce costs without manual configuration.
 slug: /actors/development/actor-definition/dynamic-actor-memory
 ---
 
@@ -16,8 +16,10 @@ This helps:
 - _Reduce costs_ for small runs (less memory when it’s not needed).
 - _Provide better user experience_, so users get optimal performance without having to manually configure memory.
 
-:::info
-_Important_: The memory calculated by dynamic expression is used as the default memory for the run. Users can still override it manually for each run.
+:::info Manual override
+
+The memory calculated by dynamic expression is used as the default memory for the run. Users can still override it manually for each run.
+
 :::
 
 ---
@@ -49,46 +51,46 @@ You can define a dynamic memory expression in your `actor.json`:
 
 ---
 
-### Writing Expressions
+### How to write expressions
 
 Expressions are based on [MathJS](https://mathjs.org/), extended with custom helper function `get`.
 
-#### Variable Access
+#### Access run input and options
 
 You can access variables in two ways:
 
 1. Direct property access
 
-```js
-input.foo + 512
-runOptions.maxItems + 256
-```
+    ```js
+    input.foo + 512
+    runOptions.maxItems + 256
+    ```
 
-1. Double-brace syntax
+2. Double-brace syntax
 
-```js
-{{input.foo}}
-{{runOptions.maxItems}}
-```
+    ```js
+    {{input.foo}}
+    {{runOptions.maxItems}}
+    ```
 
 _You can mix both styles._
 
-#### Supported Operations
+#### Supported operations
 
 - Arithmetic: `+`, `-`, `*`, `/`
 - Math functions: `min()`, `max()`, `ceil()`, `floor()`, `round()`, `log()`, `exp()`, `log10()`
 - Conditional logic:
 
-```js
-condition ? valueIfTrue : valueIfFalse
-```
+    ```js
+    condition ? valueIfTrue : valueIfFalse
+    ```
 
 - Variable assignment:
 
-```js
-memoryPerUrl = 64;
-get(input, 'startUrls') * memoryPerUrl
-```
+    ```js
+    memoryPerUrl = 64;
+    get(input, 'startUrls') * memoryPerUrl
+    ```
 
 #### Custom `get()` function
 
@@ -120,13 +122,13 @@ After evaluation:
 
 1. The result is rounded up to the nearest power of two
 
-- 900 → 1024 MB
-- 3,600 → 4096 MB
+    - 900 → 1024 MB
+    - 3,600 → 4096 MB
 
-1. It is clamped to actor-defined min/max (`minMemoryMbytes` / `maxMemoryMbytes`).
-2. It is clamped to platform limits (128 MB to 32 GB).
+2. It is clamped to actor-defined min/max (`minMemoryMbytes` / `maxMemoryMbytes`).
+3. It is clamped to platform limits (128 MB to 32 GB).
 
-:::info
+:::info Fallback value
 If the calculation results in an error, the Actor will start with a fixed default memory, which can be configured in the Actor's UI settings.
 :::
 
@@ -162,7 +164,7 @@ urls * reviewsMultiplier * 128
 
 #### Use npm package
 
-You can use our [npm package](https://www.npmjs.com/package/@apify/actor-memory-expression) not only to calculate memory for your expression, but also to write unit tests and verify the behavior of your expressions locally.
+You can use the [actor-memory-expressions](https://www.npmjs.com/package/@apify/actor-memory-expression) npm package not only to calculate memory for your expression, but also to write unit tests and verify the behavior of your expressions locally.
 
 ```shell
 npm install @apify/actor-memory-expression
