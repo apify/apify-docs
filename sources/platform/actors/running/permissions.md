@@ -22,8 +22,8 @@ The permissions model follows the principle of least privilege. Actors run only 
 
 There are two permission levels:
 
-- **Limited permissions:** Actors with this permission level have restricted access, primarily to their own storages, the data they generate, and resources they are given an explicit access to. They cannot access any other data in your Apify account.
-- **Full permissions (default):** Grants the Actor a access to all data in your Apify account.
+- **Limited permissions (default):** Actors with this permission level have restricted access, primarily to their own storages, the data they generate, and resources they are given an explicit access to. They cannot access any other data in your Apify account.
+- **Full permissions:** Grants the Actor access to all data in your Apify account.
 
 
 This model protects your data and strengthens platform security by clearly showing what level of access each Actor requires.
