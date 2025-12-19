@@ -26,6 +26,14 @@ This helps:
 - _Reduce costs_ for small runs (less memory when it’s not needed).
 - _Provide better user experience_, so users get optimal performance without having to manually configure memory.
 
+For example, the developer of an Actor could define an expression like:
+
+```js
+min(get(input, 'startUrls.length', 1) * 64, 4096)
+```
+
+This expression calculates memory based on the number of URLs provided by the user, making sure that for large inputs the Actor doesn’t exceed 4 GB.
+
 :::info Dynamic memory is not runtime auto-scaling.
 
 _This feature does not change memory while the Actor is running._
