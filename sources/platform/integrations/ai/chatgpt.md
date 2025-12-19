@@ -12,7 +12,7 @@ slug: /integrations/chatgpt
 
 The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 This allows ChatGPT to access real-time web data and automation capabilities by using Apify tools directly in conversations.
-By default, the Apify MCP server exposes a set of tools that let you search and run any Actor.
+By default, the Apify MCP server exposes a set of tools that let you search and run any Actor you have access to, including all public Actors and rental Actors you have rented.
 
 _Example query_: "Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo"
 
