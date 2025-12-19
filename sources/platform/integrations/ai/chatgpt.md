@@ -74,7 +74,7 @@ You should see ChatGPT calling Apify tools — such as the [RAG Web Browser](htt
 - MCP integration in ChatGPT is still in _beta_ and may have some limitations or bugs.
 - Tool selection and execution can be _slow_, especially with the latest GPT models.
 - _Custom connectors_ are only available in ChatGPT _Developer mode_.
-- When creating connectors that include social media scrapers (Instagram, TikTok), OpenAI may display a Safety Scan warning indicating that some tools might fetch sensitive data.
+- When creating connectors that include social media scrapers (Instagram, TikTok), OpenAI may display a _Safety Scan_ warning indicating that some tools might fetch sensitive data.
 
 ## Related integrations
 
