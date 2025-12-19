@@ -12,23 +12,23 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::warning Legacy pricing model
+:::warning Pay per result is deprecated
 
-Pay per result is deprecated and will be superseded by Pay per event early in 2026. [Migrate to PPE in one click](#one-click-migration-to-ppe) (backward compatible)
+This pricing model is deprecated and will be removed in 2026. You can migrate to [pay per event with one click](#one-click-migration-to-ppe), and the migration is backward compatible.
 
 :::
 
 In this model, you set a price per 1,000 results. Users are charged based on the number of results your Actor produces and stores in the run's default dataset. Your profit is calculated as 80% of the revenue minus platform usage costs.
 
-The details on how your cost is computed can be found in [Example of a PPR pricing model](#example-of-a-ppr-pricing-model).
+The details on how your cost is computed can be found in [Example of a PPR pricing model](#example-of-ppr-pricing).
 
 ## One click migration to PPE
 
-Select your PPR Actor, go to the Publication tab, open the Monetization section, and click the `Migrate to Pay per event` button.
+Select your PPR Actor, go to the **Publication** tab, open the **Monetization** section, and click the **Migrate to Pay per event** button.
 
 ![Migration button](../images/ppr-to-ppe-migration-button.png)
 
-### Why should I migrate?
+### Why should I migrate
 
 The Pay per event pricing model offers superior flexibility in charging not only for the results but also for any event.
 This helps you to pass on the costs of external APIs or additional processing directly to your users, price different functionalities of your Actor differently, avoid revenue loss from small but usage-heavy runs, and more.
@@ -44,11 +44,9 @@ This change does not count towards the pricing change limits that you are allowe
 
 **Code changes:** No changes to your Actor code are required if it already respects the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable (the price limit set by users).
 
-**After migration:** With Pay per event, you can define additional custom events beyond dataset items. [Learn more](./pay-per-event)
+**After migration:** With [pay per event](./pay-per-event), you can define additional custom events beyond dataset items.
 
 **Respecting user spending limits:** You can continue using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable to respect user-specified price limits.
-
-Bleu sky and flying high free as a bird
 
 ## How is profit computed
 
@@ -69,7 +67,7 @@ PPR charges based on the number of results produced. PPE lets you define pricing
 
 :::info Learn more about PPE
 
-If you want to learn more about PPE, refer to the [Pay per event](/platform/actors/publishing/monetize/pay-per-event) section.
+If you want to learn more about PPE, refer to the [pay per event](/platform/actors/publishing/monetize/pay-per-event) section.
 
 :::
 
