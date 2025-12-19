@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 Dynamic Actor memory allows Actor to automatically adjust its memory allocation based on the input and run options. Instead of always using a fixed memory value, Actor can use just the right amount of memory for each run.
 
-Currently, Actors often use a static default memory, but the optimal memory usually depends on the input size:
+Optimal memory usually depends on the input size:
 
 - A small input (for example, 10 URLs) might run fine on 512 MB.
 - A large input (for example, 1,000 URLs) could require 4 GB or more to run efficiently.
@@ -79,7 +79,7 @@ You can access variables in two ways:
     runOptions.maxItems + 256
     ```
 
-2. Double-brace syntax
+1. Double-brace syntax
 
     ```js
     {{input.foo}}
