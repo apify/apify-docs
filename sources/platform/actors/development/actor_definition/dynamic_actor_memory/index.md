@@ -14,12 +14,14 @@ import TabItem from '@theme/TabItem';
 Dynamic Actor memory allows Actor to automatically adjust its memory allocation based on the input and run options. Instead of always using a fixed memory value, Actor can use just the right amount of memory for each run.
 
 Currently, Actors often use a static default memory, but the optimal memory usually depends on the input size:
+
 - A small input (for example, 10 URLs) might run fine on 512 MB.
 - A large input (for example, 1,000 URLs) could require 4 GB or more to run efficiently.
 
 _Setting a single default value either wastes resources on small runs or slows down execution for large ones._ Dynamic memory solves this by calculating the required memory just before the run starts, based on the actual input and run options.
 
 This helps:
+
 - _Optimize performance_ for large inputs (more memory for bigger tasks).
 - _Reduce costs_ for small runs (less memory when it’s not needed).
 - _Provide better user experience_, so users get optimal performance without having to manually configure memory.
@@ -28,7 +30,7 @@ This helps:
 
 _This feature does not change memory while the Actor is running._
 
-Memory is calculated once, right before the run begins. Each new run (for example, when the user provides different input) starts with memory calculated by the expression. 
+Memory is calculated once, right before the run begins. Each new run (for example, when the user provides different input) starts with memory calculated by the expression.
 
 Users can still override it manually for each run.
 
@@ -156,8 +158,9 @@ If the calculation results in an error, the Actor will start with a fixed defaul
   ```
 
   Explanation:
-  - `get(input, 'startUrls.length', 1)` → Safely reads length of `startUrls` array; defaults to 1 if not provided.
-  - Allocates 512 MB per URL.
+
+- `get(input, 'startUrls.length', 1)` → Safely reads length of `startUrls` array; defaults to 1 if not provided.
+- Allocates 512 MB per URL.
 
 </TabItem>
 <TabItem value="Conditional logic" label="Conditional logic">
@@ -169,8 +172,9 @@ If the calculation results in an error, the Actor will start with a fixed defaul
   ```
 
   Explanation:
-  - `get(input, 'scrapeDetailed', false)` → Reads a boolean flag from `input`; defaults to `false`.
-  - `? 4096 : 1024` → If `scrapeDetailed` is `true`, allocate 4096 MB; otherwise, allocate 1024 MB.
+
+- `get(input, 'scrapeDetailed', false)` → Reads a boolean flag from `input`; defaults to `false`.
+- `? 4096 : 1024` → If `scrapeDetailed` is `true`, allocate 4096 MB; otherwise, allocate 1024 MB.
 
 </TabItem>
 <TabItem value="Variable assignment" label="Variable assignment">
@@ -182,10 +186,12 @@ If the calculation results in an error, the Actor will start with a fixed defaul
   reviewsMultiplier = max(get(input, 'maxReviews', 1) / 10, 1);
   urlsCount * reviewsMultiplier * 128
   ```
+
   Explanation:
-  - `urlsCount` → Number of URLs to process.
-  - `reviewsMultiplier` → Adjusts memory based on the number of reviews; ensures at least 1.
-  - `urlsCount * reviewsMultiplier * 128` → Final memory allocation, scaling with both URLs and review count.
+
+- `urlsCount` → Number of URLs to process.
+- `reviewsMultiplier` → Adjusts memory based on the number of reviews; ensures at least 1.
+- `urlsCount * reviewsMultiplier * 128` → Final memory allocation, scaling with both URLs and review count.
 
 </TabItem>
 <TabItem value="Double-brace variables" label="Double-brace variables">
@@ -197,9 +203,11 @@ If the calculation results in an error, the Actor will start with a fixed defaul
   ```
 
   Explanation:
-  - `{{input.itemsToProcess}}` → Reads the number of items to process.
-  - Allocates 64 MB per item.
+
+- `{{input.itemsToProcess}}` → Reads the number of items to process.
+- Allocates 64 MB per item.
 </TabItem>
+
 </Tabs>
 
 ### Testing expressions
