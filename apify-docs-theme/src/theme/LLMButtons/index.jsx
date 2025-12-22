@@ -227,7 +227,6 @@ const openMcpIntegration = async (integration, mcpUrl) => {
         appUrl = `cursor://anysphere.cursor-deeplink/mcp/install?name=apify&config=${encodeURIComponent(encodedConfig)}`;
     } else if (integration === 'vscode') {
         // VS Code deeplink format: vscode:mcp/install?<url-encoded-json>
-        // JSON structure: {"name":"Apify","type":"http","url":"<mcpUrl>"}
         const mcpConfig = {
             name: 'Apify',
             type: 'http',
@@ -238,16 +237,11 @@ const openMcpIntegration = async (integration, mcpUrl) => {
     }
 
     if (appUrl) {
-        try {
-            window.open(appUrl, '_blank');
-        } catch {
-            // If deeplink fails, fallback to web configurator
-            openApifyMcpConfigurator(integration);
-        }
-    } else {
-        // Fallback to web configurator
-        openApifyMcpConfigurator(integration);
+        window.open(appUrl, '_blank');
+        return;
     }
+    // Fallback to web configurator
+    openApifyMcpConfigurator(integration);
 };
 
 const onConnectCursorClick = () => {
