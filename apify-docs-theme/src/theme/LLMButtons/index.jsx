@@ -10,6 +10,7 @@ import {
     ExternalLinkIcon,
     LoaderIcon,
     MarkdownIcon,
+    McpIcon,
     PerplexityIcon,
 } from '@apify/ui-icons';
 import { Menu, Text, theme } from '@apify/ui-library';
@@ -35,13 +36,14 @@ const DROPDOWN_OPTIONS = [
         label: 'Copy MCP server',
         description: 'Copy Apify MCP configuration',
         showExternalIcon: false,
-        Icon: CopyIcon,
+        Icon: McpIcon,
         value: 'copyMcpServer',
     },
     {
         label: 'Connect to Cursor',
         description: 'Open MCP configurator for Cursor',
         showExternalIcon: true,
+        // TODO: Replace with CursorIcon - we don't have one yet
         Icon: ExternalLinkIcon,
         value: 'connectCursor',
     },
@@ -49,6 +51,7 @@ const DROPDOWN_OPTIONS = [
         label: 'Connect to VS Code',
         description: 'Open MCP configurator for VS Code',
         showExternalIcon: true,
+        // TODO: Replace with VS Code Icon - we don't have one yet
         Icon: ExternalLinkIcon,
         value: 'connectVsCode',
     },
