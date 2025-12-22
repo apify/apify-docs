@@ -75,10 +75,12 @@ const DROPDOWN_OPTIONS = [
     },
 ];
 
+const MCP_SERVER_URL = 'https://mcp.apify.com/?tools=docs';
+
 const MCP_CONFIG_JSON = `{
     "mcpServers": {
         "apify": {
-            "url": "https://mcp.apify.com/?tools=docs"
+            "url": "${MCP_SERVER_URL}"
         }
     }
 }`;
@@ -214,14 +216,14 @@ const openApifyMcpConfigurator = (integration) => {
     }
 };
 
-const openMcpIntegration = async (integration, mcpUrl) => {
+const openMcpIntegration = async (integration) => {
     // Try to open the app directly using URL scheme
     let appUrl;
     if (integration === 'cursor') {
         // Cursor deeplink format:
         // cursor://anysphere.cursor-deeplink/mcp/install?name=$NAME&config=$BASE64_JSON
         const cursorConfig = {
-            url: mcpUrl,
+            url: MCP_SERVER_URL,
         };
         const encodedConfig = btoa(JSON.stringify(cursorConfig));
         appUrl = `cursor://anysphere.cursor-deeplink/mcp/install?name=apify&config=${encodeURIComponent(encodedConfig)}`;
@@ -230,17 +232,20 @@ const openMcpIntegration = async (integration, mcpUrl) => {
         const mcpConfig = {
             name: 'Apify',
             type: 'http',
-            url: mcpUrl,
+            url: MCP_SERVER_URL,
         };
         const encodedConfig = encodeURIComponent(JSON.stringify(mcpConfig));
         appUrl = `vscode:mcp/install?${encodedConfig}`;
     }
 
     if (appUrl) {
-        window.open(appUrl, '_blank');
-        return;
+        const openedWindow = window.open(appUrl, '_blank');
+
+        if (openedWindow) {
+            return;
+        }
     }
-    // Fallback to web configurator
+    // Fallback to web configurator if appUrl doesn't exist or window.open failed
     openApifyMcpConfigurator(integration);
 };
 
@@ -253,7 +258,7 @@ const onConnectCursorClick = () => {
         });
     }
 
-    openMcpIntegration('cursor', 'https://mcp.apify.com/?tools=docs');
+    openMcpIntegration('cursor');
 };
 
 const onConnectVsCodeClick = () => {
@@ -265,7 +270,7 @@ const onConnectVsCodeClick = () => {
         });
     }
 
-    openMcpIntegration('vscode', 'https://mcp.apify.com/?tools=docs');
+    openMcpIntegration('vscode');
 };
 
 const onViewAsMarkdownClick = () => {
