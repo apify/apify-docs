@@ -83,4 +83,6 @@ If your Actor has specific limitations for users on the Apify free plan (e.g., r
 
 - Status messages: Use `Actor.setStatusMessage` or `Actor.exit` message to explain why a run finished early or failed (e.g., "Daily limit for free plan reached. Upgrade to continue.").
 - Avoid false errors: Do not return generic system errors or fail the run in a way that looks like a platform issue. This frustrates users and makes troubleshooting difficult.
+     - Wrong: API usage is limited to 10 results
+     - Right: This Actor only allows up to 10 results for free users. Upgrade to a paid plan to receive unlimited results.
 - Documentation: Clearly state any limitations in your Actor's `README` and input schema descriptions so users know what to expect before running the Actor.
