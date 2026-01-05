@@ -113,7 +113,7 @@ _You can mix both styles._
     get(input, 'startUrls') * memoryPerUrl
     ```
 
-### Custom `get()` function
+### Safely access optional and/or nested values
 
 Use `get()` to safely read nested properties or provide fallback values:
 
