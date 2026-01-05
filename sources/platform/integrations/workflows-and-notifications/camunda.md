@@ -177,28 +177,5 @@ Always use the Actor or Task **ID** (e.g., `abcdef123456`), not the name with ti
 | Webhook not received | Ensure your connector's webhook URL is publicly accessible. For local development, use a tunneling service like [ngrok](https://ngrok.com/). |
 | "Resource ID not found" | Use the Actor/Task **ID** (e.g., `abcdef123456`), not the name with tilde (e.g., `username~actor-name`). |
 | Process not visible in Operate | Check the **Finished** filter - completed processes may not show in the default view. |
-| Connector crashes on startup | Ensure the `CONNECTOR_BASE_URL` environment variable is set. |
-
-### Cleaning up stale webhooks
-
-During testing, you may accumulate webhooks. To start fresh:
-
-1. Stop the Camunda stack:
-
-```bash
-docker-compose down -v
-```
-
-2. Restart the stack:
-
-```bash
-docker-compose up -d
-```
-
-:::caution Data loss
-
-This will delete all your data including deployed processes, process instances, and webhooks. Webhooks created in Apify will remain and must be deleted manually in the Apify Console.
-
-:::
 
 If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
