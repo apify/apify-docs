@@ -86,3 +86,5 @@ If your Actor has specific limitations for users on the Apify free plan (e.g., r
      - Wrong: API usage is limited to 10 results
      - Right: This Actor only allows up to 10 results for free users. Upgrade to a paid plan to receive unlimited results.
 - Documentation: Clearly state any limitations in your Actor's `README` and input schema descriptions so users know what to expect before running the Actor.
+    - General restrictions (like limiting the number of results) must be explained in the top-level input schema description that renders above the input editor UI.
+    - Feature-specific limitations must be included in the title of an input field. The title must include explanation in parenthesis such as `(paying users only)` or `(limited for free users`). E.g. `Max comments (paying users only)`.
