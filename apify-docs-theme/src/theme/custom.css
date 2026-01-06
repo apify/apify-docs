@@ -126,12 +126,15 @@ html[data-theme='dark'] {
 
 :root {
     /* use default system font based on https://devhints.io/css-system-font-stack */
-    --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
-    --ifm-heading-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
+    --ifm-font-family-base:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    --ifm-heading-font-family: 'Lota Grotesque', sans-serif;
+    --tsd-spacing-vertical: 1.2rem !important;
+    --tsd-spacing-horizontal: 1.6rem !important;
+    --ifm-list-item-margin: 0.4rem !important;
+    --ifm-list-left-padding: 3.2rem !important;
     --ifm-font-weight-semibold: 600;
     --ifm-font-color-base: #242736;
 
@@ -284,6 +287,34 @@ html[data-theme='dark'] {
     --color-danger-chip-background-hover: #fedad1;
     --color-danger-chip-text: #bb0401;
     --button-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+@font-face {
+    font-family: 'Lota Grotesque';
+    src:
+        url('/font/lota.woff2') format('woff2'),
+        url('/font/lota.woff') format('woff');
+    font-weight: 600;
+}
+
+.apiItemContainer h2 {
+    font-size: 2.4rem;
+}
+
+.apiItemContainer h3 {
+    font-size: 2rem;
+}
+
+.apiItemContainer h4 {
+    font-size: 1.6rem;
+}
+
+.apiItemContainer h5 {
+    font-size: 1.4rem;
+}
+
+.tsd-comment {
+    margin-bottom: var(--tsd-spacing-vertical);
 }
 
 .markdown h1,
@@ -621,7 +652,7 @@ article .card h2 {
 }
 
 .tsd-panel-header .tsd-flag-group {
-    margin-right: .5rem;
+    margin-right: .8rem;
     margin-left: .5rem;
 }
 

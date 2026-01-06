@@ -11,6 +11,9 @@ properties:
   isPublic:
     type: boolean
     example: false
+  actorPermissionLevel:
+    nullable: true
+    $ref: ./ActorPermissionLevel.yaml
   seoTitle:
     type: string
     nullable: true
@@ -102,4 +105,3 @@ required:
   - name
   - isPublic
   - versions
-

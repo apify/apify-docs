@@ -13,7 +13,7 @@ Every time a user runs your Actor, it runs under their Apify account. **Actor pe
 
 Your Actors can request two levels of access:
 
-- **Limited permissions:**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
+- **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
 Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
@@ -47,7 +47,7 @@ To learn how to migrate your Actors to run under limited permissions, check out 
 
 ### Configuring Actor permissions level
 
-You can set the permission level for your Actor in the Apify Console under its **Settings** tab. All the existing Actors are configured to use full permissions.
+You can set the permission level for your Actor in the Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
 
 ![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
 

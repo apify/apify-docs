@@ -1,9 +1,10 @@
 title: UpdateStoreRequest
-required:
-  - name
 type: object
 properties:
   name:
     type: string
+  generalAccess:
+    $ref: ../common/GeneralAccessEnum.yaml
 example:
   name: new-store-name
+  generalAccess: RESTRICTED

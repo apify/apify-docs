@@ -36,6 +36,8 @@ properties:
   isPublic:
     type: boolean
     example: false
+  actorPermissionLevel:
+    $ref: ./ActorPermissionLevel.yaml
   createdAt:
     type: string
     example: '2019-07-08T11:27:57.401Z'
