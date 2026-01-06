@@ -9,6 +9,15 @@ const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
 
+/**
+ * Helper to extract text from a node recursively.
+ */
+function getNodeText(node) {
+    if (node.type === 'text' || node.type === 'code' || node.type === 'inlineCode') return node.value || '';
+    if (node.children) return node.children.map(getNodeText).join('');
+    return '';
+}
+
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
     title: 'Apify Documentation',
@@ -301,7 +310,10 @@ module.exports = {
                                 const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
 
                                 if (isUrlInternal && !parsedUrl.pathname) return '';
+
                                 if (node.title) return `[${node.title}](${url})`;
+                                const linkText = getNodeText(node);
+                                if (linkText) return `[${linkText}](${url})`;
                                 return url;
                             },
                             code: (node) => {

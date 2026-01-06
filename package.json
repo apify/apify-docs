@@ -62,7 +62,7 @@
     },
     "dependencies": {
         "@apify/ui-library": "^1.97.2",
-        "@apify/ui-icons": "^1.19.0",
+        "@apify/ui-icons": "^1.25.0",
         "@docusaurus/core": "^3.8.1",
         "@docusaurus/faster": "^3.8.1",
         "@docusaurus/plugin-client-redirects": "^3.8.1",
@@ -84,7 +84,7 @@
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-github-btn": "^1.4.0",
-        "styled-components": "6.1.19",
+        "styled-components": "6.2.0",
         "unist-util-visit": "^5.0.0"
     },
     "browserslist": {
