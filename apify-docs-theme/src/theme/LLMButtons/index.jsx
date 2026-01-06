@@ -39,7 +39,7 @@ const DROPDOWN_OPTIONS = [
         description: 'Copy MCP Server URL to clipboard',
         showExternalIcon: false,
         Icon: McpIcon,
-        value: 'copyMcpServer',
+        value: 'copyMcpServerUrl',
     },
     {
         label: 'Connect to Cursor',
@@ -81,14 +81,6 @@ const DROPDOWN_OPTIONS = [
 ];
 
 const MCP_SERVER_URL = 'https://mcp.apify.com/?tools=docs';
-
-const MCP_CONFIG_JSON = `{
-    "mcpServers": {
-        "apify": {
-            "url": "${MCP_SERVER_URL}"
-        }
-    }
-}`;
 
 const getPrompt = (currentUrl) => `Read from ${currentUrl} so I can ask questions about it.`;
 const getMarkdownUrl = (currentUrl) => {
@@ -197,7 +189,7 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
     }
 };
 
-const onCopyMcpServerClick = async () => {
+const onCopyMcpServerUrlClick = async () => {
     if (window.analytics) {
         window.analytics.track('Clicked', {
             app: 'docs',
@@ -207,7 +199,7 @@ const onCopyMcpServerClick = async () => {
     }
 
     try {
-        await navigator.clipboard.writeText(MCP_CONFIG_JSON);
+        await navigator.clipboard.writeText(MCP_SERVER_URL);
     } catch (error) {
         console.error('Failed to copy MCP configuration:', error);
     }
@@ -374,8 +366,8 @@ export default function LLMButtons({ isApiReferencePage = false }) {
             case 'viewAsMarkdown':
                 onViewAsMarkdownClick();
                 break;
-            case 'copyMcpServer':
-                onCopyMcpServerClick();
+            case 'copyMcpServerUrl':
+                onCopyMcpServerUrlClick();
                 break;
             case 'connectCursor':
                 onConnectCursorClick();
