@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import React, { useCallback, useState } from 'react';
 
 import {
-    AnthropicIcon,
     ChatGptIcon,
     CheckIcon,
     ChevronDownIcon,
+    ClaudeIcon,
     CopyIcon,
     CursorIcon,
     ExternalLinkIcon,
@@ -68,7 +68,7 @@ const DROPDOWN_OPTIONS = [
         label: 'Open in Claude',
         description: 'Ask questions about this page',
         showExternalIcon: true,
-        Icon: AnthropicIcon,
+        Icon: ClaudeIcon,
         value: 'openInClaude',
     },
     {
