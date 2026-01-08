@@ -51,7 +51,7 @@
         "cross-env": "^10.0.0",
         "eslint": "^9.32.0",
         "eslint-plugin-react": "^7.37.5",
-        "globals": "^16.0.0",
+        "globals": "^17.0.0",
         "markdownlint": "^0.40.0",
         "markdownlint-cli": "^0.47.0",
         "patch-package": "^8.0.0",
