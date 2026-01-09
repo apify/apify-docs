@@ -1,7 +1,7 @@
 ---
 title: Apify $1M Challenge Terms and Conditions
 description: Apify $1M Challenge Terms and Conditions govern Apify $1M Challenge.
-sidebar_position: 8
+sidebar_position: 9
 sidebar_label: Challenge Terms
 category: legal
 slug: /challenge-terms-and-conditions
