@@ -40,6 +40,16 @@ get:
       schema:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI
+    - name: attachment
+      in: query
+      description: |
+        If `true` or `1`, the response will be served with `Content-Disposition: attachment` header,
+        causing web browsers to offer downloading HTML records instead of displaying them.
+      required: false
+      style: form
+      schema:
+        type: boolean
+        example: true
   responses:
     '200':
       description: ''
