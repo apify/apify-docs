@@ -1,5 +1,6 @@
 title: UserData
 type: object
+additionalProperties: true
 properties:
   label:
     type: string

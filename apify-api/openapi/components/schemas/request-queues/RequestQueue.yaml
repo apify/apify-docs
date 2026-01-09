@@ -45,6 +45,24 @@ properties:
     example: true
   consoleUrl:
     type: string
-    example: 'https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC'  
+    example: 'https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC'
+  stats:
+    type: object
+    properties:
+      deleteCount:
+        type: number
+        example: 0
+      headItemReadCount:
+        type: number
+        example: 5
+      readCount:
+        type: number
+        example: 100
+      storageBytes:
+        type: number
+        example: 1024
+      writeCount:
+        type: number
+        example: 10
   generalAccess:
     $ref: ../common/GeneralAccessEnum.yaml

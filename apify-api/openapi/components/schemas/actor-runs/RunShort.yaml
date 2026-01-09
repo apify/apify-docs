@@ -6,7 +6,6 @@ required:
   - startedAt
   - finishedAt
   - buildId
-  - buildNumber
   - meta
   - usageTotalUsd
   - defaultKeyValueStoreId

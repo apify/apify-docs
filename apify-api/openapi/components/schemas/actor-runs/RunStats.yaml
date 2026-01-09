@@ -11,6 +11,9 @@ properties:
   migrationCount:
     type: number
     example: 0
+  rebootCount:
+    type: number
+    example: 0
   restartCount:
     type: number
     example: 0

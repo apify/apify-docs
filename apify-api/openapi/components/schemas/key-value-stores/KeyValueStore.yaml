@@ -1,7 +1,6 @@
 title: KeyValueStore
 required:
   - id
-  - name
   - createdAt
   - modifiedAt
   - accessedAt
@@ -42,7 +41,7 @@ properties:
     example: null
   consoleUrl:
     type: string
-    example: 'https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC'  
+    example: 'https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC'
   keysPublicUrl:
     type: string
     description: "A public link to access keys of the key-value store directly."

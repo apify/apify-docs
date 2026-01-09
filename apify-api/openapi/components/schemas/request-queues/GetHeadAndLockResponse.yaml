@@ -51,10 +51,8 @@ properties:
               example: '2022-06-14T23:00:00.000Z'
           required:
             - id
-            - retryCount
             - uniqueKey
             - url
-            - method
             - lockExpiresAt
         description: ''
     required:

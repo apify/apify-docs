@@ -1,9 +1,6 @@
 title: ProcessedRequest
 required:
-  - requestId
   - uniqueKey
-  - wasAlreadyHandled
-  - wasAlreadyPresent
 type: object
 properties:
   requestId:

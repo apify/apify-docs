@@ -37,10 +37,8 @@ properties:
               example: GET
           required:
             - id
-            - retryCount
             - uniqueKey
             - url
-            - method
         description: ''
     required:
       - limit

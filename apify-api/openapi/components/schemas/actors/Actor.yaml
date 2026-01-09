@@ -10,7 +10,6 @@ required:
   - stats
   - versions
   - defaultRunOptions
-  - deploymentKey
 type: object
 properties:
   id:

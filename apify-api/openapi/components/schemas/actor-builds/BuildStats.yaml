@@ -1,7 +1,5 @@
 title: BuildStats
 required:
-  - durationMillis
-  - runTimeSecs
   - computeUnits
 type: object
 properties:

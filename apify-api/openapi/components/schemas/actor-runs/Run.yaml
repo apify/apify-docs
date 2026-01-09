@@ -4,7 +4,6 @@ required:
   - actId
   - userId
   - startedAt
-  - finishedAt
   - status
   - meta
   - stats
@@ -13,8 +12,6 @@ required:
   - defaultKeyValueStoreId
   - defaultDatasetId
   - defaultRequestQueueId
-  - buildNumber
-  - containerUrl
   - generalAccess
 type: object
 properties:
@@ -57,7 +54,7 @@ properties:
   chargedEventCounts:
     type: object
     additionalProperties:
-      $ref: ../actor-pricing-info/ActorChargeEvent.yaml
+      type: integer
   options:
     $ref: ./RunOptions.yaml
   buildId:

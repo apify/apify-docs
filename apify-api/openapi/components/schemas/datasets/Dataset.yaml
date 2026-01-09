@@ -1,7 +1,6 @@
 title: Dataset
 required:
   - id
-  - name
   - userId
   - createdAt
   - modifiedAt

@@ -1,7 +1,6 @@
 title: defaultRunOptions
 required:
   - build
-  - timeoutSecs
   - memoryMbytes
 type: object
 properties:

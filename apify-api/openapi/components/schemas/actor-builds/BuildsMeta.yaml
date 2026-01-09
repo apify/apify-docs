@@ -1,7 +1,6 @@
 title: BuildsMeta
 required:
   - origin
-  - clientIp
   - userAgent
 type: object
 properties:

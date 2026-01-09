@@ -6,8 +6,6 @@ required:
   - totalUsers7Days
   - totalUsers30Days
   - totalUsers90Days
-  - totalMetamorphs
-  - lastRunStartedAt
 type: object
 properties:
   totalBuilds:
