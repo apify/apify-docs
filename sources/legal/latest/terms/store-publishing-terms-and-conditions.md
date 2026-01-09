@@ -27,7 +27,9 @@ Terms starting with a capital letter used in these Publishing Terms have the mea
 ## 2. Actor name, description, and price
 
 2.1. Each Actor has its own unique name. When publishing an Actor, you agree to assign it a relevant and non-deceptive name. You are prohibited from using trademarks, logos, icons, or proprietary branding belonging to any third party—or selecting names that impersonate or are confusingly similar to well-known brands—unless you have express authorization. All Actor listings must be configured to avoid any suggestion of official affiliation, sponsorship, or endorsement by a third-party trademark owner. Specifically, you must include a clear and prominent disclaimer stating that the Actor is 'unofficial' and is not affiliated with the third-party service being accessed.
+
 2.2. You agree to create, publish, and maintain an up-to-date, pertinent description, documentation, or other sources of information, allowing Users to use the Actor.
+
 2.3. The Actor, its name, price, description and other information connected to it published in Apify Store can be changed at any time in the future. However, changes to the Actor's price that might potentially lead to a price increase for a User, including pricing model changes, are limited to a maximum of one change per month. Any such changes shall become effective only after fourteen (14) days from the date thereof.
 
 ## 3. Competition
