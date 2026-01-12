@@ -119,7 +119,7 @@ const themeConfig = {
                         href: 'https://github.com/apify/impit',
                     },
                     {
-                        label: 'mcpc - MCP CLI client',
+                        label: 'mcpc',
                         href: 'https://github.com/apify/mcp-cli',
                     },
                     {
