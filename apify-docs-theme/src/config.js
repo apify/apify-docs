@@ -115,16 +115,24 @@ const themeConfig = {
                         href: 'https://github.com/apify/got-scraping',
                     },
                     {
-                        label: 'Fingerprint Suite',
-                        href: 'https://github.com/apify/fingerprint-suite',
+                        label: 'impit',
+                        href: 'https://github.com/apify/impit',
                     },
                     {
-                        label: 'Apify on GitHub',
-                        href: 'https://github.com/apify',
+                        label: 'mcpc - MCP CLI client',
+                        href: 'https://github.com/apify/mcp-cli',
                     },
                     {
                         label: 'Actor whitepaper',
                         href: 'https://whitepaper.actor',
+                    },
+                    {
+                        label: 'proxy-chain',
+                        href: 'https://github.com/apify/proxy-chain',
+                    },
+                    {
+                        label: 'Apify on GitHub',
+                        href: 'https://github.com/apify',
                     },
                 ],
             },
