@@ -19,7 +19,7 @@ The last step will be to retrieve the most similar documents.
 This example uses the Apify-Haystack Python integration published on [PyPi](https://pypi.org/project/apify-haystack/).
 Before we start with the integration, we need to install all dependencies:
 
-```bash
+```shell
 pip install apify-haystack haystack-ai
 ```
 

@@ -38,8 +38,11 @@
         "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
         "lint:md": "markdownlint '**/*.md'",
         "lint:md:fix": "markdownlint '**/*.md' --fix",
-        "lint:code": "eslint .",
-        "lint:code:fix": "eslint . --fix",
+        "lint:code": "npm run lint:code:js && npm run lint:code:py",
+        "lint:code:fix": "npm run lint:code:js:fix",
+        "lint:code:js": "eslint .",
+        "lint:code:js:fix": "eslint . --fix",
+        "lint:code:py": "uv run --with doccmd --with ruff doccmd --language=py --command=\"ruff check --quiet\" ./sources",
         "postinstall": "patch-package",
         "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs"
     },

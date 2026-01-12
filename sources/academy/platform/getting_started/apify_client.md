@@ -38,21 +38,20 @@ pip install apify-client
 
 After installing the package, let's make a file named `client.js` (or `client.py` for Python) and import the Apify client like so:
 
+<!-- group doccmd[all]: start -->
+
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```js
-// client.js
+```js title="client.js"
 import { ApifyClient } from 'apify-client';
 ```
 
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```py
-# client.py
+```py title="client.py"
 from apify_client import ApifyClient
-
 ```
 
 </TabItem>
@@ -68,9 +67,7 @@ Before we can use the client though, we must create a new instance of the `Apify
 <TabItem value="Node.js" label="Node.js">
 
 ```js
-const client = new ApifyClient({
-    token: 'YOUR_TOKEN',
-});
+const client = new ApifyClient({ token: 'YOUR_TOKEN' });
 ```
 
 </TabItem>
@@ -78,7 +75,6 @@ const client = new ApifyClient({
 
 ```py
 client = ApifyClient(token='YOUR_TOKEN')
-
 ```
 
 </TabItem>
@@ -110,7 +106,6 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
     'num1': 4,
     'num2': 2
 })
-
 ```
 
 </TabItem>
@@ -142,7 +137,6 @@ const dataset = client.dataset(run.defaultDatasetId);
 
 ```py
 dataset = client.dataset(run['defaultDatasetId'])
-
 ```
 
 </TabItem>
@@ -155,7 +149,6 @@ Finally, we can download the items in the dataset by using the **list items** fu
 
 ```js
 const { items } = await dataset.listItems();
-
 console.log(items);
 ```
 
@@ -164,21 +157,20 @@ console.log(items);
 
 ```py
 items = dataset.list_items().items
-
 print(items)
-
 ```
 
 </TabItem>
 </Tabs>
+
+<!-- group doccmd[all]: end -->
 
 The final code for running the Actor and fetching its dataset items looks like this:
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```js
-// client.js
+```js title="client.js"
 import { ApifyClient } from 'apify-client';
 
 const client = new ApifyClient({
@@ -191,17 +183,14 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
 });
 
 const dataset = client.dataset(run.defaultDatasetId);
-
 const { items } = await dataset.listItems();
-
 console.log(items);
 ```
 
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```py
-# client.py
+```py title="client.py"
 from apify_client import ApifyClient
 
 client = ApifyClient(token='YOUR_TOKEN')
@@ -212,11 +201,8 @@ actor = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 })
 
 dataset = client.dataset(run['defaultDatasetId'])
-
 items = dataset.list_items().items
-
 print(items)
-
 ```
 
 </TabItem>
@@ -230,10 +216,15 @@ Let's change these two Actor settings via the Apify client using the [`actor.upd
 
 First, we'll create a pointer to our Actor, similar to before (except this time, we won't be using `.call()` at the end):
 
+<!-- group doccmd[all]: start -->
+
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
 ```js
+import { ApifyClient } from 'apify-client';
+const client = new ApifyClient({ token: 'YOUR_TOKEN' });
+
 const actor = client.actor('YOUR_USERNAME/adding-actor');
 ```
 
@@ -241,8 +232,10 @@ const actor = client.actor('YOUR_USERNAME/adding-actor');
 <TabItem value="Python" label="Python">
 
 ```py
-actor = client.actor('YOUR_USERNAME/adding-actor')
+from apify_client import ApifyClient
+client = ApifyClient(token='YOUR_TOKEN')
 
+actor = client.actor('YOUR_USERNAME/adding-actor')
 ```
 
 </TabItem>
@@ -267,12 +260,17 @@ await actor.update({
 <TabItem value="Python" label="Python">
 
 ```py
-actor.update(default_run_build='latest', default_run_memory_mbytes=256, default_run_timeout_secs=20)
-
+actor.update(
+    default_run_build='latest',
+    default_run_memory_mbytes=256,
+    default_run_timeout_secs=20,
+)
 ```
 
 </TabItem>
 </Tabs>
+
+<!-- group doccmd[all]: end -->
 
 After running the code, go back to the **Settings** page of **adding-actor**. If your default options now look like this, then it worked!:
 
