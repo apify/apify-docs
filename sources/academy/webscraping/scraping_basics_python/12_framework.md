@@ -331,9 +331,9 @@ async def main():
 
     await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
     # highlight-next-line
-    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
     # highlight-next-line
-    await crawler.export_data_csv(path='dataset.csv')
+    await crawler.export_data(path='dataset.csv')
 ```
 
 After running the scraper again, there should be two new files in your directory, `dataset.json` and `dataset.csv`, containing all the data. If we peek into the JSON file, it should have indentation.
@@ -389,8 +389,8 @@ async def main():
 
     # highlight-next-line
     crawler.log.info("Exporting data")
-    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
-    await crawler.export_data_csv(path='dataset.csv')
+    await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data(path='dataset.csv')
 
 def parse_variant(variant):
     text = variant.text.strip()
@@ -500,7 +500,7 @@ If you export the dataset as JSON, it should look something like this:
           })
 
       await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
-      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+      await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
 
   if __name__ == '__main__':
       asyncio.run(main())
@@ -598,7 +598,7 @@ When navigating to the first IMDb search result, you might find it helpful to kn
           })
 
       await crawler.run(["https://www.netflix.com/tudum/top10"])
-      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+      await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
 
   if __name__ == '__main__':
       asyncio.run(main())
