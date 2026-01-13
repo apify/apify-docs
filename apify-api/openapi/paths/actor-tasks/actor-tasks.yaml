@@ -164,12 +164,7 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - data
-            properties:
-              data:
-                $ref: "../../components/schemas/actor-tasks/Task.yaml"
+            $ref: "../../components/schemas/actor-tasks/CreateTaskResponse.yaml"
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
