@@ -69,7 +69,7 @@ You can define a dynamic memory expression in your `actor.json`:
 
 ```json
 {
-  "defaultMemoryMbytes": "get(input, 'startUrls.length' * 1024)"
+  "defaultMemoryMbytes": "get(input, 'startUrls.length') * 1024"
 }
 ```
 
