@@ -25,6 +25,7 @@ import TabItem from '@theme/TabItem';
     "name": "name-of-my-scraper",
     "version": "0.0",
     "buildTag": "latest",
+    "defaultMemoryMbytes": "get(input, 'startUrls.length', 1) * 1024",
     "minMemoryMbytes": 256,
     "maxMemoryMbytes": 4096,
     "environmentVariables": {
@@ -66,7 +67,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available.  |
+| `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available. |
 | `name` | Required | The name of the Actor. |
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
 | `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
@@ -77,6 +78,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `input` | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. You can also provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
 | `changelog` | Optional | The path to the CHANGELOG file displayed in the Information tab of the Actor in Apify Console next to Readme. If not provided, the CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` is used, in this order of preference. Your Actor doesn't need to have a CHANGELOG but it is a good practice to keep it updated for published Actors. |
 | `storages.dataset` | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](/platform/actors/development/actor-definition/dataset-schema) about Actor dataset schemas. |
+| `defaultMemoryMbytes` | Optional | Specifies the default amount of memory in megabytes to be used when the Actor is started. Can be an integer or a [dynamic memory expression string](./dynamic_actor_memory/index.md). |
 | `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an _integer_ value. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `usesStandbyMode` | Optional | Boolean specifying whether the Actor will have [Standby mode](../programming_interface/actor_standby.md) enabled. |

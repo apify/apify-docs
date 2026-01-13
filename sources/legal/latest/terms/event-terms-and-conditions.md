@@ -1,7 +1,7 @@
 ---
 title: Apify Event Terms and Conditions
 description: Apify Event Terms and Conditions govern events organized by Apify.
-sidebar_position: 7
+sidebar_position: 8
 sidebar_label: Event Terms
 category: legal
 slug: /event-terms-and-conditions

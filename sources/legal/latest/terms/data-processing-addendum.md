@@ -1,7 +1,7 @@
 ---
 title: Apify Data Processing Addendum
 description: Apify Data Processing Addendum serve as a framework for processing of personal data on behalf of Apify customers.
-sidebar_position: 3
+sidebar_position: 4
 sidebar_label: Data Processing Addendum
 category: legal
 slug: /data-processing-addendum
