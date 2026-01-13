@@ -10,30 +10,22 @@ import styles from './styles.module.css';
 interface HeroPromotionProps {
     badge: string;
     label: string;
-    labelMobile?: string;
     href: string;
 }
 
-function HeroPromotion({ badge, label, labelMobile, href }: HeroPromotionProps) {
+function HeroPromotion({ badge, label, href }: HeroPromotionProps) {
     return (
         <a href={href} className={styles.heroPromotionLink}>
             <Text className={styles.heroPromotionBadge} as="span">
                 {badge}
             </Text>
-            <div className={styles.heroPromotionContent}>
-                <Text className={styles.heroPromotionLabel} weight="medium">
-                    <span className={styles.heroPromotionLabelDesktop}>
-                        {label}
-                    </span>
-                    <span className={styles.heroPromotionLabelMobile}>
-                        {labelMobile || label}
-                    </span>
-                </Text>
-                <ArrowRightIcon
-                    className={styles.heroPromotionArrow}
-                    size="16"
-                />
-            </div>
+            <Text className={styles.heroPromotionLabel} weight="medium">
+                {label}
+            </Text>
+            <ArrowRightIcon
+                className={styles.heroPromotionArrow}
+                size="16"
+            />
         </a>
     );
 }

@@ -62,12 +62,6 @@ Run your Actor with:
 apify run
 ```
 
-:::tip Clear data with --purge
-
-During development, use `apify run --purge`. This clears all results from previous runs, so it's as if you're running the Actor for the first time.
-
-:::
-
 You'll see output similar to this in your terminal:
 
 ```bash

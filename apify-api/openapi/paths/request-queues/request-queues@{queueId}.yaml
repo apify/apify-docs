@@ -62,7 +62,7 @@ put:
     - Storage/Request queues
   summary: Update request queue
   description: |
-    Updates a request queue's name using a value specified by a JSON object
+    Updates a request queue's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
 
     The response is the updated request queue object, as returned by the

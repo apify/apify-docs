@@ -51,5 +51,7 @@ properties:
     type: string
     description: "A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the key-value store."
     nullable: true
+  generalAccess:
+    $ref: ../common/GeneralAccessEnum.yaml
   stats:
     $ref: ./KeyValueStoreStats.yaml

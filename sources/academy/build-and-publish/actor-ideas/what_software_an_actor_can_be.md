@@ -12,7 +12,7 @@ Learn what kind of software tools are suitable to be packaged and published as A
 
 ## What can you build as an Actor
 
-[Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
+[Actors](https://docs.apify.com/platform/actors) are a new way for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
 
 They are useful for backend automation jobs, which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
 
@@ -72,6 +72,7 @@ or the following list:
 
 - https://github.com/bytedance/Dolphin
 - https://github.com/google/langextract
+- https://github.com/ytdl-org/youtube-dl
 - https://github.com/virattt/ai-hedge-fund
 - https://github.com/jamesturk/scrapeghost/
 - https://github.com/idosal/git-mcp
@@ -190,7 +191,7 @@ Competition motivates developers to improve the code. You can still build the Ac
 
 ### Submit your own ideas
 
-You can submit your own Actor ideas through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas). Provide clear details about what the tool should do and how it should work.
+You can submit your own Actor ideas through [this form](https://apify.com/ideas?modal=ACTOR_IDEA). Please provide clear details about what the tool should do and how it should work.
 
 ## Find ideas from other sources
 

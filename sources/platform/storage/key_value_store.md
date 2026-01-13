@@ -37,17 +37,20 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
-To view a key-value store's content, click on its **Store ID**.
-Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
-
 
 ![Key-value stores detail](./images/key-value-stores-detail-header.png)
 
-On the bottom of the page, you can view, download, and delete the individual records.
+At the bottom of the page, you can work with records in your key-value store:
+
+- Upload one or more new records and set their keys.
+- View individual records.
+- Download individual records, or download all records at once.
+- Copy shareable links to records.
+- Delete records.
 
 ![Key-value stores detail](./images/key-value-stores-detail-records.png)
-
 
 ### Apify API
 
@@ -55,7 +58,11 @@ The [Apify API](/api/v2/storage-key-value-stores) enables you programmatic acces
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+:::tip Authentication
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](../integrations/programming/api.md#authentication) documentation.
+
+:::
 
 To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2/key-value-stores-get) endpoint.
 
@@ -138,7 +145,7 @@ When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK
 
 Additionally, you can iterate over the keys in your store using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -202,7 +209,7 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 For Python [Actor](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -210,7 +217,7 @@ You can find _INPUT.json_ and other key-value store files in the location below.
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
-The default key-value store's ID is _default_. The \{KEY} is the record's _key_ and \{EXT} corresponds to the record value's MIME content type.
+The default key-value store's ID is _default_. The `{KEY}` is the record's _key_ and `{EXT}` corresponds to the record value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. See the `KeyValueStore` class [documentation](/sdk/python/reference/class/KeyValueStore) for the full list.
 
@@ -330,4 +337,4 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 ## Limits
 
-- The maximum length for key of key-value store is 63 characters.
+- The maximum length for a key in a key-value store is 63 characters.

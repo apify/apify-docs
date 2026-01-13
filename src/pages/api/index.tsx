@@ -121,7 +121,7 @@ export default function Api() {
             <UiLibraryWrapper>
                 <Hero
                     heading="Apify API"
-                    description={<>Apify API provides programmatic access to the <Link to="/">Apify Platform</Link></>}
+                    description={<>Apify API provides programmatic access to the <Link to="/">Apify platform</Link></>}
                 />
                 <SectionWrapper
                     className={styles.LargerContent}

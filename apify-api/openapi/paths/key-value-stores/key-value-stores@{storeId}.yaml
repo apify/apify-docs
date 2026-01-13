@@ -39,7 +39,7 @@ put:
     - Storage/Key-value stores
   summary: Update store
   description: |
-    Updates a key-value store's name using a value specified by a JSON object
+    Updates a key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
 
     The response is the updated key-value store object, as returned by the [Get
