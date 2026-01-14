@@ -12,31 +12,23 @@ const $ = cheerio.load(html);
 
 for (const tableElement of $('.content table').toArray()) {
   const $table = $(tableElement);
-  const rows = $table.find('tr');
+  const rows = $table.find('tr').toArray();
 
-  for (const rowElement of rows.toArray()) {
-    const $row = $(rowElement);
-    const cells = $row.find('td');
-
-    if (cells.length > 0) {
-      const $firstColumn = $(cells[0]);
-      const text = $firstColumn.text().trim();
-      if (text) {
-        console.log(text);
-      }
+  for (const rowElement of rows) {
+    const $cells = $(rowElement).find('td');
+    const $firstCell = $cells.eq(0);
+    const firstCellText = $firstCell.text().trim();
+    if (firstCellText) {
+      console.log(firstCellText);
     }
   }
 
-  for (const rowElement of rows.toArray()) {
-    const $row = $(rowElement);
-    const cells = $row.find('td');
-
-    if (cells.length > 2) {
-      const $thirdColumn = $(cells[2]);
-      const text = $thirdColumn.text().trim();
-      if (text) {
-        console.log(text);
-      }
+  for (const rowElement of rows) {
+    const $cells = $(rowElement).find('td');
+    const $thirdCell = $cells.eq(2);
+    const thirdCellText = $thirdCell.text().trim();
+    if (thirdCellText) {
+      console.log(thirdCellText);
     }
   }
 }
