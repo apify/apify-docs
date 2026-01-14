@@ -39,9 +39,7 @@ properties:
     type: string
     example: 0.0.2
   meta:
-    allOf:
-      - $ref: ./RunMeta.yaml
-      - {}
+    $ref: ./RunMeta.yaml
   usageTotalUsd:
     type: number
     example: 0.2
