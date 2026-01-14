@@ -57,8 +57,8 @@ properties:
   defaultRunOptions:
       $ref: ./DefaultRunOptions.yaml
   exampleRunInput:
-    oneOf:
-      - nullable: true
+    nullable: true
+    allOf:
       - $ref: ./ExampleRunInput.yaml
   isDeprecated:
     type: boolean
@@ -72,6 +72,6 @@ properties:
     nullable: true
     example: My Actor
   taggedBuilds:
-    oneOf:
-      - nullable: true
+    nullable: true
+    allOf:
       - $ref: ./TaggedBuilds.yaml

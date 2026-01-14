@@ -1,0 +1,14 @@
+title: SourceCodeFolder
+type: object
+required:
+  - name
+  - folder
+properties:
+  name:
+    type: string
+    example: src/placeholder
+  folder:
+    type: boolean
+    enum:
+      - true
+    example: true
