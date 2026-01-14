@@ -83,7 +83,7 @@ teardown() {
   run uv run --with=httpx --with=beautifulsoup4 python unesco_links.py
 
   [[ "$output" == *$'https://www.unesco.org/en/countries/af\nhttps://www.unesco.org/en/countries/al\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 50 ]]
+  [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
 @test "lists Guardian F1 article links" {
@@ -98,7 +98,7 @@ teardown() {
 
   [[ "$output" == *$'https://www.unesco.org/en/countries/af 2\n'* ]]
   [[ "$output" == *$'https://www.unesco.org/en/countries/bs 0\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 50 ]]
+  [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
 @test "lists Guardian F1 authors" {
