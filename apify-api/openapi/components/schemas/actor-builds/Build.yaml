@@ -31,33 +31,25 @@ properties:
   meta:
     $ref: ./BuildsMeta.yaml
   stats:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./BuildStats.yaml
-      - {}
+      - $ref: ./BuildStats.yaml
   options:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./BuildOptions.yaml
-      - {}
+      - $ref: ./BuildOptions.yaml
   usage:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./BuildUsage.yaml
-      - {}
+      - $ref: ./BuildUsage.yaml
   usageTotalUsd:
     type: number
     nullable: true
     example: 0.02
   usageUsd:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./BuildUsage.yaml
-      - {}
+      - $ref: ./BuildUsage.yaml
   inputSchema:
     type: string
     nullable: true
@@ -138,4 +130,3 @@ example:
       minMemoryMbytes: 512
       maxMemoryMbytes: 2048
       usesStandbyMode: false
-

@@ -26,6 +26,4 @@ properties:
     type: number
     example: 0.02
   meta:
-    allOf:
-      - $ref: ./BuildsMeta.yaml
-      - {}
+    $ref: ./BuildsMeta.yaml
