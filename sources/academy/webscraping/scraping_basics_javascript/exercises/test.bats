@@ -34,15 +34,16 @@ teardown_file() {
 @test "lists IMO countries" {
   run node imo_countries.mjs
 
-  [[ "$output" == *$'\nLiberia\nLibya\n'* ]]
+  [[ "$output" == *$'Albania\nLibya\n'* ]]
   [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "lists African countries with a single selector" {
-  run node wikipedia_countries_single_selector.mjs
+@test "lists IMO countries with a single selector" {
+  run node imo_countries_single_selector.mjs
 
-  [[ "$output" == *$'Comoros\nDemocratic Republic of the Congo\n'* ]]
+  [[ "$output" == *$'Albania\nLibya\n'* ]]
+  [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 

@@ -9,7 +9,7 @@ import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import IMOCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.mjs';
-import WikipediaCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries_single_selector.mjs';
+import IMOCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/imo_countries_single_selector.mjs';
 import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_titles.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -224,11 +224,11 @@ Your program should print the following:
 
 ```text
 Albania
+Libya
 Algeria
+Lithuania
 ...
 Liberia
-Libya
-...
 Zimbabwe
 Faroes
 Hong Kong, China
@@ -253,7 +253,7 @@ You may want to check out Cheerio's [`.eq()`](https://cheerio.js.org/docs/api/cl
 
 ### Use CSS selectors to their max
 
-Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
+Simplify your International Maritime Organization scraper from the previous exercise. Use one `for` loop and a single CSS selector that covers every member cell across the tables.
 
 :::tip Need a nudge?
 
@@ -266,7 +266,7 @@ You may want to check out the following pages:
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WikipediaCountriesSingleSelectorExercise.code}</CodeBlock>
+  <CodeBlock language="js">{IMOCountriesSingleSelectorExercise.code}</CodeBlock>
 </details>
 
 ### Scrape F1 news

@@ -27,15 +27,16 @@ teardown() {
 @test "lists IMO countries" {
   run uv run --with=httpx --with=beautifulsoup4 python imo_countries.py
 
-  [[ "$output" == *$'\nLiberia\nLibya\n'* ]]
+  [[ "$output" == *$'Albania\nLibya\n'* ]]
   [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "lists African countries with a single selector" {
-  run uv run --with=httpx --with=beautifulsoup4 python wikipedia_countries_single_selector.py
+@test "lists IMO countries with a single selector" {
+  run uv run --with=httpx --with=beautifulsoup4 python imo_countries_single_selector.py
 
-  [[ "$output" == *$'Comoros\nDemocratic Republic of the Congo\n'* ]]
+  [[ "$output" == *$'Albania\nLibya\n'* ]]
+  [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
