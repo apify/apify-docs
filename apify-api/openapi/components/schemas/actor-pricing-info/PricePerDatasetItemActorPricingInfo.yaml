@@ -8,8 +8,7 @@ allOf:
       - unitName
     properties:
       pricingModel:
-        type: string
-        enum: [PRICE_PER_DATASET_ITEM]
+        $ref: ./PricingModel.yaml
       unitName:
         type: string
         description: "Name of the unit that is being charged"
