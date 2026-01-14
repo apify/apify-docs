@@ -235,6 +235,12 @@ Hong Kong, China
 Macao, China
 ```
 
+:::tip Need a nudge?
+
+You may want to check out Cheerio's [`.eq()`](https://cheerio.js.org/docs/api/classes/Cheerio#eq).
+
+:::
+
 <details>
   <summary>Solution</summary>
   <CodeBlock language="js">{IMOCountriesExercise.code}</CodeBlock>
