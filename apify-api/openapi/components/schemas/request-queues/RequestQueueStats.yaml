@@ -1,0 +1,18 @@
+title: RequestQueueStats
+type: object
+properties:
+  deleteCount:
+    type: number
+    example: 0
+  headItemReadCount:
+    type: number
+    example: 5
+  readCount:
+    type: number
+    example: 100
+  storageBytes:
+    type: number
+    example: 1024
+  writeCount:
+    type: number
+    example: 10

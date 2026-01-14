@@ -4,6 +4,4 @@ required:
 type: object
 properties:
   data:
-    allOf:
-      - $ref: ./RequestQueue.yaml
-      - {}
+    $ref: ./RequestQueue.yaml
