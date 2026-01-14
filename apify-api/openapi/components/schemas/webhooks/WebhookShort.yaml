@@ -34,8 +34,8 @@ properties:
   eventTypes:
     type: array
     items:
-      type: string
-    example:
+      $ref: ./WebhookEventType.yaml
+    examples:
       - ACTOR.RUN.SUCCEEDED
   condition:
     $ref: ./WebhookCondition.yaml

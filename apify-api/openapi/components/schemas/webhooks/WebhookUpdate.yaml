@@ -8,10 +8,10 @@ properties:
   eventTypes:
     type: array
     items:
-      type: string
+      $ref: ./WebhookEventType.yaml
     description: ''
     nullable: true
-    example:
+    examples:
       - ACTOR.RUN.SUCCEEDED
   condition:
     nullable: true
