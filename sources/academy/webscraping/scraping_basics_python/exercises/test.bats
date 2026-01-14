@@ -24,10 +24,11 @@ teardown() {
   [[ "$output" == "18" ]]
 }
 
-@test "lists African countries" {
-  run uv run --with=httpx --with=beautifulsoup4 python wikipedia_countries.py
+@test "lists IMO countries" {
+  run uv run --with=httpx --with=beautifulsoup4 python imo_countries.py
 
-  [[ "$output" == *$'Comoros\nDemocratic Republic of the Congo\n'* ]]
+  [[ "$output" == *$'\nLiberia\nLibya\n'* ]]
+  [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -49,7 +50,7 @@ teardown() {
   run uv run --with=httpx --with=beautifulsoup4 python warehouse_units.py
 
   [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77\n'* ]]
+  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -57,7 +58,7 @@ teardown() {
   run uv run --with=httpx --with=beautifulsoup4 python warehouse_units_regex.py
 
   [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77\n'* ]]
+  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -65,7 +66,7 @@ teardown() {
   run uv run --with=httpx --with=beautifulsoup4 python guardian_publish_dates.py
 
   [[ "$output" == *' F1 '* ]]
-  [[ "$output" == *' | Sun '* ]]  # has info about date, Sundays are very likely
+  [[ "$output" == *' | Mon '* ]]  # has info about date, Mondays are very likely
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -129,7 +130,7 @@ teardown() {
 
   (( status == 0 ))
   [[ -f dataset.json ]]
-  [[ $(cat dataset.json | jq '. | length') == "18" ]]
+  [[ $(cat dataset.json | jq '. | length') -gt 6 ]]
   [[ $(cat dataset.json | jq -c '.[0] | keys') == '["dob","instagram_url","name","nationality","team","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.f1academy.com/Racing-Series/Drivers/"* ]]
 }

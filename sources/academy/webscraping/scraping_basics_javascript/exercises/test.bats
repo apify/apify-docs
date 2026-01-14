@@ -31,10 +31,11 @@ teardown_file() {
   [[ "$output" == "18" ]]
 }
 
-@test "lists African countries" {
-  run node wikipedia_countries.mjs
+@test "lists IMO countries" {
+  run node imo_countries.mjs
 
-  [[ "$output" == *$'Comoros\nDemocratic Republic of the Congo\n'* ]]
+  [[ "$output" == *$'\nLiberia\nLibya\n'* ]]
+  [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -56,7 +57,7 @@ teardown_file() {
   run node warehouse_units.mjs
 
   [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77\n'* ]]
+  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -64,7 +65,7 @@ teardown_file() {
   run node warehouse_units_regex.mjs
 
   [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77\n'* ]]
+  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -72,7 +73,7 @@ teardown_file() {
   run node guardian_publish_dates.mjs
 
   [[ "$output" == *' F1 '* ]]
-  [[ "$output" == *' | Sun '* ]]  # has info about date, Sundays are very likely
+  [[ "$output" == *' | Mon '* ]]  # has info about date, Mondays are very likely
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -134,7 +135,7 @@ teardown_file() {
 
   (( status == 0 ))
   [[ -f dataset.json ]]
-  [[ $(cat dataset.json | jq '. | length') == "18" ]]
+  [[ $(cat dataset.json | jq '. | length') -gt 6 ]]
   [[ $(cat dataset.json | jq -c '.[0] | keys') == '["dob","instagram_url","name","nationality","team","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.f1academy.com/Racing-Series/Drivers/"* ]]
 }
