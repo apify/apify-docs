@@ -5,17 +5,8 @@ required:
 properties:
   data:
     allOf:
-      - $ref: ../common/PaginationResponse.yaml
-      - type: object
-        required:
-          - items
-        properties:
-          items:
-            type: array
-            items:
-              $ref: ./KeyValueStore.yaml
-            description: ''
-        example:    
+      - $ref: ./ListOfKeyValueStores.yaml
+      - example:
           items:
             - id: WkzbQMuFYuamGv3YF
               name: d7b9MDYsbtX5L7XAj

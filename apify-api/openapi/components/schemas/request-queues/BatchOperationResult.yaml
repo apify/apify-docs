@@ -1,0 +1,14 @@
+title: BatchOperationResult
+type: object
+required:
+  - processedRequests
+  - unprocessedRequests
+properties:
+  processedRequests:
+    type: array
+    items:
+      $ref: './ProcessedRequest.yaml'
+  unprocessedRequests:
+    type: array
+    items:
+      $ref: './UnprocessedRequest.yaml'

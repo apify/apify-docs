@@ -1,0 +1,22 @@
+title: QueueHeadItem
+type: object
+properties:
+  id:
+    type: string
+    example: 8OamqXBCpPHxyH9
+  retryCount:
+    type: number
+    example: 0
+  uniqueKey:
+    type: string
+    example: 'http://example.com'
+  url:
+    type: string
+    example: 'http://example.com'
+  method:
+    type: string
+    example: GET
+required:
+  - id
+  - uniqueKey
+  - url

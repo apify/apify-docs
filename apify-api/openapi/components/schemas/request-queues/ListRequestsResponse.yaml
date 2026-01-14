@@ -4,22 +4,4 @@ required:
 type: object
 properties:
   data:
-    type: object
-    properties:
-      items:
-        type: array
-        items:
-          $ref: ./RequestQueueItems.yaml
-        description: ''
-      count:
-        type: number
-        example: 2
-      limit:
-        type: number
-        example: 2
-      exclusiveStartId:
-        type: string
-        example: Ihnsp8YrvJ8102Kj
-    required:
-      - items
-      - limit
+    $ref: './ListOfRequests.yaml'

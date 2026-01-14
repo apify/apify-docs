@@ -1,0 +1,26 @@
+title: LockedQueueHeadItem
+type: object
+properties:
+  id:
+    type: string
+    example: 8OamqXBCpPHxyj9
+  retryCount:
+    type: number
+    example: 0
+  uniqueKey:
+    type: string
+    example: 'http://example.com'
+  url:
+    type: string
+    example: 'http://example.com'
+  method:
+    type: string
+    example: GET
+  lockExpiresAt:
+    type: string
+    example: '2022-06-14T23:00:00.000Z'
+required:
+  - id
+  - uniqueKey
+  - url
+  - lockExpiresAt
