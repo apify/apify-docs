@@ -102,7 +102,7 @@ properties:
       Total cost in USD for this run. Represents what you actually pay.
       For run owners: includes platform usage (compute units) and/or event costs depending on the Actor's pricing model.
       For non-owners: only available for Pay-Per-Event actors (event costs only).
-      Not available for Pay-Per-Result actors when you're not the Actor owner.
+      Not available for Pay-Per-Result Actors when you're not the Actor owner.
     example: 0.2654
   usageUsd:
     nullable: true
