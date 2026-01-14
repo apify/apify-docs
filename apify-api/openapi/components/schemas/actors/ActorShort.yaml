@@ -22,3 +22,8 @@ properties:
   username:
     type: string
     example: janedoe
+  title:
+    type: string
+    example: 'Hello World Example'
+  stats:
+    $ref: ./ActorStats.yaml
