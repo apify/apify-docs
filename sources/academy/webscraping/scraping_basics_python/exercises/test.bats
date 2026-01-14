@@ -79,12 +79,11 @@ teardown() {
   [[ "$output" == "{'title': 'Premium Speakers', 'min_price': 75000, 'price': 75000}" ]]
 }
 
-@test "lists Wikipedia country links" {
-  run uv run --with=httpx --with=beautifulsoup4 python wikipedia_country_links.py
+@test "lists UNESCO member links" {
+  run uv run --with=httpx --with=beautifulsoup4 python unesco_links.py
 
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Algeria\nhttps://en.wikipedia.org/wiki/Angola\n'* ]]
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/R%C3%A9union\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *$'https://www.unesco.org/en/countries/af\nhttps://www.unesco.org/en/countries/al\n'* ]]
+  [[ $(echo "$output" | wc -l) -gt 50 ]]
 }
 
 @test "lists Guardian F1 article links" {

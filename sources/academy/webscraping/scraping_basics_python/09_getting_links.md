@@ -7,7 +7,7 @@ slug: /scraping-basics-python/getting-links
 
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WikipediaCountryLinksExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_country_links.py';
+import UNESCOLinksExercise from '!!raw-loader!roa-loader!./exercises/unesco_links.py';
 import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.py';
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use BeautifulSoup to find the relevant bits of HTML.**
@@ -327,27 +327,27 @@ Ta-da! We've managed to get links leading to the product pages. In the next less
 
 <Exercises />
 
-### Scrape links to countries in Africa
+### Scrape links to UNESCO members
 
-Download Wikipedia's page with the list of African countries, use Beautiful Soup to parse it, and print links to Wikipedia pages of all the states and territories mentioned in all tables. Start with this URL:
+Download UNESCO's page with the list of its members, use Beautiful Soup to parse it, and print links to detail pages of all the members. Start with this URL:
 
 ```text
-https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+https://www.unesco.org/en/countries
 ```
 
 Your program should print the following:
 
 ```text
-https://en.wikipedia.org/wiki/Algeria
-https://en.wikipedia.org/wiki/Angola
-https://en.wikipedia.org/wiki/Benin
-https://en.wikipedia.org/wiki/Botswana
+https://www.unesco.org/en/countries/af
+https://www.unesco.org/en/countries/al
+https://www.unesco.org/en/countries/dz
+https://www.unesco.org/en/countries/ad
 ...
 ```
 
 <details>
-  <summary>Solution</summary>
-  <CodeBlock language="py">{WikipediaCountryLinksExercise.code}</CodeBlock>
+    <summary>Solution</summary>
+    <CodeBlock language="py">{UNESCOLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news
