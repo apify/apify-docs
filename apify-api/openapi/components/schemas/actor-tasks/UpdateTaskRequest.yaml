@@ -34,20 +34,14 @@ properties:
     type: string
     nullable: true
   stats:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskStats.yaml
-      - {}
+      - $ref: ./TaskStats.yaml
   options:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskOptions.yaml
-      - {}
+      - $ref: ./TaskOptions.yaml
   input:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./Task.yaml
-      - {}
+      - $ref: ./TaskInput.yaml

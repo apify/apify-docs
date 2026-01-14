@@ -39,8 +39,6 @@ properties:
     type: string
     example: '2018-10-26T13:30:49.578Z'
   stats:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskStats.yaml
-      - {}
+      - $ref: ./TaskStats.yaml

@@ -11,14 +11,10 @@ properties:
     type: string
     example: my-task
   options:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskOptions.yaml
-      - {}
+      - $ref: ./TaskOptions.yaml
   input:
+    nullable: true
     allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskInput.yaml
-      - {}
+      - $ref: ./TaskInput.yaml
