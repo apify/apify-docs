@@ -16,15 +16,13 @@ for (const tableElement of $('.content table').toArray()) {
 
   for (const rowElement of rows) {
     const $cells = $(rowElement).find('td');
+
     const $firstCell = $cells.eq(0);
     const firstCellText = $firstCell.text().trim();
     if (firstCellText) {
       console.log(firstCellText);
     }
-  }
 
-  for (const rowElement of rows) {
-    const $cells = $(rowElement).find('td');
     const $thirdCell = $cells.eq(2);
     const thirdCellText = $thirdCell.text().trim();
     if (thirdCellText) {

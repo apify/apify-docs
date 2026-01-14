@@ -14,8 +14,6 @@ for table in soup.select(".content table"):
             first_column = cells[0]
             if text := first_column.text.strip():
                 print(text)
-    for row in table.select("tr"):
-        if cells := row.select("td"):
             if len(cells) > 2:
                 third_column = cells[2]
                 if text := third_column.text.strip():
