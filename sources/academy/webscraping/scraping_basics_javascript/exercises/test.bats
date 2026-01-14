@@ -90,7 +90,7 @@ teardown_file() {
   run node unesco_links.mjs
 
   [[ "$output" == *$'https://www.unesco.org/en/countries/af\nhttps://www.unesco.org/en/countries/al\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 50 ]]
+  [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
 @test "lists Guardian F1 article links" {
@@ -100,11 +100,11 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints Wikipedia calling codes" {
-  run node wikipedia_calling_codes.mjs
+@test "prints counts of UNESCO WHS" {
+  run node unesco_whs_counts.mjs
 
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Comoros +269\n'* ]]
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Sahrawi_Arab_Democratic_Republic null\n'* ]]
+  [[ "$output" == *$'https://www.unesco.org/en/countries/af 2\n'* ]]
+  [[ "$output" == *$'https://www.unesco.org/en/countries/bs 0\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 

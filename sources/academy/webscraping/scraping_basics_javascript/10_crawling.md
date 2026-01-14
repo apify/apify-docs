@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/crawling
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WikipediaCallingCodesExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_calling_codes.mjs';
+import UnescoWhsCountsExercise from '!!raw-loader!roa-loader!./exercises/unesco_whs_counts.mjs';
 import GuardianF1AuthorsExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_authors.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -210,24 +210,21 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 <Exercises />
 
-### Scrape calling codes of African countries
+### Scrape UNESCO World Heritage Sites
 
-Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
+Scrape links to detail pages of all UNESCO members. Follow each link and extract the count of the World Heritage Sites. Print the URL and the number for each country. Start with this URL:
 
 ```text
-https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+https://www.unesco.org/en/countries
 ```
 
 Your program should print the following:
 
 ```text
-https://en.wikipedia.org/wiki/Algeria +213
-https://en.wikipedia.org/wiki/Angola +244
-https://en.wikipedia.org/wiki/Benin +229
-https://en.wikipedia.org/wiki/Botswana +267
-https://en.wikipedia.org/wiki/Burkina_Faso +226
-https://en.wikipedia.org/wiki/Burundi null
-https://en.wikipedia.org/wiki/Cameroon +237
+https://www.unesco.org/en/countries/af 2
+https://www.unesco.org/en/countries/al 4
+https://www.unesco.org/en/countries/dz 7
+https://www.unesco.org/en/countries/ad 1
 ...
 ```
 
@@ -239,7 +236,7 @@ Locating cells in tables is sometimes easier if you know how to [filter](https:/
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WikipediaCallingCodesExercise.code}</CodeBlock>
+  <CodeBlock language="js">{UnescoWhsCountsExercise.code}</CodeBlock>
 </details>
 
 ### Scrape authors of F1 news articles
