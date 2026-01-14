@@ -93,12 +93,12 @@ teardown() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints Wikipedia calling codes" {
-  run uv run --with=httpx --with=beautifulsoup4 python wikipedia_calling_codes.py
+@test "prints counts of UNESCO WHS" {
+  run uv run --with=httpx --with=beautifulsoup4 python unesco_whs_counts.py
 
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Comoros +269\n'* ]]
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Sahrawi_Arab_Democratic_Republic null\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *$'https://www.unesco.org/en/countries/af 2\n'* ]]
+  [[ "$output" == *$'https://www.unesco.org/en/countries/bs 0\n'* ]]
+  [[ $(echo "$output" | wc -l) -gt 50 ]]
 }
 
 @test "lists Guardian F1 authors" {
