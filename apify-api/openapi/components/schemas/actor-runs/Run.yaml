@@ -93,18 +93,12 @@ properties:
     nullable: true
     example: master
   usage:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./RunUsage.yaml
-      - {}
+    nullable: true
+    $ref: ./RunUsage.yaml
   usageTotalUsd:
     type: number
     nullable: true
     example: 0.2654
   usageUsd:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./RunUsage.yaml
-      - {}
+    nullable: true
+    $ref: ./RunUsage.yaml
