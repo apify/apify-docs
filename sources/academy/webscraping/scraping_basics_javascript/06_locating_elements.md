@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/locating-elements
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WikipediaCountriesExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries.mjs';
+import IMOCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.mjs';
 import WikipediaCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries_single_selector.mjs';
 import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_titles.mjs';
 
@@ -212,39 +212,36 @@ Great! We have managed to use CSS selectors and walk the HTML tree to get a list
 
 <Exercises />
 
-### Scrape Wikipedia
+### Scrape list of International Maritime Organization members
 
-Download Wikipedia's page with the list of African countries, use Cheerio to parse it, and print short English names of all the states and territories mentioned in all tables. This is the URL:
+Download International Maritime Organization's page with the list of members, use Cheerio to parse it, and print names of all the members mentioned in all tables (including Associate Members). This is the URL:
 
 ```text
-https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+https://www.imo.org/en/ourwork/ero/pages/memberstates.aspx
 ```
 
 Your program should print the following:
 
 ```text
+Albania
 Algeria
-Angola
-Benin
-Botswana
-Burkina Faso
-Burundi
-Cameroon
-Cape Verde
-Central African Republic
-Chad
-Comoros
-Democratic Republic of the Congo
-Republic of the Congo
-Djibouti
 ...
+Liberia
+Libya
+...
+Zimbabwe
+Faroes
+Hong Kong, China
+Macao, China
 ```
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WikipediaCountriesExercise.code}</CodeBlock>
+  <CodeBlock language="js">{IMOCountriesExercise.code}</CodeBlock>
 
-  Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
+  We visit each row and if we find some [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells, we take the text of the first one. We print it if it's not empty. This approach skips [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) and empty rows.
+
+  Then we visit each row again and check if it contains more than two cells. If yes, we take the text of the third one, and again, we print it if it's not empty. This way we correctly process the large table with its left and right part.
 
 </details>
 
