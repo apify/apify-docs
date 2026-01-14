@@ -14,8 +14,7 @@ properties:
     type: string
     example: janedoe~my-actor
   status:
-    type: string
-    example: SUCCEEDED
+    $ref: ../common/ActorJobStatus.yaml
   startedAt:
     type: string
     example: '2019-11-30T07:34:24.202Z'

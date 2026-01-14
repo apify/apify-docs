@@ -35,8 +35,7 @@ properties:
     type: string
     example: '2019-12-12T09:30:12.202Z'
   status:
-    type: string
-    example: RUNNING
+    $ref: ../common/ActorJobStatus.yaml
   statusMessage:
     type: string
     nullable: true

@@ -26,8 +26,7 @@ properties:
     nullable: true
     example: '2019-12-12T09:30:12.202Z'
   status:
-    type: string
-    example: SUCCEEDED
+    $ref: ../common/ActorJobStatus.yaml
   meta:
     $ref: ./BuildsMeta.yaml
   stats:
