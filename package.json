@@ -77,7 +77,7 @@
         "docusaurus-plugin-openapi-docs": "^4.3.7",
         "docusaurus-theme-openapi-docs": "^4.3.7",
         "github-buttons": "^2.28.0",
-        "postcss-preset-env": "^10.0.0",
+        "postcss-preset-env": "^11.0.0",
         "prism-react-renderer": "^2.4.0",
         "prop-types": "^15.8.1",
         "raw-loader": "^4.0.2",
