@@ -10,7 +10,7 @@ if (!response.ok) {
 const html = await response.text();
 const $ = cheerio.load(html);
 
-for (const element of $('.node--type-country').toArray()) {;
+for (const element of $('.node--type-country').toArray()) {
   const $link = $(element).find('a').first();
   const url = new URL($link.attr('href'), listingUrl).href;
   console.log(url);
