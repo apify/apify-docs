@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/getting-links
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import UNESCOLinksExercise from '!!raw-loader!roa-loader!./exercises/unesco_links.mjs';
+import UnescoLinksExercise from '!!raw-loader!roa-loader!./exercises/unesco_links.mjs';
 import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -344,7 +344,7 @@ https://www.unesco.org/en/countries/ad
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{UNESCOLinksExercise.code}</CodeBlock>
+  <CodeBlock language="js">{UnescoLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news
