@@ -31,7 +31,7 @@ In this lesson, we'll only be focusing on this one endpoint, as it is the most p
 
 :::
 
-Now, let's move over to our favorite HTTP client (in this lesson we'll use Insomnia in order to prepare and send the request).
+Now, let's move over to our favorite HTTP client (in this lesson we'll use [Insomnia](https://insomnia.rest/) in order to prepare and send the request, but you can use [Postman](https://www.postman.com/), [Bruno](https://www.usebruno.com/), [Httpie](https://httpie.io/) or any other client you like).
 
 ## Providing input
 
