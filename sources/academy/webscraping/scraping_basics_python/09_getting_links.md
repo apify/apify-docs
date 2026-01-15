@@ -7,7 +7,7 @@ slug: /scraping-basics-python/getting-links
 
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import UNESCOLinksExercise from '!!raw-loader!roa-loader!./exercises/unesco_links.py';
+import UnescoLinksExercise from '!!raw-loader!roa-loader!./exercises/unesco_links.py';
 import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.py';
 
 **In this lesson, we'll locate and extract links to individual product pages. We'll use BeautifulSoup to find the relevant bits of HTML.**
@@ -347,7 +347,7 @@ https://www.unesco.org/en/countries/ad
 
 <details>
     <summary>Solution</summary>
-    <CodeBlock language="py">{UNESCOLinksExercise.code}</CodeBlock>
+    <CodeBlock language="py">{UnescoLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news

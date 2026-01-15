@@ -8,8 +8,8 @@ slug: /scraping-basics-javascript/locating-elements
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import IMOCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.mjs';
-import IMOCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/imo_countries_single_selector.mjs';
+import ImoCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.mjs';
+import ImoCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/imo_countries_single_selector.mjs';
 import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_titles.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -243,7 +243,7 @@ You may want to check out Cheerio's [`.eq()`](https://cheerio.js.org/docs/api/cl
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{IMOCountriesExercise.code}</CodeBlock>
+  <CodeBlock language="js">{ImoCountriesExercise.code}</CodeBlock>
 
   We visit each row and if we find some [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells, we take the text of the first and third ones. We print it if it's not empty. This approach skips [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) and empty rows.
 
@@ -264,7 +264,7 @@ You may want to check out the following pages:
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{IMOCountriesSingleSelectorExercise.code}</CodeBlock>
+  <CodeBlock language="js">{ImoCountriesSingleSelectorExercise.code}</CodeBlock>
 </details>
 
 ### Scrape F1 news
