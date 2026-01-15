@@ -100,8 +100,11 @@ const OpenSourceCards: React.FC = () => {
             <CardWithImageAndContent
                 image={
                     <Link to="https://github.com/apify/impit" className={styles.imageLink}>
-                        <div className={styles.placeholderImage}>
-                            <span>impit</span>
+                        <div className={styles.iconWrapper}>
+                            <img
+                                src={useBaseUrl('/img/landing-pages/impit.svg')}
+                                alt="impit"
+                            />
                         </div>
                     </Link>
                 }
@@ -132,8 +135,11 @@ const OpenSourceCards: React.FC = () => {
             <CardWithImageAndContent
                 image={
                     <Link to="https://github.com/apify/mcp-cli" className={styles.imageLink}>
-                        <div className={styles.placeholderImage}>
-                            <span>mcpc</span>
+                        <div className={styles.iconWrapper}>
+                            <img
+                                src={useBaseUrl('/img/landing-pages/mcpc.svg')}
+                                alt="mcpc"
+                            />
                         </div>
                     </Link>
                 }
@@ -164,8 +170,11 @@ const OpenSourceCards: React.FC = () => {
             <CardWithImageAndContent
                 image={
                     <Link to="https://github.com/apify/proxy-chain" className={styles.imageLink}>
-                        <div className={styles.placeholderImage}>
-                            <span>proxy-chain</span>
+                        <div className={styles.iconWrapper}>
+                            <img
+                                src={useBaseUrl('/img/landing-pages/proxy-chain.svg')}
+                                alt="proxy-chain"
+                            />
                         </div>
                     </Link>
                 }
@@ -196,8 +205,11 @@ const OpenSourceCards: React.FC = () => {
             <CardWithImageAndContent
                 image={
                     <Link to="https://whitepaper.actor" className={styles.imageLink}>
-                        <div className={styles.placeholderImage}>
-                            <span>Actor whitepaper</span>
+                        <div className={styles.iconWrapper}>
+                            <img
+                                src={useBaseUrl('/img/landing-pages/actor-whitepaper.svg')}
+                                alt="Actor whitepaper"
+                            />
                         </div>
                     </Link>
                 }
