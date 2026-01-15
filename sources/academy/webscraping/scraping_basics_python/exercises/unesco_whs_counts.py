@@ -10,17 +10,18 @@ def download(url: str) -> BeautifulSoup:
 
 
 def parse_whc_count(soup: BeautifulSoup) -> int:
-    for card in soup.select(".card-body"):
-        card_title = card.select_one(".card-title").text
-        if "World Heritage Sites" in card_title:
-            return int(card.select_one(".card-number").text.strip())
+    for info_card in soup.select(".card-body"):
+        title = info_card.select_one(".card-title").text
+        if "World Heritage Sites" in title:
+            return int(info_card.select_one(".card-number").text.strip())
     return 0
 
 
 listing_url = "https://www.unesco.org/en/countries"
 listing_soup = download(listing_url)
+countries = listing_soup.select(".node--type-country")
 
-for country in listing_soup.select(".node--type-country"):
+for country in countries[:10]:
     link = country.select_one("a")
     if not link or 'href' not in link.attrs:
         continue
