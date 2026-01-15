@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/crawling
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import UnescoWhsCountsExercise from '!!raw-loader!roa-loader!./exercises/unesco_whs_counts.mjs';
+import WtaTennisPlayersExercise from '!!raw-loader!roa-loader!./exercises/wta_tennis_players.mjs';
 import GuardianF1AuthorsExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_authors.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -210,33 +210,27 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 <Exercises />
 
-### Scrape UNESCO World Heritage Sites
+### Scrape birthplaces of top 5 tennis players
 
-Scrape links to detail pages of all UNESCO members. Follow the first 10 links and extract the count of the World Heritage Sites. Print the URL and the number for each country. Start with this URL:
+Scrape links to detail pages of the top 5 tennis players according to WTA rankings. Follow the links and extract the birthplace of each player. Print the URL of the player's detail page, then `|` as a separator, then the birthplace. Start with this URL:
 
 ```text
-https://www.unesco.org/en/countries
+https://www.wtatennis.com/rankings/singles
 ```
 
 Your program should print the following:
 
 ```text
-https://www.unesco.org/en/countries/af 2
-https://www.unesco.org/en/countries/al 4
-https://www.unesco.org/en/countries/dz 7
-https://www.unesco.org/en/countries/ad 1
-...
+https://www.wtatennis.com/players/320760/aryna-sabalenka | Minsk, Belarus
+https://www.wtatennis.com/players/326408/iga-swiatek | Warsaw, Poland
+https://www.wtatennis.com/players/328560/coco-gauff | Delray Beach, Fl. USA
+https://www.wtatennis.com/players/326384/amanda-anisimova | Miami Beach, FL, USA
+https://www.wtatennis.com/players/324166/elena-rybakina | Moscow, Russia
 ```
-
-:::tip Need a nudge?
-
-Locating cells in tables is sometimes easier if you know how to [filter](https://cheerio.js.org/docs/api/classes/Cheerio#filter) or [navigate up](https://cheerio.js.org/docs/api/classes/Cheerio#parent) in the HTML element tree.
-
-:::
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{UnescoWhsCountsExercise.code}</CodeBlock>
+  <CodeBlock language="js">{WtaTennisPlayersExercise.code}</CodeBlock>
 </details>
 
 ### Scrape authors of F1 news articles
