@@ -118,11 +118,17 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "lists npm LLM packages" {
-  run node npm_llm_packages.mjs
+@test "lists JavaScript GitHub repos with the LLM topic" {
+  run node js_llm_projects.mjs
 
   (( status == 0 ))
-  [[ -n "$output" ]]
+  [[ $(echo "$output" | wc -l) -eq 37 ]]
+  [[ "$output" == *' name: '* ]]
+  [[ "$output" == *' url: '* ]]
+  [[ "$output" == *'https://github.com/'* ]]
+  [[ "$output" == *' description: '* ]]
+  [[ "$output" == *' stars: '* ]]
+  [[ "$output" == *' updatedOn: '* ]]
 }
 
 @test "finds the shortest CNN sports article" {
