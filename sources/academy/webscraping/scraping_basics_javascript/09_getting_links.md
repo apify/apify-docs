@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/getting-links
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import UnescoLinksExercise from '!!raw-loader!roa-loader!./exercises/unesco_links.mjs';
+import WtaTennisLinksExercise from '!!raw-loader!roa-loader!./exercises/wta_tennis_links.mjs';
 import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -324,27 +324,27 @@ Ta-da! We've managed to get links leading to the product pages. In the next less
 
 <Exercises />
 
-### Scrape links to UNESCO members
+### Scrape links to top tennis players
 
-Download UNESCO's page with the list of its members, use Cheerio to parse it, and print links to detail pages of all the members. Start with this URL:
+Download the WTA singles rankings page, use Cheerio to parse it, and print links to the detail pages of the listed players. Start with this URL:
 
 ```text
-https://www.unesco.org/en/countries
+https://www.wtatennis.com/rankings/singles
 ```
 
 Your program should print the following:
 
 ```text
-https://www.unesco.org/en/countries/af
-https://www.unesco.org/en/countries/al
-https://www.unesco.org/en/countries/dz
-https://www.unesco.org/en/countries/ad
+https://www.wtatennis.com/players/318310/iga-swiatek
+https://www.wtatennis.com/players/322341/aryna-sabalenka
+https://www.wtatennis.com/players/326911/coco-gauff
+https://www.wtatennis.com/players/320203/elena-rybakina
 ...
 ```
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{UnescoLinksExercise.code}</CodeBlock>
+  <CodeBlock language="js">{WtaTennisLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news

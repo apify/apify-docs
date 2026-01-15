@@ -86,11 +86,11 @@ teardown_file() {
   [[ "$output" == "{ title: 'Premium Speakers', minPrice: 75000, price: 75000 }" ]]
 }
 
-@test "lists UNESCO member links" {
-  run node unesco_links.mjs
+@test "lists WTA player links" {
+  run node wta_tennis_links.mjs
 
-  [[ "$output" == *$'https://www.unesco.org/en/countries/af\nhttps://www.unesco.org/en/countries/al\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
+  [[ $(echo "$output" | wc -l) -gt 10 ]]
 }
 
 @test "lists Guardian F1 article links" {
@@ -100,12 +100,13 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints counts of UNESCO WHS" {
-  run node unesco_whs_counts.mjs
+@test "lists WTA player birthplaces" {
+  run node wta_tennis_players.mjs
 
-  [[ "$output" == *$'https://www.unesco.org/en/countries/af 2\n'* ]]
-  [[ "$output" == *$'https://www.unesco.org/en/countries/bs 0\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
+  [[ "$output" == *' | '* ]]
+  [[ "$output" == *', '* ]]
+  [[ $(echo "$output" | wc -l) -eq 5 ]]
 }
 
 @test "lists Guardian F1 authors" {

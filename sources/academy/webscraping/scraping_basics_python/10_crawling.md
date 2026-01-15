@@ -7,7 +7,7 @@ slug: /scraping-basics-python/crawling
 
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import UnescoWhsCountsExercise from '!!raw-loader!roa-loader!./exercises/unesco_whs_counts.py';
+import WtaTennisPlayersExercise from '!!raw-loader!roa-loader!./exercises/wta_tennis_players.py';
 import GuardianF1AuthorsExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_authors.py';
 
 **In this lesson, we'll follow links to individual product pages. We'll use HTTPX to download them and BeautifulSoup to process them.**
@@ -183,33 +183,27 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 <Exercises />
 
-### Scrape UNESCO World Heritage Sites
+### Scrape birthplaces of top 5 tennis players
 
-Scrape links to detail pages of all UNESCO members. Follow the first 10 links and extract the count of the World Heritage Sites. Print the URL and the number for each country. Start with this URL:
+Scrape links to detail pages of the top 5 tennis players according to WTA rankings. Follow the links and extract the birthplace of each player. Print the URL of the player's detail page, then `|` as a separator, then the birthplace. Start with this URL:
 
 ```text
-https://www.unesco.org/en/countries
+https://www.wtatennis.com/rankings/singles
 ```
 
 Your program should print the following:
 
 ```text
-https://www.unesco.org/en/countries/af 2
-https://www.unesco.org/en/countries/al 4
-https://www.unesco.org/en/countries/dz 7
-https://www.unesco.org/en/countries/ad 1
-...
+https://www.wtatennis.com/players/320760/aryna-sabalenka | Minsk, Belarus
+https://www.wtatennis.com/players/326408/iga-swiatek | Warsaw, Poland
+https://www.wtatennis.com/players/328560/coco-gauff | Delray Beach, Fl. USA
+https://www.wtatennis.com/players/326384/amanda-anisimova | Miami Beach, FL, USA
+https://www.wtatennis.com/players/324166/elena-rybakina | Moscow, Russia
 ```
-
-:::tip Need a nudge?
-
-Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
-
-:::
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="py">{UnescoWhsCountsExercise.code}</CodeBlock>
+  <CodeBlock language="py">{WtaTennisPlayersExercise.code}</CodeBlock>
 </details>
 
 ### Scrape authors of F1 news articles

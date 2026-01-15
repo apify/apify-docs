@@ -79,11 +79,11 @@ teardown() {
   [[ "$output" == "{'title': 'Premium Speakers', 'min_price': 75000, 'price': 75000}" ]]
 }
 
-@test "lists UNESCO member links" {
-  run uv run --with=httpx --with=beautifulsoup4 python unesco_links.py
+@test "lists WTA player links" {
+  run uv run --with=httpx --with=beautifulsoup4 python wta_tennis_links.py
 
-  [[ "$output" == *$'https://www.unesco.org/en/countries/af\nhttps://www.unesco.org/en/countries/al\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
+  [[ $(echo "$output" | wc -l) -gt 10 ]]
 }
 
 @test "lists Guardian F1 article links" {
@@ -93,12 +93,13 @@ teardown() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints counts of UNESCO WHS" {
-  run uv run --with=httpx --with=beautifulsoup4 python unesco_whs_counts.py
+@test "lists WTA player birthplaces" {
+  run uv run --with=httpx --with=beautifulsoup4 python wta_tennis_players.py
 
-  [[ "$output" == *$'https://www.unesco.org/en/countries/af 2\n'* ]]
-  [[ "$output" == *$'https://www.unesco.org/en/countries/bs 0\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
+  [[ "$output" == *' | '* ]]
+  [[ "$output" == *', '* ]]
+  [[ $(echo "$output" | wc -l) -eq 5 ]]
 }
 
 @test "lists Guardian F1 authors" {
