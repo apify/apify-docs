@@ -20,7 +20,7 @@ const promises = $('article').toArray().map(async (element) => {
   const name = $link.text().trim();
   const description = $card.find('p').text().trim();
 
-  const starsText = $card.find('#repo-stars-counter-star').first().attr("aria-label");
+  const starsText = $card.find('#repo-stars-counter-star').first().attr('aria-label');
   const stars = parseInt(starsText.split(' ')[0], 10);
 
   const updatedAt = $card.find('relative-time').attr('datetime');
