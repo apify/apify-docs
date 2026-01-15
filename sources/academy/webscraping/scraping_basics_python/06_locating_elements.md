@@ -7,7 +7,7 @@ slug: /scraping-basics-python/locating-elements
 
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import ImoCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.mjs';
+import ImoCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.py';
 import ImoCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/imo_countries_single_selector.py';
 import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_titles.py';
 
