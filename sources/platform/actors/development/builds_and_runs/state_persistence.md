@@ -47,7 +47,7 @@ By default, an Actor keeps its state in the server's memory. During a server swi
 
 ## Implementing state persistence
 
-The simplest way to handle state persistence is with the [`Actor.useState`](/sdk/js/reference/class/Actor#useState) method, which automatically saves and retrieves your state during migrations.
+To handle state persistence, use the [`Actor.useState()`](/sdk/js/reference/class/Actor#useState) method. This method automatically saves and retrieves your state during migrations.
 
 For more control or when using Python, you can manually handle state persistence using the `Actor.on()` method and the `migrating` event.
 
