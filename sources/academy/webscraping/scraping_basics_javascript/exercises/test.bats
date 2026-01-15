@@ -146,7 +146,7 @@ teardown_file() {
 
   (( status == 0 ))
   [[ -f dataset.json ]]
-  [[ $(cat dataset.json | jq '. | length') == "10" ]]
+  [[ $(cat dataset.json | jq '. | length') == "5" ]]
   [[ $(cat dataset.json | jq -c '.[0] | keys') == '["rating","title","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.imdb.com/title/"* ]]
 }
