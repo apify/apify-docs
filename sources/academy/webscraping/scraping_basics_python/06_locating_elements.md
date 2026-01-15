@@ -244,15 +244,13 @@ Macao, China
   <summary>Solution</summary>
   <CodeBlock language="js">{IMOCountriesExercise.code}</CodeBlock>
 
-  We visit each row and if we find some [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells, we take the text of the first one. We print it if it's not empty. This approach skips [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) and empty rows.
-
-  Then we visit each row again and check if it contains more than two cells. If yes, we take the text of the third one, and again, we print it if it's not empty. This way we correctly process the large table with its left and right part.
+  We visit each row and if we find some [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells, we take the text of the first and third ones. We print it if it's not empty. This approach skips [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) and empty rows.
 
 </details>
 
 ### Use CSS selectors to their max
 
-Simplify your International Maritime Organization scraper from the previous exercise. Use one `for` loop and a single CSS selector that covers every member cell across the tables.
+Simplify your International Maritime Organization scraper from the previous exercise. Use just one `for` loop with a single CSS selector that targets all relevant table cells.
 
 :::tip Need a nudge?
 
