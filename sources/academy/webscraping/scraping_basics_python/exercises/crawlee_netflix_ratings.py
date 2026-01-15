@@ -28,7 +28,6 @@ async def main() -> None:
 
     @crawler.router.handler("IMDB")
     async def handle_imdb(context: BeautifulSoupCrawlingContext) -> None:
-        print(f"Processing IMDB page: {context.request.url}")
         rating_element = context.soup.select_one(
             "[data-testid='hero-rating-bar__aggregate-rating__score']"
         )
