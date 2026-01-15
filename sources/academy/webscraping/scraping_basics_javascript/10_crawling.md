@@ -212,7 +212,7 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 ### Scrape UNESCO World Heritage Sites
 
-Scrape links to detail pages of all UNESCO members. Follow each link and extract the count of the World Heritage Sites. Print the URL and the number for each country. Start with this URL:
+Scrape links to detail pages of all UNESCO members. Follow the first 10 links and extract the count of the World Heritage Sites. Print the URL and the number for each country. Start with this URL:
 
 ```text
 https://www.unesco.org/en/countries

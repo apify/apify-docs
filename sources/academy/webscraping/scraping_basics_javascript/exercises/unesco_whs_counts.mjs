@@ -11,11 +11,11 @@ async function download(url) {
 
 function parseWhsCount($) {
   for (const element of $('.card-body').toArray()) {
-    const $card = $(element);
-    const title = $card.find('.card-title').text();
+    const $infoCard = $(element);
+    const title = $infoCard.find('.card-title').text();
 
     if (title.includes('World Heritage Sites')) {
-      const number = $card.find('.card-number').text().trim();
+      const number = $infoCard.find('.card-number').text().trim();
       return Number.parseInt(number, 10);
     }
   }
@@ -24,8 +24,9 @@ function parseWhsCount($) {
 
 const listingUrl = 'https://www.unesco.org/en/countries';
 const $listing = await download(listingUrl);
+const countries = $listing('.node--type-country').toArray();
 
-for (const element of $listing('.node--type-country').toArray()) {
+for (const element of countries.slice(0, 10)) {
   const $countryCard = $listing(element);
   const $link = $countryCard.find('a').first();
   const href = $link.attr('href');
