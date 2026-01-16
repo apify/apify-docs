@@ -1,9 +1,9 @@
 ---
 title: Microsoft Power Automate integration
 description: Automate your workflows by integrating Apify Actors with Microsoft Power Automate. Connect apps, trigger scrapers, and process data without writing code.
-sidebar_label: Power Automate
+sidebar_label: Microsoft Power Automate
 sidebar_position: 7
-slug: /integrations/power-automate
+slug: /integrations/microsoft-power-automate
 ---
 
 **Learn how to integrate your Apify Actors with Microsoft Power Automate for automated workflows.**
@@ -11,6 +11,19 @@ slug: /integrations/power-automate
 ---
 
 [Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
+
+## Key capabilities
+
+### Triggers
+- **Actor Run Finished:** Start a flow when an Actor completes.
+- **Actor Task Finished:** Start a flow when a Task completes.
+
+### Actions
+- **Run Actor:** Execute any Apify Actor with custom inputs.
+- **Run Task:** Execute a saved Actor Task.
+- **Get Dataset Items:** Retrieve scraped data from datasets with dynamic schema support.
+- **Get Key-Value Store Record:** Fetch stored data (e.g., screenshots, JSON state).
+- **Scrape Single URL:** Quick single-page scraping using the Web Scraper Actor.
 
 ## Get started
 
@@ -27,7 +40,7 @@ You can use the Apify Connector directly within Microsoft Power Automate.
 1. Navigate to the **Connectors** tab on the sidebar to check the page of the connector.
   - If you don't see the **Connectors** tab, click **More** in the sidebar.
   - Find **Connectors** in the list and click the **Pin** icon to pin it to your sidebar for easy access.
-  - ![Pin Connectors tab in Power Automate](../images/power-automate/screenshot-pin-connectors-tab.png)
+  - ![Pin Connectors tab in Power Automate](../images/power-automate/pin_connectors_tab.png)
 1. Open the **Connectors** tab and search for **Apify**.
   - ![Search for Apify in Connectors tab](../images/power-automate/screenshot-search-apify-connectors.png)
 1. Select the **Apify** connector from the search results.
@@ -55,7 +68,7 @@ The Apify Connector supports **OAuth 2.0** authentication.
 1. Authorize the connector to access your account.
    - The connector requires the following scopes:
      - `profile`: To view account details.
-     - `full_api_access`: To run Actors, tasks, and access datasets.
+     - `full_api_access`: To run Actors, tasks, access datasets, and manage webhooks.
 1. Once authorized, you will be redirected back to Power Automate, and the connection will be ready to use.
 
 ![OAuth authorization screen](../images/power-automate/screenshot-oauth.png)
@@ -163,7 +176,7 @@ _Start an Apify Actor run with customizable execution parameters._
 - **Options**:
   - `Build`: Specify a build tag or ID.
   - `Timeout`: execution timeout in seconds.
-  - `Memory`: Allocate memory (MB) for the run (e.g., 1024, 4096).
+  - `Memory`: Allocate memory (MB) for the run (options: 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768).
   - `Wait for finish`: Specify seconds to wait (max 60s). Set to `0` for asynchronous execution.
 
 ![Run Actor action configuration](../images/power-automate/screenshot-action-run-actor.png)
@@ -176,7 +189,7 @@ _Start an Apify task run._
 - **Input Override**: Optional JSON to override the task's default input.
 - **Options**:
   - `Timeout`: execution timeout in seconds.
-  - `Memory`: Allocate memory (MB).
+  - `Memory`: Allocate memory (MB) (options: 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768).
   - `Wait for finish`: Specify seconds to wait (max 60s). Set to `0` for asynchronous execution.
 
 ![Run Task action configuration](../images/power-automate/screenshot-action-run-task.png)
@@ -216,9 +229,8 @@ _Scrape a single webpage using Apify's Web Scraper Actor._
   - `playwright:adaptive` (Recommended)
   - `playwright:firefox`
   - `cheerio` (Fastest, raw HTTP)
-  - `jsdom`
 
-**Note**: This action starts the scrape asynchronously. You should generally use this in combination with a trigger or a wait step to handle the results.
+**Note**: This action starts the Web Scraper Actor and returns the run details immediately. To process the scraped results, you can use the **Actor Run Finished** trigger or follow the [asynchronous pattern](#long-running-scrapes-and-async-pattern-in-power-automate) described below.
 
 ![Scrape Single URL action configuration](../images/power-automate/screenshot-action-scrape-url.png)
 
@@ -247,8 +259,14 @@ For long-running scrapes, use the asynchronous pattern to ensure your flows are 
 
 3. **Fetch results**: Once the run is finished—either through the triggered flow (webhook) or after the polling loop—use the **Get Dataset Items** action to retrieve your data.
 
-
 ## Example use cases
+
+### Integration ideas
+
+- **Price drop alerts:** Run a price scraper on a schedule, then notify via Teams when prices drop.
+- **CRM enrichment:** Scrape company websites and push the data to Dynamics 365 or SharePoint.
+- **Competitor tracking:** Detect changes on competitor pages and log them to Excel.
+- **Lead generation:** Scrape directories, filter results, and add leads to your CRM.
 
 ### Data mapping and workflow design
 
@@ -268,7 +286,17 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 ### Common issues
 
 - _Timeout errors:_ If an action fails with a timeout, check if you are waiting for a long-running Actor. Switch to the async pattern (set `Wait for finish` to `0`).
-- _Schema issues:_ Dataset schemas are inferred from sample data. If fields are missing in Power Automate dynamic content, you might need to parse the raw JSON output manually.
-- _Orphaned Webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in the Apify Console.
+- _Schema issues:_ Dataset schemas are inferred from sample data. If fields are missing in Power Automate dynamic content, you might need to parse the raw JSON output manually. Fields may not appear if they are absent in the initial sample records.
+- _Orphaned Webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in the Apify Console. Currently, cleanup is not automatic.
 
-If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
+## Frequently asked questions
+
+### How much does it cost?
+The Apify Connector itself is free to use. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. Apify offers a free tier with monthly credits to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
+
+### Where can I get further help?
+- **Apify Documentation:** [docs.apify.com](https://docs.apify.com)
+- **API Reference:** [docs.apify.com/api/v2](https://docs.apify.com/api/v2)
+- **Support:** [apify.com/contact](https://apify.com/contact)
+
+If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU) or visit the [Apify Community forum](https://community.apify.com).
