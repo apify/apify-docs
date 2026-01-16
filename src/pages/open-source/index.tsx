@@ -8,9 +8,8 @@ import { Banner, Heading, Link, Text, theme } from '@apify/ui-library';
 
 import ActionCard from '../../components/ActionCard/ActionCard';
 import { ActorTemplates } from '../../components/ActorTemplates/ActorTemplates';
-import CardWithImageAndContent from '../../components/CardWithImageAndContent/ImageWithContent';
-import GitButton from '../../components/GitButton';
 import Hero from '../../components/Hero/Hero';
+import OpenSourceCards from '../../components/OpenSourceCards/OpenSourceCards';
 import Section from '../../components/Section/Section';
 import UiLibraryWrapper from '../../components/UiLibraryWrapper';
 import Crawlee from '../img/crawlee.svg';
@@ -60,37 +59,21 @@ const StyledWrapper = styled.div`
         gap: ${theme.space.space8};
     }
 
-    .otherCards {
-        display: flex;
-        flex-direction: column;
-        gap: ${theme.space.space40};
-
-        .cardContentWrapper {
-            padding-top: 0;
-        }
+    .openSourceCards {
+        display: grid;
+        gap: 2.4rem;
 
         @media ${theme.device.tablet} {
-            .cardContentWrapper {
-                padding-top: ${theme.space.space16};
-            }
-            flex-direction: row;
-            gap: ${theme.space.space24};
+            grid-template-columns: repeat(2, 1fr);
         }
-        & > div {
-            flex: 1;
+
+        @media ${theme.device.desktop} {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
-    .otherCardsTitleLink {
-        display: flex;
-        gap: ${theme.space.space8};
-        color: ${theme.color.neutral.text};
-        &:hover {
-            color: ${theme.color.primary.actionHover};
-            h3 {
-                color: ${theme.color.primary.actionHover};
-            }
-        }
+    .openSourceLink {
+        margin-top: ${theme.space.space24};
     }
 
     .actorTemplates {
@@ -107,7 +90,7 @@ export default function OpenSource() {
                 <StyledWrapper>
                     <Hero
                         heading="Apify open source"
-                        description="Tools and libraries built and maintained by the Apify team."
+                        description="Tools and libraries maintained by the Apify team."
                     />
                     <Section>
                         <Banner useGradientBackground={false} className="banner">
@@ -131,89 +114,12 @@ export default function OpenSource() {
                         </Banner>
                     </Section>
                     <Section heading="" headingAs="h2">
-                        <div className="otherCards">
-                            <CardWithImageAndContent
-                                content={
-                                    <div className="cardContentWrapper">
-                                        <div className="cardContentWrapperText">
-                                            <Link to="https://github.com/apify/fingerprint-suite" className="otherCardsTitleLink">
-                                                <img width={24} src={useBaseUrl('/img/fingerprint-suite.svg')} />
-                                                <Heading type="titleXl" as="h3">
-                                                    Fingerprint suite
-                                                </Heading>
-                                            </Link>
-                                            <Text color={theme.color.neutral.textMuted} size="big">
-                                                Generate and inject browser fingerprints to avoid detection and improve scraper stealth.
-                                            </Text>
-                                        </div>
-                                        <div>
-                                            <GitButton
-                                                href="https://github.com/apify/fingerprint-suite"
-                                                data-size="large"
-                                                data-show-count="true"
-                                                aria-label="Star apify/crawlee on GitHub"
-                                            >
-                                                Star
-                                            </GitButton>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <CardWithImageAndContent
-                                content={
-                                    <div className="cardContentWrapper">
-                                        <div className="cardContentWrapperText">
-                                            <Link to="https://github.com/apify/got-scraping" className="otherCardsTitleLink">
-                                                <img width={24} src={useBaseUrl('/img/got-scraping.svg')} />
-                                                <Heading type="titleXl" as="h3">
-                                                    Got scraping
-                                                </Heading>
-                                            </Link>
-                                            <Text color={theme.color.neutral.textMuted} size="big">
-                                                A powerful extension for sending browser-like requests and blending in with web traffic.
-                                            </Text>
-                                        </div>
-                                        <div>
-                                            <GitButton
-                                                href="https://github.com/apify/got-scraping"
-                                                data-size="large"
-                                                data-show-count="true"
-                                                aria-label="Star apify/crawlee on GitHub"
-                                            >
-                                                Star
-                                            </GitButton>
-                                        </div>
-                                    </div>
-                                }
-                            />
-                            <CardWithImageAndContent
-                                content={
-                                    <div className="cardContentWrapper">
-                                        <div className="cardContentWrapperText">
-                                            <Link to="https://github.com/apify/proxy-chain" className="otherCardsTitleLink">
-                                                <Heading type="titleXl" as="h3">
-                                                    Proxy chain
-                                                </Heading>
-                                            </Link>
-                                            <Text color={theme.color.neutral.textMuted} size="big">
-                                                A Node.js proxy server with support for SSL, authentication, upstream proxy chaining, custom HTTP responses, and
-                                                traffic statistics.
-                                            </Text>
-                                        </div>
-                                        <div>
-                                            <GitButton
-                                                href="https://github.com/apify/proxy-chain"
-                                                data-size="large"
-                                                data-show-count="true"
-                                                aria-label="Star apify/crawlee on GitHub"
-                                            >
-                                                Star
-                                            </GitButton>
-                                        </div>
-                                    </div>
-                                }
-                            />
+                        <div className="openSourceCards">
+                            <OpenSourceCards hideCrawlee />
                         </div>
+                        <Link to="https://github.com/apify" className="actionLink openSourceLink" hideExternalIcon>
+                            Follow Apify on GitHub
+                        </Link>
                     </Section>
                     <Section
                         heading="Actor templates"

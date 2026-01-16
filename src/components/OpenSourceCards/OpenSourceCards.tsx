@@ -11,46 +11,52 @@ import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
 
-const OpenSourceCards: React.FC = () => {
+interface OpenSourceCardsProps {
+    hideCrawlee?: boolean;
+}
+
+const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }) => {
     const { colorMode } = useColorMode();
 
     return (
         <>
-            <CardWithImageAndContent
-                image={
-                    <Link to="https://crawlee.dev" className={styles.imageLink}>
-                        <div className={styles.iconWrapper}>
-                            <img
-                                src={useBaseUrl('/img/landing-pages/crawlee.svg')}
-                                alt="Crawlee"
-                            />
+            {!hideCrawlee && (
+                <CardWithImageAndContent
+                    image={
+                        <Link to="https://crawlee.dev" className={styles.imageLink}>
+                            <div className={styles.iconWrapper}>
+                                <img
+                                    src={useBaseUrl('/img/landing-pages/crawlee.svg')}
+                                    alt="Crawlee"
+                                />
+                            </div>
+                        </Link>
+                    }
+                    content={
+                        <div className='cardContentWrapper'>
+                            <div className="cardContentWrapperText">
+                                <Link to="https://crawlee.dev" className={styles.headingLink}>
+                                    <Heading type="titleM">Crawlee</Heading>
+                                </Link>
+                                <Text color={theme.color.neutral.textMuted}>
+                                    Web crawling, scraping, and browser automation library for Node.js and Python with autoscaling and proxies.
+                                </Text>
+                            </div>
+                            <div className={styles.githubButtonWrapper}>
+                                <GitHubButton
+                                    href="https://github.com/apify/crawlee"
+                                    data-color-scheme={colorMode}
+                                    data-size="large"
+                                    data-show-count="true"
+                                    aria-label="Star apify/crawlee on GitHub"
+                                >
+                                    Star
+                                </GitHubButton>
+                            </div>
                         </div>
-                    </Link>
-                }
-                content={
-                    <div className='cardContentWrapper'>
-                        <div className="cardContentWrapperText">
-                            <Link to="https://crawlee.dev" className={styles.headingLink}>
-                                <Heading type="titleM">Crawlee</Heading>
-                            </Link>
-                            <Text color={theme.color.neutral.textMuted}>
-                                Web crawling, scraping, and browser automation library for Node.js and Python with autoscaling and proxies.
-                            </Text>
-                        </div>
-                        <div className={styles.githubButtonWrapper}>
-                            <GitHubButton
-                                href="https://github.com/apify/crawlee"
-                                data-color-scheme={colorMode}
-                                data-size="large"
-                                data-show-count="true"
-                                aria-label="Star apify/crawlee on GitHub"
-                            >
-                                Star
-                            </GitHubButton>
-                        </div>
-                    </div>
-                }
-            />
+                    }
+                />
+            )}
             <CardWithImageAndContent
                 image={
                     <Link to="https://github.com/apify/fingerprint-suite" className={styles.imageLink}>
