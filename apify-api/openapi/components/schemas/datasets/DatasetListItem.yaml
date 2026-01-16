@@ -21,12 +21,15 @@ properties:
     example: tbXmWu7GCxnyYtSiL
   createdAt:
     type: string
+    format: date-time
     example: '2019-12-12T07:34:14.202Z'
   modifiedAt:
     type: string
+    format: date-time
     example: '2019-12-13T08:36:13.202Z'
   accessedAt:
     type: string
+    format: date-time
     example: '2019-12-14T08:36:13.202Z'
   itemCount:
     type: number

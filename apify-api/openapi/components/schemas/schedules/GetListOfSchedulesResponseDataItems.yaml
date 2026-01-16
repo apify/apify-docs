@@ -25,15 +25,19 @@ properties:
     example: my-schedule
   createdAt:
     type: string
+    format: date-time
     example: '2019-12-12T07:34:14.202Z'
   modifiedAt:
     type: string
+    format: date-time
     example: '2019-12-20T06:33:11.202Z'
   lastRunAt:
     type: string
+    format: date-time
     example: '2019-04-12T07:33:10.202Z'
   nextRunAt:
     type: string
+    format: date-time
     example: '2019-04-12T07:34:10.202Z'
   isEnabled:
     type: boolean

@@ -44,5 +44,6 @@ properties:
     $ref: ./UserData.yaml
   handledAt:
     type: string
+    format: date-time
     nullable: true
     example: '2019-06-16T10:23:31.607Z'

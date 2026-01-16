@@ -20,9 +20,11 @@ properties:
     example: klmdEpoiojmdEMlk3
   startedAt:
     type: string
+    format: date-time
     example: '2019-11-30T07:34:24.202Z'
   finishedAt:
     type: string
+    format: date-time
     nullable: true
     example: '2019-12-12T09:30:12.202Z'
   status:

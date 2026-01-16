@@ -30,6 +30,7 @@ properties:
     $ref: ./EffectivePlatformFeatures.yaml 
   createdAt:
     type: string
+    format: date-time
     example: "2022-11-29T14:48:29.381Z"
   isPaying:
     type: boolean
