@@ -1,7 +1,6 @@
 import Link from '@docusaurus/Link';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
 import type React from 'react';
 import GitHubButton from 'react-github-btn';
 
@@ -20,17 +19,12 @@ const OpenSourceCards: React.FC = () => {
             <CardWithImageAndContent
                 image={
                     <Link to="https://crawlee.dev" className={styles.imageLink}>
-                        <ThemedImage
-                            sources={{
-                                light: useBaseUrl(
-                                    '/img/landing-pages/crawlee_with_background.svg',
-                                ),
-                                dark: useBaseUrl(
-                                    '/img/landing-pages/crawlee_with_background_dark.svg',
-                                ),
-                            }}
-                            alt="Crawlee"
-                        />
+                        <div className={styles.iconWrapper}>
+                            <img
+                                src={useBaseUrl('/img/landing-pages/crawlee.svg')}
+                                alt="Crawlee"
+                            />
+                        </div>
                     </Link>
                 }
                 content={
@@ -60,17 +54,12 @@ const OpenSourceCards: React.FC = () => {
             <CardWithImageAndContent
                 image={
                     <Link to="https://github.com/apify/fingerprint-suite" className={styles.imageLink}>
-                        <ThemedImage
-                            sources={{
-                                light: useBaseUrl(
-                                    '/img/landing-pages/fingerprint_suite_with_background.svg',
-                                ),
-                                dark: useBaseUrl(
-                                    '/img/landing-pages/fingerprint_suite_with_background_dark.svg',
-                                ),
-                            }}
-                            alt="Fingerprint Suite"
-                        />
+                        <div className={styles.iconWrapper}>
+                            <img
+                                src={useBaseUrl('/img/landing-pages/fingerprint.svg')}
+                                alt="Fingerprint Suite"
+                            />
+                        </div>
                     </Link>
                 }
                 content={
@@ -150,7 +139,7 @@ const OpenSourceCards: React.FC = () => {
                                 <Heading type="titleM">mcpc</Heading>
                             </Link>
                             <Text color={theme.color.neutral.textMuted}>
-                                Command-line client for the Model Context Protocol (MCP) for exploration, scripting, and code mode.
+                                CLI client for the Model Context Protocol (MCP) for server exploration, scripting, and code mode.
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
@@ -172,7 +161,7 @@ const OpenSourceCards: React.FC = () => {
                     <Link to="https://github.com/apify/proxy-chain" className={styles.imageLink}>
                         <div className={styles.iconWrapper}>
                             <img
-                                src={useBaseUrl('/img/landing-pages/proxy-chain.svg')}
+                                src={useBaseUrl('/img/landing-pages/proxy_chain.svg')}
                                 alt="proxy-chain"
                             />
                         </div>
@@ -207,7 +196,7 @@ const OpenSourceCards: React.FC = () => {
                     <Link to="https://whitepaper.actor" className={styles.imageLink}>
                         <div className={styles.iconWrapper}>
                             <img
-                                src={useBaseUrl('/img/landing-pages/actor-whitepaper.svg')}
+                                src={useBaseUrl('/img/landing-pages/actor_whitepaper.svg')}
                                 alt="Actor whitepaper"
                             />
                         </div>
@@ -220,7 +209,7 @@ const OpenSourceCards: React.FC = () => {
                                 <Heading type="titleM">Actor whitepaper</Heading>
                             </Link>
                             <Text color={theme.color.neutral.textMuted}>
-                                Open specification for building serverless microapps in any programming language.
+                                Open specification for Actors, the serverless microapps at the core of the Apify platform.
                             </Text>
                         </div>
                     </div>

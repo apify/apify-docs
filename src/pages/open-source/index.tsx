@@ -107,8 +107,7 @@ export default function OpenSource() {
                 <StyledWrapper>
                     <Hero
                         heading="Apify open source"
-                        description="Open-source tools and libraries created and maintained by Apify experts
-                            to help you with web scraping, browser automation, and proxy management."
+                        description="Tools and libraries built and maintained by the Apify team."
                     />
                     <Section>
                         <Banner useGradientBackground={false} className="banner">
@@ -121,7 +120,7 @@ export default function OpenSource() {
                                         </Heading>
                                     </div>
                                     <Text size="big" color={theme.color.neutral.textMuted}>
-                                        Crawlee is a fully open-source web scraping and browser automation library that helps you build reliable crawlers.
+                                        A popular library for building reliable web crawlers, scrapers, and browser automations.
                                     </Text>
                                 </div>
                                 <div className={clsx('bannerContentColumn', 'bannerContentActions')}>
@@ -131,7 +130,7 @@ export default function OpenSource() {
                             </div>
                         </Banner>
                     </Section>
-                    <Section heading="Other" headingAs="h2">
+                    <Section heading="" headingAs="h2">
                         <div className="otherCards">
                             <CardWithImageAndContent
                                 content={
