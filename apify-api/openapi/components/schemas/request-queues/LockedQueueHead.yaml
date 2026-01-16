@@ -2,7 +2,7 @@ title: LockedQueueHead
 type: object
 properties:
   limit:
-    type: number
+    type: integer
     example: 1000
   queueModifiedAt:
     type: string
@@ -20,7 +20,7 @@ properties:
     type: boolean
     example: true
   lockSecs:
-    type: number
+    type: integer
     example: 60
   items:
     type: array

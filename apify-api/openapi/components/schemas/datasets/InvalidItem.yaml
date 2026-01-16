@@ -2,7 +2,7 @@ title: InvalidItem
 type: object
 properties:
   itemPosition:
-    type: number
+    type: integer
     description: The position of the invalid item in the array.
     example: 2
   validationErrors:

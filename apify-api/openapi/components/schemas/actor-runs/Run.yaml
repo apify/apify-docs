@@ -133,4 +133,4 @@ properties:
     nullable: true
     description: Resource usage costs in USD.
     allOf:
-      - $ref: ./RunUsage.yaml
+      - $ref: ./RunUsageUsd.yaml

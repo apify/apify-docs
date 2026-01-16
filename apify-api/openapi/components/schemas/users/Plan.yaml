@@ -64,24 +64,24 @@ properties:
     type: number
     example: 10
   maxMonthlyProxySerps:
-    type: number
+    type: integer
     example: 30000
   maxMonthlyExternalDataTransferGbytes:
     type: number
     example: 1000
   maxActorCount:
-    type: number
+    type: integer
     example: 100
   maxActorTaskCount:
-    type: number
+    type: integer
     example: 1000
   dataRetentionDays:
-    type: number
+    type: integer
     example: 14
   availableProxyGroups:
     $ref: ./AvailableProxyGroups.yaml
   teamAccountSeatCount:
-    type: number
+    type: integer
     example: 1
   supportLevel:
     type: string

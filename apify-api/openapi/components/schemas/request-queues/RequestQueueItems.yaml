@@ -9,7 +9,7 @@ properties:
     type: string
     example: dnjkDMKLmdlkmlkmld
   retryCount:
-    type: number
+    type: integer
     example: 0
   uniqueKey:
     type: string

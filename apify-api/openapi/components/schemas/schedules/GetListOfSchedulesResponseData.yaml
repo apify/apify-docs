@@ -9,19 +9,19 @@ required:
 type: object
 properties:
   total:
-    type: number
+    type: integer
     example: 2
   offset:
-    type: number
+    type: integer
     example: 0
   limit:
-    type: number
+    type: integer
     example: 1000
   desc:
     type: boolean
     example: false
   count:
-    type: number
+    type: integer
     example: 2
   items:
     type: array

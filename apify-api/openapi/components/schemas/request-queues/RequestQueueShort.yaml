@@ -43,13 +43,13 @@ properties:
     format: date-time
     example: '2019-06-02T17:15:06.751Z'
   totalRequestCount:
-    type: number
+    type: integer
     example: 100
   handledRequestCount:
-    type: number
+    type: integer
     example: 50
   pendingRequestCount:
-    type: number
+    type: integer
     example: 50
   actId:
     type: string

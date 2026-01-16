@@ -5,7 +5,7 @@ properties:
     type: string
     example: 8OamqXBCpPHxyH9
   retryCount:
-    type: number
+    type: integer
     example: 0
   uniqueKey:
     type: string

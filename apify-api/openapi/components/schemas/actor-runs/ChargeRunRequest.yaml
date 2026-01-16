@@ -8,5 +8,5 @@ properties:
     type: string
     example: ANALYZE_PAGE
   count:
-    type: number
+    type: integer
     example: 1

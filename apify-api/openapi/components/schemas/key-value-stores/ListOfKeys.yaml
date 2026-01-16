@@ -12,10 +12,10 @@ properties:
       $ref: ./KeyValueStoreKey.yaml
     description: ''
   count:
-    type: number
+    type: integer
     example: 2
   limit:
-    type: number
+    type: integer
     example: 2
   exclusiveStartKey:
     type: string

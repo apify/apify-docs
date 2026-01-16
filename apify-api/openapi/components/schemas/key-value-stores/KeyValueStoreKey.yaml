@@ -9,7 +9,7 @@ properties:
     type: string
     example: second-key
   size:
-    type: number
+    type: integer
     example: 36
   recordPublicUrl:
     type: string

@@ -2,17 +2,17 @@ title: RequestQueueStats
 type: object
 properties:
   deleteCount:
-    type: number
+    type: integer
     example: 0
   headItemReadCount:
-    type: number
+    type: integer
     example: 5
   readCount:
-    type: number
+    type: integer
     example: 100
   storageBytes:
-    type: number
+    type: integer
     example: 1024
   writeCount:
-    type: number
+    type: integer
     example: 10

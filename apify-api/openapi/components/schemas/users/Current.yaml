@@ -22,7 +22,7 @@ properties:
     type: number
     example: 3.00861903931946
   monthlyProxySerps:
-    type: number
+    type: integer
     example: 34
   monthlyResidentialProxyGbytes:
     type: number
@@ -31,14 +31,14 @@ properties:
     type: number
     example: 8
   actorCount:
-    type: number
+    type: integer
     example: 31
   actorTaskCount:
-    type: number
+    type: integer
     example: 130
   activeActorJobCount:
-    type: number
+    type: integer
     example: 0
   teamAccountSeatCount:
-    type: number
+    type: integer
     example: 5

@@ -60,7 +60,7 @@ properties:
         nullable: true
         example: Cannot send request
       responseStatus:
-        type: number
+        type: integer
         nullable: true
         example: 200
       responseBody:

@@ -7,10 +7,10 @@ properties:
       $ref: ./RequestQueueItems.yaml
     description: ''
   count:
-    type: number
+    type: integer
     example: 2
   limit:
-    type: number
+    type: integer
     example: 2
   exclusiveStartId:
     type: string
