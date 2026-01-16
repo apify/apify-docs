@@ -143,22 +143,16 @@ With the flow crated and scripts linked we can test and run it.
 
 Windmill provides webhook-based triggers that can automatically start workflows when Apify events occur.
 
-### Step 1: Use the example flow
+### Step 1: Fork the example flow
 
-1. Search for **Apify Actor Webhook Flow** in Windmill hub.
+1. Search for **Example Actor Webhook Flow** in Windmill hub.
    ![Apify Webhook](../images/windmill-webhook-hub.png)
-1. Copy the contents of the flow.
-   ![Apify Webhook](../images/windmill-webhook-copy.png)
-1. Go to your instance and click on **+ Flow** button
-1. Click the three dots button and select **Edit in YAML**
-1. Paste the copied flow contents and save.
-  ![Apify Webhook](../images/windmill-webhook-edit.png)
-1. Make sure you have the **Create Actor Webhook** script in your instance. Adjust the path in the flow based on your folder structure.
+1. Fork the **Apify example flow with webhook trigger** from Windmill’s templates.
+   ![Apify Webhook](../images/windmill-webhook-fork.png)
 1. Add a trigger of type **Webhook**.
+  ![Apify Webhook](../images/windmill-webhook-set-trigger.png)
 1. Create a **Webhook-specific Token**.
 1. Copy both the **token** and the **webhook URL** to your clipboard. These will be used for creation of the **Webhook Config** resource in the next step.
-
-![Apify Webhook](../images/windmill-webhook-set-trigger.png)
 
 
 ### Step 2: Configure the webhook creation script
@@ -194,7 +188,7 @@ Windmill provides webhook-based triggers that can automatically start workflows 
 
 ![Apify Webhook](../images/windmill-webhook-test-runs.png)
 
-### Deleting the webhook
+## Deleting the webhook
 
 1. Fork the **Apify's Delete Webhook** script from the Windmill Hub.
 1. Set either your `API Key` or `OAuth Token` resource
