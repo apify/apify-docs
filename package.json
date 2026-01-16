@@ -86,7 +86,7 @@
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-github-btn": "^1.4.0",
-        "styled-components": "6.3.6",
+        "styled-components": "6.3.8",
         "unist-util-visit": "^5.0.0"
     },
     "browserslist": {
