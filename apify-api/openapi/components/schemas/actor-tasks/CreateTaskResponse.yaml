@@ -5,6 +5,3 @@ required:
 properties:
   data:
     $ref: ./Task.yaml
-  standbyUrl:
-    type: string
-    nullable: true

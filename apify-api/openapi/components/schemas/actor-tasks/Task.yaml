@@ -45,3 +45,6 @@ properties:
     nullable: true
     allOf:
       - $ref: ./TaskInput.yaml
+  standbyUrl:
+    type: string
+    nullable: true

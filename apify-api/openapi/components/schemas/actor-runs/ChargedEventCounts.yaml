@@ -1,0 +1,10 @@
+title: ChargedEventCounts
+type: object
+additionalProperties:
+  type: integer
+  description: A map of charged event types to their counts. The keys are event type identifiers defined by the Actor's pricing model (pay-per-event), and the values are the number of times each event was charged during this run.
+  minimum: 0
+  example:
+    actor-start: 1
+    page-crawled: 150
+    data-extracted: 75

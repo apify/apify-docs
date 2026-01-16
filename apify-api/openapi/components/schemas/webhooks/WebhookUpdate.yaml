@@ -11,8 +11,7 @@ properties:
       $ref: ./WebhookEventType.yaml
     description: ''
     nullable: true
-    examples:
-      - ACTOR.RUN.SUCCEEDED
+    example: ACTOR.RUN.SUCCEEDED
   condition:
     nullable: true
     allOf:

@@ -51,9 +51,7 @@ properties:
   stats:
     $ref: ./RunStats.yaml
   chargedEventCounts:
-    type: object
-    additionalProperties:
-      type: integer
+    $ref: ./ChargedEventCounts.yaml
   options:
     $ref: ./RunOptions.yaml
   buildId:
