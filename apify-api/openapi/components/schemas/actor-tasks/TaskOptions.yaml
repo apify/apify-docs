@@ -6,11 +6,11 @@ properties:
     nullable: true
     example: latest
   timeoutSecs:
-    type: number
+    type: integer
     nullable: true
     example: 300
   memoryMbytes:
-    type: number
+    type: integer
     nullable: true
     example: 128
   restartOnError:

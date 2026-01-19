@@ -6,11 +6,11 @@ required:
 type: object
 properties:
   readCount:
-    type: number
+    type: integer
     example: 22
   writeCount:
-    type: number
+    type: integer
     example: 3
   storageBytes:
-    type: number
+    type: integer
     example: 783

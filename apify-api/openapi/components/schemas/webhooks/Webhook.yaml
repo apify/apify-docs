@@ -15,9 +15,11 @@ properties:
     example: YiKoxjkaS9gjGTqhF
   createdAt:
     type: string
+    format: date-time
     example: '2019-12-12T07:34:14.202Z'
   modifiedAt:
     type: string
+    format: date-time
     example: '2019-12-13T08:36:13.202Z'
   userId:
     type: string
@@ -33,9 +35,8 @@ properties:
   eventTypes:
     type: array
     items:
-      type: string
-    example:
-      - ACTOR.RUN.SUCCEEDED
+      $ref: ./WebhookEventType.yaml
+    example: ACTOR.RUN.SUCCEEDED
   condition:
     $ref: ./WebhookCondition.yaml
   ignoreSslErrors:

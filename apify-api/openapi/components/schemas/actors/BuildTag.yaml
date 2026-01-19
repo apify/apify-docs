@@ -1,0 +1,8 @@
+title: BuildTag
+type: object
+nullable: true
+required:
+  - buildId
+properties:
+  buildId:
+    type: string

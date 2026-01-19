@@ -130,7 +130,7 @@ put:
       application/json:
         schema:
           allOf:
-            - $ref: ../../components/schemas/request-queues/RequestQueueItems.yaml
+            - $ref: ../../components/schemas/request-queues/Request.yaml
             - example:
                 id: dnjkDMKLmdlkmlkmld
                 retryCount: 0

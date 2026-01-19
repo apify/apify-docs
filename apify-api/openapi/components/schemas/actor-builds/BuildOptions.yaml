@@ -10,10 +10,10 @@ properties:
     nullable: true
     example: false
   memoryMbytes:
-    type: number
+    type: integer
     nullable: true
     example: 1024
   diskMbytes:
-    type: number
+    type: integer
     nullable: true
     example: 2048

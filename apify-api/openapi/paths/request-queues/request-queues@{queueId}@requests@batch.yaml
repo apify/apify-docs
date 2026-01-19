@@ -50,7 +50,7 @@ post:
         schema:
           type: array
           items:
-            $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
+            $ref: ../../components/schemas/request-queues/RequestDraft.yaml
           description: ''
           example:
             - uniqueKey: 'http://example.com'
@@ -75,7 +75,7 @@ post:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/BatchOperationResponse.yaml
+              - $ref: ../../components/schemas/request-queues/BatchAddResponse.yaml
               - example:
                   data:
                     processedRequests:
@@ -162,14 +162,11 @@ delete:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/BatchOperationResponse.yaml
+              - $ref: ../../components/schemas/request-queues/BatchDeleteResponse.yaml
               - example:
                   data:
                     processedRequests:
-                      - requestId: YiKoxjkaS9gjGTqhF
-                        uniqueKey: 'http://example.com/2'
-                        wasAlreadyPresent: true
-                        wasAlreadyHandled: false
+                      - uniqueKey: 'http://example.com'
                     unprocessedRequests:
                       - uniqueKey: 'http://example.com/2'
                         url: 'http://example.com/2'

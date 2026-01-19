@@ -9,4 +9,5 @@ properties:
     example: SUCCEEDED
   finishedAt:
     type: string
+    format: date-time
     example: '2019-12-13T08:36:13.202Z'

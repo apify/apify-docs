@@ -14,18 +14,17 @@ properties:
     type: string
     example: janedoe~my-actor
   status:
-    type: string
-    example: SUCCEEDED
+    $ref: ../common/ActorJobStatus.yaml
   startedAt:
     type: string
+    format: date-time
     example: '2019-11-30T07:34:24.202Z'
   finishedAt:
     type: string
+    format: date-time
     example: '2019-12-12T09:30:12.202Z'
   usageTotalUsd:
     type: number
     example: 0.02
   meta:
-    allOf:
-      - $ref: ./BuildsMeta.yaml
-      - {}
+    $ref: ./BuildsMeta.yaml

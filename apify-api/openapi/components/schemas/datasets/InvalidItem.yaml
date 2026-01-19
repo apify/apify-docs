@@ -1,0 +1,12 @@
+title: InvalidItem
+type: object
+properties:
+  itemPosition:
+    type: integer
+    description: The position of the invalid item in the array.
+    example: 2
+  validationErrors:
+    type: array
+    description: A complete list of AJV validation error objects for the invalid item.
+    items:
+      $ref: ./ValidationError.yaml

@@ -4,6 +4,4 @@ required:
 type: object
 properties:
   error:
-    allOf:
-      - $ref: ./DatasetSchemaValidationError.yaml
-      - {}
+    $ref: ./DatasetSchemaValidationError.yaml

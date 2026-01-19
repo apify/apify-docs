@@ -1,9 +1,8 @@
 title: UpdateRequestQueueResponse
+description: Response containing the updated request queue.
 required:
   - data
 type: object
 properties:
   data:
-    allOf:
-      - $ref: ./RequestQueue.yaml
-      - {}
+    $ref: ./RequestQueue.yaml

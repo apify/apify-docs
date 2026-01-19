@@ -7,8 +7,7 @@ allOf:
       - pricingPerEvent
     properties:
       pricingModel:
-        type: string
-        enum: [PAY_PER_EVENT]
+        $ref: ./PricingModel.yaml
       pricingPerEvent:
         type: object
         properties:

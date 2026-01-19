@@ -12,9 +12,8 @@ properties:
   eventTypes:
     type: array
     items:
-      type: string
-    example:
-      - ACTOR.RUN.SUCCEEDED
+      $ref: ./WebhookEventType.yaml
+    example: ACTOR.RUN.SUCCEEDED
   condition:
     $ref: ./WebhookCondition.yaml
   idempotencyKey:

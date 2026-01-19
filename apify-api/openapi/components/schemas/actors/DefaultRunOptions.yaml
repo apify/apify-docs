@@ -1,7 +1,6 @@
 title: defaultRunOptions
 required:
   - build
-  - timeoutSecs
   - memoryMbytes
 type: object
 properties:
@@ -9,10 +8,10 @@ properties:
     type: string
     example: latest
   timeoutSecs:
-    type: number
+    type: integer
     example: 3600
   memoryMbytes:
-    type: number
+    type: integer
     example: 2048
   restartOnError:
     type: boolean

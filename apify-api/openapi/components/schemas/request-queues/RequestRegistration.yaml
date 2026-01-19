@@ -1,0 +1,20 @@
+title: RequestRegistration
+description: Result of registering a request in the request queue, either by adding a new request or updating an existing one.
+required:
+  - requestId
+  - wasAlreadyPresent
+  - wasAlreadyHandled
+type: object
+properties:
+  requestId:
+    type: string
+    description: A unique identifier assigned to the request.
+    example: YiKoxjkaS9gjGTqhF
+  wasAlreadyPresent:
+    type: boolean
+    description: Indicates whether a request with the same unique key already existed in the request queue. If true, no new request was created.
+    example: false
+  wasAlreadyHandled:
+    type: boolean
+    description: Indicates whether a request with the same unique key has already been processed by the request queue.
+    example: false

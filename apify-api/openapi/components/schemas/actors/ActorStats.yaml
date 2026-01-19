@@ -6,31 +6,30 @@ required:
   - totalUsers7Days
   - totalUsers30Days
   - totalUsers90Days
-  - totalMetamorphs
-  - lastRunStartedAt
 type: object
 properties:
   totalBuilds:
-    type: number
+    type: integer
     example: 9
   totalRuns:
-    type: number
+    type: integer
     example: 16
   totalUsers:
-    type: number
+    type: integer
     example: 6
   totalUsers7Days:
-    type: number
+    type: integer
     example: 2
   totalUsers30Days:
-    type: number
+    type: integer
     example: 6
   totalUsers90Days:
-    type: number
+    type: integer
     example: 6
   totalMetamorphs:
-    type: number
+    type: integer
     example: 2
   lastRunStartedAt:
     type: string
+    format: date-time
     example: '2019-07-08T14:01:05.546Z'

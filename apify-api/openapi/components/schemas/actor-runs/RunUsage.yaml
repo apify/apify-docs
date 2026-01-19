@@ -6,31 +6,31 @@ properties:
     nullable: true
     example: 3
   DATASET_READS:
-    type: number
+    type: integer
     nullable: true
     example: 4
   DATASET_WRITES:
-    type: number
+    type: integer
     nullable: true
     example: 4
   KEY_VALUE_STORE_READS:
-    type: number
+    type: integer
     nullable: true
     example: 5
   KEY_VALUE_STORE_WRITES:
-    type: number
+    type: integer
     nullable: true
     example: 3
   KEY_VALUE_STORE_LISTS:
-    type: number
+    type: integer
     nullable: true
     example: 5
   REQUEST_QUEUE_READS:
-    type: number
+    type: integer
     nullable: true
     example: 2
   REQUEST_QUEUE_WRITES:
-    type: number
+    type: integer
     nullable: true
     example: 1
   DATA_TRANSFER_INTERNAL_GBYTES:
@@ -46,6 +46,6 @@ properties:
     nullable: true
     example: 34
   PROXY_SERPS:
-    type: number
+    type: integer
     nullable: true
     example: 3

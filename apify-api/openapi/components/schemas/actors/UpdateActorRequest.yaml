@@ -13,7 +13,8 @@ properties:
     example: false
   actorPermissionLevel:
     nullable: true
-    $ref: ./ActorPermissionLevel.yaml
+    allOf:
+      - $ref: ./ActorPermissionLevel.yaml
   seoTitle:
     type: string
     nullable: true
@@ -46,7 +47,9 @@ properties:
     description: ''
     nullable: true
   defaultRunOptions:
-    $ref: ./DefaultRunOptions.yaml
+    nullable: true
+    allOf:
+      - $ref: ./DefaultRunOptions.yaml
   taggedBuilds:
     type: object
     description: |
@@ -90,13 +93,7 @@ properties:
         ```
     nullable: true
     additionalProperties:
-      type: object
-      nullable: true
-      required:
-        - buildId
-      properties:
-        buildId:
-          type: string
+      $ref: ./BuildTag.yaml
     example:
       latest:
         buildId: z2EryhbfhgSyqj6Hn

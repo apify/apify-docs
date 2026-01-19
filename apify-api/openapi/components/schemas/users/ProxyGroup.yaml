@@ -12,5 +12,5 @@ properties:
     type: string
     example: Group1 description
   availableCount:
-    type: number
+    type: integer
     example: 10

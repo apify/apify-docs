@@ -20,6 +20,7 @@ properties:
     example: asdLZtadYvn4mBZmm
   createdAt:
     type: string
+    format: date-time
     example: '2019-12-12T07:34:14.202Z'
   status:
     type: string
@@ -46,10 +47,12 @@ properties:
     properties:
       startedAt:
         type: string
+        format: date-time
         nullable: true
         example: '2019-12-12T07:34:14.202Z'
       finishedAt:
         type: string
+        format: date-time
         nullable: true
         example: '2019-12-12T07:34:14.202Z'
       errorMessage:
@@ -57,7 +60,7 @@ properties:
         nullable: true
         example: Cannot send request
       responseStatus:
-        type: number
+        type: integer
         nullable: true
         example: 200
       responseBody:

@@ -1,0 +1,10 @@
+title: UnlockRequestsResult
+description: Result of unlocking requests in the request queue.
+type: object
+required:
+  - unlockedCount
+properties:
+  unlockedCount:
+    type: integer
+    description: Number of requests that were successfully unlocked.
+    example: 10

@@ -1,7 +1,6 @@
 title: KeyValueStore
 required:
   - id
-  - name
   - createdAt
   - modifiedAt
   - accessedAt
@@ -25,12 +24,15 @@ properties:
     example: janedoe
   createdAt:
     type: string
+    format: date-time
     example: '2019-12-12T07:34:14.202Z'
   modifiedAt:
     type: string
+    format: date-time
     example: '2019-12-13T08:36:13.202Z'
   accessedAt:
     type: string
+    format: date-time
     example: '2019-12-14T08:36:13.202Z'
   actId:
     type: string
@@ -42,7 +44,7 @@ properties:
     example: null
   consoleUrl:
     type: string
-    example: 'https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC'  
+    example: 'https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC'
   keysPublicUrl:
     type: string
     description: "A public link to access keys of the key-value store directly."

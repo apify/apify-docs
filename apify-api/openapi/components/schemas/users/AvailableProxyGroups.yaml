@@ -5,8 +5,8 @@ required:
 type: object
 properties:
   SOMEGROUP:
-    type: number
+    type: integer
     example: 20
   ANOTHERGROUP:
-    type: number
+    type: integer
     example: 200

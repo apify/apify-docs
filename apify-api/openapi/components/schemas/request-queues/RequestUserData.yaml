@@ -1,0 +1,15 @@
+title: RequestUserData
+description: Custom user data attached to the request. Can contain arbitrary fields.
+type: object
+additionalProperties: true
+properties:
+  label:
+    type: string
+    nullable: true
+    description: Optional label for categorizing the request.
+    example: DETAIL
+  image:
+    type: string
+    nullable: true
+    description: Optional image URL associated with the request.
+    example: https://picserver1.eu

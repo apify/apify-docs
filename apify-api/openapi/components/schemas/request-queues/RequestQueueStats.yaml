@@ -1,0 +1,24 @@
+title: RequestQueueStats
+description: Statistics about request queue operations and storage.
+type: object
+properties:
+  deleteCount:
+    type: integer
+    description: The number of delete operations performed on the request queue.
+    example: 0
+  headItemReadCount:
+    type: integer
+    description: The number of times requests from the head were read.
+    example: 5
+  readCount:
+    type: integer
+    description: The total number of read operations performed on the request queue.
+    example: 100
+  storageBytes:
+    type: integer
+    description: The total storage size in bytes used by the request queue.
+    example: 1024
+  writeCount:
+    type: integer
+    description: The total number of write operations performed on the request queue.
+    example: 10

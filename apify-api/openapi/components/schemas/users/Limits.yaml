@@ -23,7 +23,7 @@ properties:
     type: number
     example: 7
   maxMonthlyProxySerps:
-    type: number
+    type: integer
     example: 50
   maxMonthlyResidentialProxyGbytes:
     type: number
@@ -32,17 +32,17 @@ properties:
     type: number
     example: 16
   maxActorCount:
-    type: number
+    type: integer
     example: 100
   maxActorTaskCount:
-    type: number
+    type: integer
     example: 1000
   maxConcurrentActorJobs:
-    type: number
+    type: integer
     example: 256
   maxTeamAccountSeatCount:
-    type: number
+    type: integer
     example: 9
   dataRetentionDays:
-    type: number
+    type: integer
     example: 90

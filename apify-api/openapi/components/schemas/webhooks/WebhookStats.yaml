@@ -4,5 +4,5 @@ required:
 type: object
 properties:
   totalDispatches:
-    type: number
+    type: integer
     example: 1

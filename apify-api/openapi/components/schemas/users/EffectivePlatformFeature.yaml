@@ -23,5 +23,6 @@ properties:
     example: false
   trialExpirationAt:
     type: string
+    format: date-time
     example: "2025-01-01T14:00:00.000Z"
     nullable: true

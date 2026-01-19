@@ -4,9 +4,7 @@ required:
 type: object
 properties:
   data:
-    allOf:
-      - $ref: ./Build.yaml
-      - {}
+    $ref: ./Build.yaml
 example:
   data:
     id: HG7ML7M8z78YcAPEB

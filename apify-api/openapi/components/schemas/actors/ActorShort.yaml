@@ -12,9 +12,11 @@ properties:
     example: br9CKmk457
   createdAt:
     type: string
+    format: date-time
     example: '2019-10-29T07:34:24.202Z'
   modifiedAt:
     type: string
+    format: date-time
     example: '2019-10-30T07:34:24.202Z'
   name:
     type: string
@@ -22,3 +24,8 @@ properties:
   username:
     type: string
     example: janedoe
+  title:
+    type: string
+    example: 'Hello World Example'
+  stats:
+    $ref: ./ActorStats.yaml

@@ -1,0 +1,14 @@
+title: EnvVarList
+type: object
+required:
+  - total
+  - items
+properties:
+  total:
+    type: integer
+    example: 5
+  items:
+    type: array
+    items:
+      $ref: "./EnvVar.yaml"
+    description: ''
