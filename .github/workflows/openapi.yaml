@@ -4,6 +4,17 @@ on:
     push:
 
 jobs:
+    spell_check:
+        name: Spell check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v6
+            - name: Check spelling with typos
+              uses: crate-ci/typos@v1.42.0
+              with:
+                  files: apify-api/
+
     build:
         name: Build the specification file
         runs-on: ubuntu-latest
