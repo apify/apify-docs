@@ -13,47 +13,45 @@ type: object
 properties:
   id:
     type: string
-    example: YiKoxjkaS9gjGTqhF
+    examples: [YiKoxjkaS9gjGTqhF]
   createdAt:
     type: string
     format: date-time
-    example: "2019-12-12T07:34:14.202Z"
+    examples: ['2019-12-12T07:34:14.202Z']
   modifiedAt:
     type: string
     format: date-time
-    example: "2019-12-13T08:36:13.202Z"
+    examples: ['2019-12-13T08:36:13.202Z']
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    examples: [wRsJZtadYvn4mBZmm]
   isAdHoc:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, 'null']
+    examples: [false]
   shouldInterpolateStrings:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, 'null']
+    examples: [false]
   eventTypes:
     type: array
     items:
       $ref: ./WebhookEventType.yaml
-    example: ACTOR.RUN.SUCCEEDED
+    examples: [ACTOR.RUN.SUCCEEDED]
   condition:
     $ref: ./WebhookCondition.yaml
   ignoreSslErrors:
     type: boolean
-    example: false
+    examples: [false]
   doNotRetry:
     type: boolean
-    example: false
+    examples: [false]
   requestUrl:
     type: string
-    example: http://example.com/
+    examples: ['http://example.com/']
   lastDispatch:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./ExampleWebhookDispatch.yaml
+      - type: 'null'
   stats:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./WebhookStats.yaml
+      - type: 'null'

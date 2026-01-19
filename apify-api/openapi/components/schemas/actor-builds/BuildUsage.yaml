@@ -2,6 +2,5 @@ title: BuildUsage
 type: object
 properties:
   ACTOR_COMPUTE_UNITS:
-    type: number
-    nullable: true
-    example: 0.08
+    type: [number, 'null']
+    examples: [0.08]

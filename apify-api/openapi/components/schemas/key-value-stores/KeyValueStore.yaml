@@ -10,49 +10,44 @@ type: object
 properties:
   id:
     type: string
-    example: WkzbQMuFYuamGv3YF
+    examples: [WkzbQMuFYuamGv3YF]
   name:
     type: string
-    example: d7b9MDYsbtX5L7XAj
+    examples: [d7b9MDYsbtX5L7XAj]
   userId:
-    type: string
-    nullable: true
-    example: BPWDBd7Z9c746JAnF
+    type: [string, 'null']
+    examples: [BPWDBd7Z9c746JAnF]
   username:
-    type: string
-    nullable: true
-    example: janedoe
+    type: [string, 'null']
+    examples: [janedoe]
   createdAt:
     type: string
     format: date-time
-    example: "2019-12-12T07:34:14.202Z"
+    examples: ['2019-12-12T07:34:14.202Z']
   modifiedAt:
     type: string
     format: date-time
-    example: "2019-12-13T08:36:13.202Z"
+    examples: ['2019-12-13T08:36:13.202Z']
   accessedAt:
     type: string
     format: date-time
-    example: "2019-12-14T08:36:13.202Z"
+    examples: ['2019-12-14T08:36:13.202Z']
   actId:
-    type: string
-    nullable: true
-    example: null
+    type: [string, 'null']
+    examples: [null]
   actRunId:
-    type: string
-    nullable: true
-    example: null
+    type: [string, 'null']
+    examples: [null]
   consoleUrl:
     type: string
-    example: https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC
+    examples: ['https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC']
   keysPublicUrl:
     type: string
-    description: A public link to access keys of the key-value store directly.
-    example: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123
+    description: "A public link to access keys of the key-value store directly."
+    examples: ['https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123']
   urlSigningSecretKey:
-    type: string
-    description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the key-value store.
-    nullable: true
+    type: [string, 'null']
+    description: "A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the key-value store."
   generalAccess:
     $ref: ../common/GeneralAccessEnum.yaml
   stats:

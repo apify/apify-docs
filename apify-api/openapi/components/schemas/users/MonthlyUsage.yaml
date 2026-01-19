@@ -18,7 +18,7 @@ properties:
     description: ""
   totalUsageCreditsUsdBeforeVolumeDiscount:
     type: number
-    example: 0.786143673840067
+    examples: [0.786143673840067]
   totalUsageCreditsUsdAfterVolumeDiscount:
     type: number
-    example: 0.786143673840067
+    examples: [0.786143673840067]

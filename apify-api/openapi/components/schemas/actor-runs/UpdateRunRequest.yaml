@@ -3,12 +3,12 @@ type: object
 properties:
   runId:
     type: string
-    example: 3KH8gEpp4d8uQSe8T
+    examples: [3KH8gEpp4d8uQSe8T]
   statusMessage:
     type: string
-    example: Actor has finished
+    examples: [Actor has finished]
   isStatusMessageTerminal:
     type: boolean
-    example: true
+    examples: [true]
   generalAccess:
     $ref: ../common/GeneralAccessEnum.yaml

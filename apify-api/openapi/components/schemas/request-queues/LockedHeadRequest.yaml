@@ -10,25 +10,25 @@ properties:
   id:
     type: string
     description: A unique identifier assigned to the request.
-    example: 8OamqXBCpPHxyH9
+    examples: [8OamqXBCpPHxyH9]
   uniqueKey:
     type: string
     description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
-    example: GET|60d83e70|e3b0c442|https://apify.com
+    examples: [GET|60d83e70|e3b0c442|https://apify.com]
   url:
     type: string
     description: The URL of the request.
-    example: https://apify.com
+    examples: [https://apify.com]
   method:
     type: string
     description: The HTTP method of the request.
-    example: GET
+    examples: [GET]
   retryCount:
     type: integer
     description: The number of times this request has been retried.
-    example: 0
+    examples: [0]
   lockExpiresAt:
     type: string
     format: date-time
     description: The timestamp when the lock on this request expires.
-    example: "2022-06-14T23:00:00.000Z"
+    examples: ['2022-06-14T23:00:00.000Z']

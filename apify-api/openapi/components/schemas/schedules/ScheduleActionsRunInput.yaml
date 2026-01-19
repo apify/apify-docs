@@ -2,10 +2,8 @@ title: ScheduleActionsRunInput
 type: object
 properties:
   body:
-    type: string
-    nullable: true
-    example: '{\n   \"foo\": \"actor\"\n}'
+    type: [string, 'null']
+    examples: ['{\n   \"foo\": \"actor\"\n}']
   contentType:
-    type: string
-    nullable: true
-    example: application/json; charset=utf-8
+    type: [string, 'null']
+    examples: [application/json; charset=utf-8]

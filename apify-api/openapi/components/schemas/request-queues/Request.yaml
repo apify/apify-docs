@@ -9,52 +9,46 @@ properties:
   id:
     type: string
     description: A unique identifier assigned to the request.
-    example: dnjkDMKLmdlkmlkmld
+    examples: [dnjkDMKLmdlkmlkmld]
   uniqueKey:
     type: string
     description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
-    example: GET|60d83e70|e3b0c442|https://apify.com/career
+    examples: [GET|60d83e70|e3b0c442|https://apify.com/career]
   url:
     type: string
     description: The URL of the request.
-    example: https://apify.com/career
+    examples: [https://apify.com/career]
   method:
     type: string
     description: The HTTP method of the request.
-    example: GET
+    examples: [GET]
   retryCount:
     type: integer
     description: The number of times this request has been retried.
-    example: 0
+    examples: [0]
   loadedUrl:
-    type: string
-    nullable: true
+    type: [string, 'null']
     description: The final URL that was loaded, after redirects (if any).
-    example: https://apify.com/jobs
+    examples: [https://apify.com/jobs]
   payload:
-    type: object
-    nullable: true
+    type: [object, 'null']
     description: The request payload, typically used with POST or PUT requests.
   headers:
-    type: object
-    nullable: true
+    type: [object, 'null']
     description: HTTP headers sent with the request.
   userData:
     $ref: ./RequestUserData.yaml
   noRetry:
-    type: boolean
-    nullable: true
+    type: [boolean, 'null']
     description: Indicates whether the request should not be retried if processing fails.
-    example: false
+    examples: [false]
   errorMessages:
-    type: array
-    nullable: true
+    type: [array, 'null']
     description: Error messages recorded from failed processing attempts.
     items:
       type: string
   handledAt:
-    type: string
+    type: [string, 'null']
     format: date-time
-    nullable: true
     description: The timestamp when the request was marked as handled, if applicable.
-    example: "2019-06-16T10:23:31.607Z"
+    examples: ['2019-06-16T10:23:31.607Z']

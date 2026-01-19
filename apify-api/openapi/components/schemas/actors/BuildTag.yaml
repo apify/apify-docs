@@ -1,6 +1,5 @@
 title: BuildTag
-type: object
-nullable: true
+type: [object, 'null']
 required:
   - buildId
 properties:

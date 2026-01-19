@@ -10,41 +10,39 @@ type: object
 properties:
   id:
     type: string
-    example: ZxLNxrRaZrSjuhT9y
+    examples: [ZxLNxrRaZrSjuhT9y]
   userId:
     type: string
-    example: BPWZBd7Z9c746JAnF
+    examples: [BPWZBd7Z9c746JAnF]
   actId:
     type: string
-    example: asADASadYvn4mBZmm
+    examples: [asADASadYvn4mBZmm]
   name:
     type: string
-    example: my-task
+    examples: [my-task]
   username:
-    type: string
-    nullable: true
-    example: janedoe
+    type: [string, 'null']
+    examples: [janedoe]
   createdAt:
     type: string
     format: date-time
-    example: "2018-10-26T07:23:14.855Z"
+    examples: ['2018-10-26T07:23:14.855Z']
   modifiedAt:
     type: string
     format: date-time
-    example: "2018-10-26T13:30:49.578Z"
+    examples: ['2018-10-26T13:30:49.578Z']
   removedAt:
-    type: string
+    type: [string, 'null']
     format: date-time
-    nullable: true
   stats:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./TaskStats.yaml
+      - type: 'null'
   options:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./TaskOptions.yaml
+      - type: 'null'
   input:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./TaskInput.yaml
+      - type: 'null'

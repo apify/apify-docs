@@ -9,12 +9,12 @@ properties:
   requestId:
     type: string
     description: A unique identifier assigned to the request.
-    example: YiKoxjkaS9gjGTqhF
+    examples: [YiKoxjkaS9gjGTqhF]
   wasAlreadyPresent:
     type: boolean
     description: Indicates whether a request with the same unique key already existed in the request queue. If true, no new request was created.
-    example: false
+    examples: [false]
   wasAlreadyHandled:
     type: boolean
     description: Indicates whether a request with the same unique key has already been processed by the request queue.
-    example: false
+    examples: [false]

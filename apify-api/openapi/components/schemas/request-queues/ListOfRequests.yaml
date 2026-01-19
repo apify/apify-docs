@@ -13,12 +13,12 @@ properties:
   count:
     type: integer
     description: The total number of requests matching the query.
-    example: 2
+    examples: [2]
   limit:
     type: integer
     description: The maximum number of requests returned in this response.
-    example: 2
+    examples: [2]
   exclusiveStartId:
     type: string
     description: The ID of the last request from the previous page, used for pagination.
-    example: Ihnsp8YrvJ8102Kj
+    examples: [Ihnsp8YrvJ8102Kj]

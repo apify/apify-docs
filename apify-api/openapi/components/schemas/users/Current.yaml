@@ -14,31 +14,31 @@ type: object
 properties:
   monthlyUsageUsd:
     type: number
-    example: 43
+    examples: [43]
   monthlyActorComputeUnits:
     type: number
-    example: 500.784475
+    examples: [500.784475]
   monthlyExternalDataTransferGbytes:
     type: number
-    example: 3.00861903931946
+    examples: [3.00861903931946]
   monthlyProxySerps:
     type: integer
-    example: 34
+    examples: [34]
   monthlyResidentialProxyGbytes:
     type: number
-    example: 0.4
+    examples: [0.4]
   actorMemoryGbytes:
     type: number
-    example: 8
+    examples: [8]
   actorCount:
     type: integer
-    example: 31
+    examples: [31]
   actorTaskCount:
     type: integer
-    example: 130
+    examples: [130]
   activeActorJobCount:
     type: integer
-    example: 0
+    examples: [0]
   teamAccountSeatCount:
     type: integer
-    example: 5
+    examples: [5]

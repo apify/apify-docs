@@ -5,4 +5,4 @@ type: object
 properties:
   totalDispatches:
     type: integer
-    example: 1
+    examples: [1]

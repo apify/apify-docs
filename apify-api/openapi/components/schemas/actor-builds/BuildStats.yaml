@@ -5,10 +5,10 @@ type: object
 properties:
   durationMillis:
     type: integer
-    example: 1000
+    examples: [1000]
   runTimeSecs:
     type: number
-    example: 45.718
+    examples: [45.718]
   computeUnits:
     type: number
-    example: 0.0126994444444444
+    examples: [0.0126994444444444]

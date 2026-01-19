@@ -8,4 +8,4 @@ properties:
     type: string
     format: date-time
     description: The timestamp when the lock expires.
-    example: "2022-01-01T00:00:00.000Z"
+    examples: ['2022-01-01T00:00:00.000Z']

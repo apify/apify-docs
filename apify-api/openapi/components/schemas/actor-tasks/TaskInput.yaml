@@ -2,6 +2,5 @@ title: TaskInput
 type: object
 properties:
   hello:
-    type: string
-    nullable: true
-    example: world
+    type: [string, 'null']
+    examples: [world]

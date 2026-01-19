@@ -7,9 +7,9 @@ type: object
 properties:
   date:
     type: string
-    example: "2022-10-02T00:00:00.000Z"
+    examples: ['2022-10-02T00:00:00.000Z']
   serviceUsage:
     $ref: ./ServiceUsage.yaml
   totalUsageCreditsUsd:
     type: number
-    example: 0.0474385791970591
+    examples: [0.0474385791970591]

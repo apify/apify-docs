@@ -5,20 +5,20 @@ properties:
   deleteCount:
     type: integer
     description: The number of delete operations performed on the request queue.
-    example: 0
+    examples: [0]
   headItemReadCount:
     type: integer
     description: The number of times requests from the head were read.
-    example: 5
+    examples: [5]
   readCount:
     type: integer
     description: The total number of read operations performed on the request queue.
-    example: 100
+    examples: [100]
   storageBytes:
     type: integer
     description: The total storage size in bytes used by the request queue.
-    example: 1024
+    examples: [1024]
   writeCount:
     type: integer
     description: The total number of write operations performed on the request queue.
-    example: 10
+    examples: [10]

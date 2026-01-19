@@ -6,9 +6,9 @@ required:
 properties:
   name:
     type: string
-    example: src/placeholder
+    examples: [src/placeholder]
   folder:
     type: boolean
     enum:
       - true
-    example: true
+    examples: [true]

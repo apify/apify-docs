@@ -10,19 +10,19 @@ type: object
 properties:
   total:
     type: integer
-    example: 2
+    examples: [2]
   offset:
     type: integer
-    example: 0
+    examples: [0]
   limit:
     type: integer
-    example: 1000
+    examples: [1000]
   desc:
     type: boolean
-    example: false
+    examples: [false]
   count:
     type: integer
-    example: 2
+    examples: [2]
   items:
     type: array
     items:
