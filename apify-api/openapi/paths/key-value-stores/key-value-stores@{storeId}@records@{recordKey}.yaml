@@ -14,6 +14,10 @@ get:
     Most HTTP clients support decompression by default. After using the HTTP
     client with decompression support, the `Accept-Encoding` header is set by
     the client and body is decompressed automatically.
+
+    Please note that for security reasons, Apify API can perform small modifications
+    to HTML documents before they are served via this endpoint. To fetch the raw HTML
+    content without any modifications, use the `attachment` query parameter.
   operationId: keyValueStore_record_get
   parameters:
     - name: storeId
@@ -40,6 +44,16 @@ get:
       schema:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI
+    - name: attachment
+      in: query
+      description: |
+        If `true` or `1`, the response will be served with `Content-Disposition: attachment` header,
+        causing web browsers to offer downloading HTML records instead of displaying them.
+      required: false
+      style: form
+      schema:
+        type: boolean
+        example: true
   responses:
     '200':
       description: ''
