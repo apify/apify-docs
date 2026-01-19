@@ -255,7 +255,7 @@
 
     :::
 - name: Storage/Request queues/Requests
-  x-displayName: Requests- Introduction
+  x-displayName: Requests - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
   - '#/reference/request-queues/request-collection'
@@ -420,4 +420,3 @@
   description: The API endpoints described in this section return information about
     user accounts.
   x-trait: true
-
