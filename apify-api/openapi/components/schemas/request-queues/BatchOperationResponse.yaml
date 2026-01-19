@@ -1,7 +1,0 @@
-title: BatchOperationResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: './BatchOperationResult.yaml'

@@ -1,0 +1,40 @@
+title: LockedRequestQueueHead
+description: A batch of locked requests from the request queue head.
+type: object
+required:
+  - limit
+  - queueModifiedAt
+  - hadMultipleClients
+  - lockSecs
+  - items
+properties:
+  limit:
+    type: integer
+    description: The maximum number of requests returned.
+    example: 1000
+  queueModifiedAt:
+    type: string
+    format: date-time
+    description: The timestamp when the request queue was last modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests.
+    example: '2018-03-14T23:00:00.000Z'
+  queueHasLockedRequests:
+    type: boolean
+    description: Whether the request queue contains requests locked by any client (either the one calling the endpoint or a different one).
+    example: true
+  clientKey:
+    type: string
+    description: The client key used for locking the requests.
+    example: client-one
+  hadMultipleClients:
+    type: boolean
+    description: Whether the request queue has been accessed by multiple different clients.
+    example: true
+  lockSecs:
+    type: integer
+    description: The number of seconds the locks will be held.
+    example: 60
+  items:
+    type: array
+    items:
+      $ref: ./LockedHeadRequest.yaml
+    description: The array of locked requests from the request queue head.

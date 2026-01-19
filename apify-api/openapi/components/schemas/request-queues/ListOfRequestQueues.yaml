@@ -1,4 +1,5 @@
 title: ListOfRequestQueues
+description: A paginated list of request queues.
 allOf:
   - $ref: ../common/PaginationResponse.yaml
   - type: object
@@ -7,5 +8,6 @@ allOf:
     properties:
       items:
         type: array
+        description: The array of request queues.
         items:
           $ref: ./RequestQueueShort.yaml

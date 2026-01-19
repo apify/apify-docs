@@ -1,20 +1,24 @@
 title: ListOfRequests
+description: A paginated list of requests from the request queue.
 type: object
+required:
+  - items
+  - limit
 properties:
   items:
     type: array
     items:
-      $ref: ./RequestQueueItems.yaml
-    description: ''
+      $ref: ./Request.yaml
+    description: The array of requests.
   count:
     type: integer
+    description: The total number of requests matching the query.
     example: 2
   limit:
     type: integer
+    description: The maximum number of requests returned in this response.
     example: 2
   exclusiveStartId:
     type: string
+    description: The ID of the last request from the previous page, used for pagination.
     example: Ihnsp8YrvJ8102Kj
-required:
-  - items
-  - limit

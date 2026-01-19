@@ -1,4 +1,5 @@
 title: UpdateRequestQueueResponse
+description: Response containing the updated request queue.
 required:
   - data
 type: object

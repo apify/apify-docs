@@ -1,7 +1,8 @@
 title: UpdateRequestResponse
+description: Response containing the result of updating a request in the request queue.
 required:
   - data
 type: object
 properties:
   data:
-    $ref: ./RequestOperationInfo.yaml
+    $ref: ./RequestRegistration.yaml

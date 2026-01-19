@@ -1,7 +1,0 @@
-title: ListRequestsResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: './ListOfRequests.yaml'

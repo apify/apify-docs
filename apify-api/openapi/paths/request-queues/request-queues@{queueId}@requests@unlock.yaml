@@ -33,18 +33,7 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - data
-            properties:
-              data:
-                type: object
-                required:
-                  - unlockedCount
-                properties:
-                  unlockedCount:
-                    type: integer
-                    description: 'Number of requests that were successfully unlocked'
+            $ref: ../../components/schemas/request-queues/UnlockRequestsResponse.yaml
           example:
             data:
               unlockedCount: 10

@@ -55,7 +55,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/ListRequestsResponse.yaml
+              - $ref: ../../components/schemas/request-queues/GetListOfRequestsResponse.yaml
               - example:
                   data:
                     items:
@@ -186,7 +186,7 @@ post:
       application/json:
         schema:
           allOf:
-            - $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
+            - $ref: ../../components/schemas/request-queues/RequestDraft.yaml
             - example:
                 uniqueKey: 'http://example.com'
                 url: 'http://example.com'

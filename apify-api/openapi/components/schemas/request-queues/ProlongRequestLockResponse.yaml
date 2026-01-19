@@ -1,5 +1,8 @@
 title: ProlongRequestLockResponse
+description: Response containing updated lock information after prolonging a request lock.
+required:
+  - data
 type: object
 properties:
   data:
-    $ref: './RequestLockInfo.yaml'
+    $ref: ./RequestLockInfo.yaml

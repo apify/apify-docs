@@ -1,0 +1,20 @@
+title: RequestDraft
+description: A request that failed to be processed during a request queue operation and can be retried.
+required:
+  - uniqueKey
+  - url
+  - method
+type: object
+properties:
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    example: GET|60d83e70|e3b0c442|https://apify.com
+  url:
+    type: string
+    description: The URL of the request.
+    example: https://apify.com
+  method:
+    type: string
+    description: The HTTP method of the request.
+    example: GET
