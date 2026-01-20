@@ -103,10 +103,10 @@ jobs:
                   path: static/api/
 
             - name: Validate YAML bundle
-              run: redocly lint static/api/openapi.yaml
+              run: npx redocly lint static/api/openapi.yaml
 
             - name: Validate JSON bundle
-              run: redocly lint static/api/openapi.json
+              run: npx redocly lint static/api/openapi.json
 
             - name: Check bundle sizes
               run: |
