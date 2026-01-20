@@ -67,7 +67,7 @@ export default [
             'yml/no-irregular-whitespace': 'error',
             'yml/no-tab-indent': 'error',
             'yml/no-empty-document': 'error',
-            'yml/no-multiple-empty-lines': ['error', { max: 2 }],
+            'yml/no-multiple-empty-lines': ['error', { max: 1 }],
             // Disable max-len (OpenAPI specs have long descriptions/URLs)
             'max-len': 'off',
         },

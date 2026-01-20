@@ -79,28 +79,32 @@ jobs:
         steps:
             - uses: actions/checkout@v6
 
+            - name: Set up Node.js
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+                  cache: "npm"
+                  cache-dependency-path: "package-lock.json"
+
+            - name: Enable corepack
+              run: corepack enable
+
+            - name: Install Dependencies
+              run: npm ci --force
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
             - name: Download bundled specification
               uses: actions/download-artifact@v4
               with:
                   name: openapi-bundles
                   path: static/api/
 
-            - name: Validate JSON structure
-              run: |
-                  if ! jq empty static/api/openapi.json; then
-                    echo "Invalid JSON structure in openapi.json"
-                    exit 1
-                  fi
-                  echo "✓ JSON structure is valid"
+            - name: Validate bundled YAML with Redocly
+              run: redocly lint static/api/openapi.yaml
 
-            - name: Validate YAML structure
-              run: |
-                  pip install yamllint
-                  if ! yamllint -d relaxed static/api/openapi.yaml; then
-                    echo "Invalid YAML structure in openapi.yaml"
-                    exit 1
-                  fi
-                  echo "✓ YAML structure is valid"
+            - name: Validate bundled JSON with Redocly
+              run: redocly lint static/api/openapi.json
 
             - name: Check bundle sizes
               run: |
@@ -113,3 +117,4 @@ jobs:
                     echo "Error: Bundle files are suspiciously small"
                     exit 1
                   fi
+                  echo "✓ Bundles have valid sizes"
