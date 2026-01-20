@@ -60,9 +60,10 @@ export default [
             'yml/file-extension': ['error', { extension: 'yaml', caseSensitive: true }],
             // Enforce 2-space indentation
             'yml/indent': ['error', 2],
-            // Disable quote enforcement (OpenAPI specs have various quoting styles)
-            'yml/quotes': 'off',
-            'yml/plain-scalar': 'off',
+            // Enforce quote style: prefer single quotes, only when necessary
+            'yml/quotes': ['error', { prefer: 'single', avoidEscape: true }],
+            // Enforce plain scalars (unquoted) when possible - quotes only when necessary
+            'yml/plain-scalar': ['error', 'always'],
             // Keep important rules
             'yml/no-irregular-whitespace': 'error',
             'yml/no-tab-indent': 'error',
