@@ -22,10 +22,10 @@ get:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -79,9 +79,9 @@ post:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -91,8 +91,8 @@ post:
           value: my-env-var
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:

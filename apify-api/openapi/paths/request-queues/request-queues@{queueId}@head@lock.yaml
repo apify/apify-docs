@@ -53,8 +53,8 @@ post:
         type: string
         example: client-abc
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -64,53 +64,53 @@ post:
               - example:
                   data:
                     limit: 3
-                    queueModifiedAt: '2018-03-14T23:00:00.000Z'
+                    queueModifiedAt: "2018-03-14T23:00:00.000Z"
                     hadMultipleClients: true
                     lockSecs: 60
                     items:
                       - id: 8OamqXBCpPHxyj9
                         retryCount: 0
-                        uniqueKey: 'http://example.com'
-                        url: 'http://example.com'
+                        uniqueKey: "http://example.com"
+                        url: "http://example.com"
                         method: GET
-                        lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                        lockExpiresAt: "2022-06-14T23:00:00.000Z"
                       - id: 8OamqXBCpPHxyx9
                         retryCount: 0
-                        uniqueKey: 'http://example.com/a'
-                        url: 'http://example.com/a'
+                        uniqueKey: "http://example.com/a"
+                        url: "http://example.com/a"
                         method: GET
-                        lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                        lockExpiresAt: "2022-06-14T23:00:00.000Z"
                       - id: 8OamqXBCpPHxy08
                         retryCount: 0
-                        uniqueKey: 'http://example.com/a/b'
-                        url: 'http://example.com/a/b'
+                        uniqueKey: "http://example.com/a/b"
+                        url: "http://example.com/a/b"
                         method: GET
-                        lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                        lockExpiresAt: "2022-06-14T23:00:00.000Z"
           example:
             data:
               limit: 3
-              queueModifiedAt: '2018-03-14T23:00:00.000Z'
+              queueModifiedAt: "2018-03-14T23:00:00.000Z"
               hadMultipleClients: true
               lockSecs: 60
               items:
                 - id: 8OamqXBCpPHxyj9
                   retryCount: 0
-                  uniqueKey: 'http://example.com'
-                  url: 'http://example.com'
+                  uniqueKey: "http://example.com"
+                  url: "http://example.com"
                   method: GET
-                  lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                  lockExpiresAt: "2022-06-14T23:00:00.000Z"
                 - id: 8OamqXBCpPHxyx9
                   retryCount: 0
-                  uniqueKey: 'http://example.com/a'
-                  url: 'http://example.com/a'
+                  uniqueKey: "http://example.com/a"
+                  url: "http://example.com/a"
                   method: GET
-                  lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                  lockExpiresAt: "2022-06-14T23:00:00.000Z"
                 - id: 8OamqXBCpPHxy08
                   retryCount: 0
-                  uniqueKey: 'http://example.com/a/b'
-                  url: 'http://example.com/a/b'
+                  uniqueKey: "http://example.com/a/b"
+                  url: "http://example.com/a/b"
                   method: GET
-                  lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                  lockExpiresAt: "2022-06-14T23:00:00.000Z"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head-with-locks/get-head-and-lock

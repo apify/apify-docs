@@ -89,8 +89,8 @@ get:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -98,15 +98,15 @@ get:
             type: object
           example:
             bar: foo
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/common/ErrorResponse.yaml
-    '408':
-      description: 'Request Timeout: the HTTP request exceeded the 300 second limit'
+    "408":
+      description: "Request Timeout: the HTTP request exceeded the 300 second limit"
       headers: {}
       content:
         application/json:
@@ -232,7 +232,7 @@ post:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -241,8 +241,8 @@ post:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -250,8 +250,8 @@ post:
             type: object
           example:
             bar: foo
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:

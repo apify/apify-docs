@@ -16,8 +16,8 @@ get:
         type: string
         example: WkzbQMuFYuamGv3YF
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -55,7 +55,7 @@ put:
         type: string
         example: WkzbQMuFYuamGv3YF
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -64,8 +64,8 @@ put:
           name: new-store-name
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -98,8 +98,8 @@ delete:
         type: string
         example: WkzbQMuFYuamGv3YF
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
   deprecated: false

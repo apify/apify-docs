@@ -39,8 +39,8 @@ get:
         type: string
         example: soSkq9ekdmfOslopH
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:

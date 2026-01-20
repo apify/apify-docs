@@ -60,8 +60,8 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -104,8 +104,8 @@ post:
         type: string
         example: eshop-values
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -122,9 +122,9 @@ post:
               id: WkzbQMuFYuamGv3YF
               name: d7b9MDYsbtX5L7XAj
               userId: wRsJZtadYvn4mBZmm
-              createdAt: '2019-12-12T07:34:14.202Z'
-              modifiedAt: '2019-12-13T08:36:13.202Z'
-              accessedAt: '2019-12-14T08:36:13.202Z'
+              createdAt: "2019-12-12T07:34:14.202Z"
+              modifiedAt: "2019-12-13T08:36:13.202Z"
+              accessedAt: "2019-12-14T08:36:13.202Z"
               actId: null
               actRunId: null
   deprecated: false

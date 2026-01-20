@@ -12,7 +12,7 @@ properties:
         example: Your Magic Actor
       version:
         type: string
-        example: '1.0'
+        example: "1.0"
       x-build-id:
         type: string
         example: ID of build
@@ -64,7 +64,7 @@ properties:
                             properties:
                               $ref:
                                 type: string
-                                example: '#/components/schemas/inputSchema'
+                                example: "#/components/schemas/inputSchema"
               parameters:
                 type: array
                 items:
@@ -91,7 +91,7 @@ properties:
               responses:
                 type: object
                 properties:
-                  '200':
+                  "200":
                     type: object
                     properties:
                       description:
@@ -134,7 +134,7 @@ properties:
                             properties:
                               $ref:
                                 type: string
-                                example: '#/components/schemas/inputSchema'
+                                example: "#/components/schemas/inputSchema"
               parameters:
                 type: array
                 items:
@@ -157,7 +157,7 @@ properties:
               responses:
                 type: object
                 properties:
-                  '200':
+                  "200":
                     type: object
                     properties:
                       description:
@@ -174,7 +174,7 @@ properties:
                                 properties:
                                   $ref:
                                     type: string
-                                    example: '#/components/schemas/runsResponseSchema'
+                                    example: "#/components/schemas/runsResponseSchema"
       /acts/<username>~<actor>/run-sync:
         type: object
         properties:
@@ -212,7 +212,7 @@ properties:
                             properties:
                               $ref:
                                 type: string
-                                example: '#/components/schemas/inputSchema'
+                                example: "#/components/schemas/inputSchema"
               parameters:
                 type: array
                 items:
@@ -235,7 +235,7 @@ properties:
               responses:
                 type: object
                 properties:
-                  '200':
+                  "200":
                     type: object
                     properties:
                       description:

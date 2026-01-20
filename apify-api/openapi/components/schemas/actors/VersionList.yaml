@@ -11,4 +11,4 @@ properties:
     type: array
     items:
       $ref: ./Version.yaml
-    description: ''
+    description: ""

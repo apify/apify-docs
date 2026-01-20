@@ -18,8 +18,8 @@ get:
         type: string
         example: WkzbQMuFYuamGv3YF
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       content:
         application/json:
           schema:

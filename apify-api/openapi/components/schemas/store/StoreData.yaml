@@ -27,4 +27,4 @@ properties:
     type: array
     items:
       $ref: ./StoreListActor.yaml
-    description: ''
+    description: ""

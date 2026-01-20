@@ -43,8 +43,8 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -76,15 +76,15 @@ post:
     info](#/introduction/authentication)).
   operationId: schedules_post
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:

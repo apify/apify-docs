@@ -151,7 +151,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -159,7 +159,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -176,7 +176,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -315,7 +315,7 @@ post:
         type: boolean
         example: false
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -324,33 +324,33 @@ post:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
@@ -361,8 +361,8 @@ post:
           example:
             - myValue: some value
               myOtherValue: some other value
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -374,8 +374,8 @@ post:
               message: >-
                 Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
                 FAILED)
-    '408':
-      description: ''
+    "408":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -534,7 +534,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -542,7 +542,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -559,7 +559,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -691,33 +691,33 @@ get:
         type: boolean
         example: false
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
@@ -725,8 +725,8 @@ get:
           example:
             - myValue: some value
               myOtherValue: some other value
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -738,8 +738,8 @@ get:
               message: >-
                 Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
                 FAILED)
-    '408':
-      description: ''
+    "408":
+      description: ""
       headers: {}
       content:
         application/json:

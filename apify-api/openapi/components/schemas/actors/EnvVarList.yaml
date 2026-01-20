@@ -11,4 +11,4 @@ properties:
     type: array
     items:
       $ref: ./EnvVar.yaml
-    description: ''
+    description: ""

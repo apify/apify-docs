@@ -45,8 +45,8 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -122,35 +122,35 @@ post:
   parameters:
     - name: limit
       in: query
-      description: ''
+      description: ""
       style: form
       explode: true
       schema:
         type: string
     - name: offset
       in: query
-      description: ''
+      description: ""
       style: form
       explode: true
       schema:
         type: string
     - name: desc
       in: query
-      description: ''
+      description: ""
       style: form
       explode: true
       schema:
         type: string
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/webhooks/WebhookCreate.yaml
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:

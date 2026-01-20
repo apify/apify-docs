@@ -7,7 +7,7 @@ required:
 properties:
   apifyMarginPercentage:
     type: number
-    description: 'In [0, 1], fraction of pricePerUnitUsd that goes to Apify'
+    description: "In [0, 1], fraction of pricePerUnitUsd that goes to Apify"
   createdAt:
     type: string
     format: date-time

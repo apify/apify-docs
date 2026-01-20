@@ -10,4 +10,4 @@ properties:
   finishedAt:
     type: string
     format: date-time
-    example: '2019-12-13T08:36:13.202Z'
+    example: "2019-12-13T08:36:13.202Z"

@@ -23,7 +23,7 @@ properties:
     example: my-schedule
   cronExpression:
     type: string
-    example: '* * * * *'
+    example: "* * * * *"
   timezone:
     type: string
     example: UTC
@@ -40,23 +40,23 @@ properties:
   createdAt:
     type: string
     format: date-time
-    example: '2019-12-12T07:34:14.202Z'
+    example: "2019-12-12T07:34:14.202Z"
   modifiedAt:
     type: string
     format: date-time
-    example: '2019-12-20T06:33:11.202Z'
+    example: "2019-12-20T06:33:11.202Z"
   nextRunAt:
     type: string
     format: date-time
     nullable: true
-    example: '2019-04-12T07:34:10.202Z'
+    example: "2019-04-12T07:34:10.202Z"
   lastRunAt:
     type: string
     format: date-time
     nullable: true
-    example: '2019-04-12T07:33:10.202Z'
+    example: "2019-04-12T07:33:10.202Z"
   actions:
     type: array
     items:
       $ref: ./ScheduleResponseDataActions.yaml
-    description: ''
+    description: ""

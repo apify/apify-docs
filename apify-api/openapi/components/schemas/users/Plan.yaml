@@ -27,7 +27,7 @@ properties:
     example: Personal
   description:
     type: string
-    example: 'Cost-effective plan for freelancers, developers and students.'
+    example: "Cost-effective plan for freelancers, developers and students."
   isEnabled:
     type: boolean
     example: true

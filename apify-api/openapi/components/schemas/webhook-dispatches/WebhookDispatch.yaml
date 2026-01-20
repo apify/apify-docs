@@ -21,7 +21,7 @@ properties:
   createdAt:
     type: string
     format: date-time
-    example: '2019-12-12T07:34:14.202Z'
+    example: "2019-12-12T07:34:14.202Z"
   status:
     type: string
     example: SUCCEEDED
@@ -49,12 +49,12 @@ properties:
         type: string
         format: date-time
         nullable: true
-        example: '2019-12-12T07:34:14.202Z'
+        example: "2019-12-12T07:34:14.202Z"
       finishedAt:
         type: string
         format: date-time
         nullable: true
-        example: '2019-12-12T07:34:14.202Z'
+        example: "2019-12-12T07:34:14.202Z"
       errorMessage:
         type: string
         nullable: true

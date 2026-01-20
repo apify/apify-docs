@@ -21,10 +21,10 @@ get:
       style: simple
       schema:
         type: string
-        example: '1.0'
+        example: "1.0"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -74,19 +74,19 @@ put:
       style: simple
       schema:
         type: string
-        example: '1.0'
+        example: "1.0"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml
         example:
-          versionNumber: '0.0'
+          versionNumber: "0.0"
           sourceType: SOURCE_FILES
           envVars:
             - name: DOMAIN
-              value: 'http://example.com'
+              value: "http://example.com"
               isSecret: false
             - name: SECRET_PASSWORD
               value: MyTopSecretPassword123
@@ -96,8 +96,8 @@ put:
           sourceFiles: []
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -134,10 +134,10 @@ delete:
       style: simple
       schema:
         type: string
-        example: '1.0'
+        example: "1.0"
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:

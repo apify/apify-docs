@@ -52,8 +52,8 @@ get:
         type: boolean
         example: false
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         text/plain:

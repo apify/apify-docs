@@ -40,18 +40,18 @@ properties:
   createdAt:
     type: string
     format: date-time
-    example: '2019-07-08T11:27:57.401Z'
+    example: "2019-07-08T11:27:57.401Z"
   modifiedAt:
     type: string
     format: date-time
-    example: '2019-07-08T14:01:05.546Z'
+    example: "2019-07-08T14:01:05.546Z"
   stats:
     $ref: ./ActorStats.yaml
   versions:
     type: array
     items:
       $ref: ./Version.yaml
-    description: ''
+    description: ""
   pricingInfos:
     type: array
     items:

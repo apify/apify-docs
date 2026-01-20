@@ -24,7 +24,7 @@ get:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -34,8 +34,8 @@ get:
         type: string
         example: MY_ENV_VAR
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -92,7 +92,7 @@ put:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -102,7 +102,7 @@ put:
         type: string
         example: MY_ENV_VAR
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -113,8 +113,8 @@ put:
           isSecret: false
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -155,7 +155,7 @@ delete:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -165,8 +165,8 @@ delete:
         type: string
         example: MY_ENV_VAR
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:

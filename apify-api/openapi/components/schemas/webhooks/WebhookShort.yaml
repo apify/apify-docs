@@ -17,11 +17,11 @@ properties:
   createdAt:
     type: string
     format: date-time
-    example: '2019-12-12T07:34:14.202Z'
+    example: "2019-12-12T07:34:14.202Z"
   modifiedAt:
     type: string
     format: date-time
-    example: '2019-12-13T08:36:13.202Z'
+    example: "2019-12-13T08:36:13.202Z"
   userId:
     type: string
     example: wRsJZtadYvn4mBZmm

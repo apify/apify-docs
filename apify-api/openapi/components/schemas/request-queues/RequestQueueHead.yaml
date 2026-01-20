@@ -15,7 +15,7 @@ properties:
     type: string
     format: date-time
     description: The timestamp when the request queue was last modified.
-    example: '2018-03-14T23:00:00.000Z'
+    example: "2018-03-14T23:00:00.000Z"
   hadMultipleClients:
     type: boolean
     description: Whether the request queue has been accessed by multiple different clients.

@@ -21,8 +21,8 @@ get:
         type: string
         example: 2020-06-14
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:

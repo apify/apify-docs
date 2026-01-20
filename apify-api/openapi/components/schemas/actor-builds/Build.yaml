@@ -21,12 +21,12 @@ properties:
   startedAt:
     type: string
     format: date-time
-    example: '2019-11-30T07:34:24.202Z'
+    example: "2019-11-30T07:34:24.202Z"
   finishedAt:
     type: string
     format: date-time
     nullable: true
-    example: '2019-12-12T09:30:12.202Z'
+    example: "2019-12-12T09:30:12.202Z"
   status:
     $ref: ../common/ActorJobStatus.yaml
   meta:
@@ -72,8 +72,8 @@ example:
   id: HG7ML7M8z78YcAPEB
   actId: janedoe~my-actor
   userId: klmdEpoiojmdEMlk3
-  startedAt: '2019-11-30T07:34:24.202Z'
-  finishedAt: '2019-12-12T09:30:12.202Z'
+  startedAt: "2019-11-30T07:34:24.202Z"
+  finishedAt: "2019-12-12T09:30:12.202Z"
   status: SUCCEEDED
   meta:
     origin: WEB
@@ -99,10 +99,10 @@ example:
   actorDefinition:
     actorSpecification: 1
     name: exmpla-actor
-    version: '1.0'
+    version: "1.0"
     buildTag: latest
     environmentVariables:
-      DEBUG_MODE: 'false'
+      DEBUG_MODE: "false"
     input:
       type: object
       properties:
@@ -117,7 +117,7 @@ example:
     storages:
       dataset:
         type: object
-        $schema: 'http://json-schema.org/draft-07/schema#'
+        $schema: "http://json-schema.org/draft-07/schema#"
         properties:
           id:
             type: string

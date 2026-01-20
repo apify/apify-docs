@@ -42,34 +42,34 @@ post:
       explode: true
       schema:
         type: string
-        example: 'false'
+        example: "false"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           type: array
           items:
             $ref: ../../components/schemas/request-queues/RequestDraft.yaml
-          description: ''
+          description: ""
           example:
-            - uniqueKey: 'http://example.com'
-              url: 'http://example.com'
+            - uniqueKey: "http://example.com"
+              url: "http://example.com"
               method: GET
-            - uniqueKey: 'http://example.com/2'
-              url: 'http://example.com/2'
+            - uniqueKey: "http://example.com/2"
+              url: "http://example.com/2"
               method: GET
         example:
-          - uniqueKey: 'http://example.com'
-            url: 'http://example.com'
+          - uniqueKey: "http://example.com"
+            url: "http://example.com"
             method: GET
-          - uniqueKey: 'http://example.com/2'
-            url: 'http://example.com/2'
+          - uniqueKey: "http://example.com/2"
+            url: "http://example.com/2"
             method: GET
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -80,12 +80,12 @@ post:
                   data:
                     processedRequests:
                       - requestId: YiKoxjkaS9gjGTqhF
-                        uniqueKey: 'http://example.com/2'
+                        uniqueKey: "http://example.com/2"
                         wasAlreadyPresent: true
                         wasAlreadyHandled: false
                     unprocessedRequests:
-                      - uniqueKey: 'http://example.com/2'
-                        url: 'http://example.com/2'
+                      - uniqueKey: "http://example.com/2"
+                        url: "http://example.com/2"
                         method: GET
           example:
             data:
@@ -94,8 +94,8 @@ post:
                   wasAlreadyPresent: true
                   wasAlreadyHandled: false
               unprocessedRequests:
-                - uniqueKey: 'http://example.com/2'
-                  url: 'http://example.com/2'
+                - uniqueKey: "http://example.com/2"
+                  url: "http://example.com/2"
                   method: GET
   deprecated: false
   x-legacy-doc-urls:
@@ -136,7 +136,7 @@ delete:
         example: WkzbQMuFYuamGv3YF
     - name: Content-Type
       in: header
-      description: ''
+      description: ""
       required: true
       style: simple
       schema:
@@ -155,8 +155,8 @@ delete:
         type: string
         example: client-abc
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -166,15 +166,15 @@ delete:
               - example:
                   data:
                     processedRequests:
-                      - uniqueKey: 'http://example.com'
+                      - uniqueKey: "http://example.com"
                     unprocessedRequests:
-                      - uniqueKey: 'http://example.com/2'
-                        url: 'http://example.com/2'
+                      - uniqueKey: "http://example.com/2"
+                        url: "http://example.com/2"
                         method: GET
           example:
             data:
               processedRequests:
-                - uniqueKey: 'http://example.com'
+                - uniqueKey: "http://example.com"
               unprocessedRequests:
                 - id: sbJ7klsdf7ujN9l
   deprecated: false

@@ -57,4 +57,4 @@ properties:
     format: date-time
     nullable: true
     description: The timestamp when the request was marked as handled, if applicable.
-    example: '2019-06-16T10:23:31.607Z'
+    example: "2019-06-16T10:23:31.607Z"

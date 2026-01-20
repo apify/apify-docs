@@ -9,7 +9,7 @@ properties:
     type: array
     items:
       $ref: ./WebhookEventType.yaml
-    description: ''
+    description: ""
     nullable: true
     example: ACTOR.RUN.SUCCEEDED
   condition:

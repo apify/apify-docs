@@ -48,8 +48,8 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -84,8 +84,8 @@ get:
                   name: my-task
                   username: janedoe
                   actUsername: janedoe
-                  createdAt: '2018-10-26T07:23:14.855Z'
-                  modifiedAt: '2018-10-26T13:30:49.578Z'
+                  createdAt: "2018-10-26T07:23:14.855Z"
+                  modifiedAt: "2018-10-26T13:30:49.578Z"
                   stats:
                     totalRuns: 15
                 - id: aWE3asdas3m8vjDeM
@@ -95,8 +95,8 @@ get:
                   actUsername: janedoe
                   name: my-task-2
                   username: janedoe
-                  createdAt: '2018-10-26T07:23:14.855Z'
-                  modifiedAt: '2018-10-26T13:30:49.578Z'
+                  createdAt: "2018-10-26T07:23:14.855Z"
+                  modifiedAt: "2018-10-26T13:30:49.578Z"
                   stats:
                     totalRuns: 4
   deprecated: false
@@ -128,7 +128,7 @@ post:
     info](#/introduction/authentication)).
   operationId: actorTasks_post
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -152,8 +152,8 @@ post:
             memoryMbytes: 128
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -172,8 +172,8 @@ post:
               actId: asADASadYvn4mBZmm
               name: my-task
               username: janedoe
-              createdAt: '2018-10-26T07:23:14.855Z'
-              modifiedAt: '2018-10-26T13:30:49.578Z'
+              createdAt: "2018-10-26T07:23:14.855Z"
+              modifiedAt: "2018-10-26T13:30:49.578Z"
               removedAt: null
               stats:
                 totalRuns: 15

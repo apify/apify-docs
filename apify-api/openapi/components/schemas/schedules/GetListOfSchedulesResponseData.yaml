@@ -27,4 +27,4 @@ properties:
     type: array
     items:
       $ref: ./GetListOfSchedulesResponseDataItems.yaml
-    description: ''
+    description: ""

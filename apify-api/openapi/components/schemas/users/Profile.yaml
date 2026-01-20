@@ -18,4 +18,4 @@ properties:
     example: http://www.example.com
   twitterUsername:
     type: string
-    example: '@BillGates'
+    example: "@BillGates"
