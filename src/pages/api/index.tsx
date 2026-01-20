@@ -121,7 +121,7 @@ export default function Api() {
                 />
                 <SectionWrapper
                     className={styles.LargerContent}
-                    heading="API reference"
+                    heading="REST API"
                     description={<div className="MainSectionContent">
                         <p>The Apify API is built around HTTP REST,
                             uses predictable resource-oriented URLs, returns JSON-encoded responses,
