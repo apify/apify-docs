@@ -117,18 +117,17 @@ export default function Api() {
             <UiLibraryWrapper>
                 <Hero
                     heading="Apify API documentation"
-                    description={<>Apify API provides programmatic access to the <Link to="/">Apify platform</Link></>}
+                    description={<>Learn how to use the <Link to="/platform">Apify platform</Link> programmatically.</>}
                 />
                 <SectionWrapper
                     className={styles.LargerContent}
                     heading="API reference"
                     description={<div className="MainSectionContent">
-                        <p>The Apify API allows developers to interact programmatically with apps using HTTP requests.
-                        The Apify API is built around <Link to="https://en.wikipedia.org/wiki/REST">REST</Link>.</p>
-                        <p>The API has predictable resource-oriented URLs, returns JSON-encoded responses,
-                        and uses standard HTTP response codes, authentication, and verbs.</p>
+                        <p>The Apify API is built around HTTP REST,
+                            uses predictable resource-oriented URLs, returns JSON-encoded responses,
+                            and uses standard HTTP response codes, authentication, and verbs.</p>
                         <div>
-                            <Button to='/api/v2'>Check API reference</Button>
+                            <Button to='/api/v2'>View API reference</Button>
                         </div>
                     </div>}
                 >
@@ -147,8 +146,8 @@ curl -X POST -d @- \\
                 <Section
                     headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
-                    heading="API client"
-                    description="The official library to interact with Apify API."
+                    heading="API clients"
+                    description="The client libraries are a more convenient way to interact with the Apify platform than the HTTP REST API."
                 >
                     <Tabs items={[
                         {
@@ -165,7 +164,7 @@ curl -X POST -d @- \\
                                     heading="JavaScript API client"
                                     headingAs="h3"
                                     description={<div className="Description">
-                                    The official library to interact with Apify API from a web browser, Node.js, JavaScript, or TypeScript applications.
+                                    For web browser, JavaScript/TypeScript applications, Node.js, Deno, or Bun.
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
@@ -210,7 +209,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                 <SectionWrapper
                                     heading="Python API client"
                                     description={<div className="Description">
-                                        The official library to interact with Apify API from a Python applications.
+                                        For Python applications or notebooks.
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
