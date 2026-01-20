@@ -7,7 +7,7 @@ slug: /node-js/filter-blocked-requests-using-sessions
 
 _This article explains how the problem was solved before the [SessionPool](/sdk/js/docs/api/session-pool) class was added into [Apify SDK](/sdk/js/). We are keeping the article here as it might be interesting for people who want to see how to work with sessions on a lower level. For any practical usage of sessions, follow the documentation and examples of SessionPool._
 
-### Overview of the problem
+## Overview of the problem
 
 You want to crawl a website with a proxy pool, but most of your proxies are blocked. It's a very common situation. Proxies can be blocked for many reasons:
 
@@ -25,7 +25,7 @@ Nobody can make sure that a proxy will work infinitely. The only real solution t
 
 However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) as inspiration for how to handle this situation with `PuppeteerCrawler` class.
 
-### Solution
+## Solution
 
 Now we are able to retry bad requests and eventually unless all of our proxies get banned, we should be able to successfully crawl what we want. The problem is that it takes too long and our log is full of errors. Fortunately, we can overcome this with [proxy sessions](/platform/proxy/datacenter-proxy#username-parameters) (look at the proxy and SDK documentation for how to use them in your Actors.)
 
@@ -50,7 +50,7 @@ Apify.main(async () => {
 });
 ```
 
-### Algorithm
+## Algorithm
 
 You don't necessarily need to understand the solution below - it should be fine to copy/paste it to your Actor.
 
@@ -121,7 +121,7 @@ const pickSession = (sessions, maxSessions = 100) => {
 };
 ```
 
-### Puppeteer example
+## Puppeteer example
 
 We then use this function whenever we want to get the session for our request. Here is an example of how we would use it for bare bones Puppeteer (for example as a part of `BasicCrawler` class).
 
@@ -142,7 +142,7 @@ After success:
 After failure (captcha, blocked request, etc.):
 `delete sessions[session.name]`
 
-### PuppeteerCrawler example
+## PuppeteerCrawler example
 
 Now you might start to wonder, "I have already prepared an Actor using PuppeteerCrawler, can I make it work there?". The problem is that with PuppeteerCrawler we don't have everything nicely inside one function scope like when using pure Puppeteer or BasicCrawler. Fortunately, there is a little hack that enables passing the session name to where we need it.
 
