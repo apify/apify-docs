@@ -77,7 +77,7 @@ export default function Home() {
                         />
                         <SdkSection
                             title="Apify SDK for Python"
-                            description="The official library for creating Apify Actors in Python, with ful lifecycle management,
+                            description="The official library for creating Apify Actors in Python, with full lifecycle management,
                             local storage, and event handling."
                             installCodeSnippet="apify create my-python-actor"
                             exampleCodeSnippet={pythonExample}
