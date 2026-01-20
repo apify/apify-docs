@@ -78,10 +78,6 @@ const RelatedArticlesWrapper = styled.div`
     a {
         width: 100%;
 
-        .ImageWrapper {
-            overflow: hidden;
-        }
-
         img {
             transition: transform 120ms;
         }
@@ -120,7 +116,7 @@ export default function Api() {
         <Layout>
             <UiLibraryWrapper>
                 <Hero
-                    heading="Apify API"
+                    heading="Apify API documentation"
                     description={<>Apify API provides programmatic access to the <Link to="/">Apify platform</Link></>}
                 />
                 <SectionWrapper
@@ -162,18 +158,18 @@ curl -X POST -d @- \\
                                     width={16}
                                     sources={{ dark: useBaseUrl('/img/javascript-40x40.svg'), light: useBaseUrl('/img/javascript-40x40.svg') }}
                                 />
-                                JavaScript Client
+                                JavaScript
                             </TabTitleWrapper>,
                             content: (
                                 <SectionWrapper
                                     heading="JavaScript API client"
                                     headingAs="h3"
                                     description={<div className="Description">
-                                    The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
+                                    The official library to interact with Apify API from a web browser, Node.js, JavaScript, or TypeScript applications.
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
-                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js/reference'>JavaScript client reference</ActionLink>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js/reference'>Full reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
@@ -208,7 +204,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                     width={16}
                                     sources={{ dark: useBaseUrl('/img/python-40x40.svg'), light: useBaseUrl('/img/python-40x40.svg') }}
                                 />
-                                Python Client
+                                Python
                             </TabTitleWrapper>,
                             content: (
                                 <SectionWrapper
@@ -218,7 +214,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
-                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>Python client reference</ActionLink>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>Full reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
