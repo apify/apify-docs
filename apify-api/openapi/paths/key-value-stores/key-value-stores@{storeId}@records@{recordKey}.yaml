@@ -115,10 +115,10 @@ head:
         example: someKey
   responses:
     '200':
-      description: 'The record exists'
+      description: The record exists
       headers: {}
     '404':
-      description: 'The record does not exist'
+      description: The record does not exist
       headers: {}
   deprecated: false
   x-js-parent: KeyValueStoreClient

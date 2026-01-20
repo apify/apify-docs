@@ -32,7 +32,7 @@ properties:
   versions:
     type: array
     items:
-      $ref: "./Version.yaml"
+      $ref: ./Version.yaml
     description: ''
     nullable: true
   pricingInfos:

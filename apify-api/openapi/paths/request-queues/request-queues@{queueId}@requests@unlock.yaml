@@ -29,7 +29,7 @@ post:
         example: client-abc
   responses:
     '200':
-      description: 'Number of requests that were unlocked'
+      description: Number of requests that were unlocked
       content:
         application/json:
           schema:

@@ -4,4 +4,4 @@ required:
 type: object
 properties:
   data:
-    $ref: "./Run.yaml"
+    $ref: ./Run.yaml

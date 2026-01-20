@@ -91,7 +91,7 @@ post:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/schedules/asdLZtadYvn4mBZmm'
+              example: https://api.apify.com/v2/schedules/asdLZtadYvn4mBZmm
       content:
         application/json:
           schema:

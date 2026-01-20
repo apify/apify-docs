@@ -76,7 +76,7 @@ get:
       schema:
         type: string
         format: date-time
-        example: "2025-09-01T00:00:00.000Z"
+        example: '2025-09-01T00:00:00.000Z'
     - name: startedBefore
       in: query
       description: |
@@ -87,7 +87,7 @@ get:
       schema:
         type: string
         format: date-time
-        example: "2025-09-17T23:59:59.000Z"
+        example: '2025-09-17T23:59:59.000Z'
   responses:
     '200':
       description: ''
@@ -95,7 +95,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actor-runs/GetUserRunsListResponse.yaml"
+            $ref: ../../components/schemas/actor-runs/GetUserRunsListResponse.yaml
           example:
             data:
               total: 2
@@ -202,8 +202,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -287,7 +287,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actor-runs/RunResponse.yaml"
+            $ref: ../../components/schemas/actor-runs/RunResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB

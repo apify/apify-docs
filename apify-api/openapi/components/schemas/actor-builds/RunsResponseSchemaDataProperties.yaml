@@ -57,7 +57,7 @@ properties:
             example: string
           example:
             type: string
-            example: 'READY'
+            example: READY
       meta:
         type: object
         properties:
@@ -75,7 +75,7 @@ properties:
                     example: string
                   example:
                     type: string
-                    example: 'API'
+                    example: API
               userAgent:
                 type: object
                 properties:

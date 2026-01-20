@@ -421,18 +421,18 @@ get:
         text/html:
           schema:
             type: string
-          example: '<table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>'
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          example: <table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
           schema:
             type: string
         application/rss+xml:
           schema:
             type: string
-          example: '<rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>'
+          example: <rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>
         application/xml:
           schema:
             type: string
-          example: '<items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>'
+          example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
@@ -493,7 +493,7 @@ post:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items'
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
       content:
         application/json:
           schema:
@@ -526,7 +526,7 @@ post:
                         keyword: type
                         params:
                           type: string
-                        message: 'must be string'
+                        message: must be string
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items

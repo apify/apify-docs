@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetActorResponse.yaml"
+            $ref: ../../components/schemas/actors/GetActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -132,15 +132,15 @@ put:
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/UpdateActorRequest.yaml"
+          $ref: ../../components/schemas/actors/UpdateActorRequest.yaml
         examples:
           common:
-            summary: 'Common example'
+            summary: Common example
             value:
               name: MyActor
               description: My favourite Actor!
               isPublic: false
-              actorPermissionLevel: 'LIMITED_PERMISSIONS'
+              actorPermissionLevel: LIMITED_PERMISSIONS
               seoTitle: My Actor
               seoDescription: My Actor is the best
               title: My Actor
@@ -164,22 +164,22 @@ put:
                 memoryMbytes: 2048
                 restartOnError: false
           taggedBuildsCreateOrReassignTag:
-            summary: 'Create or reassign a build tag'
+            summary: Create or reassign a build tag
             value:
               taggedBuilds:
                 latest:
-                  buildId: 'z2EryhbfhgSyqj6Hn'
+                  buildId: z2EryhbfhgSyqj6Hn
           taggedBuildsRemoveTag:
-            summary: 'Remove a build tag'
+            summary: Remove a build tag
             value:
               taggedBuilds:
                 latest: null
           taggedBuildsMultipleOperations:
-            summary: 'Update multiple build tags at once'
+            summary: Update multiple build tags at once
             value:
               taggedBuilds:
                 latest:
-                  buildId: 'z2EryhbfhgSyqj6Hn'
+                  buildId: z2EryhbfhgSyqj6Hn
                 beta: null
     required: true
   responses:
@@ -189,7 +189,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/UpdateActorResponse.yaml"
+            $ref: ../../components/schemas/actors/UpdateActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -198,7 +198,7 @@ put:
               username: jane35
               description: My favourite Actor!
               isPublic: false
-              actorPermissionLevel: 'LIMITED_PERMISSIONS'
+              actorPermissionLevel: LIMITED_PERMISSIONS
               createdAt: '2019-07-08T11:27:57.401Z'
               modifiedAt: '2019-07-08T14:01:05.546Z'
               stats:

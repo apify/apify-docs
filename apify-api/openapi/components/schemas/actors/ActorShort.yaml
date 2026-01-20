@@ -26,6 +26,6 @@ properties:
     example: janedoe
   title:
     type: string
-    example: 'Hello World Example'
+    example: Hello World Example
   stats:
     $ref: ./ActorStats.yaml

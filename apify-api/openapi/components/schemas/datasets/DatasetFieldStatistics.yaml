@@ -11,7 +11,7 @@ properties:
     nullable: true
   nullCount:
     type: integer
-    description: 'How many items in the dataset have a null value for this field.'
+    description: How many items in the dataset have a null value for this field.
     nullable: true
   emptyCount:
     type: integer

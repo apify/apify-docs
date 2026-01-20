@@ -50,14 +50,14 @@ properties:
   versions:
     type: array
     items:
-      $ref: "./Version.yaml"
+      $ref: ./Version.yaml
     description: ''
   pricingInfos:
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   defaultRunOptions:
-      $ref: ./DefaultRunOptions.yaml
+    $ref: ./DefaultRunOptions.yaml
   exampleRunInput:
     nullable: true
     allOf:

@@ -60,8 +60,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -367,7 +367,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-failed
@@ -380,7 +380,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-timeout-exceeded
@@ -445,8 +445,8 @@ get:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -731,7 +731,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-failed
@@ -744,7 +744,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-timeout-exceeded

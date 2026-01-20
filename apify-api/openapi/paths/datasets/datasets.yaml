@@ -130,7 +130,7 @@ post:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF'
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF
       content:
         application/json:
           schema:

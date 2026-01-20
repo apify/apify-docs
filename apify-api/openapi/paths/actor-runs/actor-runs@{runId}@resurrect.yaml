@@ -38,8 +38,8 @@ post:
       schema:
         type: number
       example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       required: false

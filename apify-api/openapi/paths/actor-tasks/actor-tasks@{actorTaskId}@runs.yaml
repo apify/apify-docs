@@ -85,7 +85,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: "../../components/schemas/actor-runs/RunShort.yaml"
+                          $ref: ../../components/schemas/actor-runs/RunShort.yaml
           example:
             data:
               total: 2
@@ -187,8 +187,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -268,7 +268,7 @@ post:
               - data
             properties:
               data:
-                $ref: "../../components/schemas/actor-runs/Run.yaml"
+                $ref: ../../components/schemas/actor-runs/Run.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB

@@ -1,6 +1,6 @@
 title: PricePerDatasetItemActorPricingInfo
 allOf:
-  - $ref: "./CommonActorPricingInfo.yaml"
+  - $ref: ./CommonActorPricingInfo.yaml
   - type: object
     required:
       - pricingModel
@@ -11,6 +11,6 @@ allOf:
         $ref: ./PricingModel.yaml
       unitName:
         type: string
-        description: "Name of the unit that is being charged"
+        description: Name of the unit that is being charged
       pricePerUnitUsd:
         type: number

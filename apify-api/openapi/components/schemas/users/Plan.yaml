@@ -46,11 +46,16 @@ properties:
       type: array
       items: {}
     example:
-      - - ACTORS
-      - - STORAGE
-      - - PROXY_SERPS
-      - - SCHEDULER
-      - - WEBHOOKS
+      -
+        - ACTORS
+      -
+        - STORAGE
+      -
+        - PROXY_SERPS
+      -
+        - SCHEDULER
+      -
+        - WEBHOOKS
   maxMonthlyUsageUsd:
     type: number
     example: 9999

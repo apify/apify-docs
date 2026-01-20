@@ -157,7 +157,7 @@ post:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/webhook/zdc3Pyhyz3m8vjDeM'
+              example: https://api.apify.com/v2/webhook/zdc3Pyhyz3m8vjDeM
       content:
         application/json:
           schema:

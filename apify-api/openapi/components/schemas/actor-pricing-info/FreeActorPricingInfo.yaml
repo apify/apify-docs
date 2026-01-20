@@ -1,6 +1,6 @@
 title: FreeActorPricingInfo
 allOf:
-  - $ref: "./CommonActorPricingInfo.yaml"
+  - $ref: ./CommonActorPricingInfo.yaml
   - type: object
     required:
       - pricingModel

@@ -48,7 +48,7 @@ properties:
     example: false
   requestUrl:
     type: string
-    example: 'http://example.com/'
+    example: http://example.com/
   lastDispatch:
     nullable: true
     allOf:

@@ -34,9 +34,9 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actor-runs/ChargeRunRequest.yaml"
+          $ref: ../../components/schemas/actor-runs/ChargeRunRequest.yaml
         example:
-          eventName: 'ANALYZE_PAGE'
+          eventName: ANALYZE_PAGE
           count: 1
     required: true
   responses:

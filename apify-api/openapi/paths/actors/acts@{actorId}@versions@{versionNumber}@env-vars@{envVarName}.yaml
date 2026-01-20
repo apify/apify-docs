@@ -40,7 +40,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR
@@ -106,7 +106,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml"
+          $ref: ../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml
         example:
           name: MY_ENV_VAR
           value: my-new-value
@@ -119,7 +119,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR

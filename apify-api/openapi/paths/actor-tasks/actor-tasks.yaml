@@ -133,7 +133,7 @@ post:
       application/json:
         schema:
           allOf:
-            - $ref: "../../components/schemas/actor-tasks/CreateTaskRequest.yaml"
+            - $ref: ../../components/schemas/actor-tasks/CreateTaskRequest.yaml
             - example:
                 actId: asADASadYvn4mBZmm
                 name: my-task
@@ -160,11 +160,11 @@ post:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/actor-tasks/zdc3Pyhyz3m8vjDeM'
+              example: https://api.apify.com/v2/actor-tasks/zdc3Pyhyz3m8vjDeM
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actor-tasks/CreateTaskResponse.yaml"
+            $ref: ../../components/schemas/actor-tasks/CreateTaskResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM

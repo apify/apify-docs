@@ -204,7 +204,7 @@ put:
     **General resource access:**
 
     You can also update the run's general resource access setting, which determines who can view the run and its related data.
-    
+
     Allowed values:
 
     * `FOLLOW_USER_SETTING` - The run inherits the general access setting from the account level.
@@ -228,7 +228,7 @@ put:
       application/json:
         schema:
           allOf:
-            - $ref: "../../components/schemas/actor-runs/UpdateRunRequest.yaml"
+            - $ref: ../../components/schemas/actor-runs/UpdateRunRequest.yaml
             - example:
                 runId: 3KH8gEpp4d8uQSe8T
                 statusMessage: Actor has finished
@@ -354,4 +354,3 @@ delete:
   x-js-parent: RunClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
-

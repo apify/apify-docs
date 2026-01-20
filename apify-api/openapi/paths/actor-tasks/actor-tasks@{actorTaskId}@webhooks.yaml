@@ -66,7 +66,7 @@ get:
             properties:
               data:
                 allOf:
-                  - $ref: "../../components/schemas/common/PaginationResponse.yaml"
+                  - $ref: ../../components/schemas/common/PaginationResponse.yaml
                   - type: object
                     required:
                       - items
@@ -74,7 +74,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: "../../components/schemas/webhooks/Webhook.yaml"
+                          $ref: ../../components/schemas/webhooks/Webhook.yaml
           example:
             data:
               total: 2

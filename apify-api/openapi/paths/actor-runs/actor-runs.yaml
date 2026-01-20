@@ -68,7 +68,7 @@ get:
       schema:
         type: string
         format: date-time
-        example: "2025-09-01T00:00:00.000Z"
+        example: '2025-09-01T00:00:00.000Z'
     - name: startedBefore
       in: query
       description: |
@@ -79,7 +79,7 @@ get:
       schema:
         type: string
         format: date-time
-        example: "2025-09-17T23:59:59.000Z"
+        example: '2025-09-17T23:59:59.000Z'
   responses:
     # todo 404?
     '200':

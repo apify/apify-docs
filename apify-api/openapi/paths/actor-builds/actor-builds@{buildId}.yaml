@@ -59,7 +59,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/BuildClientAsync#get
 delete:
   tags:
-    #- Actor builds/Delete build
+    # - Actor builds/Delete build
     - Actor builds
   summary: Delete build
   description: |

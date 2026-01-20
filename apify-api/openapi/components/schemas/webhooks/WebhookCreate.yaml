@@ -30,7 +30,7 @@ properties:
     example: false
   requestUrl:
     type: string
-    example: 'http://example.com/'
+    example: http://example.com/
   payloadTemplate:
     type: string
     nullable: true

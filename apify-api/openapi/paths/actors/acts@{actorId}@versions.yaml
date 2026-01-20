@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetVersionListResponse.yaml"
+            $ref: ../../components/schemas/actors/GetVersionListResponse.yaml
           example:
             data:
               total: 5
@@ -109,7 +109,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml"
+          $ref: ../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml
         example:
           versionNumber: '0.1'
           sourceType: GIT_REPO
@@ -124,11 +124,11 @@ post:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/0.0'
+              example: https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/0.0
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetVersionResponse.yaml"
+            $ref: ../../components/schemas/actors/GetVersionResponse.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-collection/create-version

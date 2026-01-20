@@ -517,7 +517,7 @@ paths:
   '/v2/acts/{actorId}/runs/{runId}/metamorph':
     $ref: 'paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml'
   /v2/actor-tasks:
-    $ref: 'paths/actor-tasks/actor-tasks.yaml'
+    $ref: paths/actor-tasks/actor-tasks.yaml
   '/v2/actor-tasks/{actorTaskId}':
     $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}.yaml'
   '/v2/actor-tasks/{actorTaskId}/input':
@@ -599,11 +599,11 @@ paths:
   '/v2/webhooks/{webhookId}/dispatches':
     $ref: 'paths/webhooks/webhooks@{webhookId}@dispatches.yaml'
   /v2/webhook-dispatches:
-    $ref: 'paths/webhook-dispatches/webhook-dispatches.yaml'
+    $ref: paths/webhook-dispatches/webhook-dispatches.yaml
   '/v2/webhook-dispatches/{dispatchId}':
     $ref: 'paths/webhook-dispatches/webhook-dispatches@{dispatchId}.yaml'
   /v2/schedules:
-    $ref: 'paths/schedules/schedules.yaml'
+    $ref: paths/schedules/schedules.yaml
   '/v2/schedules/{scheduleId}':
     $ref: 'paths/schedules/schedules@{scheduleId}.yaml'
   '/v2/schedules/{scheduleId}/log':
@@ -633,5 +633,3 @@ tags:
   $ref: components/tags.yaml
 x-tagGroups:
   $ref: components/x-tag-groups.yaml
-
-

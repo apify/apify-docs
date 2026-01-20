@@ -55,7 +55,7 @@ get:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
     # XXX: do we support maxTotalChargeUsd for task runs?
     - name: build
       in: query
@@ -354,14 +354,14 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
     '408':
       description: 'Request Timeout: the HTTP request exceeded the 300 second limit'
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-get
@@ -436,8 +436,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -743,7 +743,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-post
