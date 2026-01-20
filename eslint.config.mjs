@@ -1,6 +1,6 @@
 import react from 'eslint-plugin-react';
-import globals from 'globals';
 import yml from 'eslint-plugin-yml';
+import globals from 'globals';
 
 import apify from '@apify/eslint-config/ts';
 
@@ -49,7 +49,7 @@ export default [
         },
     },
     // YAML linting configuration - only for apify-api directory
-    ...yml.configs['flat/recommended'].map(config => ({
+    ...yml.configs['flat/recommended'].map((config) => ({
         ...config,
         files: ['apify-api/**/*.{yml,yaml}'],
     })),
