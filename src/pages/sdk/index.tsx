@@ -66,7 +66,7 @@ export default function Home() {
                     <StyledContent>
                         <SdkSection
                             title="Apify SDK for JavaScript"
-                            description="The official library for creating Apify Actors in Python, with ful lifecycle management,
+                            description="The official library for creating Apify Actors in Python, with full lifecycle management,
                             local storage, and event handling."
                             installCodeSnippet="npx apify-cli create my-crawler"
                             exampleCodeSnippet={javascriptExample}
