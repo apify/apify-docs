@@ -1,0 +1,26 @@
+# Configuration for typos spell checker
+# These are example IDs and should not be flagged as typos
+
+[default.extend-identifiers]
+# Example Actor ID
+vKg4IjxZbEYTYeW8T = "vKg4IjxZbEYTYeW8T"
+# Example webhook ID
+pVJtoTelgYUq4qJOt = "pVJtoTelgYUq4qJOt"
+
+[default.extend-words]
+# SERPs = Search Engine Result Pages
+SER = "SER"
+SERPs = "SERPs"
+# YouTube video ID
+HV6OlMPn5sI = "HV6OlMPn5sI"
+Pn = "Pn"
+# Commit hash in go.mod
+ba = "ba"
+# Facebook post IDs
+Iy = "Iy"
+ND = "ND"
+# Czech words in legal documents
+tak = "tak"
+dne = "dne"
+# Vietnamese dish name "Bún bò Nam Bô"
+Nam = "Nam"

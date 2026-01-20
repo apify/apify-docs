@@ -112,7 +112,7 @@ $ node index.js
 
 ## Saving data as JSON
 
-The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of JavaScript objects, but people now use it accross programming languages.
+The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of JavaScript objects, but people now use it across programming languages.
 
 We'll begin with importing the `writeFile` function from the Node.js standard library, so that we can, well, write files:
 

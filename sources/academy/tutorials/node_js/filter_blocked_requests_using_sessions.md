@@ -146,7 +146,7 @@ After failure (captcha, blocked request, etc.):
 
 Now you might start to wonder, "I have already prepared an Actor using PuppeteerCrawler, can I make it work there?". The problem is that with PuppeteerCrawler we don't have everything nicely inside one function scope like when using pure Puppeteer or BasicCrawler. Fortunately, there is a little hack that enables passing the session name to where we need it.
 
-First we define `lauchPuppeteerFunction` which tells the crawler how to create new browser instances and we pass the picked session there.
+First we define `launchPuppeteerFunction` which tells the crawler how to create new browser instances and we pass the picked session there.
 
 ```js
 const crawler = new Apify.PuppeteerCrawler({
