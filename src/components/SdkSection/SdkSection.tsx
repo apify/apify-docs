@@ -108,7 +108,7 @@ export default function SdkSection({
                 </GitHubButton>
                 <div className="SdkSectionActionButtons">
                     <StyledButton hideExternalIcon color='success' to={gettingStartedUrl}>Get started</StyledButton>
-                    <ActionLink hideExternalIcon to={referenceUrl} >{`${language} SDK Reference`}</ActionLink>
+                    <ActionLink hideExternalIcon to={referenceUrl} >View reference</ActionLink>
                 </div>
             </div>
             <div className="SdkSectionCodeExamples">

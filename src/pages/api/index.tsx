@@ -78,10 +78,6 @@ const RelatedArticlesWrapper = styled.div`
     a {
         width: 100%;
 
-        .ImageWrapper {
-            overflow: hidden;
-        }
-
         img {
             transition: transform 120ms;
         }
@@ -120,19 +116,18 @@ export default function Api() {
         <Layout>
             <UiLibraryWrapper>
                 <Hero
-                    heading="Apify API"
-                    description={<>Apify API provides programmatic access to the <Link to="/">Apify platform</Link></>}
+                    heading="Apify API documentation"
+                    description={<>Learn how to use the <Link to="/platform">Apify platform</Link> programmatically.</>}
                 />
                 <SectionWrapper
                     className={styles.LargerContent}
-                    heading="API reference"
+                    heading="REST API"
                     description={<div className="MainSectionContent">
-                        <p>The Apify API allows developers to interact programmatically with apps using HTTP requests.
-                        The Apify API is built around <Link to="https://en.wikipedia.org/wiki/REST">REST</Link>.</p>
-                        <p>The API has predictable resource-oriented URLs, returns JSON-encoded responses,
-                        and uses standard HTTP response codes, authentication, and verbs.</p>
+                        <p>The Apify API is built around HTTP REST,
+                            uses predictable resource-oriented URLs, returns JSON-encoded responses,
+                            and uses standard HTTP response codes, authentication, and verbs.</p>
                         <div>
-                            <Button to='/api/v2'>Check API reference</Button>
+                            <Button to='/api/v2'>View API reference</Button>
                         </div>
                     </div>}
                 >
@@ -151,8 +146,8 @@ curl -X POST -d @- \\
                 <Section
                     headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
-                    heading="API client"
-                    description="The official library to interact with Apify API."
+                    heading="API clients"
+                    description="The client libraries are a more convenient way to interact with the Apify platform than the HTTP REST API."
                 >
                     <Tabs items={[
                         {
@@ -162,18 +157,18 @@ curl -X POST -d @- \\
                                     width={16}
                                     sources={{ dark: useBaseUrl('/img/javascript-40x40.svg'), light: useBaseUrl('/img/javascript-40x40.svg') }}
                                 />
-                                JavaScript Client
+                                JavaScript
                             </TabTitleWrapper>,
                             content: (
                                 <SectionWrapper
                                     heading="JavaScript API client"
                                     headingAs="h3"
                                     description={<div className="Description">
-                                    The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
+                                    For web browser, JavaScript/TypeScript applications, Node.js, Deno, or Bun.
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
-                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js/reference'>JavaScript client reference</ActionLink>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js/reference'>View reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
@@ -208,17 +203,19 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                     width={16}
                                     sources={{ dark: useBaseUrl('/img/python-40x40.svg'), light: useBaseUrl('/img/python-40x40.svg') }}
                                 />
-                                Python Client
+                                Python
                             </TabTitleWrapper>,
                             content: (
                                 <SectionWrapper
                                     heading="Python API client"
                                     description={<div className="Description">
-                                        The official library to interact with Apify API from a Python applications.
+                                        For Python applications or notebooks.
+                                        {/* This is a hotfix for invalid width, sorry neither me nor Claude can do better :) */}
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
-                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>Python client reference</ActionLink>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>View reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
