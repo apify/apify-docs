@@ -168,7 +168,7 @@ curl -X POST -d @- \\
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
-                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js/reference'>Full reference</ActionLink>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js/reference'>View reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
@@ -215,7 +215,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
-                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>Full reference</ActionLink>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>View reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
