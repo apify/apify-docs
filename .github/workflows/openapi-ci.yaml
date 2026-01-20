@@ -7,8 +7,8 @@ on:
             - master
 
 jobs:
-    lint-check:
-        name: Lint check
+    lint:
+        name: Lint specification
         runs-on: ubuntu-latest
 
         steps:
@@ -24,28 +24,29 @@ jobs:
             - name: Enable corepack
               run: corepack enable
 
-            - name: Install Dependencies
+            - name: Install dependencies
               run: npm ci --force
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Redocly lint check
+            - name: Lint with Redocly
               run: npm run openapi:lint:redocly -- --format=github-actions
 
-            - name: Spectral lint check
+            - name: Lint with Spectral
               run: npm run openapi:lint:spectral -- --format=github-actions
 
-            - name: YAML lint check
+            - name: Lint YAML style
               run: npm run openapi:lint:yaml
 
     build:
-        name: Build OpenAPI bundles
+        name: Build bundled specification
         runs-on: ubuntu-latest
-        needs: lint-check
+        needs: lint
+
         steps:
             - uses: actions/checkout@v6
 
-            - name: Use Node.js 24
+            - name: Set up Node.js
               uses: actions/setup-node@v6
               with:
                   node-version: 24
@@ -55,15 +56,15 @@ jobs:
             - name: Enable corepack
               run: corepack enable
 
-            - name: Install Dependencies
+            - name: Install dependencies
               run: npm ci --force
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Build OpenAPI bundles
+            - name: Build bundles
               run: npm run openapi:build
 
-            - name: Upload bundled specification
+            - name: Upload bundles
               uses: actions/upload-artifact@v4
               with:
                   name: openapi-bundles
@@ -75,7 +76,8 @@ jobs:
     validate:
         name: Validate bundled specification
         runs-on: ubuntu-latest
-        needs: [lint-check, build]
+        needs: [lint, build]
+
         steps:
             - uses: actions/checkout@v6
 
@@ -89,21 +91,21 @@ jobs:
             - name: Enable corepack
               run: corepack enable
 
-            - name: Install Dependencies
+            - name: Install dependencies
               run: npm ci --force
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Download bundled specification
+            - name: Download bundles
               uses: actions/download-artifact@v4
               with:
                   name: openapi-bundles
                   path: static/api/
 
-            - name: Validate bundled YAML with Redocly
+            - name: Validate YAML bundle
               run: redocly lint static/api/openapi.yaml
 
-            - name: Validate bundled JSON with Redocly
+            - name: Validate JSON bundle
               run: redocly lint static/api/openapi.json
 
             - name: Check bundle sizes
