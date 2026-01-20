@@ -210,6 +210,8 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                     heading="Python API client"
                                     description={<div className="Description">
                                         For Python applications or notebooks.
+                                        {/* This is a hotfix for invalid width, sorry neither me nor Claude can do better :) */}
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
                                             <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
