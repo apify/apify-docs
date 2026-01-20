@@ -19,7 +19,7 @@ This guide shows you how to install the Apify package, set up authentication, an
 Before you begin, make sure you have:
 
 - An [Apify account](https://console.apify.com/)
-- [Windmill instance](https://www.windmill.dev/docs/getting_started/how_to_use_windmill) (self-hosted or cloud)
+- A [Windmill instance](https://www.windmill.dev/docs/getting_started/how_to_use_windmill) (self-hosted or cloud)
 
 ## Install the Apify integration
 
@@ -81,7 +81,9 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 #### Option C — OAuth authentication
 
 :::note Cloud-only feature
+
 OAuth authentication is only available on Windmill Cloud, not on self-hosted instances.
+
 :::
 
 1. Open **Resources** → **New Resource**.
@@ -108,7 +110,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 1. Select the **Run Actor** script.
 1. Configure the inputs:
 
-    - **Apify Auth**: Select either your `API Key` or `OAuth Token` resource
+    - **Apify Auth**: Select either your _API Key_ or _OAuth Token_ resource
     - **Actor ID or Slug**: Enter the Actor you want to run
     - **Input**: JSON input for the Actor (optional)
     - **Wait for Finish**: Set to `true` to wait for completion
@@ -122,7 +124,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 1. Add another step and search for "Get Dataset Items".
 1. Configure the inputs:
 
-    - **Apify Auth**: Select either your `API Key` or `OAuth Token` resource
+    - **Apify Auth**: Select either your _API Key_ or _OAuth Token_ resource
     - **Dataset ID**: Use the `defaultDatasetId` from the previous step
     - **Limit**: Number of items to retrieve (optional)
 
@@ -130,7 +132,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 
 ### Step 4: Test and run
 
-With the flow crated and scripts linked we can test and run it.
+With the flow created and scripts linked we can test and run it.
 
 ![Apify Flow](../images/windmill-flow-linked.png)
 
@@ -162,7 +164,7 @@ Windmill provides webhook-based triggers that can automatically start workflows 
   ![Apify Webhook](../images/windmill-webhook-config-resource.png)
 
 1. Configure the inputs:
-    - **Apify Auth**: Select either your `API Key` or `OAuth Token` resource
+    - **Apify Auth**: Select either your _API Key_ or _OAuth Token_ resource
     - **Actor ID**: the Apify Actor you want to monitor
     - **Event Types**: the events that should trigger the flow
       ![Apify Webhook](../images/windmill-webhook-config.png)
@@ -191,9 +193,9 @@ Windmill provides webhook-based triggers that can automatically start workflows 
 ## Deleting the webhook
 
 1. Fork the **Apify's Delete Webhook** script from the Windmill Hub.
-1. Set either your `API Key` or `OAuth Token` resource
+1. Set either your _API Key_ or _OAuth Token_ resource
 1. Set the **Webhook Config Resource** to the webhook you want to delete.
-1. Run the script to **delete the webhook in Apify**.
+1. Run the script to delete the webhook in Apify.
 
 ![Apify Webhook](../images/windmill-webhook-delete.png)
 
@@ -203,35 +205,11 @@ The Apify integration provides several operations you can use in your Windmill w
 
 ### Actions (Scripts)
 
-#### Run Actor
-
-- Starts an Actor with optional input and configuration
-- Can wait for completion or run asynchronously
-- Returns run metadata including dataset ID
-
-#### Run Task
-
-- Executes a predefined Actor task
-- Similar to Run Actor but uses task configuration
-- Ideal for recurring operations
-
-#### Scrape Single URL
-
-- Runs a lightweight scraper for a single webpage
-- Returns content as text, markdown, and HTML
-- Perfect for quick content extraction
-
-#### Get Dataset Items
-
-- Retrieves items from a dataset
-- Can filter by dataset ID or last run
-- Supports pagination and item limits
-
-#### Get Key-Value Store
-
-- Reads values from key-value stores
-- Can retrieve specific keys or list all keys
-- Useful for configuration and state management
+- **Run Actor**: Starts an Actor with optional input and configuration, with the option to wait for completion or run asynchronously. Returns run metadata including dataset ID.
+- **Run Task**: Executes a predefined Actor task. Similar to Run Actor but uses task configuration, making this ideal for recurring operations.
+- **Scrape Single URL**: Runs a lightweight scraper for a single webpage and returns content as text, markdown, and HTML, making this perfect for quick content extraction.
+- **Get Dataset Items**: Retrieves items from a dataset with options to filter by dataset ID or last run. Supports pagination and item limits.
+- **Get Key-Value Store**: Reads values from key-value stores with the ability to retrieve specific keys or list all keys, making this useful for configuration and state management.
 
 ### Triggers
 
