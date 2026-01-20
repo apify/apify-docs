@@ -1,6 +1,6 @@
 ---
 title: Microsoft Power Automate integration
-description: Automate your workflows by integrating Apify Actors with Microsoft Power Automate. Connect apps, trigger scrapers, and process data without writing code.
+description: Automate workflows by integrating Apify Actors with Microsoft Power Automate. Connect apps, trigger scrapers, and process data without code.
 sidebar_label: Microsoft Power Automate
 sidebar_position: 7
 slug: /integrations/microsoft-power-automate
@@ -126,7 +126,7 @@ When using manual input instead of pick lists, you'll need to provide the correc
 
 ## Triggers
 
-_Triggers allow your flow to start automatically when an event occurs in Apify._
+> Triggers allow your flow to start automatically when an event occurs in Apify.
 
 :::caution Manage your webhooks
 
@@ -138,7 +138,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Actor Run Finished
 
-_Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status._
+> Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status.
 
 - **Actor Scope**: Choose between *Recently used Actors* or *From store*.
 - **Actor**: Select the Actor from the dropdown.
@@ -150,7 +150,7 @@ _Automatically execute your Power Automate flow when a specific Apify Actor run 
 
 ### Task Run Finished
 
-_Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status._
+> Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status.
 
 - **Task**: Select the task from your account.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`).
@@ -161,11 +161,11 @@ _Automatically execute your Power Automate flow when a specific Apify Actor task
 
 ## Actions
 
-_The Apify connector offers comprehensive actions to interact with the Apify platform._
+> The Apify connector offers comprehensive actions to interact with the Apify platform.
 
 ### Run Actor
 
-_Start an Apify Actor run with customizable execution parameters._
+> Start an Apify Actor run with customizable execution parameters.
 
 - **Actor Scope**: Choose *Recently used Actors* or *From store*.
 - **Input Body**: Provide the JSON input for the Actor.
@@ -179,7 +179,7 @@ _Start an Apify Actor run with customizable execution parameters._
 
 ### Run Task
 
-_Start an Apify task run._
+> Start an Apify task run.
 
 - **Task**: Select the task from your account.
 - **Input Override**: Optional JSON to override the task's default input.
@@ -192,7 +192,7 @@ _Start an Apify task run._
 
 ### Get Dataset Items
 
-_Retrieve records from an Apify dataset._
+> Retrieve records from an Apify dataset.
 
 - **Dataset**: Select a dataset from the dropdown.
 - **Pagination**:
@@ -205,7 +205,7 @@ _Retrieve records from an Apify dataset._
 
 ### Get Key-value store Record
 
-_Retrieve a single record from a Key-value store._
+> Retrieve a single record from a Key-value store.
 
 - **Store**: Select the store from the dropdown.
 - **Record Key**: Select the key of the record to retrieve.
@@ -218,7 +218,7 @@ _Retrieve a single record from a Key-value store._
 
 ### Scrape Single URL
 
-_Scrape a single webpage using Apify's Web Scraper Actor._
+> Scrape a single webpage using Apify's Web Scraper Actor.
 
 - **URL**: The full URL to scrape.
 - **Crawler Type**: Select the engine:
@@ -280,9 +280,9 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 
 ### Best practices
 
-- _Async Execution:_ Always use webhooks (Triggers) for Actors that run longer than a minute.
-- _Pagination:_ For large datasets, use the `limit` and `offset` parameters in "Get Dataset Items" to process data in chunks.
-- _Memory:_ Start with default memory settings and increase only if necessary.
+- **Async Execution:** Always use webhooks (Triggers) for Actors that run longer than a minute.
+- **Pagination:** For large datasets, use the `limit` and `offset` parameters in "Get Dataset Items" to process data in chunks.
+- **Memory:** Start with default memory settings and increase only if necessary.
 
 ## Troubleshooting
 
