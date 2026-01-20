@@ -39,9 +39,9 @@ Go to [Airtable](https://airtable.com) and open the base you would like to work 
 ![Access the extensions tab on Airtable UI by pressing tools button](../../images/airtable/airtable_tools_button.png)
 
 <!-- TODO: improve pictures when Apify integration is published -->
-Search for Apify extenison and install it
+Search for Apify extension and install it
 
-![Search for the Apify extension on Airtable](../../images/airtable/airtable_search_apify_extenison.png)
+![Search for the Apify extension on Airtable](../../images/airtable/airtable_search_apify_extension.png)
 
 Open the Apify extension and login using OAuth 2.0 with your Apify account. If you dont have an account, visit [Apify registration](https://console.apify.com/sign-up) page.
 

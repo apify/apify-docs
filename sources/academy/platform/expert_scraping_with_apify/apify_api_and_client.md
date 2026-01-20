@@ -49,7 +49,7 @@ The new Actor should take the following input values, which be mapped to paramet
     "useClient": false,
 
     // The fields in each item to return back. All other
-    // fields should be ommitted
+    // fields should be omitted
     "fields": ["title", "itemUrl", "offer"],
 
     // The maximum number of items to return back

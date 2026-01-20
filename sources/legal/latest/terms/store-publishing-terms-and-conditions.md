@@ -85,7 +85,7 @@ We are authorized to unpublish and/or delete such an Actor, in our sole discreti
 
 1. "**Monthly Rental**" which means that each User of your Actor will pay a flat monthly rental fee for use of that Actor. You will set the price as X USD per month;
 2. "**Pay per Result**" which means that each User of your Actor will pay a fee calculated according to the number of results of each run of that Actor. You will set the price as X USD per 1,000 results. In this model, the Users do not pay for the Platform usage; or
-3. "**Pay per Event**" which allows you to programatically charge for events in your Actor source code. You need to pre-define the events first when setting the Actor pricing and configure whether Users pay for the Platform usage or not.
+3. "**Pay per Event**" which allows you to programmatically charge for events in your Actor source code. You need to pre-define the events first when setting the Actor pricing and configure whether Users pay for the Platform usage or not.
 
 11.2. If you set your Actor as monetized, you will be entitled to receive remuneration calculated as follows:
 
