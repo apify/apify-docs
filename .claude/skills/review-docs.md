@@ -1,10 +1,10 @@
-# Documentation Review Skill
+# Documentation review skill
 
 ## Purpose
 
 Review documentation for compliance with Apify style guide, quality standards, and best practices.
 
-## When to Use
+## When to use
 
 - Before submitting pull requests
 
@@ -378,7 +378,7 @@ This is a helpful tip.
 
 ## Review process
 
-### Step 1: Automated Checks
+### Step 1: Automated checks
 
 ```bash
 npm run lint:md        # Markdown linting
@@ -387,11 +387,11 @@ vale sync             # Prose linting setup
 
 ```
 
-### Step 2: Manual Review
+### Step 2: Manual review
 
 Go through each section of the checklist above, noting any issues.
 
-### Step 3: Provide Feedback
+### Step 3: Provide feedback
 
 **Format your review as**:
 
@@ -402,9 +402,9 @@ Go through each section of the checklist above, noting any issues.
 
 - [What's done well]
 
-### ⚠️ Issues Found
+### ⚠️ Issues found
 
-#### Style Guide
+#### Style guide
 
 - [ ] Issue 1: [Description]
 
@@ -422,7 +422,7 @@ Go through each section of the checklist above, noting any issues.
 
 - [Optional improvement 2]
 
-### 🎯 Priority Issues
+### 🎯 Priority issues
 
 1. [Critical issue to fix]
 
@@ -432,7 +432,7 @@ Go through each section of the checklist above, noting any issues.
 
 ## Common issues
 
-### Issue: Title Case or Gerund Headings
+### Issue: Title case or gerund headings
 
 ```markdown
 # ❌ Bad - Title Case
@@ -449,7 +449,7 @@ Go through each section of the checklist above, noting any issues.
 
 ```
 
-### Issue: Non-Descriptive Links
+### Issue: Non-descriptive links
 
 ```markdown
 # ❌ Bad
@@ -462,7 +462,7 @@ Learn more about [Actor input schemas](/actors/development/input-schema).
 
 ```
 
-### Issue: Missing Front Matter Description
+### Issue: Missing front matter description
 
 ```markdown
 # ❌ Bad
@@ -484,7 +484,7 @@ description: "Learn how to build and deploy your first Actor with step-by-step i
 
 ```
 
-### Issue: Long Description or Feature-Focused
+### Issue: Long description or feature-focused
 
 ```markdown
 # ❌ Bad - Too long (190 chars) and feature-focused
@@ -501,7 +501,7 @@ description: "Build and deploy Actors efficiently with this guide covering setup
 
 ```
 
-### Issue: Bold for Emphasis
+### Issue: Bold for emphasis
 
 ```markdown
 # ❌ Bad - bold used for emphasis
@@ -514,7 +514,7 @@ Click the **Save & Run** button and ensure you verify the settings.
 
 ```
 
-### Issue: Missing Admonition Title
+### Issue: Missing admonition title
 
 ```markdown
 # ❌ Bad - no title (REQUIRED)
@@ -531,7 +531,7 @@ Use pagination for large datasets.
 
 ```
 
-### Issue: Incorrect Apify Terminology
+### Issue: Incorrect Apify terminology
 
 ```markdown
 # ❌ Bad

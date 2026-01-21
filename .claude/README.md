@@ -25,28 +25,28 @@ This directory contains Claude Code configuration for the Apify documentation re
 
 ### Available skills
 
-#### `/doc-write` - Documentation Writing
+#### `/doc-write` - Documentation writing
 
 Create or edit documentation following Apify style guide.
 
 - Use for: New pages, content updates, reformatting
 - Handles: Style compliance, formatting, structure
 
-#### `/api-doc` - API Documentation
+#### `/api-doc` - API documentation
 
 Work with OpenAPI specifications and API endpoints.
 
 - Use for: New endpoints, schema updates, code samples
 - Handles: OpenAPI structure, operation IDs, examples
 
-#### `/tutorial` - Tutorial Creation
+#### `/tutorial` - Tutorial creation
 
 Build structured, educational tutorials.
 
 - Use for: New tutorials, tutorial restructuring
 - Handles: Learning progression, examples, exercises
 
-#### `/review-docs` - Documentation Review
+#### `/review-docs` - Documentation review
 
 Review documentation for quality and compliance.
 
@@ -117,7 +117,7 @@ slug: /path/to/page
 - Code blocks with language tags
 - Admonitions for important info
 
-### Links & Images
+### Links & images
 
 - Descriptive link text (not "click here")
 - Alt text for all images

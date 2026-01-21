@@ -22,29 +22,29 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
 
 Use these skills for specific documentation tasks:
 
-### `/doc-write` - Documentation Writing
+### `/doc-write` - Documentation writing
 
 **When to use**: Creating or editing documentation pages
 **Handles**: Content creation, formatting, style guide compliance
 
-### `/api-doc` - API Documentation
+### `/api-doc` - API documentation
 
 **When to use**: Working with OpenAPI specifications
 **Handles**: Creating endpoints, schemas, code samples
 
-### `/tutorial` - Tutorial Creation
+### `/tutorial` - Tutorial creation
 
 **When to use**: Creating step-by-step tutorials
 **Handles**: Tutorial structure, learning content, examples
 
-### `/review-docs` - Documentation Review
+### `/review-docs` - Documentation review
 
 **When to use**: Reviewing documentation before submission
 **Handles**: Style guide compliance, quality checks, consistency
 
 ## Core documentation standards
 
-### Language & Style
+### Language & style
 
 - **US English** spelling and grammar (e.g., "color" not "colour")
 - **Active voice** whenever possible
@@ -152,7 +152,7 @@ sources/
 
 ## API documentation specifics
 
-### OpenAPI Structure
+### OpenAPI structure
 
 ```text
 apify-api/openapi/
@@ -244,7 +244,7 @@ npm run build       # Test production build
 5. Best practices
 6. Related features
 
-### API Documentation
+### API documentation
 
 1. Endpoint description
 2. Parameters with types and descriptions
