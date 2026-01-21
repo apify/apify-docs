@@ -1,4 +1,4 @@
-# Documentation Review Skill
+## Documentation Review Skill
 
 ## Purpose
 Review documentation for compliance with Apify style guide, quality standards, and best practices.

@@ -26,44 +26,56 @@ This directory contains Claude Code configuration for the Apify documentation re
 ### Available Skills
 
 #### `/doc-write` - Documentation Writing
+
 Create or edit documentation following Apify style guide.
+
 - Use for: New pages, content updates, reformatting
 - Handles: Style compliance, formatting, structure
 
 #### `/api-doc` - API Documentation
+
 Work with OpenAPI specifications and API endpoints.
+
 - Use for: New endpoints, schema updates, code samples
 - Handles: OpenAPI structure, operation IDs, examples
 
 #### `/tutorial` - Tutorial Creation
+
 Build structured, educational tutorials.
+
 - Use for: New tutorials, tutorial restructuring
 - Handles: Learning progression, examples, exercises
 
 #### `/review-docs` - Documentation Review
+
 Review documentation for quality and compliance.
+
 - Use for: Pre-submission checks, audits, consistency
 - Handles: Style guide compliance, accessibility, SEO
 
 ## Quick Start
 
 ### Writing New Documentation
-```
+
+```text
 Use /doc-write skill to create a new documentation page about [topic]
 ```
 
 ### Creating a Tutorial
-```
+
+```text
 Use /tutorial skill to create a tutorial on [topic]
 ```
 
 ### Adding API Endpoint
-```
+
+```text
 Use /api-doc skill to document the new [endpoint-name] endpoint
 ```
 
 ### Reviewing Documentation
-```
+
+```text
 Use /review-docs skill to review sources/platform/[file-name].md
 ```
 
@@ -78,13 +90,16 @@ Always reference these files from the repo root:
 ## Key Standards
 
 ### Writing Style
+
 - US English, active voice, inclusive language
 - Sentence case for headings (not Title Case)
 - Action-oriented phrasing
 - No directional language (left/right)
 
 ### Front Matter
+
 Every file needs:
+
 ```yaml
 ---
 title: "Action-oriented title"
@@ -95,6 +110,7 @@ slug: /path/to/page
 ```
 
 ### Formatting
+
 - **Bold** for UI elements
 - _Italics_ for emphasis
 - `code` for inline code/files
@@ -102,6 +118,7 @@ slug: /path/to/page
 - Admonitions for important info
 
 ### Links & Images
+
 - Descriptive link text (not "click here")
 - Alt text for all images
 - Light theme for screenshots
@@ -110,6 +127,7 @@ slug: /path/to/page
 ## Testing
 
 Before submitting:
+
 ```bash
 npm run lint:md      # Check markdown
 npm run lint:code    # Check code
@@ -129,6 +147,7 @@ npm test             # Validate API specs
 ## Maintenance
 
 This configuration mirrors and extends the existing style guide:
+
 - `AGENTS.md` - Vendor-agnostic standards
 - `CONTRIBUTING.md` - Contribution process
 - `.cursor/rules/*.mdc` - Cursor-specific rules

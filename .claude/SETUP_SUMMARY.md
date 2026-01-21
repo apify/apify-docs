@@ -1,4 +1,4 @@
-# Claude Code Infrastructure Setup Summary
+## Claude Code Infrastructure Setup Summary
 
 ## Overview
 
