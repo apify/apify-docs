@@ -24,75 +24,70 @@ type: object
 properties:
   id:
     type: string
-    example: Personal
+    examples: [Personal]
   description:
     type: string
-    example: "Cost-effective plan for freelancers, developers and students."
+    examples: ["Cost-effective plan for freelancers, developers and students."]
   isEnabled:
     type: boolean
-    example: true
+    examples: [true]
   monthlyBasePriceUsd:
     type: number
-    example: 49
+    examples: [49]
   monthlyUsageCreditsUsd:
     type: number
-    example: 49
+    examples: [49]
   usageDiscountPercent:
     type: number
-    example: 0
+    examples: [0]
   enabledPlatformFeatures:
     type: array
     items:
       type: array
       items: {}
     example:
-      -
-        - ACTORS
-      -
-        - STORAGE
-      -
-        - PROXY_SERPS
-      -
-        - SCHEDULER
-      -
-        - WEBHOOKS
+      - - ACTORS
+      - - STORAGE
+      - - PROXY_SERPS
+      - - SCHEDULER
+      - - WEBHOOKS
   maxMonthlyUsageUsd:
     type: number
-    example: 9999
+    examples: [9999]
   maxActorMemoryGbytes:
     type: number
-    example: 32
+    examples: [32]
   maxMonthlyActorComputeUnits:
     type: number
-    example: 1000
+    examples: [1000]
   maxMonthlyResidentialProxyGbytes:
     type: number
-    example: 10
+    examples: [10]
   maxMonthlyProxySerps:
     type: integer
-    example: 30000
+    examples: [30000]
   maxMonthlyExternalDataTransferGbytes:
     type: number
-    example: 1000
+    examples: [1000]
   maxActorCount:
     type: integer
-    example: 100
+    examples: [100]
   maxActorTaskCount:
     type: integer
-    example: 1000
+    examples: [1000]
   dataRetentionDays:
     type: integer
-    example: 14
+    examples: [14]
   availableProxyGroups:
     $ref: ./AvailableProxyGroups.yaml
   teamAccountSeatCount:
     type: integer
-    example: 1
+    examples: [1]
   supportLevel:
     type: string
-    example: COMMUNITY
+    examples: [COMMUNITY]
   availableAddOns:
     type: array
     items:
       type: string
-    example: []
+    examples: [[]]

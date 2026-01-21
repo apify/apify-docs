@@ -6,7 +6,7 @@ type: object
 properties:
   SOMEGROUP:
     type: integer
-    example: 20
+    examples: [20]
   ANOTHERGROUP:
     type: integer
-    example: 200
+    examples: [200]

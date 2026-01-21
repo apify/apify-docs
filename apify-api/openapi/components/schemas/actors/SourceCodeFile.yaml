@@ -10,10 +10,10 @@ properties:
     enum:
       - BASE64
       - TEXT
-    example: TEXT
+    examples: [TEXT]
   content:
     type: string
-    example: "console.log('This is the main.js file');"
+    examples: ["console.log('This is the main.js file');"]
   name:
     type: string
-    example: src/main.js
+    examples: [src/main.js]

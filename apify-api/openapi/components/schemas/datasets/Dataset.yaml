@@ -12,46 +12,42 @@ type: object
 properties:
   id:
     type: string
-    example: WkzbQMuFYuamGv3YF
+    examples: [WkzbQMuFYuamGv3YF]
   name:
     type: string
-    example: d7b9MDYsbtX5L7XAj
+    examples: [d7b9MDYsbtX5L7XAj]
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    examples: [wRsJZtadYvn4mBZmm]
   createdAt:
     type: string
     format: date-time
-    example: "2019-12-12T07:34:14.202Z"
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
     format: date-time
-    example: "2019-12-13T08:36:13.202Z"
+    examples: ["2019-12-13T08:36:13.202Z"]
   accessedAt:
     type: string
     format: date-time
-    example: "2019-12-14T08:36:13.202Z"
+    examples: ["2019-12-14T08:36:13.202Z"]
   itemCount:
     type: integer
-    example: 7
+    examples: [7]
   cleanItemCount:
     type: integer
-    example: 5
+    examples: [5]
   actId:
-    type: string
-    nullable: true
+    type: [string, "null"]
   actRunId:
-    type: string
-    nullable: true
+    type: [string, "null"]
   fields:
-    type: array
+    type: [array, "null"]
     items:
       type: string
     description: ""
-    nullable: true
   schema:
-    type: object
-    nullable: true
+    type: [object, "null"]
     description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](/platform/actors/development/actor-definition/dataset-schema)
     example:
       actorSpecification: 1
@@ -70,15 +66,14 @@ properties:
                 format: link
   consoleUrl:
     type: string
-    example: https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC
+    examples: ["https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC"]
   itemsPublicUrl:
     type: string
     description: A public link to access the dataset items directly.
-    example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items?signature=abc123
+    examples: ["https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items?signature=abc123"]
   urlSigningSecretKey:
-    type: string
+    type: [string, "null"]
     description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the dataset.
-    nullable: true
   generalAccess:
     $ref: ../common/GeneralAccessEnum.yaml
   stats:

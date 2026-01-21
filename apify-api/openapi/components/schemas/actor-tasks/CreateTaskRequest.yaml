@@ -6,15 +6,15 @@ type: object
 properties:
   actId:
     type: string
-    example: asADASadYvn4mBZmm
+    examples: [asADASadYvn4mBZmm]
   name:
     type: string
-    example: my-task
+    examples: [my-task]
   options:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./TaskOptions.yaml
+      - type: "null"
   input:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./TaskInput.yaml
+      - type: "null"

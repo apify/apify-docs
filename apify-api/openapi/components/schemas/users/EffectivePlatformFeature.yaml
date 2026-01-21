@@ -9,20 +9,18 @@ type: object
 properties:
   isEnabled:
     type: boolean
-    example: true
+    examples: [true]
   disabledReason:
-    type: string
-    example: 'The "Selected public Actors for developers" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com'
-    nullable: true
+    type: [string, "null"]
+    examples:
+      - The "Selected public Actors for developers" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com
   disabledReasonType:
-    type: string
-    example: DISABLED
-    nullable: true
+    type: [string, "null"]
+    examples: [DISABLED]
   isTrial:
     type: boolean
-    example: false
+    examples: [false]
   trialExpirationAt:
-    type: string
+    type: [string, "null"]
     format: date-time
-    example: "2025-01-01T14:00:00.000Z"
-    nullable: true
+    examples: ["2025-01-01T14:00:00.000Z"]

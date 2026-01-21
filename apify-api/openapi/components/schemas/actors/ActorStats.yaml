@@ -10,26 +10,26 @@ type: object
 properties:
   totalBuilds:
     type: integer
-    example: 9
+    examples: [9]
   totalRuns:
     type: integer
-    example: 16
+    examples: [16]
   totalUsers:
     type: integer
-    example: 6
+    examples: [6]
   totalUsers7Days:
     type: integer
-    example: 2
+    examples: [2]
   totalUsers30Days:
     type: integer
-    example: 6
+    examples: [6]
   totalUsers90Days:
     type: integer
-    example: 6
+    examples: [6]
   totalMetamorphs:
     type: integer
-    example: 2
+    examples: [2]
   lastRunStartedAt:
     type: string
     format: date-time
-    example: "2019-07-08T14:01:05.546Z"
+    examples: ["2019-07-08T14:01:05.546Z"]

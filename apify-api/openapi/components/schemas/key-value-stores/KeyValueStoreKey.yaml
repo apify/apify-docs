@@ -7,11 +7,11 @@ required:
 properties:
   key:
     type: string
-    example: second-key
+    examples: [second-key]
   size:
     type: integer
-    example: 36
+    examples: [36]
   recordPublicUrl:
     type: string
     description: A public link to access this record directly.
-    example: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key?signature=abc123
+    examples: ["https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key?signature=abc123"]

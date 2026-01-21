@@ -3,7 +3,7 @@ type: object
 properties:
   type:
     type: string
-    example: object
+    examples: [object]
   properties:
     type: object
     properties:
@@ -12,58 +12,58 @@ properties:
         properties:
           type:
             type: string
-            example: string
+            examples: [string]
       actId:
         type: object
         properties:
           type:
             type: string
-            example: string
+            examples: [string]
       userId:
         type: object
         properties:
           type:
             type: string
-            example: string
+            examples: [string]
       startedAt:
         type: object
         properties:
           type:
             type: string
-            example: string
+            examples: [string]
           format:
             type: string
-            example: date-time
+            examples: [date-time]
           example:
             type: string
-            example: "2025-01-08T00:00:00.000Z"
+            examples: ["2025-01-08T00:00:00.000Z"]
       finishedAt:
         type: object
         properties:
           type:
             type: string
-            example: string
+            examples: [string]
           format:
             type: string
-            example: date-time
+            examples: [date-time]
           example:
             type: string
-            example: "2025-01-08T00:00:00.000Z"
+            examples: ["2025-01-08T00:00:00.000Z"]
       status:
         type: object
         properties:
           type:
             type: string
-            example: string
+            examples: [string]
           example:
             type: string
-            example: READY
+            examples: [READY]
       meta:
         type: object
         properties:
           type:
             type: string
-            example: object
+            examples: [object]
           properties:
             type: object
             properties:
@@ -72,13 +72,13 @@ properties:
                 properties:
                   type:
                     type: string
-                    example: string
+                    examples: [string]
                   example:
                     type: string
-                    example: API
+                    examples: [API]
               userAgent:
                 type: object
                 properties:
                   type:
                     type: string
-                    example: string
+                    examples: [string]

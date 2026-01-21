@@ -6,7 +6,7 @@ required:
 properties:
   total:
     type: integer
-    example: 5
+    examples: [5]
   items:
     type: array
     items:

@@ -7,10 +7,10 @@ type: object
 properties:
   readCount:
     type: integer
-    example: 22
+    examples: [22]
   writeCount:
     type: integer
-    example: 3
+    examples: [3]
   storageBytes:
     type: integer
-    example: 783
+    examples: [783]

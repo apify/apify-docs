@@ -7,11 +7,11 @@ type: object
 properties:
   message:
     type: string
-    example: Schedule invoked
+    examples: [Schedule invoked]
   level:
     type: string
-    example: INFO
+    examples: [INFO]
   createdAt:
     type: string
     format: date-time
-    example: "2019-03-26T12:28:00.370Z"
+    examples: ["2019-03-26T12:28:00.370Z"]

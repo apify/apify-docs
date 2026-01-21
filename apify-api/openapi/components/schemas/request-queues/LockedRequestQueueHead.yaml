@@ -11,28 +11,28 @@ properties:
   limit:
     type: integer
     description: The maximum number of requests returned.
-    example: 1000
+    examples: [1000]
   queueModifiedAt:
     type: string
     format: date-time
     description: The timestamp when the request queue was last modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests.
-    example: "2018-03-14T23:00:00.000Z"
+    examples: ["2018-03-14T23:00:00.000Z"]
   queueHasLockedRequests:
     type: boolean
     description: Whether the request queue contains requests locked by any client (either the one calling the endpoint or a different one).
-    example: true
+    examples: [true]
   clientKey:
     type: string
     description: The client key used for locking the requests.
-    example: client-one
+    examples: [client-one]
   hadMultipleClients:
     type: boolean
     description: Whether the request queue has been accessed by multiple different clients.
-    example: true
+    examples: [true]
   lockSecs:
     type: integer
     description: The number of seconds the locks will be held.
-    example: 60
+    examples: [60]
   items:
     type: array
     items:

@@ -11,63 +11,59 @@ type: object
 properties:
   id:
     type: string
-    example: HG7ML7M8z78YcAPEB
+    examples: [HG7ML7M8z78YcAPEB]
   actId:
     type: string
-    example: janedoe~my-actor
+    examples: [janedoe~my-actor]
   userId:
     type: string
-    example: klmdEpoiojmdEMlk3
+    examples: [klmdEpoiojmdEMlk3]
   startedAt:
     type: string
     format: date-time
-    example: "2019-11-30T07:34:24.202Z"
+    examples: ["2019-11-30T07:34:24.202Z"]
   finishedAt:
-    type: string
+    type: [string, "null"]
     format: date-time
-    nullable: true
-    example: "2019-12-12T09:30:12.202Z"
+    examples: ["2019-12-12T09:30:12.202Z"]
   status:
     $ref: ../common/ActorJobStatus.yaml
   meta:
     $ref: ./BuildsMeta.yaml
   stats:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./BuildStats.yaml
+      - type: "null"
   options:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./BuildOptions.yaml
+      - type: "null"
   usage:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./BuildUsage.yaml
+      - type: "null"
   usageTotalUsd:
-    type: number
-    nullable: true
-    example: 0.02
+    type: [number, "null"]
+    examples: [0.02]
   usageUsd:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./BuildUsage.yaml
+      - type: "null"
   inputSchema:
-    type: string
-    nullable: true
+    type: [string, "null"]
     deprecated: true # Marked as deprecated in favor of actorDefinition.
-    example: '{\n  \"title\": \"Schema for ... }'
+    examples: ['{\n  "title": "Schema for ... }']
   readme:
-    type: string
-    nullable: true
+    type: [string, "null"]
     deprecated: true # Marked as deprecated in favor of actorDefinition.
-    example: '# Magic Actor\nThis Actor is magic.'
+    examples: ['# Magic Actor\nThis Actor is magic.']
   buildNumber:
     type: string
-    example: 0.1.1
+    examples: [0.1.1]
   actorDefinition:
-    allOf:
+    anyOf:
       - $ref: ../actors/ActorDefinition.yaml
-    nullable: true
+      - type: "null"
 example:
   id: HG7ML7M8z78YcAPEB
   actId: janedoe~my-actor
@@ -93,7 +89,7 @@ example:
   usageTotalUsd: 0.02
   usageUsd:
     ACTOR_COMPUTE_UNITS: 0.02
-  inputSchema: '{\n  \"title\": \"Schema for ... }'
+  inputSchema: '{\n  "title": "Schema for ..."}'
   readme: '# Magic Actor\nThis Actor is magic.'
   buildNumber: 0.1.1
   actorDefinition:

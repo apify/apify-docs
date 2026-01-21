@@ -14,47 +14,44 @@ type: object
 properties:
   id:
     type: string
-    example: asdLZtadYvn4mBZmm
+    examples: [asdLZtadYvn4mBZmm]
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    examples: [wRsJZtadYvn4mBZmm]
   name:
     type: string
-    example: my-schedule
+    examples: [my-schedule]
   cronExpression:
     type: string
-    example: "* * * * *"
+    examples: ["* * * * *"]
   timezone:
     type: string
-    example: UTC
+    examples: [UTC]
   isEnabled:
     type: boolean
-    example: true
+    examples: [true]
   isExclusive:
     type: boolean
-    example: true
+    examples: [true]
   description:
-    type: string
-    nullable: true
-    example: Schedule of actor ...
+    type: [string, "null"]
+    examples: [Schedule of actor ...]
   createdAt:
     type: string
     format: date-time
-    example: "2019-12-12T07:34:14.202Z"
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
     format: date-time
-    example: "2019-12-20T06:33:11.202Z"
+    examples: ["2019-12-20T06:33:11.202Z"]
   nextRunAt:
-    type: string
+    type: [string, "null"]
     format: date-time
-    nullable: true
-    example: "2019-04-12T07:34:10.202Z"
+    examples: ["2019-04-12T07:34:10.202Z"]
   lastRunAt:
-    type: string
+    type: [string, "null"]
     format: date-time
-    nullable: true
-    example: "2019-04-12T07:33:10.202Z"
+    examples: ["2019-04-12T07:33:10.202Z"]
   actions:
     type: array
     items:

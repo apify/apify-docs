@@ -45,9 +45,9 @@ properties:
   defaultMemoryMbytes:
     oneOf:
       - type: string
-        example: get(input, 'startUrls.length', 1) * 1024
+        examples: [get(input, startUrls.length, 1) * 1024]
       - type: integer
-        example: 1024
+        examples: [1024]
     description: Specifies the default amount of memory in megabytes to be used when the Actor is started. Can be an integer or a [dynamic memory expression](/platform/actors/development/actor-definition/dynamic-actor-memory).
   minMemoryMbytes:
     type: integer

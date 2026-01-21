@@ -2,19 +2,15 @@ title: TaggedBuilds
 type: object
 properties:
   latest:
-    type: object
-    nullable: true
+    type: [object, "null"]
     properties:
       buildId:
-        type: string
-        nullable: true
-        example: z2EryhbfhgSyqj6Hn
+        type: [string, "null"]
+        examples: [z2EryhbfhgSyqj6Hn]
       buildNumber:
-        type: string
-        nullable: true
-        example: 0.0.2
+        type: [string, "null"]
+        examples: [0.0.2]
       finishedAt:
-        type: string
+        type: [string, "null"]
         format: date-time
-        nullable: true
-        example: "2019-06-10T11:15:49.286Z"
+        examples: ["2019-06-10T11:15:49.286Z"]

@@ -11,20 +11,20 @@ properties:
   total:
     type: integer
     description: The total number of items available across all pages.
-    example: 2
+    examples: [2]
   offset:
     type: integer
     description: The starting position for this page of results.
-    example: 0
+    examples: [0]
   limit:
     type: integer
     description: The maximum number of items returned per page.
-    example: 1000
+    examples: [1000]
   desc:
     type: boolean
     description: Whether the results are sorted in descending order.
-    example: false
+    examples: [false]
   count:
     type: integer
     description: The number of items returned in this response.
-    example: 2
+    examples: [2]

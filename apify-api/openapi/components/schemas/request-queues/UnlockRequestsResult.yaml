@@ -7,4 +7,4 @@ properties:
   unlockedCount:
     type: integer
     description: Number of requests that were successfully unlocked.
-    example: 10
+    examples: [10]

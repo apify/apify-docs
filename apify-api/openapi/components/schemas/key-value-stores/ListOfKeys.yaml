@@ -13,16 +13,16 @@ properties:
     description: ""
   count:
     type: integer
-    example: 2
+    examples: [2]
   limit:
     type: integer
-    example: 2
+    examples: [2]
   exclusiveStartKey:
     type: string
-    example: some-key
+    examples: [some-key]
   isTruncated:
     type: boolean
-    example: true
+    examples: [true]
   nextExclusiveStartKey:
     type: string
-    example: third-key
+    examples: [third-key]
