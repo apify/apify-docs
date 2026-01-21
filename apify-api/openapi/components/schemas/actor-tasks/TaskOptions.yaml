@@ -2,14 +2,14 @@ title: TaskOptions
 type: object
 properties:
   build:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [latest]
   timeoutSecs:
-    type: [integer, 'null']
+    type: [integer, "null"]
     examples: [300]
   memoryMbytes:
-    type: [integer, 'null']
+    type: [integer, "null"]
     examples: [128]
   restartOnError:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]

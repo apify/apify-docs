@@ -27,7 +27,7 @@ properties:
   plan:
     $ref: ./Plan.yaml
   effectivePlatformFeatures:
-    $ref: ./EffectivePlatformFeatures.yaml 
+    $ref: ./EffectivePlatformFeatures.yaml
   createdAt:
     type: string
     format: date-time

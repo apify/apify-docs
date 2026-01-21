@@ -13,11 +13,11 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2019-10-29T07:34:24.202Z']
+    examples: ["2019-10-29T07:34:24.202Z"]
   modifiedAt:
     type: string
     format: date-time
-    examples: ['2019-10-30T07:34:24.202Z']
+    examples: ["2019-10-30T07:34:24.202Z"]
   name:
     type: string
     examples: [MyAct]
@@ -26,6 +26,6 @@ properties:
     examples: [janedoe]
   title:
     type: string
-    examples: ['Hello World Example']
+    examples: [Hello World Example]
   stats:
     $ref: ./ActorStats.yaml

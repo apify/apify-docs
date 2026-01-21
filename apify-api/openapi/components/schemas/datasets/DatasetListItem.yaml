@@ -22,15 +22,15 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2019-12-12T07:34:14.202Z']
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
     format: date-time
-    examples: ['2019-12-13T08:36:13.202Z']
+    examples: ["2019-12-13T08:36:13.202Z"]
   accessedAt:
     type: string
     format: date-time
-    examples: ['2019-12-14T08:36:13.202Z']
+    examples: ["2019-12-14T08:36:13.202Z"]
   itemCount:
     type: integer
     examples: [7]
@@ -38,6 +38,6 @@ properties:
     type: integer
     examples: [5]
   actId:
-    type: [string, 'null']
+    type: [string, "null"]
   actRunId:
-    type: [string, 'null']
+    type: [string, "null"]

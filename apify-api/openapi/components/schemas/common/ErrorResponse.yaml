@@ -14,4 +14,4 @@ properties:
         examples: [run-failed]
       message:
         type: string
-        examples: ['Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)']
+        examples: ["Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)"]

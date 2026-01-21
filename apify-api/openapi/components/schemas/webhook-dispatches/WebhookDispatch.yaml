@@ -21,7 +21,7 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2019-12-12T07:34:14.202Z']
+    examples: ["2019-12-12T07:34:14.202Z"]
   status:
     type: string
     examples: [SUCCEEDED]
@@ -46,20 +46,20 @@ properties:
     type: object
     properties:
       startedAt:
-        type: [string, 'null']
+        type: [string, "null"]
         format: date-time
-        examples: ['2019-12-12T07:34:14.202Z']
+        examples: ["2019-12-12T07:34:14.202Z"]
       finishedAt:
-        type: [string, 'null']
+        type: [string, "null"]
         format: date-time
-        examples: ['2019-12-12T07:34:14.202Z']
+        examples: ["2019-12-12T07:34:14.202Z"]
       errorMessage:
-        type: [string, 'null']
+        type: [string, "null"]
         examples: [Cannot send request]
       responseStatus:
-        type: [integer, 'null']
+        type: [integer, "null"]
         examples: [200]
       responseBody:
-        type: [string, 'null']
+        type: [string, "null"]
         example:
           foo: bar

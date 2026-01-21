@@ -14,4 +14,4 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2019-03-26T12:28:00.370Z']
+    examples: ["2019-03-26T12:28:00.370Z"]

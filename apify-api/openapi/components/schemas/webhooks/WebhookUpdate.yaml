@@ -2,36 +2,36 @@ title: WebhookUpdate
 type: object
 properties:
   isAdHoc:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   eventTypes:
-    type: [array, 'null']
+    type: [array, "null"]
     items:
       $ref: ./WebhookEventType.yaml
-    description: ''
+    description: ""
     examples: [ACTOR.RUN.SUCCEEDED]
   condition:
     anyOf:
       - $ref: ./WebhookCondition.yaml
-      - type: 'null'
+      - type: "null"
   ignoreSslErrors:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   doNotRetry:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   requestUrl:
-    type: [string, 'null']
-    examples: ['http://example.com/']
+    type: [string, "null"]
+    examples: ["http://example.com/"]
   payloadTemplate:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: ['{\n \"userId\": {{userId}}...']
   headersTemplate:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: ['{\n \"Authorization\": Bearer...']
   description:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [this is webhook description]
   shouldInterpolateStrings:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]

@@ -5,7 +5,7 @@ properties:
     type: string
     examples: [MyActor]
   description:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [My favourite actor!]
   isPublic:
     type: boolean
@@ -13,15 +13,15 @@ properties:
   actorPermissionLevel:
     anyOf:
       - $ref: ./ActorPermissionLevel.yaml
-      - type: 'null'
+      - type: "null"
   seoTitle:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [My actor]
   seoDescription:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [My actor is the best]
   title:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [My Actor]
   restartOnError:
     type: boolean
@@ -37,16 +37,16 @@ properties:
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   categories:
-    type: [array, 'null']
+    type: [array, "null"]
     items:
       type: string
     description: ""
   defaultRunOptions:
     anyOf:
       - $ref: ./DefaultRunOptions.yaml
-      - type: 'null'
+      - type: "null"
   taggedBuilds:
-    type: [object, 'null']
+    type: [object, "null"]
     description: |
       An object to modify tags on the Actor's builds. The key is the tag name (e.g., _latest_), and the value is either an object with a `buildId` or `null`.
 

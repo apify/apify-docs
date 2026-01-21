@@ -17,19 +17,19 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2019-12-12T07:34:14.202Z']
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
     format: date-time
-    examples: ['2019-12-13T08:36:13.202Z']
+    examples: ["2019-12-13T08:36:13.202Z"]
   userId:
     type: string
     examples: [wRsJZtadYvn4mBZmm]
   isAdHoc:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   shouldInterpolateStrings:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   eventTypes:
     type: array
@@ -46,12 +46,12 @@ properties:
     examples: [false]
   requestUrl:
     type: string
-    examples: ['http://example.com/']
+    examples: ["http://example.com/"]
   lastDispatch:
     anyOf:
       - $ref: ./ExampleWebhookDispatch.yaml
-      - type: 'null'
+      - type: "null"
   stats:
     anyOf:
       - $ref: ./WebhookStats.yaml
-      - type: 'null'
+      - type: "null"

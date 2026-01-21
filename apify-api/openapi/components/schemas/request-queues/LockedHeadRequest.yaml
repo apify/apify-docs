@@ -31,4 +31,4 @@ properties:
     type: string
     format: date-time
     description: The timestamp when the lock on this request expires.
-    examples: ['2022-06-14T23:00:00.000Z']
+    examples: ["2022-06-14T23:00:00.000Z"]

@@ -2,14 +2,14 @@ title: BuildOptions
 type: object
 properties:
   useCache:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   betaPackages:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   memoryMbytes:
-    type: [integer, 'null']
+    type: [integer, "null"]
     examples: [1024]
   diskMbytes:
-    type: [integer, 'null']
+    type: [integer, "null"]
     examples: [2048]

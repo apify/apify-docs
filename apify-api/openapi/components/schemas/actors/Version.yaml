@@ -6,18 +6,18 @@ required:
 properties:
   versionNumber:
     type: string
-    examples: ['0.0']
+    examples: ["0.0"]
   sourceType:
     anyOf:
       - $ref: ./VersionSourceType.yaml
-      - type: 'null'
+      - type: "null"
   envVars:
-    type: [array, 'null']
+    type: [array, "null"]
     items:
       $ref: ./EnvVar.yaml
-    description: ''
+    description: ""
   applyEnvVarsToBuild:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   buildTag:
     type: string

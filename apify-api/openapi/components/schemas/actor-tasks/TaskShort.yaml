@@ -26,7 +26,7 @@ properties:
     type: string
     examples: [my-task]
   username:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [janedoe]
   actUsername:
     type: string
@@ -34,12 +34,12 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2018-10-26T07:23:14.855Z']
+    examples: ["2018-10-26T07:23:14.855Z"]
   modifiedAt:
     type: string
     format: date-time
-    examples: ['2018-10-26T13:30:49.578Z']
+    examples: ["2018-10-26T13:30:49.578Z"]
   stats:
     anyOf:
       - $ref: ./TaskStats.yaml
-      - type: 'null'
+      - type: "null"

@@ -16,4 +16,4 @@ allOf:
             additionalProperties:
               $ref: ./ActorChargeEvent.yaml
       minimalMaxTotalChargeUsd:
-        type: [number, 'null']
+        type: [number, "null"]

@@ -36,7 +36,7 @@ properties:
             examples: [date-time]
           example:
             type: string
-            examples: ['2025-01-08T00:00:00.000Z']
+            examples: ["2025-01-08T00:00:00.000Z"]
       finishedAt:
         type: object
         properties:
@@ -48,7 +48,7 @@ properties:
             examples: [date-time]
           example:
             type: string
-            examples: ['2025-01-08T00:00:00.000Z']
+            examples: ["2025-01-08T00:00:00.000Z"]
       status:
         type: object
         properties:
@@ -57,7 +57,7 @@ properties:
             examples: [string]
           example:
             type: string
-            examples: ['READY']
+            examples: [READY]
       meta:
         type: object
         properties:
@@ -75,7 +75,7 @@ properties:
                     examples: [string]
                   example:
                     type: string
-                    examples: ['API']
+                    examples: [API]
               userAgent:
                 type: object
                 properties:

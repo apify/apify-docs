@@ -15,7 +15,7 @@ properties:
     examples: [torvalds.]
   websiteUrl:
     type: string
-    examples: ['http://www.example.com']
+    examples: ["http://www.example.com"]
   twitterUsername:
     type: string
-    examples: ['@BillGates']
+    examples: ["@BillGates"]

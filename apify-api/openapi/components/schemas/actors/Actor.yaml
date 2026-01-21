@@ -25,7 +25,7 @@ properties:
     type: string
     examples: [jane35]
   description:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [My favourite actor!]
   restartOnError:
     type: boolean
@@ -39,38 +39,38 @@ properties:
   createdAt:
     type: string
     format: date-time
-    examples: ['2019-07-08T11:27:57.401Z']
+    examples: ["2019-07-08T11:27:57.401Z"]
   modifiedAt:
     type: string
     format: date-time
-    examples: ['2019-07-08T14:01:05.546Z']
+    examples: ["2019-07-08T14:01:05.546Z"]
   stats:
     $ref: ./ActorStats.yaml
   versions:
     type: array
     items:
-      $ref: "./Version.yaml"
-    description: ''
+      $ref: ./Version.yaml
+    description: ""
   pricingInfos:
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   defaultRunOptions:
-      $ref: ./DefaultRunOptions.yaml
+    $ref: ./DefaultRunOptions.yaml
   exampleRunInput:
     anyOf:
       - $ref: ./ExampleRunInput.yaml
-      - type: 'null'
+      - type: "null"
   isDeprecated:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   deploymentKey:
     type: string
     examples: [ssh-rsa AAAA ...]
   title:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [My Actor]
   taggedBuilds:
     anyOf:
       - $ref: ./TaggedBuilds.yaml
-      - type: 'null'
+      - type: "null"

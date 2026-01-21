@@ -2,5 +2,5 @@ title: BuildUsage
 type: object
 properties:
   ACTOR_COMPUTE_UNITS:
-    type: [number, 'null']
+    type: [number, "null"]
     examples: [0.08]

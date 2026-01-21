@@ -35,22 +35,22 @@ properties:
     type: string
     format: date-time
     description: The timestamp when the request queue was created.
-    examples: ['2019-12-12T07:34:14.202Z']
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
     format: date-time
     description: The timestamp when the request queue was last modified.
-    examples: ['2019-12-13T08:36:13.202Z']
+    examples: ["2019-12-13T08:36:13.202Z"]
   accessedAt:
     type: string
     format: date-time
     description: The timestamp when the request queue was last accessed.
-    examples: ['2019-12-14T08:36:13.202Z']
+    examples: ["2019-12-14T08:36:13.202Z"]
   expireAt:
     type: string
     format: date-time
     description: The timestamp when the request queue will expire and be deleted.
-    examples: ['2019-06-02T17:15:06.751Z']
+    examples: ["2019-06-02T17:15:06.751Z"]
   totalRequestCount:
     type: integer
     description: The total number of requests in the request queue.
@@ -64,10 +64,10 @@ properties:
     description: The number of requests that are pending and have not been handled yet.
     examples: [50]
   actId:
-    type: [string, 'null']
+    type: [string, "null"]
     description: The ID of the Actor that created this request queue.
   actRunId:
-    type: [string, 'null']
+    type: [string, "null"]
     description: The ID of the Actor run that created this request queue.
   hadMultipleClients:
     type: boolean

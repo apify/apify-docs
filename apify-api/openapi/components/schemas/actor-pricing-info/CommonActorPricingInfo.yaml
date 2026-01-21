@@ -17,13 +17,13 @@ properties:
     format: date-time
     description: Since when is this pricing info record effective for a given Actor
   notifiedAboutFutureChangeAt:
-    type: [string, 'null']
+    type: [string, "null"]
     format: date-time
     x-internal: true
   notifiedAboutChangeAt:
-    type: [string, 'null']
+    type: [string, "null"]
     format: date-time
     x-internal: true
   reasonForChange:
-    type: [string, 'null']
+    type: [string, "null"]
     x-internal: true

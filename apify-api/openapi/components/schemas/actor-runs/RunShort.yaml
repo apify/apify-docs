@@ -20,18 +20,18 @@ properties:
     type: string
     examples: [HDSasDasz78YcAPEB]
   actorTaskId:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [KJHSKHausidyaJKHs]
   status:
     $ref: ../common/ActorJobStatus.yaml
   startedAt:
     type: string
     format: date-time
-    examples: ['2019-11-30T07:34:24.202Z']
+    examples: ["2019-11-30T07:34:24.202Z"]
   finishedAt:
     type: string
     format: date-time
-    examples: ['2019-12-12T09:30:12.202Z']
+    examples: ["2019-12-12T09:30:12.202Z"]
   buildId:
     type: string
     examples: [HG7ML7M8z78YcAPEB]

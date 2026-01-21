@@ -2,22 +2,22 @@ title: CreateOrUpdateVersionRequest
 type: object
 properties:
   versionNumber:
-    type: [string, 'null']
-    examples: ['0.0']
+    type: [string, "null"]
+    examples: ["0.0"]
   sourceType:
     anyOf:
       - $ref: ./VersionSourceType.yaml
-      - type: 'null'
+      - type: "null"
   envVars:
-    type: [array, 'null']
+    type: [array, "null"]
     items:
-      $ref: "./EnvVar.yaml"
-    description: ''
+      $ref: ./EnvVar.yaml
+    description: ""
   applyEnvVarsToBuild:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]
   buildTag:
-    type: [string, 'null']
+    type: [string, "null"]
     examples: [latest]
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml

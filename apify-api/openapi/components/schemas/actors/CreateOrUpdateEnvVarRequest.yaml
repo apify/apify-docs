@@ -11,5 +11,5 @@ properties:
     type: string
     examples: [my-new-value]
   isSecret:
-    type: [boolean, 'null']
+    type: [boolean, "null"]
     examples: [false]

@@ -17,8 +17,8 @@ properties:
   runInput:
     anyOf:
       - $ref: ./ScheduleActionsRunInput.yaml
-      - type: 'null'
+      - type: "null"
   runOptions:
     anyOf:
       - $ref: ./ScheduleActionsRunOptions.yaml
-      - type: 'null'
+      - type: "null"

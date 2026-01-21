@@ -13,8 +13,8 @@ properties:
   options:
     anyOf:
       - $ref: ./TaskOptions.yaml
-      - type: 'null'
+      - type: "null"
   input:
     anyOf:
       - $ref: ./TaskInput.yaml
-      - type: 'null'
+      - type: "null"

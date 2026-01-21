@@ -18,11 +18,11 @@ properties:
   startedAt:
     type: string
     format: date-time
-    examples: ['2019-11-30T07:34:24.202Z']
+    examples: ["2019-11-30T07:34:24.202Z"]
   finishedAt:
     type: string
     format: date-time
-    examples: ['2019-12-12T09:30:12.202Z']
+    examples: ["2019-12-12T09:30:12.202Z"]
   usageTotalUsd:
     type: number
     examples: [0.02]
