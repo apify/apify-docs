@@ -144,6 +144,7 @@ get:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
@@ -178,6 +179,8 @@ get:
                 DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
@@ -285,6 +288,7 @@ put:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
@@ -319,6 +323,8 @@ put:
                 DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
@@ -346,6 +352,8 @@ delete:
       description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run

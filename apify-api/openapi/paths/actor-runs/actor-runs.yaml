@@ -126,6 +126,8 @@ get:
                   defaultKeyValueStoreId: sffsouqlseJCQzTfe
                   defaultDatasetId: CFGggdjQDsyE7Moyw
                   defaultRequestQueueId: soowucklrmDzKpA8x
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-collection/get-user-runs-list

@@ -21,6 +21,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule
@@ -75,6 +77,8 @@ put:
         application/json:
           schema:
             $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/update-schedule
@@ -111,6 +115,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/delete-schedule

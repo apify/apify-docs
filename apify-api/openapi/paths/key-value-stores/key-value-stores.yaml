@@ -67,6 +67,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/key-value-stores/GetListOfKeyValueStoresResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores
@@ -127,6 +129,10 @@ post:
               accessedAt: "2019-12-14T08:36:13.202Z"
               actId: null
               actRunId: null
+              consoleUrl: https://console.apify.com/storage/key-value-stores/WkzbQMuFYuamGv3YF
+              keysPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/create-key-value-store

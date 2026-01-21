@@ -9,7 +9,8 @@ properties:
     items:
       $ref: ./WebhookEventType.yaml
     description: ""
-    examples: [ACTOR.RUN.SUCCEEDED]
+    examples:
+      - [ACTOR.RUN.SUCCEEDED]
   condition:
     anyOf:
       - $ref: ./WebhookCondition.yaml

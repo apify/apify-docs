@@ -52,6 +52,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/webhooks/GetListOfWebhooksResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-collection/get-list-of-webhooks
@@ -162,6 +164,8 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/webhooks/CreateWebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-collection/create-webhook

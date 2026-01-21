@@ -44,6 +44,8 @@ get:
                 memoryMbytes: 128
               input:
                 hello: world
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/get-task
@@ -139,6 +141,8 @@ put:
                 memoryMbytes: 128
               input:
                 hello: world
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/update-task
@@ -174,6 +178,8 @@ delete:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/delete-task

@@ -35,6 +35,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-builds/GetOpenApiResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   x-js-parent: BuildClient
   x-js-name: getOpenApiDefinition
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#getOpenApiDefinition

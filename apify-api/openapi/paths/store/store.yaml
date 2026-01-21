@@ -84,7 +84,7 @@ get:
           - FLAT_PRICE_PER_MONTH
           - PRICE_PER_DATASET_ITEM
           - PAY_PER_EVENT
-        example: "'FREE'"
+        example: FREE
     - name: allowsAgenticUsers
       in: query
       description: |
@@ -115,10 +115,11 @@ get:
                   title: My Public Actor
                   name: my-public-actor
                   username: jane35
+                  userFullName: Jane Doe
                   description: My public Actor!
-                  pictureUrl: "https://..."
-                  userPictureUrl: "https://..."
-                  url: "https://..."
+                  pictureUrl: https://...
+                  userPictureUrl: https://...
+                  url: https://...
                   stats:
                     totalBuilds: 9
                     totalRuns: 16
@@ -140,9 +141,9 @@ get:
                     - MARKETING
                     - LEAD_GENERATION
                   description: My public Actor!
-                  pictureUrl: "https://..."
-                  userPictureUrl: "https://..."
-                  url: "https://..."
+                  pictureUrl: https://...
+                  userPictureUrl: https://...
+                  url: https://...
                   stats:
                     totalBuilds: 9
                     totalRuns: 16
@@ -155,6 +156,8 @@ get:
                   currentPricingInfo:
                     pricingModel: FREE
                   isWhiteListedForAgenticPayment: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store

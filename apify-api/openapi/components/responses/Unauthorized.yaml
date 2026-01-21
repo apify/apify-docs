@@ -1,0 +1,9 @@
+description: Unauthorized - authentication required or invalid token.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: token-not-valid
+        message: Authentication token is not valid.

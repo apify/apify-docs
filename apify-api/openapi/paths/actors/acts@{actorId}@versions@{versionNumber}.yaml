@@ -30,6 +30,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/actors/GetVersionResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/get-version
@@ -86,7 +88,7 @@ put:
           sourceType: SOURCE_FILES
           envVars:
             - name: DOMAIN
-              value: "http://example.com"
+              value: http://example.com
               isSecret: false
             - name: SECRET_PASSWORD
               value: MyTopSecretPassword123
@@ -103,6 +105,8 @@ put:
         application/json:
           schema:
             $ref: ../../components/schemas/actors/GetVersionResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
@@ -145,6 +149,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/delete-version

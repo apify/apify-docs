@@ -61,6 +61,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-builds/GetBuildListResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/get-list-of-builds
@@ -186,6 +188,8 @@ post:
               inputSchema: '{\n  \"title\": \"Schema for ... }'
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/build-actor

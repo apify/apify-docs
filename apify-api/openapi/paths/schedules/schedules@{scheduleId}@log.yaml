@@ -33,6 +33,8 @@ get:
                   must be object, got \"string\" instead.
                 level: ERROR
                 createdAt: "2019-03-26T12:30:00.325Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-log/get-schedule-log

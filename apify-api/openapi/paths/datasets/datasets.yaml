@@ -90,6 +90,8 @@ get:
                   cleanItemCount: 2
                   actId: null
                   actRunId: null
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets
@@ -148,6 +150,9 @@ post:
               actId: null
               actRunId: null
               fields: []
+              consoleUrl: https://console.apify.com/storage/datasets/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/create-dataset
