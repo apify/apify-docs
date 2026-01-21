@@ -11,7 +11,7 @@ Help write or edit Apify documentation following the established style guide and
 - Converting drafts into proper documentation format
 - Updating documentation content
 
-## Context Files
+## Context files
 
 - `AGENTS.md` - Primary documentation standards
 - `CONTRIBUTING.md` - Contribution guidelines
@@ -20,7 +20,7 @@ Help write or edit Apify documentation following the established style guide and
 
 When writing or editing documentation:
 
-### 1. Content Standards
+### 1. Content standards
 
 - Use **US English** spelling and grammar (e.g., "color" not "colour")
 - Use **simple English** - prefer "use" over "utilize", favor simple sentence structures
@@ -33,7 +33,7 @@ When writing or editing documentation:
 - Write for a technical audience but keep explanations clear
 - **Never make assumptions about product features** - ask if unsure
 
-### 2. Front Matter
+### 2. Front matter
 
 Always include proper front matter in MDX/MD files:
 
@@ -51,7 +51,7 @@ slug: /path/to/page
 - File: `/sources/platform/actors/running.md`
 - Slug: `/platform/actors/running`
 
-### 3. Text Formatting
+### 3. Text formatting
 
 - **Bold** ONLY for UI elements, buttons, tabs, menu items (e.g., "Click **Save & Run**"). NEVER use bold for emphasis.
 - _Italics_ for emphasis (use sparingly)
@@ -101,7 +101,7 @@ Critical information that could cause issues.
 :::
 ```
 
-### 6. Code Examples
+### 6. Code examples
 
 - Include complete, runnable examples
 - Use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) for multiple languages
@@ -130,7 +130,7 @@ For tutorials and guides, follow this structure:
 4. **Code examples** - Complete, working examples
 5. **Summary** - What they accomplished and next steps
 
-### 10. Apify Terminology
+### 10. Apify terminology
 
 Always use exact capitalization and phrasing:
 
@@ -143,7 +143,7 @@ Always use exact capitalization and phrasing:
 - **AI agent** (lowercase for generic terms)
 - **MCP server** (lowercase for generic terms)
 
-### 11. Quality Checklist
+### 11. Quality checklist
 
 Before finalizing, verify:
 

@@ -15,15 +15,15 @@ This directory contains Claude Code configuration for the Apify documentation re
     └── review-docs.md  # Documentation review skill
 ```
 
-## How to Use
+## How to use
 
-### For Claude Code Users
+### For Claude Code users
 
 1. **Start a new session**: Claude Code will automatically read `instructions.md`
 2. **Use skills**: Type `/doc-write`, `/api-doc`, `/tutorial`, or `/review-docs` to use specific skills
 3. **Reference standards**: Always refer to `AGENTS.md` in the repo root for core standards
 
-### Available Skills
+### Available skills
 
 #### `/doc-write` - Documentation Writing
 
@@ -53,33 +53,33 @@ Review documentation for quality and compliance.
 - Use for: Pre-submission checks, audits, consistency
 - Handles: Style guide compliance, accessibility, SEO
 
-## Quick Start
+## Quick start
 
-### Writing New Documentation
+### Writing new documentation
 
 ```text
 Use /doc-write skill to create a new documentation page about [topic]
 ```
 
-### Creating a Tutorial
+### Creating a tutorial
 
 ```text
 Use /tutorial skill to create a tutorial on [topic]
 ```
 
-### Adding API Endpoint
+### Adding API endpoint
 
 ```text
 Use /api-doc skill to document the new [endpoint-name] endpoint
 ```
 
-### Reviewing Documentation
+### Reviewing documentation
 
 ```text
 Use /review-docs skill to review sources/platform/[file-name].md
 ```
 
-## Primary References
+## Primary references
 
 Always reference these files from the repo root:
 
@@ -87,16 +87,16 @@ Always reference these files from the repo root:
 2. **`CONTRIBUTING.md`** - Setup, workflows, style guide
 3. **`.cursor/rules/*.mdc`** - Cursor-specific rules (reference only)
 
-## Key Standards
+## Key standards
 
-### Writing Style
+### Writing style
 
 - US English, active voice, inclusive language
 - Sentence case for headings (not Title Case)
 - Action-oriented phrasing
 - No directional language (left/right)
 
-### Front Matter
+### Front matter
 
 Every file needs:
 
@@ -135,7 +135,7 @@ npm start            # Preview changes
 npm test             # Validate API specs
 ```
 
-## Best Practices
+## Best practices
 
 1. **Read `AGENTS.md` first** - It's the source of truth
 2. **Use the appropriate skill** - They're designed for specific tasks
@@ -154,7 +154,7 @@ This configuration mirrors and extends the existing style guide:
 
 Keep these files in sync when updating documentation standards.
 
-## Need Help?
+## Need help?
 
 - Questions about style: Check `AGENTS.md`
 - Setup issues: See `CONTRIBUTING.md`

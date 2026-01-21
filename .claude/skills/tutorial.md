@@ -14,15 +14,15 @@ Create comprehensive, structured tutorials for the Apify Academy or Platform doc
 
 - Building step-by-step learning content
 
-## Context Files
+## Context files
 
 - `AGENTS.md` - Documentation standards
 
 - `CONTRIBUTING.md` - Style guide
 
-## Tutorial Structure
+## Tutorial structure
 
-### 1. Front Matter
+### 1. Front matter
 
 ```yaml
 
@@ -45,7 +45,7 @@ slug: /category/tutorial-name  # Must match file path
 
 - Match slug to file path
 
-### 2. Introduction Section
+### 2. Introduction section
 
 **Purpose**: Hook the reader and explain what they'll learn
 
@@ -74,7 +74,7 @@ By the end, you'll be able to [specific outcome].
 
 ```
 
-### 3. Prerequisites Section
+### 3. Prerequisites section
 
 **Purpose**: Set expectations for required knowledge and setup
 
@@ -95,7 +95,7 @@ Before starting this tutorial, make sure you have:
 
 ```
 
-### 4. Step-by-Step Instructions
+### 4. Step-by-step instructions
 
 **Purpose**: Guide users through the process clearly and systematically
 
@@ -136,7 +136,7 @@ const example = "code";
 
 ```
 
-### 5. Code Examples Section
+### 5. Code examples section
 
 **Purpose**: Provide complete, working code that users can run
 
@@ -183,7 +183,7 @@ example = "working code"
 
 ```
 
-### 6. Testing/Verification Section
+### 6. Testing/verification section
 
 **Purpose**: Help users verify their implementation works
 
@@ -210,7 +210,7 @@ If you see [common error], check [solution].
 
 ```
 
-### 7. Troubleshooting Section
+### 7. Troubleshooting section
 
 **Purpose**: Address common issues users might encounter
 
@@ -233,7 +233,7 @@ If you see [common error], check [solution].
 
 ```
 
-### 8. Summary/Next Steps
+### 8. Summary/next steps
 
 **Purpose**: Reinforce learning and guide users forward
 
@@ -270,27 +270,27 @@ Now that you've completed this tutorial, you can:
 
 ```
 
-## Tutorial Types
+## Tutorial types
 
-### Platform Tutorial
+### Platform tutorial
 
 **Focus**: How to use Apify platform features
 **Location**: `/sources/platform/`
 **Style**: Practical, feature-focused
 
-### Academy Tutorial
+### Academy tutorial
 
 **Focus**: Teaching web scraping or automation concepts
 **Location**: `/sources/academy/tutorials/`
 **Style**: Educational, concept-focused
 
-### Integration Tutorial
+### Integration tutorial
 
 **Focus**: Connecting Apify with other tools
 **Location**: `/sources/platform/integrations/`
 **Style**: Step-by-step integration guide
 
-## Apify Terminology
+## Apify terminology
 
 Always use exact capitalization and phrasing:
 
@@ -308,7 +308,7 @@ Always use exact capitalization and phrasing:
 
 - **AI agent**, **MCP server** (lowercase for generic terms)
 
-## Text Formatting Rules
+## Text formatting rules
 
 - **Bold** ONLY for UI elements (e.g., "Click **Save & Run**"). NEVER for emphasis.
 
@@ -320,7 +320,7 @@ Always use exact capitalization and phrasing:
 
 - Use simple present tense for headings
 
-## Best Practices
+## Best practices
 
 1. **Start Simple**: Begin with basic concepts before advanced topics
 
@@ -342,7 +342,7 @@ Always use exact capitalization and phrasing:
 
 10. **Use Simple English**: Prefer "use" over "utilize"
 
-## Quality Checklist
+## Quality checklist
 
 Before publishing:
 
