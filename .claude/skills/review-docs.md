@@ -163,26 +163,6 @@ slug: /actors/development/create  # ✅ Matches file path
 
 - [ ] Includes JavaScript and Python where applicable
 
-**Example**:
-
-```markdown
-# ✅ Good
-
-```javascript
-// Fetch actor details
-const actor = await client.actor('john-doe/my-actor').get();
-console.log(actor);
-
-```
-
-# ❌ Bad
-
-```text
-const a = await c.actor('x').get();  // No language tag, unclear names
-```
-
-```
-
 ### 5. Links
 
 **Internal Links**:
@@ -268,10 +248,12 @@ Click [here](link) to learn more.
 **Example**:
 
 ```markdown
-# ✅ Good - has title
+# ✅ Good - has title and correct spacing
 
 :::tip Performance optimization
+
 Use `requestHandlerTimeoutSecs` to prevent slow requests from blocking your Actor.
+
 :::
 
 # ❌ Bad - missing title (REQUIRED)
