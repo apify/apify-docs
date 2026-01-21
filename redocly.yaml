@@ -7,14 +7,11 @@ extends:
     - recommended
 
 rules:
-    # Make all warnings into errors
     info-license: error
     tag-description: error
     no-invalid-schema-examples: error
     no-invalid-media-type-examples: error
     operation-4xx-response: error
-
-    # Additional strictness rules
     struct: error
     no-unused-components: error
 

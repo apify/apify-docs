@@ -15,7 +15,7 @@ get:
 
     You can also use the [`/api/v2/act-openapi-json-get`](/api/v2/act-openapi-json-get) endpoint to get the OpenAPI definition for a build.
 
-    ::: null
+    :::
   operationId: actorBuild_openapi_json_get
   security: []
   parameters:
