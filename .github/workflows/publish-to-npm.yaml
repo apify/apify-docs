@@ -56,7 +56,6 @@ jobs:
                     cache: 'npm'
                     registry-url: 'https://registry.npmjs.org'
                     cache-dependency-path: 'package-lock.json'
-                    always-auth: 'true'
 
             -   name: Enable corepack
                 run: |
@@ -69,23 +68,23 @@ jobs:
 
             -   name: Bump the theme version
                 run: |
-                    cd $GITHUB_WORKSPACE/apify-docs-theme
+                    cd "$GITHUB_WORKSPACE/apify-docs-theme"
                     npm version patch --legacy-peer-deps
 
             -   name: Deploy theme to npm
                 run: |
-                    cd $GITHUB_WORKSPACE/apify-docs-theme
+                    cd "$GITHUB_WORKSPACE/apify-docs-theme"
                     npm publish
 
             -   name: Wait until the new theme version is available on npm
                 run: |
-                    cd $GITHUB_WORKSPACE/apify-docs-theme
+                    cd "$GITHUB_WORKSPACE/apify-docs-theme"
                     PACKAGE_JSON=$(cat package.json);
-                    PACKAGE_NAME=$(jq -r .name <(echo $PACKAGE_JSON));
-                    PACKAGE_VER=$(jq -r .version <(echo $PACKAGE_JSON));
-                    for i in $(seq 1 10); do
+                    PACKAGE_NAME=$(jq -r .name <(echo "$PACKAGE_JSON"));
+                    PACKAGE_VER=$(jq -r .version <(echo "$PACKAGE_JSON"));
+                    for _ in $(seq 1 10); do
                         EXIT_CODE=0;
-                        npm show $PACKAGE_NAME@$PACKAGE_VER || EXIT_CODE=1;
+                        npm show "$PACKAGE_NAME@$PACKAGE_VER" || EXIT_CODE=1;
                         if [[ $EXIT_CODE -eq 1 ]]; then
                             echo "The new package version ($PACKAGE_VER) is not yet available, waiting 30 seconds...";
                             sleep 30;
@@ -94,7 +93,7 @@ jobs:
                         echo "The new package version ($PACKAGE_VER) is live, proceeding!";
                         break;
                     done;
-                    npm show $PACKAGE_NAME@$PACKAGE_VER # fails if the package is not available, succeeds if it is
+                    npm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
 
             -   name: Commit the new theme version
                 uses: stefanzweifel/git-auto-commit-action@v7
