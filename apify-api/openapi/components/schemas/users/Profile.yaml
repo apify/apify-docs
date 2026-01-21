@@ -10,14 +10,14 @@ properties:
   pictureUrl:
     type: string
     format: uri
-    examples: [/img/anonymous_user_picture.png]
+    examples: [https://apify.com/img/anonymous_user_picture.png]
   githubUsername:
     type: string
     examples: [torvalds.]
   websiteUrl:
     type: string
     format: uri
-    examples: ["http://www.example.com"]
+    examples: [http://www.example.com]
   twitterUsername:
     type: string
     examples: ["@BillGates"]
