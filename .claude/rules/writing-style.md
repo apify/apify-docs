@@ -14,11 +14,11 @@ Instructions for AI assistants writing Apify documentation. Based on Apify style
 
 Match language to content type:
 
-| Content type     | CTA verbs              | Example                                    |
-| ---------------- | ---------------------- | ------------------------------------------ |
-| Tutorials/guides | Learn, Build, Create   | "Learn how to build a web scraper"         |
-| Reference docs   | Access, Integrate, Use | "Access the Apify platform programmatically" |
-| Discovery pages  | Explore, Discover, Browse | "Explore available Actors"              |
+| Content type     | CTA verbs                 | Example                                      |
+| ---------------- | ------------------------- | -------------------------------------------- |
+| Tutorials/guides | Learn, Build, Create      | "Learn how to build a web scraper"           |
+| Reference docs   | Access, Integrate, Use    | "Access the Apify platform programmatically" |
+| Discovery pages  | Explore, Discover, Browse | "Explore available Actors"                   |
 
 Don't use "Learn" for pure reference documentation - it sets tutorial expectations.
 
@@ -150,13 +150,13 @@ All items in a list must follow the same grammatical pattern:
 
 Use Docusaurus admonitions for important information:
 
-| Type           | Use for                                 |
-| -------------- | --------------------------------------- |
-| `:::note`      | General callouts                        |
-| `:::tip`       | Helpful suggestions                     |
-| `:::info`      | Background context                      |
-| `:::caution`   | Warnings about gotchas                  |
-| `:::danger`    | Critical warnings that could cause issues |
+| Type         | Use for                                     |
+| ------------ | ------------------------------------------- |
+| `:::note`    | General callouts                            |
+| `:::tip`     | Helpful suggestions                         |
+| `:::info`    | Background context                          |
+| `:::caution` | Warnings about gotchas                      |
+| `:::danger`  | Critical warnings that could cause issues   |
 
 Prefer admonitions over block quotes for highlighted content.
 
@@ -166,8 +166,8 @@ Prefer admonitions over block quotes for highlighted content.
 
 Include "a/an" before nouns in definition lists:
 
-| Avoid                            | Prefer                                 |
-| -------------------------------- | -------------------------------------- |
+| Avoid                              | Prefer                               |
+| ---------------------------------- | ------------------------------------ |
 | `{version}` - Node.js version only | `{version}` - A Node.js version only |
 
 ### Oxford comma
@@ -197,10 +197,10 @@ Use "the" before "Apify platform", "Apify SDK", etc.
 
 ### Word choice
 
-| Word        | When to use                               |
-| ----------- | ----------------------------------------- |
-| legacy      | Feature is deprecated or will be removed  |
-| alternative | Valid approach, but not the preferred one |
+| Word        | When to use                                 |
+| ----------- | ------------------------------------------- |
+| legacy      | Feature is deprecated or will be removed    |
+| alternative | Valid approach, but not the preferred one   |
 | deprecated  | Feature will be removed in a future version |
 
 ## Links
@@ -231,9 +231,9 @@ When mentioning tools, languages, or external resources, link them to help reade
 
 ### Trim filler words
 
-| Avoid                          | Prefer               |
-| ------------------------------ | -------------------- |
-| visit the Docker Hub tags page | visit Docker Hub     |
+| Avoid                          | Prefer                |
+| ------------------------------ | --------------------- |
+| visit the Docker Hub tags page | visit Docker Hub      |
 | check out the official docs    | see the documentation |
 
 ### Actor references
