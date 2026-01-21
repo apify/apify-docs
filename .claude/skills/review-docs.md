@@ -376,7 +376,7 @@ This is a helpful tip.
 
 - [ ] Related pages linked
 
-## Review process
+## How to review
 
 ### Step 1: Automated checks
 

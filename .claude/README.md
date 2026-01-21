@@ -1,4 +1,4 @@
-# Claude Code Configuration for Apify Docs
+# Claude Code configuration for Apify docs
 
 This directory contains Claude Code configuration for the Apify documentation repository.
 
