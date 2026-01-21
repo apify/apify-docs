@@ -396,7 +396,7 @@ Go through each section of the checklist above, noting any issues.
 **Format your review as**:
 
 ```markdown
-## Documentation review: [File Name]
+## Documentation review: [File name]
 
 ### ✅ Strengths
 

@@ -52,7 +52,7 @@ slug: /category/tutorial-name  # Must match file path
 **Template**:
 
 ```markdown
-## [Tutorial Title]
+## [Tutorial title]
 
 **[Brief description of what the user will accomplish]**
 
