@@ -57,10 +57,10 @@ Docker image tags follow a consistent naming pattern that allows you to pin spec
 
 For Node.js images, the tag format is:
 
-- `{node-version}` - Node.js version only (e.g., `20`, `22`, `24`)
-- `{node-version}-{library-version}` - Node.js version with pinned Playwright/Puppeteer version (e.g., `22-1.52.0`)
+- `{node-version}` - A Node.js version only (e.g., `20`, `22`, `24`)
+- `{node-version}-{library-version}` - A Node.js version with pinned Playwright/Puppeteer version (e.g., `22-1.52.0`)
 
-**Examples:**
+Examples:
 
 | Tag | Description |
 | --- | ----------- |
@@ -73,17 +73,17 @@ For Node.js images, the tag format is:
 
 For Python images, the tag format is:
 
-- `{python-version}` - Python version only (e.g., `3.11`, `3.12`, `3.13`)
-- `{python-version}-{library-version}` - Python version with pinned Playwright/Selenium version
+- `{python-version}` - A Python version only (e.g., `3.11`, `3.12`, `3.13`)
+- `{python-version}-{library-version}` - A Python version with pinned Playwright/Selenium version
 
-### Finding available tags
+### Available tags
 
-To see all available tags for an image, visit the Docker Hub tags page:
+To see all available tags for an image, visit Docker Hub:
 
-- [actor-node-playwright-chrome tags](https://hub.docker.com/r/apify/actor-node-playwright-chrome/tags)
-- [actor-node-playwright tags](https://hub.docker.com/r/apify/actor-node-playwright/tags)
-- [actor-node-puppeteer-chrome tags](https://hub.docker.com/r/apify/actor-node-puppeteer-chrome/tags)
-- [actor-python-playwright tags](https://hub.docker.com/r/apify/actor-python-playwright/tags)
+- [View actor-node-playwright-chrome tags](https://hub.docker.com/r/apify/actor-node-playwright-chrome/tags)
+- [View actor-node-playwright tags](https://hub.docker.com/r/apify/actor-node-playwright/tags)
+- [View actor-node-puppeteer-chrome tags](https://hub.docker.com/r/apify/actor-node-puppeteer-chrome/tags)
+- [View actor-python-playwright tags](https://hub.docker.com/r/apify/actor-python-playwright/tags)
 
 You can also query available tags programmatically:
 
@@ -93,18 +93,18 @@ curl -s "https://registry.hub.docker.com/v2/repositories/apify/actor-node-playwr
 
 ## Version pinning for reproducible builds
 
-For production Actors, we recommend pinning both the Node.js/Python version and the browser automation library version in your Dockerfile. This ensures reproducible builds and prevents unexpected behavior when new versions are released.
+For production Actors, pin both the Node.js/Python version and the browser automation library version in your Dockerfile. This ensures reproducible builds and prevents unexpected behavior when new versions are released.
 
 ### Recommended approach
 
-**In your Dockerfile**, use a fully pinned tag:
+In your `Dockerfile`, use a fully pinned tag:
 
 ```dockerfile
 # Pin both Node.js 22 and Playwright 1.52.0
 FROM apify/actor-node-playwright-chrome:22-1.52.0
 ```
 
-**In your `package.json`**, match the Playwright/Puppeteer version to your Docker image tag:
+In your `package.json`, match the Playwright/Puppeteer version to your Docker image tag:
 
 ```json
 {
@@ -126,7 +126,7 @@ When the Playwright/Puppeteer version in your `package.json` differs from what's
 
 :::
 
-### Using `*` as version (legacy approach)
+### Using `*` as version (alternative approach)
 
 You may encounter older documentation or templates using `*` as the Playwright/Puppeteer version:
 
@@ -140,9 +140,9 @@ You may encounter older documentation or templates using `*` as the Playwright/P
 
 The asterisk (`*`) tells npm to use whatever version is already installed, which prevents re-downloading the library. While this approach still works, **pinning specific versions is now preferred** because:
 
-1. **Reproducibility** - Your builds will behave the same way regardless of when you build them
-2. **Predictability** - You know exactly which version you're running
-3. **Debugging** - Easier to track down version-specific issues
+1. Reproducibility - Your builds will behave the same way regardless of when you build them
+1. Predictability - You know exactly which version you're running
+1. Debugging - Version-specific issues are easier to track down
 
 ## Custom Dockerfile
 
