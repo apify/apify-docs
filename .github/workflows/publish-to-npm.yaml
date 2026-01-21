@@ -79,9 +79,8 @@ jobs:
             -   name: Wait until the new theme version is available on npm
                 run: |
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
-                    PACKAGE_JSON=$(cat package.json);
-                    PACKAGE_NAME=$(jq -r .name <(echo "$PACKAGE_JSON"));
-                    PACKAGE_VER=$(jq -r .version <(echo "$PACKAGE_JSON"));
+                    PACKAGE_NAME=$(jq -r .name package.json);
+                    PACKAGE_VER=$(jq -r .version package.json);
                     for _ in $(seq 1 10); do
                         EXIT_CODE=0;
                         npm show "$PACKAGE_NAME@$PACKAGE_VER" || EXIT_CODE=1;
