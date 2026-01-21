@@ -18,12 +18,17 @@ Create comprehensive, structured tutorials for the Apify Academy or Platform doc
 ### 1. Front Matter
 ```yaml
 ---
-title: "Action-oriented tutorial title"
-description: "Clear description of what the user will learn (140-160 chars)"
+title: "Action-oriented tutorial title (sentence case, simple present tense)"
+description: "Explain value, not features - what will user achieve (140-160 chars)"
 sidebar_position: 1
-slug: /category/tutorial-name
+slug: /category/tutorial-name  # Must match file path
 ---
 ```
+
+**Important**:
+- Use sentence case, NOT Title Case
+- Use simple present tense: "Create an Actor" NOT "Creating an Actor"
+- Match slug to file path
 
 ### 2. Introduction Section
 
@@ -228,6 +233,26 @@ Now that you've completed this tutorial, you can:
 **Location**: `/sources/platform/integrations/`
 **Style**: Step-by-step integration guide
 
+## Apify Terminology
+
+Always use exact capitalization and phrasing:
+
+- **Apify Actor** (never "Apify actor")
+- **Apify Proxy** (never "Apify proxy")
+- **Apify Console** (never "the Apify Console")
+- **Apify Store** (never "the Apify Store")
+- **the Apify team** (lowercase)
+- **the Apify platform** (lowercase)
+- **AI agent**, **MCP server** (lowercase for generic terms)
+
+## Text Formatting Rules
+
+- **Bold** ONLY for UI elements (e.g., "Click **Save & Run**"). NEVER for emphasis.
+- Code blocks MUST specify language
+- **All admonitions MUST have a title** (REQUIRED)
+- Use Oxford commas in all lists
+- Use simple present tense for headings
+
 ## Best Practices
 
 1. **Start Simple**: Begin with basic concepts before advanced topics
@@ -238,6 +263,8 @@ Now that you've completed this tutorial, you can:
 6. **Link Related Content**: Connect to other relevant tutorials
 7. **Keep Updated**: Mark tutorials with last-updated dates
 8. **User Perspective**: Write from the user's point of view
+9. **Never Make Assumptions**: About product features - ask if unsure
+10. **Use Simple English**: Prefer "use" over "utilize"
 
 ## Quality Checklist
 
@@ -249,11 +276,17 @@ Before publishing:
 - [ ] Screenshots included where helpful (light theme)
 - [ ] Common issues addressed in troubleshooting
 - [ ] Next steps and related content linked
-- [ ] Front matter complete with description (140-160 chars)
-- [ ] All code blocks have language specification
-- [ ] Proper heading hierarchy maintained
-- [ ] Active voice used throughout
+- [ ] Front matter complete with description (140-160 chars explaining value)
+- [ ] Slug matches file path
+- [ ] All code blocks have language specification (REQUIRED)
+- [ ] All admonitions have titles (REQUIRED)
+- [ ] Bold used ONLY for UI elements, never for emphasis
+- [ ] Oxford commas used in all lists
+- [ ] Proper heading hierarchy maintained (sentence case, simple present tense)
+- [ ] Active voice and simple English used throughout
 - [ ] Inclusive language verified
+- [ ] Correct Apify terminology used
+- [ ] No assumptions made about product features
 
 ## Output
 Provide a complete tutorial following the structure above, ready to be added to the documentation.
