@@ -71,13 +71,13 @@ get:
         enum: [createdAt, stats.lastRunStartedAt]
         example: createdAt
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetListOfActorsResponse.yaml"
+            $ref: ../../components/schemas/actors/GetListOfActorsResponse.yaml
           example:
             data:
               total: 2
@@ -87,13 +87,13 @@ get:
               desc: false
               items:
                 - id: br9CKmk457
-                  createdAt: '2019-10-29T07:34:24.202Z'
-                  modifiedAt: '2019-10-30T07:34:24.202Z'
+                  createdAt: "2019-10-29T07:34:24.202Z"
+                  modifiedAt: "2019-10-30T07:34:24.202Z"
                   name: MyAct
                   username: janedoe
                 - id: ksiEKo23pz
-                  createdAt: '2019-11-30T07:34:24.202Z'
-                  modifiedAt: '2019-12-12T07:34:24.202Z'
+                  createdAt: "2019-11-30T07:34:24.202Z"
+                  modifiedAt: "2019-12-12T07:34:24.202Z"
                   name: MySecondAct
                   username: janedoe
   deprecated: false
@@ -130,11 +130,11 @@ post:
     package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
   operationId: acts_post
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/CreateActorRequest.yaml"
+          $ref: ../../components/schemas/actors/CreateActorRequest.yaml
         example:
           name: MyActor
           description: My favourite Actor!
@@ -143,11 +143,11 @@ post:
           seoTitle: My Actor
           seoDescription: My Actor is the best
           versions:
-            - versionNumber: '0.0'
+            - versionNumber: "0.0"
               sourceType: SOURCE_FILES
               envVars:
                 - name: DOMAIN
-                  value: 'http://example.com'
+                  value: "http://example.com"
                   isSecret: false
                 - name: SECRET_PASSWORD
                   value: MyTopSecretPassword123
@@ -163,19 +163,19 @@ post:
             restartOnError: false
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM'
+              example: https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/CreateActorResponse.yaml"
+            $ref: ../../components/schemas/actors/CreateActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -184,8 +184,8 @@ post:
               username: jane35
               description: My favourite Actor!
               isPublic: false
-              createdAt: '2019-07-08T11:27:57.401Z'
-              modifiedAt: '2019-07-08T14:01:05.546Z'
+              createdAt: "2019-07-08T11:27:57.401Z"
+              modifiedAt: "2019-07-08T14:01:05.546Z"
               stats:
                 totalBuilds: 9
                 totalRuns: 16
@@ -194,32 +194,32 @@ post:
                 totalUsers30Days: 6
                 totalUsers90Days: 6
                 totalMetamorphs: 2
-                lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+                lastRunStartedAt: "2019-07-08T14:01:05.546Z"
               versions:
-                - versionNumber: '0.1'
+                - versionNumber: "0.1"
                   envVars: null
                   sourceType: SOURCE_FILES
                   applyEnvVarsToBuild: false
                   buildTag: latest
                   sourceFiles: []
-                - versionNumber: '0.2'
+                - versionNumber: "0.2"
                   sourceType: GIT_REPO
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitRepoUrl: 'https://github.com/jane35/my-actor'
-                - versionNumber: '0.3'
+                  gitRepoUrl: "https://github.com/jane35/my-actor"
+                - versionNumber: "0.3"
                   sourceType: TARBALL
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
-                - versionNumber: '0.4'
+                  tarballUrl: "https://github.com/jane35/my-actor/archive/master.zip"
+                - versionNumber: "0.4"
                   sourceType: GITHUB_GIST
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+                  gitHubGistUrl: "https://gist.github.com/jane35/e51feb784yu89"
               defaultRunOptions:
                 build: latest
                 timeoutSecs: 3600
@@ -235,7 +235,7 @@ post:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn
                   buildNumber: 0.0.2
-                  finishedAt: '2019-06-10T11:15:49.286Z'
+                  finishedAt: "2019-06-10T11:15:49.286Z"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/create-actor

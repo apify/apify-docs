@@ -39,8 +39,8 @@ post:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -52,8 +52,8 @@ post:
               actId: janedoe~my-actor
               userId: BPWZBd7Z9c746JAng
               actorTaskId: rANaydYhUxjsnA3oz
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: ABORTED
               statusMessage: Actor was aborted
               isStatusMessageTerminal: true

@@ -35,11 +35,11 @@ properties:
   createdAt:
     type: string
     format: date-time
-    example: '2018-10-26T07:23:14.855Z'
+    example: "2018-10-26T07:23:14.855Z"
   modifiedAt:
     type: string
     format: date-time
-    example: '2018-10-26T13:30:49.578Z'
+    example: "2018-10-26T13:30:49.578Z"
   stats:
     nullable: true
     allOf:

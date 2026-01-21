@@ -10,7 +10,7 @@ properties:
     type: array
     items:
       $ref: ./KeyValueStoreKey.yaml
-    description: ''
+    description: ""
   count:
     type: integer
     example: 2

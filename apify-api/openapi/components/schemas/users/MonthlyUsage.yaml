@@ -15,7 +15,7 @@ properties:
     type: array
     items:
       $ref: ./DailyServiceUsages.yaml
-    description: ''
+    description: ""
   totalUsageCreditsUsdBeforeVolumeDiscount:
     type: number
     example: 0.786143673840067

@@ -7,21 +7,21 @@ properties:
   info:
     type: object
     properties:
-      title: 
+      title:
         type: string
         example: Your Magic Actor
-      version: 
+      version:
         type: string
-        example: '1.0'
-      x-build-id: 
+        example: "1.0"
+      x-build-id:
         type: string
-        example: 'ID of build'
+        example: ID of build
   servers:
     type: array
     items:
       type: object
       properties:
-        url: 
+        url:
           type: string
           example: https://api.apify.com/v2
   paths:
@@ -46,7 +46,7 @@ properties:
                 type: array
                 items:
                   type: string
-                example: ['Run Actor']
+                example: [Run Actor]
               requestBody:
                 type: object
                 properties:
@@ -64,7 +64,7 @@ properties:
                             properties:
                               $ref:
                                 type: string
-                                example: '#/components/schemas/inputSchema'
+                                example: "#/components/schemas/inputSchema"
               parameters:
                 type: array
                 items:
@@ -91,7 +91,7 @@ properties:
               responses:
                 type: object
                 properties:
-                  '200':
+                  "200":
                     type: object
                     properties:
                       description:
@@ -116,7 +116,7 @@ properties:
                 type: array
                 items:
                   type: string
-                example: ['Run Actor']
+                example: [Run Actor]
               requestBody:
                 type: object
                 properties:
@@ -134,7 +134,7 @@ properties:
                             properties:
                               $ref:
                                 type: string
-                                example: '#/components/schemas/inputSchema'
+                                example: "#/components/schemas/inputSchema"
               parameters:
                 type: array
                 items:
@@ -157,7 +157,7 @@ properties:
               responses:
                 type: object
                 properties:
-                  '200':
+                  "200":
                     type: object
                     properties:
                       description:
@@ -174,7 +174,7 @@ properties:
                                 properties:
                                   $ref:
                                     type: string
-                                    example: '#/components/schemas/runsResponseSchema'
+                                    example: "#/components/schemas/runsResponseSchema"
       /acts/<username>~<actor>/run-sync:
         type: object
         properties:
@@ -194,7 +194,7 @@ properties:
                 type: array
                 items:
                   type: string
-                example: ['Run Actor']
+                example: [Run Actor]
               requestBody:
                 type: object
                 properties:
@@ -212,7 +212,7 @@ properties:
                             properties:
                               $ref:
                                 type: string
-                                example: '#/components/schemas/inputSchema'
+                                example: "#/components/schemas/inputSchema"
               parameters:
                 type: array
                 items:
@@ -235,7 +235,7 @@ properties:
               responses:
                 type: object
                 properties:
-                  '200':
+                  "200":
                     type: object
                     properties:
                       description:

@@ -1,6 +1,6 @@
 title: PayPerEventActorPricingInfo
 allOf:
-  - $ref: "./CommonActorPricingInfo.yaml"
+  - $ref: ./CommonActorPricingInfo.yaml
   - type: object
     required:
       - pricingModel

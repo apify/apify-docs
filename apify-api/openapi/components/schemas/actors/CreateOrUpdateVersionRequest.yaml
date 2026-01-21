@@ -4,16 +4,16 @@ properties:
   versionNumber:
     type: string
     nullable: true
-    example: '0.0'
+    example: "0.0"
   sourceType:
-      oneOf:
-       - nullable: true
-       - $ref: ./VersionSourceType.yaml
+    oneOf:
+      - nullable: true
+      - $ref: ./VersionSourceType.yaml
   envVars:
     type: array
     items:
-      $ref: "./EnvVar.yaml"
-    description: ''
+      $ref: ./EnvVar.yaml
+    description: ""
     nullable: true
   applyEnvVarsToBuild:
     type: boolean
@@ -25,4 +25,3 @@ properties:
     example: latest
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
-

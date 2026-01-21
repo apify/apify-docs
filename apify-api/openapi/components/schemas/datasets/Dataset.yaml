@@ -22,15 +22,15 @@ properties:
   createdAt:
     type: string
     format: date-time
-    example: '2019-12-12T07:34:14.202Z'
+    example: "2019-12-12T07:34:14.202Z"
   modifiedAt:
     type: string
     format: date-time
-    example: '2019-12-13T08:36:13.202Z'
+    example: "2019-12-13T08:36:13.202Z"
   accessedAt:
     type: string
     format: date-time
-    example: '2019-12-14T08:36:13.202Z'
+    example: "2019-12-14T08:36:13.202Z"
   itemCount:
     type: integer
     example: 7
@@ -47,7 +47,7 @@ properties:
     type: array
     items:
       type: string
-    description: ''
+    description: ""
     nullable: true
   schema:
     type: object
@@ -55,29 +55,29 @@ properties:
     description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](/platform/actors/development/actor-definition/dataset-schema)
     example:
       actorSpecification: 1
-      title: "My dataset"
+      title: My dataset
       views:
         overview:
-          title: "Overview"
+          title: Overview
           transformation:
             fields:
-              - "linkUrl"
+              - linkUrl
           display:
-            component: "table"
+            component: table
             properties:
               linkUrl:
-                label: "Link URL"
-                format: "link"
+                label: Link URL
+                format: link
   consoleUrl:
     type: string
-    example: 'https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC'
+    example: https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC
   itemsPublicUrl:
     type: string
-    description: "A public link to access the dataset items directly."
-    example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items?signature=abc123'
+    description: A public link to access the dataset items directly.
+    example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items?signature=abc123
   urlSigningSecretKey:
     type: string
-    description: "A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the dataset."
+    description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the dataset.
     nullable: true
   generalAccess:
     $ref: ../common/GeneralAccessEnum.yaml

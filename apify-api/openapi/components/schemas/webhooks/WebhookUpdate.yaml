@@ -9,7 +9,7 @@ properties:
     type: array
     items:
       $ref: ./WebhookEventType.yaml
-    description: ''
+    description: ""
     nullable: true
     example: ACTOR.RUN.SUCCEEDED
   condition:
@@ -27,7 +27,7 @@ properties:
   requestUrl:
     type: string
     nullable: true
-    example: 'http://example.com/'
+    example: http://example.com/
   payloadTemplate:
     type: string
     nullable: true

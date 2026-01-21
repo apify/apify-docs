@@ -1,5 +1,5 @@
 title: VersionSourceFiles
-type: "array"
+type: array
 items:
   anyOf:
     - $ref: ./SourceCodeFile.yaml

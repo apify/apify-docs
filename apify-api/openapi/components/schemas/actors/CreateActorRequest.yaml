@@ -32,8 +32,8 @@ properties:
   versions:
     type: array
     items:
-      $ref: "./Version.yaml"
-    description: ''
+      $ref: ./Version.yaml
+    description: ""
     nullable: true
   pricingInfos:
     type: array
@@ -43,7 +43,7 @@ properties:
     type: array
     items:
       type: string
-    description: ''
+    description: ""
     nullable: true
   defaultRunOptions:
     $ref: ./DefaultRunOptions.yaml

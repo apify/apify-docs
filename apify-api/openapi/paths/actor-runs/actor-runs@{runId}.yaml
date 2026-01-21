@@ -97,8 +97,8 @@ get:
         format: double
         example: 60
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -111,8 +111,8 @@ get:
               actId: HDSasDasz78YcAPEB
               userId: 7sT5jcggjjA9fNcxF
               actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: RUNNING
               statusMessage: Actor is running
               isStatusMessageTerminal: false
@@ -148,7 +148,7 @@ get:
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
               isContainerServerReady: true
               gitBranchName: master
               usage:
@@ -204,7 +204,7 @@ put:
     **General resource access:**
 
     You can also update the run's general resource access setting, which determines who can view the run and its related data.
-    
+
     Allowed values:
 
     * `FOLLOW_USER_SETTING` - The run inherits the general access setting from the account level.
@@ -223,12 +223,12 @@ put:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           allOf:
-            - $ref: "../../components/schemas/actor-runs/UpdateRunRequest.yaml"
+            - $ref: ../../components/schemas/actor-runs/UpdateRunRequest.yaml
             - example:
                 runId: 3KH8gEpp4d8uQSe8T
                 statusMessage: Actor has finished
@@ -239,8 +239,8 @@ put:
           isStatusMessageTerminal: true
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -252,8 +252,8 @@ put:
               actId: HDSasDasz78YcAPEB
               userId: 7sT5jcggjjA9fNcxF
               actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: RUNNING
               statusMessage: Actor is running
               isStatusMessageTerminal: false
@@ -289,7 +289,7 @@ put:
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
               isContainerServerReady: true
               gitBranchName: master
               usage:
@@ -342,8 +342,8 @@ delete:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
   deprecated: false
@@ -354,4 +354,3 @@ delete:
   x-js-parent: RunClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
-

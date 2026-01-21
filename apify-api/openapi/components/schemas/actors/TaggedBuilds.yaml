@@ -17,4 +17,4 @@ properties:
         type: string
         format: date-time
         nullable: true
-        example: '2019-06-10T11:15:49.286Z'
+        example: "2019-06-10T11:15:49.286Z"

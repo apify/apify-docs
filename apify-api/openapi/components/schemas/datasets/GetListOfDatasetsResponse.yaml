@@ -5,4 +5,3 @@ type: object
 properties:
   data:
     $ref: ./ListOfDatasets.yaml
-

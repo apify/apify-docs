@@ -43,7 +43,7 @@ get:
     - name: raw
       in: query
       description: |
-        If `true` or `1`, the logs will be kept verbatim. By default, the API removes 
+        If `true` or `1`, the logs will be kept verbatim. By default, the API removes
         ANSI escape codes from the logs, keeping only printable characters.
       required: false
       style: form
@@ -52,8 +52,8 @@ get:
         type: boolean
         example: false
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         text/plain:

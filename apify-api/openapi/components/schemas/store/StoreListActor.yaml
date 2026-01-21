@@ -33,22 +33,22 @@ properties:
     items:
       type: string
     example:
-      - "MARKETING"
-      - "LEAD_GENERATION"
+      - MARKETING
+      - LEAD_GENERATION
   notice:
     type: string
   pictureUrl:
     type: string
     nullable: true
-    example: 'https://...'
+    example: https://...
   userPictureUrl:
     type: string
     nullable: true
-    example: 'https://...'
+    example: https://...
   url:
     type: string
     nullable: true
-    example: 'https://...'
+    example: https://...
   stats:
     $ref: ../actors/ActorStats.yaml
   currentPricingInfo:

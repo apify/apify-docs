@@ -16,7 +16,7 @@ properties:
   cronExpression:
     type: string
     nullable: true
-    example: '* * * * *'
+    example: "* * * * *"
   timezone:
     type: string
     nullable: true
@@ -29,5 +29,5 @@ properties:
     type: array
     items:
       $ref: ./ScheduleCreateActions.yaml
-    description: ''
+    description: ""
     nullable: true

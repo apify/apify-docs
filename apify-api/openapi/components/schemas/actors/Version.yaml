@@ -6,7 +6,7 @@ required:
 properties:
   versionNumber:
     type: string
-    example: '0.0'
+    example: "0.0"
   sourceType:
     oneOf:
       - nullable: true
@@ -15,7 +15,7 @@ properties:
     type: array
     items:
       $ref: ./EnvVar.yaml
-    description: ''
+    description: ""
     nullable: true
   applyEnvVarsToBuild:
     type: boolean

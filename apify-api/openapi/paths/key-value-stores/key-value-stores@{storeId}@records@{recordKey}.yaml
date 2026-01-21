@@ -55,8 +55,8 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -67,8 +67,8 @@ get:
                   foo: bar
           example:
             foo: bar
-    '302':
-      description: ''
+    "302":
+      description: ""
       headers:
         Location:
           content:
@@ -114,11 +114,11 @@ head:
         type: string
         example: someKey
   responses:
-    '200':
-      description: 'The record exists'
+    "200":
+      description: The record exists
       headers: {}
-    '404':
-      description: 'The record does not exist'
+    "404":
+      description: The record does not exist
       headers: {}
   deprecated: false
   x-js-parent: KeyValueStoreClient
@@ -168,7 +168,7 @@ put:
         example: someKey
     - name: Content-Encoding
       in: header
-      description: ''
+      description: ""
       required: true
       style: simple
       schema:
@@ -177,7 +177,7 @@ put:
         type: string
         example: gzip
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -186,8 +186,8 @@ put:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -236,8 +236,8 @@ delete:
         type: string
         example: someKey
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
   deprecated: false

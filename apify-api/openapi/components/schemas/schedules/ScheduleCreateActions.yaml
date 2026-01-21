@@ -18,4 +18,3 @@ properties:
     nullable: true
     allOf:
       - $ref: ./ScheduleActionsRunOptions.yaml
-

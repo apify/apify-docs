@@ -1,8 +1,8 @@
 title: ProxyGroup
 required:
-    - name
-    - description
-    - availableCount
+  - name
+  - description
+  - availableCount
 type: object
 properties:
   name:

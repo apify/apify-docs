@@ -3,7 +3,7 @@ get:
     - Actor builds
   summary: Get log
   # TODO: Fix description once /logs is cleaned up as well
-  description: 'Check out [Logs](#/reference/logs) for full reference.'
+  description: "Check out [Logs](#/reference/logs) for full reference."
   operationId: actorBuild_log_get
   parameters:
     - name: buildId
@@ -37,8 +37,8 @@ get:
         type: boolean
         example: false
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         text/plain:

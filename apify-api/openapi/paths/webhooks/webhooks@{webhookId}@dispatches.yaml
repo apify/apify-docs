@@ -14,8 +14,8 @@ get:
         type: string
         example: pVJtoTelgYUq4qJOt
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:

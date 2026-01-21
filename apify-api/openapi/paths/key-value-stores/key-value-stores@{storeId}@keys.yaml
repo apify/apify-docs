@@ -57,8 +57,8 @@ get:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:

@@ -14,8 +14,8 @@ get:
         type: string
         example: Zib4xbZsmvZeK55ua
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -62,15 +62,15 @@ put:
         type: string
         example: Zib4xbZsmvZeK55ua
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/webhooks/WebhookUpdate.yaml
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -103,8 +103,8 @@ delete:
         type: string
         example: Zib4xbZsmvZeK55ua
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:

@@ -34,8 +34,8 @@ properties:
   versions:
     type: array
     items:
-      $ref: "./CreateOrUpdateEnvVarRequest.yaml"
-    description: ''
+      $ref: ./CreateOrUpdateEnvVarRequest.yaml
+    description: ""
   pricingInfos:
     type: array
     items:
@@ -44,7 +44,7 @@ properties:
     type: array
     items:
       type: string
-    description: ''
+    description: ""
     nullable: true
   defaultRunOptions:
     nullable: true

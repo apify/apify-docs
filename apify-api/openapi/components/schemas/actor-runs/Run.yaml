@@ -36,12 +36,12 @@ properties:
   startedAt:
     type: string
     format: date-time
-    example: '2019-11-30T07:34:24.202Z'
+    example: "2019-11-30T07:34:24.202Z"
     description: Time when the Actor run started.
   finishedAt:
     type: string
     format: date-time
-    example: '2019-12-12T09:30:12.202Z'
+    example: "2019-12-12T09:30:12.202Z"
     description: Time when the Actor run finished.
   status:
     description: Current status of the Actor run.
@@ -107,7 +107,7 @@ properties:
     description: Build number of the Actor build used for this run.
   containerUrl:
     type: string
-    example: 'https://g8kd8kbc5ge8.runs.apify.net'
+    example: https://g8kd8kbc5ge8.runs.apify.net
     description: URL of the container running the Actor.
   isContainerServerReady:
     type: boolean
