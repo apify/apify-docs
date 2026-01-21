@@ -73,7 +73,7 @@ The output schema defines the collections of keys and their properties. It allow
 |----------------|--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `title`        | string       | true         | The output's title, shown in the run's output tab if there are multiple outputs and in API as key for the generated output URL.                 |
 | `description`  | string       | false        | A description of the output. Only used when reading the schema (useful for LLMs)                                                                |
-| `template`     | string       | true         | Defines a URL template that generates the output link. Templates use Mustache-style variable interpolation with {{variable}} syntax. The generated URL appears in the Apify Console Output tab and in the API response's output property. |
+| `template`     | string       | true         | Defines a URL template that generates the output link. Templates use Mustache-style variable interpolation with {{variable}} syntax. The generated URL appears in Apify Console **Output** tab and in the API response's output property. |
 
 ### Available template variables
 
@@ -94,9 +94,9 @@ The output schema defines the collections of keys and their properties. It allow
 
 Templates allow you to dynamically generate URLs that point to your Actor's output. When an Actor run completes, the Apify platform processes each template by:
 
-1. **Variable interpolation**: Replacing `{{variable}}` placeholders with actual runtime values
-2. **URL generation**: Creating the final output URL
-3. **Display**: Showing the output in the Apify Console Output tab and including it in the API response
+1. Variable interpolation: Replacing `{{variable}}` placeholders with actual runtime values
+2. URL generation: Creating the final output URL
+3. Display: Showing the output in Apify Console **Output** tab and including it in the API response
 
 ### Template syntax
 
@@ -111,8 +111,8 @@ You can access nested properties using dot notation (e.g., `{{run.defaultDataset
 
 The generated URLs from your templates appear in two places:
 
-1. **Apify Console**: In the Output tab of your Actor run
-2. **API Response**: In the `output` property when calling the GET Run endpoint
+1. Apify Console: In the **Output** tab of your Actor run
+2. API Response: In the `output` property when calling the GET Run endpoint
 
 The examples below demonstrate various template patterns and their results in both the Console and API.
 
