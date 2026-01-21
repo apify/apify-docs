@@ -92,6 +92,7 @@ slug: /path/to/page
 - Show realistic, meaningful examples
 
 ### Admonition Format
+
 **All admonitions MUST include a title:**
 
 ```markdown
