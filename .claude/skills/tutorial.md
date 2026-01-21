@@ -1,10 +1,10 @@
-# Tutorial Creator Skill
+# Tutorial creator skill
 
 ## Purpose
 
 Create comprehensive, structured tutorials for the Apify Academy or Platform documentation.
 
-## When to Use
+## When to use
 
 - Creating new tutorials
 

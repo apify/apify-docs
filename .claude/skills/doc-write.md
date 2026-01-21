@@ -1,10 +1,10 @@
-# Documentation Writer Skill
+# Documentation writer skill
 
 ## Purpose
 
 Help write or edit Apify documentation following the established style guide and best practices.
 
-## When to Use
+## When to use
 
 - Creating new documentation pages
 - Editing existing documentation
