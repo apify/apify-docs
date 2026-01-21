@@ -90,7 +90,7 @@ The output schema defines the collections of keys and their properties. It allow
 | `run.defaultDatasetId`             | string | ID of the default dataset                                                                                                        |
 | `run.defaultKeyValueStoreId`       | string | ID of the default key-value store                                                                                                |
 
-## Understanding templates
+## Understand templates
 
 Templates allow you to dynamically generate URLs that point to your Actor's output. When an Actor run completes, the Apify platform processes each template by:
 
