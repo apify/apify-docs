@@ -10,6 +10,18 @@ Instructions for AI assistants writing Apify documentation. Based on Apify style
 
 > Write the same way you would explain something to a person sitting next to you.
 
+## Content Types
+
+Match language to content type:
+
+| Content type | CTA verbs | Example |
+|--------------|-----------|---------|
+| Tutorials/guides | Learn, Build, Create | "Learn how to build a web scraper" |
+| Reference docs | Access, Integrate, Use | "Access the Apify platform programmatically" |
+| Discovery pages | Explore, Discover, Browse | "Explore available Actors" |
+
+Don't use "Learn" for pure reference documentation - it sets tutorial expectations.
+
 ## Language & Tone
 
 ### US English
@@ -42,6 +54,16 @@ Use "you" to focus on the reader. Avoid "I", "me", "myself" in docs.
 | I recommend using version 22 | Use version 22 |
 | In my experience, this works better | This approach is more reliable |
 
+### Active & inclusive voice
+
+Use active voice. Avoid gendered terms. Don't use directional language ("left/right") for UI - it breaks with different layouts.
+
+| Avoid | Prefer |
+|-------|--------|
+| The Actor is started by the user | The user starts the Actor |
+| He can configure his settings | You can configure your settings |
+| Click the button on the left | Click the **Settings** button |
+
 ## Formatting
 
 ### Headings
@@ -64,7 +86,11 @@ Rationale: Noun-phrase headings are more scannable and search-friendly (Microsof
 
 ### Bold
 
-Use bold sparingly. Don't bold:
+**Do use bold for:**
+- UI elements (buttons, menus, fields): Click the **Actors** button
+- Critical warnings or key terms
+
+**Don't use bold for:**
 - List introductions
 - Code block introductions
 - Section labels when context is clear
@@ -74,11 +100,23 @@ Use bold sparingly. Don't bold:
 | **Examples:** | Examples: |
 | **In your Dockerfile**, use... | In your `Dockerfile`, use... |
 
-Bold is for critical warnings or key terms, not routine structure.
+Bold for UI elements helps users scan for clickable items. Bold for structure creates visual noise.
 
-### Ordered lists
+### Italics
 
-Use `1.` for all items (not sequential numbers). Easier to maintain:
+Use italics for emphasis and introducing new terms:
+
+| Use case | Example |
+|----------|---------|
+| New term introduction | An *Actor* is a serverless program... |
+| Emphasis | This step is *required* for the Actor to work |
+
+### List types
+
+**Numbered lists** - Sequential steps where order matters
+**Bullet points** - Non-sequential items, features, options
+
+In numbered lists, use `1.` for all items (not sequential numbers). Easier to maintain:
 
 ```markdown
 1. First step
@@ -105,6 +143,20 @@ All items in a list must follow the same grammatical pattern:
 ### Em dashes
 
 **Don't use em dashes (—).** LLMs overuse them. Use hyphen with spaces ( - ) instead.
+
+### Admonitions
+
+Use Docusaurus admonitions for important information:
+
+| Type | Use for |
+|------|---------|
+| `:::note` | General callouts |
+| `:::tip` | Helpful suggestions |
+| `:::info` | Background context |
+| `:::caution` | Warnings about gotchas |
+| `:::danger` | Critical warnings that could cause issues |
+
+Prefer admonitions over block quotes for highlighted content.
 
 ## Grammar
 
@@ -158,6 +210,23 @@ Use "the" before "Apify platform", "Apify SDK", etc.
 | [actor-node-playwright tags](url) | [View actor-node-playwright tags](url) |
 | See the [documentation](url) | [Read the documentation](url) |
 
+### Accessible link text
+
+Use descriptive link text. Avoid generic phrases like "click here" or "this link" - screen readers often read links out of context.
+
+| Avoid | Prefer |
+|-------|--------|
+| [Click here](url) to learn more | [Learn about Actor pricing](url) |
+| Read more about it [here](url) | Read the [Actor development guide](url) |
+
+### Make tool mentions navigable
+
+When mentioning tools, languages, or external resources, link them to help readers explore:
+
+| Avoid | Prefer |
+|-------|--------|
+| You can use Playwright for this | You can use [Playwright](https://playwright.dev) for this |
+
 ### Trim filler words
 
 | Avoid | Prefer |
@@ -204,4 +273,8 @@ Patterns to avoid:
 
 ## Reference
 
-Full Apify style guide: https://www.notion.so/apify/de9fbb99dcd84665b6d3f790fc88b3b6
+This guide covers writing patterns. For structural guidelines (file naming, screenshots, tutorial structure, SEO), see:
+
+- [CONTRIBUTING.md](../../CONTRIBUTING.md) - Contribution workflow and repository standards
+- [AGENTS.md](../../AGENTS.md) - Comprehensive documentation guidelines for AI assistants
+- Full Apify style guide: https://www.notion.so/apify/de9fbb99dcd84665b6d3f790fc88b3b6
