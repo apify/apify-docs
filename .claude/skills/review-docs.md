@@ -14,41 +14,60 @@ Review documentation for compliance with Apify style guide, quality standards, a
 - `CONTRIBUTING.md` - Contribution guidelines
 - `.cursor/rules/*.mdc` - Cursor-specific rules
 
+## Review Process
+
+### Before Starting Review
+**CRITICAL**: Check that the latest changes were pulled from the feature branch
+
 ## Review Checklist
 
 ### 1. Style Guide Compliance
 
 **Microsoft Style Guide**:
 - [ ] Headings use sentence case (not Title Case)
-- [ ] UI elements use **bold** formatting
-- [ ] Emphasis uses _italics_
+- [ ] Headings use simple present tense ("Create an Actor" NOT "Creating an Actor")
+- [ ] UI elements use **bold** formatting ONLY (never bold for emphasis)
+- [ ] Emphasis uses _italics_ (used sparingly)
 - [ ] Inline code uses `backticks`
 - [ ] Proper use of numbered lists vs. bullet points
+- [ ] Oxford commas used in all lists
 
 **Language Guidelines**:
-- [ ] Uses US English spelling
+- [ ] Uses US English spelling (e.g., "color" not "colour")
+- [ ] Uses simple English ("use" not "utilize")
 - [ ] Written in active voice
 - [ ] Uses inclusive language (no gendered terms)
 - [ ] Avoids directional language ("left/right")
 - [ ] Action-oriented phrasing
 
+**Apify Terminology** (check exact capitalization):
+- [ ] **Apify Actor** (never "Apify actor")
+- [ ] **Apify Proxy** (never "Apify proxy")
+- [ ] **Apify Console** (never "the Apify Console")
+- [ ] **Apify Store** (never "the Apify Store")
+- [ ] **the Apify team** (lowercase)
+- [ ] **the Apify platform** (lowercase)
+- [ ] **AI agent** (lowercase for generic terms)
+- [ ] **MCP server** (lowercase for generic terms)
+
 ### 2. Front Matter Validation
 
 Required fields present and correct:
-- [ ] `title` - Clear and action-oriented
+- [ ] `title` - Clear, action-oriented, sentence case, simple present tense
 - [ ] `description` - 140-160 characters
+- [ ] `description` - Explains value, not features
 - [ ] `description` - Avoids word "documentation"
 - [ ] `description` - Action-oriented phrasing
 - [ ] `sidebar_position` - Appropriate numbering
-- [ ] `slug` - Correct URL path
+- [ ] `slug` - Correct URL path and matches file path
 
 **Example**:
 ```yaml
 ---
-title: "Create an Actor"          # ✅ Sentence case, action-oriented
-description: "Learn how to build and deploy your first Actor on the Apify platform with this step-by-step guide covering code, configuration, and testing."  # ✅ 140-160 chars, no "documentation"
+title: "Create an Actor"          # ✅ Sentence case, simple present tense
+description: "Build and deploy your first Apify Actor with this guide covering setup, development, testing, and best practices."  # ✅ 140-160 chars, explains value
 sidebar_position: 1
-slug: /actors/development/create
+slug: /actors/development/create  # ✅ Matches file path
 ---
 ```
 
@@ -70,13 +89,17 @@ slug: /actors/development/create
 
 **Quality**:
 - [ ] Complete and runnable examples
-- [ ] Proper syntax highlighting with language tag
+- [ ] Proper syntax highlighting with language tag (REQUIRED)
 - [ ] Includes comments for complex logic
 - [ ] Uses realistic, meaningful variable names
 - [ ] Shows both input and output where applicable
 
+**Code Review Scope**:
+- [ ] Code snippets are developer-provided
+- [ ] Review comments and obvious mistakes only (not full code review)
+
 **Multiple Languages**:
-- [ ] Uses Docusaurus code tabs when showing multiple languages
+- [ ] Uses [Docusaurus code tabs](https://docusaurus.io/docs/markdown-features/tabs) when showing multiple languages
 - [ ] Consistent examples across languages
 - [ ] Includes JavaScript and Python where applicable
 
@@ -143,21 +166,27 @@ Click [here](link) to learn more.
 ### 7. Admonitions
 
 **Usage**:
+- [ ] **MUST have a title** (REQUIRED - no exceptions)
 - [ ] Appropriate type (note, tip, info, caution, danger)
-- [ ] Includes descriptive title
+- [ ] Title is descriptive
 - [ ] Content is concise and relevant
 - [ ] Not overused (max 2-3 per page)
 
 **Example**:
 ```markdown
-# ✅ Good
+# ✅ Good - has title
 :::tip Performance optimization
 Use `requestHandlerTimeoutSecs` to prevent slow requests from blocking your Actor.
 :::
 
-# ❌ Bad (no title, wrong type)
+# ❌ Bad - missing title (REQUIRED)
 :::info
 Be careful with this setting.
+:::
+
+# ❌ Bad - no title
+:::tip
+This is a helpful tip.
 :::
 ```
 
@@ -270,13 +299,19 @@ Go through each section of the checklist above, noting any issues.
 
 ## Common Issues
 
-### Issue: Title Case Headings
+### Issue: Title Case or Gerund Headings
 ```markdown
-# ❌ Bad
+# ❌ Bad - Title Case
 ## How To Create An Actor
 
-# ✅ Good
+# ❌ Bad - Gerund
+## Creating an Actor
+
+# ✅ Good - Sentence case, simple present tense
 ## How to create an Actor
+
+# ✅ Good - Simple present tense
+## Create an Actor
 ```
 
 ### Issue: Non-Descriptive Links
@@ -302,13 +337,47 @@ description: "Learn how to build and deploy your first Actor with step-by-step i
 ---
 ```
 
-### Issue: Long Description
+### Issue: Long Description or Feature-Focused
 ```markdown
-# ❌ Bad (190 chars)
+# ❌ Bad - Too long (190 chars) and feature-focused
 description: "This comprehensive documentation guide will teach you everything you need to know about creating, configuring, and deploying Actors on the Apify platform from start to finish."
 
-# ✅ Good (148 chars)
-description: "Learn to create, configure, and deploy Actors on Apify with this step-by-step guide covering setup, development, and best practices."
+# ❌ Bad - Feature-focused, not value-focused
+description: "Documentation for Actor creation, configuration options, and deployment methods."
+
+# ✅ Good - Value-focused (145 chars)
+description: "Build and deploy Actors efficiently with this guide covering setup, development, testing, and best practices for production use."
+```
+
+### Issue: Bold for Emphasis
+```markdown
+# ❌ Bad - bold used for emphasis
+Click the button and **ensure you verify** the settings.
+
+# ✅ Good - bold only for UI elements
+Click the **Save & Run** button and ensure you verify the settings.
+```
+
+### Issue: Missing Admonition Title
+```markdown
+# ❌ Bad - no title (REQUIRED)
+:::tip
+Use pagination for large datasets.
+:::
+
+# ✅ Good - has title
+:::tip Performance best practice
+Use pagination for large datasets.
+:::
+```
+
+### Issue: Incorrect Apify Terminology
+```markdown
+# ❌ Bad
+The Apify Console allows you to manage your Apify actors.
+
+# ✅ Good
+Apify Console allows you to manage your Apify Actors.
 ```
 
 ## Output Format

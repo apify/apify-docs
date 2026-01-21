@@ -171,26 +171,40 @@ npm test  # Validates OpenAPI specification
 npm start # Preview changes locally
 ```
 
-### 8. Best Practices
+### 8. Apify Terminology
 
-- **Descriptions**: Write clear, comprehensive descriptions for all endpoints and parameters
+Always use exact capitalization in descriptions and examples:
+
+- **Apify Actor** (never "Apify actor")
+- **Apify Proxy** (never "Apify proxy")
+- **Apify Console** (never "the Apify Console")
+- **Apify Store** (never "the Apify Store")
+- **the Apify team**, **the Apify platform** (lowercase)
+
+### 9. Best Practices
+
+- **Descriptions**: Write clear, comprehensive descriptions using simple English
 - **Examples**: Include realistic examples in schemas
 - **Error responses**: Document all possible error responses
 - **Authentication**: Document authentication requirements
 - **Consistency**: Follow existing patterns in the codebase
 - **Completeness**: Ensure all parameters and responses are documented
+- **Terminology**: Use correct Apify terminology throughout
+- **Never make assumptions**: About product features - ask if unsure
 
-### 9. Quality Checklist
+### 10. Quality Checklist
 
 Before submitting:
 - [ ] OpenAPI specification validates without errors
-- [ ] Operation IDs follow naming conventions
-- [ ] All parameters have descriptions
+- [ ] Operation IDs follow naming conventions (camelCase_method)
+- [ ] All parameters have clear descriptions using simple English
 - [ ] Response schemas are complete
-- [ ] Code samples are included for major languages
+- [ ] Code samples are included for major languages (JS, Python, cURL)
 - [ ] Examples use realistic data
 - [ ] Path references are added to main openapi.yaml
 - [ ] Error responses are documented
+- [ ] Correct Apify terminology used throughout
+- [ ] No assumptions made about product features
 
 ## Output
 Provide the complete OpenAPI specification changes with proper formatting, ready to be tested and committed.
