@@ -202,6 +202,11 @@ Replace `/` with `@` in URL paths:
    ```bash
    npm run lint:md        # Markdown linting
    npm run lint:code      # Code linting
+
+   # Run locally for more detailed output:
+   npx markdownlint "path/to/file.md"  # Check specific markdown files
+   vale sync                            # Download Vale styles (first time)
+   vale "path/to/file.md" --minAlertLevel=error  # Check prose
    ```
 
 2. Use `/review-docs` skill to check compliance

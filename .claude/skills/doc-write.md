@@ -1,15 +1,18 @@
 # Documentation Writer Skill
 
 ## Purpose
+
 Help write or edit Apify documentation following the established style guide and best practices.
 
 ## When to Use
+
 - Creating new documentation pages
 - Editing existing documentation
 - Converting drafts into proper documentation format
 - Updating documentation content
 
 ## Context Files
+
 - `AGENTS.md` - Primary documentation standards
 - `CONTRIBUTING.md` - Contribution guidelines
 
@@ -18,6 +21,7 @@ Help write or edit Apify documentation following the established style guide and
 When writing or editing documentation:
 
 ### 1. Content Standards
+
 - Use **US English** spelling and grammar (e.g., "color" not "colour")
 - Use **simple English** - prefer "use" over "utilize", favor simple sentence structures
 - Write in **active voice** whenever possible
@@ -30,6 +34,7 @@ When writing or editing documentation:
 - **Never make assumptions about product features** - ask if unsure
 
 ### 2. Front Matter
+
 Always include proper front matter in MDX/MD files:
 
 ```yaml
@@ -42,22 +47,26 @@ slug: /path/to/page
 ```
 
 **Important**: Match slug to file path
+
 - File: `/sources/platform/actors/running.md`
 - Slug: `/platform/actors/running`
 
 ### 3. Text Formatting
+
 - **Bold** ONLY for UI elements, buttons, tabs, menu items (e.g., "Click **Save & Run**"). NEVER use bold for emphasis.
 - _Italics_ for emphasis (use sparingly)
 - `code` for inline code, file names, paths, API parameters (e.g., "Set `timeout` in `INPUT.json`")
 - Code blocks MUST specify language: ` ```javascript `, ` ```python `, ` ```bash `
 
 ### 4. Headings
+
 - Use **sentence case** for all headings (not Title Case)
 - Use **simple present tense**: "Create an Actor" (NOT "Creating an Actor")
 - Follow proper hierarchy: H1 → H2 → H3
 - Make headings descriptive and action-oriented
 
 ### 5. Admonitions
+
 **All admonitions MUST have a title** (REQUIRED). Use Docusaurus admonitions to highlight important information:
 
 ```markdown
@@ -93,23 +102,28 @@ Critical information that could cause issues.
 ```
 
 ### 6. Code Examples
+
 - Include complete, runnable examples
 - Use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) for multiple languages
 - Add syntax highlighting with language tags (REQUIRED)
 - Include comments for complex code
 
 ### 7. Links
+
 - Use descriptive link text (avoid "click here")
 - Verify all internal links are correct
 - Use relative paths for internal links
 
 ### 8. Images
+
 - Use light theme for screenshots
 - Include meaningful alt text
 - Use red indicators for highlighting
 
 ### 9. Structure
+
 For tutorials and guides, follow this structure:
+
 1. **Introduction** - What will the user learn?
 2. **Prerequisites** - What do they need?
 3. **Step-by-step instructions** - Clear, numbered steps
@@ -117,6 +131,7 @@ For tutorials and guides, follow this structure:
 5. **Summary** - What they accomplished and next steps
 
 ### 10. Apify Terminology
+
 Always use exact capitalization and phrasing:
 
 - **Apify Actor** (never "Apify actor" or "apify actor")
@@ -129,7 +144,9 @@ Always use exact capitalization and phrasing:
 - **MCP server** (lowercase for generic terms)
 
 ### 11. Quality Checklist
+
 Before finalizing, verify:
+
 - [ ] Content follows Microsoft style guide (sentence case, simple present tense)
 - [ ] Front matter includes proper title, description (140-160 chars explaining value), and metadata
 - [ ] Slug matches file path
@@ -146,4 +163,5 @@ Before finalizing, verify:
 - [ ] No assumptions made about product features
 
 ## Output
+
 Provide the complete documentation with proper formatting, ready to be committed to the repository.
