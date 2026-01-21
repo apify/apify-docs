@@ -39,12 +39,15 @@ properties:
     type: string
   pictureUrl:
     type: [string, "null"]
+    format: uri
     examples: ["https://..."]
   userPictureUrl:
     type: [string, "null"]
+    format: uri
     examples: ["https://..."]
   url:
     type: [string, "null"]
+    format: uri
     examples: ["https://..."]
   stats:
     $ref: ../actors/ActorStats.yaml

@@ -6,11 +6,7 @@ required:
   - name
 properties:
   format:
-    type: string
-    enum:
-      - BASE64
-      - TEXT
-    examples: [TEXT]
+    $ref: ../common/SourceCodeFileFormat.yaml
   content:
     type: string
     examples: ["console.log('This is the main.js file');"]

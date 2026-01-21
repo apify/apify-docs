@@ -23,6 +23,7 @@ properties:
       properties:
         url:
           type: string
+          format: uri
           examples: [https://api.apify.com/v2]
   paths:
     type: object

@@ -7,27 +7,35 @@ type: object
 properties:
   inputBodyLen:
     type: integer
+    minimum: 0
     examples: [240]
   migrationCount:
     type: integer
+    minimum: 0
     examples: [0]
   rebootCount:
     type: integer
+    minimum: 0
     examples: [0]
   restartCount:
     type: integer
+    minimum: 0
     examples: [0]
   resurrectCount:
     type: integer
+    minimum: 0
     examples: [2]
   memAvgBytes:
     type: number
+    minimum: 0
     examples: [267874071.9]
   memMaxBytes:
     type: integer
+    minimum: 0
     examples: [404713472]
   memCurrentBytes:
     type: integer
+    minimum: 0
     examples: [0]
   cpuAvgUsage:
     type: number
@@ -40,19 +48,25 @@ properties:
     examples: [0]
   netRxBytes:
     type: integer
+    minimum: 0
     examples: [103508042]
   netTxBytes:
     type: integer
+    minimum: 0
     examples: [4854600]
   durationMillis:
     type: integer
+    minimum: 0
     examples: [248472]
   runTimeSecs:
     type: number
+    minimum: 0
     examples: [248.472]
   metamorph:
     type: integer
+    minimum: 0
     examples: [0]
   computeUnits:
     type: number
+    minimum: 0
     examples: [0.13804]

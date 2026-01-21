@@ -103,6 +103,7 @@ properties:
     description: Build number of the Actor build used for this run.
   containerUrl:
     type: string
+    format: uri
     examples: ["https://g8kd8kbc5ge8.runs.apify.net"]
     description: URL of the container running the Actor.
   isContainerServerReady:

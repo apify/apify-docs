@@ -43,14 +43,17 @@ properties:
   totalRequestCount:
     type: integer
     description: The total number of requests in the request queue.
+    minimum: 0
     examples: [870]
   handledRequestCount:
     type: integer
     description: The number of requests that have been handled.
+    minimum: 0
     examples: [100]
   pendingRequestCount:
     type: integer
     description: The number of requests that are pending and have not been handled yet.
+    minimum: 0
     examples: [670]
   hadMultipleClients:
     type: boolean
@@ -59,6 +62,7 @@ properties:
   consoleUrl:
     type: string
     description: The URL to view the request queue in the Apify console.
+    format: uri
     examples: [https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC]
   stats:
     $ref: ./RequestQueueStats.yaml
