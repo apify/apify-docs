@@ -3,6 +3,7 @@
 ## Project Overview
 
 You are working on the Apify documentation repository, which contains:
+
 - **Platform documentation**: Core platform features and functionality (`/sources/platform/`)
 - **Academy**: Educational content and tutorials (`/sources/academy/`)
 - **API reference**: OpenAPI specifications (`/apify-api/`)
@@ -12,6 +13,7 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
 ## Primary Reference Documents
 
 **Always reference these files when working on documentation**:
+
 1. `AGENTS.md` - Primary vendor-agnostic documentation standards (READ THIS FIRST)
 2. `CONTRIBUTING.md` - Contribution guidelines, setup, and workflows
 3. `.cursor/rules/*.mdc` - Cursor-specific rules (for reference)
@@ -21,24 +23,29 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
 Use these skills for specific documentation tasks:
 
 ### `/doc-write` - Documentation Writing
+
 **When to use**: Creating or editing documentation pages
 **Handles**: Content creation, formatting, style guide compliance
 
 ### `/api-doc` - API Documentation
+
 **When to use**: Working with OpenAPI specifications
 **Handles**: Creating endpoints, schemas, code samples
 
 ### `/tutorial` - Tutorial Creation
+
 **When to use**: Creating step-by-step tutorials
 **Handles**: Tutorial structure, learning content, examples
 
 ### `/review-docs` - Documentation Review
+
 **When to use**: Reviewing documentation before submission
 **Handles**: Style guide compliance, quality checks, consistency
 
 ## Core Documentation Standards
 
 ### Language & Style
+
 - **US English** spelling and grammar (e.g., "color" not "colour")
 - **Active voice** whenever possible
 - **Inclusive language** - no gendered terms
@@ -51,7 +58,9 @@ Use these skills for specific documentation tasks:
 - **Never make assumptions about product features** - ask if unsure
 
 ### Front Matter Requirements
+
 Every documentation file must include:
+
 ```yaml
 ---
 title: "Sentence case title (action-oriented, simple present tense)"
@@ -62,10 +71,12 @@ slug: /path/to/page
 ```
 
 **Important**: Match slug to file path
+
 - File: `/sources/platform/actors/running.md`
 - Slug: `/platform/actors/running`
 
 ### Text Formatting Standards
+
 - **Bold** ONLY for UI elements, buttons, tabs, menu items (e.g., "Click **Save & Run**"). NEVER use bold for emphasis.
 - _Italics_ for emphasis (use sparingly)
 - `code` for inline code, file names, paths, API parameters (e.g., "Set `timeout` in `INPUT.json`")
@@ -73,6 +84,7 @@ slug: /path/to/page
 - **All admonitions MUST have a title** - Available types: `note`, `tip`, `info`, `caution`, `danger`
 
 ### Code Examples
+
 - Include complete, runnable examples
 - Use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) for multiple languages (JavaScript, Python)
 - Add syntax highlighting with language tags (REQUIRED)
@@ -103,11 +115,13 @@ Something that could cause issues.
 ```
 
 ### Links
+
 - Use descriptive link text (never "click here")
 - Use relative paths for internal links
 - Verify all links work before committing
 
 ### Images
+
 - Use light theme for screenshots
 - Include meaningful alt text
 - Use red indicators for highlighting
@@ -116,12 +130,14 @@ Something that could cause issues.
 ## File Organization
 
 ### Naming Conventions
+
 - Use **kebab-case** for file names: `web-scraping-basics.md` (never camelCase or snake_case)
 - Use descriptive names that reflect content
 - Group related files in logical directories
 - **Match slug to file path** for consistency
 
 ### Directory Structure
+
 ```text
 sources/
 ├── platform/          # Platform documentation
@@ -136,6 +152,7 @@ sources/
 ## API Documentation Specifics
 
 ### OpenAPI Structure
+
 ```text
 apify-api/openapi/
 ├── openapi.yaml              # Main spec file
@@ -144,7 +161,9 @@ apify-api/openapi/
 ```
 
 ### Operation ID Conventions
+
 Format: `{objectName}_{httpMethod}`
+
 - Use camelCase for object names
 - Single object for paths with `{id}`, plural otherwise
 - Examples:
@@ -152,19 +171,23 @@ Format: `{objectName}_{httpMethod}`
   - `/request-queues/{queueId}` PUT → `requestQueue_put`
 
 ### Path File Naming
+
 Replace `/` with `@` in URL paths:
+
 - `/request-queues` → `request-queues.yaml`
 - `/request-queues/{queueId}` → `request-queues@{queueId}.yaml`
 
 ## Development Workflow
 
 ### Before Starting Work
+
 1. Read `AGENTS.md` for documentation standards
 2. Review `CONTRIBUTING.md` for specific guidelines
 3. Check existing similar documentation for patterns
 4. Determine which skill to use for the task
 
 ### During Development
+
 1. Follow the appropriate skill instructions
 2. Reference `AGENTS.md` for style questions
 3. Use proper front matter in all files
@@ -172,17 +195,21 @@ Replace `/` with `@` in URL paths:
 5. Add descriptive links and alt text
 
 ### Before Submitting
+
 1. Run linting checks:
+
    ```bash
    npm run lint:md        # Markdown linting
    npm run lint:code      # Code linting
    ```
+
 2. Use `/review-docs` skill to check compliance
 3. Verify all code examples work
 4. Check all links are valid
 5. Ensure front matter is complete
 
 ### Testing Changes
+
 ```bash
 npm install          # Install dependencies
 npm start           # Start development server
@@ -193,6 +220,7 @@ npm run build       # Test production build
 ## Common Patterns
 
 ### Tutorial Structure
+
 1. Introduction with learning objectives
 2. Prerequisites
 3. Step-by-step numbered instructions
@@ -202,6 +230,7 @@ npm run build       # Test production build
 7. Summary and next steps
 
 ### Platform Documentation
+
 1. Clear description of feature
 2. When to use it
 3. How to configure/use it
@@ -210,6 +239,7 @@ npm run build       # Test production build
 6. Related features
 
 ### API Documentation
+
 1. Endpoint description
 2. Parameters with types and descriptions
 3. Request examples
@@ -220,6 +250,7 @@ npm run build       # Test production build
 ## Quality Checklist
 
 Before considering any documentation complete:
+
 - [ ] Content follows Microsoft style guide
 - [ ] Front matter complete (title, description 140-160 chars)
 - [ ] Code examples complete with syntax highlighting
@@ -234,6 +265,7 @@ Before considering any documentation complete:
 ## Important Notes
 
 ### What NOT to Do
+
 - Don't use Title Case for headings (use sentence case)
 - Don't use gerunds in headings ("Creating" - use "Create" instead)
 - Don't use bold for emphasis (ONLY for UI elements)
@@ -249,6 +281,7 @@ Before considering any documentation complete:
 - Don't use incorrect Apify terminology (see terminology section)
 
 ### Best Practices
+
 - Start with user's goal/problem
 - Provide context before technical details
 - Use consistent Apify terminology (see terminology section)
@@ -280,10 +313,13 @@ Before considering any documentation complete:
 ## Content Review Process
 
 ### Before Reviewing a PR
+
 - Check that the latest changes were pulled from the feature branch
 
 ### Review Checklist
+
 When reviewing or creating documentation, verify:
+
 - **Clarity**: Instructions are easy to understand
 - **Consistency**: Uniform terminology (see word list above) and style throughout
 - **Grammar & Spelling**: Correct errors, use American English with Oxford commas
@@ -294,6 +330,7 @@ When reviewing or creating documentation, verify:
 ## Getting Help
 
 If you're unsure about:
+
 - **Style questions**: Check `AGENTS.md` first
 - **Setup issues**: See `CONTRIBUTING.md`
 - **API documentation**: See `/api-doc` skill
@@ -304,7 +341,9 @@ If you're unsure about:
 ## Project-Specific Context
 
 ### Multiple Repositories
+
 The full documentation ecosystem includes multiple repos:
+
 - apify-docs (this repo) - Platform, Academy, OpenAPI
 - apify-client-js - JavaScript client docs
 - apify-client-python - Python client docs
@@ -313,14 +352,17 @@ The full documentation ecosystem includes multiple repos:
 - apify-cli - CLI documentation
 
 ### Theme
+
 Uses `@apify/docs-theme` package - don't modify theme files directly.
 
 ### Deployment
+
 - Automatic deployment on merge to `master`
 - Preview builds available for pull requests
 - Uses nginx for routing between repositories
 
 ### Linting Tools
+
 - **markdownlint** - Markdown formatting
 - **eslint** - JavaScript/TypeScript code
 - **Vale** - Prose linting (optional, download styles with `vale sync`)
@@ -328,6 +370,7 @@ Uses `@apify/docs-theme` package - don't modify theme files directly.
 ## Remember
 
 The goal is to help users succeed with Apify. Every piece of documentation should:
+
 - Be **clear** and easy to understand
 - Be **accurate** and technically correct
 - Be **actionable** with concrete examples
