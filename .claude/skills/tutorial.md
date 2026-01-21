@@ -1,4 +1,4 @@
-# Tutorial Creator Skill
+## Tutorial Creator Skill
 
 ## Purpose
 Create comprehensive, structured tutorials for the Apify Academy or Platform documentation.
@@ -36,7 +36,7 @@ slug: /category/tutorial-name  # Must match file path
 
 **Template**:
 ```markdown
-# [Tutorial Title]
+## [Tutorial Title]
 
 **[Brief description of what the user will accomplish]**
 
@@ -134,7 +134,7 @@ const example = "working code";
 <TabItem value="py" label="Python">
 
 ```python
-# Complete Python example
+"""Complete Python example"""
 # Comments explaining key sections
 example = "working code"
 ```

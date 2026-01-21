@@ -1,4 +1,4 @@
-# API Documentation Skill
+## API Documentation Skill
 
 ## Purpose
 Help create or update OpenAPI specifications and API documentation for Apify API endpoints.
