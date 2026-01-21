@@ -1,15 +1,18 @@
-## API Documentation Skill
+# API Documentation Skill
 
 ## Purpose
+
 Help create or update OpenAPI specifications and API documentation for Apify API endpoints.
 
 ## When to Use
+
 - Adding new API endpoints
 - Updating existing endpoint documentation
 - Creating or modifying OpenAPI schemas
 - Adding code samples for API endpoints
 
 ## Context Files
+
 - `CONTRIBUTING.md` - API documentation section
 - `AGENTS.md` - API documentation rules
 - `apify-api/openapi/openapi.yaml` - Main OpenAPI spec
@@ -31,12 +34,14 @@ apify-api/openapi/
 **Location**: `apify-api/openapi/components/schemas/`
 
 **Steps**:
+
 1. Create a new YAML file named after your schema
 2. Define the schema structure following OpenAPI 3.0 specification
 3. Include comprehensive descriptions for all properties
 4. Reference schema using `$ref` in other files
 
 **Example**:
+
 ```yaml
 type: object
 properties:
@@ -59,10 +64,12 @@ required:
 **Location**: `apify-api/openapi/paths/`
 
 **Naming Convention**: Replace `/` with `@` in the URL path
+
 - `/request-queues` → `request-queues.yaml`
 - `/request-queues/{queueId}` → `request-queues@{queueId}.yaml`
 
 **Example Path File**:
+
 ```yaml
 get:
   tags:
@@ -106,12 +113,14 @@ get:
 Format: `{objectName}_{httpMethod}`
 
 **Rules**:
+
 - Use camelCase for object names
 - Single object for paths with `{id}`, plural otherwise
 - Underscore separator between object name and action
 - Method name in lowercase at the end
 
 **Examples**:
+
 - `/request-queues` GET → `requestQueues_get`
 - `/request-queues/{queueId}` PUT → `requestQueue_put`
 - `/acts/{actorId}/runs` POST → `act_runs_post`
@@ -121,12 +130,14 @@ Format: `{objectName}_{httpMethod}`
 **Location**: `apify-api/openapi/code_samples/{language}/{path}/`
 
 **Steps**:
+
 1. Navigate to the appropriate language folder
 2. Create path-based directory structure
 3. Add code sample file
 4. Reference in path documentation using `x-code-samples`
 
 **Example JavaScript Code Sample**:
+
 ```javascript
 // GET /v2/request-queues/{queueId}
 const { ApifyClient } = require('apify-client');
@@ -140,6 +151,7 @@ console.log(queue);
 ```
 
 **Example Python Code Sample**:
+
 ```python
 # GET /v2/request-queues/{queueId}
 from apify_client import ApifyClient
@@ -155,6 +167,7 @@ print(queue)
 **File**: `apify-api/openapi/openapi.yaml`
 
 Add path reference:
+
 ```yaml
 paths:
   '/request-queues':
@@ -166,6 +179,7 @@ paths:
 ### 7. Testing and Validation
 
 After making changes:
+
 ```bash
 npm test  # Validates OpenAPI specification
 npm start # Preview changes locally
@@ -195,6 +209,7 @@ Always use exact capitalization in descriptions and examples:
 ### 10. Quality Checklist
 
 Before submitting:
+
 - [ ] OpenAPI specification validates without errors
 - [ ] Operation IDs follow naming conventions (camelCase_method)
 - [ ] All parameters have clear descriptions using simple English
@@ -207,4 +222,5 @@ Before submitting:
 - [ ] No assumptions made about product features
 
 ## Output
+
 Provide the complete OpenAPI specification changes with proper formatting, ready to be tested and committed.

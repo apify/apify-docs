@@ -1,4 +1,4 @@
-## Documentation Writer Skill
+# Documentation Writer Skill
 
 ## Purpose
 Help write or edit Apify documentation following the established style guide and best practices.
