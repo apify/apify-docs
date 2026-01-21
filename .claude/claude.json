@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "name": "doc-write",
+      "description": "Create or edit documentation following Apify style guide",
+      "path": "skills/doc-write.md"
+    },
+    {
+      "name": "api-doc",
+      "description": "Work with OpenAPI specifications and API documentation",
+      "path": "skills/api-doc.md"
+    },
+    {
+      "name": "tutorial",
+      "description": "Create structured tutorials with proper learning progression",
+      "path": "skills/tutorial.md"
+    },
+    {
+      "name": "review-docs",
+      "description": "Review documentation for style guide compliance and quality",
+      "path": "skills/review-docs.md"
+    }
+  ],
+  "instructions": "instructions.md",
+  "context": [
+    "../AGENTS.md",
+    "../CONTRIBUTING.md"
+  ]
+}
