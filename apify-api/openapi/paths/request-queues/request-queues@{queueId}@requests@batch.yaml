@@ -98,6 +98,8 @@ post:
                 - uniqueKey: http://example.com/2
                   url: http://example.com/2
                   method: GET
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/add-requests
@@ -181,6 +183,8 @@ delete:
                   id: sbJ7klsdf7ujN9l
                   url: http://example.com/2
                   method: GET
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/delete-requests

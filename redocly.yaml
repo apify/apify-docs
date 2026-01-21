@@ -12,7 +12,7 @@ rules:
     tag-description: error
     no-invalid-schema-examples: error
     no-invalid-media-type-examples: error
-    operation-4xx-response: warn
+    operation-4xx-response: error
 
     # Additional strictness rules
     struct: error

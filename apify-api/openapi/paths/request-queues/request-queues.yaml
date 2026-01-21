@@ -65,6 +65,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/request-queues/GetListOfRequestQueuesResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/get-list-of-request-queues
@@ -140,6 +142,8 @@ post:
               pendingRequestCount: 670
               hadMultipleClients: true
               consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/create-request-queue

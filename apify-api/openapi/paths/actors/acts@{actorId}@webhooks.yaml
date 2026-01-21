@@ -61,6 +61,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/webhooks/GetListOfWebhooksResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/webhook-collection/get-list-of-webhooks

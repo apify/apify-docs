@@ -124,6 +124,8 @@ get:
               count: 2
               limit: 2
               exclusiveStartId: Ihnsp8YrvJ8102Kj
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/list-requests
@@ -215,6 +217,8 @@ post:
               requestId: YiKoxjkaS9gjGTqhF
               wasAlreadyPresent: true
               wasAlreadyHandled: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request

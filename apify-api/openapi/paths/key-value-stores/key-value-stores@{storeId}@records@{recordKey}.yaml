@@ -78,6 +78,8 @@ get:
               example: >-
                 https://apifier-key-value-store-prod.s3.amazonaws.com/tqx6jeMia43gYY6eE/INPUT?AWSAccessKeyId=NKDOUN&Expires=1502720992&Signature=DKLVPI4lDDKC
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record
@@ -201,6 +203,8 @@ put:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
@@ -240,6 +244,8 @@ delete:
       description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record

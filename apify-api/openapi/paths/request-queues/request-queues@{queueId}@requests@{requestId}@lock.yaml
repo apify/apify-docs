@@ -71,6 +71,8 @@ put:
           example:
             data:
               lockExpiresAt: "2022-01-01T00:00:00.000Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/prolong-request-lock
@@ -145,6 +147,8 @@ delete:
       description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/delete-request-lock

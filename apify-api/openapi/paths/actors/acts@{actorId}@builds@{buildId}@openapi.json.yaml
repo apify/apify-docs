@@ -18,7 +18,7 @@ get:
 
     You can also use the [`/api/v2/actor-build-openapi-json-get`](/api/v2/actor-build-openapi-json-get) endpoint to get the OpenAPI definition for a build.
 
-    :::
+    ::: null
   operationId: act_openapi_json_get
   security: []
   parameters:
@@ -46,3 +46,5 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-builds/GetOpenApiResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml

@@ -48,6 +48,8 @@ get:
               pendingRequestCount: 670
               hadMultipleClients: true
               consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue
@@ -126,6 +128,8 @@ put:
               pendingRequestCount: 670
               hadMultipleClients: true
               consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue
@@ -157,6 +161,8 @@ delete:
       description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request-queue

@@ -62,6 +62,8 @@ get:
                 label: DETAIL
                 image: "https://picserver1.eu"
               handledAt: "2019-06-16T10:23:31.607Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request
@@ -181,6 +183,8 @@ put:
               requestId: YiKoxjkaS9gjGTqhF
               wasAlreadyPresent: true
               wasAlreadyHandled: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request
@@ -235,6 +239,8 @@ delete:
       description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request

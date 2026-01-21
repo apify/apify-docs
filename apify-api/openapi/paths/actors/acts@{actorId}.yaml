@@ -81,6 +81,8 @@ get:
                   buildId: z2EryhbfhgSyqj6Hn
                   buildNumber: 0.0.2
                   finishedAt: "2019-06-10T11:15:49.286Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor
@@ -260,6 +262,8 @@ put:
                   buildId: z2EryhbfhgSyqj6Hn
                   buildNumber: 0.0.2
                   finishedAt: "2019-06-10T11:15:49.286Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor
@@ -296,6 +300,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/delete-actor

@@ -37,8 +37,7 @@ get:
         example: 100
     - name: collection
       in: query
-      description: Limit the results to keys that belong to a specific collection from the key-value store schema.
-        The key-value store need to have a schema defined for this parameter to work.
+      description: Limit the results to keys that belong to a specific collection from the key-value store schema. The key-value store need to have a schema defined for this parameter to work.
       schema:
         type: string
         example: postImages
@@ -78,6 +77,8 @@ get:
               exclusiveStartKey: some-key
               isTruncated: true
               nextExclusiveStartKey: third-key
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys

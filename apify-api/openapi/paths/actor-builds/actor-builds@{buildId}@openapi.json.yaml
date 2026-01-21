@@ -15,7 +15,7 @@ get:
 
     You can also use the [`/api/v2/act-openapi-json-get`](/api/v2/act-openapi-json-get) endpoint to get the OpenAPI definition for a build.
 
-    :::
+    ::: null
   operationId: actorBuild_openapi_json_get
   security: []
   parameters:
@@ -35,6 +35,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-builds/GetOpenApiResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   x-js-parent: BuildClient
   x-js-name: getOpenApiDefinition
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#getOpenApiDefinition

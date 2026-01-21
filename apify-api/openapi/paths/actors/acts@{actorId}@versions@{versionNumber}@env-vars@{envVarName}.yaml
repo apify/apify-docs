@@ -46,6 +46,8 @@ get:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/get-environment-variable
@@ -125,6 +127,8 @@ put:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
@@ -174,6 +178,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/delete-environment-variable

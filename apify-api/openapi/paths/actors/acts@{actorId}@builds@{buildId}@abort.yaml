@@ -61,6 +61,8 @@ post:
               usageUsd:
                 ACTOR_COMPUTE_UNITS: 0.02
               buildNumber: 0.1.1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-build/abort-build

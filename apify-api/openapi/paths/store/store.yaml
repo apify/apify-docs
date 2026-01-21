@@ -156,6 +156,8 @@ get:
                   currentPricingInfo:
                     pricingModel: FREE
                   isWhiteListedForAgenticPayment: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store

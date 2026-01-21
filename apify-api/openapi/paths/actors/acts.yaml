@@ -96,6 +96,8 @@ get:
                   modifiedAt: "2019-12-12T07:34:24.202Z"
                   name: MySecondAct
                   username: janedoe
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/get-list-of-actors
@@ -236,6 +238,8 @@ post:
                   buildId: z2EryhbfhgSyqj6Hn
                   buildNumber: 0.0.2
                   finishedAt: "2019-06-10T11:15:49.286Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/create-actor
