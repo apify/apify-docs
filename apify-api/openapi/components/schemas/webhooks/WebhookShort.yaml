@@ -35,7 +35,8 @@ properties:
     type: array
     items:
       $ref: ./WebhookEventType.yaml
-    examples: [ACTOR.RUN.SUCCEEDED]
+    examples:
+      - [ACTOR.RUN.SUCCEEDED]
   condition:
     $ref: ./WebhookCondition.yaml
   ignoreSslErrors:

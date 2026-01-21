@@ -354,10 +354,9 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            example:
-              - myValue: some value
-                myOtherValue: some other value
+            type: array
+            items:
+              type: object
           example:
             - myValue: some value
               myOtherValue: some other value

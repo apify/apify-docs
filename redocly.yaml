@@ -7,6 +7,12 @@ extends:
     - recommended
 
 rules:
+    # Make all warnings into errors
+    info-license: error
+    tag-description: error
+    no-invalid-schema-examples: error
+
+    # Additional strictness rules
     struct: error
     no-unused-components: error
 

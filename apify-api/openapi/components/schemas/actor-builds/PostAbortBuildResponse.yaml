@@ -15,9 +15,11 @@ example:
     status: ABORTED
     meta:
       origin: WEB
+      userAgent: Mozilla/5.0 (iPad)
     stats:
       durationMillis: 1000
       runTimeSecs: 5.718
+      computeUnits: 0.012699444444444444
     options:
       useCache: false
       memoryMbytes: 1024
@@ -27,3 +29,4 @@ example:
     usageTotalUsd: 0.02
     usageUsd:
       ACTOR_COMPUTE_UNITS: 0.02
+    buildNumber: 0.1.1
