@@ -12,7 +12,8 @@ properties:
     examples: [true]
   disabledReason:
     type: [string, "null"]
-    examples: ["The \"Selected public Actors for developers\" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com"]
+    examples:
+      - The "Selected public Actors for developers" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com
   disabledReasonType:
     type: [string, "null"]
     examples: [DISABLED]

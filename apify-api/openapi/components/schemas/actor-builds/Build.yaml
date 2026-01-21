@@ -52,7 +52,7 @@ properties:
   inputSchema:
     type: [string, "null"]
     deprecated: true # Marked as deprecated in favor of actorDefinition.
-    examples: ['{\n  \"title\": \"Schema for ... }']
+    examples: ['{\n  "title": "Schema for ... }']
   readme:
     type: [string, "null"]
     deprecated: true # Marked as deprecated in favor of actorDefinition.
@@ -89,7 +89,7 @@ example:
   usageTotalUsd: 0.02
   usageUsd:
     ACTOR_COMPUTE_UNITS: 0.02
-  inputSchema: '{\n  \"title\": \"Schema for ... }'
+  inputSchema: '{\n  "title": "Schema for ..."}'
   readme: '# Magic Actor\nThis Actor is magic.'
   buildNumber: 0.1.1
   actorDefinition:

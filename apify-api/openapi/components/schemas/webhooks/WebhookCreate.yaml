@@ -29,10 +29,10 @@ properties:
     examples: ["http://example.com/"]
   payloadTemplate:
     type: [string, "null"]
-    examples: ['{\n \"userId\": {{userId}}...']
+    examples: ['{\n "userId": {{userId}}...']
   headersTemplate:
     type: [string, "null"]
-    examples: ['{\n \"Authorization\": Bearer...']
+    examples: ['{\n "Authorization": "Bearer ..."}']
   description:
     type: [string, "null"]
     examples: [this is webhook description]
