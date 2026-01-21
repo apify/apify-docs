@@ -14,11 +14,11 @@ Instructions for AI assistants writing Apify documentation. Based on Apify style
 
 Match language to content type:
 
-| Content type | CTA verbs | Example |
-|--------------|-----------|---------|
-| Tutorials/guides | Learn, Build, Create | "Learn how to build a web scraper" |
-| Reference docs | Access, Integrate, Use | "Access the Apify platform programmatically" |
-| Discovery pages | Explore, Discover, Browse | "Explore available Actors" |
+| Content type     | CTA verbs              | Example                                    |
+| ---------------- | ---------------------- | ------------------------------------------ |
+| Tutorials/guides | Learn, Build, Create   | "Learn how to build a web scraper"         |
+| Reference docs   | Access, Integrate, Use | "Access the Apify platform programmatically" |
+| Discovery pages  | Explore, Discover, Browse | "Explore available Actors"              |
 
 Don't use "Learn" for pure reference documentation - it sets tutorial expectations.
 
@@ -32,37 +32,37 @@ Use "analyze" not "analyse", "color" not "colour".
 
 Use direct instructions, not soft recommendations:
 
-| Avoid | Prefer |
-|-------|--------|
-| We recommend pinning the version | Pin the version |
-| You should use the latest SDK | Use the latest SDK |
-| It's best to avoid hardcoding | Avoid hardcoding |
+| Avoid                             | Prefer              |
+| --------------------------------- | ------------------- |
+| We recommend pinning the version  | Pin the version     |
+| You should use the latest SDK     | Use the latest SDK  |
+| It's best to avoid hardcoding     | Avoid hardcoding    |
 
 ### No sales language
 
-| Avoid | Prefer |
-|-------|--------|
-| Experience Apify, the ultimate platform! | Welcome to Apify, the cloud web scraping platform. |
-| Our highly efficient system | Apify's system handles 500K requests per minute |
+| Avoid                                      | Prefer                                              |
+| ------------------------------------------ | --------------------------------------------------- |
+| Experience Apify, the ultimate platform!   | Welcome to Apify, the cloud web scraping platform.  |
+| Our highly efficient system                | Apify's system handles 500K requests per minute     |
 
 ### Avoid first person
 
 Use "you" to focus on the reader. Avoid "I", "me", "myself" in docs.
 
-| Avoid | Prefer |
-|-------|--------|
-| I recommend using version 22 | Use version 22 |
-| In my experience, this works better | This approach is more reliable |
+| Avoid                                 | Prefer                           |
+| ------------------------------------- | -------------------------------- |
+| I recommend using version 22          | Use version 22                   |
+| In my experience, this works better   | This approach is more reliable   |
 
 ### Active & inclusive voice
 
 Use active voice. Avoid gendered terms. Don't use directional language ("left/right") for UI - it breaks with different layouts.
 
-| Avoid | Prefer |
-|-------|--------|
-| The Actor is started by the user | The user starts the Actor |
-| He can configure his settings | You can configure your settings |
-| Click the button on the left | Click the **Settings** button |
+| Avoid                             | Prefer                           |
+| --------------------------------- | -------------------------------- |
+| The Actor is started by the user  | The user starts the Actor        |
+| He can configure his settings     | You can configure your settings  |
+| Click the button on the left      | Click the **Settings** button    |
 
 ## Formatting
 
@@ -70,35 +70,37 @@ Use active voice. Avoid gendered terms. Don't use directional language ("left/ri
 
 **Sentence case only.** No title case.
 
-| Avoid | Prefer |
-|-------|--------|
+| Avoid                 | Prefer                |
+| --------------------- | --------------------- |
 | Store And Manage Data | Store and manage data |
 
 **No gerunds (-ing forms).** Use noun phrases or imperatives.
 
-| Avoid | Prefer |
-|-------|--------|
-| Finding available tags | Available tags |
-| Getting started with Actors | Get started with Actors |
-| Understanding the API | API overview |
+| Avoid                         | Prefer                     |
+| ----------------------------- | -------------------------- |
+| Finding available tags        | Available tags             |
+| Getting started with Actors   | Get started with Actors    |
+| Understanding the API         | API overview               |
 
 Rationale: Noun-phrase headings are more scannable and search-friendly (Microsoft style guide).
 
 ### Bold
 
 **Do use bold for:**
+
 - UI elements (buttons, menus, fields): Click the **Actors** button
 - Critical warnings or key terms
 
 **Don't use bold for:**
+
 - List introductions
 - Code block introductions
 - Section labels when context is clear
 
-| Avoid | Prefer |
-|-------|--------|
-| **Examples:** | Examples: |
-| **In your Dockerfile**, use... | In your `Dockerfile`, use... |
+| Avoid                           | Prefer                        |
+| ------------------------------- | ----------------------------- |
+| **Examples:**                   | Examples:                     |
+| **In your Dockerfile**, use...  | In your `Dockerfile`, use...  |
 
 Bold for UI elements helps users scan for clickable items. Bold for structure creates visual noise.
 
@@ -106,10 +108,10 @@ Bold for UI elements helps users scan for clickable items. Bold for structure cr
 
 Use italics for emphasis and introducing new terms:
 
-| Use case | Example |
-|----------|---------|
-| New term introduction | An *Actor* is a serverless program... |
-| Emphasis | This step is *required* for the Actor to work |
+| Use case                 | Example                                       |
+| ------------------------ | --------------------------------------------- |
+| New term introduction    | An *Actor* is a serverless program...         |
+| Emphasis                 | This step is *required* for the Actor to work |
 
 ### List types
 
@@ -148,13 +150,13 @@ All items in a list must follow the same grammatical pattern:
 
 Use Docusaurus admonitions for important information:
 
-| Type | Use for |
-|------|---------|
-| `:::note` | General callouts |
-| `:::tip` | Helpful suggestions |
-| `:::info` | Background context |
-| `:::caution` | Warnings about gotchas |
-| `:::danger` | Critical warnings that could cause issues |
+| Type           | Use for                                 |
+| -------------- | --------------------------------------- |
+| `:::note`      | General callouts                        |
+| `:::tip`       | Helpful suggestions                     |
+| `:::info`      | Background context                      |
+| `:::caution`   | Warnings about gotchas                  |
+| `:::danger`    | Critical warnings that could cause issues |
 
 Prefer admonitions over block quotes for highlighted content.
 
@@ -164,25 +166,25 @@ Prefer admonitions over block quotes for highlighted content.
 
 Include "a/an" before nouns in definition lists:
 
-| Avoid | Prefer |
-|-------|--------|
+| Avoid                            | Prefer                                 |
+| -------------------------------- | -------------------------------------- |
 | `{version}` - Node.js version only | `{version}` - A Node.js version only |
 
 ### Oxford comma
 
 Always use the serial comma:
 
-| Avoid | Prefer |
-|-------|--------|
-| pencil, eraser and notebook | pencil, eraser, and notebook |
+| Avoid                        | Prefer                           |
+| ---------------------------- | -------------------------------- |
+| pencil, eraser and notebook  | pencil, eraser, and notebook     |
 
 ### "the" before products
 
 Use "the" before "Apify platform", "Apify SDK", etc.
 
-| Avoid | Prefer |
-|-------|--------|
-| I use Apify platform | I use the Apify platform |
+| Avoid                | Prefer                    |
+| -------------------- | ------------------------- |
+| I use Apify platform | I use the Apify platform  |
 
 ## Terminology
 
@@ -195,44 +197,44 @@ Use "the" before "Apify platform", "Apify SDK", etc.
 
 ### Word choice
 
-| Word | When to use |
-|------|-------------|
-| legacy | Feature is deprecated or will be removed |
+| Word        | When to use                               |
+| ----------- | ----------------------------------------- |
+| legacy      | Feature is deprecated or will be removed  |
 | alternative | Valid approach, but not the preferred one |
-| deprecated | Feature will be removed in a future version |
+| deprecated  | Feature will be removed in a future version |
 
 ## Links
 
 ### Action-oriented text
 
-| Avoid | Prefer |
-|-------|--------|
-| [actor-node-playwright tags](url) | [View actor-node-playwright tags](url) |
-| See the [documentation](url) | [Read the documentation](url) |
+| Avoid                             | Prefer                                  |
+| --------------------------------- | --------------------------------------- |
+| [actor-node-playwright tags](url) | [View actor-node-playwright tags](url)  |
+| See the [documentation](url)      | [Read the documentation](url)           |
 
 ### Accessible link text
 
 Use descriptive link text. Avoid generic phrases like "click here" or "this link" - screen readers often read links out of context.
 
-| Avoid | Prefer |
-|-------|--------|
-| [Click here](url) to learn more | [Learn about Actor pricing](url) |
-| Read more about it [here](url) | Read the [Actor development guide](url) |
+| Avoid                              | Prefer                                    |
+| ---------------------------------- | ----------------------------------------- |
+| `[Click here](url)` to learn more  | `[Learn about Actor pricing](url)`        |
+| Read more about it `[here](url)`   | Read the `[Actor development guide](url)` |
 
 ### Make tool mentions navigable
 
 When mentioning tools, languages, or external resources, link them to help readers explore:
 
-| Avoid | Prefer |
-|-------|--------|
-| You can use Playwright for this | You can use [Playwright](https://playwright.dev) for this |
+| Avoid                               | Prefer                                                      |
+| ----------------------------------- | ----------------------------------------------------------- |
+| You can use Playwright for this     | You can use [Playwright](https://playwright.dev) for this   |
 
 ### Trim filler words
 
-| Avoid | Prefer |
-|-------|--------|
-| visit the Docker Hub tags page | visit Docker Hub |
-| check out the official docs | see the documentation |
+| Avoid                          | Prefer               |
+| ------------------------------ | -------------------- |
+| visit the Docker Hub tags page | visit Docker Hub     |
+| check out the official docs    | see the documentation |
 
 ### Actor references
 
@@ -256,11 +258,12 @@ can crawl websites and extract text content.
 - Decimals: period ($9.8)
 - Money: symbol before amount ($49, not 49$)
 - Dates: August 5, 2024 (never 5.8.2024)
-- Time: 5 pm or 5 PM (space after number)
+- Time: 5 PM (space before, uppercase)
 
 ## Common Mistakes
 
 Patterns to avoid:
+
 - "Happy scraping!" closings
 - Em dashes
 - Title case headings
