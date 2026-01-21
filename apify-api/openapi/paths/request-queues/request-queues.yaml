@@ -126,6 +126,7 @@ post:
                     handledRequestCount: 100
                     pendingRequestCount: 670
                     hadMultipleClients: true
+                    consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
           example:
             data:
               id: WkzbQMuFYuamGv3YF
@@ -138,6 +139,7 @@ post:
               handledRequestCount: 100
               pendingRequestCount: 670
               hadMultipleClients: true
+              consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/create-request-queue

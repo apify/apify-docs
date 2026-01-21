@@ -86,7 +86,7 @@ put:
           sourceType: SOURCE_FILES
           envVars:
             - name: DOMAIN
-              value: "http://example.com"
+              value: http://example.com
               isSecret: false
             - name: SECRET_PASSWORD
               value: MyTopSecretPassword123

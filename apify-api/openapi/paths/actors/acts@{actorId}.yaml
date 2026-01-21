@@ -166,17 +166,26 @@ put:
           taggedBuildsCreateOrReassignTag:
             summary: Create or reassign a build tag
             value:
+              name: MyActor
+              isPublic: false
+              versions: []
               taggedBuilds:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn
           taggedBuildsRemoveTag:
             summary: Remove a build tag
             value:
+              name: MyActor
+              isPublic: false
+              versions: []
               taggedBuilds:
                 latest: null
           taggedBuildsMultipleOperations:
             summary: Update multiple build tags at once
             value:
+              name: MyActor
+              isPublic: false
+              versions: []
               taggedBuilds:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn

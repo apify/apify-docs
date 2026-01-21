@@ -56,15 +56,15 @@ post:
             - uniqueKey: "http://example.com"
               url: "http://example.com"
               method: GET
-            - uniqueKey: "http://example.com/2"
-              url: "http://example.com/2"
+            - uniqueKey: http://example.com/2
+              url: http://example.com/2
               method: GET
         example:
           - uniqueKey: "http://example.com"
             url: "http://example.com"
             method: GET
-          - uniqueKey: "http://example.com/2"
-            url: "http://example.com/2"
+          - uniqueKey: http://example.com/2
+            url: http://example.com/2
             method: GET
     required: true
   responses:
@@ -80,22 +80,23 @@ post:
                   data:
                     processedRequests:
                       - requestId: YiKoxjkaS9gjGTqhF
-                        uniqueKey: "http://example.com/2"
+                        uniqueKey: http://example.com/2
                         wasAlreadyPresent: true
                         wasAlreadyHandled: false
                     unprocessedRequests:
-                      - uniqueKey: "http://example.com/2"
-                        url: "http://example.com/2"
+                      - uniqueKey: http://example.com/2
+                        url: http://example.com/2
                         method: GET
           example:
             data:
               processedRequests:
                 - requestId: YiKoxjkaS9gjGTqhF
+                  uniqueKey: "http://example.com"
                   wasAlreadyPresent: true
                   wasAlreadyHandled: false
               unprocessedRequests:
-                - uniqueKey: "http://example.com/2"
-                  url: "http://example.com/2"
+                - uniqueKey: http://example.com/2
+                  url: http://example.com/2
                   method: GET
   deprecated: false
   x-legacy-doc-urls:
@@ -168,15 +169,18 @@ delete:
                     processedRequests:
                       - uniqueKey: "http://example.com"
                     unprocessedRequests:
-                      - uniqueKey: "http://example.com/2"
-                        url: "http://example.com/2"
+                      - uniqueKey: http://example.com/2
+                        url: http://example.com/2
                         method: GET
           example:
             data:
               processedRequests:
                 - uniqueKey: "http://example.com"
               unprocessedRequests:
-                - id: sbJ7klsdf7ujN9l
+                - uniqueKey: http://example.com/2
+                  id: sbJ7klsdf7ujN9l
+                  url: http://example.com/2
+                  method: GET
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/delete-requests

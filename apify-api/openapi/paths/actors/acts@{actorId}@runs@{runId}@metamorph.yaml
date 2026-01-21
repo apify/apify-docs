@@ -108,6 +108,8 @@ post:
                 memoryMbytes: 1024
                 diskMbytes: 2048
               buildId: HG7ML7M8z78YcAPEB
+              exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39

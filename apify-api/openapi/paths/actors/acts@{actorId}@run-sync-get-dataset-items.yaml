@@ -720,7 +720,9 @@ get:
       content:
         application/json:
           schema:
-            type: object
+            type: array
+            items:
+              type: object
           example:
             - myValue: some value
               myOtherValue: some other value

@@ -69,8 +69,10 @@ get:
               items:
                 - key: second-key
                   size: 36
+                  recordPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/second-key?signature=abc123
                 - key: third-key
                   size: 128
+                  recordPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/third-key?signature=abc123
               count: 2
               limit: 2
               exclusiveStartKey: some-key

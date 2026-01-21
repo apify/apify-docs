@@ -9,3 +9,6 @@ example:
   SERVICE_USAGE_ITEM:
     quantity: 60
     baseAmountUsd: 0.00030000000000000003
+    baseUnitPriceUsd: 0.000005
+    amountAfterVolumeDiscountUsd: 0.00030000000000000003
+    priceTiers: []

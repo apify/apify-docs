@@ -144,6 +144,7 @@ get:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
@@ -285,6 +286,7 @@ put:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39

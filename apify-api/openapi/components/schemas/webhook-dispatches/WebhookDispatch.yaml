@@ -61,5 +61,4 @@ properties:
         examples: [200]
       responseBody:
         type: [string, "null"]
-        example:
-          foo: bar
+        example: '{"foo": "bar"}'

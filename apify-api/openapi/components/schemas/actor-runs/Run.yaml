@@ -38,7 +38,7 @@ properties:
     examples: ["2019-11-30T07:34:24.202Z"]
     description: Time when the Actor run started.
   finishedAt:
-    type: string
+    type: [string, "null"]
     format: date-time
     examples: ["2019-12-12T09:30:12.202Z"]
     description: Time when the Actor run finished.

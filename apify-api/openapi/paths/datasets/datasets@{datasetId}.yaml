@@ -55,6 +55,7 @@ get:
               actId: null
               actRunId: null
               fields: []
+              consoleUrl: https://console.apify.com/storage/datasets/WkzbQMuFYuamGv3YF
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset
@@ -114,6 +115,7 @@ put:
               actId: null
               actRunId: null
               fields: []
+              consoleUrl: https://console.apify.com/storage/datasets/WkzbQMuFYuamGv3YF
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/update-dataset

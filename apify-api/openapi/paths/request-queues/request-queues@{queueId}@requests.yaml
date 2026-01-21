@@ -61,8 +61,8 @@ get:
                     items:
                       - id: dnjkDMKLmdlkmlkmld
                         retryCount: 0
-                        uniqueKey: "http://example.com"
-                        url: "http://example.com"
+                        uniqueKey: http://example.com
+                        url: http://example.com
                         method: GET
                         loadedUrl: "http://example.com/example-1"
                         payload: null
@@ -75,8 +75,8 @@ get:
                         handledAt: "2019-06-16T10:23:31.607Z"
                       - id: dnjkDMKLmdlkmlkmld
                         retryCount: 0
-                        uniqueKey: "http://example.com"
-                        url: "http://example.com"
+                        uniqueKey: http://example.com
+                        url: http://example.com
                         method: GET
                         loadedUrl: "http://example.com/example-1"
                         payload: null
@@ -95,8 +95,8 @@ get:
               items:
                 - id: dnjkDMKLmdlkmlkmld
                   retryCount: 0
-                  uniqueKey: "http://example.com"
-                  url: "http://example.com"
+                  uniqueKey: http://example.com
+                  url: http://example.com
                   method: GET
                   loadedUrl: "http://example.com/example-1"
                   payload: null
@@ -109,8 +109,8 @@ get:
                   handledAt: "2019-06-16T10:23:31.607Z"
                 - id: dnjkDMKLmdlkmlkmld
                   retryCount: 0
-                  uniqueKey: "http://example.com"
-                  url: "http://example.com"
+                  uniqueKey: http://example.com
+                  url: http://example.com
                   method: GET
                   loadedUrl: "http://example.com/example-1"
                   payload: null
@@ -188,12 +188,12 @@ post:
           allOf:
             - $ref: ../../components/schemas/request-queues/RequestDraft.yaml
             - example:
-                uniqueKey: "http://example.com"
-                url: "http://example.com"
+                uniqueKey: http://example.com
+                url: http://example.com
                 method: GET
         example:
-          uniqueKey: "http://example.com"
-          url: "http://example.com"
+          uniqueKey: http://example.com
+          url: http://example.com
           method: GET
     required: true
   responses:

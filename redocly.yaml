@@ -11,6 +11,8 @@ rules:
     info-license: error
     tag-description: error
     no-invalid-schema-examples: error
+    no-invalid-media-type-examples: error
+    operation-4xx-response: warn
 
     # Additional strictness rules
     struct: error
