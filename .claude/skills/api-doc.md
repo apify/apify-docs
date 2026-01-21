@@ -11,7 +11,7 @@ Help create or update OpenAPI specifications and API documentation for Apify API
 - Creating or modifying OpenAPI schemas
 - Adding code samples for API endpoints
 
-## Context Files
+## Context files
 
 - `CONTRIBUTING.md` - API documentation section
 - `AGENTS.md` - API documentation rules
@@ -19,7 +19,7 @@ Help create or update OpenAPI specifications and API documentation for Apify API
 
 ## Instructions
 
-### 1. OpenAPI File Structure
+### 1. OpenAPI file structure
 
 ```text
 apify-api/openapi/
@@ -29,7 +29,7 @@ apify-api/openapi/
 └── paths/                    # API endpoint definitions
 ```
 
-### 2. Creating Schema Documentation
+### 2. Creating schema documentation
 
 **Location**: `apify-api/openapi/components/schemas/`
 
@@ -59,7 +59,7 @@ required:
   - name
 ```
 
-### 3. Creating Path Documentation
+### 3. Creating path documentation
 
 **Location**: `apify-api/openapi/paths/`
 
@@ -108,7 +108,7 @@ get:
         $ref: ../code_samples/Python/request-queues@{queueId}/get.py
 ```
 
-### 4. Operation ID Conventions
+### 4. Operation ID conventions
 
 Format: `{objectName}_{httpMethod}`
 
@@ -125,7 +125,7 @@ Format: `{objectName}_{httpMethod}`
 - `/request-queues/{queueId}` PUT → `requestQueue_put`
 - `/acts/{actorId}/runs` POST → `act_runs_post`
 
-### 5. Adding Code Samples
+### 5. Adding code samples
 
 **Location**: `apify-api/openapi/code_samples/{language}/{path}/`
 
@@ -162,7 +162,7 @@ queue = client.request_queue('QUEUE_ID').get()
 print(queue)
 ```
 
-### 6. Adding New Endpoints to Main Spec
+### 6. Adding new endpoints to main spec
 
 **File**: `apify-api/openapi/openapi.yaml`
 
@@ -176,7 +176,7 @@ paths:
     $ref: './paths/request-queues/request-queues@{queueId}.yaml'
 ```
 
-### 7. Testing and Validation
+### 7. Testing and validation
 
 After making changes:
 
@@ -185,7 +185,7 @@ npm test  # Validates OpenAPI specification
 npm start # Preview changes locally
 ```
 
-### 8. Apify Terminology
+### 8. Apify terminology
 
 Always use exact capitalization in descriptions and examples:
 
@@ -195,7 +195,7 @@ Always use exact capitalization in descriptions and examples:
 - **Apify Store** (never "the Apify Store")
 - **the Apify team**, **the Apify platform** (lowercase)
 
-### 9. Best Practices
+### 9. Best practices
 
 - **Descriptions**: Write clear, comprehensive descriptions using simple English
 - **Examples**: Include realistic examples in schemas
@@ -206,7 +206,7 @@ Always use exact capitalization in descriptions and examples:
 - **Terminology**: Use correct Apify terminology throughout
 - **Never make assumptions**: About product features - ask if unsure
 
-### 10. Quality Checklist
+### 10. Quality checklist
 
 Before submitting:
 

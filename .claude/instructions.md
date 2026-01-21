@@ -1,6 +1,6 @@
 # Claude Code Instructions for Apify Documentation
 
-## Project Overview
+## Project overview
 
 You are working on the Apify documentation repository, which contains:
 
@@ -10,7 +10,7 @@ You are working on the Apify documentation repository, which contains:
 
 The project uses Docusaurus with MDX, follows Microsoft style guide principles, and has comprehensive style guidelines.
 
-## Primary Reference Documents
+## Primary reference documents
 
 **Always reference these files when working on documentation**:
 
@@ -18,7 +18,7 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
 2. `CONTRIBUTING.md` - Contribution guidelines, setup, and workflows
 3. `.cursor/rules/*.mdc` - Cursor-specific rules (for reference)
 
-## Available Skills
+## Available skills
 
 Use these skills for specific documentation tasks:
 
@@ -42,7 +42,7 @@ Use these skills for specific documentation tasks:
 **When to use**: Reviewing documentation before submission
 **Handles**: Style guide compliance, quality checks, consistency
 
-## Core Documentation Standards
+## Core documentation standards
 
 ### Language & Style
 
@@ -57,7 +57,7 @@ Use these skills for specific documentation tasks:
 - **Use Oxford commas** in lists
 - **Never make assumptions about product features** - ask if unsure
 
-### Front Matter Requirements
+### Front matter requirements
 
 Every documentation file must include:
 
@@ -75,7 +75,7 @@ slug: /path/to/page
 - File: `/sources/platform/actors/running.md`
 - Slug: `/platform/actors/running`
 
-### Text Formatting Standards
+### Text formatting standards
 
 - **Bold** ONLY for UI elements, buttons, tabs, menu items (e.g., "Click **Save & Run**"). NEVER use bold for emphasis.
 - _Italics_ for emphasis (use sparingly)
@@ -83,7 +83,7 @@ slug: /path/to/page
 - Code blocks MUST specify language: ` ```javascript `, ` ```python `, ` ```bash `
 - **All admonitions MUST have a title** - Available types: `note`, `tip`, `info`, `caution`, `danger`
 
-### Code Examples
+### Code examples
 
 - Include complete, runnable examples
 - Use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) for multiple languages (JavaScript, Python)
@@ -91,7 +91,7 @@ slug: /path/to/page
 - Include comments for complex logic
 - Show realistic, meaningful examples
 
-### Admonition Format
+### Admonition format
 
 **All admonitions MUST include a title:**
 
@@ -128,16 +128,16 @@ Something that could cause issues.
 - Use red indicators for highlighting
 - Store in appropriate directories
 
-## File Organization
+## File organization
 
-### Naming Conventions
+### Naming conventions
 
 - Use **kebab-case** for file names: `web-scraping-basics.md` (never camelCase or snake_case)
 - Use descriptive names that reflect content
 - Group related files in logical directories
 - **Match slug to file path** for consistency
 
-### Directory Structure
+### Directory structure
 
 ```text
 sources/
@@ -150,7 +150,7 @@ sources/
     └── webscraping/   # Web scraping courses
 ```
 
-## API Documentation Specifics
+## API documentation specifics
 
 ### OpenAPI Structure
 
@@ -161,7 +161,7 @@ apify-api/openapi/
 └── paths/                    # API endpoint definitions
 ```
 
-### Operation ID Conventions
+### Operation ID conventions
 
 Format: `{objectName}_{httpMethod}`
 
@@ -171,23 +171,23 @@ Format: `{objectName}_{httpMethod}`
   - `/request-queues` GET → `requestQueues_get`
   - `/request-queues/{queueId}` PUT → `requestQueue_put`
 
-### Path File Naming
+### Path file naming
 
 Replace `/` with `@` in URL paths:
 
 - `/request-queues` → `request-queues.yaml`
 - `/request-queues/{queueId}` → `request-queues@{queueId}.yaml`
 
-## Development Workflow
+## Development workflow
 
-### Before Starting Work
+### Before starting work
 
 1. Read `AGENTS.md` for documentation standards
 2. Review `CONTRIBUTING.md` for specific guidelines
 3. Check existing similar documentation for patterns
 4. Determine which skill to use for the task
 
-### During Development
+### During development
 
 1. Follow the appropriate skill instructions
 2. Reference `AGENTS.md` for style questions
@@ -195,7 +195,7 @@ Replace `/` with `@` in URL paths:
 4. Include complete, tested code examples
 5. Add descriptive links and alt text
 
-### Before Submitting
+### Before submitting
 
 1. Run linting checks:
 
@@ -214,7 +214,7 @@ Replace `/` with `@` in URL paths:
 4. Check all links are valid
 5. Ensure front matter is complete
 
-### Testing Changes
+### Testing changes
 
 ```bash
 npm install          # Install dependencies
@@ -223,9 +223,9 @@ npm test            # Validate OpenAPI specs (if applicable)
 npm run build       # Test production build
 ```
 
-## Common Patterns
+## Common patterns
 
-### Tutorial Structure
+### Tutorial structure
 
 1. Introduction with learning objectives
 2. Prerequisites
@@ -235,7 +235,7 @@ npm run build       # Test production build
 6. Troubleshooting
 7. Summary and next steps
 
-### Platform Documentation
+### Platform documentation
 
 1. Clear description of feature
 2. When to use it
@@ -253,7 +253,7 @@ npm run build       # Test production build
 5. Error responses
 6. Code samples (JavaScript, Python, cURL)
 
-## Quality Checklist
+## Quality checklist
 
 Before considering any documentation complete:
 
@@ -268,9 +268,9 @@ Before considering any documentation complete:
 - [ ] All automated linting passes
 - [ ] Examples tested and working
 
-## Important Notes
+## Important notes
 
-### What NOT to Do
+### What NOT to do
 
 - Don't use Title Case for headings (use sentence case)
 - Don't use gerunds in headings ("Creating" - use "Create" instead)
@@ -286,7 +286,7 @@ Before considering any documentation complete:
 - Don't make assumptions about product features - ask instead
 - Don't use incorrect Apify terminology (see terminology section)
 
-### Best Practices
+### Best practices
 
 - Start with user's goal/problem
 - Provide context before technical details
@@ -303,7 +303,7 @@ Before considering any documentation complete:
 - Never make assumptions about product features - ask if unsure
 - For code review: check comments and obvious mistakes only
 
-## Apify-Specific Terminology
+## Apify-specific terminology
 
 **Always use exact capitalization and phrasing:**
 
@@ -316,13 +316,13 @@ Before considering any documentation complete:
 - **AI agent** (lowercase for generic terms)
 - **MCP server** (lowercase for generic terms)
 
-## Content Review Process
+## Content review process
 
-### Before Reviewing a PR
+### Before reviewing a PR
 
 - Check that the latest changes were pulled from the feature branch
 
-### Review Checklist
+### Review checklist
 
 When reviewing or creating documentation, verify:
 
@@ -333,7 +333,7 @@ When reviewing or creating documentation, verify:
 - **Links**: Verify all links are functional and relevant, link key terms to their docs
 - **Code snippets**: Developer-provided; check comments and obvious mistakes only (not full code review)
 
-## Getting Help
+## Getting help
 
 If you're unsure about:
 
@@ -344,9 +344,9 @@ If you're unsure about:
 - **Review process**: See `/review-docs` skill
 - **Product features**: Never make assumptions - ask if unsure
 
-## Project-Specific Context
+## Project-specific context
 
-### Multiple Repositories
+### Multiple repositories
 
 The full documentation ecosystem includes multiple repos:
 
@@ -367,7 +367,7 @@ Uses `@apify/docs-theme` package - don't modify theme files directly.
 - Preview builds available for pull requests
 - Uses nginx for routing between repositories
 
-### Linting Tools
+### Linting tools
 
 - **markdownlint** - Markdown formatting
 - **eslint** - JavaScript/TypeScript code

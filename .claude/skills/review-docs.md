@@ -14,7 +14,7 @@ Review documentation for compliance with Apify style guide, quality standards, a
 
 - To ensure consistency across documentation
 
-## Context Files
+## Context files
 
 - `AGENTS.md` - Documentation standards
 
@@ -22,15 +22,15 @@ Review documentation for compliance with Apify style guide, quality standards, a
 
 - `.cursor/rules/*.mdc` - Cursor-specific rules
 
-## Review Process
+## Review process
 
-### Before Starting Review
+### Before starting review
 
 **CRITICAL**: Check that the latest changes were pulled from the feature branch
 
-## Review Checklist
+## Review checklist
 
-### 1. Style Guide Compliance
+### 1. Style guide compliance
 
 **Microsoft Style Guide**:
 
@@ -80,7 +80,7 @@ Review documentation for compliance with Apify style guide, quality standards, a
 
 - [ ] **MCP server** (lowercase for generic terms)
 
-### 2. Front Matter Validation
+### 2. Front matter validation
 
 Required fields present and correct:
 
@@ -113,7 +113,7 @@ slug: /actors/development/create  # ✅ Matches file path
 
 ```
 
-### 3. Content Structure
+### 3. Content structure
 
 **Heading Hierarchy**:
 
@@ -135,7 +135,7 @@ slug: /actors/development/create  # ✅ Matches file path
 
 - [ ] Related content linked appropriately
 
-### 4. Code Examples
+### 4. Code examples
 
 **Quality**:
 
@@ -196,7 +196,7 @@ Click [here](link) to learn more.
 
 ```
 
-### 6. Images and Media
+### 6. Images and media
 
 **Screenshots**:
 
@@ -270,7 +270,7 @@ This is a helpful tip.
 
 ```
 
-### 8. Technical Accuracy
+### 8. Technical accuracy
 
 **Validation**:
 
@@ -298,7 +298,7 @@ This is a helpful tip.
 
 - [ ] Sufficient contrast in custom elements
 
-### 10. SEO Optimization
+### 10. SEO optimization
 
 **Elements**:
 
@@ -312,7 +312,7 @@ This is a helpful tip.
 
 - [ ] Proper heading structure
 
-### 11. Formatting Consistency
+### 11. Formatting consistency
 
 **Text Elements**:
 
@@ -338,7 +338,7 @@ This is a helpful tip.
 
 - [ ] Bullets for non-sequential items
 
-### 12. Specific Content Types
+### 12. Specific content types
 
 **For Tutorials**:
 
@@ -376,7 +376,7 @@ This is a helpful tip.
 
 - [ ] Related pages linked
 
-## Review Process
+## Review process
 
 ### Step 1: Automated Checks
 
@@ -396,7 +396,7 @@ Go through each section of the checklist above, noting any issues.
 **Format your review as**:
 
 ```markdown
-## Documentation Review: [File Name]
+## Documentation review: [File Name]
 
 ### ✅ Strengths
 
@@ -430,13 +430,13 @@ Go through each section of the checklist above, noting any issues.
 
 ```
 
-## Common Issues
+## Common issues
 
 ### Issue: Title Case or Gerund Headings
 
 ```markdown
 # ❌ Bad - Title Case
-## How To Create An Actor
+## How to create an Actor
 
 # ❌ Bad - Gerund
 ## Creating an Actor
@@ -544,7 +544,7 @@ Apify Console allows you to manage your Apify Actors.
 
 ```
 
-## Output Format
+## Output format
 
 Provide a structured review using the format above, with:
 
@@ -556,7 +556,7 @@ Provide a structured review using the format above, with:
 
 - Priority ranking of issues
 
-## Quality Standards
+## Quality standards
 
 A document is ready for publication when:
 
