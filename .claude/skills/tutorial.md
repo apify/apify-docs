@@ -134,8 +134,7 @@ const example = "working code";
 <TabItem value="py" label="Python">
 
 ```python
-"""Complete Python example"""
-# Comments explaining key sections
+"""Complete Python example with comments explaining key sections"""
 example = "working code"
 ```
 
