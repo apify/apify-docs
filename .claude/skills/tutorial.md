@@ -122,18 +122,16 @@ Before starting this tutorial, make sure you have:
 
 2. [Second sub-step]
 
-```language
+​```language
 // Code example with comments
 const example = "code";
-
-```
+​```
 
 **Expected result**: [What should happen after this step]
 
 :::tip
 [Helpful tip related to this step]
 :::
-
 ```
 
 ### 5. Code examples section
@@ -162,25 +160,22 @@ Here's the complete code for this tutorial:
 <Tabs>
 <TabItem value="js" label="JavaScript">
 
-```javascript
+​```javascript
 // Complete JavaScript example
 // Comments explaining key sections
 const example = "working code";
-
-```
+​```
 
 </TabItem>
 <TabItem value="py" label="Python">
 
-```python
+​```python
 """Complete Python example with comments explaining key sections"""
 example = "working code"
-
-```
+​```
 
 </TabItem>
 </Tabs>
-
 ```
 
 ### 6. Testing/verification section
@@ -200,14 +195,13 @@ To verify everything works correctly:
 
 **Expected output**:
 
-```text
+​```text
 [What the user should see]
-```
+​```
 
 :::note
 If you see [common error], check [solution].
 :::
-
 ```
 
 ### 7. Troubleshooting section

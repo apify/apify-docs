@@ -1,4 +1,4 @@
-# Claude Code Instructions for Apify Documentation
+# Claude Code instructions for Apify documentation
 
 ## Project overview
 
