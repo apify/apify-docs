@@ -1,8 +1,10 @@
 title: UpdateRequestQueueRequest
+description: Request object for updating a request queue.
 type: object
 properties:
   name:
     type: string
+    description: The new name for the request queue.
   generalAccess:
     $ref: ../common/GeneralAccessEnum.yaml
 example:

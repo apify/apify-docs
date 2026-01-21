@@ -10,69 +10,67 @@ required:
   - stats
   - versions
   - defaultRunOptions
-  - deploymentKey
 type: object
 properties:
   id:
     type: string
-    example: zdc3Pyhyz3m8vjDeM
+    examples: [zdc3Pyhyz3m8vjDeM]
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    examples: [wRsJZtadYvn4mBZmm]
   name:
     type: string
-    example: MyActor
+    examples: [MyActor]
   username:
     type: string
-    example: jane35
+    examples: [jane35]
   description:
-    type: string
-    nullable: true
-    example: My favourite actor!
+    type: [string, "null"]
+    examples: [My favourite actor!]
   restartOnError:
     type: boolean
-    example: false
+    examples: [false]
     deprecated: true # Use defaultRunOptions.restartOnError instead
   isPublic:
     type: boolean
-    example: false
+    examples: [false]
   actorPermissionLevel:
     $ref: ./ActorPermissionLevel.yaml
   createdAt:
     type: string
-    example: '2019-07-08T11:27:57.401Z'
+    format: date-time
+    examples: ["2019-07-08T11:27:57.401Z"]
   modifiedAt:
     type: string
-    example: '2019-07-08T14:01:05.546Z'
+    format: date-time
+    examples: ["2019-07-08T14:01:05.546Z"]
   stats:
     $ref: ./ActorStats.yaml
   versions:
     type: array
     items:
-      $ref: "./Version.yaml"
-    description: ''
+      $ref: ./Version.yaml
+    description: ""
   pricingInfos:
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   defaultRunOptions:
-      $ref: ./DefaultRunOptions.yaml
+    $ref: ./DefaultRunOptions.yaml
   exampleRunInput:
-    oneOf:
-      - nullable: true
+    anyOf:
       - $ref: ./ExampleRunInput.yaml
+      - type: "null"
   isDeprecated:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   deploymentKey:
     type: string
-    example: ssh-rsa AAAA ...
+    examples: [ssh-rsa AAAA ...]
   title:
-    type: string
-    nullable: true
-    example: My Actor
+    type: [string, "null"]
+    examples: [My Actor]
   taggedBuilds:
-    oneOf:
-      - nullable: true
+    anyOf:
       - $ref: ./TaggedBuilds.yaml
+      - type: "null"

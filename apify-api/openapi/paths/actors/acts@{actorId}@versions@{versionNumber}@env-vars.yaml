@@ -22,15 +22,15 @@ get:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetEnvVarListResponse.yaml"
+            $ref: ../../components/schemas/actors/GetEnvVarListResponse.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/get-list-of-environment-variables
@@ -79,20 +79,20 @@ post:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml"
+          $ref: ../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml
         example:
           name: ENV_VAR_NAME
           value: my-env-var
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -104,7 +104,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR

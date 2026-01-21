@@ -1,7 +1,7 @@
 ---
 title: Apify Affiliate Program Terms and Conditions
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.
-sidebar_position: 4
+sidebar_position: 6
 sidebar_label: Affiliate Program Terms
 category: legal
 slug: /affiliate-program-terms-and-conditions

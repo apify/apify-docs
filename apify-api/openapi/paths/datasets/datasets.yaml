@@ -55,8 +55,8 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -73,9 +73,9 @@ get:
                 - id: wkzbqmufyuamgv3yf
                   name: d7b9mdysbtx5l7xaj
                   userId: tbXmWu7GCxnyYtSiL
-                  createdAt: '2019-12-12T07:34:14.202Z'
-                  modifiedAt: '2019-12-13T08:36:13.202Z'
-                  accessedAt: '2019-12-14T08:36:13.202Z'
+                  createdAt: "2019-12-12T07:34:14.202Z"
+                  modifiedAt: "2019-12-13T08:36:13.202Z"
+                  accessedAt: "2019-12-14T08:36:13.202Z"
                   itemCount: 7
                   cleanItemCount: 5
                   actId: null
@@ -83,9 +83,9 @@ get:
                 - id: YiKoxjkaS9gjGTqhF
                   name: eshop-items
                   userId: tbXmWu7GCxnyYtSiL
-                  createdAt: '2019-12-12T07:34:14.202Z'
-                  modifiedAt: '2019-12-13T08:36:13.202Z'
-                  accessedAt: '2019-12-14T08:36:13.202Z'
+                  createdAt: "2019-12-12T07:34:14.202Z"
+                  modifiedAt: "2019-12-13T08:36:13.202Z"
+                  accessedAt: "2019-12-14T08:36:13.202Z"
                   itemCount: 2
                   cleanItemCount: 2
                   actId: null
@@ -122,15 +122,15 @@ post:
         type: string
         example: eshop-items
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF'
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF
       content:
         application/json:
           schema:
@@ -140,9 +140,9 @@ post:
               id: WkzbQMuFYuamGv3YF
               name: d7b9MDYsbtX5L7XAj
               userId: wRsJZtadYvn4mBZmm
-              createdAt: '2019-12-12T07:34:14.202Z'
-              modifiedAt: '2019-12-13T08:36:13.202Z'
-              accessedAt: '2019-12-14T08:36:13.202Z'
+              createdAt: "2019-12-12T07:34:14.202Z"
+              modifiedAt: "2019-12-13T08:36:13.202Z"
+              accessedAt: "2019-12-14T08:36:13.202Z"
               itemCount: 7
               cleanItemCount: 5
               actId: null

@@ -19,8 +19,8 @@ post:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:

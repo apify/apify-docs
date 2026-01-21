@@ -21,8 +21,8 @@ post:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -34,8 +34,8 @@ post:
               actId: HDSasDasz78YcAPEB
               userId: 7sT5jcggjjA9fNcxF
               actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: RUNNING
               statusMessage: Actor is running
               isStatusMessageTerminal: false
@@ -71,7 +71,7 @@ post:
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
               isContainerServerReady: true
               gitBranchName: master
               usage:

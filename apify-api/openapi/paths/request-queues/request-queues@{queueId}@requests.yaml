@@ -48,45 +48,45 @@ get:
         format: double
         example: 100
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/ListRequestsResponse.yaml
+              - $ref: ../../components/schemas/request-queues/GetListOfRequestsResponse.yaml
               - example:
                   data:
                     items:
                       - id: dnjkDMKLmdlkmlkmld
                         retryCount: 0
-                        uniqueKey: 'http://example.com'
-                        url: 'http://example.com'
+                        uniqueKey: "http://example.com"
+                        url: "http://example.com"
                         method: GET
-                        loadedUrl: 'http://example.com/example-1'
+                        loadedUrl: "http://example.com/example-1"
                         payload: null
                         noRetry: false
                         errorMessages: null
                         headers: null
                         userData:
                           label: DETAIL
-                          image: 'https://picserver1.eu'
-                        handledAt: '2019-06-16T10:23:31.607Z'
+                          image: "https://picserver1.eu"
+                        handledAt: "2019-06-16T10:23:31.607Z"
                       - id: dnjkDMKLmdlkmlkmld
                         retryCount: 0
-                        uniqueKey: 'http://example.com'
-                        url: 'http://example.com'
+                        uniqueKey: "http://example.com"
+                        url: "http://example.com"
                         method: GET
-                        loadedUrl: 'http://example.com/example-1'
+                        loadedUrl: "http://example.com/example-1"
                         payload: null
                         noRetry: false
                         errorMessages: null
                         headers: null
                         userData:
                           label: DETAIL
-                          image: 'https://picserver1.eu'
-                        handledAt: '2019-06-16T10:23:31.607Z'
+                          image: "https://picserver1.eu"
+                        handledAt: "2019-06-16T10:23:31.607Z"
                     count: 2
                     limit: 2
                     exclusiveStartId: Ihnsp8YrvJ8102Kj
@@ -95,32 +95,32 @@ get:
               items:
                 - id: dnjkDMKLmdlkmlkmld
                   retryCount: 0
-                  uniqueKey: 'http://example.com'
-                  url: 'http://example.com'
+                  uniqueKey: "http://example.com"
+                  url: "http://example.com"
                   method: GET
-                  loadedUrl: 'http://example.com/example-1'
+                  loadedUrl: "http://example.com/example-1"
                   payload: null
                   noRetry: false
                   errorMessages: null
                   headers: null
                   userData:
                     label: DETAIL
-                    image: 'https://picserver1.eu'
-                  handledAt: '2019-06-16T10:23:31.607Z'
+                    image: "https://picserver1.eu"
+                  handledAt: "2019-06-16T10:23:31.607Z"
                 - id: dnjkDMKLmdlkmlkmld
                   retryCount: 0
-                  uniqueKey: 'http://example.com'
-                  url: 'http://example.com'
+                  uniqueKey: "http://example.com"
+                  url: "http://example.com"
                   method: GET
-                  loadedUrl: 'http://example.com/example-1'
+                  loadedUrl: "http://example.com/example-1"
                   payload: null
                   noRetry: false
                   errorMessages: null
                   headers: null
                   userData:
                     label: DETAIL
-                    image: 'https://picserver1.eu'
-                  handledAt: '2019-06-16T10:23:31.607Z'
+                    image: "https://picserver1.eu"
+                  handledAt: "2019-06-16T10:23:31.607Z"
               count: 2
               limit: 2
               exclusiveStartId: Ihnsp8YrvJ8102Kj
@@ -179,26 +179,26 @@ post:
       explode: true
       schema:
         type: string
-        example: 'false'
+        example: "false"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           allOf:
-            - $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
+            - $ref: ../../components/schemas/request-queues/RequestDraft.yaml
             - example:
-                uniqueKey: 'http://example.com'
-                url: 'http://example.com'
+                uniqueKey: "http://example.com"
+                url: "http://example.com"
                 method: GET
         example:
-          uniqueKey: 'http://example.com'
-          url: 'http://example.com'
+          uniqueKey: "http://example.com"
+          url: "http://example.com"
           method: GET
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:

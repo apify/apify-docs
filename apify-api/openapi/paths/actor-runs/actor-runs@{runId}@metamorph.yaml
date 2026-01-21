@@ -52,8 +52,8 @@ post:
         type: string
         example: beta
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -64,7 +64,7 @@ post:
               id: HG7ML7M8z78YcAPEB
               actId: janedoe~my-actor
               userId: PNWZBd7Z9c746JAnF
-              startedAt: '2019-11-30T07:34:24.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
               finishedAt: null
               status: RUNNING
               statusMessage: Actor is running
@@ -100,12 +100,12 @@ post:
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               metamorphs:
-                - createdAt: '2019-11-30T07:39:24.202Z'
+                - createdAt: "2019-11-30T07:39:24.202Z"
                   actorId: nspoEjklmnsF2oosD
                   buildId: ME6oKecqy5kXDS4KQ
                   inputKey: INPUT-METAMORPH-1
               buildNumber: 0.1.10
-              containerUrl: 'https://hfewsyknno9o.runs.apify.com'
+              containerUrl: "https://hfewsyknno9o.runs.apify.com"
               isContainerServerReady: false
               gitBranchName: master
               usage:

@@ -1,9 +1,8 @@
 title: GetRequestQueueResponse
+description: Response containing the request queue details.
 required:
   - data
 type: object
 properties:
   data:
-    allOf:
-      - $ref: ./RequestQueue.yaml
-      - {}
+    $ref: ./RequestQueue.yaml

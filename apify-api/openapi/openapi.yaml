@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.2
 info:
   title: Apify API
   description: |
@@ -471,149 +471,149 @@ info:
     - `~resourcename` - for this, you need to use an API token, and the
     `resourcename` refers to a resource in the API token owner's account.
   contact: {}
-  version: ''
+  version: ""
 servers:
-  - url: 'https://api.apify.com'
+  - url: "https://api.apify.com"
     variables: {}
 paths:
   /v2/acts:
     $ref: paths/actors/acts.yaml
-  '/v2/acts/{actorId}':
-    $ref: 'paths/actors/acts@{actorId}.yaml'
-  '/v2/acts/{actorId}/versions':
-    $ref: 'paths/actors/acts@{actorId}@versions.yaml'
-  '/v2/acts/{actorId}/versions/{versionNumber}':
-    $ref: 'paths/actors/acts@{actorId}@versions@{versionNumber}.yaml'
-  '/v2/acts/{actorId}/versions/{versionNumber}/env-vars':
-    $ref: 'paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars.yaml'
-  '/v2/acts/{actorId}/versions/{versionNumber}/env-vars/{envVarName}':
-    $ref: 'paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}.yaml'
-  '/v2/acts/{actorId}/webhooks':
-    $ref: 'paths/actors/acts@{actorId}@webhooks.yaml'
-  '/v2/acts/{actorId}/builds':
-    $ref: 'paths/actors/acts@{actorId}@builds.yaml'
-  '/v2/acts/{actorId}/builds/default':
-    $ref: 'paths/actors/acts@{actorId}@builds@default.yaml'
-  '/v2/acts/{actorId}/builds/{buildId}/openapi.json':
-    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@openapi.json.yaml'
-  '/v2/acts/{actorId}/builds/{buildId}':
-    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}.yaml'
-  '/v2/acts/{actorId}/builds/{buildId}/abort':
-    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml'
-  '/v2/acts/{actorId}/runs':
-    $ref: 'paths/actors/acts@{actorId}@runs.yaml'
-  '/v2/acts/{actorId}/run-sync':
-    $ref: 'paths/actors/acts@{actorId}@run-sync.yaml'
-  '/v2/acts/{actorId}/run-sync-get-dataset-items':
-    $ref: 'paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml'
-  '/v2/acts/{actorId}/runs/{runId}/resurrect':
-    $ref: 'paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml'
-  '/v2/acts/{actorId}/runs/last':
-    $ref: 'paths/actors/acts@{actorId}@runs@last.yaml'
-  '/v2/acts/{actorId}/runs/{runId}':
-    $ref: 'paths/actors/acts@{actorId}@runs@{runId}.yaml'
-  '/v2/acts/{actorId}/runs/{runId}/abort':
-    $ref: 'paths/actors/acts@{actorId}@runs@{runId}@abort.yaml'
-  '/v2/acts/{actorId}/runs/{runId}/metamorph':
-    $ref: 'paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml'
+  "/v2/acts/{actorId}":
+    $ref: "paths/actors/acts@{actorId}.yaml"
+  "/v2/acts/{actorId}/versions":
+    $ref: "paths/actors/acts@{actorId}@versions.yaml"
+  "/v2/acts/{actorId}/versions/{versionNumber}":
+    $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}.yaml"
+  "/v2/acts/{actorId}/versions/{versionNumber}/env-vars":
+    $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars.yaml"
+  "/v2/acts/{actorId}/versions/{versionNumber}/env-vars/{envVarName}":
+    $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}.yaml"
+  "/v2/acts/{actorId}/webhooks":
+    $ref: "paths/actors/acts@{actorId}@webhooks.yaml"
+  "/v2/acts/{actorId}/builds":
+    $ref: "paths/actors/acts@{actorId}@builds.yaml"
+  "/v2/acts/{actorId}/builds/default":
+    $ref: "paths/actors/acts@{actorId}@builds@default.yaml"
+  "/v2/acts/{actorId}/builds/{buildId}/openapi.json":
+    $ref: "paths/actors/acts@{actorId}@builds@{buildId}@openapi.json.yaml"
+  "/v2/acts/{actorId}/builds/{buildId}":
+    $ref: "paths/actors/acts@{actorId}@builds@{buildId}.yaml"
+  "/v2/acts/{actorId}/builds/{buildId}/abort":
+    $ref: "paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml"
+  "/v2/acts/{actorId}/runs":
+    $ref: "paths/actors/acts@{actorId}@runs.yaml"
+  "/v2/acts/{actorId}/run-sync":
+    $ref: "paths/actors/acts@{actorId}@run-sync.yaml"
+  "/v2/acts/{actorId}/run-sync-get-dataset-items":
+    $ref: "paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml"
+  "/v2/acts/{actorId}/runs/{runId}/resurrect":
+    $ref: "paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml"
+  "/v2/acts/{actorId}/runs/last":
+    $ref: "paths/actors/acts@{actorId}@runs@last.yaml"
+  "/v2/acts/{actorId}/runs/{runId}":
+    $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
+  "/v2/acts/{actorId}/runs/{runId}/abort":
+    $ref: "paths/actors/acts@{actorId}@runs@{runId}@abort.yaml"
+  "/v2/acts/{actorId}/runs/{runId}/metamorph":
+    $ref: "paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml"
   /v2/actor-tasks:
-    $ref: 'paths/actor-tasks/actor-tasks.yaml'
-  '/v2/actor-tasks/{actorTaskId}':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}.yaml'
-  '/v2/actor-tasks/{actorTaskId}/input':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@input.yaml'
-  '/v2/actor-tasks/{actorTaskId}/webhooks':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@webhooks.yaml'
-  '/v2/actor-tasks/{actorTaskId}/runs':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@runs.yaml'
-  '/v2/actor-tasks/{actorTaskId}/run-sync':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync.yaml'
-  '/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync-get-dataset-items.yaml'
-  '/v2/actor-tasks/{actorTaskId}/runs/last':
-    $ref: 'paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml'
+    $ref: paths/actor-tasks/actor-tasks.yaml
+  "/v2/actor-tasks/{actorTaskId}":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}.yaml"
+  "/v2/actor-tasks/{actorTaskId}/input":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@input.yaml"
+  "/v2/actor-tasks/{actorTaskId}/webhooks":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@webhooks.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs.yaml"
+  "/v2/actor-tasks/{actorTaskId}/run-sync":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync.yaml"
+  "/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync-get-dataset-items.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml"
   /v2/actor-runs:
     $ref: paths/actor-runs/actor-runs.yaml
-  '/v2/actor-runs/{runId}':
+  "/v2/actor-runs/{runId}":
     $ref: paths/actor-runs/actor-runs@{runId}.yaml
-  '/v2/actor-runs/{runId}/abort':
+  "/v2/actor-runs/{runId}/abort":
     $ref: paths/actor-runs/actor-runs@{runId}@abort.yaml
-  '/v2/actor-runs/{runId}/metamorph':
+  "/v2/actor-runs/{runId}/metamorph":
     $ref: paths/actor-runs/actor-runs@{runId}@metamorph.yaml
-  '/v2/actor-runs/{runId}/reboot':
+  "/v2/actor-runs/{runId}/reboot":
     $ref: paths/actor-runs/actor-runs@{runId}@reboot.yaml
-  '/v2/actor-runs/{runId}/resurrect':
+  "/v2/actor-runs/{runId}/resurrect":
     $ref: paths/actor-runs/actor-runs@{runId}@resurrect.yaml
-  '/v2/actor-runs/{runId}/charge':
+  "/v2/actor-runs/{runId}/charge":
     $ref: paths/actor-runs/actor-runs@{runId}@charge.yaml
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
-  '/v2/actor-builds/{buildId}':
-    $ref: 'paths/actor-builds/actor-builds@{buildId}.yaml'
-  '/v2/actor-builds/{buildId}/abort':
-    $ref: 'paths/actor-builds/actor-builds@{buildId}@abort.yaml'
-  '/v2/actor-builds/{buildId}/log':
-    $ref: 'paths/actor-builds/actor-builds@{buildId}@log.yaml'
-  '/v2/actor-builds/{buildId}/openapi.json':
-    $ref: 'paths/actor-builds/actor-builds@{buildId}@openapi.json.yaml'
+  "/v2/actor-builds/{buildId}":
+    $ref: "paths/actor-builds/actor-builds@{buildId}.yaml"
+  "/v2/actor-builds/{buildId}/abort":
+    $ref: "paths/actor-builds/actor-builds@{buildId}@abort.yaml"
+  "/v2/actor-builds/{buildId}/log":
+    $ref: "paths/actor-builds/actor-builds@{buildId}@log.yaml"
+  "/v2/actor-builds/{buildId}/openapi.json":
+    $ref: "paths/actor-builds/actor-builds@{buildId}@openapi.json.yaml"
   /v2/key-value-stores:
     $ref: paths/key-value-stores/key-value-stores.yaml
-  '/v2/key-value-stores/{storeId}':
-    $ref: 'paths/key-value-stores/key-value-stores@{storeId}.yaml'
-  '/v2/key-value-stores/{storeId}/keys':
-    $ref: 'paths/key-value-stores/key-value-stores@{storeId}@keys.yaml'
-  '/v2/key-value-stores/{storeId}/records/{recordKey}':
-    $ref: 'paths/key-value-stores/key-value-stores@{storeId}@records@{recordKey}.yaml'
+  "/v2/key-value-stores/{storeId}":
+    $ref: "paths/key-value-stores/key-value-stores@{storeId}.yaml"
+  "/v2/key-value-stores/{storeId}/keys":
+    $ref: "paths/key-value-stores/key-value-stores@{storeId}@keys.yaml"
+  "/v2/key-value-stores/{storeId}/records/{recordKey}":
+    $ref: "paths/key-value-stores/key-value-stores@{storeId}@records@{recordKey}.yaml"
   /v2/datasets:
     $ref: paths/datasets/datasets.yaml
-  '/v2/datasets/{datasetId}':
-    $ref: 'paths/datasets/datasets@{datasetId}.yaml'
-  '/v2/datasets/{datasetId}/items':
-    $ref: 'paths/datasets/datasets@{datasetId}@items.yaml'
-  '/v2/datasets/{datasetId}/statistics':
-    $ref: 'paths/datasets/datasets@{datasetId}@statistics.yaml'
+  "/v2/datasets/{datasetId}":
+    $ref: "paths/datasets/datasets@{datasetId}.yaml"
+  "/v2/datasets/{datasetId}/items":
+    $ref: "paths/datasets/datasets@{datasetId}@items.yaml"
+  "/v2/datasets/{datasetId}/statistics":
+    $ref: "paths/datasets/datasets@{datasetId}@statistics.yaml"
   /v2/request-queues:
     $ref: paths/request-queues/request-queues.yaml
-  '/v2/request-queues/{queueId}':
-    $ref: 'paths/request-queues/request-queues@{queueId}.yaml'
-  '/v2/request-queues/{queueId}/requests/batch':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@batch.yaml'
-  '/v2/request-queues/{queueId}/requests/unlock':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@unlock.yaml'
-  '/v2/request-queues/{queueId}/requests':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests.yaml'
-  '/v2/request-queues/{queueId}/requests/{requestId}':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}.yaml'
-  '/v2/request-queues/{queueId}/head':
-    $ref: 'paths/request-queues/request-queues@{queueId}@head.yaml'
-  '/v2/request-queues/{queueId}/head/lock':
-    $ref: 'paths/request-queues/request-queues@{queueId}@head@lock.yaml'
-  '/v2/request-queues/{queueId}/requests/{requestId}/lock':
-    $ref: 'paths/request-queues/request-queues@{queueId}@requests@{requestId}@lock.yaml'
+  "/v2/request-queues/{queueId}":
+    $ref: "paths/request-queues/request-queues@{queueId}.yaml"
+  "/v2/request-queues/{queueId}/requests/batch":
+    $ref: "paths/request-queues/request-queues@{queueId}@requests@batch.yaml"
+  "/v2/request-queues/{queueId}/requests/unlock":
+    $ref: "paths/request-queues/request-queues@{queueId}@requests@unlock.yaml"
+  "/v2/request-queues/{queueId}/requests":
+    $ref: "paths/request-queues/request-queues@{queueId}@requests.yaml"
+  "/v2/request-queues/{queueId}/requests/{requestId}":
+    $ref: "paths/request-queues/request-queues@{queueId}@requests@{requestId}.yaml"
+  "/v2/request-queues/{queueId}/head":
+    $ref: "paths/request-queues/request-queues@{queueId}@head.yaml"
+  "/v2/request-queues/{queueId}/head/lock":
+    $ref: "paths/request-queues/request-queues@{queueId}@head@lock.yaml"
+  "/v2/request-queues/{queueId}/requests/{requestId}/lock":
+    $ref: "paths/request-queues/request-queues@{queueId}@requests@{requestId}@lock.yaml"
   /v2/webhooks:
     $ref: paths/webhooks/webhooks.yaml
-  '/v2/webhooks/{webhookId}':
-    $ref: 'paths/webhooks/webhooks@{webhookId}.yaml'
-  '/v2/webhooks/{webhookId}/test':
-    $ref: 'paths/webhooks/webhooks@{webhookId}@test.yaml'
-  '/v2/webhooks/{webhookId}/dispatches':
-    $ref: 'paths/webhooks/webhooks@{webhookId}@dispatches.yaml'
+  "/v2/webhooks/{webhookId}":
+    $ref: "paths/webhooks/webhooks@{webhookId}.yaml"
+  "/v2/webhooks/{webhookId}/test":
+    $ref: "paths/webhooks/webhooks@{webhookId}@test.yaml"
+  "/v2/webhooks/{webhookId}/dispatches":
+    $ref: "paths/webhooks/webhooks@{webhookId}@dispatches.yaml"
   /v2/webhook-dispatches:
-    $ref: 'paths/webhook-dispatches/webhook-dispatches.yaml'
-  '/v2/webhook-dispatches/{dispatchId}':
-    $ref: 'paths/webhook-dispatches/webhook-dispatches@{dispatchId}.yaml'
+    $ref: paths/webhook-dispatches/webhook-dispatches.yaml
+  "/v2/webhook-dispatches/{dispatchId}":
+    $ref: "paths/webhook-dispatches/webhook-dispatches@{dispatchId}.yaml"
   /v2/schedules:
-    $ref: 'paths/schedules/schedules.yaml'
-  '/v2/schedules/{scheduleId}':
-    $ref: 'paths/schedules/schedules@{scheduleId}.yaml'
-  '/v2/schedules/{scheduleId}/log':
-    $ref: 'paths/schedules/schedules@{scheduleId}@log.yaml'
+    $ref: paths/schedules/schedules.yaml
+  "/v2/schedules/{scheduleId}":
+    $ref: "paths/schedules/schedules@{scheduleId}.yaml"
+  "/v2/schedules/{scheduleId}/log":
+    $ref: "paths/schedules/schedules@{scheduleId}@log.yaml"
   /v2/store:
     $ref: paths/store/store.yaml
-  '/v2/logs/{buildOrRunId}':
-    $ref: 'paths/logs/logs@{buildOrRunId}.yaml'
-  '/v2/users/{userId}':
-    $ref: 'paths/users/users@{userId}.yaml'
+  "/v2/logs/{buildOrRunId}":
+    $ref: "paths/logs/logs@{buildOrRunId}.yaml"
+  "/v2/users/{userId}":
+    $ref: "paths/users/users@{userId}.yaml"
   /v2/users/me:
     $ref: paths/users/users@me.yaml
   /v2/users/me/usage/monthly:
@@ -633,5 +633,3 @@ tags:
   $ref: components/tags.yaml
 x-tagGroups:
   $ref: components/x-tag-groups.yaml
-
-

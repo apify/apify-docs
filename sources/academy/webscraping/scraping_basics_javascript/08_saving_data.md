@@ -5,7 +5,9 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/saving-data
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
+import ProcessProductsJsonExercise from '!!raw-loader!roa-loader!./exercises/process_products_json.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -110,7 +112,7 @@ $ node index.js
 
 ## Saving data as JSON
 
-The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of JavaScript objects, but people now use it accross programming languages.
+The JSON format is popular primarily among developers. We use it for storing data, configuration files, or as a way to transfer data between programs (e.g., APIs). Its origin stems from the syntax of JavaScript objects, but people now use it across programming languages.
 
 We'll begin with importing the `writeFile` function from the Node.js standard library, so that we can, well, write files:
 
@@ -209,17 +211,7 @@ Write a new Node.js program that reads the `products.json` file we created in th
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import { readFile } from "fs/promises";
-
-  const jsonData = await readFile("products.json");
-  const data = JSON.parse(jsonData);
-  data
-    .filter(row => row.minPrice > 50000)
-    .forEach(row => console.log(row));
-  ```
-
+  <CodeBlock language="js">{ProcessProductsJsonExercise.code}</CodeBlock>
 </details>
 
 ### Process your CSV

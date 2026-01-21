@@ -2,32 +2,25 @@ title: ScheduleCreate
 type: object
 properties:
   name:
-    type: string
-    nullable: true
-    example: my-schedule
+    type: [string, "null"]
+    examples: [my-schedule]
   isEnabled:
-    type: boolean
-    nullable: true
-    example: true
+    type: [boolean, "null"]
+    examples: [true]
   isExclusive:
-    type: boolean
-    nullable: true
-    example: true
+    type: [boolean, "null"]
+    examples: [true]
   cronExpression:
-    type: string
-    nullable: true
-    example: '* * * * *'
+    type: [string, "null"]
+    examples: ["* * * * *"]
   timezone:
-    type: string
-    nullable: true
-    example: UTC
+    type: [string, "null"]
+    examples: [UTC]
   description:
-    type: string
-    nullable: true
-    example: Schedule of actor ...
+    type: [string, "null"]
+    examples: [Schedule of actor ...]
   actions:
-    type: array
+    type: [array, "null"]
     items:
       $ref: ./ScheduleCreateActions.yaml
-    description: ''
-    nullable: true
+    description: ""

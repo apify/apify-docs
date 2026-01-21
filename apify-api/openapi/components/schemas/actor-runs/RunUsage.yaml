@@ -2,50 +2,38 @@ title: RunUsage
 type: object
 properties:
   ACTOR_COMPUTE_UNITS:
-    type: number
-    nullable: true
-    example: 3
+    type: [number, "null"]
+    examples: [3]
   DATASET_READS:
-    type: number
-    nullable: true
-    example: 4
+    type: [integer, "null"]
+    examples: [4]
   DATASET_WRITES:
-    type: number
-    nullable: true
-    example: 4
+    type: [integer, "null"]
+    examples: [4]
   KEY_VALUE_STORE_READS:
-    type: number
-    nullable: true
-    example: 5
+    type: [integer, "null"]
+    examples: [5]
   KEY_VALUE_STORE_WRITES:
-    type: number
-    nullable: true
-    example: 3
+    type: [integer, "null"]
+    examples: [3]
   KEY_VALUE_STORE_LISTS:
-    type: number
-    nullable: true
-    example: 5
+    type: [integer, "null"]
+    examples: [5]
   REQUEST_QUEUE_READS:
-    type: number
-    nullable: true
-    example: 2
+    type: [integer, "null"]
+    examples: [2]
   REQUEST_QUEUE_WRITES:
-    type: number
-    nullable: true
-    example: 1
+    type: [integer, "null"]
+    examples: [1]
   DATA_TRANSFER_INTERNAL_GBYTES:
-    type: number
-    nullable: true
-    example: 1
+    type: [number, "null"]
+    examples: [1]
   DATA_TRANSFER_EXTERNAL_GBYTES?:
-    type: number
-    nullable: true
-    example: 3
+    type: [number, "null"]
+    examples: [3]
   PROXY_RESIDENTIAL_TRANSFER_GBYTES:
-    type: number
-    nullable: true
-    example: 34
+    type: [number, "null"]
+    examples: [34]
   PROXY_SERPS:
-    type: number
-    nullable: true
-    example: 3
+    type: [integer, "null"]
+    examples: [3]

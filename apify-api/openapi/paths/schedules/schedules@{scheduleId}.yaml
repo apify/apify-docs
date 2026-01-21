@@ -14,8 +14,8 @@ get:
         type: string
         example: asdLZtadYvn4mBZmm
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -61,15 +61,15 @@ put:
         type: string
         example: asdLZtadYvn4mBZmm
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -102,8 +102,8 @@ delete:
         type: string
         example: asdLZtadYvn4mBZmm
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:

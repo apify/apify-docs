@@ -1,10 +1,10 @@
 title: Run
+description: Represents an Actor run and its associated data.
 required:
   - id
   - actId
   - userId
   - startedAt
-  - finishedAt
   - status
   - meta
   - stats
@@ -13,98 +13,117 @@ required:
   - defaultKeyValueStoreId
   - defaultDatasetId
   - defaultRequestQueueId
-  - buildNumber
-  - containerUrl
   - generalAccess
 type: object
 properties:
   id:
     type: string
-    example: HG7ML7M8z78YcAPEB
+    examples: [HG7ML7M8z78YcAPEB]
+    description: Unique identifier of the Actor run.
   actId:
     type: string
-    example: HDSasDasz78YcAPEB
+    examples: [HDSasDasz78YcAPEB]
+    description: ID of the Actor that was run.
   userId:
     type: string
-    example: 7sT5jcggjjA9fNcxF
+    examples: [7sT5jcggjjA9fNcxF]
+    description: ID of the user who started the run.
   actorTaskId:
-    type: string
-    nullable: true
-    example: KJHSKHausidyaJKHs
+    type: [string, "null"]
+    examples: [KJHSKHausidyaJKHs]
+    description: ID of the Actor task, if the run was started from a task.
   startedAt:
     type: string
-    example: '2019-11-30T07:34:24.202Z'
+    format: date-time
+    examples: ["2019-11-30T07:34:24.202Z"]
+    description: Time when the Actor run started.
   finishedAt:
     type: string
-    example: '2019-12-12T09:30:12.202Z'
+    format: date-time
+    examples: ["2019-12-12T09:30:12.202Z"]
+    description: Time when the Actor run finished.
   status:
-    type: string
-    example: RUNNING
+    description: Current status of the Actor run.
+    $ref: ../common/ActorJobStatus.yaml
   statusMessage:
-    type: string
-    nullable: true
-    example: Actor is running
+    type: [string, "null"]
+    examples: [Actor is running]
+    description: Detailed message about the run status.
   isStatusMessageTerminal:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
+    description: Whether the status message is terminal (final).
   meta:
+    description: Metadata about the Actor run.
     $ref: ./RunMeta.yaml
   pricingInfo:
+    description: Pricing information for the Actor.
     $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   stats:
+    description: Statistics of the Actor run.
     $ref: ./RunStats.yaml
   chargedEventCounts:
+    description: A map of charged event types to their counts. The keys are event type identifiers defined by the Actor's pricing model (pay-per-event), and the values are the number of times each event was charged during this run.
     type: object
     additionalProperties:
-      $ref: ../actor-pricing-info/ActorChargeEvent.yaml
+      type: integer
+    example:
+      actor-start: 1
+      page-crawled: 150
+      data-extracted: 75
   options:
+    description: Configuration options for the Actor run.
     $ref: ./RunOptions.yaml
   buildId:
     type: string
-    example: 7sT5jcggjjA9fNcxF
+    examples: [7sT5jcggjjA9fNcxF]
+    description: ID of the Actor build used for this run.
   exitCode:
-    type: number
-    nullable: true
-    example: 0
+    type: [integer, "null"]
+    examples: [0]
+    description: Exit code of the Actor run process.
   generalAccess:
+    description: General access level for the Actor run.
     $ref: ../common/GeneralAccessEnum.yaml
   defaultKeyValueStoreId:
     type: string
-    example: eJNzqsbPiopwJcgGQ
+    examples: [eJNzqsbPiopwJcgGQ]
+    description: ID of the default key-value store for this run.
   defaultDatasetId:
     type: string
-    example: wmKPijuyDnPZAPRMk
+    examples: [wmKPijuyDnPZAPRMk]
+    description: ID of the default dataset for this run.
   defaultRequestQueueId:
     type: string
-    example: FL35cSF7jrxr3BY39
+    examples: [FL35cSF7jrxr3BY39]
+    description: ID of the default request queue for this run.
   buildNumber:
     type: string
-    example: 0.0.36
+    examples: [0.0.36]
+    description: Build number of the Actor build used for this run.
   containerUrl:
     type: string
-    example: 'https://g8kd8kbc5ge8.runs.apify.net'
+    examples: ["https://g8kd8kbc5ge8.runs.apify.net"]
+    description: URL of the container running the Actor.
   isContainerServerReady:
-    type: boolean
-    nullable: true
-    example: true
+    type: [boolean, "null"]
+    examples: [true]
+    description: Whether the container's HTTP server is ready to accept requests.
   gitBranchName:
-    type: string
-    nullable: true
-    example: master
+    type: [string, "null"]
+    examples: [master]
+    description: Name of the git branch used for the Actor build.
   usage:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./RunUsage.yaml
-      - {}
+    description: Resource usage statistics for the run.
+    anyOf:
+      - $ref: ./RunUsage.yaml
+      - type: "null"
   usageTotalUsd:
-    type: number
-    nullable: true
-    example: 0.2654
+    type: [number, "null"]
+    examples: [0.2654]
+    description: Total cost of the run in USD.
   usageUsd:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./RunUsage.yaml
-      - {}
+    description: Resource usage costs in USD.
+    anyOf:
+      - $ref: ./RunUsageUsd.yaml
+      - type: "null"

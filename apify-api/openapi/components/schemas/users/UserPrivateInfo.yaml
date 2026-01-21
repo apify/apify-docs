@@ -13,24 +13,25 @@ type: object
 properties:
   id:
     type: string
-    example: YiKoxjkaS9gjGTqhF
+    examples: [YiKoxjkaS9gjGTqhF]
   username:
     type: string
-    example: myusername
+    examples: [myusername]
   profile:
     $ref: ./Profile.yaml
   email:
     type: string
-    example: bob@example.com
+    examples: [bob@example.com]
   proxy:
     $ref: ./Proxy.yaml
   plan:
     $ref: ./Plan.yaml
   effectivePlatformFeatures:
-    $ref: ./EffectivePlatformFeatures.yaml 
+    $ref: ./EffectivePlatformFeatures.yaml
   createdAt:
     type: string
-    example: "2022-11-29T14:48:29.381Z"
+    format: date-time
+    examples: ["2022-11-29T14:48:29.381Z"]
   isPaying:
     type: boolean
-    example: true
+    examples: [true]

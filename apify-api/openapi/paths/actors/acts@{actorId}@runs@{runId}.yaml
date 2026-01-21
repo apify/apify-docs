@@ -47,8 +47,8 @@ get:
         format: double
         example: 60
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -60,8 +60,8 @@ get:
               actId: HDSasDasz78YcAPEB
               userId: 7sT5jcggjjA9fNcxF
               actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: RUNNING
               statusMessage: Actor is running
               isStatusMessageTerminal: false
@@ -97,7 +97,7 @@ get:
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
               isContainerServerReady: true
               gitBranchName: master
               usage:

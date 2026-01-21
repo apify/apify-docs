@@ -1,4 +1,5 @@
 title: RequestQueueShort
+description: A shortened request queue object for list responses.
 required:
   - id
   - name
@@ -16,43 +17,59 @@ type: object
 properties:
   id:
     type: string
-    example: WkzbQMuFYuamGv3YF
+    description: A unique identifier assigned to the request queue.
+    examples: [WkzbQMuFYuamGv3YF]
   name:
     type: string
-    example: some-name
+    description: The name of the request queue.
+    examples: [some-name]
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    description: The ID of the user who owns the request queue.
+    examples: [wRsJZtadYvn4mBZmm]
   username:
     type: string
-    example: janedoe
+    description: The username of the user who owns the request queue.
+    examples: [janedoe]
   createdAt:
     type: string
-    example: '2019-12-12T07:34:14.202Z'
+    format: date-time
+    description: The timestamp when the request queue was created.
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
-    example: '2019-12-13T08:36:13.202Z'
+    format: date-time
+    description: The timestamp when the request queue was last modified.
+    examples: ["2019-12-13T08:36:13.202Z"]
   accessedAt:
     type: string
-    example: '2019-12-14T08:36:13.202Z'
+    format: date-time
+    description: The timestamp when the request queue was last accessed.
+    examples: ["2019-12-14T08:36:13.202Z"]
   expireAt:
     type: string
-    example: '2019-06-02T17:15:06.751Z'
+    format: date-time
+    description: The timestamp when the request queue will expire and be deleted.
+    examples: ["2019-06-02T17:15:06.751Z"]
   totalRequestCount:
-    type: number
-    example: 100
+    type: integer
+    description: The total number of requests in the request queue.
+    examples: [100]
   handledRequestCount:
-    type: number
-    example: 50
+    type: integer
+    description: The number of requests that have been handled.
+    examples: [50]
   pendingRequestCount:
-    type: number
-    example: 50
+    type: integer
+    description: The number of requests that are pending and have not been handled yet.
+    examples: [50]
   actId:
-    type: string
-    nullable: true
+    type: [string, "null"]
+    description: The ID of the Actor that created this request queue.
   actRunId:
-    type: string
-    nullable: true
+    type: [string, "null"]
+    description: The ID of the Actor run that created this request queue.
   hadMultipleClients:
     type: boolean
-    example: true
+    description: Whether the request queue has been accessed by multiple different clients.
+    examples: [true]

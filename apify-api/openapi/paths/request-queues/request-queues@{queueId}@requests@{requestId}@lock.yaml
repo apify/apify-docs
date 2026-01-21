@@ -55,10 +55,10 @@ put:
       explode: true
       schema:
         type: string
-        example: 'false'
+        example: "false"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -67,10 +67,10 @@ put:
               - $ref: ../../components/schemas/request-queues/ProlongRequestLockResponse.yaml
               - example:
                   data:
-                    lockExpiresAt: '2022-01-01T00:00:00.000Z'
+                    lockExpiresAt: "2022-01-01T00:00:00.000Z"
           example:
             data:
-              lockExpiresAt: '2022-01-01T00:00:00.000Z'
+              lockExpiresAt: "2022-01-01T00:00:00.000Z"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/prolong-request-lock
@@ -110,7 +110,7 @@ delete:
         example: xpsmkDlspokDSmklS
     - name: Content-Type
       in: header
-      description: ''
+      description: ""
       required: true
       style: simple
       schema:
@@ -139,10 +139,10 @@ delete:
       explode: true
       schema:
         type: string
-        example: 'false'
+        example: "false"
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
   deprecated: false

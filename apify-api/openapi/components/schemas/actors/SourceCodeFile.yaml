@@ -1,0 +1,19 @@
+title: SourceCodeFile
+type: object
+required:
+  - format
+  - content
+  - name
+properties:
+  format:
+    type: string
+    enum:
+      - BASE64
+      - TEXT
+    examples: [TEXT]
+  content:
+    type: string
+    examples: ["console.log('This is the main.js file');"]
+  name:
+    type: string
+    examples: [src/main.js]

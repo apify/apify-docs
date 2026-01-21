@@ -6,7 +6,8 @@ type: object
 properties:
   status:
     type: string
-    example: SUCCEEDED
+    examples: [SUCCEEDED]
   finishedAt:
     type: string
-    example: '2019-12-13T08:36:13.202Z'
+    format: date-time
+    examples: ["2019-12-13T08:36:13.202Z"]

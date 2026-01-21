@@ -6,45 +6,36 @@ required:
 type: object
 properties:
   isAdHoc:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   eventTypes:
     type: array
     items:
-      type: string
-    example:
-      - ACTOR.RUN.SUCCEEDED
+      $ref: ./WebhookEventType.yaml
+    examples: [ACTOR.RUN.SUCCEEDED]
   condition:
     $ref: ./WebhookCondition.yaml
   idempotencyKey:
-    type: string
-    nullable: true
-    example: fdSJmdP3nfs7sfk3y
+    type: [string, "null"]
+    examples: [fdSJmdP3nfs7sfk3y]
   ignoreSslErrors:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   doNotRetry:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   requestUrl:
     type: string
-    example: 'http://example.com/'
+    examples: ["http://example.com/"]
   payloadTemplate:
-    type: string
-    nullable: true
-    example: '{\n \"userId\": {{userId}}...'
+    type: [string, "null"]
+    examples: ['{\n "userId": {{userId}}...']
   headersTemplate:
-    type: string
-    nullable: true
-    example: '{\n \"Authorization\": Bearer...'
+    type: [string, "null"]
+    examples: ['{\n "Authorization": "Bearer ..."}']
   description:
-    type: string
-    nullable: true
-    example: this is webhook description
+    type: [string, "null"]
+    examples: [this is webhook description]
   shouldInterpolateStrings:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
