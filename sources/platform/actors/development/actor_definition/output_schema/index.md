@@ -100,7 +100,7 @@ Templates allow you to dynamically generate URLs that point to your Actor's outp
 
 ### Template syntax
 
-Templates use Mustache-style double curly braces `{{variable}}` for variable interpolation. For example:
+Templates use double curly braces `{{variable}}` for variable interpolation. For example:
 
 - `{{links.apiDefaultDatasetUrl}}/items` becomes `https://api.apify.com/v2/datasets/<dataset-id>/items`
 - `{{run.containerUrl}}` becomes `https://<container-id>.runs.apify.net/`
@@ -112,7 +112,7 @@ You can access nested properties using dot notation (e.g., `{{run.defaultDataset
 The generated URLs from your templates appear in two places:
 
 1. Apify Console: In the **Output** tab of your Actor run
-2. API Response: In the `output` property when calling the GET Run endpoint
+2. API response: In the `output` property when calling the GET Run endpoint
 
 The examples below demonstrate various template patterns and their results in both the Console and API.
 
