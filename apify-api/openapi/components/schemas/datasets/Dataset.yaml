@@ -33,9 +33,11 @@ properties:
     examples: ["2019-12-14T08:36:13.202Z"]
   itemCount:
     type: integer
+    minimum: 0
     examples: [7]
   cleanItemCount:
     type: integer
+    minimum: 0
     examples: [5]
   actId:
     type: [string, "null"]
@@ -66,9 +68,11 @@ properties:
                 format: link
   consoleUrl:
     type: string
+    format: uri
     examples: ["https://console.apify.com/storage/datasets/27TmTznX9YPeAYhkC"]
   itemsPublicUrl:
     type: string
+    format: uri
     description: A public link to access the dataset items directly.
     examples: ["https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items?signature=abc123"]
   urlSigningSecretKey:

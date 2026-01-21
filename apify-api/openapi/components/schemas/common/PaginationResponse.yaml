@@ -11,14 +11,17 @@ properties:
   total:
     type: integer
     description: The total number of items available across all pages.
+    minimum: 0
     examples: [2]
   offset:
     type: integer
     description: The starting position for this page of results.
+    minimum: 0
     examples: [0]
   limit:
     type: integer
     description: The maximum number of items returned per page.
+    minimum: 1
     examples: [1000]
   desc:
     type: boolean
@@ -27,4 +30,5 @@ properties:
   count:
     type: integer
     description: The number of items returned in this response.
+    minimum: 0
     examples: [2]

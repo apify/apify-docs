@@ -48,3 +48,4 @@ properties:
       - type: "null"
   standbyUrl:
     type: [string, "null"]
+    format: uri
