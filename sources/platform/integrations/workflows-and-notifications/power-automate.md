@@ -10,20 +10,20 @@ slug: /integrations/microsoft-power-automate
 
 ---
 
-[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
+[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run _Apify Actors_ inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Key capabilities
 
 ### Triggers
-- **Actor Run Finished:** Start a flow when an Actor completes.
-- **Actor Task Finished:** Start a flow when a Task completes.
+- **Actor run finished:** Start a flow when an Actor completes.
+- **Actor task finished:** Start a flow when a task completes.
 
 ### Actions
 - **Run Actor:** Execute any Apify Actor with custom inputs.
-- **Run Task:** Execute a saved Actor Task.
-- **Get Dataset Items:** Retrieve scraped data from datasets with dynamic schema support.
-- **Get Key-Value Store Record:** Fetch stored data (e.g., screenshots, JSON state).
-- **Scrape Single URL:** Quick single-page scraping using the Web Scraper Actor.
+- **Run task:** Execute a saved Actor task.
+- **Get dataset items:** Retrieve scraped data from datasets with dynamic schema support.
+- **Get key-value store record:** Fetch stored data (e.g., screenshots, JSON state).
+- **Scrape single URL:** Quick single-page scraping using the Web Scraper Actor.
 
 ## Get started
 
@@ -32,15 +32,15 @@ To use the Apify integration with Power Automate, you will need:
 - An [Apify account](https://console.apify.com/)
 - A [Power Automate account](https://powerautomate.microsoft.com/)
 
-## Install the Apify Connector
+## Install the Apify connector
 
-You can use the Apify Connector directly within Microsoft Power Automate.
+You can use the Apify connector directly within Microsoft Power Automate.
 
 1. Log in to your Power Automate account.
 1. Navigate to the **Connectors** tab on the sidebar to view the connector page.
-  - If you don't see the **Connectors** tab, click **More** in the sidebar.
-  - Find **Connectors** in the list and click the **Pin** icon to pin it to your sidebar for easy access.
-  - ![Pin Connectors tab in Power Automate](../images/power-automate/pin_connectors_tab.png)
+   - If you don't see the **Connectors** tab, click **More** in the sidebar.
+   - Find **Connectors** in the list and click the **Pin** icon to pin it to your sidebar for easy access.
+   ![Pin Connectors tab in Power Automate](../images/power-automate/pin_connectors_tab.png)
 1. Open the **Connectors** tab and search for **Apify**.
 1. Select the **Apify** connector from the search results.
 1. A page with connector info will show up, displaying all available triggers and flows (actions) you can use right away for your automation projects.
@@ -56,7 +56,7 @@ Before using the Apify connector in flows, create a connection in Power Automate
 
 ### Choose authentication type
 
-The Apify Connector supports **OAuth 2.0** authentication.
+The Apify connector supports **OAuth 2.0** authentication.
 
 #### Authenticate with OAuth 2.0
 
@@ -68,7 +68,7 @@ The Apify Connector supports **OAuth 2.0** authentication.
      - `full_api_access`: To run Actors, tasks, access datasets, and manage webhooks.
      ![OAuth authorization screen](../images/power-automate/oauth2_login.png)
 1. Once authorized, you will be redirected back to Power Automate, and the connection will be ready to use.
-  - ![Success screen](../images/power-automate/created_connection.png)
+   ![Success screen](../images/power-automate/created_connection.png)
 
 :::info Integration Platform Header
 
@@ -86,24 +86,24 @@ The connector provides user-friendly ways to select resources and provide inputs
 
 ### Pick lists and selection methods
 
-Most actions allow you to select resources (Actors, Tasks, Datasets, etc.) from dynamic dropdown lists populated from your Apify account.
+Most actions allow you to select resources (Actors, tasks, datasets, etc.) from dynamic dropdown lists populated from your Apify account.
 
 - **Recently used Actors**: Shows Actors you have used recently.
-- **From store**: Allows you to select from popular Actors in the Apify Store.
-- **My Tasks**: Lists your saved Actor tasks.
+- **From store**: Allows you to select from popular Actors in the Apify store.
+- **My tasks**: Lists your saved Actor tasks.
 
 ![Dropdown selection of Actors](../images/power-automate/actor_dropdown_selection.png)
 
 ### Input types
 
-When configuring an Actor or Task run, you can provide input in JSON format.
+When configuring an Actor or task run, you can provide input in JSON format.
 
 - **Input Body**: For "Run Actor", provide the full JSON input object.
-- **Input Override**: For "Run Task", provide a JSON object to override specific fields in the task's saved input.
+- **Input Override**: For "Run task", provide a JSON object to override specific fields in the task's saved input.
 
-:::tip Copy the Actor/Task input JSON
+:::tip Copy the Actor/task input JSON
 
-Open the Actor or Task Input page in Apify Console, switch format to **JSON**, and copy the content.
+Open the Actor or task Input page in Apify Console, switch format to **JSON**, and copy the content.
 
 :::
 
@@ -137,7 +137,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 :::
 
-### Actor Run Finished
+### Actor run finished
 
 > Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status.
 
@@ -147,9 +147,9 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 **Output**: The trigger provides a webhook payload containing detailed information about the completed Actor run.
 
-![Actor Run Finished trigger configuration](../images/power-automate/trigger_actor_run.png)
+![Actor run finished trigger configuration](../images/power-automate/trigger_actor_run.png)
 
-### Task Run Finished
+### Task run finished
 
 > Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status.
 
@@ -158,7 +158,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 **Output**: The trigger provides a webhook payload containing detailed information about the completed task run.
 
-![Task Run Finished trigger configuration](../images/power-automate/trigger_task_run.png)
+![Task run finished trigger configuration](../images/power-automate/trigger_task_run.png)
 
 ## Actions
 
@@ -178,7 +178,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ![Run Actor action configuration](../images/power-automate/action_run_actor.png)
 
-### Run Task
+### Run task
 
 > Start an Apify task run.
 
@@ -189,9 +189,9 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
   - `Memory`: Allocate memory (MB) (options: 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768).
   - `Wait for finish`: Specify seconds to wait (max 60s). Set to `0` for asynchronous execution.
 
-![Run Task action configuration](../images/power-automate/action_run_task.png)
+![Run task action configuration](../images/power-automate/action_run_task.png)
 
-### Get Dataset Items
+### Get dataset items
 
 > Retrieve records from an Apify dataset.
 
@@ -202,11 +202,11 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 **Output**: An array of dataset items. The connector attempts to infer the schema to provide dynamic fields in Power Automate.
 
-![Get Dataset Items action configuration](../images/power-automate/action_get_dataset.png)
+![Get dataset items action configuration](../images/power-automate/action_get_dataset.png)
 
-### Get Key-value store Record
+### Get key-value store record
 
-> Retrieve a single record from a Key-value store.
+> Retrieve a single record from a key-value store.
 
 - **Store**: Select the store from the dropdown.
 - **Record Key**: Select the key of the record to retrieve.
@@ -215,9 +215,9 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 - **Body**: The raw record content (text/JSON).
 - **Content-Type**: The MIME type of the record.
 
-![Get Key-value store Record action configuration](../images/power-automate/action_get_kv_record.png)
+![Get key-value store record action configuration](../images/power-automate/action_get_kv_record.png)
 
-### Scrape Single URL
+### Scrape single URL
 
 > Scrape a single webpage using Apify's Web Scraper Actor.
 
@@ -227,28 +227,28 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
   - `playwright:firefox`
   - `cheerio` (Fastest, raw HTTP)
 
-**Note**: This action starts the Web Scraper Actor and returns the run details immediately. To process the scraped results, you can use the **Actor Run Finished** trigger or follow the [asynchronous pattern](#long-running-scrapes-and-async-pattern-in-power-automate) described below.
+**Note**: This action starts the Web Scraper Actor and returns the run details immediately. To process the scraped results, you can use the **Actor run finished** trigger or follow the [asynchronous pattern](#long-running-scrapes-and-async-pattern-in-power-automate) described below.
 
-![Scrape Single URL action configuration](../images/power-automate/action_scrape_url.png)
+![Scrape single URL action configuration](../images/power-automate/action_scrape_url.png)
 
 ## Long‑running scrapes and async pattern in Power Automate
 
-The **Wait for finish** parameter in "Run Actor" and "Run Task" actions has a maximum limit of **60 seconds**. If your Actor run takes longer than this, the action will time out if you try to wait for it synchronously.
+The **Wait for finish** parameter in "Run Actor" and "Run task" actions has a maximum limit of **60 seconds**. If your Actor run takes longer than this, the action will time out if you try to wait for it synchronously.
 
 For long-running scrapes, use the asynchronous pattern to ensure your flows are reliable:
 
-1. **Start the run**: Use the **Run Actor** or **Run Task** action. Set **Wait for finish** to `0` to start the run asynchronously and move to the next step right away.
+1. **Start the run**: Use the **Run Actor** or **Run task** action. Set **Wait for finish** to `0` to start the run asynchronously and move to the next step right away.
 
 1. **Wait for completion**:
-  - **Option A (Webhook)**: Create a separate flow using the **Actor/Task Run Finished** trigger. This flow will automatically start when the run completes.
+  - **Option A (Webhook)**: Create a separate flow using the **Actor run finished** or **Task run finished** trigger. This flow will automatically start when the run completes.
 
     _First, your flow starts the Actor asynchronously using the **Run Actor** action._
 
-    _Next, set up a separate flow using the **Actor Run Finished** trigger. This trigger will automatically catch the completion event (such as success) and continue your processing steps._
+    _Next, set up a separate flow using the **Actor run finished** trigger. This trigger will automatically catch the completion event (such as success) and continue your processing steps._
 
   - **Option B (Polling)**: (Advanced) Implement a loop in your flow to periodically check the run status until it is finished.
      
-1. **Start the Actor or Task**: Trigger the run asynchronously by setting `Wait for finish` to `0`.
+1. **Start the Actor or task**: Trigger the run asynchronously by setting `Wait for finish` to `0`.
    ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_1.png)
 1. **Initialize result variable**: Create a variable to track the run status or store the result (initially empty).
    ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_2.png)
@@ -276,13 +276,13 @@ For long-running scrapes, use the asynchronous pattern to ensure your flows are 
 
 Power Automate allows you to map data from Apify actions to subsequent steps.
 
-- Use **Get Dataset Items** output to iterate over scraped results.
+- Use **Get dataset items** output to iterate over scraped results.
 - Map fields from the dataset item schema to columns in Excel, SharePoint lists, or database rows.
 
 ### Best practices
 
 - **Async Execution:** Always use webhooks (Triggers) for Actors that run longer than a minute.
-- **Pagination:** For large datasets, use the `limit` and `offset` parameters in "Get Dataset Items" to process data in chunks.
+- **Pagination:** For large datasets, use the `limit` and `offset` parameters in "Get dataset items" to process data in chunks.
 - **Memory:** Start with default memory settings and increase only if necessary.
 
 ## Troubleshooting
@@ -296,7 +296,7 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 ## Frequently asked questions
 
 ### How much does it cost?
-The Apify Connector itself is free to use. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. Apify offers a free tier with monthly credits to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
+The Apify connector itself is free to use. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. Apify offers a free tier with monthly credits to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
 
 ### Where can I get further help?
 - **Apify Documentation:** [docs.apify.com](https://docs.apify.com)
