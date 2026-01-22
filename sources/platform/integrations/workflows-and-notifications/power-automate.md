@@ -15,10 +15,12 @@ slug: /integrations/microsoft-power-automate
 ## Key capabilities
 
 ### Triggers
+
 - **Actor run finished:** Start a flow when an Actor completes.
 - **Actor task finished:** Start a flow when a task completes.
 
 ### Actions
+
 - **Run Actor:** Execute any Apify Actor with custom inputs.
 - **Run task:** Execute a saved Actor task.
 - **Get dataset items:** Retrieve scraped data from datasets with dynamic schema support.
@@ -141,7 +143,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 > Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status.
 
-- **Actor Scope**: Choose between *Recently used Actors* or *From store*.
+- **Actor Scope**: Choose between _Recently used Actors_ or _From store_.
 - **Actor**: Select the Actor from the dropdown.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
 
@@ -168,7 +170,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 > Start an Apify Actor run with customizable execution parameters.
 
-- **Actor Scope**: Choose *Recently used Actors* or *From store*.
+- **Actor Scope**: Choose _Recently used Actors_ or _From store_.
 - **Input Body**: Provide the JSON input for the Actor.
 - **Options**:
   - `Build`: Specify a build tag or ID.
@@ -212,6 +214,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 - **Record Key**: Select the key of the record to retrieve.
 
 **Output**:
+
 - **Body**: The raw record content (text/JSON).
 - **Content-Type**: The MIME type of the record.
 
@@ -240,14 +243,15 @@ For long-running scrapes, use the asynchronous pattern to ensure your flows are 
 1. **Start the run**: Use the **Run Actor** or **Run task** action. Set **Wait for finish** to `0` to start the run asynchronously and move to the next step right away.
 
 1. **Wait for completion**:
-  - **Option A (Webhook)**: Create a separate flow using the **Actor run finished** or **Task run finished** trigger. This flow will automatically start when the run completes.
 
-    _First, your flow starts the Actor asynchronously using the **Run Actor** action._
+   - **Option A (Webhook)**: Create a separate flow using the **Actor run finished** or **Task run finished** trigger. This flow will automatically start when the run completes.
 
-    _Next, set up a separate flow using the **Actor run finished** trigger. This trigger will automatically catch the completion event (such as success) and continue your processing steps._
+     _First, your flow starts the Actor asynchronously using the **Run Actor** action._
 
-  - **Option B (Polling)**: (Advanced) Implement a loop in your flow to periodically check the run status until it is finished.
-     
+     _Next, set up a separate flow using the **Actor run finished** trigger. This trigger will automatically catch the completion event (such as success) and continue your processing steps._
+
+   - **Option B (Polling)**: (Advanced) Implement a loop in your flow to periodically check the run status until it is finished.
+
 1. **Start the Actor or task**: Trigger the run asynchronously by setting `Wait for finish` to `0`.
    ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_1.png)
 1. **Initialize result variable**: Create a variable to track the run status or store the result (initially empty).
@@ -296,9 +300,11 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 ## Frequently asked questions
 
 ### How much does it cost?
+
 The Apify connector itself is free to use. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. Apify offers a free tier with monthly credits to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
 
 ### Where can I get further help?
+
 - **Apify Documentation:** [docs.apify.com](https://docs.apify.com)
 - **API Reference:** [docs.apify.com/api/v2](https://docs.apify.com/api/v2)
 - **Support:** [apify.com/contact](https://apify.com/contact)
