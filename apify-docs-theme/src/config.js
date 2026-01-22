@@ -90,7 +90,7 @@ const themeConfig = {
             },
             {
                 label: 'CLI',
-                href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
+                href: `${absoluteUrl}/cli/docs`,
                 position: 'left',
                 activeBasePath: 'cli',
                 target: '_self',
@@ -222,7 +222,7 @@ const themeConfig = {
                 items: [
                     {
                         label: 'CLI',
-                        href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/cli/docs`,
                         position: 'left',
                         target: '_self',
                         rel: 'dofollow',
