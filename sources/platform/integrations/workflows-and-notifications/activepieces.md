@@ -39,11 +39,13 @@ Before using the Apify piece in Activepieces, you need:
 To connect your Apify account to Activepieces:
 
 1. In Activepieces, open the **Connections** section.
-1. Click **+ New connection**.
+1. Click **+ New Connection**.
 1. Search for and select the **Apify** piece.
 1. Enter your **API Key** from Apify:
    - You can find it in the Apify Console under **Settings → API & Integrations**.
 1. Save the connection.
+
+![Apify API key setup](../images/activepieces/api-token.png)
 
 ## Create a flow with the Apify piece
 
@@ -56,6 +58,8 @@ To create a flow that starts when an Apify event occurs:
 1. Choose a trigger:
    - To react to Apify runs, use one of the Apify triggers (described below).
    - Or start with any other trigger (e.g., webhook, schedule) and add Apify as an action later.
+
+![Select Apify trigger](../images/activepieces/select-trigger.png)
 
 ### Add an Apify trigger
 
@@ -70,6 +74,8 @@ To start a flow based on Apify activity:
    - Choose which Actor or task to watch.
    - Select which run statuses should fire the trigger (e.g., succeeded, failed, timed out).
 1. Save the trigger.
+
+![Configure Apify trigger](../images/activepieces/trigger-example.png)
 
 When enabled, the trigger creates a webhook in your Apify account that sends events to Activepieces whenever the selected Actor or task run finishes with the specified statuses.
 
@@ -88,12 +94,16 @@ To use Apify as an action in your flow:
 1. Select your Apify connection.
 1. Configure the action parameters.
 
+![Select Apify action](../images/activepieces/select-action.png)
+
 For example, when using **Run Actor**, you'll configure:
 
 - **Actor source** (recent or Apify Store)
 - **Actor** (the specific Actor to run)
 - **Input JSON** (overrides the Actor's default input)
 - Optional **Build**, **Memory**, **Timeout**, and **Wait for finish** settings
+
+![Configure Apify Run Actor action](../images/activepieces/run-actor-example.png)
 
 ## Available triggers and actions
 
