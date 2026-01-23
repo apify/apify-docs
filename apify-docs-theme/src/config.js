@@ -76,13 +76,13 @@ const themeConfig = {
                 items: [
                     {
                         label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
                         html: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -205,13 +205,13 @@ const themeConfig = {
                 items: [
                     {
                         label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
                         label: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
