@@ -59,7 +59,7 @@ const themeConfig = {
                     },
                     {
                         label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs/introduction/overview`,
+                        href: `${absoluteUrl}/api/client/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -194,7 +194,7 @@ const themeConfig = {
                     },
                     {
                         label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs/introduction/overview`,
+                        href: `${absoluteUrl}/api/client/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
