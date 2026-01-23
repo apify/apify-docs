@@ -27,7 +27,6 @@ properties:
     examples: [2]
   memAvgBytes:
     type: number
-    minimum: 0
     examples: [267874071.9]
   memMaxBytes:
     type: integer

@@ -1,4 +1,4 @@
-title: BuildList
+title: ListOfBuilds
 allOf:
   - $ref: ../common/PaginationResponse.yaml
   - type: object

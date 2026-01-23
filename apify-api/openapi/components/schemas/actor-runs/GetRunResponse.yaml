@@ -1,4 +1,4 @@
-title: RunResponse
+title: GetRunResponse
 required:
   - data
 type: object

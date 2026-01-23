@@ -1,6 +1,4 @@
 title: TaskStats
-required:
-  - totalRuns
 type: object
 properties:
   totalRuns:

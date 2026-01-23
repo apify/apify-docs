@@ -1,7 +1,6 @@
 title: BuildsMeta
 required:
   - origin
-  - userAgent
 type: object
 properties:
   origin:

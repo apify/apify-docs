@@ -1,4 +1,4 @@
-title: VersionList
+title: ListOfEnvVars
 type: object
 required:
   - total
@@ -10,5 +10,5 @@ properties:
   items:
     type: array
     items:
-      $ref: ./Version.yaml
+      $ref: ./EnvVar.yaml
     description: ""

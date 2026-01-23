@@ -22,7 +22,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/GetKeyValueStoreResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -72,7 +72,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/UpdateStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/UpdateKeyValueStoreResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

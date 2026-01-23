@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+            $ref: ../../components/schemas/schedules/GetScheduleResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -76,7 +76,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+            $ref: ../../components/schemas/schedules/GetScheduleResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

@@ -4,8 +4,6 @@ required:
   - createdAt
   - modifiedAt
   - accessedAt
-  - consoleUrl
-  - keysPublicUrl
 type: object
 properties:
   id:
