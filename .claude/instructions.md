@@ -14,9 +14,15 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
 
 **Always reference these files when working on documentation**:
 
-1. `AGENTS.md` - Primary vendor-agnostic documentation standards (READ THIS FIRST)
-2. `CONTRIBUTING.md` - Contribution guidelines, setup, and workflows
-3. `.cursor/rules/*.mdc` - Cursor-specific rules (for reference)
+1. **AGENTS.md** - Primary vendor-agnostic documentation standards (READ THIS FIRST)
+2. **.claude/rules/** - Claude Code-specific standards (AUTO-LOADED)
+   - `writing-style.md` - Language, tone, grammar, and writing guidelines
+   - `content-standards.md` - Formatting, front matter, code examples, links, images
+   - `terminology.md` - Apify-specific capitalization and terminology
+   - `file-organization.md` - File naming and directory structure
+   - `quality-standards.md` - Comprehensive quality checklist
+3. **CONTRIBUTING.md** - Contribution guidelines, setup, and workflows
+4. `.cursor/rules/*.mdc` - Cursor-specific rules (for reference)
 
 ## Available skills
 
@@ -42,91 +48,24 @@ Use these skills for specific documentation tasks:
 **When to use**: Reviewing documentation before submission
 **Handles**: Style guide compliance, quality checks, consistency
 
-## Core documentation standards
+## Documentation standards
 
-### Language & style
+All documentation standards are defined in `.claude/rules/` and are auto-loaded by Claude Code:
 
-- **US English** spelling and grammar (e.g., "color" not "colour")
-- **Active voice** whenever possible
-- **Inclusive language** - no gendered terms
-- **Action-oriented** phrasing
-- **Simple English** - prefer "use" over "utilize", favor simple sentence structures
-- **Avoid directional language** (use "preceding/following" not "left/right")
-- **Sentence case** for headings (not Title Case)
-- **Simple present tense** for headings: "Create an Actor" (not "Creating an Actor")
-- **Use Oxford commas** in lists
-- **Never make assumptions about product features** - ask if unsure
+- **Writing style**: See `writing-style.md` for language, tone, grammar, headings, and word choice
+- **Content formatting**: See `content-standards.md` for front matter, text formatting, admonitions, code examples, links, and images
+- **Terminology**: See `terminology.md` for Apify-specific capitalization and product names
+- **File organization**: See `file-organization.md` for naming conventions and directory structure
+- **Quality assurance**: See `quality-standards.md` for comprehensive pre-submission checklist
 
-### Front matter requirements
+**Quick reference**:
 
-Every documentation file must include:
-
-```yaml
----
-title: "Sentence case title (action-oriented, simple present tense)"
-description: "140-160 chars - explain value, not features (no 'documentation' word)"
-sidebar_position: 1
-slug: /path/to/page
----
-```
-
-**Important**: Match slug to file path
-
-- File: `/sources/platform/actors/running.md`
-- Slug: `/platform/actors/running`
-
-### Text formatting standards
-
-- **Bold** ONLY for UI elements, buttons, tabs, menu items (e.g., "Click **Save & Run**"). NEVER use bold for emphasis.
-- _Italics_ for emphasis (use sparingly)
-- `code` for inline code, file names, paths, API parameters (e.g., "Set `timeout` in `INPUT.json`")
-- Code blocks MUST specify language: ` ```javascript `, ` ```python `, ` ```bash `
-- **All admonitions MUST have a title** - Available types: `note`, `tip`, `info`, `caution`, `danger`
-
-### Code examples
-
-- Include complete, runnable examples
-- Use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) for multiple languages (JavaScript, Python)
-- Add syntax highlighting with language tags (REQUIRED)
-- Include comments for complex logic
-- Show realistic, meaningful examples
-
-### Admonition format
-
-**All admonitions MUST include a title:**
-
-```markdown
-:::note Important information
-
-Your note content here.
-
-:::
-
-:::tip Pro tip
-
-Helpful advice for advanced users.
-
-:::
-
-:::caution Warning
-
-Something that could cause issues.
-
-:::
-```
-
-### Links
-
+- Use sentence case for headings (not Title Case)
+- Bold only for UI elements (not emphasis)
+- All admonitions must have titles
+- Front matter required (title, description 140-160 chars, sidebar_position, slug)
 - Use descriptive link text (never "click here")
-- Use relative paths for internal links
-- Verify all links work before committing
-
-### Images
-
-- Use light theme for screenshots
-- Include meaningful alt text
-- Use red indicators for highlighting
-- Store in appropriate directories
+- All code blocks must specify language
 
 ## File organization
 
@@ -152,31 +91,7 @@ sources/
 
 ## API documentation specifics
 
-### OpenAPI structure
-
-```text
-apify-api/openapi/
-├── openapi.yaml              # Main spec file
-├── components/schemas/       # Data model definitions
-└── paths/                    # API endpoint definitions
-```
-
-### Operation ID conventions
-
-Format: `{objectName}_{httpMethod}`
-
-- Use camelCase for object names
-- Single object for paths with `{id}`, plural otherwise
-- Examples:
-  - `/request-queues` GET → `requestQueues_get`
-  - `/request-queues/{queueId}` PUT → `requestQueue_put`
-
-### Path file naming
-
-Replace `/` with `@` in URL paths:
-
-- `/request-queues` → `request-queues.yaml`
-- `/request-queues/{queueId}` → `request-queues@{queueId}.yaml`
+See the `/api-doc` skill for comprehensive OpenAPI specification standards, operation ID conventions, and path file naming.
 
 ## Development workflow
 
@@ -200,13 +115,13 @@ Replace `/` with `@` in URL paths:
 1. Run linting checks:
 
    ```bash
-   npm run lint:md        # Markdown linting
-   npm run lint:code      # Code linting
+   npm run lint:md        # Markdownlint - Markdown syntax/formatting
+   npm run lint:code      # ESLint - Code linting
 
    # Run locally for more detailed output:
-   npx markdownlint "path/to/file.md"  # Check specific markdown files
-   vale sync                            # Download Vale styles (first time)
-   vale "path/to/file.md" --minAlertLevel=error  # Check prose
+   npx markdownlint "path/to/file.md"  # Markdownlint - Check specific files
+   vale sync                            # Vale - Download styles (first time)
+   vale "path/to/file.md" --minAlertLevel=error  # Vale - Check prose style
    ```
 
 2. Use `/review-docs` skill to check compliance
@@ -225,96 +140,26 @@ npm run build       # Test production build
 
 ## Common patterns
 
-### Tutorial structure
+See respective skills for content-type specific patterns:
 
-1. Introduction with learning objectives
-2. Prerequisites
-3. Step-by-step numbered instructions
-4. Complete code examples
-5. Testing/verification section
-6. Troubleshooting
-7. Summary and next steps
-
-### Platform documentation
-
-1. Clear description of feature
-2. When to use it
-3. How to configure/use it
-4. Code examples
-5. Best practices
-6. Related features
-
-### API documentation
-
-1. Endpoint description
-2. Parameters with types and descriptions
-3. Request examples
-4. Response schemas
-5. Error responses
-6. Code samples (JavaScript, Python, cURL)
+- **Tutorials**: See `/tutorial` skill for 8-section tutorial structure
+- **Platform documentation**: See `/doc-write` skill for feature documentation patterns
+- **API documentation**: See `/api-doc` skill for endpoint documentation patterns
 
 ## Quality checklist
 
-Before considering any documentation complete:
+Before considering any documentation complete, see `quality-standards.md` for the comprehensive checklist and use the `/review-docs` skill for final review.
 
-- [ ] Content follows Microsoft style guide
-- [ ] Front matter complete (title, description 140-160 chars)
-- [ ] Code examples complete with syntax highlighting
-- [ ] Links use descriptive text
-- [ ] Images include meaningful alt text
-- [ ] Inclusive language and active voice used
-- [ ] Proper heading hierarchy (H1 → H2 → H3)
-- [ ] Content is clear, concise, action-oriented
-- [ ] All automated linting passes
-- [ ] Examples tested and working
-
-## Important notes
-
-### What NOT to do
-
-- Don't use Title Case for headings (use sentence case)
-- Don't use gerunds in headings ("Creating" - use "Create" instead)
-- Don't use bold for emphasis (ONLY for UI elements)
-- Don't forget titles on admonitions (REQUIRED)
-- Don't use "click here" or non-descriptive links
-- Don't include the word "documentation" in descriptions
-- Don't use directional language (left/right)
-- Don't skip front matter
-- Don't omit language tags on code blocks
-- Don't use gendered language
-- Don't commit without running linters
-- Don't make assumptions about product features - ask instead
-- Don't use incorrect Apify terminology (see terminology section)
-
-### Best practices
+## Best practices
 
 - Start with user's goal/problem
 - Provide context before technical details
-- Use consistent Apify terminology (see terminology section)
-- Use simple English - "use" not "utilize"
-- Use Oxford commas in all lists
-- Use simple present tense for headings
+- Use consistent Apify terminology (see `terminology.md`)
 - Structure content logically (basic → advanced)
 - Link to related content
-- Keep descriptions within 140-160 characters explaining value, not features
-- Match slug to file path for consistency
 - Test all code examples before committing
-- Use admonitions sparingly but effectively (always with titles)
 - Never make assumptions about product features - ask if unsure
 - For code review: check comments and obvious mistakes only
-
-## Apify-specific terminology
-
-**Always use exact capitalization and phrasing:**
-
-- **Apify Actor** (never "Apify actor" or "apify actor")
-- **Apify Proxy** (never "Apify proxy")
-- **Apify Console** (never "the Apify Console")
-- **Apify Store** (never "the Apify Store")
-- **the Apify team** (lowercase "the", lowercase "team")
-- **the Apify platform** (lowercase "the", lowercase "platform")
-- **AI agent** (lowercase for generic terms)
-- **MCP server** (lowercase for generic terms)
 
 ## Content review process
 
@@ -369,9 +214,9 @@ Uses `@apify/docs-theme` package - don't modify theme files directly.
 
 ### Linting tools
 
-- **markdownlint** - Markdown formatting
-- **eslint** - JavaScript/TypeScript code
-- **Vale** - Prose linting (optional, download styles with `vale sync`)
+- **markdownlint** - Markdown syntax and formatting validation
+- **eslint** - JavaScript/TypeScript code linting
+- **Vale** - Prose style checking (optional, download styles with `vale sync`)
 
 ## Remember
 

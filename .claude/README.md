@@ -6,13 +6,19 @@ This directory contains Claude Code configuration for the Apify documentation re
 
 ```text
 .claude/
-├── README.md           # This file
-├── instructions.md     # Main instructions for Claude Code
-└── skills/             # Reusable skills for common tasks
-    ├── doc-write.md    # Documentation writing skill
-    ├── api-doc.md      # API documentation skill
-    ├── tutorial.md     # Tutorial creation skill
-    └── review-docs.md  # Documentation review skill
+├── README.md              # This file - Quick start guide
+├── instructions.md        # Main instructions for Claude Code
+├── rules/                 # Canonical standards (auto-loaded)
+│   ├── writing-style.md   # Language, tone, grammar
+│   ├── content-standards.md  # Formatting, front matter, code
+│   ├── terminology.md     # Apify-specific terms
+│   ├── file-organization.md  # Naming conventions
+│   └── quality-standards.md  # Quality checklist
+└── skills/                # Reusable skills for common tasks
+    ├── doc-write.md       # Documentation writing skill
+    ├── api-doc.md         # API documentation skill
+    ├── tutorial.md        # Tutorial creation skill
+    └── review-docs.md     # Documentation review skill
 ```
 
 ## How to use
@@ -25,33 +31,17 @@ This directory contains Claude Code configuration for the Apify documentation re
 
 ### Available skills
 
-#### `/doc-write` - Documentation writing
+#### /doc-write
+Documentation writing - Create or edit pages following style guide
 
-Create or edit documentation following Apify style guide.
+#### /api-doc
+API documentation - Work with OpenAPI specifications and endpoints
 
-- Use for: New pages, content updates, reformatting
-- Handles: Style compliance, formatting, structure
+#### /tutorial
+Tutorial creation - Build structured, educational tutorials
 
-#### `/api-doc` - API documentation
-
-Work with OpenAPI specifications and API endpoints.
-
-- Use for: New endpoints, schema updates, code samples
-- Handles: OpenAPI structure, operation IDs, examples
-
-#### `/tutorial` - Tutorial creation
-
-Build structured, educational tutorials.
-
-- Use for: New tutorials, tutorial restructuring
-- Handles: Learning progression, examples, exercises
-
-#### `/review-docs` - Documentation review
-
-Review documentation for quality and compliance.
-
-- Use for: Pre-submission checks, audits, consistency
-- Handles: Style guide compliance, accessibility, SEO
+#### /review-docs
+Documentation review - Check quality and compliance before submission
 
 ## Quick start
 
@@ -79,50 +69,21 @@ Use /api-doc skill to document the new [endpoint-name] endpoint
 Use /review-docs skill to review sources/platform/[file-name].md
 ```
 
-## Primary references
+## Documentation standards
 
-Always reference these files from the repo root:
+All documentation standards are in `.claude/rules/` (auto-loaded):
 
-1. **`AGENTS.md`** - Core documentation standards (READ FIRST)
-2. **`CONTRIBUTING.md`** - Setup, workflows, style guide
-3. **`.cursor/rules/*.mdc`** - Cursor-specific rules (reference only)
+1. **`writing-style.md`** - Language, tone, grammar, headings, word choice
+2. **`content-standards.md`** - Front matter, formatting, code examples, links, images
+3. **`terminology.md`** - Apify-specific capitalization and product names
+4. **`file-organization.md`** - File naming and directory structure
+5. **`quality-standards.md`** - Comprehensive pre-submission checklist
 
-## Key standards
+Also reference:
 
-### Writing style
-
-- US English, active voice, inclusive language
-- Sentence case for headings (not Title Case)
-- Action-oriented phrasing
-- No directional language (left/right)
-
-### Front matter
-
-Every file needs:
-
-```yaml
----
-title: "Action-oriented title"
-description: "140-160 chars, no 'documentation' word"
-sidebar_position: 1
-slug: /path/to/page
----
-```
-
-### Formatting
-
-- **Bold** for UI elements
-- _Italics_ for emphasis
-- `code` for inline code/files
-- Code blocks with language tags
-- Admonitions for important info
-
-### Links & images
-
-- Descriptive link text (not "click here")
-- Alt text for all images
-- Light theme for screenshots
-- Red indicators for highlighting
+- **`AGENTS.md`** - Vendor-agnostic documentation standards (in repo root)
+- **`CONTRIBUTING.md`** - Setup, workflows, contribution process
+- **`instructions.md`** - Full Claude Code instructions (in this directory)
 
 ## Testing
 
@@ -137,22 +98,11 @@ npm test             # Validate API specs
 
 ## Best practices
 
-1. **Read `AGENTS.md` first** - It's the source of truth
-2. **Use the appropriate skill** - They're designed for specific tasks
-3. **Test code examples** - All examples must work
-4. **Check front matter** - Required for all files
-5. **Run linters** - Before committing
-6. **Review before submit** - Use `/review-docs`
-
-## Maintenance
-
-This configuration mirrors and extends the existing style guide:
-
-- `AGENTS.md` - Vendor-agnostic standards
-- `CONTRIBUTING.md` - Contribution process
-- `.cursor/rules/*.mdc` - Cursor-specific rules
-
-Keep these files in sync when updating documentation standards.
+1. **Read `AGENTS.md` first** - Vendor-agnostic documentation standards
+2. **Check `.claude/rules/`** - Auto-loaded standards for writing, formatting, terminology
+3. **Use the appropriate skill** - Designed for specific documentation tasks
+4. **Run linters before committing** - `npm run lint:md` and `npm run lint:code`
+5. **Review before submit** - Use `/review-docs` skill for final checks
 
 ## Need help?
 

@@ -194,20 +194,7 @@ Use "the" before "Apify platform", "Apify SDK", etc.
 
 ## Terminology
 
-### Capitalization
-
-- **Actor** - Always uppercase when referring to Apify Actors
-- **Apify Proxy**, **Apify Console**, **Apify Store** - Product names, capitalized
-- **the Apify platform** - Lowercase "platform", include "the"
-- **task**, **schedule** - Lowercase
-
-### Word choice
-
-| Word        | When to use                                 |
-| ----------- | ------------------------------------------- |
-| legacy      | Old approach still supported for backward compatibility, no announced removal    |
-| alternative | Valid approach, but not the preferred one  |
-| deprecated  | Feature officially marked for removal in a future version |
+See `terminology.md` for complete Apify-specific terminology and capitalization rules.
 
 ## Links
 
