@@ -7,18 +7,26 @@ Create comprehensive, structured tutorials for the Apify Academy or Platform doc
 ## When to use
 
 - Creating new tutorials
-
 - Restructuring existing tutorials
-
 - Converting informal guides into proper tutorials
-
 - Building step-by-step learning content
 
 ## Context files
 
 - `AGENTS.md` - Documentation standards
+- `CONTRIBUTING.md` - Style guide and contribution workflows
+- `.claude/rules/` - Claude Code-specific standards (auto-loaded)
 
-- `CONTRIBUTING.md` - Style guide
+## Standards reference
+
+This skill follows all standards defined in `.claude/rules/`:
+
+- **writing-style.md** - Language, tone, grammar (US English, active voice, sentence case, simple present tense)
+- **content-standards.md** - Front matter, text formatting, admonitions (must have titles), code examples
+- **terminology.md** - Apify-specific capitalization (Apify Actor, the Apify platform)
+- **quality-standards.md** - General quality checklist
+
+**Tutorial-specific structure** and best practices are documented in this skill file below.
 
 ## Tutorial structure
 
@@ -284,37 +292,7 @@ Now that you've completed this tutorial, you can:
 **Location**: `/sources/platform/integrations/`
 **Style**: Step-by-step integration guide
 
-## Apify terminology
-
-Always use exact capitalization and phrasing:
-
-- **Apify Actor** (never "Apify actor")
-
-- **Apify Proxy** (never "Apify proxy")
-
-- **Apify Console** (never "the Apify Console")
-
-- **Apify Store** (never "the Apify Store")
-
-- **the Apify team** (lowercase)
-
-- **the Apify platform** (lowercase)
-
-- **AI agent**, **MCP server** (lowercase for generic terms)
-
-## Text formatting rules
-
-- **Bold** ONLY for UI elements (e.g., "Click **Save & Run**"). NEVER for emphasis.
-
-- Code blocks MUST specify language
-
-- **All admonitions MUST have a title** (REQUIRED)
-
-- Use Oxford commas in all lists
-
-- Use simple present tense for headings
-
-## Best practices
+## Tutorial best practices
 
 1. **Start Simple**: Begin with basic concepts before advanced topics
 
@@ -336,45 +314,22 @@ Always use exact capitalization and phrasing:
 
 10. **Use Simple English**: Prefer "use" over "utilize"
 
-## Quality checklist
+## Tutorial-specific quality checklist
 
-Before publishing:
+Before publishing, verify these tutorial-specific items:
 
-- [ ] Clear learning objectives stated upfront
-
-- [ ] Prerequisites clearly listed
-
-- [ ] All steps are numbered and action-oriented
-
-- [ ] Code examples are complete and tested
-
-- [ ] Screenshots included where helpful (light theme)
-
-- [ ] Common issues addressed in troubleshooting
-
+- [ ] Clear learning objectives stated in introduction
+- [ ] Prerequisites clearly listed with time estimate
+- [ ] All steps are numbered and start with action verbs
+- [ ] Code examples are complete, tested, and runnable
+- [ ] Screenshots included where helpful (light theme, red indicators)
+- [ ] Expected results shown after each major step
+- [ ] Common issues addressed in troubleshooting section
+- [ ] Summary lists what user accomplished
 - [ ] Next steps and related content linked
+- [ ] Tutorial type matches content (platform/academy/integration)
 
-- [ ] Front matter complete with description (140-160 chars explaining value)
-
-- [ ] Slug matches file path
-
-- [ ] All code blocks have language specification (REQUIRED)
-
-- [ ] All admonitions have titles (REQUIRED)
-
-- [ ] Bold used ONLY for UI elements, never for emphasis
-
-- [ ] Oxford commas used in all lists
-
-- [ ] Proper heading hierarchy maintained (sentence case, simple present tense)
-
-- [ ] Active voice and simple English used throughout
-
-- [ ] Inclusive language verified
-
-- [ ] Correct Apify terminology used
-
-- [ ] No assumptions made about product features
+For general quality standards (front matter, formatting, terminology, language), see `quality-standards.md`
 
 ## Output
 

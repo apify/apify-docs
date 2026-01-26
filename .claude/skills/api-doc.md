@@ -13,9 +13,21 @@ Help create or update OpenAPI specifications and API documentation for Apify API
 
 ## Context files
 
-- `CONTRIBUTING.md` - API documentation section
+- `CONTRIBUTING.md` - API documentation section and workflows
 - `AGENTS.md` - API documentation rules
 - `apify-api/openapi/openapi.yaml` - Main OpenAPI spec
+- `.claude/rules/` - Claude Code-specific standards (auto-loaded)
+
+## Standards reference
+
+This skill follows all standards defined in `.claude/rules/`:
+
+- **writing-style.md** - Clear, simple descriptions (US English, active voice)
+- **content-standards.md** - Code examples formatting
+- **terminology.md** - Apify-specific capitalization in descriptions (Apify Actor, the Apify platform)
+- **quality-standards.md** - General quality checklist
+
+**API-specific standards** are documented in this skill file below.
 
 ## Instructions
 
@@ -185,17 +197,7 @@ npm test  # Validates OpenAPI specification
 npm start # Preview changes locally
 ```
 
-### 8. Apify terminology
-
-Always use exact capitalization in descriptions and examples:
-
-- **Apify Actor** (never "Apify actor")
-- **Apify Proxy** (never "Apify proxy")
-- **Apify Console** (never "the Apify Console")
-- **Apify Store** (never "the Apify Store")
-- **the Apify team**, **the Apify platform** (lowercase)
-
-### 9. Best practices
+### 8. Best practices
 
 - **Descriptions**: Write clear, comprehensive descriptions using simple English
 - **Examples**: Include realistic examples in schemas
@@ -206,20 +208,21 @@ Always use exact capitalization in descriptions and examples:
 - **Terminology**: Use correct Apify terminology throughout
 - **Never make assumptions**: About product features - ask if unsure
 
-### 10. Quality checklist
+### 9. API-specific quality checklist
 
-Before submitting:
+Before submitting, verify these API-specific items:
 
-- [ ] OpenAPI specification validates without errors
-- [ ] Operation IDs follow naming conventions (camelCase_method)
-- [ ] All parameters have clear descriptions using simple English
-- [ ] Response schemas are complete
-- [ ] Code samples are included for major languages (JS, Python, cURL)
-- [ ] Examples use realistic data
-- [ ] Path references are added to main openapi.yaml
-- [ ] Error responses are documented
-- [ ] Correct Apify terminology used throughout
-- [ ] No assumptions made about product features
+- [ ] OpenAPI specification validates without errors (`npm test`)
+- [ ] Operation IDs follow naming conventions (`objectName_method` in camelCase)
+- [ ] All parameters have clear descriptions
+- [ ] Response schemas are complete with examples
+- [ ] Code samples included for JavaScript, Python, and cURL
+- [ ] Examples use realistic data (not placeholder values)
+- [ ] Path references added to main `openapi.yaml`
+- [ ] All error responses documented (401, 404, etc.)
+- [ ] Authentication requirements documented
+
+For general quality standards (terminology, language, formatting), see `quality-standards.md`
 
 ## Output
 

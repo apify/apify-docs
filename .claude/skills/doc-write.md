@@ -13,154 +13,86 @@ Help write or edit Apify documentation following the established style guide and
 
 ## Context files
 
-- `AGENTS.md` - Primary documentation standards
+- `AGENTS.md` - Primary vendor-agnostic documentation standards
 - `CONTRIBUTING.md` - Contribution guidelines
+- `.claude/rules/` - Claude Code-specific standards (auto-loaded)
 
-## Instructions
+## Standards reference
 
-When writing or editing documentation:
+This skill follows all standards defined in `.claude/rules/`:
 
-### 1. Content standards
+- **writing-style.md** - Language, tone, grammar, headings, word choice (US English, active voice, sentence case, no gerunds)
+- **content-standards.md** - Front matter, text formatting, admonitions (must have titles), code examples, links, images
+- **terminology.md** - Apify-specific capitalization (Apify Actor, the Apify platform, etc.)
+- **quality-standards.md** - Complete pre-submission quality checklist
 
-- Use **US English** spelling and grammar (e.g., "color" not "colour")
-- Use **simple English** - prefer "use" over "utilize", favor simple sentence structures
-- Write in **active voice** whenever possible
-- Use **inclusive language** - avoid gendered terms
-- Be **action-oriented** in descriptions and titles
-- Use **simple present tense** for headings: "Create an Actor" (NOT "Creating an Actor")
-- Use **Oxford commas** in all lists
-- Avoid directional language (don't use "left/right", use "above/below" or "preceding/following")
-- Write for a technical audience but keep explanations clear
-- **Never make assumptions about product features** - ask if unsure
+**Key reminders**:
+- Sentence case for headings (not Title Case)
+- No gerunds in headings (use "Create" not "Creating")
+- Bold ONLY for UI elements (not for emphasis)
+- All admonitions MUST have titles
+- Front matter required (title, description 140-160 chars, sidebar_position, slug)
+- Match slug to file path
 
-### 2. Front matter
+## Documentation structure
 
-Always include proper front matter in MDX/MD files:
+### For platform documentation
 
-```yaml
----
-title: "Sentence case title (action-oriented, simple present tense)"
-description: "140-160 chars - explain value, not features (no 'documentation' word)"
-sidebar_position: 1
-slug: /path/to/page
----
-```
+1. **Introduction** - Clear description of the feature or concept
+2. **When to use** - Explain when this feature is appropriate
+3. **How to configure/use** - Step-by-step instructions with code examples
+4. **Best practices** - Recommendations and tips
+5. **Related features** - Links to related documentation
 
-**Important**: Match slug to file path
+### For tutorials and guides
 
-- File: `/sources/platform/actors/running.md`
-- Slug: `/platform/actors/running`
+1. **Introduction** - What will the user learn? (Include learning objectives)
+2. **Prerequisites** - Required knowledge, setup, accounts
+3. **Step-by-step instructions** - Clear, numbered steps with explanations
+4. **Code examples** - Complete, runnable examples (test before submitting)
+5. **Testing/verification** - How to verify it works
+6. **Summary** - What they accomplished and suggested next steps
 
-### 3. Text formatting
+### For reference documentation
 
-- **Bold** ONLY for UI elements, buttons, tabs, menu items (e.g., "Click **Save & Run**"). NEVER use bold for emphasis.
-- _Italics_ for emphasis (use sparingly)
-- `code` for inline code, file names, paths, API parameters (e.g., "Set `timeout` in `INPUT.json`")
-- Code blocks MUST specify language: ` ```javascript `, ` ```python `, ` ```bash `
+1. **Overview** - Brief description of the topic
+2. **Parameters/options** - Detailed list with types and descriptions
+3. **Examples** - Practical usage examples
+4. **Related information** - Links to related topics
 
-### 4. Headings
+## Documentation types
 
-- Use **sentence case** for all headings (not Title Case)
-- Use **simple present tense**: "Create an Actor" (NOT "Creating an Actor")
-- Follow proper hierarchy: H1 → H2 → H3
-- Make headings descriptive and action-oriented
+### Tutorials
+- **Goal**: Teach users how to accomplish a specific task
+- **Tone**: Instructional, encouraging, step-by-step
+- **Examples**: "Build your first web scraper", "Deploy an Actor to production"
+- **Use**: Complete code examples, screenshots, expected results at each step
 
-### 5. Admonitions
+### Guides
+- **Goal**: Explain how to use a feature or solve a problem
+- **Tone**: Informative, practical, solution-oriented
+- **Examples**: "Actor configuration", "Working with datasets"
+- **Use**: Focused code snippets, best practices, common patterns
 
-**All admonitions MUST have a title** (REQUIRED). Use Docusaurus admonitions to highlight important information:
+### Reference
+- **Goal**: Document technical specifications and API details
+- **Tone**: Precise, comprehensive, technical
+- **Examples**: "Actor configuration schema", "API endpoints"
+- **Use**: Complete parameter lists, type definitions, return values
 
-```markdown
-:::note Important information
+## Skill-specific checklist
 
-Your note content here.
+Before finalizing documentation, verify these doc-write-specific items:
 
-:::
+- [ ] Structure matches documentation type (tutorial/guide/reference)
+- [ ] Introduction clearly states what the user will learn
+- [ ] Prerequisites are listed if needed
+- [ ] Code examples are complete and tested
+- [ ] Each step in tutorials has clear instructions
+- [ ] Related documentation is linked
+- [ ] No assumptions made about product features (ask if unsure)
 
-:::tip Pro tip
-
-Helpful tip for users.
-
-:::
-
-:::info Additional context
-
-Background information.
-
-:::
-
-:::caution Warning
-
-Something to be careful about.
-
-:::
-
-:::danger Critical
-
-Critical information that could cause issues.
-
-:::
-```
-
-### 6. Code examples
-
-- Include complete, runnable examples
-- Use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) for multiple languages
-- Add syntax highlighting with language tags (REQUIRED)
-- Include comments for complex code
-
-### 7. Links
-
-- Use descriptive link text (avoid "click here")
-- Verify all internal links are correct
-- Use relative paths for internal links
-
-### 8. Images
-
-- Use light theme for screenshots
-- Include meaningful alt text
-- Use red indicators for highlighting
-
-### 9. Structure
-
-For tutorials and guides, follow this structure:
-
-1. **Introduction** - What will the user learn?
-2. **Prerequisites** - What do they need?
-3. **Step-by-step instructions** - Clear, numbered steps
-4. **Code examples** - Complete, working examples
-5. **Summary** - What they accomplished and next steps
-
-### 10. Apify terminology
-
-Always use exact capitalization and phrasing:
-
-- **Apify Actor** (never "Apify actor" or "apify actor")
-- **Apify Proxy** (never "Apify proxy")
-- **Apify Console** (never "the Apify Console")
-- **Apify Store** (never "the Apify Store")
-- **the Apify team** (lowercase "the", lowercase "team")
-- **the Apify platform** (lowercase "the", lowercase "platform")
-- **AI agent** (lowercase for generic terms)
-- **MCP server** (lowercase for generic terms)
-
-### 11. Quality checklist
-
-Before finalizing, verify:
-
-- [ ] Content follows Microsoft style guide (sentence case, simple present tense)
-- [ ] Front matter includes proper title, description (140-160 chars explaining value), and metadata
-- [ ] Slug matches file path
-- [ ] Code examples are complete with syntax highlighting (REQUIRED)
-- [ ] All admonitions have titles (REQUIRED)
-- [ ] Bold used ONLY for UI elements, never for emphasis
-- [ ] Oxford commas used in all lists
-- [ ] All links use descriptive text
-- [ ] Images include meaningful alt text
-- [ ] Content uses inclusive language, simple English, and active voice
-- [ ] Headings follow proper hierarchy and use simple present tense
-- [ ] Content is clear, concise, and action-oriented
-- [ ] Correct Apify terminology used throughout
-- [ ] No assumptions made about product features
+For general quality standards, see `quality-standards.md`
 
 ## Output
 
