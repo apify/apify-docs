@@ -48,7 +48,7 @@ Use direct instructions, not soft recommendations:
 
 | Avoid                                      | Prefer                                              |
 | ------------------------------------------ | --------------------------------------------------- |
-| Experience Apify, the ultimate platform!   | Welcome to Apify, the cloud web scraping platform.  |
+| Experience Apify, the ultimate platform!   | Welcome to Apify, the full-stack web scraping platform.  |
 | Our highly efficient system                | Apify's system handles 500K requests per minute     |
 
 ### Avoid first person
@@ -205,9 +205,9 @@ Use "the" before "Apify platform", "Apify SDK", etc.
 
 | Word        | When to use                                 |
 | ----------- | ------------------------------------------- |
-| legacy      | Feature is deprecated or will be removed    |
-| alternative | Valid approach, but not the preferred one   |
-| deprecated  | Feature will be removed in a future version |
+| legacy      | Old approach still supported for backward compatibility, no announced removal    |
+| alternative | Valid approach, but not the preferred one  |
+| deprecated  | Feature officially marked for removal in a future version |
 
 ## Links
 
@@ -240,7 +240,7 @@ When mentioning tools, languages, or external resources, link them to help reade
 | Avoid                          | Prefer                |
 | ------------------------------ | --------------------- |
 | visit the Docker Hub tags page | visit Docker Hub      |
-| check out the official docs    | see the documentation |
+| check out the official docs    | check the documentation |
 
 ### Actor references
 
@@ -286,4 +286,4 @@ This guide covers writing patterns. For structural guidelines (file naming, scre
 
 - [CONTRIBUTING.md](../../CONTRIBUTING.md) - Contribution workflow and repository standards
 - [AGENTS.md](../../AGENTS.md) - Comprehensive documentation guidelines for AI assistants
-- Full Apify style guide: https://www.notion.so/apify/de9fbb99dcd84665b6d3f790fc88b3b6
+- Full Apify style guide: https://www.notion.so/apify/Apify-style-guide-1b9f39950a2280d49e5be69ce2961a79
