@@ -10,7 +10,7 @@ slug: /integrations/activepieces
 
 ---
 
-[Activepieces](https://www.activepieces.com) is an open-source automation platform that lets you build workflows to connect apps and automate tasks without writing code. With the **Apify** piece, you can connect your Apify Actors and tasks to other services, build data pipelines, and react to scraping results in real time.
+[Activepieces](https://www.activepieces.com) is an open-source automation platform that lets you build workflows to connect apps and automate tasks without writing code. With the Apify piece, you can connect your Apify Actors and tasks to other services, build data pipelines, and react to scraping results in real time.
 
 This guide shows you how to integrate Apify with Activepieces to build automated workflows. You'll learn how to:
 
@@ -40,9 +40,9 @@ To connect your Apify account to Activepieces:
 
 1. In Activepieces, open the **Connections** section.
 1. Click **+ New Connection**.
-1. Search for and select the **Apify** piece.
+1. Search for and select the Apify piece.
 1. Enter your **API Key** from Apify:
-   - You can find it in the Apify Console under **Settings → API & Integrations**.
+   - You can find it in Apify Console under **Settings → API & Integrations**.
 1. Save the connection.
 
 ![Apify API key setup](../images/activepieces/api-token.png)
@@ -65,7 +65,7 @@ To create a flow that starts when an Apify event occurs:
 
 To start a flow based on Apify activity:
 
-1. For the first step, search for **Apify** in the trigger list.
+1. For the first step, search for Apify in the trigger list.
 1. Choose a trigger:
    - **Watch Actor Runs**
    - **Watch Task Runs**
@@ -84,7 +84,7 @@ When enabled, the trigger creates a webhook in your Apify account that sends eve
 To use Apify as an action in your flow:
 
 1. Add a new step in your flow.
-1. Search for and select **Apify**.
+1. Search for and select Apify.
 1. Choose an action:
    - **Run Actor**: Starts an Actor run.
    - **Run Task**: Starts an Actor task run.
@@ -123,7 +123,7 @@ Both triggers create and manage Apify webhooks automatically when you enable or 
 ### Actions
 
 - **Run Actor** starts a specified Actor with customizable parameters:
-  - **Actor source** (recent / store)
+  - **Actor source** (recent Actors or Apify Store).
   - **Actor**
   - **Input JSON** overrides
   - **Build**, **Memory**, **Timeout**
