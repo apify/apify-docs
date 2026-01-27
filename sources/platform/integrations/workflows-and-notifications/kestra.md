@@ -19,7 +19,7 @@ This guide shows you how to set up the integration, configure authentication, an
 Before you begin, make sure you have:
 
 - An [Apify account](https://console.apify.com/)
-- A [Kestra instance](https://kestra.io/docs/getting-started/quickstart) (self‑hosted or cloud)
+- A [Kestra instance](https://kestra.io/docs/quickstart) (self‑hosted or cloud)
 
 ## Authentication
 
