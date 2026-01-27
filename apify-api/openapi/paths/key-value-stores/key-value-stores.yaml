@@ -59,6 +59,21 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. By default, all accessible key-value stores are returned.
+
+        - `ownedByMe`: Return only key-value stores owned by the currently authenticated user.
+        - `sharedWithMe`: Return only key-value stores shared with the currently authenticated user by other users.
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - ownedByMe
+          - sharedWithMe
+        example: ownedByMe
   responses:
     "200":
       description: ""
