@@ -1844,6 +1844,11 @@ a.client-docs-link {
     margin-top: 0;
 }
 
+.theme-api-markdown .openapi-explorer__details-summary:before {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
 .theme-api-markdown .prism-code .token-line::before {
     display: none !important;
 }

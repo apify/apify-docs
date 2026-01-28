@@ -123,7 +123,7 @@ index bcebb1c..ac03ec1 100644
      })
      .flat() // Flatten the array in case of nested arrays from map
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
-index f6052d1..15dc342 100644
+index f6052d1..867bfd2 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
 @@ -27,6 +27,7 @@ const slice_1 = require("@theme/ApiExplorer/Authorization/slice");
@@ -221,7 +221,7 @@ index f6052d1..15dc342 100644
                  "div",
                  { className: "col col--7 openapi-left-panel__container" },
 -                react_1.default.createElement(MDXComponent, null)
-+                renderClientsBox(api),
++                react_1.default.createElement(BrowserOnly_1.default, { fallback: null }, () => renderClientsBox(api)),
 +                react_1.default.createElement(MDXComponent, null),
 +                react_1.default.createElement(LLMButtonsPortal, null)
                ),
