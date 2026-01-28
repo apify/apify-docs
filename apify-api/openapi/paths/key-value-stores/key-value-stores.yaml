@@ -62,18 +62,14 @@ get:
     - name: ownership
       in: query
       description: |
-        Filter by ownership. By default, all accessible key-value stores are returned.
+        Filter by ownership. If this parameter is omitted, all accessible key-value stores are returned.
 
         - `ownedByMe`: Return only key-value stores owned by the user.
         - `sharedWithMe`: Return only key-value stores shared with the user by other users.
       style: form
       explode: true
       schema:
-        type: string
-        enum:
-          - ownedByMe
-          - sharedWithMe
-        example: ownedByMe
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""

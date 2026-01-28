@@ -57,18 +57,14 @@ get:
     - name: ownership
       in: query
       description: |
-        Filter by ownership. By default, all accessible datasets are returned.
+        Filter by ownership. If this parameter is omitted, all accessible datasets are returned.
 
         - `ownedByMe`: Return only datasets owned by the user.
         - `sharedWithMe`: Return only datasets shared with the user by other users.
       style: form
       explode: true
       schema:
-        type: string
-        enum:
-          - ownedByMe
-          - sharedWithMe
-        example: ownedByMe
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""
