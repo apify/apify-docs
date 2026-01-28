@@ -57,6 +57,17 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible request queues are returned.
+
+        - `ownedByMe`: Return only request queues owned by the user.
+        - `sharedWithMe`: Return only request queues shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""

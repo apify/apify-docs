@@ -59,6 +59,17 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible key-value stores are returned.
+
+        - `ownedByMe`: Return only key-value stores owned by the user.
+        - `sharedWithMe`: Return only key-value stores shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""
