@@ -77,8 +77,6 @@ module.exports = {
 
     onBrokenLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
-    onBrokenMarkdownLinks:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenAnchors:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     themes: [
@@ -379,6 +377,10 @@ module.exports = {
     ],
     markdown: {
         mermaid: true,
+        hooks: {
+            onBrokenMarkdownLinks:
+            /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+        },
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
 

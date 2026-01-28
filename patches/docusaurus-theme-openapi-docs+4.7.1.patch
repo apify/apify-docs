@@ -1,0 +1,178 @@
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js
+index 47f1ec7..9ce8587 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js
+@@ -49,7 +49,8 @@ function createAuth({ security, securitySchemes, options: opts }) {
+     const id = Object.keys(option).join(" and ");
+     for (const [schemeID, scopes] of Object.entries(option)) {
+       const scheme = securitySchemes?.[schemeID];
+-      if (scheme) {
++      // Apify: Skip apiKey schemes to only support httpBearer tokens
++      if (scheme && scheme.type !== "apiKey") {
+         if (options[id] === undefined) {
+           options[id] = [];
+         }
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+index 31bf239..6cc68a1 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+@@ -309,7 +309,7 @@ function CodeSnippets({
+           CodeTab,
+           {
+             value: lang.language,
+-            label: lang.language,
++            label: lang.label ?? lang.language,
+             key: lang.language,
+             attributes: {
+               className: `openapi-tabs__code-item--${lang.logoClass}`,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
+index a2a4e40..f2d944d 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
+@@ -30,7 +30,7 @@ function Export({ url, proxy }) {
+     react_1.default.createElement(
+       "button",
+       { className: "export-button button button--sm button--secondary" },
+-      "Export"
++      "Download OpenAPI"
+     ),
+     react_1.default.createElement(
+       "ul",
+@@ -48,7 +48,23 @@ function Export({ url, proxy }) {
+             className: "dropdown__link",
+             href: `${url}`,
+           },
+-          "OpenAPI Spec"
++          "YAML"
++        )
++      ),
++      react_1.default.createElement(
++        "li",
++        null,
++        react_1.default.createElement(
++          "a",
++          {
++            onClick: (e) => {
++              e.preventDefault();
++              saveFile(`${url.replace(/\.yaml$/, '.json')}`);
++            },
++            className: "dropdown__link",
++            href: `${url.replace(/\.yaml$/, '.json')}`,
++          },
++          "JSON"
+         )
+       )
+     )
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js
+index f8f722f..ec0c117 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js
+@@ -44,6 +44,7 @@ function ParamBooleanFormItem({ param }) {
+       render: ({ field: { onChange } }) =>
+         react_1.default.createElement(FormSelect_1.default, {
+           options: ["---", "true", "false"],
++          value: (param.value === undefined || param.value === null || param.value === "") ? "---" : String(param.value),
+           onChange: (e) => {
+             const val = e.target.value;
+             dispatch(
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
+index bcebb1c..ac03ec1 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
+@@ -117,7 +117,9 @@ function setQueryParams(postman, queryParams) {
+         }
+       } else if (param.explode) {
+         const jsonResult = tryDecodeJsonParam(param.value);
+-        if (jsonResult && typeof jsonResult === "object") {
++        // Apify: Only use Object.entries for actual objects, not primitives (boolean, number, string)
++        // JSON.parse("true") returns boolean true, and Object.entries(true) returns [] which breaks the URL
++        if (jsonResult && typeof jsonResult === "object" && !Array.isArray(jsonResult)) {
+           return Object.entries(jsonResult).map(
+             ([key, val]) =>
+               new sdk.QueryParam({
+@@ -125,14 +127,8 @@ function setQueryParams(postman, queryParams) {
+                 value: String(val),
+               })
+           );
+-        } else {
+-          return new sdk.QueryParam({
+-            key: param.name,
+-            value: Object.entries(jsonResult)
+-              .map(([key, val]) => `${key},${val}`)
+-              .join(","),
+-          });
+         }
++        // For primitive values (including booleans parsed from "true"/"false"), fall through to default handling
+       }
+       // Parameter allows empty value: "/hello?extended"
+       if (param.allowEmptyValue) {
+@@ -144,9 +140,14 @@ function setQueryParams(postman, queryParams) {
+         }
+         return undefined;
+       }
++      // Apify: Handle boolean values - convert to string for proper URL serialization
++      // This handles both actual booleans and ensures string values are passed correctly
++      const finalValue = typeof param.value === "boolean"
++        ? param.value.toString()
++        : String(param.value);
+       return new sdk.QueryParam({
+         key: param.name,
+-        value: param.value,
++        value: finalValue,
+       });
+     })
+     .flat() // Flatten the array in case of nested arrays from map
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
+index f6052d1..319ebc5 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
+@@ -47,6 +47,41 @@ function base64ToUint8Array(base64) {
+   }
+   return bytes;
+ }
++// Apify: Render clients box with links to Python and JavaScript API client documentation
++function renderClientsBox(api) {
++  const pyUrl = api?.['x-py-doc-url'];
++  const jsUrl = api?.['x-js-doc-url'];
++  if (!pyUrl && !jsUrl) {
++    return null;
++  }
++  return react_1.default.createElement(
++    "div",
++    { className: "openapi-clients-box" },
++    react_1.default.createElement("div", { className: "openapi-clients-box-heading" }, "API Clients"),
++    jsUrl && react_1.default.createElement(
++      "a",
++      {
++        href: jsUrl,
++        target: "_blank",
++        rel: "noopener noreferrer",
++        className: "client-docs-link"
++      },
++      react_1.default.createElement("img", { src: "/img/javascript-40x40.svg", className: "openapi-clients-box-icon", width: "20px", height: "20px", alt: "JavaScript" }),
++      "JavaScript"
++    ),
++    pyUrl && react_1.default.createElement(
++      "a",
++      {
++        href: pyUrl,
++        target: "_blank",
++        rel: "noopener noreferrer",
++        className: "client-docs-link"
++      },
++      react_1.default.createElement("img", { src: "/img/python-40x40.svg", className: "openapi-clients-box-icon", width: "20px", height: "20px", alt: "Python" }),
++      "Python"
++    )
++  );
++}
+ // @ts-ignore
+ function ApiItem(props) {
+   const docHtmlClassName = `docs-doc-id-${props.content.metadata.id}`;
+@@ -158,6 +193,7 @@ function ApiItem(props) {
+               react_1.default.createElement(
+                 "div",
+                 { className: "col col--7 openapi-left-panel__container" },
++                renderClientsBox(api),
+                 react_1.default.createElement(MDXComponent, null)
+               ),
+               react_1.default.createElement(

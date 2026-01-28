@@ -1785,49 +1785,58 @@ iframe[src*="youtube"] {
 .theme-api-markdown .openapi-clients-box {
     display: block;
     float: right;
-    padding-left: 12px;
-    padding-right: 6px;
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-bottom: 12px;
+    padding: 10px 16px;
+    min-width: 140px;
+    background: var(--ifm-background-surface-color);
+    border: 1px solid var(--ifm-toc-border-color);
+    border-radius: 8px;
 }
 
-.client-docs-link img {
-    border: 1px solid var(--color-neutral-action-secondary);
-    border-radius: 8px;
+.theme-api-markdown .openapi-clients-box-heading {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--ifm-color-emphasis-600);
+    margin-bottom: 4px;
 }
 
 .client-docs-link {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
-    gap: 8px;
-    padding: 4px 8px 8px 0px;
+    gap: 6px;
+    padding: 2px 0;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+}
+
+.client-docs-link:hover {
+    opacity: 0.8;
+    text-decoration: none;
 }
 
 a.client-docs-link {
+    font-size: 13px;
     font-weight: 500;
-    color: var(--color-neutral-text-muted);
+    color: var(--ifm-color-emphasis-800);
 }
 
-.theme-admonition {
-    clear: right;
-}
-
-.theme-api-markdown .openapi-clients-box-heading {
-    display: inline-block;
-    font-family: 'San Francisco', Helvetica, Arial, sans-serif;
-    color: var(--color-neutral-text-muted);
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
-    padding-bottom: 6px;
+.client-docs-link img {
+    border-radius: 4px;
 }
 
 .theme-api-markdown .openapi-clients-box-icon {
     display: block;
-    padding: 2px;
     margin: 0 !important;
+}
+
+.theme-admonition {
+    clear: right;
 }
 
 .theme-api-markdown .openapi__method-endpoint-path,
