@@ -31,10 +31,11 @@ Before connecting your AI to Apify, you'll need three things:
 
 You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
-### SSE transport deprecation by April 1, 2026
+:::caution SSE transport deprecated
 
-The Apify MCP server is dropping Server-Sent Events (SSE) transport in favor of Streamable HTTP, in line with the official MCP spec.
-Go to [mcp.apify.com](https://mcp.apify.com/) to update the installation for your client of choice, with a valid endpoint.
+Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify MCP server now uses Streamable HTTP, in line with the official MCP specification. Visit [mcp.apify.com](https://mcp.apify.com/) to update your client configuration.
+
+:::
 
 ### Streamable HTTP with OAuth (recommended)
 
