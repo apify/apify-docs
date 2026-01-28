@@ -64,8 +64,8 @@ get:
       description: |
         Filter by ownership. By default, all accessible key-value stores are returned.
 
-        - `ownedByMe`: Return only key-value stores owned by the currently authenticated user.
-        - `sharedWithMe`: Return only key-value stores shared with the currently authenticated user by other users.
+        - `ownedByMe`: Return only key-value stores owned by the user.
+        - `sharedWithMe`: Return only key-value stores shared with the user by other users.
       style: form
       explode: true
       schema:

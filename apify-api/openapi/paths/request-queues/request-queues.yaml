@@ -62,8 +62,8 @@ get:
       description: |
         Filter by ownership. By default, all accessible request queues are returned.
 
-        - `ownedByMe`: Return only request queues owned by the currently authenticated user.
-        - `sharedWithMe`: Return only request queues shared with the currently authenticated user by other users.
+        - `ownedByMe`: Return only request queues owned by the user.
+        - `sharedWithMe`: Return only request queues shared with the user by other users.
       style: form
       explode: true
       schema:
