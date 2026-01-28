@@ -21,3 +21,12 @@ properties:
     examples: [latest]
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
+  gitRepoUrl:
+    type: [string, "null"]
+    description: URL of the Git repository when sourceType is GIT_REPO.
+  tarballUrl:
+    type: [string, "null"]
+    description: URL of the tarball when sourceType is TARBALL.
+  gitHubGistUrl:
+    type: [string, "null"]
+    description: URL of the GitHub Gist when sourceType is GITHUB_GIST.
