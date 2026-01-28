@@ -164,6 +164,14 @@ Use Docusaurus admonitions for important information:
 | `:::caution` | Warnings about gotchas                      |
 | `:::danger`  | Critical warnings that could cause issues   |
 
+**All admonitions require titles.** Use 2-3 words that are scannable and summarize the content.
+
+| Avoid                                   | Prefer                     |
+| --------------------------------------- | -------------------------- |
+| `:::note Note`                          | `:::note Actor versions`   |
+| `:::caution Be careful when deleting`   | `:::caution Data loss`     |
+| `:::tip` (no title)                     | `:::tip Performance`       |
+
 Prefer admonitions over block quotes for highlighted content.
 
 ## Grammar
