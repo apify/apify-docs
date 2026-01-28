@@ -6,6 +6,10 @@ required:
   - method
 type: object
 properties:
+  id:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [sbJ7klsdf7ujN9l]
   uniqueKey:
     type: string
     description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
