@@ -123,10 +123,18 @@ index bcebb1c..ac03ec1 100644
      })
      .flat() // Flatten the array in case of nested arrays from map
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
-index f6052d1..319ebc5 100644
+index f6052d1..15dc342 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
-@@ -47,6 +47,41 @@ function base64ToUint8Array(base64) {
+@@ -27,6 +27,7 @@ const slice_1 = require("@theme/ApiExplorer/Authorization/slice");
+ const persistenceMiddleware_1 = require("@theme/ApiExplorer/persistenceMiddleware");
+ const storage_utils_1 = require("@theme/ApiExplorer/storage-utils");
+ const Layout_1 = __importDefault(require("@theme/ApiItem/Layout"));
++const LLMButtons_1 = __importDefault(require("@theme/LLMButtons"));
+ const CodeBlock_1 = __importDefault(require("@theme/CodeBlock"));
+ const Metadata_1 = __importDefault(require("@theme/DocItem/Metadata"));
+ const SkeletonLoader_1 = __importDefault(require("@theme/SkeletonLoader"));
+@@ -47,6 +48,81 @@ function base64ToUint8Array(base64) {
    }
    return bytes;
  }
@@ -165,14 +173,57 @@ index f6052d1..319ebc5 100644
 +    )
 +  );
 +}
++// Apify: Component that renders LLMButtons and moves it after the heading
++function LLMButtonsPortal() {
++  const [container, setContainer] = react_1.default.useState(null);
++  react_1.default.useEffect(() => {
++    // Create a container div
++    const div = document.createElement('div');
++    div.className = 'openapi-llm-buttons';
++
++    // Find the heading and insert after it
++    const attemptInsert = () => {
++      const heading = document.querySelector('.openapi__heading');
++      if (heading && heading.parentNode) {
++        heading.parentNode.insertBefore(div, heading.nextSibling);
++        setContainer(div);
++        return true;
++      }
++      return false;
++    };
++
++    // Try immediately, then with delays
++    if (!attemptInsert()) {
++      const timers = [10, 50, 100, 250, 500, 1000].map(delay =>
++        setTimeout(attemptInsert, delay)
++      );
++      return () => timers.forEach(clearTimeout);
++    }
++
++    return () => {
++      if (div.parentNode) {
++        div.parentNode.removeChild(div);
++      }
++    };
++  }, []);
++
++  if (!container) return null;
++  return require("react-dom").createPortal(
++    react_1.default.createElement(LLMButtons_1.default, { isApiReferencePage: true }),
++    container
++  );
++}
  // @ts-ignore
  function ApiItem(props) {
    const docHtmlClassName = `docs-doc-id-${props.content.metadata.id}`;
-@@ -158,6 +193,7 @@ function ApiItem(props) {
+@@ -158,7 +234,9 @@ function ApiItem(props) {
                react_1.default.createElement(
                  "div",
                  { className: "col col--7 openapi-left-panel__container" },
+-                react_1.default.createElement(MDXComponent, null)
 +                renderClientsBox(api),
-                 react_1.default.createElement(MDXComponent, null)
++                react_1.default.createElement(MDXComponent, null),
++                react_1.default.createElement(LLMButtonsPortal, null)
                ),
                react_1.default.createElement(
+                 "div",

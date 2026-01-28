@@ -2,7 +2,7 @@ const { join, resolve } = require('node:path');
 const { parse } = require('node:url');
 
 const clsx = require('clsx');
-const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
+const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
