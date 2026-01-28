@@ -200,21 +200,6 @@ module.exports = {
                                     md = md.replace('--&gt;', '-->');
                                 }
 
-                                // Find the first Heading h1 and add LLMButtons after it
-                                // eslint-disable-next-line max-len
-                                const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
-                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
-
-                                return md;
-                            },
-                            createInfoPageMD: (pageData) => {
-                                let md = createInfoPageMD(pageData);
-
-                                // Find the first Heading h1 and add LLMButtons after it
-                                // eslint-disable-next-line max-len
-                                const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
-                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
-
                                 return md;
                             },
                         },
