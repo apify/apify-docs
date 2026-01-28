@@ -54,7 +54,7 @@ llm = ChatOpenAI(model="gpt-4o-mini")
 
 loader = apify.call_actor(
     actor_id="apify/website-content-crawler",
-    run_input={"startUrls": [{"url": "https://docs.langchain.com/oss/python/langchain/overviewget_started/introduction"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
+    run_input={"startUrls": [{"url": "https://docs.langchain.com/oss/python/langchain/quickstart"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
     dataset_mapping_function=lambda item: Document(
         page_content=item["text"] or "", metadata={"source": item["url"]}
     ),
@@ -107,7 +107,7 @@ llm = ChatOpenAI(model="gpt-4o-mini")
 print("Call website content crawler ...")
 loader = apify.call_actor(
     actor_id="apify/website-content-crawler",
-    run_input={"startUrls": [{"url": "https://docs.langchain.com/oss/python/langchain/overviewget_started/introduction"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
+    run_input={"startUrls": [{"url": "https://docs.langchain.com/oss/python/langchain/quickstart"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
     dataset_mapping_function=lambda item: Document(page_content=item["text"] or "", metadata={"source": item["url"]}),
 )
 print("Compute embeddings...")
@@ -130,7 +130,7 @@ After running the code, you should see the following output:
 answer: LangChain is a framework designed for developing applications powered by large language models (LLMs). It simplifies the
  entire application lifecycle, from development to productionization and deployment. LangChain provides open-source components and integrates with various third-party tools, making it easier to build and optimize applications using language models.
 
-source: https://docs.langchain.com/oss/python/langchain/overviewget_started/introduction
+source: https://docs.langchain.com/oss/python/langchain/quickstart
 ```
 
 LangChain is a standard interface through which you can interact with a variety of large language models (LLMs).
@@ -154,6 +154,6 @@ Similarly, you can use other Apify Actors to load data into LangChain and query 
 
 ## Resources
 
-- [LangChain introduction](https://docs.langchain.com/oss/python/langchain/overviewget_started/introduction)
-- [Apify Dataset loader](https://docs.langchain.com/oss/python/langchain/overviewintegrations/document_loaders/apify_dataset)
-- [LangChain Apify Provider](https://docs.langchain.com/oss/python/langchain/overviewintegrations/providers/apify)
+- [LangChain quickstart](https://docs.langchain.com/oss/python/langchain/quickstart)
+- [Apify Dataset loader](https://docs.langchain.com/oss/python/integrations/document_loaders/apify_dataset)
+- [LangChain Apify Provider](https://docs.langchain.com/oss/python/integrations/providers/apify)
