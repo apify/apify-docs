@@ -190,18 +190,22 @@ Content lives in the following locations:
 
 ### Overview
 
-The API reference documentation at [docs.apify.com](https://docs.apify.com/) is built directly from our OpenAPI specification. The source of truth for the API specification lives in the `/apify-api/openapi`  directory within [apify-docs](https://github.com/apify/apify-docs) repository.
+The API reference documentation at [docs.apify.com/api/v2](https://docs.apify.com/api/v2) is built from our OpenAPI specification. The source of truth lives in the `/apify-api/openapi` directory.
 
-### Setup requirements
+### Tooling
 
-1. Install Node.js
-2. Clone the repository
-3. Run `npm install`
+We use the following tools for API documentation:
+
+- **[OpenAPI 3.0](https://spec.openapis.org/oas/v3.0.3)** - API specification format
+- **[Redocly CLI](https://redocly.com/docs/cli/)** - Linting and validation of OpenAPI specs
+- **[docusaurus-plugin-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs)** - Generates MDX docs from OpenAPI
+- **[docusaurus-theme-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs)** - Renders API reference with interactive explorer
 
 ### Basic commands
 
 - `npm start` - Starts docs preview server including API reference
-- `npm test` - Validates the definition
+- `npm run openapi:lint:redocly` - Validates OpenAPI spec with Redocly CLI
+- `npm run api:rebuild` - Regenerates API docs from OpenAPI specs
 
 ### Adding new documentation
 
