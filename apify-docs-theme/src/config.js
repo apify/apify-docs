@@ -53,13 +53,13 @@ const themeConfig = {
                     },
                     {
                         label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/api/client/js/docs`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
                         label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/api/client/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -76,13 +76,13 @@ const themeConfig = {
                 items: [
                     {
                         label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
                         html: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -90,7 +90,7 @@ const themeConfig = {
             },
             {
                 label: 'CLI',
-                href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
+                href: `${absoluteUrl}/cli/docs`,
                 position: 'left',
                 activeBasePath: 'cli',
                 target: '_self',
@@ -188,13 +188,13 @@ const themeConfig = {
                     },
                     {
                         label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/api/client/js/docs`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
                         label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/api/client/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -205,13 +205,13 @@ const themeConfig = {
                 items: [
                     {
                         label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
                         label: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -222,7 +222,7 @@ const themeConfig = {
                 items: [
                     {
                         label: 'CLI',
-                        href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/cli/docs`,
                         position: 'left',
                         target: '_self',
                         rel: 'dofollow',
