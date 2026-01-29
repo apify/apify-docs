@@ -227,3 +227,186 @@ index f6052d1..867bfd2 100644
                ),
                react_1.default.createElement(
                  "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
+index e84857b..ba445e8 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
+@@ -64,6 +64,8 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+             )
+           );
+         }
++        // Apify: Check if there's an explicit example - if so, skip auto-generated
++        const hasExplicitExample = responseExample || responseExamples;
+         return (
+           // @ts-ignore
+           react_1.default.createElement(
+@@ -72,6 +74,25 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+             react_1.default.createElement(
+               SchemaTabs_1.default,
+               { className: "openapi-tabs__schema" },
++              // Apify: Put examples first, before schema
++              // Show explicit examples if available
++              responseExample &&
++                (0, ResponseExamples_1.ResponseExample)({
++                  responseExample,
++                  mimeType,
++                }),
++              responseExamples &&
++                (0, ResponseExamples_1.ResponseExamples)({
++                  responseExamples,
++                  mimeType,
++                }),
++              // Only show auto-generated example if no explicit example exists
++              !hasExplicitExample && firstBody &&
++                (0, ResponseExamples_1.ExampleFromSchema)({
++                  schema: firstBody,
++                  mimeType: mimeType,
++                }),
++              // Schema tab comes after examples
+               react_1.default.createElement(
+                 TabItem_1.default,
+                 { key: title, label: title, value: title },
+@@ -132,22 +153,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+                     })
+                   )
+                 )
+-              ),
+-              firstBody &&
+-                (0, ResponseExamples_1.ExampleFromSchema)({
+-                  schema: firstBody,
+-                  mimeType: mimeType,
+-                }),
+-              responseExamples &&
+-                (0, ResponseExamples_1.ResponseExamples)({
+-                  responseExamples,
+-                  mimeType,
+-                }),
+-              responseExample &&
+-                (0, ResponseExamples_1.ResponseExample)({
+-                  responseExample,
+-                  mimeType,
+-                })
++              )
+             )
+           )
+         );
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
+index 37190c6..69553f8 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
+@@ -304,7 +304,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
+     )
+   );
+ };
+-const Properties = ({ schema, schemaType, schemaPath }) => {
++const Properties = ({ schema, schemaType, schemaPath, depth = 0 }) => {
+   const discriminator = schema.discriminator;
+   if (discriminator && !discriminator.mapping) {
+     const anyOneOf = schema.oneOf ?? schema.anyOf ?? {};
+@@ -344,6 +344,7 @@ const Properties = ({ schema, schemaType, schemaPath }) => {
+         discriminator: discriminator,
+         schemaType: schemaType,
+         schemaPath: schemaPath ? `${schemaPath}.${key}` : undefined,
++        depth: depth, // Apify: pass depth
+       })
+     )
+   );
+@@ -581,7 +582,10 @@ const SchemaNodeDetails = ({
+   required,
+   schemaType,
+   schemaPath,
++  depth = 1, // Apify: track nesting depth, default to 1 (first level)
+ }) => {
++  // Apify: expand first level of nested items (depth 0 or 1)
++  const shouldBeOpen = depth <= 1;
+   return react_1.default.createElement(
+     SchemaItem_1.default,
+     { collapsible: true },
+@@ -589,6 +593,7 @@ const SchemaNodeDetails = ({
+       Details_1.default,
+       {
+         className: "openapi-markdown__details",
++        open: shouldBeOpen, // Apify: expand first level
+         summary: react_1.default.createElement(Summary, {
+           name: name,
+           schemaName: schemaName,
+@@ -611,6 +616,7 @@ const SchemaNodeDetails = ({
+           schema: schema,
+           schemaType: schemaType,
+           schemaPath: schemaPath,
++          depth: depth + 1, // Apify: increment depth for nested items
+         })
+       )
+     )
+@@ -703,6 +709,7 @@ const SchemaEdge = ({
+   discriminator,
+   schemaType,
+   schemaPath,
++  depth = 1, // Apify: track nesting depth
+ }) => {
+   if (
+     (schemaType === "request" && schema.readOnly) ||
+@@ -731,6 +738,7 @@ const SchemaEdge = ({
+       schema: schema,
+       nullable: schema.nullable,
+       schemaPath: schemaPath,
++      depth: depth,
+     });
+   }
+   if (schema.properties) {
+@@ -742,6 +750,7 @@ const SchemaEdge = ({
+       schema: schema,
+       nullable: schema.nullable,
+       schemaPath: schemaPath,
++      depth: depth,
+     });
+   }
+   if (schema.additionalProperties) {
+@@ -753,6 +762,7 @@ const SchemaEdge = ({
+       schema: schema,
+       nullable: schema.nullable,
+       schemaPath: schemaPath,
++      depth: depth,
+     });
+   }
+   if (schema.items?.properties) {
+@@ -764,6 +774,7 @@ const SchemaEdge = ({
+       schema: schema,
+       schemaType: schemaType,
+       schemaPath: schemaPath,
++      depth: depth,
+     });
+   }
+   if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
+@@ -775,6 +786,7 @@ const SchemaEdge = ({
+       schema: schema,
+       schemaType: schemaType,
+       schemaPath: schemaPath,
++      depth: depth,
+     });
+   }
+   if (schema.allOf) {
+@@ -813,6 +825,7 @@ const SchemaEdge = ({
+         schema: mergedSchemas,
+         schemaType: schemaType,
+         schemaPath: schemaPath,
++        depth: depth,
+       });
+     }
+     if (mergedSchemas.properties !== undefined) {
+@@ -824,6 +837,7 @@ const SchemaEdge = ({
+         schema: mergedSchemas,
+         schemaType: schemaType,
+         schemaPath: schemaPath,
++        depth: depth,
+       });
+     }
+     if (mergedSchemas.items?.properties) {
+@@ -835,6 +849,7 @@ const SchemaEdge = ({
+         schema: mergedSchemas,
+         schemaType: schemaType,
+         schemaPath: schemaPath,
++        depth: depth,
+       });
+     }
+     return react_1.default.createElement(SchemaItem_1.default, {
