@@ -291,7 +291,7 @@ index e84857b..ba445e8 100644
            )
          );
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-index 37190c6..69553f8 100644
+index 37190c6..76766ef 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 @@ -304,7 +304,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
@@ -307,7 +307,7 @@ index 37190c6..69553f8 100644
          discriminator: discriminator,
          schemaType: schemaType,
          schemaPath: schemaPath ? `${schemaPath}.${key}` : undefined,
-+        depth: depth, // Apify: pass depth
++        depth, // Apify: pass depth
        })
      )
    );
@@ -334,7 +334,7 @@ index 37190c6..69553f8 100644
            schema: schema,
            schemaType: schemaType,
            schemaPath: schemaPath,
-+          depth: depth + 1, // Apify: increment depth for nested items
++          depth: depth + 1,
          })
        )
      )
@@ -350,7 +350,7 @@ index 37190c6..69553f8 100644
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
-+      depth: depth,
++      depth,
      });
    }
    if (schema.properties) {
@@ -358,7 +358,7 @@ index 37190c6..69553f8 100644
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
-+      depth: depth,
++      depth,
      });
    }
    if (schema.additionalProperties) {
@@ -366,7 +366,7 @@ index 37190c6..69553f8 100644
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
-+      depth: depth,
++      depth,
      });
    }
    if (schema.items?.properties) {
@@ -374,7 +374,7 @@ index 37190c6..69553f8 100644
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
-+      depth: depth,
++      depth,
      });
    }
    if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
@@ -382,7 +382,7 @@ index 37190c6..69553f8 100644
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
-+      depth: depth,
++      depth,
      });
    }
    if (schema.allOf) {
@@ -390,7 +390,7 @@ index 37190c6..69553f8 100644
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
-+        depth: depth,
++        depth,
        });
      }
      if (mergedSchemas.properties !== undefined) {
@@ -398,7 +398,7 @@ index 37190c6..69553f8 100644
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
-+        depth: depth,
++        depth,
        });
      }
      if (mergedSchemas.items?.properties) {
@@ -406,7 +406,7 @@ index 37190c6..69553f8 100644
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
-+        depth: depth,
++        depth,
        });
      }
      return react_1.default.createElement(SchemaItem_1.default, {
