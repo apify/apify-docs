@@ -15,9 +15,10 @@ const crawler = new CheerioCrawler({
         });
       }
     } else if (request.label === 'IMDB_SEARCH') {
-      await enqueueLinks({ selector: '.find-result-item a', label: 'IMDB', limit: 1 });
+      await enqueueLinks({ selector: '.ipc-title-link-wrapper', label: 'IMDB', limit: 1 });
     } else {
-      const requests = $("[data-uia='top10-table-row-title'] button").toArray().map((buttonElement) => {
+      const buttons = $("[data-uia='top10-table-row-title'] button").toArray().slice(0, 5);
+      const requests = buttons.map((buttonElement) => {
         const name = $(buttonElement).text().trim();
         const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
         return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
