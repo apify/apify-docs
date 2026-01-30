@@ -104,7 +104,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/actor-runs/GetRunResponse.yaml
+              - $ref: ../../components/schemas/actor-runs/RunResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB
@@ -248,7 +248,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-runs/GetRunResponse.yaml
+            $ref: ../../components/schemas/actor-runs/RunResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB

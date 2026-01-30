@@ -1,0 +1,7 @@
+title: RunResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Run.yaml

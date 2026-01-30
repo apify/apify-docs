@@ -1,7 +1,0 @@
-title: GetListOfVersionsResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./ListOfVersions.yaml

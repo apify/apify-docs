@@ -30,7 +30,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetListOfEnvVarsResponse.yaml
+            $ref: ../../components/schemas/actors/ListOfEnvVarsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -106,7 +106,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
+            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR

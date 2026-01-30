@@ -1,0 +1,8 @@
+title: DatasetResponse
+description: Response containing dataset data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Dataset.yaml

@@ -1,0 +1,7 @@
+title: ScheduleResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Schedule.yaml

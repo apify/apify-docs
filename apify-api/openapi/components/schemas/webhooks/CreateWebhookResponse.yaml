@@ -1,7 +1,0 @@
-title: CreateWebhookResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./Webhook.yaml
