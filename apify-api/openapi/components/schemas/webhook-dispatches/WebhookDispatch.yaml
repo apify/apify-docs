@@ -22,11 +22,9 @@ properties:
     format: date-time
     examples: ["2019-12-12T07:34:14.202Z"]
   status:
-    type: string
-    examples: [SUCCEEDED]
+    $ref: ./WebhookDispatchStatus.yaml
   eventType:
-    type: string
-    examples: [ACTOR.RUN.SUCCEEDED]
+    $ref: ../webhooks/WebhookEventType.yaml
   eventData:
     title: eventData
     type: [object, "null"]
