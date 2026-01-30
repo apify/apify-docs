@@ -12,4 +12,5 @@ enum:
   - ACTOR.RUN.RESURRECTED
   - ACTOR.RUN.SUCCEEDED
   - ACTOR.RUN.TIMED_OUT
+  - TEST
 description: Type of event that triggers the webhook.

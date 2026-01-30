@@ -1,9 +1,10 @@
 title: PutItemsRequest
-required:
-  - foo
+description: |
+  The request body containing the item(s) to add to the dataset. Can be a single
+  object or an array of objects. Each object represents one dataset item.
 type: object
-properties:
-  foo:
-    type: string
+additionalProperties: true
 example:
-  foo: bar
+  title: Example Item
+  url: https://example.com
+  price: 19.99

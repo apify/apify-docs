@@ -1,4 +1,7 @@
 title: SourceCodeFolder
+description: |
+  Represents a folder in the Actor's source code structure. Distinguished from
+  SourceCodeFile by the presence of the `folder` property set to `true`.
 type: object
 required:
   - name
@@ -6,9 +9,9 @@ required:
 properties:
   name:
     type: string
-    examples: [src/placeholder]
+    description: The folder path relative to the Actor's root directory.
+    examples: [src/utils]
   folder:
     type: boolean
-    enum:
-      - true
+    description: Always `true` for folders. Used to distinguish folders from files.
     examples: [true]

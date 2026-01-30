@@ -6,7 +6,6 @@ required:
   - createdAt
   - status
   - eventType
-  - eventData
 type: object
 properties:
   id:
@@ -23,14 +22,12 @@ properties:
     format: date-time
     examples: ["2019-12-12T07:34:14.202Z"]
   status:
-    type: string
-    examples: [SUCCEEDED]
+    $ref: ./WebhookDispatchStatus.yaml
   eventType:
-    type: string
-    examples: [ACTOR.RUN.SUCCEEDED]
+    $ref: ../webhooks/WebhookEventType.yaml
   eventData:
     title: eventData
-    type: object
+    type: [object, "null"]
     required:
       - actorId
       - actorRunId
@@ -43,22 +40,24 @@ properties:
         examples: [JgwXN9BdwxGcu9MMF]
   calls:
     title: calls
-    type: object
-    properties:
-      startedAt:
-        type: [string, "null"]
-        format: date-time
-        examples: ["2019-12-12T07:34:14.202Z"]
-      finishedAt:
-        type: [string, "null"]
-        format: date-time
-        examples: ["2019-12-12T07:34:14.202Z"]
-      errorMessage:
-        type: [string, "null"]
-        examples: [Cannot send request]
-      responseStatus:
-        type: [integer, "null"]
-        examples: [200]
-      responseBody:
-        type: [string, "null"]
-        example: '{"foo": "bar"}'
+    type: array
+    items:
+      type: object
+      properties:
+        startedAt:
+          type: [string, "null"]
+          format: date-time
+          examples: ["2019-12-12T07:34:14.202Z"]
+        finishedAt:
+          type: [string, "null"]
+          format: date-time
+          examples: ["2019-12-12T07:34:14.202Z"]
+        errorMessage:
+          type: [string, "null"]
+          examples: [Cannot send request]
+        responseStatus:
+          type: [integer, "null"]
+          examples: [200]
+        responseBody:
+          type: [string, "null"]
+          example: '{"foo": "bar"}'

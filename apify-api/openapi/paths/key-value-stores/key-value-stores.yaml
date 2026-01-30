@@ -77,7 +77,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetListOfKeyValueStoresResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/ListOfKeyValueStoresResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -129,7 +129,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/CreateKeyValueStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
           example:
             data:
               id: WkzbQMuFYuamGv3YF

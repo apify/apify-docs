@@ -29,12 +29,13 @@ get:
         example: soSkq9ekdmfOslopH
   responses:
     "200":
-      description: ""
+      description: The OpenAPI specification document for the Actor build.
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-builds/GetOpenApiResponse.yaml
+            type: object
+            description: A standard OpenAPI 3.x JSON document.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   x-js-parent: BuildClient

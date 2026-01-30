@@ -45,7 +45,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/actor-builds/GetBuildResponse.yaml
+              - $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

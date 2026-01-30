@@ -1,0 +1,6 @@
+title: ScheduleActionType
+type: string
+enum:
+  - RUN_ACTOR
+  - RUN_ACTOR_TASK
+description: Type of action to perform when the schedule triggers.

@@ -1,7 +1,0 @@
-title: GetUserRunsListResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./RunList.yaml

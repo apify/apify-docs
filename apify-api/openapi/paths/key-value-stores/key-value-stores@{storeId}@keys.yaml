@@ -62,7 +62,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetListOfKeysResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/ListOfKeysResponse.yaml
           example:
             data:
               items:

@@ -1,8 +1,0 @@
-title: CreateRequestQueueResponse
-description: Response containing the created request queue.
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./RequestQueue.yaml

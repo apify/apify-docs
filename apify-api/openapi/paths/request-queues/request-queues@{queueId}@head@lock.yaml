@@ -60,7 +60,7 @@ post:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/GetHeadAndLockResponse.yaml
+              - $ref: ../../components/schemas/request-queues/HeadAndLockResponse.yaml
               - example:
                   data:
                     limit: 3

@@ -29,7 +29,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/GetRequestResponse.yaml
+              - $ref: ../../components/schemas/request-queues/RequestResponse.yaml
               - example:
                   data:
                     id: dnjkDMKLmdlkmlkmld

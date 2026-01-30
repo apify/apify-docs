@@ -5,8 +5,7 @@ required:
 type: object
 properties:
   type:
-    type: string
-    examples: [RUN_ACTOR]
+    $ref: ./ScheduleActionType.yaml
   actorId:
     type: string
     examples: [jF8GGEvbEg4Au3NLA]

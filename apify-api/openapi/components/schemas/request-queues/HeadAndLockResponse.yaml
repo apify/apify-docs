@@ -1,0 +1,8 @@
+title: HeadAndLockResponse
+description: Response containing locked requests from the request queue head.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./LockedRequestQueueHead.yaml

@@ -1,7 +1,0 @@
-title: CreateKeyValueStoreResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./KeyValueStore.yaml

@@ -62,7 +62,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/key-value-stores/GetRecordResponse.yaml
+              - $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
               - example:
                   foo: bar
           example:

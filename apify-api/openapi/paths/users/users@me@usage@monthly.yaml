@@ -27,7 +27,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/GetMonthlyUsageResponse.yaml
+            $ref: ../../components/schemas/users/MonthlyUsageResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
