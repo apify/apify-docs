@@ -7,9 +7,10 @@ properties:
     type: string
     examples: [WEB]
   clientIp:
-    type: string
-    format: ipv4
+    type: [string, "null"]
+    description: IP address of the client that started the build.
     examples: [172.234.12.34]
   userAgent:
-    type: string
+    type: [string, "null"]
+    description: User agent of the client that started the build.
     examples: [Mozilla/5.0 (iPad)]
