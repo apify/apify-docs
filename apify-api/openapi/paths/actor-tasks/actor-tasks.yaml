@@ -54,21 +54,7 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - data
-            properties:
-              data:
-                allOf:
-                  - $ref: ../../components/schemas/common/PaginationResponse.yaml
-                  - type: object
-                    required:
-                      - items
-                    properties:
-                      items:
-                        type: array
-                        items:
-                          $ref: ../../components/schemas/actor-tasks/TaskShort.yaml
+            $ref: ../../components/schemas/actor-tasks/GetListOfTasksResponse.yaml
           example:
             data:
               total: 2
