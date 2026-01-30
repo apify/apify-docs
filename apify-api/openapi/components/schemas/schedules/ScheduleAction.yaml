@@ -9,8 +9,7 @@ properties:
     type: string
     examples: [ZReCs7hkdieq8ZUki]
   type:
-    type: string
-    examples: [RUN_ACTOR]
+    $ref: ./ScheduleActionType.yaml
   actorId:
     type: string
     examples: [HKhKmiCMrDgu9eXeE]
