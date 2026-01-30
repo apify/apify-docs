@@ -1,6 +1,7 @@
 title: WebhookDispatchStatus
 type: string
 enum:
+  - ACTIVE
   - SUCCEEDED
   - FAILED
 description: Status of the webhook dispatch indicating whether the HTTP request was successful.
