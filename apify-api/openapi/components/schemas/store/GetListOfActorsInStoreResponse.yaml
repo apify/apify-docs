@@ -4,4 +4,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./StoreData.yaml
+    $ref: ./ListOfStoreActors.yaml

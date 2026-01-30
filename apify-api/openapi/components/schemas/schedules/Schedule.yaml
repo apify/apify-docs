@@ -1,16 +1,14 @@
-title: GetListOfSchedulesResponseDataItems
+title: Schedule
 required:
   - id
   - userId
   - name
-  - createdAt
-  - modifiedAt
-  - lastRunAt
-  - nextRunAt
-  - isEnabled
-  - isExclusive
   - cronExpression
   - timezone
+  - isEnabled
+  - isExclusive
+  - createdAt
+  - modifiedAt
   - actions
 type: object
 properties:
@@ -23,6 +21,21 @@ properties:
   name:
     type: string
     examples: [my-schedule]
+  cronExpression:
+    type: string
+    examples: ["* * * * *"]
+  timezone:
+    type: string
+    examples: [UTC]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  isExclusive:
+    type: boolean
+    examples: [true]
+  description:
+    type: [string, "null"]
+    examples: [Schedule of actor ...]
   createdAt:
     type: string
     format: date-time
@@ -31,28 +44,16 @@ properties:
     type: string
     format: date-time
     examples: ["2019-12-20T06:33:11.202Z"]
-  lastRunAt:
-    type: string
-    format: date-time
-    examples: ["2019-04-12T07:33:10.202Z"]
   nextRunAt:
-    type: string
+    type: [string, "null"]
     format: date-time
     examples: ["2019-04-12T07:34:10.202Z"]
-  isEnabled:
-    type: boolean
-    examples: [true]
-  isExclusive:
-    type: boolean
-    examples: [true]
-  cronExpression:
-    type: string
-    examples: ["* * * * *"]
-  timezone:
-    type: string
-    examples: [UTC]
+  lastRunAt:
+    type: [string, "null"]
+    format: date-time
+    examples: ["2019-04-12T07:33:10.202Z"]
   actions:
     type: array
     items:
-      $ref: ./GetListOfSchedulesResponseDataItemsActions.yaml
+      $ref: ./ScheduleActions.yaml
     description: ""

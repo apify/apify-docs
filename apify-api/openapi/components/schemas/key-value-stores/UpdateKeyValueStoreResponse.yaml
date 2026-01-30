@@ -1,4 +1,4 @@
-title: UpdateStoreResponse
+title: UpdateKeyValueStoreResponse
 required:
   - data
 type: object

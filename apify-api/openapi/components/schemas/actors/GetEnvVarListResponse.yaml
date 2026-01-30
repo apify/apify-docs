@@ -1,7 +1,0 @@
-title: GetEnvVarListResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./EnvVarList.yaml

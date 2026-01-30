@@ -1,4 +1,4 @@
-title: GetListOfSchedulesResponseDataItemsActions
+title: ScheduleAction
 required:
   - id
   - type
