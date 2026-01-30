@@ -95,7 +95,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-runs/GetUserRunsListResponse.yaml
+            $ref: ../../components/schemas/actor-runs/GetListOfRunsResponse.yaml
           example:
             data:
               total: 2
@@ -289,7 +289,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-runs/RunResponse.yaml
+            $ref: ../../components/schemas/actor-runs/GetRunResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB

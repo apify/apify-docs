@@ -1,4 +1,4 @@
-title: GetListOfSchedulesResponseData
+title: ListOfStoreActors
 required:
   - total
   - offset
@@ -10,7 +10,7 @@ type: object
 properties:
   total:
     type: integer
-    examples: [2]
+    examples: [100]
   offset:
     type: integer
     examples: [0]
@@ -22,9 +22,9 @@ properties:
     examples: [false]
   count:
     type: integer
-    examples: [2]
+    examples: [1]
   items:
     type: array
     items:
-      $ref: ./GetListOfSchedulesResponseDataItems.yaml
+      $ref: ./StoreListActor.yaml
     description: ""

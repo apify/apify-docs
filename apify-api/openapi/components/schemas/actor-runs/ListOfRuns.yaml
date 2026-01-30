@@ -1,4 +1,4 @@
-title: RunList
+title: ListOfRuns
 allOf:
   - $ref: ../common/PaginationResponse.yaml
   - type: object

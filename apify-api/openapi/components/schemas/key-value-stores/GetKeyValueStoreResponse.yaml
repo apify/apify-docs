@@ -1,4 +1,4 @@
-title: GetStoreResponse
+title: GetKeyValueStoreResponse
 required:
   - data
 type: object

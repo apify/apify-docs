@@ -4,4 +4,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./GetListOfSchedulesResponseData.yaml
+    $ref: ./ListOfSchedules.yaml

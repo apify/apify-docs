@@ -30,7 +30,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetEnvVarListResponse.yaml
+            $ref: ../../components/schemas/actors/GetListOfEnvVarsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

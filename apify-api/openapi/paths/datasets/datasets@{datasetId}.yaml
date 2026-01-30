@@ -41,7 +41,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/datasets/DatasetResponse.yaml
+            $ref: ../../components/schemas/datasets/CreateDatasetResponse.yaml
           example:
             data:
               id: WkzbQMuFYuamGv3YF
@@ -103,7 +103,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/datasets/DatasetResponse.yaml
+            $ref: ../../components/schemas/datasets/CreateDatasetResponse.yaml
           example:
             data:
               id: WkzbQMuFYuamGv3YF
