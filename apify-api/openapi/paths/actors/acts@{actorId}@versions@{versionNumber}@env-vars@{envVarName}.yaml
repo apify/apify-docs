@@ -108,7 +108,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml
+          $ref: ../../components/schemas/actors/EnvVar.yaml
         example:
           name: MY_ENV_VAR
           value: my-new-value
