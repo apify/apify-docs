@@ -1,7 +1,0 @@
-title: GetListOfBuildsResponse
-type: object
-required:
-  - data
-properties:
-  data:
-    $ref: ./ListOfBuilds.yaml

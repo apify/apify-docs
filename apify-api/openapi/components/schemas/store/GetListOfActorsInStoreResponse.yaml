@@ -1,7 +1,0 @@
-title: GetListOfActorsInStoreResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./ListOfStoreActors.yaml

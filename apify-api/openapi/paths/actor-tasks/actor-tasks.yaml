@@ -54,7 +54,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-tasks/GetListOfTasksResponse.yaml
+            $ref: ../../components/schemas/actor-tasks/ListOfTasksResponse.yaml
           example:
             data:
               total: 2
@@ -152,7 +152,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-tasks/CreateTaskResponse.yaml
+            $ref: ../../components/schemas/actor-tasks/TaskResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM

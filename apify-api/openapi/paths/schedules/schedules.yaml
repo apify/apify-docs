@@ -49,7 +49,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/schedules/GetListOfSchedulesResponse.yaml
+            $ref: ../../components/schemas/schedules/ListOfSchedulesResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -97,7 +97,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/schedules/GetScheduleResponse.yaml
+            $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

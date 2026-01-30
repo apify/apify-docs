@@ -22,7 +22,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/schedules/GetScheduleLogResponse.yaml
+            $ref: ../../components/schemas/schedules/ScheduleLogResponse.yaml
           example:
             data:
               - message: Schedule invoked

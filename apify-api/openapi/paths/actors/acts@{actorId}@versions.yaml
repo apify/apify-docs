@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetListOfVersionsResponse.yaml
+            $ref: ../../components/schemas/actors/ListOfVersionsResponse.yaml
           example:
             data:
               total: 5
@@ -130,7 +130,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetVersionResponse.yaml
+            $ref: ../../components/schemas/actors/VersionResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
