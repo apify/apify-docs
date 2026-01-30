@@ -128,3 +128,10 @@ properties:
     anyOf:
       - $ref: ./RunUsageUsd.yaml
       - type: "null"
+  metamorphs:
+    description: List of metamorph events that occurred during the run.
+    anyOf:
+      - type: array
+        items:
+          $ref: ./Metamorph.yaml
+      - type: "null"
