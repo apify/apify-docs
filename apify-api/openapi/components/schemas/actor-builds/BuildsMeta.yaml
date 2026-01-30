@@ -4,8 +4,7 @@ required:
 type: object
 properties:
   origin:
-    type: string
-    examples: [WEB]
+    $ref: ../actor-runs/RunOrigin.yaml
   clientIp:
     type: [string, "null"]
     description: IP address of the client that started the build.
