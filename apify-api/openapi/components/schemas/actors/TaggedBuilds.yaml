@@ -8,9 +8,9 @@ additionalProperties:
 example:
   latest:
     buildId: z2EryhbfhgSyqj6Hn
-    buildNumber: "0.0.2"
+    buildNumber: 0.0.2
     finishedAt: "2019-06-10T11:15:49.286Z"
   beta:
     buildId: abc123def456
-    buildNumber: "1.0.0-beta"
+    buildNumber: 1.0.0-beta
     finishedAt: "2019-07-15T14:30:00.000Z"

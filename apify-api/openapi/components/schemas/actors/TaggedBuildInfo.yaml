@@ -9,7 +9,7 @@ properties:
   buildNumber:
     type: string
     description: The build number/version string.
-    examples: ["0.0.2"]
+    examples: [0.0.2]
   finishedAt:
     type: [string, "null"]
     format: date-time
