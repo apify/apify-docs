@@ -3,9 +3,7 @@ required:
   - id
   - userId
   - actId
-  - actName
   - name
-  - actUsername
   - createdAt
   - modifiedAt
 type: object
@@ -20,7 +18,7 @@ properties:
     type: string
     examples: [asADASadYvn4mBZmm]
   actName:
-    type: string
+    type: [string, "null"]
     examples: [my-actor]
   name:
     type: string
@@ -29,7 +27,7 @@ properties:
     type: [string, "null"]
     examples: [janedoe]
   actUsername:
-    type: string
+    type: [string, "null"]
     examples: [janedoe]
   createdAt:
     type: string
