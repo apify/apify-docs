@@ -6,10 +6,10 @@ properties:
   origin:
     $ref: ../actor-runs/RunOrigin.yaml
   clientIp:
-    type: [string, "null"]
+    type: [string]
     description: IP address of the client that started the build.
     examples: [172.234.12.34]
   userAgent:
-    type: [string, "null"]
+    type: [string]
     description: User agent of the client that started the build.
     examples: [Mozilla/5.0 (iPad)]
