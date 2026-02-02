@@ -228,7 +228,7 @@ The `GET Run` API endpoint response will include an `output` property.
 
 This example shows a schema definition for a basic social media scraper. The scraper downloads post data into the dataset, and video and subtitle files into the key-value store.
 
-After you define `views` and `collections` in `dataset_schema.json` and `key_value_store.json`, you can use them in the output schema.
+After you define `views` and `collections` in `dataset_schema.json` and `key_value_store.json`, you can then use them in the output schema.
 
 ```json title=".actor/output_schema.json"
 {
@@ -237,28 +237,8 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
     "properties": {
         "overview": {
             "type": "string",
-            "title": "Overview 🔎",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
-        },
-        "posts": {
-            "type": "string",
-            "title": "Posts ✉️",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=posts"
-        },
-        "author": {
-            "type": "string",
-            "title": "Authors 🧑‍🎤",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=author"
-        },
-        "music": {
-            "type": "string",
-            "title": "Music 🎶",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=music"
-        },
-        "video": {
-            "type": "string",
-            "title": "Video 🎞️",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=video"
+            "title": "Results",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
         },
         "subtitleFiles": {
             "type": "string",
@@ -274,7 +254,9 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
 }
 ```
 
-The schema above defines five dataset outputs and two key-value store outputs. The dataset outputs link to views, and the key-value store output link to collections, both defined in their respective schema files.
+The schema above defines one dataset output and two key-value store outputs. The dataset output link to the whole dataset and in Apify Console it will be displayed as a table with a selector allowing user switch between views defined in it's schema. The key-value store outputs link to collections, both collections are in the same key-value store and are defined in it's schema.
+
+If you add `view` parameter to the dataset URL template, users will still see the whole dataset in Apify Console, but the specified view will be selected by default.
 
 When a user runs the Actor in the Console, the UI will look like this:
 
