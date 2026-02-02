@@ -8,13 +8,15 @@ get:
     includes the current usage cycle, a summary of your limits, and your current usage.
   operationId: users_me_limits_get
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/users/GetLimitsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/get-limits
@@ -29,19 +31,21 @@ put:
     Specifically the: `maxMonthlyUsageUsd` and `dataRetentionDays` limits (see request body schema for more details).
   operationId: users_me_limits_put
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/users/UpdateLimitsRequest.yaml
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             type: object
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/update-limits

@@ -128,8 +128,7 @@ After running the code, you should see the following output:
 
 ```text
 answer: LangChain is a framework designed for developing applications powered by large language models (LLMs). It simplifies the
- entire application lifecycle, from development to productionization and deployment. LangChain provides open-source components a
-nd integrates with various third-party tools, making it easier to build and optimize applications using language models.
+ entire application lifecycle, from development to productionization and deployment. LangChain provides open-source components and integrates with various third-party tools, making it easier to build and optimize applications using language models.
 
 source: https://python.langchain.com/docs/get_started/introduction
 ```

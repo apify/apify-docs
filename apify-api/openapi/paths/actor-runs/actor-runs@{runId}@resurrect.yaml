@@ -38,8 +38,8 @@ post:
       schema:
         type: number
       example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       required: false
@@ -49,8 +49,8 @@ post:
       description: |
         Determines whether the resurrected run will be restarted if it fails. By default, the resurrected run uses the same setting as before.
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -63,8 +63,8 @@ post:
               actId: HDSasDasz78YcAPEB
               userId: 7sT5jcggjjA9fNcxF
               actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: RUNNING
               statusMessage: Actor is running
               isStatusMessageTerminal: false
@@ -96,11 +96,12 @@ post:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
               isContainerServerReady: true
               gitBranchName: master
               usage:
@@ -130,6 +131,8 @@ post:
                 DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/resurrect-run/resurrect-run

@@ -4,5 +4,5 @@ required:
 type: object
 properties:
   totalRuns:
-    type: number
-    example: 15
+    type: integer
+    examples: [15]

@@ -14,8 +14,8 @@ get:
         type: string
         example: WkzbQMuFYuamGv3YF
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -27,25 +27,29 @@ get:
                     id: WkzbQMuFYuamGv3YF
                     name: some-name
                     userId: wRsJZtadYvn4mBZmm
-                    createdAt: '2019-12-12T07:34:14.202Z'
-                    modifiedAt: '2019-12-13T08:36:13.202Z'
-                    accessedAt: '2019-12-14T08:36:13.202Z'
+                    createdAt: "2019-12-12T07:34:14.202Z"
+                    modifiedAt: "2019-12-13T08:36:13.202Z"
+                    accessedAt: "2019-12-14T08:36:13.202Z"
                     totalRequestCount: 870
                     handledRequestCount: 100
                     pendingRequestCount: 670
                     hadMultipleClients: true
+                    consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
           example:
             data:
               id: WkzbQMuFYuamGv3YF
               name: some-name
               userId: wRsJZtadYvn4mBZmm
-              createdAt: '2019-12-12T07:34:14.202Z'
-              modifiedAt: '2019-12-13T08:36:13.202Z'
-              accessedAt: '2019-12-14T08:36:13.202Z'
+              createdAt: "2019-12-12T07:34:14.202Z"
+              modifiedAt: "2019-12-13T08:36:13.202Z"
+              accessedAt: "2019-12-14T08:36:13.202Z"
               totalRequestCount: 870
               handledRequestCount: 100
               pendingRequestCount: 670
               hadMultipleClients: true
+              consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue
@@ -78,7 +82,7 @@ put:
         type: string
         example: WkzbQMuFYuamGv3YF
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -90,8 +94,8 @@ put:
           name: new-request-queue-name
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -103,25 +107,29 @@ put:
                     id: WkzbQMuFYuamGv3YF
                     name: some-name
                     userId: wRsJZtadYvn4mBZmm
-                    createdAt: '2019-12-12T07:34:14.202Z'
-                    modifiedAt: '2019-12-13T08:36:13.202Z'
-                    accessedAt: '2019-12-14T08:36:13.202Z'
+                    createdAt: "2019-12-12T07:34:14.202Z"
+                    modifiedAt: "2019-12-13T08:36:13.202Z"
+                    accessedAt: "2019-12-14T08:36:13.202Z"
                     totalRequestCount: 870
                     handledRequestCount: 100
                     pendingRequestCount: 670
                     hadMultipleClients: true
+                    consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
           example:
             data:
               id: WkzbQMuFYuamGv3YF
               name: some-name
               userId: wRsJZtadYvn4mBZmm
-              createdAt: '2019-12-12T07:34:14.202Z'
-              modifiedAt: '2019-12-13T08:36:13.202Z'
-              accessedAt: '2019-12-14T08:36:13.202Z'
+              createdAt: "2019-12-12T07:34:14.202Z"
+              modifiedAt: "2019-12-13T08:36:13.202Z"
+              accessedAt: "2019-12-14T08:36:13.202Z"
               totalRequestCount: 870
               handledRequestCount: 100
               pendingRequestCount: 670
               hadMultipleClients: true
+              consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue
@@ -149,10 +157,12 @@ delete:
         type: string
         example: WkzbQMuFYuamGv3YF
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request-queue

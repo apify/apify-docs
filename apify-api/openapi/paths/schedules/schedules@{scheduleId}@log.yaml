@@ -16,8 +16,8 @@ get:
         type: string
         example: asdLZtadYvn4mBZmm
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -27,12 +27,14 @@ get:
             data:
               - message: Schedule invoked
                 level: INFO
-                createdAt: '2019-03-26T12:28:00.370Z'
+                createdAt: "2019-03-26T12:28:00.370Z"
               - message: >-
                   Cannot start Actor task \"iEvfA6pm6DWjRTGxS\": Provided input
                   must be object, got \"string\" instead.
                 level: ERROR
-                createdAt: '2019-03-26T12:30:00.325Z'
+                createdAt: "2019-03-26T12:30:00.325Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-log/get-schedule-log

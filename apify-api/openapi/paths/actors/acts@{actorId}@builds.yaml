@@ -54,13 +54,15 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-builds/GetBuildListResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/get-list-of-builds
@@ -98,7 +100,7 @@ post:
       explode: true
       schema:
         type: string
-        example: '0.0'
+        example: "0.0"
     - name: useCache
       in: query
       description: |
@@ -143,8 +145,8 @@ post:
         format: double
         example: 60
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -156,14 +158,14 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/BuildActorResponse.yaml"
+            $ref: ../../components/schemas/actors/BuildActorResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB
               actId: janedoe~my-actor
               userId: klmdEpoiojmdEMlk3
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: SUCCEEDED
               meta:
                 origin: WEB
@@ -186,6 +188,8 @@ post:
               inputSchema: '{\n  \"title\": \"Schema for ... }'
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/build-actor

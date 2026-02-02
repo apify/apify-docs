@@ -5,4 +5,4 @@ type: object
 properties:
   pricingModel:
     type: string
-    example: FREE
+    examples: [FREE]

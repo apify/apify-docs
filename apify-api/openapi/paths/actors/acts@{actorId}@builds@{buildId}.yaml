@@ -23,7 +23,7 @@ get:
         example: janedoe~my-actor
     - name: buildId
       in: path
-      description: 'ID of the build you want to get, found in the build''s `Info` tab.'
+      description: "ID of the build you want to get, found in the build's `Info` tab."
       required: true
       style: simple
       schema:
@@ -43,20 +43,20 @@ get:
         format: double
         example: 60
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actor-builds/GetBuildResponse.yaml"
+            $ref: ../../components/schemas/actor-builds/GetBuildResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB
               actId: janedoe~my-actor
               userId: klmdEpoiojmdEMlk3
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: SUCCEEDED
               meta:
                 origin: WEB
@@ -79,8 +79,10 @@ get:
               inputSchema: '{\n  \"title\": \"Schema for ... }'
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: true
-  x-deprecated-description: 'API endpoints related to build of the Actor were moved under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object that contains all the details about a specific build of an Actor.'
+  x-deprecated-description: "API endpoints related to build of the Actor were moved under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object that contains all the details about a specific build of an Actor."
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-object/get-build
     - https://docs.apify.com/api/v2#/reference/actors/get-build

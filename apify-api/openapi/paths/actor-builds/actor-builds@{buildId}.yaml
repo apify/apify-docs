@@ -17,7 +17,7 @@ get:
   parameters:
     - name: buildId
       in: path
-      description: 'ID of the build you want to get, found in the build''s `Info` tab.'
+      description: "ID of the build you want to get, found in the build's `Info` tab."
       required: true
       style: simple
       schema:
@@ -38,14 +38,16 @@ get:
         format: double
         example: 60
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
               - $ref: ../../components/schemas/actor-builds/GetBuildResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-object/get-build
@@ -59,7 +61,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/BuildClientAsync#get
 delete:
   tags:
-    #- Actor builds/Delete build
+    # - Actor builds/Delete build
     - Actor builds
   summary: Delete build
   description: |
@@ -71,17 +73,19 @@ delete:
   parameters:
     - name: buildId
       in: path
-      description: 'ID of the build you want to get, found in the build''s `Info` tab.'
+      description: "ID of the build you want to get, found in the build's `Info` tab."
       required: true
       style: simple
       schema:
         type: string
         example: soSkq9ekdmfOslopH
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build/delete-build

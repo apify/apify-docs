@@ -57,14 +57,27 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible request queues are returned.
+
+        - `ownedByMe`: Return only request queues owned by the user.
+        - `sharedWithMe`: Return only request queues shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/request-queues/GetListOfRequestQueuesResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/get-list-of-request-queues
@@ -100,15 +113,15 @@ post:
         type: string
         example: example-com
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/request-queues/WkzbQMuFYuamGv3YF'
+              example: https://api.apify.com/v2/request-queues/WkzbQMuFYuamGv3YF
       content:
         application/json:
           schema:
@@ -119,25 +132,29 @@ post:
                     id: WkzbQMuFYuamGv3YF
                     name: some-name
                     userId: wRsJZtadYvn4mBZmm
-                    createdAt: '2019-12-12T07:34:14.202Z'
-                    modifiedAt: '2019-12-13T08:36:13.202Z'
-                    accessedAt: '2019-12-14T08:36:13.202Z'
+                    createdAt: "2019-12-12T07:34:14.202Z"
+                    modifiedAt: "2019-12-13T08:36:13.202Z"
+                    accessedAt: "2019-12-14T08:36:13.202Z"
                     totalRequestCount: 870
                     handledRequestCount: 100
                     pendingRequestCount: 670
                     hadMultipleClients: true
+                    consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
           example:
             data:
               id: WkzbQMuFYuamGv3YF
               name: some-name
               userId: wRsJZtadYvn4mBZmm
-              createdAt: '2019-12-12T07:34:14.202Z'
-              modifiedAt: '2019-12-13T08:36:13.202Z'
-              accessedAt: '2019-12-14T08:36:13.202Z'
+              createdAt: "2019-12-12T07:34:14.202Z"
+              modifiedAt: "2019-12-13T08:36:13.202Z"
+              accessedAt: "2019-12-14T08:36:13.202Z"
               totalRequestCount: 870
               handledRequestCount: 100
               pendingRequestCount: 670
               hadMultipleClients: true
+              consoleUrl: https://console.apify.com/storage/request-queues/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/create-request-queue

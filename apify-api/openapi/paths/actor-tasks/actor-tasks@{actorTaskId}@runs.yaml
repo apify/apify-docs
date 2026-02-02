@@ -65,8 +65,8 @@ get:
         type: string
         example: SUCCEEDED
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -85,7 +85,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: "../../components/schemas/actor-runs/RunShort.yaml"
+                          $ref: ../../components/schemas/actor-runs/RunShort.yaml
           example:
             data:
               total: 2
@@ -98,8 +98,8 @@ get:
                   actId: HDSasDasz78YcAPEB
                   actorTaskId: KJHSKHausidyaJKHs
                   status: SUCCEEDED
-                  startedAt: '2019-11-30T07:34:24.202Z'
-                  finishedAt: '2019-12-12T09:30:12.202Z'
+                  startedAt: "2019-11-30T07:34:24.202Z"
+                  finishedAt: "2019-12-12T09:30:12.202Z"
                   buildId: HG7ML7M8z78YcAPEB
                   buildNumber: 0.0.2
                   meta:
@@ -112,8 +112,8 @@ get:
                   actId: HDSasDasz78YcAPEB
                   actorTaskId: KJHSKHausidyaJKHs
                   status: FAILED
-                  startedAt: '2019-12-12T07:34:14.202Z'
-                  finishedAt: '2019-12-13T08:36:13.202Z'
+                  startedAt: "2019-12-12T07:34:14.202Z"
+                  finishedAt: "2019-12-13T08:36:13.202Z"
                   buildId: u78dML7M8z78YcAPEB
                   buildNumber: 0.2.2
                   meta:
@@ -122,6 +122,8 @@ get:
                   defaultKeyValueStoreId: sffsouqlseJCQzTfe
                   defaultDatasetId: CFGggdjQDsyE7Moyw
                   defaultRequestQueueId: soowucklrmDzKpA8x
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-collection/get-list-of-task-runs
@@ -187,8 +189,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -241,7 +243,7 @@ post:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -250,8 +252,8 @@ post:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -268,15 +270,15 @@ post:
               - data
             properties:
               data:
-                $ref: "../../components/schemas/actor-runs/Run.yaml"
+                $ref: ../../components/schemas/actor-runs/Run.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB
               actId: HDSasDasz78YcAPEB
               userId: BPWZBd9V9c746JAnF
               actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: SUCCEEDED
               statusMessage: Actor has finished
               isStatusMessageTerminal: true
@@ -285,7 +287,7 @@ post:
                 clientIp: 172.234.12.34
                 userAgent: Mozilla/5.0 (iPad)
                 scheduleId: dWazFsPpxMigMSqHL
-                scheduledAt: '2019-06-10T11:40:00.000Z'
+                scheduledAt: "2019-06-10T11:40:00.000Z"
               stats:
                 inputBodyLen: 240
                 migrationCount: 0
@@ -310,11 +312,12 @@ post:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               buildNumber: 0.2.2
-              containerUrl: 'https://nwfcc4btrgqt.runs.apify.com'
+              containerUrl: "https://nwfcc4btrgqt.runs.apify.com"
               isContainerServerReady: false
               gitBranchName: master
               usage:
@@ -344,6 +347,8 @@ post:
                 DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-collection/run-task

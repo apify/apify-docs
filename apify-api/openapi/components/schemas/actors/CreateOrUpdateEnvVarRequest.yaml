@@ -6,11 +6,10 @@ type: object
 properties:
   name:
     type: string
-    example: MY_ENV_VAR
+    examples: [MY_ENV_VAR]
   value:
     type: string
-    example: my-new-value
+    examples: [my-new-value]
   isSecret:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]

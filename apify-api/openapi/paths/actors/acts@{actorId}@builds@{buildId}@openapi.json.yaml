@@ -3,10 +3,10 @@ get:
     - Actors/Actor builds
   summary: Get OpenAPI definition
   description: |
-
     Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 
     - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+
     - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
 
     Get the OpenAPI definition for a specific Actor build.
@@ -39,10 +39,12 @@ get:
         type: string
         example: soSkq9ekdmfOslopH
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: '../../components/schemas/actor-builds/GetOpenApiResponse.yaml'
+            $ref: ../../components/schemas/actor-builds/GetOpenApiResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml

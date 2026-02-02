@@ -4,4 +4,4 @@ required:
 type: object
 properties:
   data:
-    $ref: "../actor-builds/Build.yaml"
+    $ref: ../actor-builds/Build.yaml

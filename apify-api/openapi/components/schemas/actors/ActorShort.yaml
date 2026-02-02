@@ -9,16 +9,23 @@ type: object
 properties:
   id:
     type: string
-    example: br9CKmk457
+    examples: [br9CKmk457]
   createdAt:
     type: string
-    example: '2019-10-29T07:34:24.202Z'
+    format: date-time
+    examples: ["2019-10-29T07:34:24.202Z"]
   modifiedAt:
     type: string
-    example: '2019-10-30T07:34:24.202Z'
+    format: date-time
+    examples: ["2019-10-30T07:34:24.202Z"]
   name:
     type: string
-    example: MyAct
+    examples: [MyAct]
   username:
     type: string
-    example: janedoe
+    examples: [janedoe]
+  title:
+    type: string
+    examples: [Hello World Example]
+  stats:
+    $ref: ./ActorStats.yaml

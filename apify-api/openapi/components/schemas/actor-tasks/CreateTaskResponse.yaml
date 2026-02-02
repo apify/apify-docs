@@ -1,0 +1,7 @@
+title: CreateTaskResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    $ref: ./Task.yaml

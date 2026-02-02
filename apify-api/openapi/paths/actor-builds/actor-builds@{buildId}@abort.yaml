@@ -19,14 +19,16 @@ post:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
               - $ref: ../../components/schemas/actor-builds/PostAbortBuildResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/abort-build/abort-build

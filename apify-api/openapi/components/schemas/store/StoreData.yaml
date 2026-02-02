@@ -9,22 +9,22 @@ required:
 type: object
 properties:
   total:
-    type: number
-    example: 100
+    type: integer
+    examples: [100]
   offset:
-    type: number
-    example: 0
+    type: integer
+    examples: [0]
   limit:
-    type: number
-    example: 1000
+    type: integer
+    examples: [1000]
   desc:
     type: boolean
-    example: false
+    examples: [false]
   count:
-    type: number
-    example: 1
+    type: integer
+    examples: [1]
   items:
     type: array
     items:
       $ref: ./StoreListActor.yaml
-    description: ''
+    description: ""

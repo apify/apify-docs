@@ -2,7 +2,7 @@ const { join, resolve } = require('node:path');
 const { parse } = require('node:url');
 
 const clsx = require('clsx');
-const { createApiPageMD, createInfoPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
+const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -77,8 +77,6 @@ module.exports = {
 
     onBrokenLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
-    onBrokenMarkdownLinks:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenAnchors:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     themes: [
@@ -104,11 +102,6 @@ module.exports = {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
                             activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
-                        },
-                        {
-                            label: 'Glossary',
-                            to: `/academy/glossary`,
-                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'glossary')).join('$|')}$`,
                         },
                     ],
                 },
@@ -206,21 +199,6 @@ module.exports = {
                                     md = md.replace('&lt;!--', '<!--');
                                     md = md.replace('--&gt;', '-->');
                                 }
-
-                                // Find the first Heading h1 and add LLMButtons after it
-                                // eslint-disable-next-line max-len
-                                const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
-                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
-
-                                return md;
-                            },
-                            createInfoPageMD: (pageData) => {
-                                let md = createInfoPageMD(pageData);
-
-                                // Find the first Heading h1 and add LLMButtons after it
-                                // eslint-disable-next-line max-len
-                                const headingRegex = /(<Heading[^>]*as=\{"h1"\}[^>]*className=\{"openapi__heading"\}[^>]*children=\{[^}]*\}[^>]*>\s*<\/Heading>)/;
-                                md = md.replace(headingRegex, '$1\n\n<LLMButtons isApiReferencePage />\n');
 
                                 return md;
                             },
@@ -384,6 +362,10 @@ module.exports = {
     ],
     markdown: {
         mermaid: true,
+        hooks: {
+            onBrokenMarkdownLinks:
+            /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+        },
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
 

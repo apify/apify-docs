@@ -14,13 +14,13 @@ get:
         type: string
         example: janedoe~my-actor
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetActorResponse.yaml"
+            $ref: ../../components/schemas/actors/GetActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -29,8 +29,8 @@ get:
               username: jane35
               description: My favourite Actor!
               isPublic: false
-              createdAt: '2019-07-08T11:27:57.401Z'
-              modifiedAt: '2019-07-08T14:01:05.546Z'
+              createdAt: "2019-07-08T11:27:57.401Z"
+              modifiedAt: "2019-07-08T14:01:05.546Z"
               stats:
                 totalBuilds: 9
                 totalRuns: 16
@@ -39,32 +39,32 @@ get:
                 totalUsers30Days: 6
                 totalUsers90Days: 6
                 totalMetamorphs: 2
-                lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+                lastRunStartedAt: "2019-07-08T14:01:05.546Z"
               versions:
-                - versionNumber: '0.1'
+                - versionNumber: "0.1"
                   envVars: null
                   sourceType: SOURCE_FILES
                   applyEnvVarsToBuild: false
                   buildTag: latest
                   sourceFiles: []
-                - versionNumber: '0.2'
+                - versionNumber: "0.2"
                   sourceType: GIT_REPO
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitRepoUrl: 'https://github.com/jane35/my-actor'
-                - versionNumber: '0.3'
+                  gitRepoUrl: "https://github.com/jane35/my-actor"
+                - versionNumber: "0.3"
                   sourceType: TARBALL
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
-                - versionNumber: '0.4'
+                  tarballUrl: "https://github.com/jane35/my-actor/archive/master.zip"
+                - versionNumber: "0.4"
                   sourceType: GITHUB_GIST
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+                  gitHubGistUrl: "https://gist.github.com/jane35/e51feb784yu89"
               defaultRunOptions:
                 build: latest
                 timeoutSecs: 3600
@@ -80,7 +80,9 @@ get:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn
                   buildNumber: 0.0.2
-                  finishedAt: '2019-06-10T11:15:49.286Z'
+                  finishedAt: "2019-06-10T11:15:49.286Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor
@@ -128,28 +130,28 @@ put:
         type: string
         example: janedoe~my-actor
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/UpdateActorRequest.yaml"
+          $ref: ../../components/schemas/actors/UpdateActorRequest.yaml
         examples:
           common:
-            summary: 'Common example'
+            summary: Common example
             value:
               name: MyActor
               description: My favourite Actor!
               isPublic: false
-              actorPermissionLevel: 'LIMITED_PERMISSIONS'
+              actorPermissionLevel: LIMITED_PERMISSIONS
               seoTitle: My Actor
               seoDescription: My Actor is the best
               title: My Actor
               versions:
-                - versionNumber: '0.0'
+                - versionNumber: "0.0"
                   sourceType: SOURCE_FILES
                   envVars:
                     - name: DOMAIN
-                      value: 'http://example.com'
+                      value: "http://example.com"
                       isSecret: false
                     - name: SECRET_PASSWORD
                       value: MyTopSecretPassword123
@@ -164,32 +166,41 @@ put:
                 memoryMbytes: 2048
                 restartOnError: false
           taggedBuildsCreateOrReassignTag:
-            summary: 'Create or reassign a build tag'
+            summary: Create or reassign a build tag
             value:
+              name: MyActor
+              isPublic: false
+              versions: []
               taggedBuilds:
                 latest:
-                  buildId: 'z2EryhbfhgSyqj6Hn'
+                  buildId: z2EryhbfhgSyqj6Hn
           taggedBuildsRemoveTag:
-            summary: 'Remove a build tag'
+            summary: Remove a build tag
             value:
+              name: MyActor
+              isPublic: false
+              versions: []
               taggedBuilds:
                 latest: null
           taggedBuildsMultipleOperations:
-            summary: 'Update multiple build tags at once'
+            summary: Update multiple build tags at once
             value:
+              name: MyActor
+              isPublic: false
+              versions: []
               taggedBuilds:
                 latest:
-                  buildId: 'z2EryhbfhgSyqj6Hn'
+                  buildId: z2EryhbfhgSyqj6Hn
                 beta: null
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/UpdateActorResponse.yaml"
+            $ref: ../../components/schemas/actors/UpdateActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -198,9 +209,9 @@ put:
               username: jane35
               description: My favourite Actor!
               isPublic: false
-              actorPermissionLevel: 'LIMITED_PERMISSIONS'
-              createdAt: '2019-07-08T11:27:57.401Z'
-              modifiedAt: '2019-07-08T14:01:05.546Z'
+              actorPermissionLevel: LIMITED_PERMISSIONS
+              createdAt: "2019-07-08T11:27:57.401Z"
+              modifiedAt: "2019-07-08T14:01:05.546Z"
               stats:
                 totalBuilds: 9
                 totalRuns: 16
@@ -209,32 +220,32 @@ put:
                 totalUsers30Days: 6
                 totalUsers90Days: 6
                 totalMetamorphs: 2
-                lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+                lastRunStartedAt: "2019-07-08T14:01:05.546Z"
               versions:
-                - versionNumber: '0.1'
+                - versionNumber: "0.1"
                   envVars: null
                   sourceType: SOURCE_FILES
                   applyEnvVarsToBuild: false
                   buildTag: latest
                   sourceFiles: []
-                - versionNumber: '0.2'
+                - versionNumber: "0.2"
                   sourceType: GIT_REPO
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitRepoUrl: 'https://github.com/jane35/my-actor'
-                - versionNumber: '0.3'
+                  gitRepoUrl: "https://github.com/jane35/my-actor"
+                - versionNumber: "0.3"
                   sourceType: TARBALL
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
-                - versionNumber: '0.4'
+                  tarballUrl: "https://github.com/jane35/my-actor/archive/master.zip"
+                - versionNumber: "0.4"
                   sourceType: GITHUB_GIST
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+                  gitHubGistUrl: "https://gist.github.com/jane35/e51feb784yu89"
               defaultRunOptions:
                 build: latest
                 timeoutSecs: 3600
@@ -250,7 +261,9 @@ put:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn
                   buildNumber: 0.0.2
-                  finishedAt: '2019-06-10T11:15:49.286Z'
+                  finishedAt: "2019-06-10T11:15:49.286Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor
@@ -278,8 +291,8 @@ delete:
         type: string
         example: janedoe~my-actor
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -287,6 +300,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/delete-actor
