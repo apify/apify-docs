@@ -64,11 +64,6 @@ export default function Home() {
             <Hero
                 heading="Apify Documentation"
                 align="center"
-                promotion={{
-                    badge: 'Build',
-                    label: 'Win big in $1M Challenge',
-                    href: 'https://apify.com/challenge',
-                }}
                 description={
                     <Text color={theme.color.neutral.textMuted} size="large">
                         Learn how to put the web to work with Apify.
