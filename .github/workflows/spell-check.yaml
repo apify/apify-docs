@@ -11,7 +11,19 @@ jobs:
         name: Spell check
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v6
-            - name: Check spelling with typos
-              uses: crate-ci/typos@v1.43.0
+            -   name: Checkout repository
+                uses: actions/checkout@v6
+                with:
+                    fetch-depth: 0
+
+            -   name: Get changed files
+                id: changed-files
+                uses: tj-actions/changed-files@v47
+                with:
+                    separator: ' '
+
+            -   name: Check spelling with typos
+                if: steps.changed-files.outputs.any_changed == 'true'
+                uses: crate-ci/typos@v1.43.0
+                with:
+                    files: ${{ steps.changed-files.outputs.all_changed_files }}
