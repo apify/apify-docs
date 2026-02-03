@@ -49,6 +49,7 @@ get:
       in: query
       description: |
         If `true` or `1` then all the datasets are returned. By default only named datasets are returned.
+        Note that this parameter also filters out datasets that don't have any items.
       style: form
       explode: true
       schema:
