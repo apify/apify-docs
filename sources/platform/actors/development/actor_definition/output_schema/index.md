@@ -228,7 +228,7 @@ The `GET Run` API endpoint response will include an `output` property.
 
 This example shows a schema definition for a basic social media scraper. The scraper downloads post data into the dataset, and video and subtitle files into the key-value store.
 
-After you define `views` and `collections` in `dataset_schema.json` and `key_value_store.json`, you can then use them in the output schema.
+After you define `views` and `collections` in `dataset_schema.json` and `key_value_store.json`, you can use them in the output schema.
 
 ```json title=".actor/output_schema.json"
 {
