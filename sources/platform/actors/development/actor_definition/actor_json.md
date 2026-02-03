@@ -44,7 +44,7 @@ import TabItem from '@theme/TabItem';
         "dataset": "./dataset_schema.json"
     },
     "webServerSchema": "./web_server_openapi.json",
-    "webServerMcpPath": "/sse"
+    "webServerMcpPath": "/mcp"
 }
 ```
 
@@ -90,4 +90,4 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an _integer_ value. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `usesStandbyMode` | Optional | Boolean specifying whether the Actor will have [Standby mode](../programming_interface/actor_standby.md) enabled. |
 | `webServerSchema` | Optional | Defines an OpenAPI v3 schema for the web server running in the Actor. This can be either an embedded object or a path to a JSON schema file. Use this when your Actor starts its own HTTP server and you want to describe its interface. |
-| `webServerMcpPath` | Optional | The HTTP endpoint path where the Actor exposes its MCP (Model Context Protocol) server functionality. When set, the Actor is recognized as an MCP server. For example, setting `"/sse"` designates the `/sse` endpoint as the MCP interface. This path becomes part of the Actor's stable URL when [Standby mode](../programming_interface/actor_standby.md) is enabled. |
+| `webServerMcpPath` | Optional | The HTTP endpoint path where the Actor exposes its MCP (Model Context Protocol) server functionality. When set, the Actor is recognized as an MCP server. For example, setting `"/mcp"` designates the `/mcp` endpoint as the MCP interface. This path becomes part of the Actor's stable URL when [Standby mode](../programming_interface/actor_standby.md) is enabled. |
