@@ -227,11 +227,11 @@ The Apify integration provides several operations you can use in your Windmill w
 
 ## Resources
 
-- [Windmill Documentation](https://www.windmill.dev/docs)
+- [Windmill Documentation](https://www.windmill.dev/docs/)
 - [Windmill Local Development](https://www.windmill.dev/docs/advanced/local_development)
 - [Apify API Documentation](https://docs.apify.com)
-- [Apify Webhooks](https://docs.apify.com/webhooks)
-- [Apify Actors & Tasks](https://docs.apify.com/actors)
+- [Apify Webhooks](/platform/integrations/webhooks)
+- [Apify Actors & Tasks](/platform/actors)
 
 ## Troubleshooting
 

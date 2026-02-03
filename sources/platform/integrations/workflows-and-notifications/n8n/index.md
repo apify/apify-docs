@@ -201,7 +201,7 @@ Automatically start an n8n workflow when an Actor or task run finishes:
 
 ## Resources
 
-- [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/community-nodes/)
+- [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/)
 - [Apify API Documentation](https://docs.apify.com)
 - [n8n Documentation](https://docs.n8n.io)
 
