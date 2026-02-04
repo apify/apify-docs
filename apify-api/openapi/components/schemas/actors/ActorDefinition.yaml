@@ -60,3 +60,6 @@ properties:
   usesStandbyMode:
     type: boolean
     description: Specifies whether the Actor will have Standby mode enabled.
+  readmeSummary:
+    type: string
+    description: A brief, LLM-generated readme summary
