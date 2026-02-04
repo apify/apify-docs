@@ -48,7 +48,7 @@ get:
     - name: unnamed
       in: query
       description: |
-        If `true` or `1` then all the datasets are returned. By default only named datasets are returned.
+        If `true` or `1` then unnamed datasets are displayed. For performance reasons, both named and unnamed datasets that are empty will not be shown when this parameter is enabled. By default only named datasets are returned.
       style: form
       explode: true
       schema:

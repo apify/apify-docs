@@ -12,7 +12,7 @@ slug: /integrations/langflow
 
 ## What is Langflow
 
-[Langflow](https://langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases.
+[Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases.
 
 :::note Explore Langflow
 
@@ -37,7 +37,7 @@ This guide will demonstrate two different ways to use Apify Actors with Langflow
 
 :::note Cloud vs local setup
 
-Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](http://langflow.org/) website. If you are using the cloud version, you can skip the installation step, and go straight to [Creating a new flow](#creating-a-new-flow)
+Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](https://www.langflow.org/) website. If you are using the cloud version, you can skip the installation step, and go straight to [Creating a new flow](#creating-a-new-flow)
 
 :::
 
