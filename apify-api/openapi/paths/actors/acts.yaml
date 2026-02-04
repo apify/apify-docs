@@ -77,7 +77,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetListOfActorsResponse.yaml
+            $ref: ../../components/schemas/actors/ListOfActorsResponse.yaml
           example:
             data:
               total: 2
@@ -177,7 +177,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/CreateActorResponse.yaml
+            $ref: ../../components/schemas/actors/ActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM

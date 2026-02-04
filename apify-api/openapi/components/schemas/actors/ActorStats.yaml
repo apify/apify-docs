@@ -1,11 +1,4 @@
 title: ActorStats
-required:
-  - totalBuilds
-  - totalRuns
-  - totalUsers
-  - totalUsers7Days
-  - totalUsers30Days
-  - totalUsers90Days
 type: object
 properties:
   totalBuilds:

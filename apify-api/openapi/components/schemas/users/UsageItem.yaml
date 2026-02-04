@@ -2,9 +2,6 @@ title: UsageItem
 required:
   - quantity
   - baseAmountUsd
-  - baseUnitPriceUsd
-  - amountAfterVolumeDiscountUsd
-  - priceTiers
 type: object
 properties:
   quantity:
