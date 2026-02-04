@@ -80,7 +80,7 @@ You can adjust the platform usage limits and enable overage, allowing you to con
 
 :::caution Immediate overage invoicing
 
-If your overage platform usage reaches _200$_ before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice.
+If your overage platform usage reaches _$200_ before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice.
 
 :::
 

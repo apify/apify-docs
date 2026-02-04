@@ -1,0 +1,439 @@
+2026-02-04T12:30:27.164Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/tmp/apify-docs-1770208200917/.claude.json'
+2026-02-04T12:30:27.165Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227164
+2026-02-04T12:30:27.165Z [DEBUG] Setting permissions for new file: 600
+2026-02-04T12:30:27.167Z [DEBUG] Temp file written successfully, size: 82 bytes
+2026-02-04T12:30:27.167Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227164 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:27.167Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:27.264Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227264
+2026-02-04T12:30:27.264Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:27.267Z [DEBUG] Temp file written successfully, size: 130 bytes
+2026-02-04T12:30:27.267Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:27.267Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227264 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:27.267Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:27.267Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-04T12:30:27.268Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-04T12:30:27.268Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-04T12:30:27.268Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-04T12:30:27.361Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227361
+2026-02-04T12:30:27.361Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:27.365Z [DEBUG] Temp file written successfully, size: 167 bytes
+2026-02-04T12:30:27.365Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:27.365Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227361 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:27.365Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:27.366Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227366
+2026-02-04T12:30:27.366Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:27.369Z [DEBUG] Temp file written successfully, size: 202 bytes
+2026-02-04T12:30:27.369Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:27.369Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227366 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:27.369Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:27.370Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227370
+2026-02-04T12:30:27.370Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:27.373Z [DEBUG] Temp file written successfully, size: 238 bytes
+2026-02-04T12:30:27.373Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:27.373Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227370 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:27.373Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:27.374Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227374
+2026-02-04T12:30:27.374Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:27.377Z [DEBUG] Temp file written successfully, size: 275 bytes
+2026-02-04T12:30:27.377Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:27.377Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208227374 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:27.377Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:27.381Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-02-04T12:30:27.460Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-04T12:30:27.661Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-02-04T12:30:27.661Z [DEBUG] [claudeai-mcp] Gate returned: false
+2026-02-04T12:30:27.661Z [DEBUG] [claudeai-mcp] Disabled via gate
+2026-02-04T12:30:27.663Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-02-04T12:30:27.664Z [DEBUG] [STARTUP] Running setup()...
+2026-02-04T12:30:27.665Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/tmp/apify-docs-1770208200917/.claude/skills, project=[]
+2026-02-04T12:30:27.666Z [ERROR] Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'
+    at openSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:947)
+    at cJ (/$bunfs/root/claude:11:40731)
+    at readSync (/$bunfs/root/claude:12:875)
+    at iJ (/$bunfs/root/claude:6124:113)
+    at aX (/$bunfs/root/claude:6126:226)
+    at Nd$ (/$bunfs/root/claude:120:25773)
+    at Od$ (/$bunfs/root/claude:120:25936)
+    at _I (/$bunfs/root/claude:120:27673)
+    at UsB (/$bunfs/root/claude:121:1170)
+2026-02-04T12:30:27.666Z [ERROR] Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'
+    at openSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:947)
+    at cJ (/$bunfs/root/claude:11:40731)
+    at readSync (/$bunfs/root/claude:12:875)
+    at iJ (/$bunfs/root/claude:6124:113)
+    at aX (/$bunfs/root/claude:6126:226)
+    at Nd$ (/$bunfs/root/claude:120:25773)
+    at zCA (/$bunfs/root/claude:1748:18664)
+    at zCA (/$bunfs/root/claude:1748:19486)
+    at KGD (/$bunfs/root/claude:1748:19569)
+2026-02-04T12:30:27.666Z [ERROR] Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'
+    at openSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:947)
+    at cJ (/$bunfs/root/claude:11:40731)
+    at readSync (/$bunfs/root/claude:12:875)
+    at iJ (/$bunfs/root/claude:6124:113)
+    at aX (/$bunfs/root/claude:6126:226)
+    at Nd$ (/$bunfs/root/claude:120:25773)
+    at Od$ (/$bunfs/root/claude:120:25936)
+    at _I (/$bunfs/root/claude:120:27673)
+    at RTH (/$bunfs/root/claude:341:1062)
+2026-02-04T12:30:27.666Z [ERROR] Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'
+    at openSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:947)
+    at cJ (/$bunfs/root/claude:11:40731)
+    at readSync (/$bunfs/root/claude:12:875)
+    at iJ (/$bunfs/root/claude:6124:113)
+    at aX (/$bunfs/root/claude:6126:226)
+    at Nd$ (/$bunfs/root/claude:120:25773)
+    at Od$ (/$bunfs/root/claude:120:25936)
+    at _I (/$bunfs/root/claude:120:27673)
+    at jTH (/$bunfs/root/claude:341:1667)
+2026-02-04T12:30:27.667Z [ERROR] Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'
+    at openSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:947)
+    at cJ (/$bunfs/root/claude:11:40731)
+    at readSync (/$bunfs/root/claude:12:875)
+    at iJ (/$bunfs/root/claude:6124:113)
+    at aX (/$bunfs/root/claude:6126:226)
+    at Nd$ (/$bunfs/root/claude:120:25773)
+    at Od$ (/$bunfs/root/claude:120:25936)
+    at _I (/$bunfs/root/claude:120:27673)
+    at jSA (/$bunfs/root/claude:3573:10093)
+2026-02-04T12:30:27.667Z [DEBUG] Error log sink initialized
+2026-02-04T12:30:27.667Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-02-04T12:30:27.667Z [DEBUG] Total plugin skills loaded: 0
+2026-02-04T12:30:27.667Z [DEBUG] Total plugin commands loaded: 0
+2026-02-04T12:30:27.667Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-04T12:30:27.761Z [DEBUG] [STARTUP] setup() completed in 97ms
+2026-02-04T12:30:27.761Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-02-04T12:30:27.762Z [DEBUG] Total plugin agents loaded: 0
+2026-02-04T12:30:27.762Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2026-02-04T12:30:27.763Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-02-04T12:30:27.766Z [DEBUG] [STARTUP] Commands and agents loaded in 5ms
+2026-02-04T12:30:27.766Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-02-04T12:30:27.766Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-02-04T12:30:27.766Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-02-04T12:30:27.767Z [DEBUG] Total LSP servers loaded: 0
+2026-02-04T12:30:27.864Z [DEBUG] [STARTUP] MCP configs loaded in 483ms
+2026-02-04T12:30:27.864Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-02-04T12:30:27.864Z [DEBUG] LSP manager initialized with 0 servers
+2026-02-04T12:30:27.864Z [DEBUG] LSP server manager initialized successfully
+2026-02-04T12:30:27.864Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-02-04T12:30:28.466Z [ERROR] Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'
+    at openSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:947)
+    at cJ (/$bunfs/root/claude:11:40731)
+    at readSync (/$bunfs/root/claude:12:875)
+    at iJ (/$bunfs/root/claude:6124:113)
+    at aX (/$bunfs/root/claude:6126:226)
+    at Nd$ (/$bunfs/root/claude:120:25773)
+    at Od$ (/$bunfs/root/claude:120:25936)
+    at _I (/$bunfs/root/claude:120:27673)
+    at AO1 (/$bunfs/root/claude:7312:6151)
+2026-02-04T12:30:28.559Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-02-04T12:30:28.559Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-02-04T12:30:28.659Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude/todos/57b037e5-7fb9-43dc-adda-942c0c44f082-agent-57b037e5-7fb9-43dc-adda-942c0c44f082.json.tmp.51.1770208228565
+2026-02-04T12:30:28.763Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-02-04T12:30:28.763Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude/todos/57b037e5-7fb9-43dc-adda-942c0c44f082-agent-57b037e5-7fb9-43dc-adda-942c0c44f082.json.tmp.51.1770208228565 to /tmp/apify-docs-1770208200917/.claude/todos/57b037e5-7fb9-43dc-adda-942c0c44f082-agent-57b037e5-7fb9-43dc-adda-942c0c44f082.json
+2026-02-04T12:30:28.763Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude/todos/57b037e5-7fb9-43dc-adda-942c0c44f082-agent-57b037e5-7fb9-43dc-adda-942c0c44f082.json written atomically
+2026-02-04T12:30:30.364Z [ERROR] "Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'\n    at openSync (unknown)\n    at <anonymous> (/$bunfs/root/claude:12:947)\n    at cJ (/$bunfs/root/claude:11:40731)\n    at readSync (/$bunfs/root/claude:12:875)\n    at iJ (/$bunfs/root/claude:6124:113)\n    at aX (/$bunfs/root/claude:6126:226)\n    at Nd$ (/$bunfs/root/claude:120:25773)\n    at Od$ (/$bunfs/root/claude:120:25936)\n    at _I (/$bunfs/root/claude:120:27673)\n    at xp (/$bunfs/root/claude:3573:10209)"
+2026-02-04T12:30:30.365Z [ERROR] "Error: Error: ENOENT: no such file or directory, open '/tmp/apify-docs-1770208200917/.claude/remote-settings.json'\n    at openSync (unknown)\n    at <anonymous> (/$bunfs/root/claude:12:947)\n    at cJ (/$bunfs/root/claude:11:40731)\n    at readSync (/$bunfs/root/claude:12:875)\n    at iJ (/$bunfs/root/claude:6124:113)\n    at aX (/$bunfs/root/claude:6126:226)\n    at Nd$ (/$bunfs/root/claude:120:25773)\n    at Od$ (/$bunfs/root/claude:120:25936)\n    at _I (/$bunfs/root/claude:120:27673)\n    at xp (/$bunfs/root/claude:3573:10209)"
+2026-02-04T12:30:30.365Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-02-04T12:30:30.365Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:30:30.365Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-02-04T12:30:30.461Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230461
+2026-02-04T12:30:30.461Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.465Z [DEBUG] Temp file written successfully, size: 352 bytes
+2026-02-04T12:30:30.465Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.465Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230461 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.465Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.466Z [DEBUG] Total plugin output styles loaded: 0
+2026-02-04T12:30:30.472Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230472
+2026-02-04T12:30:30.472Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.560Z [DEBUG] Temp file written successfully, size: 528 bytes
+2026-02-04T12:30:30.560Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.560Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230472 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.583Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.584Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230584
+2026-02-04T12:30:30.584Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.589Z [DEBUG] Temp file written successfully, size: 564 bytes
+2026-02-04T12:30:30.589Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.589Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230584 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.589Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.590Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230590
+2026-02-04T12:30:30.590Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.594Z [DEBUG] Temp file written successfully, size: 592 bytes
+2026-02-04T12:30:30.594Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.594Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230590 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.594Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.595Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230595
+2026-02-04T12:30:30.596Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.600Z [DEBUG] Temp file written successfully, size: 625 bytes
+2026-02-04T12:30:30.600Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.600Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230595 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.600Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.602Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230602
+2026-02-04T12:30:30.602Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.607Z [DEBUG] Temp file written successfully, size: 677 bytes
+2026-02-04T12:30:30.607Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.607Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230602 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.608Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.609Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230609
+2026-02-04T12:30:30.609Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.613Z [DEBUG] Temp file written successfully, size: 721 bytes
+2026-02-04T12:30:30.613Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.613Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230609 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.613Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.614Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230614
+2026-02-04T12:30:30.614Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.617Z [DEBUG] Temp file written successfully, size: 760 bytes
+2026-02-04T12:30:30.617Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.617Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230614 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.617Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.660Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230660
+2026-02-04T12:30:30.660Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.664Z [DEBUG] Temp file written successfully, size: 799 bytes
+2026-02-04T12:30:30.664Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.664Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230660 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.664Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.665Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230665
+2026-02-04T12:30:30.665Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.669Z [DEBUG] Temp file written successfully, size: 837 bytes
+2026-02-04T12:30:30.669Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.669Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230665 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.669Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.669Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230669
+2026-02-04T12:30:30.669Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.674Z [DEBUG] Temp file written successfully, size: 869 bytes
+2026-02-04T12:30:30.675Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.675Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230669 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.675Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.675Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230675
+2026-02-04T12:30:30.675Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.679Z [DEBUG] Temp file written successfully, size: 899 bytes
+2026-02-04T12:30:30.679Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.679Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230675 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.679Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.680Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230680
+2026-02-04T12:30:30.680Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.684Z [DEBUG] Temp file written successfully, size: 932 bytes
+2026-02-04T12:30:30.684Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.684Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230680 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.684Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.685Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230685
+2026-02-04T12:30:30.685Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.688Z [DEBUG] Temp file written successfully, size: 984 bytes
+2026-02-04T12:30:30.688Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.688Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230685 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.688Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.689Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230689
+2026-02-04T12:30:30.689Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.693Z [DEBUG] Temp file written successfully, size: 1014 bytes
+2026-02-04T12:30:30.693Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.693Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230689 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.693Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.695Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230695
+2026-02-04T12:30:30.695Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.698Z [DEBUG] Temp file written successfully, size: 1039 bytes
+2026-02-04T12:30:30.698Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.698Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230695 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.698Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.699Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230699
+2026-02-04T12:30:30.699Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.764Z [DEBUG] Temp file written successfully, size: 1084 bytes
+2026-02-04T12:30:30.764Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.764Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230699 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.764Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.765Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230765
+2026-02-04T12:30:30.765Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:30.768Z [DEBUG] Temp file written successfully, size: 1120 bytes
+2026-02-04T12:30:30.768Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:30.768Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208230765 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:30.768Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:30.779Z [DEBUG] Remote settings: No settings found (404)
+2026-02-04T12:30:30.779Z [DEBUG] Programmatic settings change notification for policySettings
+2026-02-04T12:30:30.779Z [DEBUG] Plugin hooks: reloading due to policySettings change
+2026-02-04T12:30:30.779Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-04T12:30:30.780Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-02-04T12:30:30.862Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-04T12:30:30.863Z [DEBUG] Policy limits: Fetched successfully
+2026-02-04T12:30:30.864Z [DEBUG] Watching for changes in skill/command directories: /tmp/apify-docs-1770208200917/.claude/skills, /tmp/apify-docs-1770208200917/.claude/skills...
+2026-02-04T12:30:31.766Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231766
+2026-02-04T12:30:31.766Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:31.786Z [DEBUG] Temp file written successfully, size: 1152 bytes
+2026-02-04T12:30:31.786Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:31.786Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231766 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:31.786Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:31.789Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:31.789Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:31.789Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:31.863Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231863
+2026-02-04T12:30:31.863Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:31.866Z [DEBUG] Temp file written successfully, size: 1199 bytes
+2026-02-04T12:30:31.866Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:31.866Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231863 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:31.866Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:31.894Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231894
+2026-02-04T12:30:31.894Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:31.898Z [DEBUG] Temp file written successfully, size: 1230 bytes
+2026-02-04T12:30:31.898Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:31.898Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231894 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:31.899Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:31.903Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-04T12:30:31.903Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-04T12:30:31.904Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-04T12:30:31.904Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-04T12:30:31.959Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231959
+2026-02-04T12:30:31.959Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:31.962Z [DEBUG] Temp file written successfully, size: 1268 bytes
+2026-02-04T12:30:31.962Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:31.962Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231959 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:31.962Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:31.963Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-02-04T12:30:31.963Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:30:31.963Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-04T12:30:31.967Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231967
+2026-02-04T12:30:31.967Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:31.970Z [DEBUG] Temp file written successfully, size: 1306 bytes
+2026-02-04T12:30:31.970Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:31.970Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231967 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:31.970Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:31.973Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231973
+2026-02-04T12:30:31.973Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:31.975Z [DEBUG] Temp file written successfully, size: 1351 bytes
+2026-02-04T12:30:31.975Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:31.975Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208231973 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:31.975Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:32.065Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208232065
+2026-02-04T12:30:32.065Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:32.159Z [DEBUG] Temp file written successfully, size: 1418 bytes
+2026-02-04T12:30:32.159Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:32.159Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208232065 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:32.159Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:32.162Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.31.08c; cc_entrypoint=sdk-cli;
+2026-02-04T12:30:32.164Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:32.164Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:32.165Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208232165
+2026-02-04T12:30:32.165Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:32.167Z [DEBUG] Temp file written successfully, size: 1457 bytes
+2026-02-04T12:30:32.167Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:32.167Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208232165 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:32.167Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:32.169Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208232169
+2026-02-04T12:30:32.169Z [DEBUG] Preserving file permissions: 100600
+2026-02-04T12:30:32.173Z [DEBUG] Temp file written successfully, size: 1485 bytes
+2026-02-04T12:30:32.173Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:30:32.173Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/.claude.json.tmp.51.1770208232169 to /tmp/apify-docs-1770208200917/.claude.json
+2026-02-04T12:30:32.173Z [DEBUG] File /tmp/apify-docs-1770208200917/.claude.json written atomically
+2026-02-04T12:30:32.173Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:32.371Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-02-04T12:30:32.460Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:32.460Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:32.461Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:33.105Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:30:33.565Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:30:34.664Z [DEBUG] executePreToolHooks called for tool: Glob
+2026-02-04T12:30:34.665Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2026-02-04T12:30:34.665Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:30:34.665Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2026-02-04T12:30:40.161Z [DEBUG] Ripgrep first use test: FAILED (mode=builtin, path=/root/.local/share/claude/versions/2.1.31)
+2026-02-04T12:30:45.262Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2026-02-04T12:30:45.262Z [DEBUG] Found 5 hook matchers in settings
+2026-02-04T12:30:45.263Z [DEBUG] Matched 1 unique hooks for query "Glob" (1 before deduplication)
+2026-02-04T12:30:45.266Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-04T12:30:45.266Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-04T12:30:45.266Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-04T12:30:45.266Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-04T12:30:45.360Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:45.360Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:45.361Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:47.241Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:30:47.532Z [DEBUG] executePreToolHooks called for tool: Glob
+2026-02-04T12:30:47.533Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2026-02-04T12:30:47.533Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:30:47.533Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2026-02-04T12:30:54.567Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2026-02-04T12:30:54.567Z [DEBUG] Found 5 hook matchers in settings
+2026-02-04T12:30:54.567Z [DEBUG] Matched 1 unique hooks for query "Glob" (1 before deduplication)
+2026-02-04T12:30:54.570Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-04T12:30:54.570Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-04T12:30:54.570Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-04T12:30:54.570Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-04T12:30:54.575Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:54.575Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:54.660Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:56.031Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:30:57.366Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-02-04T12:30:57.366Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-02-04T12:30:57.366Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:30:57.366Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-02-04T12:30:58.465Z [DEBUG] tree-sitter: loaded from embedded
+2026-02-04T12:30:58.869Z [DEBUG] Creating shell snapshot for bash (/bin/bash)
+2026-02-04T12:30:58.869Z [DEBUG] Looking for shell config file: /tmp/apify-docs-1770208200917/.bashrc
+2026-02-04T12:30:58.869Z [DEBUG] Shell config file not found: /tmp/apify-docs-1770208200917/.bashrc, creating snapshot with Claude Code defaults only
+2026-02-04T12:30:58.869Z [DEBUG] Snapshots directory: /tmp/apify-docs-1770208200917/.claude/shell-snapshots
+2026-02-04T12:30:58.870Z [DEBUG] Creating snapshot at: /tmp/apify-docs-1770208200917/.claude/shell-snapshots/snapshot-bash-1770208258869-87tibk.sh
+2026-02-04T12:30:58.870Z [DEBUG] Shell binary exists: true
+2026-02-04T12:30:58.870Z [DEBUG] Execution timeout: 10000ms
+2026-02-04T12:30:59.065Z [DEBUG] Shell snapshot created successfully (578 bytes)
+2026-02-04T12:30:59.066Z [DEBUG] No session environment scripts found
+2026-02-04T12:30:59.362Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-02-04T12:30:59.363Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:59.363Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:59.365Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-02-04T12:30:59.365Z [DEBUG] Found 5 hook matchers in settings
+2026-02-04T12:30:59.365Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-02-04T12:30:59.365Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:59.370Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-04T12:30:59.370Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-04T12:30:59.370Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-04T12:30:59.370Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-04T12:30:59.466Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:30:59.466Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:30:59.466Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:30:59.674Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:31:01.665Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:31:02.365Z [DEBUG] executePreToolHooks called for tool: Read
+2026-02-04T12:31:02.365Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-02-04T12:31:02.365Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:31:02.365Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-02-04T12:31:02.369Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-02-04T12:31:02.369Z [DEBUG] Found 5 hook matchers in settings
+2026-02-04T12:31:02.369Z [DEBUG] Matched 1 unique hooks for query "Read" (1 before deduplication)
+2026-02-04T12:31:02.469Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-04T12:31:02.469Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-04T12:31:02.469Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-04T12:31:02.469Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-04T12:31:02.561Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:31:02.561Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:31:02.562Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:31:04.590Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:31:07.661Z [DEBUG] executePreToolHooks called for tool: Edit
+2026-02-04T12:31:07.661Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2026-02-04T12:31:07.662Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:31:07.662Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2026-02-04T12:31:07.666Z [DEBUG] Writing to temp file: /tmp/apify-docs-1770208200917/sources/platform/console/billing.md.tmp.51.1770208267666
+2026-02-04T12:31:07.666Z [DEBUG] Preserving file permissions: 100644
+2026-02-04T12:31:07.670Z [DEBUG] Temp file written successfully, size: 4969 bytes
+2026-02-04T12:31:07.670Z [DEBUG] Applied original permissions to temp file
+2026-02-04T12:31:07.670Z [DEBUG] Renaming /tmp/apify-docs-1770208200917/sources/platform/console/billing.md.tmp.51.1770208267666 to /tmp/apify-docs-1770208200917/sources/platform/console/billing.md
+2026-02-04T12:31:07.670Z [DEBUG] File /tmp/apify-docs-1770208200917/sources/platform/console/billing.md written atomically
+2026-02-04T12:31:07.672Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2026-02-04T12:31:07.672Z [DEBUG] Found 5 hook matchers in settings
+2026-02-04T12:31:07.672Z [DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+2026-02-04T12:31:07.676Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-04T12:31:07.676Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-04T12:31:07.676Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-04T12:31:07.676Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-04T12:31:07.763Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-04T12:31:07.763Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-04T12:31:07.763Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-04T12:31:08.920Z [DEBUG] Stream started - received first chunk
+2026-02-04T12:31:11.260Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-02-04T12:31:11.260Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:31:11.260Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-04T12:31:11.261Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-02-04T12:31:11.261Z [DEBUG] Found 0 hook matchers in settings
+2026-02-04T12:31:11.261Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)
