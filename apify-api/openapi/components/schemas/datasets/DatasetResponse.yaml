@@ -1,5 +1,5 @@
 title: DatasetResponse
-description: Response containing dataset data.
+description: Response containing dataset metadata.
 required:
   - data
 type: object
