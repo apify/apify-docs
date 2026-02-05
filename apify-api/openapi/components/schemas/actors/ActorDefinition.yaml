@@ -59,7 +59,7 @@ properties:
     description: Specifies the maximum amount of memory in megabytes required by the Actor.
   usesStandbyMode:
     type: boolean
-    description: Specifies whether the Actor will have Standby mode enabled.
+    description: Specifies whether Standby mode is enabled for the Actor.
   readmeSummary:
     type: string
     description: A brief, LLM-generated readme summary
