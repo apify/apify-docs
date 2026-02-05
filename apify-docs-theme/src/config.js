@@ -82,7 +82,7 @@ const themeConfig = {
                     },
                     {
                         html: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/introduction`,
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -211,7 +211,7 @@ const themeConfig = {
                     },
                     {
                         label: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/introduction`,
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
