@@ -139,7 +139,7 @@ Both triggers create and manage Apify webhooks automatically when you enable or 
 
 - **Get Dataset Items** retrieves items from an Apify [dataset](/platform/storage/dataset):
   - Choose a dataset from your account.
-  - Configure **offset** and **limit** to page through items.
+  - Configure `offset` and `limit` to page through items.
   - Returns dataset items, their count, and the dataset ID.
 
 - **Scrape Single URL** runs a Website Content Crawler Actor for a specified website and returns its content:
