@@ -1,0 +1,5 @@
+type: string
+enum:
+  - ownedByMe
+  - sharedWithMe
+examples: [ownedByMe]

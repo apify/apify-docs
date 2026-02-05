@@ -89,7 +89,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/actor-runs/GetUserRunsListResponse.yaml
+              - $ref: ../../components/schemas/actor-runs/ListOfRunsResponse.yaml
           example:
             data:
               total: 2

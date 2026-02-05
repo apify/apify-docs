@@ -1,0 +1,412 @@
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js
+index 47f1ec7..9ce8587 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Authorization/slice.js
+@@ -49,7 +49,8 @@ function createAuth({ security, securitySchemes, options: opts }) {
+     const id = Object.keys(option).join(" and ");
+     for (const [schemeID, scopes] of Object.entries(option)) {
+       const scheme = securitySchemes?.[schemeID];
+-      if (scheme) {
++      // Apify: Skip apiKey schemes to only support httpBearer tokens
++      if (scheme && scheme.type !== "apiKey") {
+         if (options[id] === undefined) {
+           options[id] = [];
+         }
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+index 31bf239..6cc68a1 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+@@ -309,7 +309,7 @@ function CodeSnippets({
+           CodeTab,
+           {
+             value: lang.language,
+-            label: lang.language,
++            label: lang.label ?? lang.language,
+             key: lang.language,
+             attributes: {
+               className: `openapi-tabs__code-item--${lang.logoClass}`,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
+index a2a4e40..f2d944d 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
+@@ -30,7 +30,7 @@ function Export({ url, proxy }) {
+     react_1.default.createElement(
+       "button",
+       { className: "export-button button button--sm button--secondary" },
+-      "Export"
++      "Download OpenAPI"
+     ),
+     react_1.default.createElement(
+       "ul",
+@@ -48,7 +48,23 @@ function Export({ url, proxy }) {
+             className: "dropdown__link",
+             href: `${url}`,
+           },
+-          "OpenAPI Spec"
++          "YAML"
++        )
++      ),
++      react_1.default.createElement(
++        "li",
++        null,
++        react_1.default.createElement(
++          "a",
++          {
++            onClick: (e) => {
++              e.preventDefault();
++              saveFile(`${url.replace(/\.yaml$/, '.json')}`);
++            },
++            className: "dropdown__link",
++            href: `${url.replace(/\.yaml$/, '.json')}`,
++          },
++          "JSON"
+         )
+       )
+     )
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js
+index f8f722f..ec0c117 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem.js
+@@ -44,6 +44,7 @@ function ParamBooleanFormItem({ param }) {
+       render: ({ field: { onChange } }) =>
+         react_1.default.createElement(FormSelect_1.default, {
+           options: ["---", "true", "false"],
++          value: (param.value === undefined || param.value === null || param.value === "") ? "---" : String(param.value),
+           onChange: (e) => {
+             const val = e.target.value;
+             dispatch(
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
+index bcebb1c..ac03ec1 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
+@@ -117,7 +117,9 @@ function setQueryParams(postman, queryParams) {
+         }
+       } else if (param.explode) {
+         const jsonResult = tryDecodeJsonParam(param.value);
+-        if (jsonResult && typeof jsonResult === "object") {
++        // Apify: Only use Object.entries for actual objects, not primitives (boolean, number, string)
++        // JSON.parse("true") returns boolean true, and Object.entries(true) returns [] which breaks the URL
++        if (jsonResult && typeof jsonResult === "object" && !Array.isArray(jsonResult)) {
+           return Object.entries(jsonResult).map(
+             ([key, val]) =>
+               new sdk.QueryParam({
+@@ -125,14 +127,8 @@ function setQueryParams(postman, queryParams) {
+                 value: String(val),
+               })
+           );
+-        } else {
+-          return new sdk.QueryParam({
+-            key: param.name,
+-            value: Object.entries(jsonResult)
+-              .map(([key, val]) => `${key},${val}`)
+-              .join(","),
+-          });
+         }
++        // For primitive values (including booleans parsed from "true"/"false"), fall through to default handling
+       }
+       // Parameter allows empty value: "/hello?extended"
+       if (param.allowEmptyValue) {
+@@ -144,9 +140,14 @@ function setQueryParams(postman, queryParams) {
+         }
+         return undefined;
+       }
++      // Apify: Handle boolean values - convert to string for proper URL serialization
++      // This handles both actual booleans and ensures string values are passed correctly
++      const finalValue = typeof param.value === "boolean"
++        ? param.value.toString()
++        : String(param.value);
+       return new sdk.QueryParam({
+         key: param.name,
+-        value: param.value,
++        value: finalValue,
+       });
+     })
+     .flat() // Flatten the array in case of nested arrays from map
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
+index f6052d1..867bfd2 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiItem/index.js
+@@ -27,6 +27,7 @@ const slice_1 = require("@theme/ApiExplorer/Authorization/slice");
+ const persistenceMiddleware_1 = require("@theme/ApiExplorer/persistenceMiddleware");
+ const storage_utils_1 = require("@theme/ApiExplorer/storage-utils");
+ const Layout_1 = __importDefault(require("@theme/ApiItem/Layout"));
++const LLMButtons_1 = __importDefault(require("@theme/LLMButtons"));
+ const CodeBlock_1 = __importDefault(require("@theme/CodeBlock"));
+ const Metadata_1 = __importDefault(require("@theme/DocItem/Metadata"));
+ const SkeletonLoader_1 = __importDefault(require("@theme/SkeletonLoader"));
+@@ -47,6 +48,81 @@ function base64ToUint8Array(base64) {
+   }
+   return bytes;
+ }
++// Apify: Render clients box with links to Python and JavaScript API client documentation
++function renderClientsBox(api) {
++  const pyUrl = api?.['x-py-doc-url'];
++  const jsUrl = api?.['x-js-doc-url'];
++  if (!pyUrl && !jsUrl) {
++    return null;
++  }
++  return react_1.default.createElement(
++    "div",
++    { className: "openapi-clients-box" },
++    react_1.default.createElement("div", { className: "openapi-clients-box-heading" }, "API Clients"),
++    jsUrl && react_1.default.createElement(
++      "a",
++      {
++        href: jsUrl,
++        target: "_blank",
++        rel: "noopener noreferrer",
++        className: "client-docs-link"
++      },
++      react_1.default.createElement("img", { src: "/img/javascript-40x40.svg", className: "openapi-clients-box-icon", width: "20px", height: "20px", alt: "JavaScript" }),
++      "JavaScript"
++    ),
++    pyUrl && react_1.default.createElement(
++      "a",
++      {
++        href: pyUrl,
++        target: "_blank",
++        rel: "noopener noreferrer",
++        className: "client-docs-link"
++      },
++      react_1.default.createElement("img", { src: "/img/python-40x40.svg", className: "openapi-clients-box-icon", width: "20px", height: "20px", alt: "Python" }),
++      "Python"
++    )
++  );
++}
++// Apify: Component that renders LLMButtons and moves it after the heading
++function LLMButtonsPortal() {
++  const [container, setContainer] = react_1.default.useState(null);
++  react_1.default.useEffect(() => {
++    // Create a container div
++    const div = document.createElement('div');
++    div.className = 'openapi-llm-buttons';
++
++    // Find the heading and insert after it
++    const attemptInsert = () => {
++      const heading = document.querySelector('.openapi__heading');
++      if (heading && heading.parentNode) {
++        heading.parentNode.insertBefore(div, heading.nextSibling);
++        setContainer(div);
++        return true;
++      }
++      return false;
++    };
++
++    // Try immediately, then with delays
++    if (!attemptInsert()) {
++      const timers = [10, 50, 100, 250, 500, 1000].map(delay =>
++        setTimeout(attemptInsert, delay)
++      );
++      return () => timers.forEach(clearTimeout);
++    }
++
++    return () => {
++      if (div.parentNode) {
++        div.parentNode.removeChild(div);
++      }
++    };
++  }, []);
++
++  if (!container) return null;
++  return require("react-dom").createPortal(
++    react_1.default.createElement(LLMButtons_1.default, { isApiReferencePage: true }),
++    container
++  );
++}
+ // @ts-ignore
+ function ApiItem(props) {
+   const docHtmlClassName = `docs-doc-id-${props.content.metadata.id}`;
+@@ -158,7 +234,9 @@ function ApiItem(props) {
+               react_1.default.createElement(
+                 "div",
+                 { className: "col col--7 openapi-left-panel__container" },
+-                react_1.default.createElement(MDXComponent, null)
++                react_1.default.createElement(BrowserOnly_1.default, { fallback: null }, () => renderClientsBox(api)),
++                react_1.default.createElement(MDXComponent, null),
++                react_1.default.createElement(LLMButtonsPortal, null)
+               ),
+               react_1.default.createElement(
+                 "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
+index e84857b..ba445e8 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
+@@ -64,6 +64,8 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+             )
+           );
+         }
++        // Apify: Check if there's an explicit example - if so, skip auto-generated
++        const hasExplicitExample = responseExample || responseExamples;
+         return (
+           // @ts-ignore
+           react_1.default.createElement(
+@@ -72,6 +74,25 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+             react_1.default.createElement(
+               SchemaTabs_1.default,
+               { className: "openapi-tabs__schema" },
++              // Apify: Put examples first, before schema
++              // Show explicit examples if available
++              responseExample &&
++                (0, ResponseExamples_1.ResponseExample)({
++                  responseExample,
++                  mimeType,
++                }),
++              responseExamples &&
++                (0, ResponseExamples_1.ResponseExamples)({
++                  responseExamples,
++                  mimeType,
++                }),
++              // Only show auto-generated example if no explicit example exists
++              !hasExplicitExample && firstBody &&
++                (0, ResponseExamples_1.ExampleFromSchema)({
++                  schema: firstBody,
++                  mimeType: mimeType,
++                }),
++              // Schema tab comes after examples
+               react_1.default.createElement(
+                 TabItem_1.default,
+                 { key: title, label: title, value: title },
+@@ -132,22 +153,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+                     })
+                   )
+                 )
+-              ),
+-              firstBody &&
+-                (0, ResponseExamples_1.ExampleFromSchema)({
+-                  schema: firstBody,
+-                  mimeType: mimeType,
+-                }),
+-              responseExamples &&
+-                (0, ResponseExamples_1.ResponseExamples)({
+-                  responseExamples,
+-                  mimeType,
+-                }),
+-              responseExample &&
+-                (0, ResponseExamples_1.ResponseExample)({
+-                  responseExample,
+-                  mimeType,
+-                })
++              )
+             )
+           )
+         );
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
+index 37190c6..76766ef 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
+@@ -304,7 +304,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
+     )
+   );
+ };
+-const Properties = ({ schema, schemaType, schemaPath }) => {
++const Properties = ({ schema, schemaType, schemaPath, depth = 0 }) => {
+   const discriminator = schema.discriminator;
+   if (discriminator && !discriminator.mapping) {
+     const anyOneOf = schema.oneOf ?? schema.anyOf ?? {};
+@@ -344,6 +344,7 @@ const Properties = ({ schema, schemaType, schemaPath }) => {
+         discriminator: discriminator,
+         schemaType: schemaType,
+         schemaPath: schemaPath ? `${schemaPath}.${key}` : undefined,
++        depth, // Apify: pass depth
+       })
+     )
+   );
+@@ -581,7 +582,10 @@ const SchemaNodeDetails = ({
+   required,
+   schemaType,
+   schemaPath,
++  depth = 1, // Apify: track nesting depth, default to 1 (first level)
+ }) => {
++  // Apify: expand first level of nested items (depth 0 or 1)
++  const shouldBeOpen = depth <= 1;
+   return react_1.default.createElement(
+     SchemaItem_1.default,
+     { collapsible: true },
+@@ -589,6 +593,7 @@ const SchemaNodeDetails = ({
+       Details_1.default,
+       {
+         className: "openapi-markdown__details",
++        open: shouldBeOpen, // Apify: expand first level
+         summary: react_1.default.createElement(Summary, {
+           name: name,
+           schemaName: schemaName,
+@@ -611,6 +616,7 @@ const SchemaNodeDetails = ({
+           schema: schema,
+           schemaType: schemaType,
+           schemaPath: schemaPath,
++          depth: depth + 1,
+         })
+       )
+     )
+@@ -703,6 +709,7 @@ const SchemaEdge = ({
+   discriminator,
+   schemaType,
+   schemaPath,
++  depth = 1, // Apify: track nesting depth
+ }) => {
+   if (
+     (schemaType === "request" && schema.readOnly) ||
+@@ -731,6 +738,7 @@ const SchemaEdge = ({
+       schema: schema,
+       nullable: schema.nullable,
+       schemaPath: schemaPath,
++      depth,
+     });
+   }
+   if (schema.properties) {
+@@ -742,6 +750,7 @@ const SchemaEdge = ({
+       schema: schema,
+       nullable: schema.nullable,
+       schemaPath: schemaPath,
++      depth,
+     });
+   }
+   if (schema.additionalProperties) {
+@@ -753,6 +762,7 @@ const SchemaEdge = ({
+       schema: schema,
+       nullable: schema.nullable,
+       schemaPath: schemaPath,
++      depth,
+     });
+   }
+   if (schema.items?.properties) {
+@@ -764,6 +774,7 @@ const SchemaEdge = ({
+       schema: schema,
+       schemaType: schemaType,
+       schemaPath: schemaPath,
++      depth,
+     });
+   }
+   if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
+@@ -775,6 +786,7 @@ const SchemaEdge = ({
+       schema: schema,
+       schemaType: schemaType,
+       schemaPath: schemaPath,
++      depth,
+     });
+   }
+   if (schema.allOf) {
+@@ -813,6 +825,7 @@ const SchemaEdge = ({
+         schema: mergedSchemas,
+         schemaType: schemaType,
+         schemaPath: schemaPath,
++        depth,
+       });
+     }
+     if (mergedSchemas.properties !== undefined) {
+@@ -824,6 +837,7 @@ const SchemaEdge = ({
+         schema: mergedSchemas,
+         schemaType: schemaType,
+         schemaPath: schemaPath,
++        depth,
+       });
+     }
+     if (mergedSchemas.items?.properties) {
+@@ -835,6 +849,7 @@ const SchemaEdge = ({
+         schema: mergedSchemas,
+         schemaType: schemaType,
+         schemaPath: schemaPath,
++        depth,
+       });
+     }
+     return react_1.default.createElement(SchemaItem_1.default, {

@@ -83,7 +83,7 @@ export default function Home() {
                             exampleCodeSnippet={pythonExample}
                             language="Python"
                             githubRepoUrl="https://github.com/apify/apify-sdk-python"
-                            gettingStartedUrl="https://docs.apify.com/sdk/python/docs/overview/introduction"
+                            gettingStartedUrl="https://docs.apify.com/sdk/python/docs/overview"
                             referenceUrl="https://docs.apify.com/sdk/python/reference"
                         />
                     </StyledContent>

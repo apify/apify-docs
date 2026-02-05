@@ -5,3 +5,16 @@ type: object
 properties:
   origin:
     $ref: ./RunOrigin.yaml
+  clientIp:
+    type: [string, "null"]
+    description: IP address of the client that started the run.
+  userAgent:
+    type: [string, "null"]
+    description: User agent of the client that started the run.
+  scheduleId:
+    type: [string, "null"]
+    description: ID of the schedule that triggered the run.
+  scheduledAt:
+    type: [string, "null"]
+    format: date-time
+    description: Time when the run was scheduled.

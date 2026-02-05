@@ -21,7 +21,7 @@ This guide provides best practices for building new Actors or improving existing
 
 ## AI coding assistant instructions
 
-Use the following prompt in your AI coding assistant such as [Cursor](https://www.cursor.com/), [Claude Code](https://www.claude.com/product/claude-code) or [GitHub Copilot](https://github.com/features/copilot):
+Use the following prompt in your AI coding assistant such as [Cursor](https://cursor.com/), [Claude Code](https://claude.com/product/claude-code) or [GitHub Copilot](https://github.com/features/copilot):
 
 <PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
 
