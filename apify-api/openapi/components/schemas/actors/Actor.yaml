@@ -74,3 +74,6 @@ properties:
     anyOf:
       - $ref: ./TaggedBuilds.yaml
       - type: "null"
+  readmeSummary:
+    type: string
+    description: A brief, LLM-generated readme summary
