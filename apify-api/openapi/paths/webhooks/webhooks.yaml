@@ -109,7 +109,7 @@ post:
             "ACTOR.RUN.ABORTED"
         ],
         "condition" : {
-            "actorId": "janedoe~my-actor",
+            "actorId": "5sTMwDQywwsLzKRRh",
             "actorTaskId" : "W9bs9JE9v7wprjAnJ"
         },
         "payloadTemplate": "",
