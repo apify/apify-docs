@@ -47,9 +47,9 @@ By default, an Actor keeps its state in the server's memory. During a server swi
 
 ## Implementing state persistence
 
-The [Apify SDKs](/sdk) handle state persistence automatically.
+To handle state persistence, use the [`Actor.useState()`](/sdk/js/reference/class/Actor#useState) method. This method automatically saves and retrieves your state during migrations.
 
-This is done using the `Actor.on()` method and the `migrating` event.
+For more control or when using Python, you can manually handle state persistence using the `Actor.on()` method and the `migrating` event.
 
 - The `migrating` event is triggered just before a migration occurs, allowing you to save your state.
 - To retrieve previously saved state, you can use the [`Actor.getValue`](/sdk/js/reference/class/Actor#getValue)/[`Actor.get_value`](/sdk/python/reference/class/Actor#get_value) methods.
