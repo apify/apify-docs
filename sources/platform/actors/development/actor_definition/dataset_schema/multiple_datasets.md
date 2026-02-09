@@ -47,10 +47,10 @@ The `datasets` and `dataset` objects are mutually exclusive, the schema can only
 
 ## Accessing the datasets in Actor code
 
-Mapping of aliases to the IDs is passed to the Actor in JSON encoded `ACTOR_STORAGE_IDS` environment variable.
+Mapping of aliases to the IDs is passed to the Actor in JSON encoded `ACTOR_STORAGES_JSON` environment variable.
 
 ```javascript
-const storageIds = JSON.parse(process.env.ACTOR_STORAGE_IDS)
+const storageIds = JSON.parse(process.env.ACTOR_STORAGES_JSON)
 const productsDataset = await Actor.openDataset(storageIds.datasets.products);
 ```
 
