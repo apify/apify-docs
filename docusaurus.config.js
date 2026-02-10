@@ -106,48 +106,6 @@ module.exports = {
                             },
                         ],
                     },
-                    {
-                        title: 'Platform',
-                        pathRegex: '/platform',
-                        to: '/platform',
-                        items: [
-                            {
-                                label: 'Get started',
-                                to: '/platform/get-started',
-                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'platform', 'get-started')).join('$|')}$`,
-                            },
-                            {
-                                label: 'Actors',
-                                to: '/platform/actors',
-                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'platform', 'actors')).join('$|')}$`,
-                            },
-                            {
-                                label: 'Storage',
-                                to: '/platform/storage',
-                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'platform', 'storage')).join('$|')}$`,
-                            },
-                            {
-                                label: 'Proxy',
-                                to: '/platform/proxy',
-                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'platform', 'proxy')).join('$|')}$`,
-                            },
-                            {
-                                label: 'Integrations',
-                                to: '/platform/integrations',
-                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'platform', 'integrations')).join('$|')}$`,
-                            },
-                            {
-                                label: 'Account',
-                                to: '/platform/account',
-                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'platform', 'account')).join('$|')}$`,
-                            },
-                            {
-                                label: 'Security',
-                                to: '/platform/security',
-                                activeBaseRegex: '/security$',
-                            },
-                        ],
-                    },
                 ],
             }),
         ],
