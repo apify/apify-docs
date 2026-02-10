@@ -37,6 +37,12 @@ Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify M
 
 :::
 
+:::tip Use the hosted server for the best experience
+
+The hosted Apify MCP server at `https://mcp.apify.com` supports the latest features, including **output schema inference** for structured Actor results. When using the hosted server, Actor tools automatically include inferred output schemas with field-level type information, helping AI agents understand the expected result structure before calling an Actor. This feature is not available when running locally via stdio.
+
+:::
+
 ### Streamable HTTP with OAuth (recommended)
 
 Provide the server URL `https://mcp.apify.com`. You will be redirected to your browser to sign in to your Apify account and approve the connection.
@@ -319,6 +325,48 @@ When you use the `actors` tool category, clients that support dynamic tool disco
 For a detailed overview of client support for dynamic discovery, see the [MCP client capabilities package](https://github.com/apify/mcp-client-capabilities).
 
 :::
+
+## Agentic payments with Skyfire
+
+The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable agentic payments. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire PAY tokens to cover billing for each tool call.
+
+### Prerequisites
+
+- A [Skyfire account](https://www.skyfire.xyz/) with a funded wallet
+- An MCP client that supports multiple servers (e.g., Claude Desktop, VS Code)
+
+### Setup
+
+Configure both the Skyfire MCP server and the Apify MCP server in your client. Enable payment mode by adding the `payment=skyfire` query parameter to the Apify server URL:
+
+```json
+{
+  "mcpServers": {
+    "skyfire": {
+      "url": "https://api.skyfire.xyz/mcp/sse",
+      "headers": {
+        "skyfire-api-key": "<YOUR_SKYFIRE_API_KEY>"
+      }
+    },
+    "apify": {
+      "url": "https://mcp.apify.com?payment=skyfire"
+    }
+  }
+}
+```
+
+Replace `<YOUR_SKYFIRE_API_KEY>` with your Skyfire API key.
+
+### How it works
+
+When Skyfire payment mode is enabled, the agent handles the full payment flow autonomously:
+
+1. The agent discovers relevant Actors via `search-actors` or `fetch-actor-details` (these remain free).
+2. Before executing an Actor, the agent creates a PAY token using the `create-pay-token` tool from the Skyfire MCP server (minimum $5.00 USD).
+3. The agent passes the PAY token in the `skyfire-pay-id` input property when calling the Actor tool.
+4. Results are returned as usual. Unused funds on the token remain available for future runs or are returned upon expiration.
+
+To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic Payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
 
 ## Telemetry
 
