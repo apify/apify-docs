@@ -37,7 +37,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](/platform/storage/usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
+[retention period](/platform/storage/usage#named-and-unnamed-storages)) and [access rights](../account/index.md) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
@@ -48,7 +48,7 @@ The [Apify API](/api/v2/storage-request-queues) allows you programmatic access t
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api-and-webhooks/api.md#authentication)).
 
 To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2/request-queues-get) endpoint.
 
@@ -556,11 +556,11 @@ A detailed tutorial on how to process one request queue with multiple Actor runs
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](../account/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../account/list_of_permissions.md).
 
-You can also share request queues by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share request queues by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
 
 ### Sharing request queues between runs
 

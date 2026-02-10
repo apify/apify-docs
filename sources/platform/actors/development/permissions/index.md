@@ -24,7 +24,7 @@ When a user runs an Actor, it receives an Apify API token. This token is injecte
 
 Actors with **Full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
 
-Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
+Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/api-and-webhooks/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
  A limited-permission Actor can:
 
@@ -109,7 +109,7 @@ Behavior at run time:
 - The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
 - If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
 
-See the full [input schema reference for details.](../actor_definition/input_schema/specification.md).
+See the full [input schema reference for details.](../input_output_schemas/specification.md).
 
 ### Requesting full permissions
 

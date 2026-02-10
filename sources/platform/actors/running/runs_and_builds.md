@@ -129,4 +129,4 @@ Apify securely stores your ten most recent runs indefinitely, ensuring your reco
 
 ## Sharing
 
-Share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
+Share your Actor runs with other Apify users via the [access rights](../../account/index.md) system.
