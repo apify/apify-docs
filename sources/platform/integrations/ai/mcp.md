@@ -39,7 +39,7 @@ Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify M
 
 :::tip Use the hosted server for the best experience
 
-The hosted Apify MCP server at `https://mcp.apify.com` supports the latest features, including **output schema inference** for structured Actor results. When using the hosted server, Actor tools automatically include inferred output schemas with field-level type information, helping AI agents understand the expected result structure before calling an Actor. This feature is not available when running locally via stdio.
+The hosted Apify MCP server at `https://mcp.apify.com` supports the latest features, including _output schema inference_ for structured Actor results. When using the hosted server, Actor tools automatically include inferred output schemas with field-level type information, helping AI agents understand the expected result structure before calling an Actor. This feature is not available when running locally via stdio.
 
 :::
 
@@ -328,12 +328,12 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 ## Agentic payments with Skyfire
 
-The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable agentic payments. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire PAY tokens to cover billing for each tool call.
+The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable _agentic payments_. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire _PAY tokens_ to cover billing for each tool call.
 
 ### Prerequisites
 
-- A [Skyfire account](https://www.skyfire.xyz/) with a funded wallet
-- An MCP client that supports multiple servers (e.g., Claude Desktop, VS Code)
+- _Skyfire account_ - Sign up for a [Skyfire account](https://www.skyfire.xyz/) and fund your wallet.
+- _MCP client with multi-server support_ - An MCP client that supports multiple servers, such as Claude Desktop or VS Code.
 
 ### Setup
 
@@ -355,7 +355,7 @@ Configure both the Skyfire MCP server and the Apify MCP server in your client. E
 }
 ```
 
-Replace `<YOUR_SKYFIRE_API_KEY>` with your Skyfire API key.
+Replace `<YOUR_SKYFIRE_API_KEY>` with your API key from your [Skyfire dashboard](https://www.skyfire.xyz/).
 
 ### How it works
 
