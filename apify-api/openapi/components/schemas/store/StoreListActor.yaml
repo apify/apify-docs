@@ -56,3 +56,6 @@ properties:
   isWhiteListedForAgenticPayment:
     type: [boolean, "null"]
     description: Whether the Actor is whitelisted for agentic payment processing.
+  readmeSummary:
+    type: string
+    description: A brief, LLM-generated readme summary
