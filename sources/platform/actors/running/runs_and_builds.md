@@ -88,8 +88,8 @@ flowchart LR
 | FAILED     | terminal     | Run failed                                  |
 | TIMING-OUT | transitional | Timing out now                              |
 | TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by the user                       |
-| ABORTED    | terminal     | Aborted by the user                             |
+| ABORTING   | transitional | Being aborted by the user                   |
+| ABORTED    | terminal     | Aborted by the user                         |
 
 
 ### Aborting runs

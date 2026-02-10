@@ -179,22 +179,22 @@ The key-value store schema defines the collections of keys and their properties.
 
 ### Key-value store schema object definition
 
-| Property                          | Type                          | Required | Description                                                                                                     |
-|-----------------------------------|-------------------------------|----------|-----------------------------------------------------------------------------------------------------------------|
-| `actorKeyValueStoreSchemaVersion` | integer                       | true     | Specifies the version of key-value store schema structure document. <br/>Currently only version 1 is available. |
-| `title`                           | string                        | true     | Title of the schema                                                               |
-| `description`                     | string                        | false    | Description of the schema                                                         |
-| `collections`                     | Object                        | true     | An object where each key is a collection ID and its value is a collection definition object (see below).        |
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `actorKeyValueStoreSchemaVersion` | integer | true | Specifies the version of key-value store schema structure document. <br/>Currently only version 1 is available. |
+| `title` | string | true | Title of the schema |
+| `description` | string | false | Description of the schema |
+| `collections` | Object | true | An object where each key is a collection ID and its value is a collection definition object (see below). |
 
 ### Collection object definition
 
-| Property       | Type         | Required     | Description                                                                                                                                     |
-|----------------|--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`        | string       | true         | The collection’s title, shown in the run's storage tab and in the storage detail view, where it appears as a tab for filtering records.    |
-| `description`  | string       | false        | A description of the collection that appears in UI tooltips.  |
-| `key`          | string       | conditional* | Defines a single specific key that will be part of this collection.                                                                             |
-| `keyPrefix`    | string       | conditional* | Defines a prefix for keys that should be included in this collection.                                                                           |
-| `contentTypes` | string array | false        | Allowed content types for records in this collection. Used for validation when storing data.                                                    |
-| `jsonSchema`   | object       | false        | For collections with content type `application/json`, you can define a JSON schema to validate structure. <br/>Uses JSON Schema Draft 07 format. |
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `title` | string | true | The collection's title, shown in the run's storage tab and in the storage detail view, where it appears as a tab for filtering records. |
+| `description` | string | false | A description of the collection that appears in UI tooltips. |
+| `key` | string | conditional* | Defines a single specific key that will be part of this collection. |
+| `keyPrefix` | string | conditional* | Defines a prefix for keys that should be included in this collection. |
+| `contentTypes` | string array | false | Allowed content types for records in this collection. Used for validation when storing data. |
+| `jsonSchema` | object | false | For collections with content type `application/json`, you can define a JSON schema to validate structure. <br/>Uses JSON Schema Draft 07 format. |
 
 \* Either `key` or `keyPrefix` must be specified for each collection, but not both.

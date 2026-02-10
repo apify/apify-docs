@@ -90,7 +90,7 @@ To use Apify as an action in your Applet:
 1. Configure the action parameters:
 
    | Parameter | Description | Example Values |
-   |-----------|-------------|----------------|
+   | --- | --- | --- |
    | **Wait until run finishes** | Defines how the Actor should be executed. | `yes`, `no` |
    | **Input overrides** | JSON input that overrides the Actor's default input. | `{"key": "value"}` |
    | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |

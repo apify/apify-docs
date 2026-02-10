@@ -156,13 +156,13 @@ The headers template is a JSON-like text where you can add additional informatio
 
 Note that the following HTTP headers are always set by the system and your changes will always be rewritten:
 
-| Variable                  | Value                   |
-|---------------------------|-------------------------|
-| `Host`                    | Request URL             |
-| `Content-Type`            | `application/json`      |
-| `X-Apify-Webhook`         | Apify internal value             |
-| `X-Apify-Webhook-Dispatch-Id` | Apify webhook dispatch ID            |
-| `X-Apify-Request-Origin`   | Apify origin           |
+| Variable | Value |
+| --- | --- |
+| `Host` | Request URL |
+| `Content-Type` | `application/json` |
+| `X-Apify-Webhook` | Apify internal value |
+| `X-Apify-Webhook-Dispatch-Id` | Apify webhook dispatch ID |
+| `X-Apify-Request-Origin` | Apify origin |
 
 ## Description
 
@@ -170,14 +170,14 @@ The description is an optional string that you can add to the webhook. It serves
 
 ## Available variables
 
-| Variable    | Type   | Description                                                                         |
-|-------------|--------|-------------------------------------------------------------------------------------|
-| `userId`    | string | ID of the Apify user who owns the webhook.                                                |
-| `createdAt` | string | ISO string date of the webhook's trigger event.                                     |
-| `eventType` | string | Type of the trigger event, see [Events](/platform/integrations/webhooks/events).              |
+| Variable | Type | Description |
+| --- | --- | --- |
+| `userId` | string | ID of the Apify user who owns the webhook. |
+| `createdAt` | string | ISO string date of the webhook's trigger event. |
+| `eventType` | string | Type of the trigger event, see [Events](/platform/integrations/webhooks/events). |
 | `eventData` | Object | Data associated with the trigger event, see [Events](/platform/integrations/webhooks/events). |
-| `resource`  | Object | The resource that caused the trigger event.                 |
-| `globals`   | Object | Data available in global context. Contains `dateISO` (date of webhook's trigger event in ISO 8601 format) and `dateUnix` (date of trigger event in Unix time in seconds) |
+| `resource` | Object | The resource that caused the trigger event. |
+| `globals` | Object | Data available in global context. Contains `dateISO` (date of webhook's trigger event in ISO 8601 format) and `dateUnix` (date of trigger event in Unix time in seconds) |
 
 ### Resource
 
