@@ -57,6 +57,20 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
+## Pass platform usage to users
+
+If you have difficulty estimating event prices and want to avoid negative profit margins, pass the platform usage costs directly to your users. With this option enabled, users pay for both the defined events and the underlying platform usage.
+
+:::caution Less transparent pricing
+
+This pricing model is less transparent for users. Disable this option once you determine accurate event pricing.
+
+:::
+
+Enable this option by clicking the `Pay per event + usage` toggle button.
+
+![Pay per event with usage toggle button](../images/pay_per_event_and_usage_toggle.png)
+
 ## Respect user spending limits
 
 Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
