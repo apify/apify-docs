@@ -2,7 +2,7 @@
 title: Key-value store
 description: Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.
 toc_max_heading_level: 4
-sidebar_position: 9.3
+sidebar_position: 4
 slug: /storage/key-value-store
 ---
 

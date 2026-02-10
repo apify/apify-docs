@@ -2,7 +2,7 @@
 title: Request queue
 description: Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.
 toc_max_heading_level: 4
-sidebar_position: 9.4
+sidebar_position: 5
 slug: /storage/request-queue
 ---
 

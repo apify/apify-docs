@@ -1,7 +1,7 @@
 ---
 title: Dataset
 description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.
-sidebar_position: 9.2
+sidebar_position: 3
 toc_max_heading_level: 4
 slug: /storage/dataset
 ---

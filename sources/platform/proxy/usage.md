@@ -1,7 +1,7 @@
 ---
 title: Proxy usage
 description: Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.
-sidebar_position: 10.1
+sidebar_position: 2
 slug: /proxy/usage
 ---
 

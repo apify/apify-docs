@@ -1,7 +1,7 @@
 ---
 title: Get started
 description: Get started with the Apify platform by running Actors, building your own, or connecting AI agents.
-sidebar_position: 1
+sidebar_position: 0
 slug: /get-started
 ---
 
