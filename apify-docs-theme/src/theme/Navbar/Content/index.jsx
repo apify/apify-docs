@@ -45,27 +45,30 @@ function SubNavbarTitle({ titleIcon, title }) {
 }
 
 function SubNavbar() {
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const { options } = usePluginData('@apify/docs-theme');
     const location = useLocation();
 
-    return (
-        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname)) ? (
-            <div className="navbar__inner navbar__sub">
-                <div className="navbar__container">
-                    <div className="navbar__items">
-                        <div className="navbar__sub--title">
-                            <NavbarItem
-                                label={<SubNavbarTitle title={subNavbar.title} titleIcon={subNavbar.titleIcon} />}
-                                to={subNavbar.to ?? '/'}
-                                activeBaseRegex='(?!)'
-                            />
-                        </div>
-                        <NavbarItems items={subNavbar.items} />
+    const subNavbars = options.subNavbars ?? (options.subNavbar ? [options.subNavbar] : []);
+    const activeSubNavbar = subNavbars.find(
+        (nav) => !nav.pathRegex || isRegexpStringMatch(nav.pathRegex, location.pathname),
+    );
+
+    return activeSubNavbar ? (
+        <div className="navbar__inner navbar__sub">
+            <div className="navbar__container">
+                <div className="navbar__items">
+                    <div className="navbar__sub--title">
+                        <NavbarItem
+                            label={<SubNavbarTitle title={activeSubNavbar.title} titleIcon={activeSubNavbar.titleIcon} />}
+                            to={activeSubNavbar.to ?? '/'}
+                            activeBaseRegex='(?!)'
+                        />
                     </div>
+                    <NavbarItems items={activeSubNavbar.items} />
                 </div>
             </div>
-        ) : null
-    );
+        </div>
+    ) : null;
 }
 
 export default function NavbarContent() {

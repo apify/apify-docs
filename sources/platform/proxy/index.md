@@ -1,7 +1,7 @@
 ---
 title: Proxy
 description: Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.
-sidebar_position: 10
+sidebar_position: 1
 category: platform
 slug: /proxy
 ---

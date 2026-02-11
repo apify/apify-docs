@@ -31,7 +31,7 @@ In this article, _we’ll refer to the input schema as the user interface_ of yo
 
 :::tip Understand input schemas
 
-To fully understand the recommendations in this blog post, you’ll first need to familiarize yourself with the [technical aspects of the input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema). This context is essential to make good use of the insights shared here.
+To fully understand the recommendations in this blog post, you’ll first need to familiarize yourself with the [technical aspects of the input schema](https://docs.apify.com/platform/actors/development/input-output-schemas/input-schema). This context is essential to make good use of the insights shared here.
 
 :::
 
@@ -170,4 +170,4 @@ The version above was the improved input schema. Here's what this tool's input s
 ## Resources
 
 - Basics of input schema: [https://docs.apify.com/academy/deploying-your-code/input-schema](https://docs.apify.com/academy/deploying-your-code/input-schema)
-- Specifications of input schema: [https://docs.apify.com/platform/actors/development/actor-definition/input-schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema)
+- Specifications of input schema: [https://docs.apify.com/platform/actors/development/input-output-schemas/input-schema](https://docs.apify.com/platform/actors/development/input-output-schemas/input-schema)

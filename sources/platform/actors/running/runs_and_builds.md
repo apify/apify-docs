@@ -88,8 +88,8 @@ flowchart LR
 | FAILED     | terminal     | Run failed                                  |
 | TIMING-OUT | transitional | Timing out now                              |
 | TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by the user                       |
-| ABORTED    | terminal     | Aborted by the user                             |
+| ABORTING   | transitional | Being aborted by the user                   |
+| ABORTED    | terminal     | Aborted by the user                         |
 
 
 ### Aborting runs
@@ -129,4 +129,4 @@ Apify securely stores your ten most recent runs indefinitely, ensuring your reco
 
 ## Sharing
 
-Share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
+Share your Actor runs with other Apify users via the [access rights](../../account/index.md) system.
