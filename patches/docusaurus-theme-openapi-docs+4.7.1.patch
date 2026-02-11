@@ -227,6 +227,36 @@ index f6052d1..867bfd2 100644
                ),
                react_1.default.createElement(
                  "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
+index 660f490..2367862 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
+@@ -250,12 +250,14 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "openapi-tabs__container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: hide tab navigation during SSR for clean .md export
++    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs })
+   );
+ }
+ function ApiTabs(props) {
+@@ -268,6 +270,7 @@ function ApiTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
 index b6bc631..f292799 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
@@ -356,6 +386,36 @@ index 4bf9d6c..35c262d 100644
            react_1.default.createElement(
              "span",
              null,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
+index 93c0559..785a05a 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
+@@ -261,12 +261,14 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "tabs-container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: hide tab navigation during SSR for clean .md export
++    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs })
+   );
+ }
+ function MimeTabs(props) {
+@@ -279,6 +281,7 @@ function MimeTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
 index b4bb17a..01ef6b8 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
@@ -520,7 +580,7 @@ index aab2db8..4668eac 100644
  };
  exports.default = RequestSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
-index e84857b..404c0a6 100644
+index e84857b..f2a5a91 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
 @@ -64,6 +64,8 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
@@ -532,10 +592,13 @@ index e84857b..404c0a6 100644
          return (
            // @ts-ignore
            react_1.default.createElement(
-@@ -72,6 +74,25 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+@@ -71,7 +73,27 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+             { key: mimeType, label: mimeType, value: mimeType },
              react_1.default.createElement(
                SchemaTabs_1.default,
-               { className: "openapi-tabs__schema" },
+-              { className: "openapi-tabs__schema" },
++              // Apify: hide "Example"/"Schema" tab navigation during SSR
++              { className: "openapi-tabs__schema", hideTabListSSR: true },
 +              // Apify: Put examples first, before schema
 +              // Show explicit examples if available
 +              responseExample &&
@@ -558,7 +621,7 @@ index e84857b..404c0a6 100644
                react_1.default.createElement(
                  TabItem_1.default,
                  { key: title, label: title, value: title },
-@@ -132,22 +153,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+@@ -132,22 +154,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
                      })
                    )
                  )
@@ -582,7 +645,7 @@ index e84857b..404c0a6 100644
              )
            )
          );
-@@ -157,18 +163,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+@@ -157,18 +164,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
    return undefined;
  };
  const ResponseSchema = (props) => {
@@ -1026,6 +1089,38 @@ index c1aa5d8..118822e 100644
      { className: "openapi-schema__list-item" },
      collapsible ? collapsibleSchemaContent : schemaContent
    );
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
+index d1924da..4413520 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
+@@ -242,12 +242,16 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, hideTabListSSR, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "openapi-tabs__schema-container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: optionally hide tab navigation during SSR for clean .md export.
++    // Used by ResponseSchema (Example/Schema tabs) but NOT by AnyOneOf
++    // (anyOf/oneOf tabs) where the option list is useful in markdown.
++    (isBrowser || !hideTabListSSR) && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs })
+   );
+ }
+ function SchemaTabs(props) {
+@@ -260,6 +264,7 @@ function SchemaTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
 index a0b2d76..ab3e87f 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
