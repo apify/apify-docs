@@ -802,10 +802,10 @@ index 37190c6..eddcd1e 100644
      }
      return react_1.default.createElement(SchemaItem_1.default, {
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
-index c1aa5d8..107ddad 100644
+index c1aa5d8..118822e 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
-@@ -136,102 +136,130 @@ function SchemaItem(props) {
+@@ -136,107 +136,136 @@ function SchemaItem(props) {
          react_1.default.createElement(Markdown_1.default, null, message)
        )
    );
@@ -871,7 +871,8 @@ index c1aa5d8..107ddad 100644
            react_1.default.createElement(
 -            "code",
 +            "strong",
-+            null,
+             null,
+-            JSON.stringify(defaultValue)
 +            (0, Translate_1.translate)({
 +              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
 +              message: "Default value:",
@@ -881,8 +882,7 @@ index c1aa5d8..107ddad 100644
 +          " ",
 +          react_1.default.createElement(
 +            "span",
-             null,
--            JSON.stringify(defaultValue)
++            null,
 +            react_1.default.createElement(
 +              "code",
 +              null,
@@ -956,7 +956,8 @@ index c1aa5d8..107ddad 100644
            react_1.default.createElement(
 -            "code",
 +            "strong",
-+            null,
+             null,
+-            JSON.stringify(constValue)
 +            (0, Translate_1.translate)({
 +              id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
 +              message: "Constant value:",
@@ -966,8 +967,7 @@ index c1aa5d8..107ddad 100644
 +          " ",
 +          react_1.default.createElement(
 +            "span",
-             null,
--            JSON.stringify(constValue)
++            null,
 +            react_1.default.createElement(
 +              "code",
 +              null,
@@ -987,15 +987,22 @@ index c1aa5d8..107ddad 100644
      null,
      react_1.default.createElement(
        "span",
-@@ -245,6 +273,7 @@ function SchemaItem(props) {
+       { className: "openapi-schema__container" },
+-      react_1.default.createElement(
++      // Apify: only render name <strong> when present to avoid **** in .md export
++      name && react_1.default.createElement(
+         "strong",
+         {
+           className: (0, clsx_1.default)("openapi-schema__property", {
+@@ -245,6 +274,7 @@ function SchemaItem(props) {
          },
          name
        ),
-+      " ", // Apify: space between name and type for .md export
++      name && " ", // Apify: space between name and type for .md export
        react_1.default.createElement(
          "span",
          { className: "openapi-schema__name" },
-@@ -254,9 +283,10 @@ function SchemaItem(props) {
+@@ -254,9 +284,10 @@ function SchemaItem(props) {
          react_1.default.createElement("span", {
            className: "openapi-schema__divider",
          }),
@@ -1009,7 +1016,7 @@ index c1aa5d8..107ddad 100644
      ),
      renderSchemaDescription,
      renderEnumDescriptions,
-@@ -268,7 +298,8 @@ function SchemaItem(props) {
+@@ -268,7 +299,8 @@ function SchemaItem(props) {
      collapsibleSchemaContent ?? collapsibleSchemaContent
    );
    return react_1.default.createElement(
