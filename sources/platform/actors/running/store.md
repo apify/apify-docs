@@ -173,7 +173,7 @@ You would still pay for the long term storage of results, same as for pay per re
 
 #### Do I need to pay for platform usage with pay per event Actors?
 
-In most cases, no — the majority of pay per event Actors include platform usage in the event price, so you only pay for the events. However, some Actors may charge platform usage separately, in addition to the event costs. Always check the pricing section on the Actor's page—it clearly states whether platform usage is included or not.
+In most cases, no — the majority of pay per event Actors include [platform usage](./usage_and_resources.md) in the event price, so you only pay for the events. However, some Actors may charge platform usage separately, in addition to the event costs. Always check the pricing section on the Actor's page—it clearly states whether platform usage is included or not.
 
 ![Pay per event with usage not included in Apify Store](./images/store/pay_per_event_and_usage_example_actor.png)
 
