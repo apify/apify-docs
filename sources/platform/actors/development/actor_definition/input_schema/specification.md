@@ -986,7 +986,7 @@ This setting defines runtime access only and doesn't change field visibility or 
 - `patternValue` - Used to validate values in objects and arrays
 ::::
 
-We are deprecating these properties to better align with the JSON schema specification. The current approach with `patternKey` and `patternValue` is Apify-specific and doesn't follow standard JSON schema validation patterns. By moving to standard JSON schema, we provide a more consistent experience that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
+We are deprecating these properties to better align with the JSON schema specification. By moving to standard JSON schema, we provide a more consistent experience that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
 
 #### Alternatives for arrays
 
