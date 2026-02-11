@@ -481,3 +481,41 @@ index 37190c6..76766ef 100644
        });
      }
      return react_1.default.createElement(SchemaItem_1.default, {
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
+index a0b2d76..ab3e87f 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
+@@ -14,6 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ const react_1 = __importDefault(require("react"));
+ const Translate_1 = require("@docusaurus/Translate");
+ const ApiTabs_1 = __importDefault(require("@theme/ApiTabs"));
++const Heading_1 = __importDefault(require("@theme/Heading"));
+ const Details_1 = __importDefault(require("@theme/Details"));
+ const Markdown_1 = __importDefault(require("@theme/Markdown"));
+ const ResponseHeaders_1 = __importDefault(require("@theme/ResponseHeaders"));
+@@ -35,6 +36,25 @@ const StatusCodes = ({ label, id, responses }) => {
+         react_1.default.createElement(
+           TabItem_1.default,
+           { key: code, label: code, value: code },
++          // Apify: Visually hidden heading for llms-txt .md export
++          react_1.default.createElement(
++            Heading_1.default,
++            {
++              as: "h3",
++              style: {
++                position: 'absolute',
++                width: '1px',
++                height: '1px',
++                padding: 0,
++                margin: '-1px',
++                overflow: 'hidden',
++                clip: 'rect(0, 0, 0, 0)',
++                whiteSpace: 'nowrap',
++                borderWidth: 0,
++              }
++            },
++            `Status ${code}`
++          ),
+           react_1.default.createElement(
+             "div",
+             null,
