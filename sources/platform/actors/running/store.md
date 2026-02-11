@@ -177,9 +177,9 @@ In most cases, no — the majority of pay per event Actors include platform usag
 
 ![Pay per event with usage not included in Apify Store](./images/store/pay_per_event_and_usage_example_actor.png)
 
-#### Where do I see how much I was charged for the pay per result Actors?
+#### Where do I see how much I was charged for the pay per event Actors?
 
-Similarly to pay per result Actors, you can see how much you have been charged on your invoices, and on the [Usage tab](https://console.apify.com/billing) of the Billing section in the Console.
+You can see how much you have been charged on your invoices, and on the [Usage tab](https://console.apify.com/billing) of the Billing section in the Console.
 
 ![Pay per event Actor - historical usage tab](./images/store/pay_per_event_historical_usage_tab.png)
 
