@@ -227,8 +227,58 @@ index f6052d1..867bfd2 100644
                ),
                react_1.default.createElement(
                  "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
+index b4bb17a..01ef6b8 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
+@@ -76,18 +76,7 @@ const ParamsDetailsComponent = ({ parameters }) => {
+   );
+ };
+ const ParamsDetails = (props) => {
+-  return react_1.default.createElement(
+-    BrowserOnly_1.default,
+-    {
+-      fallback: react_1.default.createElement(SkeletonLoader_1.default, {
+-        size: "sm",
+-      }),
+-    },
+-    () => {
+-      return react_1.default.createElement(ParamsDetailsComponent, {
+-        ...props,
+-      });
+-    }
+-  );
++  // Apify: Render directly instead of BrowserOnly to make content available in SSR HTML for llms-txt plugin
++  return react_1.default.createElement(ParamsDetailsComponent, { ...props });
+ };
+ exports.default = ParamsDetails;
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
+index aab2db8..4668eac 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
+@@ -197,18 +197,7 @@ const RequestSchemaComponent = ({ title, body, style }) => {
+   );
+ };
+ const RequestSchema = (props) => {
+-  return react_1.default.createElement(
+-    BrowserOnly_1.default,
+-    {
+-      fallback: react_1.default.createElement(SkeletonLoader_1.default, {
+-        size: "sm",
+-      }),
+-    },
+-    () => {
+-      return react_1.default.createElement(RequestSchemaComponent, {
+-        ...props,
+-      });
+-    }
+-  );
++  // Apify: Render directly instead of BrowserOnly to make content available in SSR HTML for llms-txt plugin
++  return react_1.default.createElement(RequestSchemaComponent, { ...props });
+ };
+ exports.default = RequestSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
-index e84857b..ba445e8 100644
+index e84857b..404c0a6 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
 @@ -64,6 +64,8 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
@@ -290,6 +340,27 @@ index e84857b..ba445e8 100644
              )
            )
          );
+@@ -157,18 +163,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+   return undefined;
+ };
+ const ResponseSchema = (props) => {
+-  return react_1.default.createElement(
+-    BrowserOnly_1.default,
+-    {
+-      fallback: react_1.default.createElement(SkeletonLoader_1.default, {
+-        size: "md",
+-      }),
+-    },
+-    () => {
+-      return react_1.default.createElement(ResponseSchemaComponent, {
+-        ...props,
+-      });
+-    }
+-  );
++  // Apify: Render directly instead of BrowserOnly to make content available in SSR HTML for llms-txt plugin
++  return react_1.default.createElement(ResponseSchemaComponent, { ...props });
+ };
+ exports.default = ResponseSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 index 37190c6..76766ef 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
