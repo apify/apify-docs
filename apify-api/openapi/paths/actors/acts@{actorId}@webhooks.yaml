@@ -60,7 +60,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/GetListOfWebhooksResponse.yaml
+            $ref: ../../components/schemas/webhooks/ListOfWebhooksResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

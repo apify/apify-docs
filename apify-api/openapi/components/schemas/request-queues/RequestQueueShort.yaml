@@ -8,7 +8,6 @@ required:
   - createdAt
   - modifiedAt
   - accessedAt
-  - expireAt
   - totalRequestCount
   - handledRequestCount
   - pendingRequestCount

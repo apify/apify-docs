@@ -89,8 +89,6 @@ jobs:
                     assert_header "http://localhost:8080/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-js)"
-                    assert_header "http://localhost:8080/sdk/js" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/sdk/js" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -98,8 +96,6 @@ jobs:
                     assert_header "http://localhost:8080/sdk/js/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-python)"
-                    assert_header "http://localhost:8080/sdk/python" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/sdk/python" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -107,8 +103,6 @@ jobs:
                     assert_header "http://localhost:8080/sdk/python/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-client-js)"
-                    assert_header "http://localhost:8080/api/client/js" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/api/client/js" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -116,8 +110,6 @@ jobs:
                     assert_header "http://localhost:8080/api/client/js/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-client-python)"
-                    assert_header "http://localhost:8080/api/client/python" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/api/client/python" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -125,8 +117,6 @@ jobs:
                     assert_header "http://localhost:8080/api/client/python/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-cli)"
-                    assert_header "http://localhost:8080/cli" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/cli" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/cli/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"

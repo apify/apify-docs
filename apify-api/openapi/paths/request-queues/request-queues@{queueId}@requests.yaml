@@ -55,7 +55,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/GetListOfRequestsResponse.yaml
+              - $ref: ../../components/schemas/request-queues/ListOfRequestsResponse.yaml
               - example:
                   data:
                     items:

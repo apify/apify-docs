@@ -51,7 +51,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/GetListOfWebhooksResponse.yaml
+            $ref: ../../components/schemas/webhooks/ListOfWebhooksResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -109,7 +109,7 @@ post:
             "ACTOR.RUN.ABORTED"
         ],
         "condition" : {
-            "actorId": "janedoe~my-actor",
+            "actorId": "5sTMwDQywwsLzKRRh",
             "actorTaskId" : "W9bs9JE9v7wprjAnJ"
         },
         "payloadTemplate": "",
@@ -163,7 +163,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/CreateWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

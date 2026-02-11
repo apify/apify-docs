@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhook-dispatches/GetWebhookDispatchResponse.yaml
+            $ref: ../../components/schemas/webhook-dispatches/WebhookDispatchResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

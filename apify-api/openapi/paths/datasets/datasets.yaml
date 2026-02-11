@@ -48,12 +48,23 @@ get:
     - name: unnamed
       in: query
       description: |
-        If `true` or `1` then all the datasets are returned. By default only named datasets are returned.
+        If `true` or `1` then unnamed datasets are displayed. For performance reasons, both named and unnamed datasets that are empty will not be shown when this parameter is enabled. By default only named datasets are returned.
       style: form
       explode: true
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible datasets are returned.
+
+        - `ownedByMe`: Return only datasets owned by the user.
+        - `sharedWithMe`: Return only datasets shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""
@@ -61,7 +72,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/datasets/GetListOfDatasetsResponse.yaml
+            $ref: ../../components/schemas/datasets/ListOfDatasetsResponse.yaml
           example:
             data:
               total: 2

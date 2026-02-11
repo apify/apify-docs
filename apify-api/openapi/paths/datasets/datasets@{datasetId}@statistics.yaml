@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/datasets/GetDatasetStatisticsResponse.yaml
+            $ref: ../../components/schemas/datasets/DatasetStatisticsResponse.yaml
           example:
             data:
               fieldStatistics:

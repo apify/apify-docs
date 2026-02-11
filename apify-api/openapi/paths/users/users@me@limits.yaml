@@ -14,7 +14,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/GetLimitsResponse.yaml
+            $ref: ../../components/schemas/users/LimitsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

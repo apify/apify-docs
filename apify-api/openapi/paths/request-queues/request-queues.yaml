@@ -57,6 +57,17 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible request queues are returned.
+
+        - `ownedByMe`: Return only request queues owned by the user.
+        - `sharedWithMe`: Return only request queues shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""
@@ -64,7 +75,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/request-queues/GetListOfRequestQueuesResponse.yaml
+            $ref: ../../components/schemas/request-queues/ListOfRequestQueuesResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -115,7 +126,7 @@ post:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/CreateRequestQueueResponse.yaml
+              - $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
               - example:
                   data:
                     id: WkzbQMuFYuamGv3YF

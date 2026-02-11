@@ -59,6 +59,17 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible key-value stores are returned.
+
+        - `ownedByMe`: Return only key-value stores owned by the user.
+        - `sharedWithMe`: Return only key-value stores shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""
@@ -66,7 +77,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetListOfKeyValueStoresResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/ListOfKeyValueStoresResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -118,7 +129,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/CreateKeyValueStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
           example:
             data:
               id: WkzbQMuFYuamGv3YF

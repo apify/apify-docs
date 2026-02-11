@@ -1,7 +1,0 @@
-title: GetListOfActorsResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./ListOfActors.yaml
