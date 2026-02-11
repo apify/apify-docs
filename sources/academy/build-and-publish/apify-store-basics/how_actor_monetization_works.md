@@ -29,6 +29,16 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 - _How it works_: you charge users based on specific events triggered programmatically by your Actor's code. You earn 80% of the revenue minus platform usage costs.
 - - _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
+
+:::info Pass platform usage to users
+
+Optionally, you can pass costs associated with the platform usage to the users. [Learn more](../../../platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users)
+
+
+_Profit calculation_: `profit = (0.8 * revenue)`
+
+:::
+
 - _Event cost example_: you set the following events for your Actor:
   - `Actor start per 1 GB of memory` at $0.005
   - `Pages scraped` at $0.002
