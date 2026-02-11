@@ -84,27 +84,29 @@ module.exports = {
             require.resolve('./apify-docs-theme'),
             /** @type {import('./apify-docs-theme/types').ThemeOptions} */
             ({
-                subNavbar: {
-                    title: 'Academy',
-                    pathRegex: '/academy',
-                    to: '/academy',
-                    items: [
-                        {
-                            label: 'Courses',
-                            to: `/academy`,
-                            activeBaseRegex: `${[
-                                'academy$',
-                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
-                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
-                            ].join('$|')}$`,
-                        },
-                        {
-                            label: 'Tutorials',
-                            to: `/academy/tutorials`,
-                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
-                        },
-                    ],
-                },
+                subNavbars: [
+                    {
+                        title: 'Academy',
+                        pathRegex: '/academy',
+                        to: '/academy',
+                        items: [
+                            {
+                                label: 'Courses',
+                                to: `/academy`,
+                                activeBaseRegex: `${[
+                                    'academy$',
+                                    ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
+                                    ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
+                                ].join('$|')}$`,
+                            },
+                            {
+                                label: 'Tutorials',
+                                to: `/academy/tutorials`,
+                                activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
+                            },
+                        ],
+                    },
+                ],
             }),
         ],
         'docusaurus-theme-openapi-docs',

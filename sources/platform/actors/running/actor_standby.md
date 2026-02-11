@@ -33,8 +33,8 @@ Generally speaking, Actors in Standby mode behave as standard HTTP servers. You 
 
 ## How do I authenticate my requests
 
-To authenticate requests to Actor Standby, follow the same process as [authenticating requests to the Apify API](../../integrations/programming/api.md).
-You can provide your [API token](../../integrations/programming/api.md#api-token) in one of two ways:
+To authenticate requests to Actor Standby, follow the same process as [authenticating requests to the Apify API](../../integrations/api-and-webhooks/api.md).
+You can provide your [API token](../../integrations/api-and-webhooks/api.md#api-token) in one of two ways:
 
 1. _Recommended_: Include the token in the `Authorization` header of your request as `Bearer <token>`. This approach is recommended because it prevents your token from being logged in server logs.
 

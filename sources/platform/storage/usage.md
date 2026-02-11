@@ -1,7 +1,7 @@
 ---
 title: Storage usage
 description: Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.
-sidebar_position: 9.1
+sidebar_position: 2
 category: platform
 slug: /storage/usage
 ---
@@ -160,11 +160,11 @@ For example, storage names `janedoe~my-storage-1` and `janedoe~web-scrape-result
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to other Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](../account/index.md) to other Apify users to view or modify your storages. Check the [full list of permissions](../account/list_of_permissions.md).
 
-You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/general-resource-access).
 
-For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
 
 :::tip Accessing restricted storage resources via API
 
@@ -186,7 +186,7 @@ Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actor
 :::info Accessing restricted storage resources between runs
 
 If a storage resource access is set to **Restricted**,the run from which it's accessed must have explicit access to it.
-Learn how restricted access works in [General resource access](/platform/collaboration/general-resource-access).
+Learn how restricted access works in [General resource access](/platform/account/general-resource-access).
 
 :::
 

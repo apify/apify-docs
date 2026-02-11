@@ -1,8 +1,7 @@
 ---
 title: Security
 description: Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.
-sidebar_position: 15
-category: platform
+sidebar_position: 7
 slug: /security
 ---
 
@@ -111,4 +110,4 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 ## Securing your data
 
-The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) for securing the input parameters of your Actors.
+The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/input_output_schemas/secret_input.md) for securing the input parameters of your Actors.

@@ -1,7 +1,7 @@
 ---
 title: Using your own proxies
 description: Learn how to use your own proxies while using the Apify platform.
-sidebar_position: 10.5
+sidebar_position: 6
 slug: /proxy/using-your-own-proxies
 ---
 

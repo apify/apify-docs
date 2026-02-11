@@ -22,11 +22,11 @@ You can change descriptions and names as many times as you want.
 
 ## Regular description vs. SEO description
 
-|  | Actor description & name | SEO description & name |
-|---|---|---|
+| | Actor description & name | SEO description & name |
+| --- | --- | --- |
 | Name length | 40-50 characters | 40-50 characters |
 | Description length | 300 characters | 145-155 characters |
-| Visibility  | Visible on Store | Visible on Google |
+| Visibility | Visible on Store | Visible on Google |
 
 ### Description & Actor name
 

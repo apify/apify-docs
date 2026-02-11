@@ -9,7 +9,7 @@ slug: /deploying-your-code/input-schema
 
 ---
 
-Though writing an [input schema](/platform/actors/development/actor-definition/input-schema) for an Actor is not a required step, it's definitely an ideal one. The Apify platform will read the `INPUT_SCHEMA.json` file within the root of your project and generate a user interface for entering input into your Actor, which makes it significantly easier for non-developers (and even developers) to configure and understand the inputs your Actor can receive. Because of this, we'll be writing an input schema for our example Actor.
+Though writing an [input schema](/platform/actors/development/input-output-schemas/input-schema) for an Actor is not a required step, it's definitely an ideal one. The Apify platform will read the `INPUT_SCHEMA.json` file within the root of your project and generate a user interface for entering input into your Actor, which makes it significantly easier for non-developers (and even developers) to configure and understand the inputs your Actor can receive. Because of this, we'll be writing an input schema for our example Actor.
 
 :::note JSON requirement
 
@@ -55,7 +55,7 @@ Each property's key corresponds to the name we're expecting within our code, whi
 
 ## Property types & editor types {#property-types}
 
-Within our new **numbers** property, there are two more fields we must specify. Firstly, we must let the platform know that we're expecting an array of numbers with the **type** field. Then, we should also instruct Apify on which UI component to render for this input property. In our case, we have an array of numbers, which means we should use the **json** editor type that we discovered in the ["array" section](/platform/actors/development/actor-definition/input-schema/specification/v1#array) of the input schema documentation. We could also use **stringList**, but then we'd have to parse out the numbers from the strings.
+Within our new **numbers** property, there are two more fields we must specify. Firstly, we must let the platform know that we're expecting an array of numbers with the **type** field. Then, we should also instruct Apify on which UI component to render for this input property. In our case, we have an array of numbers, which means we should use the **json** editor type that we discovered in the ["array" section](/platform/actors/development/input-output-schemas/input-schema/specification/v1#array) of the input schema documentation. We could also use **stringList**, but then we'd have to parse out the numbers from the strings.
 
 ```json
 {
@@ -106,8 +106,8 @@ Here is what the input schema we wrote will render on the platform:
 
 Later on, we'll be building more complex input schemas, as well as discussing how to write quality input schemas that allow the user to understand the Actor.
 
-It's not expected to memorize all of the fields that properties can take or the different editor types available, which is why it's always good to reference the [input schema documentation](/platform/actors/development/actor-definition/input-schema) when writing a schema.
+It's not expected to memorize all of the fields that properties can take or the different editor types available, which is why it's always good to reference the [input schema documentation](/platform/actors/development/input-output-schemas/input-schema) when writing a schema.
 
 ## Next up {#next}
 
-In the [next lesson](/platform/actors/development/actor-definition/dataset-schema), we'll learn how to generate an appealing Overview table to display our Actor's results in real time, so users can get immediate feedback about the data being extracted.
+In the [next lesson](/platform/actors/development/input-output-schemas/dataset-schema), we'll learn how to generate an appealing Overview table to display our Actor's results in real time, so users can get immediate feedback about the data being extracted.

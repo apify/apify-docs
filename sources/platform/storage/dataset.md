@@ -1,7 +1,7 @@
 ---
 title: Dataset
 description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.
-sidebar_position: 9.2
+sidebar_position: 3
 toc_max_heading_level: 4
 slug: /storage/dataset
 ---
@@ -43,7 +43,7 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../account/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -53,7 +53,7 @@ The [Apify API](/api/v2/storage-datasets) enables you programmatic access to you
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api-and-webhooks/api.md#authentication)).
 
 To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2/datasets-get) endpoint.
 
@@ -380,11 +380,11 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](../account/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../account/list_of_permissions.md).
 
-You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
 
 ### Sharing datasets between runs
 
