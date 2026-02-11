@@ -228,70 +228,122 @@ index f6052d1..867bfd2 100644
                react_1.default.createElement(
                  "div",
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
-index b6bc631..deba7b9 100644
+index b6bc631..f292799 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
-@@ -13,6 +13,9 @@ var __importDefault =
+@@ -13,38 +13,29 @@ var __importDefault =
  Object.defineProperty(exports, "__esModule", { value: true });
  exports.ClosingArrayBracket = exports.OpeningArrayBracket = void 0;
  const react_1 = __importDefault(require("react"));
 +// Apify: Use CSS ::before pseudo-element for bracket text so it doesn't
 +// appear in the DOM text content and leak into .md export.
 +// The CSS rules are in apify-docs-theme/src/theme/custom.css
++// Apify: no <li> wrapper — just a <div> so the empty bracket
++// doesn't produce a stray bullet point in .md export.
  const OpeningArrayBracket = () =>
-   react_1.default.createElement(
-     "li",
-@@ -20,14 +23,14 @@ const OpeningArrayBracket = () =>
-     react_1.default.createElement(
-       "div",
-       {
-+        className: "openapi-array-bracket-open",
-         style: {
-           fontSize: "var(--ifm-code-font-size)",
-           opacity: 0.6,
-           marginLeft: "-.5rem",
-           paddingBottom: ".5rem",
-         },
+-  react_1.default.createElement(
+-    "li",
+-    null,
+-    react_1.default.createElement(
+-      "div",
+-      {
+-        style: {
+-          fontSize: "var(--ifm-code-font-size)",
+-          opacity: 0.6,
+-          marginLeft: "-.5rem",
+-          paddingBottom: ".5rem",
+-        },
 -      },
 -      "Array ["
-+      }
-     )
-   );
+-    )
+-  );
++  react_1.default.createElement("div", {
++    className: "openapi-array-bracket-open",
++    style: {
++      fontSize: "var(--ifm-code-font-size)",
++      opacity: 0.6,
++      marginLeft: "-.5rem",
++      paddingBottom: ".5rem",
++    },
++  });
  exports.OpeningArrayBracket = OpeningArrayBracket;
-@@ -38,13 +41,13 @@ const ClosingArrayBracket = () =>
-     react_1.default.createElement(
-       "div",
-       {
-+        className: "openapi-array-bracket-close",
-         style: {
-           fontSize: "var(--ifm-code-font-size)",
-           opacity: 0.6,
-           marginLeft: "-.5rem",
-         },
+ const ClosingArrayBracket = () =>
+-  react_1.default.createElement(
+-    "li",
+-    null,
+-    react_1.default.createElement(
+-      "div",
+-      {
+-        style: {
+-          fontSize: "var(--ifm-code-font-size)",
+-          opacity: 0.6,
+-          marginLeft: "-.5rem",
+-        },
 -      },
 -      "]"
-+      }
-     )
-   );
+-    )
+-  );
++  react_1.default.createElement("div", {
++    className: "openapi-array-bracket-close",
++    style: {
++      fontSize: "var(--ifm-code-font-size)",
++      opacity: 0.6,
++      marginLeft: "-.5rem",
++    },
++  });
  exports.ClosingArrayBracket = ClosingArrayBracket;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
-index 4bf9d6c..ad3d808 100644
+index 4bf9d6c..35c262d 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
-@@ -55,9 +55,10 @@ const renderExample = (example) => {
-       (0, Translate_1.translate)({
-         id: translationIds_1.OPENAPI_SCHEMA_ITEM.EXAMPLE,
-         message: "Example:",
+@@ -45,23 +45,33 @@ const formatExample = (example) => {
+   }
+   return String(example);
+ };
++// Apify: <br> + <span> instead of <div> to get a line break in .md export
++// without making the whole list "loose" (which adds blank lines everywhere).
++// The <br> creates a hard break; the <span> keeps content inline so the
++// hast-to-mdast converter doesn't add paragraph separation.
+ const renderExample = (example) => {
+   return react_1.default.createElement(
+-    "div",
+-    { className: EXAMPLE_CLASS_NAME },
+-    react_1.default.createElement(
+-      "strong",
+-      null,
+-      (0, Translate_1.translate)({
+-        id: translationIds_1.OPENAPI_SCHEMA_ITEM.EXAMPLE,
+-        message: "Example:",
 -      }),
 -      " "
-+      })
-     ),
-+    // Apify: space outside strong to avoid &#x20; inside bold in .md export
-+    " ",
+-    ),
++    react_1.default.Fragment,
++    null,
++    react_1.default.createElement("br"),
      react_1.default.createElement(
        "span",
-       null,
-@@ -153,9 +154,10 @@ const renderExampleObject = (exampleName, exampleProperties) => {
+-      null,
+-      react_1.default.createElement("code", null, formatExample(example))
++      { className: EXAMPLE_CLASS_NAME, style: { display: "block" } },
++      react_1.default.createElement(
++        "strong",
++        null,
++        (0, Translate_1.translate)({
++          id: translationIds_1.OPENAPI_SCHEMA_ITEM.EXAMPLE,
++          message: "Example:",
++        })
++      ),
++      // Apify: space outside strong to avoid &#x20; inside bold in .md export
++      " ",
++      react_1.default.createElement(
++        "span",
++        null,
++        react_1.default.createElement("code", null, formatExample(example))
++      )
+     )
+   );
+ };
+@@ -153,9 +163,10 @@ const renderExampleObject = (exampleName, exampleProperties) => {
              (0, Translate_1.translate)({
                id: translationIds_1.OPENAPI_SCHEMA_ITEM.DESCRIPTION,
                message: "Description:",
@@ -330,7 +382,7 @@ index b4bb17a..01ef6b8 100644
  };
  exports.default = ParamsDetails;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
-index da0f5ef..d95540d 100644
+index da0f5ef..f3c1088 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
 @@ -64,8 +64,8 @@ function ParamsItem({ param, ...rest }) {
@@ -344,33 +396,93 @@ index da0f5ef..d95540d 100644
      )
    );
    const renderSchemaRequired = (0, utils_1.guard)(required, () =>
-@@ -118,9 +118,10 @@ function ParamsItem({ param, ...rest }) {
-             (0, Translate_1.translate)({
-               id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
-               message: "Default value:",
+@@ -106,47 +106,60 @@ function ParamsItem({ param, ...rest }) {
+       );
+     }
+   );
++  // Apify: <br> + <span> to avoid loose list items while keeping line break
+   function renderDefaultValue() {
+     if (defaultValue !== undefined) {
+       if (typeof defaultValue === "string") {
+         return react_1.default.createElement(
+-          "div",
++          react_1.default.Fragment,
+           null,
+-          react_1.default.createElement(
+-            "strong",
+-            null,
+-            (0, Translate_1.translate)({
+-              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-              message: "Default value:",
 -            }),
 -            " "
+-          ),
++          react_1.default.createElement("br"),
+           react_1.default.createElement(
+             "span",
+-            null,
+-            react_1.default.createElement("code", null, defaultValue)
++            { style: { display: "block" } },
++            react_1.default.createElement(
++              "strong",
++              null,
++              (0, Translate_1.translate)({
++                id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++                message: "Default value:",
++              })
++            ),
++            // Apify: space outside strong to avoid &#x20; inside bold in .md export
++            " ",
++            react_1.default.createElement(
++              "span",
++              null,
++              react_1.default.createElement("code", null, defaultValue)
++            )
+           )
+         );
+       }
+       return react_1.default.createElement(
+-        "div",
++        react_1.default.Fragment,
+         null,
+-        react_1.default.createElement(
+-          "strong",
+-          null,
+-          (0, Translate_1.translate)({
+-            id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-            message: "Default value:",
+-          }),
+-          " "
+-        ),
++        react_1.default.createElement("br"),
+         react_1.default.createElement(
+           "span",
+-          null,
++          { style: { display: "block" } },
++          react_1.default.createElement(
++            "strong",
++            null,
++            (0, Translate_1.translate)({
++              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++              message: "Default value:",
 +            })
-           ),
++          ),
 +          // Apify: space outside strong to avoid &#x20; inside bold in .md export
 +          " ",
            react_1.default.createElement(
-             "span",
+-            "code",
++            "span",
              null,
-@@ -137,9 +138,10 @@ function ParamsItem({ param, ...rest }) {
-           (0, Translate_1.translate)({
-             id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
-             message: "Default value:",
--          }),
--          " "
-+          })
-         ),
-+        // Apify: space outside strong to avoid &#x20; inside bold in .md export
-+        " ",
-         react_1.default.createElement(
-           "span",
-           null,
-@@ -173,8 +175,9 @@ function ParamsItem({ param, ...rest }) {
+-            JSON.stringify(defaultValue)
++            react_1.default.createElement(
++              "code",
++              null,
++              JSON.stringify(defaultValue)
++            )
+           )
+         )
+       );
+@@ -173,8 +186,9 @@ function ParamsItem({ param, ...rest }) {
          react_1.default.createElement("span", {
            className: "openapi-schema__divider",
          }),
@@ -492,7 +604,7 @@ index e84857b..404c0a6 100644
  };
  exports.default = ResponseSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-index 37190c6..13db645 100644
+index 37190c6..eddcd1e 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 @@ -126,13 +126,15 @@ const Summary = ({ name, schemaName, schema, required }) => {
@@ -583,18 +695,33 @@ index 37190c6..13db645 100644
          summary: react_1.default.createElement(Summary, {
            name: name,
            schemaName: schemaName,
-@@ -596,8 +607,9 @@ const SchemaNodeDetails = ({
+@@ -596,21 +607,24 @@ const SchemaNodeDetails = ({
            required: required,
          }),
        },
++      // Apify: description/qualifier outside <ul> to avoid block elements in the list
++      schema.description &&
++        react_1.default.createElement(MarkdownWrapper, {
++          text: schema.description,
++        }),
++      (0, schema_1.getQualifierMessage)(schema) &&
++        react_1.default.createElement(MarkdownWrapper, {
++          text: (0, schema_1.getQualifierMessage)(schema),
++        }),
 +      // Apify: use <ul> instead of <div> so markdown converter produces nested lists
        react_1.default.createElement(
 -        "div",
 +        "ul",
          { style: { marginLeft: "1rem" } },
-         schema.description &&
-           react_1.default.createElement(MarkdownWrapper, {
-@@ -611,6 +623,7 @@ const SchemaNodeDetails = ({
+-        schema.description &&
+-          react_1.default.createElement(MarkdownWrapper, {
+-            text: schema.description,
+-          }),
+-        (0, schema_1.getQualifierMessage)(schema) &&
+-          react_1.default.createElement(MarkdownWrapper, {
+-            text: (0, schema_1.getQualifierMessage)(schema),
+-          }),
+         react_1.default.createElement(SchemaNode, {
            schema: schema,
            schemaType: schemaType,
            schemaPath: schemaPath,
@@ -602,7 +729,7 @@ index 37190c6..13db645 100644
          })
        )
      )
-@@ -703,6 +716,7 @@ const SchemaEdge = ({
+@@ -703,6 +717,7 @@ const SchemaEdge = ({
    discriminator,
    schemaType,
    schemaPath,
@@ -610,7 +737,7 @@ index 37190c6..13db645 100644
  }) => {
    if (
      (schemaType === "request" && schema.readOnly) ||
-@@ -731,6 +745,7 @@ const SchemaEdge = ({
+@@ -731,6 +746,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -618,7 +745,7 @@ index 37190c6..13db645 100644
      });
    }
    if (schema.properties) {
-@@ -742,6 +757,7 @@ const SchemaEdge = ({
+@@ -742,6 +758,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -626,7 +753,7 @@ index 37190c6..13db645 100644
      });
    }
    if (schema.additionalProperties) {
-@@ -753,6 +769,7 @@ const SchemaEdge = ({
+@@ -753,6 +770,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -634,7 +761,7 @@ index 37190c6..13db645 100644
      });
    }
    if (schema.items?.properties) {
-@@ -764,6 +781,7 @@ const SchemaEdge = ({
+@@ -764,6 +782,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -642,7 +769,7 @@ index 37190c6..13db645 100644
      });
    }
    if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
-@@ -775,6 +793,7 @@ const SchemaEdge = ({
+@@ -775,6 +794,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -650,7 +777,7 @@ index 37190c6..13db645 100644
      });
    }
    if (schema.allOf) {
-@@ -813,6 +832,7 @@ const SchemaEdge = ({
+@@ -813,6 +833,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -658,7 +785,7 @@ index 37190c6..13db645 100644
        });
      }
      if (mergedSchemas.properties !== undefined) {
-@@ -824,6 +844,7 @@ const SchemaEdge = ({
+@@ -824,6 +845,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -666,7 +793,7 @@ index 37190c6..13db645 100644
        });
      }
      if (mergedSchemas.items?.properties) {
-@@ -835,6 +856,7 @@ const SchemaEdge = ({
+@@ -835,6 +857,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -675,62 +802,192 @@ index 37190c6..13db645 100644
      }
      return react_1.default.createElement(SchemaItem_1.default, {
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
-index c1aa5d8..26cdc61 100644
+index c1aa5d8..107ddad 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
-@@ -148,9 +148,10 @@ function SchemaItem(props) {
-             (0, Translate_1.translate)({
-               id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
-               message: "Default value:",
+@@ -136,102 +136,130 @@ function SchemaItem(props) {
+         react_1.default.createElement(Markdown_1.default, null, message)
+       )
+   );
++  // Apify: <br> + <span> to avoid loose list items while keeping line break
+   function renderDefaultValue() {
+     if (defaultValue !== undefined) {
+       if (typeof defaultValue === "string") {
+         return react_1.default.createElement(
+-          "div",
++          react_1.default.Fragment,
+           null,
+-          react_1.default.createElement(
+-            "strong",
+-            null,
+-            (0, Translate_1.translate)({
+-              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-              message: "Default value:",
 -            }),
 -            " "
-+            })
-           ),
-+          // Apify: space outside strong to avoid &#x20; inside bold in .md export
-+          " ",
+-          ),
++          react_1.default.createElement("br"),
            react_1.default.createElement(
              "span",
-             null,
-@@ -167,9 +168,10 @@ function SchemaItem(props) {
-           (0, Translate_1.translate)({
-             id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
-             message: "Default value:",
+-            null,
+-            react_1.default.createElement("code", null, defaultValue)
++            { style: { display: "block" } },
++            react_1.default.createElement(
++              "strong",
++              null,
++              (0, Translate_1.translate)({
++                id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++                message: "Default value:",
++              })
++            ),
++            // Apify: space outside strong to avoid &#x20; inside bold in .md export
++            " ",
++            react_1.default.createElement(
++              "span",
++              null,
++              react_1.default.createElement("code", null, defaultValue)
++            )
+           )
+         );
+       }
+       return react_1.default.createElement(
+-        "div",
++        react_1.default.Fragment,
+         null,
+-        react_1.default.createElement(
+-          "strong",
+-          null,
+-          (0, Translate_1.translate)({
+-            id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-            message: "Default value:",
 -          }),
 -          " "
-+          })
-         ),
-+        // Apify: space outside strong to avoid &#x20; inside bold in .md export
-+        " ",
+-        ),
++        react_1.default.createElement("br"),
          react_1.default.createElement(
            "span",
+-          null,
++          { style: { display: "block" } },
+           react_1.default.createElement(
+-            "code",
++            "strong",
++            null,
++            (0, Translate_1.translate)({
++              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++              message: "Default value:",
++            })
++          ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
++          react_1.default.createElement(
++            "span",
+             null,
+-            JSON.stringify(defaultValue)
++            react_1.default.createElement(
++              "code",
++              null,
++              JSON.stringify(defaultValue)
++            )
+           )
+         )
+       );
+     }
+     return undefined;
+   }
++  // Apify: <br> + <span> to avoid loose list items while keeping line break
+   function renderConstValue() {
+     if (constValue !== undefined) {
+       if (typeof constValue === "string") {
+         return react_1.default.createElement(
+-          "div",
++          react_1.default.Fragment,
            null,
-@@ -195,9 +197,10 @@ function SchemaItem(props) {
-             (0, Translate_1.translate)({
-               id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
-               message: "Constant value:",
+-          react_1.default.createElement(
+-            "strong",
+-            null,
+-            (0, Translate_1.translate)({
+-              id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
+-              message: "Constant value:",
 -            }),
 -            " "
-+            })
-           ),
-+          // Apify: space outside strong to avoid &#x20; inside bold in .md export
-+          " ",
+-          ),
++          react_1.default.createElement("br"),
            react_1.default.createElement(
              "span",
-             null,
-@@ -214,9 +217,10 @@ function SchemaItem(props) {
-           (0, Translate_1.translate)({
-             id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
-             message: "Constant value:",
+-            null,
+-            react_1.default.createElement("code", null, constValue)
++            { style: { display: "block" } },
++            react_1.default.createElement(
++              "strong",
++              null,
++              (0, Translate_1.translate)({
++                id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
++                message: "Constant value:",
++              })
++            ),
++            // Apify: space outside strong to avoid &#x20; inside bold in .md export
++            " ",
++            react_1.default.createElement(
++              "span",
++              null,
++              react_1.default.createElement("code", null, constValue)
++            )
+           )
+         );
+       }
+       return react_1.default.createElement(
+-        "div",
++        react_1.default.Fragment,
+         null,
+-        react_1.default.createElement(
+-          "strong",
+-          null,
+-          (0, Translate_1.translate)({
+-            id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
+-            message: "Constant value:",
 -          }),
 -          " "
-+          })
-         ),
-+        // Apify: space outside strong to avoid &#x20; inside bold in .md export
-+        " ",
+-        ),
++        react_1.default.createElement("br"),
          react_1.default.createElement(
            "span",
-           null,
-@@ -245,6 +249,7 @@ function SchemaItem(props) {
+-          null,
++          { style: { display: "block" } },
+           react_1.default.createElement(
+-            "code",
++            "strong",
++            null,
++            (0, Translate_1.translate)({
++              id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
++              message: "Constant value:",
++            })
++          ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
++          react_1.default.createElement(
++            "span",
+             null,
+-            JSON.stringify(constValue)
++            react_1.default.createElement(
++              "code",
++              null,
++              JSON.stringify(constValue)
++            )
+           )
+         )
+       );
+     }
+     return undefined;
+   }
++  // Apify: use Fragment instead of <div> to avoid "loose" list items
++  // that add blank lines in the .md export
+   const schemaContent = react_1.default.createElement(
+-    "div",
++    react_1.default.Fragment,
+     null,
+     react_1.default.createElement(
+       "span",
+@@ -245,6 +273,7 @@ function SchemaItem(props) {
          },
          name
        ),
@@ -738,7 +995,7 @@ index c1aa5d8..26cdc61 100644
        react_1.default.createElement(
          "span",
          { className: "openapi-schema__name" },
-@@ -254,9 +259,10 @@ function SchemaItem(props) {
+@@ -254,9 +283,10 @@ function SchemaItem(props) {
          react_1.default.createElement("span", {
            className: "openapi-schema__divider",
          }),
@@ -752,7 +1009,7 @@ index c1aa5d8..26cdc61 100644
      ),
      renderSchemaDescription,
      renderEnumDescriptions,
-@@ -268,7 +274,8 @@ function SchemaItem(props) {
+@@ -268,7 +298,8 @@ function SchemaItem(props) {
      collapsibleSchemaContent ?? collapsibleSchemaContent
    );
    return react_1.default.createElement(
