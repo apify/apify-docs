@@ -227,6 +227,36 @@ index f6052d1..867bfd2 100644
                ),
                react_1.default.createElement(
                  "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
+index 4bf9d6c..ad3d808 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
+@@ -55,9 +55,10 @@ const renderExample = (example) => {
+       (0, Translate_1.translate)({
+         id: translationIds_1.OPENAPI_SCHEMA_ITEM.EXAMPLE,
+         message: "Example:",
+-      }),
+-      " "
++      })
+     ),
++    // Apify: space outside strong to avoid &#x20; inside bold in .md export
++    " ",
+     react_1.default.createElement(
+       "span",
+       null,
+@@ -153,9 +154,10 @@ const renderExampleObject = (exampleName, exampleProperties) => {
+             (0, Translate_1.translate)({
+               id: translationIds_1.OPENAPI_SCHEMA_ITEM.DESCRIPTION,
+               message: "Description:",
+-            }),
+-            " "
++            })
+           ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
+           react_1.default.createElement(
+             "span",
+             null,
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
 index b4bb17a..01ef6b8 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
@@ -252,6 +282,59 @@ index b4bb17a..01ef6b8 100644
 +  return react_1.default.createElement(ParamsDetailsComponent, { ...props });
  };
  exports.default = ParamsDetails;
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
+index da0f5ef..d95540d 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
+@@ -64,8 +64,8 @@ function ParamsItem({ param, ...rest }) {
+     react_1.default.createElement(
+       "span",
+       { className: "openapi-schema__type" },
+-      " ",
+-      (0, schema_1.getSchemaName)(schema)
++      // Apify: single text node to avoid SSR comment between adjacent text nodes
++      " " + (0, schema_1.getSchemaName)(schema)
+     )
+   );
+   const renderSchemaRequired = (0, utils_1.guard)(required, () =>
+@@ -118,9 +118,10 @@ function ParamsItem({ param, ...rest }) {
+             (0, Translate_1.translate)({
+               id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+               message: "Default value:",
+-            }),
+-            " "
++            })
+           ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
+           react_1.default.createElement(
+             "span",
+             null,
+@@ -137,9 +138,10 @@ function ParamsItem({ param, ...rest }) {
+           (0, Translate_1.translate)({
+             id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+             message: "Default value:",
+-          }),
+-          " "
++          })
+         ),
++        // Apify: space outside strong to avoid &#x20; inside bold in .md export
++        " ",
+         react_1.default.createElement(
+           "span",
+           null,
+@@ -173,8 +175,9 @@ function ParamsItem({ param, ...rest }) {
+         react_1.default.createElement("span", {
+           className: "openapi-schema__divider",
+         }),
+-      renderSchemaRequired,
+-      renderDeprecated
++      // Apify: conditional spaces before badges for .md export
++      renderSchemaRequired && " ", renderSchemaRequired,
++      renderDeprecated && " ", renderDeprecated
+     ),
+     renderQualifier,
+     renderDescription,
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
 index aab2db8..4668eac 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
@@ -362,10 +445,44 @@ index e84857b..404c0a6 100644
  };
  exports.default = ResponseSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-index 37190c6..76766ef 100644
+index 37190c6..c2c37a3 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-@@ -304,7 +304,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
+@@ -126,13 +126,15 @@ const Summary = ({ name, schemaName, schema, required }) => {
+       react_1.default.createElement(
+         "span",
+         { className: "openapi-schema__name" },
+-        " ",
+-        schemaName
++        // Apify: single text node to avoid SSR comment between adjacent text nodes
++        " " + schemaName
+       ),
+       (isRequired || deprecated || nullable) &&
+         react_1.default.createElement("span", {
+           className: "openapi-schema__divider",
+         }),
++      // Apify: conditional spaces before badges for .md export
++      nullable && " ",
+       nullable &&
+         react_1.default.createElement(
+           "span",
+@@ -142,6 +144,7 @@ const Summary = ({ name, schemaName, schema, required }) => {
+             message: "nullable",
+           })
+         ),
++      isRequired && " ",
+       isRequired &&
+         react_1.default.createElement(
+           "span",
+@@ -151,6 +154,7 @@ const Summary = ({ name, schemaName, schema, required }) => {
+             message: "required",
+           })
+         ),
++      deprecated && " ",
+       deprecated &&
+         react_1.default.createElement(
+           "span",
+@@ -304,7 +308,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
      )
    );
  };
@@ -374,7 +491,7 @@ index 37190c6..76766ef 100644
    const discriminator = schema.discriminator;
    if (discriminator && !discriminator.mapping) {
      const anyOneOf = schema.oneOf ?? schema.anyOf ?? {};
-@@ -344,6 +344,7 @@ const Properties = ({ schema, schemaType, schemaPath }) => {
+@@ -344,6 +348,7 @@ const Properties = ({ schema, schemaType, schemaPath }) => {
          discriminator: discriminator,
          schemaType: schemaType,
          schemaPath: schemaPath ? `${schemaPath}.${key}` : undefined,
@@ -382,7 +499,7 @@ index 37190c6..76766ef 100644
        })
      )
    );
-@@ -581,7 +582,10 @@ const SchemaNodeDetails = ({
+@@ -581,7 +586,10 @@ const SchemaNodeDetails = ({
    required,
    schemaType,
    schemaPath,
@@ -393,7 +510,7 @@ index 37190c6..76766ef 100644
    return react_1.default.createElement(
      SchemaItem_1.default,
      { collapsible: true },
-@@ -589,6 +593,7 @@ const SchemaNodeDetails = ({
+@@ -589,6 +597,7 @@ const SchemaNodeDetails = ({
        Details_1.default,
        {
          className: "openapi-markdown__details",
@@ -401,7 +518,7 @@ index 37190c6..76766ef 100644
          summary: react_1.default.createElement(Summary, {
            name: name,
            schemaName: schemaName,
-@@ -611,6 +616,7 @@ const SchemaNodeDetails = ({
+@@ -611,6 +620,7 @@ const SchemaNodeDetails = ({
            schema: schema,
            schemaType: schemaType,
            schemaPath: schemaPath,
@@ -409,7 +526,7 @@ index 37190c6..76766ef 100644
          })
        )
      )
-@@ -703,6 +709,7 @@ const SchemaEdge = ({
+@@ -703,6 +713,7 @@ const SchemaEdge = ({
    discriminator,
    schemaType,
    schemaPath,
@@ -417,7 +534,7 @@ index 37190c6..76766ef 100644
  }) => {
    if (
      (schemaType === "request" && schema.readOnly) ||
-@@ -731,6 +738,7 @@ const SchemaEdge = ({
+@@ -731,6 +742,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -425,7 +542,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.properties) {
-@@ -742,6 +750,7 @@ const SchemaEdge = ({
+@@ -742,6 +754,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -433,7 +550,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.additionalProperties) {
-@@ -753,6 +762,7 @@ const SchemaEdge = ({
+@@ -753,6 +766,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -441,7 +558,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.items?.properties) {
-@@ -764,6 +774,7 @@ const SchemaEdge = ({
+@@ -764,6 +778,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -449,7 +566,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
-@@ -775,6 +786,7 @@ const SchemaEdge = ({
+@@ -775,6 +790,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -457,7 +574,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.allOf) {
-@@ -813,6 +825,7 @@ const SchemaEdge = ({
+@@ -813,6 +829,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -465,7 +582,7 @@ index 37190c6..76766ef 100644
        });
      }
      if (mergedSchemas.properties !== undefined) {
-@@ -824,6 +837,7 @@ const SchemaEdge = ({
+@@ -824,6 +841,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -473,7 +590,7 @@ index 37190c6..76766ef 100644
        });
      }
      if (mergedSchemas.items?.properties) {
-@@ -835,6 +849,7 @@ const SchemaEdge = ({
+@@ -835,6 +853,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -481,6 +598,84 @@ index 37190c6..76766ef 100644
        });
      }
      return react_1.default.createElement(SchemaItem_1.default, {
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
+index c1aa5d8..986bad7 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
+@@ -148,9 +148,10 @@ function SchemaItem(props) {
+             (0, Translate_1.translate)({
+               id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+               message: "Default value:",
+-            }),
+-            " "
++            })
+           ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
+           react_1.default.createElement(
+             "span",
+             null,
+@@ -167,9 +168,10 @@ function SchemaItem(props) {
+           (0, Translate_1.translate)({
+             id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+             message: "Default value:",
+-          }),
+-          " "
++          })
+         ),
++        // Apify: space outside strong to avoid &#x20; inside bold in .md export
++        " ",
+         react_1.default.createElement(
+           "span",
+           null,
+@@ -195,9 +197,10 @@ function SchemaItem(props) {
+             (0, Translate_1.translate)({
+               id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
+               message: "Constant value:",
+-            }),
+-            " "
++            })
+           ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
+           react_1.default.createElement(
+             "span",
+             null,
+@@ -214,9 +217,10 @@ function SchemaItem(props) {
+           (0, Translate_1.translate)({
+             id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
+             message: "Constant value:",
+-          }),
+-          " "
++          })
+         ),
++        // Apify: space outside strong to avoid &#x20; inside bold in .md export
++        " ",
+         react_1.default.createElement(
+           "span",
+           null,
+@@ -245,6 +249,7 @@ function SchemaItem(props) {
+         },
+         name
+       ),
++      " ", // Apify: space between name and type for .md export
+       react_1.default.createElement(
+         "span",
+         { className: "openapi-schema__name" },
+@@ -254,9 +259,10 @@ function SchemaItem(props) {
+         react_1.default.createElement("span", {
+           className: "openapi-schema__divider",
+         }),
+-      renderNullable,
+-      renderRequired,
+-      renderDeprecated
++      // Apify: conditional spaces before badges for .md export
++      renderNullable && " ", renderNullable,
++      renderRequired && " ", renderRequired,
++      renderDeprecated && " ", renderDeprecated
+     ),
+     renderSchemaDescription,
+     renderEnumDescriptions,
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
 index a0b2d76..ab3e87f 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
