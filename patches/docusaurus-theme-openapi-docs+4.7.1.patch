@@ -492,7 +492,7 @@ index e84857b..404c0a6 100644
  };
  exports.default = ResponseSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-index 37190c6..c2c37a3 100644
+index 37190c6..13db645 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 @@ -126,13 +126,15 @@ const Summary = ({ name, schemaName, schema, required }) => {
@@ -546,7 +546,25 @@ index 37190c6..c2c37a3 100644
        })
      )
    );
-@@ -581,7 +586,10 @@ const SchemaNodeDetails = ({
+@@ -382,13 +387,15 @@ const PropertyDiscriminator = ({
+             react_1.default.createElement(
+               "span",
+               { className: "openapi-schema__name" },
+-              " ",
+-              schemaName
++              // Apify: single text node to avoid SSR comment
++              " " + schemaName
+             ),
+           required &&
+             react_1.default.createElement("span", {
+               className: "openapi-schema__divider",
+             }),
++          // Apify: space before badge for .md export
++          required && " ",
+           required &&
+             react_1.default.createElement(
+               "span",
+@@ -581,7 +588,10 @@ const SchemaNodeDetails = ({
    required,
    schemaType,
    schemaPath,
@@ -557,7 +575,7 @@ index 37190c6..c2c37a3 100644
    return react_1.default.createElement(
      SchemaItem_1.default,
      { collapsible: true },
-@@ -589,6 +597,7 @@ const SchemaNodeDetails = ({
+@@ -589,6 +599,7 @@ const SchemaNodeDetails = ({
        Details_1.default,
        {
          className: "openapi-markdown__details",
@@ -565,7 +583,18 @@ index 37190c6..c2c37a3 100644
          summary: react_1.default.createElement(Summary, {
            name: name,
            schemaName: schemaName,
-@@ -611,6 +620,7 @@ const SchemaNodeDetails = ({
+@@ -596,8 +607,9 @@ const SchemaNodeDetails = ({
+           required: required,
+         }),
+       },
++      // Apify: use <ul> instead of <div> so markdown converter produces nested lists
+       react_1.default.createElement(
+-        "div",
++        "ul",
+         { style: { marginLeft: "1rem" } },
+         schema.description &&
+           react_1.default.createElement(MarkdownWrapper, {
+@@ -611,6 +623,7 @@ const SchemaNodeDetails = ({
            schema: schema,
            schemaType: schemaType,
            schemaPath: schemaPath,
@@ -573,7 +602,7 @@ index 37190c6..c2c37a3 100644
          })
        )
      )
-@@ -703,6 +713,7 @@ const SchemaEdge = ({
+@@ -703,6 +716,7 @@ const SchemaEdge = ({
    discriminator,
    schemaType,
    schemaPath,
@@ -581,7 +610,7 @@ index 37190c6..c2c37a3 100644
  }) => {
    if (
      (schemaType === "request" && schema.readOnly) ||
-@@ -731,6 +742,7 @@ const SchemaEdge = ({
+@@ -731,6 +745,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -589,7 +618,7 @@ index 37190c6..c2c37a3 100644
      });
    }
    if (schema.properties) {
-@@ -742,6 +754,7 @@ const SchemaEdge = ({
+@@ -742,6 +757,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -597,7 +626,7 @@ index 37190c6..c2c37a3 100644
      });
    }
    if (schema.additionalProperties) {
-@@ -753,6 +766,7 @@ const SchemaEdge = ({
+@@ -753,6 +769,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -605,7 +634,7 @@ index 37190c6..c2c37a3 100644
      });
    }
    if (schema.items?.properties) {
-@@ -764,6 +778,7 @@ const SchemaEdge = ({
+@@ -764,6 +781,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -613,7 +642,7 @@ index 37190c6..c2c37a3 100644
      });
    }
    if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
-@@ -775,6 +790,7 @@ const SchemaEdge = ({
+@@ -775,6 +793,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -621,7 +650,7 @@ index 37190c6..c2c37a3 100644
      });
    }
    if (schema.allOf) {
-@@ -813,6 +829,7 @@ const SchemaEdge = ({
+@@ -813,6 +832,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -629,7 +658,7 @@ index 37190c6..c2c37a3 100644
        });
      }
      if (mergedSchemas.properties !== undefined) {
-@@ -824,6 +841,7 @@ const SchemaEdge = ({
+@@ -824,6 +844,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -637,7 +666,7 @@ index 37190c6..c2c37a3 100644
        });
      }
      if (mergedSchemas.items?.properties) {
-@@ -835,6 +853,7 @@ const SchemaEdge = ({
+@@ -835,6 +856,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -646,7 +675,7 @@ index 37190c6..c2c37a3 100644
      }
      return react_1.default.createElement(SchemaItem_1.default, {
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
-index c1aa5d8..986bad7 100644
+index c1aa5d8..26cdc61 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
 @@ -148,9 +148,10 @@ function SchemaItem(props) {
@@ -723,6 +752,16 @@ index c1aa5d8..986bad7 100644
      ),
      renderSchemaDescription,
      renderEnumDescriptions,
+@@ -268,7 +274,8 @@ function SchemaItem(props) {
+     collapsibleSchemaContent ?? collapsibleSchemaContent
+   );
+   return react_1.default.createElement(
+-    "div",
++    // Apify: use <li> instead of <div> so nested lists produce proper markdown indentation
++    "li",
+     { className: "openapi-schema__list-item" },
+     collapsible ? collapsibleSchemaContent : schemaContent
+   );
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
 index a0b2d76..ab3e87f 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
