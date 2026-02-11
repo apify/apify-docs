@@ -274,7 +274,7 @@ We don't need to click buttons to download the data. It's possible to retrieve i
 
 Now that our scraper is deployed, let's automate its execution. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Let's click **Create new**, review the periodicity (default: daily), and specify the Actor to run. Then we'll click **Enable**—that's it!
 
-From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/monitoring), and even set up alerts.
+From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/actors/running/monitoring), and even set up alerts.
 
 ![Schedule detail page](../scraping_basics/images/actor-schedule.webp)
 

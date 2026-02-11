@@ -69,7 +69,7 @@ This step isn't necessary, as the Actor will still be able to take input in JSON
 
 :::tip Learn more
 
-If you're interested in learning more about how the code works, and what the `INPUT_SCHEMA.json` means, read about [inputs](/sdk/js/docs/examples/accept-user-input) and [adding data to a dataset](/sdk/js/docs/examples/add-data-to-dataset) in the Apify SDK documentation, and refer to the [input schema docs](/platform/actors/development/actor-definition/input-schema/specification/v1#integer).
+If you're interested in learning more about how the code works, and what the `INPUT_SCHEMA.json` means, read about [inputs](/sdk/js/docs/examples/accept-user-input) and [adding data to a dataset](/sdk/js/docs/examples/add-data-to-dataset) in the Apify SDK documentation, and refer to the [input schema docs](/platform/actors/development/input-output-schemas/input-schema/specification/v1#integer).
 
 :::
 

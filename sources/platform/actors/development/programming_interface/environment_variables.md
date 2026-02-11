@@ -35,7 +35,7 @@ Apify sets several system environment variables for each Actor run. These variab
 Here's a table of key system environment variables:
 
 | Environment Variable | Description |
-|----------------------|-------------|
+| ---------------------- | ------------- |
 | `ACTOR_ID` | ID of the Actor. |
 | `ACTOR_FULL_NAME` | Full technical name of the Actor, in the format `owner-username/actor-name`. |
 | `ACTOR_RUN_ID` | ID of the Actor run. |
@@ -47,7 +47,7 @@ Here's a table of key system environment variables:
 | `ACTOR_DEFAULT_DATASET_ID` | Unique identifier for the default dataset associated with the current Actor run. |
 | `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | Unique identifier for the default key-value store associated with the current Actor run. |
 | `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | Unique identifier for the default request queue associated with the current Actor run. |
-| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input).  |
+| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input). |
 | `ACTOR_MAX_PAID_DATASET_ITEMS` | For paid-per-result Actors, the user-set limit on returned results. Do not exceed this limit. |
 | `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
 | `ACTOR_RESTART_ON_ERROR` | If **1**, the Actor run will be restarted if it fails. |
@@ -70,7 +70,7 @@ Here's a table of key system environment variables:
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
-| `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
+| `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/input-output-schemas/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
 
 
