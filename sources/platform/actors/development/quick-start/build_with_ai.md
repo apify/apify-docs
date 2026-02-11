@@ -130,17 +130,11 @@ To add Apify MCP server to Antigravity:
             "@apify/actors-mcp-server",
             "--tools",
             "docs"
-          ],
-          "env": {
-            "APIFY_TOKEN": "YOUR_APIFY_TOKEN"
-          }
+          ]
         }
       }
     }
-    ```
-        :::note Apify API token
-    Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations).
-    :::  
+    ```  
     
 </TabItem>
 </Tabs>
