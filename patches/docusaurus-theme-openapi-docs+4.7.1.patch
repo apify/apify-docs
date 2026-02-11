@@ -227,6 +227,53 @@ index f6052d1..867bfd2 100644
                ),
                react_1.default.createElement(
                  "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
+index b6bc631..deba7b9 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
+@@ -13,6 +13,9 @@ var __importDefault =
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.ClosingArrayBracket = exports.OpeningArrayBracket = void 0;
+ const react_1 = __importDefault(require("react"));
++// Apify: Use CSS ::before pseudo-element for bracket text so it doesn't
++// appear in the DOM text content and leak into .md export.
++// The CSS rules are in apify-docs-theme/src/theme/custom.css
+ const OpeningArrayBracket = () =>
+   react_1.default.createElement(
+     "li",
+@@ -20,14 +23,14 @@ const OpeningArrayBracket = () =>
+     react_1.default.createElement(
+       "div",
+       {
++        className: "openapi-array-bracket-open",
+         style: {
+           fontSize: "var(--ifm-code-font-size)",
+           opacity: 0.6,
+           marginLeft: "-.5rem",
+           paddingBottom: ".5rem",
+         },
+-      },
+-      "Array ["
++      }
+     )
+   );
+ exports.OpeningArrayBracket = OpeningArrayBracket;
+@@ -38,13 +41,13 @@ const ClosingArrayBracket = () =>
+     react_1.default.createElement(
+       "div",
+       {
++        className: "openapi-array-bracket-close",
+         style: {
+           fontSize: "var(--ifm-code-font-size)",
+           opacity: 0.6,
+           marginLeft: "-.5rem",
+         },
+-      },
+-      "]"
++      }
+     )
+   );
+ exports.ClosingArrayBracket = ClosingArrayBracket;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
 index 4bf9d6c..ad3d808 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
