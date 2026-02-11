@@ -323,7 +323,7 @@ index b6bc631..f292799 100644
 +  });
  exports.ClosingArrayBracket = ClosingArrayBracket;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
-index 4bf9d6c..35c262d 100644
+index 4bf9d6c..c0bffa2 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
 @@ -45,23 +45,33 @@ const formatExample = (example) => {
@@ -349,7 +349,7 @@ index 4bf9d6c..35c262d 100644
 -    ),
 +    react_1.default.Fragment,
 +    null,
-+    react_1.default.createElement("br"),
++    react_1.default.createElement("br", { style: { display: "none" } }),
      react_1.default.createElement(
        "span",
 -      null,
@@ -442,7 +442,7 @@ index b4bb17a..01ef6b8 100644
  };
  exports.default = ParamsDetails;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
-index da0f5ef..f3c1088 100644
+index da0f5ef..b743a20 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
 @@ -64,8 +64,8 @@ function ParamsItem({ param, ...rest }) {
@@ -477,7 +477,7 @@ index da0f5ef..f3c1088 100644
 -            }),
 -            " "
 -          ),
-+          react_1.default.createElement("br"),
++          react_1.default.createElement("br", { style: { display: "none" } }),
            react_1.default.createElement(
              "span",
 -            null,
@@ -514,7 +514,7 @@ index da0f5ef..f3c1088 100644
 -          }),
 -          " "
 -        ),
-+        react_1.default.createElement("br"),
++        react_1.default.createElement("br", { style: { display: "none" } }),
          react_1.default.createElement(
            "span",
 -          null,
@@ -865,7 +865,7 @@ index 37190c6..eddcd1e 100644
      }
      return react_1.default.createElement(SchemaItem_1.default, {
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
-index c1aa5d8..118822e 100644
+index c1aa5d8..67f9e5c 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
 @@ -136,107 +136,136 @@ function SchemaItem(props) {
@@ -889,7 +889,7 @@ index c1aa5d8..118822e 100644
 -            }),
 -            " "
 -          ),
-+          react_1.default.createElement("br"),
++          react_1.default.createElement("br", { style: { display: "none" } }),
            react_1.default.createElement(
              "span",
 -            null,
@@ -926,7 +926,7 @@ index c1aa5d8..118822e 100644
 -          }),
 -          " "
 -        ),
-+        react_1.default.createElement("br"),
++        react_1.default.createElement("br", { style: { display: "none" } }),
          react_1.default.createElement(
            "span",
 -          null,
@@ -974,7 +974,7 @@ index c1aa5d8..118822e 100644
 -            }),
 -            " "
 -          ),
-+          react_1.default.createElement("br"),
++          react_1.default.createElement("br", { style: { display: "none" } }),
            react_1.default.createElement(
              "span",
 -            null,
@@ -1011,7 +1011,7 @@ index c1aa5d8..118822e 100644
 -          }),
 -          " "
 -        ),
-+        react_1.default.createElement("br"),
++        react_1.default.createElement("br", { style: { display: "none" } }),
          react_1.default.createElement(
            "span",
 -          null,
