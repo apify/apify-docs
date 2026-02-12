@@ -76,9 +76,24 @@ Use active voice. Avoid gendered terms. Don't use directional language ("left/ri
 
 **Sentence case only.** No title case.
 
-| Avoid                 | Prefer                |
-| --------------------- | --------------------- |
+Common mistakes: Capitalizing articles (the, a, an), prepositions (to, with, from), and conjunctions (and, or, but).
+
+| Avoid (Title Case) | Prefer (Sentence case) |
+| ------------------ | ---------------------- |
 | Store And Manage Data | Store and manage data |
+| Use The Apify SDK | Use the Apify SDK |
+| Connect To Google Sheets | Connect to Google Sheets |
+| Configure GitHub Actions | Configure GitHub Actions |
+| How Do I Start? | How do I start? |
+
+**Preserve proper nouns and acronyms:** Apify products (Actors, Console, Proxy), external tools (GitHub, Docker, Playwright), and acronyms (API, SDK, CLI) stay capitalized.
+
+**Capitalize after colons:** When a colon introduces a complete clause or instruction, capitalize the first word after it.
+
+| Avoid | Prefer |
+| ----- | ------ |
+| Step 1: install the dependencies | Step 1: Install the dependencies |
+| Option 2: use the alternative | Option 2: Use the alternative |
 
 **No gerunds (-ing forms).** Use noun phrases or imperatives.
 
@@ -87,6 +102,11 @@ Use active voice. Avoid gendered terms. Don't use directional language ("left/ri
 | Finding available tags        | Available tags             |
 | Getting started with Actors   | Get started with Actors    |
 | Understanding the API         | API overview               |
+| Setting up your environment   | Set up your environment    |
+| Using Docker containers       | Use Docker containers      |
+| Building your first Actor     | Build your first Actor     |
+| Running the scraper           | Run the scraper            |
+| Extending the base image      | Extend the base image      |
 
 Rationale: Noun-phrase headings are more scannable and search-friendly (Microsoft style guide).
 
