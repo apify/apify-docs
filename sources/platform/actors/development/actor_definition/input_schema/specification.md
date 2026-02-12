@@ -372,7 +372,7 @@ Properties:
 
 | Property   | Value                                               | Required | Description                                                                   |
 |------------|-----------------------------------------------------|----------|-------------------------------------------------------------------------------|
-| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field  -  either an integer or a floating-point number. |
+| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field - either an integer or a floating-point number. |
 | `editor`   | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No       | Visual editor used for input field.                                           |
 | `maximum`  | Integer or Number <br/>(based on the `type`)        | No       | Maximum allowed value.                                                        |
 | `minimum`  | Integer or Number <br/>(based on the `type`)        | No       | Minimum allowed value.                                                        |

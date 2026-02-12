@@ -24,7 +24,7 @@ To use the Apify integration for Slack, you will need:
 - An [Apify account](https://console.apify.com/).
 - A Slack account (and workspace).
 
-## Step 1: Set up the integration for slack
+## Step 1: Set up the integration for Slack
 
 You can find all integrations on an Actor's or task's **Integrations** tab. For example, you can try using the [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL).
 
@@ -42,7 +42,7 @@ Once you are done, click the **Save** button.
 
 Click the **Start** button and head to the Slack channel you selected to see your first Apify integration notifications.
 
-## Step 3: Start your run directly from slack
+## Step 3: Start your run directly from Slack
 
 You can now run the same Actor or task directly from Slack by typing `/apify call [Actor or task ID]` into the Slack message box.
 

@@ -54,7 +54,7 @@ Choose the method that best fits your workflow.
 
 Now your Actor will automatically rebuild on every push to the GitHub repository.
 
-## Option 2: Set up automated builds and tests with GitHub actions
+## Option 2: Set up automated builds and tests with GitHub Actions
 
 1. Push your Actor to a GitHub repository.
 1. Get your Apify API token from the [Apify Console](https://console.apify.com/settings/integrations)

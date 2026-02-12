@@ -62,7 +62,7 @@ After you create your account, you might still want to use the other authenticat
 
 ![Apify Console sign-in methods section on account page](./images/console-sign-in-methods-section.png)
 
-## Resetting your password
+## Reset your password
 
 This section also allows you to reset your password if you ever forget it. To do that, click the **Send email to reset password** button.
 We will then send an email to the address connected to your account with a link to the password reset page.

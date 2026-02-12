@@ -155,7 +155,7 @@ Users create their own Apify accounts and are billed directly by Apify for their
 
 Users access Apify through your platform without needing an Apify account. Apify bills you based on consumption, and you factor costs into your pricing.
 
-### Monitor and tracking
+### Monitor and track
 
 To help Apify monitor and support your integration, every API request should identify your platform. You can do this in one of two ways:
 

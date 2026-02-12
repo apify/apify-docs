@@ -175,7 +175,7 @@ To test that your requests are proxied and IP addresses are being [rotated](/aca
 
 https://api.apify.com/v2/browser-info/
 
-### A different approach to `502 bad gateway`
+### A different approach to `502 Bad Gateway`
 
 Sometimes when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight:
 

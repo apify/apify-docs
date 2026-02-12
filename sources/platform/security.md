@@ -72,7 +72,7 @@ _We are especially interested in reports that demonstrate:_
 - Authentication/authorization issues
 - Data leaks due to misconfiguration
 
-### Report process
+### Reporting process
 
 If you notice or suspect a potential security issue, please report it to our security team at [security@apify.com](mailto:security@apify.com) with as much detail as possible, including the following:
 

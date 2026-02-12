@@ -60,7 +60,7 @@ You can import Apify integration scripts into your flows from the Windmill Hub, 
 
 You can provide the token to scripts via a **Windmill Resource**. Create it either in the **Resources** tab or directly from a script.
 
-#### Option a - Create in the resources tab
+#### Option A - Create in the resources tab
 
 1. Open **Resources** → **New Resource**.
 1. Select `apify_api_key` resource type.
@@ -69,7 +69,7 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 
   ![Apify Auth](../images/windmill-install-auth-resource-tab.png)
 
-#### Option b - Create/bind from a script
+#### Option B - Create/bind from a script
 
 1. Open the script in Windmill UI.
 1. Add a secret input parameter (e.g., `apify_token`) .
@@ -104,7 +104,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 1. In the Windmill UI, click **New Flow**.
 1. Give your flow a descriptive name (e.g., "Run Actor and Get Results").
 
-### Step 2: Add the run Actor script
+### Step 2: Add the Run Actor script
 
 1. Click **Add Step** and search for "Run Actor".
 1. Select the **Run Actor** script.
@@ -119,7 +119,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 
 ![Apify Flow](../images/windmill-flow-run-actor.png)
 
-### Step 3: Add the get dataset items script
+### Step 3: Add the Get Dataset Items script
 
 1. Add another step and search for "Get Dataset Items".
 1. Configure the inputs:
