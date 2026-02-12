@@ -28,7 +28,7 @@ The Apify integration provides scripts, flows, and resources that will be availa
 ![Apify Hub](../images/windmill-install-hub.png)
 
 
-### Step 1: import Apify scripts from Windmill hub
+### Step 1: Import Apify scripts from Windmill hub
 
 You can import Apify integration scripts into your flows from the Windmill Hub, regardless of whether you're using Windmill Cloud or a self-hosted instance. The following components will be available:
 
@@ -60,7 +60,7 @@ You can import Apify integration scripts into your flows from the Windmill Hub, 
 
 You can provide the token to scripts via a **Windmill Resource**. Create it either in the **Resources** tab or directly from a script.
 
-#### Option a - create in the resources tab
+#### Option a - Create in the resources tab
 
 1. Open **Resources** → **New Resource**.
 1. Select `apify_api_key` resource type.
@@ -69,7 +69,7 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 
   ![Apify Auth](../images/windmill-install-auth-resource-tab.png)
 
-#### Option b - create/bind from a script
+#### Option b - Create/bind from a script
 
 1. Open the script in Windmill UI.
 1. Add a secret input parameter (e.g., `apify_token`) .
@@ -78,7 +78,7 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 
 ![Apify Auth](../images/windmill-install-auth-script.png)
 
-#### Option C  -  OAuth authentication
+#### Option C - OAuth authentication
 
 :::note Cloud-only feature
 
@@ -104,7 +104,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 1. In the Windmill UI, click **New Flow**.
 1. Give your flow a descriptive name (e.g., "Run Actor and Get Results").
 
-### Step 2: add the run Actor script
+### Step 2: Add the run Actor script
 
 1. Click **Add Step** and search for "Run Actor".
 1. Select the **Run Actor** script.
@@ -119,7 +119,7 @@ Let's create a simple workflow that runs an Actor and fetches its results.
 
 ![Apify Flow](../images/windmill-flow-run-actor.png)
 
-### Step 3: add the get dataset items script
+### Step 3: Add the get dataset items script
 
 1. Add another step and search for "Get Dataset Items".
 1. Configure the inputs:

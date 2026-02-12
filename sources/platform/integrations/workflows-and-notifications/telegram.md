@@ -27,7 +27,7 @@ To use the Apify integration on Zapier, you will need to:
 - Have an [Apify account](https://console.apify.com/).
 - Have a [Zapier account](https://zapier.com/).
 
-### Step 1: create zap and find Apify on Zapier
+### Step 1: Create zap and find Apify on Zapier
 
 Once you have your Zapier account ready and you are successfully logged in, you can create your first Zap.
 
@@ -73,7 +73,7 @@ The connection is now created and the configuration form closed.
 
 ## Connect Telegram bot with Zapier
 
-### Step 1: Create & connect new bot on Telegram
+### Step 1: Create and connect new bot on Telegram
 
 After setting up Apify as your trigger within Zapier, it's time to set up Telegram as the action that will occur based on the trigger.
 
