@@ -25,7 +25,7 @@ The multiple datasets may defined in Actor schema using `datasets` object:
     "version": "1.0.0",
     "storages": {
         "datasets": {
-            "products": "./products_dataset_schema.json",
+            "default": "./products_dataset_schema.json",
             "categories": "./categories_dataset_schema.json"
         }
     }
@@ -33,7 +33,7 @@ The multiple datasets may defined in Actor schema using `datasets` object:
 ```
 Schemas of individual datasets can be provided as a file reference or inlined.
 
-The keys of the `datasets` objects are **aliases**, which can be used to refer to the specific datasets. In the example above, we have two datasets, aliased as `products` and `categories`.
+The keys of the `datasets` objects are **aliases**, which can be used to refer to the specific datasets. In the example above, we have two datasets, aliased as `default` and `categories`.
 
 :::info
 
@@ -41,7 +41,7 @@ Alias and **name** are not the same thing. Named datasets have specific behavior
 
 :::
 
-The `datasets` object has to contain at least one dataset. The first one specified is treated as the default dataset for all purposes where a default dataset is needed. For this reason, it's automatically aliased also as `default`. In the example above, the `products` dataset is going to be used as the default one.
+The `datasets` object has to contain the `default` alias.
 
 The `datasets` and `dataset` objects are mutually exclusive, the schema can only contain one.
 
@@ -51,13 +51,17 @@ Mapping of aliases to the IDs is passed to the Actor in JSON encoded `ACTOR_STOR
 
 ```javascript
 const storageIds = JSON.parse(process.env.ACTOR_STORAGES_JSON)
-const productsDataset = await Actor.openDataset(storageIds.datasets.products);
+const defaultDataset = await Actor.openDataset();
+// For the default dataset, it's also possible to use the following syntax:
+// const defaultDataset = await Actor.openDataset(storageIds.datasets.default);
+const categoriesDataset = await Actor.openDataset(storageIds.datasets.categories);
+
 ```
 
 Incoming SDK support:
 
 ```javascript
-const productsDataset = await Actor.openDataset({alias: 'products'});
+const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
 ## Showing data to users
@@ -72,7 +76,7 @@ Actors with output schema can refer to the datasets through variables using alia
         "products": {
             "type": "string",
             "title": "Products",
-            "template": "{{storages.datasets.products.apiUrl}}/items"
+            "template": "{{storages.datasets.default.apiUrl}}/items"
         },
         "categories": {
             "type": "string",
