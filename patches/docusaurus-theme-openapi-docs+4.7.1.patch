@@ -322,6 +322,73 @@ index b6bc631..f292799 100644
 +    },
 +  });
  exports.ClosingArrayBracket = ClosingArrayBracket;
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
+index f536508..e21b36a 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
+@@ -199,11 +199,35 @@ function TabList({ className, block, selectedValue, selectValue, tabValues }) {
+     )
+   );
+ }
+-function TabContent({ lazy, children, selectedValue }) {
++function TabContent({ lazy, children, selectedValue, isBrowser, tabValues }) {
+   const childTabs = (Array.isArray(children) ? children : [children]).filter(
+     Boolean
+   );
+   const flattenedChildTabs = (0, flatten_1.default)(childTabs);
++  // Apify: During SSR, show all discriminator variants with labels and
++  // proper nesting for .md export. We skip the TabItem wrapper (<div
++  // role="tabpanel">) because it can't contain <li> elements from
++  // SchemaItem — the HTML parser pushes them out, breaking nesting.
++  // Instead, render SchemaNode children directly inside a <ul>.
++  if (!isBrowser) {
++    return react_1.default.createElement(
++      "ul",
++      { style: { marginLeft: "1rem" } },
++      flattenedChildTabs.map((tabItem, i) => {
++        const label = tabValues?.[i]?.label ?? tabItem.props.value;
++        return react_1.default.createElement(
++          "li",
++          { key: i, className: "openapi-schema__list-item" },
++          react_1.default.createElement("strong", null, label),
++          react_1.default.createElement(
++            "ul",
++            { style: { marginLeft: "1rem" } },
++            tabItem.props.children
++          )
++        );
++      })
++    );
++  }
+   if (lazy) {
+     const selectedTabItem = flattenedChildTabs.find(
+       (tabItem) => tabItem.props.value === selectedValue
+@@ -228,12 +252,14 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "openapi-tabs__container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: hide tab navigation during SSR for clean .md export
++    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs, isBrowser })
+   );
+ }
+ function DiscriminatorTabs(props) {
+@@ -251,6 +277,7 @@ function DiscriminatorTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
 index 4bf9d6c..c0bffa2 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
@@ -667,7 +734,7 @@ index e84857b..f2a5a91 100644
  };
  exports.default = ResponseSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-index 37190c6..eddcd1e 100644
+index 37190c6..3f72a4c 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 @@ -126,13 +126,15 @@ const Summary = ({ name, schemaName, schema, required }) => {
@@ -739,7 +806,20 @@ index 37190c6..eddcd1e 100644
            required &&
              react_1.default.createElement(
                "span",
-@@ -581,7 +588,10 @@ const SchemaNodeDetails = ({
+@@ -474,8 +481,11 @@ const DiscriminatorNode = ({ discriminator, schema, schemaType }) => {
+     let mergedSubSchema = {};
+     if (subSchema.allOf) {
+       mergedSubSchema = mergeAllOf(subSchema);
++      // Apify: Replace mapping entry with the merged result so SchemaNode
++      // doesn't re-merge allOf and bring back the discriminator property.
++      discriminator.mapping[key] = mergedSubSchema;
+     }
+-    const subProperties = subSchema.properties || mergedSubSchema.properties;
++    const subProperties = mergedSubSchema.properties || subSchema.properties;
+     // Add a safeguard check to avoid referencing subProperties if it's undefined
+     if (subProperties && subProperties[discriminator.propertyName]) {
+       if (schema.properties) {
+@@ -581,7 +591,10 @@ const SchemaNodeDetails = ({
    required,
    schemaType,
    schemaPath,
@@ -750,7 +830,7 @@ index 37190c6..eddcd1e 100644
    return react_1.default.createElement(
      SchemaItem_1.default,
      { collapsible: true },
-@@ -589,6 +599,7 @@ const SchemaNodeDetails = ({
+@@ -589,6 +602,7 @@ const SchemaNodeDetails = ({
        Details_1.default,
        {
          className: "openapi-markdown__details",
@@ -758,7 +838,7 @@ index 37190c6..eddcd1e 100644
          summary: react_1.default.createElement(Summary, {
            name: name,
            schemaName: schemaName,
-@@ -596,21 +607,24 @@ const SchemaNodeDetails = ({
+@@ -596,21 +610,24 @@ const SchemaNodeDetails = ({
            required: required,
          }),
        },
@@ -792,7 +872,7 @@ index 37190c6..eddcd1e 100644
          })
        )
      )
-@@ -703,6 +717,7 @@ const SchemaEdge = ({
+@@ -703,6 +720,7 @@ const SchemaEdge = ({
    discriminator,
    schemaType,
    schemaPath,
@@ -800,7 +880,7 @@ index 37190c6..eddcd1e 100644
  }) => {
    if (
      (schemaType === "request" && schema.readOnly) ||
-@@ -731,6 +746,7 @@ const SchemaEdge = ({
+@@ -731,6 +749,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -808,7 +888,7 @@ index 37190c6..eddcd1e 100644
      });
    }
    if (schema.properties) {
-@@ -742,6 +758,7 @@ const SchemaEdge = ({
+@@ -742,6 +761,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -816,7 +896,7 @@ index 37190c6..eddcd1e 100644
      });
    }
    if (schema.additionalProperties) {
-@@ -753,6 +770,7 @@ const SchemaEdge = ({
+@@ -753,6 +773,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -824,7 +904,7 @@ index 37190c6..eddcd1e 100644
      });
    }
    if (schema.items?.properties) {
-@@ -764,6 +782,7 @@ const SchemaEdge = ({
+@@ -764,6 +785,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -832,7 +912,7 @@ index 37190c6..eddcd1e 100644
      });
    }
    if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
-@@ -775,6 +794,7 @@ const SchemaEdge = ({
+@@ -775,6 +797,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -840,7 +920,7 @@ index 37190c6..eddcd1e 100644
      });
    }
    if (schema.allOf) {
-@@ -813,6 +833,7 @@ const SchemaEdge = ({
+@@ -813,6 +836,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -848,7 +928,7 @@ index 37190c6..eddcd1e 100644
        });
      }
      if (mergedSchemas.properties !== undefined) {
-@@ -824,6 +845,7 @@ const SchemaEdge = ({
+@@ -824,6 +848,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -856,7 +936,7 @@ index 37190c6..eddcd1e 100644
        });
      }
      if (mergedSchemas.items?.properties) {
-@@ -835,6 +857,7 @@ const SchemaEdge = ({
+@@ -835,6 +860,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
