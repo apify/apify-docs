@@ -73,7 +73,7 @@ By default, Google returns up to _10 search results per page_. To retrieve addit
 
 When you specify `numPages`, the proxy makes multiple requests in the background and merges them into a single HTML response.
 
-**Usage**
+### Usage
 
 Add the `numPages` parameter to your search URL with a value between 1 and 10:
 
