@@ -11,7 +11,8 @@ async def main() -> None:
     @crawler.router.default_handler
     async def handle_netflix_table(context: BeautifulSoupCrawlingContext) -> None:
         requests: list[Request] = []
-        for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
+        name_cells = context.soup.select('[data-uia="top10-table-row-title"] button')
+        for name_cell in name_cells[:5]:
             name = name_cell.text.strip()
             imdb_search_url = (
                 f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
@@ -21,7 +22,9 @@ async def main() -> None:
 
     @crawler.router.handler("IMDB_SEARCH")
     async def handle_imdb_search(context: BeautifulSoupCrawlingContext) -> None:
-        await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
+        await context.enqueue_links(
+            selector=".ipc-title-link-wrapper", label="IMDB", limit=1
+        )
 
     @crawler.router.handler("IMDB")
     async def handle_imdb(context: BeautifulSoupCrawlingContext) -> None:
