@@ -25,7 +25,7 @@ All Actors in [Apify Store](https://apify.com/store) fall into one of the four p
 
 1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
 2. [**Pay per result**](#pay-per-result) - you do not pay for platform usage the Actor generates and instead just pay for the results it produces.
-3. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately — check the Actor's pricing for details.
+3. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
 4. [**Pay per usage**](#pay-per-usage) - you can run the Actor and you pay for the platform usage the Actor generates.
 
 ### Rental Actors
@@ -151,7 +151,7 @@ Most pay per event Actors include platform usage in the event price. However, so
 
 #### Pay per event Actors - Frequently Asked Questions
 
-#### How do I know Actor is paid per events?
+#### How do I know an Actor is paid per event?
 
 You will see that the Actor is paid per events next to the Actor name.
 
@@ -173,7 +173,7 @@ You would still pay for the long term storage of results, same as for pay per re
 
 #### Do I need to pay for platform usage with pay per event Actors?
 
-In most cases, no — the majority of pay per event Actors include [platform usage](./usage_and_resources.md) in the event price, so you only pay for the events. However, some Actors may charge platform usage separately, in addition to the event costs. Always check the pricing section on the Actor's page—it clearly states whether platform usage is included or not.
+In most cases, no - the majority of pay per event Actors include [platform usage](./usage_and_resources.md) in the event price, so you only pay for the events. However, some Actors may charge platform usage separately, in addition to the event costs. Always check the pricing section on the Actor's page - it clearly states whether platform usage is included or not.
 
 ![Pay per event with usage not included in Apify Store](./images/store/pay_per_event_and_usage_example_actor.png)
 
