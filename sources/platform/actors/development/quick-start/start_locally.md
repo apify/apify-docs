@@ -143,7 +143,7 @@ Let's now deploy your Actor to the Apify platform, where you can run the Actor o
     apify push
     ```
 
-### Step 5: It's Time to Iterate!
+### Step 5: it's time to iterate!
 
 Good job! 🎉 You're ready to develop your Actor. You can make changes to your Actor and implement your use case.
 

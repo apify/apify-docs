@@ -22,7 +22,7 @@ The Actor input schema file is used to:
 
 
 To define an input schema for an Actor, set `input` field in the `.actor/actor.json` file to an input schema object (described below), or path to a JSON file containing the input schema object.
-For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory—but note that this functionality is deprecated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
+For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory - but note that this functionality is deprecated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
 
 When you provide an input schema, the Apify platform will validate the input data passed to the Actor on start (via the API or Apify Console) to ensure compliance before starting the Actor.
 If the input object doesn't conform the schema, the caller receives an error and the Actor is not started.
@@ -372,7 +372,7 @@ Properties:
 
 | Property   | Value                                               | Required | Description                                                                   |
 |------------|-----------------------------------------------------|----------|-------------------------------------------------------------------------------|
-| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field — either an integer or a floating-point number. |
+| `type`     | One of <ul><li>`integer`</li><li>`number`</li></ul> | Yes      | Defines the type of the field  -  either an integer or a floating-point number. |
 | `editor`   | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No       | Visual editor used for input field.                                           |
 | `maximum`  | Integer or Number <br/>(based on the `type`)        | No       | Maximum allowed value.                                                        |
 | `minimum`  | Integer or Number <br/>(based on the `type`)        | No       | Minimum allowed value.                                                        |

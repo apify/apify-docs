@@ -24,11 +24,11 @@ This setting affects the following resources:
   - Key-value stores
   - Request queues
 
-Access to resources that require explicit access — such as Actors, tasks or schedules are not affected by this setting.
+Access to resources that require explicit access - such as Actors, tasks or schedules are not affected by this setting.
 
 ![Setup account-level general resources access setting](./images/general-resouce-access//account-setting.png)
 
-## How Restricted Access works
+## How restricted access works
 
 If your **General resource access** is set to **Anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **Restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
@@ -60,9 +60,9 @@ Even if your access is set to **Restricted** there are a few built-in exceptions
 
 #### Builds of public Actors
 
-Builds of public Actors are always accessible to anyone who can view the Actor — regardless of the Actor owner’s account **General resource access** setting.
+Builds of public Actors are always accessible to anyone who can view the Actor - regardless of the Actor owner's account **General resource access** setting.
 
-This ensures that public Actors in Apify Store continue to work as expected. For example, if you open a public Actor in Console, you’ll also be able to view its build details, download logs, or inspect the source package — without needing extra permissions or a token.
+This ensures that public Actors in Apify Store continue to work as expected. For example, if you open a public Actor in Console, you'll also be able to view its build details, download logs, or inspect the source package - without needing extra permissions or a token.
 
 This exception exists to maintain usability and avoid breaking workflows that rely on public Actors. It only applies to builds of Actors that are marked as **public**. For private Actors, build access still follows the general resource access setting of the owner’s account.
 
@@ -73,7 +73,7 @@ When you share an Actor with a collaborator, you can choose to share read-only a
 - This access includes logs, input, and default storages (dataset, key-value store, request queue)
 - Access is one-way: you won’t see the collaborator’s runs unless they share them
 - Collaborators can’t see each other’s runs
-- This works even if your account uses **restricted general resource access** — permissions are applied automatically.
+- This works even if your account uses **restricted general resource access** - permissions are applied automatically.
 
 #### Automatically sharing runs with public Actor creators
 
@@ -83,13 +83,13 @@ If you’re using a public Actor from Apify Store, you can choose to automatical
 - When enabled, your runs of public Actors are automatically visible to the Actor’s creator
 - Shared runs include logs, input, and output storages (dataset, key-value store, request queue)
 
-This sharing works even if your account has  **General resource access** set to **Restricted** — the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
+This sharing works even if your account has  **General resource access** set to **Restricted** - the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
 
 You can disable this behavior at any time by turning off the setting in your account.
 
 #### Automatically sharing runs via Actor Issues
 
-When you report an issue on an Actor and include a **run URL**, that run is automatically shared with the Actor developer — **even if your account uses restricted general resource access**.
+When you report an issue on an Actor and include a **run URL**, that run is automatically shared with the Actor developer - **even if your account uses restricted general resource access**.
 
 This automatic sharing ensures the developer can view all the context they need to troubleshoot the issue effectively. That includes:
 
@@ -101,7 +101,7 @@ This automatic sharing ensures the developer can view all the context they need 
 
 The access is granted through explicit, behind-the-scenes permissions (not anonymous or public access), and is limited to just that run and its related storages. No other resources in your account are affected.
 
-This means you don’t need to manually adjust permissions or share multiple links when reporting an Actor issue — **just including the run URL in your issue is enough**
+This means you don't need to manually adjust permissions or share multiple links when reporting an Actor issue - **just including the run URL in your issue is enough**
 
 ![Sharing a run link in create Actor issue dialog makes it accessible to the developer automatically](./images/general-resouce-access/creating-actor-issue.png)
 
@@ -125,7 +125,7 @@ await datasetClient.update({
 
 ### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
 
-Even when a resource is restricted, you might still want to share it with someone outside your team — for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, _storage resources_ (like key-value stores, datasets, and request queues) support generating _pre-signed URLs_. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
+Even when a resource is restricted, you might still want to share it with someone outside your team - for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, _storage resources_ (like key-value stores, datasets, and request queues) support generating _pre-signed URLs_. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
 
 #### How pre-signed URLs work
 
@@ -237,7 +237,7 @@ If the `expiresInSecs` option is not specified, the generated link will be _perm
 
 #### Signing URLs manually
 
-If you need finer control — for example, generating links without using Apify client — you can sign URLs manually using our reference implementation.
+If you need finer control - for example, generating links without using Apify client - you can sign URLs manually using our reference implementation.
 
 [Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
 
@@ -301,7 +301,7 @@ const recordUrl = `https://api.apify.com/v2/key-value-stores/${storeId}/records/
 const storeClient = client.keyValueStore(storeId);
 const recordUrl = await storeClient.getRecordPublicUrl(recordKey);
 
-// Save pre-signed URL — accessible without authentication
+// Save pre-signed URL - accessible without authentication
 await Actor.pushData({ recordUrl });
 ```
 
@@ -324,7 +324,7 @@ You can easily test this by switching your own account’s setting to _Restricte
 
 :::tip Make sure links work as expected
 
-Once you’ve enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs — especially those stored in results or notifications — work without requiring an API token.
+Once you've enabled restricted access, run your Actor and confirm that all links generated in logs, datasets, key-value stores, and status messages remain accessible as expected. Make sure any shared URLs - especially those stored in results or notifications - work without requiring an API token.
 
 :::
 

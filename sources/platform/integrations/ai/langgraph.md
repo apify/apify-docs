@@ -36,7 +36,7 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
     pip install langgraph langchain-apify langchain-openai
     ```
 
-### Building the TikTok profile search and analysis agent
+### Build the TikTok profile search and analysis agent
 
 First, import all required packages:
 

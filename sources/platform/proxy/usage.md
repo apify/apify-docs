@@ -19,7 +19,7 @@ The full connection string has the following format:
 http://<username>:<password>@<hostname>:<port>
 ```
 
-:::caution
+:::caution Password security
 All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks, as **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 :::
 
@@ -35,7 +35,7 @@ If you need to test Apify Proxy before you subscribe, please [contact our suppor
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
 | Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
 
-:::caution
+:::caution External connections
 If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify Platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
 :::
 
@@ -138,8 +138,8 @@ Web scrapers can rotate the IP addresses they use to access websites. They assig
 
 Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
-* Browser—a different IP address is used for each browser.
-* HTTP request—a different IP address is used for each request.
+* Browser - a different IP address is used for each browser.
+* HTTP request - a different IP address is used for each request.
 
 Use [sessions](#sessions) to control how you rotate IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
 
@@ -175,7 +175,7 @@ To test that your requests are proxied and IP addresses are being [rotated](/aca
 
 https://api.apify.com/v2/browser-info/
 
-### A different approach to `502 Bad Gateway`
+### A different approach to `502 bad gateway`
 
 Sometimes when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight:
 

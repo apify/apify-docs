@@ -72,7 +72,7 @@ _We are especially interested in reports that demonstrate:_
 - Authentication/authorization issues
 - Data leaks due to misconfiguration
 
-### Reporting process
+### Report process
 
 If you notice or suspect a potential security issue, please report it to our security team at [security@apify.com](mailto:security@apify.com) with as much detail as possible, including the following:
 
@@ -109,6 +109,6 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 :::
 
-## Securing your data
+## Secure your data
 
 The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) for securing the input parameters of your Actors.

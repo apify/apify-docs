@@ -127,6 +127,6 @@ Apify securely stores your ten most recent runs indefinitely, ensuring your reco
 
 **Actor builds** are deleted only when they are _not tagged_ and have not been used for over 90 days.
 
-## Sharing
+## Share
 
 Share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.

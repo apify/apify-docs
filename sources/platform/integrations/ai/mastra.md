@@ -39,7 +39,7 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
   npm install @mastra/core @mastra/mcp @ai-sdk/openai
   ```
 
-### Building the TikTok profile search and analysis agent
+### Build the TikTok profile search and analysis agent
 
 First, import all required packages:
 
@@ -147,7 +147,7 @@ You will see the agent’s output in the console, showing the results of the sea
 Connecting to Mastra MCP server...
 Fetching tools...
 Generating response for prompt: Search the web for the OpenAI TikTok profile URL, then extract and summarize its data.
-### OpenAI TikTok Profile Summary
+### OpenAI TikTok profile summary
 - **Profile URL**: [OpenAI on TikTok](https://www.tiktok.com/@openai?lang=en)              - **Followers**: 608,100
 - **Likes**: 3.4 million
 - **Videos Posted**: 156

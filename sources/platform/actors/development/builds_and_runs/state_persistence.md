@@ -21,7 +21,7 @@ To prevent data loss, long-running Actors should:
 
 For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.
 
-## Understanding migrations
+## Understand migrations
 
 A migration occurs when a process running on one server must stop and move to another. During this process:
 
@@ -45,7 +45,7 @@ Migrations don't follow a specific schedule. They can occur at any time due to t
 
 By default, an Actor keeps its state in the server's memory. During a server switch, the run loses access to the previous server's memory. Even if data were saved on the server's disk, access to that would also be lost. Note that the Actor run's default dataset, key-value store and request queue are preserved across migrations, by state we mean the contents of runtime variables in the Actor's code.
 
-## Implementing state persistence
+## Implement state persistence
 
 The [Apify SDKs](/sdk) handle state persistence automatically.
 

@@ -63,7 +63,7 @@ When configuring Apify actions in a workflow (check out screenshot below), set t
   - ![Current User's API token](../images/bubble/data_select_user_api_key.png)
 
 
-## Using the integration
+## Use the integration
 
 Once the plugin is configured, you can start building automated workflows.
 
@@ -166,8 +166,8 @@ There are two common approaches:
 ### Display data
 
 - This example appends the text result of an Actor run; it's a basic bind to the element’s text.
-- Create / select the UI visual element — in this example, `Text`.
-- In the Appearance tab, click the input area, select Insert dynamic data, and, according to your case, find the source — in this example, it's the `key_value_storages's recordContentText` custom state, where I set the result of the API call
+- Create / select the UI visual element  -  in this example, `Text`.
+- In the Appearance tab, click the input area, select Insert dynamic data, and, according to your case, find the source  -  in this example, it's the `key_value_storages's recordContentText` custom state, where I set the result of the API call
 - ![Display text data](../images/bubble/text_dynamic_content.png)
 
 ### Display list of data
@@ -175,13 +175,13 @@ There are two common approaches:
 - This example lists the current user's datasets and displays them in a repeating group.
 - Add a **Repeating group** to the page.
   1. Add data to a variable: create a custom state (for example, on the page) that will hold the list of datasets, and set it to the plugin's **List User Datasets** data call.
-      - ![Step 1 — Set variable with user's datasets](../images/bubble/user_dataset_repeating_group_set.png)
+      - ![Step 1  -  Set variable with user's datasets](../images/bubble/user_dataset_repeating_group_set.png)
   1. Set the type: in the repeating group's settings, set **Type of content** to match the dataset object your variable returns.
-      - ![Step 2 — Repeating group type of content](../images/bubble/user_dataset_repeating_group.png)
+      - ![Step 2  -  Repeating group type of content](../images/bubble/user_dataset_repeating_group.png)
   1. Bind the variable: set the repeating group's **Data source** to the variable from Step 1.
-      - ![Step 3 — Repeating group data source](../images/bubble/user_dataset_repeating_group_source.png)
+      - ![Step 3  -  Repeating group data source](../images/bubble/user_dataset_repeating_group_source.png)
 - Inside the repeating group cell, bind dataset fields (for example, `Current cell's item name`, `id`, `createdAt`).
-- ![Step 4 — Repeating group data cell](../images/bubble/user_dataset_repeating_group_cell.png)
+- ![Step 4  -  Repeating group data cell](../images/bubble/user_dataset_repeating_group_cell.png)
 
 ## Long‑running scrapes and Bubble time limits (async pattern)
 

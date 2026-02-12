@@ -56,7 +56,7 @@ In case you forgot your password, you can click on the **Forgot your password?**
 
 ![Apify Console forgotten password page](./images/console-forgotten-password-page.png)
 
-## Adding different authentication methods
+## Add different authentication methods
 
 After you create your account, you might still want to use the other authentication methods. To do that, go to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings. There, you will see all available authentication methods and their configuration.
 

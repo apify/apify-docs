@@ -280,7 +280,7 @@ When a user runs the Actor in the Console, the UI will look like this:
 
 ![Video files in Output tab](images/output-schema-combination-example.png)
 
-### Using container URL to display chat client
+### Use container URL to display chat client
 
 In this example, an Actor runs a web server that provides a chat interface to an LLM.
 The conversation history is then stored in the dataset.

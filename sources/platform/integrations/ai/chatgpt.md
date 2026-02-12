@@ -65,7 +65,7 @@ Once your connector is ready:
    > “Search the web and summarize recent trends in AI agents”
 
 You’ll need to grant permission for each Apify tool when it’s used for the first time.
-You should see ChatGPT calling Apify tools — such as the [RAG Web Browser](https://apify.com/apify/rag-web-browser) — to gather information.
+You should see ChatGPT calling Apify tools  -  such as the [RAG Web Browser](https://apify.com/apify/rag-web-browser)  -  to gather information.
 
 ![ChatGPT Apify tools](../images/chatgpt-with-rag-web-browser.png)
 

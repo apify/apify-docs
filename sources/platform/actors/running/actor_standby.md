@@ -14,7 +14,7 @@ Traditional Actors are designed to run a single job and then stop. They're mostl
 However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
 
-## How do I know if Standby mode is enabled
+## How do i know if standby mode is enabled
 
 You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
@@ -25,7 +25,7 @@ hit the API endpoint and get results.
 
 ![Standby tab](./images/actor_standby/standby-tab.png)
 
-## How do I pass input to Actors in Standby mode
+## How do i pass input to Actors in standby mode
 
 If you're using an Actor built by someone else, see its Information tab to find out how the input should be passed.
 
@@ -75,7 +75,7 @@ For requests sent to an Actor in Standby mode, the maximum time allowed until re
 
 The rate limit for incoming requests to a Standby Actor is _2000 requests per second_ per user account.
 
-## How do I customize Standby configuration
+## How do i customize standby configuration
 
 The Standby configuration currently consists of the following properties:
 
@@ -99,6 +99,6 @@ However, running Actors in Standby mode might have unexpected costs, as the Acto
 
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
 
-## How can I develop Actors using Standby mode
+## How can i develop Actors using standby mode
 
 See the [Actor Standby development section](../development/programming_interface/actor_standby.md).

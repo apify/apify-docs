@@ -23,7 +23,7 @@ To use the Apify integration on Zapier, you will need to:
 - Have an [Apify account](https://console.apify.com/).
 - Have a [Zapier account](https://zapier.com/).
 
-### Step 1: Create Zap and find Apify on Zapier
+### Step 1: create zap and find Apify on Zapier
 
 Once you have your Zapier account ready and you are successfully logged in, you can create your first Zap.
 
@@ -98,7 +98,7 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 > Triggers when a selected Actor run is finished.
 
-### Finished Task Run
+### Finished task run
 
 > Triggers when a selected Actor task run is finished.
 
@@ -123,15 +123,15 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Searches
 
-### Fetch Dataset Items
+### Fetch dataset items
 
 > Retrieves items from a [dataset](/platform/storage/dataset).
 
-### Find Last Actor Run
+### Find last Actor run
 
 > Finds the most recent Actor run.
 
-### Find Last Task Run
+### Find last task run
 
 > Finds the most recent Actor task run.
 

@@ -34,7 +34,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
     npm install @modelcontextprotocol/sdk @openrouter/ai-sdk-provider ai
     ```
 
-### Building a simple pub search AI agent using Apify Google Maps scraper
+### Build a simple pub search AI agent using Apify Google Maps scraper
 
 First, import all required packages:
 

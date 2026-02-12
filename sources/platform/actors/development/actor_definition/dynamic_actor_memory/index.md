@@ -218,7 +218,7 @@ If the calculation results in an error, the Actor will start with a fixed defaul
 
 </Tabs>
 
-### Testing expressions
+### Test expressions
 
 #### Use npm package
 

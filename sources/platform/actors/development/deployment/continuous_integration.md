@@ -32,7 +32,7 @@ Set up continuous integration for your Actors using one of these methods:
 
 Choose the method that best fits your workflow.
 
-## Option 1: Trigger builds with a Webhook
+## Option 1: trigger builds with a webhook
 
 1. Push your Actor to a GitHub repository.
 1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
@@ -54,7 +54,7 @@ Choose the method that best fits your workflow.
 
 Now your Actor will automatically rebuild on every push to the GitHub repository.
 
-## Option 2: Set up automated builds and tests with GitHub Actions
+## Option 2: set up automated builds and tests with GitHub actions
 
 1. Push your Actor to a GitHub repository.
 1. Get your Apify API token from the [Apify Console](https://console.apify.com/settings/integrations)
