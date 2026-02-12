@@ -28,7 +28,7 @@ The Apify integration provides scripts, flows, and resources that will be availa
 ![Apify Hub](../images/windmill-install-hub.png)
 
 
-### Step 1: Import Apify scripts from Windmill hub
+### Step 1: Import Apify scripts from Windmill Hub
 
 You can import Apify integration scripts into your flows from the Windmill Hub, regardless of whether you're using Windmill Cloud or a self-hosted instance. The following components will be available:
 

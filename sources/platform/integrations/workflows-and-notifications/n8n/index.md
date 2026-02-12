@@ -21,7 +21,7 @@ Before you begin, make sure you have:
 - An [Apify account](https://console.apify.com/)
 - An [n8n instance](https://docs.n8n.io/learning-path/) (self‑hosted or cloud)
 
-## Install the Apify Node (self-hosted)
+## Install the Apify node (self-hosted)
 
 If you're running a self-hosted n8n instance, you can install the Apify community node directly from the editor. This process adds the node to your available tools, enabling Apify operations in workflows.
 
@@ -130,7 +130,7 @@ Actions allow you to perform operations like running an Actor within a workflow.
 1. Save and execute the workflow
     ![Apify Node](../../images/n8n-workflow-example.png)
 
-## Use Apify Node as an AI tool
+## Use Apify node as an AI tool
 
 You can run Apify operations, retrieve the results, and use AI to process, analyze, and summarize the data, or generate insights and recommendations.
 

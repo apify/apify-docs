@@ -146,7 +146,7 @@ This module allows you to enter search terms that match what you would typically
 
 The search results can be further refined using optional category filters, which help ensure you're capturing precisely the type of businesses you're targeting. For maximum efficiency, you can combine broader search terms with strategic category filters to capture the most relevant leads without excluding valuable prospects.
 
-### Advanced and custom Search module - Google Maps leads Scraper
+### Advanced and custom search module - Google Maps Leads Scraper
 
 The Advanced and Custom Search module is the most powerful component of the Google Maps Leads Scraper, designed for sophisticated lead generation campaigns that require precise geographic targeting and advanced search capabilities. This module gives you complete control over your lead discovery process with multiple location definition methods and advanced filtering options.
 

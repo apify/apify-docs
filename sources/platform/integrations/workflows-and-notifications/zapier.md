@@ -94,7 +94,7 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Triggers
 
-### Finished Actor Run
+### Finished Actor run
 
 > Triggers when a selected Actor run is finished.
 
