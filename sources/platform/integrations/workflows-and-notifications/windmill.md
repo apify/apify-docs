@@ -60,7 +60,7 @@ You can import Apify integration scripts into your flows from the Windmill Hub, 
 
 You can provide the token to scripts via a **Windmill Resource**. Create it either in the **Resources** tab or directly from a script.
 
-#### Option A - Create in the resources tab
+#### Option A - Create in the Resources tab
 
 1. Open **Resources** → **New Resource**.
 1. Select `apify_api_key` resource type.

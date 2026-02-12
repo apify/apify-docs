@@ -144,7 +144,7 @@ Each connector trigger and action field in Workato includes inline help text des
 
 The Apify connector provides the following triggers that monitor your Apify account for task completions:
 
-### Actor run finished
+### Actor Run Finished
 
 _Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted)._
 
@@ -156,7 +156,7 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 
 ![Screenshot of the Actor Run Finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
-### Task run finished
+### Task Run Finished
 
 _Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted)._
 

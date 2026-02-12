@@ -34,7 +34,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 ![Apify Install Node](../../images/n8n-install-node-self-hosted.png)
 
-## Install the Apify node (n8n cloud)
+## Install the Apify node (n8n Cloud)
 
 For n8n Cloud users, installation is even simpler and doesn't require manual package entry. Just search and add the node from the canvas.
 
