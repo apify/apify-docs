@@ -134,8 +134,8 @@ To add Apify MCP server to Antigravity:
         }
       }
     }
-    ```  
-    
+    ```
+
 </TabItem>
 </Tabs>
 
