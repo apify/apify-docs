@@ -64,7 +64,7 @@ The extension provides the following capabilities:
 
 ### Run Actor
 
-1. Select any Actor from **Apify store** or **recently used Actors**
+1. Select any Actor from **Apify Store** or **recently used Actors**
 ![Select Actor screen](../../images/airtable/airtable_actor_select.png)
 
 1. Fill in the Actor input form.

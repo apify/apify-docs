@@ -25,7 +25,7 @@ All usage of Apify Proxy with your password is charged towards your account. Do 
 
 ### External connection
 
-If you want to connect to Apify Proxy from outside of the Apify Platform, you need to have a paid Apify plan (to prevent abuse).
+If you want to connect to Apify Proxy from outside of the Apify platform, you need to have a paid Apify plan (to prevent abuse).
 If you need to test Apify Proxy before you subscribe, please [contact our support](https://apify.com/contact).
 
 | Parameter           | Value / explanation |
@@ -36,7 +36,7 @@ If you need to test Apify Proxy before you subscribe, please [contact our suppor
 | Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
 
 :::caution External connections
-If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify Platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
+If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
 :::
 
 Example connection string for external connections:
@@ -47,7 +47,7 @@ http://auto:apify_proxy_EaAFg6CFhc4eKk54Q1HbGDEiUTrk480uZv03@proxy.apify.com:800
 
 ### Connection from Actors
 
-If you want to connect to Apify Proxy from Actors running on the Apify Platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
+If you want to connect to Apify Proxy from Actors running on the Apify platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
 
 If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
 By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
@@ -169,7 +169,7 @@ If you need to allow communication to `apify.proxy.com`, add the following IP ad
 
 To view your connection status to [Apify Proxy](https://apify.com/proxy), open the URL below in the browser using the proxy. [http://proxy.apify.com/](http://proxy.apify.com/). If the proxy connection is working, the page should look something like this:
 
-![Apify proxy status page](./images/proxy-status.png)
+![Apify Proxy status page](./images/proxy-status.png)
 
 To test that your requests are proxied and IP addresses are being [rotated](/academy/anti-scraping/techniques) correctly, open the following API endpoint via the proxy. It shows information about the client IP address.
 

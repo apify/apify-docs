@@ -39,7 +39,7 @@ Once connected, you can build workflows that search the web, extract content, an
 
 After connecting the app, you can use two modules to search and extract content.
 
-### Standard Settings module
+### Standard Settings Module
 
 Use Standard Settings to quickly search the web and extract content with optimized defaults. This is ideal for AI agents that need to answer questions or gather information from multiple sources.
 
@@ -97,7 +97,7 @@ When you provide keywords, the module runs Google Search, parses the results, an
 - _Remove cookie warnings_: Dismiss cookie consent dialogs
 - _Debug mode_: Enable extraction diagnostics
 
-### Advanced Settings module
+### Advanced Settings Module
 
 Advanced Settings give you full control over search and extraction. Use it for complex sites or production RAG pipelines.
 

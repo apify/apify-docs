@@ -150,7 +150,7 @@ _Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets 
 
 This trigger monitors a specific Apify Actor and starts the recipe when any run of that Actor reaches a terminal status. You can:
 
-- Select the Actor from recently used Actors or Apify store Actors
+- Select the Actor from recently used Actors or Apify Store Actors
 - Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`)
 - Access run details, status, and metadata in subsequent recipe steps
 
@@ -178,7 +178,7 @@ _Run an Apify Actor with customizable execution parameters._
 
 This action runs an Apify Actor with your specified input and execution parameters. You can choose to wait for completion or start the run asynchronously. Actors are reusable serverless programs that can scrape websites, process data, and automate workflows. You can:
 
-- Select from your recently used Actors or Apify store Actors
+- Select from your recently used Actors or Apify Store Actors
 - Provide input using dynamic schema-based fields or raw JSON
 - Configure run options like memory allocation, timeout, and build version
 - Choose between synchronous (wait for completion) or asynchronous execution

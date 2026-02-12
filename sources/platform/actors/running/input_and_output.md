@@ -27,7 +27,7 @@ When running an Actor using the [API](https://docs.apify.com/api/v2) you can pas
 }
 ```
 
-### Options - Build, timeout, and memory
+### Options - Build, Timeout, and Memory
 
 As part of the input, you can also specify run options such as [Build](../development/builds_and_runs/builds.md), Timeout, and [Memory](./usage_and_resources.md) for your Actor run.
 

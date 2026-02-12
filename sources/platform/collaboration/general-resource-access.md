@@ -28,7 +28,7 @@ Access to resources that require explicit access - such as Actors, tasks or sche
 
 ![Setup account-level general resources access setting](./images/general-resouce-access//account-setting.png)
 
-## How restricted access works
+## How Restricted Access works
 
 If your **General resource access** is set to **Anyone with ID can read**, you can just send this link to anybody, and they will be able to download the data even if they don’t have an Apify account. However, once you change the setting to **Restricted**, this API call will require a valid token with access in order to work. In other words, you’ll have to explicitly share the dataset and you can only do that with people who have an Apify account.
 
@@ -83,7 +83,7 @@ If you’re using a public Actor from Apify Store, you can choose to automatical
 - When enabled, your runs of public Actors are automatically visible to the Actor’s creator
 - Shared runs include logs, input, and output storages (dataset, key-value store, request queue)
 
-This sharing works even if your account has  **General resource access** set to **Restricted** - the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
+This sharing works even if your account has **General resource access** set to **Restricted** - the platform applies specific permission checks to ensure the Actor creator can access only the relevant runs.
 
 You can disable this behavior at any time by turning off the setting in your account.
 
@@ -107,7 +107,7 @@ This means you don't need to manually adjust permissions or share multiple links
 
 ## Per-resource access control
 
-The account level access control can be changed on individual resources. This can be done by setting the general access level to other than Restricted  in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
+The account level access control can be changed on individual resources. This can be done by setting the general access level to other than Restricted in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
 
 ![Setup resource level access control](./images/general-resouce-access/share-resource-dialog.png)
 

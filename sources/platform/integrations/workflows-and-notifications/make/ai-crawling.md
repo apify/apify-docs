@@ -35,11 +35,11 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 Once connected, you can build workflows to automate website extraction and integrate results into your AI applications.
 
-## Apify Scraper for website content modules
+## Apify Scraper for Website Content modules
 
 After connecting the app, you can use one of the two modules as native scrapers to extract website content.
 
-### Standard settings module
+### Standard Settings Module
 
 The Standard Settings module is a streamlined component of the Website Content Crawler that allows you to quickly extract content from websites using optimized default settings. This module is perfect for extracting content from blogs, documentation sites, knowledge bases, or any text-rich website to feed into AI models.
 
@@ -95,7 +95,7 @@ For each crawled web page, you'll receive:
 }
 ```
 
-### Advanced settings module
+### Advanced Settings Module
 
 The Advanced Settings module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
 

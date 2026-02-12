@@ -21,7 +21,7 @@ To use the Apify integration on Keboola, you will need to:
 - Have an [Apify account](https://console.apify.com/).
 - Have a [Keboola account](https://www.keboola.com/).
 
-### Step 1: Create a new data source in Keboola
+### Step 1: Create a new Data Source in Keboola
 
 Once your Keboola account is ready and you are logged in, navigate to the **Components** section in the top menu and click the **Add Component** button.
 
@@ -35,7 +35,7 @@ Provide a name and description for your configuration, then click the **Create C
 
 ![Keboola configuration setup](../images/keboola/keboola-create-configuration.png)
 
-### Step 2: Configure the Apify data source
+### Step 2: Configure the Apify Data Source
 
 With the new configuration created, you can now configure the data source to retrieve the needed data. Click on the **Configure Component** button to begin the setup process.
 
@@ -75,7 +75,7 @@ Once you have filled in all the necessary options, click the **Save** button to 
 
 ![Keboola component specification setup](../images/keboola/keboola-setup-specification.png)
 
-### Step 3: Run the configured data source
+### Step 3: Run the configured Data Source
 
 After your data source has been configured, you can run it by clicking the **Run** button in the upper-right corner of your configuration.
 
