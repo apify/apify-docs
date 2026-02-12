@@ -116,6 +116,7 @@
     "overrides": {
         "openapi-to-postmanv2": {
             "js-yaml": "4.1.1"
-        }
+        },
+        "fast-xml-parser": "5.3.4"
     }
 }
