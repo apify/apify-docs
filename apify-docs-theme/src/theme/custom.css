@@ -2026,3 +2026,11 @@ div[class^="navbarSearchContainer"] {
     width: 14px !important;
     height: 15px !important;
 }
+
+/* Array brackets in API schema - rendered via CSS so they don't leak into .md export */
+.openapi-array-bracket-open::before {
+    content: "Array [";
+}
+.openapi-array-bracket-close::before {
+    content: "]";
+}
