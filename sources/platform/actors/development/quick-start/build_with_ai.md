@@ -32,7 +32,7 @@ The prompt guides AI coding assistants such as Antigravity, Cursor, Claude Code 
 1. Create directory: `mkdir my-new-actor`
 1. Open the directory in _Antigravity_, _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
 1. Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
-1. Run it, and develop your first actor with the help of AI
+1. Run it, and develop your first Actor with the help of AI
 
 :::info Avoid copy-pasting
 
@@ -52,9 +52,9 @@ If you do not have Apify CLI installed, see the [installation guide](/cli/docs/i
 
 The command above will guide you through Apify Actor initialization, where you select an Actor Template that works for you. The result is an initialized Actor (with AGENTS.md) ready for development.
 
-## Use Apify MCP Server
+## Use Apify MCP server
 
-The Apify MCP Server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
+The Apify MCP server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
 
 :::info Use Apify MCP server configuration
 

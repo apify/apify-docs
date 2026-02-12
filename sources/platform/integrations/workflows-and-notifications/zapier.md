@@ -94,11 +94,11 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Triggers
 
-### Finished Actor Run
+### Finished Actor run
 
 > Triggers when a selected Actor run is finished.
 
-### Finished Task Run
+### Finished task run
 
 > Triggers when a selected Actor task run is finished.
 
@@ -123,15 +123,15 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Searches
 
-### Fetch Dataset Items
+### Fetch dataset items
 
 > Retrieves items from a [dataset](/platform/storage/dataset).
 
-### Find Last Actor Run
+### Find last Actor run
 
 > Finds the most recent Actor run.
 
-### Find Last Task Run
+### Find last task run
 
 > Finds the most recent Actor task run.
 

@@ -150,13 +150,13 @@ _Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets 
 
 This trigger monitors a specific Apify Actor and starts the recipe when any run of that Actor reaches a terminal status. You can:
 
-- Select the Actor from recently used Actors or Apify store Actors
+- Select the Actor from recently used Actors or Apify Store Actors
 - Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`)
 - Access run details, status, and metadata in subsequent recipe steps
 
 ![Screenshot of the Actor Run Finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
-### Task Run Finished  
+### Task Run Finished
 
 _Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted)._
 
@@ -178,7 +178,7 @@ _Run an Apify Actor with customizable execution parameters._
 
 This action runs an Apify Actor with your specified input and execution parameters. You can choose to wait for completion or start the run asynchronously. Actors are reusable serverless programs that can scrape websites, process data, and automate workflows. You can:
 
-- Select from your recently used Actors or Apify store Actors
+- Select from your recently used Actors or Apify Store Actors
 - Provide input using dynamic schema-based fields or raw JSON
 - Configure run options like memory allocation, timeout, and build version
 - Choose between synchronous (wait for completion) or asynchronous execution
@@ -205,7 +205,7 @@ This action runs an Apify Task with optional input overrides and execution param
 
 ![Screenshot of the Run Task action configuration interface in Workato](../images/workato/run-task.png)
 
-### Get Dataset Items
+### Get dataset items
 
 _Retrieves items from a dataset with dynamic field mapping._
 
@@ -215,7 +215,7 @@ Select a dataset to dynamically generate output fields and retrieve its items. T
 - Retrieves data records from specified datasets with pagination support
 - Returns structured data ready for downstream recipe steps
 
-#### Dynamic Schema Detection
+#### Dynamic schema detection
 
 The connector samples your dataset to create appropriate output fields:
 
@@ -231,7 +231,7 @@ For optimal results, use datasets where all items follow a consistent structure.
 
 ![Screenshot of the Get Dataset Items action configuration interface in Workato](../images/workato/get-dataset.png)
 
-### Get Key-value store Record
+### Get key-value store record
 
 _Retrieves a single record from a Key-value store._
 

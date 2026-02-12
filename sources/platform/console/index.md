@@ -24,7 +24,7 @@ This is the most common way of creating an account. You just need to provide you
 After you click the **Sign up** button, we will send you a verification email. The email contains a link that you need to click on or copy to your browser to proceed to automated email verification. After we verify your email, you will proceed to Apify Console.
 
 :::info CAPTCHA
-We are using Google reCaptcha to prevent spam accounts. Usually, you will not see it, but if Google evaluates your browser as suspicious, they will ask you to solve a reCaptcha before we create your account and send you the verification email.
+We are using Google reCAPTCHA to prevent spam accounts. Usually, you will not see it, but if Google evaluates your browser as suspicious, they will ask you to solve a reCAPTCHA before we create your account and send you the verification email.
 :::
 
 If you did not receive the email, you can visit the [sign-in page](https://console.apify.com/sign-in). There, you will either proceed to our verification page right away, or you can sign in and will be redirected afterward. On the verification page, you can click on the **Resend verification email** button to send the email again.
@@ -56,13 +56,13 @@ In case you forgot your password, you can click on the **Forgot your password?**
 
 ![Apify Console forgotten password page](./images/console-forgotten-password-page.png)
 
-## Adding different authentication methods
+## Add different authentication methods
 
 After you create your account, you might still want to use the other authentication methods. To do that, go to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings. There, you will see all available authentication methods and their configuration.
 
 ![Apify Console sign-in methods section on account page](./images/console-sign-in-methods-section.png)
 
-## Resetting your password
+## Reset your password
 
 This section also allows you to reset your password if you ever forget it. To do that, click the **Send email to reset password** button.
 We will then send an email to the address connected to your account with a link to the password reset page.
@@ -94,34 +94,34 @@ You can also navigate Apify Console via keyboard shortcuts.
 <details>
 <summary>Keyboard Shortcuts</summary>
 
-|Shortcut| Tab |
-|:---|:----|
-|Show shortcuts | Shift? |
-|Home| GH  |
-|Store| GO  |
-|Actors| GA  |
-|Development| GD |
-|Saved tasks| GT  |
-|Runs| GR  |
-|Integrations | GI |
-|Schedules| GU  |
-|Storage| GE  |
-|Proxy| GP  |
-|Settings| GS  |
-|Billing| GB  |
+| Shortcut       | Tab    |
+| :---           | :---   |
+| Show shortcuts | Shift? |
+| Home           | GH     |
+| Store          | GO     |
+| Actors         | GA     |
+| Development    | GD     |
+| Saved tasks    | GT     |
+| Runs           | GR     |
+| Integrations   | GI     |
+| Schedules      | GU     |
+| Storage        | GE     |
+| Proxy          | GP     |
+| Settings       | GS     |
+| Billing        | GB     |
 
 </details>
 
 | Tab name | Description |
-|:---|:---|
-| [Apify Store](/platform/console/store)| Search for Actors that suit your web-scraping needs. |
-| [Actors](/platform/actors)| View recent & bookmarked Actors. |
-| [Runs](/platform/actors/running/runs-and-builds)| View your recent runs. |
-| [Saved tasks](/platform/actors/running/tasks)| View your saved tasks. |
-| [Schedules](/platform/schedules)| Schedule Actor runs & tasks to run at specified time. |
-| [Integrations](/platform/integrations)| View your integrations. |
-| [Development](/platform/actors/development)| &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
-| [Proxy](/platform/proxy)| View your proxy usage & credentials |
-| [Storage](/platform/storage)| View stored results of your runs in various data formats. |
-| [Billing](/platform/console/billing)| Billing information, statistics and invoices. |
-| [Settings](/platform/console/settings)| Settings of your account. |
+| :--- | :--- |
+| [Apify Store](/platform/console/store) | Search for Actors that suit your web-scraping needs. |
+| [Actors](/platform/actors) | View recent & bookmarked Actors. |
+| [Runs](/platform/actors/running/runs-and-builds) | View your recent runs. |
+| [Saved tasks](/platform/actors/running/tasks) | View your saved tasks. |
+| [Schedules](/platform/schedules) | Schedule Actor runs & tasks to run at specified time. |
+| [Integrations](/platform/integrations) | View your integrations. |
+| [Development](/platform/actors/development) | &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
+| [Proxy](/platform/proxy) | View your proxy usage & credentials |
+| [Storage](/platform/storage) | View stored results of your runs in various data formats. |
+| [Billing](/platform/console/billing) | Billing information, statistics and invoices. |
+| [Settings](/platform/console/settings) | Settings of your account. |

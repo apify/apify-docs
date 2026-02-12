@@ -25,7 +25,7 @@ Keep in mind that agentic payments are an experimental feature and may undergo s
 
 With Skyfire integration, agents can discover available Apify Actors, execute scraping and automation tasks, and pay for services using pre-funded Skyfire tokens, all without human intervention.
 
-## Using Skyfire with Apify MCP Server
+## Use Skyfire with Apify MCP server
 
 The [Apify MCP server](https://docs.apify.com/platform/integrations/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
 
@@ -136,7 +136,7 @@ See which Actors [support agentic payments](#supported-actors).
 
 When not pre-loading Actors, agents can discover suitable Actors dynamically using the search tools. The search automatically filters results to show only Actors that support agentic payments.
 
-## Using Skyfire with Apify API
+## Use Skyfire with Apify API
 
 For direct API integration, you can use Skyfire PAY tokens to authenticate and pay for Actor runs.
 
@@ -154,7 +154,7 @@ Instead of using a traditional Apify API token, pass your Skyfire PAY token in t
 skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN
 ```
 
-### Running an Actor
+### Run an Actor
 
 Make a standard Actor run request to the [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor), but include the Skyfire PAY token in the header.
 

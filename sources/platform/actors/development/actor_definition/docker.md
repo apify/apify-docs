@@ -126,7 +126,7 @@ When the Playwright/Puppeteer version in your `package.json` differs from what's
 
 :::
 
-### Using `*` as version (alternative approach)
+### Use `*` as version (alternative approach)
 
 You may encounter older documentation or templates using `*` as the Playwright/Puppeteer version:
 
@@ -208,7 +208,7 @@ You can check out various optimization tips for Dockerfile in our [Performance](
 
 :::
 
-## Updating older Dockerfiles
+## Update older Dockerfiles
 
 All Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
 
@@ -293,7 +293,7 @@ You should remove these lines, as the new user is now `myuser`. Don't forget to 
 COPY --chown=myuser:myuser . ./
 ```
 
-#### Installing dependencies that require root access
+#### Install dependencies that require root access
 
 The `root` user is still available in the Docker images. If you must run steps that require root access (like installing system packages with `apt` or `apk`), you can temporarily switch to the `root` user.
 

@@ -34,7 +34,7 @@ Actor-specific integrations are designed for targeted use cases. While they work
 
 For more examples both general and Actor-specific, check [integrations](./index.mdx).
 
-## Integrating with Apify
+## Integrate with Apify
 
 To integrate your service with Apify, you have two options:
 
@@ -43,11 +43,11 @@ To integrate your service with Apify, you have two options:
 
 ![Integration-ready Actors](./images/integration-ready-actors.png)
 
-### Building an integration Actor
+### Build an integration Actor
 
 One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](./actors/integration_ready_actors.md).
 
-### Building an external integration
+### Build an external integration
 
 An alternative way is to let your users manage the connection directly on your side using [Apify API](https://docs.apify.com/api/v2) and our API clients for [JavaScript](/api/client/js/) or [Python](/api/client/python/). This way, users can manage the connection directly from your service.
 
@@ -155,7 +155,7 @@ Users create their own Apify accounts and are billed directly by Apify for their
 
 Users access Apify through your platform without needing an Apify account. Apify bills you based on consumption, and you factor costs into your pricing.
 
-### Monitoring and tracking
+### Monitor and track
 
 To help Apify monitor and support your integration, every API request should identify your platform. You can do this in one of two ways:
 
@@ -184,12 +184,12 @@ For inspiration, check out the public repositories of Apify's existing external 
 
 - Zapier
   - [Zapier integration documentation](https://docs.apify.com/platform/integrations/zapier)
-  - [Source code on Github](https://github.com/apify/apify-zapier-integration)
+  - [Source code on GitHub](https://github.com/apify/apify-zapier-integration)
 - Make.com
   - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
 - Kestra
   - [Kestra integration documentation](https://kestra.io/plugins/plugin-apify)
-  - [Source code on Github](https://github.com/kestra-io/plugin-apify)
+  - [Source code on GitHub](https://github.com/kestra-io/plugin-apify)
 - Keboola
   - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
   - [Source code on GitHub](https://github.com/apify/keboola-ex-apify/) (JavaScript)

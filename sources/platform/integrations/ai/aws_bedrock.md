@@ -42,7 +42,7 @@ The following image illustrates the key components of an AWS Bedrock AI agent:
 
 ![AWS-Bedrock-AI-Agent](../images/aws-bedrock-ai-agent.png)
 
-### Building an Agent
+### Build an Agent
 
 To begin, open the Amazon Bedrock console and select agents from the left navigation panel.
 On the next screen, click Create agent to start building your agent.

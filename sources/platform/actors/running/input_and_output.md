@@ -41,7 +41,7 @@ As part of the input, you can also specify run options such as [Build](../develo
 
 :::info Dynamic memory
 
-If the Actor is configured by developer to use [dynamic memory](../development/actor_definition/dynamic_actor_memory/index.md), the system will calculate the optimal memory allocation based on your input. In this case, the **Memory** option acts as an override — if you set it, the calculated value will be ignored.
+If the Actor is configured by developer to use [dynamic memory](../development/actor_definition/dynamic_actor_memory/index.md), the system will calculate the optimal memory allocation based on your input. In this case, the **Memory** option acts as an override - if you set it, the calculated value will be ignored.
 
 :::
 

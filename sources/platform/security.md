@@ -109,6 +109,6 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 :::
 
-## Securing your data
+## Secure your data
 
 The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) for securing the input parameters of your Actors.

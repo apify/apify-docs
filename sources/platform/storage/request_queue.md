@@ -409,7 +409,7 @@ If the Actor processing the request fails, the lock expires, and the request is 
 
 In the following example, we demonstrate how you can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
 
-:::info
+:::info Lock mechanism
 The lock mechanism works on the client level, as well as the run level, when running the Actor on the Apify platform.
 
 This means you can unlock or prolong the lock the locked request only if:
@@ -554,7 +554,7 @@ await Actor.exit();
 
 A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
-## Sharing
+## Share
 
 You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
@@ -562,7 +562,7 @@ You can also share request queues by link using their ID or name, depending on y
 
 For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
 
-### Sharing request queues between runs
+### Share request queues between runs
 
 You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 

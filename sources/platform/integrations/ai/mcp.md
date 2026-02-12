@@ -17,7 +17,7 @@ using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-star
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
 and enabled AI coding assistants to access Apify documentation and tutorials.
 
-![Apify MCP Server](../../images/apify_mcp_server.png)
+![Apify MCP server](../../images/apify_mcp_server.png)
 
 ## Prerequisites
 
@@ -201,7 +201,7 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 
 :::tip One-click installation
 
-Download and run the [Apify MCP Server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
+Download and run the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
 
 :::
 
@@ -400,7 +400,7 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 <!-- markdownlint-enable MD001 -->
 ## Support and resources
 
-The Apify MCP Server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/apify-mcp-server/issues).
+The Apify MCP server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/apify-mcp-server/issues).
 
 If you find this project useful, please star it on [GitHub](https://github.com/apify/apify-mcp-server) to show your support!
 

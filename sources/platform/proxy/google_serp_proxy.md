@@ -24,7 +24,7 @@ Our Google SERP proxy currently supports the below services.
 
 When using the proxy, **pricing is based on the number of requests made**.
 
-## Connecting to Google SERP proxy
+## Connect to Google SERP proxy
 
 Requests made through the proxy are automatically routed through a proxy server from the selected country and pure **HTML code of the search result page is returned**.
 
@@ -61,7 +61,7 @@ See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXW
 
 ## Examples
 
-### Using the Apify SDK
+### Use the Apify SDK
 
 If you are developing your own Apify [Actor](../actors/index.mdx) using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [npm package](https://www.npmjs.com/package/got-scraping) by specifying the proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with the Apify SDK.
 
@@ -145,7 +145,7 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-### Using standard libraries and languages
+### Use standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of Apify Console.
 
