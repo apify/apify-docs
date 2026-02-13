@@ -6,8 +6,6 @@ sidebar_position: 4
 sidebar_label: System events
 ---
 
-**Learn about system events sent to your Actor and how to benefit from them.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -28,12 +26,12 @@ These events help you manage your Actor's behavior and resources effectively.
 The following table outlines the system events available:
 
 
-| Event name     | Payload | Description |
+| Event name | Payload | Description |
 | -------------- | ------- | ----------- |
-| `cpuInfo`      | `{ isCpuOverloaded: Boolean }` | Emitted approximately every second, indicating whether the Actor is using maximum available CPU resources. |
-| `migrating`    | `{ timeRemainingSecs: Float }` | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
-| `aborting`     | N/A | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup. |
-| `persistState` | `{ isMigrating: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. |
+| `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Emitted approximately every second, indicating whether the Actor is using maximum available CPU resources. |
+| `migrating` | `{ timeRemainingSecs: Float }` | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
+| `aborting` | N/A | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup. |
+| `persistState` | `{ isMigrating: Boolean }` | Emitted at regular intervals (default: _60 seconds_) to notify Apify SDK components to persist their state. |
 
 ## How system events work
 

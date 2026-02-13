@@ -5,10 +5,6 @@ sidebar_position: 14.5
 slug: /node-js/js-in-html
 ---
 
-**Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.**
-
----
-
 Depending on the technology the target website is using, the data to be collected not only can be found within HTML elements, but also in a JSON format within `<script>` tags in the DOM.
 
 The advantages of using these objects instead of parsing the HTML are that parsing JSON is much simpler, and more reliable than parsing HTML elements. They are much less likely to change, while the CSS selectors are prone to updates and re-namings every time the website is updated.

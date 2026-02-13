@@ -8,8 +8,6 @@ noindex: true
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
 
-**Learn how to build scrapers quicker and get better and more robust results by using Crawlee, an open-source library for scraping in Node.js.**
-
 <LegacyAdmonition />
 
 ---

@@ -5,10 +5,6 @@ sidebar_position: 4.2
 slug: /api-scraping/graphql-scraping
 ---
 
-**Dig into the topic of scraping APIs which use the latest and greatest API technology - GraphQL. GraphQL APIs are very different from regular REST APIs.**
-
----
-
 [GraphQL](https://graphql.org/) APIs different from the regular [REST](https://www.redhat.com/en/topics/api/what-is-a-rest-api)ful APIs you're likely familiar with, which means that different methods and tooling are used to scrape them. This course will teach you everything you need to know about GraphQL to scrape an API built with it.
 
 ## How do I know if it's a GraphQL API? {#graphql-endpoints}

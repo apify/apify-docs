@@ -5,10 +5,6 @@ sidebar_position: 5
 slug: /deploying-your-code/deploying
 ---
 
-**Push local code to the platform, or create an Actor and integrate it with a Git repository for automatic rebuilds.**
-
----
-
 Once you've **actorified** your code, there are two ways to deploy it to the Apify platform. You can either push the code directly from your local machine onto the platform, or you can create a blank Actor in the web interface, and then integrate its source code with a GitHub repository.
 
 ## With a Git repository {#with-git-repository}

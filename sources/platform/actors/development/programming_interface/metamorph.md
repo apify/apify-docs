@@ -5,8 +5,6 @@ slug: /actors/development/programming-interface/metamorph
 sidebar_position: 8
 ---
 
-**The metamorph operation transforms an Actor run into the run of another Actor with a new input.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

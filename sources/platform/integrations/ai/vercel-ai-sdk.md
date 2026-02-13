@@ -6,10 +6,6 @@ sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
 ---
 
-**Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK.**
-
----
-
 ## What is the Vercel AI SDK
 
 [Vercel AI SDK](https://ai-sdk.dev/) is the TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more.

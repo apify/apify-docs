@@ -6,10 +6,6 @@ category: apify platform
 slug: /apify-platform
 ---
 
-**Learn all about the Apify platform, all of the tools it offers, and how it can improve your overall development experience.**
-
----
-
 The [Apify platform](https://apify.com) was built to serve large-scale and high-performance web scraping and automation needs. It provides easy access to compute instances ([Actors](./getting_started/actors.md)), convenient request and result storages, proxies, scheduling, webhooks and more - all accessible through the **Console** web interface, [Apify's API](/api/v2), or our [JavaScript](/api/client/js) and [Python](/api/client/python) API clients.
 
 ## Category outline {#this-category}

@@ -10,10 +10,6 @@ import Exercises from '../scraping_basics/_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
-**In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of a website.**
-
----
-
 A browser is the most complete tool for navigating websites. Scrapers are like automated browsers—and sometimes, they actually are automated browsers. The key difference? There's no user to decide where to go or eyes to see what's displayed. Everything has to be pre-programmed.
 
 All modern browsers provide developer tools, or _DevTools_, for website developers to debug their work. We'll use them to understand how websites are structured and identify the behavior our scraper needs to mimic. Here's the typical workflow for creating a scraper:

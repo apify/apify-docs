@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /python/scrape-data-python
 ---
 
-**Learn how to create a Python Actor and use Python libraries to scrape, process and visualize data extracted from the web.**
-
----
-
 Web scraping is not limited to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and navigating or modifying of its DOM tree.
 
 This tutorial shows you how to write a Python [Actor](../../platform/getting_started/actors.md) for scraping the weather forecast from [BBC Weather](https://www.bbc.com/weather) and process the scraped data using [Pandas](https://pandas.pydata.org/).

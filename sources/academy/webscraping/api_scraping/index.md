@@ -6,10 +6,6 @@ category: web scraping & automation
 slug: /api-scraping
 ---
 
-**Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.**
-
----
-
 API scraping is locating a website's API endpoints, and fetching the desired data directly from their API, as opposed to parsing the data from their rendered HTML pages.
 
 > **Note:** In the next few lessons, we'll be using [SoundCloud's website](https://soundcloud.com) as an example target, but the techniques described here can be applied to any site.

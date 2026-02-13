@@ -9,10 +9,6 @@ import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import LegoExercise from '!!raw-loader!roa-loader!./exercises/lego.py';
 
-**In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
-
----
-
 Using browser tools for developers is crucial for understanding the structure of a particular page, but it's a manual task. Let's start building our first automation, a Python program which downloads HTML code of the product listing.
 
 ## Starting a Python project

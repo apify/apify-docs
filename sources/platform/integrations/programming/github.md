@@ -6,10 +6,6 @@ sidebar_position: 3
 slug: /integrations/github
 ---
 
-**Learn how to integrate your Apify Actors with GitHub. This article shows you several possible integrations.**
-
----
-
 ## Get started
 
 To use the Apify integration for GitHub, you will need:

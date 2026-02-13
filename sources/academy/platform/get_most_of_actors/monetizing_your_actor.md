@@ -6,10 +6,6 @@ slug: /get-most-of-actors/monetizing-your-actor
 unlisted: true
 ---
 
-**Learn how you can monetize your web scraping and automation projects by publishing Actors to users in Apify Store.**
-
----
-
 When you publish your Actor on the Apify platform, you have the option to make it a _Paid Actor_ and earn revenue from users who benefit from your tool. You can choose between two pricing models:
 
 - Rental

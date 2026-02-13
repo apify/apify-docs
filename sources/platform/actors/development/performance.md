@@ -5,10 +5,6 @@ description: Learn how to get the maximum value out of your Actors, minimize cos
 slug: /actors/development/performance
 ---
 
-**Learn how to get the maximum value out of your Actors, minimize costs, and maximize results.**
-
----
-
 ## Optimization Tips
 
 This guide provides tips to help you maximize the performance of your Actors, minimize costs, and achieve optimal results.

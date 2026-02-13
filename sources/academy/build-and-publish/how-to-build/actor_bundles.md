@@ -6,10 +6,6 @@ category: build-and-publish
 slug: /actor-marketing-playbook/product-optimization/actor-bundles
 ---
 
-**Learn what an Actor bundle is, explore existing examples, and discover how to promote them.**
-
----
-
 ## What is an Actor bundle?
 
 If an Actor is an example of web automation software, what is an Actor bundle? An Actor bundle is basically a chain of multiple Actors unified by a common use case. Bundles can include both scrapers and automation tools, and they are usually designed to achieve an overarching goal related to scraping or automation.

@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---
 
-**Learn how to create Actors that are ready to be integrated with other Actors and tasks.**
-
----
-
 Any Actor can be used in integrations. In order to provide a smooth experience for its users, there are few things to keep in mind.
 
 ## General guidelines
