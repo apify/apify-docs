@@ -37,9 +37,9 @@ Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify M
 
 :::
 
-:::tip Use the hosted server for the best experience
+:::tip Structured output schemas
 
-The hosted Apify MCP server at `https://mcp.apify.com` supports the latest features, including _output schema inference_ for structured Actor results. When using the hosted server, Actor tools automatically include inferred output schemas with field-level type information, helping AI agents understand the expected result structure before calling an Actor. This feature is not available when running locally via stdio.
+The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema inference_ for structured Actor results. Actor tools automatically include inferred output schemas with field-level type information. This helps AI agents understand the expected result structure before calling an Actor. The local stdio server does not support this feature.
 
 :::
 
