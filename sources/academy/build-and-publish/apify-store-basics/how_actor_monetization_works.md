@@ -95,11 +95,22 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 
 1. _Go to your Actor page_: navigate to the **Publication** tab and open the **Monetization** section.
 2. _Fill in billing details_: set up your payment details for payouts.
-3. _Choose your pricing model_: use the monetization wizard to select your model and set fees.
+3. _Choose your pricing model_: use the monetization wizard to select your model.
+4. _Define chargeable events (PPE)_: select the events users pay for (for example, per result, per API call, or per Actor start), then set clear names, descriptions, and prices.
+5. _Choose a primary event (PPE)_: select the event that best represents the main value of your Actor. This primary event is emphasized on the Actor detail page, so users can quickly understand what they are mainly paying for.
+
 
 ### Changing monetization
 
-Adjustments to monetization settings take 14 days to take effect and can be made once per month.
+Some monetization updates are applied immediately. However, significant pricing changes require a 14-day notice period.
+
+Significant changes include:
+
+- Increasing prices
+- Adding a new paid pricing event (PPE)
+- Changing the pricing model
+
+You can make these significant changes only once per month.
 
 ### Tracking and promotion
 
