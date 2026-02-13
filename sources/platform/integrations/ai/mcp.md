@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
 using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro). The server enables AI agents to
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
-and enabled AI coding assistants to access Apify documentation and tutorials.
+and enables AI coding assistants to access Apify documentation and tutorials.
 
 ![Apify MCP Server](../../images/apify_mcp_server.png)
 
