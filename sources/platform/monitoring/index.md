@@ -1,6 +1,6 @@
 ---
 title: Monitoring
-description: Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.
+description: Monitor your Actors and tasks to ensure they perform as expected. Set up alerts when your jobs or their metrics deviate from your expectations.
 sidebar_position: 12
 category: guides
 slug: /monitoring

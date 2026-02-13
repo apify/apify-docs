@@ -1,7 +1,7 @@
 ---
 title: Scraping product variants with Node.js
 sidebar_label: Scraping product variants
-description: Lesson about building a Node.js application for watching prices. Using browser DevTools to figure out how to extract product variants and exporting them as separate items.
+description: Build a Node.js price-watching application. Use browser DevTools to figure out how to extract product variants and export them as separate items.
 slug: /scraping-basics-javascript/scraping-variants
 ---
 

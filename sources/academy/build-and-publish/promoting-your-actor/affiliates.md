@@ -1,6 +1,6 @@
 ---
 title: Affiliates
-description: Join the Apify Affiliate Program to earn recurring commissions by promoting Actors, platform features, and professional services. Learn how to use your network, create content, and maximize your earnings.
+description: Join the Apify Affiliate Program to earn recurring commissions by promoting Actors, the Apify platform features, and its professional services.
 sidebar_position: 8
 category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/affiliates

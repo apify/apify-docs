@@ -1,6 +1,6 @@
 ---
 title: Billing
-description: The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.
+description: Manage your invoices, review current and historical platform usage, subscription details, and spending limits from the Apify Console Billing page.
 sidebar_position: 3
 category: platform
 slug: /console/billing
