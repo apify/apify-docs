@@ -15,10 +15,10 @@ This directory contains Claude Code configuration for the Apify documentation re
 │   ├── file-organization.md  # Naming conventions
 │   └── quality-standards.md  # Quality checklist
 └── skills/                # Reusable skills for common tasks
-    ├── doc-write.md       # Documentation writing skill
-    ├── api-doc.md         # API documentation skill
-    ├── tutorial.md        # Tutorial creation skill
-    └── review-docs.md     # Documentation review skill
+    ├── doc-write/         # Documentation writing skill
+    ├── api-doc/           # API documentation skill
+    ├── tutorial/          # Tutorial creation skill
+    └── review-docs/       # Documentation review skill
 ```
 
 ## How to use

@@ -227,8 +227,427 @@ index f6052d1..867bfd2 100644
                ),
                react_1.default.createElement(
                  "div",
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
+index 660f490..2367862 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
+@@ -250,12 +250,14 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "openapi-tabs__container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: hide tab navigation during SSR for clean .md export
++    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs })
+   );
+ }
+ function ApiTabs(props) {
+@@ -268,6 +270,7 @@ function ApiTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
+index b6bc631..f292799 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ArrayBrackets/index.js
+@@ -13,38 +13,29 @@ var __importDefault =
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.ClosingArrayBracket = exports.OpeningArrayBracket = void 0;
+ const react_1 = __importDefault(require("react"));
++// Apify: Use CSS ::before pseudo-element for bracket text so it doesn't
++// appear in the DOM text content and leak into .md export.
++// The CSS rules are in apify-docs-theme/src/theme/custom.css
++// Apify: no <li> wrapper — just a <div> so the empty bracket
++// doesn't produce a stray bullet point in .md export.
+ const OpeningArrayBracket = () =>
+-  react_1.default.createElement(
+-    "li",
+-    null,
+-    react_1.default.createElement(
+-      "div",
+-      {
+-        style: {
+-          fontSize: "var(--ifm-code-font-size)",
+-          opacity: 0.6,
+-          marginLeft: "-.5rem",
+-          paddingBottom: ".5rem",
+-        },
+-      },
+-      "Array ["
+-    )
+-  );
++  react_1.default.createElement("div", {
++    className: "openapi-array-bracket-open",
++    style: {
++      fontSize: "var(--ifm-code-font-size)",
++      opacity: 0.6,
++      marginLeft: "-.5rem",
++      paddingBottom: ".5rem",
++    },
++  });
+ exports.OpeningArrayBracket = OpeningArrayBracket;
+ const ClosingArrayBracket = () =>
+-  react_1.default.createElement(
+-    "li",
+-    null,
+-    react_1.default.createElement(
+-      "div",
+-      {
+-        style: {
+-          fontSize: "var(--ifm-code-font-size)",
+-          opacity: 0.6,
+-          marginLeft: "-.5rem",
+-        },
+-      },
+-      "]"
+-    )
+-  );
++  react_1.default.createElement("div", {
++    className: "openapi-array-bracket-close",
++    style: {
++      fontSize: "var(--ifm-code-font-size)",
++      opacity: 0.6,
++      marginLeft: "-.5rem",
++    },
++  });
+ exports.ClosingArrayBracket = ClosingArrayBracket;
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
+index f536508..e21b36a 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
+@@ -199,11 +199,35 @@ function TabList({ className, block, selectedValue, selectValue, tabValues }) {
+     )
+   );
+ }
+-function TabContent({ lazy, children, selectedValue }) {
++function TabContent({ lazy, children, selectedValue, isBrowser, tabValues }) {
+   const childTabs = (Array.isArray(children) ? children : [children]).filter(
+     Boolean
+   );
+   const flattenedChildTabs = (0, flatten_1.default)(childTabs);
++  // Apify: During SSR, show all discriminator variants with labels and
++  // proper nesting for .md export. We skip the TabItem wrapper (<div
++  // role="tabpanel">) because it can't contain <li> elements from
++  // SchemaItem — the HTML parser pushes them out, breaking nesting.
++  // Instead, render SchemaNode children directly inside a <ul>.
++  if (!isBrowser) {
++    return react_1.default.createElement(
++      "ul",
++      { style: { marginLeft: "1rem" } },
++      flattenedChildTabs.map((tabItem, i) => {
++        const label = tabValues?.[i]?.label ?? tabItem.props.value;
++        return react_1.default.createElement(
++          "li",
++          { key: i, className: "openapi-schema__list-item" },
++          react_1.default.createElement("strong", null, label),
++          react_1.default.createElement(
++            "ul",
++            { style: { marginLeft: "1rem" } },
++            tabItem.props.children
++          )
++        );
++      })
++    );
++  }
+   if (lazy) {
+     const selectedTabItem = flattenedChildTabs.find(
+       (tabItem) => tabItem.props.value === selectedValue
+@@ -228,12 +252,14 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "openapi-tabs__container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: hide tab navigation during SSR for clean .md export
++    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs, isBrowser })
+   );
+ }
+ function DiscriminatorTabs(props) {
+@@ -251,6 +277,7 @@ function DiscriminatorTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
+index 4bf9d6c..c0bffa2 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Example/index.js
+@@ -45,23 +45,33 @@ const formatExample = (example) => {
+   }
+   return String(example);
+ };
++// Apify: <br> + <span> instead of <div> to get a line break in .md export
++// without making the whole list "loose" (which adds blank lines everywhere).
++// The <br> creates a hard break; the <span> keeps content inline so the
++// hast-to-mdast converter doesn't add paragraph separation.
+ const renderExample = (example) => {
+   return react_1.default.createElement(
+-    "div",
+-    { className: EXAMPLE_CLASS_NAME },
+-    react_1.default.createElement(
+-      "strong",
+-      null,
+-      (0, Translate_1.translate)({
+-        id: translationIds_1.OPENAPI_SCHEMA_ITEM.EXAMPLE,
+-        message: "Example:",
+-      }),
+-      " "
+-    ),
++    react_1.default.Fragment,
++    null,
++    react_1.default.createElement("br", { style: { display: "none" } }),
+     react_1.default.createElement(
+       "span",
+-      null,
+-      react_1.default.createElement("code", null, formatExample(example))
++      { className: EXAMPLE_CLASS_NAME, style: { display: "block" } },
++      react_1.default.createElement(
++        "strong",
++        null,
++        (0, Translate_1.translate)({
++          id: translationIds_1.OPENAPI_SCHEMA_ITEM.EXAMPLE,
++          message: "Example:",
++        })
++      ),
++      // Apify: space outside strong to avoid &#x20; inside bold in .md export
++      " ",
++      react_1.default.createElement(
++        "span",
++        null,
++        react_1.default.createElement("code", null, formatExample(example))
++      )
+     )
+   );
+ };
+@@ -153,9 +163,10 @@ const renderExampleObject = (exampleName, exampleProperties) => {
+             (0, Translate_1.translate)({
+               id: translationIds_1.OPENAPI_SCHEMA_ITEM.DESCRIPTION,
+               message: "Description:",
+-            }),
+-            " "
++            })
+           ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
+           react_1.default.createElement(
+             "span",
+             null,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
+index 93c0559..785a05a 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
+@@ -261,12 +261,14 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "tabs-container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: hide tab navigation during SSR for clean .md export
++    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs })
+   );
+ }
+ function MimeTabs(props) {
+@@ -279,6 +281,7 @@ function MimeTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
+index b4bb17a..01ef6b8 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
+@@ -76,18 +76,7 @@ const ParamsDetailsComponent = ({ parameters }) => {
+   );
+ };
+ const ParamsDetails = (props) => {
+-  return react_1.default.createElement(
+-    BrowserOnly_1.default,
+-    {
+-      fallback: react_1.default.createElement(SkeletonLoader_1.default, {
+-        size: "sm",
+-      }),
+-    },
+-    () => {
+-      return react_1.default.createElement(ParamsDetailsComponent, {
+-        ...props,
+-      });
+-    }
+-  );
++  // Apify: Render directly instead of BrowserOnly to make content available in SSR HTML for llms-txt plugin
++  return react_1.default.createElement(ParamsDetailsComponent, { ...props });
+ };
+ exports.default = ParamsDetails;
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
+index da0f5ef..b743a20 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsItem/index.js
+@@ -64,8 +64,8 @@ function ParamsItem({ param, ...rest }) {
+     react_1.default.createElement(
+       "span",
+       { className: "openapi-schema__type" },
+-      " ",
+-      (0, schema_1.getSchemaName)(schema)
++      // Apify: single text node to avoid SSR comment between adjacent text nodes
++      " " + (0, schema_1.getSchemaName)(schema)
+     )
+   );
+   const renderSchemaRequired = (0, utils_1.guard)(required, () =>
+@@ -106,47 +106,60 @@ function ParamsItem({ param, ...rest }) {
+       );
+     }
+   );
++  // Apify: <br> + <span> to avoid loose list items while keeping line break
+   function renderDefaultValue() {
+     if (defaultValue !== undefined) {
+       if (typeof defaultValue === "string") {
+         return react_1.default.createElement(
+-          "div",
++          react_1.default.Fragment,
+           null,
+-          react_1.default.createElement(
+-            "strong",
+-            null,
+-            (0, Translate_1.translate)({
+-              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-              message: "Default value:",
+-            }),
+-            " "
+-          ),
++          react_1.default.createElement("br", { style: { display: "none" } }),
+           react_1.default.createElement(
+             "span",
+-            null,
+-            react_1.default.createElement("code", null, defaultValue)
++            { style: { display: "block" } },
++            react_1.default.createElement(
++              "strong",
++              null,
++              (0, Translate_1.translate)({
++                id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++                message: "Default value:",
++              })
++            ),
++            // Apify: space outside strong to avoid &#x20; inside bold in .md export
++            " ",
++            react_1.default.createElement(
++              "span",
++              null,
++              react_1.default.createElement("code", null, defaultValue)
++            )
+           )
+         );
+       }
+       return react_1.default.createElement(
+-        "div",
++        react_1.default.Fragment,
+         null,
+-        react_1.default.createElement(
+-          "strong",
+-          null,
+-          (0, Translate_1.translate)({
+-            id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-            message: "Default value:",
+-          }),
+-          " "
+-        ),
++        react_1.default.createElement("br", { style: { display: "none" } }),
+         react_1.default.createElement(
+           "span",
+-          null,
++          { style: { display: "block" } },
++          react_1.default.createElement(
++            "strong",
++            null,
++            (0, Translate_1.translate)({
++              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++              message: "Default value:",
++            })
++          ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
+           react_1.default.createElement(
+-            "code",
++            "span",
+             null,
+-            JSON.stringify(defaultValue)
++            react_1.default.createElement(
++              "code",
++              null,
++              JSON.stringify(defaultValue)
++            )
+           )
+         )
+       );
+@@ -173,8 +186,9 @@ function ParamsItem({ param, ...rest }) {
+         react_1.default.createElement("span", {
+           className: "openapi-schema__divider",
+         }),
+-      renderSchemaRequired,
+-      renderDeprecated
++      // Apify: conditional spaces before badges for .md export
++      renderSchemaRequired && " ", renderSchemaRequired,
++      renderDeprecated && " ", renderDeprecated
+     ),
+     renderQualifier,
+     renderDescription,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
+index aab2db8..4668eac 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/RequestSchema/index.js
+@@ -197,18 +197,7 @@ const RequestSchemaComponent = ({ title, body, style }) => {
+   );
+ };
+ const RequestSchema = (props) => {
+-  return react_1.default.createElement(
+-    BrowserOnly_1.default,
+-    {
+-      fallback: react_1.default.createElement(SkeletonLoader_1.default, {
+-        size: "sm",
+-      }),
+-    },
+-    () => {
+-      return react_1.default.createElement(RequestSchemaComponent, {
+-        ...props,
+-      });
+-    }
+-  );
++  // Apify: Render directly instead of BrowserOnly to make content available in SSR HTML for llms-txt plugin
++  return react_1.default.createElement(RequestSchemaComponent, { ...props });
+ };
+ exports.default = RequestSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
-index e84857b..ba445e8 100644
+index e84857b..f2a5a91 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ResponseSchema/index.js
 @@ -64,6 +64,8 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
@@ -240,10 +659,13 @@ index e84857b..ba445e8 100644
          return (
            // @ts-ignore
            react_1.default.createElement(
-@@ -72,6 +74,25 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+@@ -71,7 +73,27 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+             { key: mimeType, label: mimeType, value: mimeType },
              react_1.default.createElement(
                SchemaTabs_1.default,
-               { className: "openapi-tabs__schema" },
+-              { className: "openapi-tabs__schema" },
++              // Apify: hide "Example"/"Schema" tab navigation during SSR
++              { className: "openapi-tabs__schema", hideTabListSSR: true },
 +              // Apify: Put examples first, before schema
 +              // Show explicit examples if available
 +              responseExample &&
@@ -266,7 +688,7 @@ index e84857b..ba445e8 100644
                react_1.default.createElement(
                  TabItem_1.default,
                  { key: title, label: title, value: title },
-@@ -132,22 +153,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+@@ -132,22 +154,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
                      })
                    )
                  )
@@ -290,11 +712,66 @@ index e84857b..ba445e8 100644
              )
            )
          );
+@@ -157,18 +164,7 @@ const ResponseSchemaComponent = ({ title, body, style }) => {
+   return undefined;
+ };
+ const ResponseSchema = (props) => {
+-  return react_1.default.createElement(
+-    BrowserOnly_1.default,
+-    {
+-      fallback: react_1.default.createElement(SkeletonLoader_1.default, {
+-        size: "md",
+-      }),
+-    },
+-    () => {
+-      return react_1.default.createElement(ResponseSchemaComponent, {
+-        ...props,
+-      });
+-    }
+-  );
++  // Apify: Render directly instead of BrowserOnly to make content available in SSR HTML for llms-txt plugin
++  return react_1.default.createElement(ResponseSchemaComponent, { ...props });
+ };
+ exports.default = ResponseSchema;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-index 37190c6..76766ef 100644
+index 37190c6..3f72a4c 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/Schema/index.js
-@@ -304,7 +304,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
+@@ -126,13 +126,15 @@ const Summary = ({ name, schemaName, schema, required }) => {
+       react_1.default.createElement(
+         "span",
+         { className: "openapi-schema__name" },
+-        " ",
+-        schemaName
++        // Apify: single text node to avoid SSR comment between adjacent text nodes
++        " " + schemaName
+       ),
+       (isRequired || deprecated || nullable) &&
+         react_1.default.createElement("span", {
+           className: "openapi-schema__divider",
+         }),
++      // Apify: conditional spaces before badges for .md export
++      nullable && " ",
+       nullable &&
+         react_1.default.createElement(
+           "span",
+@@ -142,6 +144,7 @@ const Summary = ({ name, schemaName, schema, required }) => {
+             message: "nullable",
+           })
+         ),
++      isRequired && " ",
+       isRequired &&
+         react_1.default.createElement(
+           "span",
+@@ -151,6 +154,7 @@ const Summary = ({ name, schemaName, schema, required }) => {
+             message: "required",
+           })
+         ),
++      deprecated && " ",
+       deprecated &&
+         react_1.default.createElement(
+           "span",
+@@ -304,7 +308,7 @@ const AnyOneOf = ({ schema, schemaType, schemaPath }) => {
      )
    );
  };
@@ -303,7 +780,7 @@ index 37190c6..76766ef 100644
    const discriminator = schema.discriminator;
    if (discriminator && !discriminator.mapping) {
      const anyOneOf = schema.oneOf ?? schema.anyOf ?? {};
-@@ -344,6 +344,7 @@ const Properties = ({ schema, schemaType, schemaPath }) => {
+@@ -344,6 +348,7 @@ const Properties = ({ schema, schemaType, schemaPath }) => {
          discriminator: discriminator,
          schemaType: schemaType,
          schemaPath: schemaPath ? `${schemaPath}.${key}` : undefined,
@@ -311,7 +788,38 @@ index 37190c6..76766ef 100644
        })
      )
    );
-@@ -581,7 +582,10 @@ const SchemaNodeDetails = ({
+@@ -382,13 +387,15 @@ const PropertyDiscriminator = ({
+             react_1.default.createElement(
+               "span",
+               { className: "openapi-schema__name" },
+-              " ",
+-              schemaName
++              // Apify: single text node to avoid SSR comment
++              " " + schemaName
+             ),
+           required &&
+             react_1.default.createElement("span", {
+               className: "openapi-schema__divider",
+             }),
++          // Apify: space before badge for .md export
++          required && " ",
+           required &&
+             react_1.default.createElement(
+               "span",
+@@ -474,8 +481,11 @@ const DiscriminatorNode = ({ discriminator, schema, schemaType }) => {
+     let mergedSubSchema = {};
+     if (subSchema.allOf) {
+       mergedSubSchema = mergeAllOf(subSchema);
++      // Apify: Replace mapping entry with the merged result so SchemaNode
++      // doesn't re-merge allOf and bring back the discriminator property.
++      discriminator.mapping[key] = mergedSubSchema;
+     }
+-    const subProperties = subSchema.properties || mergedSubSchema.properties;
++    const subProperties = mergedSubSchema.properties || subSchema.properties;
+     // Add a safeguard check to avoid referencing subProperties if it's undefined
+     if (subProperties && subProperties[discriminator.propertyName]) {
+       if (schema.properties) {
+@@ -581,7 +591,10 @@ const SchemaNodeDetails = ({
    required,
    schemaType,
    schemaPath,
@@ -322,7 +830,7 @@ index 37190c6..76766ef 100644
    return react_1.default.createElement(
      SchemaItem_1.default,
      { collapsible: true },
-@@ -589,6 +593,7 @@ const SchemaNodeDetails = ({
+@@ -589,6 +602,7 @@ const SchemaNodeDetails = ({
        Details_1.default,
        {
          className: "openapi-markdown__details",
@@ -330,7 +838,33 @@ index 37190c6..76766ef 100644
          summary: react_1.default.createElement(Summary, {
            name: name,
            schemaName: schemaName,
-@@ -611,6 +616,7 @@ const SchemaNodeDetails = ({
+@@ -596,21 +610,24 @@ const SchemaNodeDetails = ({
+           required: required,
+         }),
+       },
++      // Apify: description/qualifier outside <ul> to avoid block elements in the list
++      schema.description &&
++        react_1.default.createElement(MarkdownWrapper, {
++          text: schema.description,
++        }),
++      (0, schema_1.getQualifierMessage)(schema) &&
++        react_1.default.createElement(MarkdownWrapper, {
++          text: (0, schema_1.getQualifierMessage)(schema),
++        }),
++      // Apify: use <ul> instead of <div> so markdown converter produces nested lists
+       react_1.default.createElement(
+-        "div",
++        "ul",
+         { style: { marginLeft: "1rem" } },
+-        schema.description &&
+-          react_1.default.createElement(MarkdownWrapper, {
+-            text: schema.description,
+-          }),
+-        (0, schema_1.getQualifierMessage)(schema) &&
+-          react_1.default.createElement(MarkdownWrapper, {
+-            text: (0, schema_1.getQualifierMessage)(schema),
+-          }),
+         react_1.default.createElement(SchemaNode, {
            schema: schema,
            schemaType: schemaType,
            schemaPath: schemaPath,
@@ -338,7 +872,7 @@ index 37190c6..76766ef 100644
          })
        )
      )
-@@ -703,6 +709,7 @@ const SchemaEdge = ({
+@@ -703,6 +720,7 @@ const SchemaEdge = ({
    discriminator,
    schemaType,
    schemaPath,
@@ -346,7 +880,7 @@ index 37190c6..76766ef 100644
  }) => {
    if (
      (schemaType === "request" && schema.readOnly) ||
-@@ -731,6 +738,7 @@ const SchemaEdge = ({
+@@ -731,6 +749,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -354,7 +888,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.properties) {
-@@ -742,6 +750,7 @@ const SchemaEdge = ({
+@@ -742,6 +761,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -362,7 +896,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.additionalProperties) {
-@@ -753,6 +762,7 @@ const SchemaEdge = ({
+@@ -753,6 +773,7 @@ const SchemaEdge = ({
        schema: schema,
        nullable: schema.nullable,
        schemaPath: schemaPath,
@@ -370,7 +904,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.items?.properties) {
-@@ -764,6 +774,7 @@ const SchemaEdge = ({
+@@ -764,6 +785,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -378,7 +912,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.items?.anyOf || schema.items?.oneOf || schema.items?.allOf) {
-@@ -775,6 +786,7 @@ const SchemaEdge = ({
+@@ -775,6 +797,7 @@ const SchemaEdge = ({
        schema: schema,
        schemaType: schemaType,
        schemaPath: schemaPath,
@@ -386,7 +920,7 @@ index 37190c6..76766ef 100644
      });
    }
    if (schema.allOf) {
-@@ -813,6 +825,7 @@ const SchemaEdge = ({
+@@ -813,6 +836,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -394,7 +928,7 @@ index 37190c6..76766ef 100644
        });
      }
      if (mergedSchemas.properties !== undefined) {
-@@ -824,6 +837,7 @@ const SchemaEdge = ({
+@@ -824,6 +848,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -402,7 +936,7 @@ index 37190c6..76766ef 100644
        });
      }
      if (mergedSchemas.items?.properties) {
-@@ -835,6 +849,7 @@ const SchemaEdge = ({
+@@ -835,6 +860,7 @@ const SchemaEdge = ({
          schema: mergedSchemas,
          schemaType: schemaType,
          schemaPath: schemaPath,
@@ -410,3 +944,298 @@ index 37190c6..76766ef 100644
        });
      }
      return react_1.default.createElement(SchemaItem_1.default, {
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
+index c1aa5d8..67f9e5c 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaItem/index.js
+@@ -136,107 +136,136 @@ function SchemaItem(props) {
+         react_1.default.createElement(Markdown_1.default, null, message)
+       )
+   );
++  // Apify: <br> + <span> to avoid loose list items while keeping line break
+   function renderDefaultValue() {
+     if (defaultValue !== undefined) {
+       if (typeof defaultValue === "string") {
+         return react_1.default.createElement(
+-          "div",
++          react_1.default.Fragment,
+           null,
+-          react_1.default.createElement(
+-            "strong",
+-            null,
+-            (0, Translate_1.translate)({
+-              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-              message: "Default value:",
+-            }),
+-            " "
+-          ),
++          react_1.default.createElement("br", { style: { display: "none" } }),
+           react_1.default.createElement(
+             "span",
+-            null,
+-            react_1.default.createElement("code", null, defaultValue)
++            { style: { display: "block" } },
++            react_1.default.createElement(
++              "strong",
++              null,
++              (0, Translate_1.translate)({
++                id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++                message: "Default value:",
++              })
++            ),
++            // Apify: space outside strong to avoid &#x20; inside bold in .md export
++            " ",
++            react_1.default.createElement(
++              "span",
++              null,
++              react_1.default.createElement("code", null, defaultValue)
++            )
+           )
+         );
+       }
+       return react_1.default.createElement(
+-        "div",
++        react_1.default.Fragment,
+         null,
+-        react_1.default.createElement(
+-          "strong",
+-          null,
+-          (0, Translate_1.translate)({
+-            id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+-            message: "Default value:",
+-          }),
+-          " "
+-        ),
++        react_1.default.createElement("br", { style: { display: "none" } }),
+         react_1.default.createElement(
+           "span",
+-          null,
++          { style: { display: "block" } },
+           react_1.default.createElement(
+-            "code",
++            "strong",
+             null,
+-            JSON.stringify(defaultValue)
++            (0, Translate_1.translate)({
++              id: translationIds_1.OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
++              message: "Default value:",
++            })
++          ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
++          react_1.default.createElement(
++            "span",
++            null,
++            react_1.default.createElement(
++              "code",
++              null,
++              JSON.stringify(defaultValue)
++            )
+           )
+         )
+       );
+     }
+     return undefined;
+   }
++  // Apify: <br> + <span> to avoid loose list items while keeping line break
+   function renderConstValue() {
+     if (constValue !== undefined) {
+       if (typeof constValue === "string") {
+         return react_1.default.createElement(
+-          "div",
++          react_1.default.Fragment,
+           null,
+-          react_1.default.createElement(
+-            "strong",
+-            null,
+-            (0, Translate_1.translate)({
+-              id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
+-              message: "Constant value:",
+-            }),
+-            " "
+-          ),
++          react_1.default.createElement("br", { style: { display: "none" } }),
+           react_1.default.createElement(
+             "span",
+-            null,
+-            react_1.default.createElement("code", null, constValue)
++            { style: { display: "block" } },
++            react_1.default.createElement(
++              "strong",
++              null,
++              (0, Translate_1.translate)({
++                id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
++                message: "Constant value:",
++              })
++            ),
++            // Apify: space outside strong to avoid &#x20; inside bold in .md export
++            " ",
++            react_1.default.createElement(
++              "span",
++              null,
++              react_1.default.createElement("code", null, constValue)
++            )
+           )
+         );
+       }
+       return react_1.default.createElement(
+-        "div",
++        react_1.default.Fragment,
+         null,
+-        react_1.default.createElement(
+-          "strong",
+-          null,
+-          (0, Translate_1.translate)({
+-            id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
+-            message: "Constant value:",
+-          }),
+-          " "
+-        ),
++        react_1.default.createElement("br", { style: { display: "none" } }),
+         react_1.default.createElement(
+           "span",
+-          null,
++          { style: { display: "block" } },
+           react_1.default.createElement(
+-            "code",
++            "strong",
+             null,
+-            JSON.stringify(constValue)
++            (0, Translate_1.translate)({
++              id: translationIds_1.OPENAPI_SCHEMA_ITEM.CONSTANT_VALUE,
++              message: "Constant value:",
++            })
++          ),
++          // Apify: space outside strong to avoid &#x20; inside bold in .md export
++          " ",
++          react_1.default.createElement(
++            "span",
++            null,
++            react_1.default.createElement(
++              "code",
++              null,
++              JSON.stringify(constValue)
++            )
+           )
+         )
+       );
+     }
+     return undefined;
+   }
++  // Apify: use Fragment instead of <div> to avoid "loose" list items
++  // that add blank lines in the .md export
+   const schemaContent = react_1.default.createElement(
+-    "div",
++    react_1.default.Fragment,
+     null,
+     react_1.default.createElement(
+       "span",
+       { className: "openapi-schema__container" },
+-      react_1.default.createElement(
++      // Apify: only render name <strong> when present to avoid **** in .md export
++      name && react_1.default.createElement(
+         "strong",
+         {
+           className: (0, clsx_1.default)("openapi-schema__property", {
+@@ -245,6 +274,7 @@ function SchemaItem(props) {
+         },
+         name
+       ),
++      name && " ", // Apify: space between name and type for .md export
+       react_1.default.createElement(
+         "span",
+         { className: "openapi-schema__name" },
+@@ -254,9 +284,10 @@ function SchemaItem(props) {
+         react_1.default.createElement("span", {
+           className: "openapi-schema__divider",
+         }),
+-      renderNullable,
+-      renderRequired,
+-      renderDeprecated
++      // Apify: conditional spaces before badges for .md export
++      renderNullable && " ", renderNullable,
++      renderRequired && " ", renderRequired,
++      renderDeprecated && " ", renderDeprecated
+     ),
+     renderSchemaDescription,
+     renderEnumDescriptions,
+@@ -268,7 +299,8 @@ function SchemaItem(props) {
+     collapsibleSchemaContent ?? collapsibleSchemaContent
+   );
+   return react_1.default.createElement(
+-    "div",
++    // Apify: use <li> instead of <div> so nested lists produce proper markdown indentation
++    "li",
+     { className: "openapi-schema__list-item" },
+     collapsible ? collapsibleSchemaContent : schemaContent
+   );
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
+index d1924da..4413520 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
+@@ -242,12 +242,16 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const { isBrowser, hideTabListSSR, ...rest } = props;
++  const tabs = (0, internal_1.useTabs)(rest);
+   return react_1.default.createElement(
+     "div",
+     { className: "openapi-tabs__schema-container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    // Apify: optionally hide tab navigation during SSR for clean .md export.
++    // Used by ResponseSchema (Example/Schema tabs) but NOT by AnyOneOf
++    // (anyOf/oneOf tabs) where the option list is useful in markdown.
++    (isBrowser || !hideTabListSSR) && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++    react_1.default.createElement(TabContent, { ...rest, ...tabs })
+   );
+ }
+ function SchemaTabs(props) {
+@@ -260,6 +264,7 @@ function SchemaTabs(props) {
+       // Remount tabs after hydration
+       // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
+       key: String(isBrowser),
++      isBrowser,
+       ...props,
+     },
+     (0, internal_1.sanitizeTabsChildren)(props.children)
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
+index a0b2d76..ab3e87f 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/StatusCodes/index.js
+@@ -14,6 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ const react_1 = __importDefault(require("react"));
+ const Translate_1 = require("@docusaurus/Translate");
+ const ApiTabs_1 = __importDefault(require("@theme/ApiTabs"));
++const Heading_1 = __importDefault(require("@theme/Heading"));
+ const Details_1 = __importDefault(require("@theme/Details"));
+ const Markdown_1 = __importDefault(require("@theme/Markdown"));
+ const ResponseHeaders_1 = __importDefault(require("@theme/ResponseHeaders"));
+@@ -35,6 +36,25 @@ const StatusCodes = ({ label, id, responses }) => {
+         react_1.default.createElement(
+           TabItem_1.default,
+           { key: code, label: code, value: code },
++          // Apify: Visually hidden heading for llms-txt .md export
++          react_1.default.createElement(
++            Heading_1.default,
++            {
++              as: "h3",
++              style: {
++                position: 'absolute',
++                width: '1px',
++                height: '1px',
++                padding: 0,
++                margin: '-1px',
++                overflow: 'hidden',
++                clip: 'rect(0, 0, 0, 0)',
++                whiteSpace: 'nowrap',
++                borderWidth: 0,
++              }
++            },
++            `Status ${code}`
++          ),
+           react_1.default.createElement(
+             "div",
+             null,

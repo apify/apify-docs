@@ -107,8 +107,8 @@ Use this streamlined checklist for reviews. For detailed standards, see `.claude
   - Keywords used naturally
 
 - [ ] **Content-type specific checks**
-  - **Tutorials** (see `tutorial.md` skill): Clear learning objectives, prerequisites listed, sequential numbered steps, summary and next steps
-  - **API docs** (see `api-doc.md` skill): Operation IDs follow conventions, all parameters documented, code samples included (JS, Python, cURL), error responses documented
+  - **Tutorials** (see `/tutorial` skill): Clear learning objectives, prerequisites listed, sequential numbered steps, summary and next steps
+  - **API docs** (see `/api-doc` skill): Operation IDs follow conventions, all parameters documented, code samples included (JS, Python, cURL), error responses documented
   - **Reference pages**: Comprehensive parameter tables, default values specified, type information included
 
 ## How to review
