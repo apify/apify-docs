@@ -6,10 +6,6 @@ sidebar_position: 8
 slug: /integrations/langgraph
 ---
 
-**Learn how to build AI Agents with Apify and LangGraph.**
-
----
-
 ## What is LangGraph
 
 [LangGraph](https://www.langchain.com/langgraph) is a framework designed for constructing stateful, multi-agent applications with Large Language Models (LLMs), allowing developers to build complex AI agent workflows that can leverage tools, APIs, and databases.

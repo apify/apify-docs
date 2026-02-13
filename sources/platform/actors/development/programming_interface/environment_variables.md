@@ -6,8 +6,6 @@ sidebar_position: 3
 sidebar_label: Environment variables
 ---
 
-**Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables set by the Apify platform.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

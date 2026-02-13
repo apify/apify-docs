@@ -12,10 +12,6 @@ import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonit
 
 <LegacyJsCourseAdmonition />
 
-**Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.**
-
----
-
 In this course we'll use JavaScript to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
 ![E-commerce listing on the left, JSON with data on the right](../scraping_basics/images/scraping.webp)

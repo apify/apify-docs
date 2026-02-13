@@ -4,10 +4,6 @@ description: Learn how to run an Actor/task via the Apify API, wait for the job 
 slug: /api/run-actor-and-retrieve-data-via-api
 ---
 
-**Learn how to run an Actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating Actors with your projects.**
-
----
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

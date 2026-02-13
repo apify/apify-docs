@@ -6,10 +6,6 @@ category: platform
 slug: /console/settings
 ---
 
-**Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.**
-
----
-
 ## Account
 
 By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:

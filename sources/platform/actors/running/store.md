@@ -8,10 +8,6 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**[Apify Store](https://apify.com/store) is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
-
----
-
 :::info Publishing and monetizing Actors
 
 Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.

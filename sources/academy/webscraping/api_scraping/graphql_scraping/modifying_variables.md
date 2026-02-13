@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /api-scraping/graphql-scraping/modifying-variables
 ---
 
-**Learn how to modify the variables of a JSON format GraphQL query to use the API without needing to write any GraphQL language or create custom queries.**
-
----
-
 In the introduction of this course, we searched for the term **test** on the [Cheddar](https://www.cheddar.com/) website and discovered a request to their GraphQL API. The payload looked like this:
 
 ```json

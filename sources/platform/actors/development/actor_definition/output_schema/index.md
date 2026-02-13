@@ -6,10 +6,6 @@ description: Learn how to define and present output of your Actor.
 slug: /actors/development/actor-definition/output-schema
 ---
 
-**Learn how to define and present the output of your Actor.**
-
----
-
 The Actor output schema builds upon the schemas for the [dataset](/platform/actors/development/actor-definition/dataset-schema) and [key-value store](/platform/actors/development/actor-definition/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
 
 ## Structure

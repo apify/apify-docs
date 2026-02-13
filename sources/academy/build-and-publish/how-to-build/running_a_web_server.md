@@ -6,10 +6,6 @@ category: build-and-publish
 slug: /running-a-web-server
 ---
 
-**A web server running in an Actor can act as a communication channel with the outside world. Learn how to set one up with Node.js.**
-
----
-
 Sometimes, an Actor needs a channel for communication with other systems (or humans). This channel might be used to receive commands, to provide info about progress, or both. To implement this, we will run a HTTP web server inside the Actor that will provide:
 
 - An API to receive commands.

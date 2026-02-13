@@ -5,10 +5,6 @@ sidebar_position: 4
 slug: /anti-scraping/techniques/firewalls
 ---
 
-**Understand what a web-application firewall is, how they work, and the various common techniques for avoiding them altogether.**
-
----
-
 A web-application firewall (or **WAF**) is a tool for website admins which allows them to set various access rules for their visitors. The rules can vary on each website and are usually hard to detect; therefore, on sites using a WAF, you need to run a set of tests to test the rules and find out their limits.
 
 One of the most common WAFs one can come across is the one from [Cloudflare](https://www.cloudflare.com). It allows setting a waiting screen that runs a few tests against the visitor to detect a genuine visitor or a bot. However, not all WAFs are that easy to detect.

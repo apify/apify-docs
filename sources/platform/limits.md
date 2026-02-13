@@ -6,10 +6,6 @@ category: platform
 slug: /limits
 ---
 
-**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of Actors and tasks per user.**
-
----
-
 The tables below demonstrate the Apify platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](/api/v2#rate-limiting).
 
 > If needed, the limits shown below can be increased on paid accounts. For details, contact us at **[hello@apify.com](mailto:hello@apify.com)** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".

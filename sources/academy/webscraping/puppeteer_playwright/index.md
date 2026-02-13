@@ -9,10 +9,6 @@ slug: /puppeteer-playwright
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.**
-
----
-
 [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/) are libraries that allow you to automate browsing. Based on your instructions, they can open a browser window, load a website, click on links, etc. They can also do this _headlessly_, i.e., in a way that the browser window isn't visible, which is faster.
 
 Both packages were developed by the same team and are very similar, which is why we have combined the Puppeteer course and the Playwright course into one super-course that shows code examples for both technologies. The two differ in only small ways, and those will always be highlighted in the examples.

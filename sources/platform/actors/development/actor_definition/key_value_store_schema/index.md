@@ -6,10 +6,6 @@ description: Learn how to define and present your key-value store schema to orga
 slug: /actors/development/actor-definition/key-value-store-schema
 ---
 
-**Learn how to define and present your key-value store schema to organize records into collections.**
-
----
-
 The key‑value store schema organizes keys into logical groups called collections, which can be used to filter and categorize data both in the API and the visual user interface. This organization helps users navigate and find specific data more efficiently, while schema‑defined rules (such as content types and JSON schema) ensure that stored values remain consistent and valid.
 
 ## Example

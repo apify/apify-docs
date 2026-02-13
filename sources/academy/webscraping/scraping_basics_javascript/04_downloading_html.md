@@ -12,10 +12,6 @@ import LegoExercise from '!!raw-loader!roa-loader!./exercises/lego.mjs';
 
 <LegacyJsCourseAdmonition />
 
-**In this lesson we'll start building a Node.js application for watching prices. As a first step, we'll use the Fetch API to download HTML code of a product listing page.**
-
----
-
 Using browser tools for developers is crucial for understanding the structure of a particular page, but it's a manual task. Let's start building our first automation, a JavaScript program which downloads HTML code of the product listing.
 
 ## Starting a Node.js project

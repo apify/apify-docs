@@ -7,10 +7,6 @@ slug: /node-js/caching-responses-in-puppeteer
 
 import Example from '!!raw-loader!roa-loader!./caching_responses_in_puppeteer.js';
 
-**Learn why it is important for performance to cache responses in memory when intercepting requests in Puppeteer and how to implement it in your code.**
-
----
-
 > In the latest version of Puppeteer, the request-interception function inconveniently disables the native cache and significantly slows down the crawler. Therefore, it's not recommended to follow the examples shown in this article unless you have a very specific use-case where the default browser cache is not enough (e.g. cashing over multiple scraper runs)
 
 When running crawlers that go through a single website, each open page has to load all resources again. The problem is that each resource needs to be downloaded through the network, which can be slow and/or unstable (especially when proxies are used).

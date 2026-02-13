@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /integrations/webhooks/actions
 ---
 
-**Send notifications when specific events occur in your Actor/task  run or build. Dynamically add data to the notification payload.**
-
----
-
 ## Send HTTP request
 
 To send notification, you can use the HTTP request action, which sends an HTTP POST request to a specified URL with a JSON payload. The payload is defined using a payload template, which is a JSON-like syntax that allows you to include variables enclosed in double curly braces `{{variable}}`. This enables the

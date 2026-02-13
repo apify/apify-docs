@@ -6,10 +6,6 @@ category: platform
 slug: /console
 ---
 
-**Learn about Apify Console's easy account creation and user-friendly homepage for efficient web scraping management.**
-
----
-
 ## Sign-up
 
 To use Apify Console, you first need to create an account. To create it please go to the [sign-up page](https://console.apify.com/sign-up).

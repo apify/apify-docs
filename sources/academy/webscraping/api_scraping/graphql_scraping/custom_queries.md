@@ -5,10 +5,6 @@ sidebar_position: 3
 slug: /api-scraping/graphql-scraping/custom-queries
 ---
 
-**Learn how to write custom GraphQL queries, how to pass input values into GraphQL requests as variables, and how to retrieve and output the data from a scraper.**
-
----
-
 Sometimes, the queries found in the **Network** tab aren't good enough for your use case. Or, perhaps they're even returning more data than what you're after (which can slow down the queries depending on how much data they're giving back). In these situations, it's a good idea to dig a bit deeper into the API and start writing your own custom use-case specific queries.
 
 In this lesson, we're building a scraper which expects a single number (in **hours**) and a **query** string as its input. As output, it should provide data about the first 1000 Cheddar posts published within the last **n** hours which match the provided query. Each **post** object should contain the **title**, the **publishDate** and the **videoUrl** of the post.

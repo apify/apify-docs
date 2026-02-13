@@ -8,8 +8,6 @@ noindex: true
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
 
-**Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.**
-
 <LegacyAdmonition />
 
 ---

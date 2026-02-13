@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /deploying-your-code/input-schema
 ---
 
-**Learn how to generate a user interface on the platform for your Actor's input with a single file - the INPUT_SCHEMA.json file.**
-
----
-
 Though writing an [input schema](/platform/actors/development/actor-definition/input-schema) for an Actor is not a required step, it's definitely an ideal one. The Apify platform will read the `INPUT_SCHEMA.json` file within the root of your project and generate a user interface for entering input into your Actor, which makes it significantly easier for non-developers (and even developers) to configure and understand the inputs your Actor can receive. Because of this, we'll be writing an input schema for our example Actor.
 
 :::note JSON requirement

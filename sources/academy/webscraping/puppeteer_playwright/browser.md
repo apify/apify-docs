@@ -8,10 +8,6 @@ slug: /puppeteer-playwright/browser
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Understand what the Browser object is in Puppeteer/Playwright, how to create one, and a bit about how to interact with one.**
-
----
-
 In order to automate a browser in Playwright or Puppeteer, we need to open one up programmatically. Playwright supports Chromium, Firefox, and Webkit (Safari), while Puppeteer only supports Chromium based browsers. For ease of understanding, we've chosen to use Chromium in the Playwright examples to keep things working on the same plane.
 
 Let's start by using the `launch()` function in the **index.js** file we created in the intro to this course:

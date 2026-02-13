@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /advanced-web-scraping/tips-and-tricks-robustness
 ---
 
-**Learn how to make your automated processes more effective. Avoid common web scraping and web automation pitfalls, future-proof your programs and improve your processes.**
-
----
-
 This collection of tips and tricks aims to help you make your scrapers work smoother and produce fewer errors.
 
 ## Proofs and verification {#proofs-and-verification}

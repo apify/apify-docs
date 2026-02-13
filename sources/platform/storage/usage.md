@@ -8,10 +8,6 @@ slug: /storage/usage
 
 import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
 
-**Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.**
-
----
-
 ## Dataset
 
 [Dataset](./dataset.md) storage allows you to store a series of data objects, such as results from web scraping, crawling, or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel, or HTML formats.

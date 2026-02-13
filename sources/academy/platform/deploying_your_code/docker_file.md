@@ -8,10 +8,6 @@ slug: /deploying-your-code/docker-file
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn to write a Dockerfile for your project so it can run in a Docker container on the Apify platform.**
-
----
-
 The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every Actor must have a Dockerfile, as Actors run in Docker containers.
 
 :::note Local testing

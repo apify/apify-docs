@@ -7,10 +7,6 @@ slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
 ---
 
-**Learn how to develop new Actors or improve existing ones using AI code generation and vibe coding tools.**
-
----
-
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
 import copyForAI from "./images/copy-for-ai.png";

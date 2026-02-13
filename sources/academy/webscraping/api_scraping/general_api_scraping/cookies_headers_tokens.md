@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /api-scraping/general-api-scraping/cookies-headers-tokens
 ---
 
-**Learn about how some APIs require certain cookies, headers, and/or tokens to be present in a request in order for data to be received.**
-
----
-
 Unfortunately, most APIs will require a valid cookie to be included in the `cookie` field within a request's headers in order to be authorized. Other APIs may require special tokens, or other data that validates the request.
 
 Luckily, there are ways to retrieve and set cookies for requests prior to sending them, which will be covered more in-depth within future Scraping Academy modules. The most important things to know at the moment are:

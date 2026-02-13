@@ -6,10 +6,6 @@ category: platform
 slug: /collaboration/access-rights
 ---
 
-**Manage permissions for your private resources such as Actors, Actor runs, and storages. Allow other users to read, run, modify, or build new versions.**
-
----
-
 You can easily and securely share your own resources - Actors, tasks, key-value stores, datasets, and request queues - with other users by using a [granular](https://www.google.com/search?q=define+granular+permissions) permissions system. This enables you, for example, to let your colleague run an [Actor](../actors/index.mdx) or view a [dataset](../storage/dataset.md) but not modify it.
 
 You can also grant permission to update an Actor and build a new version.
