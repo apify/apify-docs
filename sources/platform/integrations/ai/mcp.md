@@ -364,7 +364,7 @@ When Skyfire payment mode is enabled, the agent handles the full payment flow au
 1. The agent discovers relevant Actors via `search-actors` or `fetch-actor-details` (these remain free).
 1. Before executing an Actor, the agent creates a PAY token using the `create-pay-token` tool from the Skyfire MCP server (minimum $5.00 USD).
 1. The agent passes the PAY token in the `skyfire-pay-id` input property when calling the Actor tool.
-1.  The Actor returns results as usual. Unused funds on the token remain available for future runs or return upon expiration.
+1. The Actor returns results as usual. Unused funds on the token remain available for future runs or return upon expiration.
 
 To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic Payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
 
