@@ -1,6 +1,6 @@
 ---
 title: Importance of Actor URL
-description: Learn how to set your Actor’s URL (technical name) and name effectively when creating it on Apify. Follow best practices to optimize your Actor’s web presence and ensure it stands out on Apify Store.
+description: Set your Actor's URL and name effectively when creating it on the Apify platform. Follow best practices to optimize your Actor's web presence.
 sidebar_position: 6
 category: build-and-publish
 slug: /actor-marketing-playbook/actor-basics/importance-of-actor-url

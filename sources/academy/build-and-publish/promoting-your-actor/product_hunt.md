@@ -1,6 +1,6 @@
 ---
 title: Product Hunt
-description: Boost your Actor’s visibility by launching it on Product Hunt, a top platform for tech innovations. Attract early adopters, developers, and businesses while showcasing your tool’s value through visuals or demos.
+description: Launch your Actor on Product Hunt to attract early adopters and developers. Showcase your tool's value through visuals, demos, and community engagement.
 sidebar_position: 4
 category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/product-hunt

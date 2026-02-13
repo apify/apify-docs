@@ -1,6 +1,6 @@
 ---
 title: Dynamic Actor memory
-description: Learn how to automatically adjust your Actor's memory based on input size and run options, so you can optimize performance and reduce costs without manual configuration.
+description: Automatically adjust your Actor's memory allocation based on input size and run options to optimize performance and reduce costs without manual setup.
 slug: /actors/development/actor-definition/dynamic-actor-memory
 ---
 
