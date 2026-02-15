@@ -1,7 +1,0 @@
-title: GetDatasetStatisticsResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./DatasetStatistics.yaml

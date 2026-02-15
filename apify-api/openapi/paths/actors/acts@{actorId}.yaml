@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetActorResponse.yaml
+            $ref: ../../components/schemas/actors/ActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -200,7 +200,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/UpdateActorResponse.yaml
+            $ref: ../../components/schemas/actors/ActorResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM

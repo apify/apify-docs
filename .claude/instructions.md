@@ -129,6 +129,31 @@ See the `/api-doc` skill for comprehensive OpenAPI specification standards, oper
 4. Check all links are valid
 5. Ensure front matter is complete
 
+### Creating pull requests
+
+When creating PRs for this repository, follow these requirements:
+
+**PR Title Format**: Use [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+- `docs: <description>` - Documentation changes (most common)
+- `fix: <description>` - Bug fixes
+- `feat: <description>` - New features
+- `chore: <description>` - Maintenance tasks
+- `refactor: <description>` - Code refactoring
+- `test: <description>` - Test updates
+
+**Examples**:
+
+- ✅ `docs: fix grammatical error in residential proxy documentation`
+- ✅ `docs: add missing actor.json properties`
+- ✅ `fix: correct data retention period in storage docs`
+- ❌ `Fix grammatical error` (missing type prefix)
+- ❌ `Documentation Update` (wrong format)
+
+**Enforcement**: PR titles are validated by GitHub Actions. PRs with incorrect titles will fail CI checks.
+
+**Reference**: See `CONTRIBUTING.md` and `.github/workflows/check-pr-title.yaml`
+
 ### Testing changes
 
 ```bash

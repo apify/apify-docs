@@ -31,7 +31,7 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
 ### Prerequisites
 
 - _Apify API token_: To use Apify Actors, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-- _LLM provider API key_: To power the agents, you need an LLM provider API key. For example, get one from the [OpenAI](https://platform.openai.com/account/api-keys) or [Anthropic](https://console.anthropic.com/settings/keys).
+- _LLM provider API key_: To power the agents, you need an LLM provider API key. For example, get one from the [OpenAI](https://platform.openai.com/account/api-keys) or [Anthropic](https://platform.claude.com/settings/keys).
 - _Node.js_: Ensure you have Node.js installed.
 - _Packages_: Install the following packages:
 

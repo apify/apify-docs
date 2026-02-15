@@ -24,7 +24,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/GetPublicUserDataResponse.yaml
+            $ref: ../../components/schemas/users/PublicUserDataResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

@@ -102,7 +102,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/store/GetListOfActorsInStoreResponse.yaml
+            $ref: ../../components/schemas/store/ListOfActorsInStoreResponse.yaml
           example:
             data:
               total: 100

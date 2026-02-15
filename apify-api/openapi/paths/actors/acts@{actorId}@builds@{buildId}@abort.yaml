@@ -35,7 +35,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-builds/PostAbortBuildResponse.yaml
+            $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB

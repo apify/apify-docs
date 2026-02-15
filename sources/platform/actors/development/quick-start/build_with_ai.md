@@ -17,20 +17,20 @@ import copyForAI from "./images/copy-for-ai.png";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide provides best practices for building new Actors or improving existing ones using AI code generation and vibe coding tools such as Cursor, Claude Code, or Visual Studio Code, by providing the AI agents with the right instructions and context.
+This guide provides best practices for building new Actors or improving existing ones using AI code generation and vibe coding tools such as Antigravity, Cursor, Claude Code, or Visual Studio Code, by providing the AI agents with the right instructions and context.
 
 ## AI coding assistant instructions
 
-Use the following prompt in your AI coding assistant such as [Cursor](https://www.cursor.com/), [Claude Code](https://www.claude.com/product/claude-code) or [GitHub Copilot](https://github.com/features/copilot):
+Use the following prompt in your AI coding assistant such as [Antigravity](https://antigravity.google/), [Cursor](https://cursor.com/), [Claude Code](https://claude.com/product/claude-code) or [GitHub Copilot](https://github.com/features/copilot):
 
 <PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
 
-The prompt guides AI coding assistants such as Cursor, Claude Code or GitHub Copilot to help users create and deploy an Apify Actor step by step. It walks through setting up the Actor structure, configuring all required files, installing dependencies, running it locally, logging in, and pushing it to the Apify platform and following Apify’s best practices.
+The prompt guides AI coding assistants such as Antigravity, Cursor, Claude Code or GitHub Copilot to help users create and deploy an Apify Actor step by step. It walks through setting up the Actor structure, configuring all required files, installing dependencies, running it locally, logging in, and pushing it to the Apify platform and following Apify’s best practices.
 
 ### Quick Start
 
 1. Create directory: `mkdir my-new-actor`
-1. Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
+1. Open the directory in _Antigravity_, _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
 1. Copy the prompt above and paste it into your AI coding assistant (Agent or Chat)
 1. Run it, and develop your first actor with the help of AI
 
@@ -110,7 +110,35 @@ VS Code supports MCP through MCP-compatible extensions like _GitHub Copilot_, _C
 1. When chatting, select the **+** button and choose the **Apify** connector to add documentation context.
 
 </TabItem>
+<TabItem value="antigravity" label="Antigravity">
+
+To add Apify MCP server to Antigravity:
+
+1. Click on the **Chat tab**.
+2. Click the three dots (**Additional options**) menu.
+3. Select **Manage MCP Servers**.
+4. Click **View raw config** to open the configuration file.
+5. Add the following to the configuration file:
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@apify/actors-mcp-server",
+            "--tools",
+            "docs"
+          ]
+        }
+      }
+    }
+    ```
+
+</TabItem>
 </Tabs>
+
 ## Provide context to assistants
 
 Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.

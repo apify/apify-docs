@@ -5,8 +5,7 @@ required:
 type: object
 properties:
   status:
-    type: string
-    examples: [SUCCEEDED]
+    $ref: ../webhook-dispatches/WebhookDispatchStatus.yaml
   finishedAt:
     type: string
     format: date-time

@@ -1,0 +1,8 @@
+title: TaskResponse
+description: Response containing Actor task data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Task.yaml
