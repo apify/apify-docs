@@ -61,11 +61,11 @@ See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXW
 
 ## Fetch more than one page of results
 
-By default, Google returns up to _10 search results per page_. To retrieve additional results beyond the first page, use the `numPages` query parameter. This allows you to fetch multiple pages of search results in a single request.
+By default, Google returns up to _10 search results per page_. To retrieve additional results beyond the first page, use the `numPages` query parameter.
 
 When you specify `numPages`, the proxy makes multiple requests in the background and merges them into a single HTML response.
 
-### Usage
+### `numPages` parameter
 
 Add the `numPages` parameter to your search URL with a value between 1 and 10:
 
@@ -79,19 +79,17 @@ This example fetches and combines the first 3 pages of results (up to 30 results
 Each page counts as a separate request. A request with `numPages=10` is priced as 10 requests.
 :::
 
-:::info Manual pagination with the `start` parameter
-You can also use Google's `start` parameter to handle pagination manually. The `start` parameter specifies the index of the first result (e.g., `start=10` for page 2, `start=20` for page 3).
-:::
+Use Google's `start` parameter to handle pagination manually. The `start` parameter specifies the index of the first result (e.g., `start=10` for page 2, `start=20` for page 3).
 
 ### Deprecated `num` parameter
 
 Google has deprecated the `num` query parameter, which previously controlled the number of results displayed per page.
 
 :::caution Ignored parameter
-If you include the `num` parameter in your requests, it will be completely ignored. Google no longer supports this parameter, and Google SERP proxy does not process it.
+If you include the `num` parameter in your requests, it will be ignored. Google no longer supports this parameter, and Google SERP proxy does not process it.
 :::
 
-To retrieve more than 10 results, use the `numPages` parameter described above instead.
+To retrieve more than 10 results, use the `numPages` parameter described before instead.
 
 ## Examples
 
