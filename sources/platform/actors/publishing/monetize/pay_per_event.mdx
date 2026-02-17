@@ -57,83 +57,9 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
-## Respect user spending limits
-
-Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
-
-The `eventChargeLimitReached` property checks if the user's limit allows for another charge of this event. If you have multiple events, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
-
-:::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
-
-For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
-The Apify SDK's `ChargeResult` respects the user set limit already.
-
-:::
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-const chargeForApiProductDetail = async () => {
-  const chargeResult = await Actor.charge({ eventName: "product-detail" });
-
-  return chargeResult;
-};
-
-await Actor.init();
-
-// API call, or any other logic that you want to charge for
-const chargeResult = await chargeForApiProductDetail();
-
-if (chargeResult.eventChargeLimitReached) {
-  await Actor.exit();
-}
-
-// Rest of the Actor logic
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```py
-from apify import Actor
-
-async def charge_for_api_product_detail():
-    charge_result = await Actor.charge(event_name='product-detail')
-
-    return charge_result
-
-async def main():
-    await Actor.init()
-
-    # API call, or any other logic that you want to charge for
-
-    charge_result = await charge_for_api_product_detail()
-
-    if charge_result.event_charge_limit_reached:
-        await Actor.exit()
-
-    # Rest of the Actor logic
-
-    await Actor.exit()
-```
-
-</TabItem>
-</Tabs>
-
-:::note Crawlee integration and spending limits
-
-When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler and allow the rest of your code to process normally.
-
-:::
-
 ## Best practices for PPE Actors
 
-Use our [SDKs](/sdk) (JS and, Python or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
+Use the Apify [SDKs](/sdk) (JS and Python) or the [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) CLI command to simplify PPE implementation. SDKs handle pricing, usage tracking, idempotency keys, API errors, and event charging. You can also call the [PPE charging API](/api/v2/post-charge-run) directly, but then you must handle API integration and edge cases manually.
 
 ### Use synthetic start event `apify-actor-start`
 
@@ -212,6 +138,161 @@ Set memory limits using `minMemoryMbytes` and `maxMemoryMbytes` in your [`actor.
 When using browser automation tools like Puppeteer or Playwright for web scraping, increase the memory limits to accommodate the browser's memory usage.
 
 :::
+
+### Respect user spending limits
+
+Finish the Actor run once charging reaches the user-configured maximum cost per run. `Actor.charge()` returns a `ChargeResult` object that helps determine when to stop.
+
+The `eventChargeLimitReached` property checks if the user's limit allows for another charge of this event. If you have multiple events, use the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
+
+:::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
+
+Users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables). The Apify SDK's `ChargeResult` respects this limit automatically.
+
+When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler.
+
+:::
+
+### Charge per result
+
+Charge an event when your Actor produces a data item and check the spending limit before continuing.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+const data = { url: 'https://example.com', title: 'Example' };
+const chargeResult = await Actor.charge({ eventName: 'result' });
+
+if (chargeResult.eventChargeLimitReached) {
+    await Actor.exit();
+}
+
+await Actor.pushData(data);
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    await Actor.init()
+
+    data = {'url': 'https://example.com', 'title': 'Example'}
+    charge_result = await Actor.charge(event_name='result')
+
+    if charge_result.event_charge_limit_reached:
+        await Actor.exit()
+
+    await Actor.push_data(data)
+
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
+
+### Charge for multiple event types
+
+Charge multiple event types in a single operation. Each event type must be defined in your Actor's pricing configuration.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// Charge for the scraped data
+await Actor.charge({ eventName: 'result' });
+
+// Charge for additional processing
+await Actor.charge({ eventName: 'filter' });
+
+await Actor.pushData({ url: 'https://example.com', title: 'Example' });
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    await Actor.init()
+
+    # Charge for the scraped data
+    await Actor.charge(event_name='result')
+
+    # Charge for additional processing
+    await Actor.charge(event_name='filter')
+
+    await Actor.push_data({'url': 'https://example.com', 'title': 'Example'})
+
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
+
+### Charge for multiple items at once
+
+Use the `count` parameter to charge for a batch of items in a single call.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+const results = [
+    { url: 'https://example.com/1', title: 'Page 1' },
+    { url: 'https://example.com/2', title: 'Page 2' },
+    { url: 'https://example.com/3', title: 'Page 3' },
+];
+
+await Actor.charge({ eventName: 'result', count: results.length });
+await Actor.pushData(results);
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    await Actor.init()
+
+    results = [
+        {'url': 'https://example.com/1', 'title': 'Page 1'},
+        {'url': 'https://example.com/2', 'title': 'Page 2'},
+        {'url': 'https://example.com/3', 'title': 'Page 3'},
+    ]
+
+    await Actor.charge(event_name='result', count=len(results))
+    await Actor.push_data(results)
+
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
 
 ### Charge for invalid input
 
