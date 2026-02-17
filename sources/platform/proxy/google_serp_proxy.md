@@ -59,6 +59,38 @@ For example:
 
 See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
 
+## Fetch more than one page of results
+
+By default, Google returns up to _10 search results per page_. To retrieve additional results beyond the first page, use the `numPages` query parameter.
+
+When you specify `numPages`, the proxy makes multiple requests in the background and merges them into a single HTML response.
+
+### `numPages` parameter
+
+Add the `numPages` parameter to your search URL with a value between 1 and 10:
+
+```text
+http://www.google.com/search?q=wikipedia&numPages=3
+```
+
+This example fetches and combines the first 3 pages of results (up to 30 results total) into one HTML response.
+
+:::caution Pricing for multi-page requests
+Each page counts as a separate request. A request with `numPages=10` is priced as 10 requests.
+:::
+
+Use Google's `start` parameter to handle pagination manually. The `start` parameter specifies the index of the first result (e.g., `start=10` for page 2, `start=20` for page 3).
+
+### Deprecated `num` parameter
+
+Google has deprecated the `num` query parameter, which previously controlled the number of results displayed per page.
+
+:::caution Ignored parameter
+If you include the `num` parameter in your requests, it will be ignored. Google no longer supports this parameter, and Google SERP proxy does not process it.
+:::
+
+To retrieve more than 10 results, use the `numPages` parameter described before instead.
+
 ## Examples
 
 ### Using the Apify SDK
