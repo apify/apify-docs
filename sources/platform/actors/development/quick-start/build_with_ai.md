@@ -60,7 +60,7 @@ The command above will guide you through Apify Actor initialization, where you s
 
 ## Use Agent Skills
 
-[Agent Skills](https://github.com/apify/agent-skills) are official Apify skills for Actor development, web scraping, data extraction, automation, etc. They work with Claude Code, Cursor, Codex, Gemini CLI, and other AI coding assistants. Agents are increasingly capable, but often lack the context they need to do real work reliably. 
+[Agent Skills](https://github.com/apify/agent-skills) are official Apify skills for Actor development, web scraping, data extraction, automation, etc. They work with Claude Code, Cursor, Codex, Gemini CLI, and other AI coding assistants. Agents are increasingly capable, but often lack the context they need to do real work reliably.
 
 Skills solve this by giving agents access to procedural knowledge. Agents with access to a set of skills can extend their capabilities based on the task they're working on.
 
