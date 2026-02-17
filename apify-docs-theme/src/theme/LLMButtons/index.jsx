@@ -177,7 +177,6 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
                 .then((content) => new Blob([content], { type: 'text/plain' })),
         });
 
-        console.log('markdownContent', markdownContent);
         await navigator.clipboard.write([markdownContent]);
 
         // Show success feedback
