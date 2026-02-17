@@ -59,19 +59,18 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 
 ## Pass platform usage to users
 
-If you cannot accurately estimate event prices upfront and want to avoid negative profit margins, you can pass the platform usage costs directly to users. Users then pay for both the defined events and the underlying platform usage.
+During initial development or when testing pricing strategies, you can pass the platform usage costs directly to users to avoid negative profit margins. Users then pay for both the defined events and the underlying platform usage. Use this approach temporarily until you determine accurate event prices.
+
 
 :::caution Reduced pricing transparency
 
-Charging platform usage separately is less transparent for users. Turn off this option once you determine accurate event pricing as it negatively impacts your **Actor quality score**.
+Charging platform usage separately is less transparent for users and may discourage them from using your Actor. This also negatively impacts your [**Actor quality score**](../quality-score). Turn off this option once you determine accurate event prices.
 
 :::
 
-Turn on the **Pay per event + usage** toggle to enable this option.
+Use the **Pay per event + usage** toggle to enable or disable this option in the monetization flow.
 
 ![Pay per event with usage toggle button](../images/pay_per_event_and_usage_toggle.png)
-
-To stop passing platform usage to users, update your pricing model and turn off the **Pay per event + usage** toggle.
 
 ## Respect user spending limits
 
