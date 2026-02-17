@@ -173,7 +173,12 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
         // awaiting fetch first — otherwise Safari would reject the clipboard operation.
         const markdownContent = new ClipboardItem({
             'text/plain': fetch(markdownUrl)
-                .then(async (response) => response.text())
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch markdown: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then((content) => new Blob([content], { type: 'text/plain' })),
         });
 
