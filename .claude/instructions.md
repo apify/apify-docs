@@ -21,6 +21,7 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
    - `terminology.md` - Apify-specific capitalization and terminology
    - `file-organization.md` - File naming and directory structure
    - `quality-standards.md` - Comprehensive quality checklist
+   - `grammar-rules.md` - Grammar mechanics, punctuation, numbers, brand spelling
 3. **CONTRIBUTING.md** - Contribution guidelines, setup, and workflows
 4. `.cursor/rules/*.mdc` - Cursor-specific rules (for reference)
 
