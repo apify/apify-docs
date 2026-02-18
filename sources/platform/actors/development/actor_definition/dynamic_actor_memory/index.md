@@ -7,10 +7,6 @@ slug: /actors/development/actor-definition/dynamic-actor-memory
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to automatically adjust your Actor's memory based on input size and run options, so you can optimize performance and reduce costs without manual configuration.**
-
----
-
 Dynamic Actor memory allows Actor to automatically adjust its memory allocation based on the input and run options. Instead of always using a fixed memory value, Actor can use just the right amount of memory for each run.
 
 Optimal memory usually depends on the input size:

@@ -6,8 +6,6 @@ sidebar_position: 9.4
 slug: /storage/request-queue
 ---
 
-**Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

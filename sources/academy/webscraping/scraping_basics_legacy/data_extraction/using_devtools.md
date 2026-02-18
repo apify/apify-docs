@@ -8,8 +8,6 @@ noindex: true
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
 
-**Learn how to use browser DevTools, CSS selectors, and JavaScript via the DevTools console to extract data from a website.**
-
 <LegacyAdmonition />
 
 ---

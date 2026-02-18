@@ -6,10 +6,6 @@ sidebar_label: II - Managing source
 slug: /expert-scraping-with-apify/solutions/managing-source
 ---
 
-**View in-depth answers for all three of the quiz questions that were provided in the corresponding lesson about managing source code.**
-
----
-
 In the lesson corresponding to this solution, we discussed an extremely important topic: source code management. Though we solved the task right in the lesson, we've still included the quiz answers here.
 
 ## Quiz answers {#quiz-answers}

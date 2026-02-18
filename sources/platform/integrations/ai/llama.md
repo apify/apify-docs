@@ -6,10 +6,6 @@ sidebar_position: 7
 slug: /integrations/llama-index
 ---
 
-**Learn how to integrate Apify with LlamaIndex to feed vector databases and LLMs with data crawled from the web.**
-
----
-
 > For more information on LlamaIndex, visit its [documentation](https://developers.llamaindex.ai/python/framework/).
 
 ## What is LlamaIndex?

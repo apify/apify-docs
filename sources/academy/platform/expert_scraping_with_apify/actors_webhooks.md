@@ -6,8 +6,6 @@ sidebar_label: I - Webhooks & advanced Actor overview
 slug: /expert-scraping-with-apify/actors-webhooks
 ---
 
-**Learn more advanced details about Actors, how they work, and the default configurations they can take. Also, learn how to integrate your Actor with webhooks.**
-
 :::caution Updates coming
 
 This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to completely retire it in a few months. This lesson will be updated to remove the dependency.

@@ -8,10 +8,6 @@ slug: /puppeteer-playwright/reading-intercepting-requests
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**You can use DevTools, but did you know that you can do all the same stuff (plus more) programmatically? Read and intercept requests in Puppeteer/Playwright.**
-
----
-
 On any website that serves up images, makes [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest), or fetches content in some other way, you can see those requests (and their responses) in the [**Network** tab](../api_scraping/general_api_scraping/locating_and_learning.md) of your browser's DevTools. Lots of data about the request can be found there, such as the headers, payload, and response body.
 
 In Playwright and Puppeteer, it is also possible to read (and even intercept) requests being made on the page - programmatically. This is very useful for things like reading dynamic headers, saving API responses, blocking certain resources, and much more.

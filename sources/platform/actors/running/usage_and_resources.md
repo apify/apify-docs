@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /actors/running/usage-and-resources
 ---
 
-**Learn about your Actors' memory and processing power requirements, their relationship with Docker resources, minimum requirements for different use cases and its impact on the cost.**
-
----
-
 ## Resources
 
 [Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.

@@ -8,10 +8,6 @@ slug: /puppeteer-playwright/page/waiting
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn the importance of waiting for content and events before running interaction or extraction code, as well as the best practices for doing so.**
-
----
-
 In a perfect world, every piece of content served on a website would be loaded instantaneously. We don't live in a perfect world though, and often times it can take anywhere between 1/10th of a second to a few seconds to load some content onto a page. Certain elements are also generated dynamically, which means that they are not present in the initial HTML and that they are created by scripts or data from API calls.
 
 Puppeteer and Playwright don't sit around waiting for a page (or specific elements) to load though - if we tell it to do something with an element that hasn't been rendered yet, it'll start trying to do it (which will result in nasty errors). We've got to tell it to wait.

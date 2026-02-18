@@ -6,10 +6,6 @@ sidebar_position: 1
 slug: /integrations/api
 ---
 
-**Learn how to integrate with Apify using the REST API.**
-
----
-
 All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
 If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend to use one of our API clients:
 

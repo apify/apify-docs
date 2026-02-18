@@ -10,10 +10,6 @@ import Exercises from '../scraping_basics/_exercises.mdx';
 
 <LegacyJsCourseAdmonition />
 
-**In this lesson we'll use the browser tools for developers to manually extract product data from an e-commerce website.**
-
----
-
 In our pursuit to scrape products from the [Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales), we've been able to locate parent elements containing relevant data. Now how do we extract the data?
 
 ## Finding product details

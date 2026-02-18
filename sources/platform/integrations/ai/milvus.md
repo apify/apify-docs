@@ -8,10 +8,6 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**Learn how to integrate Apify with Milvus (Zilliz) to save data scraped from websites into the Milvus vector database.**
-
----
-
 [Milvus](https://milvus.io/) is an open-source vector database optimized for performing similarity searches on large datasets of high-dimensional vectors.
 Its focus on efficient vector similarity search allows for the creation of powerful and scalable retrieval systems.
 

@@ -5,10 +5,6 @@ sidebar_position: 10.1
 slug: /proxy/usage
 ---
 
-**Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
-
----
-
 ## Connection settings
 
 To connect to Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at the Apify Proxy hostname and provide it with your Apify Proxy password and the other parameters described below.
@@ -28,12 +24,12 @@ All usage of Apify Proxy with your password is charged towards your account. Do 
 If you want to connect to Apify Proxy from outside of the Apify Platform, you need to have a paid Apify plan (to prevent abuse).
 If you need to test Apify Proxy before you subscribe, please [contact our support](https://apify.com/contact).
 
-| Parameter           | Value / explanation |
-|---------------------|---------------------|
-| Hostname            | `proxy.apify.com`|
-| Port                | `8000`              |
+| Parameter           | Value / explanation                                                                                                                                                                                 |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hostname            | `proxy.apify.com`                                                                                                                                                                                   |
+| Port                | `8000`                                                                                                                                                                                              |
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
-| Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
+| Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password.              |
 
 :::caution
 If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify Platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
@@ -52,12 +48,12 @@ If you want to connect to Apify Proxy from Actors running on the Apify Platform,
 If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
 By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
 
-| Parameter           | Source / explanation |
-|---------------------|---------------------|
-| Hostname            | `APIFY_PROXY_HOSTNAME` environment variable  |
-| Port                | `APIFY_PROXY_PORT` environment variable      |
+| Parameter           | Source / explanation                                                                                                                                                                                |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hostname            | `APIFY_PROXY_HOSTNAME` environment variable                                                                                                                                                         |
+| Port                | `APIFY_PROXY_PORT` environment variable                                                                                                                                                             |
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
-| Password            | `APIFY_PROXY_PASSWORD` environment variable |
+| Password            | `APIFY_PROXY_PASSWORD` environment variable                                                                                                                                                         |
 
 Example connection string creation:
 

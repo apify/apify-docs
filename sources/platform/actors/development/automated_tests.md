@@ -6,8 +6,6 @@ sidebar_position: 9
 sidebar_label: Automated tests
 ---
 
-**Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing Actor.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
