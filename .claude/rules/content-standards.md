@@ -79,7 +79,7 @@ slug: /academy/tutorials/web-scraper
 | How Do I Start? | How do I start? | Capitalize "I" in questions |
 | Understanding Request Queues | Understand request queues | Lowercase feature names |
 | Enable Standby Mode | Enable standby mode | Lowercase mode names |
-| Access The Apify Console | Access the Apify Console | "Apify Console" stays capitalized (product) |
+| Access The Apify Console | Access Apify Console | "Apify Console" stays capitalized (product), no "the" |
 | Run Your First Actor | Run your first Actor | "Actor" capitalized, "your" lowercase |
 | Manage Node Modules | Manage node modules | Lowercase generic terms |
 | Step 1: install the dependencies | Step 1: Install the dependencies | Capitalize after colon (starts new clause) |
@@ -97,12 +97,10 @@ slug: /academy/tutorials/web-scraper
 
 ### Hierarchy
 
-Follow proper heading hierarchy: H1 → H2 → H3. Never skip levels.
+Follow proper heading hierarchy: H2 → H3 → H4. Never skip levels. (H1 is the page title, set in front matter)
 
 ```markdown
-# Page Title (H1 - only one per page, usually from front matter)
-
-## Main Section (H2)
+## Main section (H2)
 
 ### Subsection (H3)
 
@@ -146,6 +144,10 @@ Use backticks for inline code:
 - Config keys: `actorSpecification`, `dockerfile`
 - Variable names: `API_TOKEN`, `userId`
 - Code values: `true`, `null`, `"string"`
+
+### Em dashes
+
+Don't use em dashes (—). Use hyphen with spaces ( - ) instead.
 
 ## Admonitions
 
@@ -310,6 +312,21 @@ can crawl websites and extract text content.
 
 Subsequent mentions: Just the name, no link needed.
 
+### Tool mentions
+
+When mentioning tools, languages, or external resources, link to their official site:
+
+| Avoid | Prefer |
+|-------|--------|
+| You can use Playwright for this | You can use [Playwright](https://playwright.dev) for this |
+
+### Trim link filler
+
+| Avoid | Prefer |
+|-------|--------|
+| visit the Docker Hub tags page | visit Docker Hub |
+| check out the official docs | check the documentation |
+
 ## Images
 
 ### Alt text
@@ -369,12 +386,15 @@ platform/
 - Format: Month Day, Year
 - Example: August 5, 2024
 - Never: 5.8.2024 or 2024-08-05 in prose (ISO format OK in code)
+- No ordinal suffixes: "August 5" not "August 5th"
+- No abbreviated months: "January" not "Jan"
 
 ### Time
 
 - Format: 12-hour with space before AM/PM
 - Example: 5 PM, 11:30 AM
 - Uppercase: PM (not pm or p.m.)
+- Never use periods: "5 PM" not "5 p.m."
 
 ## Parallel structure
 
