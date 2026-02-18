@@ -19,15 +19,14 @@ Review documentation for compliance with Apify style guide, quality standards, a
 
 ## Standards reference
 
-This skill follows all standards defined in `.claude/rules/`:
+Review compliance against all standards in `.claude/rules/`:
 
-- **writing-style.md** - Language, tone, grammar (sentence case, no gerunds, active voice)
-- **content-standards.md** - Front matter, formatting, admonitions (must have titles), code examples, links, images
-- **terminology.md** - Apify-specific capitalization (Apify Actor not actor, the Apify platform)
-- **file-organization.md** - File naming and directory structure
-- **quality-standards.md** - Complete quality checklist
-
-**Review-specific process** and common issues are documented in this skill file below.
+- `writing-style.md` - Prose voice and tone
+- `content-standards.md` - Formatting and structure
+- `terminology.md` - Product names and capitalization
+- `grammar-rules.md` - Grammar mechanics and punctuation
+- `quality-standards.md` - Complete quality checklist
+- `file-organization.md` - File naming and directory structure
 
 ## Review process
 
@@ -37,98 +36,54 @@ This skill follows all standards defined in `.claude/rules/`:
 
 ## Review checklist
 
-Use this streamlined checklist for reviews. For detailed standards, see `.claude/rules/`:
+### Style compliance (delegated)
 
-### Writing quality
+For each rules file, launch a subagent to check the reviewed content against that file's standards. The subagent reads the rules file directly, so the review always uses the latest rules.
 
-- [ ] **Style guide compliance** (see `writing-style.md` + `content-standards.md`)
-  - Headings: Sentence case, no gerunds ("Create" not "Creating")
-  - Bold: ONLY for UI elements (not emphasis)
-  - Language: US English, active voice, inclusive, simple
-  - Terminology: Check `terminology.md` for exact capitalization
+Check content compliance against:
 
-- [ ] **Front matter** (see `content-standards.md`)
-  - `title` - Sentence case, simple present tense
-  - `description` - 140-160 chars, value-focused (not feature list)
-  - `slug` - Matches file path
-  - `sidebar_position` - Appropriate numbering
+1. `writing-style.md` - voice, tone, language patterns
+1. `content-standards.md` - formatting, front matter, headings, code, links, images
+1. `terminology.md` - product names, article usage, feature terms
+1. `grammar-rules.md` - hyphenation, punctuation, numbers, brand spelling
 
-- [ ] **Content structure**
-  - Clear introduction
-  - Proper heading hierarchy (H1 → H2 → H3, no skips)
-  - Logical topic progression
-  - Summary/next steps at end
-  - Related content linked
+Each subagent should return a list of violations with line numbers and suggested fixes.
 
-### Content formatting
+### Content review (manual)
 
-- [ ] **Code examples** (see `content-standards.md`)
-  - Complete and runnable
-  - Language tag specified (REQUIRED)
-  - Realistic examples
-  - Code tabs for multiple languages
-  - **Review scope**: Comments and obvious mistakes only (not full code review)
+These aspects require judgment and aren't covered by the rules files:
 
-- [ ] **Links** (see `content-standards.md`)
-  - Descriptive text (not "click here")
-  - Internal links use relative paths
-  - External links point to reliable sources
-  - Link text makes sense out of context
-
-- [ ] **Images** (see `content-standards.md`)
-  - Meaningful alt text
-  - Light theme for screenshots
-  - Red indicators for highlighting
-  - Stored in proper directory structure
-
-- [ ] **Admonitions** (see `content-standards.md`)
-  - **MUST have a title** (REQUIRED - no exceptions)
-  - Appropriate type (note/tip/info/caution/danger)
-  - Not overused (max 2-3 per page)
-
-### Technical validation
-
-- [ ] **Technical accuracy**
-  - Code examples tested and working
-  - API endpoints current
-  - Version numbers up to date
-  - No deprecated features recommended
-
-- [ ] **Accessibility**
-  - Proper heading hierarchy
-  - Descriptive link text
-  - Alt text for images
-  - Color not sole indicator
-
-- [ ] **SEO optimization**
-  - Descriptive, unique title
-  - Meta description 140-160 chars
-  - Internal linking to related content
-  - Keywords used naturally
-
-- [ ] **Content-type specific checks**
-  - **Tutorials** (see `/tutorial` skill): Clear learning objectives, prerequisites listed, sequential numbered steps, summary and next steps
-  - **API docs** (see `/api-doc` skill): Operation IDs follow conventions, all parameters documented, code samples included (JS, Python, cURL), error responses documented
-  - **Reference pages**: Comprehensive parameter tables, default values specified, type information included
+- [ ] **Content structure** - Clear introduction, logical progression, summary/next steps
+- [ ] **Heading hierarchy** - H2 → H3 → H4, no skipped levels
+- [ ] **Technical accuracy** - Code examples tested, API endpoints current, no deprecated features
+- [ ] **Completeness** - Prerequisites listed, all steps included, edge cases addressed
+- [ ] **Content-type checks**
+  - **Tutorials**: Clear learning objectives, sequential numbered steps, verification at each step
+  - **API docs**: All parameters documented, code samples in JS and Python, error responses
+  - **Reference pages**: Comprehensive parameter tables, default values, type information
+- [ ] **Accessibility** - Proper heading hierarchy, descriptive link text, image alt text
+- [ ] **SEO** - Descriptive title, meta description 140-160 chars, internal linking
 
 ## How to review
 
-### Step 1: Automated checks
+### Step 1: Run automated checks
 
 ```bash
 npm run lint:md        # Markdownlint - Markdown syntax/formatting
 npm run lint:code      # ESLint - Code linting
-vale sync             # Vale - Prose style checking (optional)
-
 ```
 
-### Step 2: Manual review
+### Step 2: Check style compliance
 
-Go through each section of the checklist above, noting any issues.
+For each of the rules files listed above, review the content against that file's standards. Use a subagent per file to read the rules and check compliance. Collect all violations.
 
-### Step 3: Provide feedback
+### Step 3: Content review
 
-**Format your review as**:
+Go through the manual content review checklist above. These require human/AI judgment about structure, accuracy, and completeness.
+
+### Step 4: Provide feedback
+
+Format your review using the output template below.
 
 ```markdown
 ## Documentation review: [File name]
