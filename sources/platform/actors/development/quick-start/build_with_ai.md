@@ -15,25 +15,25 @@ import TabItem from '@theme/TabItem';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation tools by providing the AI agents with the right instructions and context.
 
-The methods below are complementary - start with the [AI coding assistant instructions](#ai-coding-assistant-instructions) or [Actor templates with AGENTS.md](#use-actor-templates-with-agentsmd) to get going, then add [Agent Skills](#use-agent-skills) and the [Apify MCP server](#use-apify-mcp-server) to give your assistant more context and better results.
+The methods on this page are complementary. Start with the [AI coding assistant instructions](#ai-coding-assistant-instructions) or [Actor templates with AGENTS.md](#use-actor-templates-with-agentsmd) to get going, then add [Agent Skills](#use-agent-skills) and the [Apify MCP server](#use-apify-mcp-server) to give your assistant more context and better results.
 
 ## Quick start
 
 <Tabs>
 <TabItem value="prompt" label="Start with a prompt">
 
-1. Create a directory: `mkdir my-new-actor`
+1. Create a directory: `mkdir my-new-actor`.
 1. Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
-1. Copy the [AI coding assistant prompt](#ai-coding-assistant-instructions) and paste it into your AI coding assistant
-1. Run it, and develop your first Actor with the help of AI
+1. Copy the [AI coding assistant prompt](#ai-coding-assistant-instructions) and paste it into your AI coding assistant.
+1. Run it, and develop your first Actor with the help of AI.
 
 </TabItem>
 <TabItem value="template" label="Start with a template">
 
-1. [Install the Apify CLI](/cli/docs/installation) if you haven't already
-1. Run `apify create` to initialize an Actor from a [template](https://apify.com/templates) (includes AGENTS.md)
+1. [Install the Apify CLI](/cli/docs/installation) if you haven't already.
+1. Run `apify create` to initialize an Actor from a [template](https://apify.com/templates) (includes AGENTS.md).
 1. Open the project in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
-1. Start developing - your AI coding assistant automatically picks up context from AGENTS.md
+1. Start developing - your AI coding assistant automatically picks up context from AGENTS.md.
 
 </TabItem>
 </Tabs>
@@ -60,15 +60,13 @@ The command above will guide you through Apify Actor initialization, where you s
 
 ## Use Agent Skills
 
-[Agent Skills](https://github.com/apify/agent-skills) are official Apify skills for Actor development, web scraping, data extraction, automation, etc. They work with Claude Code, Cursor, Codex, Gemini CLI, and other AI coding assistants. Agents are increasingly capable, but often lack the context they need to do real work reliably.
-
-Skills solve this by giving agents access to procedural knowledge. Agents with access to a set of skills can extend their capabilities based on the task they're working on.
+[Agent Skills](https://github.com/apify/agent-skills) are official Apify skills for Actor development, web scraping, data extraction, automation, etc. They work with Claude Code, Cursor, Codex, Gemini CLI, and other AI coding assistants.
 
 Install Agent Skills in your project directory:
 
-```bash
-npx skills add apify/agent-skills
-```
+	```bash
+	npx skills add apify/agent-skills
+	```
 
 This adds skill files to your project that AI coding assistants automatically discover and use for context. No additional configuration is needed.
 
