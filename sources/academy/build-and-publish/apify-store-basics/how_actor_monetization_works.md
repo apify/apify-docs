@@ -32,7 +32,7 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 :::info Pass platform usage costs to users
 
-Optionally, you can pass costs associated with the platform usage to the users. [Learn more](../../../platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users)
+Optionally, you can [pass costs associated with the platform usage](../../../platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) to the users.
 
 Profit calculation: `profit = 0.8 * revenue`
 
