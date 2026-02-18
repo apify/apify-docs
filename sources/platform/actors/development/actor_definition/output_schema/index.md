@@ -237,28 +237,8 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
     "properties": {
         "overview": {
             "type": "string",
-            "title": "Overview 🔎",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
-        },
-        "posts": {
-            "type": "string",
-            "title": "Posts ✉️",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=posts"
-        },
-        "author": {
-            "type": "string",
-            "title": "Authors 🧑‍🎤",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=author"
-        },
-        "music": {
-            "type": "string",
-            "title": "Music 🎶",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=music"
-        },
-        "video": {
-            "type": "string",
-            "title": "Video 🎞️",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=video"
+            "title": "Results",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
         },
         "subtitleFiles": {
             "type": "string",
@@ -274,7 +254,10 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
 }
 ```
 
-The schema above defines five dataset outputs and two key-value store outputs. The dataset outputs link to views, and the key-value store output link to collections, both defined in their respective schema files.
+The schema above defines one dataset output and two key-value store outputs. The dataset output links to the entire dataset. In Apify Console, this displays as a table with a selector that lets users switch between views defined in the dataset schema. The key-value store outputs link to collections defined in
+the key-value store schema.
+
+If you add a `view` parameter to the dataset URL template, users still see the entire dataset in Apify Console, but the specified view is selected by default.
 
 When a user runs the Actor in the Console, the UI will look like this:
 

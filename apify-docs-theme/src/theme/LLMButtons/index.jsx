@@ -168,17 +168,21 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
     try {
         setCopyingStatus('loading');
 
-        // Fetch the markdown content
-        const response = await fetch(markdownUrl);
+        // Safari requires clipboard writes to be created synchronously inside the user gesture.
+        // We therefore pass a Promise that resolves to a Blob into ClipboardItem instead of
+        // awaiting fetch first — otherwise Safari would reject the clipboard operation.
+        const markdownContent = new ClipboardItem({
+            'text/plain': fetch(markdownUrl)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch markdown: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then((content) => new Blob([content], { type: 'text/plain' })),
+        });
 
-        if (!response.ok) {
-            throw new Error(`Failed to fetch markdown: ${response.status}`);
-        }
-
-        const markdownContent = await response.text();
-
-        // Copy to clipboard
-        await navigator.clipboard.writeText(markdownContent);
+        await navigator.clipboard.write([markdownContent]);
 
         // Show success feedback
         setCopyingStatus('copied');
