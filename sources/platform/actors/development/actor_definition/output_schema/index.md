@@ -73,7 +73,7 @@ The output schema defines the collections of keys and their properties. It allow
 |----------------|--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `title`        | string       | true         | The output's title, shown in the run's output tab if there are multiple outputs and in API as key for the generated output URL.                 |
 | `description`  | string       | false        | A description of the output. Only used when reading the schema (useful for LLMs)                                                                |
-| `template`     | string       | true         | Defines a template which will be translated into output URL. The template can use variables (see below)                                         |
+| `template`     | string       | true         | Defines a URL template that generates the output link. Templates use Mustache-style variable interpolation with {{variable}} syntax. The generated URL appears in Apify Console **Output** tab and in the API response's output property. |
 
 ### Available template variables
 
@@ -89,6 +89,32 @@ The output schema defines the collections of keys and their properties. It allow
 | `run.containerUrl`                 | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                                      |
 | `run.defaultDatasetId`             | string | ID of the default dataset                                                                                                        |
 | `run.defaultKeyValueStoreId`       | string | ID of the default key-value store                                                                                                |
+
+## Understand templates
+
+Templates allow you to dynamically generate URLs that point to your Actor's output. When an Actor run completes, the Apify platform processes each template by:
+
+1. Variable interpolation: Replacing `{{variable}}` placeholders with actual runtime values
+2. URL generation: Creating the final output URL
+3. Display: Showing the output in Apify Console **Output** tab and including it in the API response
+
+### Template syntax
+
+Templates use double curly braces `{{variable}}` for variable interpolation. For example:
+
+- `{{links.apiDefaultDatasetUrl}}/items` becomes `https://api.apify.com/v2/datasets/<dataset-id>/items`
+- `{{run.containerUrl}}` becomes `https://<container-id>.runs.apify.net/`
+
+You can access nested properties using dot notation (e.g., `{{run.defaultDatasetId}}`, `{{links.publicRunUrl}}`).
+
+### Where templates appear
+
+The generated URLs from your templates appear in two places:
+
+1. Apify Console: In the **Output** tab of your Actor run
+2. API response: In the `output` property when calling the GET Run endpoint
+
+The examples below demonstrate various template patterns and their results in both the Console and API.
 
 ## Examples
 
