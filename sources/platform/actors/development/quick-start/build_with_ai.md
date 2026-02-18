@@ -64,9 +64,9 @@ The command above will guide you through Apify Actor initialization, where you s
 
 Install Agent Skills in your project directory:
 
-	```bash
-	npx skills add apify/agent-skills
-	```
+```bash
+npx skills add apify/agent-skills
+```
 
 This adds skill files to your project that AI coding assistants automatically discover and use for context. No additional configuration is needed.
 
