@@ -1,6 +1,6 @@
 ---
 title: How to build Actors
-description: Learn how to create web scrapers and automation tools on Apify. Use universal scrapers for quick setup, code templates for a head start, or SDKs and libraries for full control.
+description: Create web scrapers and automation tools on Apify. Choose universal scrapers for quick setup, code templates for a head start, or SDKs for full control.
 category: build-and-publish
 slug: /actor-marketing-playbook/store-basics/how-to-build-actors
 ---

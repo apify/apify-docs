@@ -1,6 +1,6 @@
 ---
 title: Marketing checklist
-description: A comprehensive, actionable checklist to promote your Actor. Follow this step-by-step guide to reach more users through social media, content marketing, and community engagement.
+description: Follow this actionable checklist to promote your Actor and reach more users through social media, content marketing, and community engagement.
 sidebar_position: 0
 category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/checklist
