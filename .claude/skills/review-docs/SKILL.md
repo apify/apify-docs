@@ -1,312 +1,111 @@
-# Documentation review skill
+---
+name: review-docs
+description: Review Apify documentation for style guide compliance, quality standards, and best practices. Use when user says "review this doc", "check this page", "audit documentation", "review before PR", "is this ready to publish", or "review-docs". Runs automated checks and manual review against Apify style guide.
+---
 
-## Purpose
+# Documentation review
 
 Review documentation for compliance with Apify style guide, quality standards, and best practices.
 
-## When to use
+## Instructions
 
-- Before submitting pull requests
-- During documentation audits
-- When editing existing documentation
-- To ensure consistency across documentation
+### Step 1: Check latest changes
 
-## Context files
+**CRITICAL**: Verify you're reviewing the latest version of the file. If reviewing a PR, confirm the branch is up to date.
 
-- `AGENTS.md` - Vendor-agnostic documentation standards
-- `CONTRIBUTING.md` - Contribution guidelines and workflows
-- `.claude/rules/` - Claude Code-specific standards (auto-loaded)
-
-## Standards reference
-
-This skill follows all standards defined in `.claude/rules/`:
-
-- **writing-style.md** - Language, tone, grammar (sentence case, no gerunds, active voice)
-- **content-standards.md** - Front matter, formatting, admonitions (must have titles), code examples, links, images
-- **terminology.md** - Apify-specific capitalization (Apify Actor not actor, the Apify platform)
-- **file-organization.md** - File naming and directory structure
-- **quality-standards.md** - Complete quality checklist
-
-**Review-specific process** and common issues are documented in this skill file below.
-
-## Review process
-
-### Before starting review
-
-**CRITICAL**: Check that the latest changes were pulled from the feature branch
-
-## Review checklist
-
-Use this streamlined checklist for reviews. For detailed standards, see `.claude/rules/`:
-
-### Writing quality
-
-- [ ] **Style guide compliance** (see `writing-style.md` + `content-standards.md`)
-  - Headings: Sentence case, no gerunds ("Create" not "Creating")
-  - Bold: ONLY for UI elements (not emphasis)
-  - Language: US English, active voice, inclusive, simple
-  - Terminology: Check `terminology.md` for exact capitalization
-
-- [ ] **Front matter** (see `content-standards.md`)
-  - `title` - Sentence case, simple present tense
-  - `description` - 140-160 chars, value-focused (not feature list)
-  - `slug` - Matches file path
-  - `sidebar_position` - Appropriate numbering
-
-- [ ] **Content structure**
-  - Clear introduction
-  - Proper heading hierarchy (H1 → H2 → H3, no skips)
-  - Logical topic progression
-  - Summary/next steps at end
-  - Related content linked
-
-### Content formatting
-
-- [ ] **Code examples** (see `content-standards.md`)
-  - Complete and runnable
-  - Language tag specified (REQUIRED)
-  - Realistic examples
-  - Code tabs for multiple languages
-  - **Review scope**: Comments and obvious mistakes only (not full code review)
-
-- [ ] **Links** (see `content-standards.md`)
-  - Descriptive text (not "click here")
-  - Internal links use relative paths
-  - External links point to reliable sources
-  - Link text makes sense out of context
-
-- [ ] **Images** (see `content-standards.md`)
-  - Meaningful alt text
-  - Light theme for screenshots
-  - Red indicators for highlighting
-  - Stored in proper directory structure
-
-- [ ] **Admonitions** (see `content-standards.md`)
-  - **MUST have a title** (REQUIRED - no exceptions)
-  - Appropriate type (note/tip/info/caution/danger)
-  - Not overused (max 2-3 per page)
-
-### Technical validation
-
-- [ ] **Technical accuracy**
-  - Code examples tested and working
-  - API endpoints current
-  - Version numbers up to date
-  - No deprecated features recommended
-
-- [ ] **Accessibility**
-  - Proper heading hierarchy
-  - Descriptive link text
-  - Alt text for images
-  - Color not sole indicator
-
-- [ ] **SEO optimization**
-  - Descriptive, unique title
-  - Meta description 140-160 chars
-  - Internal linking to related content
-  - Keywords used naturally
-
-- [ ] **Content-type specific checks**
-  - **Tutorials** (see `/tutorial` skill): Clear learning objectives, prerequisites listed, sequential numbered steps, summary and next steps
-  - **API docs** (see `/api-doc` skill): Operation IDs follow conventions, all parameters documented, code samples included (JS, Python, cURL), error responses documented
-  - **Reference pages**: Comprehensive parameter tables, default values specified, type information included
-
-## How to review
-
-### Step 1: Automated checks
+### Step 2: Run automated checks
 
 ```bash
 npm run lint:md        # Markdownlint - Markdown syntax/formatting
 npm run lint:code      # ESLint - Code linting
-vale sync             # Vale - Prose style checking (optional)
-
+vale sync             # Vale - Download styles (first time only)
+vale "path/to/file.md" --minAlertLevel=error  # Vale - Prose style check
 ```
 
-### Step 2: Manual review
+### Step 3: Manual review
 
-Go through each section of the checklist above, noting any issues.
+Go through the checklist below, noting issues found.
 
-### Step 3: Provide feedback
+#### Writing quality
 
-**Format your review as**:
+- [ ] Headings: Sentence case, no gerunds ("Create" not "Creating")
+- [ ] Bold: ONLY for UI elements (not emphasis)
+- [ ] Language: US English, active voice, inclusive, simple
+- [ ] Terminology: Matches `.claude/rules/terminology.md`
 
-```markdown
-## Documentation review: [File name]
+#### Front matter
 
-### ✅ Strengths
+- [ ] `title` - Sentence case, simple present tense
+- [ ] `description` - 140-160 chars, value-focused (not feature list)
+- [ ] `slug` - Matches file path
+- [ ] `sidebar_position` - Appropriate numbering
 
-- [What's done well]
+#### Content structure
 
-### ⚠️ Issues found
+- [ ] Clear introduction
+- [ ] Proper heading hierarchy (H1 → H2 → H3, no skips)
+- [ ] Logical topic progression
+- [ ] Summary/next steps at end
+- [ ] Related content linked
 
-#### Style guide
+#### Formatting
 
-- [ ] Issue 1: [Description]
+- [ ] Code examples: Complete, runnable, language tag specified
+- [ ] Links: Descriptive text (not "click here"), internal use relative paths
+- [ ] Images: Meaningful alt text, light theme, red indicators
+- [ ] Admonitions: Must have title, appropriate type, max 2-3 per page
+- [ ] Code review scope: Comments and obvious mistakes only (not full review)
 
-  - Current: [Example]
+#### Content-type checks
 
-  - Suggested: [Better example]
+- **Tutorials**: Clear learning objectives, prerequisites, numbered steps, summary
+- **API docs**: Operation IDs follow conventions, parameters documented, code samples included
+- **Reference pages**: Parameter tables, default values, type information
 
-#### Content
+### Step 4: Provide feedback
 
-- [ ] Issue 2: [Description]
+Format your review using the template in `references/review-format.md`.
 
-### 📝 Suggestions
+## Examples
 
-- [Optional improvement 1]
+Example 1: Pre-PR review
 
-- [Optional improvement 2]
+User says: "Review sources/platform/actors/running.md before I submit"
 
-### 🎯 Priority issues
+Actions:
+1. Read the file
+1. Run `npx markdownlint "sources/platform/actors/running.md"`
+1. Check against review checklist
+1. Output structured review with strengths, issues, and priority fixes
 
-1. [Critical issue to fix]
+Example 2: Style audit
 
-2. [Important issue to fix]
+User says: "Check if this page follows the style guide"
 
-```
+Actions:
+1. Read the file
+1. Focus on writing quality and terminology checks
+1. Flag specific lines with issues and suggested fixes
+1. Provide priority ranking
 
-## Common issues
+## Troubleshooting
 
-### Issue: Title case or gerund headings
+### Markdownlint reports false positives on admonitions
 
-```markdown
-# ❌ Bad - Title Case
-## How to create an Actor
+Cause: Markdownlint doesn't understand Docusaurus `:::` admonition syntax natively.
 
-# ❌ Bad - Gerund
-## Creating an Actor
+Solution: Check `.markdownlint.json` for configured exceptions. Some rules (like MD046) may be disabled for admonition blocks. Focus on Vale for prose quality instead.
 
-# ✅ Good - Sentence case, simple present tense
-## How to create an Actor
+### Vale reports errors on Apify product names
 
-# ✅ Good - Simple present tense
-## Create an Actor
+Cause: Vale styles may not include Apify-specific terminology.
 
-```
+Solution: Check `.vale/styles/` for Apify vocabulary files. If missing, run `vale sync` to download the latest styles. Product names like "Actor", "Console", "Proxy" are correct as capitalized.
 
-### Issue: Non-descriptive links
+### Unsure if a term should be capitalized
 
-```markdown
-# ❌ Bad
+Solution: Check `.claude/rules/terminology.md` for the definitive list. Product names (Actor, Console, Proxy, Store) are capitalized. Feature terms (task, schedule, dataset) are lowercase.
 
-To learn more, click [here](link).
+## Output
 
-# ✅ Good
-
-Learn more about [Actor input schemas](/actors/development/input-schema).
-
-```
-
-### Issue: Missing front matter description
-
-```markdown
-# ❌ Bad
-
----
-
-title: "Actors"
-
----
-
-# ✅ Good
-
----
-
-title: "Create an Actor"
-description: "Learn how to build and deploy your first Actor with step-by-step instructions covering setup, development, and testing."
-
----
-
-```
-
-### Issue: Long description or feature-focused
-
-```markdown
-# ❌ Bad - Too long (190 chars) and feature-focused
-
-description: "This comprehensive documentation guide will teach you everything you need to know about creating, configuring, and deploying Actors on the Apify platform from start to finish."
-
-# ❌ Bad - Feature-focused, not value-focused
-
-description: "Documentation for Actor creation, configuration options, and deployment methods."
-
-# ✅ Good - Value-focused (145 chars)
-
-description: "Build and deploy Actors efficiently with this guide covering setup, development, testing, and best practices for production use."
-
-```
-
-### Issue: Bold for emphasis
-
-```markdown
-# ❌ Bad - bold used for emphasis
-
-Click the button and **ensure you verify** the settings.
-
-# ✅ Good - bold only for UI elements
-
-Click the **Save & Run** button and ensure you verify the settings.
-
-```
-
-### Issue: Missing admonition title
-
-```markdown
-# ❌ Bad - no title (REQUIRED)
-
-:::tip
-Use pagination for large datasets.
-:::
-
-# ✅ Good - has title
-
-:::tip Performance best practice
-Use pagination for large datasets.
-:::
-
-```
-
-### Issue: Incorrect Apify terminology
-
-```markdown
-# ❌ Bad
-
-The Apify Console allows you to manage your Apify actors.
-
-# ✅ Good
-
-Apify Console allows you to manage your Apify Actors.
-
-```
-
-## Output format
-
-Provide a structured review using the format above, with:
-
-- Clear identification of issues
-
-- Specific examples from the content
-
-- Concrete suggestions for improvement
-
-- Priority ranking of issues
-
-## Quality standards
-
-A document is ready for publication when:
-
-- All checklist items pass
-
-- Automated linting passes
-
-- Content is technically accurate
-
-- Examples are tested and working
-
-- Style guide is followed consistently
-
-- No broken links
-
-- Proper front matter included
-
-- Accessibility standards met
+Provide a structured review using the format in `references/review-format.md`, with clear identification of issues, specific examples, concrete suggestions, and priority ranking.
