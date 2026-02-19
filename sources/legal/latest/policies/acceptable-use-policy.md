@@ -9,6 +9,8 @@ slug: /acceptable-use-policy
 
 # Apify Acceptable Use Policy
 
+Last updated: February 20, 2026
+
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
@@ -32,13 +34,14 @@ By agreeing to our General Terms and Conditions or simply by using the Platform 
 2. unsolicited mass messaging;
 3. any fraudulent or deceptive behavior (such as phishing, malware, impersonation, spoofing, ad fraud, click fraud, etc.);
 4. any artificial interaction (such as upvotes, shares, etc.);
-5. creating fake accounts or deceptive content (such as disinformation, clickbait, misleading ad, scam emails, etc.);
-6. any manipulation of Search Engine Optimization (i.e., fake clicks in search engine results);
-7. engaging in surveys in exchange for any financial or in-kind benefit;
-8. resale of any Platform features without obtaining Apify’s prior written approval;
-9. engaging in activities that contravene applicable laws, regulations, or the rights of any third party;
-10. any activity that may harm the reputation, goodwill or interests of Apify;
-11. any additional activity that Apify deems immoral or undesirable on its Platform or Website
+5. review system abuse, including but not limited to creating fake reviews, soliciting reviews in exchange for compensation or other benefits, using multiple or coordinated accounts to submit reviews, or otherwise artificially inflating or suppressing ratings;
+6. creating fake accounts or deceptive content (such as disinformation, clickbait, misleading ad, scam emails, etc.);
+7. any manipulation of Search Engine Optimization (i.e., fake clicks in search engine results);
+8. engaging in surveys in exchange for any financial or in-kind benefit;
+9. resale of any Platform features without obtaining Apify’s prior written approval;
+10. engaging in activities that contravene applicable laws, regulations, or the rights of any third party;
+11. any activity that may harm the reputation, goodwill or interests of Apify;
+12. any additional activity that Apify deems immoral or undesirable on its Platform or Website
 
 (together as the “**Prohibited Activities**”).
 
