@@ -143,15 +143,15 @@ When using browser automation tools like Puppeteer or Playwright for web scrapin
 
 Finish the Actor run once charging reaches the user-configured maximum cost per run. `Actor.charge()` returns a `ChargeResult` object that helps determine when to stop.
 
-The `eventChargeLimitReached` property checks if the user's limit allows for another charge of this event. If you have multiple events, use the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
+The `eventChargeLimitReached` property checks if the user's limit allows for another charge of this event.
 
 :::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
 
 Users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables). The Apify SDK's `ChargeResult` respects this limit automatically.
 
-When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler.
-
 :::
+
+When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler.
 
 ### Charge per result
 
@@ -202,7 +202,7 @@ async def main():
 
 ### Charge for multiple event types
 
-Charge multiple event types in a single operation. Each event type must be defined in your Actor's pricing configuration.
+Charge for multiple event types in one Actor run. Each event type must be defined in your Actor's pricing configuration.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -248,7 +248,7 @@ async def main():
 
 ### Charge for multiple items at once
 
-Use the `count` parameter to charge for a batch of items in a single call.
+Use the `count` parameter to charge for a batch of items in a single call. The returned `chargedCount` may be lower than requested if the user's spending limit is reached, so use it to determine how many items to push.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -264,8 +264,8 @@ const results = [
     { url: 'https://example.com/3', title: 'Page 3' },
 ];
 
-await Actor.charge({ eventName: 'result', count: results.length });
-await Actor.pushData(results);
+const chargeResult = await Actor.charge({ eventName: 'result', count: results.length });
+await Actor.pushData(results.slice(0, chargeResult.chargedCount));
 
 await Actor.exit();
 ```
@@ -285,8 +285,8 @@ async def main():
         {'url': 'https://example.com/3', 'title': 'Page 3'},
     ]
 
-    await Actor.charge(event_name='result', count=len(results))
-    await Actor.push_data(results)
+    charge_result = await Actor.charge(event_name='result', count=len(results))
+    await Actor.push_data(results[:charge_result.charged_count])
 
     await Actor.exit()
 ```
