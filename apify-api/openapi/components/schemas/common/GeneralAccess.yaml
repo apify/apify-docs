@@ -1,3 +1,4 @@
+title: GeneralAccess
 type: string
 enum:
   - ANYONE_WITH_ID_CAN_READ
