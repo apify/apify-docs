@@ -67,4 +67,4 @@ properties:
   stats:
     $ref: ./RequestQueueStats.yaml
   generalAccess:
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml
