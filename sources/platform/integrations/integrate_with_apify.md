@@ -51,7 +51,7 @@ One way to reach out to Apify users is directly within [Apify Console](https://c
 
 An alternative way is to let your users manage the connection directly on your side using [Apify API](https://docs.apify.com/api/v2) and our API clients for [JavaScript](/api/client/js/) or [Python](/api/client/python/). This way, users can manage the connection directly from your service.
 
-![Airbyte sources tab](./images/airbyte-sources-web.png)
+![Airbyte sources tab](./images/keboola-components.png)
 
 ### Authentication methods
 
