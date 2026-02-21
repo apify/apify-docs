@@ -79,7 +79,7 @@ $data = $parsedResponse['data'];
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-You should see information about the run, including its ID and the ID of its default [dataset](/platform/storage/dataset). Take note of these, we will need them later.
+You should see information about the run, including its ID and the ID of its default [dataset](/platform/actors/storage/dataset). Take note of these, we will need them later.
 
 ## Getting the results from dataset
 
@@ -125,7 +125,7 @@ All the available parameters are described in [our API reference](/api/v2/datase
 
 ## Getting the results from key-value stores
 
-Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/platform/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
+Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/platform/actors/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
 
 ```php
 $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
@@ -227,7 +227,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-Let's use another important feature: [proxy](/platform/proxy). If you want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
+Let's use another important feature: [proxy](/platform/actors/proxy). If you want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 
 ```php
 $client = new \GuzzleHttp\Client([
@@ -258,7 +258,7 @@ $response = $client->get("https://api.apify.com/v2/browser-info");
 echo $response->getBody();
 ```
 
-[See the proxy docs](/platform/proxy/usage) for more details on using specific proxies.
+[See the proxy docs](/platform/actors/proxy/usage) for more details on using specific proxies.
 
 ## Feedback
 

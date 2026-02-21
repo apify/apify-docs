@@ -217,7 +217,7 @@ Earlier in this tutorial, we learned how to scrape data from the web in Python u
 
 ## Processing previously scraped data
 
-In the previous tutorial, we set out to select our next holiday destination based on the forecast of the upcoming weather there. We have written an Actor that scrapes the BBC Weather forecast for the upcoming two weeks for three destinations: Prague, New York, and Honolulu. It then saves the scraped data to a [dataset](/platform/storage/dataset) on the Apify platform.
+In the previous tutorial, we set out to select our next holiday destination based on the forecast of the upcoming weather there. We have written an Actor that scrapes the BBC Weather forecast for the upcoming two weeks for three destinations: Prague, New York, and Honolulu. It then saves the scraped data to a [dataset](/platform/actors/storage/dataset) on the Apify platform.
 
 Now, we need to process the scraped data and make a visualization that will help us decide which location has the best weather, and will therefore become our next holiday destination.
 
@@ -308,7 +308,7 @@ axes.legend(loc='best')
 axes.figure.tight_layout()
 ```
 
-As the last step, we need to save the plot to a record in a [key-value store](/platform/storage/key-value-store) on the Apify platform, so that we can access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the Actor run through its resource subclient.
+As the last step, we need to save the plot to a record in a [key-value store](/platform/actors/storage/key-value-store) on the Apify platform, so that we can access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the Actor run through its resource subclient.
 
 ```py
 # Get the resource sub-client for working with the default key-value store of the run

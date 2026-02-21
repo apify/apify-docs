@@ -1,7 +1,7 @@
 ---
 title: Actor tasks
 description: Create and save reusable configurations of Apify Actors tailored to specific use cases.
-sidebar_position: 7.2
+sidebar_position: 6
 slug: /actors/running/tasks
 sidebar_label: Tasks
 ---
@@ -10,7 +10,7 @@ sidebar_label: Tasks
 
 ---
 
-Actor tasks let you create multiple reusable configurations of a single Actor, adapted for specific use cases. For example, you can create one [_Web Scraper_](https://apify.com/apify/web-scraper) configuration (task) that scrapes the latest reviews from [IMDb](https://www.imdb.com/), another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [Schedules](../../schedules.md), or [API](/api/v2/actor-task-runs-post).
+Actor tasks let you create multiple reusable configurations of a single Actor, adapted for specific use cases. For example, you can create one [_Web Scraper_](https://apify.com/apify/web-scraper) configuration (task) that scrapes the latest reviews from [IMDb](https://www.imdb.com/), another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [Schedules](./schedules.md), or [API](/api/v2/actor-task-runs-post).
 
 You can find all your tasks in the [Apify Console](https://console.apify.com/actors/tasks).
 
@@ -46,11 +46,11 @@ Or using the **Start** button positioned following the input configuration.
 
 You can also run tasks using:
 
-- [Schedules](../../schedules.md).
+- [Schedules](./schedules.md).
 - Directly via the [Apify API](/api/v2/actor-task-runs-post).
 - The [JavaScript API client](/api/client/js/reference/class/TaskClient).
 - The [Python API client](/api/client/python/reference/class/TaskClient).
 
 ## Share
 
-Like any other resource, you can share your Actor tasks with other Apify users via the [access rights](../../collaboration/index.md) system.
+Like any other resource, you can share your Actor tasks with other Apify users via the [access rights](../../account/access_rights.md) system.

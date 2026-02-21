@@ -143,4 +143,4 @@ You can initiate the Actor run via the Apify console, a scheduler, or from anoth
 
 ### Searches
 
-- **Get Dataset Items:** Retrieves items from a [dataset](/platform/storage/dataset).
+- **Get Dataset Items:** Retrieves items from a [dataset](/platform/actors/storage/dataset).

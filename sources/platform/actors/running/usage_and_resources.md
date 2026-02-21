@@ -1,7 +1,7 @@
 ---
 title: Usage and resources
 description: Learn about your Actors' memory and processing power requirements, their relationship with Docker resources, minimum requirements for different use cases and its impact on the cost.
-sidebar_position: 2
+sidebar_position: 4
 slug: /actors/running/usage-and-resources
 ---
 

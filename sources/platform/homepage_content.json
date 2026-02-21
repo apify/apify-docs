@@ -1,32 +1,22 @@
 [
     {
+        "title": "Get Started",
+        "description": "Build your first Actor and learn how to use the Apify platform.",
+        "to": "/platform/get-started"
+    },
+    {
         "title": "Actors",
-        "description": "Learn how to develop, run and share own web scraping and automation tools.",
+        "description": "Learn how to develop, run, and share web scraping and automation tools.",
         "to": "/platform/actors"
     },
     {
-        "title": "Storage",
-        "description": "Store anything from images and key-value pairs to structured output data.",
-        "to": "/platform/storage"
-    },
-    {
-        "title": "Proxy",
-        "description": "Learn to anonymously and reliably access websites in scraping/automation jobs.",
-        "to": "/platform/proxy"
-    },
-    {
-        "title": "Schedules",
-        "description": "Learn how to automatically start your Actor and task runs.",
-        "to": "/platform/schedules"
-    },
-    {
         "title": "Integrations",
-        "description": "Learn how to connect the Apify platform with your projects.",
+        "description": "Connect the Apify platform with your projects and workflows.",
         "to": "/platform/integrations"
     },
     {
-        "title": "Monitoring",
-        "description": "Learn how to check the performance of your Actors, validate your data and receive alerts.",
-        "to": "/platform/monitoring"
+        "title": "Account",
+        "description": "Manage your account, billing, organization settings, and access permissions.",
+        "to": "/platform/account"
     }
 ]
