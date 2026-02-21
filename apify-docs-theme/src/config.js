@@ -19,91 +19,56 @@ const themeConfig = {
             target: '_self',
         },
         items: [
+            // Product zone
             {
-                label: 'Academy',
+                label: 'Get Started',
+                href: `${absoluteUrl}/platform/get-started`,
+                activeBasePath: 'platform/get-started',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Actors',
+                href: `${absoluteUrl}/platform/actors`,
+                activeBasePath: 'platform/actors',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Integrations',
+                href: `${absoluteUrl}/platform/integrations`,
+                activeBasePath: 'platform/integrations',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Account',
+                href: `${absoluteUrl}/platform/account`,
+                activeBasePath: 'platform/account',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            // Ecosystem zone
+            {
+                label: 'Learn',
                 href: `${absoluteUrl}/academy`,
                 activeBasePath: 'academy',
                 position: 'left',
                 target: '_self',
                 rel: 'dofollow',
+                className: 'navbar__zone-separator',
             },
             {
-                label: 'Platform',
-                href: `${absoluteUrl}/platform`,
-                className: 'navbar__active',
-                activeBasePath: 'platform',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'API',
-                type: 'dropdown',
-                to: `${absoluteUrl}/api`,
-                target: '_self',
-                rel: 'dofollow',
-                activeBasePath: 'api',
-                position: 'left',
-                items: [
-                    {
-                        label: 'Reference',
-                        href: `${absoluteUrl}/api/v2`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                label: 'SDK',
-                type: 'dropdown',
-                to: `${absoluteUrl}/sdk`,
-                activeBasePath: 'sdk',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-                items: [
-                    {
-                        label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        html: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                label: 'CLI',
-                href: `${absoluteUrl}/cli/docs`,
-                position: 'left',
-                activeBasePath: 'cli',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'Open source',
+                label: 'Open Source',
                 type: 'dropdown',
                 to: `${absoluteUrl}/open-source`,
                 activeBasePath: 'open-source',
                 target: '_self',
                 position: 'left',
-                className: 'navbar__item',
                 items: [
                     {
                         label: 'Crawlee',
@@ -137,6 +102,49 @@ const themeConfig = {
                 ],
             },
             {
+                label: 'Resources',
+                type: 'dropdown',
+                position: 'left',
+                items: [
+                    {
+                        label: 'API Reference',
+                        href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for JavaScript',
+                        href: `${absoluteUrl}/api/client/js/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Python',
+                        href: `${absoluteUrl}/api/client/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
                 label: 'Discord',
                 title: 'Chat on Discord',
@@ -161,48 +169,43 @@ const themeConfig = {
     footer: {
         links: [
             {
-                title: 'Learn',
+                title: 'Product',
                 items: [
                     {
-                        label: 'Academy',
-                        href: `${absoluteUrl}/academy`,
+                        label: 'Get Started',
+                        href: `${absoluteUrl}/platform/get-started`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Platform',
-                        href: `${absoluteUrl}/platform`,
+                        label: 'Actors',
+                        href: `${absoluteUrl}/platform/actors`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Integrations',
+                        href: `${absoluteUrl}/platform/integrations`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Account',
+                        href: `${absoluteUrl}/platform/account`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                 ],
             },
             {
-                title: 'API',
+                title: 'Developer tools',
                 items: [
                     {
-                        label: 'Reference',
+                        label: 'API Reference',
                         href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
                     },
-                    {
-                        label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                title: 'SDK',
-                items: [
                     {
                         label: 'SDK for JavaScript',
                         href: `${absoluteUrl}/sdk/js/docs/overview`,
@@ -215,33 +218,26 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                title: 'Other',
-                items: [
                     {
                         label: 'CLI',
                         href: `${absoluteUrl}/cli/docs`,
-                        position: 'left',
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Open source',
-                        href: `${absoluteUrl}/open-source`,
-                        position: 'left',
                         target: '_self',
                         rel: 'dofollow',
                     },
                 ],
             },
             {
-                title: 'More',
+                title: 'Learn & community',
                 items: [
                     {
+                        label: 'Academy',
+                        href: `${absoluteUrl}/academy`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
                         label: 'Crawlee',
-                        to: 'https://crawlee.dev',
+                        href: 'https://crawlee.dev',
                         rel: 'dofollow',
                     },
                     {
@@ -251,6 +247,23 @@ const themeConfig = {
                     {
                         href: 'https://discord.com/invite/jyEM2PRvMU',
                         label: 'Discord',
+                    },
+                ],
+            },
+            {
+                title: 'Company',
+                items: [
+                    {
+                        label: 'Security',
+                        href: `${absoluteUrl}/platform/security`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Limits',
+                        href: `${absoluteUrl}/platform/limits`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                     {
                         label: 'Trust Center',
