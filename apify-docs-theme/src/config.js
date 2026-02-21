@@ -52,6 +52,49 @@ const themeConfig = {
                 target: '_self',
                 rel: 'dofollow',
             },
+            {
+                label: 'Resources',
+                type: 'dropdown',
+                position: 'left',
+                items: [
+                    {
+                        label: 'API Reference',
+                        href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for JavaScript',
+                        href: `${absoluteUrl}/api/client/js/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Python',
+                        href: `${absoluteUrl}/api/client/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
             // Ecosystem zone
             {
                 label: 'Learn',
@@ -98,49 +141,6 @@ const themeConfig = {
                     {
                         label: 'Apify on GitHub',
                         href: 'https://github.com/apify',
-                    },
-                ],
-            },
-            {
-                label: 'Resources',
-                type: 'dropdown',
-                position: 'left',
-                items: [
-                    {
-                        label: 'API Reference',
-                        href: `${absoluteUrl}/api/v2`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'CLI',
-                        href: `${absoluteUrl}/cli/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
                     },
                 ],
             },
