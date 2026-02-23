@@ -6,6 +6,20 @@ teardown() {
   rm -rf products.json storage dataset.json
 }
 
+@test "covers all exercise scripts" {
+  local missing
+  missing=0
+
+  for file in *.py; do
+    if ! grep -q "python $file" test.bats; then
+      echo "Missing test for $file"
+      missing=1
+    fi
+  done
+
+  [[ $missing -eq 0 ]]
+}
+
 @test "outputs the HTML with Star Wars products" {
   run uv run -q --with=httpx python lego.py
 
@@ -141,7 +155,7 @@ teardown() {
 
   (( status == 0 ))
   [[ -f dataset.json ]]
-  [[ $(cat dataset.json | jq '. | length') -gt 5 ]]  # should be -eq 5, but there is a bug https://github.com/apify/crawlee-python/issues/1673
+  [[ $(cat dataset.json | jq '. | length') -eq 5 ]]
   [[ $(cat dataset.json | jq -c '.[0] | keys') == '["rating","title","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.imdb.com/title/"* ]]
 }
