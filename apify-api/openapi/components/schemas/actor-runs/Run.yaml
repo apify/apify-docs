@@ -84,7 +84,7 @@ properties:
     description: Exit code of the Actor run process.
   generalAccess:
     description: General access level for the Actor run.
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml
   defaultKeyValueStoreId:
     type: string
     examples: [eJNzqsbPiopwJcgGQ]
