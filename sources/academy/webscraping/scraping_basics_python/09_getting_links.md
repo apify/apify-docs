@@ -346,8 +346,8 @@ https://www.wtatennis.com/players/320203/elena-rybakina
 ```
 
 <details>
-    <summary>Solution</summary>
-    <CodeBlock language="py">{WtaTennisLinksExercise.code}</CodeBlock>
+  <summary>Solution</summary>
+  <CodeBlock language="py">{WtaTennisLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news
