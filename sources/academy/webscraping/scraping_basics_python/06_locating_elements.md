@@ -242,7 +242,7 @@ Macao, China
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{ImoCountriesExercise.code}</CodeBlock>
+  <CodeBlock language="py">{ImoCountriesExercise.code}</CodeBlock>
 
   We visit each row and if we find some [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells, we take the text of the first and third ones. We print it if it's not empty. This approach skips [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) and empty rows.
 
