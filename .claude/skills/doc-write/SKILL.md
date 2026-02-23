@@ -1,99 +1,107 @@
-# Documentation writer skill
+---
+name: doc-write
+description: Write or edit Apify documentation pages following the style guide. Use when user says "write docs for", "create a new page", "document this feature", "add documentation about", "edit this doc page", or "write a guide for [topic]". Handles platform docs, guides, and reference pages with proper formatting and structure.
+---
 
-## Purpose
+# Documentation writer
 
-Help write or edit Apify documentation following the established style guide and best practices.
+Write or edit Apify documentation following the established style guide and best practices.
 
-## When to use
+## Instructions
 
-- Creating new documentation pages
-- Editing existing documentation
-- Converting drafts into proper documentation format
-- Updating documentation content
+### Step 1: Determine documentation type
 
-## Context files
+| Type | Goal | Location |
+|---|---|---|
+| Platform docs | Practical guidance for features | `sources/platform/` |
+| Guides | Explain how to solve a problem | `sources/platform/` or `sources/academy/` |
+| Reference | Technical specifications | `sources/platform/` |
+| Tutorial | Step-by-step learning | Use `/tutorial` skill instead |
 
-- `AGENTS.md` - Primary vendor-agnostic documentation standards
-- `CONTRIBUTING.md` - Contribution guidelines
-- `.claude/rules/` - Claude Code-specific standards (auto-loaded)
+For tutorials, use the `/tutorial` skill which has a dedicated 8-section structure.
 
-## Standards reference
+### Step 2: Create front matter
 
-This skill follows all standards defined in `.claude/rules/`:
+```yaml
+---
+title: Sentence case title
+description: 140-160 character value-focused description
+sidebar_position: 1.0
+slug: /path/to/page
+---
+```
 
-- **writing-style.md** - Language, tone, grammar, headings, word choice (US English, active voice, sentence case, no gerunds)
-- **content-standards.md** - Front matter, text formatting, admonitions (must have titles), code examples, links, images
-- **terminology.md** - Apify-specific capitalization (Apify Actor, the Apify platform, etc.)
-- **quality-standards.md** - Complete pre-submission quality checklist
+### Step 3: Write content following type structure
 
-**Key reminders**:
-- Sentence case for headings (not Title Case)
-- No gerunds in headings (use "Create" not "Creating")
-- Bold ONLY for UI elements (not for emphasis)
-- All admonitions MUST have titles
-- Front matter required (title, description 140-160 chars, sidebar_position, slug)
-- Match slug to file path
+See `references/doc-structures.md` for detailed templates per documentation type.
 
-## Documentation structure
+**Platform documentation**: Introduction → When to use → How to configure/use → Best practices → Related features
 
-### For platform documentation
+**Guides**: Introduction → Prerequisites → Step-by-step → Code examples → Testing → Summary
 
-1. **Introduction** - Clear description of the feature or concept
-2. **When to use** - Explain when this feature is appropriate
-3. **How to configure/use** - Step-by-step instructions with code examples
-4. **Best practices** - Recommendations and tips
-5. **Related features** - Links to related documentation
+**Reference**: Overview → Parameters/options → Examples → Related information
 
-### For tutorials and guides
+### Step 4: Apply quality standards
 
-1. **Introduction** - What will the user learn? (Include learning objectives)
-2. **Prerequisites** - Required knowledge, setup, accounts
-3. **Step-by-step instructions** - Clear, numbered steps with explanations
-4. **Code examples** - Complete, runnable examples (test before submitting)
-5. **Testing/verification** - How to verify it works
-6. **Summary** - What they accomplished and suggested next steps
+All standards from `.claude/rules/` apply. Key doc-write checks:
 
-### For reference documentation
-
-1. **Overview** - Brief description of the topic
-2. **Parameters/options** - Detailed list with types and descriptions
-3. **Examples** - Practical usage examples
-4. **Related information** - Links to related topics
-
-## Documentation types
-
-### Tutorials
-- **Goal**: Teach users how to accomplish a specific task
-- **Tone**: Instructional, encouraging, step-by-step
-- **Examples**: "Build your first web scraper", "Deploy an Actor to production"
-- **Use**: Complete code examples, screenshots, expected results at each step
-
-### Guides
-- **Goal**: Explain how to use a feature or solve a problem
-- **Tone**: Informative, practical, solution-oriented
-- **Examples**: "Actor configuration", "Working with datasets"
-- **Use**: Focused code snippets, best practices, common patterns
-
-### Reference
-- **Goal**: Document technical specifications and API details
-- **Tone**: Precise, comprehensive, technical
-- **Examples**: "Actor configuration schema", "API endpoints"
-- **Use**: Complete parameter lists, type definitions, return values
-
-## Skill-specific checklist
-
-Before finalizing documentation, verify these doc-write-specific items:
-
-- [ ] Structure matches documentation type (tutorial/guide/reference)
+- [ ] Structure matches documentation type
 - [ ] Introduction clearly states what the user will learn
-- [ ] Prerequisites are listed if needed
+- [ ] Prerequisites listed if needed
 - [ ] Code examples are complete and tested
-- [ ] Each step in tutorials has clear instructions
+- [ ] Each step has clear instructions
 - [ ] Related documentation is linked
-- [ ] No assumptions made about product features (ask if unsure)
+- [ ] No assumptions about product features (ask if unsure)
 
-For general quality standards, see `quality-standards.md`
+For the complete quality checklist, see `quality-standards.md`.
+
+## Examples
+
+Example 1: New feature documentation
+
+User says: "Write docs for the new standby mode feature"
+
+Actions:
+1. Create file at `sources/platform/actors/standby-mode.md`
+1. Use platform documentation structure
+1. Write introduction explaining what standby mode is and when to use it
+1. Add configuration steps with code examples
+1. Include best practices and link to related Actor docs
+
+Result: Complete platform doc page ready for review.
+
+Example 2: Edit existing page
+
+User says: "Update the storage docs to include the new retention policy"
+
+Actions:
+1. Read existing file to understand current structure
+1. Add new section following existing patterns
+1. Ensure new content matches style guide
+1. Verify no broken links or heading hierarchy issues
+
+Result: Updated page with new section, preserving existing structure.
+
+## Troubleshooting
+
+### Description too short or too long
+
+Cause: Front matter `description` must be 140-160 characters for SEO.
+
+Solution: Focus on user value, not feature lists. Use active language. Count characters and adjust. Example: "Learn how to store and manage data in Apify datasets, key-value stores, and request queues for your Actors." (112 chars - too short, expand with more value).
+
+### Heading hierarchy warnings from markdownlint
+
+Cause: Skipped heading levels (e.g., H2 → H4) or multiple H1 tags.
+
+Solution: H1 comes from front matter `title`. Start page content with H2, then H3 for subsections. Never skip levels.
+
+### Page doesn't match existing documentation patterns
+
+Cause: New page uses different structure than sibling pages.
+
+Solution: Before writing, read 2-3 existing pages in the same directory to match patterns. Check heading structure, code example style, and admonition usage.
 
 ## Output
 
-Provide the complete documentation with proper formatting, ready to be committed to the repository.
+Provide complete documentation with proper formatting, ready to be committed to the repository.
