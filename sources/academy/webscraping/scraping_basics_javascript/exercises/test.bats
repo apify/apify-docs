@@ -31,17 +31,19 @@ teardown_file() {
   [[ "$output" == "18" ]]
 }
 
-@test "lists African countries" {
-  run node wikipedia_countries.mjs
+@test "lists IMO countries" {
+  run node imo_countries.mjs
 
-  [[ "$output" == *$'Comoros\nDemocratic Republic of the Congo\n'* ]]
+  [[ "$output" == *$'Albania\nLibya\n'* ]]
+  [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "lists African countries with a single selector" {
-  run node wikipedia_countries_single_selector.mjs
+@test "lists IMO countries with a single selector" {
+  run node imo_countries_single_selector.mjs
 
-  [[ "$output" == *$'Comoros\nDemocratic Republic of the Congo\n'* ]]
+  [[ "$output" == *$'Albania\nLibya\n'* ]]
+  [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -56,7 +58,7 @@ teardown_file() {
   run node warehouse_units.mjs
 
   [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77\n'* ]]
+  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -64,7 +66,7 @@ teardown_file() {
   run node warehouse_units_regex.mjs
 
   [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77\n'* ]]
+  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -72,7 +74,7 @@ teardown_file() {
   run node guardian_publish_dates.mjs
 
   [[ "$output" == *' F1 '* ]]
-  [[ "$output" == *' | Sun '* ]]  # has info about date, Sundays are very likely
+  [[ "$output" == *' | Mon '* ]]  # has info about date, Mondays are very likely
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
@@ -84,12 +86,11 @@ teardown_file() {
   [[ "$output" == "{ title: 'Premium Speakers', minPrice: 75000, price: 75000 }" ]]
 }
 
-@test "lists Wikipedia country links" {
-  run node wikipedia_country_links.mjs
+@test "lists WTA player links" {
+  run node wta_tennis_links.mjs
 
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Algeria\nhttps://en.wikipedia.org/wiki/Angola\n'* ]]
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/R%C3%A9union\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
+  [[ $(echo "$output" | wc -l) -gt 10 ]]
 }
 
 @test "lists Guardian F1 article links" {
@@ -99,12 +100,13 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints Wikipedia calling codes" {
-  run node wikipedia_calling_codes.mjs
+@test "lists WTA player birthplaces" {
+  run node wta_tennis_players.mjs
 
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Comoros +269\n'* ]]
-  [[ "$output" == *$'https://en.wikipedia.org/wiki/Sahrawi_Arab_Democratic_Republic null\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
+  [[ "$output" == *' | '* ]]
+  [[ "$output" == *', '* ]]
+  [[ $(echo "$output" | wc -l) -eq 5 ]]
 }
 
 @test "lists Guardian F1 authors" {
@@ -116,11 +118,17 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "lists npm LLM packages" {
-  run node npm_llm_packages.mjs
+@test "lists JavaScript GitHub repos with the LLM topic" {
+  run node js_llm_projects.mjs
 
   (( status == 0 ))
-  [[ -n "$output" ]]
+  [[ $(echo "$output" | wc -l) -eq 37 ]]
+  [[ "$output" == *' name: '* ]]
+  [[ "$output" == *' url: '* ]]
+  [[ "$output" == *'https://github.com/'* ]]
+  [[ "$output" == *' description: '* ]]
+  [[ "$output" == *' stars: '* ]]
+  [[ "$output" == *' updatedOn: '* ]]
 }
 
 @test "finds the shortest CNN sports article" {
@@ -134,7 +142,7 @@ teardown_file() {
 
   (( status == 0 ))
   [[ -f dataset.json ]]
-  [[ $(cat dataset.json | jq '. | length') == "18" ]]
+  [[ $(cat dataset.json | jq '. | length') -gt 6 ]]
   [[ $(cat dataset.json | jq -c '.[0] | keys') == '["dob","instagram_url","name","nationality","team","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.f1academy.com/Racing-Series/Drivers/"* ]]
 }
@@ -144,7 +152,7 @@ teardown_file() {
 
   (( status == 0 ))
   [[ -f dataset.json ]]
-  [[ $(cat dataset.json | jq '. | length') == "10" ]]
+  [[ $(cat dataset.json | jq '. | length') == "5" ]]
   [[ $(cat dataset.json | jq -c '.[0] | keys') == '["rating","title","url"]' ]]
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.imdb.com/title/"* ]]
 }

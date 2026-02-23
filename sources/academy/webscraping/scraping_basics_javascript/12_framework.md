@@ -429,7 +429,7 @@ If you export the dataset as JSON, it should look something like this:
 
 ### Use Crawlee to find the ratings of the most popular Netflix films
 
-The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
+The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the first 5 movie names from this page, search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
 
 - URL of the film's IMDb page
 - Title
