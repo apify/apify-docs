@@ -4,7 +4,7 @@ type: object
 properties:
   actorSpecification:
     type: integer
-    enum: [1]
+    const: 1
     description: The Actor specification version that this Actor follows. This property must be set to 1.
   name:
     type: string
