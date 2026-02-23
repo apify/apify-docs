@@ -16,11 +16,12 @@ The project uses Docusaurus with MDX, follows Microsoft style guide principles, 
 
 1. **AGENTS.md** - Primary vendor-agnostic documentation standards (READ THIS FIRST)
 2. **.claude/rules/** - Claude Code-specific standards (AUTO-LOADED)
-   - `writing-style.md` - Language, tone, grammar, and writing guidelines
-   - `content-standards.md` - Formatting, front matter, code examples, links, images
-   - `terminology.md` - Apify-specific capitalization and terminology
+   - `writing-style.md` - Prose voice and tone
+   - `content-standards.md` - Formatting and structure
+   - `terminology.md` - Product names and capitalization
+   - `grammar-rules.md` - Grammar mechanics, punctuation, numbers, brand spelling
    - `file-organization.md` - File naming and directory structure
-   - `quality-standards.md` - Comprehensive quality checklist
+   - `quality-standards.md` - Complete quality checklist
 3. **CONTRIBUTING.md** - Contribution guidelines, setup, and workflows
 4. `.cursor/rules/*.mdc` - Cursor-specific rules (for reference)
 
@@ -52,11 +53,12 @@ Use these skills for specific documentation tasks:
 
 All documentation standards are defined in `.claude/rules/` and are auto-loaded by Claude Code:
 
-- **Writing style**: See `writing-style.md` for language, tone, grammar, headings, and word choice
-- **Content formatting**: See `content-standards.md` for front matter, text formatting, admonitions, code examples, links, and images
-- **Terminology**: See `terminology.md` for Apify-specific capitalization and product names
-- **File organization**: See `file-organization.md` for naming conventions and directory structure
-- **Quality assurance**: See `quality-standards.md` for comprehensive pre-submission checklist
+- **Writing style**: See `writing-style.md` for prose voice and tone
+- **Content formatting**: See `content-standards.md` for formatting and structure
+- **Terminology**: See `terminology.md` for product names and capitalization
+- **Grammar**: See `grammar-rules.md` for grammar mechanics, punctuation, numbers, and brand spelling
+- **File organization**: See `file-organization.md` for file naming and directory structure
+- **Quality assurance**: See `quality-standards.md` for complete quality checklist
 
 **Quick reference**:
 

@@ -62,6 +62,8 @@ Before submitting documentation, verify:
 - [ ] Platform terms use lowercase with "the" (the Apify platform, not Platform)
 - [ ] Feature terms use lowercase (task, schedule, dataset, not Task/Schedule/Dataset)
 - [ ] Word choice is precise (legacy vs alternative vs deprecated used correctly)
+- [ ] Article usage correct per **terminology.md** (no "the" before Apify Console/Store/Proxy; "the" before SDK/CLI/API)
+- [ ] Grammar mechanics follow **grammar-rules.md** (hyphenation, contractions, e.g./i.e., numbers, list punctuation)
 
 ### Code examples
 
