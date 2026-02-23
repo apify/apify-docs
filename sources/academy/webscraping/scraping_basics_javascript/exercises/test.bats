@@ -12,6 +12,19 @@ teardown_file() {
   rm -rf node_modules package.json package-lock.json
 }
 
+@test "covers all exercise scripts" {
+  local missing
+  missing=0
+
+  for file in *.mjs; do
+    if ! grep -q "node $file" test.bats; then
+      echo "Missing test for $file"
+      missing=1
+    fi
+  done
+
+  [[ $missing -eq 0 ]]
+}
 
 @test "outputs the HTML with Star Wars products" {
   run node lego.mjs

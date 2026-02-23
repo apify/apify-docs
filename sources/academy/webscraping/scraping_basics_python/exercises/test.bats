@@ -6,6 +6,20 @@ teardown() {
   rm -rf products.json storage dataset.json
 }
 
+@test "covers all exercise scripts" {
+  local missing
+  missing=0
+
+  for file in *.py; do
+    if ! grep -q "python $file" test.bats; then
+      echo "Missing test for $file"
+      missing=1
+    fi
+  done
+
+  [[ $missing -eq 0 ]]
+}
+
 @test "outputs the HTML with Star Wars products" {
   run uv run -q --with=httpx python lego.py
 
