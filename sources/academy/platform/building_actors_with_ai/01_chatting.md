@@ -32,7 +32,9 @@ Some are technical challenges:
 - _No monitoring:_ Even if we knew how to setup a server or home installation so that our scraper runs regularly, we'd have little insight into whether it ran successfully, what errors or warnings occurred, how long it took, or what resources it used.
 - _Anti-scraping risks:_ If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually, they'd block that too—risking seriously annoying our barista.
 
+<!-- TODO START rewrite this paragraph, it's really bad -->
 To address all of these, we'll use the [Apify](https://apify.com/) platform, where it's possible to deploy any program, as far as it's structured as a so-called Actor. We'll thank ourselves later if we start our program as an Actor from the very beginning.
+<!-- TODO END rewrite this paragraph, it's really bad -->
 
 First, we'll use a few commands to setup an Actor template, and then we'll prompt ChatGPT to generate the code necessary for scraping that [Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales) from the prompt above.
 
