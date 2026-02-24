@@ -10,9 +10,7 @@ Improving the README, e.g. input output. Pointing the agent to the README and tu
 -->
 
 :::note Course under construction
-
 This page hasn't been written yet. Come later, please!
-
 :::
 
 

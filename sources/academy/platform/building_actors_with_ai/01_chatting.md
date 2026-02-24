@@ -9,7 +9,7 @@ unlisted: true
 
 ---
 
-Even without knowing how to code, you can open [ChatGPT](https://chatgpt.com/), type the following, and you'll have a scraper ready:
+Want to get data about prices on [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales)? Even without knowing how to code, you can open [ChatGPT](https://chatgpt.com/), type the following, and you'll have a scraper ready:
 
 ```text
 Create a scraper in JavaScript which downloads
@@ -36,7 +36,7 @@ Some are technical challenges:
 To address all of these, we'll use the [Apify](https://apify.com/) platform, where it's possible to deploy any program, as far as it's structured as a so-called Actor. We'll thank ourselves later if we start our program as an Actor from the very beginning.
 <!-- TODO END rewrite this paragraph, it's really bad -->
 
-First, we'll use a few commands to setup an Actor template, and then we'll prompt ChatGPT to generate the code necessary for scraping that [Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales) from the prompt above.
+First, we'll use a few commands to setup an Actor template, and then we'll prompt ChatGPT to generate the code necessary for scraping that Sales page.
 
 :::info The Warehouse store
 
@@ -44,7 +44,7 @@ In this course, we'll scrape a real e-commerce site instead of artificial playgr
 
 :::
 
-## Creating an Actor
+## Installing Apify CLI
 
 First, let's head to the [Installation page](https://docs.apify.com/cli/docs/installation) of the Apify CLI, a command line program, which works as a remote control for the Apiary platform.
 
@@ -62,14 +62,20 @@ You are ready if it prints something like the following:
 apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
 ```
 
+## Setting up an Actor template
+
 <!--
 TODO Now let's setup the Actor… Find a suitable folder and run `apify create`
 -->
 
 :::note Course under construction
-
 This section hasn't been written yet. Come later, please!
+:::
 
+## Scraping products
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
 :::
 
 ## Running code
@@ -79,9 +85,7 @@ Save it to the template, setup Node/npm environment, run it, get results. If the
 -->
 
 :::note Course under construction
-
 This section hasn't been written yet. Come later, please!
-
 :::
 
 #### Scraping stock units
@@ -93,7 +97,5 @@ Teaser: In one of the next lessons we'll get rid of copying and pasting and upda
 -->
 
 :::note Course under construction
-
 This section hasn't been written yet. Come later, please!
-
 :::

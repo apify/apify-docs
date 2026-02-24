@@ -12,9 +12,7 @@ In lesson 2, students could already push the Actor to Apify and start seeing som
 -->
 
 :::note Course under construction
-
 This page hasn't been written yet. Come later, please!
-
 :::
 
 

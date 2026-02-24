@@ -12,9 +12,7 @@ It won't include the publishing itself, but will cover most of any 'tidying up' 
 -->
 
 :::note Course under construction
-
 This page hasn't been written yet. Come later, please!
-
 :::
 
 <!--
