@@ -33,7 +33,7 @@ The [Apify MCP server](https://docs.apify.com/platform/integrations/mcp) provide
 
 Before using agentic payments through MCP, you need:
 
-1. _A Skyfire account_ with a funded wallet - [sign up at Skyfire](https://app.skyfire.xyz/)
+1. _A Skyfire account_ with a funded wallet - [sign up at Skyfire](https://app.skyfire.xyz/auth)
 1. _An MCP client_ that supports multiple server connections, such as [OpenCode](https://opencode.ai/), [Claude Desktop](https://claude.com/download) with MCP support, or other compatible clients
 1. _Both MCP servers configured_: Skyfire's MCP server and Apify's MCP server
 
@@ -103,7 +103,7 @@ If you're using [Claude Desktop](https://claude.com/download), add this configur
 </TabItem>
 </Tabs>
 
-Replace `YOUR_SKYFIRE_API_KEY` with Skyfire buyer API key, which you can obtain from your [Skyfire dashboard](https://app.skyfire.xyz/).
+Replace `YOUR_SKYFIRE_API_KEY` with Skyfire buyer API key, which you can obtain from your [Skyfire dashboard](https://app.skyfire.xyz/auth).
 
 ### How it works
 

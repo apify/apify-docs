@@ -22,46 +22,48 @@ get:
         type: string
         example: xpsmkDlspokDSmklS
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/GetRequestResponse.yaml
+              - $ref: ../../components/schemas/request-queues/RequestResponse.yaml
               - example:
                   data:
                     id: dnjkDMKLmdlkmlkmld
                     retryCount: 0
-                    uniqueKey: 'http://example.com'
-                    url: 'http://example.com'
+                    uniqueKey: "http://example.com"
+                    url: "http://example.com"
                     method: GET
-                    loadedUrl: 'http://example.com/example-1'
+                    loadedUrl: "http://example.com/example-1"
                     payload: null
                     noRetry: false
                     errorMessages: null
                     headers: null
                     userData:
                       label: DETAIL
-                      image: 'https://picserver1.eu'
-                    handledAt: '2019-06-16T10:23:31.607Z'
+                      image: "https://picserver1.eu"
+                    handledAt: "2019-06-16T10:23:31.607Z"
           example:
             data:
               id: dnjkDMKLmdlkmlkmld
               retryCount: 0
-              uniqueKey: 'http://example.com'
-              url: 'http://example.com'
+              uniqueKey: "http://example.com"
+              url: "http://example.com"
               method: GET
-              loadedUrl: 'http://example.com/example-1'
+              loadedUrl: "http://example.com/example-1"
               payload: null
               noRetry: false
               errorMessages: null
               headers: null
               userData:
                 label: DETAIL
-                image: 'https://picserver1.eu'
-              handledAt: '2019-06-16T10:23:31.607Z'
+                image: "https://picserver1.eu"
+              handledAt: "2019-06-16T10:23:31.607Z"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request
@@ -108,7 +110,7 @@ put:
       explode: true
       schema:
         type: string
-        example: 'false'
+        example: "false"
     - name: clientKey
       in: query
       description: |
@@ -125,46 +127,46 @@ put:
         type: string
         example: client-abc
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           allOf:
-            - $ref: ../../components/schemas/request-queues/RequestQueueItems.yaml
+            - $ref: ../../components/schemas/request-queues/Request.yaml
             - example:
                 id: dnjkDMKLmdlkmlkmld
                 retryCount: 0
-                uniqueKey: 'http://example.com'
-                url: 'http://example.com'
+                uniqueKey: "http://example.com"
+                url: "http://example.com"
                 method: GET
-                loadedUrl: 'http://example.com/example-1'
+                loadedUrl: "http://example.com/example-1"
                 payload: null
                 noRetry: false
                 errorMessages: null
                 headers: null
                 userData:
                   label: DETAIL
-                  image: 'https://picserver1.eu'
-                handledAt: '2019-06-16T10:23:31.607Z'
+                  image: "https://picserver1.eu"
+                handledAt: "2019-06-16T10:23:31.607Z"
         example:
           id: dnjkDMKLmdlkmlkmld
           retryCount: 0
-          uniqueKey: 'http://example.com'
-          url: 'http://example.com'
+          uniqueKey: "http://example.com"
+          url: "http://example.com"
           method: GET
-          loadedUrl: 'http://example.com/example-1'
+          loadedUrl: "http://example.com/example-1"
           payload: null
           noRetry: false
           errorMessages: null
           headers: null
           userData:
             label: DETAIL
-            image: 'https://picserver1.eu'
-          handledAt: '2019-06-16T10:23:31.607Z'
+            image: "https://picserver1.eu"
+          handledAt: "2019-06-16T10:23:31.607Z"
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -181,6 +183,8 @@ put:
               requestId: YiKoxjkaS9gjGTqhF
               wasAlreadyPresent: true
               wasAlreadyHandled: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request
@@ -231,10 +235,12 @@ delete:
         type: string
         example: client-abc
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request

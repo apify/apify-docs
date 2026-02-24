@@ -211,7 +211,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -219,7 +219,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -232,7 +232,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -371,38 +371,38 @@ get:
       in: query
       description: Signature used to access the items.
       required: false
-      style: simple
+      style: form
       schema:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
@@ -421,18 +421,20 @@ get:
         text/html:
           schema:
             type: string
-          example: '<table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>'
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          example: <table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
           schema:
             type: string
         application/rss+xml:
           schema:
             type: string
-          example: '<rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>'
+          example: <rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>
         application/xml:
           schema:
             type: string
-          example: '<items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>'
+          example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
@@ -467,14 +469,14 @@ post:
         type: string
         example: WkzbQMuFYuamGv3YF
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           type: array
           items:
             $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
-          description: ''
+          description: ""
           example:
             - foo: bar
             - foo: hotel
@@ -485,23 +487,23 @@ post:
           - foo: restaurant
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items'
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
       content:
         application/json:
           schema:
             type: object
             example: {}
           example: {}
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -526,7 +528,7 @@ post:
                         keyword: type
                         params:
                           type: string
-                        message: 'must be string'
+                        message: must be string
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items

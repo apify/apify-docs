@@ -5,7 +5,10 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/crawling
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WtaTennisPlayersExercise from '!!raw-loader!roa-loader!./exercises/wta_tennis_players.py';
+import GuardianF1AuthorsExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_authors.py';
 
 **In this lesson, we'll follow links to individual product pages. We'll use HTTPX to download them and BeautifulSoup to process them.**
 
@@ -180,63 +183,27 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 <Exercises />
 
-### Scrape calling codes of African countries
+### Scrape birthplaces of top 5 tennis players
 
-Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the _calling code_ from the info table. Print the URL and the calling code for each country. Start with this URL:
+Scrape links to detail pages of the top 5 tennis players according to WTA rankings. Follow the links and extract the birthplace of each player. Print the URL of the player's detail page, then `|` as a separator, then the birthplace. Start with this URL:
 
 ```text
-https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+https://www.wtatennis.com/rankings/singles
 ```
 
 Your program should print the following:
 
 ```text
-https://en.wikipedia.org/wiki/Algeria +213
-https://en.wikipedia.org/wiki/Angola +244
-https://en.wikipedia.org/wiki/Benin +229
-https://en.wikipedia.org/wiki/Botswana +267
-https://en.wikipedia.org/wiki/Burkina_Faso +226
-https://en.wikipedia.org/wiki/Burundi None
-https://en.wikipedia.org/wiki/Cameroon +237
-...
+https://www.wtatennis.com/players/320760/aryna-sabalenka | Minsk, Belarus
+https://www.wtatennis.com/players/326408/iga-swiatek | Warsaw, Poland
+https://www.wtatennis.com/players/328560/coco-gauff | Delray Beach, Fl. USA
+https://www.wtatennis.com/players/326384/amanda-anisimova | Miami Beach, FL, USA
+https://www.wtatennis.com/players/324166/elena-rybakina | Moscow, Russia
 ```
-
-:::tip Need a nudge?
-
-Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
-
-:::
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
-
-  def parse_calling_code(soup):
-      for label in soup.select("th.infobox-label"):
-          if label.text.strip() == "Calling code":
-              data = label.parent.select_one("td.infobox-data")
-              return data.text.strip()
-      return None
-
-  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
-  listing_soup = download(listing_url)
-  for name_cell in listing_soup.select(".wikitable tr td:nth-child(3)"):
-      link = name_cell.select_one("a")
-      country_url = urljoin(listing_url, link["href"])
-      country_soup = download(country_url)
-      calling_code = parse_calling_code(country_soup)
-      print(country_url, calling_code)
-  ```
-
+  <CodeBlock language="py">{WtaTennisPlayersExercise.code}</CodeBlock>
 </details>
 
 ### Scrape authors of F1 news articles
@@ -267,35 +234,5 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
-
-  def parse_author(article_soup):
-      link = article_soup.select_one('a[rel="author"]')
-      if link:
-          return link.text.strip()
-      address = article_soup.select_one('aside address')
-      if address:
-          return address.text.strip()
-      return None
-
-  listing_url = "https://www.theguardian.com/sport/formulaone"
-  listing_soup = download(listing_url)
-  for item in listing_soup.select("#maincontent ul li"):
-      link = item.select_one("a")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      title = article_soup.select_one("h1").text.strip()
-      author = parse_author(article_soup)
-      print(f"{author}: {title}")
-  ```
-
+  <CodeBlock language="py">{GuardianF1AuthorsExercise.code}</CodeBlock>
 </details>

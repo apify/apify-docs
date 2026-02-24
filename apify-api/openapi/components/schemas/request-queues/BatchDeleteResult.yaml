@@ -1,0 +1,17 @@
+title: BatchDeleteResult
+description: Result of a batch delete operation containing successfully deleted and failed requests.
+type: object
+required:
+  - processedRequests
+  - unprocessedRequests
+properties:
+  processedRequests:
+    type: array
+    description: Requests that were successfully deleted from the request queue.
+    items:
+      $ref: ./DeletedRequest.yaml
+  unprocessedRequests:
+    type: array
+    description: Requests that failed to be deleted and can be retried.
+    items:
+      $ref: ./RequestDraft.yaml

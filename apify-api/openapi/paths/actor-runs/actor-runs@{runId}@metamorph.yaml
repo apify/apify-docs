@@ -52,8 +52,8 @@ post:
         type: string
         example: beta
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -64,7 +64,7 @@ post:
               id: HG7ML7M8z78YcAPEB
               actId: janedoe~my-actor
               userId: PNWZBd7Z9c746JAnF
-              startedAt: '2019-11-30T07:34:24.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
               finishedAt: null
               status: RUNNING
               statusMessage: Actor is running
@@ -96,16 +96,18 @@ post:
                 memoryMbytes: 1024
                 diskMbytes: 2048
               buildId: HG7ML7M8z78YcAPEB
+              exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
               metamorphs:
-                - createdAt: '2019-11-30T07:39:24.202Z'
+                - createdAt: "2019-11-30T07:39:24.202Z"
                   actorId: nspoEjklmnsF2oosD
                   buildId: ME6oKecqy5kXDS4KQ
                   inputKey: INPUT-METAMORPH-1
               buildNumber: 0.1.10
-              containerUrl: 'https://hfewsyknno9o.runs.apify.com'
+              containerUrl: "https://hfewsyknno9o.runs.apify.com"
               isContainerServerReady: false
               gitBranchName: master
               usage:
@@ -118,7 +120,7 @@ post:
                 REQUEST_QUEUE_READS: 2
                 REQUEST_QUEUE_WRITES: 1
                 DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                DATA_TRANSFER_EXTERNAL_GBYTES: 3
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
                 PROXY_SERPS: 3
               usageTotalUsd: 0.2654
@@ -132,9 +134,11 @@ post:
                 REQUEST_QUEUE_READS: 0.005
                 REQUEST_QUEUE_WRITES: 0.02
                 DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                DATA_TRANSFER_EXTERNAL_GBYTES: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/metamorph-run/metamorph-run

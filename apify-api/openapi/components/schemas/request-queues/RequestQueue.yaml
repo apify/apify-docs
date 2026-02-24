@@ -1,4 +1,5 @@
 title: RequestQueue
+description: A request queue object containing metadata and statistics.
 required:
   - id
   - userId
@@ -14,37 +15,56 @@ type: object
 properties:
   id:
     type: string
-    example: WkzbQMuFYuamGv3YF
+    description: A unique identifier assigned to the request queue.
+    examples: [WkzbQMuFYuamGv3YF]
   name:
     type: string
-    example: some-name
+    description: The name of the request queue.
+    examples: [some-name]
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    description: The ID of the user who owns the request queue.
+    examples: [wRsJZtadYvn4mBZmm]
   createdAt:
     type: string
-    example: '2019-12-12T07:34:14.202Z'
+    format: date-time
+    description: The timestamp when the request queue was created.
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
-    description: The modifiedAt is updated whenever the queue is modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the queue.
-    example: '2030-12-13T08:36:13.202Z'
+    format: date-time
+    description: The timestamp when the request queue was last modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the request queue.
+    examples: ["2030-12-13T08:36:13.202Z"]
   accessedAt:
     type: string
-    example: '2019-12-14T08:36:13.202Z'
+    format: date-time
+    description: The timestamp when the request queue was last accessed.
+    examples: ["2019-12-14T08:36:13.202Z"]
   totalRequestCount:
-    type: number
-    example: 870
+    type: integer
+    description: The total number of requests in the request queue.
+    minimum: 0
+    examples: [870]
   handledRequestCount:
-    type: number
-    example: 100
+    type: integer
+    description: The number of requests that have been handled.
+    minimum: 0
+    examples: [100]
   pendingRequestCount:
-    type: number
-    example: 670
+    type: integer
+    description: The number of requests that are pending and have not been handled yet.
+    minimum: 0
+    examples: [670]
   hadMultipleClients:
     type: boolean
-    example: true
+    description: Whether the request queue has been accessed by multiple different clients.
+    examples: [true]
   consoleUrl:
     type: string
-    example: 'https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC'  
+    description: The URL to view the request queue in the Apify console.
+    format: uri
+    examples: [https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC]
+  stats:
+    $ref: ./RequestQueueStats.yaml
   generalAccess:
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml

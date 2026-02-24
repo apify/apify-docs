@@ -130,8 +130,8 @@ async def main():
     await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
 
     crawler.log.info("Exporting data")
-    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
-    await crawler.export_data_csv(path='dataset.csv')
+    await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data(path='dataset.csv')
 
 def parse_variant(variant):
     text = variant.text.strip()

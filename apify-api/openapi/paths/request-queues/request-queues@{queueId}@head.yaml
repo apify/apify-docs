@@ -46,56 +46,58 @@ get:
         type: string
         example: client-abc
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/GetHeadResponse.yaml
+              - $ref: ../../components/schemas/request-queues/HeadResponse.yaml
               - example:
                   data:
                     limit: 1000
-                    queueModifiedAt: '2018-03-14T23:00:00.000Z'
+                    queueModifiedAt: "2018-03-14T23:00:00.000Z"
                     hadMultipleClients: false
                     items:
                       - id: 8OamqXBCpPHxyH9
                         retryCount: 0
-                        uniqueKey: 'http://example.com'
-                        url: 'http://example.com'
+                        uniqueKey: "http://example.com"
+                        url: "http://example.com"
                         method: GET
                       - id: ZJAoqlRijenMQIn
                         retryCount: 0
-                        uniqueKey: 'http://example.com/a/b'
-                        url: 'http://example.com/a/b'
+                        uniqueKey: "http://example.com/a/b"
+                        url: "http://example.com/a/b"
                         method: GET
                       - id: hAhkwyk5oOBHKQC
                         retryCount: 1
-                        uniqueKey: 'http://example.com/c/d'
-                        url: 'http://example.com/c/d'
+                        uniqueKey: "http://example.com/c/d"
+                        url: "http://example.com/c/d"
                         method: GET
           example:
             data:
               limit: 1000
-              queueModifiedAt: '2018-03-14T23:00:00.000Z'
+              queueModifiedAt: "2018-03-14T23:00:00.000Z"
               hadMultipleClients: false
               items:
                 - id: 8OamqXBCpPHxyH9
                   retryCount: 0
-                  uniqueKey: 'http://example.com'
-                  url: 'http://example.com'
+                  uniqueKey: "http://example.com"
+                  url: "http://example.com"
                   method: GET
                 - id: ZJAoqlRijenMQIn
                   retryCount: 0
-                  uniqueKey: 'http://example.com/a/b'
-                  url: 'http://example.com/a/b'
+                  uniqueKey: "http://example.com/a/b"
+                  url: "http://example.com/a/b"
                   method: GET
                 - id: hAhkwyk5oOBHKQC
                   retryCount: 1
-                  uniqueKey: 'http://example.com/c/d'
-                  url: 'http://example.com/c/d'
+                  uniqueKey: "http://example.com/c/d"
+                  url: "http://example.com/c/d"
                   method: GET
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head

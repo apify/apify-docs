@@ -1,7 +1,0 @@
-type: string
-enum:
-  - RESTRICTED
-  - ANYONE_WITH_ID_CAN_READ
-  - FOLLOW_USER_SETTING
-example: RESTRICTED
-description: Defines the general access level for the resource.

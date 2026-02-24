@@ -1,0 +1,7 @@
+title: ListOfTasksResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    $ref: ./ListOfTasks.yaml

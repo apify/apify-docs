@@ -5,8 +5,11 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/getting-links
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WtaTennisLinksExercise from '!!raw-loader!roa-loader!./exercises/wta_tennis_links.mjs';
+import GuardianF1LinksExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_links.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -321,48 +324,27 @@ Ta-da! We've managed to get links leading to the product pages. In the next less
 
 <Exercises />
 
-### Scrape links to countries in Africa
+### Scrape links to top tennis players
 
-Download Wikipedia's page with the list of African countries, use Cheerio to parse it, and print links to Wikipedia pages of all the states and territories mentioned in all tables. Start with this URL:
+Download the WTA singles rankings page, use Cheerio to parse it, and print links to the detail pages of the listed players. Start with this URL:
 
 ```text
-https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+https://www.wtatennis.com/rankings/singles
 ```
 
 Your program should print the following:
 
 ```text
-https://en.wikipedia.org/wiki/Algeria
-https://en.wikipedia.org/wiki/Angola
-https://en.wikipedia.org/wiki/Benin
-https://en.wikipedia.org/wiki/Botswana
+https://www.wtatennis.com/players/318310/iga-swiatek
+https://www.wtatennis.com/players/322341/aryna-sabalenka
+https://www.wtatennis.com/players/326911/coco-gauff
+https://www.wtatennis.com/players/320203/elena-rybakina
 ...
 ```
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const listingURL = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa";
-  const response = await fetch(listingURL);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $(".wikitable tr td:nth-child(3)").toArray()) {
-      const nameCell = $(element);
-      const link = nameCell.find("a").first();
-      const url = new URL(link.attr("href"), listingURL).href;
-      console.log(url);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
-
+  <CodeBlock language="js">{WtaTennisLinksExercise.code}</CodeBlock>
 </details>
 
 ### Scrape links to F1 news
@@ -385,26 +367,7 @@ https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-u
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const listingURL = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(listingURL);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $("#maincontent ul li").toArray()) {
-      const link = $(element).find("a").first();
-      const url = new URL(link.attr("href"), listingURL).href;
-      console.log(url);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{GuardianF1LinksExercise.code}</CodeBlock>
 
   Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
 

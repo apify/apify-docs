@@ -48,20 +48,31 @@ get:
     - name: unnamed
       in: query
       description: |
-        If `true` or `1` then all the datasets are returned. By default only named datasets are returned.
+        If `true` or `1` then unnamed datasets are displayed. For performance reasons, both named and unnamed datasets that are empty will not be shown when this parameter is enabled. By default only named datasets are returned.
       style: form
       explode: true
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible datasets are returned.
+
+        - `ownedByMe`: Return only datasets owned by the user.
+        - `sharedWithMe`: Return only datasets shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/datasets/GetListOfDatasetsResponse.yaml
+            $ref: ../../components/schemas/datasets/ListOfDatasetsResponse.yaml
           example:
             data:
               total: 2
@@ -73,9 +84,9 @@ get:
                 - id: wkzbqmufyuamgv3yf
                   name: d7b9mdysbtx5l7xaj
                   userId: tbXmWu7GCxnyYtSiL
-                  createdAt: '2019-12-12T07:34:14.202Z'
-                  modifiedAt: '2019-12-13T08:36:13.202Z'
-                  accessedAt: '2019-12-14T08:36:13.202Z'
+                  createdAt: "2019-12-12T07:34:14.202Z"
+                  modifiedAt: "2019-12-13T08:36:13.202Z"
+                  accessedAt: "2019-12-14T08:36:13.202Z"
                   itemCount: 7
                   cleanItemCount: 5
                   actId: null
@@ -83,13 +94,15 @@ get:
                 - id: YiKoxjkaS9gjGTqhF
                   name: eshop-items
                   userId: tbXmWu7GCxnyYtSiL
-                  createdAt: '2019-12-12T07:34:14.202Z'
-                  modifiedAt: '2019-12-13T08:36:13.202Z'
-                  accessedAt: '2019-12-14T08:36:13.202Z'
+                  createdAt: "2019-12-12T07:34:14.202Z"
+                  modifiedAt: "2019-12-13T08:36:13.202Z"
+                  accessedAt: "2019-12-14T08:36:13.202Z"
                   itemCount: 2
                   cleanItemCount: 2
                   actId: null
                   actRunId: null
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets
@@ -122,15 +135,15 @@ post:
         type: string
         example: eshop-items
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF'
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF
       content:
         application/json:
           schema:
@@ -140,14 +153,17 @@ post:
               id: WkzbQMuFYuamGv3YF
               name: d7b9MDYsbtX5L7XAj
               userId: wRsJZtadYvn4mBZmm
-              createdAt: '2019-12-12T07:34:14.202Z'
-              modifiedAt: '2019-12-13T08:36:13.202Z'
-              accessedAt: '2019-12-14T08:36:13.202Z'
+              createdAt: "2019-12-12T07:34:14.202Z"
+              modifiedAt: "2019-12-13T08:36:13.202Z"
+              accessedAt: "2019-12-14T08:36:13.202Z"
               itemCount: 7
               cleanItemCount: 5
               actId: null
               actRunId: null
               fields: []
+              consoleUrl: https://console.apify.com/storage/datasets/WkzbQMuFYuamGv3YF
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/create-dataset

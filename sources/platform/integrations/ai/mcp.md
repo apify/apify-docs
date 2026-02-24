@@ -13,7 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
-using [Model Context Protocol](https://modelcontextprotocol.io/). The server enables AI agents to
+using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro). The server enables AI agents to
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
 and enabled AI coding assistants to access Apify documentation and tutorials.
 
@@ -30,6 +30,12 @@ Before connecting your AI to Apify, you'll need three things:
 ## Quick start
 
 You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+
+:::caution SSE transport deprecated
+
+Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify MCP server now uses Streamable HTTP, in line with the official MCP specification. Visit [mcp.apify.com](https://mcp.apify.com/) to update your client configuration.
+
+:::
 
 ### Streamable HTTP with OAuth (recommended)
 

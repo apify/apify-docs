@@ -5,7 +5,10 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/scraping-variants
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import PythonJobsDatabaseExercise from '!!raw-loader!roa-loader!./exercises/python_jobs_database.py';
+import CnnSportsShortestArticleExercise from '!!raw-loader!roa-loader!./exercises/cnn_sports_shortest_article.py';
 
 **In this lesson, we'll scrape the product detail pages to represent each product variant as a separate item in our dataset.**
 
@@ -342,34 +345,7 @@ You can find everything you need for working with dates and times in Python's [`
 
   After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
 
-  ```py
-  from pprint import pp
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-  from datetime import datetime, date, timedelta
-
-  today = date.today()
-  jobs_url = "https://www.python.org/jobs/type/database/"
-  response = httpx.get(jobs_url)
-  response.raise_for_status()
-  soup = BeautifulSoup(response.text, "html.parser")
-
-  for job in soup.select(".list-recent-jobs li"):
-      link = job.select_one(".listing-company-name a")
-
-      time = job.select_one(".listing-posted time")
-      posted_at = datetime.fromisoformat(time["datetime"])
-      posted_on = posted_at.date()
-      posted_ago = today - posted_on
-
-      if posted_ago <= timedelta(days=60):
-          title = link.text.strip()
-          company = list(job.select_one(".listing-company-name").stripped_strings)[-1]
-          url = urljoin(jobs_url, link["href"])
-          pp({"title": title, "company": company, "url": url, "posted_on": posted_on})
-  ```
-
+  <CodeBlock language="py">{PythonJobsDatabaseExercise.code}</CodeBlock>
 </details>
 
 ### Find the shortest CNN article which made it to the Sports homepage
@@ -386,33 +362,5 @@ At the time of writing, the shortest article on the CNN Sports homepage is [abou
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import httpx
-  from bs4 import BeautifulSoup
-  from urllib.parse import urljoin
-
-  def download(url):
-      response = httpx.get(url)
-      response.raise_for_status()
-      return BeautifulSoup(response.text, "html.parser")
-
-  listing_url = "https://edition.cnn.com/sport"
-  listing_soup = download(listing_url)
-
-  data = []
-  for card in listing_soup.select(".layout__main .card"):
-      link = card.select_one(".container__link")
-      article_url = urljoin(listing_url, link["href"])
-      article_soup = download(article_url)
-      if content := article_soup.select_one(".article__content"):
-          length = len(content.get_text())
-          data.append((length, article_url))
-
-  data.sort()
-  shortest_item = data[0]
-  item_url = shortest_item[1]
-  print(item_url)
-  ```
-
+  <CodeBlock language="py">{CnnSportsShortestArticleExercise.code}</CodeBlock>
 </details>

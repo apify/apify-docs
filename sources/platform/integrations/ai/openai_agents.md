@@ -283,4 +283,4 @@ For a comprehensive example with error handling and reporting, refer to the [Ope
 - [OpenAI Agent MCP Tester GitHub repository](https://github.com/apify/openai-agent-mcp-tester) - Source code for the MCP tester Actor
 - [Apify MCP server](https://mcp.apify.com) - Interactive configuration tool for the Apify MCP server
 - [Apify MCP documentation](/platform/integrations/mcp) - Complete guide to using the Apify MCP server
-- [Model Context Protocol specification](https://modelcontextprotocol.io/) - Learn about the MCP specification
+- [Model Context Protocol specification](https://modelcontextprotocol.io/docs/getting-started/intro) - Learn about the MCP specification

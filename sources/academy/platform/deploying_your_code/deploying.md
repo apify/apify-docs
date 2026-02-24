@@ -51,7 +51,7 @@ That's it! The Actor should now pull its source code from the repository and aut
 
 :::info CLI prerequisite
 
-If you don't yet have the Apify CLI, learn how to install it and log in by following along with [this brief lesson](../../glossary/tools/apify_cli.md) about it.
+If you don't yet have the Apify CLI, learn how to install it and use it in [Apify CLI documentation](/cli/docs/installation).
 
 :::
 

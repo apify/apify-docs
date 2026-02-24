@@ -1,8 +1,0 @@
-package: apify
-output: generated/client.gen.go
-generate:
-  models: true
-  client: true
-  embedded-spec: false
-output-options:
-  skip-prune: true

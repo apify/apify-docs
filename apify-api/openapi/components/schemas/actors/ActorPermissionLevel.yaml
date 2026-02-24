@@ -5,4 +5,4 @@ description: >
 enum:
   - LIMITED_PERMISSIONS
   - FULL_PERMISSIONS
-example: LIMITED_PERMISSIONS
+examples: [LIMITED_PERMISSIONS]

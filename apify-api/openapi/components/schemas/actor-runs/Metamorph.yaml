@@ -1,0 +1,25 @@
+title: Metamorph
+description: Information about a metamorph event that occurred during the run.
+type: object
+required:
+  - createdAt
+  - actorId
+  - buildId
+properties:
+  createdAt:
+    type: string
+    format: date-time
+    description: Time when the metamorph occurred.
+    examples: ["2019-11-30T07:39:24.202Z"]
+  actorId:
+    type: string
+    description: ID of the Actor that the run was metamorphed to.
+    examples: [nspoEjklmnsF2oosD]
+  buildId:
+    type: string
+    description: ID of the build used for the metamorphed Actor.
+    examples: [ME6oKecqy5kXDS4KQ]
+  inputKey:
+    type: [string, "null"]
+    description: Key of the input record in the key-value store.
+    examples: [INPUT-METAMORPH-1]

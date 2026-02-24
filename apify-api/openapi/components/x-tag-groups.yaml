@@ -1,42 +1,40 @@
 - name: Actors
   tags:
-  - Actors
-  - Actors/Actor versions
-  - Actors/Actor builds
-  - Actors/Actor runs
-  - Actors/Webhook collection
-  - Actors/Last run object and its storages
+    - Actors
+    - Actors/Actor versions
+    - Actors/Actor builds
+    - Actors/Actor runs
+    - Actors/Webhook collection
+    - Actors/Last run object and its storages
 - name: Actor builds
   tags:
-  - Actor builds
+    - Actor builds
 - name: Actor runs
   tags:
-  - Actor runs
+    - Actor runs
 - name: Actor tasks
   tags:
-  - Actor tasks
+    - Actor tasks
 - name: Storage
   tags:
-  - Storage/Datasets
-  - Storage/Key-value stores
-  - Storage/Request queues
-  - Storage/Request queues/Requests
-  - Storage/Request queues/Requests locks
+    - Storage/Datasets
+    - Storage/Key-value stores
+    - Storage/Request queues
+    - Storage/Request queues/Requests
+    - Storage/Request queues/Requests locks
 - name: Webhooks
   tags:
-  - Webhooks/Webhooks
-  - Webhooks/Webhook dispatches
+    - Webhooks/Webhooks
+    - Webhooks/Webhook dispatches
 - name: Schedules
   tags:
-  - Schedules
+    - Schedules
 - name: Store
   tags:
-  - Store
+    - Store
 - name: Logs
   tags:
-  - Logs
+    - Logs
 - name: Users
   tags:
-  - Users
-
-
+    - Users

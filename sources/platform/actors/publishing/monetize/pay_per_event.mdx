@@ -33,7 +33,7 @@ Your profit is calculated from the mentioned formula:
 where:
 
 - _Revenue_: The amount charged for events via the PPE charging API or through JS/Python SDK. You receive 80% of this revenue.
-- _Platform costs_: The underlying platform usage costs for running the Actor, calculated in the same way as for PPR. For more details, visit the [Computing your costs for PPE and PPR Actors](#computing-your-costs-for-ppe-and-ppr-actors) section.
+- _Platform costs_: The underlying platform usage costs for running the Actor, calculated in the same way as for PPR. For more details, visit the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
 
 Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
 
@@ -50,6 +50,7 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 
 1. _Understand your costs_: Analyze resource usage (e.g CPU, memory, proxies, external APIs) and identify cost drivers
 1. _Define clear events_: break your Actor's functionality into measurable, chargeable events.
+1. _Choose a primary event_: Pick the event that best represents the main value of your Actor. This primary event is highlighted on the Actor detail page, so users quickly understand what they are mainly paying for.
 1. _Common use cases_:
    1. _For scraping_: combine Actor start and dataset items pricing to reflect setup and per-result cost.
    1. _Beyond scraping_: Account for integrations with external systems or external API calls.
@@ -57,15 +58,33 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
+## Pass platform usage to users
+
+During initial development or when testing pricing strategies, you can pass the platform usage costs directly to users to avoid negative profit margins. Users then pay for both the defined events and the underlying platform usage. Use this approach temporarily until you determine accurate event prices.
+
+
+:::caution Reduced pricing transparency
+
+Charging platform usage separately is less transparent for users and may discourage them from using your Actor. This also negatively impacts your [**Actor quality score**](../quality-score). Turn off this option once you determine accurate event prices.
+
+:::
+
+Use the **Pay per event + usage** toggle to enable or disable this option in the monetization flow.
+
+![Pay per event with usage toggle button](../images/pay_per_event_and_usage_toggle.png)
+
+The option can be turned off at any time with immediate effect, as it is a positive change for the user. Turning it on will take 14 days.
+
 ## Respect user spending limits
 
 Finish the Actor run once charging reaches user-configured maximum cost per run. Apify SDKs (JS and Python) return `ChargeResult` that helps determine when to finish.
 
-The `eventChargeLimitReached` property checks if the current event type can be charged more. If you have multiple event types, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
+The `eventChargeLimitReached` property checks if the user's limit allows for another charge of this event. If you have multiple events, analyze the `chargeableWithinLimit` property to see if other events can still be charged before stopping the Actor.
 
 :::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
 
 For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+The Apify SDK's `ChargeResult` respects the user set limit already.
 
 :::
 

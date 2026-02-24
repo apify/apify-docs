@@ -1,0 +1,8 @@
+title: BuildResponse
+description: Response containing Actor build data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Build.yaml

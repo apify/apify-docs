@@ -1,0 +1,8 @@
+title: BatchAddResponse
+description: Response containing the result of a batch add operation.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./BatchAddResult.yaml

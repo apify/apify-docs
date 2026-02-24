@@ -1,0 +1,16 @@
+title: WebhookEventType
+type: string
+enum:
+  - ACTOR.BUILD.ABORTED
+  - ACTOR.BUILD.CREATED
+  - ACTOR.BUILD.FAILED
+  - ACTOR.BUILD.SUCCEEDED
+  - ACTOR.BUILD.TIMED_OUT
+  - ACTOR.RUN.ABORTED
+  - ACTOR.RUN.CREATED
+  - ACTOR.RUN.FAILED
+  - ACTOR.RUN.RESURRECTED
+  - ACTOR.RUN.SUCCEEDED
+  - ACTOR.RUN.TIMED_OUT
+  - TEST
+description: Type of event that triggers the webhook.
