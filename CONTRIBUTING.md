@@ -137,6 +137,7 @@ This project uses a hybrid approach for AI assistant rules to ensure consistency
 #### Vendor-agnostic rules
 
 - **`AGENTS.md`** - Primary vendor-agnostic rules file containing core documentation standards
+- **`CLAUDE.md`** - Symlink to `AGENTS.md` for Claude Code (the Anthropic CLI tool picks this up automatically)
 
 #### Cursor-specific rules
 
@@ -153,6 +154,11 @@ To verify rule application, hover over attached rules in the Cursor chat window.
 #### For general AI assistants
 
 - Reference `AGENTS.md` for vendor-agnostic documentation standards
+
+#### For Claude Code
+
+- `CLAUDE.md` is a symlink to `AGENTS.md` - Claude Code picks it up automatically from the repository root
+- No extra configuration needed; open the project in Claude Code and the rules apply
 
 #### For Cursor-specific features
 
