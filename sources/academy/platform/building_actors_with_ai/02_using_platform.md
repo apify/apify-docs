@@ -6,7 +6,7 @@ unlisted: true
 ---
 
 <!--
-Deploying to Apify and reaping the benefits of the platform. Running the scraper periodically, adding support for proxies...
+Deploying to Apify and reaping the benefits of the platform. Running the scraper periodically, adding support for proxies... execution, storage, scheduling, history
 
 In lesson 2, students could already push the Actor to Apify and start seeing some of the platform benefits.
 -->
