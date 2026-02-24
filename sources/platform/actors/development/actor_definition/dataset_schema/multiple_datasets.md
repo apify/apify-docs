@@ -58,10 +58,18 @@ const categoriesDataset = await Actor.openDataset(storageIds.datasets.categories
 
 ```
 
-Incoming SDK support:
+```sh
+echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
+```
+
+Support for JS and Python SDKs is incoming, the expected syntax is following:
 
 ```javascript
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
+```
+
+```python
+categories_dataset = await Actor.open_dataset(alias='categories')
 ```
 
 ## Showing data to users
@@ -87,5 +95,8 @@ Actors with output schema can refer to the datasets through variables using alia
 }
 ```
 
+## Billing implications
+
+The `apify-default-dataset-item` synthetic event is only charged for items in dataset aliased as `default`. Charging for items in other datasets needs to be implemented in the Actor code.
+
 - TODO: Rely on default display
-- TODO: Behavior in billing
