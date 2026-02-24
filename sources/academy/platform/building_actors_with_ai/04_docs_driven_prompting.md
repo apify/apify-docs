@@ -12,9 +12,7 @@ In lesson 3, students would try to make changes via ChatGPT and see that it gets
 -->
 
 :::note Course under construction
-
 This page hasn't been written yet. Come later, please!
-
 :::
 
 <!--
