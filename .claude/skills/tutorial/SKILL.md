@@ -1,336 +1,112 @@
-# Tutorial creator skill
+---
+name: tutorial
+description: Create structured tutorials for Apify Academy or Platform documentation. Use when user says "create a tutorial", "write a tutorial", "build a step-by-step guide", "convert this guide into a tutorial", or "tutorial for [topic]". Handles tutorial structure, learning objectives, prerequisites, step-by-step instructions, code examples, and troubleshooting sections.
+---
 
-## Purpose
+# Tutorial creator
 
-Create comprehensive, structured tutorials for the Apify Academy or Platform documentation.
+Create comprehensive, structured tutorials for Apify documentation following the 8-section template.
 
-## When to use
+## Instructions
 
-- Creating new tutorials
-- Restructuring existing tutorials
-- Converting informal guides into proper tutorials
-- Building step-by-step learning content
+### Step 1: Determine tutorial type
 
-## Context files
+Identify the tutorial type based on user request:
 
-- `AGENTS.md` - Documentation standards
-- `CONTRIBUTING.md` - Style guide and contribution workflows
-- `.claude/rules/` - Claude Code-specific standards (auto-loaded)
+- **Platform tutorial** - How to use Apify platform features (`sources/platform/`)
+- **Academy tutorial** - Teaching web scraping or automation concepts (`sources/academy/tutorials/`)
+- **Integration tutorial** - Connecting Apify with other tools (`sources/platform/integrations/`)
 
-## Standards reference
-
-This skill follows all standards defined in `.claude/rules/`:
-
-- **writing-style.md** - Language, tone, grammar (US English, active voice, sentence case, simple present tense)
-- **content-standards.md** - Front matter, text formatting, admonitions (must have titles), code examples
-- **terminology.md** - Apify-specific capitalization (Apify Actor, the Apify platform)
-- **quality-standards.md** - General quality checklist
-
-**Tutorial-specific structure** and best practices are documented in this skill file below.
-
-## Tutorial structure
-
-### 1. Front matter
+### Step 2: Create front matter
 
 ```yaml
-
 ---
-
-title: "Action-oriented tutorial title (sentence case, simple present tense)"
-description: "Explain value, not features - what will user achieve (140-160 chars)"
-sidebar_position: 1
-slug: /category/tutorial-name  # Must match file path
-
+title: Action-oriented title in sentence case
+description: Value-focused description, 140-160 characters
+sidebar_position: 1.0
+slug: /category/tutorial-name
 ---
-
 ```
 
-**Important**:
+Use simple present tense ("Create an Actor" not "Creating an Actor"). Match slug to file path.
 
-- Use sentence case, NOT Title Case
+### Step 3: Write tutorial content
 
-- Use simple present tense: "Create an Actor" NOT "Creating an Actor"
+Follow the 8-section template in `references/tutorial-template.md`:
 
-- Match slug to file path
+1. Introduction with learning objectives
+1. Prerequisites with checklist and time estimate
+1. Step-by-step instructions (numbered, action verbs)
+1. Code examples (complete, runnable, with code tabs)
+1. Testing/verification with expected output
+1. Troubleshooting for common issues
+1. Summary of accomplishments
+1. Next steps with links
 
-### 2. Introduction section
+### Step 4: Apply quality standards
 
-**Purpose**: Hook the reader and explain what they'll learn
+All standards from `.claude/rules/` apply. Key tutorial-specific checks:
 
-**Template**:
-
-```markdown
-## [Tutorial title]
-
-**[Brief description of what the user will accomplish]**
-
----
-
-[Opening paragraph explaining the problem/use case this tutorial addresses]
-
-## What you'll learn
-
-In this tutorial, you'll learn how to:
-
-- [Learning objective 1]
-
-- [Learning objective 2]
-
-- [Learning objective 3]
-
-By the end, you'll be able to [specific outcome].
-
-```
-
-### 3. Prerequisites section
-
-**Purpose**: Set expectations for required knowledge and setup
-
-**Template**:
-
-```markdown
-## Prerequisites
-
-Before starting this tutorial, make sure you have:
-
-- [ ] [Required knowledge/skill 1]
-
-- [ ] [Required tool/account 2]
-
-- [ ] [Required setup 3]
-
-**Time estimate**: [X] minutes
-
-```
-
-### 4. Step-by-step instructions
-
-**Purpose**: Guide users through the process clearly and systematically
-
-**Guidelines**:
-
-- Use numbered lists for sequential steps
-
-- Start each step with an action verb
-
-- Include code examples for each major step
-
-- Add screenshots where helpful
-
-- Explain what each step accomplishes
-
-**Template**:
-
-```markdown
-## Step 1: [Action verb] [what to do]
-
-[Brief explanation of what this step accomplishes]
-
-1. [First sub-step]
-
-2. [Second sub-step]
-
-​```language
-// Code example with comments
-const example = "code";
-​```
-
-**Expected result**: [What should happen after this step]
-
-:::tip
-[Helpful tip related to this step]
-:::
-```
-
-### 5. Code examples section
-
-**Purpose**: Provide complete, working code that users can run
-
-**Guidelines**:
-
-- Include complete, runnable examples
-
-- Use code tabs for multiple languages
-
-- Add comprehensive comments
-
-- Show both input and output
-
-- Explain key parts of the code
-
-**Template**:
-
-```markdown
-## Complete example
-
-Here's the complete code for this tutorial:
-
-<Tabs>
-<TabItem value="js" label="JavaScript">
-
-​```javascript
-// Complete JavaScript example
-// Comments explaining key sections
-const example = "working code";
-​```
-
-</TabItem>
-<TabItem value="py" label="Python">
-
-​```python
-"""Complete Python example with comments explaining key sections"""
-example = "working code"
-​```
-
-</TabItem>
-</Tabs>
-```
-
-### 6. Testing/verification section
-
-**Purpose**: Help users verify their implementation works
-
-**Template**:
-
-```markdown
-## Testing your solution
-
-To verify everything works correctly:
-
-1. [Test step 1]
-
-2. [Test step 2]
-
-**Expected output**:
-
-​```text
-[What the user should see]
-​```
-
-:::note
-If you see [common error], check [solution].
-:::
-```
-
-### 7. Troubleshooting section
-
-**Purpose**: Address common issues users might encounter
-
-**Template**:
-
-```markdown
-## Troubleshooting
-
-### [Common problem 1]
-
-**Symptom**: [What the user sees]
-
-**Solution**: [How to fix it]
-
-### [Common problem 2]
-
-**Symptom**: [What the user sees]
-
-**Solution**: [How to fix it]
-
-```
-
-### 8. Summary/next steps
-
-**Purpose**: Reinforce learning and guide users forward
-
-**Template**:
-
-```markdown
-## Summary
-
-In this tutorial, you learned how to:
-
-- ✅ [Accomplishment 1]
-
-- ✅ [Accomplishment 2]
-
-- ✅ [Accomplishment 3]
-
-## Next steps
-
-Now that you've completed this tutorial, you can:
-
-- [Related tutorial/topic 1] - [Link]
-
-- [Related tutorial/topic 2] - [Link]
-
-- [Advanced topic] - [Link]
-
-## Additional resources
-
-- [Related documentation link 1]
-
-- [Related documentation link 2]
-
-- [External resource link]
-
-```
-
-## Tutorial types
-
-### Platform tutorial
-
-**Focus**: How to use Apify platform features
-**Location**: `/sources/platform/`
-**Style**: Practical, feature-focused
-
-### Academy tutorial
-
-**Focus**: Teaching web scraping or automation concepts
-**Location**: `/sources/academy/tutorials/`
-**Style**: Educational, concept-focused
-
-### Integration tutorial
-
-**Focus**: Connecting Apify with other tools
-**Location**: `/sources/platform/integrations/`
-**Style**: Step-by-step integration guide
-
-## Tutorial best practices
-
-1. **Start Simple**: Begin with basic concepts before advanced topics
-
-2. **Be Specific**: Use concrete examples rather than abstract explanations
-
-3. **Show, Don't Tell**: Include visual aids and code examples
-
-4. **Test Everything**: Ensure all code examples work
-
-5. **Anticipate Questions**: Address common points of confusion
-
-6. **Link Related Content**: Connect to other relevant tutorials
-
-7. **Keep Updated**: Mark tutorials with last-updated dates
-
-8. **User Perspective**: Write from the user's point of view
-
-9. **Never Make Assumptions**: About product features - ask if unsure
-
-10. **Use Simple English**: Prefer "use" over "utilize"
-
-## Tutorial-specific quality checklist
-
-Before publishing, verify these tutorial-specific items:
-
-- [ ] Clear learning objectives stated in introduction
-- [ ] Prerequisites clearly listed with time estimate
-- [ ] All steps are numbered and start with action verbs
+- [ ] Clear learning objectives in introduction
+- [ ] Prerequisites listed with time estimate
+- [ ] Steps are numbered and start with action verbs
 - [ ] Code examples are complete, tested, and runnable
-- [ ] Screenshots included where helpful (light theme, red indicators)
 - [ ] Expected results shown after each major step
-- [ ] Common issues addressed in troubleshooting section
+- [ ] Common issues addressed in troubleshooting
 - [ ] Summary lists what user accomplished
 - [ ] Next steps and related content linked
-- [ ] Tutorial type matches content (platform/academy/integration)
 
-For general quality standards (front matter, formatting, terminology, language), see `quality-standards.md`
+For general quality standards (front matter, formatting, terminology), see `quality-standards.md`.
+
+## Examples
+
+Example 1: Platform tutorial request
+
+User says: "Create a tutorial for deploying an Actor to production"
+
+Actions:
+1. Create file at `sources/platform/actors/tutorials/deploy-actor.md`
+1. Use platform tutorial structure from template
+1. Include prerequisites (Apify account, Actor ready)
+1. Write step-by-step deployment instructions with screenshots
+1. Add code examples for `apify push` and Console deployment
+1. Include troubleshooting for common deployment errors
+
+Result: Complete tutorial following 8-section template, ready for review.
+
+Example 2: Academy tutorial request
+
+User says: "Write a tutorial on web scraping with Playwright"
+
+Actions:
+1. Create file at `sources/academy/tutorials/playwright-scraping.md`
+1. Use academy tutorial structure (educational, concept-focused)
+1. Include prerequisites (Node.js, basic JavaScript)
+1. Teach concepts progressively with working code at each step
+1. Include both JavaScript and Python code tabs
+
+Result: Educational tutorial with progressive learning structure.
+
+## Troubleshooting
+
+### Build fails after adding tutorial
+
+Cause: Missing or incorrect front matter (slug mismatch, missing description).
+
+Solution: Verify front matter has all required fields. Run `npm run build` to catch broken links and slug issues. Check that `onBrokenLinks` errors reference your new file.
+
+### Code examples don't render correctly
+
+Cause: Missing language tag on code blocks or incorrect code tab syntax.
+
+Solution: Ensure every code block has a language specifier. For code tabs, use the exact Docusaurus `Tabs`/`TabItem` import pattern from `references/tutorial-template.md`.
+
+### Tutorial doesn't appear in sidebar
+
+Cause: Missing `sidebar_position` in front matter or file in wrong directory.
+
+Solution: Add `sidebar_position` and verify the file is in the correct `sources/` subdirectory. Check `sidebars.js` if using manual sidebar configuration.
 
 ## Output
 
-Provide a complete tutorial following the structure above, ready to be added to the documentation.
+Provide a complete tutorial following the 8-section template, ready to be committed to the repository.

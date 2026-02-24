@@ -371,7 +371,7 @@ get:
       in: query
       description: Signature used to access the items.
       required: false
-      style: simple
+      style: form
       schema:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI

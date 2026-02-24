@@ -137,7 +137,7 @@ get:
                 REQUEST_QUEUE_READS: 2
                 REQUEST_QUEUE_WRITES: 1
                 DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                DATA_TRANSFER_EXTERNAL_GBYTES: 3
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
                 PROXY_SERPS: 3
               usageTotalUsd: 0.2654
@@ -151,7 +151,7 @@ get:
                 REQUEST_QUEUE_READS: 0.005
                 REQUEST_QUEUE_WRITES: 0.02
                 DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                DATA_TRANSFER_EXTERNAL_GBYTES: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
     "400":

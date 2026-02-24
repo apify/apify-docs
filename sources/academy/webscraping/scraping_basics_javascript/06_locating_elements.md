@@ -8,8 +8,8 @@ slug: /scraping-basics-javascript/locating-elements
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WikipediaCountriesExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries.mjs';
-import WikipediaCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/wikipedia_countries_single_selector.mjs';
+import ImoCountriesExercise from '!!raw-loader!roa-loader!./exercises/imo_countries.mjs';
+import ImoCountriesSingleSelectorExercise from '!!raw-loader!roa-loader!./exercises/imo_countries_single_selector.mjs';
 import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_titles.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -212,45 +212,46 @@ Great! We have managed to use CSS selectors and walk the HTML tree to get a list
 
 <Exercises />
 
-### Scrape Wikipedia
+### Scrape list of International Maritime Organization members
 
-Download Wikipedia's page with the list of African countries, use Cheerio to parse it, and print short English names of all the states and territories mentioned in all tables. This is the URL:
+Download International Maritime Organization's page with the list of members, use Cheerio to parse it, and print names of all the members mentioned in all tables (including Associate Members). This is the URL:
 
 ```text
-https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+https://www.imo.org/en/ourwork/ero/pages/memberstates.aspx
 ```
 
 Your program should print the following:
 
 ```text
+Albania
+Libya
 Algeria
-Angola
-Benin
-Botswana
-Burkina Faso
-Burundi
-Cameroon
-Cape Verde
-Central African Republic
-Chad
-Comoros
-Democratic Republic of the Congo
-Republic of the Congo
-Djibouti
+Lithuania
 ...
+Liberia
+Zimbabwe
+Faroes
+Hong Kong, China
+Macao, China
 ```
+
+:::tip Need a nudge?
+
+You may want to check out Cheerio's [`.eq()`](https://cheerio.js.org/docs/api/classes/Cheerio#eq).
+
+:::
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WikipediaCountriesExercise.code}</CodeBlock>
+  <CodeBlock language="js">{ImoCountriesExercise.code}</CodeBlock>
 
-  Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
+  We visit each row and if we find some [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells, we take the text of the first and third ones. We print it if it's not empty. This approach skips [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) and empty rows.
 
 </details>
 
 ### Use CSS selectors to their max
 
-Simplify the code from previous exercise. Use a single for loop and a single CSS selector.
+Simplify your International Maritime Organization scraper from the previous exercise. Use just one `for` loop with a single CSS selector that targets all relevant table cells.
 
 :::tip Need a nudge?
 
@@ -263,7 +264,7 @@ You may want to check out the following pages:
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WikipediaCountriesSingleSelectorExercise.code}</CodeBlock>
+  <CodeBlock language="js">{ImoCountriesSingleSelectorExercise.code}</CodeBlock>
 </details>
 
 ### Scrape F1 news
