@@ -446,8 +446,8 @@ Properties:
 | `properties`           | Object                                                                                 | No       | Defines the sub-schema properties for the object used for validation and UI rendering (`schemaBased` editor). See more info below.                                                                                               |
 | `additionalProperties` | Boolean                                                                                | No       | Controls if sub-properties not listed in `properties` are allowed. Defaults to `true`. Set to `false` to make requests with extra properties fail.                                                                               |
 | `required`             | String array                                                                           | No       | An array of sub-properties keys that are required. <br />Note: This applies only if the object field itself is present. If the object field is optional and not included in the input, its required subfields are not validated. |
-| `patternKey`           | String                                                                                 | No       | _Deprecated_ (see [more information](#deprecated-properties)). <br/>Regular expression that will be used to validate the keys of the object.                                                                                     |
-| `patternValue`         | String                                                                                 | No       | _Deprecated_ (see [more information](#deprecated-properties)). <br/>Regular expression that will be used to validate the values of object.                                                                                       |
+| `patternKey`           | String                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the keys of the object.                |
+| `patternValue`         | String                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the values of object.                  |
 
 #### Object fields validation
 
@@ -654,8 +654,8 @@ Properties:
 | `nullable`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                                                                                                       |
 | `items`            | object                                                                                                                                                                                                                 | No       | Specifies format of the items of the array, useful mainly for multiselect and for `schemaBased` editor (see below).                                                                                                                    |
 | `isSecret`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                                                                                           |
-| `patternKey`       | String                                                                                                                                                                                                                 | No       | _Deprecated_ - see [migration guide](#deprecated-properties) for alternatives. <br/> Regular expression that will be used to validate the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.                     |
-| `patternValue`     | String                                                                                                                                                                                                                 | No       | _Deprecated_ - see [migration guide](#deprecated-properties) for alternatives. <br/> Regular expression that will be used to validate the values of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
+| `patternKey`       | String                                                                                                                                                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.    |
+| `patternValue`     | String                                                                                                                                                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the values of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
 
 
 Usage of this field is based on the selected editor:
@@ -980,13 +980,13 @@ This setting defines runtime access only and doesn't change field visibility or 
 ### Deprecation of `patternKey` and `patternValue`
 
 ::::warning Deprecation notice
-**The following properties are deprecated and will continue to be supported until May 31, 2026:**
+**The following properties are deprecated and will only be supported until May 31, 2026:**
 
 - `patternKey` - Used to validate keys in objects and arrays
 - `patternValue` - Used to validate values in objects and arrays
 ::::
 
-We are deprecating these properties to better align with the JSON schema specification. By moving to standard JSON schema, we provide a more consistent experience that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
+These properties are being deprecated to better align with the JSON schema specification. By moving to standard JSON schema, a more consistent experience is provided that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
 
 #### Alternatives for arrays
 
