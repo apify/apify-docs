@@ -14,7 +14,7 @@ import DocCardList from '@theme/DocCardList';
 
 ---
 
-In this course we'll use AI assistants to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
+In this course we'll use AI assistants to create an application for watching prices. It'll be able to scrape product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
 The end product will, unlike programs vibe-coded carelessly, reach the level of quality allowing for further extensibility and comfortable maintenance, so that it can be published to [Apify Store](https://apify.com/store).
 
