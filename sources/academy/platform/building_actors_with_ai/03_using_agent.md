@@ -16,9 +16,7 @@ If the paragraph above turns out being a wrong direction, we should use VS Code 
 -->
 
 :::note Course under construction
-
 This page hasn't been written yet. Come later, please!
-
 :::
 
 <!--
