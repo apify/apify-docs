@@ -1,7 +1,7 @@
 ---
 title: Using a platform
 description: TBD
-slug: /building-actors-with-ai/using_platform
+slug: /scraping-with-apify-and-ai/using_platform
 unlisted: true
 ---
 

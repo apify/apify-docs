@@ -1,7 +1,7 @@
 ---
 title: Chatting to code
 description: TBD
-slug: /building-actors-with-ai/chatting
+slug: /scraping-with-apify-and-ai/chatting
 unlisted: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Publishing to Apify Store
 description: TBD
-slug: /building-actors-with-ai/publishing-to-store
+slug: /scraping-with-apify-and-ai/publishing-to-store
 unlisted: true
 ---
 
