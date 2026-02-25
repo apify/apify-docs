@@ -89,9 +89,9 @@ jobs:
                     assert_header "http://localhost:8080/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-js)"
-                    assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform.md" "Content-Type" "text/markdown"
-                    assert_header "http://localhost:8080/sdk/js/docs/guides/apify-platform" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/js/llms.txt" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/js/llms-full.txt" "Content-Type" "text/markdown"
 
