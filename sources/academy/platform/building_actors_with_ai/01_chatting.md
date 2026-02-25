@@ -98,7 +98,7 @@ Now that's a lot of output, but no worries, the important part is that we've suc
 
 A new directory `warehouse-scraper` has been created for us, with a variety of files and directories inside. The output instructs us to go to this new project directory, so let's do it:
 
-```
+```text
 cd "warehouse-scraper"
 ```
 
@@ -106,7 +106,7 @@ Now we can run commands which control this new project. We didn't change the tem
 
 Out of the box, the template implements a sample Actor which walks through the [crawlee.dev](https://crawlee.dev/) website and downloads all of its pages. Such thing is called _crawling_, and Crawlee is a popular tool for crawling which this Actor internally uses. Let's see if it works for us:
 
-```
+```text
 apify run
 ```
 
