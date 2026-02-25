@@ -1,0 +1,9 @@
+title: ActorJob
+description: Minimal model for an Actor job (run or build) with status. Used for validation during polling operations.
+required:
+  - status
+type: object
+properties:
+  status:
+    description: Current status of the Actor job.
+    $ref: ./ActorJobStatus.yaml

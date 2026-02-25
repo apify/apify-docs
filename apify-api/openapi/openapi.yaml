@@ -624,6 +624,11 @@ paths:
   /v2/users/me/limits:
     $ref: paths/users/users@me@limits.yaml
 components:
+  schemas:
+    ActorJob:
+      $ref: components/schemas/common/ActorJob.yaml
+    ActorJobResponse:
+      $ref: components/schemas/common/ActorJobResponse.yaml
   securitySchemes:
     httpBearer:
       $ref: components/securitySchemes/httpBearer.yaml

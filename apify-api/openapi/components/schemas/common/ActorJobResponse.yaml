@@ -1,0 +1,8 @@
+title: ActorJobResponse
+description: Response wrapper for an Actor job (run or build). Used for minimal validation during polling operations.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ActorJob.yaml
