@@ -51,7 +51,7 @@ In this course, we'll scrape a real e-commerce site instead of artificial playgr
 
 First, let's head to the [Installation page](https://docs.apify.com/cli/docs/installation) of the Apify CLI, a command line program, which works as a remote control for the Apiary platform.
 
-On the page, choose an installation method suitable for you and run the necessary command(s) in your Terminal (macOS/Linux) or Command Prompt (Windows).
+On the page, choose an installation method suitable for you and run the required commands in your Terminal (macOS/Linux) or Command Prompt (Windows).
 
 If you don't know what to do or get stuck, [instruct ChatGPT to read the installation page](https://chatgpt.com/?prompt=Read%20from%20https%3A%2F%2Fdocs.apify.com%2Fcli%2Fdocs%2Finstallation%20so%20I%20can%20ask%20questions%20about%20it.) and let it help you. Verify that you've successfully installed the tool by running this:
 
