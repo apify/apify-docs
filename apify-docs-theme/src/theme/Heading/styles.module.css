@@ -27,6 +27,17 @@ h6:hover .headingCopyIcon {
   display: inline-block;
 }
 
+h5 .headingCopyIcon {
+  display: inline-block !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+h5:hover .headingCopyIcon {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .headingCopyIcon.copied {
   display: inline-block !important;
 }
