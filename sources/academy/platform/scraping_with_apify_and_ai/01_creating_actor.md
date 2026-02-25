@@ -47,19 +47,45 @@ In this course, we'll scrape a real e-commerce site instead of artificial playgr
 
 :::
 
+## Installing Node.js
+
+With AI we don't need to learn how to code to develop a scraper. AI will write the code for us. We still need to setup our environment to be able to run that code, though.
+
+We'll develop our scraper in a mainstream programming language called JavaScript. To run command line programs written in JavaScript, we'll need a tool called Node.js.
+
+Let's head to the [Download Node.js](https://nodejs.org/en/download) web page. You should see a row of configuration dropdowns and a rather large code block below, with quite a few commands. Check if the website guessed your operating system correctly, and copy the whole block to the clipboard:
+
+![Download Node.js](images/nodejs-install.webp)
+
+Now paste it as-is to your Terminal (macOS/Linux) or Command Prompt (Windows) and run it using the <kbd>↵</kbd> key. Once the installation finishes, you should see versions of Node.js and npm (another related tool) printed:
+
+```text
+...
+$ node -v
+v24.11.1
+$ npm -v
+11.6.2
+```
+
+The exact version numbers are not really important. If you see the versions printed, it means we've successfully installed Node.js and npm.
+
 ## Installing Apify CLI
 
-First, let's head to the [Installation page](https://docs.apify.com/cli/docs/installation) of the Apify CLI, a command line program, which works as a remote control for the Apiary platform.
+Now another thing we'll need is Apify CLI. It's a command line program, which works as a remote control for the Apiary platform. It'll also help us with structuring our scraper as an Actor, so that it can run on the platform.
 
-On the page, choose an installation method suitable for you and run the required commands in your Terminal (macOS/Linux) or Command Prompt (Windows).
+Apify CLI happens to be also made in JavaScript, so we can use the npm tool we just installed to get it on our computer:
 
-If you don't know what to do or get stuck, [instruct ChatGPT to read the installation page](https://chatgpt.com/?prompt=Read%20from%20https%3A%2F%2Fdocs.apify.com%2Fcli%2Fdocs%2Finstallation%20so%20I%20can%20ask%20questions%20about%20it.) and let it help you. Verify that you've successfully installed the tool by running this:
+```text
+npm install -g apify-cli
+```
+
+Once the command finishes, let's try if everything went all right:
 
 ```text
 apify --version
 ```
 
-You are ready if it prints something like the following:
+If it prints something like the following, we're ready to start building:
 
 ```text
 apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
