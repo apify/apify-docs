@@ -5,6 +5,9 @@ slug: /building-actors-with-ai/chatting
 unlisted: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 **In this lesson we'll use ChatGPT and a few commands to create an application for watching prices on an e-commerce website.**
 
 ---
@@ -62,23 +65,65 @@ You are ready if it prints something like the following:
 apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
 ```
 
-## Setting up an Actor template
+## Creating an Actor
 
-<!--
-TODO Now let's setup the Actor… Find a suitable folder and run `apify create`
--->
+Now let's use the Apify CLI to help us kick off a new Actor:
 
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
-:::
+```text
+apify create warehouse-scraper
+```
+
+It starts a wizard where you can choose from various options. For each option, only repeatedly use the <kbd>↵</kbd> key to confirm whatever is set as the first or default:
+
+```text
+✔ Choose the programming language of your new Actor: JavaScript
+✔ Choose a template for your new Actor. You can check more information at https://apify.com/templates. Crawlee + Cheerio
+✔ Almost done! Last step is to install dependencies. Install dependencies
+
+...
+
+Success: ✅ Actor 'warehouse-scraper' created successfully!
+
+Next steps:
+
+cd "warehouse-scraper"
+apify run
+
+💡 Tip: Use 'apify push' to deploy your Actor to the Apify platform
+📖 Docs: https://docs.apify.com/platform/actors/development
+🌱 Git repository initialized in 'warehouse-scraper'. You can now commit and push your Actor to Git.
+```
+
+Now that's a lot of output, but no worries, the important part is that we've successfully used a template to set up a new Actor project.
+
+A new directory `warehouse-scraper` has been created for us, with a variety of files and directories inside. The output instructs us to go to this new project directory, so let's do it:
+
+```
+cd "warehouse-scraper"
+```
+
+Now we can run commands which control this new project. We didn't change the template in any way though, so it won't scrape the Warehouse store for us yet.
+
+Out of the box, the template implements a sample Actor which walks through the [crawlee.dev](https://crawlee.dev/) website and downloads all of its pages. Such thing is called _crawling_, and Crawlee is a popular tool for crawling which this Actor internally uses. Let's see if it works for us:
+
+```
+apify run
+```
+
+If you see a flood of output mentioning something called `CheerioCrawler`, it means the template works and we can move on to editing its files so that it does what we want.
+
+```text
+...
+INFO  CheerioCrawler: Starting the crawler.
+INFO  CheerioCrawler: enqueueing new URLs
+INFO  CheerioCrawler: Crawlee · Build reliable crawlers. Fast. {"url":"https://crawlee.dev/"}
+...
+INFO  CheerioCrawler: Finished! Total 107 requests: 107 succeeded, 0 failed. {"terminal":true}
+```
+
+If you struggle to use the template wizard or to run the sample Actor, share this tutorial with [ChatGPT](https://chatgpt.com/), add any errors you've encountered, and see if it can help you debug the issue.
 
 ## Scraping products
-
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
-:::
-
-## Running code
 
 <!--
 Save it to the template, setup Node/npm environment, run it, get results. If the student gets stuck setting up Node/npm, they ask ChatGPT. Roughly explaining what the program does, establishing basic terms.
@@ -88,7 +133,7 @@ Save it to the template, setup Node/npm environment, run it, get results. If the
 This section hasn't been written yet. Come later, please!
 :::
 
-#### Scraping stock units
+## Scraping stock units
 
 <!--
 Prompt ChatGPT to modify the program so that it scrapes stock units. Technically, modifying the program like this proves to be cumbersome, but doable. Run the program again, get better results.
