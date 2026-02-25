@@ -38,6 +38,11 @@ h5:hover .headingCopyIcon {
   pointer-events: auto;
 }
 
+h5 .headingCopyIcon.copied {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .headingCopyIcon.copied {
   display: inline-block !important;
 }
