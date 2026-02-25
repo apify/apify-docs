@@ -1,10 +1,10 @@
 ---
-title: Building Actors with AI
+title: Scraping with Apify and AI
 description: Learn how to use AI to extract information from websites in this practical course, starting from the absolute basics.
 sidebar_position: 5
-sidebar_label: Building Actors with AI
+sidebar_label: Scraping with Apify and AI
 category: apify platform
-slug: /building-actors-with-ai
+slug: /scraping-with-apify-and-ai
 unlisted: true
 ---
 
