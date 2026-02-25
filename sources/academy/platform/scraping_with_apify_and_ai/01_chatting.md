@@ -1,7 +1,7 @@
 ---
-title: Chatting to code
+title: Creating an Actor with AI chat
 description: TBD
-slug: /scraping-with-apify-and-ai/chatting
+slug: /scraping-with-apify-and-ai/creating-actor-with-ai-chat
 unlisted: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Publishing to Apify Store
 description: TBD
-slug: /scraping-with-apify-and-ai/publishing-to-store
+slug: /scraping-with-apify-and-ai/publishing-to-apify-store
 unlisted: true
 ---
 
