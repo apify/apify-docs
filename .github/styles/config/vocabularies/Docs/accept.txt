@@ -1,6 +1,7 @@
 SDK(s)
 [Ss]torages
 Crawlee
+crawlee.dev
 [Aa]utoscaling
 CU
 
