@@ -1,7 +1,7 @@
 ---
 title: Using an agent
 description: TBD
-slug: /building-actors-with-ai/using-agent
+slug: /scraping-with-apify-and-ai/using-agent
 unlisted: true
 ---
 

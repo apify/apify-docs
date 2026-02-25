@@ -1,7 +1,7 @@
 ---
 title: Docs driven prompting
 description: TBD
-slug: /building-actors-with-ai/tests-driven-prompting
+slug: /scraping-with-apify-and-ai/tests-driven-prompting
 unlisted: true
 ---
 
