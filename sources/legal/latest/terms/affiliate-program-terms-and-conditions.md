@@ -12,9 +12,7 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Effective date: May 14, 2024
-
-Latest version effective from: July 5, 2025
+Last updated: February 24, 2026
 
 ---
 
@@ -24,7 +22,9 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 ## 1. Joining the Affiliate Program
 
-1.1. You may join the Affiliate Program by creating an account on Apify's [FirstPromoter portal](https://apify.firstpromoter.com/) ("**FirstPromoter**"). By ticking the box "_I agree to the Apify Affiliate Program terms_", you claim that you are over 18 years old and agree to adhere to these Affiliate Program Terms, in addition to the General Terms. If you act on behalf of a company when accepting these Affiliate Program Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term "**you**" shall mean the relevant company).
+1.1. You may join the Affiliate Program by creating an account on Apify's [FirstPromoter portal](https://apify.firstpromoter.com/) ("**FirstPromoter**"). By ticking the box "_I agree to the Apify Affiliate Program Terms and Conditions_", you claim that you are over 18 years old and agree to adhere to these Affiliate Program Terms, in addition to the General Terms. If you act on behalf of a company when accepting these Affiliate Program Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term "**you**" shall mean the relevant company).
+
+1.2. You may maintain only one Affiliate Program account. The creation, use, or control of multiple Affiliate Program accounts by the same individual or entity, whether directly or indirectly, is strictly prohibited. Apify reserves the right to suspend or terminate any such Affiliate Program accounts at its sole discretion, and to void or withhold any associated commissions or payouts at any time.
 
 ## 2. Apify's obligations
 
@@ -48,24 +48,33 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 ## 5. Payment terms
 
-**5.1.** Apify shall pay the earned Commission to the Affiliate Partner monthly, within 15 business days after the end of each calendar month, based on an invoice that shall be issued to Apify. The minimum Commission payable is 100 USD. Commission in any given calendar month lower than 100 USD will be rolled over to the following month.
+5.1. Apify shall pay the earned Commission to the Affiliate Partner monthly, within 15 business days after the end of each calendar month, based on an invoice generated and verified by Apify through FirstPromoter.
 
-5.2. The Commission may be paid either via PayPal or bank transfer. The Affiliate Partner shall specify the chosen payment method.
+5.2. Commission payouts are subject to the following minimum thresholds:
 
-5.3. Invoices are generated automatically through FirstPromoter by Apify. The Affiliate Partner shall provide and maintain up-to-date information required for this purpose in the portal. Apify may request that the Affiliate Partner issues an invoice using a different method, if the method through FirstPromoter portal is not available (e.g. due to missing Affiliate Partner's personal information). Apify shall not be obliged to pay any Commission until a valid invoice has been issued or generated.
+(a) **Referred Customer Threshold**. A payout will only be made once the Affiliate Partner has cumulatively referred at least 3 Referred Customers. Until this threshold is met, any accrued Commission will be held and will not be paid out. Once the threshold is reached, it is considered permanently satisfied and will not reset.
 
-5.4. Affiliate acknowledges and agrees that Apify makes no representation or guarantee of any kind regarding revenue, business, profit, or customers under these Affiliate Program Terms.
+(b) **Monthly Minimum Payout**. The minimum Commission payable in any given calendar month is 100 USD. Any Commission accrued below this amount in a given month will roll over to the following month and accumulate until the minimum is reached.
+
+Both conditions in (a) and (b) must be satisfied before any Commission is paid out. Either threshold may be waived by Apify on a case-by-case basis in writing.
+
+5.3. The Commission may be paid either via PayPal, bank transfer or Wise. The Affiliate Partner shall specify the chosen payment method.
+
+5.4. Invoices are generated automatically through FirstPromoter by Apify. The Affiliate Partner shall provide and maintain up-to-date information required for this purpose in the portal. Apify may request that the Affiliate Partner issues an invoice using a different method, if the method through FirstPromoter portal is not available (e.g. due to missing Affiliate Partner's personal information). Apify shall not be obliged to pay any Commission until a valid invoice has been issued or generated.
+
+5.5. Affiliate acknowledges and agrees that Apify makes no representation or guarantee of any kind regarding revenue, business, profit, or customers under these Affiliate Program Terms.
 
 ## 6. Affiliate Partner's obligations
 
 6.1. The Affiliate Partner must not promote Apify or use its Referral Link in any of the following ways:
 
 1. in any materials or in connection with any services that are illegal, infringing on third party rights, fraudulent, harassing, defamatory, discriminatory or violent;
-2. use any paid advertisements and/or advertise via any pay-per-click advertisement systems (e.g., Google Ads, Facebook Ads or LinkedIn Ads);
+2. use any paid advertisements and/or advertise via any pay-per-click advertisement systems (e.g., Google Ads, Facebook Ads or LinkedIn Ads), unless expressly authorized in advance in writing by Apify to run a specific type of paid advertising campaign on behalf of Apify;
 3. bid on the "Apify" keyword for any pay-per-click advertisement systems (e.g., Google Ads), including any misspellings, capitalizations or in combination with any other text;
-4. for self-referral, i.e., its own or its friends, affiliates, related persons or business partners sign-ups to the Platform;
-5. in any content that's available on the Platform, Website or any other assets owned, operated or maintained by Apify; or
-6. for any illegal activity, including, without limitation, fraud or money laundering.
+4. create, publish, distribute, or otherwise use any coupon codes, discount codes, or promotional offers not expressly provided to the Affiliate Partner in writing by Apify, including, without limitation, codes obtained through scraping, guessing, third-party sources, or any public or private listings, on coupon platforms or elsewhere;
+5. for self-referral, i.e., its own or its friends, affiliates, related persons or business partners sign-ups to the Platform;
+6. in any content that's available on the Platform, Website or any other assets owned, operated or maintained by Apify; or
+7. for any illegal activity, including, without limitation, fraud or money laundering.
 
 Any customer referred in breach of this clause 6.1 shall not be considered a Referred Customer.
 
@@ -101,4 +110,4 @@ Any customer referred in breach of this clause 6.1 shall not be considered a Ref
 
 ## 10. Amendments
 
-10.1. We may unilaterally amend the Affiliate Program Terms. We shall notify you of such an amendment at least 30 days in advance before its effectiveness. Should you disagree with such an amendment, you may withdraw from the Affiliate Program until the effective date of the amendments. Otherwise, you will be deemed to agree with the announced amendments.
+10.1. We may unilaterally amend the Affiliate Program Terms. We shall notify you of such an amendment at least 15 days in advance of its effectiveness. Should you disagree with such an amendment, you may withdraw from the Affiliate Program until the effective date of the amendments. Otherwise, you will be deemed to agree with the announced amendments.
