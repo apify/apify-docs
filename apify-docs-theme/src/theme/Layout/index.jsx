@@ -1,4 +1,5 @@
 import Head from '@docusaurus/Head';
+import { useAllDocsData } from '@docusaurus/plugin-content-docs/client';
 import { useLocation } from '@docusaurus/router';
 // cannot use any of the theme aliases here as it causes a circular dependency :( ideas welcome
 import Layout from '@docusaurus/theme-classic/lib/theme/Layout/index';
@@ -9,8 +10,14 @@ import React from 'react';
 export default function LayoutWrapper(props) {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
     const baseUrl = useBaseUrl('/');
-    const currentPath = useLocation().pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
-    const shouldRenderAlternateLink = currentPath && currentPath !== '404';
+    const { pathname } = useLocation();
+    const currentPath = pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
+    const allDocsData = useAllDocsData();
+    const isVersionedPage = Object.values(allDocsData).some(
+        (pluginData) => pluginData.versions.some((version) => !version.isLast && pathname.startsWith(version.path)),
+    );
+
+    const shouldRenderAlternateLink = currentPath && currentPath !== '404' && !isVersionedPage;
 
     const alternateMarkdownLink = useBaseUrl(`/${currentPath}.md`, { absolute: true });
 
