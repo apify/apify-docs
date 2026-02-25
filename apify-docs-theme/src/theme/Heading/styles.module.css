@@ -7,7 +7,9 @@
 }
 
 .headingCopyIcon {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
   position: relative;
   left: .4rem;
   color: var(--ifm-color-emphasis-700);
@@ -24,27 +26,13 @@ h3:hover .headingCopyIcon,
 h4:hover .headingCopyIcon,
 h5:hover .headingCopyIcon,
 h6:hover .headingCopyIcon {
-  display: inline-block;
-}
-
-h5 .headingCopyIcon {
-  display: inline-block !important;
-  opacity: 0;
-  pointer-events: none;
-}
-
-h5:hover .headingCopyIcon {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-h5 .headingCopyIcon.copied {
   opacity: 1;
   pointer-events: auto;
 }
 
 .headingCopyIcon.copied {
-  display: inline-block !important;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .headingCopyIcon.copied svg {
@@ -60,4 +48,3 @@ h5 .headingCopyIcon.copied {
   vertical-align: middle;
   line-height: 1;
 }
-
