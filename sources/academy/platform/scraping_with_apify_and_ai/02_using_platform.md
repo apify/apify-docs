@@ -1,7 +1,7 @@
 ---
-title: Using a platform
+title: Deploying to Apify
 description: TBD
-slug: /scraping-with-apify-and-ai/using_platform
+slug: /scraping-with-apify-and-ai/deploying-to-apify
 unlisted: true
 ---
 

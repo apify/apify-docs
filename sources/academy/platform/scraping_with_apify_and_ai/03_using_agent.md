@@ -1,7 +1,7 @@
 ---
-title: Using an agent
+title: Using an AI agent
 description: TBD
-slug: /scraping-with-apify-and-ai/using-agent
+slug: /scraping-with-apify-and-ai/using-ai-agent
 unlisted: true
 ---
 
