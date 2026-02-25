@@ -284,7 +284,7 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 | Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
-| `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README, and pricing |
+| `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input schema, README (summary when available, full otherwise), pricing, and Actor output schema. |
 | `call-actor`* | actors | ❔ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
