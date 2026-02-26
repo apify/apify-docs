@@ -152,13 +152,13 @@ If you struggle to use the template wizard or to run the sample Actor, share thi
 
 Now we're ready to get our own scraper done. We'll open the `src` directory inside the Actor project and find a file called `main.js`.
 
-We'll open it in a *plain text editor*. Every operating system contains one out of the box: For Windows it's Notepad, for macOS it's TextEdit, etc.
+We'll open it in a _plain text editor_. Every operating system contains one out of the box: For Windows it's Notepad, for macOS it's TextEdit, etc.
 
 :::danger Avoid rich text editors
-Do not use a *rich text editor*, such as Microsoft Word. They're great for documents aimed at humans with all their formatting and advanced features, but for editing code we'll be better off with a tool as straightforward as possible.
+Do not use a _rich text editor_, such as Microsoft Word. They're great for documents aimed at humans with all their formatting and advanced features, but for editing code we'll be better off with a tool as straightforward as possible.
 :::
 
-In the editor, we can see JavaScript code. Let's select all the code and copy to our clipboard. Then we'll open a *new ChatGPT conversation* and start with a prompt like this:
+In the editor, we can see JavaScript code. Let's select all the code and copy to our clipboard. Then we'll open a _new ChatGPT conversation_ and start with a prompt like this:
 
 ```text
 I'm building Apify Actor which will run on the Apify platform.
@@ -182,7 +182,7 @@ Use <kbd>Shift+↵</kbd> to add a few more empty lines and then paste the code f
 Code is truly just a plain text, but some tools can display it colored. They analyze the code and display different parts of code in different colors so that human coders can better orientate in it. This is what ChatGPT does, so you'll see the code colored there. But the plain text editor you're using isn't really meant as a tool for coders, so it'll display the code just black and white. That's okay!
 :::
 
-When we're done, we must not forget to *save the change* with <kbd>Ctrl+S</kbd> or, on macOS, <kbd>Cmd+S</kbd>. Now let's see if the new code works! To run our program, let's go back to the Terminal (macOS/Linux) or Command Prompt (Windows) and use the Apify CLI again:
+When we're done, we must not forget to _save the change_ with <kbd>Ctrl+S</kbd> or, on macOS, <kbd>Cmd+S</kbd>. Now let's see if the new code works! To run our program, let's go back to the Terminal (macOS/Linux) or Command Prompt (Windows) and use the Apify CLI again:
 
 ```text
 apify run
@@ -231,7 +231,7 @@ apify run
 In the project directory, a new file called `dataset.csv` should emerge. We can use any of the programs mentioned earlier to check what's inside:
 
 | productName | productUrl | price |
-|---|---|---|
+| --- | --- | --- |
 | JBL Flip 4 Waterproof Portable Bluetooth Speaker | https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker | Sale price$74.95 |
 | Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv | Sale priceFrom $1,398.00 |
 | Sony SACS9 10" Active Subwoofer | https://warehouse-theme-metal.myshopify.com/products/sony-sacs9-10-inch-active-subwoofer | Sale price$158.00 |
