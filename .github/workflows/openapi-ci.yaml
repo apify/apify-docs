@@ -65,7 +65,7 @@ jobs:
               run: npm run openapi:build
 
             - name: Upload bundles
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: openapi-bundles
                   path: |
@@ -97,7 +97,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Download bundles
-              uses: actions/download-artifact@v7
+              uses: actions/download-artifact@v8
               with:
                   name: openapi-bundles
                   path: static/api/
