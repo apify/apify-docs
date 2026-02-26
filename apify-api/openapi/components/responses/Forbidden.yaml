@@ -1,0 +1,9 @@
+description: Forbidden - access to this resource is not allowed.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: access-denied
+        message: Access to this resource is denied.

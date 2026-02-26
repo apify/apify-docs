@@ -6,7 +6,7 @@ required:
 type: object
 properties:
   inputBodyLen:
-    type: integer
+    type: [integer, "null"]
     minimum: 0
     examples: [240]
   migrationCount:

@@ -1,14 +1,13 @@
 title: EnvVar
 required:
   - name
-  - value
 type: object
 properties:
   name:
     type: string
     examples: [MY_ENV_VAR]
   value:
-    type: string
+    type: [string, "null"]
     examples: [my-value]
   isSecret:
     type: [boolean, "null"]
