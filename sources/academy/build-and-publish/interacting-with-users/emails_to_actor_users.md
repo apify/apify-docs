@@ -1,6 +1,6 @@
 ---
 title: Emails to Actor users
-description: Email communication is a key tool to keep users engaged and satisfied. Learn when and how to email your users effectively to build loyalty and strengthen relationships with this practical guide.
+description: Keep your Actor users engaged and satisfied through effective email communication. Learn when and how to email your users and build lasting loyalty.
 sidebar_position: 1
 category: build-and-publish
 slug: /actor-marketing-playbook/interact-with-users/emails-to-actor-users

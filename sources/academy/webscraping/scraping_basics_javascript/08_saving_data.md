@@ -1,7 +1,7 @@
 ---
 title: Saving data with Node.js
 sidebar_label: Saving data
-description: Lesson about building a Node.js application for watching prices. Using the json2csv library to save data scraped from product listing pages in both JSON and CSV.
+description: Build a Node.js price-watching application. Use the json2csv library to save data scraped from product listing pages in both JSON and CSV formats.
 slug: /scraping-basics-javascript/saving-data
 ---
 

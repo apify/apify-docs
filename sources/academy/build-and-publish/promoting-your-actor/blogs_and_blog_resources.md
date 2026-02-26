@@ -1,6 +1,6 @@
 ---
 title: Blogs and blog resources
-description: Blogs are still a powerful way to promote your Actors and build authority. By sharing expertise, engaging users, and driving organic traffic, blogging remains a key strategy to complement social media, SEO, and other platforms in growing your audience.
+description: Promote your Actors and build authority through blogging. Share your expertise, engage users, and drive organic traffic to grow your audience.
 sidebar_position: 5
 category: build-and-publish
 slug: /actor-marketing-playbook/promote-your-actor/blogs-and-blog-resources
