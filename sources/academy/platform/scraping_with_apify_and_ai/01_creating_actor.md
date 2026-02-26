@@ -9,7 +9,7 @@ unlisted: true
 
 ---
 
-Want to get data about prices on [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales)? Even without knowing how to code, you can open [ChatGPT](https://chatgpt.com/), type the following, and you'll have a scraper ready:
+Want to get data about prices on [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales)? Even without knowing how to code, we can open [ChatGPT](https://chatgpt.com/), type the following, and we'll have a scraper ready:
 
 ```text
 Create a scraper in JavaScript which downloads
@@ -50,11 +50,11 @@ With AI, we don't need to learn coding before we build a scraper. AI writes the 
 
 We'll develop our scraper in a mainstream programming language called JavaScript. To run command line programs written in JavaScript, we'll need a tool called Node.js.
 
-Let's head to the [Download Node.js](https://nodejs.org/en/download) web page. You should see a row of configuration dropdowns and a rather large code block below, with quite a few commands. Check if the website guessed your operating system correctly, and copy the whole block to the clipboard:
+Let's head to the [Download Node.js](https://nodejs.org/en/download) web page. We should see a row of configuration dropdowns and a rather large code block below, with quite a few commands. Let's check if the website guessed our operating system correctly, then copy the whole block to the clipboard:
 
 ![Download Node.js](images/nodejs-install.webp)
 
-Now paste it as-is to your Terminal (macOS/Linux) or Command Prompt (Windows) and let it execute using the <kbd>↵</kbd> key. Once the installation finishes, you should see versions of Node.js and npm (another related tool) printed:
+Now let's paste it as-is to our Terminal (macOS/Linux) or Command Prompt (Windows) and let it execute using the <kbd>↵</kbd> key. Once the installation finishes, we should see versions of Node.js and npm (another related tool) printed:
 
 ```text
 ...
@@ -64,7 +64,7 @@ $ npm -v
 11.6.2
 ```
 
-The exact version numbers are not really important. If you see the versions printed, it means we've successfully installed Node.js and npm.
+The exact version numbers are not really important. If we see the versions printed, it means we've successfully installed Node.js and npm.
 
 ## Installing Apify CLI
 
@@ -96,7 +96,7 @@ Now let's use the Apify CLI to help us kick off a new Actor:
 apify create warehouse-scraper
 ```
 
-It starts a wizard where you can choose from various options. For each option, press <kbd>↵</kbd> to accept the default:
+It starts a wizard where we can choose from various options. For each option, let's press <kbd>↵</kbd> to accept the default:
 
 ```text
 ✔ Choose the programming language of your new Actor: JavaScript
@@ -133,7 +133,7 @@ Out of the box, the template includes a sample Actor that walks through the [cra
 apify run
 ```
 
-If you see a flood of output mentioning something called `CheerioCrawler`, it means the template works and we can move on to editing its files so that it does what we want.
+If we see a flood of output mentioning something called `CheerioCrawler`, it means the template works and we can move on to editing its files so that it does what we want.
 
 ```text
 ...
@@ -146,7 +146,9 @@ INFO  CheerioCrawler: Finished! Total 107 requests: 107 succeeded, 0 failed. {"t
 
 We're done with commands for now, but do not close the Terminal or Command Prompt window yet, as we'll soon need it again.
 
-If you run into issues with the template wizard or the sample Actor, share this tutorial with [ChatGPT](https://chatgpt.com/), include the errors you saw, and ask for help debugging.
+:::caution Debugging
+If we run into issues with the template wizard or the sample Actor, let's share this tutorial with [ChatGPT](https://chatgpt.com/), include the errors we saw, and ask for help debugging.
+:::
 
 ## Scraping products
 
@@ -155,7 +157,7 @@ Now we're ready to get our own scraper done. We'll open the `src` directory insi
 We'll open it in a _plain text editor_. Every operating system includes one: Notepad on Windows, TextEdit on macOS, and similar tools on Linux.
 
 :::danger Avoid rich text editors
-Do not use a _rich text editor_, such as Microsoft Word. They're great for human-readable documents with rich formatting, but for code editing, use either dedicated coding editors, or the simplest tool possible.
+Let's not use a _rich text editor_, such as Microsoft Word. They're great for human-readable documents with rich formatting, but for code editing, we'll use either dedicated coding editors, or the simplest tool possible.
 :::
 
 In the editor, we can see JavaScript code. Let's select all the code and copy to our clipboard. Then we'll open a _new ChatGPT conversation_ and start with a prompt like this:
@@ -188,7 +190,7 @@ When we're done, we must not forget to _save the change_ with <kbd>Ctrl+S</kbd> 
 apify run
 ```
 
-If we are lucky, the output should be similar to this:
+If all goes well, the output should be similar to this:
 
 ```text
 Run: npm run start
@@ -207,15 +209,15 @@ INFO  Total products collected: 24
 
 This output says `Total products collected: 24`. The Sales page displays 24 products per page and contains 50 products in total.
 
-Depending on whether ChatGPT decided to walk through all pages or scrape just the first one, you might get 24 or more products. For now, any sign that it scraped products is good news.
+Depending on whether ChatGPT decided to walk through all pages or scrape just the first one, we might get 24 or more products. For now, any sign that it scraped products is good news.
 
 :::caution Debugging
-If your program crashes instead, copy the error message, send it to your ChatGPT conversation, and ask for a fix.
+If our program crashes instead, let's copy the error message, send it to our ChatGPT conversation, and ask for a fix.
 :::
 
 ## Exporting to CSV
 
-Our program likely works, but we haven't seen the data yet. Let's add a CSV export. CSV is a format most data apps can read, including Microsoft Excel, Google Sheets, and Apple Numbers. Continue your ChatGPT conversation with:
+Our program likely works, but we haven't seen the data yet. Let's add a CSV export. CSV is a format most data apps can read, including Microsoft Excel, Google Sheets, and Apple Numbers. Let's continue our ChatGPT conversation with:
 
 ```text
 Before the program ends, I want it to export all data
