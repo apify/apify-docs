@@ -1,9 +1,11 @@
 import { readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
 import pkg from 'yaml';
 
 const { parseDocument } = pkg;
 
-const OPENAPI_FILE = 'apify-api/openapi/openapi.yaml';
+const OPENAPI_FILE = resolve(dirname(fileURLToPath(import.meta.url)), '../apify-api/openapi/openapi.yaml');
 
 const datetime = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 const newVersion = `v2 - ${datetime}`;
