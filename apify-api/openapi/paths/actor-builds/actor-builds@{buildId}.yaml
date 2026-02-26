@@ -50,6 +50,8 @@ get:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
   deprecated: false
@@ -90,6 +92,8 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
   deprecated: false
