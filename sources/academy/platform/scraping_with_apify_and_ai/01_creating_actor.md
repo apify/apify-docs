@@ -32,9 +32,7 @@ Some are technical challenges:
 - _No monitoring:_ Even if we knew how to set up a server or home installation so our scraper runs regularly, we'd have little insight into whether it ran successfully, what errors or warnings occurred, how long it took, or what resources it used.
 - _Anti-scraping risks:_ If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually they'd block that too, and we'd seriously annoy our barista.
 
-<!-- TODO START rewrite this paragraph, it's really bad -->
-To address all of this, we'll use [Apify](https://apify.com/), where we can deploy any program as long as it's structured as an Actor. We'll thank ourselves later if we start as an Actor from the beginning.
-<!-- TODO END rewrite this paragraph, it's really bad -->
+To overcome these limitations, we'll use [Apify](https://apify.com/), a platform where our scraper can run independently of our computer. Apify expects our code to be structured as an Actor, so the setup is a bit heavier at first. But it pays off quickly - once we're ready, deploying to the platform is almost just one command.
 
 First, we'll use a few commands to set up an Actor template, and then we'll prompt ChatGPT to generate the code for scraping that Sales page.
 
