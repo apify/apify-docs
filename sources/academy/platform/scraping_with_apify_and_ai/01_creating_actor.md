@@ -5,9 +5,6 @@ slug: /scraping-with-apify-and-ai/creating-actor-with-ai-chat
 unlisted: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 **In this lesson we'll use ChatGPT and a few commands to create an application for watching prices on an e-commerce website.**
 
 ---
@@ -57,7 +54,7 @@ Let's head to the [Download Node.js](https://nodejs.org/en/download) web page. Y
 
 ![Download Node.js](images/nodejs-install.webp)
 
-Now paste it as-is to your Terminal (macOS/Linux) or Command Prompt (Windows) and run it using the <kbd>↵</kbd> key. Once the installation finishes, you should see versions of Node.js and npm (another related tool) printed:
+Now paste it as-is to your Terminal (macOS/Linux) or Command Prompt (Windows) and let it execute using the <kbd>↵</kbd> key. Once the installation finishes, you should see versions of Node.js and npm (another related tool) printed:
 
 ```text
 ...
@@ -120,7 +117,7 @@ apify run
 🌱 Git repository initialized in 'warehouse-scraper'. You can now commit and push your Actor to Git.
 ```
 
-Now that's a lot of output, but no worries, the important part is that we've successfully used a template to set up a new Actor project.
+Now that's a lot of output, but no worries, the important part is that we've successfully used a template to set up a new Actor project!
 
 A new directory `warehouse-scraper` has been created for us, with a variety of files and directories inside. The output instructs us to go to this new project directory, so let's do it:
 
@@ -147,26 +144,100 @@ INFO  CheerioCrawler: Crawlee · Build reliable crawlers. Fast. {"url":"https://
 INFO  CheerioCrawler: Finished! Total 107 requests: 107 succeeded, 0 failed. {"terminal":true}
 ```
 
+We're done with commands for now, but do not close the Terminal or Command Prompt window yet, as we'll soon need it again.
+
 If you struggle to use the template wizard or to run the sample Actor, share this tutorial with [ChatGPT](https://chatgpt.com/), add any errors you've encountered, and see if it can help you debug the issue.
 
 ## Scraping products
 
-<!--
-Save it to the template, setup Node/npm environment, run it, get results. If the student gets stuck setting up Node/npm, they ask ChatGPT. Roughly explaining what the program does, establishing basic terms.
--->
+Now we're ready to get our own scraper done. We'll open the `src` directory inside the Actor project and find a file called `main.js`.
 
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
+We'll open it in a *plain text editor*. Every operating system contains one out of the box: For Windows it's Notepad, for macOS it's TextEdit, etc.
+
+:::danger Avoid rich text editors
+Do not use a *rich text editor*, such as Microsoft Word. They're great for documents aimed at humans with all their formatting and advanced features, but for editing code we'll be better off with a tool as straightforward as possible.
 :::
 
-## Scraping stock units
+In the editor, we can see JavaScript code. Let's select all the code and copy to our clipboard. Then we'll open a *new ChatGPT conversation* and start with a prompt like this:
 
-<!--
-Prompt ChatGPT to modify the program so that it scrapes stock units. Technically, modifying the program like this proves to be cumbersome, but doable. Run the program again, get better results.
+```text
+I'm building Apify Actor which will run on the Apify platform.
+I need to modify sample template project so that it downloads
+https://warehouse-theme-metal.myshopify.com/collections/sales,
+extracts all the products in Sales. The data should contain
+the following information for each product:
 
-Teaser: In one of the next lessons we'll get rid of copying and pasting and updating the files ourselves, but first, let's see how we can deploy the scraper and run it periodically.
--->
+- Product name
+- Product detail page URL
+- Price
 
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
+Before the program ends, it should log how many products got collected.
+Code of main.js follows. You'll reply with a code block containing
+a new version of that file.
+```
+
+Use <kbd>Shift+↵</kbd> to add a few more empty lines and then paste the code from your clipboard. After submitting, the AI chat should return a large code block with a new version of `main.js`. We'll copy its contents. Now we'll go back to our text editor, and replace the original contents of `main.js` with the version of the file from ChatGPT.
+
+:::info Code and colors
+Code is truly just a plain text, but some tools can display it colored. They analyze the code and display different parts of code in different colors so that human coders can better orientate in it. This is what ChatGPT does, so you'll see the code colored there. But the plain text editor you're using isn't really meant as a tool for coders, so it'll display the code just black and white. That's okay!
 :::
+
+When we're done, we must not forget to *save the change* with <kbd>Ctrl+S</kbd> or, on macOS, <kbd>Cmd+S</kbd>. Now let's see if the new code works! To run our program, let's go back to the Terminal (macOS/Linux) or Command Prompt (Windows) and use the Apify CLI again:
+
+```text
+apify run
+```
+
+If we are lucky, the output should be similar to this:
+
+```text
+Run: npm run start
+
+> warehouse-scraper@0.0.1 start
+> node src/main.js
+
+INFO  System info {"apifyVersion":"3.6.0","apifyClientVersion":"2.22.2","crawleeVersion":"3.16.0","osType":"Darwin","nodeVersion":"v25.6.1"}
+...
+INFO  CheerioCrawler: Starting the crawler.
+INFO  CheerioCrawler: Processing page: https://warehouse-theme-metal.myshopify.com/collections/sales
+...
+INFO  CheerioCrawler: Finished!
+INFO  Total products collected: 24
+```
+
+This particular output says `Total products collected: 24`. The Sales page displays 24 products per page, and contains 50 products in total.
+
+Depending on whether ChatGPT decided to walk through the pages or scrape just the first one, we might get 24 or more products, but for a start, any indication that it scrapes the products is good news!
+
+:::caution Debugging
+If we saw our program crashing instead, we'd have to copy any error message and send it to the conversation with ChatGPT to nail down the issue and get it working.
+:::
+
+## Exporting to CSV
+
+Our program supposedly works, but we haven't seen the data yet. Let's add an export to CSV, which is a format which any data app can read, including Microsoft Excel, Google Sheets, or Numbers by Apple. Let's continue our conversation with ChatGPT:
+
+```text
+Before the program ends, I want it to export all data
+as "dataset.csv" in the current working directory.
+```
+
+ChatGPT should return a new code block with the CSV export implemented. We'll replace the contents of `main.js` with it and again, we won't forget to save our changes. Only then, we'll re-run the scraper:
+
+```text
+apify run
+```
+
+In the project directory, a new file called `dataset.csv` should emerge. We can use any of the programs mentioned earlier to check what's inside:
+
+| productName | productUrl | price |
+|---|---|---|
+| JBL Flip 4 Waterproof Portable Bluetooth Speaker | https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker | Sale price$74.95 |
+| Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv | Sale priceFrom $1,398.00 |
+| Sony SACS9 10" Active Subwoofer | https://warehouse-theme-metal.myshopify.com/products/sony-sacs9-10-inch-active-subwoofer | Sale price$158.00 |
+
+…and so on. Looks good!
+
+Well, does it? With more attention to detail, we can see that the prices include some text, which isn't exactly ideal. We'll need to improve this part in one of the next lessons. And we'll better improve our workflow as well, so that we don't have to copy and paste something all the time.
+
+Despite a few flaws, we managed to create a first working prototype of an application for watching prices, with no coding knowledge. And with some minimal effort in command line, we've got something we can immediately to deploy to a platform where it can run regularly and reliably. In the next lesson we'll do exactly that.
