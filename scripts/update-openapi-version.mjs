@@ -1,5 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
-import { parseDocument } from 'yaml';
+import pkg from 'yaml';
+
+const { parseDocument } = pkg;
 
 const OPENAPI_FILE = 'apify-api/openapi/openapi.yaml';
 
