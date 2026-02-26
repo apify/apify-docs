@@ -51,7 +51,10 @@ get:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
   responses:
     "200":
@@ -115,7 +118,10 @@ post:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
     - name: betaPackages
       in: query
@@ -125,7 +131,10 @@ post:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
     - name: tag
       in: query

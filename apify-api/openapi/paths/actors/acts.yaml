@@ -59,7 +59,10 @@ get:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
     - name: sortBy
       in: query
