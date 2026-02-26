@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /api-scraping/graphql-scraping/introspection
 ---
 
-**Understand what introspection is, and how it can help you understand a GraphQL API to take advantage of the features it has to offer before writing any code.**
-
----
-
 [Introspection](https://graphql.org/learn/introspection/) is when you make a query to the target GraphQL API requesting information about its schema. When done properly, this can provide a whole lot of information about the API and the different **queries** and **mutations** it supports.
 
 Just like when working with regular RESTful APIs in the [**General API scraping**](../general_api_scraping/locating_and_learning.md) section, it's important to learn a bit about the different available features of the GraphQL API (or at least of the query/mutation) you are scraping before actually writing any code.

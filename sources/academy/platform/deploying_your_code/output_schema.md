@@ -5,10 +5,6 @@ sidebar_position: 3
 slug: /deploying-your-code/dataset-schema
 ---
 
-**Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.**
-
----
-
 The dataset schema generates an interface that enables users to instantly preview their Actor results in real time.
 
 ![Dataset Schema](../../../platform/actors/development/actor_definition/images/output-schema-example.png)

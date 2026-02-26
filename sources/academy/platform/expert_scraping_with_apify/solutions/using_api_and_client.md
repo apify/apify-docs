@@ -6,10 +6,6 @@ sidebar_label: IV - Using the Apify API & JavaScript client
 slug: /expert-scraping-with-apify/solutions/using-api-and-client
 ---
 
-**Learn how to interact with the Apify API directly through the well-documented RESTful routes, or by using the proprietary Apify JavaScript client.**
-
----
-
 Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
 
 ```text

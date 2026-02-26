@@ -6,10 +6,6 @@ sidebar_label: VI - Rotating proxies/sessions
 slug: /expert-scraping-with-apify/solutions/rotating-proxies
 ---
 
-**Learn firsthand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.**
-
----
-
 If you take a look at our current code for the Amazon scraping Actor, you might notice this snippet:
 
 ```js

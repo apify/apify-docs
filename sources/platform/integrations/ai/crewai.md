@@ -6,10 +6,6 @@ sidebar_position: 3
 slug: /integrations/crewai
 ---
 
-**Learn how to build AI Agents with Apify and CrewAI.**
-
----
-
 ## What is CrewAI
 
 [CrewAI](https://www.crewai.com/) is an open-source Python framework designed to orchestrate autonomous, role-playing AI agents that collaborate as a "crew" to tackle complex tasks. It enables developers to define agents with specific roles, assign tasks, and integrate tools—like Apify Actors—for real-world data retrieval and automation.

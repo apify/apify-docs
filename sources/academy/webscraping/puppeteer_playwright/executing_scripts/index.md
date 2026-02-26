@@ -8,10 +8,6 @@ slug: /puppeteer-playwright/executing-scripts
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Understand the two different contexts which your code can be run in, and how to run custom scripts in the context of the browser.**
-
----
-
 An important concept to understand when dealing with headless browsers is the **context** in which your code is being run. For example, if you try to use the native `fs` Node.js module (used in the previous lesson) while running code in the context of the browser, errors will be thrown saying that it is undefined. Similarly, if you are trying to use `document.querySelector()` or other browser-specific functions in the server-side Node.js context, errors will also be thrown.
 
 ![Diagram explaining the two different contexts your code can be run in](../images/context-diagram.jpg)

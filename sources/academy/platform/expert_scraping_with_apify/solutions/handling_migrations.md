@@ -6,10 +6,6 @@ sidebar_label: V - Handling migrations
 slug: /expert-scraping-with-apify/solutions/handling-migrations
 ---
 
-**Get real-world experience of maintaining a stateful object stored in memory, which will be persisted through migrations and even graceful aborts.**
-
----
-
 Let's first head into our **demo-actor** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
 
 Here's the skeleton of our class:

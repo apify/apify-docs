@@ -5,10 +5,6 @@ description: Learn about Actor builds and runs, their lifecycle, versioning, and
 slug: /actors/development/builds-and-runs
 ---
 
-**Learn about Actor builds and runs, their lifecycle, versioning, and other properties.**
-
----
-
 Actor **builds** and **runs** are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.
 
 ## Building an Actor

@@ -5,10 +5,6 @@ sidebar_position: 12.2
 slug: /collaboration/list-of-permissions
 ---
 
-**Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.**
-
----
-
 This document contains all the access options that can be granted to resources on the Apify platform.
 
 ## Actors

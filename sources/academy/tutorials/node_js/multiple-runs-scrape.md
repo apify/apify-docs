@@ -5,10 +5,6 @@ sidebar_position: 15.10
 slug: /node-js/multiple-runs-scrape
 ---
 
-**Learn how to run multiple instances of an Actor to scrape a website faster. This tutorial will guide you through the process of setting up your scraper.**
-
----
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';

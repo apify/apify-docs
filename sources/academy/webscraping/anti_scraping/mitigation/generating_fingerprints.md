@@ -5,10 +5,6 @@ sidebar_position: 3
 slug: /anti-scraping/mitigation/generating-fingerprints
 ---
 
-**Learn how to use two super handy npm libraries to generate fingerprints and inject them into a Playwright or Puppeteer page.**
-
----
-
 In [**Crawlee**](https://crawlee.dev), you can use [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler to automatically generate fingerprints.
 
 ```js

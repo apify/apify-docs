@@ -6,10 +6,6 @@ category: build-and-publish
 slug: /actor-marketing-playbook/actor-basics/name-your-actor
 ---
 
-**Apify's standards for Actor naming. Learn how to choose the right name for scraping and automation Actors and how to optimize your Actor for search engines.**
-
----
-
 Naming your Actor can be tricky, especially after you’ve worked hard on it. To help people find your Actor and make it stand out, we’ve set some naming guidelines. These will help your Actor rank better on Google and keep things consistent on [Apify Store](https://apify.com/store).
 
 Ideally, you should choose a name that clearly shows what your Actor does and includes keywords people might use to search for it.

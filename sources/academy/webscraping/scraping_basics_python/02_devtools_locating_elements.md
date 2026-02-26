@@ -7,10 +7,6 @@ slug: /scraping-basics-python/devtools-locating-elements
 
 import Exercises from '../scraping_basics/_exercises.mdx';
 
-**In this lesson we'll use the browser tools for developers to manually find products on an e-commerce website.**
-
----
-
 Inspecting Wikipedia and tweaking its subtitle is fun, but let's shift gears and focus on building an app to track prices on an e-commerce site. As part of the groundwork, let's check out the site we'll be working with.
 
 ## Meeting the Warehouse store

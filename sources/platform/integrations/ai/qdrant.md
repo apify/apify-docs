@@ -8,10 +8,6 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**Learn how to integrate Apify with Qdrant to transfer crawled data into the Qdrant vector database.**
-
----
-
 [Qdrant](https://qdrant.tech) is a high performance managed vector database that allows users to store and query dense vectors for next generation AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
 
 The Apify integration for Qdrant enables you to export results from Apify Actors and Dataset items into a specific Qdrant collection.

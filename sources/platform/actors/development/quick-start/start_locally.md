@@ -6,10 +6,6 @@ description: Create your first Actor locally on your machine, deploy it to the A
 slug: /actors/development/quick-start/locally
 ---
 
-**Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.**
-
----
-
 import PromptButton from "@site/src/components/PromptButton";
 
 <PromptButton/>

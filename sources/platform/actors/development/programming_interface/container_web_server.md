@@ -5,8 +5,6 @@ slug: /actors/development/programming-interface/container-web-server
 sidebar_position: 7
 ---
 
-**Learn about how to run a web server inside your Actor to enable communication with the outside world through both UI and API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -5,10 +5,6 @@ sidebar_position: 3
 slug: /anti-scraping/mitigation/cloudflare-challenge.md
 ---
 
-**Learn how to bypass Cloudflare browser challenge with Crawlee.**
-
----
-
 If you find yourself stuck, there are a few strategies that you can employ. One key strategy is to ensure that your browser fingerprint is consistent. In some cases, the default browser fingerprint may actually be more effective than an inconsistently generated fingerprint. Additionally, it may be beneficial to avoid masking a Linux browser to look like a Windows or macOS browser, although this will depend on the specific configuration of the website you are targeting.
 
 For those using Crawlee, the library provides out-of-the-box support for generating consistent fingerprints that are able to pass the Cloudflare challenge. However, it's important to note that in some cases, the Cloudflare challenge screen may return a 403 status code even if it is evaluating the fingerprint and the request is not blocked. This can cause the default Crawlee browser crawlers to throw an error and not wait until the challenge is submitted and the page is redirected to the target webpage.

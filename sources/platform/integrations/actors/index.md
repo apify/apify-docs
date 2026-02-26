@@ -5,10 +5,6 @@ sidebar_label: Actor-to-Actor
 slug: /integrations/actors
 ---
 
-**Learn how to integrate with other Actors and tasks.**
-
----
-
 :::note Integration Actors
 
 You can check out a catalogue of our Integration Actors within [Apify Store](https://apify.com/store/categories/integrations).

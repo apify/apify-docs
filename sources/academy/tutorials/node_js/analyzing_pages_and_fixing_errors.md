@@ -5,10 +5,6 @@ sidebar_position: 14.1
 slug: /node-js/analyzing-pages-and-fixing-errors
 ---
 
-**Learn how to deal with random crashes in your web-scraping and automation jobs. Find out the essentials of debugging and fixing problems in your crawlers.**
-
----
-
 Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you save money by allowing you to avoid hiring an expensive developer to solve your issue for you.
 
 This quick lesson covers the absolute basics by discussing some of the most common problems and the simplest tools for analyzing and fixing them.

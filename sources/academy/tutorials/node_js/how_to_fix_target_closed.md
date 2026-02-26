@@ -5,10 +5,6 @@ sidebar_position: 14.2
 slug: /node-js/how_to_fix_target-closed
 ---
 
-**Learn about common causes for the 'Target closed' error in browser automation and what you can do to fix it.**
-
----
-
 The `Target closed` error happens when you try to access the `page` object (or some of its parent objects like the `browser`), but the underlying browser tab has already been closed. The exact error message can appear in several variants, such as `Target page, context or browser has been closed`, but none of them are very helpful for debugging. To debug it, attach logs in multiple places or use the headful mode.
 
 ## Out of memory

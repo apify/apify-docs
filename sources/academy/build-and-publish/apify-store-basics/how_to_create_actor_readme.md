@@ -6,10 +6,6 @@ category: build-and-publish
 slug: /actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme
 ---
 
-**Learn how to write a comprehensive README to help users better navigate, understand and run public Actors in Apify Store.**
-
----
-
 ## What's a README in the Apify sense?
 
 At Apify, when we talk about a README, we don’t mean a guide mainly aimed at developers that explains what a project is, how to set it up, or how to contribute to it. At least, not in its traditional sense.

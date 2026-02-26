@@ -6,9 +6,6 @@ sidebar_position: 7
 slug: /integrations/bubble
 ---
 
-**Learn how to integrate your Apify Actors with Bubble for automated workflows and notifications.**
-
----
 [Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
 :::tip Explore the live demo

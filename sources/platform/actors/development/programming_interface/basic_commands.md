@@ -5,8 +5,6 @@ slug: /actors/development/programming-interface/basic-commands
 sidebar_position: 2
 ---
 
-**Learn how to use basic commands of the Apify SDK for both JavaScript and Python.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

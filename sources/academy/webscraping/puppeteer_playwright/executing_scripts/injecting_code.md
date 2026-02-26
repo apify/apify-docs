@@ -8,10 +8,6 @@ slug: /puppeteer-playwright/executing-scripts/injecting-code
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to inject scripts prior to a page's load (pre-injecting), as well as how to expose functions to be run at a later time on the page.**
-
----
-
 In the previous lesson, we learned how to execute code on the page using `page.evaluate()`, and though this fits the majority of use cases, there are still some more unusual cases. For example, what if we want to execute our custom script prior to the page's load? Or, what if we want to define a function in the page's context to be run at a later time?
 
 We'll be covering both of these cases in this brief lesson.

@@ -6,10 +6,6 @@ sidebar_position: 4
 slug: /integrations/haystack
 ---
 
-**Learn how to integrate Apify with Haystack to work with web data in the Haystack ecosystem.**
-
----
-
 [Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections. For more information on Haystack, visit its [documentation](https://docs.haystack.deepset.ai/docs/intro).
 
 In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation sites, knowledge bases, or blogs, and extract text content from the web pages.

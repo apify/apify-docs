@@ -5,10 +5,6 @@ sidebar_position: 3
 slug: /api-scraping/general-api-scraping/handling-pagination
 ---
 
-**Learn about the three most popular API pagination techniques and how to handle each of them when scraping an API with pagination.**
-
----
-
 When scraping large APIs, you'll quickly realize that most APIs limit the number of results it responds back with. For some APIs, the max number of results is 5, while for others it's 2000. Either way, they all have something in common - pagination.
 
 If you've never dealt with it before, trying to scrape thousands to hundreds of thousands of items from an API with pagination can be a bit challenging. In this lesson, we'll be discussing a few of the different types of pagination, as well as how to work with them.
