@@ -35,6 +35,9 @@ properties:
   headersTemplate:
     type: [string, "null"]
     examples: ['{\n "Authorization": "Bearer ..."}']
+  title:
+    type: [string, "null"]
+    examples: [Actor run succeeded webhook]
   description:
     type: [string, "null"]
     examples: [this is webhook description]
