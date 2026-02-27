@@ -14,11 +14,12 @@ function parsePopulation($) {
     const text = $(element).text();
     if (text.includes('Population')) {
       const digits = text
-        .replace("Population:", "")
-        .replaceAll(" ", "");
+        .replace('Population:', '')
+        .replaceAll(' ', '');
       return Number.parseInt(digits, 10);
     }
   }
+  throw new Error('Population not found');
 }
 
 const listingUrl = 'https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en';
