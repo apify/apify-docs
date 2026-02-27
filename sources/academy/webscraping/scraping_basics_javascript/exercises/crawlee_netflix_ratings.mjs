@@ -20,13 +20,13 @@ crawler.router.addHandler('IMDB_SEARCH', async ({ enqueueLinks }) => {
 
 crawler.router.addHandler('IMDB', async ({ $, request, pushData }) => {
   const title = $('h1').text().trim();
-  const score = $("[data-testid='hero-rating-bar__aggregate-rating__score']").first().text().trim();
+  const rating = $("[data-testid='hero-rating-bar__aggregate-rating__score']").first().text().trim();
 
-  if (title && score) {
+  if (title && rating) {
     await pushData({
       url: request.url,
       title,
-      rating: score,
+      rating,
     });
   }
 });
