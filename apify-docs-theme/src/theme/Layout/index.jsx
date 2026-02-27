@@ -13,18 +13,15 @@ export default function LayoutWrapper(props) {
     const { pathname } = useLocation();
     const currentPath = pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
     const docsPluginData = useAllDocsData();
-    const typedocPluginData = useGlobalData()?.['docusaurus-plugin-typedoc-api'] ?? {};
+    const typedocPluginData = usePluginData('docusaurus-plugin-typedoc-api') ?? {};
 
     const allPluginData = {
         ...docsPluginData,
+        'typedoc-plugin-default': typedocPluginData
     };
 
-    for (const [pluginName, pluginData] of Object.entries(typedocPluginData)) {
-        allPluginData[`typedoc-plugin-${pluginName}`] = pluginData;
-    }
-
     const isVersionedPage = Object.values(allPluginData).some(
-        (pluginData) => pluginData.versions?.some((version) => !version?.isLast && pathname.startsWith(version?.path ?? '')),
+        (pluginData) => pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path))
     );
 
     const shouldRenderAlternateLink = currentPath && currentPath !== '404' && !isVersionedPage;
