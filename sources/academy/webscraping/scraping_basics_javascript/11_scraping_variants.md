@@ -9,7 +9,7 @@ import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import JsLlmProjectsExercise from '!!raw-loader!roa-loader!./exercises/js_llm_projects.mjs';
-import CnnSportsShortestArticleExercise from '!!raw-loader!roa-loader!./exercises/cnn_sports_shortest_article.mjs';
+import EurozonePopulationExercise from '!!raw-loader!roa-loader!./exercises/eurozone_population.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -394,19 +394,18 @@ Your output should look something like this:
   <CodeBlock language="js">{JsLlmProjectsExercise.code}</CodeBlock>
 </details>
 
-### Find the shortest CNN article which made it to the Sports homepage
+### Count eurozone population from country pages
 
-Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
+Scrape the [Countries using the euro](https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en) page.
 
-- Locate the element that holds the main content of the article.
-- Use `.text()` to extract all the content as plain text.
-- Use `.length` to calculate the character count.
+1. Locate links for countries in the **Euro area countries** section.
+1. Visit each linked country detail page.
+1. Find the value labeled **Population**.
+1. Convert it to a number and sum all country populations.
 
-Skip pages without text (like those that only have a video). Sort the results and print the URL of the shortest article that made it to the homepage.
-
-At the time of writing, the shortest article on the CNN Sports homepage is [about a donation to the Augusta National Golf Club](https://edition.cnn.com/2024/10/03/sport/masters-donation-hurricane-helene-relief-spt-intl/), which is just 1,642 characters long.
+Print one number – the total population of all countries using euro as their currency.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{CnnSportsShortestArticleExercise.code}</CodeBlock>
+  <CodeBlock language="js">{EurozonePopulationExercise.code}</CodeBlock>
 </details>
