@@ -2,3 +2,4 @@ node_modules
 build
 .claude
 AGENTS.md
+CLAUDE.md

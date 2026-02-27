@@ -1,7 +1,4 @@
 title: exampleRunInput
-required:
-  - body
-  - contentType
 type: object
 properties:
   body:

@@ -52,6 +52,8 @@ properties:
     type: [string, "null"]
     format: date-time
     examples: ["2019-04-12T07:33:10.202Z"]
+  title:
+    type: [string, "null"]
   actions:
     type: array
     items:
