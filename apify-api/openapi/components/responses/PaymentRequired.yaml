@@ -1,0 +1,9 @@
+description: Payment required - you have exceeded your plan limits or the Actor requires a paid plan.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: payment-required
+        message: You have exceeded your subscription plan limits.

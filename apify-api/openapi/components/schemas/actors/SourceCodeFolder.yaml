@@ -5,7 +5,6 @@ description: |
 type: object
 required:
   - name
-  - folder
 properties:
   name:
     type: string

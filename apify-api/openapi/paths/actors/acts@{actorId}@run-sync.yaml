@@ -143,6 +143,8 @@ post:
             error:
               type: run-timeout-exceeded
               message: Actor run exceeded timeout of 300 seconds for this API endpoint
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/with-input
