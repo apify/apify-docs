@@ -1,0 +1,29 @@
+name: Bump OpenAPI version
+
+on:
+    push:
+        branches:
+            - master
+        paths:
+            - 'apify-api/**'
+
+jobs:
+    bump-version:
+        name: Bump OpenAPI version
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Bump OpenAPI version
+              run: echo "v2-$(date -u +%Y-%m-%dT%H%M%SZ)" > apify-api/openapi/components/version.yaml
+
+            - name: Commit changes
+              id: commit
+              uses: EndBug/add-and-commit@v9
+              with:
+                  author_name: github-actions[bot]
+                  author_email: 41898282+github-actions[bot]@users.noreply.github.com
+                  message: "chore(openapi): Update OpenAPI version [skip ci]"
