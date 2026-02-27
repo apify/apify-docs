@@ -12,9 +12,16 @@ export default function LayoutWrapper(props) {
     const baseUrl = useBaseUrl('/');
     const { pathname } = useLocation();
     const currentPath = pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
-    const allDocsData = useAllDocsData();
-    const isVersionedPage = Object.values(allDocsData).some(
-        (pluginData) => pluginData.versions.some((version) => !version.isLast && pathname.startsWith(version.path)),
+    const docsPluginData = useAllDocsData();
+    const typedocPluginData = usePluginData('docusaurus-plugin-typedoc-api') ?? {};
+
+    const allPluginData = {
+        ...docsPluginData,
+        'typedoc-plugin-default': typedocPluginData,
+    };
+
+    const isVersionedPage = Object.values(allPluginData).some(
+        (pluginData) => pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path)),
     );
 
     const shouldRenderAlternateLink = currentPath && currentPath !== '404' && !isVersionedPage;
