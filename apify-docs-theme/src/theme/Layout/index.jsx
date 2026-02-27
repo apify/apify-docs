@@ -17,11 +17,11 @@ export default function LayoutWrapper(props) {
 
     const allPluginData = {
         ...docsPluginData,
-        'typedoc-plugin-default': typedocPluginData
+        'typedoc-plugin-default': typedocPluginData,
     };
 
     const isVersionedPage = Object.values(allPluginData).some(
-        (pluginData) => pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path))
+        (pluginData) => pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path)),
     );
 
     const shouldRenderAlternateLink = currentPath && currentPath !== '404' && !isVersionedPage;
