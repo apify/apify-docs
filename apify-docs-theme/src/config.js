@@ -97,7 +97,7 @@ const themeConfig = {
             },
             // Ecosystem zone
             {
-                label: 'Learn',
+                label: 'Academy',
                 href: `${absoluteUrl}/academy`,
                 activeBasePath: 'academy',
                 position: 'left',
