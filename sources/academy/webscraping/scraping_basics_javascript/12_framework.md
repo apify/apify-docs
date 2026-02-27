@@ -45,11 +45,11 @@ Now let's use the framework to create a new version of our scraper. First, let's
 ```js
 import { CheerioCrawler } from 'crawlee';
 
-const crawler = new CheerioCrawler({
-    async requestHandler({ $, log }) {
-        const title = $('title').text().trim();
-        log.info(title);
-    },
+const crawler = new CheerioCrawler();
+
+crawler.router.addDefaultHandler(async ({ $, log }) => {
+  const title = $('title').text().trim();
+  log.info(title);
 });
 
 await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
@@ -59,7 +59,7 @@ In the code, we do the following:
 
 1. Import the necessary module.
 1. Create a crawler object, which manages the scraping process. In this case, it's a `CheerioCrawler`, which requests HTML from websites and parses it with Cheerio. Other crawlers, such as `PlaywrightCrawler`, would be suitable if we wanted to scrape by automating a real browser.
-1. Define an asynchronous `requestHandler` function. It receives a context object with Cheerio's `$` instance and a logger.
+1. Define an asynchronous function as a default request handler. It receives a context object with Cheerio's `$` instance and a logger.
 1. Extract the page title and log it.
 1. Run the crawler on a product listing URL and await its completion.
 
@@ -85,24 +85,24 @@ For example, it takes only a few changes to the code to extract and follow links
 ```js
 import { CheerioCrawler } from 'crawlee';
 
-const crawler = new CheerioCrawler({
-    // highlight-start
-    async requestHandler({ $, log, request, enqueueLinks }) {
-      if (request.label === 'DETAIL') {
-        log.info(request.url);
-      } else {
-        await enqueueLinks({ label: 'DETAIL', selector: '.product-list a.product-item__title' });
-      }
-    },
-    // highlight-end
+const crawler = new CheerioCrawler();
+
+// highlight-start
+crawler.router.addDefaultHandler(async ({ enqueueLinks }) => {
+  await enqueueLinks({ label: 'DETAIL', selector: '.product-list a.product-item__title' });
 });
+
+crawler.router.addHandler('DETAIL', async ({ request, log }) => {
+  log.info(request.url);
+});
+// highlight-end
 
 await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
 ```
 
 First, it's necessary to inspect the page in browser DevTools to figure out the CSS selector that allows us to locate links to all the product detail pages. Then we can use the `enqueueLinks()` method to find the links and add them to Crawlee's internal HTTP request queue. We tell the method to label all the requests as `DETAIL`.
 
-For each request, Crawlee will run the same handler function. That's why now we need to check the label of the request being processed. For those labeled as `DETAIL`, we'll log the URL, otherwise we assume we're processing the listing page.
+Crawlee routes each request to the right function based on the request label. The default handler processes listing pages, and the `DETAIL` handler logs product URLs.
 
 If we run the code, we should see how Crawlee first downloads the listing page and then makes parallel requests to each of the detail pages, logging their URLs along the way:
 
@@ -121,19 +121,17 @@ In the final stats, we can see that we made 25 requests (1 listing page + 24 pro
 The `CheerioCrawler` provides the handler with the `$` attribute, which contains the parsed HTML of the handled page. This is the same `$` object we used in our previous program. Let's locate and extract the same data as before:
 
 ```js
-const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, log }) {
-        if (request.label === 'DETAIL') {
-            const item = {
-                url: request.url,
-                title: $('.product-meta__title').text().trim(),
-                vendor: $('.product-meta__vendor').text().trim(),
-            };
-            log.info("Item scraped", item);
-        } else {
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
-        }
-    },
+crawler.router.addDefaultHandler(async ({ enqueueLinks }) => {
+  await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+});
+
+crawler.router.addHandler('DETAIL', async ({ $, request, log }) => {
+  const item = {
+    url: request.url,
+    title: $('.product-meta__title').text().trim(),
+    vendor: $('.product-meta__vendor').text().trim(),
+  };
+  log.info('Item scraped', item);
 });
 ```
 
@@ -142,37 +140,31 @@ Now for the price. We're not doing anything new here—just copy-paste the code 
 In `oldindex.js`, we look for `.price` within a `$productItem` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```js
-const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, log }) {
-        if (request.label === 'DETAIL') {
-            // highlight-next-line
-            const $price = $(".product-form__info-content .price").contents().last();
-            const priceRange = { minPrice: null, price: null };
-            const priceText = $price
-                .text()
-                .trim()
-                .replace("$", "")
-                .replace(".", "")
-                .replace(",", "");
+crawler.router.addHandler('DETAIL', async ({ $, request, log }) => {
+  // highlight-next-line
+  const $price = $(".product-form__info-content .price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-            if (priceText.startsWith("From ")) {
-                priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-            } else {
-                priceRange.minPrice = parseInt(priceText);
-                priceRange.price = priceRange.minPrice;
-            }
+  if (priceText.startsWith("From ")) {
+    priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+    priceRange.minPrice = parseInt(priceText);
+    priceRange.price = priceRange.minPrice;
+  }
 
-            const item = {
-                url: request.url,
-                title: $(".product-meta__title").text().trim(),
-                vendor: $('.product-meta__vendor').text().trim(),
-                ...priceRange,
-            };
-            log.info("Item scraped", item);
-        } else {
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
-        }
-    },
+  const item = {
+    url: request.url,
+    title: $(".product-meta__title").text().trim(),
+    vendor: $('.product-meta__vendor').text().trim(),
+    ...priceRange,
+  };
+  log.info('Item scraped', item);
 });
 ```
 
@@ -181,6 +173,7 @@ Finally, the variants. We can reuse the `parseVariant()` function as-is. In the 
 ```js
 import { CheerioCrawler } from 'crawlee';
 
+// highlight-start
 function parseVariant($option) {
   const [variantName, priceText] = $option
     .text()
@@ -194,50 +187,51 @@ function parseVariant($option) {
   );
   return { variantName, price };
 }
+// highlight-end
 
-const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, log }) {
-        if (request.label === 'DETAIL') {
-            const $price = $(".product-form__info-content .price").contents().last();
-            const priceRange = { minPrice: null, price: null };
-            const priceText = $price
-                .text()
-                .trim()
-                .replace("$", "")
-                .replace(".", "")
-                .replace(",", "");
+const crawler = new CheerioCrawler();
 
-            if (priceText.startsWith("From ")) {
-                priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-            } else {
-                priceRange.minPrice = parseInt(priceText);
-                priceRange.price = priceRange.minPrice;
-            }
+crawler.router.addDefaultHandler(async ({ enqueueLinks }) => {
+  await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+});
 
-            const item = {
-                url: request.url,
-                title: $(".product-meta__title").text().trim(),
-                vendor: $('.product-meta__vendor').text().trim(),
-                ...priceRange,
-                // highlight-next-line
-                variantName: null,
-            };
+crawler.router.addHandler('DETAIL', async ({ $, request, log }) => {
+  const $price = $(".product-form__info-content .price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-            // highlight-start
-            const $variants = $(".product-form__option.no-js option");
-            if ($variants.length === 0) {
-              log.info("Item scraped", item);
-            } else {
-              for (const element of $variants.toArray()) {
-                const variant = parseVariant($(element));
-                log.info("Item scraped", { ...item, ...variant });
-              }
-            }
-            // highlight-end
-        } else {
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
-        }
-    },
+  if (priceText.startsWith("From ")) {
+    priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+    priceRange.minPrice = parseInt(priceText);
+    priceRange.price = priceRange.minPrice;
+  }
+
+  const item = {
+    url: request.url,
+    title: $(".product-meta__title").text().trim(),
+    vendor: $('.product-meta__vendor').text().trim(),
+    ...priceRange,
+    // highlight-next-line
+    variantName: null,
+  };
+
+  // highlight-start
+  const $variants = $(".product-form__option.no-js option");
+  if ($variants.length === 0) {
+    log.info('Item scraped', item);
+  } else {
+    for (const element of $variants.toArray()) {
+      const variant = parseVariant($(element));
+      log.info('Item scraped', { ...item, ...variant });
+    }
+  }
+  // highlight-end
 });
 
 await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
@@ -252,27 +246,23 @@ Crawlee doesn't do much to help with locating and extracting the data—that par
 Now that we're _letting the framework take care of everything else_, let's see what it can do about saving data. As of now, the product detail page handler logs each item as soon as it's ready. Instead, we can push the item to Crawlee's default dataset:
 
 ```js
-const crawler = new CheerioCrawler({
-  // highlight-next-line
-  async requestHandler({ $, request, enqueueLinks, pushData, log }) {
-    if (request.label === 'DETAIL') {
-      ...
+const crawler = new CheerioCrawler();
 
-      const $variants = $(".product-form__option.no-js option");
-      if ($variants.length === 0) {
-        // highlight-next-line
-        pushData(item);
-      } else {
-        for (const element of $variants.toArray()) {
-          const variant = parseVariant($(element));
-          // highlight-next-line
-          pushData({ ...item, ...variant });
-        }
-      }
-    } else {
-        ...
+// highlight-next-line
+crawler.router.addHandler('DETAIL', async ({ $, request, pushData }) => {
+  ...
+
+  const $variants = $(".product-form__option.no-js option");
+  if ($variants.length === 0) {
+    // highlight-next-line
+    pushData(item);
+  } else {
+    for (const element of $variants.toArray()) {
+      const variant = parseVariant($(element));
+      // highlight-next-line
+      pushData({ ...item, ...variant });
     }
-  },
+  }
 });
 ```
 
@@ -311,55 +301,55 @@ function parseVariant($option) {
   return { variantName, price };
 }
 
-const crawler = new CheerioCrawler({
-    async requestHandler({ $, request, enqueueLinks, pushData, log }) {
-        if (request.label === 'DETAIL') {
-            // highlight-next-line
-            log.info(`Product detail page: ${request.url}`);
+const crawler = new CheerioCrawler();
 
-            const $price = $(".product-form__info-content .price").contents().last();
-            const priceRange = { minPrice: null, price: null };
-            const priceText = $price
-                .text()
-                .trim()
-                .replace("$", "")
-                .replace(".", "")
-                .replace(",", "");
+crawler.router.addDefaultHandler(async ({ enqueueLinks, log }) => {
+  // highlight-next-line
+  log.info('Looking for product detail pages');
+  await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
+});
 
-            if (priceText.startsWith("From ")) {
-                priceRange.minPrice = parseInt(priceText.replace("From ", ""));
-            } else {
-                priceRange.minPrice = parseInt(priceText);
-                priceRange.price = priceRange.minPrice;
-            }
+crawler.router.addHandler('DETAIL', async ({ $, request, pushData, log }) => {
+  // highlight-next-line
+  log.info(`Product detail page: ${request.url}`);
 
-            const item = {
-                url: request.url,
-                title: $(".product-meta__title").text().trim(),
-                vendor: $('.product-meta__vendor').text().trim(),
-                ...priceRange,
-                variantName: null,
-            };
+  const $price = $(".product-form__info-content .price").contents().last();
+  const priceRange = { minPrice: null, price: null };
+  const priceText = $price
+    .text()
+    .trim()
+    .replace("$", "")
+    .replace(".", "")
+    .replace(",", "");
 
-            const $variants = $(".product-form__option.no-js option");
-            if ($variants.length === 0) {
-              // highlight-next-line
-              log.info('Saving a product');
-              pushData(item);
-            } else {
-              for (const element of $variants.toArray()) {
-                const variant = parseVariant($(element));
-                // highlight-next-line
-                log.info('Saving a product variant');
-                pushData({ ...item, ...variant });
-              }
-            }
-        } else {
-            // highlight-next-line
-            log.info('Looking for product detail pages');
-            await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
-        }
-    },
+  if (priceText.startsWith("From ")) {
+    priceRange.minPrice = parseInt(priceText.replace("From ", ""));
+  } else {
+    priceRange.minPrice = parseInt(priceText);
+    priceRange.price = priceRange.minPrice;
+  }
+
+  const item = {
+    url: request.url,
+    title: $(".product-meta__title").text().trim(),
+    vendor: $('.product-meta__vendor').text().trim(),
+    ...priceRange,
+    variantName: null,
+  };
+
+  const $variants = $(".product-form__option.no-js option");
+  if ($variants.length === 0) {
+    // highlight-next-line
+    log.info('Saving a product');
+    pushData(item);
+  } else {
+    for (const element of $variants.toArray()) {
+      const variant = parseVariant($(element));
+      // highlight-next-line
+      log.info('Saving a product variant');
+      pushData({ ...item, ...variant });
+    }
+  }
 });
 
 await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
@@ -467,10 +457,10 @@ const request = new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
 Then use the `addRequests()` function to instruct Crawlee that it should follow an array of these manually constructed requests:
 
 ```js
-async requestHandler({ ..., addRequests }) {
+crawler.router.addDefaultHandler(async ({ $, addRequests }) => {
   ...
   await addRequests(requests);
-},
+});
 ```
 
 :::tip Need a nudge?
