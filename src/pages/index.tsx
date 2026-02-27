@@ -64,15 +64,9 @@ export default function Home() {
             <Hero
                 heading="Apify Documentation"
                 align="center"
-                promotion={{
-                    badge: 'Build',
-                    label: 'Win big in $1M Challenge',
-                    href: 'https://apify.com/challenge',
-                }}
                 description={
                     <Text color={theme.color.neutral.textMuted} size="large">
-                        Learn how to extract value from the web with the Apify
-                        platform.
+                        Learn how to put the web to work with Apify.
                     </Text>
                 }
             />
@@ -192,33 +186,6 @@ export default function Home() {
                         image={
                             <ThemedImage
                                 sources={{
-                                    light: useBaseUrl('/img/landing-pages/sdk.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/sdk_dark.svg'),
-                                }}
-                                alt="Apify SDK"
-                            />
-                        }
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <div className="cardContentWrapperText">
-                                    <Heading type='titleXl' as="h3">SDK</Heading>
-                                    <Text color={theme.color.neutral.textMuted}>
-                                        Software toolkits for developing new Actors.
-                                    </Text>
-                                </div>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                        <li><Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link></li>
-                                        <li><Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link></li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
-                    <CardWithImageAndContent
-                        image={
-                            <ThemedImage
-                                sources={{
                                     light: useBaseUrl('/img/landing-pages/api.svg'),
                                     dark: useBaseUrl('/img/landing-pages/api_dark.svg'),
                                 }}
@@ -228,7 +195,7 @@ export default function Home() {
                         content={
                             <div className={styles.cardContentWrapper}>
                                 <div className="cardContentWrapperText">
-                                    <Heading type='titleXl' as="h3">API</Heading>
+                                    <Heading type='titleXl' as="h3">Apify API</Heading>
                                     <Text color={theme.color.neutral.textMuted}>
                                         Interact with the Apify platform from your applications.
                                     </Text>
@@ -237,7 +204,34 @@ export default function Home() {
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for JavaScript</Link></li>
                                         <li><Link to={new URL('/api/client/python', siteConfig.url).href}>API client for Python</Link></li>
-                                        <li><Link to={new URL('/api/v2', siteConfig.url).href}>API Reference</Link></li>
+                                        <li><Link to={new URL('/api/v2', siteConfig.url).href}>API reference</Link></li>
+                                    </ul>
+                                </Text>
+                            </div>
+                        }
+                    />
+                    <CardWithImageAndContent
+                        image={
+                            <ThemedImage
+                                sources={{
+                                    light: useBaseUrl('/img/landing-pages/sdk.svg'),
+                                    dark: useBaseUrl('/img/landing-pages/sdk_dark.svg'),
+                                }}
+                                alt="Apify SDK"
+                            />
+                        }
+                        content={
+                            <div className={styles.cardContentWrapper}>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">Apify SDK</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
+                                        Software toolkits for developing new Actors.
+                                    </Text>
+                                </div>
+                                <Text>
+                                    <ul className={styles.cardContentList}>
+                                        <li><Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link></li>
+                                        <li><Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -256,14 +250,14 @@ export default function Home() {
                         content={
                             <div className={styles.cardContentWrapper}>
                                 <div className="cardContentWrapperText">
-                                    <Heading type='titleXl' as="h3">CLI</Heading>
+                                    <Heading type='titleXl' as="h3">Apify CLI</Heading>
                                     <Text color={theme.color.neutral.textMuted}>
                                         Control the Apify platform from terminal or shell scripts.
                                     </Text>
                                 </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to={new URL('/cli', siteConfig.url).href}>CLI Reference</Link></li>
+                                        <li><Link to={new URL('/cli', siteConfig.url).href}>CLI reference</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -358,8 +352,8 @@ export default function Home() {
                             }}
                             alt="Intercom logo"
                         />}
-                        title="Help & Support"
-                        description="Find answers to common questions or get help from our support team."
+                        title="Support"
+                        description="Find answers to common questions or get help from the Apify support team."
                         to="https://help.apify.com/"
                     />
                 </div>

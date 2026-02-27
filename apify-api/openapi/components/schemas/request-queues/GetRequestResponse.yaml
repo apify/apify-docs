@@ -1,9 +1,0 @@
-title: GetRequestResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    allOf:
-      - $ref: ./RequestQueueItems.yaml
-      - {}

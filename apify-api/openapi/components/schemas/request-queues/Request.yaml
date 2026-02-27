@@ -1,0 +1,56 @@
+title: Request
+description: A request stored in the request queue, including its metadata and processing state.
+required:
+  - id
+  - uniqueKey
+  - url
+type: object
+properties:
+  id:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [dnjkDMKLmdlkmlkmld]
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    examples: [GET|60d83e70|e3b0c442|https://apify.com/career]
+  url:
+    type: string
+    format: uri
+    description: The URL of the request.
+    examples: [https://apify.com/career]
+  method:
+    type: string
+    description: The HTTP method of the request.
+    examples: [GET]
+  retryCount:
+    type: integer
+    description: The number of times this request has been retried.
+    examples: [0]
+  loadedUrl:
+    type: [string, "null"]
+    format: uri
+    description: The final URL that was loaded, after redirects (if any).
+    examples: [https://apify.com/jobs]
+  payload:
+    type: [object, "null"]
+    description: The request payload, typically used with POST or PUT requests.
+  headers:
+    type: [object, "null"]
+    description: HTTP headers sent with the request.
+  userData:
+    $ref: ./RequestUserData.yaml
+  noRetry:
+    type: [boolean, "null"]
+    description: Indicates whether the request should not be retried if processing fails.
+    examples: [false]
+  errorMessages:
+    type: [array, "null"]
+    description: Error messages recorded from failed processing attempts.
+    items:
+      type: string
+  handledAt:
+    type: [string, "null"]
+    format: date-time
+    description: The timestamp when the request was marked as handled, if applicable.
+    examples: ["2019-06-16T10:23:31.607Z"]

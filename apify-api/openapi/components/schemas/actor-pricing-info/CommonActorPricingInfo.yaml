@@ -1,9 +1,9 @@
 title: CommonActorPricingInfo
 type: object
 required:
-    - apifyMarginPercentage
-    - createdAt
-    - startedAt
+  - apifyMarginPercentage
+  - createdAt
+  - startedAt
 properties:
   apifyMarginPercentage:
     type: number
@@ -11,22 +11,19 @@ properties:
   createdAt:
     type: string
     format: date-time
-    description: "When this pricing info record has been created"
+    description: When this pricing info record has been created
   startedAt:
     type: string
     format: date-time
-    description: "Since when is this pricing info record effective for a given Actor"
+    description: Since when is this pricing info record effective for a given Actor
   notifiedAboutFutureChangeAt:
-    type: string
+    type: [string, "null"]
     format: date-time
-    nullable: true
     x-internal: true
   notifiedAboutChangeAt:
-    type: string
+    type: [string, "null"]
     format: date-time
-    nullable: true
     x-internal: true
   reasonForChange:
-    type: string
-    nullable: true
+    type: [string, "null"]
     x-internal: true

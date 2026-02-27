@@ -36,20 +36,20 @@ get:
         format: double
         example: 60
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: '../../components/schemas/actor-builds/GetBuildResponse.yaml'
+            $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB
               actId: janedoe~my-actor
               userId: klmdEpoiojmdEMlk3
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: SUCCEEDED
               meta:
                 origin: WEB
@@ -72,6 +72,8 @@ get:
               inputSchema: '{\n  \"title\": \"Schema for ... }'
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   x-js-parent: ActorClient
   x-js-name: defaultBuild
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#defaultBuild

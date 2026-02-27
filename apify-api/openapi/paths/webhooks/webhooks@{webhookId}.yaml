@@ -14,13 +14,15 @@ get:
         type: string
         example: Zib4xbZsmvZeK55ua
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/GetWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/get-webhook
@@ -62,20 +64,22 @@ put:
         type: string
         example: Zib4xbZsmvZeK55ua
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/webhooks/WebhookUpdate.yaml
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/UpdateWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/update-webhook
@@ -103,14 +107,16 @@ delete:
         type: string
         example: Zib4xbZsmvZeK55ua
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/delete-webhook

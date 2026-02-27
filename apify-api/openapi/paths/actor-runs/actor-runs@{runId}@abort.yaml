@@ -30,8 +30,8 @@ post:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -43,8 +43,8 @@ post:
               actId: janedoe~my-actor
               userId: BPWZBd7Z9c746JAng
               actorTaskId: rANaydYhUxjsnA3oz
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
               status: ABORTED
               statusMessage: Actor was aborted
               isStatusMessageTerminal: true
@@ -76,6 +76,7 @@ post:
                 diskMbytes: 2048
               buildId: 7sT5jcggjjA9fNcxF
               exitCode: 0
+              generalAccess: RESTRICTED
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
@@ -91,7 +92,7 @@ post:
                 REQUEST_QUEUE_READS: 2
                 REQUEST_QUEUE_WRITES: 1
                 DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                DATA_TRANSFER_EXTERNAL_GBYTES: 3
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
                 PROXY_SERPS: 3
               usageTotalUsd: 0.2654
@@ -105,9 +106,11 @@ post:
                 REQUEST_QUEUE_READS: 0.005
                 REQUEST_QUEUE_WRITES: 0.02
                 DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                DATA_TRANSFER_EXTERNAL_GBYTES: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/abort-run/abort-run

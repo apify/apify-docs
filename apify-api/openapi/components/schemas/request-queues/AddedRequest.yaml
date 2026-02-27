@@ -1,0 +1,25 @@
+title: AddedRequest
+description: Information about a request that was successfully added to a request queue.
+required:
+  - requestId
+  - uniqueKey
+  - wasAlreadyHandled
+  - wasAlreadyPresent
+type: object
+properties:
+  requestId:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [sbJ7klsdf7ujN9l]
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    examples: [GET|60d83e70|e3b0c442|https://apify.com]
+  wasAlreadyPresent:
+    type: boolean
+    description: Indicates whether a request with the same unique key already existed in the request queue. If true, no new request was created.
+    examples: [false]
+  wasAlreadyHandled:
+    type: boolean
+    description: Indicates whether a request with the same unique key has already been processed by the request queue.
+    examples: [false]

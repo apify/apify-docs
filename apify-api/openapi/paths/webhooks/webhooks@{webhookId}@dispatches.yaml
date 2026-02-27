@@ -14,13 +14,15 @@ get:
         type: string
         example: pVJtoTelgYUq4qJOt
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/webhook-dispatches/WebhookDispatchList.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/dispatches-collection/get-collection

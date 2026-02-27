@@ -114,7 +114,7 @@ if (state.isInitialized) {
         const runClient = apifyClient.run(runId);
         const run = await runClient.get();
 
-        // This should happen if the run was deleted or the state was incorectly saved.
+        // This should happen if the run was deleted or the state was incorrectly saved.
         if (!run) throw new Error(`The run ${runId} from state does not exists.`);
 
         if (run.status === 'RUNNING') {

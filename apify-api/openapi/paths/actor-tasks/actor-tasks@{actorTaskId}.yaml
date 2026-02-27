@@ -14,8 +14,8 @@ get:
         type: string
         example: janedoe~my-task
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -25,7 +25,7 @@ get:
               - data
             properties:
               data:
-                $ref: "../../components/schemas/actor-tasks/Task.yaml"
+                $ref: ../../components/schemas/actor-tasks/Task.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -33,8 +33,8 @@ get:
               actId: asADASadYvn4mBZmm
               name: my-task
               username: janedoe
-              createdAt: '2018-10-26T07:23:14.855Z'
-              modifiedAt: '2018-10-26T13:30:49.578Z'
+              createdAt: "2018-10-26T07:23:14.855Z"
+              modifiedAt: "2018-10-26T13:30:49.578Z"
               removedAt: null
               stats:
                 totalRuns: 15
@@ -44,6 +44,8 @@ get:
                 memoryMbytes: 128
               input:
                 hello: world
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/get-task
@@ -85,22 +87,13 @@ put:
         type: string
         example: janedoe~my-task
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actor-tasks/UpdateTaskRequest.yaml"
+          $ref: ../../components/schemas/actor-tasks/UpdateTaskRequest.yaml
         example:
-          id: ZxLNxrRaZrSjuhT9y
-          userId: BPWZBd7Z9c746JAnF
-          actId: asADASadYvn4mBZmm
           name: my-task
-          username: janedoe
-          createdAt: '2018-10-26T07:23:14.855Z'
-          modifiedAt: '2018-10-26T13:30:49.578Z'
-          removedAt: null
-          stats:
-            totalRuns: 15
           options:
             build: latest
             timeoutSecs: 300
@@ -109,8 +102,8 @@ put:
             hello: world
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -120,7 +113,7 @@ put:
               - data
             properties:
               data:
-                $ref: "../../components/schemas/actor-tasks/Task.yaml"
+                $ref: ../../components/schemas/actor-tasks/Task.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -128,8 +121,8 @@ put:
               actId: asADASadYvn4mBZmm
               name: my-task
               username: janedoe
-              createdAt: '2018-10-26T07:23:14.855Z'
-              modifiedAt: '2018-10-26T13:30:49.578Z'
+              createdAt: "2018-10-26T07:23:14.855Z"
+              modifiedAt: "2018-10-26T13:30:49.578Z"
               removedAt: null
               stats:
                 totalRuns: 15
@@ -139,6 +132,8 @@ put:
                 memoryMbytes: 128
               input:
                 hello: world
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/update-task
@@ -166,14 +161,16 @@ delete:
         type: string
         example: janedoe~my-task
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/delete-task

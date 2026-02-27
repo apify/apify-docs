@@ -1,0 +1,8 @@
+title: HeadResponse
+description: Response containing requests from the request queue head without locking.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./RequestQueueHead.yaml

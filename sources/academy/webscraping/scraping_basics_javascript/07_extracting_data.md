@@ -5,8 +5,12 @@ description: Lesson about building a Node.js application for watching prices. Us
 slug: /scraping-basics-javascript/extracting-data
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import WarehouseUnitsExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units.mjs';
+import WarehouseUnitsRegexExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units_regex.mjs';
+import GuardianPublishDatesExercise from '!!raw-loader!roa-loader!./exercises/guardian_publish_dates.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -239,42 +243,7 @@ Denon AH-C720 In-Ear Headphones | 236
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  function parseUnitsText(text) {
-    const count = text
-      .replace("In stock,", "")
-      .replace("Only", "")
-      .replace(" left", "")
-      .replace("units", "")
-      .trim();
-    return count === "Sold out" ? 0 : parseInt(count);
-  }
-
-  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $(".product-item").toArray()) {
-      const $productItem = $(element);
-
-      const title = $productItem.find(".product-item__title");
-      const title = $title.text().trim();
-
-      const unitsText = $productItem.find(".product-item__inventory").text();
-      const unitsCount = parseUnitsText(unitsText);
-
-      console.log(`${title} | ${unitsCount}`);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{WarehouseUnitsExercise.code}</CodeBlock>
 
   :::tip Conditional (ternary) operator
 
@@ -290,40 +259,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  function parseUnitsText(text) {
-    const match = text.match(/\d+/);
-    if (match) {
-      return parseInt(match[0]);
-    }
-    return 0;
-  }
-
-  const url = "https://warehouse-theme-metal.myshopify.com/collections/sales";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $(".product-item").toArray()) {
-      const $productItem = $(element);
-
-      const $title = $productItem.find(".product-item__title");
-      const title = $title.text().trim();
-
-      const unitsText = $productItem.find(".product-item__inventory").text();
-      const unitsCount = parseUnitsText(unitsText);
-
-      console.log(`${title} | ${unitsCount}`);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
+  <CodeBlock language="js">{WarehouseUnitsRegexExercise.code}</CodeBlock>
 
   :::tip Conditional (ternary) operator
 
@@ -362,35 +298,5 @@ Hamilton reveals distress over ‘devastating’ groundhog accident at Canadian 
 
 <details>
   <summary>Solution</summary>
-
-  ```js
-  import * as cheerio from 'cheerio';
-
-  const url = "https://www.theguardian.com/sport/formulaone";
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    for (const element of $("#maincontent ul li").toArray()) {
-      const $article = $(element);
-
-      const title = $article
-        .find("h3")
-        .text()
-        .trim();
-      const dateText = $article
-        .find("time")
-        .attr("datetime")
-        .trim();
-      const date = new Date(dateText);
-
-      console.log(`${title} | ${date.toDateString()}`);
-    }
-  } else {
-    throw new Error(`HTTP ${response.status}`);
-  }
-  ```
-
+  <CodeBlock language="js">{GuardianPublishDatesExercise.code}</CodeBlock>
 </details>

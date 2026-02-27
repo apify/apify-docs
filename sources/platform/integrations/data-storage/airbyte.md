@@ -39,4 +39,4 @@ To find your Apify API token, you need to navigate to the **Settings** tab and s
 
 And that's it! You now have Apify datasets set up as a Source, and you can use Airbyte to transfer your datasets to one of the available destinations.
 
-To learn more about how to setup a Connection, visit [Airbyte's documentation](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection)
+To learn more about how to setup a Connection, visit [Airbyte's documentation](https://docs.airbyte.com/platform/using-airbyte/getting-started/set-up-a-connection)

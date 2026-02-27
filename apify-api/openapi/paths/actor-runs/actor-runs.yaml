@@ -82,14 +82,14 @@ get:
         example: "2025-09-17T23:59:59.000Z"
   responses:
     # todo 404?
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/actor-runs/GetUserRunsListResponse.yaml
+              - $ref: ../../components/schemas/actor-runs/ListOfRunsResponse.yaml
           example:
             data:
               total: 2
@@ -102,8 +102,8 @@ get:
                   actId: HDSasDasz78YcAPEB
                   actorTaskId: KJHSKHausidyaJKHs
                   status: SUCCEEDED
-                  startedAt: '2019-11-30T07:34:24.202Z'
-                  finishedAt: '2019-12-12T09:30:12.202Z'
+                  startedAt: "2019-11-30T07:34:24.202Z"
+                  finishedAt: "2019-12-12T09:30:12.202Z"
                   buildId: HG7ML7M8z78YcAPEB
                   buildNumber: 0.0.2
                   meta:
@@ -116,8 +116,8 @@ get:
                   actId: HDSasDasz78YcAPEB
                   actorTaskId: KJHSKHausidyaJKHs
                   status: FAILED
-                  startedAt: '2019-12-12T07:34:14.202Z'
-                  finishedAt: '2019-12-13T08:36:13.202Z'
+                  startedAt: "2019-12-12T07:34:14.202Z"
+                  finishedAt: "2019-12-13T08:36:13.202Z"
                   buildId: u78dML7M8z78YcAPEB
                   buildNumber: 0.2.2
                   meta:
@@ -126,6 +126,8 @@ get:
                   defaultKeyValueStoreId: sffsouqlseJCQzTfe
                   defaultDatasetId: CFGggdjQDsyE7Moyw
                   defaultRequestQueueId: soowucklrmDzKpA8x
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-collection/get-user-runs-list

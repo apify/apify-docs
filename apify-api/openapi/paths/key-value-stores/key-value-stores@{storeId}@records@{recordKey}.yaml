@@ -14,6 +14,10 @@ get:
     Most HTTP clients support decompression by default. After using the HTTP
     client with decompression support, the `Accept-Encoding` header is set by
     the client and body is decompressed automatically.
+
+    Please note that for security reasons, Apify API can perform small modifications
+    to HTML documents before they are served via this endpoint. To fetch the raw HTML
+    content without any modifications, use the `attachment` query parameter.
   operationId: keyValueStore_record_get
   parameters:
     - name: storeId
@@ -36,25 +40,35 @@ get:
       in: query
       description: Signature used to access the record.
       required: false
-      style: simple
+      style: form
       schema:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI
+    - name: attachment
+      in: query
+      description: |
+        If `true` or `1`, the response will be served with `Content-Disposition: attachment` header,
+        causing web browsers to offer downloading HTML records instead of displaying them.
+      required: false
+      style: form
+      schema:
+        type: boolean
+        example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/key-value-stores/GetRecordResponse.yaml
+              - $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
               - example:
                   foo: bar
           example:
             foo: bar
-    '302':
-      description: ''
+    "302":
+      description: ""
       headers:
         Location:
           content:
@@ -64,6 +78,8 @@ get:
               example: >-
                 https://apifier-key-value-store-prod.s3.amazonaws.com/tqx6jeMia43gYY6eE/INPUT?AWSAccessKeyId=NKDOUN&Expires=1502720992&Signature=DKLVPI4lDDKC
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record
@@ -100,11 +116,11 @@ head:
         type: string
         example: someKey
   responses:
-    '200':
-      description: 'The record exists'
+    "200":
+      description: The record exists
       headers: {}
-    '404':
-      description: 'The record does not exist'
+    "404":
+      description: The record does not exist
       headers: {}
   deprecated: false
   x-js-parent: KeyValueStoreClient
@@ -154,7 +170,7 @@ put:
         example: someKey
     - name: Content-Encoding
       in: header
-      description: ''
+      description: ""
       required: true
       style: simple
       schema:
@@ -163,7 +179,7 @@ put:
         type: string
         example: gzip
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -172,8 +188,8 @@ put:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -187,6 +203,8 @@ put:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
@@ -222,10 +240,12 @@ delete:
         type: string
         example: someKey
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record

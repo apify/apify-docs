@@ -1,0 +1,15 @@
+title: SourceCodeFile
+type: object
+required:
+  - format
+  - content
+  - name
+properties:
+  format:
+    $ref: ../common/SourceCodeFileFormat.yaml
+  content:
+    type: string
+    examples: ["console.log('This is the main.js file');"]
+  name:
+    type: string
+    examples: [src/main.js]

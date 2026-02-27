@@ -66,8 +66,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -102,7 +102,7 @@ post:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -111,8 +111,8 @@ post:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -120,25 +120,25 @@ post:
             type: object
           example:
             bar: foo
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-failed
               message: |
                 Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)
-    '408':
-      description: ''
+    "408":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-timeout-exceeded
@@ -210,8 +210,8 @@ get:
         type: number
         format: double
         example: 256
-    - $ref: "../../components/parameters/actor-run-options/maxItems.yaml"
-    - $ref: "../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml"
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -246,8 +246,8 @@ get:
         type: string
         example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -255,26 +255,26 @@ get:
             type: object
           example:
             foo: bar
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-failed
               message: >-
                 Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
                 FAILED)
-    '408':
-      description: ''
+    "408":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
           example:
             error:
               type: run-timeout-exceeded

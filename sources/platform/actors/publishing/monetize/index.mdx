@@ -29,18 +29,18 @@ For a detailed comparison of pricing models from the perspective of your users, 
 
 The following table compares the two main pricing models available for monetizing your Actors:
 
-| Feature/Category         | Rental                | Pay-per-result (PPR)         | Pay-per-event (PPE)           |
-|-------------------------|-------------------------------|-------------------------------|-------------------------------|
-| Revenue scalability     | Capped at monthly fee         | Unlimited, scales with usage  | Unlimited, scales with usage  |
-| AI/MCP compatibility    | ❌ Not compatible             | ✅ Fully compatible           | ✅ Fully compatible           |
-| User cost predictability| Unpredictable (rental + usage)    | Predictable    | Predictable    |
-| Store discounts         | ❌ Single price only          | ✅ Store discounts available  | ✅ Store discounts available  |
-| Marketing boost         | Standard visibility           | Standard visibility           | Priority store placement      |
-| Commission opportunities| Standard 20%                  | Standard 20%                  | Standard 20%       |
-| Custom event billing    | Not available                 | Not available                 | ✅ Charge for any event       |
-| Per-result billing      | Not available                 | ✅ Charge per dataset item    | Optional (via event; automatic via `apify-default-dataset-item`) |
+| Feature/Category         | Rental                         | Pay-per-result (PPR)          | Pay-per-event (PPE)                                              |
+|--------------------------|--------------------------------|-------------------------------|------------------------------------------------------------------|
+| Revenue scalability      | Capped at monthly fee          | Unlimited, scales with usage  | Unlimited, scales with usage                                     |
+| AI/MCP compatibility     | ❌ Not compatible              | ✅ Fully compatible           | ✅ Fully compatible                                              |
+| User cost predictability | Unpredictable (rental + usage) | Predictable                   | Predictable                                                      |
+| Store discounts          | ❌ Single price only           | ✅ Store discounts available  | ✅ Store discounts available                                     |
+| Marketing boost          | Standard visibility            | Standard visibility           | Priority store placement                                         |
+| Commission opportunities | Standard 20%                   | Standard 20%                  | Standard 20%                                                     |
+| Custom event billing     | Not available                  | Not available                 | ✅ Charge for any event                                          |
+| Per-result billing       | Not available                  | ✅ Charge per dataset item    | Optional (via event; automatic via `apify-default-dataset-item`) |
 
-## Setting up monetization
+## Set up monetization
 
 Navigate to your [Actor page](https://console.apify.com/actors?tab=my) in Apify Console, choose the Actor that you want to monetize, and select the Publication tab.
 ![Monetization section](../images/monetization-section.png)
@@ -61,7 +61,7 @@ Follow the monetization wizard to configure your pricing model.
 </TabItem>
 </Tabs>
 
-### Changing monetization
+### Change monetization
 
 You can change the monetization setting of your Actor by using the same wizard as for the setup in the **Monetization** section of your Actor's **Publication** tab.
 
@@ -77,14 +77,14 @@ All other changes (such as decreasing prices, adjusting descriptions, or removin
 
 :::important Frequency of major monetization adjustments
 
-You can make major monetization changes to each Actor only **once per month**. After making a major change, you must wait until it takes effect (14 days) plus an additional period before making another major change. For further information & guidelines, please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions)
+You can make major monetization changes to each Actor only **once per month**. After making a major change, you must wait until it takes effect (14 days) plus an additional period before making another major change. For further information & guidelines, please refer to our [Terms & Conditions](/legal/store-publishing-terms-and-conditions)
 
 :::
 
 ## Monthly payouts and analytics
 
 Payout invoices are automatically generated on the 11th of each month, summarizing the profits from all your Actors for the previous month.
-In accordance with our [Terms & Conditions](https://apify.com/store-terms-and-conditions), only funds from legitimate users who have already paid are included in the payout invoice.
+In accordance with our [Terms & Conditions](/legal/store-publishing-terms-and-conditions), only funds from legitimate users who have already paid are included in the payout invoice.
 
 :::note How negative profits are handled
 
@@ -98,7 +98,15 @@ If no action is taken, the payout will be automatically approved on the 14th, wi
 - $20 for PayPal
 - $100 for other payout methods
 
-If the monthly profit does not meet these thresholds, as per our [Terms & Conditions](https://apify.com/store-terms-and-conditions), the funds will roll over to the next month until the threshold is reached.
+If the monthly profit does not meet these thresholds, as per our [Terms & Conditions](/legal/store-publishing-terms-and-conditions), the funds will roll over to the next month until the threshold is reached.
+
+## Handle free users
+
+When monetizing your Actor, you might want to limit features or usage for users on the Apify free plan. If you choose to do this, you _must_ handle it transparently:
+
+- Communicate upfront: Clearly state any limitations in your Actor's `README` and input schema. Users should know about restrictions _before_ they run the Actor.
+- Graceful exits: If a free user hits a limit, don't crash the Actor or return a system error. Instead, exit gracefully with a clear [status message](/platform/actors/development/programming-interface/status-messages#communicating-limitations) explaining the limit (e.g., "Free tier limit reached").
+- Avoid confusion: Never make a policy restriction look like a bug or platform error.
 
 ## Actor analytics
 
@@ -115,7 +123,7 @@ The analytics dashboard allows you to select specific Actors and view key metric
 
 All metrics can be exported as JSON for custom analysis and reporting.
 
-## Promoting your Actor
+## Promote your Actor
 
 Create search-engine-optimized descriptions and README files to improve search engine visibility. Share your Actor on multiple channels:
 

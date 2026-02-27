@@ -6,7 +6,7 @@ type: object
 properties:
   password:
     type: string
-    example: ad78knd9Jkjd86
+    examples: [ad78knd9Jkjd86]
   groups:
     type: array
     items:

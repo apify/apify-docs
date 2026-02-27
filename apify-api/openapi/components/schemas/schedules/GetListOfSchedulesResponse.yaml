@@ -1,7 +1,0 @@
-title: GetListOfSchedulesResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./GetListOfSchedulesResponseData.yaml

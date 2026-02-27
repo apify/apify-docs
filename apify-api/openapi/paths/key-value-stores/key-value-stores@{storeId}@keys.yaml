@@ -37,8 +37,7 @@ get:
         example: 100
     - name: collection
       in: query
-      description: Limit the results to keys that belong to a specific collection from the key-value store schema.
-        The key-value store need to have a schema defined for this parameter to work.
+      description: Limit the results to keys that belong to a specific collection from the key-value store schema. The key-value store need to have a schema defined for this parameter to work.
       schema:
         type: string
         example: postImages
@@ -52,30 +51,34 @@ get:
       in: query
       description: Signature used to access the keys.
       required: false
-      style: simple
+      style: form
       schema:
         type: string
         example: 2wTI46Bg8qWQrV7tavlPI
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetListOfKeysResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/ListOfKeysResponse.yaml
           example:
             data:
               items:
                 - key: second-key
                   size: 36
+                  recordPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/second-key?signature=abc123
                 - key: third-key
                   size: 128
+                  recordPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/third-key?signature=abc123
               count: 2
               limit: 2
               exclusiveStartKey: some-key
               isTruncated: true
               nextExclusiveStartKey: third-key
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys

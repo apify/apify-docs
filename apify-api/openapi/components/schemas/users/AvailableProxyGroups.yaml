@@ -1,12 +1,13 @@
 title: AvailableProxyGroups
-required:
-  - SOMEGROUP
-  - ANOTHERGROUP
+description: |
+  A dictionary mapping proxy group names to the number of available proxies in each group.
+  The keys are proxy group names (e.g., "RESIDENTIAL", "DATACENTER") and values are
+  the count of available proxies.
 type: object
-properties:
-  SOMEGROUP:
-    type: number
-    example: 20
-  ANOTHERGROUP:
-    type: number
-    example: 200
+additionalProperties:
+  type: integer
+  description: The number of available proxies in this group.
+example:
+  RESIDENTIAL: 1000
+  DATACENTER: 500
+  GOOGLE_SERP: 200

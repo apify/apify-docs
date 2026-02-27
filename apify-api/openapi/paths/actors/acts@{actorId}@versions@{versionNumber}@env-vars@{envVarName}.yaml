@@ -24,7 +24,7 @@ get:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -34,18 +34,20 @@ get:
         type: string
         example: MY_ENV_VAR
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/get-environment-variable
@@ -92,7 +94,7 @@ put:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -102,29 +104,31 @@ put:
         type: string
         example: MY_ENV_VAR
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml"
+          $ref: ../../components/schemas/actors/EnvVar.yaml
         example:
           name: MY_ENV_VAR
           value: my-new-value
           isSecret: false
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
@@ -155,7 +159,7 @@ delete:
       style: simple
       schema:
         type: string
-        example: '0.1'
+        example: "0.1"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -165,8 +169,8 @@ delete:
         type: string
         example: MY_ENV_VAR
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -174,6 +178,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/delete-environment-variable

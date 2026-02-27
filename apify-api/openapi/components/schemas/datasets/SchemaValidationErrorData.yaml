@@ -1,0 +1,10 @@
+title: SchemaValidationErrorData
+required:
+  - invalidItems
+type: object
+properties:
+  invalidItems:
+    type: array
+    description: A list of invalid items in the received array of items.
+    items:
+      $ref: ./InvalidItem.yaml

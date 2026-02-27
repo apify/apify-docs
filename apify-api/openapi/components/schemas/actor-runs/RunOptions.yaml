@@ -8,19 +8,25 @@ type: object
 properties:
   build:
     type: string
-    example: latest
+    examples: [latest]
   timeoutSecs:
-    type: number
-    example: 300
+    type: integer
+    minimum: 0
+    examples: [300]
   memoryMbytes:
-    type: number
-    example: 1024
+    type: integer
+    minimum: 128
+    maximum: 32768
+    examples: [1024]
   diskMbytes:
-    type: number
-    example: 2048
+    type: integer
+    minimum: 0
+    examples: [2048]
   maxItems:
-    type: number
-    example: 1000
+    type: integer
+    minimum: 1
+    examples: [1000]
   maxTotalChargeUsd:
     type: number
-    example: 5
+    minimum: 0
+    examples: [5]
