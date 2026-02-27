@@ -48,7 +48,7 @@ A leading `=` in a value denotes a FEEL expression. For example, `=runResult.dat
 Start a new execution of an Actor.
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Operation** | Select `Run Actor` |
 | **Actor** | The Actor name or ID (e.g., `apify/web-scraper` or `E2jjCZBezvAZnX8Rb`) |
 | **Input Body** | *(Optional)* JSON input configuration for the run (e.g., `={ "message": "Hello from Camunda!" }`) |
@@ -67,7 +67,7 @@ Start a new execution of an Actor.
 Execute a saved Actor task.
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Operation** | Select `Run task` |
 | **Task** | The task name or ID (e.g., `username/my-task` or `abc123DEF456`) |
 | **Input Override** | *(Optional)* JSON to override the task's saved input |
@@ -81,7 +81,7 @@ Execute a saved Actor task.
 Quickly scrape a webpage using one of Apify's standard crawlers.
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Operation** | Select `Scrape single URL` |
 | **URL** | The full URL to scrape (e.g., `https://example.com`) |
 | **Crawler Type** | `Cheerio` (lightweight), `JSDOM`, `Playwright Adaptive`, or `Playwright Firefox` |
@@ -91,7 +91,7 @@ Quickly scrape a webpage using one of Apify's standard crawlers.
 Retrieve the results of an Actor run. Typically used after a Run Actor task has completed.
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Operation** | Select `Get dataset items` |
 | **Dataset** | The dataset ID. Use a variable from a previous run: `=runResult.data.defaultDatasetId` |
 | **Offset** | *(Optional)* Number of items to skip from the beginning. Default: `0` |
@@ -102,7 +102,7 @@ Retrieve the results of an Actor run. Typically used after a Run Actor task has 
 Fetch a specific record from a key-value store.
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Operation** | Select `Get key-value store record` |
 | **Key-Value Store** | The store ID (e.g., `=runResult.data.defaultKeyValueStoreId`) |
 | **Key** | The record key to retrieve (e.g., `OUTPUT`) |
@@ -122,10 +122,10 @@ For example, the following Result Expression extracts the run ID and dataset ID 
 All outbound operations support error handling and automatic retries. These fields appear in the Modeler under the **Error handling** and **Retries** groups.
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Error Expression** | *(Optional)* A FEEL expression to handle errors (e.g., `if error.code = "ACTOR_NOT_FOUND" then null else error`) |
 | **Retries** | Number of retry attempts. Default: `3` |
-| **Retry Backoff** | ISO-8601 duration to wait between retries. Default: `PT0S` (no delay). Example: `PT5S` for 5 seconds |
+| **Retry backoff** | ISO-8601 duration to wait between retries. Default: `PT0S` (no delay). Example: `PT5S` for 5 seconds |
 
 ## Inbound Connectors
 
@@ -134,7 +134,7 @@ Inbound connectors allow Apify to start or resume your Camunda processes via web
 All inbound connectors share these common fields:
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Apify API Token** | Your Apify API token (see [Authentication](#authentication)) |
 | **Resource Type** | `Actor` or `Task` |
 | **Actor** / **Task** | The Actor or task name or ID to monitor (e.g., `apify/web-scraper` or `E2jjCZBezvAZnX8Rb`). The field label changes based on the selected Resource Type. |
@@ -149,7 +149,7 @@ The **Activation Condition** is an optional FEEL expression that acts as a gate 
 This is useful when you subscribe to all event types from an Actor or task but only want to react to specific outcomes.
 
 | Expression | Effect |
-|------------|--------|
+| ------------ | -------- |
 | *(empty)* | All events trigger the connector (default) |
 | `=connectorData.status = "SUCCEEDED"` | Only successful runs trigger the connector |
 | `=connectorData.status != "ABORTED"` | All events except aborted runs trigger the connector |
@@ -211,7 +211,7 @@ graph LR
 **Configuration:** Uses the [common inbound fields](#inbound-connectors), plus:
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Subprocess Correlation Required** | Select `Correlation not required` (default) or `Correlation required`. When set to required, the Correlation Key fields become visible. This is needed for event-based subprocess message start events. |
 | **Correlation Key (Process)** | *(Shown when correlation is required)* FEEL expression for the correlation key from process variables (e.g., `=previousEventResponse.data.id`) |
 | **Correlation Key (Payload)** | *(Shown when correlation is required)* FEEL expression to extract the correlation key from the incoming webhook (e.g., `=connectorData.runId`) |
@@ -249,7 +249,7 @@ graph LR
 **Configuration:** Uses the [common inbound fields](#inbound-connectors), plus:
 
 | Setting | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Correlation Key (Process)** | FEEL expression for the correlation key from process variables (e.g., `=runResult.data.id`) |
 | **Correlation Key (Payload)** | FEEL expression to extract the correlation key from the incoming webhook (e.g., `=connectorData.runId`) |
 | **Message ID Expression** | *(Optional)* Expression to extract a unique ID from the webhook payload for deduplication |
@@ -322,7 +322,7 @@ This walkthrough guides you through creating and running an outbound connector p
 6. Set the connector input variables and run the process. For a quick smoke test, use these values:
 
     | Field | Value |
-    |-------|-------|
+    | ------- | ------- |
     | **API Token** | Your Apify API token |
     | **Operation** | `Run Actor` |
     | **Actor** | `apify/hello-world` |
@@ -346,7 +346,7 @@ This walkthrough guides you through creating and running an outbound connector p
 The **Run Actor** and **Run Task** API responses are wrapped in a `data` envelope. The key fields you will use in subsequent process steps:
 
 | Field | Example FEEL expression | Description |
-|-------|------------------------|-------------|
+| ------- | ------------------------ | ------------- |
 | `id` | `=runResult.data.id` | The run ID (used for correlation in inbound events) |
 | `status` | `=runResult.data.status` | Run status (`RUNNING`, `SUCCEEDED`, `FAILED`, etc.) |
 | `defaultDatasetId` | `=runResult.data.defaultDatasetId` | Dataset ID (pass to Get dataset items) |
@@ -365,7 +365,7 @@ When your process is ready, you can run it in two ways:
 - **Play**: Runs the process immediately in a sandbox with temporary webhooks. Use this for outbound flows or flows with intermediate/boundary inbound events.
 
 | Mode | Webhooks | Best for |
-|------|----------|----------|
+| ------ | ---------- | ---------- |
 | **Play mode** | Temporary (deleted after run) | Outbound flows, intermediate/boundary inbound events |
 | **Deploy** (without Run) | Persistent (keep listening) | Inbound start events |
 | **Deploy & Run** | Persistent | Flows starting with outbound steps (first instance runs immediately) |
@@ -378,7 +378,7 @@ When your process is ready, you can run it in two ways:
 
 This is the recommended pattern for handling long-running scrapes reliably. It prevents timeout issues and allows other tasks while waiting.
 
-```
+```text
                               ┌───→ [Other Tasks (Optional)] ────┐
 [Start] → [Run Actor Async] → [Fork]                           [Join] → [Get Dataset] → [End]
                               └───→ [Wait for Webhook] ──────────┘
@@ -411,7 +411,7 @@ A [Boundary Event](https://docs.camunda.io/docs/components/modeler/bpmn/events/)
 
 **Example flow (interrupting):**
 
-```
+```text
                                     ┌──(Apify Boundary Event)──→ [Handle Failure] → [End]
 [Start] → [Run Actor Async] → [Run Large Scrape]
                                     └──(normal completion)─────→ [Process Results] → [End]
@@ -438,7 +438,7 @@ You can find IDs in the [Apify Console](https://console.apify.com/):
 Camunda uses FEEL (Friendly Enough Expression Language) for dynamic values. The leading `=` in each expression tells Camunda to evaluate what follows as a FEEL expression rather than a literal string.
 
 | Expression | Use case |
-|------------|----------|
+| ------------ | ---------- |
 | `=secrets.APIFY_TOKEN` | Accessing a secure credential |
 | `=runResult.data.id` | Accessing the run ID from a response |
 | `=runResult.data.defaultDatasetId` | Accessing the default dataset ID |
@@ -514,7 +514,7 @@ The event type uses an underscore (`TIMED_OUT`) while the run status uses a hyph
 ## Troubleshooting
 
 | Issue | Solution |
-|-------|----------|
+| ------- | ---------- |
 | Webhook not triggering | Ensure you have deployed the process. For Start Events, deploying automatically creates the webhook in Apify. Check the **Integrations** tab of your Actor in Apify Console to verify the webhook exists. |
 | Process stuck at Intermediate Event | Check your **Correlation Keys**. The value in the process variable must exactly match the value in the webhook payload. Use Camunda Operate to inspect variable values and compare with the `connectorData.runId` in the connector runtime logs. |
 | `401 Unauthorized` | Check your API Token. Regenerate it in [Apify Console](https://console.apify.com/settings/integrations) (**Settings → Integrations**) if necessary. |
