@@ -474,7 +474,8 @@ info:
     - `~resourcename` - for this, you need to use an API token, and the
     `resourcename` refers to a resource in the API token owner's account.
   contact: {}
-  version: ""
+  version:
+      $ref: components/version.yaml
 servers:
   - url: "https://api.apify.com"
     variables: {}
