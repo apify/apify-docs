@@ -14,6 +14,7 @@ def parse_population(country_soup: BeautifulSoup) -> int | None:
         if "Population" in item.text:
             digits = item.text.replace("Population:", "").replace(" ", "")
             return int(digits)
+    raise ValueError("Population not found")
 
 
 listing_url = "https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en"
