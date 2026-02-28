@@ -147,4 +147,4 @@ const { userIsPaying } = Actor.getEnv();
 
 ### The Actor uses Proxy
 
-Similarly, if your Actor uses [Proxy](../../../proxy/index.md) and needs to retrieve the user's proxy password, it should get it from the `APIFY_PROXY_PASSWORD` environment variable instead of calling the `/users/me` endpoint or, preferably, rely on the SDK to handle proxy configuration automatically.
+Similarly, if your Actor uses [Proxy](../../proxy/index.md) and needs to retrieve the user's proxy password, it should get it from the `APIFY_PROXY_PASSWORD` environment variable instead of calling the `/users/me` endpoint or, preferably, rely on the SDK to handle proxy configuration automatically.

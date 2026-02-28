@@ -1,0 +1,105 @@
+---
+title: Access rights
+description: Manage permissions for your private resources such as Actors, Actor runs, and storages. Allow other users to read, run, modify, or build new versions.
+sidebar_position: 2
+category: platform
+slug: /account/collaboration/access-rights
+---
+
+**Manage permissions for your private resources such as Actors, Actor runs, and storages. Allow other users to read, run, modify, or build new versions.**
+
+---
+
+You can easily and securely share your own resources - Actors, tasks, key-value stores, datasets, and request queues - with other users by using a [granular](https://www.google.com/search?q=define+granular+permissions) permissions system. This enables you, for example, to let your colleague run an [Actor](../../actors/index.mdx) or view a [dataset](../../actors/storage/dataset.md) but not modify it.
+
+You can also grant permission to update an Actor and build a new version.
+[Storages](../../actors/storage/index.md) (key-value stores, request queues, and datasets) are sharable in the same way as a **read** permission or a combination of both **read** and **write** permissions.
+
+To share an Actor, task, key-value store, request queue, or dataset, click on the **Actions** button in the top-right corner and select **Share**. You can add a collaborator by using their **user ID**, **email**, or **username**. Once you have added the collaborator, you can configure their permissions.
+
+![Access rights configuration](../images/access-rights/access-rights.png)
+
+## Permissions reference
+
+This section lists all access options that can be granted to resources on the Apify platform.
+
+### Actors
+
+To learn about Apify Actors, check out the [documentation](../../actors/index.mdx).
+
+#### Actor
+
+| Permission           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| Read                 | View Actor settings, source code and builds.               |
+| Write                | Edit Actor settings and source code, and delete the Actor. |
+| Run                  | Run any of an Actor's builds.                              |
+| View runs            | View a list of Actor runs and their details.               |
+| Manage access rights | Manage Actor access rights.                                |
+
+#### Actor task
+
+| Permission           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| Read                 | View task configuration.                                   |
+| Write                | Edit task configuration and settings, and delete the task. |
+| View runs            | View a list of Actor task runs and their details.          |
+| Manage access rights | Manage Actor task access rights.                           |
+
+To learn about Actor tasks, see the [documentation](../../actors/running/tasks.md).
+
+### Storage
+
+For more information about storage, see its [documentation](../../actors/storage/index.md).
+
+#### Dataset
+
+| Permission           | Description                                                     |
+|----------------------|-----------------------------------------------------------------|
+| Read                 | View dataset information and its data.                          |
+| Write                | Edit dataset settings, push data to it, and remove the dataset. |
+| Manage access rights | Manage dataset access rights.                                   |
+
+To learn about dataset storage, see its [documentation](../../actors/storage/dataset.md).
+
+#### Key-value store
+
+| Permission           | Description                                                                                       |
+|----------------------|---------------------------------------------------------------------------------------------------|
+| Read                 | View key-value store details and records.                                                         |
+| Write                | Edit key-value store settings, add, update or remove its records, and delete the key-value store. |
+| Manage access rights | Manage key-value store access rights.                                                             |
+
+To learn about key-value stores, see the [documentation](../../actors/storage/key_value_store.md).
+
+#### Request queue
+
+| Permission           | Description                                                                                    |
+|----------------------|------------------------------------------------------------------------------------------------|
+| Read                 | View request queue details and records.                                                        |
+| Write                | Edit request queue settings, add, update, or remove its records, and delete the request queue. |
+| Manage access rights | Manage request queue access rights.                                                            |
+
+To learn about request queue storage, see the [documentation](../../actors/storage/request_queue.md).
+
+### Proxy
+
+| Permission | Description               |
+|------------|---------------------------|
+| Proxy      | Allow to use Apify Proxy. |
+
+To learn about Apify Proxy, see its [documentation](../../actors/proxy/index.md).
+
+### User permissions
+
+Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](./organization/index.md).
+
+| Permission          | Description                                                           |
+|---------------------|-----------------------------------------------------------------------|
+| Manage access keys  | Manage account access keys, i.e. API token and proxy password.        |
+| Update subscription | Update the type of subscription, billing details and payment methods. |
+| Update profile      | Make changes in profile information.                                  |
+| Update email        | Update the contact email for the account.                             |
+| Reset password      | Reset the account's password.                                         |
+| View invoices       | See the account's invoices.                                           |
+| Manage organization | Change the organization's settings.                                   |

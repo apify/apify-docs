@@ -21,7 +21,7 @@ This section explains the various sources types available for Apify Actors and h
 
 ## Web IDE
 
-This is the default option when your Actor's source code is hosted on the Apify platform. It offers quick previews and updates to your source code, easy file and directory browsing, and direct testing of the [`INPUT_SCHEMA.json`](/platform/actors/development/actor-definition/input-schema) on the Apify platform.
+This is the default option when your Actor's source code is hosted on the Apify platform. It offers quick previews and updates to your source code, easy file and directory browsing, and direct testing of the [`INPUT_SCHEMA.json`](/platform/actors/development/input-output-schemas/input-schema) on the Apify platform.
 
 A `Dockerfile` is mandatory for all Actors. When using the default NodeJS Dockerfile, you'll typically need `main.js` for your source code and `package.json` for [npm](https://www.npmjs.com/) package configurations.
 

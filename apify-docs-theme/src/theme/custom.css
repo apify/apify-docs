@@ -554,6 +554,22 @@ aside .icon svg[class*=iconExternalLink] {
     display: none;
 }
 
+.navbar__zone-separator {
+    position: relative;
+    margin-left: 1.2rem !important;
+    padding-left: 1.6rem !important;
+}
+
+.navbar__zone-separator::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background-color: var(--ifm-color-emphasis-400);
+}
+
 .navbar__items {
     gap: 0.4rem;
 }

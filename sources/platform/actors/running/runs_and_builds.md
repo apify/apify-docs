@@ -1,7 +1,7 @@
 ---
 title: Runs and builds
 description: Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.
-sidebar_position: 2
+sidebar_position: 3
 slug: /actors/running/runs-and-builds
 ---
 
@@ -27,11 +27,11 @@ Each build may have different features, input, or output. By fixing the build to
 
 When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [Usage and resources](./usage_and_resources.md).
 
-Each run has its own (default) [storages](../../storage) assigned, which it may but not necessarily need to use:
+Each run has its own (default) [storages](../storage) assigned, which it may but not necessarily need to use:
 
-- [Key-value store](../../storage/key-value-store) containing the input and enabling Actor to store other files.
-- [Dataset](../../storage/dataset) enabling Actor to store the results.
-- [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed.
+- [Key-value store](../storage/key-value-store) containing the input and enabling Actor to store other files.
+- [Dataset](../storage/dataset) enabling Actor to store the results.
+- [Request queue](../storage/request-queue) to maintain a queue of URLs to be processed.
 
 What's happening inside of an Actor is visible on the Actor run log in the Actor run detail:
 
@@ -129,4 +129,4 @@ Apify securely stores your ten most recent runs indefinitely, ensuring your reco
 
 ## Sharing
 
-Share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
+Share your Actor runs with other Apify users via the [access rights](../../account/collaboration/access_rights.md) system.

@@ -56,7 +56,7 @@ You will end up on a template detail page where you can see all the important in
 
 ### Using the template in the Web IDE {#web-ide}
 
-By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it.
+By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/get-started/build-an-actor/web-ide) where you can see the code of the template and start editing it.
 
 :::tip Web IDE
 
@@ -143,7 +143,7 @@ The Actor takes the `url` from the input and then:
 3. Extracts headings (H1 - H6) from the page.
 4. Stores the extracted data.
 
-The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
+The extracted data is stored in the [Dataset](/platform/actors/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
 :::tip Customize template
 
