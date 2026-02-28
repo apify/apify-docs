@@ -1,9 +1,9 @@
 ---
 title: General resource access
 description: Control how Apify resources are shared. Set default access (Anyone with ID can read or Restricted), and learn about link sharing, exceptions, and pre-signed URLs.
-sidebar_position: 6
+sidebar_position: 1
 category: platform
-slug: /account/general-resource-access
+slug: /account/collaboration/general-resource-access
 ---
 
 Some resources, like storages, Actor runs or Actor builds, can be shared simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
@@ -26,7 +26,7 @@ This setting affects the following resources:
 
 Access to resources that require explicit access — such as Actors, tasks or schedules are not affected by this setting.
 
-![Setup account-level general resources access setting](./images/general-resouce-access//account-setting.png)
+![Setup account-level general resources access setting](../images/general-resouce-access//account-setting.png)
 
 ## How Restricted Access works
 
@@ -103,13 +103,13 @@ The access is granted through explicit, behind-the-scenes permissions (not anony
 
 This means you don’t need to manually adjust permissions or share multiple links when reporting an Actor issue — **just including the run URL in your issue is enough**
 
-![Sharing a run link in create Actor issue dialog makes it accessible to the developer automatically](./images/general-resouce-access/creating-actor-issue.png)
+![Sharing a run link in create Actor issue dialog makes it accessible to the developer automatically](../images/general-resouce-access/creating-actor-issue.png)
 
 ## Per-resource access control
 
 The account level access control can be changed on individual resources. This can be done by setting the general access level to other than Restricted  in the share dialog for a given resource. This way the resource level setting takes precedence over the account setting.
 
-![Setup resource level access control](./images/general-resouce-access/share-resource-dialog.png)
+![Setup resource level access control](../images/general-resouce-access/share-resource-dialog.png)
 
 :::tip Using Apify API
 You can also set the general access on a resource programmatically using the Apify API or Apify client. Read more in the API reference and client documentation.
@@ -182,7 +182,7 @@ The link will include a signature _only if the general resource access is set to
 1. Click the **Export** button.  
 2. In the modal that appears, click **Copy shareable link**.  
 
-![Generating shareable link for a restricted storage resource](./images/general-resouce-access/copy-shareable-link.png)
+![Generating shareable link for a restricted storage resource](../images/general-resouce-access/copy-shareable-link.png)
 
 ##### Key-value store records
 
@@ -190,7 +190,7 @@ The link will include a signature _only if the general resource access is set to
 2. Navigate to the record you want to share.  
 3. In the **Actions** column, click the link icon to copy signed link.  
 
-![Copy pre-signed URL for KV store record](./images/general-resouce-access/copy-record-url-kv-store.png)
+![Copy pre-signed URL for KV store record](../images/general-resouce-access/copy-record-url-kv-store.png)
 
 #### How to generate pre-signed URLs using Apify Client
 
@@ -305,7 +305,7 @@ const recordUrl = await storeClient.getRecordPublicUrl(recordKey);
 await Actor.pushData({ recordUrl });
 ```
 
-To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
+To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/platform/account/collaboration/general-resource-access#pre-signed-urls).
 
 
 :::note Using Console URLs

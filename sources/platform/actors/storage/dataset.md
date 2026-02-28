@@ -43,7 +43,7 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/actors/storage/usage#data-retention), and to adjust [access rights](../../account/access_rights.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/actors/storage/usage#data-retention), and to adjust [access rights](../../account/collaboration/access_rights.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -380,11 +380,11 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Sharing
 
-You can grant [access rights](../../account/access_rights.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../../account/list_of_permissions.md).
+You can grant [access rights](../../account/collaboration/access_rights.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../../account/collaboration/access_rights.md#permissions-reference).
 
-You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/general-resource-access).
+You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/collaboration/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/collaboration/general-resource-access#pre-signed-urls).
 
 ### Sharing datasets between runs
 

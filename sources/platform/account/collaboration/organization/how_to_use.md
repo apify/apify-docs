@@ -2,7 +2,7 @@
 title: Using the organization account
 description: Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.
 sidebar_position: 2
-slug: /account/organization-account/how-to-use
+slug: /account/collaboration/organization-account/how-to-use
 sidebar_label: How to use
 ---
 
@@ -20,11 +20,11 @@ While you can't manage an organization account via [API](/api/v2), you can still
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
-![Switch to organization account](../images/organizations/switch-to-organization.png)
+![Switch to organization account](../../images/organizations/switch-to-organization.png)
 
 In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it—no need to log in and out.
 
-The resources you can access and account details you can edit will depend on your [permissions](../list_of_permissions.md) in the organization.
+The resources you can access and account details you can edit will depend on your [permissions](../access_rights.md#permissions-reference) in the organization.
 
 > When switching between accounts, beware which account you start an Actor run in. If you accidentally start an organization's Actor run in your personal account, the run will be billed to your account (and vice versa).
 
@@ -34,7 +34,7 @@ You can view and manage the organizations you are a member of from the **Organiz
 
 If you want to leave an organization you own, you must first transfer ownership to someone else.
 
-![My organizations](../images/organizations/my-organizations.png)
+![My organizations](../../images/organizations/my-organizations.png)
 
 ### Transfer ownership
 
@@ -44,9 +44,9 @@ The organization, its Actors, and its integrations will keep running as they are
 
 While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 
-As a member of an organization, you are assigned an [API token](../../integrations/index.mdx) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
+As a member of an organization, you are assigned an [API token](../../../integrations/index.mdx) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
-![Integration tokens](../images/organizations/integrations.png)
+![Integration tokens](../../images/organizations/integrations.png)
 
 The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for Actors, you will only be able to view and run Actors via API. Only you can view your API token and password.
 

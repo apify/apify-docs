@@ -37,7 +37,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](/platform/actors/storage/usage#named-and-unnamed-storages)) and [access rights](../../account/access_rights.md) using the **Share** button.
+[retention period](/platform/actors/storage/usage#named-and-unnamed-storages)) and [access rights](../../account/collaboration/access_rights.md) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
@@ -556,11 +556,11 @@ A detailed tutorial on how to process one request queue with multiple Actor runs
 
 ## Sharing
 
-You can grant [access rights](../../account/access_rights.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../../account/list_of_permissions.md).
+You can grant [access rights](../../account/collaboration/access_rights.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../../account/collaboration/access_rights.md#permissions-reference).
 
-You can also share request queues by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/general-resource-access).
+You can also share request queues by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/collaboration/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/collaboration/general-resource-access#pre-signed-urls).
 
 ### Sharing request queues between runs
 

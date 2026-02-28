@@ -1,21 +1,33 @@
 ---
-title: List of permissions
-description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.
-sidebar_position: 9
-slug: /account/list-of-permissions
+title: Access rights
+description: Manage permissions for your private resources such as Actors, Actor runs, and storages. Allow other users to read, run, modify, or build new versions.
+sidebar_position: 2
+category: platform
+slug: /account/collaboration/access-rights
 ---
 
-**Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.**
+**Manage permissions for your private resources such as Actors, Actor runs, and storages. Allow other users to read, run, modify, or build new versions.**
 
 ---
 
-This document contains all the access options that can be granted to resources on the Apify platform.
+You can easily and securely share your own resources - Actors, tasks, key-value stores, datasets, and request queues - with other users by using a [granular](https://www.google.com/search?q=define+granular+permissions) permissions system. This enables you, for example, to let your colleague run an [Actor](../../actors/index.mdx) or view a [dataset](../../actors/storage/dataset.md) but not modify it.
 
-## Actors
+You can also grant permission to update an Actor and build a new version.
+[Storages](../../actors/storage/index.md) (key-value stores, request queues, and datasets) are sharable in the same way as a **read** permission or a combination of both **read** and **write** permissions.
 
-To learn about Apify Actors, check out the [documentation](../actors/index.mdx).
+To share an Actor, task, key-value store, request queue, or dataset, click on the **Actions** button in the top-right corner and select **Share**. You can add a collaborator by using their **user ID**, **email**, or **username**. Once you have added the collaborator, you can configure their permissions.
 
-### Actor
+![Access rights configuration](../images/access-rights/access-rights.png)
+
+## Permissions reference
+
+This section lists all access options that can be granted to resources on the Apify platform.
+
+### Actors
+
+To learn about Apify Actors, check out the [documentation](../../actors/index.mdx).
+
+#### Actor
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
@@ -25,7 +37,7 @@ To learn about Apify Actors, check out the [documentation](../actors/index.mdx).
 | View runs            | View a list of Actor runs and their details.               |
 | Manage access rights | Manage Actor access rights.                                |
 
-### Actor task
+#### Actor task
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
@@ -34,13 +46,13 @@ To learn about Apify Actors, check out the [documentation](../actors/index.mdx).
 | View runs            | View a list of Actor task runs and their details.          |
 | Manage access rights | Manage Actor task access rights.                           |
 
-To learn about Actor tasks, see the [documentation](../actors/running/tasks.md).
+To learn about Actor tasks, see the [documentation](../../actors/running/tasks.md).
 
-## Storage
+### Storage
 
-For more information about Storage, see its [documentation](../actors/storage/index.md).
+For more information about storage, see its [documentation](../../actors/storage/index.md).
 
-### Dataset
+#### Dataset
 
 | Permission           | Description                                                     |
 |----------------------|-----------------------------------------------------------------|
@@ -48,9 +60,9 @@ For more information about Storage, see its [documentation](../actors/storage/in
 | Write                | Edit dataset settings, push data to it, and remove the dataset. |
 | Manage access rights | Manage dataset access rights.                                   |
 
-To learn about dataset storage, see its [documentation](../actors/storage/dataset.md).
+To learn about dataset storage, see its [documentation](../../actors/storage/dataset.md).
 
-### Key-value-store
+#### Key-value store
 
 | Permission           | Description                                                                                       |
 |----------------------|---------------------------------------------------------------------------------------------------|
@@ -58,9 +70,9 @@ To learn about dataset storage, see its [documentation](../actors/storage/datase
 | Write                | Edit key-value store settings, add, update or remove its records, and delete the key-value store. |
 | Manage access rights | Manage key-value store access rights.                                                             |
 
-To learn about key-value stores, see the [documentation](../actors/storage/key_value_store.md).
+To learn about key-value stores, see the [documentation](../../actors/storage/key_value_store.md).
 
-### Request queue
+#### Request queue
 
 | Permission           | Description                                                                                    |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -68,17 +80,17 @@ To learn about key-value stores, see the [documentation](../actors/storage/key_v
 | Write                | Edit request queue settings, add, update, or remove its records, and delete the request queue. |
 | Manage access rights | Manage request queue access rights.                                                            |
 
-To learn about request queue storage, see the [documentation](../actors/storage/request_queue.md).
+To learn about request queue storage, see the [documentation](../../actors/storage/request_queue.md).
 
-## Proxy
+### Proxy
 
 | Permission | Description               |
 |------------|---------------------------|
 | Proxy      | Allow to use Apify Proxy. |
 
-To learn about Apify Proxy, see its [documentation](../actors/proxy/index.md).
+To learn about Apify Proxy, see its [documentation](../../actors/proxy/index.md).
 
-## User permissions
+### User permissions
 
 Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](./organization/index.md).
 

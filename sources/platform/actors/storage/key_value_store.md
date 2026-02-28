@@ -37,7 +37,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
-To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/actors/storage/usage#named-and-unnamed-storages)) and grant [access rights](../../account/access_rights.md) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/actors/storage/usage#named-and-unnamed-storages)) and grant [access rights](../../account/collaboration/access_rights.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail-header.png)
@@ -267,11 +267,11 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or o
 
 ## Sharing
 
-You can grant [access rights](../../account/access_rights.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../../account/list_of_permissions.md).
+You can grant [access rights](../../account/collaboration/access_rights.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../../account/collaboration/access_rights.md#permissions-reference).
 
-You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/general-resource-access).
+You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/account/collaboration/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/account/collaboration/general-resource-access#pre-signed-urls).
 
 ### Sharing key-value stores between runs
 

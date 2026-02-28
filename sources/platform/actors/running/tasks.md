@@ -53,4 +53,4 @@ You can also run tasks using:
 
 ## Share
 
-Like any other resource, you can share your Actor tasks with other Apify users via the [access rights](../../account/access_rights.md) system.
+Like any other resource, you can share your Actor tasks with other Apify users via the [access rights](../../account/collaboration/access_rights.md) system.

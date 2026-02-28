@@ -1,22 +1,22 @@
 ---
 title: Organization account
 description: Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.
-sidebar_position: 8
-slug: /account/organization-account
+sidebar_position: 3
+slug: /account/collaboration/organization-account
 ---
 
 **Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.**
 
 ---
 
-Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../list_of_permissions.md) and to centralize your billing without having to share the credentials of a single personal account.
+Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../access_rights.md) and to centralize your billing without having to share the credentials of a single personal account.
 
 You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
 
 You can set up an organization in two ways.
 
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
+* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
 > Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
@@ -28,7 +28,7 @@ The organization account is available on all our plans. [Visit our pricing page]
 
 You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://console.apify.com/account#/myorganizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
 
-![Create a new organization](../images/organizations/create-new-org.png)
+![Create a new organization](../../images/organizations/create-new-org.png)
 
 **You can own up to 5 and be a member of as many organizations as you need.**
 
@@ -46,7 +46,7 @@ An organization can't be a member of other organizations. If you want to convert
 
 Then, under the **Organizations** [tab](https://console.apify.com/account#/myorganizations), click the **Convert this user account to an organization** button.
 
-![Convert your account to an organization](../images/organizations/convert-to-organization.png)
+![Convert your account to an organization](../../images/organizations/convert-to-organization.png)
 
 Next, enter an organization name and select **Convert**.
 
