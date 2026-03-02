@@ -37,7 +37,7 @@ In Camunda, avoid hardcoding your token directly in the process design. Instead,
 
 The **Apify Outbound Connector** allows your BPMN process to call out to Apify to invoke operations. It supports five operations: Run Actor, Run Task, Scrape single URL, Get dataset items, and Get key-value store record.
 
-:::note
+:::note FEEL expressions
 
 A leading `=` in a value denotes a FEEL expression. For example, `=runResult.data.id` means "evaluate the FEEL expression `runResult.data.id`".
 
@@ -155,7 +155,7 @@ This is useful when you subscribe to all event types from an Actor or task but o
 | `=connectorData.status != "ABORTED"` | All events except aborted runs trigger the connector |
 | `=connectorData.eventType = "ACTOR.RUN.FAILED" or connectorData.eventType = "ACTOR.RUN.TIMED_OUT"` | Only failures and timeouts trigger the connector |
 
-:::tip
+:::tip Available fields
 
 The expression has access to the full `connectorData` object described in the [Webhook payload structure](#webhook-payload-structure) section. You can filter on any field, including `status`, `eventType`, `actorId`, or `runId`. For more details on webhook dispatch events and available fields, see the Apify client docs: [JavaScript](https://docs.apify.com/api/client/js/reference/interface/WebhookDispatch) | [Python](https://docs.apify.com/api/client/python/reference/class/WebhookDispatch).
 
@@ -378,10 +378,16 @@ When your process is ready, you can run it in two ways:
 
 This is the recommended pattern for handling long-running scrapes reliably. It prevents timeout issues and allows other tasks while waiting.
 
-```text
-                              ┌───→ [Other Tasks (Optional)] ────┐
-[Start] → [Run Actor Async] → [Fork]                           [Join] → [Get Dataset] → [End]
-                              └───→ [Wait for Webhook] ──────────┘
+```mermaid
+graph LR
+    A([Start]) --> B[Run Actor Async]
+    B --> C{Fork}
+    C --> D[Other Tasks - Optional]
+    C --> E[Wait for Webhook]
+    D --> F{Join}
+    E --> F
+    F --> G[Get Dataset]
+    G --> H([End])
 ```
 
 **Steps:**
@@ -411,16 +417,22 @@ A [Boundary Event](https://docs.camunda.io/docs/components/modeler/bpmn/events/)
 
 **Example flow (interrupting):**
 
-```text
-                                    ┌──(Apify Boundary Event)──→ [Handle Failure] → [End]
-[Start] → [Run Actor Async] → [Run Large Scrape]
-                                    └──(normal completion)─────→ [Process Results] → [End]
+```mermaid
+graph LR
+    A([Start]) --> B[Run Actor Async]
+    B --> C[Run Large Scrape]
+    C -- Apify Boundary Event --> D[Handle Failure]
+    D --> E1([End])
+    C -- Normal completion --> F[Process Results]
+    F --> E2([End])
 ```
 
 If the async Actor run fails while the large scrape is still running, the boundary event interrupts the scrape and redirects the flow to a failure-handling path.
 
-:::tip
+:::tip Pattern selection
+
 If you need the run results (dataset, key-value store) after the Apify event, use the [Async execution with Parallel Gateway](#async-execution-with-parallel-gateway) pattern instead. The boundary event pattern is best when you want to **react** to an event (failure, timeout, status change) rather than **collect** its output.
+
 :::
 
 ## Reference
@@ -505,7 +517,7 @@ When an Apify inbound connector is triggered, it receives a payload with event a
 - `ABORTED`
 - `TIMED-OUT`
 
-:::note
+:::note Naming inconsistency
 
 The event type uses an underscore (`TIMED_OUT`) while the run status uses a hyphen (`TIMED-OUT`). This is how the Apify API returns these values.
 
