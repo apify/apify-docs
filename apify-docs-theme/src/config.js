@@ -21,7 +21,7 @@ const themeConfig = {
         items: [
             // Product zone
             {
-                label: 'Get Started',
+                label: 'Get started',
                 href: `${absoluteUrl}/platform/get-started`,
                 activeBasePath: 'platform/get-started',
                 position: 'left',
@@ -106,7 +106,7 @@ const themeConfig = {
                 className: 'navbar__zone-separator',
             },
             {
-                label: 'Open Source',
+                label: 'Open source',
                 type: 'dropdown',
                 to: `${absoluteUrl}/open-source`,
                 activeBasePath: 'open-source',
