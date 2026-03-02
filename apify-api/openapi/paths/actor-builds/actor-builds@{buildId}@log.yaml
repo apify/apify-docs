@@ -19,7 +19,7 @@ get:
       description: |
         If `true` or `1` then the logs will be streamed as long as the run or
         build is running.
-      required: true
+      required: false
       style: form
       explode: true
       schema:
@@ -30,7 +30,7 @@ get:
       description: |
         If `true` or `1` then the web browser will download the log file rather
         than open it in a tab.
-      required: true
+      required: false
       style: form
       explode: true
       schema:
@@ -54,6 +54,8 @@ get:
             2017-07-14T06:00:49.752Z Some useful debug information follows.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-log/get-log
