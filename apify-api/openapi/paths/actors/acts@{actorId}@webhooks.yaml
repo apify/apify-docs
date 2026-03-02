@@ -51,7 +51,10 @@ get:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
   responses:
     "200":
@@ -63,6 +66,12 @@ get:
             $ref: ../../components/schemas/webhooks/ListOfWebhooksResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/webhook-collection/get-list-of-webhooks

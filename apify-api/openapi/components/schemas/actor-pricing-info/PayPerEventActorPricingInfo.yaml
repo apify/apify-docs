@@ -4,7 +4,6 @@ allOf:
   - type: object
     required:
       - pricingModel
-      - pricingPerEvent
     properties:
       pricingModel:
         $ref: ./PricingModel.yaml

@@ -98,7 +98,7 @@ properties:
     examples: [FL35cSF7jrxr3BY39]
     description: ID of the default request queue for this run.
   buildNumber:
-    type: string
+    type: [string, "null"]
     examples: [0.0.36]
     description: Build number of the Actor build used for this run.
   containerUrl:

@@ -322,6 +322,12 @@ post:
           type: object
         example:
           foo: bar
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+      text/plain:
+        schema:
+          type: string
     required: true
   responses:
     "201":

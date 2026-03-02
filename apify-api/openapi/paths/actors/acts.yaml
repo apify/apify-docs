@@ -59,7 +59,10 @@ get:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
     - name: sortBy
       in: query
@@ -98,6 +101,10 @@ get:
                   username: janedoe
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/get-list-of-actors
@@ -240,6 +247,10 @@ post:
                   finishedAt: "2019-06-10T11:15:49.286Z"
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/create-actor

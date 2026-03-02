@@ -54,7 +54,10 @@ get:
       style: form
       explode: true
       schema:
-        type: boolean
+        anyOf:
+          - type: boolean
+          - type: integer
+            enum: [0, 1]
         example: true
     - name: status
       in: query
@@ -134,6 +137,12 @@ get:
                   defaultRequestQueueId: soowucklrmDzKpA8x
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-collection/get-list-of-runs
@@ -274,6 +283,12 @@ post:
           type: object
         example:
           foo: bar
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+      text/plain:
+        schema:
+          type: string
     required: true
   responses:
     "201":
@@ -366,6 +381,14 @@ post:
                 PROXY_SERPS: 0.0006
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor

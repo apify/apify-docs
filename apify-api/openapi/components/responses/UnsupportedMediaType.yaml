@@ -1,0 +1,9 @@
+description: Unsupported media type - the request body content type is not supported.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: unsupported-media-type
+        message: The request body content type is not supported.
