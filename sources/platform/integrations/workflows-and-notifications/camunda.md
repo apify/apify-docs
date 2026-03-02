@@ -144,7 +144,7 @@ All inbound connectors share these common fields:
 
 ### Activation condition
 
-The **Activation Condition** is an optional FEEL expression that acts as a gate for incoming webhook events. When set, the connector evaluates the expression against each incoming event and only triggers the process if the expression evaluates to `true`. Events that do not match are silently ignored — no process instance is created and no correlation occurs.
+The **Activation Condition** is an optional FEEL expression that acts as a gate for incoming webhook events. When set, the connector evaluates the expression against each incoming event and only triggers the process if the expression evaluates to `true`. Events that do not match are silently ignored,  no process instance is created and no correlation occurs.
 
 This is useful when you subscribe to all event types from an Actor or task but only want to react to specific outcomes.
 
@@ -163,7 +163,7 @@ The expression has access to the full `connectorData` object described in the [W
 
 ### Start Event
 
-Use the **Apify Start Event Connector** to begin a new process instance when a specific event occurs in Apify (e.g., "Run Succeeded"). This is the simplest inbound connector — each incoming webhook event creates a new top-level process instance.
+Use the **Apify Start Event Connector** to begin a new process instance when a specific event occurs in Apify (e.g., "Run Succeeded"). This is the simplest inbound connector,  each incoming webhook event creates a new top-level process instance.
 
 ```mermaid
 graph LR
@@ -215,14 +215,14 @@ graph LR
 | **Subprocess Correlation Required** | Select `Correlation not required` (default) or `Correlation required`. When set to required, the Correlation Key fields become visible. This is needed for event-based subprocess message start events. |
 | **Correlation Key (Process)** | *(Shown when correlation is required)* FEEL expression for the correlation key from process variables (e.g., `=previousEventResponse.data.id`) |
 | **Correlation Key (Payload)** | *(Shown when correlation is required)* FEEL expression to extract the correlation key from the incoming webhook (e.g., `=connectorData.runId`) |
-| **Message ID Expression** | *(Optional)* Expression to extract a unique ID from the webhook payload for deduplication (e.g., `=connectorData.eventData.actorRunId`). Camunda uses this ID to deduplicate messages — if a webhook with the same Message ID arrives twice, the second one is silently ignored. |
+| **Message ID Expression** | *(Optional)* Expression to extract a unique ID from the webhook payload for deduplication (e.g., `=connectorData.eventData.actorRunId`). Camunda uses this ID to deduplicate messages,  if a webhook with the same Message ID arrives twice, the second one is silently ignored. |
 | **Message TTL** | *(Optional)* Time-to-live for the message in the broker as an ISO-8601 duration (e.g., `PT1H` for 1 hour) |
 
 ![Configuring the Message Start Event](../images/camunda/modeler/message-start-event-config.png)
 
 ### Intermediate Catch Event
 
-Use the **Apify Intermediate Catch Event Connector** to pause a running process and wait for a callback from Apify. The process resumes when a matching webhook arrives. This connector uses **correlation keys** to match the webhook to the correct process instance — the key from the webhook payload must exactly match a process variable.
+Use the **Apify Intermediate Catch Event Connector** to pause a running process and wait for a callback from Apify. The process resumes when a matching webhook arrives. This connector uses **correlation keys** to match the webhook to the correct process instance,  the key from the webhook payload must exactly match a process variable.
 
 ```mermaid
 graph LR
@@ -361,7 +361,7 @@ For the full response schema, see:
 
 When your process is ready, you can run it in two ways:
 
-- **Deploy**: Creates a persistent webhook in Apify. Use this for processes with inbound start events (Start Event, Message Start Event) — deploy without running, then trigger from Apify.
+- **Deploy**: Creates a persistent webhook in Apify. Use this for processes with inbound start events (Start Event, Message Start Event),  deploy without running, then trigger from Apify.
 - **Play**: Runs the process immediately in a sandbox with temporary webhooks. Use this for outbound flows or flows with intermediate/boundary inbound events.
 
 | Mode | Webhooks | Best for |
@@ -404,7 +404,7 @@ This is the recommended pattern for handling long-running scrapes reliably. It p
 
 ### Boundary Event for runtime reactions
 
-A [Boundary Event](https://docs.camunda.io/docs/components/modeler/bpmn/events/) attaches directly to an activity (task or subprocess) and fires when an Apify webhook arrives **while that activity is still running**. Unlike the Async Execution pattern above, the boundary event does **not** wait for the attached activity to finish — it interrupts or runs alongside it.
+A [Boundary Event](https://docs.camunda.io/docs/components/modeler/bpmn/events/) attaches directly to an activity (task or subprocess) and fires when an Apify webhook arrives **while that activity is still running**. Unlike the Async Execution pattern above, the boundary event does **not** wait for the attached activity to finish,  it interrupts or runs alongside it.
 
 - **Interrupting boundary event**: Cancel a running activity when an external signal arrives (e.g., abort a long-running scrape when a validation check fails or times out).
 - **Non-interrupting boundary event**: Spawn a parallel path without stopping the activity (e.g., send a progress notification while a long-running scrape continues).
