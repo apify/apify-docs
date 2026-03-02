@@ -1,0 +1,8 @@
+name: actorTaskId
+in: path
+description: Task ID or a tilde-separated owner's username and Actor task name.
+required: true
+style: simple
+schema:
+  type: string
+  example: janedoe~my-task

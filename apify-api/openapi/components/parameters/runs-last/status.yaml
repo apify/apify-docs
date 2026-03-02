@@ -1,0 +1,8 @@
+name: status
+in: query
+description: Filter for the run status. Only the most recent run with this status is used.
+style: form
+explode: true
+schema:
+  type: string
+  example: SUCCEEDED

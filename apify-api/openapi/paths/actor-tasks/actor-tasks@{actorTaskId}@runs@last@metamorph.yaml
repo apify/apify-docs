@@ -1,0 +1,74 @@
+post:
+  tags:
+    - Actor tasks
+  summary: Metamorph last run
+  description: |
+    Transforms the last actor task run into a run of another Actor. Redispatches to
+    [Metamorph run](/api/v2/actor-run-metamorph-post).
+
+    Using the `status` query parameter you can ensure to only get a run with a certain status
+    (e.g. `status=SUCCEEDED`). Only the most recent run with that status is used.
+  operationId: actorTask_runs_last_metamorph_post
+  parameters:
+    - $ref: ../../components/parameters/actorTaskId.yaml
+    - $ref: ../../components/parameters/runs-last/status.yaml
+    - name: targetActorId
+      in: query
+      description: ID of a target Actor that the run should be transformed into.
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: build
+      in: query
+      description: Optional build of the target Actor. It can be either a build tag or build number.
+      style: form
+      explode: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-runs/RunResponse.yaml
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: HDSasDasz78YcAPEB
+              userId: 7sT5jcggjjA9fNcxF
+              startedAt: "2019-11-30T07:34:24.202Z"
+              finishedAt: "2019-12-12T09:30:12.202Z"
+              status: RUNNING
+              statusMessage: Actor is running
+              isStatusMessageTerminal: false
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                inputBodyLen: 240
+                migrationCount: 0
+                restartCount: 0
+                resurrectCount: 0
+                durationMillis: 26239
+                runTimeSecs: 26.239
+                metamorph: 0
+                computeUnits: 0.0072886
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              buildId: 7sT5jcggjjA9fNcxF
+              exitCode: 0
+              generalAccess: RESTRICTED
+              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
+              defaultDatasetId: wmKPijuyDnPZAPRMk
+              defaultRequestQueueId: FL35cSF7jrxr3BY39
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+  deprecated: false

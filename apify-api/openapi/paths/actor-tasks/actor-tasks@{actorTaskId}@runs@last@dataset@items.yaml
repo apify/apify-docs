@@ -1,0 +1,127 @@
+get:
+  tags:
+    - Actor tasks
+  summary: Get dataset items for last run
+  description: |
+    Returns items from the default dataset of the last actor task run. Redispatches to
+    [Get dataset items](/api/v2/dataset-items-get). Supports the same query parameters.
+
+    Using the `status` query parameter you can ensure to only get a run with a certain status
+    (e.g. `status=SUCCEEDED`). Only the most recent run with that status is used.
+  operationId: actorTask_runs_last_dataset_items_get
+  parameters:
+    - $ref: ../../components/parameters/actorTaskId.yaml
+    - $ref: ../../components/parameters/runs-last/status.yaml
+    - name: format
+      in: query
+      description: Format of the results, possible values are json, jsonl, csv, html, xlsx, xml and rss.
+      style: form
+      explode: true
+      schema:
+        type: string
+        default: json
+    - name: clean
+      in: query
+      description: If true, returns only non-empty items and skips hidden fields.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+    - name: offset
+      in: query
+      description: Number of items that should be skipped at the start.
+      style: form
+      explode: true
+      schema:
+        type: number
+    - name: limit
+      in: query
+      description: Maximum number of items to return.
+      style: form
+      explode: true
+      schema:
+        type: number
+    - name: fields
+      in: query
+      description: Comma-separated list of fields to include in the results.
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: omit
+      in: query
+      description: Comma-separated list of fields to omit from the results.
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: unwind
+      in: query
+      description: Name of a field to unwind. If the field is an array, each element becomes a separate record.
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: flatten
+      in: query
+      description: Comma-separated list of fields to flatten. Nested objects are merged into the parent.
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: desc
+      in: query
+      description: If true, results are returned in descending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+    - name: attachment
+      in: query
+      description: If true, the response will be returned as a file attachment.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+  deprecated: false
+post:
+  tags:
+    - Actor tasks
+  summary: Push items to dataset for last run
+  description: |
+    Pushes items to the default dataset of the last actor task run. Redispatches to
+    [Push items](/api/v2/dataset-items-post).
+
+    Using the `status` query parameter you can ensure to only get a run with a certain status
+    (e.g. `status=SUCCEEDED`). Only the most recent run with that status is used.
+  operationId: actorTask_runs_last_dataset_items_post
+  parameters:
+    - $ref: ../../components/parameters/actorTaskId.yaml
+    - $ref: ../../components/parameters/runs-last/status.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+  responses:
+    "201":
+      description: Items were added.
+      headers: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+  deprecated: false

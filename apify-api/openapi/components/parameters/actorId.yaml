@@ -1,0 +1,8 @@
+name: actorId
+in: path
+description: Actor ID or a tilde-separated owner's username and Actor name.
+required: true
+style: simple
+schema:
+  type: string
+  example: janedoe~my-actor
