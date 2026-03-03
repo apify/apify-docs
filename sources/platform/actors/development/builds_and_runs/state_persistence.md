@@ -13,11 +13,7 @@ import TabItem from '@theme/TabItem';
 
 Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. Without state persistence, your job's progress is lost during migration, causing it to restart from the beginning on the new server. This can be costly and time-consuming.
 
-To prevent data loss, long-running Actors should:
-
-- Periodically save (persist) their state.
-- Listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager)
-- Check for persisted state when starting, allowing them to resume from where they left off.
+To prevent data loss, long-running Actors should persist their state so they can resume from where they left off after a migration.
 
 For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.
 
@@ -47,16 +43,7 @@ By default, an Actor keeps its state in the server's memory. During a server swi
 
 ## Implementing state persistence
 
-To handle state persistence, use the [`Actor.useState()`](/sdk/js/reference/class/Actor#useState) method. This method automatically saves and retrieves your state during migrations.
-
-For more control or when using Python, you can manually handle state persistence using the `Actor.on()` method and the `migrating` event.
-
-- The `migrating` event is triggered just before a migration occurs, allowing you to save your state.
-- To retrieve previously saved state, you can use the [`Actor.getValue`](/sdk/js/reference/class/Actor#getValue)/[`Actor.get_value`](/sdk/python/reference/class/Actor#get_value) methods.
-
-### Code examples
-
-To manually persist state, use the `Actor.on` method in the Apify SDK:
+Use the [`Actor.useState()`](/sdk/js/reference/class/Actor#useState)/[`Actor.use_state()`](/sdk/python/reference/class/Actor#use_state) method to persist state across migrations. This method automatically saves your state to the key-value store and restores it when the Actor restarts.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -65,47 +52,14 @@ To manually persist state, use the `Actor.on` method in the Apify SDK:
 import { Actor } from 'apify';
 
 await Actor.init();
-// ...
-Actor.on('migrating', () => {
-    Actor.setValue('my-crawling-state', {
-        foo: 'bar',
-    });
-});
-// ...
-await Actor.exit();
-```
 
-</TabItem>
-<TabItem value="Python" label="Python">
+const state = await Actor.useState({ itemCount: 0, lastOffset: 0 });
 
-```python
-from apify import Actor, Event
+// The state object is automatically persisted during migrations.
+// Update it as your Actor processes data.
+state.itemCount += 1;
+state.lastOffset = 100;
 
-async def actor_migrate(_event_data):
-    await Actor.set_value('my-crawling-state', {'foo': 'bar'})
-
-async def main():
-    async with Actor:
-        # ...
-        Actor.on(Event.MIGRATING, actor_migrate)
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-To check for state saved in a previous run:
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-// ...
-const previousCrawlingState = await Actor.getValue('my-crawling-state') || {};
-// ...
 await Actor.exit();
 ```
 
@@ -117,15 +71,18 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        # ...
-        previous_crawling_state = await Actor.get_value('my-crawling-state')
-        # ...
+        state = await Actor.use_state({'item_count': 0, 'last_offset': 0})
+
+        # The state object is automatically persisted during migrations.
+        # Update it as your Actor processes data.
+        state['item_count'] += 1
+        state['last_offset'] = 100
 ```
 
 </TabItem>
 </Tabs>
 
-For improved Actor performance consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
+For improved Actor performance, consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
 
 ## Speeding up migrations
 
