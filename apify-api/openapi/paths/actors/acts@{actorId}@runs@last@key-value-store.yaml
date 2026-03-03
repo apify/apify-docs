@@ -22,4 +22,15 @@ get:
             $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
+          examples:
+            actor-not-found:
+              $ref: ../../components/examples/actor-not-found.yaml
+            actor-run-not-found:
+              $ref: ../../components/examples/actor-run-not-found.yaml
   deprecated: false

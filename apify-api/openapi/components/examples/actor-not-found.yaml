@@ -1,0 +1,5 @@
+summary: Actor was not found
+value:
+  error:
+    type: actor-not-found
+    message: Actor was not found.
