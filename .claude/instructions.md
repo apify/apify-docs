@@ -6,11 +6,12 @@ Read `AGENTS.md` first - it is the single source of truth for project architectu
 
 Detailed documentation standards are auto-loaded from `.claude/rules/`:
 
-- `writing-style.md` - Language, tone, grammar, headings
-- `content-standards.md` - Front matter, formatting, code examples, links, images
-- `terminology.md` - Apify product capitalization
-- `file-organization.md` - Naming and directory structure
-- `quality-standards.md` - Pre-submission checklist
+- `writing-style.md` - Prose voice and tone
+- `content-standards.md` - Formatting and structure
+- `terminology.md` - Product names and capitalization
+- `grammar-rules.md` - Grammar mechanics, punctuation, numbers, brand spelling
+- `file-organization.md` - File naming and directory structure
+- `quality-standards.md` - Complete quality checklist
 
 These rules expand on the standards in `AGENTS.md` with detailed examples and tables.
 

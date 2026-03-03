@@ -13,58 +13,80 @@ Review documentation for compliance with Apify style guide, quality standards, a
 
 **CRITICAL**: Verify you're reviewing the latest version of the file. If reviewing a PR, confirm the branch is up to date.
 
+## Standards reference
+
+Review compliance against all standards in `.claude/rules/`:
+
+- `writing-style.md` - Prose voice and tone
+- `content-standards.md` - Formatting and structure
+- `terminology.md` - Product names and capitalization
+- `grammar-rules.md` - Grammar mechanics and punctuation
+- `quality-standards.md` - Complete quality checklist
+- `file-organization.md` - File naming and directory structure
+
+## Review process
+
 ### Step 2: Run automated checks
 
 ```bash
 npm run lint:md        # Markdownlint - Markdown syntax/formatting
 npm run lint:code      # ESLint - Code linting
-vale sync             # Vale - Download styles (first time only)
-vale "path/to/file.md" --minAlertLevel=error  # Vale - Prose style check
 ```
 
-### Step 3: Manual review
+## Review checklist
 
-Go through the checklist below, noting issues found.
+### Style compliance (delegated)
 
-#### Writing quality
+For each rules file, launch a subagent to check the reviewed content against that file's standards. The subagent reads the rules file directly, so the review always uses the latest rules.
 
-- [ ] Headings: Sentence case, no gerunds ("Create" not "Creating")
-- [ ] Bold: ONLY for UI elements (not emphasis)
-- [ ] Language: US English, active voice, inclusive, simple
-- [ ] Terminology: Matches `.claude/rules/terminology.md`
+Check content compliance against:
 
-#### Front matter
+1. `writing-style.md` - voice, tone, language patterns
+1. `content-standards.md` - formatting, front matter, headings, code, links, images
+1. `terminology.md` - product names, article usage, feature terms
+1. `grammar-rules.md` - hyphenation, punctuation, numbers, brand spelling
 
-- [ ] `title` - Sentence case, simple present tense
-- [ ] `description` - 140-160 chars, value-focused (not feature list)
-- [ ] `slug` - Matches file path
-- [ ] `sidebar_position` - Appropriate numbering
+Each subagent should return a list of violations with line numbers and suggested fixes.
 
-#### Content structure
+### Content review (manual)
 
-- [ ] Clear introduction
-- [ ] Proper heading hierarchy (H1 → H2 → H3, no skips)
-- [ ] Logical topic progression
-- [ ] Summary/next steps at end
-- [ ] Related content linked
+These aspects require judgment and aren't covered by the rules files:
 
-#### Formatting
+- [ ] **Content structure** - Clear introduction, logical progression, summary/next steps
+- [ ] **Heading hierarchy** - H2 → H3 → H4, no skipped levels
+- [ ] **Technical accuracy** - Code examples tested, API endpoints current, no deprecated features
+- [ ] **Completeness** - Prerequisites listed, all steps included, edge cases addressed
+- [ ] **Content-type checks**
+  - **Tutorials**: Clear learning objectives, sequential numbered steps, verification at each step
+  - **API docs**: All parameters documented, code samples in JS and Python, error responses
+  - **Reference pages**: Comprehensive parameter tables, default values, type information
+- [ ] **Accessibility** - Proper heading hierarchy, descriptive link text, image alt text
+- [ ] **SEO** - Descriptive title, meta description 140-160 chars, internal linking
 
-- [ ] Code examples: Complete, runnable, language tag specified
-- [ ] Links: Descriptive text (not "click here"), internal use relative paths
-- [ ] Images: Meaningful alt text, light theme, red indicators
-- [ ] Admonitions: Must have title, appropriate type, max 2-3 per page
-- [ ] Code review scope: Comments and obvious mistakes only (not full review)
+## How to review
 
-#### Content-type checks
+### Step 1: Run automated checks
 
-- **Tutorials**: Clear learning objectives, prerequisites, numbered steps, summary
-- **API docs**: Operation IDs follow conventions, parameters documented, code samples included
-- **Reference pages**: Parameter tables, default values, type information
+```bash
+npm run lint:md        # Markdownlint - Markdown syntax/formatting
+npm run lint:code      # ESLint - Code linting
+```
+
+### Step 2: Check style compliance
+
+For each of the rules files listed above, review the content against that file's standards. Use a subagent per file to read the rules and check compliance. Collect all violations.
+
+### Step 3: Content review
+
+Go through the manual content review checklist above. These require human/AI judgment about structure, accuracy, and completeness.
 
 ### Step 4: Provide feedback
 
-Format your review using the template in `references/review-format.md`.
+Format your review using the output template below.
+
+```markdown
+## Documentation review: [File name]
+```
 
 ## Examples
 

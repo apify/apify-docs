@@ -9,10 +9,11 @@ This directory contains Claude Code configuration for the Apify documentation re
 ├── README.md              # This file - Quick start guide
 ├── instructions.md        # Main instructions for Claude Code
 ├── rules/                 # Canonical standards (auto-loaded)
-│   ├── writing-style.md   # Language, tone, grammar
-│   ├── content-standards.md  # Formatting, front matter, code
-│   ├── terminology.md     # Apify-specific terms
+│   ├── writing-style.md   # Prose voice and tone
+│   ├── content-standards.md  # Formatting and structure
+│   ├── terminology.md     # Product names and capitalization
 │   ├── file-organization.md  # Naming conventions
+│   ├── grammar-rules.md      # Grammar mechanics, punctuation, numbers, brand spelling
 │   └── quality-standards.md  # Quality checklist
 └── skills/                # Reusable skills for common tasks
     ├── doc-write/         # Documentation writing skill
@@ -73,11 +74,12 @@ Use /review-docs skill to review sources/platform/[file-name].md
 
 All documentation standards are in `.claude/rules/` (auto-loaded):
 
-1. **`writing-style.md`** - Language, tone, grammar, headings, word choice
-2. **`content-standards.md`** - Front matter, formatting, code examples, links, images
-3. **`terminology.md`** - Apify-specific capitalization and product names
-4. **`file-organization.md`** - File naming and directory structure
-5. **`quality-standards.md`** - Comprehensive pre-submission checklist
+1. **`writing-style.md`** - Prose voice and tone
+1. **`content-standards.md`** - Formatting and structure
+1. **`terminology.md`** - Product names and capitalization
+1. **`grammar-rules.md`** - Grammar mechanics, punctuation, numbers, brand spelling
+1. **`file-organization.md`** - File naming and directory structure
+1. **`quality-standards.md`** - Complete quality checklist
 
 Also reference:
 
