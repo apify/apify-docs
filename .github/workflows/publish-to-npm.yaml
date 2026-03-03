@@ -103,13 +103,12 @@ jobs:
 
             -   name: Commit the new theme version
                 continue-on-error: true
-                uses: stefanzweifel/git-auto-commit-action@v7
+                uses: EndBug/add-and-commit@v9
                 with:
-                    commit_message: 'chore: publish new version of @apify/docs-theme [skip ci]'
-                    file_pattern: 'apify-docs-theme/package*.json'
-                    commit_user_name: Apify Bot
-                    commit_user_email: my-github-actions-bot@example.org
-                    commit_author: Apify Bot <apify@apify.com>
+                    add: 'apify-docs-theme/package*.json'
+                    author_name: github-actions[bot]
+                    author_email: 41898282+github-actions[bot]@users.noreply.github.com
+                    message: 'chore: publish new version of @apify/docs-theme [skip ci]'
 
     rebuild-docs:
         needs: publish
