@@ -20,8 +20,8 @@ The multiple datasets may defined in Actor schema using `datasets` object:
 ```json title=".actor/actor.json"
 {
     "actorSpecification": 1,
-    "name": "this-is-book-library-scraper",
-    "title": "Book Library scraper",
+    "name": "this-is-e-commerce-scraper",
+    "title": "E-Commerce Scraper",
     "version": "1.0.0",
     "storages": {
         "datasets": {
@@ -74,6 +74,14 @@ categories_dataset = await Actor.open_dataset(alias='categories')
 
 ## Showing data to users
 
+### Run Storages tab
+
+The Storage tab of Actor run view is displaying all the dataset defined by Actor and datasets that were used by the run (up to some limit).
+
+This makes the data accessible, but not very user-friendly. To make the datasets more accessible to users, use output schema.
+
+### Output schema
+
 Actors with output schema can refer to the datasets through variables using aliases:
 
 ```json
@@ -98,5 +106,3 @@ Actors with output schema can refer to the datasets through variables using alia
 ## Billing implications
 
 The `apify-default-dataset-item` synthetic event is only charged for items in dataset aliased as `default`. Charging for items in other datasets needs to be implemented in the Actor code.
-
-- TODO: Rely on default display
