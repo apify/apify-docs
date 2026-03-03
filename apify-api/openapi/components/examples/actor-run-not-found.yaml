@@ -1,0 +1,5 @@
+summary: Actor run was not found
+value:
+  error:
+    type: record-not-found
+    message: Actor run was not found

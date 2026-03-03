@@ -5,7 +5,7 @@
     - Actors/Actor builds
     - Actors/Actor runs
     - Actors/Webhook collection
-    - Actors/Last run object and its storages
+    - Actors/Last run
 - name: Actor builds
   tags:
     - Actor builds

@@ -51,22 +51,9 @@ get:
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: actorTask_runs_last_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and Actor task name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
-    - name: status
-      in: query
-      description: Filter for the run status.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: SUCCEEDED
+    - $ref: ../../components/parameters/actorTaskId.yaml
+    - $ref: ../../components/parameters/runs-last/status.yaml
+    - $ref: ../../components/parameters/runs-last/waitForFinish.yaml
   responses:
     "200":
       description: ""
@@ -156,6 +143,17 @@ get:
                 PROXY_SERPS: 0.0006
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
+          examples:
+            actor-not-found:
+              $ref: ../../components/examples/actor-not-found.yaml
+            actor-run-not-found:
+              $ref: ../../components/examples/actor-run-not-found.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/last-run-object-and-its-storages

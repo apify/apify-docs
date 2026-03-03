@@ -514,6 +514,32 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml"
   "/v2/acts/{actorId}/runs/last":
     $ref: "paths/actors/acts@{actorId}@runs@last.yaml"
+  "/v2/acts/{actorId}/runs/last/log":
+    $ref: "paths/actors/acts@{actorId}@runs@last@log.yaml"
+  "/v2/acts/{actorId}/runs/last/dataset":
+    $ref: "paths/actors/acts@{actorId}@runs@last@dataset.yaml"
+  "/v2/acts/{actorId}/runs/last/dataset/items":
+    $ref: "paths/actors/acts@{actorId}@runs@last@dataset@items.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store/keys":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@keys.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records@{recordKey}.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@{requestId}.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/head":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head.yaml"
+  "/v2/acts/{actorId}/runs/last/abort":
+    $ref: "paths/actors/acts@{actorId}@runs@last@abort.yaml"
+  "/v2/acts/{actorId}/runs/last/metamorph":
+    $ref: "paths/actors/acts@{actorId}@runs@last@metamorph.yaml"
+  "/v2/acts/{actorId}/runs/last/reboot":
+    $ref: "paths/actors/acts@{actorId}@runs@last@reboot.yaml"
   "/v2/acts/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
   "/v2/acts/{actorId}/runs/{runId}/abort":
@@ -536,6 +562,32 @@ paths:
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync-get-dataset-items.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/log":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@log.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/dataset":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@dataset.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@dataset@items.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@key-value-store.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/keys":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@key-value-store@keys.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@key-value-store@records@{recordKey}.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/request-queue":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@request-queue.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/request-queue/requests":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@request-queue@requests.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/request-queue/requests/{requestId}":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@request-queue@requests@{requestId}.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/request-queue/head":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@request-queue@head.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/abort":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@abort.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/metamorph":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@metamorph.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/reboot":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@reboot.yaml"
   /v2/actor-runs:
     $ref: paths/actor-runs/actor-runs.yaml
   "/v2/actor-runs/{runId}":

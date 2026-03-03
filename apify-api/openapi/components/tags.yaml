@@ -70,8 +70,6 @@
     - "#tag/ActorsRun-actor-synchronously"
     - "#/reference/actors/run-actor-synchronously-and-get-dataset-items"
     - "#tag/ActorsRun-Actor-synchronously-and-get-dataset-items"
-    - "#/reference/actors/last-run-object-and-its-storages"
-    - "#tag/ActorsLast-run-object-and-its-storages"
   description: |
     The API endpoints in this section allow you to manage your Apify Actors runs.
 
@@ -79,6 +77,18 @@
 
     For more information about platform usage and resource calculations, see the [Usage and Resources documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
   x-trait: "true"
+
+- name: Actors/Last run
+  x-displayName: Last run - Introduction
+  x-parent-tag-name: Actors
+  x-legacy-doc-urls:
+    - "#/reference/actors/last-run-object-and-its-storages"
+    - "#tag/Actors/Actor runs/Last run"
+  x-trait: "true"
+  description: |
+    The API endpoints in this section let you retrieve and manage the last run of a given Actor
+    and its default storages (dataset, key-value store, request queue, log).
+
 - name: Actors/Webhook collection
   x-displayName: Webhook collection - Introduction
   x-parent-tag-name: Actors
@@ -125,6 +135,7 @@
     has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
 
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
+
 - name: Actor tasks
   x-displayName: Actor tasks - Introduction
   x-legacy-doc-urls:

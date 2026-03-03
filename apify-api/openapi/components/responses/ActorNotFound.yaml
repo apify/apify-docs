@@ -1,0 +1,18 @@
+description: Not found - the requested resource was not found.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    examples:
+      actor-not-found:
+        summary: Actor was not found
+        value:
+          error:
+            type: actor-not-found
+            message: Actor was not found.
+      record-not-found:
+        summary: Actor run was not found
+        value:
+          error:
+            type: record-not-found
+            message: Actor run was not found

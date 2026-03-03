@@ -1,0 +1,11 @@
+name: gracefully
+in: query
+description: |
+  If true passed, the Actor run will abort gracefully.
+  It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+  It is helpful in cases where you plan to resurrect the run later.
+style: form
+explode: true
+schema:
+  type: boolean
+  example: true
