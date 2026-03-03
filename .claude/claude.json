@@ -1,0 +1,7 @@
+{
+  "instructions": "instructions.md",
+  "context": [
+    "../AGENTS.md",
+    "../CONTRIBUTING.md"
+  ]
+}

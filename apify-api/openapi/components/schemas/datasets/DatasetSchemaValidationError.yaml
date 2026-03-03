@@ -1,5 +1,13 @@
 title: DatasetSchemaValidationError
 type: object
 properties:
-  error:
-    $ref: ./DatasetSchemaValidationErrorDetails.yaml
+  type:
+    type: string
+    description: The type of the error.
+    examples: [schema-validation-error]
+  message:
+    type: string
+    description: A human-readable message describing the error.
+    examples: [Schema validation failed]
+  data:
+    $ref: ./SchemaValidationErrorData.yaml

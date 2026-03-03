@@ -1,13 +1,11 @@
 title: ExampleWebhookDispatch
 required:
   - status
-  - finishedAt
 type: object
 properties:
   status:
-    type: string
-    examples: [SUCCEEDED]
+    $ref: ../webhook-dispatches/WebhookDispatchStatus.yaml
   finishedAt:
-    type: string
+    type: [string, "null"]
     format: date-time
     examples: ["2019-12-13T08:36:13.202Z"]

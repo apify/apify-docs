@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetVersionListResponse.yaml
+            $ref: ../../components/schemas/actors/ListOfVersionsResponse.yaml
           example:
             data:
               total: 5
@@ -52,6 +52,8 @@ get:
                   applyEnvVarsToBuild: false
                   buildTag: latest
                   gitHubGistUrl: "https://gist.github.com/jane35/e51feb784yu89"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-collection/get-list-of-versions
@@ -128,7 +130,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetVersionResponse.yaml
+            $ref: ../../components/schemas/actors/VersionResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-collection/create-version

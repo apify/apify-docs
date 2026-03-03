@@ -21,6 +21,7 @@ properties:
     $ref: ./Profile.yaml
   email:
     type: string
+    format: email
     examples: [bob@example.com]
   proxy:
     $ref: ./Proxy.yaml

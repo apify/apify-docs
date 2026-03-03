@@ -1,0 +1,8 @@
+title: RequestResponse
+description: Response containing a single request from the request queue.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Request.yaml

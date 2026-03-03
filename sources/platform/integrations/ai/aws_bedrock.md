@@ -26,7 +26,7 @@ Before getting started, ensure you have:
 
 - An active AWS Account.
 - An Apify account and an [API token](https://docs.apify.com/platform/integrations/api#api-token).
-- Granted access to any Large Language Model from Amazon Bedrock. To add access to a LLM, follow this [guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html). We'll use **Anthropic Claude 3.5 Sonnet** in this example.
+- Granted access to any Large Language Model from Amazon Bedrock. To add access to a LLM, follow this [guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html). We'll use **Anthropic Claude 3.5 Sonnet** in this example.
 
 The overall process for creating an agent includes the following [steps](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html):
 

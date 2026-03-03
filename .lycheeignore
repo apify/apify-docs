@@ -13,3 +13,7 @@ https://console-backend.apify.com/
 https://mcp.apify.com/
 https://www.deviceinfo.me/
 https://trust.apify.com/
+# Bot-blocked sites (return 403 to non-browser clients)
+https?:\/\/(www\.)?soundcloud\.com\/.*
+https?:\/\/(www\.)?fandom\.com\/.*
+https?:\/\/(www\.)?remax\.com\.tr\/.*

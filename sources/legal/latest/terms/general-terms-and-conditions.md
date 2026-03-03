@@ -87,7 +87,7 @@ The Services are intended for business use only and are not designed, marketed, 
 
 5.9. **Usage Data**. All rights, title, and interest in and to Usage Data, including any derivative works or analyses thereof, shall belong exclusively to us. We may use Usage Data for any lawful purpose, including but not limited to improving our Services, Actors, developing new features, generating insights, and conducting analyses.
 
-## 6. Service Use Restrictions, Customer Obligations
+## 6. Service Use Restrictions, Customer Obligations
 
 6.1. **Acceptable Use Policy**. You shall use the Website, Services, and Actors in compliance with our [Acceptable Use Policy](../policies/acceptable-use-policy.md).
 

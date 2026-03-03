@@ -20,7 +20,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhook-dispatches/GetWebhookDispatchResponse.yaml
+            $ref: ../../components/schemas/webhook-dispatches/WebhookDispatchResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhook-dispatches/webhook-dispatch-object/get-webhook-dispatch

@@ -30,7 +30,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetEnvVarListResponse.yaml
+            $ref: ../../components/schemas/actors/ListOfEnvVarsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/get-list-of-environment-variables
@@ -85,7 +87,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml
+          $ref: ../../components/schemas/actors/EnvVar.yaml
         example:
           name: ENV_VAR_NAME
           value: my-env-var
@@ -104,12 +106,14 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
+            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/create-environment-variable

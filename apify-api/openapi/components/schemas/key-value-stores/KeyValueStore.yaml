@@ -4,8 +4,6 @@ required:
   - createdAt
   - modifiedAt
   - accessedAt
-  - consoleUrl
-  - keysPublicUrl
 type: object
 properties:
   id:
@@ -40,15 +38,17 @@ properties:
     examples: [null]
   consoleUrl:
     type: string
+    format: uri
     examples: ["https://console.apify.com/storage/key-value-stores/27TmTznX9YPeAYhkC"]
   keysPublicUrl:
     type: string
+    format: uri
     description: A public link to access keys of the key-value store directly.
-    examples: ["https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123"]
+    examples: [https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123]
   urlSigningSecretKey:
     type: [string, "null"]
     description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the key-value store.
   generalAccess:
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml
   stats:
     $ref: ./KeyValueStoreStats.yaml

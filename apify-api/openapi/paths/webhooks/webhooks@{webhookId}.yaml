@@ -20,7 +20,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/GetWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/get-webhook
@@ -75,7 +77,9 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/UpdateWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/update-webhook
@@ -111,6 +115,8 @@ delete:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/delete-webhook

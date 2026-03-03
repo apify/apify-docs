@@ -25,6 +25,8 @@ get:
             myField1: some-value
             myField2: another-value
             myField3: 1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/get-task-input
@@ -86,6 +88,8 @@ put:
             myField1: some-value
             myField2: updated-value
             myField3: 1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/update-task-input

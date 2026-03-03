@@ -38,6 +38,8 @@ post:
             data:
               unlockedCount: 10
 
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-js-parent: RequestQueueClient
   x-js-name: unlockRequests

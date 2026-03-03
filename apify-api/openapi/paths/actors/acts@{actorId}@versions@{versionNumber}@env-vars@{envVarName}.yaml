@@ -40,12 +40,14 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
+            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/get-environment-variable
@@ -106,7 +108,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml
+          $ref: ../../components/schemas/actors/EnvVar.yaml
         example:
           name: MY_ENV_VAR
           value: my-new-value
@@ -119,12 +121,14 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actors/GetEnvVarResponse.yaml
+            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
           example:
             data:
               name: MY_ENV_VAR
               value: my-value
               isSecret: false
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
@@ -174,6 +178,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/delete-environment-variable

@@ -129,6 +129,8 @@ get:
                     finishedAt: "2019-12-13T08:36:13.202Z"
                   stats:
                     totalDispatches: 1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/webhook-collection/get-list-of-webhooks

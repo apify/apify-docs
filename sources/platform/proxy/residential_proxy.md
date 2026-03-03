@@ -129,7 +129,7 @@ This IP/session ID combination is persisted for 1 minute. Each subsequent reques
 If the proxy server becomes unresponsive or the session expires, a new IP address is selected for the next request.
 
 > If you really need to persist the same session, you can try sending some data using that session (e.g. every 20 seconds) to keep it alive.<br/>
-> Providing the connection is not interrupted, this will let you keep the IP address for longer.
+> Provided the connection is not interrupted, this will let you keep the IP address for longer.
 
 To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the proxy [overview page](./index.md).
 

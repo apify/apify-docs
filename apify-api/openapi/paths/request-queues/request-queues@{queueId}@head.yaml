@@ -53,7 +53,7 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../../components/schemas/request-queues/GetHeadResponse.yaml
+              - $ref: ../../components/schemas/request-queues/HeadResponse.yaml
               - example:
                   data:
                     limit: 1000
@@ -96,6 +96,8 @@ get:
                   uniqueKey: "http://example.com/c/d"
                   url: "http://example.com/c/d"
                   method: GET
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head

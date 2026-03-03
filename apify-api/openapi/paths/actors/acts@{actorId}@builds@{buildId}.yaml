@@ -49,7 +49,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-builds/GetBuildResponse.yaml
+            $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
           example:
             data:
               id: HG7ML7M8z78YcAPEB
@@ -79,6 +79,8 @@ get:
               inputSchema: '{\n  \"title\": \"Schema for ... }'
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: true
   x-deprecated-description: "API endpoints related to build of the Actor were moved under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object that contains all the details about a specific build of an Actor."
   x-legacy-doc-urls:

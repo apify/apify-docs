@@ -19,6 +19,8 @@ properties:
   description:
     type: [string, "null"]
     examples: [Schedule of actor ...]
+  title:
+    type: [string, "null"]
   actions:
     type: [array, "null"]
     items:

@@ -1,8 +1,0 @@
-title: GetListOfRequestQueuesResponse
-description: Response containing a list of request queues.
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./ListOfRequestQueues.yaml

@@ -14,7 +14,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/GetLimitsResponse.yaml
+            $ref: ../../components/schemas/users/LimitsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/get-limits
@@ -42,6 +44,8 @@ put:
         application/json:
           schema:
             type: object
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/update-limits

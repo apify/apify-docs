@@ -54,21 +54,7 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - data
-            properties:
-              data:
-                allOf:
-                  - $ref: ../../components/schemas/common/PaginationResponse.yaml
-                  - type: object
-                    required:
-                      - items
-                    properties:
-                      items:
-                        type: array
-                        items:
-                          $ref: ../../components/schemas/actor-tasks/TaskShort.yaml
+            $ref: ../../components/schemas/actor-tasks/ListOfTasksResponse.yaml
           example:
             data:
               total: 2
@@ -99,6 +85,8 @@ get:
                   modifiedAt: "2018-10-26T13:30:49.578Z"
                   stats:
                     totalRuns: 4
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-collection/get-list-of-tasks
@@ -164,7 +152,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-tasks/CreateTaskResponse.yaml
+            $ref: ../../components/schemas/actor-tasks/TaskResponse.yaml
           example:
             data:
               id: zdc3Pyhyz3m8vjDeM
@@ -183,6 +171,8 @@ post:
                 memoryMbytes: 128
               input:
                 hello: world
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-collection/create-task

@@ -4,14 +4,14 @@ type: object
 properties:
   actorSpecification:
     type: integer
-    enum: [1]
+    const: 1
     description: The Actor specification version that this Actor follows. This property must be set to 1.
   name:
     type: string
     description: The name of the Actor.
   version:
     type: string
-    pattern: ^[0-9]+\\.[0-9]+$
+    pattern: ^[0-9]+\.[0-9]+$
     description: The version of the Actor, specified in the format [Number].[Number], e.g., 0.1, 1.0.
   buildTag:
     type: string
@@ -59,4 +59,4 @@ properties:
     description: Specifies the maximum amount of memory in megabytes required by the Actor.
   usesStandbyMode:
     type: boolean
-    description: Specifies whether the Actor will have Standby mode enabled.
+    description: Specifies whether Standby mode is enabled for the Actor.

@@ -1,11 +1,12 @@
 title: ServiceUsage
-required:
-  - SERVICE_USAGE_ITEM
 type: object
-properties:
-  SERVICE_USAGE_ITEM:
-    $ref: ./UsageItem.yaml
+additionalProperties:
+  $ref: ./UsageItem.yaml
+description: A map of service usage item names to their usage details.
 example:
-  SERVICE_USAGE_ITEM:
+  ACTOR_COMPUTE_UNITS:
     quantity: 60
     baseAmountUsd: 0.00030000000000000003
+    baseUnitPriceUsd: 0.000005
+    amountAfterVolumeDiscountUsd: 0.00030000000000000003
+    priceTiers: []

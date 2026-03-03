@@ -59,6 +59,17 @@ get:
       schema:
         type: boolean
         example: true
+    - name: ownership
+      in: query
+      description: |
+        Filter by ownership. If this parameter is omitted, all accessible key-value stores are returned.
+
+        - `ownedByMe`: Return only key-value stores owned by the user.
+        - `sharedWithMe`: Return only key-value stores shared with the user by other users.
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/common/StorageOwnership.yaml
   responses:
     "200":
       description: ""
@@ -66,7 +77,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetListOfKeyValueStoresResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/ListOfKeyValueStoresResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores
@@ -116,7 +129,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/CreateKeyValueStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
           example:
             data:
               id: WkzbQMuFYuamGv3YF
@@ -127,6 +140,10 @@ post:
               accessedAt: "2019-12-14T08:36:13.202Z"
               actId: null
               actRunId: null
+              consoleUrl: https://console.apify.com/storage/key-value-stores/WkzbQMuFYuamGv3YF
+              keysPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/create-key-value-store

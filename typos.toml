@@ -13,6 +13,7 @@ extend-exclude = [
     "*.min.js",
     "*.min.css",
     "CHANGELOG.md",
+    "patches/",
 ]
 
 # Add project-specific identifiers that should not be treated as typos

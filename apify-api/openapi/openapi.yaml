@@ -1,6 +1,9 @@
 openapi: 3.1.2
 info:
   title: Apify API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
   description: |
 
     The Apify API (version 2) provides programmatic access to the [Apify
@@ -471,7 +474,8 @@ info:
     - `~resourcename` - for this, you need to use an API token, and the
     `resourcename` refers to a resource in the API token owner's account.
   contact: {}
-  version: ""
+  version:
+      $ref: components/version.yaml
 servers:
   - url: "https://api.apify.com"
     variables: {}

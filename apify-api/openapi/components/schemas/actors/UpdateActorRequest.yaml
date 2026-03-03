@@ -30,7 +30,7 @@ properties:
   versions:
     type: array
     items:
-      $ref: ./CreateOrUpdateEnvVarRequest.yaml
+      $ref: ./CreateOrUpdateVersionRequest.yaml
     description: ""
   pricingInfos:
     type: array
@@ -92,7 +92,13 @@ properties:
       latest:
         buildId: z2EryhbfhgSyqj6Hn
       beta: null
-required:
-  - name
-  - isPublic
-  - versions
+  actorStandby:
+    anyOf:
+      - $ref: ./ActorStandby.yaml
+      - type: "null"
+  exampleRunInput:
+    anyOf:
+      - $ref: ./ExampleRunInput.yaml
+      - type: "null"
+  isDeprecated:
+    type: [boolean, "null"]

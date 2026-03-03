@@ -1,0 +1,7 @@
+title: ListOfWebhooksResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfWebhooks.yaml

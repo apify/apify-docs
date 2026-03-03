@@ -10,7 +10,7 @@ slug: /integrations/llama-index
 
 ---
 
-> For more information on LlamaIndex, visit its [documentation](https://docs.llamaindex.ai/en/stable/).
+> For more information on LlamaIndex, visit its [documentation](https://developers.llamaindex.ai/python/framework/).
 
 ## What is LlamaIndex?
 
@@ -76,4 +76,4 @@ documents = reader.load_data(
 ## Resources
 
 * [Apify loaders](https://llamahub.ai/l/readers/llama-index-readers-apify)
-* [LlamaIndex documentation](https://docs.llamaindex.ai/en/stable/)
+* [LlamaIndex documentation](https://developers.llamaindex.ai/python/framework/)

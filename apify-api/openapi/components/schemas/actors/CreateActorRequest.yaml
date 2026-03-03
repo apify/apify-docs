@@ -39,3 +39,13 @@ properties:
     description: ""
   defaultRunOptions:
     $ref: ./DefaultRunOptions.yaml
+  actorStandby:
+    anyOf:
+      - $ref: ./ActorStandby.yaml
+      - type: "null"
+  exampleRunInput:
+    anyOf:
+      - $ref: ./ExampleRunInput.yaml
+      - type: "null"
+  isDeprecated:
+    type: [boolean, "null"]

@@ -28,4 +28,6 @@ properties:
     type: string
     examples: [Hello World Example]
   stats:
-    $ref: ./ActorStats.yaml
+    anyOf:
+      - $ref: ./ActorStats.yaml
+      - type: "null"

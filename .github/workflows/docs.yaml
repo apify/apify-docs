@@ -24,7 +24,6 @@ jobs:
                     node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
-                    always-auth: 'true'
 
             -   name: Enable corepack
                 run: |

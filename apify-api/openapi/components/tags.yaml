@@ -166,6 +166,7 @@
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Storage
   x-displayName: ""
+  description: Storage-related API endpoints for managing datasets, key-value stores, and request queues.
 - name: Storage/Datasets
   x-displayName: Datasets - Introduction
   x-parent-tag-name: Storage
@@ -307,6 +308,7 @@
     :::
 - name: Webhooks
   x-displayName: ""
+  description: Webhook-related API endpoints for configuring automated notifications.
 - name: Webhooks/Webhooks
   x-displayName: Webhooks - Introduction
   x-parent-tag-name: Webhooks
