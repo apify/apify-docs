@@ -87,8 +87,7 @@ For improved Actor performance, consider [caching repeated page data](/academy/e
 ## Speeding up migrations
 
 Once your Actor receives the `migrating` event, the Apify platform will shut it down and restart it on a new server within one minute.
-To speed this process up, once you have persisted the Actor state,
-you can manually reboot the Actor in the `migrating` event handler using the `Actor.reboot()` method
+To speed this process up and ensure state consistency, you can manually reboot the Actor in the `migrating` event handler using the `Actor.reboot()` method
 available in the [Apify SDK for JavaScript](/sdk/js/reference/class/Actor#reboot) or [Apify SDK for Python](/sdk/python/reference/class/Actor#reboot).
 
 <Tabs groupId="main">
