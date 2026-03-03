@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get request from queue for last run
   description: |
     Returns a request from the default request queue of the last Actor run. Redispatches to

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get key-value store keys for last run
   description: |
     Returns a list of keys from the default key-value store of the last Actor run. Redispatches to

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Abort last run
   description: |
     Aborts the last Actor run. Redispatches to [Abort run](/api/v2/actor-run-abort-post).

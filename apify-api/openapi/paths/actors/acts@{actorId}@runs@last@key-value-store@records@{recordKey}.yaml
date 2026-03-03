@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get record from key-value store of last run
   description: |
     Returns a record from the default key-value store of the last Actor run. Redispatches to
@@ -33,7 +33,7 @@ get:
   deprecated: false
 put:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Put record in key-value store of last run
   description: |
     Stores a record in the default key-value store of the last Actor run. Redispatches to

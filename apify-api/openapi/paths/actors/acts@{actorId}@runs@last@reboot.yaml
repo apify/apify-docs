@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Reboot last run
   description: |
     Reboots the last Actor run. Redispatches to [Reboot run](/api/v2/actor-run-reboot-post).

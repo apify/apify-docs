@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get log for last run
   description: |
     Retrieves the log of the last Actor run. Redispatches to [Get log](/api/v2/log-get)

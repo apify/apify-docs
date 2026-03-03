@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: List requests in queue for last run
   description: |
     Returns requests from the default request queue of the last Actor run. Redispatches to
@@ -40,7 +40,7 @@ get:
   deprecated: false
 post:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Add request to queue for last run
   description: |
     Adds a request to the default request queue of the last Actor run. Redispatches to

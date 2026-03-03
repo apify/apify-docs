@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Metamorph last run
   description: |
     Transforms the last Actor run into a run of another Actor. Redispatches to

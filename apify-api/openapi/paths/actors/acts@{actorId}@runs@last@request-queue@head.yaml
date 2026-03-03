@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get queue head for last run
   description: |
     Returns the first requests from the default request queue of the last Actor run. Redispatches to

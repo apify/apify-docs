@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get last run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets you to

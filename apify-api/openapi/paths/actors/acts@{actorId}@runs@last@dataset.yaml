@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actors/Actor runs
+    - Actors/Last run
   summary: Get dataset for last run
   description: |
     Returns the default dataset of the last Actor run. Redispatches to [Get dataset](/api/v2/dataset-get).
