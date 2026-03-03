@@ -159,9 +159,7 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
-          examples:
-            example:
-              $ref: ../../components/examples/build-response.yaml
+
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

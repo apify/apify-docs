@@ -98,7 +98,7 @@ get:
             $ref: ../../components/schemas/actor-runs/ListOfRunsResponse.yaml
           examples:
             example:
-              $ref: ../../components/examples/run-list-response.yaml
+              $ref: ../../components/schemas/actor-runs/ListOfRunsResponseExample.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -257,9 +257,7 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          examples:
-            example:
-              $ref: ../../components/examples/run-response.yaml
+
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

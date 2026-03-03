@@ -105,9 +105,7 @@ get:
           schema:
             allOf:
               - $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          examples:
-            example:
-              $ref: ../../components/examples/run-response.yaml
+
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -178,9 +176,7 @@ put:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          examples:
-            example:
-              $ref: ../../components/examples/run-response.yaml
+
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
