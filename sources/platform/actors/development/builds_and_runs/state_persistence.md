@@ -41,7 +41,7 @@ Migrations don't follow a specific schedule. They can occur at any time due to t
 
 By default, an Actor keeps its state in the server's memory. During a server switch, the run loses access to the previous server's memory. Even if data were saved on the server's disk, access to that would also be lost. Note that the Actor run's default dataset, key-value store and request queue are preserved across migrations, by state we mean the contents of runtime variables in the Actor's code.
 
-## Implementing state persistence
+## Implement state persistence
 
 Use the [`Actor.useState()`](/sdk/js/reference/class/Actor#useState)/[`Actor.use_state()`](/sdk/python/reference/class/Actor#use_state) method to persist state across migrations. This method automatically saves your state to the key-value store and restores it when the Actor restarts.
 
@@ -84,7 +84,7 @@ async def main():
 
 For improved Actor performance, consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
 
-## Speeding up migrations
+## Speed up migrations and ensure consistency
 
 Once your Actor receives the `migrating` event, the Apify platform will shut it down and restart it on a new server within one minute.
 To speed this process up and ensure state consistency, you can manually reboot the Actor in the `migrating` event handler using the `Actor.reboot()` method
