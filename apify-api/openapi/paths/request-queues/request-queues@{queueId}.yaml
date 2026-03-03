@@ -21,7 +21,6 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
-
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -75,7 +74,6 @@ put:
         application/json:
           schema:
             $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
-
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

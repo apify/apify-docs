@@ -92,7 +92,7 @@ get:
               - $ref: ../../components/schemas/actor-runs/ListOfRunsResponse.yaml
           examples:
             example:
-              $ref: ../../components/schemas/actor-runs/ListOfRunsResponseExample.yaml
+              $ref: ../../components/examples/ListOfRunsResponseExample.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

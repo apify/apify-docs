@@ -80,7 +80,6 @@ get:
             properties:
               data:
                 $ref: ../../components/schemas/actor-runs/Run.yaml
-
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

@@ -59,7 +59,6 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
