@@ -97,7 +97,7 @@ Templates allow you to dynamically generate URLs that point to your Actor's outp
 1. Replacing `{{variable}}` placeholders with actual runtime values
 1. Creating the final output URL from the interpolated template
 
-The generated URL then appears in the **Output** tab of the Apify Console and in the `output` property of the API response.
+The generated URL then appears in the **Output** tab of Apify Console and in the `output` property of the API response.
 
 ### Template syntax
 
