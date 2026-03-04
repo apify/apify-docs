@@ -19,7 +19,7 @@ When you publish your Actor on the Apify platform, you have the option to make i
 
 ## Rental pricing model
 
-<RentalSunset/>
+{/* <RentalSunset/> */}
 
 With the rental model, you can specify a free trial period and a monthly rental price. After the trial, users with an [Apify paid plan](https://apify.com/pricing) can continue using your Actor by paying the monthly fee. You can receive 80% of the total rental fees collected each month.
 
