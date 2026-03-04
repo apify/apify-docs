@@ -1,0 +1,13 @@
+EnvironmentVariableNotFoundError:
+  allOf:
+    - type: object
+      properties:
+        error:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [record-not-found]
+            message:
+              type: string
+              enum: [Environment variable was not found]

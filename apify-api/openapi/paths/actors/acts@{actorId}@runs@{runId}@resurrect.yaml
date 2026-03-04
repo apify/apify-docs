@@ -161,6 +161,14 @@ post:
                 PROXY_SERPS: 0.0006
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/resurrect-run/resurrect-run
