@@ -86,42 +86,6 @@ get:
                         type: array
                         items:
                           $ref: ../../components/schemas/actor-runs/RunShort.yaml
-          example:
-            data:
-              total: 2
-              offset: 0
-              limit: 1000
-              desc: false
-              count: 2
-              items:
-                - id: HG7ML7M8z78YcAPEB
-                  actId: HDSasDasz78YcAPEB
-                  actorTaskId: KJHSKHausidyaJKHs
-                  status: SUCCEEDED
-                  startedAt: "2019-11-30T07:34:24.202Z"
-                  finishedAt: "2019-12-12T09:30:12.202Z"
-                  buildId: HG7ML7M8z78YcAPEB
-                  buildNumber: 0.0.2
-                  meta:
-                    origin: WEB
-                  usageTotalUsd: 0.2
-                  defaultKeyValueStoreId: sfAjeR4QmeJCQzTfe
-                  defaultDatasetId: 3ZojQDdFTsyE7Moy4
-                  defaultRequestQueueId: so93g2shcDzK3pA85
-                - id: HG7ML7M8z78YcAPEB
-                  actId: HDSasDasz78YcAPEB
-                  actorTaskId: KJHSKHausidyaJKHs
-                  status: FAILED
-                  startedAt: "2019-12-12T07:34:14.202Z"
-                  finishedAt: "2019-12-13T08:36:13.202Z"
-                  buildId: u78dML7M8z78YcAPEB
-                  buildNumber: 0.2.2
-                  meta:
-                    origin: DEVELOPMENT
-                  usageTotalUsd: 0.6
-                  defaultKeyValueStoreId: sffsouqlseJCQzTfe
-                  defaultDatasetId: CFGggdjQDsyE7Moyw
-                  defaultRequestQueueId: soowucklrmDzKpA8x
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
