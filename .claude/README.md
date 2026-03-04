@@ -95,8 +95,8 @@ Before submitting:
 npm run lint:md      # Check markdown
 npm run lint:code    # Check code
 vale "path/to/file.md" --minAlertLevel=error  # Check prose style
+npm run openapi:lint # Validate OpenAPI specs
 npm start            # Preview changes
-npm test             # Validate API specs
 ```
 
 ## Best practices

@@ -1,19 +1,6 @@
 # Claude Code instructions for Apify documentation
 
-Read `AGENTS.md` first - it is the single source of truth for project architecture, commands, writing style, and terminology.
-
-## Claude Code specifics
-
-Detailed documentation standards are auto-loaded from `.claude/rules/`:
-
-- `writing-style.md` - Prose voice and tone
-- `content-standards.md` - Formatting and structure
-- `terminology.md` - Product names and capitalization
-- `grammar-rules.md` - Grammar mechanics, punctuation, numbers, brand spelling
-- `file-organization.md` - File naming and directory structure
-- `quality-standards.md` - Complete quality checklist
-
-These rules expand on the standards in `AGENTS.md` with detailed examples and tables.
+`CLAUDE.md` (symlink to `AGENTS.md`) covers project architecture, commands, and common pitfalls. Documentation standards are auto-loaded from `.claude/rules/` - those are the canonical source for all writing, formatting, and terminology rules.
 
 ## Available skills
 
