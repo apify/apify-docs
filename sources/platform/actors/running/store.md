@@ -48,7 +48,7 @@ Most pay per event Actors include platform usage in the event price. However, so
 
 When starting a run, you can define a maximum charge limit. The Actor terminates gracefully when it reaches that limit - and even if it does not stop immediately, you are never charged more than the defined limit.
 
-![Pay per event Actor - max charge per run](./images/store/pay_per_event_price_on_run_detail.png)
+![Pay per event Actor - max charge per run](./images/store/pay_per_event_max_charge_per_run.png)
 
 After the Actor finishes, any interactions with the dataset - such as reading or writing additional data - incur standard platform usage costs. Long-term storage of results is charged at normal rates.
 
@@ -108,13 +108,13 @@ Most rental Actors have a _free trial_ period. The length of the trial is displa
 
 You don't need a paid plan to start a rental Actor's free trial. After the trial, you must subscribe to one of [Apify's paid plans](https://apify.com/pricing) to continue renting and using the Actor. If you are on a paid plan, the monthly rental fee is automatically subtracted from your prepaid platform usage when the trial expires, then recurs monthly. If you are not on a paid plan when the trial ends, you are not charged but cannot use the Actor until you subscribe.
 
-You always prepay the rental fee for the following month. The first payment occurs when the trial expires, then recurs on the same date each month. You can check when the next payment is due by opening the Actor in Apify Console - you'll also receive a notification when it happens.
+You always prepay the rental fee for the following month. The first payment occurs when the trial expires, then recurs monthly. You can check when the next payment is due by opening the Actor in Apify Console - you'll also receive a notification when it happens.
 
 _Example_: You activate a 7-day trial at _noon on April 1, 2021_. Without cancellation, you are charged at _noon on April 8, 2021_, then _May 8, 2021_.
 
 [//]: # (TODO better link for platform usage costs explaining what it is!)
 
-Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](./usage_and_resources.md). You also pay normal [platform usage costs](https://apify.com/pricing) on top of the monthly rental fee - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
+Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](./usage_and_resources.md). Most of the fee goes directly to the developer, and you also pay normal [platform usage costs](https://apify.com/pricing) on top - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
 
 You can cancel the rental at any time during the trial or afterward so you are not charged when the current rental period expires. You can always turn it back on later. When renting an Actor, you can run it via the [API](/api/v2), [JavaScript client](/api/client/js), or [Python client](/api/client/python), just as you would with any private or free public Actor.
 
