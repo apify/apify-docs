@@ -7,10 +7,6 @@ slug: /actors/development/actor-definition/dataset-schema/validation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.**
-
----
-
 To define a schema for a default dataset of an Actor run, you need to set `fields` property in the dataset schema.
 
 :::info

@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /deploying-your-code/inputs-outputs
 ---
 
-**Learn to accept input into your Actor, process it, and return output. This concept applies to Actors in any language.**
-
----
-
 Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. Apify provides a convenient way to handle inputs and deliver outputs.
 
 Understanding inputs and outputs is essential because they are read/written differently depending on where the Actor is running:

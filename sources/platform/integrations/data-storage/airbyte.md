@@ -6,10 +6,6 @@ sidebar_position: 1
 slug: /integrations/airbyte
 ---
 
-**Learn how to integrate your Apify datasets with Airbyte.**
-
----
-
 Airbyte is an open-source data integration platform that allows you to move your data between different sources and destinations using pre-built connectors, which are maintained either by Airbyte itself or by its community.
 One of these connectors is the Apify Dataset connector, which makes it simple to move data from Apify datasets to any supported destination.
 

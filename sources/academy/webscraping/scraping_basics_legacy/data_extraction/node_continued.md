@@ -8,8 +8,6 @@ noindex: true
 
 import LegacyAdmonition from '../../scraping_basics/_legacy.mdx';
 
-**Continue learning how to create a web scraper with Node.js and Cheerio. Learn how to parse HTML and print the results of the data your scraper has collected.**
-
 <LegacyAdmonition />
 
 ---

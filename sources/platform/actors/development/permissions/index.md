@@ -5,10 +5,6 @@ sidebar_position: 7.5
 slug: /actors/development/permissions
 ---
 
-**Learn how to declare and manage permissions for your Actor, what permission levels mean, and how to build secure, trusted Actors for Apify users.**
-
----
-
 Every time a user runs your Actor, it runs under their Apify account. **Actor permissions** define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
 
 Your Actors can request two levels of access:

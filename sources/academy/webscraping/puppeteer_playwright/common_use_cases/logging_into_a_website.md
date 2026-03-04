@@ -8,10 +8,6 @@ slug: /puppeteer-playwright/common-use-cases/logging-into-a-website
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Understand the "login flow" - logging into a website, then maintaining a logged in status within different browser contexts for an efficient automation process.**
-
----
-
 Whether it's auto-renewing a service, automatically sending a message on an interval, or automatically cancelling a Netflix subscription, one of the most popular things headless browsers are used for is automating things within a user's account on a certain website. Of course, automating anything on a user's account requires the automation of the login process as well. In this lesson, we'll be covering how to build a login flow from start to finish with Playwright or Puppeteer.
 
 > In this lesson, we'll be using [yahoo.com](https://www.yahoo.com/) as an example. Feel free to follow along using the academy Yahoo account credentials, or even deviate from the lesson a bit and try building a login flow for a different website of your choosing!

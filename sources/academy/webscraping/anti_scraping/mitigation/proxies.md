@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /anti-scraping/mitigation/proxies
 ---
 
-**Learn all about proxies, how they work, and how they can be leveraged in a scraper to avoid blocking and other anti-scraping tactics.**
-
----
-
 A proxy server provides a gateway between users and the internet, to be more specific in our case - between the crawler and the target website.
 
 Many websites have [rate-limiting](../techniques/rate_limiting.md) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.

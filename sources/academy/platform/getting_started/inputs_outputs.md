@@ -5,10 +5,6 @@ sidebar_position: 3
 slug: /getting-started/inputs-outputs
 ---
 
-**Create an Actor from scratch which takes an input, processes that input, and then outputs a result that can be used elsewhere.**
-
----
-
 Actors, as any other programs, take inputs and generate outputs. The Apify platform has a way how to specify what inputs the Actor expects, and a way to temporarily or permanently store its results.
 
 In this lesson, we'll be demonstrating inputs and outputs by building an Actor which takes two numbers as input, adds them up, and then outputs the result.

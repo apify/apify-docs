@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /anti-scraping/techniques/fingerprinting
 ---
 
-**Understand browser fingerprinting, an advanced technique used by browsers to track user data and even block bots from accessing them.**
-
----
-
 Browser fingerprinting is a method that some websites use to collect information about a browser's type and version, as well as the operating system being used, any active plugins, the time zone and language of the machine, the screen resolution, and various other active settings. All of this information is called the **fingerprint** of the browser, and the act of collecting it is called **fingerprinting**.
 
 Yup! Surprisingly enough, browsers provide a lot of information about the user (and even their machine) that is accessible to websites! Browser fingerprinting wouldn't even be possible if it weren't for the sheer amount of information browsers provide, and the fact that each fingerprint is unique.

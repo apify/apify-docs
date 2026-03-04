@@ -5,10 +5,6 @@ sidebar_position: 2  # should be after scrape_data_python.md
 slug: /python/process-data-using-python
 ---
 
-**Learn how to process the resulting data of a web scraper in Python using the Pandas library, and how to visualize the processed data using Matplotlib.**
-
----
-
 In the [previous tutorial](/academy/python/scrape-data-python), we learned how to scrape data from the web in Python using the [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) library. The Python ecosystem's strengths lie mainly in data processing, though, so in this tutorial we will learn how to process the data stored in an Apify dataset using the [Pandas](https://pandas.pydata.org/) library, and how to visualize it using [Matplotlib](https://matplotlib.org/).
 
 In this tutorial, we will use the Actor we created in the [previous tutorial](/academy/python/scrape-data-python), so if you haven't completed that tutorial yet, please do so now.

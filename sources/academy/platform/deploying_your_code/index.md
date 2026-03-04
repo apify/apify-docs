@@ -9,10 +9,6 @@ slug: /deploying-your-code
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor.**
-
----
-
 This section discusses how to use your newfound knowledge of the Apify platform and Actors from the [**Getting started**](../getting_started/index.md) section to deploy your existing project's code to the Apify platform as an Actor.
 Any program running in a Docker container can become an Apify Actor.
 

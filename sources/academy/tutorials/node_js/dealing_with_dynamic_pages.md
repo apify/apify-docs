@@ -7,10 +7,6 @@ slug: /node-js/dealing-with-dynamic-pages
 
 import Example from '!!raw-loader!roa-loader!./dealing_with_dynamic_pages.js';
 
-**Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?**
-
----
-
 ## A quick experiment {#quick-experiment}
 
 From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page.

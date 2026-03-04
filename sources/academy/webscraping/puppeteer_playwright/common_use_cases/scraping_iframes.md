@@ -5,10 +5,6 @@ sidebar_position: 5
 slug: /puppeteer-playwright/common-use-cases/scraping-iframes
 ---
 
-**Extracting data from iFrames can be frustrating. In this tutorial, we will learn how to scrape information from iFrames using Puppeteer or Playwright.**
-
----
-
 Getting information from inside iFrames is a known pain, especially for new developers. After spending some time on Stack Overflow, you usually find answers like jQuery's `contents()` method or native contentDocument property, which can guide you to the insides of an iframe. But still, getting the right identifiers and holding that new context is a little annoying. Fortunately, you can make everything simpler and more straightforward by scraping iFrames with Puppeteer.
 
 ## Finding the right `<iframe>`

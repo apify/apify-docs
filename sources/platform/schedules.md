@@ -6,10 +6,6 @@ category: platform
 slug: /schedules
 ---
 
-**Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.**
-
----
-
 Schedules allow you to run your Actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 :::note Timezone & Daylight Savings Time

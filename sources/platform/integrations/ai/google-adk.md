@@ -6,10 +6,6 @@ sidebar_position: 2
 slug: /integrations/google-adk
 ---
 
-**Learn how to integrate Apify Actors as tools for AI with Agent Development Kit (ADK).**
-
----
-
 ## What is the Google ADK
 
 [Google Agent Development Kit](https://github.com/google/adk-python) is a framework for developing and deploying AI agents.

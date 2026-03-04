@@ -6,10 +6,6 @@ sidebar_label: III - Tasks & storage
 slug: /expert-scraping-with-apify/tasks-and-storage
 ---
 
-**Understand how to save the configurations for Actors with Actor tasks. Also, learn about storage and the different types Apify offers.**
-
----
-
 Both of these are very different things; however, they are also tied together in many ways. **Tasks** run Actors, Actors return data, and data is stored in different types of **Storages**.
 
 ## Tasks {#tasks}

@@ -6,10 +6,6 @@ sidebar_position: 11
 slug: /integrations/mastra
 ---
 
-**Learn how to build AI agents with Mastra and Apify Actors MCP Server.**
-
----
-
 ## What is Mastra
 
 [Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. Supporting any LLM (e.g., GPT-4, Claude, Gemini). You can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com).
