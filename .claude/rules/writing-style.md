@@ -93,6 +93,181 @@ Acceptable uses of "our" - direct team actions or invitations:
 - "We're excited to announce..." (team action)
 - "Join our webinar" (direct invitation)
 
+## Headings
+
+### Casing
+
+**Sentence case only.** Capitalize only the first word and proper nouns.
+
+#### Common mistakes
+
+| Avoid (Title Case) | Prefer (Sentence case) | Rule |
+|-------------------|------------------------|------|
+| Store And Manage Data | Store and manage data | Lowercase articles, conjunctions, prepositions |
+| Getting Started With Actors | Get started with Actors | "Actors" stays capitalized (Apify product name) |
+| Use The Apify SDK | Use the Apify SDK | "SDK" stays capitalized (acronym) |
+| Advanced Web Scraping Techniques | Advanced web scraping techniques | Lowercase generic terms |
+| Configure GitHub Actions | Configure GitHub Actions | Preserve proper noun capitalization |
+| Connect To Google Sheets | Connect to Google Sheets | Lowercase prepositions ("to") |
+| Set Up Your Environment | Set up your environment | Lowercase articles ("your") |
+| API Reference Documentation | API reference documentation | Keep acronyms capitalized, rest lowercase |
+| Working With Docker Containers | Work with Docker containers | "Docker" stays capitalized (product name) |
+| Extend The Base Image | Extend the base image | Lowercase "the" mid-sentence |
+| How Do I Start? | How do I start? | Capitalize "I" in questions |
+| Understanding Request Queues | Understand request queues | Lowercase feature names |
+| Enable Standby Mode | Enable standby mode | Lowercase mode names |
+| Access The Apify Console | Access Apify Console | "Apify Console" stays capitalized (product), no "the" |
+| Run Your First Actor | Run your first Actor | "Actor" capitalized, "your" lowercase |
+| Manage Node Modules | Manage node modules | Lowercase generic terms |
+| Step 1: install the dependencies | Step 1: Install the dependencies | Capitalize after colon (starts new clause) |
+| Option 2: use the alternative approach | Option 2: Use the alternative approach | Capitalize after colon (starts new clause) |
+
+### Form
+
+**No gerunds (-ing forms).** Use noun phrases or imperatives.
+
+| Avoid | Prefer |
+|-------|--------|
+| Finding available tags | Available tags |
+| Getting started with Actors | Get started with Actors |
+| Understanding the API | API overview |
+
+## Text formatting
+
+### Bold
+
+**Do use bold for:**
+- UI elements (buttons, menus, fields, tabs)
+- Critical warnings or key terms that must stand out
+
+**Don't use bold for:**
+- List introductions or section labels
+- Code block introductions
+- General emphasis (use italics instead)
+- Structural labels when context is clear
+
+| Avoid | Prefer |
+|-------|--------|
+| **Examples:** | Examples: |
+| **In your Dockerfile**, use... | In your `Dockerfile`, use... |
+
+### Italics
+
+Use italics for emphasis and introducing new terms:
+
+| Use case | Example |
+|----------|---------|
+| New term introduction | An *Actor* is a serverless program... |
+| Emphasis | This step is *required* for the Actor to work |
+
+### Code formatting
+
+Use backticks for inline code:
+
+- File names: `Dockerfile`, `package.json`, `.actor/actor.json`
+- Commands: `npm install`, `docker build`
+- Config keys: `actorSpecification`, `dockerfile`
+- Variable names: `API_TOKEN`, `userId`
+- Code values: `true`, `null`, `"string"`
+
+### Em dashes
+
+Don't use em dashes (—). Use hyphen with spaces ( - ) instead.
+
+## Links
+
+### Descriptive link text
+
+Use action-oriented, descriptive link text. Avoid generic phrases like "click here" or "this link" - screen readers often read links out of context.
+
+| Avoid | Prefer |
+|-------|--------|
+| `[Click here](url)` to learn more | `[Learn about Actor pricing](url)` |
+| Read more about it `[here](url)` | Read the `[Actor development guide](url)` |
+| See the `[documentation](url)` | `[Read the API documentation](url)` |
+
+### Action verbs for links
+
+Match the verb to the content type:
+
+| Content type | Verbs |
+|--------------|-------|
+| Documentation | Read, View, Check, See |
+| Tutorials | Learn, Build, Follow |
+| Reference | Access, Browse, Explore |
+| Examples | View, Try, Clone |
+
+### Actor references
+
+First mention: Actor name with link, capitalized.
+
+```markdown
+[Website Content Crawler](https://apify.com/apify/website-content-crawler)
+can crawl websites and extract text content.
+```
+
+Subsequent mentions: Just the name, no link needed.
+
+### Tool mentions
+
+When mentioning tools, languages, or external resources, link to their official site:
+
+| Avoid | Prefer |
+|-------|--------|
+| You can use Playwright for this | You can use [Playwright](https://playwright.dev) for this |
+
+### Trim link filler
+
+| Avoid | Prefer |
+|-------|--------|
+| visit the Docker Hub tags page | visit Docker Hub |
+| check out the official docs | check the documentation |
+
+## Numbers and formatting
+
+### Thousands and decimals
+
+- Thousands: comma separator ($1,000)
+- Decimals: period ($9.8)
+
+### Money
+
+- Symbol before amount: $49 (not 49$)
+- Include currency: $49 USD for international context
+
+### Dates
+
+- Format: Month Day, Year
+- Example: August 5, 2024
+- Never: 5.8.2024 or 2024-08-05 in prose (ISO format OK in code)
+- No ordinal suffixes: "August 5" not "August 5th"
+- No abbreviated months: "January" not "Jan"
+
+### Time
+
+- Format: 12-hour with space before AM/PM
+- Example: 5 PM, 11:30 AM
+- Uppercase: PM (not pm or p.m.)
+- Never use periods: "5 PM" not "5 p.m."
+
+## Parallel structure
+
+All items in a list must follow the same grammatical pattern:
+
+**Avoid - mixed patterns:**
+```markdown
+1. Reproducibility - your builds behave the same
+1. Predictability - you know which version
+1. Easier to track down issues
+```
+
+**Prefer - consistent pattern:**
+```markdown
+1. Reproducibility - Your builds behave the same way
+1. Predictability - You know exactly which version you're running
+1. Debugging - Version-specific issues are easier to track down
+```
+
 ## Grammar
 
 ### Articles in definitions
@@ -111,10 +286,6 @@ Always use the serial comma:
 | ---------------------------- | -------------------------------- |
 | pencil, eraser and notebook  | pencil, eraser, and notebook     |
 
-## Formatting, links, and code
-
-See `content-standards.md` for all formatting rules (headings, bold, code, admonitions, lists, links, images, numbers). See `grammar-rules.md` for grammar mechanics (hyphenation, contractions, e.g./i.e., list punctuation).
-
 ## Common Mistakes
 
 Patterns to avoid:
@@ -132,8 +303,10 @@ Patterns to avoid:
 
 ## Reference
 
-This guide covers writing patterns. For structural guidelines (file naming, screenshots, tutorial structure, SEO), see:
+This guide covers writing patterns. For additional rules, see:
 
+- `content-standards.md` - Markdown and Docusaurus formatting (front matter, admonitions, code blocks, images, lists)
+- `grammar-rules.md` - Detailed grammar mechanics (hyphenation, contractions, e.g./i.e., list punctuation)
+- `terminology.md` - Apify product names, capitalization, and word choice
 - [CONTRIBUTING.md](../../CONTRIBUTING.md) - Contribution workflow and repository standards
-- [AGENTS.md](../../AGENTS.md) - Comprehensive documentation guidelines for AI assistants
 - Full Apify style guide: https://www.notion.so/apify/Apify-style-guide-1b9f39950a2280d49e5be69ce2961a79

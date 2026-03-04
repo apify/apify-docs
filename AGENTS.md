@@ -104,8 +104,8 @@ Detailed documentation standards live in `.claude/rules/`:
 
 | File | Covers |
 |---|---|
-| `writing-style.md` | US English, active voice, imperative tone, no sales language |
-| `content-standards.md` | Front matter, headings, formatting, admonitions, code examples, links, images |
+| `writing-style.md` | Voice, tone, headings, text formatting, links, numbers, parallel structure |
+| `content-standards.md` | Front matter, heading hierarchy, admonitions, code blocks, images, lists |
 | `terminology.md` | Product names, article usage, feature terms, Actor references |
 | `grammar-rules.md` | Hyphenation, contractions, e.g./i.e., numbers, list punctuation, brand spelling |
 | `file-organization.md` | Kebab-case naming, directory structure |
