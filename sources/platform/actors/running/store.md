@@ -18,6 +18,8 @@ Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store,
 
 :::
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 ## Pricing models
 
 [//]: # (TODO: link platform usage docs)
@@ -29,6 +31,8 @@ All Actors in [Apify Store](https://apify.com/store) fall into one of the four p
 4. [**Pay per usage**](#pay-per-usage) - you can run the Actor and you pay for the platform usage the Actor generates.
 
 ### Rental Actors
+
+<RentalSunset/>
 
 Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the _highest quality_ and receive _ongoing maintenance_.
 
