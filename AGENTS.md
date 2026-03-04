@@ -98,27 +98,136 @@ Use `npm run start:dev` + nginx to serve all repos together locally. See `CONTRI
 
 ---
 
-## Writing and style standards
+## Writing style
 
-Detailed documentation standards live in `.claude/rules/`:
+### Language and tone
 
-| File | Covers |
+- **US English** spelling (analyze, color, not analyse, colour)
+- **Active voice** and **imperative tone** ("Install the package", not "You should install")
+- **Simple English** - no sentence over 30 words, get to the point
+- **Inclusive language** - avoid gendered terms, don't use directional language (left/right) for UI
+- No first person ("I recommend") - use "you" for the reader
+- No sales language ("ultimate", "cutting-edge", "supercharge")
+
+### Headings
+
+- **Sentence case only** - capitalize first word and proper nouns only
+- **No gerunds** (-ing forms) - use noun phrases or imperatives
+- **Capitalize after colons** when introducing a complete clause
+- **Proper hierarchy** - H1 (from frontmatter) → H2 → H3 → H4, never skip levels
+
+Examples:
+
+| Avoid | Prefer |
 |---|---|
-| `writing-style.md` | Voice, tone, headings, text formatting, links, numbers, parallel structure |
-| `content-standards.md` | Front matter, heading hierarchy, admonitions, code blocks, images, lists |
-| `terminology.md` | Product names, article usage, feature terms, Actor references |
-| `grammar-rules.md` | Hyphenation, contractions, e.g./i.e., numbers, list punctuation, brand spelling |
-| `file-organization.md` | Kebab-case naming, directory structure |
-| `quality-standards.md` | Complete pre-submission checklist |
+| Store And Manage Data | Store and manage data |
+| Getting Started With Actors | Get started with Actors |
+| Step 1: install the dependencies | Step 1: Install the dependencies |
 
-Read these files for the full rules. The most critical rules at a glance:
+### Text formatting
 
-- **US English**, active voice, imperative tone, no sales language
-- **Sentence case headings** - no title case, no gerunds (-ing forms)
-- **Bold for UI elements only** - not for structure or emphasis
-- **All admonitions must have titles**
-- **No em dashes** - use hyphen with spaces ( - ) instead
-- **Terminology** - capitalize product names (Apify Actor, Apify Console), lowercase features (dataset, schedule, run)
-- **Numbered lists** use `1.` for all items, with parallel structure
-- **Descriptive link text** - no "click here"
-- Run `npm run lint` before submitting
+- **Bold** for UI elements only (buttons, menus, fields) and critical warnings
+- *Italics* for emphasis and introducing new terms
+- `code` for file names, commands, config keys, variables, and code values
+- Never use bold for list introductions or general emphasis
+
+### Admonitions
+
+All admonitions must have titles (2-3 scannable words). Types: `note`, `tip`, `info`, `caution`, `danger`.
+
+```markdown
+:::note Actor versions
+Actors can have multiple versions. Pin to a specific version for production use.
+:::
+```
+
+### Lists
+
+- Numbered lists (`1.` for all items) for sequential steps
+- Bullet points for non-sequential items
+- All items must follow the same grammatical pattern (parallel structure)
+- Use Oxford commas
+
+### Links
+
+- Descriptive, action-oriented link text (never "click here" or "here")
+- Internal links use relative paths, never full URLs
+- Link external tools to official sites on first mention
+- Link Actor names on first mention
+
+### Em dashes
+
+Don't use em dashes (—). Use hyphen with spaces ( - ) instead.
+
+## Content formatting
+
+### Front matter
+
+Every `.md`/`.mdx` file requires:
+
+```yaml
+---
+title: Sentence case title
+description: 140-160 character description for SEO
+sidebar_position: 1.0
+slug: /path/to/page
+---
+```
+
+### Code examples
+
+- Complete and runnable
+- Syntax highlighting specified for all code blocks
+- Code tabs for multi-language examples (JavaScript + Python)
+- Version matching between Dockerfile tags and package.json
+
+### Images
+
+- Meaningful alt text on all images
+- Light theme for screenshots
+- Red indicators to highlight UI elements
+- Store in `images/` subdirectory next to the markdown file
+- PNG for screenshots, SVG for logos
+
+## Terminology
+
+### Product names (always capitalize)
+
+Apify Actor, Apify Proxy, Apify Console, Apify Store, Apify SDK, Apify CLI, Apify API
+
+### Platform terms (lowercase with "the")
+
+the Apify platform, the Apify team, the Apify ecosystem
+
+### Feature terms (always lowercase)
+
+task, schedule, run, build, dataset, key-value store, request queue, web scraping
+
+### Generic technical terms (lowercase)
+
+AI agent, MCP server, API endpoint, web scraper, proxy server
+
+### Actor references
+
+First mention: full name with link (`[Website Content Crawler](https://apify.com/apify/website-content-crawler)`). Subsequent mentions: just the name.
+
+## File organization
+
+- **Kebab-case** for file names: `web-scraping-basics.md`
+- Match slug to file path
+- Group related files in logical directories
+
+## Review checklist
+
+When creating or reviewing documentation, verify:
+
+- [ ] Sentence case headings, no gerunds, proper hierarchy
+- [ ] Front matter complete (title, description 140-160 chars, sidebar_position, slug)
+- [ ] Bold used only for UI elements
+- [ ] All admonitions have titles
+- [ ] Code examples are complete with syntax highlighting
+- [ ] Links use descriptive text, internal links use relative paths
+- [ ] Images have alt text, use light theme
+- [ ] Terminology matches rules above
+- [ ] US English, active voice, no sales language
+- [ ] `npm run lint` passes
