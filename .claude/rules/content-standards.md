@@ -1,9 +1,3 @@
----
-description: Standard formatting rules for all Apify documentation
-globs: ["sources/**/*.md", "sources/**/*.mdx"]
-alwaysApply: true
----
-
 # Content Standards
 
 Canonical formatting standards for all Apify documentation. These rules ensure consistency across platform docs, academy tutorials, and API references.

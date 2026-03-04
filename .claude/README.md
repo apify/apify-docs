@@ -94,6 +94,7 @@ Before submitting:
 ```bash
 npm run lint:md      # Check markdown
 npm run lint:code    # Check code
+vale "path/to/file.md" --minAlertLevel=error  # Check prose style
 npm start            # Preview changes
 npm test             # Validate API specs
 ```
@@ -103,7 +104,7 @@ npm test             # Validate API specs
 1. **Read `AGENTS.md` first** - Vendor-agnostic documentation standards
 2. **Check `.claude/rules/`** - Auto-loaded standards for writing, formatting, terminology
 3. **Use the appropriate skill** - Designed for specific documentation tasks
-4. **Run linters before committing** - `npm run lint:md` and `npm run lint:code`
+4. **Run linters before committing** - `npm run lint:md`, `npm run lint:code`, and `vale`
 5. **Review before submit** - Use `/review-docs` skill for final checks
 
 ## Need help?

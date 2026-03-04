@@ -1,9 +1,3 @@
----
-description: Content quality checklist and review standards
-globs: ["sources/**/*.md", "sources/**/*.mdx"]
-alwaysApply: true
----
-
 # Quality Standards
 
 Comprehensive quality checklist for all Apify documentation. Use this before submitting any content for review.

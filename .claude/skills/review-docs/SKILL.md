@@ -1,6 +1,7 @@
 ---
 name: review-docs
 description: Review Apify documentation for style guide compliance, quality standards, and best practices. Use when user says "review this doc", "check this page", "audit documentation", "review before PR", "is this ready to publish", or "review-docs". Runs automated checks and manual review against Apify style guide.
+argument-hint: file-path
 ---
 
 # Documentation review
@@ -31,6 +32,7 @@ Review compliance against all standards in `.claude/rules/`:
 ```bash
 npm run lint:md        # Markdownlint - Markdown syntax/formatting
 npm run lint:code      # ESLint - Code linting
+vale "path/to/file.md" --minAlertLevel=error  # Vale - Prose and style
 ```
 
 ## Review checklist
@@ -63,31 +65,6 @@ These aspects require judgment and aren't covered by the rules files:
 - [ ] **Accessibility** - Proper heading hierarchy, descriptive link text, image alt text
 - [ ] **SEO** - Descriptive title, meta description 140-160 chars, internal linking
 
-## How to review
-
-### Step 1: Run automated checks
-
-```bash
-npm run lint:md        # Markdownlint - Markdown syntax/formatting
-npm run lint:code      # ESLint - Code linting
-```
-
-### Step 2: Check style compliance
-
-For each of the rules files listed above, review the content against that file's standards. Use a subagent per file to read the rules and check compliance. Collect all violations.
-
-### Step 3: Content review
-
-Go through the manual content review checklist above. These require human/AI judgment about structure, accuracy, and completeness.
-
-### Step 4: Provide feedback
-
-Format your review using the output template below.
-
-```markdown
-## Documentation review: [File name]
-```
-
 ## Examples
 
 Example 1: Pre-PR review
@@ -97,6 +74,7 @@ User says: "Review sources/platform/actors/running.md before I submit"
 Actions:
 1. Read the file
 1. Run `npx markdownlint "sources/platform/actors/running.md"`
+1. Run `vale "sources/platform/actors/running.md" --minAlertLevel=error`
 1. Check against review checklist
 1. Output structured review with strengths, issues, and priority fixes
 

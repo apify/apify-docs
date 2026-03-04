@@ -1,9 +1,3 @@
----
-description: Grammar mechanics and punctuation rules for Apify documentation
-globs: ["sources/**/*.md", "sources/**/*.mdx"]
-alwaysApply: true
----
-
 # Grammar rules
 
 Grammar mechanics and punctuation rules for all Apify documentation. These complement the writing style and terminology guides.
@@ -171,6 +165,5 @@ Use the exact official spelling for tools and brand names:
 | Postgresql, Postgres | PostgreSQL |
 | Jquery | jQuery |
 | Wordpress | WordPress |
-| Elasticsearch | Elasticsearch |
 | VSCode, VS code | VS Code |
 | DockerFile, dockerfile | Dockerfile |

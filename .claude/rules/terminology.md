@@ -1,9 +1,3 @@
----
-description: Official Apify product and technical terminology
-globs: ["sources/**/*.md", "sources/**/*.mdx", "apify-api/**/*.yaml"]
-alwaysApply: true
----
-
 # Apify Terminology
 
 Official capitalization and usage rules for Apify-specific terms. Use these exact forms throughout all documentation.

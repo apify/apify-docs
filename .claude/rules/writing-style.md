@@ -1,9 +1,3 @@
----
-description: Comprehensive writing style rules for Apify documentation
-globs: ["sources/**/*.md", "sources/**/*.mdx"]
-alwaysApply: true
----
-
 # Apify Documentation Writing Style
 
 Instructions for AI assistants writing Apify documentation. Based on Apify style guide and technical writer feedback.
