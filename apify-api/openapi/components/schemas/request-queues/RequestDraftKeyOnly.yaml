@@ -1,0 +1,10 @@
+title: RequestDraftKeyOnly
+description: A request by only its unique key.
+required:
+  - uniqueKey
+type: object
+properties:
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    example: GET|60d83e70|e3b0c442|https://apify.com

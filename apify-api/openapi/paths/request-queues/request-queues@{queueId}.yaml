@@ -23,6 +23,13 @@ get:
             $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue
@@ -76,6 +83,13 @@ put:
             $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue

@@ -435,6 +435,13 @@ get:
           example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
@@ -529,6 +536,13 @@ post:
                         params:
                           type: string
                         message: must be string
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items

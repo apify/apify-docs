@@ -1,0 +1,51 @@
+DatasetNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          enum: [Dataset was not found]
+
+KeyValueStoreNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          enum: [Key-value Store was not found]
+
+RequestQueueNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          enum: [Request Queue was not found]
+
+RecordNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          enum: [Record was not found]

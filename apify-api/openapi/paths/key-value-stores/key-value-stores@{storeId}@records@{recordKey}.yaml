@@ -80,6 +80,14 @@ get:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RecordNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record

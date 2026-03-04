@@ -41,3 +41,10 @@ get:
     #  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#statistics
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"

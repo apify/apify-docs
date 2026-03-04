@@ -146,7 +146,6 @@ delete:
         enum:
           - application/json
         type: string
-        example: application/json
     - name: clientKey
       in: query
       description: |
@@ -157,32 +156,23 @@ delete:
       schema:
         type: string
         example: client-abc
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/request-queues/RequestDraftKeyOnly.yaml
+    required: true
   responses:
-    "204":
+    "200":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/BatchDeleteResponse.yaml
-              - example:
-                  data:
-                    processedRequests:
-                      - uniqueKey: "http://example.com"
-                    unprocessedRequests:
-                      - uniqueKey: http://example.com/2
-                        url: http://example.com/2
-                        method: GET
-          example:
-            data:
-              processedRequests:
-                - uniqueKey: "http://example.com"
-              unprocessedRequests:
-                - uniqueKey: http://example.com/2
-                  id: sbJ7klsdf7ujN9l
-                  url: http://example.com/2
-                  method: GET
+            $ref: ../../components/schemas/request-queues/BatchDeleteResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
