@@ -39,7 +39,12 @@ get:
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "404":
-      $ref: ../../components/responses/NotFound.yaml
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
   x-js-parent: BuildClient
   x-js-name: getOpenApiDefinition
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#getOpenApiDefinition
