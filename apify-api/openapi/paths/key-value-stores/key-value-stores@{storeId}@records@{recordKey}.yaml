@@ -179,13 +179,14 @@ put:
     - name: Content-Encoding
       in: header
       description: ""
-      required: true
+      required: false
       style: simple
       schema:
         enum:
           - gzip
+          - deflate
+          - br
         type: string
-        example: gzip
   requestBody:
     description: ""
     content:

@@ -84,8 +84,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys

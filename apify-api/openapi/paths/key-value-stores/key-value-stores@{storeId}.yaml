@@ -30,8 +30,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store
@@ -87,8 +86,7 @@ put:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/update-store
@@ -127,8 +125,7 @@ delete:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store

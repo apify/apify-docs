@@ -49,8 +49,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset
@@ -104,8 +103,7 @@ put:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/update-dataset
@@ -144,8 +142,7 @@ delete:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/delete-dataset
