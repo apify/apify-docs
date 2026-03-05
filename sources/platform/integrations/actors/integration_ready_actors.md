@@ -88,7 +88,7 @@ const datasetIdToProcess = datasetId || payload?.resource?.defaultDatasetId;
 
 In the above example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
 
-## Making your Actor available to other users
+## Make your Actor available to other users
 
 To allow other users to use your Actor as an integration, all you need to do is [publish it in Apify Store](/platform/actors/publishing), so users can then integrate it using the **Connect Actor or task** button on the **Integrations** tab of any Actor. While publishing the Actor is enough, there are two ways to make it more visible to users.
 

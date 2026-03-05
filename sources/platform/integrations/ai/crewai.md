@@ -12,7 +12,7 @@ slug: /integrations/crewai
 
 ## What is CrewAI
 
-[CrewAI](https://www.crewai.com/) is an open-source Python framework designed to orchestrate autonomous, role-playing AI agents that collaborate as a "crew" to tackle complex tasks. It enables developers to define agents with specific roles, assign tasks, and integrate tools—like Apify Actors—for real-world data retrieval and automation.
+[CrewAI](https://www.crewai.com/) is an open-source Python framework designed to orchestrate autonomous, role-playing AI agents that collaborate as a "crew" to tackle complex tasks. It enables developers to define agents with specific roles, assign tasks, and integrate tools - like Apify Actors - for real-world data retrieval and automation.
 
 :::note Explore CrewAI
 
@@ -34,7 +34,7 @@ This guide demonstrates how to integrate Apify Actors with CrewAI by building a 
     pip install 'crewai[tools]' langchain-apify langchain-openai
     ```
 
-### Building the TikTok profile search and analysis crew
+### Build the TikTok profile search and analysis crew
 
 First, import all required packages:
 

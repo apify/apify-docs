@@ -265,7 +265,7 @@ You can compress a record and use the [Content-Encoding request header](https://
 
 _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or our [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files._ We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
 
-## Sharing
+## Share
 
 You can grant [access rights](../collaboration/index.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
@@ -273,7 +273,7 @@ You can also share key-value stores by link using their ID or name, depending on
 
 For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
 
-### Sharing key-value stores between runs
+### Share key-value stores between runs
 
 You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 

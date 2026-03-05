@@ -72,6 +72,7 @@ This adds skill files to your project that AI coding assistants automatically di
 
 ## Use Apify MCP server
 
+
 The Apify MCP server has tools to search and fetch documentation. If you set it up in your AI editor, it will help you improve the generated code by providing additional context to the AI.
 
 :::info Use Apify MCP server configuration
