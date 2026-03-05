@@ -32,7 +32,7 @@ All Actors in [Apify Store](https://apify.com/store) fall into one of the four p
 
 ### Rental Actors
 
-{/* <RentalSunset/> */}
+<RentalSunset/>
 
 Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the _highest quality_ and receive _ongoing maintenance_.
 
