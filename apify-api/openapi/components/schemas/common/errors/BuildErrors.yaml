@@ -1,0 +1,12 @@
+UnknownBuildTagError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [unknown-build-tag]
+        message:
+          type: string
+          example: 'Build with tag "latest" was not found. Has the Actor been built already?'

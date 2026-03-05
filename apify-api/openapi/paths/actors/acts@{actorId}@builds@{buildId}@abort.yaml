@@ -63,6 +63,14 @@ post:
               buildNumber: 0.1.1
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
   deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-build/abort-build
