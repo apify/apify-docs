@@ -89,6 +89,13 @@ post:
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
+              storageIds:
+                datasets:
+                  default: wmKPijuyDnPZAPRMk
+                keyValueStores:
+                  default: eJNzqsbPiopwJcgGQ
+                requestQueues:
+                  default: FL35cSF7jrxr3BY39
               isContainerServerReady: false
               gitBranchName: master
               usage:
