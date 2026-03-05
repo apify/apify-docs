@@ -97,6 +97,31 @@ properties:
     type: string
     examples: [FL35cSF7jrxr3BY39]
     description: ID of the default request queue for this run.
+  storageIds:
+    type: object
+    description: A map of named storage IDs associated with this run, grouped by storage type.
+    properties:
+      datasets:
+        type: object
+        description: Named dataset IDs for this run.
+        additionalProperties:
+          type: string
+        example:
+          default: wmKPijuyDnPZAPRMk
+      keyValueStores:
+        type: object
+        description: Named key-value store IDs for this run.
+        additionalProperties:
+          type: string
+        example:
+          default: eJNzqsbPiopwJcgGQ
+      requestQueues:
+        type: object
+        description: Named request queue IDs for this run.
+        additionalProperties:
+          type: string
+        example:
+          default: FL35cSF7jrxr3BY39
   buildNumber:
     type: string
     examples: [0.0.36]
