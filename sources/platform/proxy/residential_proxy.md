@@ -20,7 +20,7 @@ Residential proxies support [IP address rotation](./usage.md#ip-address-rotation
 
 **Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in the Apify Console.
 
-## Connecting to residential proxy
+## Connect to residential proxy
 
 Connecting to residential proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences.
 

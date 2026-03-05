@@ -47,7 +47,7 @@ This feature is also useful if you have your own pool of proxy servers and still
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
 
-## Connecting to datacenter proxies
+## Connect to datacenter proxies
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 

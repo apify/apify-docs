@@ -106,7 +106,7 @@ No, the Actor is free to run. You only pay for the results.
 
 ##### What happens when I interact with the dataset after the run finishes?
 
-Under the **pay per result** model, all platform costs generated _during the run of an Actor_ are not charged towards your account; you pay for the results instead. After the run finishes, any interactions with the default dataset storing the results, such as reading the results or writing additional data, will incur the standard platform usage costs. But do not worry, in the vast majority of cases, you only want to read the result from the dataset and that costs near to nothing.
+Under the **pay per result** model, all platform costs generated _during the run of an Actor_ are not charged towards your account; you pay for the results instead. After the run finishes, any interactions with the default dataset storing the results, such as reading the results or writing additional data, will incur the standard platform usage costs. But do not worry - in the vast majority of cases, you only want to read the result from the dataset and that costs near to nothing.
 
 ##### Do I pay for the storage of results on the Apify platform?
 
@@ -211,7 +211,7 @@ _For more information on platform usage cost see the [usage and resources](./usa
 
 :::
 
-## Reporting issues with Actors
+## Report issues with Actors
 
 Each Actor has an **Issues** tab in Apify Console. There, you can open an issue (ticket) and chat with the Actor's author, platform admins,
 and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can

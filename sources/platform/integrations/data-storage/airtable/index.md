@@ -64,7 +64,7 @@ The extension provides the following capabilities:
 
 ### Run Actor
 
-1. Select any Actor from **Apify store** or **recently used Actors**
+1. Select any Actor from **Apify Store** or **recently used Actors**
 ![Select Actor screen](../../images/airtable/airtable_actor_select.png)
 
 1. Fill in the Actor input form.
@@ -90,7 +90,7 @@ Retrieve items from any Apify dataset and import them into your Airtable base wi
 
 This section explains how to map your Actor run results or dataset items into your Airtable base.
 
-#### Understanding mapping rows
+#### Understand mapping rows
 
 The Apify extension provides UI elements that allow you to map dataset fields to Airtable fields.
 
@@ -132,7 +132,7 @@ _How it works_: For a source field like `crawl.depth`, the extension checks for 
 To prevent duplicate records, select a **Unique ID** on the data mapping step. The unique ID is added to the list of mapping rows. Ensure it points to the correct field in your table. During import, the extension filters data by existing values in the table.
 ![Select unique ID](../../images/airtable/airtable_unique_id.png)
 
-#### Preview Mapped Data
+#### Preview mapped data
 
 Preview the results and start the import
 
