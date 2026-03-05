@@ -9,4 +9,4 @@ UnknownBuildTagError:
           enum: [unknown-build-tag]
         message:
           type: string
-          enum: [Build with tag \"latest\" was not found. Has the Actor been built already?]
+          example: 'Build with tag "latest" was not found. Has the Actor been built already?'

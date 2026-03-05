@@ -88,8 +88,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor
@@ -276,8 +275,7 @@ put:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor
@@ -321,8 +319,7 @@ delete:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/delete-actor

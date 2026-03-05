@@ -38,8 +38,7 @@ post:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/abort-build/abort-build

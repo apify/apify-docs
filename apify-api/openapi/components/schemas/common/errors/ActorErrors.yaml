@@ -9,7 +9,7 @@ ActorNotFoundError:
           enum: [actor-not-found]
         message:
           type: string
-          enum: [Actor was not found]
+          example: Actor was not found
 
 ActorBuildNotFoundError:
   type: object
@@ -22,7 +22,7 @@ ActorBuildNotFoundError:
           enum: [record-not-found]
         message:
           type: string
-          enum: [Actor build was not found]
+          example: Actor build was not found
 
 ActorRunNotFoundError:
   type: object
@@ -35,7 +35,7 @@ ActorRunNotFoundError:
           enum: [record-not-found]
         message:
           type: string
-          enum: [Actor run was not found]
+          example: Actor run was not found
 
 ActorRunTimeoutExceededError:
   type: object
@@ -48,7 +48,6 @@ ActorRunTimeoutExceededError:
           enum: [run-timeout-exceeded]
         message:
           type: string
-          pattern: '^Actor run exceeded the timeout of \d+ seconds for this API endpoint'
           example: Actor run exceeded the timeout of 300 seconds for this API endpoint
 
 ActorRunFailedError:
@@ -62,7 +61,6 @@ ActorRunFailedError:
           enum: [run-failed]
         message:
           type: string
-          pattern: '^Actor run did not succeed \(run ID: .+, status: .+\)'
           example: "Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)"
 
 ActorVersionNotFoundError:
@@ -76,4 +74,4 @@ ActorVersionNotFoundError:
           enum: [record-not-found]
         message:
           type: string
-          enum: [Actor version was not found]
+          example: Actor version was not found

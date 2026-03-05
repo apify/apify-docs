@@ -366,23 +366,20 @@ post:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "408":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items
@@ -731,23 +728,20 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "408":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-without-input-and-get-dataset-items

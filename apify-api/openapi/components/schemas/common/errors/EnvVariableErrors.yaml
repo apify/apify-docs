@@ -9,4 +9,4 @@ EnvironmentVariableNotFoundError:
           enum: [record-not-found]
         message:
           type: string
-          enum: [Environment variable was not found]
+          example: Environment variable was not found

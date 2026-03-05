@@ -43,8 +43,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
   x-js-parent: BuildClient
   x-js-name: getOpenApiDefinition
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#getOpenApiDefinition
