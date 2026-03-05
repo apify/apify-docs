@@ -172,6 +172,37 @@ Users set a spending limit through the Apify Console. This limit is available in
 
 When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()` instead of `Actor.exit()` to gracefully finish the crawler.
 
+### Keep pricing simple with fewer events
+
+Try to limit the number of events. Fewer events make it easier for users to understand your pricing and predict their costs.
+
+### Make events produce visible results
+
+For Actors that produce data, events should map to something concrete in the user's dataset or storage.
+
+However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
+
+Examples:
+
+- _`post` event_: Each charge adds one social media post to the dataset
+- _`profile` event_: Each charge adds one user profile to the dataset
+- _`processed-image` event_: Each charge adds one processed image to the dataset
+- _`ai-analysis` event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
+
+:::note Additional context
+
+You can display a status message or push a record to the dataset to inform users about non-data actions performed by your Actor. This helps users understand what actions were charged for, even if those actions do not produce tangible output.
+
+:::
+
+### Use idempotency keys to prevent double charges
+
+If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
+
+## Code examples
+
+The following examples show common charging patterns using the Apify SDK. Use the [JS](/sdk/js/reference/class/Actor#charge) or [Python](/sdk/python/reference/class/Actor#charge) SDK to handle idempotency, API errors, and spending limits automatically.
+
 ### Charge per result
 
 Charge an event when your Actor produces a data item and check the spending limit before continuing.
@@ -394,33 +425,6 @@ async def main():
 
 </TabItem>
 </Tabs>
-
-### Keep pricing simple with fewer events
-
-Try to limit the number of events. Fewer events make it easier for users to understand your pricing and predict their costs.
-
-### Make events produce visible results
-
-For Actors that produce data, events should map to something concrete in the user's dataset or storage.
-
-However, we acknowledge that some events don't produce tangible results (such as running AI workflows or processing external API calls). This flexibility gives you the freedom to charge for special operations, complex workflows, and unique value propositions.
-
-Examples:
-
-- _`post` event_: Each charge adds one social media post to the dataset
-- _`profile` event_: Each charge adds one user profile to the dataset
-- _`processed-image` event_: Each charge adds one processed image to the dataset
-- _`ai-analysis` event_: Each charge processes one document through an AI workflow (no tangible output, but valuable processing)
-
-:::note Additional context
-
-You can display a status message or push a record to the dataset to inform users about non-data actions performed by your Actor. This helps users understand what actions were charged for, even if those actions do not produce tangible output.
-
-:::
-
-### Use idempotency keys to prevent double charges
-
-If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (ensuring the same operation produces the same result when called multiple times) manually to prevent charging the same event multiple times.
 
 ## Example of a PPE pricing
 
