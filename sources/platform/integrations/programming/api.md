@@ -203,7 +203,7 @@ Therefore, you need to make sure the token has sufficient permissions not only t
 Let's say you want to create a webhook that pushes an item to a dataset every time an Actor successfully finishes. Then such a scoped token needs to be allowed to both run the Actor (to create the webhook), and write to that dataset.
 :::
 
-### Troubleshoot scoped tokens
+### Troubleshooting scoped tokens
 
 #### How do I allow a token to run a task?
 
