@@ -12,24 +12,8 @@ unlisted: true
 
 When you publish your Actor on the Apify platform, you have the option to make it a _Paid Actor_ and earn revenue from users who benefit from your tool. You can choose between two pricing models:
 
-- Rental
 - Pay-per-result
-
-## Rental pricing model
-
-With the rental model, you can specify a free trial period and a monthly rental price. After the trial, users with an [Apify paid plan](https://apify.com/pricing) can continue using your Actor by paying the monthly fee. You can receive 80% of the total rental fees collected each month.
-
-<details>
-    <summary>Example - rental pricing model</summary>
-
-You make your Actor rental with 7 days free trial and then $30/month. During the first calendar month, three users start to use your Actor:
-
-1. First user, on Apify paid plan, starts the free trial on 15th
-2. Second user, on Apify paid plan, starts the free trial on 25th
-3. Third user, on Apify free plan, start the free trial on 20th
-
-The first user pays their first rent 7 days after the free trial, i.e., on 22nd. The second user only starts paying the rent next month. The third user is on Apify free plan, so after the free trial ends on 27th, they are not charged and cannot use the Actor further until they get a paid plan. Your profit is computed only from the first user. They were charged $30, so 80% of this goes to you, i.e., _0.8 * 30 = $24_.
-</details>
+- Rental
 
 ## Pay-per-result pricing model
 
@@ -80,6 +64,22 @@ Read more about Actors in the Store and different pricing models from the perspe
 You make your Actor pay-per-result and set price to be $1/1,000 results. During the first month, two users on Apify paid plans use your Actor to get 50,000 and 20,000 results, costing them $50 and $20 respectively. Let's say the underlying platform usage for the first user is $5 and for the second $2. Third user, this time on Apify free plan, uses the Actor to get 5,000 results, with underlying platform usage $0.5.
 
 Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue for the first user is $50 and for the second $20, i.e., total revenue is $70. The total underlying cost is _$5 + $2 = $7_. Since your profit is 80% of the revenue minus the cost, it would be _0.8 * 70 - 7 = $49_.
+</details>
+
+## Rental pricing model
+
+With the rental model, you can specify a free trial period and a monthly rental price. After the trial, users with an [Apify paid plan](https://apify.com/pricing) can continue using your Actor by paying the monthly fee. You can receive 80% of the total rental fees collected each month.
+
+<details>
+    <summary>Example - rental pricing model</summary>
+
+You make your Actor rental with 7 days free trial and then $30/month. During the first calendar month, three users start to use your Actor:
+
+1. First user, on Apify paid plan, starts the free trial on 15th
+1. Second user, on Apify paid plan, starts the free trial on 25th
+1. Third user, on Apify free plan, start the free trial on 20th
+
+The first user pays their first rent 7 days after the free trial, i.e., on 22nd. The second user only starts paying the rent next month. The third user is on Apify free plan, so after the free trial ends on 27th, they are not charged and cannot use the Actor further until they get a paid plan. Your profit is computed only from the first user. They were charged $30, so 80% of this goes to you, i.e., _0.8 * 30 = $24_.
 </details>
 
 ### Best practices for Pay-per-results Actors
