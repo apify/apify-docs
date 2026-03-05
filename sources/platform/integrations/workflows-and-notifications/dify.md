@@ -97,7 +97,7 @@ Add the **Run Actor task** tool to your workflow and enter the **Task ID** you w
 
 #### Scrape Single URL  
 
-Add the **Scrape Single URL** tool and enter the **URL** to scrape (for example, `https://docs.apify.com/`). Select the **Crawler type**, we recommend **Raw HTTP** for faster execution within Dify's timeout limits. Add an **Output** node and map its output variable to the result.  
+Add the **Scrape Single URL** tool and enter the **URL** to scrape (for example, `https://docs.apify.com/`). Select the **Crawler type**, use **Raw HTTP** for faster execution within Dify's timeout limits. Add an **Output** node and map its output variable to the result.  
 
 ![Scrape Single URL Node](../images/dify-scrape-input.png)  
 
@@ -121,7 +121,7 @@ Triggers enable your Dify application to respond automatically to Apify events, 
 
 ### Set up a webhook endpoint
 
- In Dify, navigate to **Plugins** from the top menu. Click on your plugin and lookf for **Endpoints** section. Select the **+** icon to create a new endpoint. Choose the **Workflow** or **Chatflow** application you want to trigger and give it a name. Select **Save** — Dify will generate two URLs.  
+In Dify, navigate to **Plugins** from the top menu. Click on your plugin and look for **Endpoints** section. Select the **+** icon to create a new endpoint. Choose the **Workflow** or **Chatflow** application you want to trigger and give it a name. Select **Save** — Dify will generate two URLs.  
 
 ![Create Dify Endpoint](../images/dify-workflow-endpoints.png)
 ![Create Dify Endpoint](../images/dify-workflow-input.png)  
@@ -158,7 +158,7 @@ When triggering a Chatflow, you must provide a **Payload template** in the Apify
 
 When an Apify Actor run completes and triggers your Dify workflow, Apify sends a [JSON response object](https://docs.apify.com/api/v2/act-runs-post#responses) containing information about the completed run. This includes details like the run ID, Actor ID, dataset ID, and status.
 
-#### Understanding nested data access
+#### Understand nested data access
 
 Dify's variable system cannot directly access nested JSON properties using dot notation like `resource.id`. Instead, you must use a flattened format where each level of nesting is represented by double underscores (`__`).
 
@@ -192,10 +192,10 @@ To use nested properties from the webhook payload in your workflow:
 
 A common use case is automatically fetching data from a dataset after an Actor run completes. Here's how to set it up:
 
-1. **Define the dataset ID variable**: In your workflow's Input node, add an input variable named `resource__defaultDatasetId` to capture the dataset ID from the webhook payload.
-1. **Add the Get Dataset Items tool**: Add the **Get Dataset Items** Apify tool to your workflow.
-1. **Use the variable**: In the **Dataset ID** field of the Get Dataset Items tool, reference your input variable (e.g., `{{resource__defaultDatasetId}}`).
-1. **Process the data**: The tool retrieves all items from the dataset, which you can then process, transform, or send to other services in your workflow.
+1. _Define the dataset ID variable_: In your workflow's Input node, add an input variable named `resource__defaultDatasetId` to capture the dataset ID from the webhook payload.
+1. _Add the Get Dataset Items tool_: Add the **Get Dataset Items** Apify tool to your workflow.
+1. _Use the variable_: In the **Dataset ID** field of the Get Dataset Items tool, reference your input variable (e.g., `{{resource__defaultDatasetId}}`).
+1. _Process the data_: The tool retrieves all items from the dataset, which you can then process, transform, or send to other services in your workflow.
 
 ![Chatflow Payload Template](../images/dify-input-variable-webhook.png)  
 
