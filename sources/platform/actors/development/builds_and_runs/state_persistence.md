@@ -43,7 +43,7 @@ By default, an Actor keeps its state in the server's memory. During a server swi
 
 ## Implement state persistence
 
-Use the [`Actor.useState()`](/sdk/js/reference/class/Actor#useState)/[`Actor.use_state()`](/sdk/python/reference/class/Actor#use_state) method to persist state across migrations. This method automatically saves your state to the key-value store and restores it when the Actor restarts.
+Use the JS SDK's [`Actor.useState()`](/sdk/js/reference/class/Actor#useState) or Python SDK's [`Actor.use_state()`](/sdk/python/reference/class/Actor#use_state) methods to persist state across migrations. This method automatically saves your state to the key-value store and restores it when the Actor restarts.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
