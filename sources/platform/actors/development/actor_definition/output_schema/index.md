@@ -69,11 +69,11 @@ The output schema defines the collections of keys and their properties. It allow
 
 ### Output object definition
 
-| Property       | Type         | Required     | Description                                                                                                                                     |
-|----------------|--------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`        | string       | true         | The output's title, shown in the run's output tab if there are multiple outputs and in API as key for the generated output URL.                 |
-| `description`  | string       | false        | A description of the output. Only used when reading the schema (useful for LLMs)                                                                |
-| `template`     | string       | true         | Defines a template which will be translated into output URL. The template can use variables (see below)                                         |
+| Property       | Type         | Required     | Description                                                                                                                                      |
+|----------------|--------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`        | string       | true         | The output's title, shown in the run's output tab if there are multiple outputs and in API as key for the generated output URL.                  |
+| `description`  | string       | false        | A description of the output. Only used when reading the schema (useful for LLMs).                                                                |
+| `template`     | string       | true         | Defines a URL template that generates the output link using `{{variable}}` syntax. See [How templates work](#how-templates-work) for details.    |
 
 ### Available template variables
 
@@ -89,6 +89,24 @@ The output schema defines the collections of keys and their properties. It allow
 | `run.containerUrl`                 | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                                      |
 | `run.defaultDatasetId`             | string | ID of the default dataset                                                                                                        |
 | `run.defaultKeyValueStoreId`       | string | ID of the default key-value store                                                                                                |
+
+## How templates work
+
+Templates allow you to dynamically generate URLs that point to your Actor's output. When an Actor run completes, the Apify platform processes each template by:
+
+1. Replacing `{{variable}}` placeholders with actual runtime values
+1. Creating the final output URL from the interpolated template
+
+The generated URL then appears in the **Output** tab of Apify Console and in the `output` property of the API response.
+
+### Template syntax
+
+Templates use double curly braces `{{variable}}` for variable interpolation.
+
+- `{{links.apiDefaultDatasetUrl}}/items` becomes `https://api.apify.com/v2/datasets/<dataset-id>/items`
+- `{{run.containerUrl}}` becomes `https://<container-id>.runs.apify.net/`
+
+You can access nested properties using dot notation (e.g., `{{run.defaultDatasetId}}`, `{{links.publicRunUrl}}`).
 
 ## Examples
 
