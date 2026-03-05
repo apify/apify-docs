@@ -17,14 +17,7 @@ get:
     There is a short period (up to 5 seconds) during which these counters may not match with exact counts in dataset items.
   operationId: dataset_get
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
     - name: token
       in: query
       description: |
@@ -70,14 +63,7 @@ put:
     The response is the updated dataset object, as returned by the [Get dataset](#/reference/datasets/dataset-collection/get-dataset) API endpoint.
   operationId: dataset_put
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
   requestBody:
     description: ""
     content:
@@ -122,14 +108,7 @@ delete:
   description: Deletes a specific dataset.
   operationId: dataset_delete
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
   responses:
     "204":
       description: ""

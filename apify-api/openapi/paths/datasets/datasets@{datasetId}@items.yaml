@@ -154,14 +154,7 @@ get:
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
   operationId: dataset_items_get
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
     - name: format
       in: query
       description: |
@@ -182,16 +175,7 @@ get:
       schema:
         type: boolean
         example: false
-    - name: offset
-      in: query
-      description: |
-        Number of items that should be skipped at the start. The default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 0
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
     - name: limit
       in: query
       description: Maximum number of items to return. By default there is no limit.
@@ -246,16 +230,7 @@ get:
       schema:
         type: string
         example: myValue
-    - name: desc
-      in: query
-      description: |
-        By default, results are returned in the same order as they were stored.
-        To reverse the order, set this parameter to `true` or `1`.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Desc"
     - name: attachment
       in: query
       description: |
@@ -466,14 +441,7 @@ post:
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
   operationId: dataset_items_post
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
   requestBody:
     description: ""
     content:

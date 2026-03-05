@@ -10,14 +10,7 @@ get:
     - see [Pagination](/api/v2#using-key) for more details.
   operationId: keyValueStore_keys_get
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
     - name: exclusiveStartKey
       in: query
       description: All keys up to this one (including) are skipped from the result.

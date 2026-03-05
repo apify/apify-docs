@@ -7,14 +7,7 @@ get:
     store.
   operationId: keyValueStore_get
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
   responses:
     "200":
       description: ""
@@ -54,14 +47,7 @@ put:
     store](#/reference/key-value-stores/store-object/get-store) API endpoint.
   operationId: keyValueStore_put
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
   requestBody:
     description: ""
     content:
@@ -105,14 +91,7 @@ delete:
   description: Deletes a key-value store.
   operationId: keyValueStore_delete
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
   responses:
     "204":
       description: ""

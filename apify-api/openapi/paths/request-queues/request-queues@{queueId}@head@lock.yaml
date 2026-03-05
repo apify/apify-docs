@@ -14,24 +14,8 @@ post:
     `clientKey`).
   operationId: requestQueue_head_lock_post
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: lockSecs
-      in: query
-      description: How long the requests will be locked for (in seconds).
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/LockSecs"
     - name: limit
       in: query
       description: How many items from the queue should be returned.
@@ -42,16 +26,7 @@ post:
         format: double
         example: 25
         maximum: 25
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
   responses:
     "200":
       description: ""

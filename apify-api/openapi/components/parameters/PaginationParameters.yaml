@@ -1,0 +1,35 @@
+Offset:
+  name: offset
+  in: query
+  description: |
+    Number of items that should be skipped at the start. The default value is `0`.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 0
+
+Limit:
+  name: limit
+  in: query
+  description: |
+    Maximum number of items to return.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 99
+
+Desc:
+  name: desc
+  in: query
+  description: |
+    If `true` or `1` then the results are returned in descending order.
+    By default, they are sorted in ascending order.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true

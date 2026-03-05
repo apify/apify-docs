@@ -20,22 +20,8 @@ get:
     content without any modifications, use the `attachment` query parameter.
   operationId: keyValueStore_record_get
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
     - name: signature
       in: query
       description: Signature used to access the record.
@@ -107,22 +93,8 @@ head:
     Check if a value is stored in the key-value store under a specific key.
   operationId: keyValueStore_record_head
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
   responses:
     "200":
       description: The record exists
@@ -160,22 +132,8 @@ put:
     * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
     - name: Content-Encoding
       in: header
       description: ""
@@ -232,22 +190,8 @@ delete:
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
   responses:
     "204":
       description: ""

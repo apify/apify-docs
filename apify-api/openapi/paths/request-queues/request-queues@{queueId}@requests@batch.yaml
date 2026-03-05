@@ -15,24 +15,8 @@ post:
     then it returns an ID of the existing request.
   operationId: requestQueue_requests_batch_post
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
     - name: forefront
       in: query
       description: |
@@ -152,16 +136,7 @@ delete:
         enum:
           - application/json
         type: string
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
   requestBody:
     description: ""
     content:
