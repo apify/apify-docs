@@ -203,6 +203,114 @@ If you're not using the Apify SDKs (JS/Python), you need to handle idempotency (
 
 The following examples show common charging patterns using the Apify SDK. Use the [JS](/sdk/js/reference/class/Actor#charge) or [Python](/sdk/python/reference/class/Actor#charge) SDK to handle idempotency, API errors, and spending limits automatically.
 
+### Respect spending limits
+
+Check `eventChargeLimitReached` after each charge and stop the Actor when the user's budget is exhausted. For Actors with multiple event types, use `chargeableWithinLimit` to check whether any event can still be charged before stopping.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+const input = await Actor.getInput();
+const { items } = input;
+
+for (const item of items) {
+    const chargeResult = await Actor.charge({ eventName: 'result' });
+
+    if (chargeResult.eventChargeLimitReached) {
+        await Actor.exit('Spending limit reached');
+    }
+
+    await Actor.pushData(item);
+}
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    await Actor.init()
+
+    input_data = await Actor.get_input()
+    items = input_data.get('items', [])
+
+    for item in items:
+        charge_result = await Actor.charge(event_name='result')
+
+        if charge_result.event_charge_limit_reached:
+            await Actor.exit('Spending limit reached')
+
+        await Actor.push_data(item)
+
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
+
+When charging multiple event types, use `chargeableWithinLimit` to check whether any event can still be charged before stopping.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+const input = await Actor.getInput();
+const { items } = input;
+
+for (const item of items) {
+    const chargeResult = await Actor.charge({ eventName: 'result' });
+
+    // chargeableWithinLimit lists event types the user's budget still covers
+    if (!chargeResult.chargeableWithinLimit.includes('result')) {
+        await Actor.exit('Spending limit reached');
+    }
+
+    await Actor.pushData(item);
+}
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    await Actor.init()
+
+    input_data = await Actor.get_input()
+    items = input_data.get('items', [])
+
+    for item in items:
+        charge_result = await Actor.charge(event_name='result')
+
+        # chargeable_within_limit lists event types the user's budget still covers
+        if 'result' not in charge_result.chargeable_within_limit:
+            await Actor.exit('Spending limit reached')
+
+        await Actor.push_data(item)
+
+    await Actor.exit()
+```
+
+</TabItem>
+</Tabs>
+
 ### Charge per result
 
 Charge an event when your Actor produces a data item and check the spending limit before continuing.
