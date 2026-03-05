@@ -14,40 +14,7 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/RequestResponse.yaml
-              - example:
-                  data:
-                    id: dnjkDMKLmdlkmlkmld
-                    retryCount: 0
-                    uniqueKey: "http://example.com"
-                    url: "http://example.com"
-                    method: GET
-                    loadedUrl: "http://example.com/example-1"
-                    payload: null
-                    noRetry: false
-                    errorMessages: null
-                    headers: null
-                    userData:
-                      label: DETAIL
-                      image: "https://picserver1.eu"
-                    handledAt: "2019-06-16T10:23:31.607Z"
-          example:
-            data:
-              id: dnjkDMKLmdlkmlkmld
-              retryCount: 0
-              uniqueKey: "http://example.com"
-              url: "http://example.com"
-              method: GET
-              loadedUrl: "http://example.com/example-1"
-              payload: null
-              noRetry: false
-              errorMessages: null
-              headers: null
-              userData:
-                label: DETAIL
-                image: "https://picserver1.eu"
-              handledAt: "2019-06-16T10:23:31.607Z"
+            $ref: ../../components/schemas/request-queues/RequestResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "404":
@@ -97,38 +64,7 @@ put:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: ../../components/schemas/request-queues/Request.yaml
-            - example:
-                id: dnjkDMKLmdlkmlkmld
-                retryCount: 0
-                uniqueKey: "http://example.com"
-                url: "http://example.com"
-                method: GET
-                loadedUrl: "http://example.com/example-1"
-                payload: null
-                noRetry: false
-                errorMessages: null
-                headers: null
-                userData:
-                  label: DETAIL
-                  image: "https://picserver1.eu"
-                handledAt: "2019-06-16T10:23:31.607Z"
-        example:
-          id: dnjkDMKLmdlkmlkmld
-          retryCount: 0
-          uniqueKey: "http://example.com"
-          url: "http://example.com"
-          method: GET
-          loadedUrl: "http://example.com/example-1"
-          payload: null
-          noRetry: false
-          errorMessages: null
-          headers: null
-          userData:
-            label: DETAIL
-            image: "https://picserver1.eu"
-          handledAt: "2019-06-16T10:23:31.607Z"
+          $ref: ../../components/schemas/request-queues/Request.yaml
     required: true
   responses:
     "200":
@@ -137,18 +73,7 @@ put:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/UpdateRequestResponse.yaml
-              - example:
-                  data:
-                    requestId: YiKoxjkaS9gjGTqhF
-                    wasAlreadyPresent: true
-                    wasAlreadyHandled: false
-          example:
-            data:
-              requestId: YiKoxjkaS9gjGTqhF
-              wasAlreadyPresent: true
-              wasAlreadyHandled: false
+            $ref: ../../components/schemas/request-queues/UpdateRequestResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "404":

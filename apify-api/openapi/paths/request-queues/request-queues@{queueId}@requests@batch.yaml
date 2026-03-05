@@ -36,20 +36,6 @@ post:
           items:
             $ref: ../../components/schemas/request-queues/RequestDraft.yaml
           description: ""
-          example:
-            - uniqueKey: "http://example.com"
-              url: "http://example.com"
-              method: GET
-            - uniqueKey: http://example.com/2
-              url: http://example.com/2
-              method: GET
-        example:
-          - uniqueKey: "http://example.com"
-            url: "http://example.com"
-            method: GET
-          - uniqueKey: http://example.com/2
-            url: http://example.com/2
-            method: GET
     required: true
   responses:
     "201":
@@ -58,30 +44,7 @@ post:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/BatchAddResponse.yaml
-              - example:
-                  data:
-                    processedRequests:
-                      - requestId: YiKoxjkaS9gjGTqhF
-                        uniqueKey: http://example.com/2
-                        wasAlreadyPresent: true
-                        wasAlreadyHandled: false
-                    unprocessedRequests:
-                      - uniqueKey: http://example.com/2
-                        url: http://example.com/2
-                        method: GET
-          example:
-            data:
-              processedRequests:
-                - requestId: YiKoxjkaS9gjGTqhF
-                  uniqueKey: "http://example.com"
-                  wasAlreadyPresent: true
-                  wasAlreadyHandled: false
-              unprocessedRequests:
-                - uniqueKey: http://example.com/2
-                  url: http://example.com/2
-                  method: GET
+            $ref: ../../components/schemas/request-queues/BatchAddResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "404":

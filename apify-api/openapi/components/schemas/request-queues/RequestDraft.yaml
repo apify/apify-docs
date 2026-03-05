@@ -23,3 +23,10 @@ properties:
     type: string
     description: The HTTP method of the request.
     examples: [GET]
+example:
+  - uniqueKey: "http://example.com"
+    url: "http://example.com"
+    method: GET
+  - uniqueKey: http://example.com/2
+    url: http://example.com/2
+    method: GET
