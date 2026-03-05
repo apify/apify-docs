@@ -17,7 +17,7 @@ To prevent data loss, long-running Actors should persist their state so they can
 
 For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.
 
-## Understanding migrations
+## Understand migrations
 
 A migration occurs when a process running on one server must stop and move to another. During this process:
 
