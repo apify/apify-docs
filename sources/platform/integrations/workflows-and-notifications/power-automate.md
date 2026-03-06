@@ -40,8 +40,8 @@ You can use the Apify connector directly within Microsoft Power Automate.
 
 1. Log in to your Power Automate account.
 1. Navigate to the **Connectors** tab on the sidebar to view the connector page.
-   - If you don't see the **Connectors** tab, click **More** in the sidebar.
-   - Find **Connectors** in the list and click the **Pin** icon to pin it to your sidebar for easy access.
+   - If you don't see the **Connectors** tab, select **More** in the sidebar.
+   - Find **Connectors** in the list and select the **Pin** icon to pin it to your sidebar for easy access.
    ![Pin Connectors tab in Power Automate](../images/power-automate/pin_connectors_tab.png)
 1. Open the **Connectors** tab and search for **Apify**.
 1. Select the **Apify** connector from the search results.
