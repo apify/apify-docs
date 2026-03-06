@@ -91,7 +91,7 @@ The connector provides user-friendly ways to select resources and provide inputs
 Most actions allow you to select resources (Actors, tasks, datasets, etc.) from dynamic dropdown lists populated from your Apify account.
 
 - **Recently used Actors**: Shows Actors you have used recently.
-- **From store**: Allows you to select from popular Actors in the Apify store.
+- **From store**: Allows you to select from popular Actors in the Apify Store.
 - **My tasks**: Lists your saved Actor tasks.
 
 ![Dropdown selection of Actors](../images/power-automate/actor_dropdown_selection.png)
