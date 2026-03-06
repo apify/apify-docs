@@ -48,16 +48,7 @@ put:
   parameters:
     - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
     - $ref: "../../components/parameters/StorageParameters.yaml#/RequestId"
-    - name: forefront
-      in: query
-      description: |
-        Determines if request should be added to the head of the queue or to the
-        end. Default value is `false` (end of queue).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "false"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/Forefront"
     - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
   requestBody:
     description: ""

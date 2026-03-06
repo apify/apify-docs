@@ -33,3 +33,15 @@ Desc:
   schema:
     type: boolean
     example: true
+
+Unnamed:
+  name: unnamed
+  in: query
+  description: |
+    If `true` or `1` then all the stores are returned. By default, only
+    named storages are returned.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true

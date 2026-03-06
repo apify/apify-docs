@@ -342,14 +342,7 @@ get:
       schema:
         type: boolean
         example: false
-    - name: signature
-      in: query
-      description: Signature used to access the items.
-      required: false
-      style: form
-      schema:
-        type: string
-        example: 2wTI46Bg8qWQrV7tavlPI
+    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
   responses:
     "200":
       description: ""

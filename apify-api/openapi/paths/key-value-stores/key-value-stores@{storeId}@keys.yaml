@@ -40,14 +40,7 @@ get:
       schema:
         type: string
         example: post-images-
-    - name: signature
-      in: query
-      description: Signature used to access the keys.
-      required: false
-      style: form
-      schema:
-        type: string
-        example: 2wTI46Bg8qWQrV7tavlPI
+    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
   responses:
     "200":
       description: ""

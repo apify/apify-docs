@@ -20,16 +20,7 @@ get:
     - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
     - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
     - $ref: "../../components/parameters/PaginationParameters.yaml#/Desc"
-    - name: unnamed
-      in: query
-      description: |
-        If `true` or `1` then all the stores are returned. By default, only
-        named key-value stores are returned.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Unnamed"
     - name: ownership
       in: query
       description: |

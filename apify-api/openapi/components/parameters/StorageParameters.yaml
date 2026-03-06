@@ -90,3 +90,25 @@ LockSecs:
     type: number
     format: double
     example: 60
+
+Forefront:
+  name: forefront
+  in: query
+  description: |
+    Determines if request should be added to the head of the queue or to the
+    end. Default value is `false` (end of queue).
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "false"
+
+Signature:
+  name: signature
+  in: query
+  description: Signature used for the access.
+  required: false
+  style: form
+  schema:
+    type: string
+    example: 2wTI46Bg8qWQrV7tavlPI
