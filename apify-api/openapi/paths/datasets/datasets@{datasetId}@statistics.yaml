@@ -17,14 +17,6 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/datasets/DatasetStatisticsResponse.yaml
-          example:
-            data:
-              fieldStatistics:
-                name:
-                  nullCount: 122
-                price:
-                  min: 59
-                  max: 89
     # TODO: add clients methods
     #  x-js-parent: DatasetClient
     #  x-js-name: statistics

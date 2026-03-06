@@ -82,16 +82,7 @@ post:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: ../../components/schemas/request-queues/RequestDraft.yaml
-            - example:
-                uniqueKey: http://example.com
-                url: http://example.com
-                method: GET
-        example:
-          uniqueKey: http://example.com
-          url: http://example.com
-          method: GET
+          $ref: ../../components/schemas/request-queues/RequestDraft.yaml
     required: true
   responses:
     "201":
@@ -100,18 +91,7 @@ post:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/AddRequestResponse.yaml
-              - example:
-                  data:
-                    requestId: YiKoxjkaS9gjGTqhF
-                    wasAlreadyPresent: true
-                    wasAlreadyHandled: false
-          example:
-            data:
-              requestId: YiKoxjkaS9gjGTqhF
-              wasAlreadyPresent: true
-              wasAlreadyHandled: false
+            $ref: ../../components/schemas/request-queues/AddRequestResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "404":

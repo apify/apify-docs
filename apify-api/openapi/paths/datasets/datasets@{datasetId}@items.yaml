@@ -451,14 +451,6 @@ post:
           items:
             $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
           description: ""
-          example:
-            - foo: bar
-            - foo: hotel
-            - foo: restaurant
-        example:
-          - foo: bar
-          - foo: hotel
-          - foo: restaurant
     required: true
   responses:
     "201":

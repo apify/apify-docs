@@ -70,9 +70,6 @@ put:
       application/json:
         schema:
           $ref: ../../components/schemas/datasets/UpdateDatasetRequest.yaml
-        example:
-          name: new-dataset-name
-          generalAccess: RESTRICTED
     required: true
   responses:
     "200":

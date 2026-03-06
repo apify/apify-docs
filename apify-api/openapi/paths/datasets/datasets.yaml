@@ -46,34 +46,6 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/datasets/ListOfDatasetsResponse.yaml
-          example:
-            data:
-              total: 2
-              offset: 0
-              limit: 1000
-              desc: false
-              count: 2
-              items:
-                - id: wkzbqmufyuamgv3yf
-                  name: d7b9mdysbtx5l7xaj
-                  userId: tbXmWu7GCxnyYtSiL
-                  createdAt: "2019-12-12T07:34:14.202Z"
-                  modifiedAt: "2019-12-13T08:36:13.202Z"
-                  accessedAt: "2019-12-14T08:36:13.202Z"
-                  itemCount: 7
-                  cleanItemCount: 5
-                  actId: null
-                  actRunId: null
-                - id: YiKoxjkaS9gjGTqhF
-                  name: eshop-items
-                  userId: tbXmWu7GCxnyYtSiL
-                  createdAt: "2019-12-12T07:34:14.202Z"
-                  modifiedAt: "2019-12-13T08:36:13.202Z"
-                  accessedAt: "2019-12-14T08:36:13.202Z"
-                  itemCount: 2
-                  cleanItemCount: 2
-                  actId: null
-                  actRunId: null
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

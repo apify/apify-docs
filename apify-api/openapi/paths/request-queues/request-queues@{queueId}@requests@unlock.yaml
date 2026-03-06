@@ -18,10 +18,6 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/request-queues/UnlockRequestsResponse.yaml
-          example:
-            data:
-              unlockedCount: 10
-
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "404":

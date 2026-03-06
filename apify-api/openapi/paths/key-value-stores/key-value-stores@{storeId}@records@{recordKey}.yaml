@@ -47,12 +47,7 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
-              - example:
-                  foo: bar
-          example:
-            foo: bar
+            $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
     "302":
       description: ""
       headers:
@@ -151,8 +146,6 @@ put:
       application/json:
         schema:
           $ref: ../../components/schemas/key-value-stores/PutRecordRequest.yaml
-        example:
-          foo: bar
     required: true
   responses:
     "201":
