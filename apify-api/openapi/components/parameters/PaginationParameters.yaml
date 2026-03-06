@@ -14,13 +14,13 @@ Limit:
   name: limit
   in: query
   description: |
-    Maximum number of items to return.
+    Maximum number of items to return. The default value as well as the maximum is `1000`.
   style: form
   explode: true
   schema:
     type: number
     format: double
-    example: 99
+    example: 1000
 
 Desc:
   name: desc
@@ -38,7 +38,7 @@ Unnamed:
   name: unnamed
   in: query
   description: |
-    If `true` or `1` then all the stores are returned. By default, only
+    If `true` or `1` then all the storages are returned. By default, only
     named storages are returned.
   style: form
   explode: true

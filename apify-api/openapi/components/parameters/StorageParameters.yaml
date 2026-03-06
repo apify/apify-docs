@@ -70,8 +70,8 @@ ClientKeyLock:
   in: query
   description: |
     A unique identifier of the client accessing the request queue. It must
-    be a string between 1 and 32 characters long. This identifier is used to for locking
-    and unlocking requests. You can delete or prolong lock only for requests that were locked by by same
+    be a string between 1 and 32 characters long. This identifier is used for locking
+    and unlocking requests. You can delete or prolong the lock only for requests that were locked by the same
     client key or from the same Actor run.
   style: form
   explode: true
