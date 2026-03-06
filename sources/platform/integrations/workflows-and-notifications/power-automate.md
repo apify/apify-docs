@@ -143,7 +143,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status.
 
-- **Actor Scope**: Choose between _Recently used Actors_ or _From store_.
+- **Actor Scope**: Choose between **Recently used Actors** or **From store**.
 - **Actor**: Select the Actor from the dropdown.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
 
@@ -170,7 +170,7 @@ The Apify connector offers comprehensive actions to interact with the Apify plat
 
 Start an Apify Actor run with customizable execution parameters.
 
-- **Actor Scope**: Choose _Recently used Actors_ or _From store_.
+- **Actor Scope**: Choose **Recently used Actors** or **From store**.
 - **Input Body**: Provide the JSON input for the Actor.
 - **Options**:
   - `Build`: Specify a build tag or ID.
