@@ -50,7 +50,7 @@ A green indicator confirms that your credentials are correct.
 
 With authentication set up, you can now add Apify tools to your applications.
 
-## Use Apify Tools in a Workflow
+## Use Apify tools in a Workflow
 
 Create a new **Workflow** application in Dify Studio and choose **Create from Blank**. Select the **+** icon on the **User Input** or **Trigger** node and choose an Apify tool to add it to your board.
 
@@ -121,7 +121,7 @@ Triggers enable your Dify application to respond automatically to Apify events, 
 
 ### Set up a webhook endpoint
 
-In Dify, navigate to **Plugins** from the top menu. Click on your plugin and look for **Endpoints** section. Select the **+** icon to create a new endpoint. Choose the **Workflow** or **Chatflow** application you want to trigger and give it a name. Select **Save** — Dify will generate two URLs.  
+In Dify, navigate to **Plugins** from the top menu. Click on your plugin and look for **Endpoints** section. Select the **+** icon to create a new endpoint. Choose the **Workflow** or **Chatflow** application you want to trigger and give it a name. Select **Save**. Dify will generate two URLs.  
 
 ![Create Dify Endpoint](../images/dify-workflow-endpoints.png)
 ![Create Dify Endpoint](../images/dify-workflow-input.png)  
