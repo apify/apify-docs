@@ -53,7 +53,7 @@ const themeConfig = {
                 rel: 'dofollow',
             },
             {
-                label: 'Resources',
+                label: 'Developer tools',
                 type: 'dropdown',
                 position: 'left',
                 items: [
