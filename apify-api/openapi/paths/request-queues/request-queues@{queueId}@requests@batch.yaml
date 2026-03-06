@@ -73,14 +73,7 @@ delete:
     either of them to identify the request.
   operationId: requestQueue_requests_batch_delete
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
     - name: Content-Type
       in: header
       description: ""
@@ -98,7 +91,7 @@ delete:
         schema:
           type: array
           items:
-            $ref: ../../components/schemas/request-queues/RequestDraftKeyOnly.yaml
+            $ref: ../../components/schemas/request-queues/RequestDraftDelete.yaml
     required: true
   responses:
     "200":
