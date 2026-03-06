@@ -82,11 +82,9 @@ All requests made by the connector include the header `x-apify-integration-platf
 
 After connecting your Apify account, you can start creating flows that use Apify triggers and actions. A flow begins with a trigger (an event that starts the workflow) and includes one or more actions (operations to perform).
 
-### Selection and input methods
+### Selecting resources and providing input
 
-The connector provides user-friendly ways to select resources and provide inputs.
-
-### Pick lists and selection methods
+The connector offers user-friendly pick lists and intuitive methods to help you select resources and input data.
 
 Most actions allow you to select resources (Actors, tasks, datasets, etc.) from dynamic dropdown lists populated from your Apify account.
 
