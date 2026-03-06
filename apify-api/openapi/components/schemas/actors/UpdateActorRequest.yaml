@@ -92,7 +92,13 @@ properties:
       latest:
         buildId: z2EryhbfhgSyqj6Hn
       beta: null
-required:
-  - name
-  - isPublic
-  - versions
+  actorStandby:
+    anyOf:
+      - $ref: ./ActorStandby.yaml
+      - type: "null"
+  exampleRunInput:
+    anyOf:
+      - $ref: ./ExampleRunInput.yaml
+      - type: "null"
+  isDeprecated:
+    type: [boolean, "null"]

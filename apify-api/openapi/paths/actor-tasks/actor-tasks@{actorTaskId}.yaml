@@ -93,16 +93,7 @@ put:
         schema:
           $ref: ../../components/schemas/actor-tasks/UpdateTaskRequest.yaml
         example:
-          id: ZxLNxrRaZrSjuhT9y
-          userId: BPWZBd7Z9c746JAnF
-          actId: asADASadYvn4mBZmm
           name: my-task
-          username: janedoe
-          createdAt: "2018-10-26T07:23:14.855Z"
-          modifiedAt: "2018-10-26T13:30:49.578Z"
-          removedAt: null
-          stats:
-            totalRuns: 15
           options:
             build: latest
             timeoutSecs: 300

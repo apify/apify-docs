@@ -54,7 +54,7 @@ And you can use the export button at the bottom left to export the data in multi
 
 And that's it! Now you can get back to the Actor's input, play with it, and try out more of the [Apify Actors](https://apify.com/store) or [build your own](./development).
 
-## Running via Apify API
+## Run via Apify API
 
 Actors can also be invoked using the Apify API by sending an HTTP POST request to the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
 
@@ -66,7 +66,7 @@ An Actor's input and its content type can be passed as a payload of the POST req
 
 > To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
 
-## Running programmatically
+## Run programmatically
 
 Actors can also be invoked programmatically from your own applications or from other Actors.
 

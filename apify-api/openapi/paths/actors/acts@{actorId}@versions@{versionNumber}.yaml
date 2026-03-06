@@ -32,6 +32,14 @@ get:
             $ref: ../../components/schemas/actors/VersionResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/get-version
@@ -107,6 +115,12 @@ put:
             $ref: ../../components/schemas/actors/VersionResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
@@ -151,6 +165,14 @@ delete:
           example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/delete-version

@@ -38,7 +38,7 @@ Each tool has a corresponding Gumloop credit cost. Each Gumloop subscription com
 | Get videos for a specific hashtag | Get Hashtag Videos | 3 credits/video |
 | Show 5 most recent reviews for a restaurant | Get Place Reviews | 3 credits/review |
 
-## General integration (Apify Task Runner)
+## General integration (Apify task runner)
 
 Gumloop's Apify task runner lets you run your Apify tasks directly inside Gumloop workflows. Scrape data with Apify, then process it with AI, send results via email, update spreadsheets, or connect to any of Gumloop's 100+ integrations.
 

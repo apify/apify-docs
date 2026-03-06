@@ -45,7 +45,7 @@ To learn how to migrate your Actors to run under limited permissions, check out 
 
 :::
 
-### Configuring Actor permissions level
+### Configure Actor permissions level
 
 You can set the permission level for your Actor in the Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
 
@@ -66,7 +66,7 @@ When possible, design your Actors to use limited permissions and request only th
 :::
 
 
-### Accessing user provided storages
+### Access user provided storages
 
 By default, limited-permissions Actors can't access user storages. However, they can access storages that users explicitly provide via the Actor input. To do so, use the input schema to add a storage picker and declare exactly which operations your Actor needs.
 

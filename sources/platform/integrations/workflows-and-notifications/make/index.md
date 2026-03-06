@@ -58,14 +58,14 @@ If you anticipate that the Actor run will exceed the timeout, use the asynchrono
 
 :::
 
-The primary difference between the two methods is that the synchronous run waits for the Actor or task to finish and retrieves its output using the "Get Dataset Items" module. By contrast, the asynchronous run watches for the run of an Actor or task (which could have been triggered from another scenario, manually from Apify console or elsewhere) and gets its output once it finishes.
+The primary difference between the two methods is that the synchronous run waits for the Actor or task to finish and retrieves its output using the "Get Dataset Items" module. By contrast, the asynchronous run watches for the run of an Actor or task (which could have been triggered from another scenario, manually from Apify Console or elsewhere) and gets its output once it finishes.
 
 ### Synchronous run using the action module
 
 In this example, we will demonstrate how to run an Actor synchronously and export the output to Google Sheets.
 The same principle applies to module that runs a task.
 
-#### Step 1: Add the Apify "Run an Actor" Module
+#### Step 1: Add the Apify "Run an Actor" module
 
 First, ensure that you have [connected your Apify account to Make.com](#create-a-connection-to-apify).
 Next, add the Apify module called "Run an Actor" to your scenario and configure it.
@@ -97,9 +97,9 @@ You’re all set! Once the scenario is started, it will run the Actor synchronou
 ### Asynchronous run using the trigger module
 
 In this example, we will demonstrate how to run an Actor asynchronously and export its output to Google Sheets.
-Before starting, decide where you want to initiate the Actor run. You can do this manually via the Apify console, on a schedule, or from a separate Make.com scenario.
+Before starting, decide where you want to initiate the Actor run. You can do this manually via the Apify Console, on a schedule, or from a separate Make.com scenario.
 
-#### Step 1: Add the Apify "Watch Actor Runs" Module
+#### Step 1: Add the Apify "Watch Actor Runs" module
 
 First, ensure that you have [connected your Apify account to Make.com](#create-a-connection-to-apify).
 Next, add the Apify module called "Watch Actor Runs" to your scenario. This module will set up a webhook to listen for the finished runs of the selected Actor.
@@ -125,7 +125,7 @@ In the "Spreadsheet ID" field, enter the ID of the target Google Sheets file, wh
 ![make-com-async-3.png](../../images/make-com/make-com-async-3.png)
 
 That’s it! Once the Actor run is complete, its data will be exported to the Google Sheets file.
-You can initiate the Actor run via the Apify console, a scheduler, or from another Make.com scenario.
+You can initiate the Actor run via the Apify Console, a scheduler, or from another Make.com scenario.
 
 ## Available modules and triggers
 

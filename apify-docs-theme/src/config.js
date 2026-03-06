@@ -83,7 +83,7 @@ const themeConfig = {
                     },
                     {
                         label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs/overview`,
+                        href: `${absoluteUrl}/api/client/python/docs`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -206,6 +206,23 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'Client for JavaScript',
+                        href: `${absoluteUrl}/api/client/js/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Python',
+                        href: `${absoluteUrl}/api/client/python/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
+                title: 'SDK',
+                items: [
                     {
                         label: 'SDK for JavaScript',
                         href: `${absoluteUrl}/sdk/js/docs/overview`,
