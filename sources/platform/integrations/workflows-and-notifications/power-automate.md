@@ -234,7 +234,7 @@ Scrape a single webpage using Apify's Web Scraper Actor.
 
 This action starts the Web Scraper Actor and returns the run details immediately. To process the scraped results, you can use the **Actor run finished** trigger or follow the [asynchronous pattern](#long-running-scrapes-and-async-pattern-in-power-automate) described below.
 
-::: 
+:::
 
 ![Scrape single URL action configuration](../images/power-automate/action_scrape_url.png)
 
