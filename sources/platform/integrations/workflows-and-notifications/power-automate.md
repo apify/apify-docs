@@ -129,7 +129,9 @@ When using manual input instead of pick lists, you'll need to provide the correc
 
 ## Triggers
 
-> Triggers allow your flow to start automatically when an event occurs in Apify.
+:::note
+Triggers allow your flow to start automatically when an event occurs in Apify.
+:::
 
 :::caution Manage your webhooks
 
@@ -141,7 +143,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Actor run finished
 
-> Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status.
+Automatically execute your Power Automate flow when a specific Apify Actor run completes with a selected status.
 
 - **Actor Scope**: Choose between _Recently used Actors_ or _From store_.
 - **Actor**: Select the Actor from the dropdown.
@@ -153,7 +155,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Task run finished
 
-> Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status.
+Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status.
 
 - **Task**: Select the task from your account.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`).
@@ -164,11 +166,11 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ## Actions
 
-> The Apify connector offers comprehensive actions to interact with the Apify platform.
+The Apify connector offers comprehensive actions to interact with the Apify platform.
 
 ### Run Actor
 
-> Start an Apify Actor run with customizable execution parameters.
+Start an Apify Actor run with customizable execution parameters.
 
 - **Actor Scope**: Choose _Recently used Actors_ or _From store_.
 - **Input Body**: Provide the JSON input for the Actor.
@@ -182,7 +184,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Run task
 
-> Start an Apify task run.
+Start an Apify task run.
 
 - **Task**: Select the task from your account.
 - **Input Override**: Optional JSON to override the task's default input.
@@ -195,7 +197,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Get dataset items
 
-> Retrieve records from an Apify dataset.
+Retrieve records from an Apify dataset.
 
 - **Dataset**: Select a dataset from the dropdown.
 - **Pagination**:
@@ -208,7 +210,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Get key-value store record
 
-> Retrieve a single record from a key-value store.
+Retrieve a single record from a key-value store.
 
 - **Store**: Select the store from the dropdown.
 - **Record Key**: Select the key of the record to retrieve.
@@ -222,7 +224,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ### Scrape single URL
 
-> Scrape a single webpage using Apify's Web Scraper Actor.
+Scrape a single webpage using Apify's Web Scraper Actor.
 
 - **URL**: The full URL to scrape.
 - **Crawler Type**: Select the engine:
