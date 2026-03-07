@@ -8,7 +8,7 @@ slug: /scraping-basics-python/scraping-variants
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import PythonJobsDatabaseExercise from '!!raw-loader!roa-loader!./exercises/python_jobs_database.py';
-import CnnSportsShortestArticleExercise from '!!raw-loader!roa-loader!./exercises/cnn_sports_shortest_article.py';
+import EurozonePopulationExercise from '!!raw-loader!roa-loader!./exercises/eurozone_population.py';
 
 **In this lesson, we'll scrape the product detail pages to represent each product variant as a separate item in our dataset.**
 
@@ -348,19 +348,13 @@ You can find everything you need for working with dates and times in Python's [`
   <CodeBlock language="py">{PythonJobsDatabaseExercise.code}</CodeBlock>
 </details>
 
-### Find the shortest CNN article which made it to the Sports homepage
+### Count eurozone population from country pages
 
-Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
+Scrape the [Countries using the euro](https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en) page.
 
-- Locate the element that holds the main content of the article.
-- Use [`get_text()`](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#get-text) to extract all the content as plain text.
-- Use `len()` to calculate the character count.
-
-Skip pages without text (like those that only have a video). Sort the results and print the URL of the shortest article that made it to the homepage.
-
-At the time of writing, the shortest article on the CNN Sports homepage is [about a donation to the Augusta National Golf Club](https://edition.cnn.com/2024/10/03/sport/masters-donation-hurricane-helene-relief-spt-intl/), which is just 1,642 characters long.
+Locate links for countries in the **Euro area countries** section. Visit each linked country detail page, find the value labeled **Population**, and sum them all to get the total population of all countries using euro as their currency. Print one number, the sum.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="py">{CnnSportsShortestArticleExercise.code}</CodeBlock>
+  <CodeBlock language="py">{EurozonePopulationExercise.code}</CodeBlock>
 </details>
