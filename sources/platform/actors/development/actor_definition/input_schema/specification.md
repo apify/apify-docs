@@ -439,8 +439,6 @@ Properties:
 | Property               | Value                                                                                  | Required | Description                                                                                                                                                                                                                      |
 |------------------------|----------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `editor`               | One of <ul><li>`json`</li><li>`proxy`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                                                                                        |
-| `patternKey`           | String                                                                                 | No       | Regular expression that will be used <br/>to validate the keys of the object.                                                                                                                                                    |
-| `patternValue`         | String                                                                                 | No       | Regular expression that will be used <br/>to validate the values of object.                                                                                                                                                      |
 | `maxProperties`        | Integer                                                                                | No       | Maximum number of properties <br/>the object can have.                                                                                                                                                                           |
 | `minProperties`        | Integer                                                                                | No       | Minimum number of properties <br/>the object can have.                                                                                                                                                                           |
 | `nullable`             | Boolean                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                                                                                                 |
@@ -448,6 +446,8 @@ Properties:
 | `properties`           | Object                                                                                 | No       | Defines the sub-schema properties for the object used for validation and UI rendering (`schemaBased` editor). See more info below.                                                                                               |
 | `additionalProperties` | Boolean                                                                                | No       | Controls if sub-properties not listed in `properties` are allowed. Defaults to `true`. Set to `false` to make requests with extra properties fail.                                                                               |
 | `required`             | String array                                                                           | No       | An array of sub-properties keys that are required. <br />Note: This applies only if the object field itself is present. If the object field is optional and not included in the input, its required subfields are not validated. |
+| `patternKey`           | String                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the keys of the object.                                                           |
+| `patternValue`         | String                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the values of object.                                                             |
 
 #### Object fields validation
 
@@ -643,19 +643,19 @@ Rendered input:
 
 Properties:
 
-| Property           | Value                                                                                                                                                                                                                  | Required | Description                                                                                                                                                 |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `editor`           | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`fileupload`</li><li>`select`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                   |
-| `placeholderKey`   | String                                                                                                                                                                                                                 | No       | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.                                                |
-| `placeholderValue` | String                                                                                                                                                                                                                 | No       | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.                         |
-| `patternKey`       | String                                                                                                                                                                                                                 | No       | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.                     |
-| `patternValue`     | String                                                                                                                                                                                                                 | No       | Regular expression that <br/>will be used to validate the values <br/>of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
-| `maxItems`         | Integer                                                                                                                                                                                                                | No       | Maximum number of items <br/>the array can contain.                                                                                                         |
-| `minItems`         | Integer                                                                                                                                                                                                                | No       | Minimum number of items <br/>the array can contain.                                                                                                         |
-| `uniqueItems`      | Boolean                                                                                                                                                                                                                | No       | Specifies whether the array <br/>should contain only unique values.                                                                                         |
-| `nullable`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                            |
-| `items`            | object                                                                                                                                                                                                                 | No       | Specifies format of the items of the array, useful mainly for multiselect and for `schemaBased` editor (see below).                                         |
-| `isSecret`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                |
+| Property           | Value                                                                                                                                                                                                                  | Required | Description                                                                                                                                                                                                                                     |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `editor`           | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`fileupload`</li><li>`select`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                                                                                                       |
+| `placeholderKey`   | String                                                                                                                                                                                                                 | No       | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.                                                                                                                                    |
+| `placeholderValue` | String                                                                                                                                                                                                                 | No       | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.                                                                                                             |
+| `maxItems`         | Integer                                                                                                                                                                                                                | No       | Maximum number of items <br/>the array can contain.                                                                                                                                                                                             |
+| `minItems`         | Integer                                                                                                                                                                                                                | No       | Minimum number of items <br/>the array can contain.                                                                                                                                                                                             |
+| `uniqueItems`      | Boolean                                                                                                                                                                                                                | No       | Specifies whether the array <br/>should contain only unique values.                                                                                                                                                                             |
+| `nullable`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                                                                                                                |
+| `items`            | object                                                                                                                                                                                                                 | No       | Specifies format of the items of the array, useful mainly for multiselect and for `schemaBased` editor (see below).                                                                                                                             |
+| `isSecret`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                                                                                                    |
+| `patternKey`       | String                                                                                                                                                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.                     |
+| `patternValue`     | String                                                                                                                                                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the values of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
 
 
 Usage of this field is based on the selected editor:
@@ -976,3 +976,89 @@ This setting defines runtime access only and doesn't change field visibility or 
 
 
 :::
+
+### Deprecation of `patternKey` and `patternValue`
+
+::::warning Deprecation notice
+**The following properties are deprecated and will only be supported until May 31, 2026:**
+
+- `patternKey` - Used to validate keys in objects and arrays
+- `patternValue` - Used to validate values in objects and arrays
+::::
+
+These properties are being deprecated to better align with the JSON schema specification. By moving to standard JSON schema, a more consistent experience is provided that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
+
+#### Alternatives for arrays
+
+For arrays, you can replace `patternKey` and `patternValue` by using the `items` property with a subschema.
+
+Example of replacing `patternValue` for an array of strings:
+
+```json title="Old approach with patternValue"
+{
+    "title": "Tags",
+    "type": "array",
+    "description": "Enter tags",
+    "editor": "stringList",
+    "patternValue": "^[a-zA-Z0-9-_]+$"
+}
+```
+
+```json title="New approach with items subschema"
+{
+    "title": "Tags",
+    "type": "array",
+    "description": "Enter tags",
+    "editor": "stringList",
+    "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9-_]+$"
+    }
+}
+```
+
+Example of replacing both `patternKey` and `patternValue` for an array with key-value pairs:
+
+```json title="Old approach with patternKey and patternValue"
+{
+    "title": "Headers",
+    "type": "array",
+    "description": "HTTP headers",
+    "editor": "keyValue",
+    "patternKey": "^[a-zA-Z0-9-]+$",
+    "patternValue": "^.+$"
+}
+```
+
+```json title="New approach with items subschema"
+{
+    "title": "Headers",
+    "type": "array",
+    "description": "HTTP headers",
+    "editor": "keyValue",
+    "items": {
+        "type": "object",
+        "properties": {
+            "key": {
+                "title": "Name",
+                "type": "string",
+                "description": "Header name",
+                "pattern": "^[a-zA-Z0-9-]+$"
+            },
+            "value": {
+                "title": "Value",
+                "type": "string",
+                "description": "Header value",
+                "pattern": "^.+$"
+            }
+        },
+        "required": ["key", "value"]
+    }
+}
+```
+
+#### Alternatives for objects
+
+For objects, there is currently no direct replacement for `patternKey` and `patternValue` properties. These validation features will not be supported in future versions.
+
+If you need to validate object properties, consider using a predefined schema with the `properties` field instead of allowing arbitrary properties with validation patterns.
