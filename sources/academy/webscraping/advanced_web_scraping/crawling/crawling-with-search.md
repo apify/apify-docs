@@ -73,7 +73,7 @@ Some sites will allow you to construct non-overlapping ranges. For example, you 
 
 Non-overlapping ranges should remove the possibility of duplicate products (unless a [listing has multiple values](#can-a-listing-have-more-values)) and the lowest number of pages.
 
-If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
+If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/actors/storage/request-queue).
 
 #### Can a listing have more values? {#can-a-listing-have-more-values}
 

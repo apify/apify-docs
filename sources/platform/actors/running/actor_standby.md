@@ -1,7 +1,7 @@
 ---
 title: Standby mode
 description: Use an Actor as a real-time API server.
-sidebar_position: 7.3
+sidebar_position: 7
 slug: /actors/running/standby
 sidebar_label: Standby mode
 ---

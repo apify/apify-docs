@@ -162,7 +162,7 @@ Great! Now that everything is set up, it's time to run the Actor and admire your
 
 :::tip Additional resources
 
-Visit the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema) for more detailed information about how to implement this feature.
+Visit the [dataset schema documentation](/platform/actors/development/input-output-schemas/dataset-schema) for more detailed information about how to implement this feature.
 
 :::
 
