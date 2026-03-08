@@ -12,6 +12,20 @@ slug: /actors/development/actor-definition/output-schema
 
 The Actor output schema builds upon the schemas for the [dataset](/platform/actors/development/actor-definition/dataset-schema) and [key-value store](/platform/actors/development/actor-definition/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
 
+## Why output schema matters
+
+Output schema is essential for:
+
+- **AI agent integration**: When agents use Actors through the MCP server or API, they need to know what results to expect. Without output schema, agents cannot effectively chain Actors or process results.
+- **User experience**: Clear output definitions help users understand what data they will receive before running an Actor.
+- **API consumers**: The output schema appears in the `GET Run` API response, enabling programmatic discovery of Actor outputs.
+
+:::tip Define output schema for all Actors
+
+Even if your Actor produces no output, define an empty output schema. This tells users and AI agents that the Actor intentionally produces no results, rather than leaving them to wonder if something went wrong.
+
+:::
+
 ## Structure
 
 Place the output configuration files in the `.actor` folder in the Actor's root directory.
@@ -248,6 +262,17 @@ This example shows a schema definition for a basic social media scraper. The scr
 
 After you define `views` and `collections` in `dataset_schema.json` and `key_value_store.json`, you can use them in the output schema.
 
+:::note Output schema complements dataset schema
+
+The output schema defines *where* data is stored and how to access it. The [dataset schema](/platform/actors/development/actor-definition/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
+
+- **Output schema**: Declares that results are in the default dataset
+- **Dataset schema**: Describes each field with `title`, `description`, and `example`
+
+This combination gives AI agents complete information about your Actor's output structure.
+
+:::
+
 ```json title=".actor/output_schema.json"
 {
     "actorOutputSchemaVersion": 1,
@@ -344,6 +369,52 @@ The `reportUrl` in this case links directly to the key-value store record stored
 When the run finishes, Apify Console displays the HTML report in an iframe:
 
 ![HTML report in Output tab](images/output-schema-record-example.png)
+
+### Web crawler with multiple output types
+
+This example shows a complete output schema for a web crawler Actor that produces multiple types of output: crawled page data in the primary dataset, errors in a secondary dataset, and various files in key-value store collections.
+
+```json title=".actor/output_schema.json"
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Website Content Crawler output",
+    "description": "Crawls websites and extracts text content, screenshots, and downloaded files.",
+    "properties": {
+        "crawlResults": {
+            "type": "string",
+            "title": "Crawl results",
+            "description": "Main dataset containing extracted content from each crawled page, including text, metadata, and links.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "errors": {
+            "type": "string",
+            "title": "Errors",
+            "description": "Dataset containing pages that failed to load or process, with error details and URLs.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=errors"
+        },
+        "screenshots": {
+            "type": "string",
+            "title": "Screenshots",
+            "description": "PNG screenshots of each crawled page, stored with the page URL as the key name.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=screenshots"
+        },
+        "downloadedFiles": {
+            "type": "string",
+            "title": "Downloaded files",
+            "description": "Files downloaded during crawling (PDFs, documents, etc.), stored with original filenames.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=files"
+        },
+        "htmlSnapshots": {
+            "type": "string",
+            "title": "HTML snapshots",
+            "description": "Raw HTML content of each page at the time of crawling.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=html"
+        }
+    }
+}
+```
+
+Notice that each output includes a `description` that explains what data it contains. This metadata helps AI agents understand the Actor's capabilities and select the appropriate output for their needs.
 
 ### Actor with no output
 
