@@ -10,6 +10,8 @@ slug: /actor-marketing-playbook/store-basics/how-actor-monetization-works
 
 ---
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 ## Monetizing your Actor
 
 Monetizing your Actor on the Apify platform involves several key steps:
@@ -85,6 +87,8 @@ If you want more details about PPR pricing, refer to our [PPR documentation](/pl
 :::
 
 ### Rental pricing model
+
+<RentalSunset/>
 
 ![rental model example](images/rental-model.png)
 

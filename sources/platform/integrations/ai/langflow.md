@@ -57,14 +57,14 @@ When the platform is started, open the Langflow UI using `http://127.0.0.1:7860`
 
 > Other installation methods can be found in the [Langflow documentation](https://docs.langflow.org/get-started-installation).
 
-### Creating a new flow
+### Create a new flow
 
 On the Langflow welcome screen, click the **New Flow** button and then create **Blank Flow**:
 ![New Flow screen - Blank Flow](../images/langflow/new_blank_flow.png)
 
 Now, you can start building your flow.
 
-### Calling Apify Actors in Langflow
+### Call Apify Actors in Langflow
 
 To call Apify Actors in Langflow, you need to add the **Apify Actors** component to the flow.
 From the bundle menu, add **Apify Actors** component:
@@ -98,7 +98,7 @@ When you run the component again, the output contains only the `markdown` and fl
 
 Now that you understand how to call Apify Actors, let's build a practical example where you search for a company's social media profiles and extract data from them.
 
-### Building a flow to search for a company's social media profiles
+### Build a flow to search for a company's social media profiles
 
 Create a new flow and add two **Apify Actors** components from the menu.
 

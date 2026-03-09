@@ -10,9 +10,10 @@ unlisted: true
 
 ---
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 When you publish your Actor on the Apify platform, you have the option to make it a _Paid Actor_ and earn revenue from users who benefit from your tool. You can choose between two pricing models:
 
-- Pay-per-result
 - Rental
 
 ## Pay-per-result pricing model
@@ -67,6 +68,8 @@ Your profit is computed only from the first two users, since they are on Apify p
 </details>
 
 ## Rental pricing model
+
+<RentalSunset/>
 
 With the rental model, you can specify a free trial period and a monthly rental price. After the trial, users with an [Apify paid plan](https://apify.com/pricing) can continue using your Actor by paying the monthly fee. You can receive 80% of the total rental fees collected each month.
 

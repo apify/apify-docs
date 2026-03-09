@@ -18,6 +18,8 @@ Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store,
 
 :::
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 ## Pricing models
 
 All Actors in [Apify Store](https://apify.com/store) fall into one of three pricing models:
@@ -100,6 +102,8 @@ Pay per result is also available as a pricing option when you publish your own A
 
 ### Rental Actors
 
+<RentalSunset/>
+
 Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the _highest quality_ and receive _ongoing maintenance_.
 
 Most rental Actors have a _free trial_ period. The length of the trial is displayed on each Actor's page.
@@ -124,7 +128,7 @@ To see a breakdown of rental charges, go to the **Actors** tab within the **Curr
 
 ![Rental Actors billing in Apify Console](./images/store/billing-paid-actors.png)
 
-## Reporting issues with Actors
+## Report issues with Actors
 
 Each Actor has an **Issues** tab in Apify Console. There, you can open an issue (ticket) and chat with the Actor's author, platform admins,
 and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can
