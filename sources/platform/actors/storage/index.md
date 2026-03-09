@@ -1,0 +1,37 @@
+---
+title: Storage
+description: Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
+sidebar_position: 4
+category: platform
+slug: /actors/storage
+---
+
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
+
+**Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data on the Apify Console or via the API.**
+
+---
+
+The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our [REST API](/api/v2) [Apify API Clients](/api) or [SDKs](/sdk).
+
+
+<CardGrid>
+    <Card
+        title="Dataset"
+        desc="Stores results from web scraping and data processing, with each Actor run getting a unique dataset. Features include table-like data visualization and multiple export formats like JSON and Excel."
+        to="/platform/actors/storage/dataset"
+    />
+    <Card
+        title="Key-value store"
+        desc="Stores various data types like JSON, HTML, images, and strings. Accessible via Apify Console or API, it's ideal for diverse data storage needs.​"
+        to="/platform/actors/storage/key-value-store"
+    />
+    <Card
+        title="Request queue"
+        desc="Manages URL processing for web crawling and other tasks. Supports different crawling orders and allows for querying and updating URLs, accessible via Apify Console or API​."
+        to="/platform/actors/storage/request-queue"
+    />
+</CardGrid>
+

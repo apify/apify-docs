@@ -119,13 +119,13 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ### Set Key-Value Store Record
 
-> Sets a value to a [Key-value store](/platform/storage/key-value-store).
+> Sets a value to a [Key-value store](/platform/actors/storage/key-value-store).
 
 ## Searches
 
 ### Fetch dataset items
 
-> Retrieves items from a [dataset](/platform/storage/dataset).
+> Retrieves items from a [dataset](/platform/actors/storage/dataset).
 
 ### Find last Actor run
 
@@ -137,6 +137,6 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ### Get Key-Value Store Record
 
-> Retrieves value from a [Key-value store](/platform/storage/key-value-store).
+> Retrieves value from a [Key-value store](/platform/actors/storage/key-value-store).
 
 If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

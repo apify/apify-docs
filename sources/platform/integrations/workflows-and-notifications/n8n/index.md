@@ -186,11 +186,11 @@ Pull data from Apify storage.
 
 #### Datasets
 
-- **Get Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get Items**: Retrieves items from a [dataset](/platform/actors/storage/dataset)
 
 #### Key-Value Stores
 
-- **Get Record**:  Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get Record**:  Retrieves a value from a [key-value store](/platform/actors/storage/key-value-store)
 
 ### Triggers
 
