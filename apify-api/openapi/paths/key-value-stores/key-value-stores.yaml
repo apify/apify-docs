@@ -130,18 +130,6 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
-          example:
-            data:
-              id: WkzbQMuFYuamGv3YF
-              name: d7b9MDYsbtX5L7XAj
-              userId: wRsJZtadYvn4mBZmm
-              createdAt: "2019-12-12T07:34:14.202Z"
-              modifiedAt: "2019-12-13T08:36:13.202Z"
-              accessedAt: "2019-12-14T08:36:13.202Z"
-              actId: null
-              actRunId: null
-              consoleUrl: https://console.apify.com/storage/key-value-stores/WkzbQMuFYuamGv3YF
-              keysPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

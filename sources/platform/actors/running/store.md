@@ -18,6 +18,8 @@ Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store,
 
 :::
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 ## Pricing models
 
 [//]: # (TODO: link platform usage docs)
@@ -29,6 +31,8 @@ All Actors in [Apify Store](https://apify.com/store) fall into one of the four p
 4. [**Pay per usage**](#pay-per-usage) - you can run the Actor and you pay for the platform usage the Actor generates.
 
 ### Rental Actors
+
+<RentalSunset/>
 
 Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the _highest quality_ and receive _ongoing maintenance_.
 
@@ -106,7 +110,7 @@ No, the Actor is free to run. You only pay for the results.
 
 ##### What happens when I interact with the dataset after the run finishes?
 
-Under the **pay per result** model, all platform costs generated _during the run of an Actor_ are not charged towards your account; you pay for the results instead. After the run finishes, any interactions with the default dataset storing the results, such as reading the results or writing additional data, will incur the standard platform usage costs. But do not worry, in the vast majority of cases, you only want to read the result from the dataset and that costs near to nothing.
+Under the **pay per result** model, all platform costs generated _during the run of an Actor_ are not charged towards your account; you pay for the results instead. After the run finishes, any interactions with the default dataset storing the results, such as reading the results or writing additional data, will incur the standard platform usage costs. But do not worry - in the vast majority of cases, you only want to read the result from the dataset and that costs near to nothing.
 
 ##### Do I pay for the storage of results on the Apify platform?
 
@@ -211,7 +215,7 @@ _For more information on platform usage cost see the [usage and resources](./usa
 
 :::
 
-## Reporting issues with Actors
+## Report issues with Actors
 
 Each Actor has an **Issues** tab in Apify Console. There, you can open an issue (ticket) and chat with the Actor's author, platform admins,
 and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can

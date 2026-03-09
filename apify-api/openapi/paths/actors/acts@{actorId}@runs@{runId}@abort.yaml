@@ -89,6 +89,13 @@ post:
               defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
               defaultDatasetId: wmKPijuyDnPZAPRMk
               defaultRequestQueueId: FL35cSF7jrxr3BY39
+              storageIds:
+                datasets:
+                  default: wmKPijuyDnPZAPRMk
+                keyValueStores:
+                  default: eJNzqsbPiopwJcgGQ
+                requestQueues:
+                  default: FL35cSF7jrxr3BY39
               isContainerServerReady: false
               gitBranchName: master
               usage:
@@ -120,6 +127,14 @@ post:
                 PROXY_SERPS: 0.0006
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunNotFoundError"
   deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-run/abort-run

@@ -200,7 +200,7 @@ The dataset schema structure defines the various components and properties that 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `actorSpecification` | integer | true | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
-| `fields` | JSONSchema compatible object | true | Schema of one dataset object. <br/>Use JsonSchema Draft 2020–12 or <br/>other compatible formats. |
+| `fields` | JSONSchema compatible object | false | Schema of one dataset object. <br/>Use JsonSchema Draft 2020-12 or <br/>other compatible formats. Refer to [Field schema](#field-schema) section for details. |
 | `views` | DatasetView object | true | An object with a description of an API <br/>and UI views. |
 
 ### DatasetView object definition
@@ -236,3 +236,114 @@ The dataset schema structure defines the various components and properties that 
 | --- | --- | --- | --- |
 | `label` | string | false | In the Table view, the label will be visible as the table column's header. |
 | `format` | One of <ul><li>`text`</li><li>`number`</li><li>`date`</li><li>`link`</li><li>`boolean`</li><li>`image`</li><li>`array`</li><li>`object`</li></ul> | false | Describes how output data values are formatted to be rendered in the Output tab UI. |
+
+## Field schema
+
+The `fields` property in the dataset schema defines the structure of individual dataset items using [JSON Schema](https://json-schema.org/). This schema enables validation and provides metadata that helps both humans and AI agents understand your Actor's output.
+
+### Why field descriptions matter
+
+When AI agents interact with Actors through the MCP server or API, they rely on the field schema to understand what data the Actor produces. Including `title`, `description`, and `example` properties for each field enables agents to:
+
+- Understand the meaning of each output field
+- Chain Actors together by matching inputs to outputs
+- Generate appropriate queries and handle responses correctly
+
+Without this metadata, agents must infer field meanings from names alone, which leads to errors and a degraded experience.
+
+### Define field metadata
+
+Each field in your schema can include standard JSON Schema properties:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `type` | string | The data type (`string`, `number`, `boolean`, `array`, `object`, `null`). |
+| `title` | string | A human-readable name for the field. |
+| `description` | string | Explains what the field contains and how to interpret it. |
+| `example` | any | A sample value that demonstrates the expected format. |
+| `enum` | array | A list of allowed values for the field. |
+
+### Example with field descriptions
+
+The following example shows a dataset schema for a product scraper with full field metadata:
+
+```json title=".actor/dataset_schema.json"
+{
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "productName": {
+                "type": "string",
+                "title": "Product name",
+                "description": "The full name of the product as displayed on the product page.",
+                "example": "Wireless Bluetooth Headphones"
+            },
+            "price": {
+                "type": "number",
+                "title": "Price",
+                "description": "The current price in USD. Does not include shipping or taxes.",
+                "example": 49.99
+            },
+            "currency": {
+                "type": "string",
+                "title": "Currency code",
+                "description": "Three-letter ISO 4217 currency code.",
+                "example": "USD",
+                "enum": ["USD", "EUR", "GBP"]
+            },
+            "inStock": {
+                "type": "boolean",
+                "title": "In stock",
+                "description": "Whether the product is currently available for purchase.",
+                "example": true
+            },
+            "categories": {
+                "type": "array",
+                "title": "Categories",
+                "description": "List of category names the product belongs to, from broadest to most specific.",
+                "items": {
+                    "type": "string"
+                },
+                "example": ["Electronics", "Audio", "Headphones"]
+            },
+            "url": {
+                "type": "string",
+                "title": "Product URL",
+                "description": "Direct link to the product page.",
+                "example": "https://example.com/products/wireless-headphones"
+            }
+        },
+        "required": ["productName", "price", "url"]
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["productName", "price", "inStock", "url"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "url": {
+                        "label": "Link",
+                        "format": "link"
+                    },
+                    "inStock": {
+                        "format": "boolean"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+:::tip Naming convention
+
+Use `camelCase` for field names in your schema. This matches the convention used in input schemas and ensures consistency across your Actor's configuration.
+
+:::
+
+For validation options and error handling, see [Dataset validation](./validation.md).

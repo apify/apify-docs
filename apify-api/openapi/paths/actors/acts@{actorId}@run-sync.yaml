@@ -126,23 +126,20 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-failed
-              message: |
-                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "408":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-timeout-exceeded
-              message: Actor run exceeded timeout of 300 seconds for this API endpoint
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/with-input
@@ -261,24 +258,20 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-failed
-              message: >-
-                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
-                FAILED)
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "408":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-timeout-exceeded
-              message: Actor run exceeded timeout of 60 seconds for this API endpoint
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/without-input
