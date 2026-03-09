@@ -241,7 +241,7 @@ The dataset schema structure defines the various components and properties that 
 
 The `fields` property in the dataset schema defines the structure of individual dataset items using [JSON Schema](https://json-schema.org/). This schema enables validation and provides metadata that helps both humans and AI agents understand your Actor's output.
 
-### Importance for AI agents
+### Why field descriptions matter
 
 When AI agents interact with Actors through the MCP server or API, they rely on the field schema to understand what data the Actor produces. Including `title`, `description`, and `example` properties for each field enables agents to:
 
