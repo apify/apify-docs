@@ -28,6 +28,10 @@ All Actors in [Apify Store](https://apify.com/store) fall into one of three pric
 1. [**Pay per result**](#pay-per-result) - you do not pay for platform usage the Actor generates and instead just pay for the results it produces.
 1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
 
+:::note Post-run storage costs
+After a run finishes, any interactions with the dataset - such as reading or writing additional data - incur standard platform usage costs. This applies to all pricing models. Unnamed datasets are automatically removed after your data retention period, so long-term storage is rarely a concern.
+:::
+
 ### Pay per event
 
 With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
@@ -50,8 +54,6 @@ When starting a run, you can define a maximum charge limit. The Actor terminates
 
 ![Pay per event Actor - max charge per run](./images/store/pay_per_event_max_charge_per_run.png)
 
-After the Actor finishes, any interactions with the dataset - such as reading or writing additional data - incur standard platform usage costs. Long-term storage of results is charged at normal rates.
-
 Your charges appear on your invoices and in the [Usage tab](https://console.apify.com/billing) in the Billing section of Apify Console. The cost of each run also appears on the run detail page.
 
 ![Pay per event Actor - historical usage tab](./images/store/pay_per_event_historical_usage_tab.png)
@@ -72,13 +74,11 @@ This makes it transparent and easy to estimate upfront costs. If you have any fe
 
 <!-- TODO - add a bit about the ability to set the maximum limits Actor should return -->
 
-Pay per result Actors are labeled next to the Actor name in Apify Console. There is no monthly rental fee - you only pay for the results.
+Pay per result Actors are labeled next to the Actor name in Apify Console.
 
 ![Actor paid per result in Console](./images/store/console_pay_per_result_tag.png)
 
-All platform costs generated _during_ the Actor run are not charged to your account. After the run finishes, any interactions with the default dataset - such as reading results or writing additional data - incur standard platform usage costs. In practice, simply reading results costs near to nothing.
-
-Result data is stored at normal platform storage rates. You can delete the dataset after exporting your data to reduce costs. By default, unnamed datasets are automatically removed after your data retention period, so long-term storage is rarely a concern.
+All platform costs generated _during_ the Actor run are not charged to your account.
 
 You can limit how many results an Actor returns - and therefore control how much you're charged - by setting a maximum items limit in the Options section below the Actor input on the Actor detail page.
 
