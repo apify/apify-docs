@@ -414,7 +414,7 @@ This example shows a complete output schema for a web crawler Actor that produce
 }
 ```
 
-Notice that each output includes a `description` that explains what data it contains. This metadata helps AI agents understand the Actor's capabilities and select the appropriate output for their needs.
+Each output includes a `description` explaining what the data contains. This metadata helps AI agents understand the Actor's capabilities and select the appropriate output for their needs.
 
 ### Actor with no output
 
