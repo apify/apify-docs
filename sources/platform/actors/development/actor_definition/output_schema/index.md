@@ -372,7 +372,7 @@ When the run finishes, Apify Console displays the HTML report in an iframe:
 
 ### Web crawler with multiple output types
 
-This example shows a complete output schema for a web crawler Actor that produces multiple types of output: crawled page data in the primary dataset, errors in a secondary dataset, and various files in key-value store collections.
+This example shows a complete output schema for a web crawler Actor with multiple output types: crawled page data, errors, and files stored in key-value store collections.
 
 ```json title=".actor/output_schema.json"
 {
