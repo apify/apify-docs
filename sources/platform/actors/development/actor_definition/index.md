@@ -1,7 +1,7 @@
 ---
 title: Actor definition
 sidebar_position: 3
-description: Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory.
+description: Learn how to define an Actor by adding a .actor directory with actor.json, a Dockerfile, README, and input schema files to your source code.
 slug: /actors/development/actor-definition
 ---
 

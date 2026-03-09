@@ -1,6 +1,6 @@
 ---
 title: Airtable integration
-description: Connect Apify with Airtable.
+description: Connect Apify with Airtable to automatically upload Actor run results to your base. Use the Apify extension on Airtable or the Console integration.
 sidebar_label: Airtable
 sidebar_position: 4
 slug: /integrations/airtable

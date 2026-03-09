@@ -1,6 +1,6 @@
 ---
 title: Pinecone integration
-description: Learn how to integrate Apify with Pinecone to feed data crawled from the web into the Pinecone vector database.
+description: Learn how to integrate Apify with Pinecone to export Actor results and dataset items into a Pinecone vector index for AI-powered similarity search.
 sidebar_label: Pinecone
 sidebar_position: 17
 slug: /integrations/pinecone

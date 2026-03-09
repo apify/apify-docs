@@ -1,6 +1,6 @@
 ---
 title: Runs and builds
-description: Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.
+description: Learn about Actor builds and runs, including their lifecycle, version tagging, storage assignment, sharing options, and data retention policy.
 sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---

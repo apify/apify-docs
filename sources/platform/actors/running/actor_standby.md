@@ -1,6 +1,6 @@
 ---
 title: Standby mode
-description: Use an Actor as a real-time API server.
+description: Use Actor Standby mode to keep an Actor ready in the background and serve real-time HTTP requests without waiting for a cold start each time.
 sidebar_position: 7.3
 slug: /actors/running/standby
 sidebar_label: Standby mode

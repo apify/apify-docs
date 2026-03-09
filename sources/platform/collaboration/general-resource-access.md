@@ -1,6 +1,6 @@
 ---
 title: General resource access
-description: Control how Apify resources are shared. Set default access (Anyone with ID can read or Restricted), and learn about link sharing, exceptions, and pre-signed URLs.
+description: Control how Apify resources are shared. Set default access to open ID-based access or restricted, and manage link sharing and pre-signed URLs.
 sidebar_position: 1
 category: platform
 slug: /collaboration/general-resource-access

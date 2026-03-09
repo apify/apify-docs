@@ -1,6 +1,6 @@
 ---
 title: Standby mode
-description: Use the Actor as a real-time API server.
+description: Develop Actors that run a persistent HTTP server in Standby mode, enabling fast real-time API responses without restarting the Actor each time.
 slug: /actors/development/programming-interface/standby
 sidebar_position: 9
 ---

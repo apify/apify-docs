@@ -2,7 +2,7 @@
 title: Key-value store schema specification
 sidebar_label: Key-value store schema
 sidebar_position: 6
-description: Learn how to define and present your key-value store schema to organize records into collections.
+description: Define a key-value store schema to organize records into named collections with content type validation, making Actor output easier to navigate and browse.
 slug: /actors/development/actor-definition/key-value-store-schema
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Milvus integration
-description: Learn how to integrate Apify with Milvus (Zilliz) to save data scraped from the websites into the Milvus vector database.
+description: Learn how to integrate Apify with Milvus to export Actor results and dataset items into a Milvus vector database collection for semantic search.
 sidebar_label: Milvus
 sidebar_position: 16
 slug: /integrations/milvus

@@ -1,6 +1,6 @@
 ---
 title: Gmail integration
-description: Learn how to integrate Apify with Gmail
+description: Learn how to integrate Apify Actors with Gmail to send automated email notifications with Actor run results to any Gmail address you choose.
 sidebar_label: Gmail
 sidebar_position: 6
 slug: /integrations/gmail

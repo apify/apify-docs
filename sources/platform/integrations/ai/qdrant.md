@@ -1,6 +1,6 @@
 ---
 title: Qdrant integration
-description: Learn how to integrate Apify with Qdrant to feed data crawled from the web into the Qdrant vector database.
+description: Learn how to integrate Apify with Qdrant to export Actor results and dataset items into a Qdrant vector database collection for AI-powered search.
 sidebar_label: Qdrant
 sidebar_position: 18
 slug: /integrations/qdrant

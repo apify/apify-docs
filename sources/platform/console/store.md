@@ -1,6 +1,6 @@
 ---
 title: Apify Store
-description: Explore Apify Store, browse and select Actors, search by criteria, sort by relevance, and adjust settings for immediate or future runs.
+description: Browse thousands of pre-built Actors in Apify Store, filter by category or pricing, and run them immediately or save settings for later use.
 sidebar_position: 2
 category: platform
 slug: /console/store

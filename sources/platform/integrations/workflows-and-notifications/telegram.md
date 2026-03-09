@@ -1,7 +1,7 @@
 ---
 title: Telegram integration through Zapier
 sidebar_label: Telegram
-description: Learn how to integrate your Apify Actors with Zapier.
+description: Learn how to integrate Apify Actors with Telegram through Zapier to automatically send Telegram messages with Actor run results and notifications.
 sidebar_position: 4
 slug: /integrations/telegram
 ---

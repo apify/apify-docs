@@ -1,6 +1,6 @@
 ---
 title: Two-factor authentication setup
-description: Learn about Apify Console's two-factor authentication process and how to set it up.
+description: Enable two-factor authentication on your Apify Console account using an authenticator app to add a second layer of security against unauthorized access.
 sidebar_position: 5
 category: platform
 slug: /console/two-factor-authentication

@@ -1,6 +1,6 @@
 ---
 title: Actor tasks
-description: Create and save reusable configurations of Apify Actors tailored to specific use cases.
+description: Create and save reusable configurations of Apify Actors for specific use cases, then run them on a schedule, via the API, or from the console.
 sidebar_position: 7.2
 slug: /actors/running/tasks
 sidebar_label: Tasks

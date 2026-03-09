@@ -1,8 +1,8 @@
 ---
 title: Source code
-description: Learn about the Actor's source code placement and its structure.
+description: Learn how to organize and structure your Actor source code, including directory placement conventions, programming language choice, and Dockerfile setup.
 slug: /actors/development/actor-definition/source-code
-sidebar_position: 6
+sidebar_position: 2
 ---
 
 **Learn about the Actor's source code placement and its structure.**

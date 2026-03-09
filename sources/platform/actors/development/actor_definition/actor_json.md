@@ -1,6 +1,6 @@
 ---
 title: actor.json
-description: Learn how to write the main Actor config in the `.actor/actor.json` file.
+description: Configure your Actor using the .actor/actor.json file to define its name, version number, build tag, and links to input and output schema files.
 slug: /actors/development/actor-definition/actor-json
 sidebar_position: 1
 ---

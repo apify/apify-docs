@@ -1,6 +1,6 @@
 ---
 title: Airtable integration on Apify Console
-description: Learn how to integrate Airtable on Apify Console.
+description: Set up the Airtable integration in Apify Console to automatically upload Actor run results to your Airtable base after each successful Actor run.
 sidebar_label: Apify Console integration
 sidebar_position: 1
 slug: /integrations/airtable/console

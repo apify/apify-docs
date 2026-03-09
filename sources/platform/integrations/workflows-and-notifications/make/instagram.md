@@ -1,6 +1,6 @@
 ---
 title: Make - Instagram Actor integration
-description: Learn about Instagram scraper modules. Extract posts, comments, and profile data.
+description: Use the Instagram Scraper modules in Make to extract posts, comments, and profile data from Instagram and incorporate results into your workflows.
 sidebar_label: Instagram
 sidebar_position: 1
 slug: /integrations/make/instagram

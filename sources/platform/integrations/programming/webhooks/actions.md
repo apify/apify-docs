@@ -1,6 +1,6 @@
 ---
 title: Webhook actions
-description: Send notifications when specific events occur in your Actor/task  run or build. Dynamically add data to the notification payload.
+description: Configure webhook actions to send HTTP POST requests when Actor or task runs complete. Use payload templates to inject dynamic run data into the request.
 sidebar_position: 2
 slug: /integrations/webhooks/actions
 ---

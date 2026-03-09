@@ -1,6 +1,6 @@
 ---
 title: Creating integration Actors
-description: Learn how to create Actors that are ready to be integrated with other Actors and tasks.
+description: Build Actors designed to work as integrations with other Actors and tasks. Handle dynamic input, payload fields, and large datasets efficiently.
 sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---

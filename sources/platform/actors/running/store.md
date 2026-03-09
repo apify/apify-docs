@@ -1,6 +1,6 @@
 ---
 title: Actors in Store
-description: Apify Store is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
+description: Browse Apify Store to discover thousands of public Actors, understand their pricing models, and choose the right one for your automation needs.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
 #display H2 to H4 heading

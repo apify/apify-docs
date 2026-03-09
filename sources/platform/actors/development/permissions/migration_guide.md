@@ -1,6 +1,6 @@
 ---
 title: Migration guide
-description: How to migrate your Actor to limited permissions. Common migration paths, code examples, and common issues.
+description: Migrate your Actor to limited permissions using the latest Apify SDK, with step-by-step migration paths, code examples, and fixes for common issues.
 sidebar_position: 9
 slug: /actors/development/permissions/migration-guide
 ---

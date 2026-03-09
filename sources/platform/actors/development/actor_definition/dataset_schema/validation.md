@@ -1,6 +1,7 @@
 ---
 title: Dataset validation
-description:  Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.
+description: Specify the dataset schema within your Actors to add monitoring and validation at the field level, ensuring data quality and consistency across runs.
+sidebar_position: 1
 slug: /actors/development/actor-definition/dataset-schema/validation
 ---
 

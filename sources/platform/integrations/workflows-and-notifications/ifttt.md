@@ -1,6 +1,6 @@
 ---
 title: IFTTT integration
-description: Connect Apify Actors with IFTTT to automate workflows using Actor run events, data queries, and task actions.
+description: Connect Apify Actors with IFTTT to build Applets that trigger on Actor run events, retrieve data from datasets, and start runs from any IFTTT trigger.
 sidebar_label: IFTTT
 sidebar_position: 7
 slug: /integrations/ifttt
