@@ -25,6 +25,7 @@ Output schema is essential for:
 Even if your Actor produces no output, define an empty output schema. This tells users and AI agents that the Actor completed successfully with no output, rather than assuming the run failed.
 
 :::
+
 ## Structure
 
 Place the output configuration files in the `.actor` folder in the Actor's root directory.
