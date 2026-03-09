@@ -200,7 +200,7 @@ The dataset schema structure defines the various components and properties that 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `actorSpecification` | integer | true | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
-| `fields` | JSONSchema compatible object | false | Schema of one dataset object. <br/>Use JsonSchema Draft 2020-12 or <br/>other compatible formats. See [Field schema](#field-schema) for details. |
+| `fields` | JSONSchema compatible object | false | Schema of one dataset object. <br/>Use JsonSchema Draft 2020-12 or <br/>other compatible formats. Refer to [Field schema](#field-schema) section for details. |
 | `views` | DatasetView object | true | An object with a description of an API <br/>and UI views. |
 
 ### DatasetView object definition
