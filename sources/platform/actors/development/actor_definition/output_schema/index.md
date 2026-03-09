@@ -266,8 +266,8 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
 
 The output schema defines *where* data is stored and how to access it. The [dataset schema](/platform/actors/development/actor-definition/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
 
-- **Output schema**: Declares that results are in the default dataset
-- **Dataset schema**: Describes each field with `title`, `description`, and `example`
+- Output schema: Declares that results are in the default dataset
+- Dataset schema: Describes each field with `title`, `description`, and `example`
 
 This combination gives AI agents complete information about your Actor's output structure.
 
