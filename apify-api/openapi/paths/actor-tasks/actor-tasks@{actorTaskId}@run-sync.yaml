@@ -53,7 +53,7 @@ get:
         format: double
         example: 256
     - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    # XXX: do we support maxTotalChargeUsd for task runs?
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: build
       in: query
       description: |
