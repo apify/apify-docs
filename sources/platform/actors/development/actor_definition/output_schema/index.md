@@ -20,12 +20,11 @@ Output schema is essential for:
 - User experience: Clear output definitions help users understand what data they will receive before running an Actor.
 - API consumers: The output schema appears in the `GET Run` API response, enabling programmatic discovery of Actor outputs.
 
-:::tip Define output schema for all Actors
+:::tip Define output schema
 
-Even if your Actor produces no output, define an empty output schema. This tells users and AI agents that the Actor intentionally produces no results, rather than leaving them to wonder if something went wrong.
+Even if your Actor produces no output, define an empty output schema. This tells users and AI agents that the Actor completed successfully with no output, rather than assuming the run failed.
 
 :::
-
 ## Structure
 
 Place the output configuration files in the `.actor` folder in the Actor's root directory.
