@@ -86,6 +86,12 @@ If you want more details about PPR pricing, refer to our [PPR documentation](/pl
 
 ### Rental pricing model
 
+:::caution Rental pricing model sunset
+
+The rental pricing model is being discontinued. Starting April 1, 2025, no new rentals are allowed, including edits to existing rentals. On October 1, 2025, all remaining rental Actors in Apify Store will be migrated to pay-per-usage pricing. We recommend using [pay-per-result](/platform/actors/publishing/monetize/pay-per-result) or [pay-per-event](/platform/actors/publishing/monetize/pay-per-event) pricing models instead.
+
+:::
+
 ![rental model example](images/rental-model.png)
 
 - _How it works_: you offer a free trial period and set a monthly fee. Users on Apify paid plans can continue using the Actor after the trial. You earn 80% of the monthly rental fees.
@@ -144,9 +150,7 @@ Apify Store is like any other marketplace, so take a look at your competition th
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
-### Rental, pay-per-result (PPR), or pay-per-event (PPE)
-
-Rental pricing allows you to charge a monthly fee for your Actor and users cover their own compute usage.
+### Pay-per-result (PPR) or pay-per-event (PPE)
 
 Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 

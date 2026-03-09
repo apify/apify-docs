@@ -17,6 +17,12 @@ When you publish your Actor on the Apify platform, you have the option to make i
 
 ## Rental pricing model
 
+:::caution Rental pricing model sunset
+
+The rental pricing model is being discontinued. Starting April 1, 2025, no new rentals are allowed, including edits to existing rentals. On October 1, 2025, all remaining rental Actors in Apify Store will be migrated to pay-per-usage pricing. We recommend using [pay-per-result](/platform/actors/publishing/monetize/pay-per-result) or [pay-per-event](/platform/actors/publishing/monetize/pay-per-event) pricing models instead.
+
+:::
+
 With the rental model, you can specify a free trial period and a monthly rental price. After the trial, users with an [Apify paid plan](https://apify.com/pricing) can continue using your Actor by paying the monthly fee. You can receive 80% of the total rental fees collected each month.
 
 <details>

@@ -23,12 +23,18 @@ Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store,
 [//]: # (TODO: link platform usage docs)
 All Actors in [Apify Store](https://apify.com/store) fall into one of the four pricing models:
 
-1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
+1. [**Rental**](#rental-actors) (**sunset**) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates. This pricing model is being discontinued.
 2. [**Pay per result**](#pay-per-result) - you do not pay for platform usage the Actor generates and instead just pay for the results it produces.
 3. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
 4. [**Pay per usage**](#pay-per-usage) - you can run the Actor and you pay for the platform usage the Actor generates.
 
 ### Rental Actors
+
+:::caution Rental pricing model sunset
+
+The rental pricing model is being discontinued. Starting April 1, 2025, no new rentals are allowed, including edits to existing rentals. On October 1, 2025, all remaining rental Actors in Apify Store will be migrated to pay-per-usage pricing.
+
+:::
 
 Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the _highest quality_ and receive _ongoing maintenance_.
 
