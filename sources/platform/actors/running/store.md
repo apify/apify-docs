@@ -30,7 +30,7 @@ All Actors in [Apify Store](https://apify.com/store) fall into one of three pric
 
 ### Pay per event
 
-With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page. There is no monthly rental fee - you only pay for the events.
+With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
 
 Pay per event Actors are labeled next to the Actor name in Apify Store and Apify Console.
 
@@ -38,17 +38,15 @@ Pay per event Actors are labeled next to the Actor name in Apify Store and Apify
 
 ![Example pay per event Actor](./images/store/pay_per_event_example_actor.png)
 
-Most pay per event Actors include [platform usage](./usage_and_resources.md) in the event price. However, some Actors charge platform usage separately on top of the event costs - always check the pricing section on the Actor's page to confirm what's included.
-
 :::caution Some Actors charge platform usage separately
 
-Most pay per event Actors include platform usage in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
+Most pay per event Actors include [platform usage](./usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
 
 :::
 
 ![Pay per event with usage not included in Apify Store](./images/store/pay_per_event_and_usage_example_actor.png)
 
-When starting a run, you can define a maximum charge limit. The Actor terminates gracefully when it reaches that limit - and even if it does not stop immediately, you are never charged more than the defined limit.
+When starting a run, you can define a maximum charge limit. The Actor terminates gracefully when it reaches that limit - and even if it does not stop immediately, you are never charged for produced events over the defined limit.
 
 ![Pay per event Actor - max charge per run](./images/store/pay_per_event_max_charge_per_run.png)
 
@@ -121,8 +119,6 @@ _Example_: You activate a 7-day trial at _noon on April 1, 2021_. Without cancel
 Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](./usage_and_resources.md). Most of the fee goes directly to the developer, and you also pay normal [platform usage costs](https://apify.com/pricing) on top - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
 
 You can cancel the rental at any time during the trial or afterward so you are not charged when the current rental period expires. You can always turn it back on later. When renting an Actor, you can run it via the [API](/api/v2), [JavaScript client](/api/client/js), or [Python client](/api/client/python), just as you would with any private or free public Actor.
-
-You can read more about the motivation behind rental Actors in [this blog post](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) from Apify's CEO Jan Čurn.
 
 To see a breakdown of rental charges, go to the **Actors** tab within the **Current period** tab in the [Billing](https://console.apify.com/billing) section.
 

@@ -148,11 +148,11 @@ Apify Store is like any other marketplace, so take a look at your competition th
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
-### Rental, pay-per-result (PPR), or pay-per-event (PPE)
+### Pay-per-event (PPE), pay-per-result (PPR), or rental
 
 Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
 
-Rental pricing allows you to charge a monthly fee for your Actor and users cover their own compute usage.
+Rental pricing allows you to charge a monthly fee for your Actor and users cover their own platform usage.
 
 Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 
