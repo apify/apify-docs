@@ -103,6 +103,9 @@ The output schema defines the collections of keys and their properties. It allow
 | `run.containerUrl`                 | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                                      |
 | `run.defaultDatasetId`             | string | ID of the default dataset                                                                                                        |
 | `run.defaultKeyValueStoreId`       | string | ID of the default key-value store                                                                                                |
+| `storages`                         | object | Contains references to named storages defined in the Actor's storage configuration                                               |
+| `storages.datasets.<name>.apiUrl`  | string | API URL of a named dataset in format `https://api.apify.com/v2/datasets/:datasetId`                                              |
+| `storages.keyValueStores.<name>.apiUrl` | string | API URL of a named key-value store in format `https://api.apify.com/v2/key-value-stores/:keyValueStoreId`                   |
 
 ## How templates work
 
@@ -376,39 +379,34 @@ This example shows a complete output schema for a web crawler Actor with multipl
 
 ```json title=".actor/output_schema.json"
 {
+    "$schema": "https://apify-projects.github.io/actor-json-schemas/output.json?v=0.3",
     "actorOutputSchemaVersion": 1,
-    "title": "Website Content Crawler output",
-    "description": "Crawls websites and extracts text content, screenshots, and downloaded files.",
+    "title": "Output schema of the Actor",
     "properties": {
         "crawlResults": {
             "type": "string",
             "title": "Crawl results",
-            "description": "Main dataset containing extracted content from each crawled page, including text, metadata, and links.",
             "template": "{{links.apiDefaultDatasetUrl}}/items"
-        },
-        "errors": {
-            "type": "string",
-            "title": "Errors",
-            "description": "Dataset containing pages that failed to load or process, with error details and URLs.",
-            "template": "{{links.apiDefaultDatasetUrl}}/items?view=errors"
         },
         "screenshots": {
             "type": "string",
             "title": "Screenshots",
-            "description": "PNG screenshots of each crawled page, stored with the page URL as the key name.",
             "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=screenshots"
         },
         "downloadedFiles": {
             "type": "string",
             "title": "Downloaded files",
-            "description": "Files downloaded during crawling (PDFs, documents, etc.), stored with original filenames.",
-            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=files"
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=downloaded-files"
         },
         "htmlSnapshots": {
             "type": "string",
             "title": "HTML snapshots",
-            "description": "Raw HTML content of each page at the time of crawling.",
-            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=html"
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=html-snapshots"
+        },
+        "crawlErrors": {
+            "type": "string",
+            "title": "Errors",
+            "template": "{{storages.datasets.errors.apiUrl}}/items"
         }
     }
 }
