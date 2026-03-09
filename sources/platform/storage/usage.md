@@ -8,10 +8,6 @@ slug: /storage/usage
 
 import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
 
-**Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.**
-
----
-
 ## Dataset
 
 [Dataset](./dataset.md) storage allows you to store a series of data objects, such as results from web scraping, crawling, or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel, or HTML formats.
@@ -23,7 +19,6 @@ import StoragePricingCalculator from "@site/src/components/StoragePricingCalcula
 The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
 
 ![Key-value store graphic](../images/key-value-overview.svg)
-
 
 ## Request queue
 

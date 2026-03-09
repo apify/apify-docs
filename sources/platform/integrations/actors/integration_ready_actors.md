@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---
 
-**Learn how to create Actors that are ready to be integrated with other Actors and tasks.**
-
----
-
 Any Actor can be used in integrations. In order to provide a smooth experience for its users, there are few things to keep in mind.
 
 ## General guidelines
@@ -61,7 +57,6 @@ However, if the Actor is **only** supposed to be used as integration, we can use
 
 - `connectionString: string` - Credentials for the database connection
 - `tableName: string` - Name of table / collection
-
 
 In this case, users only need to provide the "static" part of the input:
 

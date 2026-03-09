@@ -7,10 +7,6 @@ slug: /integrations/make/instagram
 unlisted: true
 ---
 
-**Learn about Instagram scraper modules. Extract posts, comments, and profile data.**
-
----
-
 ## Apify Scraper for Instagram Data
 
 The Instagram Scraper modules from [Apify](https://apify.com) allow you to extract posts, comments, and profile data from Instagram.
@@ -29,7 +25,6 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
-
 
     ![Apify token on Make.png](images/Apify_token_on_Make.png)
 

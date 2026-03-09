@@ -6,10 +6,6 @@ sidebar_position: 10
 slug: /integrations/flowise
 ---
 
-**Learn how to integrate Apify with Flowise.**
-
----
-
 ## What is Flowise?
 
 Flowise is an open-source UI visual tool to build your customized LLM flow using Langchain.

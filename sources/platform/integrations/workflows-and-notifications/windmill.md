@@ -6,10 +6,6 @@ sidebar_position: 8
 slug: /integrations/windmill
 ---
 
-**Use Windmill to run Apify Actors and tasks, react to Apify events via webhooks or polling, and move data between Apify and other services with Windmill scripts and flows.**
-
----
-
 [Windmill](https://www.windmill.dev/) is an open-source automation platform for building scripts and flows that connect your tools and data. With the Apify integration for Windmill, you can run Actors and tasks, scrape websites, extract data from storage, and trigger workflows based on Apify events.
 
 This guide shows you how to install the Apify package, set up authentication, and create automated workflows that integrate with Apify.
@@ -26,7 +22,6 @@ Before you begin, make sure you have:
 The Apify integration provides scripts, flows, and resources that will be available through the Windmill Hub.
 
 ![Apify Hub](../images/windmill-install-hub.png)
-
 
 ### Step 1: Import Apify scripts from Windmill Hub
 
@@ -94,7 +89,6 @@ OAuth authentication is only available on Windmill Cloud, not on self-hosted ins
 
 ![Apify Auth](../images/windmill-install-oauth-resource.png)
 
-
 ## Create your first workflow
 
 Let's create a simple workflow that runs an Actor and fetches its results.
@@ -140,7 +134,6 @@ With the flow created and scripts linked we can test and run it.
 1. Review the results and ensure both steps completed successfully.
 1. Save and activate your flow.
 
-
 ## Use webhooks to trigger workflows
 
 Windmill provides webhook-based triggers that can automatically start workflows when Apify events occur.
@@ -155,7 +148,6 @@ Windmill provides webhook-based triggers that can automatically start workflows 
   ![Apify Webhook](../images/windmill-webhook-set-trigger.png)
 1. Create a **Webhook-specific Token**.
 1. Copy both the **token** and the **webhook URL** to your clipboard. These will be used for creation of the **Webhook Config** resource in the next step.
-
 
 ### Step 2: Configure the webhook creation script
 

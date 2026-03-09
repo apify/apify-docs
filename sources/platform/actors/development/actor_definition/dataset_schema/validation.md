@@ -8,10 +8,6 @@ slug: /actors/development/actor-definition/dataset-schema/validation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.**
-
----
-
 To define a schema for a default dataset of an Actor run, you need to set `fields` property in the dataset schema.
 
 :::info
@@ -201,7 +197,6 @@ In case of enums `null` needs to be within the set of allowed values:
 }
 ```
 
-
 Define type of objects in array:
 
 ```json
@@ -251,6 +246,5 @@ When you configure the dataset fields schema, we generate a field list and measu
   - For arrays, this field tracks the number of items in the array
   - For objects, this tracks the number of keys
   - For booleans, this tracks whether the boolean was set to true. Minimum is always 0, but maximum can be either 1 or 0 based on whether at least one item in the dataset has the boolean field set to true.
-
 
 You can use them in [monitoring](../../../../monitoring#alert-configuration).

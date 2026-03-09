@@ -6,10 +6,6 @@ sidebar_position: 7
 slug: /integrations/llama-index
 ---
 
-**Learn how to integrate Apify with LlamaIndex to feed vector databases and LLMs with data crawled from the web.**
-
----
-
 > For more information on LlamaIndex, visit its [documentation](https://developers.llamaindex.ai/python/framework/).
 
 ## What is LlamaIndex?
@@ -31,7 +27,6 @@ After successfully installing all dependencies, we can start writing Python code
 To use the Apify Actor, import `ApifyActor` and `Document`, and set your [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) in the code.
 The following example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl an entire website, which will extract text content from the web pages.
 The extracted text is formatted as a llama_index `Document` and can be fed to a vector store or language model like GPT.
-
 
 ```python
 from llama_index.core import Document

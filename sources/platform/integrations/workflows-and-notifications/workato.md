@@ -6,10 +6,6 @@ sidebar_position: 7
 slug: /integrations/workato
 ---
 
-**Learn how to integrate your Apify Actors with Workato for automated workflows.**
-
----
-
 [Workato](https://www.workato.com/) is an automation platform where you can build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Get started
@@ -27,7 +23,6 @@ The Apify Workato Connector is available in the Workato Community library. Here'
 1. Click on **Custom connectors**.
 1. Search for **Apify**.
 1. Click on the connector and then click **Install**.
-
 
 After installation, the Apify connector appears in **Connector SDK** under the **Tools** tab. After you release the connector, you can use it in your projects.
 
@@ -132,7 +127,6 @@ When using manual input instead of pick lists, you'll need to provide the correc
   - Also available in the table on the `Storage > Key-value stores` page
 - **Webhook ID**: [Actors](https://console.apify.com/actors) > Actor > Integrations.
   - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
-
 
 ## Triggers
 

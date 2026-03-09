@@ -6,10 +6,6 @@ sidebar_label: Webhook integration
 slug: /integrations/webhooks
 ---
 
-**Learn how to integrate multiple Apify Actors or external systems with your Actor or task run. Send alerts when your Actor run succeeds or fails.**
-
----
-
 Webhooks allow you to configure the Apify platform to perform an action when a certain system event occurs. For example, you can use them to start another Actor when the current run finishes or fails.
 
 You can find webhooks under the **Integrations** tab on an Actor's page in [Apify Console](https://console.apify.com/actors).

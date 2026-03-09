@@ -5,10 +5,6 @@ sidebar_position: 9
 slug: /actors/development/permissions/migration-guide
 ---
 
-**Migrate your Actor to limited permissions, review common migration paths, code examples, and solutions to common issues.**
-
----
-
 This guide explains how to migrate your existing Actors to use [limited permissions](index.md#how-actor-permissions-work). Before you start, make sure your Actor uses the latest [Apify SDK](https://docs.apify.com/sdk).
 
 Recommended minimum SDK versions:
@@ -39,7 +35,6 @@ Or just using the API:
 ```tsx
  POST https://api.apify.com/v2/acts/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
 ```
-
 
 ## Common migration paths
 

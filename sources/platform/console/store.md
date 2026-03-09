@@ -6,10 +6,6 @@ category: platform
 slug: /console/store
 ---
 
-**Explore Apify Store, browse and select Actors, search by criteria, sort by relevance, and adjust settings for immediate or future runs.**
-
----
-
 ![apify-console-store](./images/console-store.png)
 
 Apify Store is a place where you can explore a variety of Actors, both created and maintained by Apify or our community members.
@@ -21,7 +17,6 @@ You can also organize the results from the store by different criteria, includin
 * Pricing model
 * Developers
 * Relevance
-
 
 Once you select an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
 

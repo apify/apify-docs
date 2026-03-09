@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /actors/development/actor-definition/input-schema/secret-input
 ---
 
-**Learn about making some Actor input fields secret and encrypted. Ideal for passing passwords, API tokens, or login cookies to Actors.**
-
----
-
 The secret input feature lets you mark specific input fields of an Actor as sensitive. When you save the Actor's input configuration, the values of these marked fields get encrypted. The encrypted input data can only be decrypted within the Actor. This provides an extra layer of security for sensitive information like API keys, passwords, or other confidential data.
 
 ## How to set a secret input field
@@ -81,7 +77,6 @@ The encryption mechanism used for encrypting the secret input fields is the same
 The RSA key is unique for each combination of user and Actor, ensuring that no Actor can decrypt input intended for runs of another Actor by the same user, and no user can decrypt input runs of the same Actor by a different user. This isolation of decryption keys enhances the security of sensitive input data.
 
 During Actor execution, the decryption keys are passed as environment variables, restricting the decryption of secret input fields to occur solely within the context of the Actor run. This approach prevents unauthorized access to sensitive input data outside the Actor's execution environment.
-
 
 ## Example Actor
 

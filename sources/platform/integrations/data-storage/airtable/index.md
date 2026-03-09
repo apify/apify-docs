@@ -6,10 +6,6 @@ sidebar_position: 4
 slug: /integrations/airtable
 ---
 
-**Learn how to integrate Apify with Airtable. This article shows you how to use the Apify extension on Airtable.**
-
----
-
 [Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With the Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
 
 This integration uses OAuth 2.0, a secure authorization protocol, to connect your Airtable account to Apify and manage data transfers.
@@ -78,7 +74,6 @@ The extension provides the following capabilities:
 You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
 
 ![Run task](../../images/airtable/airtable_task.png)
-
 
 ### Get dataset items
 

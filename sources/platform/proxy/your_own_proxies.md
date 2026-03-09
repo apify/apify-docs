@@ -5,10 +5,6 @@ sidebar_position: 10.5
 slug: /proxy/using-your-own-proxies
 ---
 
-**Learn how to use your own proxies while using the Apify platform.**
-
----
-
 In addition to our proxies, you can use your own both in Apify Console and SDK.
 
 ## Custom proxies in console

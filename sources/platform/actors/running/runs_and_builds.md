@@ -5,10 +5,6 @@ sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---
 
-**Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.**
-
----
-
 ## Builds
 
 An Actor is a combination of source code and various settings in a Docker container. To run, it needs to be built. An Actor build consists of the source code built as a Docker image, making the Actor ready to run on the Apify platform.
@@ -90,7 +86,6 @@ flowchart LR
 | TIMED-OUT  | terminal     | Timed out                                   |
 | ABORTING   | transitional | Being aborted by the user                   |
 | ABORTED    | terminal     | Aborted by the user                         |
-
 
 ### Aborting runs
 

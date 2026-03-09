@@ -5,11 +5,6 @@ sidebar_position: 1
 slug: /integrations/webhooks/events
 ---
 
-
-**Specify the types of events  that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, termination or timeout.**
-
----
-
 You can configure webhooks to trigger actions based on specific events that occur during Actor runs or builds.
 
 ## Actor run events

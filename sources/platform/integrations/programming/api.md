@@ -6,10 +6,6 @@ sidebar_position: 1
 slug: /integrations/api
 ---
 
-**Learn how to integrate with Apify using the REST API.**
-
----
-
 All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
 If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend to use one of our API clients:
 
@@ -51,7 +47,6 @@ If you suspect that a token has been compromised or accidentally exposed, you ca
 For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
 
 ![Leaked token in Apify Console](../images/api-token-leaked.png)
-
 
 ## Organization accounts
 
@@ -179,7 +174,6 @@ If the toggle is **off**, the token can still trigger and inspect runs, but acce
 
 - For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
 - For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
-
 
 :::tip Clean up run data
 Let's say your Actor produces a lot of data that you want to delete just after the Actor finishes. If you enable this toggle, your scoped token will be allowed to do that.

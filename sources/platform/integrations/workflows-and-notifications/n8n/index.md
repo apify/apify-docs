@@ -6,10 +6,6 @@ sidebar_position: 7
 slug: /integrations/n8n
 ---
 
-**Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and responding to Actor or task events.**
-
----
-
 [n8n](https://n8n.io/) is an open source, fair-code licensed tool for workflow automation. With the [Apify integration for n8n](https://github.com/apify/n8n-nodes-apify), you can connect Apify Actors and storage to hundreds of services You can run scrapers, extract data, and trigger workflows based on Actor or task events.
 
 In this guide, you'll learn how to install the Apify node, set up authentication, and incorporate it into your n8n workflows as either a trigger or an action.
@@ -135,7 +131,6 @@ Actions allow you to perform operations like running an Actor within a workflow.
 You can run Apify operations, retrieve the results, and use AI to process, analyze, and summarize the data, or generate insights and recommendations.
 
   ![Apify Node](../../images/n8n-ai-tool-example.png)
-
 
 1. Create a new workflow.
 1. **Add a trigger**:  Search for and select **Chat Trigger**.

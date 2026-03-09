@@ -8,10 +8,6 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**Learn how to integrate Apify with Milvus (Zilliz) to save data scraped from websites into the Milvus vector database.**
-
----
-
 [Milvus](https://milvus.io/) is an open-source vector database optimized for performing similarity searches on large datasets of high-dimensional vectors.
 Its focus on efficient vector similarity search allows for the creation of powerful and scalable retrieval systems.
 
@@ -36,7 +32,6 @@ Note that the collection does not need to exist beforehand.
 It will be automatically created when data is uploaded to the database.
 
 Once the cluster is ready, and you have the `URI` and `Token`, you can set up the integration with Apify.
-
 
 ### Integration Methods
 
@@ -86,13 +81,11 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
 
 1. Call the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl the Milvus documentation and Zilliz website and extract text content from the web pages:
 
-
     ```python
     actor_call = client.actor("apify/website-content-crawler").call(
         run_input={"maxCrawlPages": 10, "startUrls": [{"url": "https://milvus.io/"}, {"url": "https://zilliz.com/"}]}
     )
     ```
-
 
 1. Call Apify's Milvus integration and store all data in the Milvus Vector Database:
 

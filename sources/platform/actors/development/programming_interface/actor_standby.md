@@ -5,10 +5,6 @@ slug: /actors/development/programming-interface/standby
 sidebar_position: 9
 ---
 
-**Use Actors as an API server for fast response times.**
-
----
-
 Traditional Actors are designed to run a single task and then stop. They're mostly intended for batch jobs, such as when you need to perform a large scrape or data processing task.
 However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
@@ -83,7 +79,6 @@ You must return a response; otherwise, the Actor run will never be marked as rea
 
 :::
 
-
 See example code below that distinguishes between "normal" and "readiness probe" requests.
 
 <Tabs groupId="main">
@@ -116,7 +111,6 @@ server.listen(Actor.config.get('standbyPort'));
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from apify import Actor
 
-
 class GetHandler(SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         self.send_response(200)
@@ -127,7 +121,6 @@ class GetHandler(SimpleHTTPRequestHandler):
         else:
             print('Normal request')
             self.wfile.write(b'Hello, normal request!')
-
 
 async def main() -> None:
     async with Actor:

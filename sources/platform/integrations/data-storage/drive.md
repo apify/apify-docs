@@ -6,10 +6,6 @@ sidebar_position: 3
 slug: /integrations/drive
 ---
 
-**Learn how to integrate your Apify Actors with Google Drive. This article shows you how to automatically save results to your drive when an Actor run succeeds.**
-
----
-
 ## Get started
 
 To use the Apify integration for Google Drive, you will need:

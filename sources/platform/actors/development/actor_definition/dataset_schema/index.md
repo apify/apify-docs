@@ -6,10 +6,6 @@ slug: /actors/development/actor-definition/dataset-schema
 sidebar_label: Dataset schema
 ---
 
-**Learn how to define and present your dataset schema in an user-friendly output UI.**
-
----
-
 The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
 
 ## Example
@@ -34,7 +30,6 @@ await Actor.pushData({
     arrayField: ['#hello', '#world'],
     objectField: {},
 });
-
 
 // Exit successfully
 await Actor.exit();

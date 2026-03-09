@@ -6,10 +6,6 @@ sidebar_position: 6
 slug: /integrations/gmail
 ---
 
-**Learn how to integrate your Apify Actors with Gmail. This article shows you how to automatically send an email with results when an Actor run succeeds.**
-
----
-
 ## Get started
 
 To use the Apify integration for Gmail, you will need:

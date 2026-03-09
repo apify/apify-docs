@@ -6,10 +6,6 @@ category: platform
 slug: /console/billing
 ---
 
-**The Billings page is the central place for all information regarding your invoices, billing information regarding usage in the current billing cycle, historical usage, subscriptions & limits.**
-
----
-
 ## Current period
 
 The **Current period** tab is a comprehensive resource for understanding your platform usage during the ongoing billing cycle. It provides an overview of your total usage and indicates the start and end dates of the current billing period.
