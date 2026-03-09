@@ -91,21 +91,21 @@ The output schema defines the collections of keys and their properties. It allow
 
 ### Available template variables
 
-| Variable                           | Type   | Description                                                                                                                      |
-|------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------|
-| `links`                            | object | Contains quick links to most commonly used URLs                                                                                  |
-| `links.publicRunUrl`               | string | Public run url in format `https://console.apify.com/view/runs/:runId`                                                            |
-| `links.consoleRunUrl`              | string | Console run url in format `https://console.apify.com/actors/runs/:runId`                                                         |
-| `links.apiRunUrl`                  | string | API run url in format `https://api.apify.com/v2/actor-runs/:runId`                                                               |
-| `links.apiDefaultDatasetUrl`       | string | API url of default dataset in format `https://api.apify.com/v2/datasets/:defaultDatasetId`                                       |
-| `links.apiDefaultKeyValueStoreUrl` | string | API url of default key-value store in format `https://api.apify.com/v2/key-value-stores/:defaultKeyValueStoreId`                 |
-| `run`                              | object | Contains information about the run same as it is returned from the `GET Run` API endpoint                                        |
-| `run.containerUrl`                 | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                                      |
-| `run.defaultDatasetId`             | string | ID of the default dataset                                                                                                        |
-| `run.defaultKeyValueStoreId`       | string | ID of the default key-value store                                                                                                |
-| `storages`                         | object | Contains references to named storages defined in the Actor's storage configuration                                               |
-| `storages.datasets.<name>.apiUrl`  | string | API URL of a named dataset in format `https://api.apify.com/v2/datasets/:datasetId`                                              |
-| `storages.keyValueStores.<name>.apiUrl` | string | API URL of a named key-value store in format `https://api.apify.com/v2/key-value-stores/:keyValueStoreId`                   |
+| Variable                                | Type   | Description                                                                                                      |
+|-----------------------------------------|--------|------------------------------------------------------------------------------------------------------------------|
+| `links`                                 | object | Contains quick links to most commonly used URLs                                                                  |
+| `links.publicRunUrl`                    | string | Public run url in format `https://console.apify.com/view/runs/:runId`                                            |
+| `links.consoleRunUrl`                   | string | Console run url in format `https://console.apify.com/actors/runs/:runId`                                         |
+| `links.apiRunUrl`                       | string | API run url in format `https://api.apify.com/v2/actor-runs/:runId`                                               |
+| `links.apiDefaultDatasetUrl`            | string | API url of default dataset in format `https://api.apify.com/v2/datasets/:defaultDatasetId`                       |
+| `links.apiDefaultKeyValueStoreUrl`      | string | API url of default key-value store in format `https://api.apify.com/v2/key-value-stores/:defaultKeyValueStoreId` |
+| `run`                                   | object | Contains information about the run same as it is returned from the `GET Run` API endpoint                        |
+| `run.containerUrl`                      | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                      |
+| `run.defaultDatasetId`                  | string | ID of the default dataset                                                                                        |
+| `run.defaultKeyValueStoreId`            | string | ID of the default key-value store                                                                                |
+| `storages`                              | object | Contains references to named storages defined in the Actor's storage configuration                               |
+| `storages.datasets.<name>.apiUrl`       | string | API URL of a named dataset in format `https://api.apify.com/v2/datasets/:datasetId`                              |
+| `storages.keyValueStores.<name>.apiUrl` | string | API URL of a named key-value store in format `https://api.apify.com/v2/key-value-stores/:keyValueStoreId`        |
 
 ## How templates work
 
