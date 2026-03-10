@@ -1,6 +1,6 @@
 ---
 title: Adding your RapidAPI project to Apify
-description: If you've published an API project on RapidAPI, you can expand your project's visibility by listing it on Apify Store. This gives you access to Apify's developer community and ecosystem.
+description: Expand your RapidAPI project's visibility by listing it on Apify Store. Access Apify's developer community and broader ecosystem for wider reach.
 sidebar_position: 1
 category: apify platform
 slug: /apify-actors/adding-rapidapi-project
