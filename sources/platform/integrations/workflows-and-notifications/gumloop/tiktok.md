@@ -22,10 +22,10 @@ You can pull the following types of data from TikTok using Gumloop’s TikTok no
 | Get hashtag videos | Fetch videos from TikTok hashtags with captions, engagement metrics, play counts, and author information. | 3 credits per item |
 | Get profile videos | Get videos from TikTok user profiles with video metadata, engagement stats, music info, and timestamps. | 3 credits per item |
 | Get profile followers | Retrieve followers or following lists from TikTok profiles, including usernames, follower counts, and bios. | 3 credits per item |
-| Get video details | Get comprehensive data on a specific TikTok video using its URL—includes engagement and video-level metrics. | 5 credits per item |
+| Get video details | Get comprehensive data on a specific TikTok video using its URL - includes engagement and video-level metrics. | 5 credits per item |
 | Search videos | Search TikTok for videos and users using queries. Returns video details and user profile info. | 3 credits per item |
 
-## Retrieve Tiktok Data in Gumloop
+## Retrieve TikTok data in Gumloop
 
 1. _Add the Gumloop TikTok MCP node_
 

@@ -48,6 +48,15 @@ get:
               isSecret: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
+              - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/get-environment-variable
@@ -129,6 +138,15 @@ put:
               isSecret: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
+              - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
@@ -180,6 +198,15 @@ delete:
           example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
+              - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/delete-environment-variable
