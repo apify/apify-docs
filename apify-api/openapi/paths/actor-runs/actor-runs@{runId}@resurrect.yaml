@@ -11,13 +11,13 @@ post:
     For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
   operationId: PostResurrectRun
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/runId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/build"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/timeout"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/memory"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxItems"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildResurrect"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeoutResurrect"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memoryResurrect"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnErrorResurrect"
   responses:
     "200":
       description: ""

@@ -13,8 +13,8 @@ get:
   operationId: act_build_default_get
   security: []
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishBuild"
   responses:
     "200":
       description: ""

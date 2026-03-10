@@ -5,7 +5,7 @@ get:
   description: Gets a given webhook's list of dispatches.
   operationId: webhook_webhookDispatches_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/webhookId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   responses:
     "200":
       description: ""

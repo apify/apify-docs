@@ -29,9 +29,9 @@ get:
       schema:
         type: boolean
         example: true
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/DescCreatedAt"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descCreatedAt"
     - name: sortBy
       in: query
       description: |

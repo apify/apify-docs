@@ -16,11 +16,11 @@ get:
     statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
   operationId: actorTask_runs_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/DescStartedAt"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/status"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descStartedAt"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
   responses:
     "200":
       description: ""
@@ -79,15 +79,15 @@ post:
     [Get dataset items](#/reference/datasets/item-collection/get-items) API endpoint.
   operationId: actorTask_runs_post
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/timeout"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/memory"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxItems"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/restartOnError"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/build"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishRun"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
   requestBody:
     description: ""
     content:

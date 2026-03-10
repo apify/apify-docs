@@ -15,10 +15,10 @@ get:
     the `desc=1` parameter.
   operationId: act_builds_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/DescStartedAt"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descStartedAt"
   responses:
     "200":
       description: ""
@@ -56,7 +56,7 @@ post:
     [Get build](#/reference/actors/build-object/get-build) endpoint.
   operationId: act_builds_post
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: version
       in: query
       description: Actor version number to be built.
@@ -96,7 +96,7 @@ post:
       schema:
         type: string
         example: latest
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishBuild"
   responses:
     "201":
       description: ""

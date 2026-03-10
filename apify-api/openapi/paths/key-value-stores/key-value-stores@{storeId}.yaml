@@ -7,7 +7,7 @@ get:
     store.
   operationId: keyValueStore_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
   responses:
     "200":
       description: ""
@@ -47,7 +47,7 @@ put:
     store](#/reference/key-value-stores/store-object/get-store) API endpoint.
   operationId: keyValueStore_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
   requestBody:
     description: ""
     content:
@@ -91,7 +91,7 @@ delete:
   description: Deletes a key-value store.
   operationId: keyValueStore_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
   responses:
     "204":
       description: ""

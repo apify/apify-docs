@@ -51,8 +51,8 @@ get:
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: actorTask_runs_last_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/statusLastRun"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/statusLastRun"
   responses:
     "200":
       description: ""

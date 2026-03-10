@@ -11,9 +11,9 @@ post:
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
   operationId: act_run_abort_post
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/runId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/gracefully"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/gracefully"
   responses:
     "200":
       description: ""

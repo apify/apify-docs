@@ -16,12 +16,12 @@ get:
     statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
   operationId: actorRuns_get
   parameters:
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/DescStartedAt"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/status"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/startedAfter"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/startedBefore"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descStartedAt"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedAfter"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedBefore"
   responses:
     # todo 404?
     "200":

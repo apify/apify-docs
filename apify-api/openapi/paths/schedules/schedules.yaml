@@ -12,9 +12,9 @@ get:
     order. To sort the records in descending order, use the `desc=1` parameter.
   operationId: schedules_get
   parameters:
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/DescCreatedAt"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descCreatedAt"
   responses:
     "200":
       description: ""

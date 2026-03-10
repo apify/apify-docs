@@ -5,7 +5,7 @@ get:
   description: Gets the schedule object with all details.
   operationId: schedule_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/scheduleId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
   responses:
     "200":
       description: ""
@@ -47,7 +47,7 @@ put:
     info](#/introduction/authentication)).
   operationId: schedule_put
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/scheduleId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
   requestBody:
     description: ""
     content:
@@ -83,7 +83,7 @@ delete:
   description: Deletes a schedule.
   operationId: schedule_delete
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/scheduleId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
   responses:
     "204":
       description: ""

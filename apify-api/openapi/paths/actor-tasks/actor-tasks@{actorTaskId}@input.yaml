@@ -5,7 +5,7 @@ get:
   description: Returns the input of a given task.
   operationId: actorTask_input_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
     "200":
       description: ""
@@ -52,7 +52,7 @@ put:
     info](#/introduction/authentication)).
   operationId: actorTask_input_put
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   requestBody:
     description: ""
     content:

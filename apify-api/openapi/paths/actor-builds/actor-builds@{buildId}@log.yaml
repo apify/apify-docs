@@ -6,7 +6,7 @@ get:
   description: "Check out [Logs](#/reference/logs) for full reference."
   operationId: actorBuild_log_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/buildId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
     - $ref: "../../components/parameters/logOptions.yaml#/stream"
     - $ref: "../../components/parameters/logOptions.yaml#/download"
   responses:

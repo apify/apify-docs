@@ -15,10 +15,10 @@ get:
     parameters and it will not return more than 1000 array elements.
   operationId: datasets_get
   parameters:
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Desc"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Unnamed"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/desc"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/unnamed"
     - name: ownership
       in: query
       description: |

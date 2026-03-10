@@ -5,7 +5,7 @@ get:
   description: Get an object that contains all the details about a task.
   operationId: actorTask_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
     "200":
       description: ""
@@ -53,7 +53,7 @@ put:
     info](#/introduction/authentication)).
   operationId: actorTask_put
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   requestBody:
     description: ""
     content:
@@ -102,7 +102,7 @@ delete:
   description: Delete the task specified through the `actorTaskId` parameter.
   operationId: actorTask_delete
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
     "204":
       description: ""

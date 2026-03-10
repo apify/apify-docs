@@ -1,4 +1,4 @@
-Format:
+format:
   name: format
   in: query
   description: |
@@ -9,7 +9,7 @@ Format:
     type: string
     example: json
 
-Clean:
+clean:
   name: clean
   in: query
   description: |
@@ -22,7 +22,7 @@ Clean:
     type: boolean
     example: false
 
-Limit:
+limit:
   name: limit
   in: query
   description: Maximum number of items to return. By default there is no limit.
@@ -32,7 +32,7 @@ Limit:
     type: number
     format: double
 
-Fields:
+fields:
   name: fields
   in: query
   description: |
@@ -45,7 +45,7 @@ Fields:
     type: string
     example: "myValue,myOtherValue"
 
-Omit:
+omit:
   name: omit
   in: query
   description: A comma-separated list of fields which should be omitted from the items.
@@ -55,7 +55,7 @@ Omit:
     type: string
     example: "myValue,myOtherValue"
 
-Unwind:
+unwind:
   name: unwind
   in: query
   description: |
@@ -70,7 +70,7 @@ Unwind:
     type: string
     example: "myValue,myOtherValue"
 
-Flatten:
+flatten:
   name: flatten
   in: query
   description: |
@@ -85,7 +85,7 @@ Flatten:
     type: string
     example: myValue
 
-Attachment:
+attachment:
   name: attachment
   in: query
   description: |
@@ -98,7 +98,7 @@ Attachment:
     type: boolean
     example: true
 
-Delimiter:
+delimiter:
   name: delimiter
   in: query
   description: |
@@ -111,7 +111,7 @@ Delimiter:
     type: string
     example: ;
 
-Bom:
+bom:
   name: bom
   in: query
   description: |
@@ -125,7 +125,7 @@ Bom:
     type: boolean
     example: false
 
-XmlRoot:
+xmlRoot:
   name: xmlRoot
   in: query
   description: |
@@ -136,7 +136,7 @@ XmlRoot:
     type: string
     example: items
 
-XmlRow:
+xmlRow:
   name: xmlRow
   in: query
   description: |
@@ -147,7 +147,7 @@ XmlRow:
     type: string
     example: item
 
-SkipHeaderRow:
+skipHeaderRow:
   name: skipHeaderRow
   in: query
   description: If `true` or `1` then header row in the `csv` format is skipped.
@@ -157,7 +157,7 @@ SkipHeaderRow:
     type: boolean
     example: true
 
-SkipHidden:
+skipHidden:
   name: skipHidden
   in: query
   description: |
@@ -168,7 +168,7 @@ SkipHidden:
     type: boolean
     example: false
 
-SkipEmpty:
+skipEmpty:
   name: skipEmpty
   in: query
   description: |
@@ -181,7 +181,7 @@ SkipEmpty:
     type: boolean
     example: false
 
-Simplified:
+simplified:
   name: simplified
   in: query
   description: |
@@ -194,7 +194,7 @@ Simplified:
     type: boolean
     example: false
 
-Desc:
+descDataset:
   name: desc
   in: query
   description: |
@@ -206,7 +206,7 @@ Desc:
     type: boolean
     example: true
 
-SkipFailedPages:
+skipFailedPages:
   name: skipFailedPages
   in: query
   description: |

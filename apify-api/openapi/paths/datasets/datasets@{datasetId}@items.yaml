@@ -154,25 +154,25 @@ get:
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
   operationId: dataset_items_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Format"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Clean"
-    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Limit"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Fields"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Omit"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Unwind"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Flatten"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Desc"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Attachment"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Delimiter"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Bom"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/XmlRoot"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/XmlRow"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/SkipHeaderRow"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/SkipHidden"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/SkipEmpty"
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/Simplified"
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
     - name: view
       in: query
       description: |
@@ -182,8 +182,8 @@ get:
       schema:
         type: string
         example: overview
-    - $ref: "../../components/parameters/DatasetItemsParameters.yaml#/SkipFailedPages"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
     "200":
       description: ""
@@ -275,7 +275,7 @@ post:
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
   operationId: dataset_items_post
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
   requestBody:
     description: ""
     content:

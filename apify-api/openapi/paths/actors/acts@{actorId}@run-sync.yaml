@@ -25,15 +25,15 @@ post:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSync_post
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/outputRecordKey"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/timeout"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/memory"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxItems"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/restartOnError"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/build"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
   requestBody:
     description: ""
     content:
@@ -99,15 +99,15 @@ get:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSync_get
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/outputRecordKey"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/timeout"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/memory"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxItems"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/restartOnError"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/build"
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
   responses:
     "201":
       description: ""

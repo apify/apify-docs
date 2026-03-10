@@ -9,8 +9,8 @@ post:
     * If the client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
   operationId: requestQueue_requests_unlock_post
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
     "200":
       description: Number of requests that were unlocked

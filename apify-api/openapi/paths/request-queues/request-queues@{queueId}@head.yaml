@@ -13,7 +13,7 @@ get:
     optimize performance of certain operations.
   operationId: requestQueue_head_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
     - name: limit
       in: query
       description: How many items from queue should be returned.
@@ -23,7 +23,7 @@ get:
         type: number
         format: double
         example: 100
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
     "200":
       description: ""

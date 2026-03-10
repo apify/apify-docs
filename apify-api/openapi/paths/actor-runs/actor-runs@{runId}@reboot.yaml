@@ -12,7 +12,7 @@ post:
     key-value store, dataset, or request queue will be lost.
   operationId: actorRun_reboot_post
   parameters:
-    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
   responses:
     "200":
       description: ""
