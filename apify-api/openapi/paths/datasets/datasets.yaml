@@ -17,7 +17,7 @@ get:
   parameters:
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
     - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
-    - $ref: "../../components/parameters/paginationParameters.yaml#/desc"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descCreatedAt"
     - $ref: "../../components/parameters/paginationParameters.yaml#/unnamed"
     - name: ownership
       in: query
