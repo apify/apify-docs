@@ -26,8 +26,6 @@ jobs:
 
             -   name: Install Dependencies
                 run: npm ci --force
-                env:
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: npm run build
                 env:
@@ -157,8 +155,6 @@ jobs:
 
             -   name: Install Dependencies
                 run: npm ci --force
-                env:
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   name: List and Lint Changed Markdown Files
                 env:
@@ -190,7 +186,5 @@ jobs:
 
             -   name: Install Dependencies
                 run: npm ci --force
-                env:
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: npm run lint:code
