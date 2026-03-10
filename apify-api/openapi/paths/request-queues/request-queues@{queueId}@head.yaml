@@ -13,14 +13,7 @@ get:
     optimize performance of certain operations.
   operationId: requestQueue_head_get
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
     - name: limit
       in: query
       description: How many items from queue should be returned.
@@ -30,21 +23,7 @@ get:
         type: number
         format: double
         example: 100
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long. This identifier is used to
-        determine whether the queue was accessed by multiple clients. If
-        `clientKey` is not provided,
-        the system considers this API call to come from a new client. For
-        details, see the `hadMultipleClients` field returned by the [Get
-        head](#/reference/request-queues/queue-head) operation.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
   responses:
     "200":
       description: ""
@@ -52,52 +31,15 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/HeadResponse.yaml
-              - example:
-                  data:
-                    limit: 1000
-                    queueModifiedAt: "2018-03-14T23:00:00.000Z"
-                    hadMultipleClients: false
-                    items:
-                      - id: 8OamqXBCpPHxyH9
-                        retryCount: 0
-                        uniqueKey: "http://example.com"
-                        url: "http://example.com"
-                        method: GET
-                      - id: ZJAoqlRijenMQIn
-                        retryCount: 0
-                        uniqueKey: "http://example.com/a/b"
-                        url: "http://example.com/a/b"
-                        method: GET
-                      - id: hAhkwyk5oOBHKQC
-                        retryCount: 1
-                        uniqueKey: "http://example.com/c/d"
-                        url: "http://example.com/c/d"
-                        method: GET
-          example:
-            data:
-              limit: 1000
-              queueModifiedAt: "2018-03-14T23:00:00.000Z"
-              hadMultipleClients: false
-              items:
-                - id: 8OamqXBCpPHxyH9
-                  retryCount: 0
-                  uniqueKey: "http://example.com"
-                  url: "http://example.com"
-                  method: GET
-                - id: ZJAoqlRijenMQIn
-                  retryCount: 0
-                  uniqueKey: "http://example.com/a/b"
-                  url: "http://example.com/a/b"
-                  method: GET
-                - id: hAhkwyk5oOBHKQC
-                  retryCount: 1
-                  uniqueKey: "http://example.com/c/d"
-                  url: "http://example.com/c/d"
-                  method: GET
+            $ref: ../../components/schemas/request-queues/HeadResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head

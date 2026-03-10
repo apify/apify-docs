@@ -1,0 +1,15 @@
+title: RequestDraftDelete
+description: A request that should be deleted.
+type: object
+anyOf:
+  - required: [id]
+  - required: [uniqueKey]
+properties:
+  id:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [sbJ7klsdf7ujN9l]
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    examples: [GET|60d83e70|e3b0c442|https://apify.com]
