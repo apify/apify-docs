@@ -1,6 +1,6 @@
 ---
 title: Gumloop - TikTok Actor integration
-description: Learn about TikTok scraper modules. Extract videos, profile data, followers, and hashtag data.
+description: Use the Gumloop TikTok node powered by Apify to extract videos, profile data, followers, and search results without managing API tokens or tasks.
 sidebar_label: TikTok
 sidebar_position: 3
 slug: /integrations/gumloop/tiktok

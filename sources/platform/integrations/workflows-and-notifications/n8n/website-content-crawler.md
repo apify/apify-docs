@@ -1,6 +1,6 @@
 ---
 title: n8n - Website Content Crawler by Apify
-description: Learn about Website Content Crawler module.
+description: Use the Website Content Crawler node in n8n to extract clean text and Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks.
 sidebar_label: Website Content Crawler
 sidebar_position: 6
 slug: /integrations/n8n/website-content-crawler

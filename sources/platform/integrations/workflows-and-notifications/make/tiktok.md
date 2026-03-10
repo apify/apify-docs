@@ -1,6 +1,6 @@
 ---
 title: Make - TikTok Actor integration
-description: Learn about TikTok scraper modules, extract posts, comments, and profile data.
+description: Use the TikTok Scraper modules in Make to extract hashtag videos, comments, and profile data from TikTok and incorporate results into your workflows.
 sidebar_label: TikTok
 sidebar_position: 2
 slug: /integrations/make/tiktok

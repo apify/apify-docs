@@ -8,10 +8,6 @@ slug: /proxy/google-serp-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to collect search results from Google Search-powered tools. Get search results from localized domains in multiple countries, e.g. the US and Germany.**
-
----
-
 Google SERP proxy allows you to extract search results from Google Search-powered services. It allows searching in [various countries](#country-selection) and to dynamically switch between country domains.
 
 Our Google SERP proxy currently supports the below services.
@@ -53,7 +49,6 @@ You must use the correct Google domain to get results for your desired country c
 For example:
 
 * Search results from the USA: `http://www.google.com/search?q=<query>`
-
 
 * Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
 
@@ -218,7 +213,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -241,7 +235,6 @@ print(opener.open(f"http://www.google.com/search?{query}").read())
 ```
 
 </TabItem>
-
 
 <TabItem value="Python 2" label="Python 2">
 
@@ -269,7 +262,6 @@ print(opener.open(url).read())
 ```
 
 </TabItem>
-
 
 <TabItem value="PHP" label="PHP">
 

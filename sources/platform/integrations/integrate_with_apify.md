@@ -1,7 +1,7 @@
 ---
 title: Integrate with Apify
 sidebar_label: Create new integration
-description: Learn about how to integrate your service with Apify to benefit from a mutual integration.
+description: Partner with Apify to build general or Actor-specific integrations that bring web scraping and automation data into your platform or service.
 sidebar_position: 90.00
 slug: /integrations/integrate
 ---

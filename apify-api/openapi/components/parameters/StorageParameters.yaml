@@ -1,0 +1,114 @@
+DatasetId:
+  name: datasetId
+  in: path
+  description: Dataset ID or `username~dataset-name`.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+
+StoreId:
+  name: storeId
+  in: path
+  description: Key-value store ID or `username~store-name`.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+
+RecordKey:
+  name: recordKey
+  in: path
+  description: Key of the record.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: someKey
+
+QueueId:
+  name: queueId
+  in: path
+  description: Queue ID or `username~queue-name`.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+
+RequestId:
+  name: requestId
+  in: path
+  description: Request ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: xpsmkDlspokDSmklS
+
+ClientKey:
+  name: clientKey
+  in: query
+  description: |
+    A unique identifier of the client accessing the request queue. It must
+    be a string between 1 and 32 characters long. This identifier is used to
+    determine whether the queue was accessed by multiple clients. If
+    `clientKey` is not provided,
+    the system considers this API call to come from a new client. For
+    details, see the `hadMultipleClients` field returned by the [Get
+    head](#/reference/request-queues/queue-head) operation.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: client-abc
+
+ClientKeyLock:
+  name: clientKey
+  in: query
+  description: |
+    A unique identifier of the client accessing the request queue. It must
+    be a string between 1 and 32 characters long. This identifier is used for locking
+    and unlocking requests. You can delete or prolong the lock only for requests that were locked by the same
+    client key or from the same Actor run.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: client-abc
+
+LockSecs:
+  name: lockSecs
+  in: query
+  description: How long the requests will be locked for (in seconds).
+  required: true
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 60
+
+Forefront:
+  name: forefront
+  in: query
+  description: |
+    Determines if request should be added to the head of the queue or to the
+    end. Default value is `false` (end of queue).
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "false"
+
+Signature:
+  name: signature
+  in: query
+  description: Signature used for the access.
+  required: false
+  style: form
+  schema:
+    type: string
+    example: 2wTI46Bg8qWQrV7tavlPI

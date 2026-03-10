@@ -1,7 +1,7 @@
 ---
 title: Continuous integration for Actors
 sidebar_label: Continuous integration
-description: Learn how to integrate your Actors by setting up automated builds, deploys, and testing for your Actors.
+description: Set up automated builds, deploys, and tests for your Actors using GitHub Actions, Bitbucket Pipelines, webhooks, or direct calls to the Apify API.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---

@@ -1,13 +1,9 @@
 ---
 title: Zapier integration
-description: Learn how to integrate your Apify Actors with Zapier.
+description: Connect Apify Actors to Slack, Google Sheets, Salesforce, and more with Zapier. Trigger workflows when Actor or task runs finish and retrieve results.
 sidebar_label: Zapier
 sidebar_position: 1
 slug: /integrations/zapier
----
-
-**Learn how to integrate your Apify Actors with Zapier.**
-
 ---
 
 With [Apify integration for Zapier](https://zapier.com/apps/apify/integrations), you can connect your Apify Actors to Slack, Trello, Google Sheets, Dropbox, Salesforce, and loads more.

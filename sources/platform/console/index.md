@@ -1,13 +1,9 @@
 ---
 title: Apify Console
-description: Learn about Apify Console's easy account creation and user-friendly homepage for efficient web scraping management.
+description: "Get started with Apify Console: create an account, sign in with email, Google, or GitHub, and manage your web scraping projects from one place."
 sidebar_position: 1
 category: platform
 slug: /console
----
-
-**Learn about Apify Console's easy account creation and user-friendly homepage for efficient web scraping management.**
-
 ---
 
 ## Sign-up

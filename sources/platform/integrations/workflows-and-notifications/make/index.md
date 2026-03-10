@@ -1,13 +1,9 @@
 ---
 title: Make integration
-description: Learn how to integrate your Apify Actors with Make.
+description: Connect Apify Actors to Make scenarios to run Actors, monitor run statuses, and receive Actor results directly inside your automated workflows.
 sidebar_label: Make
 sidebar_position: 2
 slug: /integrations/make
----
-
-**Learn how to integrate your Apify Actors with Make.**
-
 ---
 
 [Make](https://www.make.com/) _(formerly Integromat)_ allows you to create scenarios where you can integrate various services (modules) to automate and centralize jobs. Apify has its own module you can use to run Apify Actors, get notified about run statuses, and receive Actor results directly in your Make scenario.

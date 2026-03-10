@@ -1,12 +1,9 @@
 ---
 title: What are Actor integrations?
-description: Learn how to integrate with other Actors and tasks.
+description: Learn how to connect Actors together and trigger tasks from other Actors, enabling you to build automated multi-step workflows on the Apify platform.
 sidebar_label: Actor-to-Actor
+sidebar_position: 0
 slug: /integrations/actors
----
-
-**Learn how to integrate with other Actors and tasks.**
-
 ---
 
 :::note Integration Actors

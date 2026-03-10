@@ -1,6 +1,6 @@
 ---
 title: Status messages
-description: Learn how to use custom status messages to inform users about the progress of an Actor.
+description: Learn how to set custom status messages in your Actor to clearly inform users about its current progress and activity during an ongoing run.
 slug: /actors/development/programming-interface/status-messages
 sidebar_position: 3
 ---

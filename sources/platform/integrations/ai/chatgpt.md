@@ -1,13 +1,9 @@
 ---
 title: ChatGPT integration
 sidebar_label: ChatGPT
-description: Learn how to integrate Apify with ChatGPT to provide web context in real-time.
+description: Learn how to connect ChatGPT to the Apify MCP server to give your conversations access to real-time web data and Actor-powered automation tasks.
 sidebar_position: 12
 slug: /integrations/chatgpt
----
-
-**Learn how to integrate Apify Actors with ChatGPT to provide web context in real-time.**
-
 ---
 
 The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).

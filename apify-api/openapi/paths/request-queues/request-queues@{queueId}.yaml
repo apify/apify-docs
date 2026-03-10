@@ -5,14 +5,7 @@ get:
   description: Returns queue object for given queue ID.
   operationId: requestQueue_get
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
   responses:
     "200":
       description: ""
@@ -23,6 +16,12 @@ get:
             $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue
@@ -46,14 +45,7 @@ put:
     [Get request queue](#/reference/request-queues/queue-collection/get-request-queue) API endpoint.
   operationId: requestQueue_put
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
   requestBody:
     description: ""
     content:
@@ -76,6 +68,12 @@ put:
             $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue
@@ -94,14 +92,7 @@ delete:
   description: Deletes given queue.
   operationId: requestQueue_delete
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
   responses:
     "204":
       description: ""
@@ -109,6 +100,12 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request-queue

@@ -1,12 +1,8 @@
 ---
 title: Source types
-description: Learn about Apify Actor source types and how to deploy an Actor from GitHub using CLI or Gist.
+description: Learn about Actor source types - Web IDE, Git repository, Zip file, and GitHub Gist - and how to configure each one as your deployment method.
 slug: /actors/development/deployment/source-types
 sidebar_position: 1
----
-
-**Learn about Apify Actor source types and how to deploy an Actor from GitHub using CLI or Gist.**
-
 ---
 
 This section explains the various sources types available for Apify Actors and how to deploy an Actor from GitHub using CLI or Gist. Apify Actors supports four source types:

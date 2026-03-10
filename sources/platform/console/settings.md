@@ -6,10 +6,6 @@ category: platform
 slug: /console/settings
 ---
 
-**Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.**
-
----
-
 ## Account
 
 By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
@@ -27,7 +23,6 @@ By clicking the **Settings** tab on the side menu, you will be presented with an
 The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to view and edit the settings.
 
 :::
-
 
 ### Session Information
 

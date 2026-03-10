@@ -2,15 +2,25 @@
 title: Actor output schema
 sidebar_label: Actor output schema
 sidebar_position: 4
-description: Learn how to define and present output of your Actor.
+description: Define an output schema to specify where your Actor stores its results and how Apify Console and the Actor run API endpoint display them to users.
 slug: /actors/development/actor-definition/output-schema
 ---
 
-**Learn how to define and present the output of your Actor.**
-
----
-
 The Actor output schema builds upon the schemas for the [dataset](/platform/actors/development/actor-definition/dataset-schema) and [key-value store](/platform/actors/development/actor-definition/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
+
+## Why output schema matters
+
+Output schema is essential for:
+
+- AI agent integration: When agents use Actors through the MCP server or API, they need to know what results to expect. Without output schema, agents cannot effectively chain Actors or process results.
+- User experience: Clear output definitions help users understand what data they will receive before running an Actor.
+- API consumers: The output schema appears in the `GET Run` API response, enabling programmatic discovery of Actor outputs.
+
+:::tip Define output schema
+
+Even if your Actor produces no output, define an empty output schema. This tells users and AI agents that the Actor completed successfully with no output, rather than assuming the run failed.
+
+:::
 
 ## Structure
 
@@ -77,18 +87,21 @@ The output schema defines the collections of keys and their properties. It allow
 
 ### Available template variables
 
-| Variable                           | Type   | Description                                                                                                                      |
-|------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------|
-| `links`                            | object | Contains quick links to most commonly used URLs                                                                                  |
-| `links.publicRunUrl`               | string | Public run url in format `https://console.apify.com/view/runs/:runId`                                                            |
-| `links.consoleRunUrl`              | string | Console run url in format `https://console.apify.com/actors/runs/:runId`                                                         |
-| `links.apiRunUrl`                  | string | API run url in format `https://api.apify.com/v2/actor-runs/:runId`                                                               |
-| `links.apiDefaultDatasetUrl`       | string | API url of default dataset in format `https://api.apify.com/v2/datasets/:defaultDatasetId`                                       |
-| `links.apiDefaultKeyValueStoreUrl` | string | API url of default key-value store in format `https://api.apify.com/v2/key-value-stores/:defaultKeyValueStoreId`                 |
-| `run`                              | object | Contains information about the run same as it is returned from the `GET Run` API endpoint                                        |
-| `run.containerUrl`                 | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                                      |
-| `run.defaultDatasetId`             | string | ID of the default dataset                                                                                                        |
-| `run.defaultKeyValueStoreId`       | string | ID of the default key-value store                                                                                                |
+| Variable                                | Type   | Description                                                                                                      |
+|-----------------------------------------|--------|------------------------------------------------------------------------------------------------------------------|
+| `links`                                 | object | Contains quick links to most commonly used URLs                                                                  |
+| `links.publicRunUrl`                    | string | Public run url in format `https://console.apify.com/view/runs/:runId`                                            |
+| `links.consoleRunUrl`                   | string | Console run url in format `https://console.apify.com/actors/runs/:runId`                                         |
+| `links.apiRunUrl`                       | string | API run url in format `https://api.apify.com/v2/actor-runs/:runId`                                               |
+| `links.apiDefaultDatasetUrl`            | string | API url of default dataset in format `https://api.apify.com/v2/datasets/:defaultDatasetId`                       |
+| `links.apiDefaultKeyValueStoreUrl`      | string | API url of default key-value store in format `https://api.apify.com/v2/key-value-stores/:defaultKeyValueStoreId` |
+| `run`                                   | object | Contains information about the run same as it is returned from the `GET Run` API endpoint                        |
+| `run.containerUrl`                      | string | URL of a webserver running inside the run in format `https://<containerId>.runs.apify.net/`                      |
+| `run.defaultDatasetId`                  | string | ID of the default dataset                                                                                        |
+| `run.defaultKeyValueStoreId`            | string | ID of the default key-value store                                                                                |
+| `storages`                              | object | Contains references to named storages defined in the Actor's storage configuration                               |
+| `storages.datasets.<name>.apiUrl`       | string | API URL of a named dataset in format `https://api.apify.com/v2/datasets/:datasetId`                              |
+| `storages.keyValueStores.<name>.apiUrl` | string | API URL of a named key-value store in format `https://api.apify.com/v2/key-value-stores/:keyValueStoreId`        |
 
 ## How templates work
 
@@ -248,6 +261,17 @@ This example shows a schema definition for a basic social media scraper. The scr
 
 After you define `views` and `collections` in `dataset_schema.json` and `key_value_store.json`, you can use them in the output schema.
 
+:::note Output schema complements dataset schema
+
+The output schema defines *where* data is stored and how to access it. The [dataset schema](/platform/actors/development/actor-definition/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
+
+- Output schema: Declares that results are in the default dataset
+- Dataset schema: Describes each field with `title`, `description`, and `example`
+
+This combination gives AI agents complete information about your Actor's output structure.
+
+:::
+
 ```json title=".actor/output_schema.json"
 {
     "actorOutputSchemaVersion": 1,
@@ -344,6 +368,47 @@ The `reportUrl` in this case links directly to the key-value store record stored
 When the run finishes, Apify Console displays the HTML report in an iframe:
 
 ![HTML report in Output tab](images/output-schema-record-example.png)
+
+### Web crawler with multiple output types
+
+This example shows a complete output schema for a web crawler Actor with multiple output types: crawled page data, errors, and files stored in key-value store collections.
+
+```json title=".actor/output_schema.json"
+{
+    "$schema": "https://apify-projects.github.io/actor-json-schemas/output.json?v=0.3",
+    "actorOutputSchemaVersion": 1,
+    "title": "Output schema of the Actor",
+    "properties": {
+        "crawlResults": {
+            "type": "string",
+            "title": "Crawl results",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "screenshots": {
+            "type": "string",
+            "title": "Screenshots",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=screenshots"
+        },
+        "downloadedFiles": {
+            "type": "string",
+            "title": "Downloaded files",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=downloaded-files"
+        },
+        "htmlSnapshots": {
+            "type": "string",
+            "title": "HTML snapshots",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=html-snapshots"
+        },
+        "crawlErrors": {
+            "type": "string",
+            "title": "Errors",
+            "template": "{{storages.datasets.errors.apiUrl}}/items"
+        }
+    }
+}
+```
+
+Each output includes a `description` explaining what the data contains. This metadata helps AI agents understand the Actor's capabilities and select the appropriate output for their needs.
 
 ### Actor with no output
 

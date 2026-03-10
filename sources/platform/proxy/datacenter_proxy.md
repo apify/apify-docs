@@ -8,10 +8,6 @@ slug: /proxy/datacenter-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.**
-
----
-
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
 Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
@@ -88,7 +84,6 @@ await Actor.exit();
 
 </TabItem>
 
-
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
 ```javascript
@@ -138,7 +133,6 @@ if __name__ == '__main__':
 ```
 
 </TabItem>
-
 
 <TabItem value="gotScraping()" label="gotScraping()">
 
@@ -192,7 +186,6 @@ If the session is discarded due to the reasons above, it is assigned a new IP ad
 
 To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
-
 ### Examples using sessions
 
 <Tabs groupId="main">
@@ -223,7 +216,6 @@ await Actor.exit();
 ```
 
 </TabItem>
-
 
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
@@ -279,7 +271,6 @@ if __name__ == '__main__':
 ```
 
 </TabItem>
-
 
 <TabItem value="gotScraping()" label="gotScraping()">
 
@@ -350,7 +341,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -377,7 +367,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="Python 2" label="Python 2">
 
 ```python
@@ -401,7 +390,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="PHP" label="PHP">
 
 ```php
@@ -420,13 +408,11 @@ if ($response) echo $response;
 
 </TabItem>
 
-
 <TabItem value="PHP (Guzzle)" label="PHP (Guzzle)">
 
 ```php
 <?php
 require 'vendor/autoload.php';
-
 
 $client = new \GuzzleHttp\Client([
     // Replace <YOUR_PROXY_PASSWORD> below with your password

@@ -1,12 +1,8 @@
 ---
 title: actor.json
-description: Learn how to write the main Actor config in the `.actor/actor.json` file.
+description: Configure your Actor using the .actor/actor.json file to define its name, version number, build tag, and links to input and output schema files.
 slug: /actors/development/actor-definition/actor-json
 sidebar_position: 1
----
-
-**Learn how to write the main Actor configuration in the `.actor/actor.json` file.**
-
 ---
 
 Your main Actor configuration is in the `.actor/actor.json` file at the root of your Actor's directory. This file links your local development project to an Actor on the Apify platform. It should include details like the Actor's name, version, build tag, and environment variables. Make sure to commit this file to your Git repository.

@@ -1,6 +1,6 @@
 ---
 title: Make - AI crawling Actor integration
-description: Learn about AI Crawling scraper modules.
+description: Use Apify Scraper for AI Crawling in Make to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
 sidebar_label: AI Crawling
 sidebar_position: 6
 slug: /integrations/make/ai-crawling

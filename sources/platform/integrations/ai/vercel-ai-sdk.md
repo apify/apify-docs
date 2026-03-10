@@ -1,13 +1,9 @@
 ---
 title: 🔺 Vercel AI SDK integration
 sidebar_label: Vercel AI SDK
-description: Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK 🔺.
+description: Learn how to integrate Apify Actors as tools for AI agents built with Vercel AI SDK to access real-time web data in your TypeScript applications.
 sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
----
-
-**Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK.**
-
 ---
 
 ## What is the Vercel AI SDK
@@ -23,7 +19,6 @@ For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sd
 ## How to use Apify with Vercel AI SDK
 
 Apify is a marketplace of ready-to-use web scraping and automation tools, AI agents, and MCP servers that you can equip your own AI with. This guide demonstrates how to use Apify tools with a simple AI agent built with Vercel AI SDK.
-
 
 ### Prerequisites
 

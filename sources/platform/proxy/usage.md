@@ -1,12 +1,8 @@
 ---
 title: Proxy usage
-description: Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.
+description: Configure Apify Proxy connections using HTTP proxy protocol. Find the correct username, password, hostname, and port parameters for your setup.
 sidebar_position: 10.1
 slug: /proxy/usage
----
-
-**Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
-
 ---
 
 ## Connection settings

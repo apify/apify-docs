@@ -1,6 +1,6 @@
 ---
 title: Make - Google Maps Leads Actor integration
-description: Learn about Google Maps scraper modules.
+description: Use the Google Maps Leads Scraper modules in Make to extract business contact details, reviews, and location data for sales and marketing workflows.
 sidebar_label: Google Maps
 sidebar_position: 4
 slug: /integrations/make/maps
