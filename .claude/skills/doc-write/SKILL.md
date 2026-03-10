@@ -1,5 +1,5 @@
 ---
-description: Write or edit Apify documentation pages
+description: Write or edit Apify documentation pages following the style guide. Use when user says "write docs for", "create a new page", "document this feature", "add documentation about", "edit this doc page", or "write a guide for [topic]". Handles platform docs, guides, and reference pages with proper formatting and structure.
 argument-hint: topic
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---

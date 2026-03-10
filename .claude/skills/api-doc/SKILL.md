@@ -1,5 +1,5 @@
 ---
-description: Create or update OpenAPI specs and API docs
+description: Create or update OpenAPI specifications and API documentation for Apify endpoints. Use when user says "add API endpoint", "create OpenAPI spec", "document this endpoint", "add code samples for API", "update API docs", or "api-doc". Handles OpenAPI YAML, schemas, code samples, and operation IDs.
 argument-hint: endpoint-path
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
