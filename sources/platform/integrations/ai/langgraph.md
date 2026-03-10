@@ -2,7 +2,7 @@
 title: 🦜🔘➡️ LangGraph integration
 sidebar_label: LangGraph
 description: Learn how to build AI Agents with Apify and LangGraph 🦜🔘➡️.
-sidebar_position: 6
+sidebar_position: 8
 slug: /integrations/langgraph
 ---
 
@@ -36,7 +36,7 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
     pip install langgraph langchain-apify langchain-openai
     ```
 
-### Building the TikTok profile search and analysis agent
+### Build the TikTok profile search and analysis agent
 
 First, import all required packages:
 

@@ -1,0 +1,8 @@
+title: ActorResponse
+description: Response containing Actor data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Actor.yaml

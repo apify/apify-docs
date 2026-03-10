@@ -60,34 +60,8 @@ post:
         type: number
         format: double
         example: 256
-    - name: maxItems
-      in: query
-      description: |
-        The maximum number of items that the Actor run should return. This is
-        useful for pay-per-result Actors, as it allows you to limit the number
-        of results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 1000
-    - name: maxTotalChargeUsd
-      in: query
-      description: |
-        Specifies the maximum cost of the Actor run. This parameter is
-        useful for pay-per-event Actors, as it allows you to limit the amount
-        charged to your subscription. You can access the
-        maximum cost in your Actor by using the
-        `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 5
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -177,7 +151,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -185,7 +159,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -202,7 +176,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -341,7 +315,7 @@ post:
         type: boolean
         example: false
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -350,67 +324,62 @@ post:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
-            type: object
-            example:
-              - myValue: some value
-                myOtherValue: some other value
+            type: array
+            items:
+              type: object
           example:
             - myValue: some value
               myOtherValue: some other value
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
-          example:
-            error:
-              type: run-failed
-              message: >-
-                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
-                FAILED)
-    '408':
-      description: ''
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "408":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
-          example:
-            error:
-              type: run-timeout-exceeded
-              message: Actor run exceeded timeout of 300 seconds for this API endpoint
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items
@@ -471,34 +440,8 @@ get:
         type: number
         format: double
         example: 256
-    - name: maxItems
-      in: query
-      description: |
-        The maximum number of items that the Actor run should return. This is
-        useful for pay-per-result Actors, as it allows you to limit the number
-        of results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 1000
-    - name: maxTotalChargeUsd
-      in: query
-      description: |
-        Specifies the maximum cost of the Actor run. This parameter is
-        useful for pay-per-event Actors, as it allows you to limit the amount
-        charged to your subscription. You can access the
-        maximum cost in your Actor by using the
-        `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 5
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -586,7 +529,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -594,7 +537,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -611,7 +554,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -743,64 +686,62 @@ get:
         type: boolean
         example: false
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
-            type: object
+            type: array
+            items:
+              type: object
           example:
             - myValue: some value
               myOtherValue: some other value
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
-          example:
-            error:
-              type: run-failed
-              message: >-
-                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
-                FAILED)
-    '408':
-      description: ''
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "408":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
-          example:
-            error:
-              type: run-timeout-exceeded
-              message: Actor run exceeded timeout of 60 seconds for this API endpoint
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-without-input-and-get-dataset-items

@@ -2,7 +2,7 @@
 title: Langflow integration
 sidebar_label: Langflow
 description: Learn how to integrate Apify with Langflow low-code tool to build powerful AI agents and workflows that can use any API, model, or database.
-sidebar_position: 5
+sidebar_position: 6
 slug: /integrations/langflow
 ---
 
@@ -12,7 +12,7 @@ slug: /integrations/langflow
 
 ## What is Langflow
 
-[Langflow](https://langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases.
+[Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases.
 
 :::note Explore Langflow
 
@@ -37,7 +37,7 @@ This guide will demonstrate two different ways to use Apify Actors with Langflow
 
 :::note Cloud vs local setup
 
-Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](http://langflow.org/) website. If you are using the cloud version, you can skip the installation step, and go straight to [Creating a new flow](#creating-a-new-flow)
+Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](https://www.langflow.org/) website. If you are using the cloud version, you can skip the installation step, and go straight to [Creating a new flow](#creating-a-new-flow)
 
 :::
 
@@ -57,14 +57,14 @@ When the platform is started, open the Langflow UI using `http://127.0.0.1:7860`
 
 > Other installation methods can be found in the [Langflow documentation](https://docs.langflow.org/get-started-installation).
 
-### Creating a new flow
+### Create a new flow
 
 On the Langflow welcome screen, click the **New Flow** button and then create **Blank Flow**:
 ![New Flow screen - Blank Flow](../images/langflow/new_blank_flow.png)
 
 Now, you can start building your flow.
 
-### Calling Apify Actors in Langflow
+### Call Apify Actors in Langflow
 
 To call Apify Actors in Langflow, you need to add the **Apify Actors** component to the flow.
 From the bundle menu, add **Apify Actors** component:
@@ -98,7 +98,7 @@ When you run the component again, the output contains only the `markdown` and fl
 
 Now that you understand how to call Apify Actors, let's build a practical example where you search for a company's social media profiles and extract data from them.
 
-### Building a flow to search for a company's social media profiles
+### Build a flow to search for a company's social media profiles
 
 Create a new flow and add two **Apify Actors** components from the menu.
 

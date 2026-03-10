@@ -5,7 +5,7 @@ sidebar_position: 7.1
 slug: /actors/running
 ---
 
-**In this section, you learn how to run Apify Actors using Apify Console or programmatically. You will learn about their configuration, versioning, data retention, usage, and pricing.**
+**In this section, you'll learn how to run Apify Actors using Apify Console or programmatically. You'll learn about their configuration, versioning, data retention, usage, and pricing.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,63 +14,72 @@ import TabItem from '@theme/TabItem';
 
 ## Run your first Apify Actor
 
-Before you can run an Actor, you have to either choose one of the existing ones from [Apify Store](https://apify.com/store) or [build your own](./development). To get started, we recommend trying out an Actor from the [Store](https://apify.com/store). Once you have chosen an Actor, you can start it in a number of ways.
+To get started, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
 
-> **You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first. Don't worry about the price - it's free.**
+### Prerequisites
+
+To complete this tutorial, you need an Apify account. If you don't have it yet, [sign up for free](https://console.apify.com/sign-up).
 
 ### 1. Choose your Actor
 
-After you sign-in to Apify Console, navigate to [Apify Store](https://console.apify.com/store). We'll pick the [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme):
+To find an Actor in Apify Store:
+
+1. Sign in to [Apify Console](https://console.apify.com).
+1. Go to [Apify Store](https://console.apify.com/store).
+1. Use the search bar or browse by categories.
+
+For this tutorial, let's choose [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme).
 
 ![Apify Store](./images/store.png)
 
-### 2. Configure it
+### 2. Configure and run your Actor
 
-On the Actor's page, head over to the **Input** tab. Don't be put off by all the boxes - the Actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
+Once you select the Actor, click **Use Actor**.
 
-Alternatively, you can play around with the settings to make the results more interesting for you.
+In the **Input** tab, you can customize your Actor's behavior. Website Content Crawler is pre-configured to run without extra input, so you don't need to change anything.
+
+To run the Actor, click **Save & Start**.
 
 ![Actor input](./images/apify-input.png)
 
 ### 3. Wait for the results
 
-The Actor might take a while to gather its first results and finish its run. Meanwhile, let's take some time to explore the platform options:
+The Actor might take a while to gather results and finish its run. While waiting, let's explore the remaining options:
 
-- Note the other tabs, which provide you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
-- At the top right, you can click on the API button to explore the related API endpoints
+- Check the tabs where you can find more information about the Actor run. For example, its logs or storage.
+- Use the **API** button to view the related API endpoints.
 
 ![Run](./images/actor-run.png)
 
-### 4. Get the results
+### 4. Save the results
 
-Shortly you will see the first results popping up:
+The results of the Actor run appear in the **Output** tab.
 
 ![Actor results](./images/actor-results.png)
 
-
-And you can use the export button at the bottom left to export the data in multiple formats:
+To save the data, click **Export**. You can choose from multiple formats.
 
 ![Export results](./images/export-results.png)
 
-And that's it! Now you can get back to the Actor's input, play with it, and try out more of the [Apify Actors](https://apify.com/store) or [build your own](./development).
+And that's it! You've run your first Actor!
 
-## Running via Apify API
+Now you can go back to the **Input** tab and try again with different settings, run other [Apify Actors](https://apify.com/store), or [build your own](./development).
 
-Actors can also be invoked using the Apify API by sending an HTTP POST request to the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
+## Run Actors with Apify API
+
+To invoke Actors with the Apify API, send an HTTP POST request to the [Run Actor](/api/v2/act-runs-post) endpoint. For example:
 
 ```text
 https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
 ```
 
-An Actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
+An Actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. To learn more, see [Run an Actor and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api).
 
-> To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
+## Run Actors programmatically
 
-## Running programmatically
+You can also invoke Actors programmatically from your own applications or from other Actors.
 
-Actors can also be invoked programmatically from your own applications or from other Actors.
-
-To start an Actor from your own application, we recommend using our API client libraries for [JavaScript](/api/client/js/reference/class/ActorClient#call) or [Python](/api/client/python/reference/class/ActorClient#call).
+To start an Actor from your own application, we recommend using Apify API client libraries for [JavaScript](/api/client/js/reference/class/ActorClient#call) or [Python](/api/client/python/reference/class/ActorClient#call).
 
 <Tabs groupId="main">
 
@@ -100,6 +109,7 @@ console.dir(items);
 ```python
 from apify_client import ApifyClient
 
+
 apify_client = ApifyClient('MY-API-TOKEN')
 
 # Start the Google Maps Scraper Actor and wait for it to finish.
@@ -116,6 +126,6 @@ print(dataset_items)
 
 </Tabs>
 
-The newly started Actor runs under the account associated with the provided `token`, and therefore all resources consumed are charged to this user account.
+The newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
 
-Internally, the `call()` function invokes the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the Actor to finish, and reads its output using the [Get dataset items](/api/v2/#/reference/datasets/item-collection/get-items) API endpoint.
+Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its output using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.

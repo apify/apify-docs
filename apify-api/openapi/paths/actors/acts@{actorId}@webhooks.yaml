@@ -54,13 +54,21 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/GetListOfWebhooksResponse.yaml
+            $ref: ../../components/schemas/webhooks/ListOfWebhooksResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/webhook-collection/get-list-of-webhooks

@@ -2,7 +2,7 @@
 title: Amazon Bedrock integrations
 sidebar_label: Amazon Bedrock
 description: Learn how to integrate Apify with Amazon Bedrock Agents to provide web data for AI agents
-sidebar_position: 11
+sidebar_position: 15
 slug: /integrations/aws_bedrock
 ---
 
@@ -26,7 +26,7 @@ Before getting started, ensure you have:
 
 - An active AWS Account.
 - An Apify account and an [API token](https://docs.apify.com/platform/integrations/api#api-token).
-- Granted access to any Large Language Model from Amazon Bedrock. To add access to a LLM, follow this [guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html). We'll use **Anthropic Claude 3.5 Sonnet** in this example.
+- Granted access to any Large Language Model from Amazon Bedrock. To add access to a LLM, follow this [guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html). We'll use **Anthropic Claude 3.5 Sonnet** in this example.
 
 The overall process for creating an agent includes the following [steps](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html):
 
@@ -42,7 +42,7 @@ The following image illustrates the key components of an AWS Bedrock AI agent:
 
 ![AWS-Bedrock-AI-Agent](../images/aws-bedrock-ai-agent.png)
 
-### Building an Agent
+### Build an Agent
 
 To begin, open the Amazon Bedrock console and select agents from the left navigation panel.
 On the next screen, click Create agent to start building your agent.

@@ -77,7 +77,7 @@ page.on('response', async (response) => {
         try {
             buffer = await response.buffer();
         } catch (error) {
-            // some responses do not contain buffer and do not need to be catched
+            // some responses do not contain buffer and do not need to be caught
             return;
         }
 

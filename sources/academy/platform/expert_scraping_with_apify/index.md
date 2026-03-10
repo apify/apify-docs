@@ -12,23 +12,19 @@ slug: /expert-scraping-with-apify
 
 This course will teach you the nitty gritty of what it takes to build pro-level scrapers with Apify. We recommend that you've at least looked through all of the other courses in the academy prior to taking this one.
 
-## Preparations {#preparations}
+## Preparations
 
 Before developing a pro-level Apify scraper, there are some important things you should have at least a bit of knowledge about (knowing the basics of each is enough to continue through this section), as well as some things that you should have installed on your system.
 
 > If you've already gone through the [Web scraping basics for JavaScript devs](../../webscraping/scraping_basics_javascript/index.md) and the first courses of the [Apify platform category](../apify_platform.md), you will be more than well equipped to continue on with the lessons in this course.
 
-<!-- ### Puppeteer/Playwright {#puppeteer-playwright}
-
-[Puppeteer](https://pptr.dev/) is a library for running and controlling a [headless browser](../../webscraping/scraping_basics_javascript/crawling/headless_browser.md) in Node.js, and was developed at Google. The team working on it was hired by Microsoft to work on the [Playwright](https://playwright.dev/) project; therefore, many parallels can be seen between both the `puppeteer` and `playwright` packages. Proficiency in at least one of these will be good enough. -->
-
 ### Crawlee, Apify SDK, and the Apify CLI {#crawlee-apify-sdk-and-cli}
 
-If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5–10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson](../../webscraping/scraping_basics_javascript/crawling/pro_scraping.md) in the **Web scraping basics for JavaScript devs** course (and ideally follow along). To familiarize yourself with the Apify SDK, you can refer to the [Apify Platform](../apify_platform.md) category.
+If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5–10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to the [Using a scraping framework with Node.js](../../webscraping/scraping_basics_javascript/12_framework.md) lesson of the **Web scraping basics for JavaScript devs** course. To familiarize yourself with the Apify SDK, you can refer to the [Apify Platform](../apify_platform.md) category.
 
-The Apify CLI will play a core role in the running and testing of the Actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson](../../glossary/tools/apify_cli.md).
+The Apify CLI will play a core role in the running and testing of the Actor you will build, so if you haven't gotten it installed already, please refer to [Apify CLI documentation](/cli/docs/next/installation).
 
-### Git {#git}
+### Git
 
 In one of the later lessons, we'll be learning how to integrate our Actor on the Apify platform with a GitHub repository. For this, you'll need to understand at least the basics of [Git](https://git-scm.com/docs). Here's a [great tutorial](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to help you get started with Git.
 

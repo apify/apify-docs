@@ -1,0 +1,40 @@
+title: RunUsageUsd
+description: Resource usage costs in USD. All values are monetary amounts in US dollars.
+type: object
+properties:
+  ACTOR_COMPUTE_UNITS:
+    type: [number, "null"]
+    examples: [0.0003]
+  DATASET_READS:
+    type: [number, "null"]
+    examples: [0.0001]
+  DATASET_WRITES:
+    type: [number, "null"]
+    examples: [0.0001]
+  KEY_VALUE_STORE_READS:
+    type: [number, "null"]
+    examples: [0.0001]
+  KEY_VALUE_STORE_WRITES:
+    type: [number, "null"]
+    examples: [0.00005]
+  KEY_VALUE_STORE_LISTS:
+    type: [number, "null"]
+    examples: [0.0001]
+  REQUEST_QUEUE_READS:
+    type: [number, "null"]
+    examples: [0.0001]
+  REQUEST_QUEUE_WRITES:
+    type: [number, "null"]
+    examples: [0.0001]
+  DATA_TRANSFER_INTERNAL_GBYTES:
+    type: [number, "null"]
+    examples: [0.001]
+  DATA_TRANSFER_EXTERNAL_GBYTES:
+    type: [number, "null"]
+    examples: [0.003]
+  PROXY_RESIDENTIAL_TRANSFER_GBYTES:
+    type: [number, "null"]
+    examples: [0.034]
+  PROXY_SERPS:
+    type: [number, "null"]
+    examples: [0.003]

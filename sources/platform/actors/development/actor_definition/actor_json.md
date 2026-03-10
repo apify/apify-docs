@@ -23,8 +23,13 @@ import TabItem from '@theme/TabItem';
 {
     "actorSpecification": 1, // always 1
     "name": "name-of-my-scraper",
+    "title": "My Web Scraper",
     "version": "0.0",
     "buildTag": "latest",
+    "meta": {
+        "templateId": "ts-crawlee-playwright-chrome"
+    },
+    "defaultMemoryMbytes": "get(input, 'startUrls.length', 1) * 1024",
     "minMemoryMbytes": 256,
     "maxMemoryMbytes": 4096,
     "environmentVariables": {
@@ -38,7 +43,8 @@ import TabItem from '@theme/TabItem';
     "storages": {
         "dataset": "./dataset_schema.json"
     },
-    "webServerSchema": "./web_server_openapi.json"
+    "webServerSchema": "./web_server_openapi.json",
+    "webServerMcpPath": "/mcp"
 }
 ```
 
@@ -66,10 +72,12 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available.  |
+| `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available. |
 | `name` | Required | The name of the Actor. |
+| `title` | Optional | The display title of the Actor. This is the human-readable title shown in the Apify Console and Store. If not specified, the `name` property is used as the title. |
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
 | `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
+| `meta` | Optional | Metadata object containing additional information about the Actor. Currently supports `templateId` field to identify the template from which the Actor was created. |
 | `environmentVariables` | Optional | A map of environment variables to be used during local development. These variables will also be applied to the Actor when deployed on the Apify platform. For more details, see the [environment variables](/cli/docs/vars) section of Apify CLI documentation. |
 | `dockerfile` | Optional | The path to the Dockerfile to be used for building the Actor on the platform. If not specified, the system will search for Dockerfiles in the `.actor/Dockerfile` and `Dockerfile` paths, in that order. Refer to the [Dockerfile](./docker.md) section for more information. |
 | `dockerContextDir` | Optional | The path to the directory to be used as the Docker context when building the Actor. The path is relative to the location of the `actor.json` file. This property is useful for monorepos containing multiple Actors. Refer to the [Actor monorepos](../deployment/source_types.md#actor-monorepos) section for more details. |
@@ -77,7 +85,9 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `input` | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. You can also provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
 | `changelog` | Optional | The path to the CHANGELOG file displayed in the Information tab of the Actor in Apify Console next to Readme. If not provided, the CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` is used, in this order of preference. Your Actor doesn't need to have a CHANGELOG but it is a good practice to keep it updated for published Actors. |
 | `storages.dataset` | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](/platform/actors/development/actor-definition/dataset-schema) about Actor dataset schemas. |
+| `defaultMemoryMbytes` | Optional | Specifies the default amount of memory in megabytes to be used when the Actor is started. Can be an integer or a [dynamic memory expression string](./dynamic_actor_memory/index.md). |
 | `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an _integer_ value. Refer to the [Usage and resources](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `usesStandbyMode` | Optional | Boolean specifying whether the Actor will have [Standby mode](../programming_interface/actor_standby.md) enabled. |
 | `webServerSchema` | Optional | Defines an OpenAPI v3 schema for the web server running in the Actor. This can be either an embedded object or a path to a JSON schema file. Use this when your Actor starts its own HTTP server and you want to describe its interface. |
+| `webServerMcpPath` | Optional | The HTTP endpoint path where the Actor exposes its MCP (Model Context Protocol) server functionality. When set, the Actor is recognized as an MCP server. For example, setting `"/mcp"` designates the `/mcp` endpoint as the MCP interface. This path becomes part of the Actor's stable URL when [Standby mode](../programming_interface/actor_standby.md) is enabled. |

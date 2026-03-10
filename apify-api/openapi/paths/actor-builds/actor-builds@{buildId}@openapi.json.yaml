@@ -28,13 +28,22 @@ get:
         type: string
         example: soSkq9ekdmfOslopH
   responses:
-    '200':
-      description: ''
+    "200":
+      description: The OpenAPI specification document for the Actor build.
       headers: {}
       content:
         application/json:
           schema:
-            $ref: '../../components/schemas/actor-builds/GetOpenApiResponse.yaml'
+            type: object
+            description: A standard OpenAPI 3.x JSON document.
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
   x-js-parent: BuildClient
   x-js-name: getOpenApiDefinition
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#getOpenApiDefinition

@@ -7,11 +7,6 @@
   margin-right: 16px;
 }
 
-.giscus {
-  display: block;
-  margin-top: 50px;
-}
-
 .docItemContainer header + *,
 .docItemContainer article > *:first-child {
   margin-top: 0;

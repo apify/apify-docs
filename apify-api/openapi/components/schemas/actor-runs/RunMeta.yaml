@@ -4,5 +4,17 @@ required:
 type: object
 properties:
   origin:
-    type: string
-    enum: [DEVELOPMENT, WEB, API, SCHEDULER, TEST, WEBHOOK, ACTOR, CLI, STANDBY]
+    $ref: ./RunOrigin.yaml
+  clientIp:
+    type: [string, "null"]
+    description: IP address of the client that started the run.
+  userAgent:
+    type: [string, "null"]
+    description: User agent of the client that started the run.
+  scheduleId:
+    type: [string, "null"]
+    description: ID of the schedule that triggered the run.
+  scheduledAt:
+    type: [string, "null"]
+    format: date-time
+    description: Time when the run was scheduled.

@@ -56,17 +56,18 @@ export default function Home() {
                     heading="Apify SDK"
                     description={
                         <>
-                            The Apify SDK is a toolkit for building Actors—serverless microservices running (not only) on the Apify platform.
+                            The Apify SDK is a toolkit for building Actors—serverless microservices running on the Apify platform.
                             Apify comes with first-class support for JavaScript/TypeScript and Python,
-                            but you can run any containerized code on the Apify platform.
+                            but you can run any containerized code as Actors.
                         </>
                     }
                 />
                 <Section>
                     <StyledContent>
                         <SdkSection
-                            title="SDK for JavaScript"
-                            description="Toolkit for building Actors—serverless microservices running (not only) on the Apify platform."
+                            title="Apify SDK for JavaScript"
+                            description="The official library for creating Apify Actors in Python, with full lifecycle management,
+                            local storage, and event handling."
                             installCodeSnippet="npx apify-cli create my-crawler"
                             exampleCodeSnippet={javascriptExample}
                             language="JavaScript"
@@ -75,14 +76,14 @@ export default function Home() {
                             referenceUrl="https://docs.apify.com/sdk/js/reference"
                         />
                         <SdkSection
-                            title="SDK for Python"
-                            description="The Apify SDK for Python is the official library for creating Apify Actors in Python.
-            It provides useful features like actor lifecycle management, local storage emulation, and actor event handling."
+                            title="Apify SDK for Python"
+                            description="The official library for creating Apify Actors in Python, with full lifecycle management,
+                            local storage, and event handling."
                             installCodeSnippet="apify create my-python-actor"
                             exampleCodeSnippet={pythonExample}
                             language="Python"
                             githubRepoUrl="https://github.com/apify/apify-sdk-python"
-                            gettingStartedUrl="https://docs.apify.com/sdk/python/docs/overview/introduction"
+                            gettingStartedUrl="https://docs.apify.com/sdk/python/docs/overview"
                             referenceUrl="https://docs.apify.com/sdk/python/reference"
                         />
                     </StyledContent>

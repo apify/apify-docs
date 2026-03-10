@@ -54,6 +54,7 @@ Here's a table of key system environment variables:
 | `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
+| `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
@@ -197,13 +198,13 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        old_token = Actor.config.token
+        old_token = Actor.configuration.token
         Actor.log.info(f'old_token = {old_token}')
 
         # use different token
-        Actor.config.token = 's0m3n3wt0k3n'
+        Actor.configuration.token = 's0m3n3wt0k3n'
 
-        new_token = Actor.config.token
+        new_token = Actor.configuration.token
         Actor.log.info(f'new_token = {new_token}')
 ```
 

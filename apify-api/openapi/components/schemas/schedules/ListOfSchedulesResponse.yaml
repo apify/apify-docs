@@ -1,0 +1,7 @@
+title: ListOfSchedulesResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfSchedules.yaml

@@ -14,13 +14,15 @@ get:
         type: string
         example: asdLZtadYvn4mBZmm
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule
@@ -61,20 +63,22 @@ put:
         type: string
         example: asdLZtadYvn4mBZmm
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/update-schedule
@@ -102,8 +106,8 @@ delete:
         type: string
         example: asdLZtadYvn4mBZmm
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -111,6 +115,8 @@ delete:
             type: object
             example: {}
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/delete-schedule

@@ -2,7 +2,7 @@
 title: OpenAI Assistants integration
 sidebar_label: OpenAI Assistants
 description: Learn how to integrate Apify with OpenAI Assistants to provide real-time search data and to save them into OpenAI Vector Store
-sidebar_position: 12
+sidebar_position: 14
 slug: /integrations/openai-assistants
 ---
 
@@ -412,6 +412,11 @@ for m in client.beta.threads.messages.list(thread_id=run.thread_id):
 ```
 
 </details>
+
+## Related integrations
+
+- [ChatGPT integration](/platform/integrations/chatgpt) - Add Apify MCP server as a custom connector in ChatGPT
+- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
 
 ## Resources
 

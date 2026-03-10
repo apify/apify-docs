@@ -32,7 +32,7 @@ However, runs can be delayed because of a system overload or a server shutting d
 
 Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tasks.
 
-## Setting up a new schedule
+## Set up a new schedule
 
 Before setting up a new schedule, you should have the [Actor](./actors/index.mdx) or [task](./actors/running/tasks.md) you want to schedule prepared and tested.
 

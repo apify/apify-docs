@@ -3,7 +3,7 @@ get:
     - Actor builds
   summary: Get log
   # TODO: Fix description once /logs is cleaned up as well
-  description: 'Check out [Logs](#/reference/logs) for full reference.'
+  description: "Check out [Logs](#/reference/logs) for full reference."
   operationId: actorBuild_log_get
   parameters:
     - name: buildId
@@ -19,7 +19,7 @@ get:
       description: |
         If `true` or `1` then the logs will be streamed as long as the run or
         build is running.
-      required: true
+      required: false
       style: form
       explode: true
       schema:
@@ -30,15 +30,15 @@ get:
       description: |
         If `true` or `1` then the web browser will download the log file rather
         than open it in a tab.
-      required: true
+      required: false
       style: form
       explode: true
       schema:
         type: boolean
         example: false
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         text/plain:
@@ -52,6 +52,14 @@ get:
             2017-07-14T06:00:49.733Z Application started.
             2017-07-14T06:00:49.741Z Input: { test: 123 }
             2017-07-14T06:00:49.752Z Some useful debug information follows.
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-log/get-log

@@ -2,7 +2,7 @@
 title: Flowise integration
 description: Learn how to integrate Apify with Flowise.
 sidebar_label: Flowise
-sidebar_position: 9
+sidebar_position: 10
 slug: /integrations/flowise
 ---
 
@@ -36,7 +36,7 @@ It will be available on `https://localhost:3000`
 
 Other methods of using Flowise can be found in their [documentation](https://docs.flowiseai.com/getting-started#quick-start)
 
-### Building your flow
+### Build your flow
 
 After running Flowise, you can start building your flow with Apify.
 

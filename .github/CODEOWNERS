@@ -5,7 +5,7 @@
 /sources/legal/ @mnmkng
 
 # Academy
-/sources/academy/ @honzajavorek
+/sources/academy/ @honzajavorek @TC-MO
 
 # OpenAPI spec
 /apify-api/ @janbuchar @fnesveda

@@ -39,9 +39,9 @@ Go to [Airtable](https://airtable.com) and open the base you would like to work 
 ![Access the extensions tab on Airtable UI by pressing tools button](../../images/airtable/airtable_tools_button.png)
 
 <!-- TODO: improve pictures when Apify integration is published -->
-Search for Apify extenison and install it
+Search for Apify extension and install it
 
-![Search for the Apify extension on Airtable](../../images/airtable/airtable_search_apify_extenison.png)
+![Search for the Apify extension on Airtable](../../images/airtable/airtable_search_apify_extension.png)
 
 Open the Apify extension and login using OAuth 2.0 with your Apify account. If you dont have an account, visit [Apify registration](https://console.apify.com/sign-up) page.
 
@@ -64,7 +64,7 @@ The extension provides the following capabilities:
 
 ### Run Actor
 
-1. Select any Actor from **Apify store** or **recently used Actors**
+1. Select any Actor from **Apify Store** or **recently used Actors**
 ![Select Actor screen](../../images/airtable/airtable_actor_select.png)
 
 1. Fill in the Actor input form.
@@ -90,7 +90,7 @@ Retrieve items from any Apify dataset and import them into your Airtable base wi
 
 This section explains how to map your Actor run results or dataset items into your Airtable base.
 
-#### Understanding mapping rows
+#### Understand mapping rows
 
 The Apify extension provides UI elements that allow you to map dataset fields to Airtable fields.
 
@@ -132,7 +132,7 @@ _How it works_: For a source field like `crawl.depth`, the extension checks for 
 To prevent duplicate records, select a **Unique ID** on the data mapping step. The unique ID is added to the list of mapping rows. Ensure it points to the correct field in your table. During import, the extension filters data by existing values in the table.
 ![Select unique ID](../../images/airtable/airtable_unique_id.png)
 
-#### Preview Mapped Data
+#### Preview mapped data
 
 Preview the results and start the import
 

@@ -43,13 +43,15 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/schedules/GetListOfSchedulesResponse.yaml
+            $ref: ../../components/schemas/schedules/ListOfSchedulesResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/get-list-of-schedules
@@ -76,26 +78,28 @@ post:
     info](#/introduction/authentication)).
   operationId: schedules_post
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/schedules/asdLZtadYvn4mBZmm'
+              example: https://api.apify.com/v2/schedules/asdLZtadYvn4mBZmm
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule

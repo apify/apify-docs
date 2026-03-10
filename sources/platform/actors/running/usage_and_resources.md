@@ -21,7 +21,7 @@ Check out the [Limits](../../limits.md) page for detailed information on Actor m
 
 ### Memory
 
-When invoking an Actor, the caller must specify the memory allocation for the Actor run. The memory allocation must follow these requirements:
+When invoking an Actor, the caller can specify the memory allocation for the Actor run. If not specified, the Actor's default memory is used (which can be [dynamic](../development/actor_definition/dynamic_actor_memory/index.md)). The memory allocation must follow these requirements:
 
 - It must be a power of 2.
 - The minimum allowed value is `128MB`

@@ -1,0 +1,15 @@
+# Configuration of Spectral, a tool for linting OpenAPI specification.
+extends:
+  - 'spectral:oas'
+
+rules:
+  # Allow nullable fields in examples - these reference schemas with nullable properties
+  oas3-valid-media-example: off
+  oas3-valid-schema-example: off
+
+overrides:
+  - files:
+      - apify-api/openapi/openapi.yaml
+    rules:
+      # Allow $ref for tags field - Redocly bundles it during build
+      oas3-schema: off

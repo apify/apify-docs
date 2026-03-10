@@ -1,0 +1,29 @@
+title: HeadRequest
+description: A request from the request queue head without lock information.
+type: object
+required:
+  - id
+  - uniqueKey
+  - url
+properties:
+  id:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [8OamqXBCpPHxyH9]
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    examples: [GET|60d83e70|e3b0c442|https://apify.com]
+  url:
+    type: string
+    format: uri
+    description: The URL of the request.
+    examples: [https://apify.com]
+  method:
+    type: string
+    description: The HTTP method of the request.
+    examples: [GET]
+  retryCount:
+    type: integer
+    description: The number of times this request has been retried.
+    examples: [0]

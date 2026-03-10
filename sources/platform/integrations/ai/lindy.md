@@ -2,7 +2,7 @@
 title: Lindy integration
 description: Learn how to integrate Apify with Lindy.
 sidebar_label: Lindy
-sidebar_position: 7
+sidebar_position: 9
 slug: /integrations/lindy
 ---
 
@@ -58,7 +58,7 @@ You have access to thousands of Actors available on the [Apify Store](https://ap
 This establishes the fundamental workflow:<br />
 _Chatting with Lindy can now trigger the Apify Instagram Profile Scraper._
 
-### Extending Your Workflow
+### Extend your workflow
 
 Lindy offers different triggers (e.g., _email received_, _Slack message received_, etc.) and actions beyond running an Actor.
 

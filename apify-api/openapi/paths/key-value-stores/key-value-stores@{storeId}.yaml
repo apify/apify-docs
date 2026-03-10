@@ -7,22 +7,23 @@ get:
     store.
   operationId: keyValueStore_get
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/GetStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store
@@ -39,23 +40,16 @@ put:
     - Storage/Key-value stores
   summary: Update store
   description: |
-    Updates a key-value store's name using a value specified by a JSON object
+    Updates a key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
 
     The response is the updated key-value store object, as returned by the [Get
     store](#/reference/key-value-stores/store-object/get-store) API endpoint.
   operationId: keyValueStore_put
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -64,13 +58,21 @@ put:
           name: new-store-name
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/key-value-stores/UpdateStoreResponse.yaml
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/update-store
@@ -89,19 +91,20 @@ delete:
   description: Deletes a key-value store.
   operationId: keyValueStore_delete
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store

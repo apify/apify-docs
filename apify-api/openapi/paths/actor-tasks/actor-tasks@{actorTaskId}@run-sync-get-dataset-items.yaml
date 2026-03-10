@@ -55,20 +55,8 @@ get:
         type: number
         format: double
         example: 256
-    - name: maxItems
-      in: query
-      description: |
-        The maximum number of items that the task run should return. This is
-        useful for pay-per-result tasks, as it allows you to limit the number of
-        results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 1000
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    # XXX: do we support maxTotalChargeUsd for task runs?
     - name: build
       in: query
       description: |
@@ -155,7 +143,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -163,7 +151,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -186,7 +174,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -329,51 +317,51 @@ get:
         type: boolean
         example: false
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
             type: object
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
-    '408':
-      description: 'Request Timeout: the HTTP request exceeded the 300 second limit'
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
+    "408":
+      description: "Request Timeout: the HTTP request exceeded the 300 second limit"
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-get
@@ -448,34 +436,8 @@ post:
         type: number
         format: double
         example: 256
-    - name: maxItems
-      in: query
-      description: |
-        The maximum number of items that the task run should return. This is
-        useful for pay-per-result tasks, as it allows you to limit the number of
-        results that will be charged to your subscription. You can access the
-        maximum number of items in your Actor by using the
-        `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 1000
-    - name: maxTotalChargeUsd
-      in: query
-      description: |
-        Specifies the maximum cost of the task run. This is
-        useful for pay-per-event tasks, as it allows you to limit the amount
-        charged to your subscription. You can access the
-        maximum cost in your Actor by using the
-        `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 5
+    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
     - name: restartOnError
       in: query
       description: |
@@ -567,7 +529,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -575,7 +537,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -593,7 +555,7 @@ post:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -735,7 +697,7 @@ post:
         type: boolean
         example: false
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -744,44 +706,44 @@ post:
           foo: bar
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
             type: object
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/ErrorResponse.yaml"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-post

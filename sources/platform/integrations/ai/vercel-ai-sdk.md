@@ -27,14 +27,14 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: To use Apify Actors in Vercel AI SDK, you need an Apify API token. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash
     npm install @modelcontextprotocol/sdk @openrouter/ai-sdk-provider ai
     ```
 
-### Building a simple pub search AI agent using Apify Google Maps scraper
+### Build a simple pub search AI agent using Apify Google Maps scraper
 
 First, import all required packages:
 
@@ -44,13 +44,7 @@ import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 ```
 
-Connect to the Apify MCP server and get all available tools for the AI agent:
-
-:::warning Required setup
-
-Make sure to set the `APIFY_TOKEN` environment variable with your Apify API token before running the code.
-
-:::
+Connect to the Apify MCP server and get all available tools for the AI agent. You can use the [UI configurator](https://mcp.apify.com/) to select your tools visually and generate the configuration code below:
 
 ```typescript
 // Connect to the Apify MCP server and get the available tools
@@ -112,6 +106,6 @@ await mcpClient.close();
 - [Apify Actors](https://docs.apify.com/platform/actors)
 - [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
-- [Apify MCP Server](https://mcp.apify.com)
-- [Apify MCP Server documentation](https://docs.apify.com/platform/integrations/mcp)
+- [Apify MCP server](https://mcp.apify.com)
+- [Apify MCP server documentation](https://docs.apify.com/platform/integrations/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

@@ -97,87 +97,16 @@ get:
         format: double
         example: 60
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             allOf:
               - $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          example:
-            data:
-              id: HG7ML7M8z78YcAPEB
-              actId: HDSasDasz78YcAPEB
-              userId: 7sT5jcggjjA9fNcxF
-              actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
-              status: RUNNING
-              statusMessage: Actor is running
-              isStatusMessageTerminal: false
-              meta:
-                origin: WEB
-                clientIp: 172.234.12.34
-                userAgent: Mozilla/5.0 (iPad)
-              stats:
-                inputBodyLen: 240
-                migrationCount: 0
-                restartCount: 0
-                resurrectCount: 2
-                memAvgBytes: 267874071.9
-                memMaxBytes: 404713472
-                memCurrentBytes: 0
-                cpuAvgUsage: 33.75321011075384
-                cpuMaxUsage: 169.65073553494125
-                cpuCurrentUsage: 0
-                netRxBytes: 103508042
-                netTxBytes: 4854600
-                durationMillis: 248472
-                runTimeSecs: 248.472
-                metamorph: 0
-                computeUnits: 0.13804
-              options:
-                build: latest
-                timeoutSecs: 300
-                memoryMbytes: 1024
-                diskMbytes: 2048
-              buildId: 7sT5jcggjjA9fNcxF
-              exitCode: 0
-              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
-              defaultDatasetId: wmKPijuyDnPZAPRMk
-              defaultRequestQueueId: FL35cSF7jrxr3BY39
-              buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
-              isContainerServerReady: true
-              gitBranchName: master
-              usage:
-                ACTOR_COMPUTE_UNITS: 3
-                DATASET_READS: 4
-                DATASET_WRITES: 4
-                KEY_VALUE_STORE_READS: 5
-                KEY_VALUE_STORE_WRITES: 3
-                KEY_VALUE_STORE_LISTS: 5
-                REQUEST_QUEUE_READS: 2
-                REQUEST_QUEUE_WRITES: 1
-                DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
-                PROXY_SERPS: 3
-              usageTotalUsd: 0.2654
-              usageUsd:
-                ACTOR_COMPUTE_UNITS: 0.072
-                DATASET_READS: 0.0004
-                DATASET_WRITES: 0.0002
-                KEY_VALUE_STORE_READS: 0.0006
-                KEY_VALUE_STORE_WRITES: 0.002
-                KEY_VALUE_STORE_LISTS: 0.004
-                REQUEST_QUEUE_READS: 0.005
-                REQUEST_QUEUE_WRITES: 0.02
-                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
-                PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
@@ -186,8 +115,12 @@ get:
 put:
   tags:
     - Actor runs
-  summary: Update status message
+  summary: Update run
   description: |
+    This endpoint can be used to update both the run's status message and to configure its general resource access level.
+
+    **Status message:**
+
     You can set a single status message on your run that will be displayed in
     the Apify Console UI. During an Actor run, you will typically do this in order
     to inform users of your Actor about the Actor's progress.
@@ -196,6 +129,18 @@ put:
     `isStatusMessageTerminal` property is optional and it indicates if the
     status message is the very last one. In the absence of a status message, the
     platform will try to substitute sensible defaults.
+
+    **General resource access:**
+
+    You can also update the run's general resource access setting, which determines who can view the run and its related data.
+
+    Allowed values:
+
+    * `FOLLOW_USER_SETTING` - The run inherits the general access setting from the account level.
+    * `ANYONE_WITH_ID_CAN_READ` - The run can be viewed anonymously by anyone who has its ID.
+    * `RESTRICTED` - Only users with explicit access to the resource can access the run.
+
+    When a run is accessible anonymously, all of the run's default storages and logs also become accessible anonymously.
   operationId: actorRun_put
   parameters:
     - name: runId
@@ -207,12 +152,12 @@ put:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           allOf:
-            - $ref: "../../components/schemas/actor-runs/UpdateRunRequest.yaml"
+            - $ref: ../../components/schemas/actor-runs/UpdateRunRequest.yaml
             - example:
                 runId: 3KH8gEpp4d8uQSe8T
                 statusMessage: Actor has finished
@@ -223,86 +168,15 @@ put:
           isStatusMessageTerminal: true
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          example:
-            data:
-              id: HG7ML7M8z78YcAPEB
-              actId: HDSasDasz78YcAPEB
-              userId: 7sT5jcggjjA9fNcxF
-              actorTaskId: KJHSKHausidyaJKHs
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
-              status: RUNNING
-              statusMessage: Actor is running
-              isStatusMessageTerminal: false
-              meta:
-                origin: WEB
-                clientIp: 172.234.12.34
-                userAgent: Mozilla/5.0 (iPad)
-              stats:
-                inputBodyLen: 240
-                migrationCount: 0
-                restartCount: 0
-                resurrectCount: 2
-                memAvgBytes: 267874071.9
-                memMaxBytes: 404713472
-                memCurrentBytes: 0
-                cpuAvgUsage: 33.75321011075384
-                cpuMaxUsage: 169.65073553494125
-                cpuCurrentUsage: 0
-                netRxBytes: 103508042
-                netTxBytes: 4854600
-                durationMillis: 248472
-                runTimeSecs: 248.472
-                metamorph: 0
-                computeUnits: 0.13804
-              options:
-                build: latest
-                timeoutSecs: 300
-                memoryMbytes: 1024
-                diskMbytes: 2048
-              buildId: 7sT5jcggjjA9fNcxF
-              exitCode: 0
-              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
-              defaultDatasetId: wmKPijuyDnPZAPRMk
-              defaultRequestQueueId: FL35cSF7jrxr3BY39
-              buildNumber: 0.0.36
-              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
-              isContainerServerReady: true
-              gitBranchName: master
-              usage:
-                ACTOR_COMPUTE_UNITS: 3
-                DATASET_READS: 4
-                DATASET_WRITES: 4
-                KEY_VALUE_STORE_READS: 5
-                KEY_VALUE_STORE_WRITES: 3
-                KEY_VALUE_STORE_LISTS: 5
-                REQUEST_QUEUE_READS: 2
-                REQUEST_QUEUE_WRITES: 1
-                DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
-                PROXY_SERPS: 3
-              usageTotalUsd: 0.2654
-              usageUsd:
-                ACTOR_COMPUTE_UNITS: 0.072
-                DATASET_READS: 0.0004
-                DATASET_WRITES: 0.0002
-                KEY_VALUE_STORE_READS: 0.0006
-                KEY_VALUE_STORE_WRITES: 0.002
-                KEY_VALUE_STORE_LISTS: 0.004
-                REQUEST_QUEUE_READS: 0.005
-                REQUEST_QUEUE_WRITES: 0.02
-                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
-                PROXY_SERPS: 0.0006
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
@@ -326,10 +200,12 @@ delete:
         type: string
         example: 3KH8gEpp4d8uQSe8T
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run
@@ -338,4 +214,3 @@ delete:
   x-js-parent: RunClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
-

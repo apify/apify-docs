@@ -54,13 +54,21 @@ get:
         type: boolean
         example: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-builds/GetBuildListResponse.yaml
+            $ref: ../../components/schemas/actor-builds/ListOfBuildsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/get-list-of-builds
@@ -98,7 +106,7 @@ post:
       explode: true
       schema:
         type: string
-        example: '0.0'
+        example: "0.0"
     - name: useCache
       in: query
       description: |
@@ -143,8 +151,8 @@ post:
         format: double
         example: 60
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -156,36 +164,15 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/BuildActorResponse.yaml"
-          example:
-            data:
-              id: HG7ML7M8z78YcAPEB
-              actId: janedoe~my-actor
-              userId: klmdEpoiojmdEMlk3
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
-              status: SUCCEEDED
-              meta:
-                origin: WEB
-                clientIp: 172.234.12.34
-                userAgent: Mozilla/5.0 (iPad)
-              stats:
-                durationMillis: 1000
-                runTimeSecs: 45.718
-                computeUnits: 0.012699444444444444
-              options:
-                useCache: false
-                betaPackages: false
-                memoryMbytes: 1024
-                diskMbytes: 2048
-              usage:
-                ACTOR_COMPUTE_UNITS: 0.08
-              usageTotalUsd: 0.02
-              usageUsd:
-                ACTOR_COMPUTE_UNITS: 0.02
-              inputSchema: '{\n  \"title\": \"Schema for ... }'
-              readme: '# Magic Actor\nThis Actor is magic.'
-              buildNumber: 0.1.1
+            $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/build-actor

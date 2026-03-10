@@ -1,0 +1,15 @@
+title: ScheduleAction
+required:
+  - id
+  - type
+  - actorId
+type: object
+properties:
+  id:
+    type: string
+    examples: [ZReCs7hkdieq8ZUki]
+  type:
+    $ref: ./ScheduleActionType.yaml
+  actorId:
+    type: string
+    examples: [HKhKmiCMrDgu9eXeE]

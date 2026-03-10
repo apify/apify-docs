@@ -154,14 +154,7 @@ get:
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
   operationId: dataset_items_get
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
     - name: format
       in: query
       description: |
@@ -182,16 +175,7 @@ get:
       schema:
         type: boolean
         example: false
-    - name: offset
-      in: query
-      description: |
-        Number of items that should be skipped at the start. The default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 0
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
     - name: limit
       in: query
       description: Maximum number of items to return. By default there is no limit.
@@ -211,7 +195,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: omit
       in: query
       description: A comma-separated list of fields which should be omitted from the items.
@@ -219,7 +203,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: unwind
       in: query
       description: |
@@ -232,7 +216,7 @@ get:
       explode: true
       schema:
         type: string
-        example: 'myValue,myOtherValue'
+        example: "myValue,myOtherValue"
     - name: flatten
       in: query
       description: |
@@ -246,16 +230,7 @@ get:
       schema:
         type: string
         example: myValue
-    - name: desc
-      in: query
-      description: |
-        By default, results are returned in the same order as they were stored.
-        To reverse the order, set this parameter to `true` or `1`.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Desc"
     - name: attachment
       in: query
       description: |
@@ -367,42 +342,35 @@ get:
       schema:
         type: boolean
         example: false
-    - name: signature
-      in: query
-      description: Signature used to access the items.
-      required: false
-      style: simple
-      schema:
-        type: string
-        example: 2wTI46Bg8qWQrV7tavlPI
+    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers:
         X-Apify-Pagination-Offset:
           content:
             text/plain:
               schema:
                 type: string
-              example: '0'
+              example: "0"
         X-Apify-Pagination-Limit:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Count:
           content:
             text/plain:
               schema:
                 type: string
-              example: '100'
+              example: "100"
         X-Apify-Pagination-Total:
           content:
             text/plain:
               schema:
                 type: string
-              example: '10204'
+              example: "10204"
       content:
         application/json:
           schema:
@@ -421,18 +389,26 @@ get:
         text/html:
           schema:
             type: string
-          example: '<table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>'
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          example: <table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
           schema:
             type: string
         application/rss+xml:
           schema:
             type: string
-          example: '<rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>'
+          example: <rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>
         application/xml:
           schema:
             type: string
-          example: '<items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>'
+          example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
@@ -458,75 +434,45 @@ post:
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
   operationId: dataset_items_post
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           type: array
           items:
             $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
-          description: ''
-          example:
-            - foo: bar
-            - foo: hotel
-            - foo: restaurant
-        example:
-          - foo: bar
-          - foo: hotel
-          - foo: restaurant
+          description: ""
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items'
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
       content:
         application/json:
           schema:
             type: object
             example: {}
-          example: {}
-    '400':
-      description: ''
+    "400":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: >-
-                  ../../components/schemas/datasets/PutItemResponseError.yaml
-              - example:
-                  error:
-                    type: schema-validation-error
-                    message: Schema validation failed
-          example:
-            error:
-              type: schema-validation-error
-              message: Schema validation failed
-              data:
-                invalidItems:
-                  - itemPosition: 2
-                    validationErrors:
-                      - instancePath: /1/stringField
-                        schemaPath: /items/properties/stringField/type
-                        keyword: type
-                        params:
-                          type: string
-                        message: 'must be string'
+            $ref: ../../components/schemas/datasets/PutItemResponseError.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items

@@ -165,7 +165,7 @@ The version above was the improved input schema. Here's what this tool's input s
 
 - _User feedback_. If they're asking obvious things, complaining, or consistently making silly mistakes with input, take notes. Feedback from users can help you understand their experience and identify areas for improvement.
 - _High churn rates_. If your users are trying your tool but quickly abandon it, this is a sign they are having difficulties with your schema.
-- _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source).** This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier.
+<!-- - _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source).** This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier. -->
 
 ## Resources
 

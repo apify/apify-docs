@@ -8,7 +8,7 @@ import styles from './StoragePricingCalculator.module.css';
 const pricingTiers = [
   {
     name: 'Free/Starter',
-    description: '$0/month & $39/month',
+    description: '$0/month & $29/month',
     storageMultiplier: 1.0,
     readMultiplier: 1.0,
     writeMultiplier: 1.0,
