@@ -36,8 +36,6 @@ After a run finishes, any interactions with the dataset - such as reading or wri
 
 With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
 
-Pay per event Actors are labeled next to the Actor name in Apify Store and Apify Console.
-
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 
 ![Example pay per event Actor](./images/store/pay_per_event_example_actor.png)
@@ -54,7 +52,7 @@ When starting a run, you can define a maximum charge limit. The Actor terminates
 
 ![Pay per event Actor - max charge per run](./images/store/pay_per_event_max_charge_per_run.png)
 
-Your charges appear on your invoices and in the [Usage tab](https://console.apify.com/billing) in the Billing section of Apify Console. The cost of each run also appears on the run detail page.
+Your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the Billing section of Apify Console. The cost of each run also appears on the run detail page.
 
 ![Pay per event Actor - historical usage tab](./images/store/pay_per_event_historical_usage_tab.png)
 
@@ -74,8 +72,6 @@ This makes it transparent and easy to estimate upfront costs. If you have any fe
 
 <!-- TODO - add a bit about the ability to set the maximum limits Actor should return -->
 
-Pay per result Actors are labeled next to the Actor name in Apify Console.
-
 ![Actor paid per result in Console](./images/store/console_pay_per_result_tag.png)
 
 All platform costs generated _during_ the Actor run are not charged to your account.
@@ -84,7 +80,7 @@ You can limit how many results an Actor returns - and therefore control how much
 
 ![Max items for pay-per-result](./images/store/max-items-for-pay-per-result.png)
 
-Your charges appear on your invoices and in the [Usage tab](https://console.apify.com/billing) in the Billing section of Apify Console, where pay per result charges are shown as a separate service. The cost also appears on individual run detail pages and in the overview of all runs.
+Your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the Billing section of Apify Console, where pay per result charges are shown as a separate service. The cost also appears on individual run detail pages and in the overview of all runs.
 
 ![Statistics in the billing section](./images/store/pay_per_result_billing_usage_section.png)
 
@@ -92,7 +88,7 @@ Your charges appear on your invoices and in the [Usage tab](https://console.apif
 
 ![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
 
-To see total charges for a specific Actor, check the bottom of the [Usage tab](https://console.apify.com/billing).
+To see total charges for a specific Actor, check the bottom of the [Historical usage tab](https://console.apify.com/billing/historical-usage).
 
 ![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
 
@@ -102,7 +98,7 @@ Pay per result is also available as a pricing option when you publish your own A
 
 <RentalSunset/>
 
-Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the _highest quality_ and receive _ongoing maintenance_.
+Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends.
 
 Most rental Actors have a _free trial_ period. The length of the trial is displayed on each Actor's page.
 
@@ -118,7 +114,7 @@ _Example_: You activate a 7-day trial at _noon on April 1, 2021_. Without cancel
 
 Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](./usage_and_resources.md). Most of the fee goes directly to the developer, and you also pay normal [platform usage costs](https://apify.com/pricing) on top - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
 
-You can cancel the rental at any time during the trial or afterward so you are not charged when the current rental period expires. You can always turn it back on later. When renting an Actor, you can run it via the [API](/api/v2), [JavaScript client](/api/client/js), or [Python client](/api/client/python), just as you would with any private or free public Actor.
+You can cancel the rental at any time during the trial or afterward so you are not charged when the current rental period expires. You can always turn it back on later.
 
 To see a breakdown of rental charges, go to the **Actors** tab within the **Current period** tab in the [Billing](https://console.apify.com/billing) section.
 
