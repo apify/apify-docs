@@ -1,13 +1,9 @@
 ---
 title: Dataset schema specification
 sidebar_position: 5
-description: Learn how to define and present your dataset schema in an user-friendly output UI.
+description: Define a dataset schema to control how your Actor output data is structured, validated, and displayed in Apify Console UI and API responses.
 slug: /actors/development/actor-definition/dataset-schema
 sidebar_label: Dataset schema
----
-
-**Learn how to define and present your dataset schema in an user-friendly output UI.**
-
 ---
 
 The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
@@ -34,7 +30,6 @@ await Actor.pushData({
     arrayField: ['#hello', '#world'],
     objectField: {},
 });
-
 
 // Exit successfully
 await Actor.exit();

@@ -1,13 +1,9 @@
 ---
 title: Billing
-description: The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.
+description: View invoices, track current billing cycle usage, manage subscriptions and limits, and review historical usage from the Billings page in Console.
 sidebar_position: 3
 category: platform
 slug: /console/billing
----
-
-**The Billings page is the central place for all information regarding your invoices, billing information regarding usage in the current billing cycle, historical usage, subscriptions & limits.**
-
 ---
 
 ## Current period

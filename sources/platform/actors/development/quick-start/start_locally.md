@@ -2,12 +2,8 @@
 title: Local Actor development
 sidebar_label: Local development
 sidebar_position: 1
-description: Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.
+description: Create your first Actor locally using the Apify CLI, configure its input and storage, then deploy it to the Apify platform to run in the cloud.
 slug: /actors/development/quick-start/locally
----
-
-**Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.**
-
 ---
 
 import PromptButton from "@site/src/components/PromptButton";
@@ -81,7 +77,6 @@ In the next step, we’ll explore the results in more detail.
 Let's explore the Actor structure.
 <!-- vale Apify.Capitalization = NO -->
 #### The `.actor` folder
-
 
 The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
 <!-- vale Apify.Capitalization = YES -->

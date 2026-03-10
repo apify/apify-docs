@@ -1,6 +1,6 @@
 ---
 title: Make - Amazon Actor integration
-description: Learn about Amazon scraper modules, extract product, search, or category data from Amazon.
+description: Use the Amazon Scraper module in Make to extract product listings, search results, and category data from Amazon and automate your data workflows.
 sidebar_label: Amazon
 sidebar_position: 6
 slug: /integrations/make/amazon

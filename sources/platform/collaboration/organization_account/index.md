@@ -5,10 +5,6 @@ sidebar_position: 12.1
 slug: /collaboration/organization-account
 ---
 
-**Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.**
-
----
-
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../list_of_permissions.md) and to centralize your billing without having to share the credentials of a single personal account.
 
 You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.

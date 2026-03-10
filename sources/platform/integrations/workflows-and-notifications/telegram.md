@@ -1,13 +1,9 @@
 ---
 title: Telegram integration through Zapier
 sidebar_label: Telegram
-description: Learn how to integrate your Apify Actors with Zapier.
+description: Learn how to integrate Apify Actors with Telegram through Zapier to automatically send Telegram messages with Actor run results and notifications.
 sidebar_position: 4
 slug: /integrations/telegram
----
-
-**Learn how to integrate your Apify Actors with Telegram through Zapier.**
-
 ---
 
 With [Apify integration for Zapier](https://zapier.com/apps/apify/integrations), you can connect your Apify Actors to Slack, Trello, Google Sheets, Dropbox, Salesforce, and loads more.
@@ -100,7 +96,6 @@ The best way to do it's to:
 1. Issue the `/newbot` command in conversation with it and follow the instructions, until you get your HTTP API token.
 
     ![BotFather conversation with new HTTP API token](../images/botfather-HTTP-API-blurred.png)
-
 
 ### Step 2: Create action for your new Telegram bot
 

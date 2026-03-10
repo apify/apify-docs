@@ -1,13 +1,9 @@
 ---
 title: Kestra integration
-description: Connect Apify with Kestra to orchestrate workflows - run flows, extract structured data, and react to Actor or task events.
+description: Connect Apify with Kestra to orchestrate workflows declaratively in YAML - run Actors, extract structured data, and react to Actor or task events.
 sidebar_label: Kestra
 sidebar_position: 7
 slug: /integrations/kestra
----
-
-**Connect Apify with Kestra to orchestrate workflows - run flows, extract structured data, and react to Actor or task events.**
-
 ---
 
 [Kestra](https://kestra.io/) is an open-source, event-driven orchestration platform. The [Apify plugin for Kestra](https://github.com/kestra-io/plugin-kestra) connects Apify Actors and storage to your workflows. Run scrapers, extract structured data - all defined declaratively in YAML and orchestrated directly from the UI.

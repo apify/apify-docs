@@ -5,10 +5,6 @@ sidebar_position: 7.5
 slug: /actors/development/permissions
 ---
 
-**Learn how to declare and manage permissions for your Actor, what permission levels mean, and how to build secure, trusted Actors for Apify users.**
-
----
-
 Every time a user runs your Actor, it runs under their Apify account. **Actor permissions** define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
 
 Your Actors can request two levels of access:
@@ -65,7 +61,6 @@ When possible, design your Actors to use limited permissions and request only th
 
 :::
 
-
 ### Access user provided storages
 
 By default, limited-permissions Actors can't access user storages. However, they can access storages that users explicitly provide via the Actor input. To do so, use the input schema to add a storage picker and declare exactly which operations your Actor needs.
@@ -118,7 +113,6 @@ Designing your Actors to work under limited permissions is the recommended appro
 - Explain why you need full permissions in your Actor's README. This will help keep user trust and set correct user expectations.
 - Set the permission level in the Actor’s **Settings** in Console to **Full permissions**.
 - Be aware of the [UX implications](#end-user-experience) and impact on [Actor Quality score](../../publishing/quality_score.mdx) for full-permission Actors.
-
 
 :::info Need help with Actor permissions?
 

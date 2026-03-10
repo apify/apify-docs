@@ -1,13 +1,9 @@
 ---
 title: Airtable integration
-description: Connect Apify with Airtable.
+description: Connect Apify with Airtable to automatically upload Actor run results to your base. Use the Apify extension on Airtable or the Console integration.
 sidebar_label: Airtable
 sidebar_position: 4
 slug: /integrations/airtable
----
-
-**Learn how to integrate Apify with Airtable. This article shows you how to use the Apify extension on Airtable.**
-
 ---
 
 [Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With the Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
@@ -78,7 +74,6 @@ The extension provides the following capabilities:
 You can select and run any saved Apify task directly from the extension to reuse preconfigured inputs.
 
 ![Run task](../../images/airtable/airtable_task.png)
-
 
 ### Get dataset items
 

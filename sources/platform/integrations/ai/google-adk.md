@@ -1,13 +1,9 @@
 ---
 title: Google ADK integration
 sidebar_label: Google ADK
-description: Learn how to integrate Apify Actors as tools for AI with Google Agent Development Kit (ADK).
+description: Learn how to integrate Apify Actors as tools for AI agents built with Google Agent Development Kit to access real-time web scraping data and automation.
 sidebar_position: 2
 slug: /integrations/google-adk
----
-
-**Learn how to integrate Apify Actors as tools for AI with Agent Development Kit (ADK).**
-
 ---
 
 ## What is the Google ADK
@@ -23,7 +19,6 @@ For more details, check out [Google ADK documentation](https://google.github.io/
 ## How to use Apify with Google ADK
 
 Apify is a marketplace of web scraping and automation tools, AI agents, and MCP servers that you can integrate with your AI agents. This guide shows how to use Apify tools with an AI agent built with Google ADK.
-
 
 ### Prerequisites
 

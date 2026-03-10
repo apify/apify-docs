@@ -1,13 +1,9 @@
 ---
 title: Amazon Bedrock integrations
 sidebar_label: Amazon Bedrock
-description: Learn how to integrate Apify with Amazon Bedrock Agents to provide web data for AI agents
+description: Learn how to integrate Apify with Amazon Bedrock Agents to supply your AI agents with real-time web data using the RAG Web Browser Actor easily.
 sidebar_position: 15
 slug: /integrations/aws_bedrock
----
-
-**Learn how to integrate Apify with Amazon Bedrock Agents to provide web data for AI agents.**
-
 ---
 
 [Amazon Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that provides access to large language models (LLMs), allowing users to create and manage retrieval-augmented generative (RAG) pipelines, and create AI agents to plan and perform actions.

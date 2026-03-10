@@ -1,6 +1,6 @@
 ---
 title: Make - LLMs Actor integration
-description: Learn about LLM browser modules. Search the web and extract clean Markdown for AI assistants and RAG.
+description: Use Apify Scraper for LLMs in Make to query Google Search, scrape top results, and return clean Markdown for AI assistants and RAG pipelines.
 sidebar_label: LLMs
 sidebar_position: 7
 slug: /integrations/make/llm

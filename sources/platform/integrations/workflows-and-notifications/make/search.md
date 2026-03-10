@@ -1,6 +1,6 @@
 ---
 title: Make - Google Search Actor integration
-description: Learn about Google Search scraper modules.
+description: Use the Google Search scraper modules in Make to crawl SERPs and extract structured results in JSON, XML, CSV, or Excel for your automation workflows.
 sidebar_label: Google Search
 sidebar_position: 3
 slug: /integrations/make/search
