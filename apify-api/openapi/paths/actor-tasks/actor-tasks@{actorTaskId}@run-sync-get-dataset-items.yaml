@@ -24,14 +24,7 @@ get:
     instead.
   operationId: actorTask_runSyncGetDatasetItems_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorTaskId
     - name: timeout
       in: query
       description: |
@@ -55,7 +48,7 @@ get:
         type: number
         format: double
         example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxItems
     # XXX: do we support maxTotalChargeUsd for task runs?
     - name: build
       in: query
@@ -405,14 +398,7 @@ post:
     task](#/reference/actor-tasks/run-collection/run-task) API endpoint instead.
   operationId: actorTask_runSyncGetDatasetItems_post
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorTaskId
     - name: timeout
       in: query
       description: |
@@ -436,8 +422,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxItems
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd
     - name: restartOnError
       in: query
       description: |

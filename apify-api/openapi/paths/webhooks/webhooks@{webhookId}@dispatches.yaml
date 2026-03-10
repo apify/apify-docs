@@ -5,14 +5,7 @@ get:
   description: Gets a given webhook's list of dispatches.
   operationId: webhook_webhookDispatches_get
   parameters:
-    - name: webhookId
-      in: path
-      description: ID number of the webhook.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: pVJtoTelgYUq4qJOt
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/webhookId
   responses:
     "200":
       description: ""

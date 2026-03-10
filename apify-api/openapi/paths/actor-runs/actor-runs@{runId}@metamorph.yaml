@@ -21,23 +21,8 @@ post:
     For more information, see the [Actor docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
   operationId: actorRun_metamorph_post
   parameters:
-    - name: runId
-      in: path
-      description: Actor run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
-    - name: targetActorId
-      in: query
-      description: ID of a target Actor that the run should be transformed into.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: HDSasDasz78YcAPEB
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/targetActorId
     - name: build
       in: query
       description: |

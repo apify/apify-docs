@@ -10,14 +10,7 @@ post:
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
   operationId: actorBuild_abort_post
   parameters:
-    - name: buildId
-      in: path
-      description: Build ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/buildId
   responses:
     "200":
       description: ""

@@ -13,14 +13,7 @@ get:
     order, to sort the records in descending order, use the `desc=1` parameter.
   operationId: act_webhooks_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
     - name: offset
       in: query
       description: |

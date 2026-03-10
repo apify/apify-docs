@@ -29,14 +29,7 @@ post:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSyncGetDatasetItems_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
     - name: timeout
       in: query
       description: |
@@ -60,8 +53,8 @@ post:
         type: number
         format: double
         example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxItems
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd
     - name: restartOnError
       in: query
       description: |
@@ -409,14 +402,7 @@ get:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSyncGetDatasetItems_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
     - name: timeout
       in: query
       description: |
@@ -440,8 +426,8 @@ get:
         type: number
         format: double
         example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxItems
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd
     - name: restartOnError
       in: query
       description: |

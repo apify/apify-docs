@@ -12,14 +12,7 @@ post:
     key-value store, dataset, or request queue will be lost.
   operationId: actorRun_reboot_post
   parameters:
-    - name: runId
-      in: path
-      description: Actor run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
   responses:
     "200":
       description: ""

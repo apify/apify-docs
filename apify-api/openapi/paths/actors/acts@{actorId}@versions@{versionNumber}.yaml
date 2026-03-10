@@ -6,22 +6,8 @@ get:
     Gets a [Version object](#/reference/actors/version-object) that contains all the details about a specific version of an Actor.
   operationId: act_version_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor major and minor version of the Actor.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "1.0"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
   responses:
     "200":
       description: ""
@@ -69,22 +55,8 @@ put:
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
   operationId: act_version_put
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor major and minor version of the Actor.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "1.0"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
   requestBody:
     description: ""
     content:
@@ -137,22 +109,8 @@ delete:
     Deletes a specific version of Actor's source code.
   operationId: act_version_delete
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor major and minor version of the Actor.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "1.0"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
   responses:
     "204":
       description: ""

@@ -11,33 +11,9 @@ post:
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
   operationId: act_run_abort_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
-    - name: gracefully
-      in: query
-      description: |
-        If true passed, the Actor run will abort gracefully.
-        It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
-        It is helpful in cases where you plan to resurrect the run later.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/gracefully
   responses:
     "200":
       description: ""

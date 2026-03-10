@@ -18,22 +18,8 @@ post:
     docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
   operationId: act_run_resurrect_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
     - name: build
       in: query
       description: |

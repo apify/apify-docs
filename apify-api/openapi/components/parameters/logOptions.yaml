@@ -1,0 +1,23 @@
+stream:
+  name: stream
+  in: query
+  description: |
+    If `true` or `1` then the logs will be streamed as long as the run or build is running.
+  required: false
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: false
+
+download:
+  name: download
+  in: query
+  description: |
+    If `true` or `1` then the web browser will download the log file rather than open it in a tab.
+  required: false
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: false

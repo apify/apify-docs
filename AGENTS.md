@@ -55,7 +55,7 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 
 - Prefer re-use of existing objects via `$ref` over duplication. Reusable components can be found in `/openapi/components`.
 - Components most suitable for re-use are:
-   - Request parameters defined in  `/openapi/components/parameters`
+   - Request parameters and path parameters defined in  `/openapi/components/parameters`
    - Request/response schemas defined in `/openapi/components/schemas`
    - Explicit non-automatic examples defined in `/openapi/components/examples`
 - When changing files in `/openapi/paths` look for opportunities to extract shared duplicate objects into re-usable components saved in `/openapi/components`.

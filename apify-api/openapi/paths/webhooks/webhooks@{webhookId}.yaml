@@ -5,14 +5,7 @@ get:
   description: Gets webhook object with all details.
   operationId: webhook_get
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/webhookId
   responses:
     "200":
       description: ""
@@ -55,14 +48,7 @@ put:
     info](#/introduction/authentication)).
   operationId: webhook_put
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/webhookId
   requestBody:
     description: ""
     content:
@@ -98,14 +84,7 @@ delete:
   description: Deletes a webhook.
   operationId: webhook_delete
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/webhookId
   responses:
     "204":
       description: ""

@@ -8,14 +8,7 @@ get:
     contains basic information about a single version.
   operationId: act_versions_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
   responses:
     "200":
       description: ""
@@ -104,14 +97,7 @@ post:
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
   operationId: act_versions_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
   requestBody:
     description: ""
     content:

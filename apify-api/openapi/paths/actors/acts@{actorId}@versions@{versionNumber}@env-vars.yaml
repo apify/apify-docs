@@ -7,22 +7,8 @@ get:
     The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where each contains basic information about a single environment variable.
   operationId: act_version_envVars_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
   responses:
     "200":
       description: ""
@@ -74,22 +60,8 @@ post:
     endpoint.
   operationId: act_version_envVars_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
   requestBody:
     description: ""
     content:

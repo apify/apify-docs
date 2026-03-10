@@ -9,22 +9,8 @@ get:
     If `isSecret` is set to `true`, then `value` will never be returned.
   operationId: act_version_envVar_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -88,22 +74,8 @@ put:
     endpoint.
   operationId: act_version_envVar_put
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -162,22 +134,8 @@ delete:
   description: Deletes a specific environment variable.
   operationId: act_version_envVar_delete
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
     - name: envVarName
       in: path
       description: The name of the environment variable

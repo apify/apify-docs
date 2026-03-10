@@ -6,36 +6,9 @@ get:
   description: "Check out [Logs](#/reference/logs) for full reference."
   operationId: actorBuild_log_get
   parameters:
-    - name: buildId
-      in: path
-      description: ID of the Actor build.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: HG7ML7M8z78YcAPEB
-    - name: stream
-      in: query
-      description: |
-        If `true` or `1` then the logs will be streamed as long as the run or
-        build is running.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: download
-      in: query
-      description: |
-        If `true` or `1` then the web browser will download the log file rather
-        than open it in a tab.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
+    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/buildId
+    - $ref: ../../components/parameters/logOptions.yaml#/stream
+    - $ref: ../../components/parameters/logOptions.yaml#/download
   responses:
     "200":
       description: ""
