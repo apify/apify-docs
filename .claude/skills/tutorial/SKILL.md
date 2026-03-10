@@ -1,7 +1,7 @@
 ---
-name: tutorial
-description: Create structured tutorials for Apify Academy or Platform documentation. Use when user says "create a tutorial", "write a tutorial", "build a step-by-step guide", "convert this guide into a tutorial", or "tutorial for [topic]". Handles tutorial structure, learning objectives, prerequisites, step-by-step instructions, code examples, and troubleshooting sections.
+description: Create structured tutorials for Apify Academy
 argument-hint: topic
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Tutorial creator
