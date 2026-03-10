@@ -101,7 +101,7 @@ npm start            # Preview changes
 
 ## Best practices
 
-1. **Read `AGENTS.md` first** - Vendor-agnostic documentation standards
+1. **Read `CLAUDE.md` first**
 2. **Check `.claude/rules/`** - Auto-loaded standards for writing, formatting, terminology
 3. **Use the appropriate skill** - Designed for specific documentation tasks
 4. **Run linters before committing** - `npm run lint:md`, `npm run lint:code`, and `vale`
