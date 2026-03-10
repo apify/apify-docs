@@ -5,7 +5,7 @@ sidebar_position: 7.1
 slug: /actors/running
 ---
 
-**In this section, you'll learn how to run Apify Actors using Apify Console or programmatically. You will learn about their configuration, versioning, data retention, usage, and pricing.**
+**In this section, you'll learn how to run Apify Actors using Apify Console or programmatically. You'll learn about their configuration, versioning, data retention, usage, and pricing.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,8 +23,8 @@ To get started, we recommend trying one of the existing Actors from [Apify Store
 To find an Actor in Apify Store:
 
 1. Sign in to [Apify Console](https://console.apify.com).
-2. Go to [Apify Store](https://console.apify.com/store).
-3. Use the search bar or browse by categories.
+1. Go to [Apify Store](https://console.apify.com/store).
+1. Use the search bar or browse by categories.
 
 For this tutorial, let's choose [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme).
 
@@ -71,9 +71,7 @@ To invoke Actors with the Apify API, send an HTTP POST request to the [Run Actor
 https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
 ```
 
-An Actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters.
-
-> To learn more, see [Run an Actor and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api).
+An Actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. To learn more, see [Run an Actor and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api).
 
 ## Run Actors programmatically
 
@@ -126,6 +124,6 @@ print(dataset_items)
 
 </Tabs>
 
-Note that the newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
+The newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
 
 Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its output using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.
