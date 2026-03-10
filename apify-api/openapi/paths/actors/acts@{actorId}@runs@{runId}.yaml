@@ -17,9 +17,9 @@ get:
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
   operationId: act_run_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/waitForFinishRun
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishRun"
   responses:
     "200":
       description: ""

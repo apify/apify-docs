@@ -7,14 +7,7 @@ get:
     1000 invocations of the schedule.
   operationId: schedule_log_get
   parameters:
-    - name: scheduleId
-      in: path
-      description: Schedule ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: asdLZtadYvn4mBZmm
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/scheduleId"
   responses:
     "200":
       description: ""

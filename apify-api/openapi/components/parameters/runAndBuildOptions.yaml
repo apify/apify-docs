@@ -31,7 +31,7 @@ webhookId:
 runId:
   name: runId
   in: path
-  description: Run ID.
+  description: Actor run ID.
   required: true
   style: simple
   schema:
@@ -41,7 +41,7 @@ runId:
 buildId:
   name: buildId
   in: path
-  description: Build ID.
+  description: ID of the build, found in the build's Info tab.
   required: true
   style: simple
   schema:
@@ -62,7 +62,7 @@ targetActorId:
 versionNumber:
   name: versionNumber
   in: path
-  description: Actor major and minor version of the Actor.
+  description: Actor version.
   required: true
   style: simple
   schema:
@@ -254,3 +254,25 @@ startedBefore:
     type: string
     format: date-time
     example: "2025-09-17T23:59:59.000Z"
+
+scheduleId:
+  name: scheduleId
+  in: path
+  description: Schedule ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: asdLZtadYvn4mBZmm
+
+outputRecordKey:
+  name: outputRecordKey
+  in: query
+  description: |
+    Key of the record from run's default key-value store to be returned
+    in the response. By default, it is `OUTPUT`.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: OUTPUT

@@ -13,9 +13,9 @@ get:
   operationId: act_build_get
   security: []
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/buildId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/buildId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild"
   responses:
     "200":
       description: ""

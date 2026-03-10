@@ -15,8 +15,7 @@ post:
 
   operationId: PostChargeRun
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
-      description: Run ID.
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/runId"
     - name: idempotency-key
       in: header
       required: false

@@ -8,7 +8,7 @@ get:
     contains basic information about a single version.
   operationId: act_versions_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
   responses:
     "200":
       description: ""
@@ -97,7 +97,7 @@ post:
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
   operationId: act_versions_post
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
   requestBody:
     description: ""
     content:

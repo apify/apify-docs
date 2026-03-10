@@ -6,8 +6,8 @@ get:
     Gets a [Version object](#/reference/actors/version-object) that contains all the details about a specific version of an Actor.
   operationId: act_version_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
   responses:
     "200":
       description: ""
@@ -55,8 +55,8 @@ put:
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
   operationId: act_version_put
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
   requestBody:
     description: ""
     content:
@@ -109,8 +109,8 @@ delete:
     Deletes a specific version of Actor's source code.
   operationId: act_version_delete
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
   responses:
     "204":
       description: ""

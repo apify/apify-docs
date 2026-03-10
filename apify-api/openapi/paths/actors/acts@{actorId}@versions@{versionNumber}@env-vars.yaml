@@ -7,8 +7,8 @@ get:
     The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where each contains basic information about a single environment variable.
   operationId: act_version_envVars_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
   responses:
     "200":
       description: ""
@@ -60,8 +60,8 @@ post:
     endpoint.
   operationId: act_version_envVars_post
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
   requestBody:
     description: ""
     content:

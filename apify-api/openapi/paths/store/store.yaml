@@ -13,28 +13,8 @@ get:
     It will not return more than 1,000 records.
   operationId: store_get
   parameters:
-    - name: limit
-      in: query
-      description: |
-        Maximum number of elements to return. The default and maximum value is
-        `1,000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: offset
-      in: query
-      description: |
-        Number of elements that should be skipped at the start. The default
-        value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
     - name: search
       in: query
       description: |
@@ -103,59 +83,6 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/store/ListOfActorsInStoreResponse.yaml
-          example:
-            data:
-              total: 100
-              offset: 0
-              limit: 1000
-              desc: false
-              count: 1
-              items:
-                - id: zdc3Pyhyz3m8vjDeM
-                  title: My Public Actor
-                  name: my-public-actor
-                  username: jane35
-                  userFullName: Jane Doe
-                  description: My public Actor!
-                  pictureUrl: https://...
-                  userPictureUrl: https://...
-                  url: https://...
-                  stats:
-                    totalBuilds: 9
-                    totalRuns: 16
-                    totalUsers: 6
-                    totalUsers7Days: 2
-                    totalUsers30Days: 6
-                    totalUsers90Days: 6
-                    totalMetamorphs: 2
-                    lastRunStartedAt: "2019-07-08T14:01:05.546Z"
-                  currentPricingInfo:
-                    pricingModel: FREE
-                  isWhiteListedForAgenticPayment: true
-                - id: zdc3Pyhyz3m8vjDeM
-                  title: My Public Actor
-                  name: my-public-actor
-                  username: jane35
-                  userFullName: Jane H. Doe
-                  categories:
-                    - MARKETING
-                    - LEAD_GENERATION
-                  description: My public Actor!
-                  pictureUrl: https://...
-                  userPictureUrl: https://...
-                  url: https://...
-                  stats:
-                    totalBuilds: 9
-                    totalRuns: 16
-                    totalUsers: 6
-                    totalUsers7Days: 2
-                    totalUsers30Days: 6
-                    totalUsers90Days: 6
-                    totalMetamorphs: 2
-                    lastRunStartedAt: "2019-07-08T14:01:05.546Z"
-                  currentPricingInfo:
-                    pricingModel: FREE
-                  isWhiteListedForAgenticPayment: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false

@@ -15,37 +15,10 @@ get:
     the `desc=1` parameter.
   operationId: act_builds_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - name: offset
-      in: query
-      description: |
-        Number of records that should be skipped at the start. The default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
-    - name: limit
-      in: query
-      description: |
-        Maximum number of records to return. The default value as well as the maximum is `1000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: desc
-      in: query
-      description: |
-        If `true` or `1` then the objects are sorted by the `startedAt` field in
-        descending order. By default, they are sorted in ascending order.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/DescStartedAt"
   responses:
     "200":
       description: ""
@@ -83,7 +56,7 @@ post:
     [Get build](#/reference/actors/build-object/get-build) endpoint.
   operationId: act_builds_post
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
     - name: version
       in: query
       description: Actor version number to be built.
@@ -123,7 +96,7 @@ post:
       schema:
         type: string
         example: latest
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild"
   responses:
     "201":
       description: ""

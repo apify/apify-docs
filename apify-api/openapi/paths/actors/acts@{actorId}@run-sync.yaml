@@ -25,24 +25,15 @@ post:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSync_post
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - name: outputRecordKey
-      in: query
-      description: |
-        Key of the record from run's default key-value store to be returned
-        in the response. By default, it is `OUTPUT`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: OUTPUT
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/timeout
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/memory
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxItems
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/restartOnError
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/build
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/webhooks
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/webhooks"
   requestBody:
     description: ""
     content:
@@ -108,24 +99,15 @@ get:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSync_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - name: outputRecordKey
-      in: query
-      description: |
-        Key of the record from run's default key-value store to be returned
-        in the response. By default, it is `OUTPUT`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: OUTPUT
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/timeout
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/memory
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxItems
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/restartOnError
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/build
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/webhooks
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/webhooks"
   responses:
     "201":
       description: ""

@@ -25,9 +25,9 @@ post:
     docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
   operationId: act_run_metamorph_post
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/runId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/targetActorId
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/targetActorId"
     - name: build
       in: query
       description: |

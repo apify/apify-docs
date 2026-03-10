@@ -19,7 +19,7 @@ get:
   operationId: actorBuild_openapi_json_get
   security: []
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/buildId
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/buildId"
   responses:
     "200":
       description: The OpenAPI specification document for the Actor build.

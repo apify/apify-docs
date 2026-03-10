@@ -34,6 +34,30 @@ Desc:
     type: boolean
     example: true
 
+DescStartedAt:
+  name: desc
+  in: query
+  description: |
+    If `true` or `1` then the objects are sorted by the `startedAt` field in
+    descending order. By default, they are sorted in ascending order.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true
+
+DescCreatedAt:
+  name: desc
+  in: query
+  description: |
+    If `true` or `1` then the objects are sorted by the `createdAt` field in
+    descending order. By default, they are sorted in ascending order.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true
+
 Unnamed:
   name: unnamed
   in: query

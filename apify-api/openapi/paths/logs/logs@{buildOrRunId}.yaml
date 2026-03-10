@@ -18,8 +18,8 @@ get:
       schema:
         type: string
         example: HG7ML7M8z78YcAPEB
-    - $ref: ../../components/parameters/logOptions.yaml#/stream
-    - $ref: ../../components/parameters/logOptions.yaml#/download
+    - $ref: "../../components/parameters/logOptions.yaml#/stream"
+    - $ref: "../../components/parameters/logOptions.yaml#/download"
     - name: raw
       in: query
       description: |

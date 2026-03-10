@@ -9,8 +9,8 @@ get:
     If `isSecret` is set to `true`, then `value` will never be returned.
   operationId: act_version_envVar_get
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -74,8 +74,8 @@ put:
     endpoint.
   operationId: act_version_envVar_put
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -134,8 +134,8 @@ delete:
   description: Deletes a specific environment variable.
   operationId: act_version_envVar_delete
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/actorId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/versionNumber
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/versionNumber"
     - name: envVarName
       in: path
       description: The name of the environment variable

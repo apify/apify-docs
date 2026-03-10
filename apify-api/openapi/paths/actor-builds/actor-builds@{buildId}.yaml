@@ -15,8 +15,8 @@ get:
   operationId: actorBuild_get
   security: []
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/buildId
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/buildId"
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/waitForFinishBuild"
   responses:
     "200":
       description: ""
@@ -61,7 +61,7 @@ delete:
     Only users with build permissions for the Actor can delete builds.
   operationId: actorBuild_delete
   parameters:
-    - $ref: ../../components/parameters/runAndBuildOptions.yaml#/buildId
+    - $ref: "../../components/parameters/runAndBuildOptions.yaml#/buildId"
   responses:
     "204":
       description: ""
