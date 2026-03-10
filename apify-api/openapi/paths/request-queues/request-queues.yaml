@@ -15,48 +15,10 @@ get:
     array elements.
   operationId: requestQueues_get
   parameters:
-    - name: offset
-      in: query
-      description: |
-        Number of array elements that should be skipped at the start. The
-        default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
-    - name: limit
-      in: query
-      description: |
-        Maximum number of array elements to return. The default value as well as
-        the maximum is `1000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: desc
-      in: query
-      description: |
-        If `true` or `1` then the objects are sorted by the `startedAt` field in
-        descending order. By default, they are sorted in ascending order.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: unnamed
-      in: query
-      description: |
-        If `true` or `1` then all the queues are returned. By default only named
-        queues are returned.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Offset"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Limit"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Desc"
+    - $ref: "../../components/parameters/PaginationParameters.yaml#/Unnamed"
     - name: ownership
       in: query
       description: |

@@ -28,6 +28,7 @@
   background-color: var(--ifm-color-primary);
   border-radius: 8px;
   color: var(--color-neutral-text-on-primary);
+  font-family: inherit;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 2.4rem;

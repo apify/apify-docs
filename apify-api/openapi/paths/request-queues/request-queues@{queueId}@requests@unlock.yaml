@@ -9,24 +9,8 @@ post:
     * If the client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
   operationId: requestQueue_requests_unlock_post
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
   responses:
     "200":
       description: Number of requests that were unlocked
@@ -34,12 +18,14 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/request-queues/UnlockRequestsResponse.yaml
-          example:
-            data:
-              unlockedCount: 10
-
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
   deprecated: false
   x-js-parent: RequestQueueClient
   x-js-name: unlockRequests
