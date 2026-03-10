@@ -191,7 +191,7 @@ You can also see the cost of each run on the run detail itself.
 
 ![Pay per event Actor - run detail](./images/store/pay_per_event_price_on_run_detail.png)
 
-#### Can I put a cap on a cost of a single Actor run?
+#### Can I put a cap on the cost of a single Actor run?
 
 Yes, when starting an Actor run, you can define the maximum limit on the cost of that run. When the Actor reaches the defined limit, it should terminate gracefully. Even if it didn't, for any reason, and kept producing results, we make always sure you are never charged more that your defined limit.
 

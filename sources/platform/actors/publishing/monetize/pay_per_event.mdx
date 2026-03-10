@@ -83,7 +83,7 @@ The `eventChargeLimitReached` property checks if the user's limit allows for ano
 
 :::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
 
-For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+All pricing models support a spending limit set through the Apify Console or API. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum total cost for the run.
 The Apify SDK's `ChargeResult` respects the user set limit already.
 
 :::
