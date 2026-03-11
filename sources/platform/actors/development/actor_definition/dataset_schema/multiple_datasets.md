@@ -37,7 +37,7 @@ The keys of the `datasets` objects are **aliases**, which can be used to refer t
 
 :::info
 
-Alias and **name** are not the same thing. Named datasets have specific behavior in Apify platform (eg, the automatic data retention policy does not apply to them). Aliased datasets follow the data retention of their respective run. Aliases stay local to the run they belong to.
+Alias and **name** are not the same thing. Named datasets have specific behavior in Apify platform (eg, the automatic data retention policy does not apply to them). Aliased datasets follow the data retention of their respective run. Aliases only have a meaning in the scope of a specific run.
 
 :::
 
@@ -47,30 +47,37 @@ The `datasets` and `dataset` objects are mutually exclusive, the schema can only
 
 ## Accessing the datasets in Actor code
 
-Mapping of aliases to the IDs is passed to the Actor in JSON encoded `ACTOR_STORAGES_JSON` environment variable.
+The SDK has a built-in support for accessing aliased datasets.
 
-```javascript
-const storageIds = JSON.parse(process.env.ACTOR_STORAGES_JSON)
-const defaultDataset = await Actor.openDataset();
-// For the default dataset, it's also possible to use the following syntax:
-// const defaultDataset = await Actor.openDataset(storageIds.datasets.default);
-const categoriesDataset = await Actor.openDataset(storageIds.datasets.categories);
+Inside the Actor, you can access it like this:
 
-```
+### Apify SDK
 
-```sh
-echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
-```
+// TODO: Which versions? When is this released?
 
-Support for JS and Python SDKs is incoming, the expected syntax is following:
+In the Javascript/Typescript SDK, use `openDataset` with `alias` option:
 
 ```javascript
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
+In Python SDK, use `alias` parameter:
+
 ```python
 categories_dataset = await Actor.open_dataset(alias='categories')
 ```
+
+### Environment variable
+
+Outside of Apify SDK, access the environment variable directly:
+
+```sh
+echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
+```
+
+## Local development vs platform
+
+// TODO: Which versions?
 
 ## Showing data to users
 
