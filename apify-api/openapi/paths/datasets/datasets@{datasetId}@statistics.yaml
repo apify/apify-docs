@@ -9,7 +9,7 @@ get:
 
   operationId: dataset_statistics_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/DatasetId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
   responses:
     "200":
       description: ""

@@ -15,28 +15,8 @@ get:
   operationId: actorBuild_get
   security: []
   parameters:
-    - name: buildId
-      in: path
-      description: "ID of the build you want to get, found in the build's `Info` tab."
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: soSkq9ekdmfOslopH
-    - name: waitForFinish
-      in: query
-      description: |
-        The maximum number of seconds the server waits for the build to finish.
-        By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-
-        If the build finishes in time then the returned build object will have a
-        terminal status (e.g. `SUCCEEDED`), otherwise it will have a transitional status (e.g. `RUNNING`).
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishBuild"
   responses:
     "200":
       description: ""
@@ -81,14 +61,7 @@ delete:
     Only users with build permissions for the Actor can delete builds.
   operationId: actorBuild_delete
   parameters:
-    - name: buildId
-      in: path
-      description: "ID of the build you want to get, found in the build's `Info` tab."
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: soSkq9ekdmfOslopH
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
   responses:
     "204":
       description: ""

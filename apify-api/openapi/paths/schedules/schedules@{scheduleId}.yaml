@@ -5,14 +5,7 @@ get:
   description: Gets the schedule object with all details.
   operationId: schedule_get
   parameters:
-    - name: scheduleId
-      in: path
-      description: Schedule ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: asdLZtadYvn4mBZmm
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
   responses:
     "200":
       description: ""
@@ -54,14 +47,7 @@ put:
     info](#/introduction/authentication)).
   operationId: schedule_put
   parameters:
-    - name: scheduleId
-      in: path
-      description: Schedule ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: asdLZtadYvn4mBZmm
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
   requestBody:
     description: ""
     content:
@@ -97,14 +83,7 @@ delete:
   description: Deletes a schedule.
   operationId: schedule_delete
   parameters:
-    - name: scheduleId
-      in: path
-      description: Schedule ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: asdLZtadYvn4mBZmm
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
   responses:
     "204":
       description: ""

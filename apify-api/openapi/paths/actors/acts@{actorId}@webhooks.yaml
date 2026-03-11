@@ -13,46 +13,10 @@ get:
     order, to sort the records in descending order, use the `desc=1` parameter.
   operationId: act_webhooks_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: offset
-      in: query
-      description: |
-        Number of array elements that should be skipped at the start. The
-        default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
-    - name: limit
-      in: query
-      description: |
-        Maximum number of array elements to return. The default value as well as
-        the maximum is `1000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: desc
-      in: query
-      description: |
-        If `true` or `1` then the objects are sorted by the `createdAt` field in
-        descending order. By default, they are sorted in ascending order.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descCreatedAt"
   responses:
     "200":
       description: ""

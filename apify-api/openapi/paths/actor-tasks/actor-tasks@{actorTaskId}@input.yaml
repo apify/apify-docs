@@ -5,14 +5,7 @@ get:
   description: Returns the input of a given task.
   operationId: actorTask_input_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
     "200":
       description: ""
@@ -59,14 +52,7 @@ put:
     info](#/introduction/authentication)).
   operationId: actorTask_input_put
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   requestBody:
     description: ""
     content:

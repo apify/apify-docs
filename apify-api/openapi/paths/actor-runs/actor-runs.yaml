@@ -16,70 +16,12 @@ get:
     statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
   operationId: actorRuns_get
   parameters:
-    - name: offset
-      in: query
-      description: |
-        Number of array elements that should be skipped at the start. The
-        default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
-    - name: limit
-      in: query
-      description: |
-        Maximum number of array elements to return. The default value (as well
-        as the maximum) is `1000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: desc
-      in: query
-      description: |
-        If `true` or `1` then the objects are sorted by the `startedAt` field in
-        descending order. By default, they are sorted in ascending order.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: status
-      in: query
-      description: |
-        Single status or comma-separated list of statuses, see ([available
-        statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)). Used to filter runs by the specified statuses only.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: SUCCEEDED
-    - name: startedAfter
-      in: query
-      description: |
-        Filter runs that started after the specified date and time (inclusive).
-        The value must be a valid ISO 8601 datetime string (UTC).
-      style: form
-      explode: true
-      schema:
-        type: string
-        format: date-time
-        example: "2025-09-01T00:00:00.000Z"
-    - name: startedBefore
-      in: query
-      description: |
-        Filter runs that started before the specified date and time (inclusive).
-        The value must be a valid ISO 8601 datetime string (UTC).
-      style: form
-      explode: true
-      schema:
-        type: string
-        format: date-time
-        example: "2025-09-17T23:59:59.000Z"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descStartedAt"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedAfter"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedBefore"
   responses:
     # todo 404?
     "200":

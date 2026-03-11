@@ -14,8 +14,8 @@ post:
     `clientKey`).
   operationId: requestQueue_head_lock_post
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/LockSecs"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/lockSecs"
     - name: limit
       in: query
       description: How many items from the queue should be returned.
@@ -26,7 +26,7 @@ post:
         format: double
         example: 25
         maximum: 25
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
     "200":
       description: ""

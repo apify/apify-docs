@@ -20,9 +20,9 @@ get:
     content without any modifications, use the `attachment` query parameter.
   operationId: keyValueStore_record_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
     - name: attachment
       in: query
       description: |
@@ -81,8 +81,8 @@ head:
     Check if a value is stored in the key-value store under a specific key.
   operationId: keyValueStore_record_head
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
   responses:
     "200":
       description: The record exists
@@ -120,8 +120,8 @@ put:
     * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
     - name: Content-Encoding
       in: header
       description: ""
@@ -176,8 +176,8 @@ delete:
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
   responses:
     "204":
       description: ""

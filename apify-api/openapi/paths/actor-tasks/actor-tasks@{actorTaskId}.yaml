@@ -5,14 +5,7 @@ get:
   description: Get an object that contains all the details about a task.
   operationId: actorTask_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
     "200":
       description: ""
@@ -26,24 +19,6 @@ get:
             properties:
               data:
                 $ref: ../../components/schemas/actor-tasks/Task.yaml
-          example:
-            data:
-              id: zdc3Pyhyz3m8vjDeM
-              userId: wRsJZtadYvn4mBZmm
-              actId: asADASadYvn4mBZmm
-              name: my-task
-              username: janedoe
-              createdAt: "2018-10-26T07:23:14.855Z"
-              modifiedAt: "2018-10-26T13:30:49.578Z"
-              removedAt: null
-              stats:
-                totalRuns: 15
-              options:
-                build: latest
-                timeoutSecs: 300
-                memoryMbytes: 128
-              input:
-                hello: world
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -78,14 +53,7 @@ put:
     info](#/introduction/authentication)).
   operationId: actorTask_put
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   requestBody:
     description: ""
     content:
@@ -114,24 +82,6 @@ put:
             properties:
               data:
                 $ref: ../../components/schemas/actor-tasks/Task.yaml
-          example:
-            data:
-              id: zdc3Pyhyz3m8vjDeM
-              userId: wRsJZtadYvn4mBZmm
-              actId: asADASadYvn4mBZmm
-              name: my-task
-              username: janedoe
-              createdAt: "2018-10-26T07:23:14.855Z"
-              modifiedAt: "2018-10-26T13:30:49.578Z"
-              removedAt: null
-              stats:
-                totalRuns: 15
-              options:
-                build: latest
-                timeoutSecs: 300
-                memoryMbytes: 128
-              input:
-                hello: world
     "400":
       $ref: ../../components/responses/BadRequest.yaml
   deprecated: false
@@ -152,14 +102,7 @@ delete:
   description: Delete the task specified through the `actorTaskId` parameter.
   operationId: actorTask_delete
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
     "204":
       description: ""

@@ -5,14 +5,7 @@ post:
   description: Tests a webhook. Creates a webhook dispatch with a dummy payload.
   operationId: webhook_test_post
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   responses:
     "201":
       description: ""

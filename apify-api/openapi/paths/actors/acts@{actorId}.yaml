@@ -5,14 +5,7 @@ get:
   description: Gets an object that contains all the details about a specific Actor.
   operationId: act_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
     "200":
       description: ""
@@ -127,14 +120,7 @@ put:
     package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
   operationId: act_put
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   requestBody:
     description: ""
     content:
@@ -294,14 +280,7 @@ delete:
   description: Deletes an Actor.
   operationId: act_delete
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
     "204":
       description: ""

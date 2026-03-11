@@ -8,10 +8,10 @@ put:
     operation](#/reference/request-queues/queue-head-with-locks).
   operationId: requestQueue_request_lock_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RequestId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/LockSecs"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKeyLock"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/lockSecs"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKeyLock"
     - name: forefront
       in: query
       description: |
@@ -59,8 +59,8 @@ delete:
     operation](#/reference/request-queues/queue-head-with-locks).
   operationId: requestQueue_request_lock_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RequestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
     - name: Content-Type
       in: header
       description: ""
@@ -71,7 +71,7 @@ delete:
           - application/json
         type: string
         example: application/json
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKeyLock"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKeyLock"
     - name: forefront
       in: query
       description: |

@@ -5,7 +5,7 @@ get:
   description: Returns queue object for given queue ID.
   operationId: requestQueue_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
   responses:
     "200":
       description: ""
@@ -45,7 +45,7 @@ put:
     [Get request queue](#/reference/request-queues/queue-collection/get-request-queue) API endpoint.
   operationId: requestQueue_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
   requestBody:
     description: ""
     content:
@@ -92,7 +92,7 @@ delete:
   description: Deletes given queue.
   operationId: requestQueue_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
   responses:
     "204":
       description: ""

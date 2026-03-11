@@ -5,8 +5,8 @@ get:
   description: Returns request from queue.
   operationId: requestQueue_request_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RequestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
   responses:
     "200":
       description: ""
@@ -46,10 +46,10 @@ put:
     If `handledAt` is set, the request will be removed from head of the queue (and unlocked, if applicable).
   operationId: requestQueue_request_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RequestId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Forefront"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/forefront"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   requestBody:
     description: ""
     content:
@@ -91,9 +91,9 @@ delete:
   description: Deletes given request from queue.
   operationId: requestQueue_request_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RequestId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
     "204":
       description: ""

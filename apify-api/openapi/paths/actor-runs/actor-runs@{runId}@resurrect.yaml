@@ -11,43 +11,13 @@ post:
     For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
   operationId: PostResurrectRun
   parameters:
-    - name: runId
-      in: path
-      required: true
-      schema:
-        type: string
-      example: 3KH8gEpp4d8uQSe8T
-      description: Run ID.
-    - name: build
-      in: query
-      required: false
-      schema:
-        type: string
-      example: 0.1.234
-      description: Specifies the Actor build to run. It can be either a build tag or build number. By default, the run is resurrected with the same build that it originally used. Specifically, if a run is first started with the `latest` tag, which resolves to version `0.0.3` at the time, a run resurrected without the `build` parameter will continue running with the version `0.0.3`, even if the `latest` tag already points to a newer build.
-    - name: timeout
-      in: query
-      required: false
-      schema:
-        type: number
-      example: 60
-      description: Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
-    - name: memory
-      in: query
-      required: false
-      schema:
-        type: number
-      example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
-    - name: restartOnError
-      in: query
-      required: false
-      schema:
-        type: boolean
-      example: false
-      description: |
-        Determines whether the resurrected run will be restarted if it fails. By default, the resurrected run uses the same setting as before.
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildResurrect"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeoutResurrect"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memoryResurrect"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnErrorResurrect"
   responses:
     "200":
       description: ""

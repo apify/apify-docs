@@ -10,7 +10,7 @@ get:
     - see [Pagination](/api/v2#using-key) for more details.
   operationId: keyValueStore_keys_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
     - name: exclusiveStartKey
       in: query
       description: All keys up to this one (including) are skipped from the result.
@@ -40,7 +40,7 @@ get:
       schema:
         type: string
         example: post-images-
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
     "200":
       description: ""
