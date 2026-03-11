@@ -38,6 +38,10 @@ get:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-object/get-build
@@ -71,12 +75,18 @@ delete:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build/delete-build

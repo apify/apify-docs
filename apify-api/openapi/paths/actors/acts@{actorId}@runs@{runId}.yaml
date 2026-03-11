@@ -30,6 +30,10 @@ get:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
@@ -38,6 +42,10 @@ get:
             oneOf:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-object/get-run

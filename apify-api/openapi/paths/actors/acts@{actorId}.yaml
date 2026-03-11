@@ -76,12 +76,20 @@ get:
                   finishedAt: "2019-06-10T11:15:49.286Z"
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor
@@ -256,12 +264,20 @@ put:
                   finishedAt: "2019-06-10T11:15:49.286Z"
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor
@@ -293,12 +309,20 @@ delete:
           example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/delete-actor

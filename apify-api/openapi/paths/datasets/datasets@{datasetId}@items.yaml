@@ -244,12 +244,20 @@ get:
           example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items

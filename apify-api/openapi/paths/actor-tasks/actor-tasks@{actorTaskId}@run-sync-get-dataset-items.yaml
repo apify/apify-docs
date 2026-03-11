@@ -83,12 +83,15 @@ get:
           schema:
             type: object
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
       description: "Request Timeout: the HTTP request exceeded the 300 second limit"
       headers: {}
@@ -96,6 +99,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/common/ErrorResponse.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-get
@@ -208,12 +213,17 @@ post:
           schema:
             type: object
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-post
