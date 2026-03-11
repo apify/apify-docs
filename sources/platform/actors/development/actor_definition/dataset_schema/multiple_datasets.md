@@ -55,17 +55,23 @@ Inside the Actor, you can access it like this:
 
 // TODO: Which versions? When is this released?
 
-In the Javascript/Typescript SDK, use `openDataset` with `alias` option:
+In the Javascript/Typescript SDK `>=???`, use `openDataset` with `alias` option:
 
 ```javascript
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
-In Python SDK, use `alias` parameter:
+// TODO: Explain this better
+When the Actor is run locally, the aliased datasets are created as named datasets.
+
+In Python SDK `>=3.3.0` , use `alias` parameter:
 
 ```python
 categories_dataset = await Actor.open_dataset(alias='categories')
 ```
+
+// TODO: Explain this better
+When running the Actor locally, aliases make use of the aliasing mechanism already available in Python SDK.
 
 ### Environment variable
 
@@ -74,10 +80,6 @@ Outside of Apify SDK, access the environment variable directly:
 ```sh
 echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 ```
-
-## Local development vs platform
-
-// TODO: Which versions?
 
 ## Showing data to users
 
