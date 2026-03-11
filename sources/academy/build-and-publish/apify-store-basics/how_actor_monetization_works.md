@@ -150,7 +150,7 @@ Example of useful pricing estimates from the **Analytics** tab:
 
 :::tip Use emails!
 
-📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here:  [Emails to Actor users]
+📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here:  [Emails to Actor users](/academy/actor-marketing-playbook/interact-with-users/emails-to-actor-users)
 
 :::
 
