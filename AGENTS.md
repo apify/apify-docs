@@ -62,12 +62,13 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 - When adding new endpoints, check first if any existing path is similar and if yes, try to re-use same components. If by adding new paths you create new duplication, try to extract it into a new components and reference it instead.
 - Prefer automatically generated examples from schema over explicit examples.
 
-## Error responses
+#### Error responses
 - Re-use schemas for error responses defined in `/apify-api/openapi/components/responses`
 - Each endpoint should have at least following error responses: 400 (Bad Request), 405 (Method Not Allowed), 429 (Too Many Requests).
 - Endpoints that define `security: []` do not use any authentication.
 - Each endpoint that uses authentication should have at least following error responses: 401 (Unauthorized), 403 (Forbidden).
 - Each endpoint that has `runs/last` in its path or that has any ID related parameter (for example `actorId`, `buildId`, `runId`, `datasetId` and so on) should have at least one 404 (Not Found) error.
+- Each endpoint that has `requestBody` should have at least following error responses: 413 (Payload Too Large), 415 (Unsupported Media Type).
 
 ### Theme system
 

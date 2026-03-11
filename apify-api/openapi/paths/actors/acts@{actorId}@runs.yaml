@@ -151,6 +151,10 @@ post:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
