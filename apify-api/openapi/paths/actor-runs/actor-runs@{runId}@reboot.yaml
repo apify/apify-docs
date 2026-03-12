@@ -12,14 +12,7 @@ post:
     key-value store, dataset, or request queue will be lost.
   operationId: actorRun_reboot_post
   parameters:
-    - name: runId
-      in: path
-      description: Actor run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
   responses:
     "200":
       description: ""
@@ -30,6 +23,16 @@ post:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/reboot-run/reboot-run

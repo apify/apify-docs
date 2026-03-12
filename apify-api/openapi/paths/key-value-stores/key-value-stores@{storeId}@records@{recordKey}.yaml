@@ -20,9 +20,9 @@ get:
     content without any modifications, use the `attachment` query parameter.
   operationId: keyValueStore_record_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
     - name: attachment
       in: query
       description: |
@@ -54,6 +54,10 @@ get:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
@@ -62,6 +66,10 @@ get:
             oneOf:
               - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
               - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RecordNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record
@@ -81,8 +89,8 @@ head:
     Check if a value is stored in the key-value store under a specific key.
   operationId: keyValueStore_record_head
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
   responses:
     "200":
       description: The record exists
@@ -120,8 +128,8 @@ put:
     * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
     - name: Content-Encoding
       in: header
       description: ""
@@ -158,6 +166,18 @@ put:
           example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
@@ -176,8 +196,8 @@ delete:
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/RecordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
   responses:
     "204":
       description: ""
@@ -185,6 +205,14 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record

@@ -74,28 +74,8 @@ get:
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
   operationId: actorRun_get
   parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
-    - name: waitForFinish
-      in: query
-      description: |
-        The maximum number of seconds the server waits for the run to finish. By
-        default it is `0`, the maximum value is `60`. <!--
-        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-        If the run finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
-        otherwise it will have a transitional status (e.g. `RUNNING`).
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":
       description: ""
@@ -107,6 +87,16 @@ get:
               - $ref: ../../components/schemas/actor-runs/RunResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
@@ -143,14 +133,7 @@ put:
     When a run is accessible anonymously, all of the run's default storages and logs also become accessible anonymously.
   operationId: actorRun_put
   parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
   requestBody:
     description: ""
     content:
@@ -177,6 +160,20 @@ put:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
@@ -191,14 +188,7 @@ delete:
     organization that initiated the run can delete it.
   operationId: actorRun_delete
   parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
   responses:
     "204":
       description: ""
@@ -206,6 +196,16 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run

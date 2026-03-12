@@ -9,22 +9,8 @@ get:
     If `isSecret` is set to `true`, then `value` will never be returned.
   operationId: act_version_envVar_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -48,6 +34,10 @@ get:
               isSecret: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
@@ -57,6 +47,10 @@ get:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
               - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/get-environment-variable
@@ -88,22 +82,8 @@ put:
     endpoint.
   operationId: act_version_envVar_put
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -138,6 +118,10 @@ put:
               isSecret: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
@@ -147,6 +131,14 @@ put:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
               - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
@@ -162,22 +154,8 @@ delete:
   description: Deletes a specific environment variable.
   operationId: act_version_envVar_delete
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: versionNumber
-      in: path
-      description: Actor version
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: "0.1"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
     - name: envVarName
       in: path
       description: The name of the environment variable
@@ -198,6 +176,10 @@ delete:
           example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
@@ -207,6 +189,10 @@ delete:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
               - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/delete-environment-variable

@@ -14,8 +14,8 @@ post:
     `clientKey`).
   operationId: requestQueue_head_lock_post
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/LockSecs"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/lockSecs"
     - name: limit
       in: query
       description: How many items from the queue should be returned.
@@ -26,7 +26,7 @@ post:
         format: double
         example: 25
         maximum: 25
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
     "200":
       description: ""
@@ -37,12 +37,20 @@ post:
             $ref: ../../components/schemas/request-queues/HeadAndLockResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head-with-locks/get-head-and-lock

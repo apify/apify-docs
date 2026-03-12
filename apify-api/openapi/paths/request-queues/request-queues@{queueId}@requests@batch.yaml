@@ -15,9 +15,9 @@ post:
     then it returns an ID of the existing request.
   operationId: requestQueue_requests_batch_post
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Forefront"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/forefront"
   requestBody:
     description: ""
     content:
@@ -38,12 +38,24 @@ post:
             $ref: ../../components/schemas/request-queues/BatchAddResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/add-requests
@@ -73,7 +85,7 @@ delete:
     either of them to identify the request.
   operationId: requestQueue_requests_batch_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/QueueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
     - name: Content-Type
       in: header
       description: ""
@@ -83,7 +95,7 @@ delete:
         enum:
           - application/json
         type: string
-    - $ref: "../../components/parameters/StorageParameters.yaml#/ClientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   requestBody:
     description: ""
     content:
@@ -103,12 +115,24 @@ delete:
             $ref: ../../components/schemas/request-queues/BatchDeleteResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/delete-requests

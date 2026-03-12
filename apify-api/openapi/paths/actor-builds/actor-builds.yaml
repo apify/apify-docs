@@ -19,38 +19,9 @@ get:
     the `desc=1` parameter.
   operationId: actorBuilds_get
   parameters:
-    - name: offset
-      in: query
-      description: |
-        Number of records that should be skipped at the start. The default value
-        is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
-    - name: limit
-      in: query
-      description: |
-        Maximum number of records to return. The default value as well as the
-        maximum is `1000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: desc
-      in: query
-      description: |
-        If `true` or `1` then the objects are sorted by the `startedAt` field in
-        descending order. By default, they are sorted in ascending order.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descStartedAt"
   responses:
     "200":
       description: ""
@@ -61,6 +32,12 @@ get:
             $ref: ../../components/schemas/actor-builds/ListOfBuildsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

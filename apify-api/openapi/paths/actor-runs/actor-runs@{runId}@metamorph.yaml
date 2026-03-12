@@ -21,23 +21,8 @@ post:
     For more information, see the [Actor docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
   operationId: actorRun_metamorph_post
   parameters:
-    - name: runId
-      in: path
-      description: Actor run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
-    - name: targetActorId
-      in: query
-      description: ID of a target Actor that the run should be transformed into.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: HDSasDasz78YcAPEB
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/targetActorId"
     - name: build
       in: query
       description: |
@@ -61,6 +46,16 @@ post:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/metamorph-run/metamorph-run

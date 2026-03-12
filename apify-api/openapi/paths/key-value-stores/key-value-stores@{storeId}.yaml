@@ -7,7 +7,7 @@ get:
     store.
   operationId: keyValueStore_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
   responses:
     "200":
       description: ""
@@ -18,12 +18,20 @@ get:
             $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store
@@ -47,7 +55,7 @@ put:
     store](#/reference/key-value-stores/store-object/get-store) API endpoint.
   operationId: keyValueStore_put
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
   requestBody:
     description: ""
     content:
@@ -67,12 +75,24 @@ put:
             $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/update-store
@@ -91,7 +111,7 @@ delete:
   description: Deletes a key-value store.
   operationId: keyValueStore_delete
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
   responses:
     "204":
       description: ""
@@ -99,12 +119,20 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store

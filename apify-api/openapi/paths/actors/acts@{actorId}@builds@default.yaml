@@ -13,28 +13,8 @@ get:
   operationId: act_build_default_get
   security: []
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: waitForFinish
-      in: query
-      description: |
-        The maximum number of seconds the server waits for the build to finish.
-        If the build finishes within this time, the returned build object will have a terminal status (e.g. `SUCCEEDED`),
-        otherwise it will have a transitional status (e.g. `RUNNING`).
-
-        By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishBuild"
   responses:
     "200":
       description: ""
@@ -45,12 +25,6 @@ get:
             $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
-    "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "403":
       # It should be 404, but is 403 for backwards compatibility. https://github.com/apify/apify-core/pull/17414
       description: Not found - the requested resource was not found.
@@ -58,6 +32,16 @@ get:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/BuildErrors.yaml#/UnknownBuildTagError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   x-js-parent: ActorClient
   x-js-name: defaultBuild
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#defaultBuild

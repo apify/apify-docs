@@ -51,22 +51,8 @@ get:
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: actorTask_runs_last_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and Actor task name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
-    - name: status
-      in: query
-      description: Filter for the run status.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: SUCCEEDED
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/statusLastRun"
   responses:
     "200":
       description: ""
@@ -82,6 +68,16 @@ get:
                 $ref: ../../components/schemas/actor-runs/Run.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/last-run-object-and-its-storages

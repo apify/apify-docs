@@ -27,6 +27,12 @@ get:
             $ref: ../../components/schemas/users/PublicUserDataResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/public-data/get-public-user-data

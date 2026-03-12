@@ -1,4 +1,4 @@
-Offset:
+offset:
   name: offset
   in: query
   description: |
@@ -10,7 +10,7 @@ Offset:
     format: double
     example: 0
 
-Limit:
+limit:
   name: limit
   in: query
   description: |
@@ -22,7 +22,7 @@ Limit:
     format: double
     example: 1000
 
-Desc:
+desc: &desc
   name: desc
   in: query
   description: |
@@ -34,7 +34,19 @@ Desc:
     type: boolean
     example: true
 
-Unnamed:
+descStartedAt:
+  <<: *desc
+  description: |
+    If `true` or `1` then the objects are sorted by the `startedAt` field in
+    descending order. By default, they are sorted in ascending order.
+
+descCreatedAt:
+  <<: *desc
+  description: |
+    If `true` or `1` then the objects are sorted by the `createdAt` field in
+    descending order. By default, they are sorted in ascending order.
+
+unnamed:
   name: unnamed
   in: query
   description: |

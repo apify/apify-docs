@@ -1,4 +1,4 @@
-DatasetId:
+datasetId:
   name: datasetId
   in: path
   description: Dataset ID or `username~dataset-name`.
@@ -8,7 +8,7 @@ DatasetId:
     type: string
     example: WkzbQMuFYuamGv3YF
 
-StoreId:
+storeId:
   name: storeId
   in: path
   description: Key-value store ID or `username~store-name`.
@@ -18,7 +18,7 @@ StoreId:
     type: string
     example: WkzbQMuFYuamGv3YF
 
-RecordKey:
+recordKey:
   name: recordKey
   in: path
   description: Key of the record.
@@ -28,7 +28,7 @@ RecordKey:
     type: string
     example: someKey
 
-QueueId:
+queueId:
   name: queueId
   in: path
   description: Queue ID or `username~queue-name`.
@@ -38,7 +38,7 @@ QueueId:
     type: string
     example: WkzbQMuFYuamGv3YF
 
-RequestId:
+requestId:
   name: requestId
   in: path
   description: Request ID.
@@ -48,7 +48,7 @@ RequestId:
     type: string
     example: xpsmkDlspokDSmklS
 
-ClientKey:
+clientKey:
   name: clientKey
   in: query
   description: |
@@ -65,7 +65,7 @@ ClientKey:
     type: string
     example: client-abc
 
-ClientKeyLock:
+clientKeyLock:
   name: clientKey
   in: query
   description: |
@@ -79,7 +79,7 @@ ClientKeyLock:
     type: string
     example: client-abc
 
-LockSecs:
+lockSecs:
   name: lockSecs
   in: query
   description: How long the requests will be locked for (in seconds).
@@ -91,7 +91,7 @@ LockSecs:
     format: double
     example: 60
 
-Forefront:
+forefront:
   name: forefront
   in: query
   description: |
@@ -103,7 +103,7 @@ Forefront:
     type: string
     example: "false"
 
-Signature:
+signature:
   name: signature
   in: query
   description: Signature used for the access.

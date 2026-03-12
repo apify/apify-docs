@@ -10,7 +10,7 @@ get:
     - see [Pagination](/api/v2#using-key) for more details.
   operationId: keyValueStore_keys_get
   parameters:
-    - $ref: "../../components/parameters/StorageParameters.yaml#/StoreId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
     - name: exclusiveStartKey
       in: query
       description: All keys up to this one (including) are skipped from the result.
@@ -40,7 +40,7 @@ get:
       schema:
         type: string
         example: post-images-
-    - $ref: "../../components/parameters/StorageParameters.yaml#/Signature"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
     "200":
       description: ""
@@ -51,12 +51,20 @@ get:
             $ref: ../../components/schemas/key-value-stores/ListOfKeysResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys

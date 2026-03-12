@@ -10,14 +10,7 @@ post:
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
   operationId: actorBuild_abort_post
   parameters:
-    - name: buildId
-      in: path
-      description: Build ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
   responses:
     "200":
       description: ""
@@ -39,6 +32,10 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/abort-build/abort-build
