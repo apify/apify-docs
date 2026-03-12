@@ -1,6 +1,7 @@
 ---
 title: Multiple datasets
 description: Learn how to use multiple datasets within your Actors to organize and store different types of data separately.
+sidebar_position: 2
 slug: /actors/development/actor-definition/dataset-schema/multiple-datasets
 ---
 
