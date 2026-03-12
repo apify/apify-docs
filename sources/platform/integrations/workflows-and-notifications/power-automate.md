@@ -127,15 +127,11 @@ When using manual input instead of pick lists, you'll need to provide the correc
 
 ## Triggers
 
-:::note
-Triggers allow your flow to start automatically when an event occurs in Apify.
-:::
+Triggers allow your flow to start automatically when an event occurs in Apify. When you set up a trigger, the Apify connector creates a webhook on your account.
 
 :::caution Manage your webhooks
 
-Currently, when you set up these triggers, the Apify connector creates a webhook on your Apify account. If you turn off or delete a workflow in Power Automate, the webhook on Apify is **not automatically removed**.
-
-To prevent unused webhooks from accumulating, please manually remove old webhooks from your [Apify Console](https://console.apify.com/) by navigating to the **Integrations** tab of the Actor used in your trigger.
+If you turn off or delete a workflow in Power Automate, the webhook on Apify is **not automatically removed**. To prevent unused webhooks from accumulating, manually remove old webhooks from your [Apify Console](https://console.apify.com/) by navigating to the **Integrations** tab of the Actor used in your trigger.
 
 :::
 
