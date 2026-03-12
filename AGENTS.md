@@ -55,12 +55,20 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 
 - Prefer re-use of existing objects via `$ref` over duplication. Reusable components can be found in `/openapi/components`.
 - Components most suitable for re-use are:
-   - Request parameters and path parameters defined in  `/openapi/components/parameters`
-   - Request/response schemas defined in `/openapi/components/schemas`
-   - Explicit non-automatic examples defined in `/openapi/components/examples`
+  - Request parameters and path parameters defined in  `/openapi/components/parameters`
+  - Request/response schemas defined in `/openapi/components/schemas`
+  - Explicit non-automatic examples defined in `/openapi/components/examples`
 - When changing files in `/openapi/paths` look for opportunities to extract shared duplicate objects into re-usable components saved in `/openapi/components`.
 - When adding new endpoints, check first if any existing path is similar and if yes, try to re-use same components. If by adding new paths you create new duplication, try to extract it into a new components and reference it instead.
 - Prefer automatically generated examples from schema over explicit examples.
+
+#### Error responses
+- Re-use schemas for error responses defined in `/apify-api/openapi/components/responses`
+- Each endpoint should have at least following error responses: 400 (Bad Request), 405 (Method Not Allowed), 429 (Too Many Requests).
+- Endpoints that define `security: []` do not use any authentication.
+- Each endpoint that uses authentication should have at least following error responses: 401 (Unauthorized), 403 (Forbidden).
+- Each endpoint that has `runs/last` in its path or that has any ID related parameter (for example `actorId`, `buildId`, `runId`, `datasetId` and so on) should have at least one 404 (Not Found) error.
+- Each endpoint that has `requestBody` should have at least following error responses: 413 (Payload Too Large), 415 (Unsupported Media Type).
 
 ### Theme system
 
