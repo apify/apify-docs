@@ -5,18 +5,13 @@ sidebar_position: 2
 slug: /actors/development/actor-definition/dataset-schema/multiple-datasets
 ---
 
-**Specify datasets with different structure.**
+Some Actors produce data with different structure. In some cases, it's convenient to store the data in separate datasets, instead of pushing all data to the default one. Multiple datasets allow you to specify those datasets upfront and enforce validation rules.
 
----
+New datasets are created when the run starts, and follow its data retention.
 
-Some Actors produce data with different structure. In some cases, it's convenient to store the data in separate datasets, instead of pushing all data to the default one. Multiple datasets allow to specify those datasets upfront and enforce validation rules.
+## Define multiple datasets
 
-New datasets are created when the run starts, and follow it's data retention.
-
-
-## Defining multiple datasets
-
-The multiple datasets may defined in Actor schema using `datasets` object:
+Multiple datasets can be defined in the Actor schema using `datasets` object:
 
 ```json title=".actor/actor.json"
 {
@@ -37,9 +32,9 @@ Schemas of individual datasets can be provided as a file reference or inlined an
 
 The keys of the `datasets` objects are **aliases**, which can be used to refer to the specific datasets. In the example above, we have two datasets, aliased as `default` and `categories`.
 
-:::info
+:::info Alias vs named dataset
 
-Alias and **name** are not the same thing. Named datasets have specific behavior in Apify platform (eg, the automatic data retention policy does not apply to them). Aliased datasets follow the data retention of their respective run. Aliases only have a meaning in the scope of a specific run.
+Alias and **name** are not the same thing. Named datasets have specific behavior on the Apify platform (e.g. the automatic data retention policy does not apply to them). Aliased datasets follow the data retention of their respective run. Aliases only have a meaning in the scope of a specific run.
 
 :::
 
@@ -47,33 +42,33 @@ The `datasets` object has to contain the `default` alias.
 
 The `datasets` and `dataset` objects are mutually exclusive, the schema can only contain one.
 
-## Accessing the datasets in Actor code
+## Access the datasets in Actor code
 
-The SDK has a built-in support for accessing aliased datasets.
+The SDK has built-in support for accessing aliased datasets.
 
 Inside the Actor, you can access it like this:
 
 ### Apify SDK
 
-In the Javascript/Typescript SDK `>=3.7.0`, use `openDataset` with `alias` option:
+In the JavaScript/TypeScript SDK `>=3.7.0`, use `openDataset` with `alias` option:
 
-```javascript
+```js
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
 
-In Python SDK `>=3.3.0` , use `alias` parameter:
+In the Python SDK `>=3.3.0` , use `alias` parameter:
 
-```python
+```py
 categories_dataset = await Actor.open_dataset(alias='categories')
 ```
 
-#### Running Apify SDK outside of Apify Platform
+#### Run Apify SDK outside of the Apify platform
 
-When the Javascript SDK is used outside of Apify Platform, aliases fallback to names - using alias would be the same as using named dataset.
+When the JavaScript SDK is used outside of the Apify platform, aliases fallback to names - using alias would be the same as using named dataset.
 There is one difference - when alias is used, the dataset is purged on first access (if the default dataset should be purged).
 
-The Python SDK behaves slightly differently, it uses the [aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages) specific to Python SDK. Aliases are created as unnamed, but also purged on Actor start.
+The Python SDK behaves differently, it uses the [aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages) specific to Crawlee for Python. Aliases are created as unnamed, but also purged on Actor start.
 
 
 ### Environment variable
@@ -88,7 +83,7 @@ echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 
 ### Run Storages tab
 
-The Storage tab of Actor run view is displaying all the dataset defined by Actor and datasets that were used by the run (up to some limit).
+The Storage tab of Actor run view displays all datasets defined by the Actor and datasets that were used by the run (up to 10 datasets).
 
 This makes the data accessible, but not very user-friendly. To make the datasets more accessible to users, use output schema.
 
