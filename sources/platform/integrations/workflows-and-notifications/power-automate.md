@@ -1,6 +1,6 @@
 ---
 title: Microsoft Power Automate integration
-description: Automate workflows by integrating Apify Actors with Microsoft Power Automate. Connect apps, trigger scrapers, and process data without code.
+description: Learn how to integrate Apify Actors with Microsoft Power Automate to automate workflows, trigger scrapers, and process data without code.
 sidebar_label: Microsoft Power Automate
 sidebar_position: 7
 slug: /integrations/microsoft-power-automate
@@ -45,7 +45,7 @@ You can use the Apify connector directly within Microsoft Power Automate.
    ![Pin Connectors tab in Power Automate](../images/power-automate/pin_connectors_tab.png)
 1. Open the **Connectors** tab and search for **Apify**.
 1. Select the **Apify** connector from the search results.
-1. A page with connector info will show up, displaying all available triggers and flows (actions) you can use right away for your automation projects.
+1. The connector page shows all available triggers and actions you can use in your flows.
 
 ## Connect your Apify account
 
@@ -84,9 +84,7 @@ After connecting your Apify account, you can start creating flows that use Apify
 
 ### Selecting resources and providing input
 
-The connector offers user-friendly pick lists and intuitive methods to help you select resources and input data.
-
-Most actions allow you to select resources (Actors, tasks, datasets, etc.) from dynamic dropdown lists populated from your Apify account.
+Most actions let you select resources (Actors, tasks, datasets) from dropdown lists populated from your Apify account.
 
 - **Recently used Actors**: Shows Actors you have used recently.
 - **From store**: Allows you to select from popular Actors in the Apify Store.
@@ -143,7 +141,7 @@ Automatically execute your Power Automate flow when a specific Apify Actor run c
 - **Actor**: Select the Actor from the dropdown.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
 
-**Output**: The trigger provides a webhook payload containing detailed information about the completed Actor run.
+**Output**: The trigger returns a webhook payload with the completed Actor run's data.
 
 ![Actor run finished trigger configuration](../images/power-automate/trigger_actor_run.png)
 
@@ -154,13 +152,13 @@ Automatically execute your Power Automate flow when a specific Apify Actor task 
 - **Task**: Select the task from your account.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`).
 
-**Output**: The trigger provides a webhook payload containing detailed information about the completed task run.
+**Output**: The trigger returns a webhook payload with the completed task run's data.
 
 ![Task run finished trigger configuration](../images/power-automate/trigger_task_run.png)
 
 ## Actions
 
-The Apify connector offers comprehensive actions to interact with the Apify platform.
+The Apify connector provides the following actions.
 
 ### Run Actor
 
@@ -244,13 +242,9 @@ For long-running scrapes, use the asynchronous pattern to ensure your flows are 
 
 1. **Wait for completion**:
 
-   - **Option A (Webhook)**: Create a separate flow using the **Actor run finished** or **Task run finished** trigger. This flow will automatically start when the run completes.
+   - **Option A (Webhook)**: Create a separate flow with the **Actor run finished** or **Task run finished** trigger. This flow starts automatically when the run completes.
 
-     _First, your flow starts the Actor asynchronously using the **Run Actor** action._
-
-     _Next, set up a separate flow using the **Actor run finished** trigger. This trigger will automatically catch the completion event (such as success) and continue your processing steps._
-
-   - **Option B (Polling)**: (Advanced) Implement a loop in your flow to periodically check the run status until it is finished.
+   - **Option B (Polling)**: Implement a loop in your flow to periodically check the run status until it finishes. This is more complex but keeps everything in a single flow.
 
 1. **Start the Actor or task**: Trigger the run asynchronously by setting `Wait for finish` to `0`.
    ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_1.png)
@@ -269,8 +263,6 @@ For long-running scrapes, use the asynchronous pattern to ensure your flows are 
 
 ## Example use cases
 
-### Integration ideas
-
 - **Price drop alerts:** Run a price scraper on a schedule, then notify via Teams when prices drop.
 - **CRM enrichment:** Scrape company websites and push the data to Dynamics 365 or SharePoint.
 - **Competitor tracking:** Detect changes on competitor pages and log them to Excel.
@@ -285,28 +277,18 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 
 ### Best practices
 
-- **Async Execution:** Always use webhooks (Triggers) for Actors that run longer than a minute.
-- **Pagination:** For large datasets, use the `limit` and `offset` parameters in "Get dataset items" to process data in chunks.
-- **Memory:** Start with default memory settings and increase only if necessary.
+- Always use webhooks (triggers) for Actors that run longer than a minute instead of waiting synchronously.
+- For large datasets, use the `limit` and `offset` parameters in **Get dataset items** to process data in chunks.
+- Start with default memory settings and increase only if your Actor needs it.
 
 ## Troubleshooting
 
-### Common issues
-
 - _Timeout errors:_ If an action fails with a timeout, check if you are waiting for a long-running Actor. Switch to the async pattern (set `Wait for finish` to `0`).
 - _Schema issues:_ Dataset schemas are inferred from sample data. If fields are missing in Power Automate dynamic content, you might need to parse the raw JSON output manually. Fields may not appear if they are absent in the initial sample records.
-- _Orphaned Webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in the Apify Console. Currently, cleanup is not automatic.
+- _Orphaned webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in the Apify Console. Cleanup is not automatic.
 
-## Frequently asked questions
+## Pricing
 
-### How much does it cost?
+The Apify connector itself is free. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. A free tier with monthly credits is available to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
 
-The Apify connector itself is free to use. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. Apify offers a free tier with monthly credits to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
-
-### Where can I get further help?
-
-- **Apify Documentation:** [docs.apify.com](https://docs.apify.com)
-- **API Reference:** [docs.apify.com/api/v2](https://docs.apify.com/api/v2)
-- **Support:** [apify.com/contact](https://apify.com/contact)
-
-If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU) or visit the [Apify Community forum](https://community.apify.com).
+If you have any questions or need help, feel free to reach out on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
