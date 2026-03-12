@@ -68,8 +68,6 @@ This makes it transparent and easy to estimate upfront costs. If you have any fe
 
 <!-- TODO - add a bit about the ability to set the maximum limits Actor should return -->
 
-<!-- TODO: replace this screenshot with an up-to-date one -->
-
 ![Actor paid per result in Console](./images/store/console_pay_per_result_tag.png)
 
 All platform costs generated _during_ the Actor run are not charged to your account.
