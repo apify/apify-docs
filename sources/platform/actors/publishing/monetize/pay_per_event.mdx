@@ -8,7 +8,7 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The PPE pricing model offers a flexible monetization option for Actors on Apify Store. Unlike [pay per result](/platform/actors/publishing/monetize/pay-per-result), PPE allows you to charge users based on specific events triggered programmatically by your Actor's code.
+The PPE pricing model offers a flexible monetization option for Actors on Apify Store as it allows you to charge users based on specific events triggered programmatically by your Actor's code.
 
 PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly. Common events include Actor start, dataset item creation, and external API calls.
 
@@ -29,7 +29,7 @@ Your profit is calculated from the mentioned formula:
 where:
 
 - _Revenue_: The amount charged for events via the PPE charging API or through JS/Python SDK. You receive 80% of this revenue.
-- _Platform costs_: The underlying platform usage costs for running the Actor, calculated in the same way as for PPR. For more details, visit the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
+- _Platform costs_: The underlying platform usage costs for running the Actor. For more details, visit the [Computing your costs for PPE Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-actors) section.
 
 Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
 
@@ -415,7 +415,7 @@ Fixed pricing is simpler for users to predict, while usage-based pricing more ac
 
 Your profit and costs are computed _only from the first two users_ since they are on Apify paid plans.
 
-The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE and PPR Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-and-ppr-actors) section.
+The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-actors) section.
 
 ### Revenue breakdown
 
