@@ -66,26 +66,6 @@ If you want more details about PPE pricing, refer to our [PPE documentation](/pl
 
 :::
 
-### Pay-per-result pricing model
-
-![pay per result model example](images/ppr-model.png)
-
-- _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
-- _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
-- _Cost breakdown_:
-  - Compute unit: $0.3 per CU
-  - Residential proxies: $13 per GB
-  - SERPs proxy: $3 per 1,000 SERPs
-  - Data transfer (external): $0.20 per GB
-  - Dataset storage: $1 per 1,000 GB-hours
-- _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
-
-:::info Pay-per-result details
-
-If you want more details about PPR pricing, refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
-
-:::
-
 ### Rental pricing model
 
 <RentalSunset/>
@@ -115,15 +95,16 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 
 ### Changing monetization
 
-Some monetization updates are applied immediately. However, significant pricing changes require a 14-day notice period.
+Monetization changes fall into two categories:
 
-Significant changes include:
+- _Non-significant changes_ (take effect immediately): decreasing prices, removing events, updating descriptions
+- _Significant changes_ (require a 14-day notice period): increasing prices, adding new paid events, changing the pricing model
 
-- Increasing prices
-- Adding a new paid pricing event (PPE)
-- Changing the pricing model
+When you submit a significant change, your users are notified and the current pricing stays active for 14 days. You can only make significant changes **once per month** per Actor, and you **cannot cancel** a planned change on your own - you need to contact [Apify support](https://apify.com/contact).
 
-You can make these significant changes only once per month.
+This means roughly one month passes between your first significant change and when you can make the next one. Plan your pricing carefully before committing.
+
+For full details, refer to the [monetization change rules](/platform/actors/publishing/monetize#change-monetization).
 
 ### Tracking and promotion
 
@@ -148,13 +129,11 @@ Apify Store is like any other marketplace, so take a look at your competition th
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
-### Pay-per-event (PPE), pay-per-result (PPR), or rental
+### Pay-per-event (PPE) or rental
 
 Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
 
 Rental pricing allows you to charge a monthly fee for your Actor and users cover their own platform usage.
-
-Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 
 :::tip Additional benefits
 
