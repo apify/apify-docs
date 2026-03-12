@@ -13,3 +13,5 @@ properties:
   restartOnError:
     type: [boolean, "null"]
     examples: [false]
+  maxItems:
+    type: [integer, "null"]

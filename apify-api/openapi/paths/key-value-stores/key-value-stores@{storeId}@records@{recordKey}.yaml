@@ -20,30 +20,9 @@ get:
     content without any modifications, use the `attachment` query parameter.
   operationId: keyValueStore_record_get
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
-    - name: signature
-      in: query
-      description: Signature used to access the record.
-      required: false
-      style: simple
-      schema:
-        type: string
-        example: 2wTI46Bg8qWQrV7tavlPI
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
     - name: attachment
       in: query
       description: |
@@ -61,12 +40,7 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
-              - example:
-                  foo: bar
-          example:
-            foo: bar
+            $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
     "302":
       description: ""
       headers:
@@ -80,6 +54,22 @@ get:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RecordNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record
@@ -99,22 +89,8 @@ head:
     Check if a value is stored in the key-value store under a specific key.
   operationId: keyValueStore_record_head
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
   responses:
     "200":
       description: The record exists
@@ -152,40 +128,25 @@ put:
     * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
     - name: Content-Encoding
       in: header
       description: ""
-      required: true
+      required: false
       style: simple
       schema:
         enum:
           - gzip
+          - deflate
+          - br
         type: string
-        example: gzip
   requestBody:
     description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/key-value-stores/PutRecordRequest.yaml
-        example:
-          foo: bar
     required: true
   responses:
     "201":
@@ -205,6 +166,18 @@ put:
           example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
@@ -223,22 +196,8 @@ delete:
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: recordKey
-      in: path
-      description: Key of the record.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: someKey
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
   responses:
     "204":
       description: ""
@@ -246,6 +205,14 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record

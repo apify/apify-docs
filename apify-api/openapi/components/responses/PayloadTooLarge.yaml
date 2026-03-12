@@ -1,0 +1,9 @@
+description: Payload too large - the request body exceeds the size limit.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: request-too-large
+        message: "The POST payload is too large (limit: 9437184 bytes, actual length: 10485760 bytes)."

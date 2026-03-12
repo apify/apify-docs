@@ -1,12 +1,30 @@
----
-description: Content quality checklist and review standards
-globs: ["sources/**/*.md", "sources/**/*.mdx"]
-alwaysApply: true
----
-
 # Quality Standards
 
 Comprehensive quality checklist for all Apify documentation. Use this before submitting any content for review.
+
+## Automated changes verification
+
+:::danger Critical requirement for AI assistants
+
+**When using regex, find-and-replace, or any automated command to perform mass changes across files, you MUST verify every single change individually before committing.**
+
+Automated replacements are error-prone and can break:
+- **Headings:** Proper nouns (GitHub, Docker), Apify products (Actors, Console), acronyms (API, SDK), capitalization after colons
+- **Code examples:** Variable names, API endpoints, function calls, configuration values
+- **Links:** URL paths, anchor references, file paths
+- **Terminology:** Product names, feature names, technical terms with specific capitalization
+- **Context-specific formatting:** Bold UI elements vs regular text, inline code vs prose
+
+**Required process:**
+1. Run the automated replacement command
+1. Review the complete `git diff` output
+1. Check every single changed line individually
+1. Manually correct any broken proper nouns, acronyms, or context-dependent cases
+1. Only commit after verifying all changes line-by-line
+
+Never commit automated changes without verifying each one. Use diff tools to catch errors before committing.
+
+:::
 
 ## Complete quality checklist
 
@@ -38,6 +56,8 @@ Before submitting documentation, verify:
 - [ ] Platform terms use lowercase with "the" (the Apify platform, not Platform)
 - [ ] Feature terms use lowercase (task, schedule, dataset, not Task/Schedule/Dataset)
 - [ ] Word choice is precise (legacy vs alternative vs deprecated used correctly)
+- [ ] Article usage correct per **terminology.md** (no "the" before Apify Console/Store/Proxy; "the" before SDK/CLI/API)
+- [ ] Grammar mechanics follow **grammar-rules.md** (hyphenation, contractions, e.g./i.e., numbers, list punctuation)
 
 ### Code examples
 

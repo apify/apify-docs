@@ -84,7 +84,7 @@ properties:
     description: Exit code of the Actor run process.
   generalAccess:
     description: General access level for the Actor run.
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml
   defaultKeyValueStoreId:
     type: string
     examples: [eJNzqsbPiopwJcgGQ]
@@ -97,6 +97,40 @@ properties:
     type: string
     examples: [FL35cSF7jrxr3BY39]
     description: ID of the default request queue for this run.
+  storageIds:
+    type: object
+    description: A map of aliased storage IDs associated with this run, grouped by storage type.
+    properties:
+      datasets:
+        type: object
+        description: Aliased dataset IDs for this run.
+        properties:
+          default:
+            type: string
+            description: ID of the default dataset for this run.
+            example: wmKPijuyDnPZAPRMk
+        additionalProperties:
+          type: string
+      keyValueStores:
+        type: object
+        description: Aliased key-value store IDs for this run.
+        properties:
+          default:
+            type: string
+            description: ID of the default key-value store for this run.
+            example: eJNzqsbPiopwJcgGQ
+        additionalProperties:
+          type: string
+      requestQueues:
+        type: object
+        description: Aliased request queue IDs for this run.
+        properties:
+          default:
+            type: string
+            description: ID of the default request queue for this run.
+            example: FL35cSF7jrxr3BY39
+        additionalProperties:
+          type: string
   buildNumber:
     type: string
     examples: [0.0.36]

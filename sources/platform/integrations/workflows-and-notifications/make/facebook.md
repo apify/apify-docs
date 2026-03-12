@@ -1,6 +1,6 @@
 ---
 title: Make - Facebook Actor integration
-description: Learn about Facebook scraper modules, extract posts, comments, and profile data from Facebook.
+description: Use the Facebook Scraper modules in Make to extract posts, comments, and profile data from Facebook and incorporate results into your workflows.
 sidebar_label: Facebook
 sidebar_position: 8
 slug: /integrations/make/facebook

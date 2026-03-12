@@ -1,15 +1,11 @@
 ---
 title: Pinecone integration
-description: Learn how to integrate Apify with Pinecone to feed data crawled from the web into the Pinecone vector database.
+description: Learn how to integrate Apify with Pinecone to export Actor results and dataset items into a Pinecone vector index for AI-powered similarity search.
 sidebar_label: Pinecone
 sidebar_position: 17
 slug: /integrations/pinecone
 toc_min_heading_level: 2
 toc_max_heading_level: 4
----
-
-**Learn how to integrate Apify with Pinecone to feed data crawled from the web into the Pinecone vector database.**
-
 ---
 
 [Pinecone](https://www.pinecone.io) is a managed vector database that allows users to store and query dense vectors for AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).

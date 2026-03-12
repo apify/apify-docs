@@ -15,28 +15,8 @@ get:
   operationId: actorBuild_get
   security: []
   parameters:
-    - name: buildId
-      in: path
-      description: "ID of the build you want to get, found in the build's `Info` tab."
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: soSkq9ekdmfOslopH
-    - name: waitForFinish
-      in: query
-      description: |
-        The maximum number of seconds the server waits for the build to finish.
-        By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-
-        If the build finishes in time then the returned build object will have a
-        terminal status (e.g. `SUCCEEDED`), otherwise it will have a transitional status (e.g. `RUNNING`).
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishBuild"
   responses:
     "200":
       description: ""
@@ -48,6 +28,20 @@ get:
               - $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-object/get-build
@@ -71,14 +65,7 @@ delete:
     Only users with build permissions for the Actor can delete builds.
   operationId: actorBuild_delete
   parameters:
-    - name: buildId
-      in: path
-      description: "ID of the build you want to get, found in the build's `Info` tab."
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: soSkq9ekdmfOslopH
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
   responses:
     "204":
       description: ""
@@ -86,6 +73,20 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build/delete-build

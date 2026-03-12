@@ -4,7 +4,7 @@ properties:
   name:
     type: string
   generalAccess:
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml
 example:
   name: new-store-name
   generalAccess: RESTRICTED

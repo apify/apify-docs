@@ -6,7 +6,7 @@ properties:
     type: string
     description: The new name for the request queue.
   generalAccess:
-    $ref: ../common/GeneralAccessEnum.yaml
+    $ref: ../common/GeneralAccess.yaml
 example:
   name: new-request-queue-name
   generalAccess: RESTRICTED

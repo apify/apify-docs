@@ -5,14 +5,7 @@ post:
   description: Tests a webhook. Creates a webhook dispatch with a dummy payload.
   operationId: webhook_test_post
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   responses:
     "201":
       description: ""
@@ -23,6 +16,16 @@ post:
             $ref: ../../components/schemas/webhooks/TestWebhookResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-test/test-webhook

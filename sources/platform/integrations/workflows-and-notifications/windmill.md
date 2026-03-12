@@ -1,13 +1,9 @@
 ---
 title: Windmill integration
-description: Use Windmill to run Apify Actors and tasks, react to Apify events via webhooks or polling, and move data between Apify and other services with Windmill scripts and flows.
+description: Use Windmill to run Apify Actors and tasks, react to events via webhooks or polling, and move data between Apify and other services using scripts.
 sidebar_label: Windmill
 sidebar_position: 8
 slug: /integrations/windmill
----
-
-**Use Windmill to run Apify Actors and tasks, react to Apify events via webhooks or polling, and move data between Apify and other services with Windmill scripts and flows.**
-
 ---
 
 [Windmill](https://www.windmill.dev/) is an open-source automation platform for building scripts and flows that connect your tools and data. With the Apify integration for Windmill, you can run Actors and tasks, scrape websites, extract data from storage, and trigger workflows based on Apify events.
@@ -26,7 +22,6 @@ Before you begin, make sure you have:
 The Apify integration provides scripts, flows, and resources that will be available through the Windmill Hub.
 
 ![Apify Hub](../images/windmill-install-hub.png)
-
 
 ### Step 1: Import Apify scripts from Windmill Hub
 
@@ -60,7 +55,7 @@ You can import Apify integration scripts into your flows from the Windmill Hub, 
 
 You can provide the token to scripts via a **Windmill Resource**. Create it either in the **Resources** tab or directly from a script.
 
-#### Option A — Create in the Resources tab
+#### Option A - Create in the Resources tab
 
 1. Open **Resources** → **New Resource**.
 1. Select `apify_api_key` resource type.
@@ -69,7 +64,7 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 
   ![Apify Auth](../images/windmill-install-auth-resource-tab.png)
 
-#### Option B — Create/bind from a script
+#### Option B - Create/bind from a script
 
 1. Open the script in Windmill UI.
 1. Add a secret input parameter (e.g., `apify_token`) .
@@ -78,7 +73,7 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 
 ![Apify Auth](../images/windmill-install-auth-script.png)
 
-#### Option C — OAuth authentication
+#### Option C - OAuth authentication
 
 :::note Cloud-only feature
 
@@ -93,7 +88,6 @@ OAuth authentication is only available on Windmill Cloud, not on self-hosted ins
 1. Save the resource, then reference it in your scripts/flows just like the API key resource.
 
 ![Apify Auth](../images/windmill-install-oauth-resource.png)
-
 
 ## Create your first workflow
 
@@ -140,7 +134,6 @@ With the flow created and scripts linked we can test and run it.
 1. Review the results and ensure both steps completed successfully.
 1. Save and activate your flow.
 
-
 ## Use webhooks to trigger workflows
 
 Windmill provides webhook-based triggers that can automatically start workflows when Apify events occur.
@@ -155,7 +148,6 @@ Windmill provides webhook-based triggers that can automatically start workflows 
   ![Apify Webhook](../images/windmill-webhook-set-trigger.png)
 1. Create a **Webhook-specific Token**.
 1. Copy both the **token** and the **webhook URL** to your clipboard. These will be used for creation of the **Webhook Config** resource in the next step.
-
 
 ### Step 2: Configure the webhook creation script
 
@@ -190,7 +182,7 @@ Windmill provides webhook-based triggers that can automatically start workflows 
 
 ![Apify Webhook](../images/windmill-webhook-test-runs.png)
 
-## Deleting the webhook
+## Delete the webhook
 
 1. Fork the **Apify's Delete Webhook** script from the Windmill Hub.
 1. Set either your _API Key_ or _OAuth Token_ resource

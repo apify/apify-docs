@@ -6,10 +6,6 @@ slug: /collaboration/organization-account/how-to-use
 sidebar_label: How to use
 ---
 
-**Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.**
-
----
-
 Once an account becomes an organization, you can no longer log into it. Instead, you can switch into the organization from one of its member accounts to manage account information, memberships, and Actor runs.
 
 While you can't manage an organization account via [API](/api/v2), you can still manage its runs and resources via API like you would with any other account.
@@ -22,7 +18,7 @@ You can switch into **Organization account** view using the account button in th
 
 ![Switch to organization account](../images/organizations/switch-to-organization.png)
 
-In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it—no need to log in and out.
+In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it - no need to log in and out.
 
 The resources you can access and account details you can edit will depend on your [permissions](../list_of_permissions.md) in the organization.
 

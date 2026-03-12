@@ -1,0 +1,19 @@
+title: ActorStandby
+type: object
+properties:
+  isEnabled:
+    type: [boolean, "null"]
+  desiredRequestsPerActorRun:
+    type: [integer, "null"]
+  maxRequestsPerActorRun:
+    type: [integer, "null"]
+  idleTimeoutSecs:
+    type: [integer, "null"]
+  build:
+    type: [string, "null"]
+  memoryMbytes:
+    type: [integer, "null"]
+  disableStandbyFieldsOverride:
+    type: [boolean, "null"]
+  shouldPassActorInput:
+    type: [boolean, "null"]

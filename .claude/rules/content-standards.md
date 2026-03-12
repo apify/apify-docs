@@ -1,12 +1,6 @@
----
-description: Standard formatting rules for all Apify documentation
-globs: ["sources/**/*.md", "sources/**/*.mdx"]
-alwaysApply: true
----
-
 # Content Standards
 
-Canonical formatting standards for all Apify documentation. These rules ensure consistency across platform docs, academy tutorials, and API references.
+Markdown and Docusaurus formatting standards for Apify documentation. For general writing style rules (headings, text formatting, links, numbers), see `writing-style.md`.
 
 ## Front matter requirements
 
@@ -56,78 +50,17 @@ slug: /academy/tutorials/web-scraper
 ---
 ```
 
-## Headings
+## Heading hierarchy
 
-### Casing
-
-**Sentence case only.** Capitalize only the first word and proper nouns.
-
-| Avoid | Prefer |
-|-------|--------|
-| Store And Manage Data | Store and manage data |
-| Getting Started With Actors | Get started with Actors |
-
-### Form
-
-**No gerunds (-ing forms).** Use noun phrases or imperatives.
-
-| Avoid | Prefer |
-|-------|--------|
-| Finding available tags | Available tags |
-| Getting started with Actors | Get started with Actors |
-| Understanding the API | API overview |
-
-### Hierarchy
-
-Follow proper heading hierarchy: H1 → H2 → H3. Never skip levels.
+Follow proper heading hierarchy: H2 → H3 → H4. Never skip levels. (H1 is the page title, set in front matter)
 
 ```markdown
-# Page Title (H1 - only one per page, usually from front matter)
-
-## Main Section (H2)
+## Main section (H2)
 
 ### Subsection (H3)
 
 #### Detail (H4 - use sparingly)
 ```
-
-## Text formatting
-
-### Bold
-
-**Do use bold for:**
-- UI elements (buttons, menus, fields, tabs)
-- Critical warnings or key terms that must stand out
-
-**Don't use bold for:**
-- List introductions or section labels
-- Code block introductions
-- General emphasis (use italics instead)
-- Structural labels when context is clear
-
-| Avoid | Prefer |
-|-------|--------|
-| **Examples:** | Examples: |
-| **In your Dockerfile**, use... | In your `Dockerfile`, use... |
-
-### Italics
-
-Use italics for emphasis and introducing new terms:
-
-| Use case | Example |
-|----------|---------|
-| New term introduction | An *Actor* is a serverless program... |
-| Emphasis | This step is *required* for the Actor to work |
-
-### Code formatting
-
-Use backticks for inline code:
-
-- File names: `Dockerfile`, `package.json`, `.actor/actor.json`
-- Commands: `npm install`, `docker build`
-- Config keys: `actorSpecification`, `dockerfile`
-- Variable names: `API_TOKEN`, `userId`
-- Code values: `true`, `null`, `"string"`
 
 ## Admonitions
 
@@ -250,27 +183,6 @@ FROM apify/actor-node-playwright:22
 
 ## Links
 
-### Descriptive link text
-
-Use action-oriented, descriptive link text. Avoid generic phrases like "click here" or "this link" - screen readers often read links out of context.
-
-| Avoid | Prefer |
-|-------|--------|
-| `[Click here](url)` to learn more | `[Learn about Actor pricing](url)` |
-| Read more about it `[here](url)` | Read the `[Actor development guide](url)` |
-| See the `[documentation](url)` | `[Read the API documentation](url)` |
-
-### Action verbs for links
-
-Match the verb to the content type:
-
-| Content type | Verbs |
-|--------------|-------|
-| Documentation | Read, View, Check, See |
-| Tutorials | Learn, Build, Follow |
-| Reference | Access, Browse, Explore |
-| Examples | View, Try, Clone |
-
 ### Internal vs external links
 
 **Internal links** (within apify-docs):
@@ -280,17 +192,6 @@ Match the verb to the content type:
 **External links** (to other sites):
 - Use full URLs: `[Playwright](https://playwright.dev)`
 - Make tool mentions navigable
-
-### Actor references
-
-First mention: Actor name with link, capitalized.
-
-```markdown
-[Website Content Crawler](https://apify.com/apify/website-content-crawler)
-can crawl websites and extract text content.
-```
-
-Subsequent mentions: Just the name, no link needed.
 
 ## Images
 
@@ -334,52 +235,14 @@ platform/
 │       └── run-button.png
 ```
 
-## Numbers and formatting
+## Lists
 
-### Thousands and decimals
-
-- Thousands: comma separator ($1,000)
-- Decimals: period ($9.8)
-
-### Money
-
-- Symbol before amount: $49 (not 49$)
-- Include currency: $49 USD for international context
-
-### Dates
-
-- Format: Month Day, Year
-- Example: August 5, 2024
-- Never: 5.8.2024 or 2024-08-05 in prose (ISO format OK in code)
-
-### Time
-
-- Format: 12-hour with space before AM/PM
-- Example: 5 PM, 11:30 AM
-- Uppercase: PM (not pm or p.m.)
-
-## Parallel structure
-
-All items in a list must follow the same grammatical pattern:
-
-**Avoid - mixed patterns:**
-```markdown
-1. Reproducibility - your builds behave the same
-1. Predictability - you know which version
-1. Easier to track down issues
-```
-
-**Prefer - consistent pattern:**
-```markdown
-1. Reproducibility - Your builds behave the same way
-1. Predictability - You know exactly which version you're running
-1. Debugging - Version-specific issues are easier to track down
-```
-
-## List types
+### List types
 
 - **Numbered lists**: Sequential steps where order matters
 - **Bullet points**: Non-sequential items, features, options
+
+### Numbered list convention
 
 In numbered lists, use `1.` for all items (not sequential numbers):
 

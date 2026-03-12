@@ -1,12 +1,8 @@
 ---
 title: Creating integration Actors
-description: Learn how to create Actors that are ready to be integrated with other Actors and tasks.
+description: Build Actors designed to work as integrations with other Actors and tasks. Handle dynamic input, payload fields, and large datasets efficiently.
 sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
----
-
-**Learn how to create Actors that are ready to be integrated with other Actors and tasks.**
-
 ---
 
 Any Actor can be used in integrations. In order to provide a smooth experience for its users, there are few things to keep in mind.
@@ -62,7 +58,6 @@ However, if the Actor is **only** supposed to be used as integration, we can use
 - `connectionString: string` - Credentials for the database connection
 - `tableName: string` - Name of table / collection
 
-
 In this case, users only need to provide the "static" part of the input:
 
 ```json
@@ -88,7 +83,7 @@ const datasetIdToProcess = datasetId || payload?.resource?.defaultDatasetId;
 
 In the above example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
 
-## Making your Actor available to other users
+## Make your Actor available to other users
 
 To allow other users to use your Actor as an integration, all you need to do is [publish it in Apify Store](/platform/actors/publishing), so users can then integrate it using the **Connect Actor or task** button on the **Integrations** tab of any Actor. While publishing the Actor is enough, there are two ways to make it more visible to users.
 

@@ -8,7 +8,7 @@ slug: /scraping-basics-javascript/scraping-variants
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import NpmLlmPackagesExercise from '!!raw-loader!roa-loader!./exercises/npm_llm_packages.mjs';
+import JsLlmProjectsExercise from '!!raw-loader!roa-loader!./exercises/js_llm_projects.mjs';
 import CnnSportsShortestArticleExercise from '!!raw-loader!roa-loader!./exercises/cnn_sports_shortest_article.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -347,38 +347,38 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 <Exercises />
 
-### Build a scraper for watching npm packages
+### Build a scraper for watching JavaScript projects
 
-You can build a scraper now, can't you? Let's build another one! From the registry at [npmjs.com](https://www.npmjs.com/), scrape information about npm packages that match the following criteria:
+You can build a scraper now, can't you? Let's build another one! From the [GitHub Topics](https://github.com/topics/) page, scrape information about projects that match the following criteria:
 
-- Have the keyword "LLM" (as in _large language model_)
-- Updated within the last two years ("2 years ago" is okay; "3 years ago" is too old)
+- Have the topic "LLM" (as in _large language model_)
+- Updated within the last month (at most 30 days ago)
 
-Print an array of the top 5 packages with the most dependents. Each package should be represented by an object containing the following data:
+Print an array of the top 5 projects with the most stars. Each project should be represented by an object containing the following data:
 
 - Name
 - Description
-- URL to the package detail page
-- Number of dependents
-- Number of downloads
+- URL to the repository page
+- Number of stars
+- Date it was updated on
 
 Your output should look something like this:
 
 ```js
 [
   {
-    name: 'langchain',
-    url: 'https://www.npmjs.com/package/langchain',
-    description: 'Typescript bindings for langchain',
-    dependents: 735,
-    downloads: 3938
+    name: 'anything-llm',
+    url: 'https://github.com/Mintplex-Labs/anything-llm',
+    description: 'The all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder, MCP compatibility, and more.',
+    stars: 53358,
+    updatedOn: "2026-01-15"
   },
   {
-    name: '@langchain/core',
-    url: 'https://www.npmjs.com/package/@langchain/core',
-    description: 'Core LangChain.js abstractions and schemas',
-    dependents: 730,
-    downloads: 5994
+    name: 'SillyTavern',
+    url: 'https://github.com/SillyTavern/SillyTavern',
+    description: 'LLM Frontend for Power Users.',
+    stars: 22054,
+    updatedOn: "2026-01-15"
   },
   ...
 ]
@@ -387,14 +387,11 @@ Your output should look something like this:
 <details>
   <summary>Solution</summary>
 
-  After inspecting the registry, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the sorting dropdown results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape the whole registry and then filter by keyword or sort by the number of dependents.
+  After inspecting the page, you'll notice that packages with the keyword "LLM" have a dedicated URL. Also, changing the language and sorting dropdowns results in a page with its own URL. We'll use that as our starting point, which saves us from having to scrape whole GitHub Topics and then filter by keyword or sort by the number of stars.
 
-  <CodeBlock language="js">{NpmLlmPackagesExercise.code}</CodeBlock>
+  Both the exact number of stars or the `updatedOn` date can be figured out from hidden attributes of some of the HTML elements, so we can save any additional requests.
 
-  Since the HTML doesn't contain any descriptive classes, we must rely on its structure. We're using [`.children()`](https://cheerio.js.org/docs/api/classes/Cheerio#children) to carefully navigate the HTML element tree.
-
-  For items older than 2 years, we return `null` instead of an item. Before printing the results, we use [.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to remove these empty values and [.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) the array down to just 5 items.
-
+  <CodeBlock language="js">{JsLlmProjectsExercise.code}</CodeBlock>
 </details>
 
 ### Find the shortest CNN article which made it to the Sports homepage

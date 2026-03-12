@@ -25,82 +25,15 @@ post:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSync_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: outputRecordKey
-      in: query
-      description: |
-        Key of the record from run's default key-value store to be returned
-        in the response. By default, it is `OUTPUT`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: OUTPUT
-    - name: timeout
-      in: query
-      description: |
-        Optional timeout for the run, in seconds. By default, the run uses a
-        timeout specified in the default run configuration for the Actor.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
-    - name: memory
-      in: query
-      description: |
-        Memory limit for the run, in megabytes. The amount of memory can be set
-        to a power of 2 with a minimum of 128. By default, the run uses a memory
-        limit specified in the default run configuration for the Actor.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
-    - name: restartOnError
-      in: query
-      description: |
-        Determines whether the run will be restarted if it fails.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: build
-      in: query
-      description: |
-        Specifies the Actor build to run. It can be either a build tag or build
-        number. By default, the run uses the build specified in the default run
-        configuration for the Actor (typically `latest`).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: 0.1.234
-    - name: webhooks
-      in: query
-      description: |
-        Specifies optional webhooks associated with the Actor run, which can be
-        used to receive a notification
-        e.g. when the Actor finished or failed. The value is a Base64-encoded
-        JSON array of objects defining the webhooks. For more information, see
-        [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
   requestBody:
     description: ""
     content:
@@ -126,23 +59,20 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-failed
-              message: |
-                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "408":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-timeout-exceeded
-              message: Actor run exceeded timeout of 300 seconds for this API endpoint
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/with-input
@@ -169,82 +99,15 @@ get:
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
   operationId: act_runSync_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: outputRecordKey
-      in: query
-      description: |
-        Key of the record from run's default key-value store to be returned
-        in the response. By default, it is `OUTPUT`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: OUTPUT
-    - name: timeout
-      in: query
-      description: |
-        Optional timeout for the run, in seconds. By default, the run uses a
-        timeout specified in the default run configuration for the Actor.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
-    - name: memory
-      in: query
-      description: |
-        Memory limit for the run, in megabytes. The amount of memory can be set
-        to a power of 2 with a minimum of 128. By default, the run uses a memory
-        limit specified in the default run configuration for the Actor.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
-    - name: restartOnError
-      in: query
-      description: |
-        Determines whether the run will be restarted if it fails.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: build
-      in: query
-      description: |
-        Specifies the Actor build to run. It can be either a build tag or build
-        number. By default, the run uses the build specified in the default run
-        configuration for the Actor (typically `latest`).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: 0.1.234
-    - name: webhooks
-      in: query
-      description: |
-        Specifies optional webhooks associated with the Actor run, which can be
-        used to receive a notification
-        e.g. when the Actor finished or failed. The value is a Base64-encoded
-        JSON array of objects defining the webhooks. For more information, see
-        [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
   responses:
     "201":
       description: ""
@@ -261,24 +124,20 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-failed
-              message: >-
-                Actor run did not succeed (run ID: 55uatRrZib4xbZs, status:
-                FAILED)
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
     "408":
       description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
-          example:
-            error:
-              type: run-timeout-exceeded
-              message: Actor run exceeded timeout of 60 seconds for this API endpoint
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/without-input

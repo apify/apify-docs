@@ -1,13 +1,9 @@
 ---
 title: OpenAI Assistants integration
 sidebar_label: OpenAI Assistants
-description: Learn how to integrate Apify with OpenAI Assistants to provide real-time search data and to save them into OpenAI Vector Store
+description: Learn how to integrate Apify with OpenAI Assistants to provide real-time web search data and store scraped Actor results in OpenAI Vector Store.
 sidebar_position: 14
 slug: /integrations/openai-assistants
----
-
-**Learn how to integrate Apify with OpenAI Assistants to provide real-time search data and to save them into OpenAI Vector Store.**
-
 ---
 
 [OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview) allows you to build your own AI applications such as chatbots, virtual assistants, and more.
@@ -178,7 +174,6 @@ from apify_client import ApifyClient
 from openai import OpenAI, Stream
 from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
 
-
 client = OpenAI(api_key="YOUR-OPENAI-API-KEY")
 apify_client = ApifyClient("YOUR-APIFY-API-TOKEN")
 
@@ -206,7 +201,6 @@ rag_web_browser_function = {
     }
 }
 
-
 def call_rag_web_browser(query: str, max_results: int) -> list[dict]:
     """
     Query Google search, scrape the top N pages from the results, and returns their cleaned content as markdown.
@@ -214,7 +208,6 @@ def call_rag_web_browser(query: str, max_results: int) -> list[dict]:
     """
     actor_call = apify_client.actor("apify/rag-web-browser").call(run_input={"query": query, "maxResults": max_results})
     return apify_client.dataset(actor_call["defaultDatasetId"]).list_items().items
-
 
 def submit_tool_outputs(run_):
     """ Submit tool outputs to continue the run """

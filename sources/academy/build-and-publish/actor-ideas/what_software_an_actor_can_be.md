@@ -158,14 +158,6 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 ### Browse and claim ideas
 
-:::note Join The Apify $1M Challenge
-
-Build and publish new tools on Apify and have multiple chances to win big prizes.
-
-[Join the challenge now.](https://apify.com/challenge)
-
-:::
-
 1. _Visit_ [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
 
 1. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.

@@ -1,13 +1,9 @@
 ---
 title: Airtable integration
-description: Connect Apify with Airtable.
+description: Connect Apify with Airtable to automatically upload Actor run results to your base. Use the Apify extension on Airtable or the Console integration.
 sidebar_label: Airtable
 sidebar_position: 4
 slug: /integrations/airtable
----
-
-**Learn how to integrate Apify with Airtable. This article shows you how to use the Apify extension on Airtable.**
-
 ---
 
 [Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With the Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
@@ -64,7 +60,7 @@ The extension provides the following capabilities:
 
 ### Run Actor
 
-1. Select any Actor from **Apify store** or **recently used Actors**
+1. Select any Actor from **Apify Store** or **recently used Actors**
 ![Select Actor screen](../../images/airtable/airtable_actor_select.png)
 
 1. Fill in the Actor input form.
@@ -79,7 +75,6 @@ You can select and run any saved Apify task directly from the extension to reuse
 
 ![Run task](../../images/airtable/airtable_task.png)
 
-
 ### Get dataset items
 
 Retrieve items from any Apify dataset and import them into your Airtable base with a single click.
@@ -90,7 +85,7 @@ Retrieve items from any Apify dataset and import them into your Airtable base wi
 
 This section explains how to map your Actor run results or dataset items into your Airtable base.
 
-#### Understanding mapping rows
+#### Understand mapping rows
 
 The Apify extension provides UI elements that allow you to map dataset fields to Airtable fields.
 
@@ -132,7 +127,7 @@ _How it works_: For a source field like `crawl.depth`, the extension checks for 
 To prevent duplicate records, select a **Unique ID** on the data mapping step. The unique ID is added to the list of mapping rows. Ensure it points to the correct field in your table. During import, the extension filters data by existing values in the table.
 ![Select unique ID](../../images/airtable/airtable_unique_id.png)
 
-#### Preview Mapped Data
+#### Preview mapped data
 
 Preview the results and start the import
 
