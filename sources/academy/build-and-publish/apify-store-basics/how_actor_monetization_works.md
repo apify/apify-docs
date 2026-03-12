@@ -60,6 +60,8 @@ Profit calculation: `profit = 0.8 * revenue`
     - This comes up to $1.625 of total revenue
   - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
 
+{/* TODO: Verify this math. Applying the formula (0.8 × revenue) - costs gives $3.693, not $4.748. The $4.748 figure is revenue - costs without the 20% commission. */}
+
 :::info Pay-per-event details
 
 If you want more details about PPE pricing, refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
@@ -129,11 +131,11 @@ Apify Store is like any other marketplace, so take a look at your competition th
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
-### Pay-per-event (PPE) or rental
+### Choose pay-per-event (PPE)
 
 Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
 
-Rental pricing allows you to charge a monthly fee for your Actor and users cover their own platform usage.
+Rental pricing is being sunset (see the [rental documentation](/platform/actors/publishing/monetize/rental) for the timeline) and is no longer recommended for new Actors.
 
 :::tip Additional benefits
 
