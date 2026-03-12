@@ -31,6 +31,7 @@ The multiple datasets may defined in Actor schema using `datasets` object:
     }
 }
 ```
+
 Schemas of individual datasets can be provided as a file reference or inlined and follow the same structure as schema of a single dataset.
 
 The keys of the `datasets` objects are **aliases**, which can be used to refer to the specific datasets. In the example above, we have two datasets, aliased as `default` and `categories`.
