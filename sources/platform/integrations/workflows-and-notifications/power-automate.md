@@ -72,7 +72,7 @@ The Apify connector supports **OAuth 2.0** authentication.
 1. Once authorized, you will be redirected back to Power Automate, and the connection will be ready to use.
    ![Success screen](../images/power-automate/created_connection.png)
 
-:::info Integration Platform Header
+:::info Integration platform header
 
 All requests made by the connector include the header `x-apify-integration-platform: microsoft-power-automate` to identify the integration platform.
 
