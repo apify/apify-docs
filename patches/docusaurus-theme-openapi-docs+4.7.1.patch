@@ -75,6 +75,54 @@ index f8f722f..ec0c117 100644
            onChange: (e) => {
              const val = e.target.value;
              dispatch(
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Response/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Response/index.js
+index 2f777ec..f3a22a2 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Response/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Response/index.js
+@@ -156,12 +156,14 @@ function Response({ item }) {
+                     {
+                       className:
+                         "openapi-explorer__response-placeholder-message",
+-                    },
+-                    (0, Translate_1.translate)({
+-                      id: translationIds_1.OPENAPI_RESPONSE.PLACEHOLDER,
+-                      message:
+-                        "Click the <code>Send API Request</code> button above and see the response here!",
+-                    })
++                      dangerouslySetInnerHTML: {
++                        __html: (0, Translate_1.translate)({
++                          id: translationIds_1.OPENAPI_RESPONSE.PLACEHOLDER,
++                          message:
++                            "Click the <code>Send API Request</code> button above and see the response here!",
++                        }),
++                      },
++                    }
+                   )
+               )
+             ),
+@@ -200,12 +202,16 @@ function Response({ item }) {
+             )
+           : react_1.default.createElement(
+               "p",
+-              { className: "openapi-explorer__response-placeholder-message" },
+-              (0, Translate_1.translate)({
+-                id: translationIds_1.OPENAPI_RESPONSE.PLACEHOLDER,
+-                message:
+-                  "Click the <code>Send API Request</code> button above and see the response here!",
+-              })
++              {
++                className: "openapi-explorer__response-placeholder-message",
++                dangerouslySetInnerHTML: {
++                  __html: (0, Translate_1.translate)({
++                    id: translationIds_1.OPENAPI_RESPONSE.PLACEHOLDER,
++                    message:
++                      "Click the <code>Send API Request</code> button above and see the response here!",
++                  }),
++                },
++              }
+             )
+     )
+   );
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
 index bcebb1c..ac03ec1 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/buildPostmanRequest.js
