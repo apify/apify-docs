@@ -62,7 +62,7 @@ Public Actors require higher standards than private ones. Since users depend on 
 
 ### When you need to change things
 
-If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Major pricing changes require 14-day notice and are limited to once per month. The platform helps communicate changes to your users.
+If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Significant pricing changes require a 14-day notice period and are limited to once per month. The platform helps communicate changes to your users.
 
 ## Getting started
 
