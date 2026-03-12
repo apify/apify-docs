@@ -10,7 +10,7 @@ slug: /actors/development/actor-definition/dataset-schema/multiple-datasets
 
 Some Actors produce data with different structure. In some cases, it's convenient to store the data in separate datasets, instead of pushing all data to the default one. Multiple datasets allow to specify those datasets upfront and enforce validation rules.
 
-New datasets are created when the run starts, and follow it's data-retention.
+New datasets are created when the run starts, and follow it's data retention.
 
 
 ## Defining multiple datasets
@@ -20,7 +20,7 @@ The multiple datasets may defined in Actor schema using `datasets` object:
 ```json title=".actor/actor.json"
 {
     "actorSpecification": 1,
-    "name": "this-is-e-commerce-scraper",
+    "name": "my-e-commerce-scraper",
     "title": "E-Commerce Scraper",
     "version": "1.0.0",
     "storages": {
@@ -31,7 +31,7 @@ The multiple datasets may defined in Actor schema using `datasets` object:
     }
 }
 ```
-Schemas of individual datasets can be provided as a file reference or inlined.
+Schemas of individual datasets can be provided as a file reference or inlined and follow the same structure as schema of a single dataset.
 
 The keys of the `datasets` objects are **aliases**, which can be used to refer to the specific datasets. In the example above, we have two datasets, aliased as `default` and `categories`.
 
@@ -53,16 +53,12 @@ Inside the Actor, you can access it like this:
 
 ### Apify SDK
 
-// TODO: Which versions? When is this released?
-
-In the Javascript/Typescript SDK `>=???`, use `openDataset` with `alias` option:
+In the Javascript/Typescript SDK `>=3.7.0`, use `openDataset` with `alias` option:
 
 ```javascript
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
-// TODO: Explain this better
-When the Actor is run locally, the aliased datasets are created as named datasets.
 
 In Python SDK `>=3.3.0` , use `alias` parameter:
 
@@ -70,8 +66,13 @@ In Python SDK `>=3.3.0` , use `alias` parameter:
 categories_dataset = await Actor.open_dataset(alias='categories')
 ```
 
-// TODO: Explain this better
-When running the Actor locally, aliases make use of the aliasing mechanism already available in Python SDK.
+#### Running Apify SDK outside of Apify Platform
+
+When the Javascript SDK is used outside of Apify Platform, aliases fallback to names - using alias would be the same as using named dataset.
+There is one difference - when alias is used, the dataset is purged on first access (if the default dataset should be purged).
+
+The Python SDK behaves slightly differently, it uses the [aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages) specific to Python SDK. Aliases are created as unnamed, but also purged on Actor start.
+
 
 ### Environment variable
 
