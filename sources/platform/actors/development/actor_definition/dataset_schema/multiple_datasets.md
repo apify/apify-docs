@@ -36,7 +36,7 @@ Provide schemas for individual datasets as file references or inline. Schemas fo
 
 The keys of the `datasets` object are aliases that refer to specific datasets. In the example above, we have two datasets aliased as `default` and `categories`.
 
-:::info Alias versus Named Dataset
+:::info Alias versus named dataset
 
 Aliases and names are different. Named datasets have specific behavior on the Apify platform (the automatic data retention policy doesn't apply to them). Aliased datasets follow the data retention of their run. Aliases only have meaning within a specific run.
 
@@ -70,8 +70,6 @@ categories_dataset = await Actor.open_dataset(alias='categories')
 When the JavaScript SDK runs outside the Apify platform, aliases fall back to names (using an alias is the same as using a named dataset). The dataset is purged on first access if it's the default dataset.
 
 The Python SDK uses the [Crawlee for Python aliasing mechanism](HTTPS://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
-
-:::
 
 ### Environment variable
 
@@ -114,7 +112,7 @@ Actors with output schemas can reference datasets through variables using aliase
 
 ## Billing implications
 
-:::warning Custom Billing Required
+:::warning Custom billing required
 
 The `apify-default-dataset-item` synthetic event only charges for items in the dataset aliased as `default`.
 
