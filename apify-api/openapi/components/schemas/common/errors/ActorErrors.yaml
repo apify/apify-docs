@@ -24,6 +24,19 @@ ActorBuildNotFoundError:
           type: string
           example: Actor build was not found
 
+RecordOrTokenNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-or-token-not-found]
+        message:
+          type: string
+          example: Actor was not found or access denied
+
 ActorRunNotFoundError:
   type: object
   properties:

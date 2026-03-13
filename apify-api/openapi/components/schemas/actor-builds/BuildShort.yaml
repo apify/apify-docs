@@ -19,8 +19,10 @@ properties:
     format: date-time
     examples: ["2019-11-30T07:34:24.202Z"]
   finishedAt:
-    type: [string, "null"]
-    format: date-time
+    anyOf:
+      - type: string
+        format: date-time
+      - type: "null"
     examples: ["2019-12-12T09:30:12.202Z"]
   usageTotalUsd:
     type: number

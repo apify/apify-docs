@@ -11,7 +11,9 @@ properties:
     description: The build number/version string.
     examples: [0.0.2]
   finishedAt:
-    type: [string, "null"]
-    format: date-time
+    anyOf:
+      - type: string
+        format: date-time
+      - type: "null"
     description: The timestamp when the build finished.
     examples: ["2019-06-10T11:15:49.286Z"]

@@ -70,7 +70,12 @@ delete:
     "204":
       description: ""
       headers: {}
-      content: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+          example: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
@@ -82,7 +87,9 @@ delete:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/RecordOrTokenNotFoundError"
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
