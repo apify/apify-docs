@@ -114,3 +114,30 @@ jobs:
                     exit 1
                   fi
                   echo "✓ Bundles have valid sizes"
+
+    trigger-client-model-regeneration:
+        name: Trigger Python client model regeneration
+        runs-on: ubuntu-latest
+        needs: [validate]
+        if: github.event_name == 'pull_request'
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Check if OpenAPI files changed
+              uses: dorny/paths-filter@v3
+              id: filter
+              with:
+                  filters: |
+                      openapi:
+                          - 'apify-api/openapi/**'
+
+            - name: Trigger apify-client-python model regeneration
+              if: steps.filter.outputs.openapi == 'true'
+              run: |
+                  gh workflow run regenerate_models.yaml \
+                      --repo apify/apify-client-python \
+                      --field docs_pr_number=${{ github.event.pull_request.number }} \
+                      --field docs_pr_branch=${{ github.head_ref }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
