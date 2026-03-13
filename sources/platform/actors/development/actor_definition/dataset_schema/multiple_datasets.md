@@ -40,6 +40,7 @@ The keys of the `datasets` object are aliases that refer to specific datasets. I
 
 Aliases and names are different. Named datasets have specific behavior on the Apify platform (the automatic data retention policy doesn't apply to them). Aliased datasets follow the data retention of their run. Aliases only have meaning within a specific run.
 
+:::
 **Requirements:**
 
 - The `datasets` object must contain the `default` alias
@@ -70,6 +71,8 @@ categories_dataset = await Actor.open_dataset(alias='categories')
 When the JavaScript SDK runs outside the Apify platform, aliases fall back to names (using an alias is the same as using a named dataset). The dataset is purged on first access if it's the default dataset.
 
 The Python SDK uses the [Crawlee for Python aliasing mechanism](HTTPS://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
+
+:::
 
 ### Environment variable
 
@@ -117,3 +120,5 @@ Actors with output schemas can reference datasets through variables using aliase
 The `apify-default-dataset-item` synthetic event only charges for items in the dataset aliased as `default`.
 
 To charge for items in other datasets, implement custom billing in your Actor code. See the [billing documentation](link-to-billing-docs) for implementation details.
+
+:::
