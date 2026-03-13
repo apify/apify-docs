@@ -5,13 +5,17 @@ sidebar_position: 2
 slug: /actors/development/actor-definition/dataset-schema/multiple-datasets
 ---
 
-Some Actors produce data with different structure. In some cases, it's convenient to store the data in separate datasets, instead of pushing all data to the default one. Multiple datasets allow you to specify those datasets upfront and enforce validation rules.
+Actors that scrape different data types can store each type in its own dataset with separate validation rules. For example, an e-commerce scraper might store products in one dataset and categories in another.
 
-New datasets are created when the run starts, and follow its data retention.
+Each dataset:
+
+- Is created when the run starts
+- Follows the run's data retention policy
+- Can have its own validation schema
 
 ## Define multiple datasets
 
-Multiple datasets can be defined in the Actor schema using `datasets` object:
+Define datasets in your Actor schema using the `datasets` object:
 
 ```json title=".actor/actor.json"
 {
@@ -28,21 +32,20 @@ Multiple datasets can be defined in the Actor schema using `datasets` object:
 }
 ```
 
-Schemas of individual datasets can be provided as a file reference or inlined and follow the same structure as schema of a single dataset.
+Provide schemas for individual datasets as file references or inline. Schemas follow the same structure as single-dataset schemas.
 
-The keys of the `datasets` objects are **aliases**, which can be used to refer to the specific datasets. In the example above, we have two datasets, aliased as `default` and `categories`.
+The keys of the `datasets` object are aliases that refer to specific datasets. In the example above, we have two datasets aliased as `default` and `categories`.
 
-:::info Alias vs named dataset
+:::info Alias versus Named Dataset
 
-Alias and **name** are not the same thing. Named datasets have specific behavior on the Apify platform (e.g. the automatic data retention policy does not apply to them). Aliased datasets follow the data retention of their respective run. Aliases only have a meaning in the scope of a specific run.
+Aliases and names are different. Named datasets have specific behavior on the Apify platform (the automatic data retention policy doesn't apply to them). Aliased datasets follow the data retention of their run. Aliases only have meaning within a specific run.
 
-:::
+**Requirements:**
 
-The `datasets` object has to contain the `default` alias.
+- The `datasets` object must contain the `default` alias
+- The `datasets` and `dataset` objects are mutually exclusive (use one or the other)
 
-The `datasets` and `dataset` objects are mutually exclusive, the schema can only contain one.
-
-## Access the datasets in Actor code
+## Access datasets in Actor code
 
 The SDK has built-in support for accessing aliased datasets.
 
@@ -56,40 +59,39 @@ In the JavaScript/TypeScript SDK `>=3.7.0`, use `openDataset` with `alias` optio
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
-
 In the Python SDK `>=3.3.0` , use `alias` parameter:
 
 ```py
 categories_dataset = await Actor.open_dataset(alias='categories')
 ```
 
-#### Run Apify SDK outside of the Apify platform
+:::note Running outside the Apify platform
 
-When the JavaScript SDK is used outside of the Apify platform, aliases fallback to names - using alias would be the same as using named dataset.
-There is one difference - when alias is used, the dataset is purged on first access (if the default dataset should be purged).
+When the JavaScript SDK runs outside the Apify platform, aliases fall back to names (using an alias is the same as using a named dataset). The dataset is purged on first access if it's the default dataset.
 
-The Python SDK behaves differently, it uses the [aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages) specific to Crawlee for Python. Aliases are created as unnamed, but also purged on Actor start.
+The Python SDK uses the [Crawlee for Python aliasing mechanism](HTTPS://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
 
+:::
 
 ### Environment variable
 
-Outside of Apify SDK, access the environment variable directly:
+Access the environment variable directly without the SDK:
 
 ```sh
 echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 ```
 
-## Showing data to users
+## Configure output for developers
 
-### Run Storages tab
+### Storage tab
 
-The Storage tab of Actor run view displays all datasets defined by the Actor and datasets that were used by the run (up to 10 datasets).
+The Storage tab in the Actor run view displays all datasets defined by the Actor and used by the run (up to 10).
 
-This makes the data accessible, but not very user-friendly. To make the datasets more accessible to users, use output schema.
+This makes data accessible but not user-friendly. To improve accessibility, use an output schema.
 
 ### Output schema
 
-Actors with output schema can refer to the datasets through variables using aliases:
+Actors with output schemas can reference datasets through variables using aliases:
 
 ```json
 {
@@ -112,4 +114,8 @@ Actors with output schema can refer to the datasets through variables using alia
 
 ## Billing implications
 
-The `apify-default-dataset-item` synthetic event is only charged for items in dataset aliased as `default`. Charging for items in other datasets needs to be implemented in the Actor code.
+:::warning Custom Billing Required
+
+The `apify-default-dataset-item` synthetic event only charges for items in the dataset aliased as `default`.
+
+To charge for items in other datasets, implement custom billing in your Actor code. See the [billing documentation](link-to-billing-docs) for implementation details.
