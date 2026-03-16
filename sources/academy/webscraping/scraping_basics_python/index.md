@@ -53,7 +53,7 @@ Scrapers are programs specifically designed to mine data from the internet. Poin
 
 ### Why become a scraper dev
 
-As a scraper developer, you are not limited by whether certain data is available programmatically through an official API—the entire web becomes your API! Here are some things you can do if you understand scraping:
+As a scraper developer, you are not limited by whether certain data is available programmatically through an official API - the entire web becomes your API! Here are some things you can do if you understand scraping:
 
 - Improve your productivity by building personal tools, such as your own real estate or rare sneakers watchdog.
 - Companies can hire you to build custom scrapers mining data important for their business.

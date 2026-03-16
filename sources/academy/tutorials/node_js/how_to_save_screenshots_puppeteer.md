@@ -22,7 +22,7 @@ const saveScreen = async (page, key = 'debug-screen') => {
 
 This function takes the parameters page (an instance of a puppeteer page) and key (your screen is stored under this key function in the Apify key-value store).
 
-Because this is so common use-case Apify SDK has a utility function called [saveSnapshot](/sdk/js/docs/api/puppeteer#puppeteersavesnapshot) that does exactly this and a little bit more:
+Because this is so common use-case the Apify SDK has a utility function called [saveSnapshot](/sdk/js/docs/api/puppeteer#puppeteersavesnapshot) that does exactly this and a little bit more:
 
 - You can choose the quality of your screenshots (high-quality images take more size)
 
@@ -58,4 +58,3 @@ After you call the function, your screen appears in the KEY-VALUE STORE tab in t
 
 If you have any questions, feel free to contact us in chat.
 
-Happy coding!

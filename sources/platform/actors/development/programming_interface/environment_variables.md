@@ -56,7 +56,7 @@ Here's a table of key system environment variables:
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
 | `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
-| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
+| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
@@ -109,7 +109,7 @@ Be aware that if you define `environmentVariables` in `.actor/actor.json`, it on
 
 Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
 
-1. Go to your Actor's **Source** page in the Apify Console
+1. Go to your Actor's **Source** page in Apify Console
 
 1. Navigate to the **Environment variables** section.
 

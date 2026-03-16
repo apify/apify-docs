@@ -66,4 +66,4 @@ With jQuery, we're using the `$.getScript()` helper to fetch the script for us a
 
 Some websites employ security measures that disallow loading external scripts within their pages. Luckily, those measures can be overridden with Web Scraper. If you are encountering errors saying that your library cannot be loaded due to a security policy, select the Ignore CORS and CSP input option at the very bottom of Web Scraper input and the errors should go away.
 
-Happy scraping!
+

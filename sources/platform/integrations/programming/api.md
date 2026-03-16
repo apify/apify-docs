@@ -7,7 +7,7 @@ slug: /integrations/api
 ---
 
 All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
-If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend to use one of our API clients:
+If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend using one of the API clients:
 
 - [**apify-client**](/api/client/js/) `npm` package for JavaScript, supporting both browser and server
 - [**apify-client**](/api/client/python/) PyPI package for Python.
@@ -40,7 +40,7 @@ API tokens include security features to protect your account and data. You can s
 
 ## Rotation
 
-If you suspect that a token has been compromised or accidentally exposed, you can rotate it through the Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
+If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
 
 ![Rotate token in Apify Console](../images/api-token-rotate.png)
 
@@ -52,7 +52,7 @@ For better security awareness, the UI marks tokens identified as compromised, ma
 
 When working under an organization account, you will see two types of API tokens on the Integrations page.
 
-![Integrations page in the Apify Console in organization mode](../images/api-token-organization.png)
+![Integrations page in Apify Console in organization mode](../images/api-token-organization.png)
 
 The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you.
 
@@ -65,7 +65,7 @@ By default, tokens can access all data in your account. If that is not desirable
 **A scoped token can access only those resources that you'll explicitly allow it to.**
 
 :::info Actor modification restrictions
-We do not allow scoped tokens to create or modify Actors. If you do need to create or modify Actors through Apify API, use an unscoped token.
+We do not allow scoped tokens to create or modify Actors. If you do need to create or modify Actors through the Apify API, use an unscoped token.
 :::
 
 ### How to create a scoped token

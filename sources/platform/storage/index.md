@@ -10,7 +10,7 @@ import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
 
-The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our [REST API](/api/v2) [Apify API Clients](/api) or [SDKs](/sdk).
+The Apify platform provides three types of storage accessible both within [Apify Console](https://console.apify.com/storage) and externally through the [REST API](/api/v2) [Apify API Clients](/api) or [SDKs](/sdk).
 
 <CardGrid>
     <Card

@@ -7,11 +7,11 @@ slug: /actors/development/deployment
 
 Deploying an Actor involves uploading your [source code](/platform/actors/development/actor-definition) and [building](/platform/actors/development/builds-and-runs/builds) it on the Apify platform. Once deployed, you can run and scale your Actor in the cloud.
 
-## Deploy using Apify CLI
+## Deploy using the Apify CLI
 
 The fastest way to deploy and build your Actor is by using the [Apify CLI](/cli). If you've completed one of the tutorials from the [academy](/academy), you should have already have it installed. If not, follow the [Apify CLI installation instructions](/cli/docs/installation).
 
-To deploy your Actor using Apify CLI:
+To deploy your Actor using the Apify CLI:
 
 1. Log in to your Apify account:
 

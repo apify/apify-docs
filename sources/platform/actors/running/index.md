@@ -65,7 +65,7 @@ And that's it! You've run your first Actor!
 
 Now you can go back to the **Input** tab and try again with different settings, run other [Apify Actors](https://apify.com/store), or [build your own](./development).
 
-## Run Actors with Apify API
+## Run Actors with the Apify API
 
 To invoke Actors with the Apify API, send an HTTP POST request to the [Run Actor](/api/v2/act-runs-post) endpoint. For example:
 

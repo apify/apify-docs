@@ -35,7 +35,7 @@ Before setting up a new schedule, you should have the [Actor](./actors/index.mdx
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
 :::info Name Length
-Your schedule's name should be 3–63 characters long.
+Your schedule's name should be 3-63 characters long.
 :::
 
 ### Apify Console
@@ -106,7 +106,7 @@ If the request is successful, you will receive a `201` [HTTP response code](http
 
 You can add multiple Actor and task runs to a schedule with a single `POST` request. Simply add another object with the run's details to the **actions** array in your `POST` request's payload object.
 
-For more information, refer to the [schedules](/api/v2/schedule-get) section in our API documentation.
+For more information, refer to the [schedules](/api/v2/schedule-get) section in the API documentation.
 
 ## Schedule setup
 

@@ -51,7 +51,7 @@ For tasks, we can switch the path from **acts** to **actor-tasks** and keep the 
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-If we send a correct POST request to one of these endpoints, the actor/actor-task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
+If we send a correct POST request to one of these endpoints, the Actor/actor-task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
 
 ### Additional settings {#additional-settings}
 
@@ -198,7 +198,7 @@ For runs longer than 5 minutes, the process consists of three steps:
 
 ### Wait for the run to finish {#wait-for-the-run-to-finish}
 
-There may be cases where we need to run the Actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
+There may be cases where we need to run the Actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the Actor/task to finish.
 
 - [`waitForFinish` parameter](#waitforfinish-parameter)
 - [Webhooks](#webhooks)

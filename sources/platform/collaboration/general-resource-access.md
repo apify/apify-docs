@@ -154,18 +154,18 @@ When you retrieve dataset or key-value store details using:
 
 the API response includes automatically generated fields:  
 
-- `itemsPublicUrl` – a pre-signed URL providing access to dataset items  
-- `keysPublicUrl` – a pre-signed URL providing access to key-value store keys  
+- `itemsPublicUrl` - a pre-signed URL providing access to dataset items
+- `keysPublicUrl` - a pre-signed URL providing access to key-value store keys  
 
 These automatically generated URLs are _valid for 14 days_.
 
 The response also contains:
 
-- `consoleUrl` - provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
+- `consoleUrl` - provides a stable link to the resource's page in Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
 
 :::
 
-You can create pre-signed URLs either through the Apify Console or programmatically via the Apify API client.
+You can create pre-signed URLs either through Apify Console or programmatically via the Apify API client.
 
 #### How to generate pre-signed URLs in Apify Console
 
@@ -237,7 +237,7 @@ If the `expiresInSecs` option is not specified, the generated link will be _perm
 
 #### Signing URLs manually
 
-If you need finer control - for example, generating links without using Apify client - you can sign URLs manually using our reference implementation.
+If you need finer control - for example, generating links without using Apify client - you can sign URLs manually using the reference implementation.
 
 [Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
 
@@ -257,7 +257,7 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 If you own a public Actor in Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
 
-In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
+In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using the Apify SDK, this should be the default behavior. See the detailed guide below for more information.
 
 
 :::caution Actor runs inherit user permissions

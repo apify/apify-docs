@@ -200,7 +200,7 @@ This means the system expects the source code to be in `main.js` by default. If 
 
 :::tip Optimization tips
 
-You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
+You can check out various optimization tips for Dockerfile in the [Performance](../performance.md) documentation.
 
 :::
 

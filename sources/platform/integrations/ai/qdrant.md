@@ -33,7 +33,7 @@ With the cluster ready and its URL and API key in hand, you can proceed with int
 
 ### Integration Methods
 
-You can integrate Apify with Qdrant using either the Apify Console or the Apify Python SDK.
+You can integrate Apify with Qdrant using either Apify Console or the Apify Python SDK.
 
 :::note Website Content Crawler usage
 

@@ -17,7 +17,7 @@ Automated testing is crucial for maintaining the reliability and performance of 
 
 ## Set up automated tests
 
-1. Prepare test tasks - Create 1–5 separate testing tasks for your Actor.
+1. Prepare test tasks - Create 1-5 separate testing tasks for your Actor.
 1. Configure Actor testing - Set up a task using the Actor Testing Actor.
 1. Validate tests - Run the test task multiple times until all tests pass.
 1. Schedule tests - Set up a recurring schedule for your tests.

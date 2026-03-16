@@ -35,7 +35,7 @@ Once the cluster is ready, and you have the `URI` and `Token`, you can set up th
 
 ### Integration Methods
 
-You can integrate Apify with Milvus using either the Apify Console or the Apify Python SDK.
+You can integrate Apify with Milvus using either Apify Console or the Apify Python SDK.
 
 :::note Website Content Crawler usage
 
