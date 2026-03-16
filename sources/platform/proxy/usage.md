@@ -98,7 +98,7 @@ The table below describes the available parameters.
         <td>Optional</td>
         <td>
             <p>If specified to <code>session-new_job_123</code>, for example, all proxied requests with the same session identifier are routed through the same IP address. If not specified, each proxied request is assigned a randomly picked least used IP address.</p>
-            <p>The session string can only contain numbers (0-9), letters (a-z or A-Z), dot (.), underscore (_), a tilde (~). The maximum length is 50 characters.</p>
+            <p>The session string can only contain numbers (0–9), letters (a-z or A-Z), dot (.), underscore (_), a tilde (~). The maximum length is 50 characters.</p>
             <p>Session management may work differently for residential and SERP proxies. Check relevant documentations for more details.</p>
         </td>
     </tr>
@@ -137,7 +137,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 * Browser - a different IP address is used for each browser.
 * HTTP request - a different IP address is used for each request.
 
-Use [sessions](#sessions) to control how you rotate IP addresses. See the guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and the findings on how blocking works.
+Use [sessions](#sessions) to control how you rotate IP addresses. See the guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and Apify's findings on how blocking works.
 
 ## Sessions
 
@@ -177,7 +177,7 @@ Sometimes when the `502` status code is not comprehensive enough. Therefore, the
 
 * `590 Non Successful`: upstream responded with non-200 status code.
 * `591 RESERVED`: *this status code is reserved for further use.*
-* `592 Status Code Out Of Range`: upstream responded with status code different than 100-999.
+* `592 Status Code Out Of Range`: upstream responded with status code different than 100–999.
 * `593 Not Found`: DNS lookup failed, indicating either [`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
 * `594 Connection Refused`: upstream refused connection.
 * `595 Connection Reset`: connection reset due to loss of connection or timeout.

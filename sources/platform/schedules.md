@@ -35,7 +35,7 @@ Before setting up a new schedule, you should have the [Actor](./actors/index.mdx
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
 :::info Name Length
-Your schedule's name should be 3-63 characters long.
+Your schedule's name should be 3–63 characters long.
 :::
 
 ### Apify Console

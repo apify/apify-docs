@@ -1,6 +1,6 @@
 ---
 title: Using the organization account
-description: Learn to use and manage your organization account using Apify Console or API. View the organizations you are in and manage your memberships.
+description: Learn to use and manage your organization account using Apify Console or the Apify API. View the organizations you are in and manage your memberships.
 sidebar_position: 2
 slug: /collaboration/organization-account/how-to-use
 sidebar_label: How to use

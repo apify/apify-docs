@@ -38,7 +38,7 @@ Your Actor’s README has at least four functions:
 
 These are the most important elements of the README. This structure is also not to be followed to a “t”. Of course, what you want to say to your potential users and how you want to promote your Actor will differ case by case. These are just the most common practices we have for our Actor READMEs. Beware that the headings are written with SEO in mind, which is why you see certain keywords repeated over and over.
 
-Aim for sections 1-6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
+Aim for sections 1–6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
 
 ### Intro and features
 
@@ -108,7 +108,7 @@ If your datasets come out too complex and you want to save your users some scrol
 
 ### Other Actors
 
-Don't forget to promote your other Actors. While our system for Actor recommendation works - you can see related Actors at the bottom of the README - it only works within the same category or similar name. It won't recommend a completely different Actor from the same creator. Make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
+Don't forget to promote your other Actors. While Apify's system for Actor recommendation works - you can see related Actors at the bottom of the README - it only works within the same category or similar name. It won't recommend a completely different Actor from the same creator. Make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
 
 ### FAQ, disclaimers, and support
 
@@ -223,7 +223,7 @@ Learn about [How to create a great input schema](/academy/actor-marketing-playbo
 ## Readme elements template
 
 1. What does (Actor name) do?
-    - in 1-2 sentences describe what the Actor does and what it does not do
+    - in 1–2 sentences describe what the Actor does and what it does not do
     - consider adding keywords like API, e.g. Instagram API
     - always have a link to the target website in this section
 2. Why use (Actor name)? or Why scrape (target site)?

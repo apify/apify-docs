@@ -152,7 +152,7 @@ When you retrieve dataset or key-value store details using:
 - `GET https://api.apify.com/v2/datasets/:datasetId`  
 - `GET https://api.apify.com/v2/key-value-stores/:storeId`
 
-the API response includes automatically generated fields:  
+the API response includes automatically generated fields:
 
 - `itemsPublicUrl` - a pre-signed URL providing access to dataset items
 - `keysPublicUrl` - a pre-signed URL providing access to key-value store keys

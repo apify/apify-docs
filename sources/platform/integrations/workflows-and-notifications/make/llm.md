@@ -113,7 +113,7 @@ Advanced Settings give you full control over search and extraction. Use it for c
 
 #### Configuration options
 
-- _Search_: query, max results (1-100), SERP proxy group, SERP retries
+- _Search_: query, max results (1–100), SERP proxy group, SERP retries
 - _Scraping_: tool (browser-playwright, raw-http), HTML transformer, selectors (remove/keep/click), expand clickable elements
 - _Requests_: timeouts, retries, dynamic content wait
 - _Proxy_: use Apify Proxy, proxy groups, countries
