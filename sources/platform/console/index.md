@@ -70,7 +70,7 @@ After you click on the link (or copy it to your browser), you will proceed to a 
 
 ![apify-console-homepage](./images/apify-console-homepage.png)
 
-Apify Console homepage provides an overview of your account setup. The header displays your account name and current plan level. The homepage features several sections:
+The Apify Console homepage provides an overview of your account setup. The header displays your account name and current plan level. The homepage features several sections:
 
 - **Recently Viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
 
