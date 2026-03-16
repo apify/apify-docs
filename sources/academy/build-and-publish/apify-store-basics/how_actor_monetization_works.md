@@ -60,8 +60,6 @@ Profit calculation: `profit = 0.8 * revenue`
     - This comes up to $1.625 of total revenue
   - That means if platform usage costs are $0.365 for user A and $0.162 for user B your profit is $4.748
 
-{/* TODO: Verify this math. Applying the formula (0.8 × revenue) - costs gives $3.693, not $4.748. The $4.748 figure is revenue - costs without the 20% commission. */}
-
 :::info Pay-per-event details
 
 If you want more details about PPE pricing, refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
