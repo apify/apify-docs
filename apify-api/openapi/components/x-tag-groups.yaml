@@ -38,3 +38,7 @@
 - name: Users
   tags:
     - Users
+# Currently missing
+- name: Tools
+  tags:
+      - Tools

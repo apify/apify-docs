@@ -45,16 +45,12 @@ properties:
       type: object
       properties:
         startedAt:
-          anyOf:
-            - type: string
-              format: date-time
-            - type: "null"
+          type: [string, "null"]
+          format: date-time
           examples: ["2019-12-12T07:34:14.202Z"]
         finishedAt:
-          anyOf:
-            - type: string
-              format: date-time
-            - type: "null"
+          type: [string, "null"]
+          format: date-time
           examples: ["2019-12-12T07:34:14.202Z"]
         errorMessage:
           type: [string, "null"]

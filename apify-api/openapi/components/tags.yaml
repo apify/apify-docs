@@ -406,6 +406,11 @@
 
     :::
   x-trait: true
+- name: Tools
+  x-displayName: Tools - Introduction
+  description: |
+    The API endpoints described in this section provide utility tools for encoding,
+    signing, and verifying data.
 - name: Users
   x-displayName: Users - Introduction
   x-legacy-doc-urls:

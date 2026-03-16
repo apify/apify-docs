@@ -21,8 +21,6 @@ properties:
     type: boolean
     examples: [false]
   trialExpirationAt:
-    anyOf:
-      - type: string
-        format: date-time
-      - type: "null"
+    type: [string, "null"]
+    format: date-time
     examples: ["2025-01-01T14:00:00.000Z"]

@@ -1,0 +1,38 @@
+post:
+  tags:
+    - Tools
+  summary: Decode and verify object
+  description: |
+    Decodes and verifies an encoded value previously created by the
+    encode-and-sign endpoint. Returns the original decoded object along with
+    information about the user who encoded it and whether that user is verified.
+
+    **Important**: The request must specify the `Content-Type: application/json`
+    HTTP header.
+  operationId: tools_decode_and_verify_post
+  security: []
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/tools/DecodeAndVerifyRequest.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/tools/DecodeAndVerifyResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

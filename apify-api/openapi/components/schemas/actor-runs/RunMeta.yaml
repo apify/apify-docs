@@ -15,8 +15,6 @@ properties:
     type: [string, "null"]
     description: ID of the schedule that triggered the run.
   scheduledAt:
-    anyOf:
-      - type: string
-        format: date-time
-      - type: "null"
+    type: [string, "null"]
+    format: date-time
     description: Time when the run was scheduled.

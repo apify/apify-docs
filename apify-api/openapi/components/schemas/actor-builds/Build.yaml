@@ -23,10 +23,8 @@ properties:
     format: date-time
     examples: ["2019-11-30T07:34:24.202Z"]
   finishedAt:
-    anyOf:
-      - type: string
-        format: date-time
-      - type: "null"
+    type: [string, "null"]
+    format: date-time
     examples: ["2019-12-12T09:30:12.202Z"]
   status:
     $ref: ../common/ActorJobStatus.yaml
