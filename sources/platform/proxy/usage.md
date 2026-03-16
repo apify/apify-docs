@@ -173,7 +173,7 @@ https://api.apify.com/v2/browser-info/
 
 ### A different approach to `502 Bad Gateway`
 
-Sometimes when the `502` status code is not comprehensive enough. Therefore, the server has been modified with `590-599` codes instead to provide more insight:
+Sometimes the `502` status code is not comprehensive enough. Therefore, Apify Proxy uses `590-599` codes instead to provide more insight:
 
 * `590 Non Successful`: upstream responded with non-200 status code.
 * `591 RESERVED`: *this status code is reserved for further use.*
