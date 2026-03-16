@@ -68,14 +68,7 @@ delete:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
   responses:
     "204":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            type: object
-            example: {}
-          example: {}
+      $ref: ../../components/responses/NoContent.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

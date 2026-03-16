@@ -21,7 +21,7 @@ properties:
   startedAt:
     type: string
     format: date-time
-    examples: ["2019-   11-30T07:34:24.202Z"]
+    examples: ["2019-11-30T07:34:24.202Z"]
   finishedAt:
     anyOf:
       - type: string
