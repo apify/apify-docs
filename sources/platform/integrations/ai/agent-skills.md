@@ -1,7 +1,7 @@
 ---
 title: Agent Skills and MCPC
 sidebar_label: Agent Skills + MCPC
-description: Use Apify Agent Skills and MCPC to give AI coding assistants web scraping, data extraction, and automation capabilities through MCP servers.
+description: Use Apify Agent Skills and MCPC to give AI coding assistants web scraping, data extraction, and browser automation capabilities through MCP servers.
 sidebar_position: 1.5
 slug: /integrations/agent-skills
 ---
@@ -45,7 +45,7 @@ Each skill is a Markdown file (`SKILL.md`) that describes a capability and its t
 
 - Search and run Actors from [Apify Store](https://apify.com/store)
 - Extract data from websites, social media, and e-commerce platforms
-- Export results as JSON, CSV, or display them in chat
+- Export results as JSON or CSV, or display them in chat
 
 Skills use [MCPC](#install-mcpc) under the hood to communicate with MCP servers and execute Apify Actor calls.
 
