@@ -7,7 +7,7 @@ slug: /proxy/usage
 
 ## Connection settings
 
-To connect to Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at Apify Proxy hostname and provide it with your Apify Proxy password and the other parameters described below.
+To connect to Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at the Apify Proxy hostname and provide it with your Apify Proxy password and the other parameters described below.
 
 The full connection string has the following format:
 
