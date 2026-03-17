@@ -155,7 +155,7 @@ When you retrieve dataset or key-value store details using:
 the API response includes automatically generated fields:  
 
 - `itemsPublicUrl` - a pre-signed URL providing access to dataset items
-- `keysPublicUrl` - a pre-signed URL providing access to key-value store keys  
+- `keysPublicUrl` - a pre-signed URL providing access to key-value store keys
 
 These automatically generated URLs are _valid for 14 days_.
 
