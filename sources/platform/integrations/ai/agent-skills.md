@@ -1,7 +1,7 @@
 ---
 title: Agent Skills and MCPC
-sidebar_label: Agent Skills + MCPC
-description: Use Apify Agent Skills and MCPC to give AI coding assistants web scraping, data extraction, and browser automation capabilities through MCP servers.
+sidebar_label: Agent Skills and MCPC
+description: Use Apify Agent Skills and MCPC to give AI coding assistants web scraping, data extraction, and automation capabilities through MCP servers.
 sidebar_position: 1.5
 slug: /integrations/agent-skills
 ---
