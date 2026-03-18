@@ -34,7 +34,7 @@ Define datasets in your Actor schema using the `datasets` object:
 
 Provide schemas for individual datasets as file references or inline. Schemas follow the same structure as single-dataset schemas.
 
-The keys of the `datasets` object are aliases that refer to specific datasets. In the example above, we have two datasets aliased as `default` and `categories`.
+The keys of the `datasets` object are aliases that refer to specific datasets. The previous example defines two datasets aliased as `default` and `categories`.
 
 :::info Alias versus named dataset
 
