@@ -118,5 +118,4 @@ Actors with output schemas can reference datasets through variables using aliase
 
 When an Actor uses multiple datasets, only items pushed to the `default` dataset trigger the built-in `apify-default-dataset-item` event. Items in other datasets are not charged automatically.
 
-To charge for items in other datasets, implement custom billing in your Actor code. Refer to the [billing documentation](link-to-billing-docs) for
-implementation details.
+To charge for items in other datasets, implement custom billing in your Actor code. Refer to the [billing documentation](../../../publishing/monetize/pay_per_event.mdx) for implementation details.
