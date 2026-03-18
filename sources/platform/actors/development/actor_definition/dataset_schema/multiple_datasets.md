@@ -75,12 +75,11 @@ The Python SDK uses the [Crawlee for Python aliasing mechanism](https://crawlee.
 
 ### Environment variable
 
-Access the environment variable directly without the SDK:
+`ACTOR_STORAGES_JSON` contains JSON-encoded unique identifiers of all storages associated with the current Actor run. Use this approach when
+working without the SDK:
 
 ```sh
 echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
-```
-
 ## Configure the output schema
 
 ### Storage tab
