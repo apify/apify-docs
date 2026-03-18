@@ -71,7 +71,7 @@ categories_dataset = await Actor.open_dataset(alias='categories')
 
 When the JavaScript SDK runs outside the Apify platform, aliases fall back to names (using an alias is the same as using a named dataset). The dataset is purged on first access if it's the default dataset.
 
-The Python SDK uses the [Crawlee for Python aliasing mechanism](HTTPS://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
+The Python SDK uses the [Crawlee for Python aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
 
 :::
 
