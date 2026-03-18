@@ -61,7 +61,7 @@ In the JavaScript/TypeScript SDK `>=3.7.0`, use `openDataset` with `alias` optio
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
-In the Python SDK `>=3.3.0` , use `alias` parameter:
+In the Python SDK `>=3.3.0`, use `alias` parameter:
 
 ```py
 categories_dataset = await Actor.open_dataset(alias='categories')
