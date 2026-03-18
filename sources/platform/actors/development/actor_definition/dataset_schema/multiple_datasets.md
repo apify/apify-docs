@@ -83,7 +83,7 @@ Access the environment variable directly without the SDK:
 echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 ```
 
-## Configure output for developers
+## Configure the output schema
 
 ### Storage tab
 
