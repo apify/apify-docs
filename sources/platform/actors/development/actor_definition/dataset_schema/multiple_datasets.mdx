@@ -5,6 +5,9 @@ sidebar_position: 2
 slug: /actors/development/actor-definition/dataset-schema/multiple-datasets
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Actors that scrape different data types can store each type in its own dataset with separate validation rules. For example, an e-commerce scraper might store products in one dataset and categories in another.
 
 Each dataset:
@@ -53,13 +56,25 @@ There are two ways to access aliased datasets: using the Apify SDK, or reading t
 
 ### Apify SDK
 
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
 In the JavaScript/TypeScript SDK `>=3.7.0`, use `openDataset` with `alias` option:
 
 ```js
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
 ```
 
-In the Python SDK `>=3.3.0`, use `alias` parameter:
+:::note Running outside the Apify platform
+
+When the JavaScript SDK runs outside the Apify platform, aliases fall back to names (using an alias is the same as using a named dataset). The dataset is purged on the first access when accessed using the `alias` option.
+
+:::
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+In the Python SDK `>=3.3.0` , use `open_dataset` with `alias` parameter:
 
 ```py
 categories_dataset = await Actor.open_dataset(alias='categories')
@@ -67,11 +82,13 @@ categories_dataset = await Actor.open_dataset(alias='categories')
 
 :::note Running outside the Apify platform
 
-When the JavaScript SDK runs outside the Apify platform, aliases fall back to names (using an alias is the same as using a named dataset). The dataset is purged on first access if it's the default dataset.
-
-The Python SDK uses the [Crawlee for Python aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
+When the Python SDK runs outside the Apify platform, it uses the [Crawlee for Python aliasing mechanism](https://crawlee.dev/python/docs/guides/storages#named-and-unnamed-storages). Aliases are created as unnamed and purged on Actor start.
 
 :::
+
+</TabItem>
+</Tabs>
+
 
 ### Environment variable
 
@@ -80,6 +97,10 @@ working without the SDK:
 
 ```sh
 echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
+# This will output id of the categories dataset, e.g. `"3ZojQDdFTsyE7Moy4"`
+```
+
+
 ## Configure the output schema
 
 ### Storage tab
