@@ -89,7 +89,7 @@ echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 
 The **Storage** tab in the Actor run view displays all datasets defined by the Actor and used by the run (up to 10).
 
-This makes data accessible but not user-friendly. To improve accessibility, use an output schema.
+The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more clearly, define an output schema.
 
 ### Output schema
 
