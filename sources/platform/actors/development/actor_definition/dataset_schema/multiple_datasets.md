@@ -41,7 +41,8 @@ The keys of the `datasets` object are aliases that refer to specific datasets. I
 Aliases and names are different. Named datasets have specific behavior on the Apify platform (the automatic data retention policy doesn't apply to them). Aliased datasets follow the data retention of their run. Aliases only have meaning within a specific run.
 
 :::
-**Requirements:**
+
+Requirements:
 
 - The `datasets` object must contain the `default` alias
 - The `datasets` and `dataset` objects are mutually exclusive (use one or the other)
