@@ -49,9 +49,7 @@ Requirements:
 
 ## Access datasets in Actor code
 
-The SDK has built-in support for accessing aliased datasets.
-
-Inside the Actor, you can access it like this:
+There are two ways to access aliased datasets: using the Apify SDK, or reading the `ACTOR_STORAGES_JSON` environment variable directly.
 
 ### Apify SDK
 
