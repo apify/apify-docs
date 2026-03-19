@@ -1,0 +1,9 @@
+description: Unsupported media type - the Content-Encoding of the request is not supported.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: unsupported-content-encoding
+        message: Content-Encoding "bla" is not supported.

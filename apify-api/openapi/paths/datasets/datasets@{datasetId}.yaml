@@ -17,14 +17,7 @@ get:
     There is a short period (up to 5 seconds) during which these counters may not match with exact counts in dataset items.
   operationId: dataset_get
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
     - name: token
       in: query
       description: |
@@ -42,22 +35,22 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/datasets/DatasetResponse.yaml
-          example:
-            data:
-              id: WkzbQMuFYuamGv3YF
-              name: d7b9MDYsbtX5L7XAj
-              userId: wRsJZtadYvn4mBZmm
-              createdAt: "2019-12-12T07:34:14.202Z"
-              modifiedAt: "2019-12-13T08:36:13.202Z"
-              accessedAt: "2019-12-14T08:36:13.202Z"
-              itemCount: 7
-              cleanItemCount: 5
-              actId: null
-              actRunId: null
-              fields: []
-              consoleUrl: https://console.apify.com/storage/datasets/WkzbQMuFYuamGv3YF
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset
@@ -78,23 +71,13 @@ put:
     The response is the updated dataset object, as returned by the [Get dataset](#/reference/datasets/dataset-collection/get-dataset) API endpoint.
   operationId: dataset_put
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
   requestBody:
     description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/datasets/UpdateDatasetRequest.yaml
-        example:
-          name: new-dataset-name
-          generalAccess: RESTRICTED
     required: true
   responses:
     "200":
@@ -104,22 +87,26 @@ put:
         application/json:
           schema:
             $ref: ../../components/schemas/datasets/DatasetResponse.yaml
-          example:
-            data:
-              id: WkzbQMuFYuamGv3YF
-              name: d7b9MDYsbtX5L7XAj
-              userId: wRsJZtadYvn4mBZmm
-              createdAt: "2019-12-12T07:34:14.202Z"
-              modifiedAt: "2019-12-13T08:36:13.202Z"
-              accessedAt: "2019-12-14T08:36:13.202Z"
-              itemCount: 7
-              cleanItemCount: 5
-              actId: null
-              actRunId: null
-              fields: []
-              consoleUrl: https://console.apify.com/storage/datasets/WkzbQMuFYuamGv3YF
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/update-dataset
@@ -138,14 +125,7 @@ delete:
   description: Deletes a specific dataset.
   operationId: dataset_delete
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
   responses:
     "204":
       description: ""
@@ -153,6 +133,20 @@ delete:
       content: {}
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/delete-dataset

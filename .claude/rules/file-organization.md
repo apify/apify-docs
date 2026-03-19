@@ -1,9 +1,3 @@
----
-description: File naming conventions and directory structure standards
-globs: ["sources/**/*"]
-alwaysApply: true
----
-
 # File Organization Rules
 
 ## Naming conventions

@@ -1,13 +1,9 @@
 ---
 title: Apify Store
-description: Explore Apify Store, browse and select Actors, search by criteria, sort by relevance, and adjust settings for immediate or future runs.
+description: Browse thousands of pre-built Actors in Apify Store, filter by category or pricing, and run them immediately or save settings for later use.
 sidebar_position: 2
 category: platform
 slug: /console/store
----
-
-**Explore Apify Store, browse and select Actors, search by criteria, sort by relevance, and adjust settings for immediate or future runs.**
-
 ---
 
 ![apify-console-store](./images/console-store.png)
@@ -21,7 +17,6 @@ You can also organize the results from the store by different criteria, includin
 * Pricing model
 * Developers
 * Relevance
-
 
 Once you select an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
 

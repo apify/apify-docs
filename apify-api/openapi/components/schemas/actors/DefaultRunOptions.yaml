@@ -1,7 +1,4 @@
 title: defaultRunOptions
-required:
-  - build
-  - memoryMbytes
 type: object
 properties:
   build:
@@ -16,3 +13,9 @@ properties:
   restartOnError:
     type: boolean
     examples: [false]
+  maxItems:
+    type: [integer, "null"]
+  forcePermissionLevel:
+    anyOf:
+      - $ref: ./ActorPermissionLevel.yaml
+      - type: "null"

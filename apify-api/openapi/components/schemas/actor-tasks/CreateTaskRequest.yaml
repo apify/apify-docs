@@ -18,3 +18,9 @@ properties:
     anyOf:
       - $ref: ./TaskInput.yaml
       - type: "null"
+  title:
+    type: [string, "null"]
+  actorStandby:
+    anyOf:
+      - $ref: ../actors/ActorStandby.yaml
+      - type: "null"

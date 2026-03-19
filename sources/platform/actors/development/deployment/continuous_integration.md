@@ -1,7 +1,7 @@
 ---
 title: Continuous integration for Actors
 sidebar_label: Continuous integration
-description: Learn how to integrate your Actors by setting up automated builds, deploys, and testing for your Actors.
+description: Set up automated builds, deploys, and tests for your Actors using GitHub Actions, Bitbucket Pipelines, webhooks, or direct calls to the Apify API.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
@@ -32,7 +32,7 @@ Set up continuous integration for your Actors using one of these methods:
 
 Choose the method that best fits your workflow.
 
-## Option 1: Trigger builds with a Webhook
+## Option 1: Trigger builds with a webhook
 
 1. Push your Actor to a GitHub repository.
 1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:

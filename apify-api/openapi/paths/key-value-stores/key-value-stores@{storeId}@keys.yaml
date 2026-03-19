@@ -10,14 +10,7 @@ get:
     - see [Pagination](/api/v2#using-key) for more details.
   operationId: keyValueStore_keys_get
   parameters:
-    - name: storeId
-      in: path
-      description: Key-value store ID or `username~store-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
     - name: exclusiveStartKey
       in: query
       description: All keys up to this one (including) are skipped from the result.
@@ -47,14 +40,7 @@ get:
       schema:
         type: string
         example: post-images-
-    - name: signature
-      in: query
-      description: Signature used to access the keys.
-      required: false
-      style: form
-      schema:
-        type: string
-        example: 2wTI46Bg8qWQrV7tavlPI
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
     "200":
       description: ""
@@ -63,22 +49,22 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/key-value-stores/ListOfKeysResponse.yaml
-          example:
-            data:
-              items:
-                - key: second-key
-                  size: 36
-                  recordPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/second-key?signature=abc123
-                - key: third-key
-                  size: 128
-                  recordPublicUrl: https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/third-key?signature=abc123
-              count: 2
-              limit: 2
-              exclusiveStartKey: some-key
-              isTruncated: true
-              nextExclusiveStartKey: third-key
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys

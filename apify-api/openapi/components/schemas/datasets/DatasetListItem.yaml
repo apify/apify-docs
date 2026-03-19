@@ -39,5 +39,7 @@ properties:
     examples: [5]
   actId:
     type: [string, "null"]
+    examples: [zdc3Pyhyz3m8vjDeM]
   actRunId:
     type: [string, "null"]
+    examples: [HG7ML7M8z78YcAPEB]

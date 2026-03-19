@@ -1,6 +1,6 @@
 ---
 title: Make - YouTube Actor integration
-description: Learn about YouTube scraper modules. Extract channel, video, streams, shorts, and search data from YouTube.
+description: Use the YouTube Scraper module in Make to extract channel info, video data, streams, shorts, and search results from YouTube for your workflows.
 sidebar_label: YouTube
 sidebar_position: 5
 slug: /integrations/make/youtube

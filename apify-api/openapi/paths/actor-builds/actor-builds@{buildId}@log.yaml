@@ -6,36 +6,9 @@ get:
   description: "Check out [Logs](#/reference/logs) for full reference."
   operationId: actorBuild_log_get
   parameters:
-    - name: buildId
-      in: path
-      description: ID of the Actor build.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: HG7ML7M8z78YcAPEB
-    - name: stream
-      in: query
-      description: |
-        If `true` or `1` then the logs will be streamed as long as the run or
-        build is running.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: download
-      in: query
-      description: |
-        If `true` or `1` then the web browser will download the log file rather
-        than open it in a tab.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
+    - $ref: "../../components/parameters/logOptions.yaml#/stream"
+    - $ref: "../../components/parameters/logOptions.yaml#/download"
   responses:
     "200":
       description: ""
@@ -54,6 +27,20 @@ get:
             2017-07-14T06:00:49.752Z Some useful debug information follows.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-log/get-log
