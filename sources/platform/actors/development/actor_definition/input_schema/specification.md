@@ -980,7 +980,7 @@ This setting defines runtime access only and doesn't change field visibility or 
 ### Deprecation of `patternKey` and `patternValue`
 
 ::::warning Deprecation notice
-**The following properties are deprecated and will only be supported until May 31, 2026:**
+**The following properties are deprecated and will only be supported until June 30, 2026:**
 
 - `patternKey` - Used to validate keys in objects and arrays
 - `patternValue` - Used to validate values in objects and arrays
