@@ -50,6 +50,8 @@ Requirements:
 - The `datasets` object must contain the `default` alias
 - The `datasets` and `dataset` objects are mutually exclusive (use one or the other)
 
+See the full [Actor schema reference](../actor_json.md#reference).
+
 ## Access datasets in Actor code
 
 There are two ways to access aliased datasets: using the Apify SDK, or reading the `ACTOR_STORAGES_JSON` environment variable directly.
@@ -131,6 +133,8 @@ Actors with output schemas can reference datasets through variables using aliase
     }
 }
 ```
+
+[Read more](../output_schema/index.md#how-templates-work) about how templates work.
 
 ## Billing for non-default datasets
 
