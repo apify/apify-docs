@@ -1,12 +1,12 @@
 ---
 title: viaSocket integration
-description: Learn how to connect Apify with viaSocket, configure triggers, authenticate using API tokens, and create automation flows.
+description: Learn how to connect Apify with viaSocket, configure triggers, authenticate with API tokens, and build reliable, event-driven workflows across your apps.
 sidebar_label: viaSocket
 sidebar_position: 8
 slug: /integrations/viasocket
 ---
 
-**Learn how to connect Apify with viaSocket, configure triggers, authenticate using API tokens, and create automation flows.**
+Learn how to connect Apify with viaSocket, configure triggers, authenticate using API tokens, and create automation flows.
 
 ---
 
@@ -20,7 +20,7 @@ slug: /integrations/viasocket
 
 ![Apify API token settings](../images/viasocket/viasocket-apify-token.png)
 
-:::caution Keep your token secure
+:::caution Token security
 Never share your API token publicly or commit it to version control.
 :::
 
