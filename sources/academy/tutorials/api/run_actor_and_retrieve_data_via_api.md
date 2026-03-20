@@ -51,7 +51,7 @@ For tasks, we can switch the path from **acts** to **actor-tasks** and keep the 
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-If we send a correct POST request to one of these endpoints, the Actor/actor-task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
+If we send a correct POST request to one of these endpoints, the Actor or task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
 
 ### Additional settings {#additional-settings}
 
