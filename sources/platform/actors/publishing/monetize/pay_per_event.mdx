@@ -146,7 +146,7 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 ## Best practices for PPE Actors
 
-Use the [Apify SDKs](/sdk) (JS or Python) or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using the Apify CLI to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
+Use the [Apify SDKs](/sdk) (JS or Python) or the [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using the Apify CLI to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
 ### Use synthetic start event `apify-actor-start`
 
