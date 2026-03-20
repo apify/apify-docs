@@ -144,6 +144,63 @@ Audit performed on 2026-03-20 against local Apify Console at localhost:3000.
 - **Actual Console**: There is an **Export** button (not an "Export dataset" section), and data can be viewed in **Table** or **JSON** format. There is no separate **Download** button.
 - **Fix**: Updated the export flow to match actual UI
 
+## 18. Web IDE guide: wrong intro paragraph
+
+**File**: `sources/platform/actors/development/quick-start/start_web_ide.md`
+
+- **Docs say**: "You'll start by creating and running it locally with the Apify CLI"
+- **Actual**: This guide is about the Web IDE, not the CLI. The intro was copied from the local development guide.
+- **Fix**: Rewrote the intro to accurately describe the Web IDE workflow
+
+## 19. Web IDE guide: outdated template name and New Actor page layout
+
+**File**: `sources/platform/actors/development/quick-start/start_web_ide.md`
+
+- **Docs say**: "templates for JavaScript, TypeScript, and Python" and "proceed with **Crawlee + Puppeteer + Chrome**"
+- **Actual New Actor page**: Shows three sections - "Link a Git repository", "Select a code template", and "Push your code with Apify CLI". The default templates shown are "Crawlee + Cheerio" variants, not "Crawlee + Puppeteer + Chrome"
+- **Fix**: Updated to describe the actual page layout and use "Crawlee + Cheerio" template name
+
+## 20. Web IDE guide: minor tab capitalization
+
+**File**: `sources/platform/actors/development/quick-start/start_web_ide.md`
+
+- **Docs say**: "Last Run" (capitalized R)
+- **Actual**: Tab says "Last run" (lowercase r)
+- **Fix**: Updated to "Last run"
+
+## 21. Builds doc: wrong button label "Start" instead of "Build"
+
+**File**: `sources/platform/actors/development/builds_and_runs/builds.md`
+
+- **Docs say**: "Locate the **Start** button. Next to it, click on the arrow & choose **Clean build**"
+- **Actual Console**: The button says **"Build"**, not "Start"
+- **Fix**: Updated "Start" to "Build"
+
+## 22. General resource access: wrong settings tab name
+
+**File**: `sources/platform/collaboration/general-resource-access.md`
+
+- **Docs say**: "Settings → Security & Privacy"
+- **Actual Console**: For personal accounts, the tab is **"Login & Privacy"** (not "Security & Privacy")
+- Also docs say "Account Settings → Privacy" for run sharing - actual is "Settings → Login & Privacy → Share run data with developers"
+- **Fix**: Updated both references
+
+## 23. Google Drive integration: wrong integration name
+
+**File**: `sources/platform/integrations/data-storage/drive.md`
+
+- **Docs say**: click on the **"Upload file"** integration
+- **Actual Console**: The integration is called **"Upload results to GDrive"**
+- **Fix**: Updated integration name
+
+## 24. Gmail integration: wrong integration name
+
+**File**: `sources/platform/integrations/workflows-and-notifications/gmail.md`
+
+- **Docs say**: "click on Send email generic integration"
+- **Actual Console**: The integration is called **"Send results email via Gmail"**
+- **Fix**: Updated integration name
+
 ## 17. Actor detail page: tabs don't match documentation structure
 
 **Observed in Console** (for own Actors in development mode):

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## What you'll learn
 
-This guide walks you through the full lifecycle of an Actor. You'll start by creating and running it locally with the Apify CLI, then learn to configure its input and data storage. Finally, you will deploy the Actor to the Apify platform, making it ready to run in the cloud.
+This guide walks you through the full lifecycle of an Actor using the web IDE in Apify Console. You'll create an Actor from a code template, build it, configure its input, and run it in the cloud.
 
 ### Prerequisites
 
@@ -22,9 +22,9 @@ Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**
 
 ![Create Actor](./images/create-actor.png)
 
-You'll see Actor development templates for `JavaScript`, `TypeScript`, and `Python`.
+You'll see options to link a Git repository, select a code template, or push code with the Apify CLI.
 
-These templates provide boilerplate code and a preconfigured environment. Choose the template that best suits your needs. For the following demo, we'll proceed with **Crawlee + Puppeteer + Chrome**.
+Under **Select a code template**, you'll find quick-start templates for TypeScript, Python, and JavaScript. Click **Browse all templates** to see the full list. Choose the template that best suits your needs. For the following demo, we'll proceed with a **Crawlee + Cheerio** template.
 
 :::info Explore Actor templates
 
@@ -65,7 +65,7 @@ The UI includes four tabs:
 - **Code**
 - **Last build**
 - **Input**
-- **Last Run**
+- **Last run**
 
 This represents the Actor creation flow, where you first build the Actor from the source code. Once the build is successful, you can provide input parameters and initiate an Actor run.
 
