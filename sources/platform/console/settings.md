@@ -30,7 +30,7 @@ In the **Session Information** section, you can adjust the session configuration
 
 ## Integrations
 
-The **Integrations** tab provides essential tools for enhancing your interaction with our platform. Here, you can access your **Personal API Tokens**, which are necessary for using our [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to our [Integrations documentation](https://docs.apify.com/platform/integrations).
+The **Integrations** tab provides essential tools for enhancing your interaction with the Apify platform. Here, you can access your **Personal API Tokens**, which are necessary for using the [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/platform/integrations).
 
 ## Organization
 

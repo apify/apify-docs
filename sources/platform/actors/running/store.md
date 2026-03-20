@@ -62,7 +62,7 @@ When you run an Actor that is _paid per result_, you pay for the successful resu
 
 :::info Estimation simplified
 
-This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join our [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
+This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join the [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
 
 :::
 
@@ -140,7 +140,7 @@ To check an Actor's pricing and available discounts, visit the Pricing section o
 
 ![Apify Store discounts](./images/store/apify_store_discounts_web.png)
 
-In the Apify Console, you can find information about pricing and available discounts in the Actor's header section.
+In Apify Console, you can find information about pricing and available discounts in the Actor's header section.
 
 ![Apify Store discounts](./images/store/apify_store_discounts_console.png)
 

@@ -172,7 +172,7 @@ Then to specify that output is stored in the default dataset, create `.actor/out
 
 To show that the output is stored in the default dataset, the schema defines a property called `results`.
 
-The `title` is a human-readable name for the output, shown in the Apify Console.
+The `title` is a human-readable name for the output, shown in Apify Console.
 
 The `template` uses a variable `{{links.apiDefaultDatasetUrl}}`, which is replaced with the URL of the default dataset when the Actor run finishes.
 
