@@ -12,7 +12,7 @@ At Apify, we try to make building web scraping and automation straightforward. Y
 1. [Universal scrapers](https://apify.com/scrapers/universal-web-scrapers) - customize the boilerplate tools to your needs with a bit of JavaScript and setup.
 1. [Code templates](https://apify.com/templates) for web scraping projects - for a quick project setup to save you development time (includes JavaScript, TypeScript, and Python templates).
 1. Open-source libraries and SDKs
-    1. [JavaScript SDK](https://docs.apify.com/sdk/js/) & [Python SDK](https://docs.apify.com/sdk/python/) - for creating your own solution from scratch on the Apify platform using the free development kits. Involves more coding but offers infinite flexibility.
+    1. [JavaScript SDK](https://docs.apify.com/sdk/js/) and [Python SDK](https://docs.apify.com/sdk/python/) - for creating your own solution from scratch on the Apify platform using the free development kits. Involves more coding but offers infinite flexibility.
     1. [Crawlee](https://crawlee.dev/) and [Crawlee for Python](https://crawlee.dev/python) - for creating your own solutions from scratch using the free web automation libraries. Involves even more coding but offers infinite flexibility. There’s also no need to host these on the platform.
 
 ## Universal scrapers & what are they for
