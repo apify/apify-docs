@@ -296,4 +296,4 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - _Resource not found errors:_ Check that IDs are correct and case-sensitive
 - _Dataset field mapping issues:_ If you experience incorrect data types or missing fields in the Get Dataset Items action data pill, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
 
-If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on the [Apify Discord channel](https://discord.com/invite/jyEM2PRvMU).

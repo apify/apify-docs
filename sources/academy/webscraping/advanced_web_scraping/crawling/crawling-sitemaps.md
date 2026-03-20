@@ -49,7 +49,7 @@ Some websites also provide an HTML version, to help indexing bots find new conte
 /sitemap.html
 /sitemap_index
 
-Apify provides the [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), an open source actor that scans the URL variations automatically for you so that you don't have to check them manually.
+Apify provides the [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), an open source Actor that scans the URL variations automatically for you so that you don't have to check them manually.
 
 ## How to set up HTTP requests to download sitemaps
 

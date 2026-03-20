@@ -14,7 +14,7 @@ This solution allows you to access a larger pool of servers than datacenter prox
 
 Residential proxies support [IP address rotation](./usage.md#ip-address-rotation) and [sessions](#session-persistence).
 
-**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in the Apify Console.
+**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in Apify Console.
 
 ## Connect to residential proxy
 

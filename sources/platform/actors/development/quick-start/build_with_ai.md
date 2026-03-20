@@ -54,7 +54,7 @@ All [Actor Templates](https://apify.com/templates) have AGENTS.md that will help
 apify create
 ```
 
-If you do not have Apify CLI installed, see the [installation guide](/cli/docs/installation).
+If you do not have the Apify CLI installed, see the [installation guide](/cli/docs/installation).
 
 The command above will guide you through Apify Actor initialization, where you select an Actor Template that works for you. The result is an initialized Actor (with AGENTS.md) ready for development.
 

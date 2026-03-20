@@ -29,7 +29,7 @@ Before we dive in, a little disclaimer: you don't need your Apify README to fulf
 
 Your Actor’s README has at least four functions:
 
-1. _SEO_ - If your README is well-structured and includes important keywords — both in headings and across the text — it has a high chance of being noticed and promoted by Google. Organic search brings the most motivated type of potential users. If you win this game, you've won most of the SEO game.
+1. _SEO_ - If your README is well-structured and includes important keywords - both in headings and across the text - it has a high chance of being noticed and promoted by Google. Organic search brings the most motivated type of potential users. If you win this game, you've won most of the SEO game.
 2. _First impression_ - Your README is one of the first points of contact with a potential user. If you come across as convincing, clear, and reassuring it could be the factor that will make a user try your Actor for their task.
 3. _Extended instruction_ - The README is also the space that explains specific complex input settings. For example, special formatting of the input, any coding-related, or extended functions. Of course, you could put that all in a blog post as well, but the README should be their first point of contact.
 4. _Support_ - Your users come back to the README when they face issues. Use it as a space to let them know that's where they can find links to the tutorials if they run into issues, describe common troubleshooting techniques, share tricks, or warn you about bugs.
@@ -56,7 +56,7 @@ Your Actor + the Apify platform. They come as a package. Don't forget to flaunt 
 
 :::
 
-Imagine if there was a solution that is identical to yours but without the platform advantages such as monitoring, access to API, scheduling, possibility of integrations, proxy rotation. Now, if that tool suddenly gained all those advantages it would surely make a selling point out of it. This is how you should be thinking about your tool — as a solution boosted by the Apify platform. Don't ever forget that advantage.
+Imagine if there was a solution that is identical to yours but without the platform advantages such as monitoring, access to API, scheduling, possibility of integrations, proxy rotation. Now, if that tool suddenly gained all those advantages it would surely make a selling point out of it. This is how you should be thinking about your tool - as a solution boosted by the Apify platform. Don't ever forget that advantage.
 
 What data can [Actor] extract?
 
@@ -108,7 +108,7 @@ If your datasets come out too complex and you want to save your users some scrol
 
 ### Other Actors
 
-Don't forget to promote your other Actors. While our system for Actor recommendation works - you can see related Actors at the bottom of the README — it only works within the same category or similar name. It won't recommend a completely different Actor from the same creator. Make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
+Don't forget to promote your other Actors. While Apify's system for Actor recommendation works - you can see related Actors at the bottom of the README - it only works within the same category or similar name. It won't recommend a completely different Actor from the same creator. Make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
 
 ### FAQ, disclaimers, and support
 
@@ -125,7 +125,7 @@ Here are just a few things we usually push to the FAQ section.
 - mentioning the Issues tab and highlighting that you're open for feedback and collecting feedback
 - mentioning being open to creating a custom solution based on the current one and showing a way to contact you
 - interlinking
-- mentioning the possibility of transferring data using an API — API tab
+- mentioning the possibility of transferring data using an API - API tab
 - possibility for integrations
 - use cases for the data scraped, success stories exemplifying the use of data
 
