@@ -48,7 +48,7 @@ You can adjust how often your Actor or task runs using the [schedule setup tool]
 
 ![New schedule](./images/schedules-overview.png)
 
-Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Click on the **Add** dropdown and select whether you want to schedule an Actor or task.
+Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Click on the **Add new** dropdown and select whether you want to schedule an Actor or task.
 
 If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like [build](./actors/development/builds_and_runs/builds.md), timeout, [memory](./actors/running/usage_and_resources.md).
 The **timeout** value is specified in seconds; a value of _0_ means there is no timeout, and the Actor runs until it finishes.
@@ -63,7 +63,7 @@ If you're scheduling a task, just select the task you prepared earlier using the
 
 To add more Actors or tasks, just repeat the process.
 
-Now, all you need to do is click **Save & activate** and let the scheduler take care of running your jobs on time.
+New schedules are created in an enabled state by default. You can disable or enable the schedule at any time using the **Disable**/**Enable** button on the schedule detail page.
 
 For integrations, you can also add a [webhook](/platform/integrations/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 

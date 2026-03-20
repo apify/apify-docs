@@ -105,3 +105,51 @@ Audit performed on 2026-03-20 against local Apify Console at localhost:3000.
 - Many integration docs (Make, n8n, Gumloop, Telegram, Slack, Keboola, etc.) refer to the tab as "Settings > Integrations" in prose text
 - **Actual**: The Settings tab is called "API & Integrations"
 - **Fix**: Updated text references to "Settings > API & Integrations" across all affected files
+
+---
+
+## Second-round findings (step-by-step tutorial walkthrough)
+
+## 13. Actor running tutorial: wrong button labels
+
+**File**: `sources/platform/actors/running/index.md`
+
+- **Docs say**: "click **Use Actor**" then "click **Save & Start**"
+- **Actual Console**: There is no "Use Actor" button on the Actor detail page. The run button says **"Start"**, not "Save & Start"
+- **Fix**: Updated to remove "Use Actor" reference and changed "Save & Start" to "Start"
+
+## 14. Actor tasks: wrong "Create task" button label
+
+**File**: `sources/platform/actors/running/tasks.md`
+
+- **Docs say**: "click the **Create task** button"
+- **Actual Console**: The button says **"Save as a new task"**
+- **Fix**: Updated button label
+
+## 15. Schedules: wrong "Add" button label and nonexistent "Save & activate"
+
+**File**: `sources/platform/schedules.md`
+
+- **Docs say**: "Click on the **Add** dropdown"
+- **Actual Console**: Button says **"Add new"**
+- **Docs say**: "click **Save & activate**"
+- **Actual Console**: No such button exists. Schedules are created in an enabled state; you toggle with **Disable**/**Enable** button
+- **Fix**: Updated button label and replaced "Save & activate" description
+
+## 16. Dataset detail: outdated export flow description
+
+**File**: `sources/platform/storage/dataset.md`
+
+- **Docs say**: "Select the format in **Export dataset** section" then "Click **Download**"
+- **Actual Console**: There is an **Export** button (not an "Export dataset" section), and data can be viewed in **Table** or **JSON** format. There is no separate **Download** button.
+- **Fix**: Updated the export flow to match actual UI
+
+## 17. Actor detail page: tabs don't match documentation structure
+
+**Observed in Console** (for own Actors in development mode):
+
+Main tabs: Source, Information, Runs, Builds, Integrations, Monitoring, Issues, Saved tasks, Settings, Publication
+
+Inner source tabs: Code, Last build, Input, Last run
+
+This differs from what's implied in the running tutorial docs, which describe a simpler view with just Input/Output tabs. The development mode view has a significantly different tab structure than the store Actor view.
