@@ -22,7 +22,7 @@ The organization account is available on all plans. [Visit the pricing page](htt
 
 ## Create a new organization
 
-You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://console.apify.com/account#/myorganizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
+You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://console.apify.com/settings/organizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
 
 ![Create a new organization](../images/organizations/create-new-org.png)
 
@@ -40,7 +40,7 @@ Before converting your personal account into an organization, make sure it has a
 
 An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to **leave all the organizations you are a part of**.
 
-Then, under the **Organizations** [tab](https://console.apify.com/account#/myorganizations), click the **Convert this user account to an organization** button.
+Then, under the **Organizations** [tab](https://console.apify.com/settings/organizations), click the **Convert this user account to an organization** button.
 
 ![Convert your account to an organization](../images/organizations/convert-to-organization.png)
 

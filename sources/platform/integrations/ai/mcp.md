@@ -24,7 +24,7 @@ and enables AI coding assistants to access Apify documentation and tutorials.
 Before connecting your AI to Apify, you'll need three things:
 
 - _An Apify account_ - Sign up for an Apify account, if you don't have one.
-- _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
 ## Quick start
@@ -81,7 +81,7 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
 </TabItem>
 </Tabs>
@@ -143,7 +143,7 @@ To add Apify MCP server to Cursor manually:
     }
     ```
 
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
     </TabItem>
     </Tabs>
@@ -197,7 +197,7 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
     }
     ```
 
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
     </TabItem>
     </Tabs>
@@ -231,7 +231,7 @@ To manually configure Apify's MCP server for Claude Desktop:
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
 </TabItem>
 </Tabs>
@@ -433,7 +433,7 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 
 ##### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **Integrations** section of the [Apify Console](https://console.apify.com/account#/integrations). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **API & Integrations** section of the [Apify Console](https://console.apify.com/settings/integrations). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
 ##### Local environment setup

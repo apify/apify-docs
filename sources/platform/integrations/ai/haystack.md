@@ -33,7 +33,7 @@ from haystack.utils.auth import Secret
 from apify_haystack import ApifyDatasetFromActorCall
 ```
 
-Find your [Apify API token](https://console.apify.com/account/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
 
 ```python
 import os

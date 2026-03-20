@@ -59,7 +59,7 @@ The connection configuration options open in a new tab in your browser or in a m
 
 ![Apify Zapier connection](../images/zapier-new-connection.png)
 
-In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > Integrations**.
+In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > API & Integrations**.
 
 ![Integrations token](../images/apify-integrations-token.png)
 
