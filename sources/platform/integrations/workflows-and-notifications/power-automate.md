@@ -10,7 +10,7 @@ slug: /integrations/microsoft-power-automate
 
 ---
 
-[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run _Apify Actors_ inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
+[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run Apify Actors inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Key capabilities
 
@@ -24,8 +24,8 @@ slug: /integrations/microsoft-power-automate
 - **Run Actor:** Execute any Apify Actor with custom inputs.
 - **Run task:** Execute a saved Actor task.
 - **Get dataset items:** Retrieve scraped data from datasets with dynamic schema support.
-- **Get key-value store record:** Fetch stored data (e.g., screenshots, JSON state).
-- **Scrape single URL:** Quick single-page scraping using the Web Scraper Actor.
+- **Get key-value store record:** Fetch stored data (e.g. screenshots, JSON state).
+- **Scrape single URL:** Quick single-page scraping using the [Web Scraper](https://apify.com/apify/web-scraper) Actor.
 
 ## Get started
 
@@ -91,7 +91,7 @@ The connector provides user-friendly ways to select resources and provide inputs
 Most actions allow you to select resources (Actors, tasks, datasets, etc.) from dynamic dropdown lists populated from your Apify account.
 
 - **Recently used Actors**: Shows Actors you have used recently.
-- **From store**: Allows you to select from popular Actors in the Apify store.
+- **From store**: Allows you to select from popular Actors in Apify Store.
 - **My tasks**: Lists your saved Actor tasks.
 
 ![Dropdown selection of Actors](../images/power-automate/actor_dropdown_selection.png)
@@ -145,7 +145,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 - **Actor Scope**: Choose between _Recently used Actors_ or _From store_.
 - **Actor**: Select the Actor from the dropdown.
-- **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
+- **Trigger On**: Select which run statuses should trigger the flow (e.g. `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
 
 **Output**: The trigger provides a webhook payload containing detailed information about the completed Actor run.
 
@@ -156,7 +156,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 > Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status.
 
 - **Task**: Select the task from your account.
-- **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`).
+- **Trigger On**: Select which run statuses should trigger the flow (e.g. `SUCCEEDED`, `FAILED`).
 
 **Output**: The trigger provides a webhook payload containing detailed information about the completed task run.
 
@@ -234,7 +234,7 @@ To prevent unused webhooks from accumulating, please manually remove old webhook
 
 ![Scrape single URL action configuration](../images/power-automate/action_scrape_url.png)
 
-## Long‑running scrapes and async pattern in Power Automate
+## Long-running scrapes and async pattern in Power Automate
 
 The **Wait for finish** parameter in "Run Actor" and "Run task" actions has a maximum limit of **60 seconds**. If your Actor run takes longer than this, the action will time out if you try to wait for it synchronously.
 
@@ -295,7 +295,7 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 
 - _Timeout errors:_ If an action fails with a timeout, check if you are waiting for a long-running Actor. Switch to the async pattern (set `Wait for finish` to `0`).
 - _Schema issues:_ Dataset schemas are inferred from sample data. If fields are missing in Power Automate dynamic content, you might need to parse the raw JSON output manually. Fields may not appear if they are absent in the initial sample records.
-- _Orphaned Webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in the Apify Console. Currently, cleanup is not automatic.
+- _Orphaned Webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in Apify Console. Currently, cleanup is not automatic.
 
 ## Frequently asked questions
 
@@ -309,4 +309,4 @@ The Apify connector itself is free to use. Apify charges for compute resources (
 - **API Reference:** [docs.apify.com/api/v2](https://docs.apify.com/api/v2)
 - **Support:** [apify.com/contact](https://apify.com/contact)
 
-If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU) or visit the [Apify Community forum](https://community.apify.com).
+If you have any questions or need help, reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU) or visit the [Apify Community forum](https://community.apify.com).
