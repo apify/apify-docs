@@ -10,7 +10,7 @@ Learn how to integrate your Apify Actors with Microsoft Power Automate for autom
 
 ---
 
-[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run Apify Actors inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
+[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run Apify Actors inside your flows to launch web scraping and automation jobs, watch for run events, and process the results.
 
 ## Key capabilities
 
@@ -82,7 +82,7 @@ All requests made by the connector include the header `x-apify-integration-platf
 
 After connecting your Apify account, you can start creating flows that use Apify triggers and actions. A flow begins with a trigger (an event that starts the workflow) and includes one or more actions (operations to perform).
 
-### Selecting resources and providing input
+### Select resources and provide input
 
 Most actions let you select resources (Actors, tasks, datasets) from dropdown lists populated from your Apify account.
 
@@ -232,7 +232,7 @@ This action starts the Web Scraper Actor and returns the run details immediately
 
 ![Scrape single URL action configuration](../images/power-automate/action_scrape_url.png)
 
-## Long‑running scrapes and async pattern in Power Automate
+## Long-running scrapes and async pattern in Power Automate
 
 The **Wait for finish** parameter in "Run Actor" and "Run task" actions has a maximum limit of 60 seconds. If your Actor run takes longer than this, the action will time out if you try to wait for it synchronously.
 
