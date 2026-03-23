@@ -6,7 +6,7 @@ sidebar_position: 7
 slug: /integrations/microsoft-power-automate
 ---
 
-**Learn how to integrate your Apify Actors with Microsoft Power Automate for automated workflows.**
+Learn how to integrate your Apify Actors with Microsoft Power Automate for automated workflows.
 
 ---
 
@@ -234,7 +234,7 @@ This action starts the Web Scraper Actor and returns the run details immediately
 
 ## Long‑running scrapes and async pattern in Power Automate
 
-The **Wait for finish** parameter in "Run Actor" and "Run task" actions has a maximum limit of **60 seconds**. If your Actor run takes longer than this, the action will time out if you try to wait for it synchronously.
+The **Wait for finish** parameter in "Run Actor" and "Run task" actions has a maximum limit of 60 seconds. If your Actor run takes longer than this, the action will time out if you try to wait for it synchronously.
 
 For long-running scrapes, use the asynchronous pattern to ensure your flows are reliable:
 
@@ -242,9 +242,9 @@ For long-running scrapes, use the asynchronous pattern to ensure your flows are 
 
 1. **Wait for completion**:
 
-   - **Option A (Webhook)**: Create a separate flow with the **Actor run finished** or **Task run finished** trigger. This flow starts automatically when the run completes.
+   - Option A (Webhook): Create a separate flow with the **Actor run finished** or **Task run finished** trigger. This flow starts automatically when the run completes.
 
-   - **Option B (Polling)**: Implement a loop in your flow to periodically check the run status until it finishes. This is more complex but keeps everything in a single flow.
+   - Option B (Polling): Implement a loop in your flow to periodically check the run status until it finishes. This is more complex but keeps everything in a single flow.
 
 1. **Start the Actor or task**: Trigger the run asynchronously by setting `Wait for finish` to `0`.
    ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_1.png)
