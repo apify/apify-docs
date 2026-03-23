@@ -24,7 +24,7 @@ slug: /integrations/microsoft-power-automate
 - **Run Actor:** Execute any Apify Actor with custom inputs.
 - **Run task:** Execute a saved Actor task.
 - **Get dataset items:** Retrieve scraped data from datasets with dynamic schema support.
-- **Get key-value store record:** Fetch stored data (e.g., screenshots, JSON state).
+- **Get key-value store record:** Fetch stored data (e.g. screenshots, JSON state).
 - **Scrape single URL:** Quick single-page scraping using the Web Scraper Actor.
 
 ## Get started
@@ -139,7 +139,7 @@ Automatically execute your Power Automate flow when a specific Apify Actor run c
 
 - **Actor Scope**: Choose between **Recently used Actors** or **From store**.
 - **Actor**: Select the Actor from the dropdown.
-- **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
+- **Trigger On**: Select which run statuses should trigger the flow (e.g. `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
 
 **Output**: The trigger returns a webhook payload with the completed Actor run's data.
 
@@ -150,7 +150,7 @@ Automatically execute your Power Automate flow when a specific Apify Actor run c
 Automatically execute your Power Automate flow when a specific Apify Actor task run completes with a selected status.
 
 - **Task**: Select the task from your account.
-- **Trigger On**: Select which run statuses should trigger the flow (e.g., `SUCCEEDED`, `FAILED`).
+- **Trigger On**: Select which run statuses should trigger the flow (e.g. `SUCCEEDED`, `FAILED`).
 
 **Output**: The trigger returns a webhook payload with the completed task run's data.
 
