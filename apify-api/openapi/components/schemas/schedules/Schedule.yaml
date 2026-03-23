@@ -1,0 +1,61 @@
+title: Schedule
+required:
+  - id
+  - userId
+  - name
+  - cronExpression
+  - timezone
+  - isEnabled
+  - isExclusive
+  - createdAt
+  - modifiedAt
+  - actions
+type: object
+properties:
+  id:
+    type: string
+    examples: [asdLZtadYvn4mBZmm]
+  userId:
+    type: string
+    examples: [wRsJZtadYvn4mBZmm]
+  name:
+    type: string
+    examples: [my-schedule]
+  cronExpression:
+    type: string
+    examples: ["* * * * *"]
+  timezone:
+    type: string
+    examples: [UTC]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  isExclusive:
+    type: boolean
+    examples: [true]
+  description:
+    type: [string, "null"]
+    examples: [Schedule of actor ...]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-12T07:34:14.202Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-20T06:33:11.202Z"]
+  nextRunAt:
+    type: [string, "null"]
+    format: date-time
+    examples: ["2019-04-12T07:34:10.202Z"]
+  lastRunAt:
+    type: [string, "null"]
+    format: date-time
+    examples: ["2019-04-12T07:33:10.202Z"]
+  title:
+    type: [string, "null"]
+  actions:
+    type: array
+    items:
+      $ref: ./ScheduleActions.yaml
+    description: ""

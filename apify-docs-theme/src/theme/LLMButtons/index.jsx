@@ -2,15 +2,18 @@ import clsx from 'clsx';
 import React, { useCallback, useState } from 'react';
 
 import {
-    AnthropicIcon,
     ChatGptIcon,
     CheckIcon,
     ChevronDownIcon,
+    ClaudeIcon,
     CopyIcon,
+    CursorIcon,
     ExternalLinkIcon,
     LoaderIcon,
     MarkdownIcon,
+    McpIcon,
     PerplexityIcon,
+    VscodeIcon,
 } from '@apify/ui-icons';
 import { Menu, Text, theme } from '@apify/ui-library';
 
@@ -32,6 +35,29 @@ const DROPDOWN_OPTIONS = [
         value: 'viewAsMarkdown',
     },
     {
+        label: 'Copy MCP server',
+        description: 'Copy MCP Server URL to clipboard',
+        showExternalIcon: false,
+        Icon: McpIcon,
+        value: 'copyMcpServerUrl',
+    },
+    {
+        label: 'Connect to Cursor',
+        description: 'Install MCP Server on Cursor',
+        showExternalIcon: true,
+        // TODO: Replace with CursorIcon - we don't have one yet
+        Icon: CursorIcon,
+        value: 'connectCursor',
+    },
+    {
+        label: 'Connect to VS Code',
+        description: 'Install MCP server on VS Code',
+        showExternalIcon: true,
+        // TODO: Replace with VS Code Icon - we don't have one yet
+        Icon: VscodeIcon,
+        value: 'connectVsCode',
+    },
+    {
         label: 'Open in ChatGPT',
         description: 'Ask questions about this page',
         showExternalIcon: true,
@@ -42,7 +68,7 @@ const DROPDOWN_OPTIONS = [
         label: 'Open in Claude',
         description: 'Ask questions about this page',
         showExternalIcon: true,
-        Icon: AnthropicIcon,
+        Icon: ClaudeIcon,
         value: 'openInClaude',
     },
     {
@@ -53,6 +79,8 @@ const DROPDOWN_OPTIONS = [
         value: 'openInPerplexity',
     },
 ];
+
+const MCP_SERVER_URL = 'https://mcp.apify.com/?tools=docs';
 
 const getPrompt = (currentUrl) => `Read from ${currentUrl} so I can ask questions about it.`;
 const getMarkdownUrl = (currentUrl) => {
@@ -140,17 +168,21 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
     try {
         setCopyingStatus('loading');
 
-        // Fetch the markdown content
-        const response = await fetch(markdownUrl);
+        // Safari requires clipboard writes to be created synchronously inside the user gesture.
+        // We therefore pass a Promise that resolves to a Blob into ClipboardItem instead of
+        // awaiting fetch first — otherwise Safari would reject the clipboard operation.
+        const markdownContent = new ClipboardItem({
+            'text/plain': fetch(markdownUrl)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch markdown: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then((content) => new Blob([content], { type: 'text/plain' })),
+        });
 
-        if (!response.ok) {
-            throw new Error(`Failed to fetch markdown: ${response.status}`);
-        }
-
-        const markdownContent = await response.text();
-
-        // Copy to clipboard
-        await navigator.clipboard.writeText(markdownContent);
+        await navigator.clipboard.write([markdownContent]);
 
         // Show success feedback
         setCopyingStatus('copied');
@@ -159,6 +191,87 @@ const onCopyAsMarkdownClick = async ({ setCopyingStatus }) => {
     } finally {
         setTimeout(() => setCopyingStatus('idle'), 2000);
     }
+};
+
+const onCopyMcpServerUrlClick = async () => {
+    if (window.analytics) {
+        window.analytics.track('Clicked', {
+            app: 'docs',
+            button_text: 'Copy MCP server',
+            element: 'llm-buttons.copyMcpServer',
+        });
+    }
+
+    try {
+        await navigator.clipboard.writeText(MCP_SERVER_URL);
+    } catch (error) {
+        console.error('Failed to copy MCP configuration:', error);
+    }
+};
+
+const openApifyMcpConfigurator = (integration) => {
+    try {
+        window.open(`https://mcp.apify.com/?integration=${integration}`, '_blank');
+    } catch (error) {
+        console.error('Error opening fallback URL:', error);
+    }
+};
+
+const openMcpIntegration = async (integration) => {
+    // Try to open the app directly using URL scheme
+    let appUrl;
+    if (integration === 'cursor') {
+        // Cursor deeplink format:
+        // cursor://anysphere.cursor-deeplink/mcp/install?name=$NAME&config=$BASE64_JSON
+        const cursorConfig = {
+            url: MCP_SERVER_URL,
+        };
+        const encodedConfig = btoa(JSON.stringify(cursorConfig));
+        appUrl = `cursor://anysphere.cursor-deeplink/mcp/install?name=apify&config=${encodeURIComponent(encodedConfig)}`;
+    } else if (integration === 'vscode') {
+        // VS Code deeplink format: vscode:mcp/install?<url-encoded-json>
+        const mcpConfig = {
+            name: 'Apify',
+            type: 'http',
+            url: MCP_SERVER_URL,
+        };
+        const encodedConfig = encodeURIComponent(JSON.stringify(mcpConfig));
+        appUrl = `vscode:mcp/install?${encodedConfig}`;
+    }
+
+    if (appUrl) {
+        const openedWindow = window.open(appUrl, '_blank');
+
+        if (openedWindow) {
+            return;
+        }
+    }
+    // Fallback to web configurator if appUrl doesn't exist or window.open failed
+    openApifyMcpConfigurator(integration);
+};
+
+const onConnectCursorClick = () => {
+    if (window.analytics) {
+        window.analytics.track('Clicked', {
+            app: 'docs',
+            button_text: 'Connect to Cursor',
+            element: 'llm-buttons.connectCursor',
+        });
+    }
+
+    openMcpIntegration('cursor');
+};
+
+const onConnectVsCodeClick = () => {
+    if (window.analytics) {
+        window.analytics.track('Clicked', {
+            app: 'docs',
+            button_text: 'Connect to VS Code',
+            element: 'llm-buttons.connectVsCode',
+        });
+    }
+
+    openMcpIntegration('vscode');
 };
 
 const onViewAsMarkdownClick = () => {
@@ -257,6 +370,15 @@ export default function LLMButtons({ isApiReferencePage = false }) {
             case 'viewAsMarkdown':
                 onViewAsMarkdownClick();
                 break;
+            case 'copyMcpServerUrl':
+                onCopyMcpServerUrlClick();
+                break;
+            case 'connectCursor':
+                onConnectCursorClick();
+                break;
+            case 'connectVsCode':
+                onConnectVsCodeClick();
+                break;
             case 'openInChatGPT':
                 onOpenInChatGPTClick();
                 break;
@@ -277,9 +399,9 @@ export default function LLMButtons({ isApiReferencePage = false }) {
                 [styles.llmMenuApiReferencePage]: isApiReferencePage,
             })}
             onMenuOpen={(isOpen) => chevronIconRef.current?.classList.toggle(
-                    styles.chevronIconOpen,
-                    isOpen,
-                )
+                styles.chevronIconOpen,
+                isOpen,
+            )
             }
             components={{
                 MenuBase: (props) => (

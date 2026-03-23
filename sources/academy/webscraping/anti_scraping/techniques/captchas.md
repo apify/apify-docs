@@ -21,7 +21,7 @@ When you've hit a captcha, your first thought should not be how to programmatica
 Have you expended all of the possible options to make your scraper appear more human-like? Are you:
 
 - Using [proxies](../mitigation/proxies.md)?
-- Making the request with the proper [headers](../../../glossary/concepts/http_headers.md) and [cookies](../../../glossary/concepts/http_cookies.md)?
+- Making the request with the proper headers and cookies?
 - Generating and using a custom [browser fingerprint](./fingerprinting.md)?
 - Trying different general scraping methods (HTTP scraping, browser scraping)? If you are using browser scraping, have you tried using a different browser?
 

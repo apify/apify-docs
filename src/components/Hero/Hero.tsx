@@ -1,19 +1,48 @@
 import clsx from 'clsx';
 import type React from 'react';
 
+import { ArrowRightIcon } from '@apify/ui-icons';
+
 import { Heading } from '../Heading';
+import { Text } from '../Text';
 import styles from './styles.module.css';
+
+interface HeroPromotionProps {
+    badge: string;
+    label: string;
+    href: string;
+}
+
+function HeroPromotion({ badge, label, href }: HeroPromotionProps) {
+    return (
+        <a href={href} className={styles.heroPromotionLink}>
+            <Text className={styles.heroPromotionBadge} as="span">
+                {badge}
+            </Text>
+            <Text className={styles.heroPromotionLabel} weight="medium">
+                {label}
+            </Text>
+            <ArrowRightIcon
+                className={styles.heroPromotionArrow}
+                size="16"
+            />
+        </a>
+    );
+}
 
 interface HeroProps {
     heading: string;
     description: React.ReactNode | string;
+    align?: 'left' | 'center';
+    promotion?: HeroPromotionProps;
     className?: string;
 }
 
-export default function Hero({ heading, description, className }: HeroProps) {
+export default function Hero({ heading, description, promotion, align = 'left', className }: HeroProps) {
     return (
         <header className={clsx(styles.heroBanner, className)}>
-            <div className={clsx(styles.heroBannerContent)}>
+            <div className={clsx(styles.heroBannerContent, { [styles.heroAlignLeft]: align === 'left' })}>
+                {promotion && <HeroPromotion {...promotion} />}
                 <div>
                     <Heading type='title3Xl' className={styles.tagline}>{heading}</Heading>
                 </div>

@@ -17,14 +17,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -   uses: actions/checkout@v5
+            -   uses: actions/checkout@v6
             -   name: Use Node.js 22
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
-                    always-auth: 'true'
 
             -   name: Enable corepack
                 run: |
@@ -36,7 +35,6 @@ jobs:
                     npm run build
                 env:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
@@ -52,6 +50,10 @@ jobs:
                 uses: actions/deploy-pages@v4
 
             -   name: Invalidate CloudFront cache
-                run: gh workflow run invalidate.yaml --repo apify/apify-docs-private
+                run: |
+                    gh workflow run invalidate-cloudfront.yml \
+                        --repo apify/apify-docs-private \
+                        --field deployment=apify-docs
+                    echo "✅ CloudFront cache invalidation workflow triggered successfully"
                 env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}

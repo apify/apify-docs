@@ -6,10 +6,6 @@ category: platform
 slug: /schedules
 ---
 
-**Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.**
-
----
-
 Schedules allow you to run your Actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 :::note Timezone & Daylight Savings Time
@@ -32,7 +28,7 @@ However, runs can be delayed because of a system overload or a server shutting d
 
 Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tasks.
 
-## Setting up a new schedule
+## Set up a new schedule
 
 Before setting up a new schedule, you should have the [Actor](./actors/index.mdx) or [task](./actors/running/tasks.md) you want to schedule prepared and tested.
 
@@ -110,7 +106,7 @@ If the request is successful, you will receive a `201` [HTTP response code](http
 
 You can add multiple Actor and task runs to a schedule with a single `POST` request. Simply add another object with the run's details to the **actions** array in your `POST` request's payload object.
 
-For more information, refer to the [schedules](/api/v2/schedule-get) section in our API documentation.
+For more information, refer to the [schedules](/api/v2/schedule-get) section in the API documentation.
 
 ## Schedule setup
 

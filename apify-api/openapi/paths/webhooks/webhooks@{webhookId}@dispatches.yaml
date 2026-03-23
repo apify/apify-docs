@@ -5,22 +5,27 @@ get:
   description: Gets a given webhook's list of dispatches.
   operationId: webhook_webhookDispatches_get
   parameters:
-    - name: webhookId
-      in: path
-      description: ID number of the webhook.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: pVJtoTelgYUq4qJOt
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/webhook-dispatches/WebhookDispatchList.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/dispatches-collection/get-collection

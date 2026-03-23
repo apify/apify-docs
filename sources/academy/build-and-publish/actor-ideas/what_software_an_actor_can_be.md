@@ -12,7 +12,7 @@ Learn what kind of software tools are suitable to be packaged and published as A
 
 ## What can you build as an Actor
 
-[Actors](https://docs.apify.com/platform/actors) are a new concept for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
+[Actors](https://docs.apify.com/platform/actors) are a new way for building serverless micro-apps, which are easy to develop, share, integrate, and build upon.
 
 They are useful for backend automation jobs, which users set up, integrate into their workflow, and let run in the background, rather than consumer-facing applications that users need to interact with.
 
@@ -72,6 +72,7 @@ or the following list:
 
 - https://github.com/bytedance/Dolphin
 - https://github.com/google/langextract
+- https://github.com/ytdl-org/youtube-dl
 - https://github.com/virattt/ai-hedge-fund
 - https://github.com/jamesturk/scrapeghost/
 - https://github.com/idosal/git-mcp
@@ -157,17 +158,9 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 ### Browse and claim ideas
 
-:::note Join The Apify $1M Challenge
-
-Build and publish new tools on Apify and have multiple chances to win big prizes.
-
-[Join the challenge now.](https://apify.com/challenge)
-
-:::
-
 1. _Visit_ [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
 
-1. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.
+1. _Select an Actor idea_: Review the details and requirements. Check the status - if it's marked **Open to develop**, you can start building.
 
 1. _Build your Actor_: Develop your Actor based on the idea. You don't need to notify Apify during development.
 
@@ -183,22 +176,14 @@ Build and publish new tools on Apify and have multiple chances to win big prizes
 
 <!-- #### Multiple developers for one idea
 
-Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
+Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies - the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
 
 Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features. -->
 
 
-<!-- ### Submit your own ideas
+### Submit your own ideas
 
-The Ideas page is also where you contribute concepts to drive innovation in the community.
-
-Here's how you can contribute too:
-
-- _Submit ideas_: Share Actor concepts through the [Ideas submission form](https://apify.typeform.com/to/BNON8poB#source=ideas).
-Provide clear details about what the tool should do and how it should work.
-
-- _Engage with the community_: Upvote ideas you find intriguing. More support
-increases the likelihood a developer will build it. -->
+You can submit your own Actor ideas through [this form](https://apify.com/ideas?modal=ACTOR_IDEA). Please provide clear details about what the tool should do and how it should work.
 
 ## Find ideas from other sources
 

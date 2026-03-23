@@ -1,7 +1,8 @@
 ---
-title: II - Managing source
+title: Managing source
 description: View in-depth answers for all three of the quiz questions that were provided in the corresponding lesson about managing source code.
 sidebar_position: 2
+sidebar_label: II - Managing source
 slug: /expert-scraping-with-apify/solutions/managing-source
 ---
 

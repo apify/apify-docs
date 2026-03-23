@@ -1,13 +1,9 @@
 ---
 title: Monitoring
-description: Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.
+description: Learn how to make sure your Actors and tasks perform as expected and retrieve correct results. Get alerts when jobs or their metrics fall short.
 sidebar_position: 12
 category: guides
 slug: /monitoring
----
-
-**Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.**
-
 ---
 
 The web is continuously evolving, and so are the websites you interact with. If you implement Apify Actors or the data they provide into your daily workflows, you need to make sure that everything runs as expected.

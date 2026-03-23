@@ -1,0 +1,8 @@
+title: BatchDeleteResponse
+description: Response containing the result of a batch delete operation.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./BatchDeleteResult.yaml

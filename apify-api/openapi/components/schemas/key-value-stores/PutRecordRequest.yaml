@@ -1,6 +1,9 @@
 title: PutRecordRequest
+description: |
+  The request body contains the value to store in the record. The content type
+  should be specified in the Content-Type header.
 type: object
-properties:
-  foo:
-    type: string
-    example: bar
+additionalProperties: true
+example:
+  message: Hello, world!
+  count: 42

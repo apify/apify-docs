@@ -1,7 +1,5 @@
 title: MonthlyServiceUsage
-required:
-  - USAGE_ITEM
 type: object
-properties:
-  USAGE_ITEM:
-    $ref: ./UsageItem.yaml
+additionalProperties:
+  $ref: ./UsageItem.yaml
+description: A map of usage item names (e.g., ACTOR_COMPUTE_UNITS) to their usage details.

@@ -1,9 +1,8 @@
 title: AddRequestResponse
+description: Response containing the result of adding a request to the request queue.
 required:
   - data
 type: object
 properties:
   data:
-    allOf:
-      - $ref: ./RequestOperationInfo.yaml
-      - {}
+    $ref: ./RequestRegistration.yaml

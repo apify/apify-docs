@@ -1,0 +1,7 @@
+title: ListOfRunsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfRuns.yaml

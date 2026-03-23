@@ -1,6 +1,6 @@
 ---
 title: Gumloop - YouTube Actor integration
-description: Learn about YouTube scraper modules. Extract video details, channel information, playlists, and search results.
+description: Use the Gumloop YouTube node powered by Apify to extract video details, channel data, playlists, and search results without managing API keys or tasks.
 sidebar_label: YouTube
 sidebar_position: 4
 slug: /integrations/gumloop/youtube

@@ -1,0 +1,8 @@
+title: KeyValueStoreResponse
+description: Response containing key-value store data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./KeyValueStore.yaml

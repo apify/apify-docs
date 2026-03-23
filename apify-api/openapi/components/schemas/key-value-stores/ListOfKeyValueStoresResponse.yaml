@@ -1,0 +1,7 @@
+title: ListOfKeyValueStoresResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    $ref: ./ListOfKeyValueStores.yaml

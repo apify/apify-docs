@@ -1,0 +1,12 @@
+title: ActorJobStatus
+type: string
+enum:
+  - READY
+  - RUNNING
+  - SUCCEEDED
+  - FAILED
+  - TIMING-OUT
+  - TIMED-OUT
+  - ABORTING
+  - ABORTED
+description: Status of an Actor job (run or build).

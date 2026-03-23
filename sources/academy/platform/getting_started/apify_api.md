@@ -17,7 +17,7 @@ In this lesson, we'll be learning how to use the Apify API to call an Actor and 
 
 Within one of your Actors on the [Apify Console](https://console.apify.com?asrc=developers_portal) (we'll use the **adding-actor** from the previous lesson), click on the **API** button in the top right-hand corner:
 
-![The "API" button on an Actor's page on the Apify Console](./images/api-tab.jpg)
+![The "API" button on an Actor's page in Apify Console](./images/api-tab.jpg)
 
 You should see a long list of API endpoints that you can copy and paste elsewhere, or even test right within the **API** modal. Go ahead and copy the endpoint labeled **Run Actor synchronously and get dataset items**. It should look something like this:
 
@@ -31,7 +31,7 @@ In this lesson, we'll only be focusing on this one endpoint, as it is the most p
 
 :::
 
-Now, let's move over to our favorite HTTP client (in this lesson we'll use [Insomnia](../../glossary/tools/insomnia.md) in order to prepare and send the request).
+Now, let's move over to our favorite HTTP client (in this lesson we'll use [Insomnia](https://insomnia.rest/) in order to prepare and send the request, but you can use [Postman](https://www.postman.com/), [Bruno](https://www.usebruno.com/), [Httpie](https://httpie.io/) or any other client you like).
 
 ## Providing input
 
@@ -51,7 +51,7 @@ Additional parameters can be passed to this endpoint. You can learn about them i
 
 :::caution Token security
 
-Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
+Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as Postman or Insomnia, provide a convenient way to configure the Authorization header for all your API requests.
 
 :::
 

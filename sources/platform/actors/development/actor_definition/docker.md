@@ -1,12 +1,8 @@
 ---
 title: Dockerfile
-description: Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.
+description: Learn about Docker base images for Apify Actors and how to choose the right image based on your Actor's requirements and programming language.
 slug: /actors/development/actor-definition/dockerfile
 sidebar_position: 7
----
-
-**Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.**
-
 ---
 
 When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
@@ -48,6 +44,101 @@ These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`)
 | [`actor-python`](https://hub.docker.com/r/apify/actor-python) | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers. |
 | [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers. |
 | [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
+
+## Image tag naming convention
+
+Docker image tags follow a consistent naming pattern that allows you to pin specific versions:
+
+### Node.js images
+
+For Node.js images, the tag format is:
+
+- `{node-version}` - A Node.js version only (e.g., `20`, `22`, `24`)
+- `{node-version}-{library-version}` - A Node.js version with pinned Playwright/Puppeteer version (e.g., `22-1.52.0`)
+
+Examples:
+
+| Tag | Description |
+| --- | ----------- |
+| `20` | Node.js 20 with the Playwright/Puppeteer version that was latest when the image was built |
+| `22` | Node.js 22 with the Playwright/Puppeteer version that was latest when the image was built |
+| `22-1.52.0` | Node.js 22 with Playwright/Puppeteer version 1.52.0 pinned |
+| `latest` | Latest LTS Node.js version |
+
+### Python images
+
+For Python images, the tag format is:
+
+- `{python-version}` - A Python version only (e.g., `3.11`, `3.12`, `3.13`)
+- `{python-version}-{library-version}` - A Python version with pinned Playwright/Selenium version
+
+### Available tags
+
+To see all available tags for an image, visit Docker Hub:
+
+- [View actor-node-playwright-chrome tags](https://hub.docker.com/r/apify/actor-node-playwright-chrome/tags)
+- [View actor-node-playwright tags](https://hub.docker.com/r/apify/actor-node-playwright/tags)
+- [View actor-node-puppeteer-chrome tags](https://hub.docker.com/r/apify/actor-node-puppeteer-chrome/tags)
+- [View actor-python-playwright tags](https://hub.docker.com/r/apify/actor-python-playwright/tags)
+
+You can also query available tags programmatically:
+
+```bash
+curl -s "https://registry.hub.docker.com/v2/repositories/apify/actor-node-playwright-chrome/tags?page_size=50" | jq '.results[].name'
+```
+
+## Version pinning for reproducible builds
+
+For production Actors, pin both the Node.js/Python version and the browser automation library version in your Dockerfile. This ensures reproducible builds and prevents unexpected behavior when new versions are released.
+
+### Recommended approach
+
+In your `Dockerfile`, use a fully pinned tag:
+
+```dockerfile
+# Pin both Node.js 22 and Playwright 1.52.0
+FROM apify/actor-node-playwright-chrome:22-1.52.0
+```
+
+In your `package.json`, match the Playwright/Puppeteer version to your Docker image tag:
+
+```json
+{
+    "dependencies": {
+        "apify": "^3.5.0",
+        "@crawlee/playwright": "^3.15.0",
+        "playwright": "1.52.0"
+    }
+}
+```
+
+:::warning Why version matching matters
+
+When the Playwright/Puppeteer version in your `package.json` differs from what's pre-installed in the Docker image, npm will download and install the version specified in `package.json`. This can lead to:
+
+- Slower builds due to downloading browser binaries
+- Potential version incompatibilities
+- Inconsistent behavior between local development and production
+
+:::
+
+### Use `*` as version (alternative approach)
+
+You may encounter older documentation or templates using `*` as the Playwright/Puppeteer version:
+
+```json
+{
+    "dependencies": {
+        "playwright": "*"
+    }
+}
+```
+
+The asterisk (`*`) tells npm to use whatever version is already installed, which prevents re-downloading the library. While this approach still works, **pinning specific versions is now preferred** because:
+
+1. Reproducibility - Your builds will behave the same way regardless of when you build them
+1. Predictability - You know exactly which version you're running
+1. Debugging - Version-specific issues are easier to track down
 
 ## Custom Dockerfile
 
@@ -109,11 +200,11 @@ This means the system expects the source code to be in `main.js` by default. If 
 
 :::tip Optimization tips
 
-You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
+You can check out various optimization tips for Dockerfile in the [Performance](../performance.md) documentation.
 
 :::
 
-## Updating older Dockerfiles
+## Update older Dockerfiles
 
 All Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
 
@@ -198,7 +289,7 @@ You should remove these lines, as the new user is now `myuser`. Don't forget to 
 COPY --chown=myuser:myuser . ./
 ```
 
-#### Installing dependencies that require root access
+#### Install dependencies that require root access
 
 The `root` user is still available in the Docker images. If you must run steps that require root access (like installing system packages with `apt` or `apk`), you can temporarily switch to the `root` user.
 

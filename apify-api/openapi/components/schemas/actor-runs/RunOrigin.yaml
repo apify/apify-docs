@@ -1,0 +1,12 @@
+title: RunOrigin
+type: string
+enum:
+  - DEVELOPMENT
+  - WEB
+  - API
+  - SCHEDULER
+  - TEST
+  - WEBHOOK
+  - ACTOR
+  - CLI
+  - STANDBY

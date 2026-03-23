@@ -18,32 +18,12 @@ get:
       schema:
         type: string
         example: HG7ML7M8z78YcAPEB
-    - name: stream
-      in: query
-      description: |
-        If `true` or `1` then the logs will be streamed as long as the run or
-        build is running.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: download
-      in: query
-      description: |
-        If `true` or `1` then the web browser will download the log file rather
-        than open it in a tab.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
+    - $ref: "../../components/parameters/logOptions.yaml#/stream"
+    - $ref: "../../components/parameters/logOptions.yaml#/download"
     - name: raw
       in: query
       description: |
-        If `true` or `1`, the logs will be kept verbatim. By default, the API removes 
+        If `true` or `1`, the logs will be kept verbatim. By default, the API removes
         ANSI escape codes from the logs, keeping only printable characters.
       required: false
       style: form
@@ -52,8 +32,8 @@ get:
         type: boolean
         example: false
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         text/plain:
@@ -67,6 +47,18 @@ get:
             2017-07-14T06:00:49.733Z Application started.
             2017-07-14T06:00:49.741Z Input: { test: 123 }
             2017-07-14T06:00:49.752Z Some useful debug information follows.
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-js-parent: LogClient
   x-js-name: stream

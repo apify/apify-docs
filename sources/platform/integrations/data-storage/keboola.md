@@ -1,13 +1,9 @@
 ---
 title: Keboola integration
-description: Learn how to integrate your Apify datasets with Airbyte.
+description: Integrate Apify Actors with Keboola to extract data from various sources and load it into Keboola for processing, transformation, and further integration.
 sidebar_label: Keboola
 sidebar_position: 2
 slug: /integrations/keboola
----
-
-**Integrate your Apify Actors with Keboola, a cloud-based data integration platform that consolidates data from various sources into a centralized storage.**
-
 ---
 
 With Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
@@ -40,7 +36,6 @@ Provide a name and description for your configuration, then click the **Create C
 With the new configuration created, you can now configure the data source to retrieve the needed data. Click on the **Configure Component** button to begin the setup process.
 
 ![Keboola component configuration](../images/keboola/keboola-configure-component.png)
-
 
 #### Choose an action
 

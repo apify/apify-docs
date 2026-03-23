@@ -1,13 +1,9 @@
 ---
 title: Agno Integration
 sidebar_label: Agno
-description: Integrate Apify with Agno to power AI agents with web scraping, automation, and data insights.
-sidebar_position: 17
+description: Learn how to integrate Apify with Agno to power your AI agents with real-time web scraping and automation tools available in Apify Store.
+sidebar_position: 19
 slug: /integrations/agno
----
-
-**Integrate Apify with Agno to power AI agents with web scraping, automation, and data insights.**
-
 ---
 
 ## What is Agno?
@@ -26,7 +22,7 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 
 ### Prerequisites
 
-- _Apify API token_: Obtain your API token from the [Apify console](https://console.apify.com/account/integrations).
+- _Apify API token_: Obtain your API token from the [Apify Console](https://console.apify.com/account/integrations).
 - _OpenAI API key_: Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
 :::tip Alternative LLM providers
@@ -140,6 +136,6 @@ Agno supports any Apify Actor via the ApifyTools class. You can specify a single
 - [How to build an AI Agent](https://blog.apify.com/how-to-build-an-ai-agent/)
 - [Agno Framework Documentation](https://docs.agno.com)
 - [Apify Platform Documentation](https://docs.apify.com)
-- [Apify Actor Documentation](https://docs.apify.com/actors)
+- [Apify Actor Documentation](/platform/actors)
 - [Apify Store - Browse available Actors](https://apify.com/store)
 - [Agno Apify Toolkit Documentation](https://docs.agno.com/tools/toolkits/others/apify#apify)

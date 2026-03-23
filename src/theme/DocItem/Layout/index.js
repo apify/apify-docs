@@ -1,8 +1,5 @@
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import { useLocation } from '@docusaurus/router';
-import { useColorMode, useWindowSize } from '@docusaurus/theme-common';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Giscus from '@giscus/react';
+import { useWindowSize } from '@docusaurus/theme-common';
 import ContentVisibility from '@theme/ContentVisibility';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import DocItemFooter from '@theme/DocItem/Footer';
@@ -13,7 +10,7 @@ import DocItemContent from '@theme/DocItemContent';
 import DocVersionBadge from '@theme/DocVersionBadge';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import clsx from 'clsx';
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import styles from './styles.module.css';
 
@@ -36,45 +33,9 @@ function useDocTOC() {
     };
 }
 
-function GiscusWrapper({ colorMode }) {
-    return (
-        <React.Fragment>
-            <div className={styles.giscus}>
-                <Giscus
-                    id="giscus-comments"
-                    repo="apify/apify-docs"
-                    repoId="MDEwOlJlcG9zaXRvcnkxOTk0Njc5ODk="
-                    category="Comments"
-                    categoryId="DIC_kwDOC-Oj1c4CT-aW"
-                    mapping="pathname"
-                    reactionsEnabled="1"
-                    emitMetadata="0"
-                    inputPosition="top"
-                    theme={colorMode}
-                    lang="en"
-                    strict="1"
-                />
-            </div>
-        </React.Fragment>
-    );
-}
-
 export default function DocItemLayout({ children }) {
     const docTOC = useDocTOC();
     const { metadata } = useDoc();
-    const { colorMode } = useColorMode();
-    const location = useLocation();
-    const { siteConfig } = useDocusaurusContext();
-
-    const { forbiddenGiscusDocRegExpStrings } = siteConfig.customFields;
-
-    const shouldShowGiscus = useCallback((rxStrings) => {
-        return rxStrings.some((rxs) => {
-            const pathRegExp = new RegExp(rxs);
-            const isForbidden = pathRegExp.test(location.pathname);
-            return !isForbidden;
-        });
-    }, [location.pathname]);
 
     return (
         <div className="row">
@@ -90,7 +51,6 @@ export default function DocItemLayout({ children }) {
                         <DocItemFooter />
                     </article>
                     <DocItemPaginator />
-                    {shouldShowGiscus(forbiddenGiscusDocRegExpStrings) && <GiscusWrapper colorMode={colorMode} />}
                 </div>
             </div>
             {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}

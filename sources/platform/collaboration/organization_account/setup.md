@@ -5,10 +5,6 @@ sidebar_position: 1
 slug: /collaboration/organization-account/setup
 ---
 
-**Configure your organization account by inviting new members and assigning their roles. Manage team members' access permissions to the organization's resources.**
-
----
-
 After creating your organization, you can configure its settings. The **Account** tab allows you to:
 
 - Set the organization's email address
@@ -23,7 +19,7 @@ In the **Account** tab's **Security** section, you can set security requirements
 - Maximum session lifespan
 - Two-factor authentication requirement
 
-**[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
+**[See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
 ## Add users to your organization
 

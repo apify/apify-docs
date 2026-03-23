@@ -1,0 +1,41 @@
+# Configuration for typos spell checker
+# https://github.com/crate-ci/typos
+
+[default]
+extend-ignore-re = [
+    "https?://[^\\s]+", # Ignore URLs
+]
+
+[files]
+# Extend the default exclude list
+extend-exclude = [
+    "*.lock",
+    "*.min.js",
+    "*.min.css",
+    "CHANGELOG.md",
+    "patches/",
+]
+
+# Add project-specific identifiers that should not be treated as typos
+[default.extend-identifiers]
+# Actor ID example
+vKg4IjxZbEYTYeW8T = "vKg4IjxZbEYTYeW8T"
+# YouTube video ID
+HV6OlMPn5sI = "HV6OlMPn5sI"
+# Webhook ID example
+pVJtoTelgYUq4qJOt = "pVJtoTelgYUq4qJOt"
+# Facebook ID example
+ZmVlZGJhY2s6MTA1NTQwMzA4MzM2ODM5NV8yMzg2MDgyOTg1MTIyNDUx = "ZmVlZGJhY2s6MTA1NTQwMzA4MzM2ODM5NV8yMzg2MDgyOTg1MTIyNDUx"
+# Git hash
+9ba8df137936 = "9ba8df137936"
+
+# Add project-specific words that should not be treated as typos
+[default.extend-words]
+# Vietnamese dish name "Bún bò Nam Bô"
+Nam = "Nam"
+# Search Engine Result (Page/Pages)
+SER = "SER"
+SERPs = "SERPs"
+# Czech legal documents
+dne = "dne"
+tak = "tak"

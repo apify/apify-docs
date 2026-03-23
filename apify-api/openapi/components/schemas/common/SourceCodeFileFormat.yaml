@@ -1,0 +1,5 @@
+type: string
+enum:
+  - BASE64
+  - TEXT
+examples: [TEXT]

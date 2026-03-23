@@ -1,0 +1,27 @@
+title: RequestQueueHead
+description: A batch of requests from the request queue head without locking.
+type: object
+required:
+  - limit
+  - queueModifiedAt
+  - hadMultipleClients
+  - items
+properties:
+  limit:
+    type: integer
+    description: The maximum number of requests returned.
+    examples: [1000]
+  queueModifiedAt:
+    type: string
+    format: date-time
+    description: The timestamp when the request queue was last modified.
+    examples: ["2018-03-14T23:00:00.000Z"]
+  hadMultipleClients:
+    type: boolean
+    description: Whether the request queue has been accessed by multiple different clients.
+    examples: [false]
+  items:
+    type: array
+    items:
+      $ref: ./HeadRequest.yaml
+    description: The array of requests from the request queue head.

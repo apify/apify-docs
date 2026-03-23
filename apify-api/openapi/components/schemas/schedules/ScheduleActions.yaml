@@ -1,0 +1,23 @@
+title: ScheduleActions
+required:
+  - id
+  - type
+  - actorId
+type: object
+properties:
+  id:
+    type: string
+    examples: [c6KfSgoQzFhMk3etc]
+  type:
+    $ref: ./ScheduleActionType.yaml
+  actorId:
+    type: string
+    examples: [jF8GGEvbEg4Au3NLA]
+  runInput:
+    anyOf:
+      - $ref: ./ScheduleActionsRunInput.yaml
+      - type: "null"
+  runOptions:
+    anyOf:
+      - $ref: ./ScheduleActionsRunOptions.yaml
+      - type: "null"

@@ -1,6 +1,6 @@
 ---
 title: Make - TikTok Actor integration
-description: Learn about TikTok scraper modules, extract posts, comments, and profile data.
+description: Use the TikTok Scraper modules in Make to extract hashtag videos, comments, and profile data from TikTok and incorporate results into your workflows.
 sidebar_label: TikTok
 sidebar_position: 2
 slug: /integrations/make/tiktok
@@ -19,7 +19,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/tiktok/image.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 

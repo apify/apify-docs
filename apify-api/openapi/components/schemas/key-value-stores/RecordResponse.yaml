@@ -1,0 +1,9 @@
+title: RecordResponse
+description: |
+  The response body contains the value of the record. The content type of the response
+  is determined by the Content-Type header stored with the record.
+type: object
+additionalProperties: true
+example:
+  message: Hello, world!
+  count: 42

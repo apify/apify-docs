@@ -1,13 +1,9 @@
 ---
 title: Haystack integration
 sidebar_label: Haystack
-description: Learn how to integrate Apify with Haystack to work with web data in the Haystack ecosystem.
-sidebar_position: 3
+description: Learn how to integrate Apify with Haystack to crawl websites, compute text embeddings, and build retrieval-augmented generation pipelines with ease.
+sidebar_position: 4
 slug: /integrations/haystack
----
-
-**Learn how to integrate Apify with Haystack to work with web data in the Haystack ecosystem.**
-
 ---
 
 [Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections. For more information on Haystack, visit its [documentation](https://docs.haystack.deepset.ai/docs/intro).
@@ -178,7 +174,6 @@ for doc in results["retriever"]["documents"]:
 ```
 
 To run it, you can use the following command: `python apify_integration.py`
-
 
 ## Resources
 

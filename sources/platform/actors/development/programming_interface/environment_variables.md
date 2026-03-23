@@ -35,7 +35,7 @@ Apify sets several system environment variables for each Actor run. These variab
 Here's a table of key system environment variables:
 
 | Environment Variable | Description |
-|----------------------|-------------|
+| -------------------- | ----------- |
 | `ACTOR_ID` | ID of the Actor. |
 | `ACTOR_FULL_NAME` | Full technical name of the Actor, in the format `owner-username/actor-name`. |
 | `ACTOR_RUN_ID` | ID of the Actor run. |
@@ -44,19 +44,20 @@ Here's a table of key system environment variables:
 | `ACTOR_BUILD_TAGS` | A comma-separated list of tags of the Actor build used in the run. Note that this environment variable is assigned at the time of start of the Actor and doesn't change over time, even if the assigned build tags change. |
 | `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
+| `ACTOR_STORAGES_JSON` | JSON-encoded unique identifiers of storages associated with the current Actor run. |
 | `ACTOR_DEFAULT_DATASET_ID` | Unique identifier for the default dataset associated with the current Actor run. |
 | `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | Unique identifier for the default key-value store associated with the current Actor run. |
 | `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | Unique identifier for the default request queue associated with the current Actor run. |
-| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input).  |
+| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input). |
 | `ACTOR_MAX_PAID_DATASET_ITEMS` | For paid-per-result Actors, the user-set limit on returned results. Do not exceed this limit. |
 | `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
 | `ACTOR_RESTART_ON_ERROR` | If **1**, the Actor run will be restarted if it fails. |
 | `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
-| `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under. This determines what resources in the user’s account the Actor can access. |
+| `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
-| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
+| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
@@ -109,7 +110,7 @@ Be aware that if you define `environmentVariables` in `.actor/actor.json`, it on
 
 Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
 
-1. Go to your Actor's **Source** page in the Apify Console
+1. Go to your Actor's **Source** page in Apify Console
 
 1. Navigate to the **Environment variables** section.
 
@@ -198,13 +199,13 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        old_token = Actor.config.token
+        old_token = Actor.configuration.token
         Actor.log.info(f'old_token = {old_token}')
 
         # use different token
-        Actor.config.token = 's0m3n3wt0k3n'
+        Actor.configuration.token = 's0m3n3wt0k3n'
 
-        new_token = Actor.config.token
+        new_token = Actor.configuration.token
         Actor.log.info(f'new_token = {new_token}')
 ```
 

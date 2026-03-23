@@ -1,0 +1,18 @@
+title: KeyValueStoreKey
+type: object
+required:
+  - key
+  - size
+  - recordPublicUrl
+properties:
+  key:
+    type: string
+    examples: [second-key]
+  size:
+    type: integer
+    examples: [36]
+  recordPublicUrl:
+    type: string
+    format: uri
+    description: A public link to access this record directly.
+    examples: ["https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key?signature=abc123"]

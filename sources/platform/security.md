@@ -6,10 +6,6 @@ category: platform
 slug: /security
 ---
 
-**Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.**
-
----
-
 ## SOC 2 type II compliance
 
 The Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations comply with SOC 2 standards for security, availability, and confidentiality of customer data.
@@ -109,6 +105,6 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 :::
 
-## Securing your data
+## Secure your data
 
 The Apify platform provides you with multiple ways to secure your data, including [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) for storing your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) for securing the input parameters of your Actors.

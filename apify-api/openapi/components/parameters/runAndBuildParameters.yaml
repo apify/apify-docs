@@ -1,0 +1,312 @@
+actorId:
+  name: actorId
+  in: path
+  description: Actor ID or a tilde-separated owner's username and Actor name.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: janedoe~my-actor
+
+actorTaskId:
+  name: actorTaskId
+  in: path
+  description: "Task ID or a tilde-separated owner's username and task's name."
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: janedoe~my-task
+
+webhookId:
+  name: webhookId
+  in: path
+  description: Webhook ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: pVJtoTelgYUq4qJOt
+
+runId:
+  name: runId
+  in: path
+  description: Actor run ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: 3KH8gEpp4d8uQSe8T
+
+buildId: &buildId
+  name: buildId
+  in: path
+  description: ID of the build, found in the build's Info tab.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: soSkq9ekdmfOslopH
+
+buildIdWithDefault:
+  <<: *buildId
+  description: |
+    ID of the build, found in the build's Info tab.
+    Use the special value `default` to get the OpenAPI schema for the Actor's default build.
+
+targetActorId:
+  name: targetActorId
+  in: query
+  description: ID of a target Actor that the run should be transformed into.
+  required: true
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: HDSasDasz78YcAPEB
+
+versionNumber:
+  name: versionNumber
+  in: path
+  description: Actor version.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: "0.1"
+
+gracefully:
+  name: gracefully
+  in: query
+  description: |
+    If true passed, the Actor run will abort gracefully.
+    It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+    It is helpful in cases where you plan to resurrect the run later.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true
+
+statusLastRun:
+  name: status
+  in: query
+  description: Filter for the run status.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: SUCCEEDED
+
+timeout: &timeout
+  name: timeout
+  in: query
+  description: |
+    Optional timeout for the run, in seconds. By default, the run uses the timeout from its configuration.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 60
+
+timeoutResurrect:
+  <<: *timeout
+  description: |
+    Optional timeout for the run, in seconds. By default, the run uses the timeout
+    specified in the run that is being resurrected.
+
+memory: &memory
+  name: memory
+  in: query
+  description: |
+    Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128.
+    By default, the run uses the memory limit from its configuration.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 256
+
+memoryResurrect:
+  <<: *memory
+  description: |
+    Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2
+    with a minimum of 128. By default, the run uses the memory limit specified in the run
+    that is being resurrected.
+
+build: &build
+  name: build
+  in: query
+  description: |
+    Specifies the Actor build to run. It can be either a build tag or build number.
+    By default, the run uses the build from its configuration (typically `latest`).
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: 0.1.234
+
+buildResurrect:
+  <<: *build
+  description: |
+    Specifies the Actor build to run. It can be either a build tag or build number.
+    By default, the run is resurrected with the same build it originally used. Specifically,
+    if a run was first started with the `latest` tag, which resolves to version `0.0.3` at the
+    time, a run resurrected without this parameter will continue running with `0.0.3`, even if
+    `latest` already points to a newer build.
+
+restartOnError: &restartOnError
+  name: restartOnError
+  in: query
+  description: |
+    Determines whether the run will be restarted if it fails.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: false
+
+restartOnErrorResurrect:
+  <<: *restartOnError
+  description: |
+    Determines whether the resurrected run will be restarted if it fails.
+    By default, the resurrected run uses the same setting as before.
+
+webhooks:
+  name: webhooks
+  in: query
+  description: |
+    Specifies optional webhooks associated with the Actor run, which can be used to receive a notification
+    e.g. when the Actor finished or failed. The value is a Base64-encoded
+    JSON array of objects defining the webhooks. For more information, see
+    [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
+
+waitForFinishRun:
+  name: waitForFinish
+  in: query
+  description: |
+    The maximum number of seconds the server waits for the run to finish. By
+    default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+    If the run finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
+    otherwise it will have a transitional status (e.g. `RUNNING`).
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 60
+
+waitForFinishBuild:
+  name: waitForFinish
+  in: query
+  description: |
+    The maximum number of seconds the server waits for the build to finish.
+    By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+    If the build finishes in time then the returned build object will have a
+    terminal status (e.g. `SUCCEEDED`), otherwise it will have a transitional status (e.g. `RUNNING`).
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 60
+
+maxItems:
+  name: maxItems
+  in: query
+  required: false
+  description: |
+    Specifies the maximum number of dataset items that will be charged for pay-per-result Actors.
+    This does NOT guarantee that the Actor will return only this many items.
+    It only ensures you won't be charged for more than this number of items.
+    Only works for pay-per-result Actors.
+    Value can be accessed in the actor run using `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 1000
+
+maxTotalChargeUsd:
+  name: maxTotalChargeUsd
+  in: query
+  required: false
+  description: |
+    Specifies the maximum cost of the run. This parameter is
+    useful for pay-per-event Actors, as it allows you to limit the amount
+    charged to your subscription. You can access the maximum cost in your Actor
+    by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 5
+
+status:
+  name: status
+  in: query
+  description: |
+    Single status or comma-separated list of statuses, see ([available
+    statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)). Used to filter runs by the specified statuses only.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: SUCCEEDED
+
+startedAfter:
+  name: startedAfter
+  in: query
+  description: |
+    Filter runs that started after the specified date and time (inclusive).
+    The value must be a valid ISO 8601 datetime string (UTC).
+  style: form
+  explode: true
+  schema:
+    type: string
+    format: date-time
+    example: "2025-09-01T00:00:00.000Z"
+
+startedBefore:
+  name: startedBefore
+  in: query
+  description: |
+    Filter runs that started before the specified date and time (inclusive).
+    The value must be a valid ISO 8601 datetime string (UTC).
+  style: form
+  explode: true
+  schema:
+    type: string
+    format: date-time
+    example: "2025-09-17T23:59:59.000Z"
+
+scheduleId:
+  name: scheduleId
+  in: path
+  description: Schedule ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: asdLZtadYvn4mBZmm
+
+outputRecordKey:
+  name: outputRecordKey
+  in: query
+  description: |
+    Key of the record from run's default key-value store to be returned
+    in the response. By default, it is `OUTPUT`.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: OUTPUT

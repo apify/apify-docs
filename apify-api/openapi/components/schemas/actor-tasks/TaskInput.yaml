@@ -1,7 +1,10 @@
 title: TaskInput
+description: |
+  The input configuration for the Actor task. This is a user-defined JSON object
+  that will be passed to the Actor when the task is run.
 type: object
-properties:
-  hello:
-    type: string
-    nullable: true
-    example: world
+additionalProperties: true
+example:
+  startUrls:
+    - url: https://example.com
+  maxRequestsPerCrawl: 100

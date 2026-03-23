@@ -8,50 +8,59 @@ get:
     contains basic information about a single version.
   operationId: act_versions_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetVersionListResponse.yaml"
+            $ref: ../../components/schemas/actors/ListOfVersionsResponse.yaml
           example:
             data:
               total: 5
               items:
-                - versionNumber: '0.1'
+                - versionNumber: "0.1"
                   envVars: null
                   sourceType: SOURCE_FILES
                   applyEnvVarsToBuild: false
                   buildTag: latest
                   sourceFiles: []
-                - versionNumber: '0.2'
+                - versionNumber: "0.2"
                   sourceType: GIT_REPO
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitRepoUrl: 'https://github.com/jane35/my-actor'
-                - versionNumber: '0.3'
+                  gitRepoUrl: "https://github.com/jane35/my-actor"
+                - versionNumber: "0.3"
                   sourceType: TARBALL
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
-                - versionNumber: '0.4'
+                  tarballUrl: "https://github.com/jane35/my-actor/archive/master.zip"
+                - versionNumber: "0.4"
                   sourceType: GITHUB_GIST
                   envVars: null
                   applyEnvVarsToBuild: false
                   buildTag: latest
-                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+                  gitHubGistUrl: "https://gist.github.com/jane35/e51feb784yu89"
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-collection/get-list-of-versions
@@ -96,39 +105,52 @@ post:
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
   operationId: act_versions_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml"
+          $ref: ../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml
         example:
-          versionNumber: '0.1'
+          versionNumber: "0.1"
           sourceType: GIT_REPO
-          gitRepoUrl: 'https://github.com/my-github-account/actor-repo'
+          gitRepoUrl: "https://github.com/my-github-account/actor-repo"
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
             text/plain:
               schema:
                 type: string
-              example: 'https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/0.0'
+              example: https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/0.0
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/GetVersionResponse.yaml"
+            $ref: ../../components/schemas/actors/VersionResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-collection/create-version

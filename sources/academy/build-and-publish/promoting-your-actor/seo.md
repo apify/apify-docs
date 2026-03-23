@@ -76,13 +76,13 @@ Now, you can expand the “People Also Ask” questions. Click on each question 
 
 Another way to collect more keywords is to use the official Google Keyword Planner. Go to [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) and open the tool. You need a Google Ads account, so just create one for free if you don’t have one already.
 
-After you’re in the tool, click on “Discover new keywords”, make sure you’re in the “Start with keywords” tab, enter your Actor's main function or purpose, and then select the United States as the region and English as the language. Click “Get results” to see keywords related to your actor.
+After you’re in the tool, click on “Discover new keywords”, make sure you’re in the “Start with keywords” tab, enter your Actor's main function or purpose, and then select the United States as the region and English as the language. Click “Get results” to see keywords related to your Actor.
 
 Write them down.
 
 ### Ahrefs Keyword Generator
 
-Go to [Ahrefs Keyword Generator](https://ahrefs.com/keyword-generator), enter your Actor's main function or purpose, and click “Find keywords.” You should see a list of keywords related to your actor.
+Go to [Ahrefs Keyword Generator](https://ahrefs.com/keyword-generator), enter your Actor's main function or purpose, and click “Find keywords.” You should see a list of keywords related to your Actor.
 
 Write them down.
 

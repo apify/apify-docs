@@ -1,7 +1,8 @@
 ---
-title: IV - Using the Apify API & JavaScript client
+title: Using the Apify API & JavaScript client
 description: Learn how to interact with the Apify API directly through the well-documented RESTful routes, or by using the proprietary Apify JavaScript client.
 sidebar_position: 4
+sidebar_label: IV - Using the Apify API & JavaScript client
 slug: /expert-scraping-with-apify/solutions/using-api-and-client
 ---
 
@@ -251,7 +252,7 @@ The one main difference is that the Apify client automatically uses [**exponenti
 
 **Q: How do you pass input when running an Actor or task via API?**
 
-**A:** The input should be passed into the **body** of the request when running an actor/task via API.
+**A:** The input should be passed into the **body** of the request when running an Actor/task via API.
 
 **Q: Do you need to install the `apify-client` npm package when already using the `apify` package?**
 

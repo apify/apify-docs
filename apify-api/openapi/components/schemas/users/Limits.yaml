@@ -15,34 +15,34 @@ type: object
 properties:
   maxMonthlyUsageUsd:
     type: number
-    example: 300
+    examples: [300]
   maxMonthlyActorComputeUnits:
     type: number
-    example: 1000
+    examples: [1000]
   maxMonthlyExternalDataTransferGbytes:
     type: number
-    example: 7
+    examples: [7]
   maxMonthlyProxySerps:
-    type: number
-    example: 50
+    type: integer
+    examples: [50]
   maxMonthlyResidentialProxyGbytes:
     type: number
-    example: 0.5
+    examples: [0.5]
   maxActorMemoryGbytes:
     type: number
-    example: 16
+    examples: [16]
   maxActorCount:
-    type: number
-    example: 100
+    type: integer
+    examples: [100]
   maxActorTaskCount:
-    type: number
-    example: 1000
+    type: integer
+    examples: [1000]
   maxConcurrentActorJobs:
-    type: number
-    example: 256
+    type: integer
+    examples: [256]
   maxTeamAccountSeatCount:
-    type: number
-    example: 9
+    type: integer
+    examples: [9]
   dataRetentionDays:
-    type: number
-    example: 90
+    type: integer
+    examples: [90]

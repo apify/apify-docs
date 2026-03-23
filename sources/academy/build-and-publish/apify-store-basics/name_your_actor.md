@@ -37,7 +37,7 @@ Your Actor's name should be _40-50 characters_ long. You can change your Actor n
 
 ### Actor name vs. SEO name
 
-There's an option to step away from your Actor's name for the sake of search engine optimization — the Actor SEO name. The Actor name and Actor SEO name serve different purposes:
+There's an option to step away from your Actor's name for the sake of search engine optimization - the Actor SEO name. The Actor name and Actor SEO name serve different purposes:
 
 - _Actor name_: this is the name visible in Apify Store and Console. It should be easy for users to understand and quickly show what your Actor does. It’s about attracting users who browse the Store.
 

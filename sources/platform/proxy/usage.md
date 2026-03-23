@@ -1,12 +1,8 @@
 ---
 title: Proxy usage
-description: Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.
+description: Configure Apify Proxy connections using HTTP proxy protocol. Find the correct username, password, hostname, and port parameters for your setup.
 sidebar_position: 10.1
 slug: /proxy/usage
----
-
-**Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
-
 ---
 
 ## Connection settings
@@ -19,24 +15,24 @@ The full connection string has the following format:
 http://<username>:<password>@<hostname>:<port>
 ```
 
-:::caution
+:::caution Password security
 All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks, as **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 :::
 
 ### External connection
 
-If you want to connect to Apify Proxy from outside of the Apify Platform, you need to have a paid Apify plan (to prevent abuse).
-If you need to test Apify Proxy before you subscribe, please [contact our support](https://apify.com/contact).
+If you want to connect to Apify Proxy from outside of the Apify platform, you need to have a paid Apify plan (to prevent abuse).
+If you need to test Apify Proxy before you subscribe, please [contact Apify support](https://apify.com/contact).
 
-| Parameter           | Value / explanation |
-|---------------------|---------------------|
-| Hostname            | `proxy.apify.com`|
-| Port                | `8000`              |
-| Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
-| Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
+| Parameter | Value / explanation |
+| :--- | :--- |
+| Hostname | `proxy.apify.com` |
+| Port | `8000` |
+| Username | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
+| Password | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
 
-:::caution
-If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify Platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
+:::caution External connections
+If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
 :::
 
 Example connection string for external connections:
@@ -47,17 +43,17 @@ http://auto:apify_proxy_EaAFg6CFhc4eKk54Q1HbGDEiUTrk480uZv03@proxy.apify.com:800
 
 ### Connection from Actors
 
-If you want to connect to Apify Proxy from Actors running on the Apify Platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
+If you want to connect to Apify Proxy from Actors running on the Apify platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
 
 If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
 By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
 
-| Parameter           | Source / explanation |
-|---------------------|---------------------|
-| Hostname            | `APIFY_PROXY_HOSTNAME` environment variable  |
-| Port                | `APIFY_PROXY_PORT` environment variable      |
-| Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
-| Password            | `APIFY_PROXY_PASSWORD` environment variable |
+| Parameter | Source / explanation |
+| :--- | :--- |
+| Hostname | `APIFY_PROXY_HOSTNAME` environment variable |
+| Port | `APIFY_PROXY_PORT` environment variable |
+| Username | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
+| Password | `APIFY_PROXY_PASSWORD` environment variable |
 
 Example connection string creation:
 
@@ -120,7 +116,7 @@ If you want to specify one parameter and not the others, just provide that param
 
 ## Code examples
 
-We have code examples for connecting to our proxy using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
+There are code examples for connecting to Apify Proxy using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
 
 * [Datacenter proxy](./datacenter_proxy.md#examples)
 * [Residential proxy](./residential_proxy.md#connecting-to-residential-proxy)
@@ -138,10 +134,10 @@ Web scrapers can rotate the IP addresses they use to access websites. They assig
 
 Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
-* Browser—a different IP address is used for each browser.
-* HTTP request—a different IP address is used for each request.
+* Browser - a different IP address is used for each browser.
+* HTTP request - a different IP address is used for each request.
 
-Use [sessions](#sessions) to control how you rotate IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
+Use [sessions](#sessions) to control how you rotate IP addresses. See the guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and Apify's findings on how blocking works.
 
 ## Sessions
 
@@ -156,7 +152,7 @@ residential_proxy.md#session-persistence) proxies. For datacenter proxies, a ses
 
 ## Proxy groups
 
-You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in the Apify Console. To use a specific proxy group (or multiple groups), specify it in the `username` parameter.
+You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in Apify Console. To use a specific proxy group (or multiple groups), specify it in the `username` parameter.
 
 ## Proxy IP addresses
 
@@ -169,7 +165,7 @@ If you need to allow communication to `apify.proxy.com`, add the following IP ad
 
 To view your connection status to [Apify Proxy](https://apify.com/proxy), open the URL below in the browser using the proxy. [http://proxy.apify.com/](http://proxy.apify.com/). If the proxy connection is working, the page should look something like this:
 
-![Apify proxy status page](./images/proxy-status.png)
+![Apify Proxy status page](./images/proxy-status.png)
 
 To test that your requests are proxied and IP addresses are being [rotated](/academy/anti-scraping/techniques) correctly, open the following API endpoint via the proxy. It shows information about the client IP address.
 
@@ -177,7 +173,7 @@ https://api.apify.com/v2/browser-info/
 
 ### A different approach to `502 Bad Gateway`
 
-Sometimes when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight:
+Sometimes the `502` status code is not comprehensive enough. Therefore, Apify Proxy uses `590-599` codes instead to provide more insight:
 
 * `590 Non Successful`: upstream responded with non-200 status code.
 * `591 RESERVED`: *this status code is reserved for further use.*
@@ -198,5 +194,5 @@ The typical issues behind these codes are:
 * `597` indicates incorrect upstream credentials.
 * `599` is a generic error, where the above is not applicable.
 
-  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
+  Note that Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
   You can find the details of the above errors and their implementation there.

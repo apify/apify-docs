@@ -5,17 +5,10 @@ get:
   description: Returns the input of a given task.
   operationId: actorTask_input_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -25,6 +18,18 @@ get:
             myField1: some-value
             myField2: another-value
             myField3: 1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/get-task-input
@@ -57,16 +62,9 @@ put:
     info](#/introduction/authentication)).
   operationId: actorTask_input_put
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
@@ -75,8 +73,8 @@ put:
           myField2: updated-value
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
@@ -86,6 +84,22 @@ put:
             myField1: some-value
             myField2: updated-value
             myField3: 1
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/update-task-input

@@ -6,7 +6,7 @@ required:
 type: object
 properties:
   monthlyUsageCycle:
-    $ref: ./MonthlyUsageCycle.yaml
+    $ref: ./UsageCycle.yaml
   limits:
     $ref: ./Limits.yaml
   current:

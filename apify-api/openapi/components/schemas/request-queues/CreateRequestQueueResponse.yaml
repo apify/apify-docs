@@ -1,7 +1,0 @@
-title: CreateRequestQueueResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./RequestQueue.yaml

@@ -1,36 +1,28 @@
 title: ActorStats
-required:
-  - totalBuilds
-  - totalRuns
-  - totalUsers
-  - totalUsers7Days
-  - totalUsers30Days
-  - totalUsers90Days
-  - totalMetamorphs
-  - lastRunStartedAt
 type: object
 properties:
   totalBuilds:
-    type: number
-    example: 9
+    type: integer
+    examples: [9]
   totalRuns:
-    type: number
-    example: 16
+    type: integer
+    examples: [16]
   totalUsers:
-    type: number
-    example: 6
+    type: integer
+    examples: [6]
   totalUsers7Days:
-    type: number
-    example: 2
+    type: integer
+    examples: [2]
   totalUsers30Days:
-    type: number
-    example: 6
+    type: integer
+    examples: [6]
   totalUsers90Days:
-    type: number
-    example: 6
+    type: integer
+    examples: [6]
   totalMetamorphs:
-    type: number
-    example: 2
+    type: integer
+    examples: [2]
   lastRunStartedAt:
     type: string
-    example: '2019-07-08T14:01:05.546Z'
+    format: date-time
+    examples: ["2019-07-08T14:01:05.546Z"]

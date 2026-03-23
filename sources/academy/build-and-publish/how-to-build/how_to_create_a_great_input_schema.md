@@ -21,7 +21,7 @@ You've succeeded: your user has:
 
 Now they’re on your Actor's page in Apify Console. The SEO fight is over. What’s next?
 
-Your user is finally one-on-one with your Actor — specifically, its input schema. This is the moment when they try your Actor and decide whether to stick with it. The input schema is your representative here, and you want it to work in your favor.
+Your user is finally one-on-one with your Actor - specifically, its input schema. This is the moment when they try your Actor and decide whether to stick with it. The input schema is your representative here, and you want it to work in your favor.
 
 Technically, the input schema is a `JSON` object with various field types supported by the Apify platform, designed to simplify the use of the Actor. Based on the input schema you define, the Apify platform automatically generates a _user interface_ for your Actor.
 
@@ -39,7 +39,7 @@ To fully understand the recommendations in this blog post, you’ll first need t
 
 It can feel intimidating when facing the Apify platform for the first time. You only have a few seconds for a user to assess the ease of using your Actor.
 
-If something goes wrong or is unclear with the input, an ideal user will first turn to the tooltips in the input schema. Next, they might check the README or tutorials, and finally, they’ll reach out to you through the **Issues** tab. However, many users won’t go through all these steps — they may simply get overwhelmed and abandon the tool altogether.
+If something goes wrong or is unclear with the input, an ideal user will first turn to the tooltips in the input schema. Next, they might check the README or tutorials, and finally, they’ll reach out to you through the **Issues** tab. However, many users won’t go through all these steps - they may simply get overwhelmed and abandon the tool altogether.
 
 A well-designed input schema is all about managing user expectations, reducing cognitive load, and preventing frustration. Ideally, a good input schema, as your first line of interaction, should:
 
@@ -84,7 +84,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
     - Make the **prefilled text** example simple and easy to remember.
     - If your Actor accepts various URL formats, add a few different **prefilled URLs** to show that possibility.
     - Use the **prefilled date** format that the user is expected to follow. This way, they can learn the correct format without needing to check the tooltip.
-    - There’s also a type of field that looks like a prefill but isn’t — usually a `default` field. It’s not counted as actual input but serves as a mock input to show users what to type or paste. It is gray and disappears after clicking on it. Use this to your advantage.
+    - There’s also a type of field that looks like a prefill but isn’t - usually a `default` field. It’s not counted as actual input but serves as a mock input to show users what to type or paste. It is gray and disappears after clicking on it. Use this to your advantage.
 - **toggle**
   - The toggle is a boolean field. A boolean field represents a yes/no choice.
   - How would you word this toggle: **Skip closed places** or **Scrape open places only**? And should the toggle be enabled or disabled by default?
@@ -158,14 +158,14 @@ The version above was the improved input schema. Here's what this tool's input s
 3. Use specific terminology (e.g., posts, images, tweets) from the target website instead of generic terms like "results" or "pages."
 4. Group related items for clarity and ease of use.
 5. Use emojis as shortcuts and visual anchors to guide attention.
-6. Avoid technical jargon — keep the language simple.
+6. Avoid technical jargon - keep the language simple.
 7. Minimize cognitive load wherever possible.
 
 ## Signs and tools for improving input schema
 
 - _User feedback_. If they're asking obvious things, complaining, or consistently making silly mistakes with input, take notes. Feedback from users can help you understand their experience and identify areas for improvement.
 - _High churn rates_. If your users are trying your tool but quickly abandon it, this is a sign they are having difficulties with your schema.
-- _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source).** This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier.
+<!-- - _Input Schema Viewer_. Write your base schema in any code editor, then copy the file and put it into [**Input Schema Viewer](https://console.apify.com/actors/UHTe5Bcb4OUEkeahZ/source).** This tool should help you visualize your Input Schema before you add it to your Actor and build it. Seeing how your edits look in Apify Console right away will make the process of editing the fields in code easier. -->
 
 ## Resources
 

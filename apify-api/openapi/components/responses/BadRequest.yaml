@@ -1,0 +1,9 @@
+description: Bad request - invalid input parameters or request body.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: invalid-input
+        message: "Invalid input: The request body contains invalid data."

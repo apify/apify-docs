@@ -9,16 +9,16 @@ type: object
 properties:
   quantityAbove:
     type: number
-    example: 0
+    examples: [0]
   discountPercent:
     type: number
-    example: 100
+    examples: [100]
   tierQuantity:
     type: number
-    example: 0.39
+    examples: [0.39]
   unitPriceUsd:
     type: number
-    example: 0
+    examples: [0]
   priceUsd:
     type: number
-    example: 0
+    examples: [0]

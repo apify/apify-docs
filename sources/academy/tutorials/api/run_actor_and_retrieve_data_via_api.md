@@ -51,7 +51,7 @@ For tasks, we can switch the path from **acts** to **actor-tasks** and keep the 
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-If we send a correct POST request to one of these endpoints, the actor/actor-task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
+If we send a correct POST request to one of these endpoints, the Actor or task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
 
 ### Additional settings {#additional-settings}
 
@@ -71,7 +71,7 @@ Most Actors would not be much use if input could not be passed into them to chan
 
 Good Actors have reasonable defaults for most input fields, so if you want to run one of the major Actors from [Apify Store](https://apify.com/store), you usually do not need to provide all possible fields.
 
-Via API, let's quickly try to run [Web Scraper](https://apify.com/apify/web-scraper), which is the most popular Actor on the Apify Store at the moment. The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we will not show it here. Because it has default values for most fields, we can provide a JSON input containing only the fields we'd like to customize. We will send a POST request to the endpoint below and add the JSON as the **body** of the request:
+Via API, let's quickly try to run [Web Scraper](https://apify.com/apify/web-scraper), which is the most popular Actor on Apify Store at the moment. The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we will not show it here. Because it has default values for most fields, we can provide a JSON input containing only the fields we'd like to customize. We will send a POST request to the endpoint below and add the JSON as the **body** of the request:
 
 ```cURL
 https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN
@@ -198,7 +198,7 @@ For runs longer than 5 minutes, the process consists of three steps:
 
 ### Wait for the run to finish {#wait-for-the-run-to-finish}
 
-There may be cases where we need to run the Actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
+There may be cases where we need to run the Actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the Actor or task to finish.
 
 - [`waitForFinish` parameter](#waitforfinish-parameter)
 - [Webhooks](#webhooks)

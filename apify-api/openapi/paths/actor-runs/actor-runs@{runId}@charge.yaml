@@ -15,13 +15,7 @@ post:
 
   operationId: PostChargeRun
   parameters:
-    - name: runId
-      in: path
-      required: true
-      schema:
-        type: string
-      example: 3KH8gEpp4d8uQSe8T
-      description: Run ID.
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
     - name: idempotency-key
       in: header
       required: false
@@ -30,18 +24,34 @@ post:
       example: 2024-12-09T01:23:45.000Z-random-uuid
       description: Always pass a unique idempotency key (any unique string) for each charge to avoid double charging in case of retries or network errors.
   requestBody:
-    description: 'Define which event, and how many times, you want to charge for.'
+    description: "Define which event, and how many times, you want to charge for."
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/actor-runs/ChargeRunRequest.yaml"
+          $ref: ../../components/schemas/actor-runs/ChargeRunRequest.yaml
         example:
-          eventName: 'ANALYZE_PAGE'
+          eventName: ANALYZE_PAGE
           count: 1
     required: true
   responses:
-    '201':
-      description: 'The charge was successful. Note that you still have to make sure in your Actor that the total charge for the run respects the maximum value set by the user, as the API does not check this. Above the limit, the charges reported as successful in API will not be added to your payouts, but you will still bear the associated costs. Use the Apify charge manager or SDK to avoid having to deal with this manually.'
+    "201":
+      description: "The charge was successful. Note that you still have to make sure in your Actor that the total charge for the run respects the maximum value set by the user, as the API does not check this. Above the limit, the charges reported as successful in API will not be added to your payouts, but you will still bear the associated costs. Use the Apify charge manager or SDK to avoid having to deal with this manually."
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-js-parent: RunClient
   x-js-name: charge

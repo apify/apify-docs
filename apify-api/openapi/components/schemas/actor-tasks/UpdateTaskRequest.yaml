@@ -1,53 +1,20 @@
 title: UpdateTaskRequest
-required:
-  - id
-  - userId
-  - actId
-  - name
-  - createdAt
-  - modifiedAt
 type: object
 properties:
-  id:
-    type: string
-    example: ZxLNxrRaZrSjuhT9y
-  userId:
-    type: string
-    example: BPWZBd7Z9c746JAnF
-  actId:
-    type: string
-    example: asADASadYvn4mBZmm
   name:
     type: string
-    example: my-task
-  username:
-    type: string
-    nullable: true
-    example: janedoe
-  createdAt:
-    type: string
-    example: '2018-10-26T07:23:14.855Z'
-  modifiedAt:
-    type: string
-    example: '2018-10-26T13:30:49.578Z'
-  removedAt:
-    type: string
-    nullable: true
-  stats:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskStats.yaml
-      - {}
+    examples: [my-task]
   options:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./TaskOptions.yaml
-      - {}
+    anyOf:
+      - $ref: ./TaskOptions.yaml
+      - type: "null"
   input:
-    allOf:
-      - oneOf:
-          - nullable: true
-          - $ref: ./Task.yaml
-      - {}
+    anyOf:
+      - $ref: ./TaskInput.yaml
+      - type: "null"
+  title:
+    type: [string, "null"]
+  actorStandby:
+    anyOf:
+      - $ref: ../actors/ActorStandby.yaml
+      - type: "null"

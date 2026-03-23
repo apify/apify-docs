@@ -1,12 +1,8 @@
 ---
 title: Runs
 sidebar_position: 8
-description: Learn about Actor runs, how to start them, and how to manage them.
+description: Learn about Actor runs, how to start them via the console, API, or scheduler, and how to configure input, timeouts, and manage their lifecycle.
 slug: /actors/development/builds-and-runs/runs
----
-
-**Learn about Actor runs, how to start them, and how to manage them.**
-
 ---
 
 When you start an Actor, you create a run. A run is a single execution of your Actor with a specific input in a Docker container.

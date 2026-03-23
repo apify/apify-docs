@@ -13,11 +13,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
-using [Model Context Protocol](https://modelcontextprotocol.io/). The server enables AI agents to
+using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro). The server enables AI agents to
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
-and enabled AI coding assistants to access Apify documentation and tutorials.
+and enables AI coding assistants to access Apify documentation and tutorials.
 
-![Apify MCP Server](../../images/apify_mcp_server.png)
+![Apify MCP server](../../images/apify_mcp_server.png)
 
 ## Prerequisites
 
@@ -30,6 +30,18 @@ Before connecting your AI to Apify, you'll need three things:
 ## Quick start
 
 You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+
+:::caution SSE transport deprecated
+
+Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify MCP server now uses Streamable HTTP, in line with the official MCP specification. Visit [mcp.apify.com](https://mcp.apify.com/) to update your client configuration.
+
+:::
+
+:::tip Structured output schemas
+
+The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema inference_ for structured Actor results. Actor tools automatically include inferred output schemas with field-level type information. This helps AI agents understand the expected result structure before calling an Actor. The local stdio server does not support this feature.
+
+:::
 
 ### Streamable HTTP with OAuth (recommended)
 
@@ -195,7 +207,7 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 
 :::tip One-click installation
 
-Download and run the [Apify MCP Server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
+Download and run the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
 
 :::
 
@@ -272,22 +284,22 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 | Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
-| `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor |
+| `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
 | `call-actor`* | actors | ❔ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
-| `get-actor-run` | runs |  | Get detailed information about a specific Actor run |
-| `get-actor-run-list` | runs |  | Get a list of an Actor's runs, filterable by status |
-| `get-actor-log` | runs |  | Retrieve the logs for a specific Actor run |
-| `get-dataset` | storage |  | Get metadata about a specific dataset |
-| `get-dataset-items` | storage |  | Retrieve items from a dataset with support for filtering and pagination |
-| `get-dataset-schema` | storage |  | Generate a JSON schema from dataset items |
-| `get-key-value-store` | storage |  | Get metadata about a specific key-value store |
-| `get-key-value-store-keys`| storage |  | List the keys within a specific key-value store |
-| `get-key-value-store-record`| storage |  | Get the value associated with a specific key in a key-value store |
-| `get-dataset-list` | storage |  | List all available datasets for the user |
-| `get-key-value-store-list`| storage |  | List all available key-value stores for the user |
+| `get-actor-run` | runs | | Get detailed information about a specific Actor run |
+| `get-actor-run-list` | runs | | Get a list of an Actor's runs, filterable by status |
+| `get-actor-log` | runs | | Retrieve the logs for a specific Actor run |
+| `get-dataset` | storage | | Get metadata about a specific dataset |
+| `get-dataset-items` | storage | | Retrieve items from a dataset with support for filtering and pagination |
+| `get-dataset-schema` | storage | | Generate a JSON schema from dataset items |
+| `get-key-value-store` | storage | | Get metadata about a specific key-value store |
+| `get-key-value-store-keys` | storage | | List the keys within a specific key-value store |
+| `get-key-value-store-record` | storage | | Get the value associated with a specific key in a key-value store |
+| `get-dataset-list` | storage | | List all available datasets for the user |
+| `get-key-value-store-list` | storage | | List all available key-value stores for the user |
 | `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
 | `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
@@ -314,6 +326,91 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 :::
 
+## Agentic payments with Skyfire
+
+The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable _agentic payments_. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire _PAY tokens_ to cover billing for each tool call.
+
+### Prerequisites
+
+- _Skyfire account_ - Sign up for a [Skyfire account](https://www.skyfire.xyz/) and fund your wallet.
+- _MCP client with multi-server support_ - An MCP client that supports multiple servers, such as Claude Desktop or VS Code.
+
+### Setup
+
+Configure both the Skyfire MCP server and the Apify MCP server in your client. Enable payment mode by adding the `payment=skyfire` query parameter to the Apify server URL:
+
+```json
+{
+  "mcpServers": {
+    "skyfire": {
+      "url": "https://api.skyfire.xyz/mcp/sse",
+      "headers": {
+        "skyfire-api-key": "<YOUR_SKYFIRE_API_KEY>"
+      }
+    },
+    "apify": {
+      "url": "https://mcp.apify.com?payment=skyfire"
+    }
+  }
+}
+```
+
+Replace `<YOUR_SKYFIRE_API_KEY>` with your API key from your [Skyfire dashboard](https://www.skyfire.xyz/).
+
+### How it works
+
+When Skyfire payment mode is enabled, the agent handles the full payment flow autonomously:
+
+1. The agent discovers relevant Actors via `search-actors` or `fetch-actor-details` (these remain free).
+1. Before executing an Actor, the agent creates a PAY token using the `create-pay-token` tool from the Skyfire MCP server (minimum $5.00 USD).
+1. The agent passes the PAY token in the `skyfire-pay-id` input property when calling the Actor tool.
+1. The Actor returns results as usual. Unused funds on the token remain available for future runs or return upon expiration.
+
+To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic Payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
+
+## Telemetry
+
+The MCP server collects telemetry data about tool calls and MCP clients to help Apify understand usage patterns and improve the service.
+Participation in this program is optional and you may opt out if you prefer not to share any information.
+
+### Data collection
+
+All telemetry data is collected and stored securely.
+We do not collect any sensitive information such as conversations, arguments passed to tools, API tokens, or personal data.
+
+The server collects anonymous information about tool usage, including:
+
+- Basic information about used tools (calls, success/failure, duration)
+- MCP client attributes (client name, version, capabilities)
+
+By default, telemetry is _enabled_ for all tool calls.
+
+### Opt out of telemetry
+
+#### Remote server
+
+For the remote server (`mcp.apify.com`), you can opt out of telemetry by adding the `telemetry-enabled=false` query parameter to the server URL:
+
+```text
+https://mcp.apify.com?telemetry-enabled=false
+```
+
+#### Local stdio server
+
+For the local stdio server, opt out of telemetry using a CLI flag or an environment variable. When both the CLI flag and environment variable are set, the CLI flag takes precedence.
+
+- _CLI flag_: set the `--telemetry-enabled` CLI flag to `false`:
+
+  ```bash
+  npx @apify/actors-mcp-server --telemetry-enabled=false
+  ```
+
+- _Environment variable_: set the `TELEMETRY_ENABLED` environment variable to `false`:
+
+  ```bash
+  export TELEMETRY_ENABLED=false
+  npx @apify/actors-mcp-server
+  ```
 
 ## Advanced usage
 
@@ -351,7 +448,7 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 <!-- markdownlint-enable MD001 -->
 ## Support and resources
 
-The Apify MCP Server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/apify-mcp-server/issues).
+The Apify MCP server is an open-source project. Report bugs, suggest features, or ask questions in the [GitHub repository](https://github.com/apify/apify-mcp-server/issues).
 
 If you find this project useful, please star it on [GitHub](https://github.com/apify/apify-mcp-server) to show your support!
 

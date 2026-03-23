@@ -25,7 +25,6 @@
     height: 2rem;
     width: 2rem;
     transition: margin 200ms ease-in-out;
-    
 }
 
 .headingLink:hover::after {
@@ -42,4 +41,47 @@ html[data-theme='dark'] .headingLink:hover::after {
 
 .githubButtonWrapper {
     margin-top: auto;
+}
+
+/* Clickable image wrapper */
+.imageLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.imageLink img {
+    transition: filter 200ms ease-in-out;
+}
+
+.imageLink:hover img {
+    filter: brightness(0.97);
+}
+
+html[data-theme='dark'] .imageLink:hover img {
+    filter: brightness(1.05);
+}
+
+/* Icon wrapper - centers small icons in a card-like background */
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 384 / 124;
+    background: #f8f9fc;
+    border-radius: 12px;
+    transition: background 200ms ease-in-out;
+}
+
+.imageLink:hover .iconWrapper {
+    background: #f0f1f4;
+}
+
+html[data-theme='dark'] .iconWrapper {
+    background: #23262d;
+}
+
+html[data-theme='dark'] .imageLink:hover .iconWrapper {
+    background: #2a2d35;
 }

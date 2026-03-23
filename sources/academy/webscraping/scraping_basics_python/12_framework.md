@@ -5,7 +5,10 @@ description: Lesson about building a Python application for watching prices. Usi
 slug: /scraping-basics-python/framework
 ---
 
+import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
+import CrawleeF1DriversExercise from '!!raw-loader!roa-loader!./exercises/crawlee_f1_drivers.py';
+import CrawleeNetflixRatingsExercise from '!!raw-loader!roa-loader!./exercises/crawlee_netflix_ratings.py';
 
 **In this lesson, we'll rework our application for watching prices so that it builds on top of a scraping framework. We'll use Crawlee to make the program simpler, faster, and more robust.**
 
@@ -25,7 +28,7 @@ In this lesson, we'll address all of the above issues while keeping the code con
 
 :::info Why Crawlee and not Scrapy
 
-From the two main open-source options for Python, [Scrapy](https://scrapy.org/) and [Crawlee](https://crawlee.dev/python/), we chose the latter—not just because we're the company financing its development.
+From the two main open-source options for Python, [Scrapy](https://scrapy.org/) and [Crawlee](https://crawlee.dev/python/), we chose the latter - not just because we're the company financing its development.
 
 We genuinely believe beginners to scraping will like it more, since it allows to create a scraper with less code and less time spent reading docs. Scrapy's long history ensures it's battle-tested, but it also means its code relies on technologies that aren't really necessary today. Crawlee, on the other hand, builds on modern Python features like asyncio and type hints.
 
@@ -203,11 +206,11 @@ async def main():
 
 :::note Fragile code
 
-The code above assumes the `.select_one()` call doesn't return `None`. If your editor checks types, it might even warn that `text` is not a known attribute of `None`. This isn't robust and could break, but in our program, that's fine. We expect the elements to be there, and if they're not, we'd rather the scraper break quickly—it's a sign something's wrong and needs fixing.
+The code above assumes the `.select_one()` call doesn't return `None`. If your editor checks types, it might even warn that `text` is not a known attribute of `None`. This isn't robust and could break, but in our program, that's fine. We expect the elements to be there, and if they're not, we'd rather the scraper break quickly - it's a sign something's wrong and needs fixing.
 
 :::
 
-Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
+Now for the price. We're not doing anything new here - just copy-paste the code from our old scraper. The only change will be in the selector.
 
 The only change will be in the selector. In `oldmain.py`, we look for `.price` within a `product_soup` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
@@ -292,7 +295,7 @@ if __name__ == '__main__':
 
 If we run this scraper, we should get the same data for the 24 products as before. Crawlee has saved us a lot of effort by managing downloading, parsing, and parallelization. The code is also cleaner, with two separate and labeled handlers.
 
-Crawlee doesn't do much to help with locating and extracting the data—that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, we can focus on just that while letting the framework take care of everything else.
+Crawlee doesn't do much to help with locating and extracting the data - that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, we can focus on just that while letting the framework take care of everything else.
 
 ## Saving data
 
@@ -331,9 +334,9 @@ async def main():
 
     await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
     # highlight-next-line
-    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
     # highlight-next-line
-    await crawler.export_data_csv(path='dataset.csv')
+    await crawler.export_data(path='dataset.csv')
 ```
 
 After running the scraper again, there should be two new files in your directory, `dataset.json` and `dataset.csv`, containing all the data. If we peek into the JSON file, it should have indentation.
@@ -389,8 +392,8 @@ async def main():
 
     # highlight-next-line
     crawler.log.info("Exporting data")
-    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
-    await crawler.export_data_csv(path='dataset.csv')
+    await crawler.export_data(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data(path='dataset.csv')
 
 def parse_variant(variant):
     text = variant.text.strip()
@@ -462,55 +465,12 @@ If you export the dataset as JSON, it should look something like this:
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import asyncio
-  from datetime import datetime
-
-  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
-
-  async def main():
-      crawler = BeautifulSoupCrawler()
-
-      @crawler.router.default_handler
-      async def handle_listing(context: BeautifulSoupCrawlingContext):
-          await context.enqueue_links(selector=".teams-driver-item a", label="DRIVER")
-
-      @crawler.router.handler("DRIVER")
-      async def handle_driver(context: BeautifulSoupCrawlingContext):
-          info = {}
-          for row in context.soup.select(".common-driver-info li"):
-              name = row.select_one("span").text.strip()
-              value = row.select_one("h4").text.strip()
-              info[name] = value
-
-          detail = {}
-          for row in context.soup.select(".driver-detail--cta-group a"):
-              name = row.select_one("p").text.strip()
-              value = row.select_one("h2").text.strip()
-              detail[name] = value
-
-          await context.push_data({
-              "url": context.request.url,
-              "name": context.soup.select_one("h1").text.strip(),
-              "team": detail["Team"],
-              "nationality": info["Nationality"],
-              "dob": datetime.strptime(info["DOB"], "%d/%m/%Y").date(),
-              "instagram_url": context.soup.select_one(".common-social-share a[href*='instagram']").get("href"),
-          })
-
-      await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
-      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
-
-  if __name__ == '__main__':
-      asyncio.run(main())
-  ```
-
+  <CodeBlock language="py">{CrawleeF1DriversExercise.code}</CodeBlock>
 </details>
 
 ### Use Crawlee to find the ratings of the most popular Netflix films
 
-The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
+The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the first 5 movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
 
 - URL of the film's IMDb page
 - Title
@@ -563,45 +523,5 @@ When navigating to the first IMDb search result, you might find it helpful to kn
 
 <details>
   <summary>Solution</summary>
-
-  ```py
-  import asyncio
-  from urllib.parse import quote_plus
-
-  from crawlee import Request
-  from crawlee.crawlers import BeautifulSoupCrawler, BeautifulSoupCrawlingContext
-
-  async def main():
-      crawler = BeautifulSoupCrawler()
-
-      @crawler.router.default_handler
-      async def handle_netflix_table(context: BeautifulSoupCrawlingContext):
-          requests = []
-          for name_cell in context.soup.select('[data-uia="top10-table-row-title"] button'):
-              name = name_cell.text.strip()
-              imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
-              requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
-          await context.add_requests(requests)
-
-      @crawler.router.handler("IMDB_SEARCH")
-      async def handle_imdb_search(context: BeautifulSoupCrawlingContext):
-          await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
-
-      @crawler.router.handler("IMDB")
-      async def handle_imdb(context: BeautifulSoupCrawlingContext):
-          rating_selector = "[data-testid='hero-rating-bar__aggregate-rating__score']"
-          rating_text = context.soup.select_one(rating_selector).text.strip()
-          await context.push_data({
-              "url": context.request.url,
-              "title": context.soup.select_one("h1").text.strip(),
-              "rating": rating_text,
-          })
-
-      await crawler.run(["https://www.netflix.com/tudum/top10"])
-      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
-
-  if __name__ == '__main__':
-      asyncio.run(main())
-  ```
-
+  <CodeBlock language="py">{CrawleeNetflixRatingsExercise.code}</CodeBlock>
 </details>

@@ -93,7 +93,7 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2/datase
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at _400 requests per second_ to avoid overloading our servers.
+> API data push to a dataset is capped at _400 requests per second_ to avoid overloading the servers.
 
 Example payload:
 
@@ -276,7 +276,7 @@ async def main():
         hotel_and_cafe_data = await dataset.get_data(fields=['hotel', 'cafe'])
 ```
 
-For more information, visit our [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-datasets) and the `Dataset` class's [API reference](/sdk/python/reference/class/Dataset) for details on managing datasets with the Python SDK.
+For more information, visit the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-datasets) and the `Dataset` class's [API reference](/sdk/python/reference/class/Dataset) for details on managing datasets with the Python SDK.
 
 ## Hidden fields
 
@@ -378,7 +378,7 @@ This feature is also useful when customizing your RSS feeds generated for variou
 
 By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when retrieving your data with a GET request.
 
-## Sharing
+## Share
 
 You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
 
@@ -386,7 +386,7 @@ You can also share datasets by link using their ID or name, depending on your ac
 
 For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
 
-### Sharing datasets between runs
+### Share datasets between runs
 
 You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 

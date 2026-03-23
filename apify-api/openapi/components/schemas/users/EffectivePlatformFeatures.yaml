@@ -13,22 +13,22 @@ required:
 type: object
 properties:
   ACTORS:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   STORAGE:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   SCHEDULER:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   PROXY:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   PROXY_EXTERNAL_ACCESS:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   PROXY_RESIDENTIAL:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   PROXY_SERPS:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   WEBHOOKS:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   ACTORS_PUBLIC_ALL:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml
   ACTORS_PUBLIC_DEVELOPER:
-    $ref: './EffectivePlatformFeature.yaml'
+    $ref: ./EffectivePlatformFeature.yaml

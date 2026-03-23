@@ -1,0 +1,9 @@
+description: Forbidden - insufficient permissions to perform this action.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: permission-denied
+        message: You do not have permission to perform this action.

@@ -1,0 +1,8 @@
+title: RequestQueueResponse
+description: Response containing request queue data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./RequestQueue.yaml

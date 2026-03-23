@@ -1,12 +1,8 @@
 ---
 title: Webhook actions
-description: Send notifications when specific events occur in your Actor/task  run or build. Dynamically add data to the notification payload.
+description: Configure webhook actions to send HTTP POST requests when Actor or task runs complete. Use payload templates to inject dynamic run data into the request.
 sidebar_position: 2
 slug: /integrations/webhooks/actions
----
-
-**Send notifications when specific events occur in your Actor/task  run or build. Dynamically add data to the notification payload.**
-
 ---
 
 ## Send HTTP request
@@ -134,7 +130,7 @@ If the string being interpolated contains only the variable, the actual variable
 { "text": "My user id is abf6vtB2nvQZ4nJzo" }
 ```
 
-To enable string interpolation, use **Interpolate variables in string fields** switch within the Apify Console. In JS API Client it's called `shouldInterpolateStrings`. This field is always `true` when integrating Actors or tasks.
+To enable string interpolation, use **Interpolate variables in string fields** switch within Apify Console. In JS API Client it's called `shouldInterpolateStrings`. This field is always `true` when integrating Actors or tasks.
 
 ### Payload template example
 
@@ -156,13 +152,13 @@ The headers template is a JSON-like text where you can add additional informatio
 
 Note that the following HTTP headers are always set by the system and your changes will always be rewritten:
 
-| Variable                  | Value                   |
-|---------------------------|-------------------------|
-| `Host`                    | Request URL             |
-| `Content-Type`            | `application/json`      |
-| `X-Apify-Webhook`         | Apify internal value             |
-| `X-Apify-Webhook-Dispatch-Id` | Apify webhook dispatch ID            |
-| `X-Apify-Request-Origin`   | Apify origin           |
+| Variable                      | Value                     |
+| ----------------------------- | ------------------------- |
+| `Host`                        | Request URL               |
+| `Content-Type`                | `application/json`        |
+| `X-Apify-Webhook`             | Apify internal value      |
+| `X-Apify-Webhook-Dispatch-Id` | Apify webhook dispatch ID |
+| `X-Apify-Request-Origin`      | Apify origin              |
 
 ## Description
 
@@ -170,13 +166,13 @@ The description is an optional string that you can add to the webhook. It serves
 
 ## Available variables
 
-| Variable    | Type   | Description                                                                         |
-|-------------|--------|-------------------------------------------------------------------------------------|
-| `userId`    | string | ID of the Apify user who owns the webhook.                                                |
-| `createdAt` | string | ISO string date of the webhook's trigger event.                                     |
-| `eventType` | string | Type of the trigger event, see [Events](/platform/integrations/webhooks/events).              |
-| `eventData` | Object | Data associated with the trigger event, see [Events](/platform/integrations/webhooks/events). |
-| `resource`  | Object | The resource that caused the trigger event.                 |
+| Variable    | Type   | Description                                                                                                                                                              |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `userId`    | string | ID of the Apify user who owns the webhook.                                                                                                                               |
+| `createdAt` | string | ISO string date of the webhook's trigger event.                                                                                                                          |
+| `eventType` | string | Type of the trigger event, see [Events](/platform/integrations/webhooks/events).                                                                                         |
+| `eventData` | Object | Data associated with the trigger event, see [Events](/platform/integrations/webhooks/events).                                                                            |
+| `resource`  | Object | The resource that caused the trigger event.                                                                                                                              |
 | `globals`   | Object | Data available in global context. Contains `dateISO` (date of webhook's trigger event in ISO 8601 format) and `dateUnix` (date of trigger event in Unix time in seconds) |
 
 ### Resource

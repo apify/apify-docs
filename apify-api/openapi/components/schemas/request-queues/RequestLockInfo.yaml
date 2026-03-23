@@ -1,0 +1,11 @@
+title: RequestLockInfo
+description: Information about a request lock.
+type: object
+required:
+  - lockExpiresAt
+properties:
+  lockExpiresAt:
+    type: string
+    format: date-time
+    description: The timestamp when the lock expires.
+    examples: ["2022-01-01T00:00:00.000Z"]

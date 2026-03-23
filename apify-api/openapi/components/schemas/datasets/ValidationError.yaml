@@ -1,0 +1,18 @@
+title: ValidationError
+type: object
+properties:
+  instancePath:
+    type: string
+    description: The path to the instance being validated.
+  schemaPath:
+    type: string
+    description: The path to the schema that failed the validation.
+  keyword:
+    type: string
+    description: The validation keyword that caused the error.
+  message:
+    type: string
+    description: A message describing the validation error.
+  params:
+    type: object
+    description: Additional parameters specific to the validation error.
