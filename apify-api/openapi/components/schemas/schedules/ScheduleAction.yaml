@@ -1,23 +1,48 @@
 title: ScheduleAction
-required:
-  - id
-  - type
-  - actorId
-type: object
-properties:
-  id:
-    type: string
-    examples: [c6KfSgoQzFhMk3etc]
-  type:
-    $ref: ./ScheduleActionType.yaml
-  actorId:
-    type: string
-    examples: [jF8GGEvbEg4Au3NLA]
-  runInput:
-    anyOf:
-      - $ref: ./ScheduleActionRunOptions.yaml
-      - type: "null"
-  runOptions:
-    anyOf:
-      - $ref: ./ScheduleActionRunOptions.yaml
-      - type: "null"
+oneOf:
+  - title: ScheduleActionRunActor
+    required:
+      - id
+      - type
+      - actorId
+    type: object
+    properties:
+      id:
+        type: string
+        examples: [c6KfSgoQzFhMk3etc]
+      type:
+        type: string
+        enum: [RUN_ACTOR]
+      actorId:
+        type: string
+        examples: [jF8GGEvbEg4Au3NLA]
+      runInput:
+        anyOf:
+          - $ref: ./ScheduleActionRunInput.yaml
+          - type: "null"
+      runOptions:
+        anyOf:
+          - $ref: ../common/OptionalRunOptions.yaml
+          - type: "null"
+  - title: ScheduleActionRunActorTask
+    required:
+      - id
+      - type
+      - actorTaskId
+    type: object
+    properties:
+      id:
+        type: string
+        examples: [c6KfSgoQzFhMk3etc]
+      type:
+        type: string
+        enum: [RUN_ACTOR_TASK]
+      actorTaskId:
+        type: string
+        examples: [jF8GGEvbEg4Au3NLA]
+      input:
+        anyOf:
+          - type: object
+          - type: "null"
+discriminator:
+  propertyName: type

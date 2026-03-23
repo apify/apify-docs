@@ -55,5 +55,5 @@ unnamed:
   style: form
   explode: true
   schema:
-    type: [boolean, integer]
+    type: boolean
     example: true
