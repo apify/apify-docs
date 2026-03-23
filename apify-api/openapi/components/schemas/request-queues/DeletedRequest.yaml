@@ -1,0 +1,14 @@
+title: DeletedRequest
+description: Confirmation of a request that was successfully deleted from a request queue.
+required:
+  - uniqueKey
+type: object
+properties:
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    examples: [GET|60d83e70|e3b0c442|https://apify.com]
+  id:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [sbJ7klsdf7ujN9l]

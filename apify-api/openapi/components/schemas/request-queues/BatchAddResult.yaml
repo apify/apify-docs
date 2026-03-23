@@ -1,0 +1,17 @@
+title: BatchAddResult
+description: Result of a batch add operation containing successfully processed and failed requests.
+type: object
+required:
+  - processedRequests
+  - unprocessedRequests
+properties:
+  processedRequests:
+    type: array
+    description: Requests that were successfully added to the request queue.
+    items:
+      $ref: ./AddedRequest.yaml
+  unprocessedRequests:
+    type: array
+    description: Requests that failed to be added and can be retried.
+    items:
+      $ref: ./RequestDraft.yaml

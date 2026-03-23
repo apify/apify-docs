@@ -10,14 +10,16 @@ slug: /actor-marketing-playbook/store-basics/how-actor-monetization-works
 
 ---
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 ## Monetizing your Actor
 
 Monetizing your Actor on the Apify platform involves several key steps:
 
 1. _Development_: create and refine your Actor.
-2. _Testing_: ensure your Actor works reliably.
-3. _Publication & monetization_: publish your Actor and set up its monetization model.
-4. _Promotion_: attract users to your Actor.
+1. _Testing_: ensure your Actor works reliably.
+1. _Publication & monetization_: publish your Actor and set up its monetization model.
+1. _Promotion_: attract users to your Actor.
 
 ---
 
@@ -29,6 +31,15 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 - _How it works_: you charge users based on specific events triggered programmatically by your Actor's code. You earn 80% of the revenue minus platform usage costs.
 - - _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
+
+:::info Pass platform usage costs to users
+
+Optionally, you can [pass costs associated with the platform usage](../../../platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) to the users.
+
+Profit calculation: `profit = 0.8 * revenue`
+
+:::
+
 - _Event cost example_: you set the following events for your Actor:
   - `Actor start per 1 GB of memory` at $0.005
   - `Pages scraped` at $0.002
@@ -77,6 +88,8 @@ If you want more details about PPR pricing, refer to our [PPR documentation](/pl
 
 ### Rental pricing model
 
+<RentalSunset/>
+
 ![rental model example](images/rental-model.png)
 
 - _How it works_: you offer a free trial period and set a monthly fee. Users on Apify paid plans can continue using the Actor after the trial. You earn 80% of the monthly rental fees.
@@ -94,12 +107,23 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 ## Setting up monetization
 
 1. _Go to your Actor page_: navigate to the **Publication** tab and open the **Monetization** section.
-2. _Fill in billing details_: set up your payment details for payouts.
-3. _Choose your pricing model_: use the monetization wizard to select your model and set fees.
+1. _Fill in billing details_: set up your payment details for payouts.
+1. _Choose your pricing model_: use the monetization wizard to select your model.
+1. _Define chargeable events (PPE)_: select the events users pay for (for example, per result, per API call, or per Actor start), then set clear names, descriptions, and prices.
+1. _Choose a primary event (PPE)_: select the event that best represents the main value of your Actor. This primary event is emphasized on the Actor detail page, so users can quickly understand what they are mainly paying for.
+
 
 ### Changing monetization
 
-Adjustments to monetization settings take 14 days to take effect and can be made once per month.
+Some monetization updates are applied immediately. However, significant pricing changes require a 14-day notice period.
+
+Significant changes include:
+
+- Increasing prices
+- Adding a new paid pricing event (PPE)
+- Changing the pricing model
+
+You can make these significant changes only once per month.
 
 ### Tracking and promotion
 
@@ -120,17 +144,17 @@ Also, remember that your Actor is a package deal with the Apify platform. All th
 
 ### Do research in Apify Store
 
-Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression — communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
+Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression - communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
-### Rental, pay-per-result (PPR), or pay-per-event (PPE)
-
-Rental pricing allows you to charge a monthly fee for your Actor and users cover their own compute usage.
-
-Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
+### Pay-per-event (PPE), pay-per-result (PPR), or rental
 
 Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
+
+Rental pricing allows you to charge a monthly fee for your Actor and users cover their own platform usage.
+
+Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
 
 :::tip Additional benefits
 

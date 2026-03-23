@@ -12,59 +12,56 @@ type: object
 properties:
   id:
     type: string
-    example: YiKoxjkaS9gjGTqhF
+    examples: [YiKoxjkaS9gjGTqhF]
   createdAt:
     type: string
-    example: '2019-12-12T07:34:14.202Z'
+    format: date-time
+    examples: ["2019-12-12T07:34:14.202Z"]
   modifiedAt:
     type: string
-    example: '2019-12-13T08:36:13.202Z'
+    format: date-time
+    examples: ["2019-12-13T08:36:13.202Z"]
   userId:
     type: string
-    example: wRsJZtadYvn4mBZmm
+    examples: [wRsJZtadYvn4mBZmm]
   isAdHoc:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   shouldInterpolateStrings:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   eventTypes:
     type: array
     items:
-      type: string
-    example:
-      - ACTOR.RUN.SUCCEEDED
+      $ref: ./WebhookEventType.yaml
+    examples:
+      - [ACTOR.RUN.SUCCEEDED]
   condition:
     $ref: ./WebhookCondition.yaml
   ignoreSslErrors:
     type: boolean
-    example: false
+    examples: [false]
   doNotRetry:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]
   requestUrl:
     type: string
-    example: 'http://example.com/'
+    format: uri
+    examples: ["http://example.com/"]
   payloadTemplate:
-    type: string
-    nullable: true
-    example: '{\n \"userId\": {{userId}}...'
+    type: [string, "null"]
+    examples: ['{\n "userId": {{userId}}...']
   headersTemplate:
-    type: string
-    nullable: true
-    example: '{\n \"Authorization\": Bearer...'
+    type: [string, "null"]
+    examples: ['{\n "Authorization": "Bearer ..."}']
   description:
-    type: string
-    nullable: true
-    example: this is webhook description
+    type: [string, "null"]
+    examples: [this is webhook description]
   lastDispatch:
-    nullable: true
-    allOf: # This allOf is needed to display the nullable properly
+    anyOf:
       - $ref: ./ExampleWebhookDispatch.yaml
+      - type: "null"
   stats:
-    nullable: true
-    allOf:
+    anyOf:
       - $ref: ./WebhookStats.yaml
+      - type: "null"

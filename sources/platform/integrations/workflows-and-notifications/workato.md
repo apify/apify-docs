@@ -1,13 +1,9 @@
 ---
 title: Workato integration
-description: Learn how to integrate your Apify Actors with Workato for automated workflows.
+description: Connect Apify Actors to Workato recipes to run web scraping and automation jobs, monitor run events, and process results in your automated workflows.
 sidebar_label: Workato
 sidebar_position: 7
 slug: /integrations/workato
----
-
-**Learn how to integrate your Apify Actors with Workato for automated workflows.**
-
 ---
 
 [Workato](https://www.workato.com/) is an automation platform where you can build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
@@ -27,7 +23,6 @@ The Apify Workato Connector is available in the Workato Community library. Here'
 1. Click on **Custom connectors**.
 1. Search for **Apify**.
 1. Click on the connector and then click **Install**.
-
 
 After installation, the Apify connector appears in **Connector SDK** under the **Tools** tab. After you release the connector, you can use it in your projects.
 
@@ -133,7 +128,6 @@ When using manual input instead of pick lists, you'll need to provide the correc
 - **Webhook ID**: [Actors](https://console.apify.com/actors) > Actor > Integrations.
   - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
 
-
 ## Triggers
 
 :::tip Inline documentation
@@ -150,13 +144,13 @@ _Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets 
 
 This trigger monitors a specific Apify Actor and starts the recipe when any run of that Actor reaches a terminal status. You can:
 
-- Select the Actor from recently used Actors or Apify store Actors
+- Select the Actor from recently used Actors or Apify Store Actors
 - Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`)
 - Access run details, status, and metadata in subsequent recipe steps
 
 ![Screenshot of the Actor Run Finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
-### Task Run Finished  
+### Task Run Finished
 
 _Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted)._
 
@@ -178,7 +172,7 @@ _Run an Apify Actor with customizable execution parameters._
 
 This action runs an Apify Actor with your specified input and execution parameters. You can choose to wait for completion or start the run asynchronously. Actors are reusable serverless programs that can scrape websites, process data, and automate workflows. You can:
 
-- Select from your recently used Actors or Apify store Actors
+- Select from your recently used Actors or Apify Store Actors
 - Provide input using dynamic schema-based fields or raw JSON
 - Configure run options like memory allocation, timeout, and build version
 - Choose between synchronous (wait for completion) or asynchronous execution
@@ -205,7 +199,7 @@ This action runs an Apify Task with optional input overrides and execution param
 
 ![Screenshot of the Run Task action configuration interface in Workato](../images/workato/run-task.png)
 
-### Get Dataset Items
+### Get dataset items
 
 _Retrieves items from a dataset with dynamic field mapping._
 
@@ -215,7 +209,7 @@ Select a dataset to dynamically generate output fields and retrieve its items. T
 - Retrieves data records from specified datasets with pagination support
 - Returns structured data ready for downstream recipe steps
 
-#### Dynamic Schema Detection
+#### Dynamic schema detection
 
 The connector samples your dataset to create appropriate output fields:
 
@@ -231,7 +225,7 @@ For optimal results, use datasets where all items follow a consistent structure.
 
 ![Screenshot of the Get Dataset Items action configuration interface in Workato](../images/workato/get-dataset.png)
 
-### Get Key-value store Record
+### Get key-value store record
 
 _Retrieves a single record from a Key-value store._
 
@@ -302,4 +296,4 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - _Resource not found errors:_ Check that IDs are correct and case-sensitive
 - _Dataset field mapping issues:_ If you experience incorrect data types or missing fields in the Get Dataset Items action data pill, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
 
-If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on the [Apify Discord channel](https://discord.com/invite/jyEM2PRvMU).

@@ -1,6 +1,6 @@
 ---
 title: Make - Facebook Actor integration
-description: Learn about Facebook scraper modules, extract posts, comments, and profile data from Facebook.
+description: Use the Facebook Scraper modules in Make to extract posts, comments, and profile data from Facebook and incorporate results into your workflows.
 sidebar_label: Facebook
 sidebar_position: 8
 slug: /integrations/make/facebook
@@ -19,7 +19,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/facebook/signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Actor rental](images/facebook/actor-rental.png)
 
@@ -27,7 +27,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Start Actor rental](images/facebook/start-rental.png)
 
-1. Connect your Apify account with Make, you need to get the Apify API token. In the Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
+1. Connect your Apify account with Make, you need to get the Apify API token. In Apify Console, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 

@@ -1,12 +1,8 @@
 ---
 title: Creating integration Actors
-description: Learn how to create Actors that are ready to be integrated with other Actors and tasks.
+description: Build Actors designed to work as integrations with other Actors and tasks. Handle dynamic input, payload fields, and large datasets efficiently.
 sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
----
-
-**Learn how to create Actors that are ready to be integrated with other Actors and tasks.**
-
 ---
 
 Any Actor can be used in integrations. In order to provide a smooth experience for its users, there are few things to keep in mind.
@@ -45,7 +41,7 @@ And in the Actor code, we'd use this to get the values:
 const { datasetId, connectionString, tableName } = await Actor.getInput();
 ```
 
-To make the integration process smoother, it's possible to define an input that's going to be prefilled when your Actor is being used as an integration. You can do that in the Actor's **Settings** tab, on the **Integrations** form. In our example, we'd use:
+To make the integration process smoother, it's possible to define an input that's going to be prefilled when your Actor is being used as an integration. You can do that in the Actor's **Settings** tab, on the **Integrations** form. In this example, we'd use:
 
 ```json
 {
@@ -61,7 +57,6 @@ However, if the Actor is **only** supposed to be used as integration, we can use
 
 - `connectionString: string` - Credentials for the database connection
 - `tableName: string` - Name of table / collection
-
 
 In this case, users only need to provide the "static" part of the input:
 
@@ -88,11 +83,11 @@ const datasetIdToProcess = datasetId || payload?.resource?.defaultDatasetId;
 
 In the above example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
 
-## Making your Actor available to other users
+## Make your Actor available to other users
 
 To allow other users to use your Actor as an integration, all you need to do is [publish it in Apify Store](/platform/actors/publishing), so users can then integrate it using the **Connect Actor or task** button on the **Integrations** tab of any Actor. While publishing the Actor is enough, there are two ways to make it more visible to users.
 
-For Actors that are generic enough to be used with most other Actors, it's possible to have them listed under **Generic integrations** in the **Integrations** tab. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, create issues in ticketing systems, etc. To have your Actor listed under our generic integrations, [contact support](mailto:support@apify.com?subject=Actor%20generic%20integration).
+For Actors that are generic enough to be used with most other Actors, it's possible to have them listed under **Generic integrations** in the **Integrations** tab. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, create issues in ticketing systems, etc. To have your Actor listed under the generic integrations, [contact support](mailto:support@apify.com?subject=Actor%20generic%20integration).
 
 Some Actors can only be integrated with a few or even just one other Actor. Let's say that you have an Actor that's capable of scraping profiles from a social network. It makes sense to show it for Actors that produce usernames from the social network but not for Actors that produce lists of products. In this case, it's possible to have the Actor listed as **Specific to this Actor** under the Actor's **Integrations** tab. To have your Actor listed as specific to another Actor, [contact support](mailto:support@apify.com?subject=Actor%specific%20integration).
 

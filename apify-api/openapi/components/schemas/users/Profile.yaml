@@ -3,19 +3,21 @@ type: object
 properties:
   bio:
     type: string
-    example: I started web scraping in 1985 using Altair BASIC.
+    examples: [I started web scraping in 1985 using Altair BASIC.]
   name:
     type: string
-    example: Jane Doe
+    examples: [Jane Doe]
   pictureUrl:
     type: string
-    example: /img/anonymous_user_picture.png
+    format: uri
+    examples: [https://apify.com/img/anonymous_user_picture.png]
   githubUsername:
     type: string
-    example: torvalds.
+    examples: [torvalds.]
   websiteUrl:
     type: string
-    example: 'http://www.example.com'
+    format: uri
+    examples: [http://www.example.com]
   twitterUsername:
     type: string
-    example: '@BillGates'
+    examples: ["@BillGates"]

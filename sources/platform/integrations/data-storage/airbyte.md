@@ -1,13 +1,9 @@
 ---
 title: Airbyte integration
-description: Learn how to integrate your Apify datasets with Airbyte.
+description: Use the Airbyte Apify Dataset connector to move data from Apify datasets to any Airbyte-supported destination using pre-built open-source connectors.
 sidebar_label: Airbyte
 sidebar_position: 1
 slug: /integrations/airbyte
----
-
-**Learn how to integrate your Apify datasets with Airbyte.**
-
 ---
 
 Airbyte is an open-source data integration platform that allows you to move your data between different sources and destinations using pre-built connectors, which are maintained either by Airbyte itself or by its community.
@@ -39,4 +35,4 @@ To find your Apify API token, you need to navigate to the **Settings** tab and s
 
 And that's it! You now have Apify datasets set up as a Source, and you can use Airbyte to transfer your datasets to one of the available destinations.
 
-To learn more about how to setup a Connection, visit [Airbyte's documentation](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection)
+To learn more about how to setup a Connection, visit [Airbyte's documentation](https://docs.airbyte.com/platform/using-airbyte/getting-started/set-up-a-connection)

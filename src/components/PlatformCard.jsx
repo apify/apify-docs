@@ -21,7 +21,7 @@ const PlatformLink = ({ cardItem, href, isExternalLink }) => (
     </Link>
 );
 
-const PlaftormCard = ({ title, items }) => {
+const PlatformCard = ({ title, items }) => {
     return (
         <div className={styles.card}>
             <h4 className={styles['card-header']}>{title}</h4>
@@ -36,4 +36,4 @@ const PlaftormCard = ({ title, items }) => {
     );
 };
 
-export default PlaftormCard;
+export default PlatformCard;

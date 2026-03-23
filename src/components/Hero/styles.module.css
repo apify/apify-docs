@@ -100,19 +100,15 @@ html[data-theme='dark'] .heroBanner p {
 }
 
 .heroBanner .heroPromotionLink {
+    max-width: calc(100% - 3.2rem);
     border-radius: 1000px;
     border: 1px solid var(--color-Neutral_SeparatorSubtle);
     background: var(--color-Neutral_Background);
     display: flex;
     padding: 0.8rem 1.2rem;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     margin-bottom: 0.8rem;
-
-    @media (max-width: 767px) {
-        padding: 0.8rem 1.6rem;
-        flex-direction: column;
-    }
 
     &:hover {
         background: var(--color-Neutral_Hover);
@@ -121,12 +117,6 @@ html[data-theme='dark'] .heroBanner p {
             transform: translateX(4px);
         }
     }
-}
-
-.heroBanner .heroPromotionContent {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
 }
 
 .heroBanner .heroPromotionBadge {
@@ -138,30 +128,18 @@ html[data-theme='dark'] .heroBanner p {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-right: 0.2rem;
 }
 
 .heroBanner .heroPromotionLabel {
     color: var(--color-neutral-text);
-}
-
-.heroBanner .heroPromotionLabelDesktop {
-    display: inline;
-}
-
-.heroBanner .heroPromotionLabelMobile {
-    display: none;
-}
-
-@media (max-width: 767px) {
-    .heroBanner .heroPromotionLabelDesktop {
-        display: none;
-    }
-    .heroBanner .heroPromotionLabelMobile {
-        display: inline;
-    }
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .heroBanner .heroPromotionArrow {
+    flex-shrink: 0;
     color: var(--color-neutral-icon);
     transition: transform 0.2s;
 }

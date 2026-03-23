@@ -15,52 +15,34 @@ get:
     the `desc=1` parameter.
   operationId: act_builds_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: offset
-      in: query
-      description: |
-        Number of records that should be skipped at the start. The default value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
-    - name: limit
-      in: query
-      description: |
-        Maximum number of records to return. The default value as well as the maximum is `1000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: desc
-      in: query
-      description: |
-        If `true` or `1` then the objects are sorted by the `startedAt` field in
-        descending order. By default, they are sorted in ascending order.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descStartedAt"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/actor-builds/GetBuildListResponse.yaml
+            $ref: ../../components/schemas/actor-builds/ListOfBuildsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/get-list-of-builds
@@ -82,14 +64,7 @@ post:
     [Get build](#/reference/actors/build-object/get-build) endpoint.
   operationId: act_builds_post
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: version
       in: query
       description: Actor version number to be built.
@@ -98,7 +73,7 @@ post:
       explode: true
       schema:
         type: string
-        example: '0.0'
+        example: "0.0"
     - name: useCache
       in: query
       description: |
@@ -129,22 +104,10 @@ post:
       schema:
         type: string
         example: latest
-    - name: waitForFinish
-      in: query
-      description: |
-        The maximum number of seconds the server waits for the build to finish.
-        By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-        If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
-        otherwise it will have a transitional status (e.g. `RUNNING`).
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishBuild"
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers:
         Location:
           content:
@@ -156,36 +119,23 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actors/BuildActorResponse.yaml"
-          example:
-            data:
-              id: HG7ML7M8z78YcAPEB
-              actId: janedoe~my-actor
-              userId: klmdEpoiojmdEMlk3
-              startedAt: '2019-11-30T07:34:24.202Z'
-              finishedAt: '2019-12-12T09:30:12.202Z'
-              status: SUCCEEDED
-              meta:
-                origin: WEB
-                clientIp: 172.234.12.34
-                userAgent: Mozilla/5.0 (iPad)
-              stats:
-                durationMillis: 1000
-                runTimeSecs: 45.718
-                computeUnits: 0.012699444444444444
-              options:
-                useCache: false
-                betaPackages: false
-                memoryMbytes: 1024
-                diskMbytes: 2048
-              usage:
-                ACTOR_COMPUTE_UNITS: 0.08
-              usageTotalUsd: 0.02
-              usageUsd:
-                ACTOR_COMPUTE_UNITS: 0.02
-              inputSchema: '{\n  \"title\": \"Schema for ... }'
-              readme: '# Magic Actor\nThis Actor is magic.'
-              buildNumber: 0.1.1
+            $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-collection/build-actor

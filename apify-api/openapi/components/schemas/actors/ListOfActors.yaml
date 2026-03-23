@@ -1,0 +1,11 @@
+title: ListOfActors
+allOf:
+  - $ref: ../common/PaginationResponse.yaml
+  - type: object
+    required:
+      - items
+    properties:
+      items:
+        type: array
+        items:
+          $ref: ./ActorShort.yaml

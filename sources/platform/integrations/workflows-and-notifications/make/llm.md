@@ -1,6 +1,6 @@
 ---
 title: Make - LLMs Actor integration
-description: Learn about LLM browser modules. Search the web and extract clean Markdown for AI assistants and RAG.
+description: Use Apify Scraper for LLMs in Make to query Google Search, scrape top results, and return clean Markdown for AI assistants and RAG pipelines.
 sidebar_label: LLMs
 sidebar_position: 7
 slug: /integrations/make/llm
@@ -11,7 +11,7 @@ toc_max_heading_level: 4
 
 Apify Scraper for LLMs from [Apify](https://apify.com) is a web browsing module for OpenAI Assistants, RAG pipelines, and AI agents. It can query Google Search, scrape the top results, and return page content as Markdown for downstream AI processing.
 
-To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the Apify Console under **Settings > Integrations**. After connecting, you can automate content extraction and integrate results into your AI workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in Apify Console under **Settings > Integrations**. After connecting, you can automate content extraction and integrate results into your AI workflows.
 
 ## Connect Apify Scraper for LLMs
 
@@ -19,7 +19,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Make interface showing API token field and connection name field for Apify integration setup](images/llm/rag-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/apify-console-token-for-make.png)
 

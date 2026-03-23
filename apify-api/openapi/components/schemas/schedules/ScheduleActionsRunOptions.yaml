@@ -2,18 +2,14 @@ title: ScheduleActionsRunOptions
 type: object
 properties:
   build:
-    type: string
-    nullable: true
-    example: latest
+    type: [string, "null"]
+    examples: [latest]
   timeoutSecs:
-    type: number
-    nullable: true
-    example: 60
+    type: [integer, "null"]
+    examples: [60]
   memoryMbytes:
-    type: number
-    nullable: true
-    example: 1024
+    type: [integer, "null"]
+    examples: [1024]
   restartOnError:
-    type: boolean
-    nullable: true
-    example: false
+    type: [boolean, "null"]
+    examples: [false]

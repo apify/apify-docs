@@ -1,0 +1,9 @@
+description: Not found - the requested resource does not exist.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: record-not-found
+        message: The requested resource was not found.

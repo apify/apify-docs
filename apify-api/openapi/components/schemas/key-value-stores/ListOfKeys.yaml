@@ -1,0 +1,28 @@
+title: ListOfKeys
+type: object
+required:
+  - items
+  - count
+  - limit
+  - isTruncated
+properties:
+  items:
+    type: array
+    items:
+      $ref: ./KeyValueStoreKey.yaml
+    description: ""
+  count:
+    type: integer
+    examples: [2]
+  limit:
+    type: integer
+    examples: [2]
+  exclusiveStartKey:
+    type: string
+    examples: [some-key]
+  isTruncated:
+    type: boolean
+    examples: [true]
+  nextExclusiveStartKey:
+    type: string
+    examples: [third-key]

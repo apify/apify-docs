@@ -5,63 +5,34 @@ get:
   description: Returns request from queue.
   operationId: requestQueue_request_get
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: requestId
-      in: path
-      description: Request ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: xpsmkDlspokDSmklS
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/GetRequestResponse.yaml
-              - example:
-                  data:
-                    id: dnjkDMKLmdlkmlkmld
-                    retryCount: 0
-                    uniqueKey: 'http://example.com'
-                    url: 'http://example.com'
-                    method: GET
-                    loadedUrl: 'http://example.com/example-1'
-                    payload: null
-                    noRetry: false
-                    errorMessages: null
-                    headers: null
-                    userData:
-                      label: DETAIL
-                      image: 'https://picserver1.eu'
-                    handledAt: '2019-06-16T10:23:31.607Z'
-          example:
-            data:
-              id: dnjkDMKLmdlkmlkmld
-              retryCount: 0
-              uniqueKey: 'http://example.com'
-              url: 'http://example.com'
-              method: GET
-              loadedUrl: 'http://example.com/example-1'
-              payload: null
-              noRetry: false
-              errorMessages: null
-              headers: null
-              userData:
-                label: DETAIL
-                image: 'https://picserver1.eu'
-              handledAt: '2019-06-16T10:23:31.607Z'
+            $ref: ../../components/schemas/request-queues/RequestResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request
@@ -83,104 +54,45 @@ put:
     If `handledAt` is set, the request will be removed from head of the queue (and unlocked, if applicable).
   operationId: requestQueue_request_put
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: requestId
-      in: path
-      description: Request ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: xpsmkDlspokDSmklS
-    - name: forefront
-      in: query
-      description: |
-        Determines if request should be added to the head of the queue or to the
-        end. Default value is `false` (end of queue).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: 'false'
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long. This identifier is used to
-        determine whether the queue was accessed by multiple clients. If
-        `clientKey` is not provided,
-        the system considers this API call to come from a new client. For
-        details, see the `hadMultipleClients` field returned by the [Get
-        head](#/reference/request-queues/queue-head) operation.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/forefront"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: ../../components/schemas/request-queues/RequestQueueItems.yaml
-            - example:
-                id: dnjkDMKLmdlkmlkmld
-                retryCount: 0
-                uniqueKey: 'http://example.com'
-                url: 'http://example.com'
-                method: GET
-                loadedUrl: 'http://example.com/example-1'
-                payload: null
-                noRetry: false
-                errorMessages: null
-                headers: null
-                userData:
-                  label: DETAIL
-                  image: 'https://picserver1.eu'
-                handledAt: '2019-06-16T10:23:31.607Z'
-        example:
-          id: dnjkDMKLmdlkmlkmld
-          retryCount: 0
-          uniqueKey: 'http://example.com'
-          url: 'http://example.com'
-          method: GET
-          loadedUrl: 'http://example.com/example-1'
-          payload: null
-          noRetry: false
-          errorMessages: null
-          headers: null
-          userData:
-            label: DETAIL
-            image: 'https://picserver1.eu'
-          handledAt: '2019-06-16T10:23:31.607Z'
+          $ref: ../../components/schemas/request-queues/Request.yaml
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/UpdateRequestResponse.yaml
-              - example:
-                  data:
-                    requestId: YiKoxjkaS9gjGTqhF
-                    wasAlreadyPresent: true
-                    wasAlreadyHandled: false
-          example:
-            data:
-              requestId: YiKoxjkaS9gjGTqhF
-              wasAlreadyPresent: true
-              wasAlreadyHandled: false
+            $ref: ../../components/schemas/request-queues/UpdateRequestResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request
@@ -199,42 +111,30 @@ delete:
   description: Deletes given request from queue.
   operationId: requestQueue_request_delete
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: requestId
-      in: path
-      description: Request ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: xpsmkDlspokDSmklS
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long. This identifier is used to
-        determine whether the queue was accessed by multiple clients. If
-        `clientKey` is not provided,
-        the system considers this API call to come from a new client. For
-        details, see the `hadMultipleClients` field returned by the [Get
-        head](#/reference/request-queues/queue-head) operation.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request

@@ -8,6 +8,8 @@ slug: /build-and-publish/actor-ideas/actor-validation
 
 Before investing time into building an Actor, validate that people actually need it. This guide shows you how to assess market demand using free tools and research techniques.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/00PA7a548W0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Assess your motivation
 
 Ask yourself: _Do you want to build this?_
@@ -41,7 +43,7 @@ Examine current search results. Few quality results for a query like _download d
 
 Many results or ads for _Instagram scraper_ means the market is proven but competitive. You'll need to differentiate.
 
-Check keyword difficulty and domain authority. If difficulty is 70+ and top pages have 80+ domain authority with thousands of backlinks—and Apify already has an official Actor with 100,000+ users—you can't compete directly. Find an adjacent angle or specialization.
+Check keyword difficulty and domain authority. If difficulty is 70+ and top pages have 80+ domain authority with thousands of backlinks - and Apify already has an official Actor with 100,000+ users - you can't compete directly. Find an adjacent angle or specialization.
 
 ## Analyze Google Trends
 
@@ -55,7 +57,7 @@ Watch for spikes. Sudden jumps from media coverage or viral moments usually don'
 
 Beyond SEO data, go where your potential users are. Browse Reddit, Hacker News, Stack Overflow, X (Twitter), Discord, and Facebook groups. What problems are people discussing? What tools do they wish existed?
 
-Document your findings. Note quotes and recurring themes like _Multiple marketers on Reddit want easy competitor pricing tracking—no existing solution mentioned_. These insights complement your SEO data and help you speak your users' language.
+Document your findings. Note quotes and recurring themes like _Multiple marketers on Reddit want easy competitor pricing tracking - no existing solution mentioned_. These insights complement your SEO data and help you speak your users' language.
 
 Zero discussion across multiple platforms over 4+ weeks means either no one cares about the problem or they've already solved it.
 
@@ -76,7 +78,7 @@ You can also use tools like [F5Bot](https://f5bot.com/) or
 
 ### Q&A forums and Stack Overflow
 
-Look for questions about doing the task manually. If thinking about a LinkedIn scraper, check Stack Overflow for questions like _How can I scrape LinkedIn profiles?_ Frequent questions or upvotes indicate many people trying to solve it without a good tool—an opportunity for your Actor.
+Look for questions about doing the task manually. If thinking about a LinkedIn scraper, check Stack Overflow for questions like _How can I scrape LinkedIn profiles?_ Frequent questions or upvotes indicate many people trying to solve it without a good tool - an opportunity for your Actor.
 
 Use the `site:` parameter:
 
@@ -130,7 +132,7 @@ Fork and commit activity shows developers actively work with the technology. Hig
 
 ## Review Product Hunt launches
 
-Study successful automation tool launches from the past 12-24 months on Product Hunt. Filter by _Browser Automation_ and _Automation tools_, then sort by upvotes. Note which taglines, value propositions, and features resonated. Products with 500+ upvotes validated something—figure out what worked.
+Study successful automation tool launches from the past 12-24 months on Product Hunt. Filter by _Browser Automation_ and _Automation tools_, then sort by upvotes. Note which taglines, value propositions, and features resonated. Products with 500+ upvotes validated something - figure out what worked.
 
 ## Research Apify Store
 
@@ -150,17 +152,17 @@ If the market has 50+ Actors with strong leaders (Apify-maintained with 50,000+ 
 
 ## Scan the broader market
 
-Do a general Google search for tools or services that solve your problem. Your competition might not be another Actor—it could be a SaaS tool or API. If your idea is _monitor website uptime and screenshot changes_, established services probably exist.
+Do a general Google search for tools or services that solve your problem. Your competition might not be another Actor - it could be a SaaS tool or API. If your idea is _monitor website uptime and screenshot changes_, established services probably exist.
 
 Note direct competitors: How do they price it? What audience do they target? Are users satisfied or complaining? This validates that people pay for the service and reveals gaps you can fill.
 
-Understanding the competition helps you refine your unique value—whether that's lower cost, better features, or targeting an underserved niche.
+Understanding the competition helps you refine your unique value - whether that's lower cost, better features, or targeting an underserved niche.
 
 No existing solutions? Ask why. You might have found an untapped need, or it's a red flag (too difficult to implement, or the target website aggressively blocks scraping). Use your judgment.
 
 ## Get feedback from potential users
 
-Reach out to people who match your target user profile. Building a real estate data Actor? Contact real estate analysts or agents (LinkedIn works well) and ask if a tool that does X would help them. Keep it informal—describe the problem you're solving and ask if they'd use or pay for it.
+Reach out to people who match your target user profile. Building a real estate data Actor? Contact real estate analysts or agents (LinkedIn works well) and ask if a tool that does X would help them. Keep it informal - describe the problem you're solving and ask if they'd use or pay for it.
 
 Direct feedback helps you:
 

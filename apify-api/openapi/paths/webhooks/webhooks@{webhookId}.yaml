@@ -5,22 +5,27 @@ get:
   description: Gets webhook object with all details.
   operationId: webhook_get
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/GetWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/get-webhook
@@ -53,29 +58,38 @@ put:
     info](#/introduction/authentication)).
   operationId: webhook_put
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/webhooks/WebhookUpdate.yaml
     required: true
   responses:
-    '200':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/UpdateWebhookResponse.yaml
+            $ref: ../../components/schemas/webhooks/WebhookResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/update-webhook
@@ -94,23 +108,28 @@ delete:
   description: Deletes a webhook.
   operationId: webhook_delete
   parameters:
-    - name: webhookId
-      in: path
-      description: Webhook ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: Zib4xbZsmvZeK55ua
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
   responses:
-    '204':
-      description: ''
+    "204":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
             type: object
           example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/delete-webhook

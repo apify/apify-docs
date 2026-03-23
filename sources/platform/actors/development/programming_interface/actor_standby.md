@@ -1,12 +1,8 @@
 ---
 title: Standby mode
-description: Use the Actor as a real-time API server.
+description: Develop Actors that run a persistent HTTP server in Standby mode, enabling fast real-time API responses without restarting the Actor each time.
 slug: /actors/development/programming-interface/standby
 sidebar_position: 9
----
-
-**Use Actors as an API server for fast response times.**
-
 ---
 
 Traditional Actors are designed to run a single task and then stop. They're mostly intended for batch jobs, such as when you need to perform a large scrape or data processing task.
@@ -62,7 +58,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.config.web_server_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.configuration.web_server_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
@@ -82,7 +78,6 @@ The platform sends a GET request to the path `/` with a header `x-apify-containe
 You must return a response; otherwise, the Actor run will never be marked as ready and won't process requests.
 
 :::
-
 
 See example code below that distinguishes between "normal" and "readiness probe" requests.
 
@@ -116,7 +111,6 @@ server.listen(Actor.config.get('standbyPort'));
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from apify import Actor
 
-
 class GetHandler(SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         self.send_response(200)
@@ -128,10 +122,9 @@ class GetHandler(SimpleHTTPRequestHandler):
             print('Normal request')
             self.wfile.write(b'Hello, normal request!')
 
-
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.config.standby_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.configuration.standby_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
@@ -167,7 +160,7 @@ from apify import Actor
 
 async def main() -> None:
     async with Actor:
-        if Actor.config.meta_origin == 'STANDBY':
+        if Actor.configuration.meta_origin == 'STANDBY':
             # Start your Standby server here
         else:
             # Perform the standard Actor operations here

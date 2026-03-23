@@ -1,0 +1,8 @@
+title: UnlockRequestsResponse
+description: Response containing the result of unlocking requests.
+type: object
+required:
+  - data
+properties:
+  data:
+    $ref: ./UnlockRequestsResult.yaml

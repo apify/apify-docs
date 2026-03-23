@@ -1,0 +1,8 @@
+title: WebhookResponse
+description: Response containing webhook data.
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Webhook.yaml

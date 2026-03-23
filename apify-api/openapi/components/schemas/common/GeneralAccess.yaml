@@ -1,0 +1,9 @@
+title: GeneralAccess
+type: string
+enum:
+  - ANYONE_WITH_ID_CAN_READ
+  - ANYONE_WITH_NAME_CAN_READ
+  - FOLLOW_USER_SETTING
+  - RESTRICTED
+examples: [RESTRICTED]
+description: Defines the general access level for the resource.

@@ -15,88 +15,47 @@ post:
     then it returns an ID of the existing request.
   operationId: requestQueue_requests_batch_post
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
-    - name: forefront
-      in: query
-      description: |
-        Determines if request should be added to the head of the queue or to the
-        end. Default value is `false` (end of queue).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: 'false'
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/forefront"
   requestBody:
-    description: ''
+    description: ""
     content:
       application/json:
         schema:
           type: array
           items:
-            $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
-          description: ''
-          example:
-            - uniqueKey: 'http://example.com'
-              url: 'http://example.com'
-              method: GET
-            - uniqueKey: 'http://example.com/2'
-              url: 'http://example.com/2'
-              method: GET
-        example:
-          - uniqueKey: 'http://example.com'
-            url: 'http://example.com'
-            method: GET
-          - uniqueKey: 'http://example.com/2'
-            url: 'http://example.com/2'
-            method: GET
+            $ref: ../../components/schemas/request-queues/RequestDraft.yaml
+          description: ""
     required: true
   responses:
-    '201':
-      description: ''
+    "201":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/BatchOperationResponse.yaml
-              - example:
-                  data:
-                    processedRequests:
-                      - requestId: YiKoxjkaS9gjGTqhF
-                        uniqueKey: 'http://example.com/2'
-                        wasAlreadyPresent: true
-                        wasAlreadyHandled: false
-                    unprocessedRequests:
-                      - uniqueKey: 'http://example.com/2'
-                        url: 'http://example.com/2'
-                        method: GET
-          example:
-            data:
-              processedRequests:
-                - requestId: YiKoxjkaS9gjGTqhF
-                  wasAlreadyPresent: true
-                  wasAlreadyHandled: false
-              unprocessedRequests:
-                - uniqueKey: 'http://example.com/2'
-                  url: 'http://example.com/2'
-                  method: GET
+            $ref: ../../components/schemas/request-queues/BatchAddResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/add-requests
@@ -126,60 +85,54 @@ delete:
     either of them to identify the request.
   operationId: requestQueue_requests_batch_delete
   parameters:
-    - name: queueId
-      in: path
-      description: Queue ID or `username~queue-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
     - name: Content-Type
       in: header
-      description: ''
+      description: ""
       required: true
       style: simple
       schema:
         enum:
           - application/json
         type: string
-        example: application/json
-    - name: clientKey
-      in: query
-      description: |
-        A unique identifier of the client accessing the request queue. It must
-        be a string between 1 and 32 characters long
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: client-abc
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/request-queues/RequestDraftDelete.yaml
+    required: true
   responses:
-    '204':
-      description: ''
+    "200":
+      description: ""
       headers: {}
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: ../../components/schemas/request-queues/BatchOperationResponse.yaml
-              - example:
-                  data:
-                    processedRequests:
-                      - requestId: YiKoxjkaS9gjGTqhF
-                        uniqueKey: 'http://example.com/2'
-                        wasAlreadyPresent: true
-                        wasAlreadyHandled: false
-                    unprocessedRequests:
-                      - uniqueKey: 'http://example.com/2'
-                        url: 'http://example.com/2'
-                        method: GET
-          example:
-            data:
-              processedRequests:
-                - uniqueKey: 'http://example.com'
-              unprocessedRequests:
-                - id: sbJ7klsdf7ujN9l
+            $ref: ../../components/schemas/request-queues/BatchDeleteResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/delete-requests

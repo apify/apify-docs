@@ -1,6 +1,6 @@
 ---
 title: Make - YouTube Actor integration
-description: Learn about YouTube scraper modules. Extract channel, video, streams, shorts, and search data from YouTube.
+description: Use the YouTube Scraper module in Make to extract channel info, video data, streams, shorts, and search results from YouTube for your workflows.
 sidebar_label: YouTube
 sidebar_position: 5
 slug: /integrations/make/youtube
@@ -11,7 +11,7 @@ unlisted: true
 
 The YouTube Scraper module from [apify.com](https://apify.com) allows you to extract channel, video, streams, shorts, and search data from YouTube.
 
-To use this module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in the Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
+To use this module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
 For more details, follow the tutorial below.
 
@@ -21,7 +21,7 @@ For more details, follow the tutorial below.
 
     ![Sign up page](images/youtube/image.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 

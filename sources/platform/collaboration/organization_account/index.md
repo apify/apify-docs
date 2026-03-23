@@ -5,10 +5,6 @@ sidebar_position: 12.1
 slug: /collaboration/organization-account
 ---
 
-**Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.**
-
----
-
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../list_of_permissions.md) and to centralize your billing without having to share the credentials of a single personal account.
 
 You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
@@ -18,11 +14,11 @@ You can set up an organization in two ways.
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 * [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
-> Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
+> Prefer video to reading? [See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
 ## Availability and pricing
 
-The organization account is available on all our plans. [Visit our pricing page](https://apify.com/pricing) for more information.
+The organization account is available on all plans. [Visit the pricing page](https://apify.com/pricing) for more information.
 
 ## Create a new organization
 
@@ -48,9 +44,11 @@ Then, under the **Organizations** [tab](https://console.apify.com/account#/myorg
 
 ![Convert your account to an organization](../images/organizations/convert-to-organization.png)
 
-Next, set the organization's name and click **Convert**.
+Next, enter an organization name and select **Convert**.
 
-And that's it! Your personal account becomes the organization, and you will be logged out automatically. You can now log into your new personal account with the same credentials as you are currently logged in with. This applies to both **password** and **OAuth** methods.
+The name you enter becomes the organization's display name. The original account **username** stays the same, so any public Actors or API references (for example, `my_profile/my_actor`) keep their existing URLs. A new personal account is created for you with the same login credentials and a username based on your original username with `-owner` added (for example, `my_profile-owner`). This applies to both **password** and **OAuth** methods. You'll use this new personal account to manage and own the organization.
+
+And that's it! Your personal account becomes the organization, and you will be logged out automatically.
 
 For information on [adding members and assigning roles](./setup.md), see the Setup page.
 

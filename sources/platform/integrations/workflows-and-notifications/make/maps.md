@@ -1,6 +1,6 @@
 ---
 title: Make - Google Maps Leads Actor integration
-description: Learn about Google Maps scraper modules.
+description: Use the Google Maps Leads Scraper modules in Make to extract business contact details, reviews, and location data for sales and marketing workflows.
 sidebar_label: Google Maps
 sidebar_position: 4
 slug: /integrations/make/maps
@@ -22,7 +22,7 @@ For more details, follow the tutorial below.
 
     ![Sign up page](images/maps/maps-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
@@ -57,7 +57,7 @@ The Search with Categories module is a component of the Google Maps Leads Scrape
 - _Exact Name Matching_: Find businesses with exact or partial name matches
 - _Operational Status Filter_: Exclude temporarily or permanently closed businesses
 
-#### How It Works
+#### How it works
 
 The module allows you to combine category filtering with location parameters to discover relevant business leads, data mine reviews, or extract relevant Google Maps information. You can use categories alone or with specific search terms to create precisely targeted lead lists.
 
@@ -125,7 +125,7 @@ Categories can be general (e.g., "restaurant") which includes all variations lik
 }
 ```
 
-### Search with Search Terms Module
+### Search with Search Terms module
 
 The Search Terms module is a component of the Google Maps Leads Scraper designed to discover and extract business leads by using specific search queries, similar to how you'd search on Google Maps directly.
 
@@ -140,13 +140,13 @@ The Search Terms module is a component of the Google Maps Leads Scraper designed
 - _Exact Name Matching_: Find businesses with exact or partial name matches
 - _Operational Status Filter_: Exclude temporarily or permanently closed businesses
 
-#### How It Works
+#### How it works
 
 This module allows you to enter search terms that match what you would typically type into the Google Maps search bar. You can search for general business types (like "coffee shop"), specific services ("dog grooming"), or product offerings ("organic produce").
 
 The search results can be further refined using optional category filters, which help ensure you're capturing precisely the type of businesses you're targeting. For maximum efficiency, you can combine broader search terms with strategic category filters to capture the most relevant leads without excluding valuable prospects.
 
-### Advanced and Custom Search Module - Google Maps Leads Scraper
+### Advanced and Custom Search module - Google Maps Leads Scraper
 
 The Advanced and Custom Search module is the most powerful component of the Google Maps Leads Scraper, designed for sophisticated lead generation campaigns that require precise geographic targeting and advanced search capabilities. This module gives you complete control over your lead discovery process with multiple location definition methods and advanced filtering options.
 
@@ -159,18 +159,18 @@ The Advanced and Custom Search module is the most powerful component of the Goog
 - _Category Filtering_: Further refine results with optional category filters
 - _Comprehensive Lead Filtering_: Apply multiple quality filters simultaneously for precise lead targeting
 
-#### How It Works
+#### How it works
 
 This module provides the most flexible options for defining where and how to search for business leads:
 
-### Geographic Targeting Options
+### Geographic targeting options
 
 - _Simple Location Query_: Use natural language location inputs like "New York, USA"
 - _Structured Location Components_: Build precise locations using country, state, city, or county parameters
 - _Postal Code Targeting_: Target specific postal/ZIP code areas for direct mail campaigns
 - _Custom Polygon Areas_: Define exact geographic boundaries using coordinate pairs for ultra-precise targeting
 
-### Search and Filter Capabilities
+### Search and filter capabilities
 
 - _Keyword-Based Search_: Discover businesses using industry, service, or product terms
 - _Category-Based Filtering_: Apply Google's category system to refine results

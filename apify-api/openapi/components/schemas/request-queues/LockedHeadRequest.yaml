@@ -1,0 +1,35 @@
+title: LockedHeadRequest
+description: A request from the request queue head that has been locked for processing.
+type: object
+required:
+  - id
+  - uniqueKey
+  - url
+  - lockExpiresAt
+properties:
+  id:
+    type: string
+    description: A unique identifier assigned to the request.
+    examples: [8OamqXBCpPHxyH9]
+  uniqueKey:
+    type: string
+    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+    examples: [GET|60d83e70|e3b0c442|https://apify.com]
+  url:
+    type: string
+    format: uri
+    description: The URL of the request.
+    examples: [https://apify.com]
+  method:
+    type: string
+    description: The HTTP method of the request.
+    examples: [GET]
+  retryCount:
+    type: integer
+    description: The number of times this request has been retried.
+    examples: [0]
+  lockExpiresAt:
+    type: string
+    format: date-time
+    description: The timestamp when the lock on this request expires.
+    examples: ["2022-06-14T23:00:00.000Z"]

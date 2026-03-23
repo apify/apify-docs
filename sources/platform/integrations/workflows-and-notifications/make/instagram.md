@@ -1,14 +1,10 @@
 ---
 title: Make - Instagram Actor integration
-description: Learn about Instagram scraper modules. Extract posts, comments, and profile data.
+description: Use the Instagram Scraper modules in Make to extract posts, comments, and profile data from Instagram and incorporate results into your workflows.
 sidebar_label: Instagram
 sidebar_position: 1
 slug: /integrations/make/instagram
 unlisted: true
----
-
-**Learn about Instagram scraper modules. Extract posts, comments, and profile data.**
-
 ---
 
 ## Apify Scraper for Instagram Data
@@ -23,13 +19,12 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/instagram/Apify_Make_Sign_up_page.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
-
 
     ![Apify token on Make.png](images/Apify_token_on_Make.png)
 

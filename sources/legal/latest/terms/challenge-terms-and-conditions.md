@@ -1,7 +1,7 @@
 ---
 title: Apify $1M Challenge Terms and Conditions
 description: Apify $1M Challenge Terms and Conditions govern Apify $1M Challenge.
-sidebar_position: 8
+sidebar_position: 9
 sidebar_label: Challenge Terms
 category: legal
 slug: /challenge-terms-and-conditions
@@ -39,7 +39,7 @@ Participation in this Challenge is free and does not require the purchase of any
 
 ## 2. Actor Requirements
 
-2.1. Only the first five (5) of your Actors published in Apify Store following your registration for the Challenge will be enrolled in the Challenge. Any exceptions to this rule are at our sole discretion.
+2.1. Actors published in Apify Store following your registration for the Challenge will be enrolled in the Challenge. Any exceptions to this rule are at our sole discretion.
 
 2.2. Actors must meet a set of "hygienic" criteria, which will be evaluated by us at our sole discretion, such as a unique, legitimate README, a well-defined input and output schema (or using the standby mode), and a minimum "Actor Quality score" of 65/100 as further described in the Documentation. Actor Quality score will be visible in your Insights tab in Apify Console.
 
@@ -61,6 +61,8 @@ Participation in this Challenge is free and does not require the purchase of any
 3.1.3. On January 31, 2026, a final usage snapshot will be taken. We will create a list of all submitted Actors that meet all Challenge requirements (Sections 2 and 3), ranked by the highest number of Monthly Active Users.
 
 3.1.4. Payouts will be distributed sequentially, starting with the highest-ranked Actor on the list, and continuing down the list until the total distributed rewards reach the Challenge Bonus Pool of \$920,000. Once the Challenge Bonus Pool is depleted, no further Actors will receive this reward, regardless of their Monthly Active User count.
+
+3.1.5. Every participant can be rewarded in this way for a maximum of 5 Actors.
 
 3.2. **Weekly Spotlight Reward**. Every week starting from November 17, 2025, we will select one exceptional Actor to receive a one-time \$2,000 reward. There are no hard criteria for this reward; it will be either based on the Apify jury's or industry expert's assessment of the Actor's concept, technical solution, or user experience, and/or Apify Community vote. For the avoidance of doubt, Actor requirements and other general conditions according to these Challenge Terms still apply.
 

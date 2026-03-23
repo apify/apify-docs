@@ -60,7 +60,7 @@ Remember, bundles originated as customized solutions for specific use cases - th
 
 This is also an opportunity to tell a story rather than just presenting a tool. Consider writing a blog post about how you created this tool, recording a video, or hosting a live webinar. If you go this route, it’s important to emphasize how the tool was created and what a technical feat it represents.
 
-That said, don’t abandon SEO entirely. You can still capture some SEO value by referencing the bundle in the READMEs of the individual Actors that comprise it. For example, if a bundle collects reviews from multiple platforms, potential users are likely to search for review scrapers for each specific platform—Google Maps reviews scraper, Tripadvisor reviews scraper, Booking reviews scraper, etc. These keywords may not lead directly to your review scraping bundle, but they can guide users to the individual scrapers, where you can then present the bundle as a more comprehensive solution.
+That said, don’t abandon SEO entirely. You can still capture some SEO value by referencing the bundle in the READMEs of the individual Actors that comprise it. For example, if a bundle collects reviews from multiple platforms, potential users are likely to search for review scrapers for each specific platform - Google Maps reviews scraper, Tripadvisor reviews scraper, Booking reviews scraper, etc. These keywords may not lead directly to your review scraping bundle, but they can guide users to the individual scrapers, where you can then present the bundle as a more comprehensive solution.
 
 ---
 

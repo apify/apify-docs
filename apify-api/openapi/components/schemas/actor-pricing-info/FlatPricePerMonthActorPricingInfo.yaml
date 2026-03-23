@@ -1,6 +1,6 @@
 title: FlatPricePerMonthActorPricingInfo
 allOf:
-  - $ref: "./CommonActorPricingInfo.yaml"
+  - $ref: ./CommonActorPricingInfo.yaml
   - type: object
     required:
       - pricingModel
@@ -8,11 +8,10 @@ allOf:
       - trialMinutes
     properties:
       pricingModel:
-        type: string
-        enum: [FLAT_PRICE_PER_MONTH]
+        $ref: ./PricingModel.yaml
       trialMinutes:
-        type: number
-        description: "For how long this Actor can be used for free in trial period"
+        type: integer
+        description: For how long this Actor can be used for free in trial period
       pricePerUnitUsd:
         type: number
-        description: "Monthly flat price in USD"
+        description: Monthly flat price in USD

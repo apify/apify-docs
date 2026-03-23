@@ -6,10 +6,6 @@ category: platform
 slug: /console/settings
 ---
 
-**Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.**
-
----
-
 ## Account
 
 By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
@@ -28,14 +24,13 @@ The **Login & Privacy** tab (**Security & Privacy** for organization accounts) c
 
 :::
 
-
 ### Session Information
 
 In the **Session Information** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days, this customization helps ensure compliance with organization security policies.
 
 ## Integrations
 
-The **Integrations** tab provides essential tools for enhancing your interaction with our platform. Here, you can access your **Personal API Tokens**, which are necessary for using our [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to our [Integrations documentation](https://docs.apify.com/platform/integrations).
+The **Integrations** tab provides essential tools for enhancing your interaction with the Apify platform. Here, you can access your **Personal API Tokens**, which are necessary for using the [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/platform/integrations).
 
 ## Organization
 

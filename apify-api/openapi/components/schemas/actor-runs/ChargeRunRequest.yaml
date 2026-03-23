@@ -6,7 +6,7 @@ type: object
 properties:
   eventName:
     type: string
-    example: ANALYZE_PAGE
+    examples: [ANALYZE_PAGE]
   count:
-    type: number
-    example: 1
+    type: integer
+    examples: [1]
