@@ -18,10 +18,11 @@ import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
 
 ## Pricing models
 
-All Actors in [Apify Store](https://apify.com/store) fall into one of three pricing models:
+All Actors in [Apify Store](https://apify.com/store) fall into one of the four pricing models:
 
 1. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
 1. [**Pay per result**](#pay-per-result) - you do not pay for platform usage the Actor generates and instead just pay for the results it produces.
+1. [**Pay per usage**](#pay-per-usage) - you can run the Actor and you pay for the platform usage the Actor generates.
 1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
 
 :::note Post-run storage costs
@@ -89,6 +90,20 @@ To see total charges for a specific Actor, check the bottom of the [Historical u
 ![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
 
 Pay per result is also available as a pricing option when you publish your own Actors - see [Monetizing your Actor](/platform/actors/publishing/monetize) for details.
+
+### Pay per usage
+
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy).
+
+![Pay for usage Actor example](./images/store/pay_per_usage_actor_example.png)
+
+:::info Estimating Actor usage cost
+
+With this model, it's very easy to see how many platform resources each Actor run consumed, but it is quite difficult to estimate their usage beforehand. The best way to find the costs of free Actors upfront is to try out the Actor on a limited scope (for example, on a small number of pages) and evaluate the consumption. You can easily do that using our [free plan](https://apify.com/pricing).
+
+_For more information on platform usage cost see the [usage and resources](./usage_and_resources.md) page._
+
+:::
 
 ### Rental Actors
 
