@@ -16,7 +16,7 @@ post:
       application/json:
         schema:
           type: object
-        example: {"key": "value"}
+        example: {key: value}
     required: true
   responses:
     "200":
