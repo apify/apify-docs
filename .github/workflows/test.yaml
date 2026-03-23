@@ -85,14 +85,28 @@ jobs:
                         [ "$actual" = "$expected" ] || (echo "❌ Expected HTTP $expected but got $actual for $url" && exit 1)
                     }
 
+                    function assert_no_redirect() {
+                        url=$1
+                        shift
+                        extra_args=("$@")
+                        status=$(curl -s -o /dev/null -w "%{http_code}" "${extra_args[@]}" "$url")
+                        location=$(curl -s -D - -o /dev/null "${extra_args[@]}" "$url" 2>/dev/null | grep -i "^location:" | tr -d '\r' || true)
+                        echo "→ $url → HTTP $status ${location:+(${location})}"
+                        if [ "$status" = "301" ] || [ "$status" = "302" ]; then
+                            echo "❌ Got redirect for $url: $location" && exit 1
+                        fi
+                    }
+
                     echo "🧪 Checking open redirect protection..."
-                    # nginx decodes %5C to \ in $uri, so the check catches both forms.
-                    assert_status "http://localhost:8080///%5Cevil.com/" "400"
-                    assert_status "http://localhost:8080/%5Cevil.com/" "400"
-                    assert_status "http://localhost:8080///%5cevil.com/" "400"
+                    # Backslash URLs must not produce redirects (the redirect Location
+                    # would contain \, which browsers normalize to /, creating
+                    # protocol-relative URLs like //evil.com that redirect externally).
+                    assert_no_redirect "http://localhost:8080///%5Cevil.com/"
+                    assert_no_redirect "http://localhost:8080/%5Cevil.com/"
+                    assert_no_redirect "http://localhost:8080///%5cevil.com/"
                     # Literal backslash (simulates CDN pre-decoding %5C before forwarding)
-                    assert_status "http://localhost:8080" "400" --request-target '/\evil.com/'
-                    assert_status "http://localhost:8080" "400" --request-target '///\evil.com/'
+                    assert_no_redirect "http://localhost:8080" --request-target '/\evil.com/'
+                    assert_no_redirect "http://localhost:8080" --request-target '///\evil.com/'
 
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
