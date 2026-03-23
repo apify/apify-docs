@@ -7,9 +7,17 @@ type: object
 properties:
   id:
     type: string
-    examples: [ZReCs7hkdieq8ZUki]
+    examples: [c6KfSgoQzFhMk3etc]
   type:
     $ref: ./ScheduleActionType.yaml
   actorId:
     type: string
-    examples: [HKhKmiCMrDgu9eXeE]
+    examples: [jF8GGEvbEg4Au3NLA]
+  runInput:
+    anyOf:
+      - $ref: ./ScheduleActionRunOptions.yaml
+      - type: "null"
+  runOptions:
+    anyOf:
+      - $ref: ./ScheduleActionRunOptions.yaml
+      - type: "null"

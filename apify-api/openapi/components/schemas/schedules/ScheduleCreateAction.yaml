@@ -1,4 +1,4 @@
-title: CreateScheduleActions
+title: ScheduleCreateAction
 required:
   - type
   - actorId
@@ -11,9 +11,9 @@ properties:
     examples: [jF8GGEvbEg4Au3NLA]
   runInput:
     anyOf:
-      - $ref: ./ScheduleActionsRunInput.yaml
+      - $ref: ./ScheduleActionRunOptions.yaml
       - type: "null"
   runOptions:
     anyOf:
-      - $ref: ./ScheduleActionsRunOptions.yaml
+      - $ref: ./ScheduleActionRunOptions.yaml
       - type: "null"
