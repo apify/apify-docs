@@ -10,7 +10,7 @@ slug: /integrations/microsoft-power-automate
 
 ---
 
-[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run _Apify Actors_ inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
+[Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run Apify Actors inside your flows to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Key capabilities
 
@@ -87,7 +87,7 @@ After connecting your Apify account, you can start creating flows that use Apify
 Most actions let you select resources (Actors, tasks, datasets) from dropdown lists populated from your Apify account.
 
 - **Recently used Actors**: Shows Actors you have used recently.
-- **From store**: Allows you to select from popular Actors in the Apify Store.
+- **From store**: Allows you to select from popular Actors in Apify Store.
 - **My tasks**: Lists your saved Actor tasks.
 
 ![Dropdown selection of Actors](../images/power-automate/actor_dropdown_selection.png)
@@ -285,7 +285,7 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 
 - _Timeout errors:_ If an action fails with a timeout, check if you are waiting for a long-running Actor. Switch to the async pattern (set `Wait for finish` to `0`).
 - _Schema issues:_ Dataset schemas are inferred from sample data. If fields are missing in Power Automate dynamic content, you might need to parse the raw JSON output manually. Fields may not appear if they are absent in the initial sample records.
-- _Orphaned webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in the Apify Console. Cleanup is not automatic.
+- _Orphaned webhooks:_ If you delete a flow that used a trigger, remember to delete the corresponding webhook in Apify Console. Cleanup is not automatic.
 
 ## Pricing
 
