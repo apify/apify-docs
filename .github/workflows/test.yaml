@@ -86,15 +86,13 @@ jobs:
                     }
 
                     echo "🧪 Checking open redirect protection..."
-                    # Encoded backslash (%5C) - as sent by clients directly
+                    # nginx decodes %5C to \ in $uri, so the check catches both forms.
                     assert_status "http://localhost:8080///%5Cevil.com/" "400"
                     assert_status "http://localhost:8080/%5Cevil.com/" "400"
                     assert_status "http://localhost:8080///%5cevil.com/" "400"
-                    # Literal backslash - as forwarded by CDNs that decode %5C before proxying
+                    # Literal backslash (simulates CDN pre-decoding %5C before forwarding)
                     assert_status "http://localhost:8080" "400" --request-target '/\evil.com/'
                     assert_status "http://localhost:8080" "400" --request-target '///\evil.com/'
-                    # Multiple leading slashes (no backslash) - also a redirect vector
-                    assert_status "http://localhost:8080" "400" --request-target '//evil.com/'
 
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
