@@ -6,10 +6,6 @@ sidebar_position: 7
 slug: /integrations/microsoft-power-automate
 ---
 
-Learn how to integrate Apify Actors with Microsoft Power Automate for automated workflows.
-
----
-
 [Microsoft Power Automate](https://powerautomate.microsoft.com/) is an automation platform where you can build flows, automated workflows that connect your apps with no-code connectors. With the [Apify connector](https://apify.com), you can run Apify Actors inside your flows to launch web scraping and automation jobs, watch for run events, and process the results.
 
 ## Key capabilities
