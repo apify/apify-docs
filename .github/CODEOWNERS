@@ -8,11 +8,14 @@
 /.github/copilot-instructions.md @TC-MO @marcel-rbro @szaganek
 /AGENTS.md @TC-MO @marcel-rbro @szaganek
 
-# Documentation
+# Platform docs (catch-all)
 /sources/platform/ @TC-MO
 
-# Integrations (overrides /sources/platform/ for this subdirectory)
+# Integrations (overrides catch-all)
 /sources/platform/integrations/ @marcel-rbro
+
+# Actor publishing (overrides catch-all)
+/sources/platform/actors/publishing/ @szaganek
 
 # Legal
 /sources/legal/ @mnmkng
