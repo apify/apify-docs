@@ -6,6 +6,10 @@ sidebar_position: 7
 slug: /integrations/workato
 ---
 
+**Connect Apify Actors to Workato recipes to run web scraping and automation jobs, monitor run events, and process results.**
+
+---
+
 [Workato](https://www.workato.com/) is an automation platform where you can build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
 ## Get started
@@ -30,7 +34,7 @@ After installation, the Apify connector appears in **Connector SDK** under the *
 
 Before using the Apify connector in recipes, create a connection inside a Workato project.
 
-### Create a project (if you don’t have one)
+### Create a project (if you don't have one)
 
 1. In Workato, go to **Workspace > Projects**.
 1. Click **Create project**.
@@ -45,36 +49,12 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 1. Click the **Create** button.
 1. Select **Connection**.
 1. Search for **Apify** and choose the Apify connector.
-
-![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
-
-![Screenshot of the connection selection interface in Workato](../images/workato/connection-selection.png)
-
-### Choose authentication type
-
-You can authenticate the connection using either:
-
-- **Apify API token**
-- **Sign in with Apify** (OAuth 2.0)
-
-#### Authenticate with API token
-
-1. In the Apify connection dialog, select **Apify API token** as the authentication type.
-1. Enter your **API Token**. In Apify Console, go to [**Settings > Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
-1. Click **Connect**. Workato will test the connection by making an authenticated call to verify your credentials.
-
-![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
-![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
-
-#### Authenticate with OAuth 2.0
-
-1. In the Apify connection dialog, select **Sign in with Apify** as the authentication type.
-1. Click **Connect** to start the OAuth flow.
-1. Sign in to Apify and authorize Workato to access your account.
-1. After authorizing, you'll be redirected back to Workato and the connection will be established.
-
-![Screenshot of the Workato OAuth 2.0 authentication interface](../images/workato/create-connection-oauth.png)
-![Screenshot showing successful OAuth authentication in Workato](../images/workato/create-connection-oauth-success.png)
+   ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
+   ![Screenshot of the connection selection interface in Workato](../images/workato/connection-selection.png)
+1. In the connection dialog, enter your **API Token**. In Apify Console, go to [**Settings > Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
+1. Click **Connect**. Workato tests the connection by making an authenticated call to verify your credentials.
+   ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
+   ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
 
 Once the connection is created and authenticated, you can use it in any recipe.
 
@@ -90,7 +70,7 @@ _The Apify connector provides dynamic dropdown lists (pick lists) and flexible i
 
 - **Selection method (pick list vs. manual ID):** Choose from fetched lists or switch to manual and paste an ID. If an item doesn't appear, make sure it exists in your account and has been used at least once, or paste its ID manually.
 - Available pick lists:
-  - **Actors**: Lists your recently used Actors or Apify Store Actors, displaying the title and username/name
+  - **Actors**: Lists your recently used Actors or Apify Store Actors, displaying the title and `owner/name`
   - **Tasks**: Lists your saved tasks, displaying the task title and Actor name
   - **Datasets**: Lists available datasets, sorted by most recent first
   - **Key-value stores**: Lists available stores, sorted by most recent first
@@ -116,7 +96,7 @@ When using manual input instead of pick lists, you'll need to provide the correc
 
 - **Actor ID**: [Actor detail page](https://console.apify.com/actors) > API panel or URL.
   - Example URL: `https://console.apify.com/actors/<actorId>`
-  - Actor name format: owner~name (for example, `apify~website-scraper`)
+  - Actor name format: `apify/web-scraper` (slash) or `apify~web-scraper` (tilde). The connector accepts both formats and normalizes internally.
 - **Task ID**: [Task detail page](https://console.apify.com/actors/tasks) > API panel or URL.
   - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
 - **Dataset ID**: [Storage > Datasets](https://console.apify.com/storage/datasets) > Dataset detail > API panel or URL.
@@ -174,8 +154,10 @@ This action runs an Apify Actor with your specified input and execution paramete
 
 - Select from your recently used Actors or Apify Store Actors
 - Provide input using dynamic schema-based fields or raw JSON
-- Configure run options like memory allocation, timeout, and build version
+- Configure run options: memory (128 MB to 32 GB), timeout, and build version (defaults to `latest`)
 - Choose between synchronous (wait for completion) or asynchronous execution
+
+URL input fields are validated before the run starts. The dataset item limit rejects zero or negative values; leave it empty for no limit.
 
 :::tip Input field descriptions
 
@@ -195,7 +177,9 @@ This action runs an Apify Task with optional input overrides and execution param
 
 - Select from your saved tasks or input specific Task ID
 - Override the task's pre-configured input with new JSON if needed
-- Configure task options like memory, build version, or timeout
+- Configure task options: memory (128 MB to 32 GB), timeout, and build version (defaults to `latest`)
+
+URL input fields are validated before the run starts. The dataset item limit rejects zero or negative values; leave it empty for no limit.
 
 ![Screenshot of the Run Task action configuration interface in Workato](../images/workato/run-task.png)
 
@@ -245,9 +229,8 @@ _Scrapes a single URL using a selected Apify crawler._
 Provide a single URL and a desired crawler type to get structured scraped data from that page as a JSON object. This action provides immediate, on-demand scraping capabilities:
 
 - Scrapes content from a single specified URL
-- Offers multiple crawler types (Adaptive, Firefox, Cheerio, JSDOM)
+- Supports three crawler types: **Adaptive Crawler** (Website Content Crawler), **Firefox Headless Browser**, and **Cheerio** (fast, raw HTTP)
 - Returns extracted content in structured format (text, markdown, HTML, metadata)
-- Perfect for real-time data extraction triggered by recipes
 
 ![Screenshot of the Scrape Single URL action configuration interface in Workato](../images/workato/scrape-url.png)
 
@@ -274,7 +257,7 @@ Long-running scrapes can exceed typical step execution expectations. Use this as
 Workato's visual interface makes it easy to connect Apify data with other business applications:
 
 - _Data pills:_ Use output fields from Apify triggers and actions as inputs for subsequent steps
-- _Field mapping:_ Visually map scraped data fields to CRM, database, or spreadsheet columns  
+- _Field mapping:_ Visually map scraped data fields to CRM, database, or spreadsheet columns
 - _Conditional logic:_ Build workflows that respond differently based on Actor run status or data content
 - _Data transformation:_ Apply filters, formatting, and calculations to scraped data before sending to target systems
 
@@ -292,8 +275,8 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - _Actor selection:_ If an Actor doesn't appear in dropdowns, ensure it has been run at least once
 - _Timeout errors:_ For long-running Actors, use asynchronous execution rather than waiting for completion
 - _Data format:_ Ensure JSON inputs are properly formatted and match expected Actor input schema
-- _OAuth issues:_ If using OAuth, make sure the redirect URI matches your Workato region (US or EU)
+- _Validation errors:_ The connector validates URL fields and dataset item limits before running. Check that URLs include a valid protocol (`https://`) and that item limits are positive integers or empty.
 - _Resource not found errors:_ Check that IDs are correct and case-sensitive
 - _Dataset field mapping issues:_ If you experience incorrect data types or missing fields in the Get Dataset Items action data pill, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
 
-If you have any questions or need help, feel free to reach out on the [Apify Discord channel](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
