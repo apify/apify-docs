@@ -75,6 +75,22 @@ jobs:
                         echo "$actual" | grep -q "$expected" || (echo "❌ Expected '$expected' in '$header' for $url" && exit 1)
                     }
 
+                    function assert_status() {
+                        url=$1
+                        expected=$2
+                        shift 2
+                        extra_args=("$@")
+                        actual=$(curl -s -o /dev/null -w "%{http_code}" "${extra_args[@]}" "$url")
+                        echo "→ $url → HTTP $actual"
+                        [ "$actual" = "$expected" ] || (echo "❌ Expected HTTP $expected but got $actual for $url" && exit 1)
+                    }
+
+                    echo "🧪 Checking encoded backslash blocking..."
+                    assert_status "http://localhost:8080///%5Cevil.com/" "400"
+                    assert_status "http://localhost:8080/%5Cevil.com/" "400"
+                    assert_status "http://localhost:8080/platform/%5Ctest" "400"
+                    assert_status "http://localhost:8080///%5cevil.com/" "400"
+
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/" "Content-Type" "text/markdown" -H "Accept: text/markdown"
