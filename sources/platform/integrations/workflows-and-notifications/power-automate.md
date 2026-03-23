@@ -1,12 +1,12 @@
 ---
 title: Microsoft Power Automate integration
-description: Learn how to integrate Apify Actors with Microsoft Power Automate to automate workflows, trigger scrapers, and process data without code.
+description: Learn how to integrate Apify Actors with Microsoft Power Automate to automate workflows, trigger scraping jobs, and process results without code.
 sidebar_label: Microsoft Power Automate
 sidebar_position: 7
 slug: /integrations/microsoft-power-automate
 ---
 
-Learn how to integrate your Apify Actors with Microsoft Power Automate for automated workflows.
+**Learn how to integrate Apify Actors with Microsoft Power Automate for automated workflows.**
 
 ---
 
@@ -25,7 +25,7 @@ Learn how to integrate your Apify Actors with Microsoft Power Automate for autom
 - **Run task:** Execute a saved Actor task.
 - **Get dataset items:** Retrieve scraped data from datasets with dynamic schema support.
 - **Get key-value store record:** Fetch stored data (e.g. screenshots, JSON state).
-- **Scrape single URL:** Quick single-page scraping using the [Web Scraper](https://apify.com/apify/web-scraper) Actor.
+- **Scrape single URL:** Scrape a single page using the [Web Scraper](https://apify.com/apify/web-scraper) Actor.
 
 ## Get started
 
@@ -51,7 +51,7 @@ You can use the Apify connector directly within Microsoft Power Automate.
 
 Before using the Apify connector in flows, create a connection in Power Automate.
 
-1. When you add an Apify action or trigger for the first time, you will be prompted to create a connection.
+1. When you add an Apify action or trigger for the first time, Power Automate prompts you to create a connection.
 1. You can also manage connections under **Data > Connections**.
 
 ![Create new connection in Power Automate](../images/power-automate/create_connection.png)
@@ -63,14 +63,14 @@ The Apify connector supports **OAuth 2.0** authentication.
 #### Authenticate with OAuth 2.0
 
 1. Select **Sign in with Apify**.
-1. You will be redirected to the Apify login page (if not already logged in).
+1. The connector redirects you to the Apify's login page (sign in if not already logged in).
 1. Authorize the connector to access your account.
    - The connector requires the following scopes:
      - `profile`: To view account details.
      - `full_api_access`: To run Actors, tasks, access datasets, and manage webhooks.
      ![OAuth authorization screen](../images/power-automate/oauth2_login.png)
-1. Once authorized, you will be redirected back to Power Automate, and the connection will be ready to use.
-   ![Success screen](../images/power-automate/created_connection.png)
+1. After authorization, Apify redirects you back to Power Automate and the connection is ready to use.
+   ![Successful OAuth connection in Power Automate](../images/power-automate/created_connection.png)
 
 :::info Integration platform header
 
@@ -141,7 +141,7 @@ Automatically execute your Power Automate flow when a specific Apify Actor run c
 - **Actor**: Select the Actor from the dropdown.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g. `SUCCEEDED`, `FAILED`, `TIMED_OUT`, `ABORTED`).
 
-**Output**: The trigger returns a webhook payload with the completed Actor run's data.
+The trigger returns a webhook payload with the completed Actor run's data.
 
 ![Actor run finished trigger configuration](../images/power-automate/trigger_actor_run.png)
 
@@ -152,7 +152,7 @@ Automatically execute your Power Automate flow when a specific Apify Actor task 
 - **Task**: Select the task from your account.
 - **Trigger On**: Select which run statuses should trigger the flow (e.g. `SUCCEEDED`, `FAILED`).
 
-**Output**: The trigger returns a webhook payload with the completed task run's data.
+The trigger returns a webhook payload with the completed task run's data.
 
 ![Task run finished trigger configuration](../images/power-automate/trigger_task_run.png)
 
@@ -196,7 +196,7 @@ Retrieve records from an Apify dataset.
   - `Limit`: Number of items to return.
   - `Offset`: Number of items to skip.
 
-**Output**: An array of dataset items. The connector attempts to infer the schema to provide dynamic fields in Power Automate.
+Returns an array of dataset items. The connector attempts to infer the schema to provide dynamic fields in Power Automate.
 
 ![Get dataset items action configuration](../images/power-automate/action_get_dataset.png)
 
@@ -207,10 +207,10 @@ Retrieve a single record from a key-value store.
 - **Store**: Select the store from the dropdown.
 - **Record Key**: Select the key of the record to retrieve.
 
-**Output**:
+Returns:
 
-- **Body**: The raw record content (text/JSON).
-- **Content-Type**: The MIME type of the record.
+- `Body`: The raw record content (text/JSON).
+- `Content-Type`: The MIME type of the record.
 
 ![Get key-value store record action configuration](../images/power-automate/action_get_kv_record.png)
 
@@ -238,35 +238,37 @@ The **Wait for finish** parameter in "Run Actor" and "Run task" actions has a ma
 
 For long-running scrapes, use the asynchronous pattern to ensure your flows are reliable:
 
-1. **Start the run**: Use the **Run Actor** or **Run task** action. Set **Wait for finish** to `0` to start the run asynchronously and move to the next step right away.
+1. Use the **Run Actor** or **Run task** action. Set **Wait for finish** to `0` to start the run asynchronously and move to the next step right away.
 
-1. **Wait for completion**:
+1. Wait for completion using one of two approaches:
 
    - Option A (Webhook): Create a separate flow with the **Actor run finished** or **Task run finished** trigger. This flow starts automatically when the run completes.
 
    - Option B (Polling): Implement a loop in your flow to periodically check the run status until it finishes. This is more complex but keeps everything in a single flow.
 
-1. **Start the Actor or task**: Trigger the run asynchronously by setting `Wait for finish` to `0`.
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_1.png)
-1. **Initialize result variable**: Create a variable to track the run status or store the result (initially empty).
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_2.png)
-1. **Loop until finished**: Add a 'Do until' loop that runs while the variable is empty.
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_3.png)
-1. **Check run status**: Inside the loop, check if the run has finished or if the dataset is ready.
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_4.png)
-1. **Update variable**: If the run is complete, update the variable to exit the loop.
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_5.png)
-1. **Add delay**: Insert a 'Delay' action to wait a few seconds before the next check.
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_6.png)
-1. **Process results**: Once the loop finishes, use the result variable to proceed with your flow.
-   ![Polling pattern for run status in Power Automate](../images/power-automate/polling_flow_7.png)
+The following steps walk through Option B (polling):
+
+1. Start the Actor or task: Trigger the run asynchronously by setting `Wait for finish` to `0`.
+   ![Starting an async Actor run in Power Automate](../images/power-automate/polling_flow_1.png)
+1. Initialize a result variable to track the run status (initially empty).
+   ![Initializing a status variable in Power Automate](../images/power-automate/polling_flow_2.png)
+1. Add a "Do until" loop that runs while the variable is empty.
+   ![Adding a Do until loop in Power Automate](../images/power-automate/polling_flow_3.png)
+1. Inside the loop, check if the run has finished or if the dataset is ready.
+   ![Checking Actor run status inside the loop](../images/power-automate/polling_flow_4.png)
+1. If the run is complete, update the variable to exit the loop.
+   ![Updating the status variable on completion](../images/power-automate/polling_flow_5.png)
+1. Insert a **Delay** action to wait a few seconds before the next check.
+   ![Adding a delay between status checks](../images/power-automate/polling_flow_6.png)
+1. Once the loop finishes, use the result variable to proceed with your flow.
+   ![Processing results after the polling loop completes](../images/power-automate/polling_flow_7.png)
 
 ## Example use cases
 
-- **Price drop alerts:** Run a price scraper on a schedule, then notify via Teams when prices drop.
-- **CRM enrichment:** Scrape company websites and push the data to Dynamics 365 or SharePoint.
-- **Competitor tracking:** Detect changes on competitor pages and log them to Excel.
-- **Lead generation:** Scrape directories, filter results, and add leads to your CRM.
+- Run a price scraper on a schedule, then notify via Teams when prices drop.
+- Scrape company websites and push the data to Dynamics 365 or SharePoint.
+- Detect changes on competitor pages and log them to Excel.
+- Scrape directories, filter results, and add leads to your CRM.
 
 ### Data mapping and workflow design
 
