@@ -103,7 +103,7 @@ jobs:
 
             -   name: Commit the new theme version
                 continue-on-error: true
-                uses: EndBug/add-and-commit@v9
+                uses: EndBug/add-and-commit@v10
                 with:
                     add: 'apify-docs-theme/package*.json'
                     author_name: github-actions[bot]
