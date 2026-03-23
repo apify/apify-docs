@@ -6,7 +6,7 @@ sidebar_position: 7
 slug: /integrations/microsoft-power-automate
 ---
 
-**Learn how to integrate Apify Actors with Microsoft Power Automate for automated workflows.**
+Learn how to integrate Apify Actors with Microsoft Power Automate for automated workflows.
 
 ---
 
