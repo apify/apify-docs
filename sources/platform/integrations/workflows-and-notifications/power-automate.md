@@ -25,7 +25,7 @@ Learn how to integrate your Apify Actors with Microsoft Power Automate for autom
 - **Run task:** Execute a saved Actor task.
 - **Get dataset items:** Retrieve scraped data from datasets with dynamic schema support.
 - **Get key-value store record:** Fetch stored data (e.g. screenshots, JSON state).
-- **Scrape single URL:** Quick single-page scraping using the Web Scraper Actor.
+- **Scrape single URL:** Quick single-page scraping using the [Web Scraper](https://apify.com/apify/web-scraper) Actor.
 
 ## Get started
 
@@ -289,6 +289,6 @@ Power Automate allows you to map data from Apify actions to subsequent steps.
 
 ## Pricing
 
-The Apify connector itself is free. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. A free tier with monthly credits is available to get you started. For more details, visit the [pricing page](https://apify.com/pricing).
+The Apify connector itself is free. Apify charges for compute resources (runtime, memory, and proxies) used by your Actors. A free tier with monthly credits is available. For more details, visit the [pricing page](https://apify.com/pricing).
 
-If you have any questions or need help, feel free to reach out on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
