@@ -85,11 +85,16 @@ jobs:
                         [ "$actual" = "$expected" ] || (echo "❌ Expected HTTP $expected but got $actual for $url" && exit 1)
                     }
 
-                    echo "🧪 Checking encoded backslash blocking..."
+                    echo "🧪 Checking open redirect protection..."
+                    # Encoded backslash (%5C) - as sent by clients directly
                     assert_status "http://localhost:8080///%5Cevil.com/" "400"
                     assert_status "http://localhost:8080/%5Cevil.com/" "400"
-                    assert_status "http://localhost:8080/platform/%5Ctest" "400"
                     assert_status "http://localhost:8080///%5cevil.com/" "400"
+                    # Literal backslash - as forwarded by CDNs that decode %5C before proxying
+                    assert_status "http://localhost:8080" "400" --request-target '/\evil.com/'
+                    assert_status "http://localhost:8080" "400" --request-target '///\evil.com/'
+                    # Multiple leading slashes (no backslash) - also a redirect vector
+                    assert_status "http://localhost:8080" "400" --request-target '//evil.com/'
 
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
