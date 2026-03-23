@@ -17,7 +17,7 @@ The program rewards collaboration with up to 30% recurring commission and up to 
 The Apify Affiliate Program lets you promote three main offerings:
 
 1. _Apify Store_: recommend Actors from the marketplace that help businesses automate lead generation, pricing intelligence, content aggregation, and more.
-1. _Apify platform_: promote the platform's features, including scheduling, monitoring, data export options, proxies, and integrations.
+1. _The Apify platform_: promote the platform's features, including scheduling, monitoring, data export options, proxies, and integrations.
 1. _Professional services_: refer customers who need custom web scraping solutions to Apify's Professional Services team and earn up to $2,500 per closed deal.
 
 ### Commission structure

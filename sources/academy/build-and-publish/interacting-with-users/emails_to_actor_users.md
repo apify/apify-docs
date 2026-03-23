@@ -25,7 +25,7 @@ Emails can include text, formatting, images, GIFs, and links. Here are four main
 
 Additional tips:
 
-- Show, don’t tell — use screenshots with arrows to illustrate your points.
+- Show, don’t tell - use screenshots with arrows to illustrate your points.
 - If you’re asking users to take action, include a direct link to what you're referring to.
 - Provide alternatives if it suits the situation.
 - Always send a preview to yourself before sending the email to all your users.
@@ -58,7 +58,7 @@ A common situation in web scraping that's out of your control.
 >
 >Hi,
 >
->We've got some news regarding your favorite Actor – [Facebook Ads Scraper](https://console.apify.com/actors/JJghSZmShuco4j9gJ/console). Recently, Facebook Ads have changed their data format. To keep our Actor running smoothly, we'll be adapting to these changes by slightly tweaking the Actor Output. Don't worry; it's a breeze! Some of the output data might just appear under new titles.
+>We've got some news regarding your favorite Actor - [Facebook Ads Scraper](https://console.apify.com/actors/JJghSZmShuco4j9gJ/console). Recently, Facebook Ads have changed their data format. To keep our Actor running smoothly, we'll be adapting to these changes by slightly tweaking the Actor Output. Don't worry; it's a breeze! Some of the output data might just appear under new titles.
 >
 >This change will take place on October 10; please** **make sure to remap your integrations accordingly.
 >
@@ -107,7 +107,7 @@ Actor downtime, performance issues, Actor directly influenced by platform hiccup
 >
 >Hi,
 >
->We've got a quick update on the Google Maps Scraper for you. If you've been running the Actor this week, you might have noticed some hiccups — scraping was failing for certain places, causing retries and overall slowness.
+>We've got a quick update on the Google Maps Scraper for you. If you've been running the Actor this week, you might have noticed some hiccups - scraping was failing for certain places, causing retries and overall slowness.
 >
 >We apologize for any inconvenience this may have caused you. The **good news is those performance issues are now resolved**. Feel free to resurrect any affected runs using the "latest" build, should work like a charm now.
 >
@@ -142,6 +142,6 @@ Newsletters are a great way to keep your users engaged without overwhelming them
 
 ## Emailing a separate user
 
-There may be times when you need to reach out to a specific user — whether it’s to address a unique situation, ask a question that doesn’t fit the public forum of the **Issue tab**, or explore a collaboration opportunity. While there isn’t a quick way to do this through Apify Console just yet, you can ensure users can contact you by **adding your email or other contact info to your Store bio**. This makes it easy for them to reach out directly.
+There may be times when you need to reach out to a specific user - whether it’s to address a unique situation, ask a question that doesn’t fit the public forum of the **Issue tab**, or explore a collaboration opportunity. While there isn’t a quick way to do this through Apify Console just yet, you can ensure users can contact you by **adding your email or other contact info to your Store bio**. This makes it easy for them to reach out directly.
 
 ✍🏻 Learn best practices on how to use your Store bio to connect with your users [Your Store bio](/academy/actor-marketing-playbook/interact-with-users/your-store-bio).

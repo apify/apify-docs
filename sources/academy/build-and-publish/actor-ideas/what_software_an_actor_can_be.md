@@ -160,7 +160,7 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 1. _Visit_ [apify.com/ideas](https://apify.com/ideas) to find ideas that interest you. Look for ideas that align with your skills.
 
-1. _Select an Actor idea_: Review the details and requirements. Check the status—if it's marked **Open to develop**, you can start building.
+1. _Select an Actor idea_: Review the details and requirements. Check the status - if it's marked **Open to develop**, you can start building.
 
 1. _Build your Actor_: Develop your Actor based on the idea. You don't need to notify Apify during development.
 
@@ -176,7 +176,7 @@ The [Actor ideas](https://apify.com/ideas) page is where you can find inspiratio
 
 <!-- #### Multiple developers for one idea
 
-Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies—the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
+Apify Store can host multiple Actors with similar functions. However, the "first come, first served" rule applies - the first developer to claim an idea receives the **Completed** tag and a link from the Actor ideas page.
 
 Competition motivates developers to improve the code. You can still build the Actor, but differentiate with a unique set of features. -->
 

@@ -137,7 +137,7 @@ const crawler = new CheerioCrawler({
 });
 ```
 
-Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
+Now for the price. We're not doing anything new here - just copy-paste the code from our old scraper. The only change will be in the selector.
 
 In `oldindex.js`, we look for `.price` within a `$productItem` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
@@ -245,7 +245,7 @@ await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sale
 
 If we run this scraper, we should get the same data for the 24 products as before. Crawlee has saved us a lot of effort by managing downloading, parsing, and parallelization.
 
-Crawlee doesn't do much to help with locating and extracting the data—that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, we can focus on just that while letting the framework take care of everything else.
+Crawlee doesn't do much to help with locating and extracting the data - that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, we can focus on just that while letting the framework take care of everything else.
 
 ## Saving data
 

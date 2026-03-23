@@ -277,7 +277,7 @@ Ensure your API token is correctly set in the action (preferably as `Current Use
 
 ### Missing Actors or Tasks
 
-If your Actor or Task doesn't appear in list responses, run it at least once in the Apify Console so it becomes discoverable.
+If your Actor or Task doesn't appear in list responses, run it at least once in Apify Console so it becomes discoverable.
 
 ### Timeout errors
 
@@ -287,4 +287,4 @@ Bubble workflows have execution time limits. For long‑running Actors, set the 
 
 Check that your JSON input is valid when providing **Input overrides** and that dynamic expressions resolve to valid JSON values. Verify the structure of the dataset output when displaying it in your app.
 
-If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

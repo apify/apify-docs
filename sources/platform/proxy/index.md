@@ -19,7 +19,7 @@ You can view your proxy settings and password on the [Proxy](https://console.api
 
 ## Quickstart
 
-Usage of Apify Proxy means just a couple of lines of code, thanks to our [SDKs](/sdk):
+Usage of Apify Proxy means just a couple of lines of code, thanks to the [Apify SDKs](/sdk):
 
 <Tabs groupId="main">
 <TabItem value="JavaScript SDK with PuppeteerCrawler" label="JavaScript SDK with PuppeteerCrawler">

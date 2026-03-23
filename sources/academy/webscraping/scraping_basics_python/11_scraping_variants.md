@@ -103,7 +103,7 @@ Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https
 
 :::
 
-If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
+If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set - our scraper should already have that info from the product listing page.
 
 <!-- eslint-skip -->
 ```json title=products.json

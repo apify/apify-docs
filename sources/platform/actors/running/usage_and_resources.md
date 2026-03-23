@@ -64,7 +64,7 @@ If the Actor doesn't have this information, or you want to use your own solution
 
 :::tip Estimating usage
 
-Check out our article on [estimating consumption](https://help.apify.com/en/articles/3470975-how-to-estimate-compute-unit-usage-for-your-project) for more details.
+Check out the article on [estimating consumption](https://help.apify.com/en/articles/3470975-how-to-estimate-compute-unit-usage-for-your-project) for more details.
 
 :::
 
