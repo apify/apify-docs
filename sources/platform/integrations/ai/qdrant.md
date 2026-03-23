@@ -1,15 +1,11 @@
 ---
 title: Qdrant integration
-description: Learn how to integrate Apify with Qdrant to feed data crawled from the web into the Qdrant vector database.
+description: Learn how to integrate Apify with Qdrant to export Actor results and dataset items into a Qdrant vector database collection for AI-powered search.
 sidebar_label: Qdrant
 sidebar_position: 18
 slug: /integrations/qdrant
 toc_min_heading_level: 2
 toc_max_heading_level: 4
----
-
-**Learn how to integrate Apify with Qdrant to transfer crawled data into the Qdrant vector database.**
-
 ---
 
 [Qdrant](https://qdrant.tech) is a high performance managed vector database that allows users to store and query dense vectors for next generation AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
@@ -35,10 +31,9 @@ Before you begin, ensure that you have the following:
 
 With the cluster ready and its URL and API key in hand, you can proceed with integrating Apify.
 
-
 ### Integration Methods
 
-You can integrate Apify with Qdrant using either the Apify Console or the Apify Python SDK.
+You can integrate Apify with Qdrant using either Apify Console or the Apify Python SDK.
 
 :::note Website Content Crawler usage
 

@@ -1,13 +1,9 @@
 ---
 title: Lindy integration
-description: Learn how to integrate Apify with Lindy.
+description: Learn how to integrate Apify with Lindy to run Actors inside AI-powered automation workflows and extract real-time web data without writing code.
 sidebar_label: Lindy
 sidebar_position: 9
 slug: /integrations/lindy
----
-
-**Learn how to integrate your Apify Actors with Lindy.**
-
 ---
 
 [Lindy](https://www.lindy.ai/) is an AI-powered automation platform that lets you create intelligent workflows and automate complex tasks. By integrating Apify with Lindy, you can leverage Apify's web scraping capabilities within Lindy's AI-driven automation workflows to extract data, monitor websites, and trigger actions based on scraped information.
@@ -30,12 +26,10 @@ This section demonstrates how to integrate Apify's data extraction capabilities 
 
     ![Lindy workflow creation options, with "Start from scratch" selected](images/lindy/lindy-scratch.png)
 
-
 1. Choose a trigger that will initiate your automation. For this demonstration, we will select **Chat with Lindy/Message received**. This allows you to trigger the Apify Actor simply by sending a message to Lindy.
 
     ![Lindy workflow editor, showing trigger selection, with "Select Trigger" highlighted](images/lindy/lindy-trigger.png)
     ![Lindy workflow editor, showing trigger selection, with "Chat with Lindy/Message received" chosen](images/lindy/lindy-received.png)
-
 
 1. After setting the trigger, select **Perform an Action**.
 
@@ -58,7 +52,7 @@ You have access to thousands of Actors available on the [Apify Store](https://ap
 This establishes the fundamental workflow:<br />
 _Chatting with Lindy can now trigger the Apify Instagram Profile Scraper._
 
-### Extending Your Workflow
+### Extend your workflow
 
 Lindy offers different triggers (e.g., _email received_, _Slack message received_, etc.) and actions beyond running an Actor.
 

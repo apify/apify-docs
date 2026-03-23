@@ -1,12 +1,8 @@
 ---
 title: Dockerfile
-description: Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.
+description: Learn about Docker base images for Apify Actors and how to choose the right image based on your Actor's requirements and programming language.
 slug: /actors/development/actor-definition/dockerfile
 sidebar_position: 7
----
-
-**Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.**
-
 ---
 
 When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
@@ -126,7 +122,7 @@ When the Playwright/Puppeteer version in your `package.json` differs from what's
 
 :::
 
-### Using `*` as version (alternative approach)
+### Use `*` as version (alternative approach)
 
 You may encounter older documentation or templates using `*` as the Playwright/Puppeteer version:
 
@@ -204,11 +200,11 @@ This means the system expects the source code to be in `main.js` by default. If 
 
 :::tip Optimization tips
 
-You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
+You can check out various optimization tips for Dockerfile in the [Performance](../performance.md) documentation.
 
 :::
 
-## Updating older Dockerfiles
+## Update older Dockerfiles
 
 All Apify base Docker images now use a non-root user to enhance security. This change requires updates to existing Actor `Dockerfile`s that use the `apify/actor-node`, `apify/actor-python`, `apify/actor-python-playwright`, or `apify/actor-python-selenium` images. This section provides guidance on resolving common issues that may arise during this migration.
 
@@ -293,7 +289,7 @@ You should remove these lines, as the new user is now `myuser`. Don't forget to 
 COPY --chown=myuser:myuser . ./
 ```
 
-#### Installing dependencies that require root access
+#### Install dependencies that require root access
 
 The `root` user is still available in the Docker images. If you must run steps that require root access (like installing system packages with `apt` or `apk`), you can temporarily switch to the `root` user.
 

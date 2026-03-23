@@ -252,7 +252,7 @@ The one main difference is that the Apify client automatically uses [**exponenti
 
 **Q: How do you pass input when running an Actor or task via API?**
 
-**A:** The input should be passed into the **body** of the request when running an actor/task via API.
+**A:** The input should be passed into the **body** of the request when running an Actor/task via API.
 
 **Q: Do you need to install the `apify-client` npm package when already using the `apify` package?**
 

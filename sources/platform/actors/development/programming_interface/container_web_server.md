@@ -1,6 +1,6 @@
 ---
 title: Container web server
-description: Learn about how to run a web server inside your Actor, which enables you to communicate with the outer world via both UI and API.
+description: Run a web server inside your Actor to expose a unique URL for external HTTP access, enabling both UI interaction and programmatic API calls.
 slug: /actors/development/programming-interface/container-web-server
 sidebar_position: 7
 ---

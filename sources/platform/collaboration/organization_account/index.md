@@ -5,10 +5,6 @@ sidebar_position: 12.1
 slug: /collaboration/organization-account
 ---
 
-**Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.**
-
----
-
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../list_of_permissions.md) and to centralize your billing without having to share the credentials of a single personal account.
 
 You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
@@ -18,11 +14,11 @@ You can set up an organization in two ways.
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 * [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
-> Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
+> Prefer video to reading? [See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
 ## Availability and pricing
 
-The organization account is available on all our plans. [Visit our pricing page](https://apify.com/pricing) for more information.
+The organization account is available on all plans. [Visit the pricing page](https://apify.com/pricing) for more information.
 
 ## Create a new organization
 

@@ -9,14 +9,7 @@ get:
 
   operationId: dataset_statistics_get
   parameters:
-    - name: datasetId
-      in: path
-      description: Dataset ID or `username~dataset-name`.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: WkzbQMuFYuamGv3YF
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
   responses:
     "200":
       description: ""
@@ -24,14 +17,6 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/datasets/DatasetStatisticsResponse.yaml
-          example:
-            data:
-              fieldStatistics:
-                name:
-                  nullCount: 122
-                price:
-                  min: 59
-                  max: 89
     # TODO: add clients methods
     #  x-js-parent: DatasetClient
     #  x-js-name: statistics
@@ -41,3 +26,17 @@ get:
     #  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#statistics
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml

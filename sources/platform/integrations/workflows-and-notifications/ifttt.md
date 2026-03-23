@@ -1,13 +1,9 @@
 ---
 title: IFTTT integration
-description: Connect Apify Actors with IFTTT to automate workflows using Actor run events, data queries, and task actions.
+description: Connect Apify Actors with IFTTT to build Applets that trigger on Actor run events, retrieve data from datasets, and start runs from any IFTTT trigger.
 sidebar_label: IFTTT
 sidebar_position: 7
 slug: /integrations/ifttt
----
-
-**Connect Apify Actors with IFTTT to automate workflows using Actor run events, data queries, and task actions.**
-
 ---
 
 [IFTTT](https://ifttt.com) is a service that helps you create automated workflows called Applets. With the [Apify integration for IFTTT](https://ifttt.com/apify), you can connect your Apify Actors to hundreds of services like Twitter, Gmail, Google Sheets, Slack, and more.
@@ -81,7 +77,7 @@ To use Apify as an action in your Applet:
 
  :::note
 
- IFTTT displays up to 50 recent items in a dropdown. If your Actor or task isn't visible, try using it at least once via API or in the Apify Console to make it appear in the list.
+ IFTTT displays up to 50 recent items in a dropdown. If your Actor or task isn't visible, try using it at least once via API or in Apify Console to make it appear in the list.
 
  :::
 
@@ -90,7 +86,7 @@ To use Apify as an action in your Applet:
 1. Configure the action parameters:
 
    | Parameter | Description | Example Values |
-   |-----------|-------------|----------------|
+   | --- | --- | --- |
    | **Wait until run finishes** | Defines how the Actor should be executed. | `yes`, `no` |
    | **Input overrides** | JSON input that overrides the Actor's default input. | `{"key": "value"}` |
    | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |

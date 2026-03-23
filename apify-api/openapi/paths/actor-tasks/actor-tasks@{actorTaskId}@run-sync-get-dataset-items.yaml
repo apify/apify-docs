@@ -24,298 +24,32 @@ get:
     instead.
   operationId: actorTask_runSyncGetDatasetItems_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
-    - name: timeout
-      in: query
-      description: |
-        Optional timeout for the run, in seconds. By default, the run uses a
-        timeout specified in the task settings.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
-    - name: memory
-      in: query
-      description: |
-        Memory limit for the run, in megabytes. The amount of memory can be set
-        to a power of 2 with a minimum of 128. By default, the run uses a memory
-        limit specified in the task settings.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
     # XXX: do we support maxTotalChargeUsd for task runs?
-    - name: build
-      in: query
-      description: |
-        Specifies the Actor build to run. It can be either a build tag or build
-        number. By default, the run uses the build specified in the task
-        settings (typically `latest`).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: 0.1.234
-    - name: webhooks
-      in: query
-      description: |
-        Specifies optional webhooks associated with the Actor run, which can be
-        used to receive a notification e.g. when the Actor finished or failed. The value is a Base64-encoded
-        JSON array of objects defining the webhooks. For more information, see
-        [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
-    - name: format
-      in: query
-      description: |
-        Format of the results, possible values are: `json`, `jsonl`, `csv`,
-        `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: json
-    - name: clean
-      in: query
-      description: |
-        If `true` or `1` then the API endpoint returns only non-empty items and
-        skips hidden fields
-
-        (i.e. fields starting with the # character).
-
-        The `clean` parameter is just a shortcut for `skipHidden=true` and
-        `skipEmpty=true` parameters.
-
-        Note that since some objects might be skipped from the output, that the
-        result might contain less items than the `limit` value.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: offset
-      in: query
-      description: |
-        Number of items that should be skipped at the start. The default value
-        is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 0
-    - name: limit
-      in: query
-      description: Maximum number of items to return. By default there is no limit.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: fields
-      in: query
-      description: |
-        A comma-separated list of fields which should be picked from the items,
-
-        only these fields will remain in the resulting record objects.
-
-        Note that the fields in the outputted items are sorted the same way as
-        they are specified in the `fields` query parameter.
-
-        You can use this feature to effectively fix the output format.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "myValue,myOtherValue"
-    - name: omit
-      in: query
-      description: A comma-separated list of fields which should be omitted from the items.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "myValue,myOtherValue"
-    - name: unwind
-      in: query
-      description: |
-        A comma-separated list of fields which should be unwound, in order which
-        they should be processed. Each field should be either an array or an object.
-
-        If the field is an array then every element of
-
-        the array will become a separate record and merged with parent object.
-
-        If the unwound field is an object then it is merged with the parent
-        object
-
-        If the unwound field is missing or its value is neither an array nor an
-        object and therefore cannot be merged with a parent object then the item
-        gets preserved as it is.
-
-        Note that the unwound items ignore the `desc` parameter.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "myValue,myOtherValue"
-    - name: flatten
-      in: query
-      description: |
-        A comma-separated list of fields which should transform nested objects
-        into flat structures.
-
-        For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}`
-        is turned into `{"foo.bar": "hello"}`.
-
-        The original object with properties is replaced with the flattened
-        object.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: myValue
-    - name: desc
-      in: query
-      description: |
-        By default, results are returned in the same order as they were stored.
-        To reverse the order, set this parameter to `true` or `1`.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: attachment
-      in: query
-      description: |
-        If `true` or `1` then the response will define the `Content-Disposition:
-        attachment` header, forcing a web browser to download the file rather
-        than to display it. By default this header is not present.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: delimiter
-      in: query
-      description: |
-        A delimiter character for CSV files, only used if `format=csv`. You
-        might need to URL-encode the character (e.g. use `%09` for tab or `%3B`
-        for semicolon). The default delimiter is a simple comma (`,`).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: ;
-    - name: bom
-      in: query
-      description: |
-        All text responses are encoded in UTF-8 encoding. By default, the
-        `format=csv` files are prefixed with
-
-        the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html`
-        and `rss` files are not.
-
-        If you want to override this default behavior, specify `bom=1` query
-        parameter to include the BOM or `bom=0` to skip it.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: xmlRoot
-      in: query
-      description: |
-        Overrides default root element name of `xml` output. By default the root
-        element is `items`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: items
-    - name: xmlRow
-      in: query
-      description: |
-        Overrides default element name that wraps each page or page function
-        result object in `xml` output. By default the element name is `item`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: item
-    - name: skipHeaderRow
-      in: query
-      description: If `true` or `1` then header row in the `csv` format is skipped.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: skipHidden
-      in: query
-      description: |
-        If `true` or `1` then hidden fields are skipped from the output,
-        i.e. fields starting with the `#` character.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: skipEmpty
-      in: query
-      description: |
-        If `true` or `1` then empty items are skipped from the output.
-
-        Note that if used, the results might contain less items than the limit
-        value.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: simplified
-      in: query
-      description: |
-        If `true` or `1` then, the endpoint applies the
-        `fields=url,pageFunctionResult,errorInfo`
-        and `unwind=pageFunctionResult` query parameters. This feature is used
-        to emulate simplified results provided by the
-        legacy Apify Crawler product and it's not recommended to use it in new
-        integrations.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: skipFailedPages
-      in: query
-      description: |
-        If `true` or `1` then, the all the items with errorInfo property will be
-        skipped from the output.
-        This feature is here to emulate functionality of API version 1 used for
-        the legacy Apify Crawler product and it's not recommended to use it in
-        new integrations.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   responses:
     "201":
       description: ""
@@ -349,12 +83,15 @@ get:
           schema:
             type: object
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
       description: "Request Timeout: the HTTP request exceeded the 300 second limit"
       headers: {}
@@ -362,6 +99,8 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/common/ErrorResponse.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-get
@@ -405,297 +144,33 @@ post:
     task](#/reference/actor-tasks/run-collection/run-task) API endpoint instead.
   operationId: actorTask_runSyncGetDatasetItems_post
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and task's name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
-    - name: timeout
-      in: query
-      description: |
-        Optional timeout for the run, in seconds. By default, the run uses a
-        timeout specified in the task settings.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
-    - name: memory
-      in: query
-      description: |
-        Memory limit for the run, in megabytes. The amount of memory can be set
-        to a power of 2 with a minimum of 128. By default, the run uses a memory
-        limit specified in the task settings.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 256
-    - $ref: ../../components/parameters/actor-run-options/maxItems.yaml
-    - $ref: ../../components/parameters/actor-run-options/maxTotalChargeUsd.yaml
-    - name: restartOnError
-      in: query
-      description: |
-        Determines whether the run will be restarted if it fails.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: build
-      in: query
-      description: |
-        Specifies the Actor build to run. It can be either a build tag or build
-        number. By default, the run uses the build specified in the task
-        settings (typically `latest`).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: 0.1.234
-    - name: webhooks
-      in: query
-      description: |
-        Specifies optional webhooks associated with the Actor run, which can be
-        used to receive a notification
-        e.g. when the Actor finished or failed. The value is a Base64-encoded
-        JSON array of objects defining the webhooks. For more information, see
-        [Webhooks
-        documentation](https://docs.apify.com/platform/integrations/webhooks).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
-    - name: format
-      in: query
-      description: |
-        Format of the results, possible values are: `json`, `jsonl`, `csv`,
-        `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: json
-    - name: clean
-      in: query
-      description: |
-        If `true` or `1` then the API endpoint returns only non-empty items and
-        skips hidden fields
-        (i.e. fields starting with the # character).
-        The `clean` parameter is just a shortcut for `skipHidden=true` and
-        `skipEmpty=true` parameters.
-        Note that since some objects might be skipped from the output, that the
-        result might contain less items than the `limit` value.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: offset
-      in: query
-      description: |
-        Number of items that should be skipped at the start. The default value
-        is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 0
-    - name: limit
-      in: query
-      description: Maximum number of items to return. By default there is no limit.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: fields
-      in: query
-      description: |
-        A comma-separated list of fields which should be picked from the items,
-        only these fields will remain in the resulting record objects.
-        Note that the fields in the outputted items are sorted the same way as
-        they are specified in the `fields` query parameter.
-        You can use this feature to effectively fix the output format.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "myValue,myOtherValue"
-    - name: omit
-      in: query
-      description: A comma-separated list of fields which should be omitted from the items.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "myValue,myOtherValue"
-    - name: unwind
-      in: query
-      description: |
-        A comma-separated list of fields which should be unwound, in order which
-        they should be processed. Each field should be either an array or an object.
-        If the field is an array then every element of
-        the array will become a separate record and merged with parent object.
-        If the unwound field is an object then it is merged with the parent
-        object
-        If the unwound field is missing or its value is neither an array nor an
-        object and therefore cannot be merged with a parent object then the item
-        gets preserved as it is.
-        Note that the unwound items ignore the `desc` parameter.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: "myValue,myOtherValue"
-    - name: flatten
-      in: query
-      description: |
-        A comma-separated list of fields which should transform nested objects
-        into flat structures.
-        For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}`
-        is turned into `{"foo.bar": "hello"}`.
-        The original object with properties is replaced with the flattened
-        object.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: myValue
-    - name: desc
-      in: query
-      description: |
-        By default, results are returned in the same order as they were stored.
-        To reverse the order, set this parameter to `true` or `1`.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: attachment
-      in: query
-      description: |
-        If `true` or `1` then the response will define the `Content-Disposition:
-        attachment` header, forcing a web browser to download the file rather
-        than to display it. By default this header is not present.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: delimiter
-      in: query
-      description: |
-        A delimiter character for CSV files, only used if `format=csv`. You
-        might need to URL-encode the character (e.g. use `%09` for tab or `%3B`
-        for semicolon). The default delimiter is a simple comma (`,`).
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: ;
-    - name: bom
-      in: query
-      description: |
-        All text responses are encoded in UTF-8 encoding. By default, the
-        `format=csv` files are prefixed with
-        the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html`
-        and `rss` files are not.
-        If you want to override this default behavior, specify `bom=1` query
-        parameter to include the BOM or `bom=0` to skip it.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: xmlRoot
-      in: query
-      description: |
-        Overrides default root element name of `xml` output. By default the root
-        element is `items`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: items
-    - name: xmlRow
-      in: query
-      description: |
-        Overrides default element name that wraps each page or page function
-        result object in `xml` output. By default the element name is `item`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: item
-    - name: skipHeaderRow
-      in: query
-      description: If `true` or `1` then header row in the `csv` format is skipped.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: true
-    - name: skipHidden
-      in: query
-      description: |
-        If `true` or `1` then hidden fields are skipped from the output,
-        i.e. fields starting with the `#` character.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: skipEmpty
-      in: query
-      description: |
-        If `true` or `1` then empty items are skipped from the output.
-
-        Note that if used, the results might contain less items than the limit
-        value.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: simplified
-      in: query
-      description: |
-        If `true` or `1` then, the endpoint applies the
-        `fields=url,pageFunctionResult,errorInfo`
-
-        and `unwind=pageFunctionResult` query parameters. This feature is used
-        to emulate simplified results provided by the
-
-        legacy Apify Crawler product and it's not recommended to use it in new
-        integrations.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: skipFailedPages
-      in: query
-      description: |
-        If `true` or `1` then, the all the items with errorInfo property will be
-        skipped from the output.
-
-        This feature is here to emulate functionality of API version 1 used for
-        the legacy Apify Crawler product and it's not recommended to use it in
-        new integrations.
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   requestBody:
     description: ""
     content:
@@ -738,12 +213,21 @@ post:
           schema:
             type: object
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-post

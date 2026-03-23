@@ -6,6 +6,10 @@ on:
             - master
     workflow_dispatch:
 
+concurrency:
+    group: publish-theme
+    cancel-in-progress: false
+
 permissions:
     id-token: write
     contents: write
@@ -69,7 +73,10 @@ jobs:
             -   name: Bump the theme version
                 run: |
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
-                    npm version patch --legacy-peer-deps
+                    PACKAGE_NAME=$(jq -r .name package.json)
+                    LATEST_VERSION=$(npm show "$PACKAGE_NAME" version 2>/dev/null || jq -r .version package.json)
+                    npm pkg set "version=$LATEST_VERSION"
+                    npm version patch --no-git-tag-version
 
             -   name: Deploy theme to npm
                 run: |
@@ -95,13 +102,13 @@ jobs:
                     npm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
 
             -   name: Commit the new theme version
-                uses: stefanzweifel/git-auto-commit-action@v7
+                continue-on-error: true
+                uses: EndBug/add-and-commit@v10
                 with:
-                    commit_message: 'chore: publish new version of @apify/docs-theme [skip ci]'
-                    file_pattern: 'apify-docs-theme/package*.json'
-                    commit_user_name: Apify Bot
-                    commit_user_email: my-github-actions-bot@example.org
-                    commit_author: Apify Bot <apify@apify.com>
+                    add: 'apify-docs-theme/package*.json'
+                    author_name: github-actions[bot]
+                    author_email: 41898282+github-actions[bot]@users.noreply.github.com
+                    message: 'chore: publish new version of @apify/docs-theme [skip ci]'
 
     rebuild-docs:
         needs: publish

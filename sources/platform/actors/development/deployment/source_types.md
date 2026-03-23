@@ -1,12 +1,8 @@
 ---
 title: Source types
-description: Learn about Apify Actor source types and how to deploy an Actor from GitHub using CLI or Gist.
+description: Learn about Actor source types - Web IDE, Git repository, Zip file, and GitHub Gist - and how to configure each one as your deployment method.
 slug: /actors/development/deployment/source-types
 sidebar_position: 1
----
-
-**Learn about Apify Actor source types and how to deploy an Actor from GitHub using CLI or Gist.**
-
 ---
 
 This section explains the various sources types available for Apify Actors and how to deploy an Actor from GitHub using CLI or Gist. Apify Actors supports four source types:
@@ -76,7 +72,7 @@ Remember that each key can only be used once per Git hosting service (GitHub, Bi
 To manage multiple Actors in a single repository, use the `dockerContextDir` property in the [Actor definition](/platform/actors/development/actor-definition/actor-json) to set the Docker context directory (if not provided then the repository root is used). In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
 
 To enable sharing Dockerfiles between multiple Actors, the Actor build process passes the `ACTOR_PATH_IN_DOCKER_CONTEXT` build argument to the Docker build.
-It contains the relative path from `dockerContextDir` to the directory selected as the root of the Actor in the Apify Console (the "directory" part of the Actor's git URL).
+It contains the relative path from `dockerContextDir` to the directory selected as the root of the Actor in Apify Console (the "directory" part of the Actor's git URL).
 
 For an example, see the [`apify/actor-monorepo-example`](https://github.com/apify/actor-monorepo-example) repository. To build Actors from this monorepo, you would set the source URL (including branch name and folder) as `https://github.com/apify/actor-monorepo-example#main:actors/javascript-actor` and `https://github.com/apify/actor-monorepo-example#main:actors/typescript-actor` respectively.
 

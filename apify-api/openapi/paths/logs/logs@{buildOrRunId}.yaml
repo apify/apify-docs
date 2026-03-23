@@ -18,28 +18,8 @@ get:
       schema:
         type: string
         example: HG7ML7M8z78YcAPEB
-    - name: stream
-      in: query
-      description: |
-        If `true` or `1` then the logs will be streamed as long as the run or
-        build is running.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
-    - name: download
-      in: query
-      description: |
-        If `true` or `1` then the web browser will download the log file rather
-        than open it in a tab.
-      required: true
-      style: form
-      explode: true
-      schema:
-        type: boolean
-        example: false
+    - $ref: "../../components/parameters/logOptions.yaml#/stream"
+    - $ref: "../../components/parameters/logOptions.yaml#/download"
     - name: raw
       in: query
       description: |
@@ -69,6 +49,16 @@ get:
             2017-07-14T06:00:49.752Z Some useful debug information follows.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-js-parent: LogClient
   x-js-name: stream

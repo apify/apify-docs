@@ -1,0 +1,77 @@
+ActorNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [actor-not-found]
+        message:
+          type: string
+          example: Actor was not found
+
+ActorBuildNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          example: Actor build was not found
+
+ActorRunNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          example: Actor run was not found
+
+ActorRunTimeoutExceededError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [run-timeout-exceeded]
+        message:
+          type: string
+          example: Actor run exceeded the timeout of 300 seconds for this API endpoint
+
+ActorRunFailedError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [run-failed]
+        message:
+          type: string
+          example: "Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)"
+
+ActorVersionNotFoundError:
+  type: object
+  properties:
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [record-not-found]
+        message:
+          type: string
+          example: Actor version was not found

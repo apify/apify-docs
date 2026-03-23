@@ -1,0 +1,59 @@
+offset:
+  name: offset
+  in: query
+  description: |
+    Number of items that should be skipped at the start. The default value is `0`.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 0
+
+limit:
+  name: limit
+  in: query
+  description: |
+    Maximum number of items to return. The default value as well as the maximum is `1000`.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 1000
+
+desc: &desc
+  name: desc
+  in: query
+  description: |
+    If `true` or `1` then the results are returned in descending order.
+    By default, they are sorted in ascending order.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true
+
+descStartedAt:
+  <<: *desc
+  description: |
+    If `true` or `1` then the objects are sorted by the `startedAt` field in
+    descending order. By default, they are sorted in ascending order.
+
+descCreatedAt:
+  <<: *desc
+  description: |
+    If `true` or `1` then the objects are sorted by the `createdAt` field in
+    descending order. By default, they are sorted in ascending order.
+
+unnamed:
+  name: unnamed
+  in: query
+  description: |
+    If `true` or `1` then all the storages are returned. By default, only
+    named storages are returned.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: true

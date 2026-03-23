@@ -1,7 +1,7 @@
 ---
 title: OpenAI Agents SDK integration
 sidebar_label: OpenAI Agents SDK
-description: Learn how to integrate Apify with the OpenAI Agents SDK using the Model Context Protocol to build AI agents with web data access.
+description: Learn how to integrate Apify with the OpenAI Agents SDK via the Apify MCP server to give your AI agents real-time web data and Actor access.
 sidebar_position: 13
 slug: /integrations/openai-agents
 ---
@@ -24,7 +24,7 @@ Before integrating Apify with OpenAI Agents SDK, you'll need:
     pip install agents openai
     ```
 
-## Building a web search agent with Apify MCP
+## Build a web search agent with Apify MCP
 
 You can connect to the Apify MCP server using streamable HTTP with Bearer token authentication. Use your Apify API token by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
 
@@ -84,7 +84,7 @@ The agent may take some time (seconds or even minutes) to execute tool calls, es
 
 :::
 
-### Using specific Actors
+### Use specific Actors
 
 You can configure the Apify MCP server to expose specific Actors by including them in the URL query parameters. For example, to use an Instagram scraper:
 

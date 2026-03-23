@@ -1,13 +1,9 @@
 ---
 title: 🔺 Vercel AI SDK integration
 sidebar_label: Vercel AI SDK
-description: Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK 🔺.
+description: Learn how to integrate Apify Actors as tools for AI agents built with Vercel AI SDK to access real-time web data in your TypeScript applications.
 sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
----
-
-**Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK.**
-
 ---
 
 ## What is the Vercel AI SDK
@@ -24,7 +20,6 @@ For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sd
 
 Apify is a marketplace of ready-to-use web scraping and automation tools, AI agents, and MCP servers that you can equip your own AI with. This guide demonstrates how to use Apify tools with a simple AI agent built with Vercel AI SDK.
 
-
 ### Prerequisites
 
 - _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
@@ -34,7 +29,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
     npm install @modelcontextprotocol/sdk @openrouter/ai-sdk-provider ai
     ```
 
-### Building a simple pub search AI agent using Apify Google Maps scraper
+### Build a simple pub search AI agent using Apify Google Maps scraper
 
 First, import all required packages:
 
@@ -106,6 +101,6 @@ await mcpClient.close();
 - [Apify Actors](https://docs.apify.com/platform/actors)
 - [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
-- [Apify MCP Server](https://mcp.apify.com)
-- [Apify MCP Server documentation](https://docs.apify.com/platform/integrations/mcp)
+- [Apify MCP server](https://mcp.apify.com)
+- [Apify MCP server documentation](https://docs.apify.com/platform/integrations/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

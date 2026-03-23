@@ -35,7 +35,7 @@ The page displays a grid of product cards, each showing a product's title and pi
 
 ![Selecting an element with DevTools](../scraping_basics/images/devtools-product-title.png)
 
-Next, let's find all the elements containing details about this subwoofer—its price, number of reviews, image, and more.
+Next, let's find all the elements containing details about this subwoofer - its price, number of reviews, image, and more.
 
 In the **Elements** tab, we'll move our cursor up from the `a` element containing the subwoofer's title. On the way, we'll hover over each element until we highlight the entire product card. Alternatively, we can use the arrow-up key. The `div` element we land on is the **parent element**, and all nested elements are its **child elements**.
 
@@ -55,7 +55,7 @@ The `class` attribute can hold multiple values separated by whitespace. This par
 
 ## Programmatically locating a product card
 
-Let's jump into the **Console** and write some JavaScript. Don't worry—we don't need to know the language, and yes, this is a helpful step on our journey to creating a scraper in Python.
+Let's jump into the **Console** and write some JavaScript. Don't worry - we don't need to know the language, and yes, this is a helpful step on our journey to creating a scraper in Python.
 
 In browsers, JavaScript represents the current page as the [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) object, accessible via `document`. This object offers many useful methods, including [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector). This method takes a CSS selector as a string and returns the first HTML element that matches. We'll try typing this into the **Console**:
 
@@ -105,13 +105,13 @@ You can combine selectors to narrow results. For example, `p.lead` matches `p` e
 </article>
 ```
 
-How did we know `.product-item` selects a product card? By inspecting the markup of the product card element. After checking its classes, we chose the one that best fit our purpose. Testing in the **Console** confirmed it—selecting by the most descriptive class worked.
+How did we know `.product-item` selects a product card? By inspecting the markup of the product card element. After checking its classes, we chose the one that best fit our purpose. Testing in the **Console** confirmed it - selecting by the most descriptive class worked.
 
 ## Choosing good selectors
 
 Multiple approaches often exist for creating a CSS selector that targets the element we want. We should pick selectors that are simple, readable, unique, and semantically tied to the data. These are **resilient selectors**. They're the most reliable and likely to survive website updates. We better avoid randomly generated attributes like `class="F4jsL8"`, as they tend to change without warning.
 
-The product card has four classes: `product-item`, `product-item--vertical`, `1/3--tablet-and-up`, and `1/4--desk`. Only the first one checks all the boxes. A product card *is* a product item, after all. The others seem more about styling—defining how the element looks on the screen—and are probably tied to CSS rules.
+The product card has four classes: `product-item`, `product-item--vertical`, `1/3--tablet-and-up`, and `1/4--desk`. Only the first one checks all the boxes. A product card *is* a product item, after all. The others seem more about styling - defining how the element looks on the screen - and are probably tied to CSS rules.
 
 This class is also unique enough in the page's context. If it were something generic like `item`, there would be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, we can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
 
@@ -119,7 +119,7 @@ This class is also unique enough in the page's context. If it were something gen
 
 ## Locating all product cards
 
-In the **Console**, hovering our cursor over objects representing HTML elements highlights the corresponding elements on the page. This way we can verify that when we query `.product-item`, the result represents the JBL Flip speaker—the first product card in the list.
+In the **Console**, hovering our cursor over objects representing HTML elements highlights the corresponding elements on the page. This way we can verify that when we query `.product-item`, the result represents the JBL Flip speaker - the first product card in the list.
 
 ![Highlighting a querySelector() result](../scraping_basics/images/devtools-hover-queryselector.png)
 
@@ -131,7 +131,7 @@ document.querySelectorAll('.product-item');
 
 The returned value is a [`NodeList`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList), a collection of nodes. Browsers understand an HTML document as a tree of nodes. Most nodes are HTML elements, but there are also text nodes for plain text, and others.
 
-We'll expand the result by clicking the small arrow, then hover our cursor over the third element in the list. Indexing starts at 0, so the third element is at index 2. There it is—the product card for the subwoofer!
+We'll expand the result by clicking the small arrow, then hover our cursor over the third element in the list. Indexing starts at 0, so the third element is at index 2. There it is - the product card for the subwoofer!
 
 ![Highlighting a querySelectorAll() result](../scraping_basics/images/devtools-hover-queryselectorall.png)
 
@@ -150,7 +150,7 @@ Even though we're just playing with JavaScript in the browser's **Console**, we'
 
 ### Locate headings on Wikipedia's Main Page
 
-On English Wikipedia's [Main Page](https://en.wikipedia.org/wiki/Main_Page), use CSS selectors in the **Console** to list the HTML elements representing headings of the colored boxes (including the grey ones).
+On English Wikipedia's [Main Page](https://en.wikipedia.org/wiki/Main_Page), use CSS selectors in the **Console** to list the HTML elements representing headings of the colored boxes (including the gray ones).
 
 ![Wikipedia's Main Page headings](../scraping_basics/images/devtools-exercise-wikipedia.png)
 

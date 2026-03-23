@@ -3,3 +3,4 @@ build
 .claude
 AGENTS.md
 CLAUDE.md
+sources/_partials/*

@@ -1,6 +1,6 @@
 ---
 title: Make - AI crawling Actor integration
-description: Learn about AI Crawling scraper modules.
+description: Use Apify Scraper for AI Crawling in Make to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
 sidebar_label: AI Crawling
 sidebar_position: 6
 slug: /integrations/make/ai-crawling
@@ -19,7 +19,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
@@ -39,7 +39,7 @@ Once connected, you can build workflows to automate website extraction and integ
 
 After connecting the app, you can use one of the two modules as native scrapers to extract website content.
 
-### Standard Settings Module
+### Standard Settings module
 
 The Standard Settings module is a streamlined component of the Website Content Crawler that allows you to quickly extract content from websites using optimized default settings. This module is perfect for extracting content from blogs, documentation sites, knowledge bases, or any text-rich website to feed into AI models.
 
@@ -95,7 +95,7 @@ For each crawled web page, you'll receive:
 }
 ```
 
-### Advanced Settings Module
+### Advanced Settings module
 
 The Advanced Settings module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
 
