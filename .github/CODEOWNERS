@@ -1,5 +1,18 @@
+# Repo-level documentation
+/README.md @TC-MO @marcel-rbro @szaganek
+/CONTRIBUTING.md @TC-MO @marcel-rbro @szaganek
+
+# AI agent config (skills, rules, workflows)
+/.claude/ @TC-MO @marcel-rbro @szaganek
+/.cursor/ @TC-MO @marcel-rbro @szaganek
+/.github/copilot-instructions.md @TC-MO @marcel-rbro @szaganek
+/AGENTS.md @TC-MO @marcel-rbro @szaganek
+
 # Documentation
 /sources/platform/ @TC-MO
+
+# Integrations (overrides /sources/platform/ for this subdirectory)
+/sources/platform/integrations/ @marcel-rbro
 
 # Legal
 /sources/legal/ @mnmkng
