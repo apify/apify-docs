@@ -350,7 +350,7 @@ You can find everything you need for working with dates and times in Python's [`
 
 ### Count eurozone population from country pages
 
-Scrape the [Countries using the euro](https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en) page.
+Scrape the [countries using the euro](https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en) page.
 
 Locate links for countries in the **Euro area countries** section. Visit each linked country detail page, find the value labeled **Population**, and sum them all to get the total population of all countries using euro as their currency. Print one number, the sum.
 
