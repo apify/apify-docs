@@ -7,6 +7,10 @@ slug: /integrations/make/amazon
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for Amazon Data
 
 The Amazon Scraper module from [Apify](https://apify.com) allows you to extract product, search, or category data from Amazon.

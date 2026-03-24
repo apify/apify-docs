@@ -6,6 +6,10 @@ sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## What is the Vercel AI SDK
 
 [Vercel AI SDK](https://ai-sdk.dev/) is the TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more.

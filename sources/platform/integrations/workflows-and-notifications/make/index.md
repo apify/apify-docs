@@ -6,6 +6,10 @@ sidebar_position: 2
 slug: /integrations/make
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 [Make](https://www.make.com/) _(formerly Integromat)_ allows you to create scenarios where you can integrate various services (modules) to automate and centralize jobs. Apify has its own module you can use to run Apify Actors, get notified about run statuses, and receive Actor results directly in your Make scenario.
 
 ## Connect Apify to Make

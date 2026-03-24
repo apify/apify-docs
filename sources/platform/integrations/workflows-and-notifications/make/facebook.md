@@ -7,6 +7,10 @@ slug: /integrations/make/facebook
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for Facebook Data
 
 The Facebook Scraper modules from [Apify](https://apify.com/) allow you to extract posts, comments, and profile data from Facebook.

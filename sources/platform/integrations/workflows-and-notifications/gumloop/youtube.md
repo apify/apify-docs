@@ -6,6 +6,10 @@ sidebar_position: 4
 slug: /integrations/gumloop/youtube
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 Get YouTube search results, video details, channel videos, playlists, and channel metadata in Gumloop.
 
 ---

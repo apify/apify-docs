@@ -6,6 +6,10 @@ sidebar_position: 3
 slug: /integrations/gumloop
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 With the Gumloop Apify integration you can retrieve key data for your AI-powered workflows in a flash.
 
 Gumloop supports two types of integrations with Apify:

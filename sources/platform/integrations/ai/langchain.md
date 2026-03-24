@@ -6,6 +6,10 @@ sidebar_position: 5
 slug: /integrations/langchain
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 > For more information on LangChain visit its [documentation](https://docs.langchain.com/oss/python/langchain/overview).
 
 In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.

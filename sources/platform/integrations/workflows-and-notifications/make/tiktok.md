@@ -7,6 +7,10 @@ slug: /integrations/make/tiktok
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for TikTok Data
 
 The TikTok Scraper modules from [Apify](https://apify.com) allow you to extract hashtag, comments, and profile data from TikTok.

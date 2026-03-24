@@ -8,6 +8,10 @@ toc_max_heading_level: 4
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for Google Maps Leads
 
 The Google Maps Leads Scraper modules from [apify.com](http://apify.com/) allow you to extract valuable business lead data from Google Maps, including contact information, email addresses, social media profiles, business websites, phone numbers, and detailed location data. Perfect for sales teams, marketers, and business developers looking to build targeted lead lists, marketers or other commercial teams looking to data mine reviews or assess sentiment analysis wide geographies.

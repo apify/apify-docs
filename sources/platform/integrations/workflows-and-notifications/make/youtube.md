@@ -7,6 +7,10 @@ slug: /integrations/make/youtube
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for YouTube Data
 
 The YouTube Scraper module from [apify.com](https://apify.com) allows you to extract channel, video, streams, shorts, and search data from YouTube.

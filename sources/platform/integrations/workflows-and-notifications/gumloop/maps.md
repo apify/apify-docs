@@ -6,6 +6,10 @@ sidebar_position: 2
 slug: /integrations/gumloop/maps
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 Search, extract, and enrich business data from Google Maps in Gumloop.
 
 ---

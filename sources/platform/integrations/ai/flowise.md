@@ -6,6 +6,10 @@ sidebar_position: 10
 slug: /integrations/flowise
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## What is Flowise?
 
 Flowise is an open-source UI visual tool to build your customized LLM flow using Langchain.

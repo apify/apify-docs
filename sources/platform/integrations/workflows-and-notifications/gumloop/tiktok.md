@@ -6,6 +6,10 @@ sidebar_position: 3
 slug: /integrations/gumloop/tiktok
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 Get TikTok hashtag videos, profile videos, followers, video details, and search results in Gumloop.
 
 ---

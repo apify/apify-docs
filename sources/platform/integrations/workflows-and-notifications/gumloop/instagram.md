@@ -6,6 +6,10 @@ sidebar_position: 1
 slug: /integrations/gumloop/instagram
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 Get Instagram profile posts, details, stories, reels, post comments and hashtags, users, and tagged posts in Gumloop.
 
 ---

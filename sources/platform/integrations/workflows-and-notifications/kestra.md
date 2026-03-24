@@ -6,6 +6,10 @@ sidebar_position: 7
 slug: /integrations/kestra
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 [Kestra](https://kestra.io/) is an open-source, event-driven orchestration platform. The [Apify plugin for Kestra](https://github.com/kestra-io/plugin-kestra) connects Apify Actors and storage to your workflows. Run scrapers, extract structured data - all defined declaratively in YAML and orchestrated directly from the UI.
 
 This guide shows you how to set up the integration, configure authentication, and create a workflow that runs an Actor and processes its results.

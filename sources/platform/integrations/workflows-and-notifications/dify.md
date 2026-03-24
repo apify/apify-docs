@@ -6,6 +6,10 @@ sidebar_position: 9
 slug: /integrations/dify
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 **Connect Apify with Dify to automate workflows by running Actors, extracting structured data, and responding to Actor or task events.**
 
 ---

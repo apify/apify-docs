@@ -6,6 +6,10 @@ sidebar_position: 2
 slug: /integrations/google-adk
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## What is the Google ADK
 
 [Google Agent Development Kit](https://github.com/google/adk-python) is a framework for developing and deploying AI agents.

@@ -6,6 +6,10 @@ sidebar_position: 14
 slug: /integrations/openai-assistants
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 [OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview) allows you to build your own AI applications such as chatbots, virtual assistants, and more.
 The OpenAI Assistants can access OpenAI knowledge base ([vector store](https://platform.openai.com/docs/api-reference/vector-stores)) via file search and use function calling for dynamic interaction and data retrieval.
 
