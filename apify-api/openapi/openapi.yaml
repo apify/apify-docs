@@ -566,6 +566,8 @@ paths:
     $ref: "paths/key-value-stores/key-value-stores@{storeId}.yaml"
   "/v2/key-value-stores/{storeId}/keys":
     $ref: "paths/key-value-stores/key-value-stores@{storeId}@keys.yaml"
+  "/v2/key-value-stores/{storeId}/records":
+    $ref: "paths/key-value-stores/key-value-stores@{storeId}@records.yaml"
   "/v2/key-value-stores/{storeId}/records/{recordKey}":
     $ref: "paths/key-value-stores/key-value-stores@{storeId}@records@{recordKey}.yaml"
   /v2/datasets:
