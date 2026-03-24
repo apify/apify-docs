@@ -33,6 +33,19 @@ get:
       schema:
         type: boolean
         example: true
+    - name: disableRedirect
+      in: query
+      description: |
+        If `true` or `1`, the API returns the record content directly in the response body with status
+        code `200` instead of redirecting to a signed S3 URL with status code `302`.
+        Use this parameter when your HTTP client does not follow redirects automatically, or when
+        you want to avoid an additional round-trip to S3. Note that large records may increase
+        response time compared to the redirect approach.
+      required: false
+      style: form
+      schema:
+        type: boolean
+        example: true
   responses:
     "200":
       description: ""
@@ -147,6 +160,8 @@ put:
       application/json:
         schema:
           $ref: ../../components/schemas/key-value-stores/PutRecordRequest.yaml
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":
