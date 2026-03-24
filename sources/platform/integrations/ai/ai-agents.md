@@ -14,7 +14,7 @@ Apify is a cloud platform for web scraping, data extraction, and browser automat
 
 ### Core concepts
 
-- _Actors_ - serverless cloud programs that perform scraping, crawling, or automation tasks. Over 4,000 ready-made Actors are available in [Apify Store](https://apify.com/store).
+- _Actors_ - serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
 - _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset containing its output. Export as JSON, CSV, Excel, XML, or RSS.
 - The _Apify API_ - RESTful API at `https://api.apify.com/v2` for all platform operations.
 
