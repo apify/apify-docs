@@ -89,6 +89,10 @@ post:
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "413":
       $ref: ../../components/responses/PayloadTooLarge.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "409":
+      $ref: ../../components/responses/Conflict.yaml
     "415":
       $ref: ../../components/responses/UnsupportedMediaType.yaml
     "429":

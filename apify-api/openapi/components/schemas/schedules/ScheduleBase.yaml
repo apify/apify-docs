@@ -1,15 +1,14 @@
-title: ScheduleShort
+title: ScheduleBase
 required:
   - id
   - userId
   - name
-  - createdAt
-  - modifiedAt
-  - isEnabled
-  - isExclusive
   - cronExpression
   - timezone
-  - actions
+  - isEnabled
+  - isExclusive
+  - createdAt
+  - modifiedAt
 type: object
 properties:
   id:
@@ -21,6 +20,18 @@ properties:
   name:
     type: string
     examples: [my-schedule]
+  cronExpression:
+    type: string
+    examples: ["* * * * *"]
+  timezone:
+    type: string
+    examples: [UTC]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  isExclusive:
+    type: boolean
+    examples: [true]
   createdAt:
     type: string
     format: date-time
@@ -29,28 +40,11 @@ properties:
     type: string
     format: date-time
     examples: ["2019-12-20T06:33:11.202Z"]
-  lastRunAt:
-    type: [string, "null"]
-    format: date-time
-    examples: ["2019-04-12T07:33:10.202Z"]
   nextRunAt:
     type: [string, "null"]
     format: date-time
     examples: ["2019-04-12T07:34:10.202Z"]
-  isEnabled:
-    type: boolean
-    examples: [true]
-  isExclusive:
-    type: boolean
-    examples: [true]
-  cronExpression:
-    type: string
-    examples: ["* * * * *"]
-  timezone:
-    type: string
-    examples: [UTC]
-  actions:
-    type: array
-    items:
-      $ref: ./ScheduleAction.yaml
-    description: ""
+  lastRunAt:
+    type: [string, "null"]
+    format: date-time
+    examples: ["2019-04-12T07:33:10.202Z"]

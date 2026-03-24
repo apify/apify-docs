@@ -130,7 +130,7 @@ Apify securely stores your ten most recent runs indefinitely, ensuring your reco
 
 ### Preserve your storages
 
-To ensure indefinite retention of your storages, assign them a name. This can be done via Apify Console or through our API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
+To ensure indefinite retention of your storages, assign them a name. This can be done via Apify Console or through the API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
 
 ![Finding your store's ID](./images/find-store-id.png)
 

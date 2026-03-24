@@ -33,7 +33,7 @@ Once the index is created and ready, you can proceed with integrating Apify.
 
 ### Integration Methods
 
-You can integrate Apify with Pinecone using either the Apify Console or the Apify Python SDK.
+You can integrate Apify with Pinecone using either Apify Console or the Apify Python SDK.
 
 :::note Website Content Crawler usage
 

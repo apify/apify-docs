@@ -56,6 +56,8 @@ All standards from `.claude/rules/` apply. Key tutorial-specific checks:
 - [ ] Common issues addressed in troubleshooting
 - [ ] Summary lists what user accomplished
 - [ ] Next steps and related content linked
+- [ ] Run `npm run lint:md` on the new file
+- [ ] Run `npm start` (or `npm run build`) to verify no broken links or slug conflicts
 
 For general quality standards (front matter, formatting, terminology), see `quality-standards.md`.
 

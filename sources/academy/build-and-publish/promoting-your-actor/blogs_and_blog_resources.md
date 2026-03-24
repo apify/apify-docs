@@ -23,7 +23,7 @@ slug: /actor-marketing-playbook/promote-your-actor/blogs-and-blog-resources
 4. Trends. If you’ve noticed emerging trends in web scraping or automation, write about them. Tie your Actor into these trends to highlight its relevance.
 5. Feature announcements or updates. Have you recently added new features to your Actor? Write a blog post explaining how these features work and what makes them valuable.
 
-🪄 These days, blog posts always need to be written with SEO in mind. Yeah, it's annoying to use keywords, but think of it this way: even if there's the most interesting customer story and amazing programming insights, but nobody can find it, it won't have the impact you want. Do try to optimize your posts with relevant keywords and phrases — across text, structure, and even images — to ensure they reach your target audience.
+🪄 These days, blog posts always need to be written with SEO in mind. Yeah, it's annoying to use keywords, but think of it this way: even if there's the most interesting customer story and amazing programming insights, but nobody can find it, it won't have the impact you want. Do try to optimize your posts with relevant keywords and phrases - across text, structure, and even images - to ensure they reach your target audience.
 
 ---
 

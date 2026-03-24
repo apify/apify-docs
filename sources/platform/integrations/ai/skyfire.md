@@ -178,7 +178,7 @@ After your Actor run completes, you can retrieve results using the [dataset endp
 
 ### Supported Actors
 
-Not all Actors in the Apify Store can be run using agentic payments.
+Not all Actors in Apify Store can be run using agentic payments.
 
 Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
 

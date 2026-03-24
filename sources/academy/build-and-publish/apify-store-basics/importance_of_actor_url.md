@@ -28,7 +28,7 @@ The right naming can propel or hinder the success of the Actor on Google Search.
 
 ### Brainstorming
 
-What does your Actor do? Does it scrape, find, extract, automate, connect? Think of these when you are looking for a name. You might already have a code name in mind, but it’s essential to ensure it stands out and is distinct from similar names—both on Google and on Apify Store.
+What does your Actor do? Does it scrape, find, extract, automate, connect? Think of these when you are looking for a name. You might already have a code name in mind, but it’s essential to ensure it stands out and is distinct from similar names - both on Google and on Apify Store.
 
 ### Matching URL and name
 

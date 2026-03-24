@@ -78,7 +78,7 @@ The `eventChargeLimitReached` property checks if the user's limit allows for ano
 
 :::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
 
-For pay-per-event Actors, users set a spending limit through the Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+For pay-per-event Actors, users set a spending limit through Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
 The Apify SDK's `ChargeResult` respects the user set limit already.
 
 :::
@@ -146,7 +146,7 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 ## Best practices for PPE Actors
 
-Use our [SDKs](/sdk) (JS and, Python or use [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using our Apify CLI) to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
+Use the [Apify SDKs](/sdk) (JS or Python) or the [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using the Apify CLI to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
 ### Use synthetic start event `apify-actor-start`
 
@@ -162,7 +162,7 @@ One of the options to charge for the time spent on starting the Actor is to char
 
 We want to make it easier for Actor creators to stay competitive, but also help them to be profitable. Therefore, we have the Apify Actor synthetic start event `apify-actor-start`. This event is enabled by default for all new PPE Actors, and when you use it Apify will cover the compute unit cost of the first 5 seconds of every Actor run.
 
-The default price of the event is set intentionally low. This pricing means that the free 5 seconds of compute we provide costs us more than the revenue generated from the event. We've made this investment to _support our creator community_ by reducing your startup costs while keeping your Actors competitively priced for users.
+The default price of the event is set intentionally low. This pricing means that the free 5 seconds of compute we provide costs us more than the revenue generated from the event. We've made this investment to _support the creator community_ by reducing your startup costs while keeping your Actors competitively priced for users.
 
 #### How the synthetic start event works
 

@@ -106,7 +106,7 @@ If the request is successful, you will receive a `201` [HTTP response code](http
 
 You can add multiple Actor and task runs to a schedule with a single `POST` request. Simply add another object with the run's details to the **actions** array in your `POST` request's payload object.
 
-For more information, refer to the [schedules](/api/v2/schedule-get) section in our API documentation.
+For more information, refer to the [schedules](/api/v2/schedule-get) section in the API documentation.
 
 ## Schedule setup
 

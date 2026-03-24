@@ -82,7 +82,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
     ![Sign up page](../make/images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for n8n](../make/images/apify-console-token-for-make.png)
 

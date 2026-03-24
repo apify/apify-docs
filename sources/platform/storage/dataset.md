@@ -93,7 +93,7 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2/datase
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at _400 requests per second_ to avoid overloading our servers.
+> API data push to a dataset is capped at _400 requests per second_ to avoid overloading the servers.
 
 Example payload:
 
@@ -276,7 +276,7 @@ async def main():
         hotel_and_cafe_data = await dataset.get_data(fields=['hotel', 'cafe'])
 ```
 
-For more information, visit our [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-datasets) and the `Dataset` class's [API reference](/sdk/python/reference/class/Dataset) for details on managing datasets with the Python SDK.
+For more information, visit the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-datasets) and the `Dataset` class's [API reference](/sdk/python/reference/class/Dataset) for details on managing datasets with the Python SDK.
 
 ## Hidden fields
 

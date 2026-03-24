@@ -53,6 +53,8 @@ All standards from `.claude/rules/` apply. Key doc-write checks:
 - [ ] Each step has clear instructions
 - [ ] Related documentation is linked
 - [ ] No assumptions about product features (ask if unsure)
+- [ ] Run `npm run lint:md` on the new or edited file
+- [ ] Run `npm start` (or `npm run build`) to verify no broken links or slug conflicts
 
 For the complete quality checklist, see `quality-standards.md`.
 
