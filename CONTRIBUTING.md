@@ -128,45 +128,26 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
 
-## AI Assistant rules structure
+## AI assistant rules structure
 
-This project uses a hybrid approach for AI assistant rules to ensure consistency across different tools while leveraging Cursor-specific features.
+This project uses an agent-agnostic approach: standards and workflows live at the repo root, with thin adapter files for each AI tool.
 
-### Structure overview
+### Source of truth
 
-#### Vendor-agnostic rules
+- **`standards/`** - Writing, formatting, terminology, and quality rules
+- **`workflows/`** - Reusable processes for doc tasks (review, write, tutorial, API docs)
+- **`AGENTS.md`** - Condensed summary + pointers (also `CLAUDE.md` via symlink)
 
-- **`AGENTS.md`** - Primary vendor-agnostic rules file containing core documentation standards
+### Agent-specific adapters
 
-#### Cursor-specific rules
-
-- **`.cursor/rules/documentation-style.mdc`** - Cursor-specific documentation guidelines
-- **`.cursor/rules/content-formatting.mdc`** - Cursor-specific formatting rules
-- **`.cursor/rules/api-documentation.mdc`** - Cursor-specific API documentation rules
-- **`.cursor/rules/quality-standards.mdc`** - Cursor-specific quality guidelines
-- **`.cursor/rules/file-organization.mdc`** - Cursor-specific file organization rules
-
-To verify rule application, hover over attached rules in the Cursor chat window.
+- **`.claude/skills/`** - Summary + pointer adapters for Claude Code (trigger metadata + process summary)
+- **`.cursor/rules/`** - Thin pointers to `standards/` and `workflows/` for Cursor
 
 ### Usage
 
-#### For general AI assistants
-
-- Reference `AGENTS.md` for vendor-agnostic documentation standards
-
-#### For Cursor-specific features
-
-- Use `.cursor/rules/*.mdc` files for Cursor-specific workflows
-- Leverage glob patterns and `alwaysApply` settings
-- Use Cursor Chat and Cmd+K with `@AGENTS.md` references
-
-### File targeting
-
-Each `.mdc` file uses glob patterns to target specific file types:
-
-- **`documentation-style.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
-- **`content-formatting.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
-- **`api-documentation.mdc`**: `["apify-api/**/*.yaml", "apify-api/**/*.js"]`
+- Any AI assistant can follow `AGENTS.md` and read `standards/` and `workflows/` directly
+- Claude Code users: use `/doc-write`, `/api-doc`, `/tutorial`, `/review-docs` skills
+- Cursor users: rules auto-load via glob patterns on `sources/**/*.md` files
 
 ## Repository structure
 

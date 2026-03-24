@@ -1,6 +1,6 @@
 # Claude Code instructions for Apify documentation
 
-`CLAUDE.md` (symlink to `AGENTS.md`) covers project architecture, commands, and common pitfalls. Documentation standards are auto-loaded from `.claude/rules/` - those are the canonical source for all writing, formatting, and terminology rules.
+`CLAUDE.md` (symlink to `AGENTS.md`) covers project architecture, commands, and common pitfalls. Documentation standards live in `standards/` at the repo root. Workflow processes live in `workflows/`.
 
 ## Available skills
 

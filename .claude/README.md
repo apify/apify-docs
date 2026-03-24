@@ -8,27 +8,27 @@ This directory contains Claude Code configuration for the Apify documentation re
 .claude/
 ├── README.md              # This file - Quick start guide
 ├── instructions.md        # Main instructions for Claude Code
-├── rules/                 # Canonical standards (auto-loaded)
-│   ├── writing-style.md   # Prose voice and tone
-│   ├── content-standards.md  # Formatting and structure
-│   ├── terminology.md     # Product names and capitalization
-│   ├── file-organization.md  # Naming conventions
-│   ├── grammar-rules.md      # Grammar mechanics, punctuation, numbers, brand spelling
-│   └── quality-standards.md  # Quality checklist
-└── skills/                # Reusable skills for common tasks
+└── skills/                # Summary + pointer adapters for common tasks
     ├── doc-write/         # Documentation writing skill
     ├── api-doc/           # API documentation skill
     ├── tutorial/          # Tutorial creation skill
     └── review-docs/       # Documentation review skill
 ```
 
+Standards and workflows live at the repo root (agent-agnostic):
+
+```text
+standards/                 # Writing, formatting, terminology rules
+workflows/                 # Reusable processes for doc tasks
+```
+
 ## How to use
 
 ### For Claude Code users
 
-1. **Start a new session**: Claude Code will automatically read `instructions.md`
-2. **Use skills**: Type `/doc-write`, `/api-doc`, `/tutorial`, or `/review-docs` to use specific skills
-3. **Reference standards**: Always refer to `AGENTS.md` in the repo root for core standards
+1. **Start a new session**: Claude Code reads `CLAUDE.md` (symlink to `AGENTS.md`)
+2. **Use skills**: Type `/doc-write`, `/api-doc`, `/tutorial`, or `/review-docs`
+3. **Reference standards**: See `standards/` for detailed rules, `AGENTS.md` for summary
 
 ### Available skills
 
@@ -72,7 +72,7 @@ Use /review-docs skill to review sources/platform/[file-name].md
 
 ## Documentation standards
 
-All documentation standards are in `.claude/rules/` (auto-loaded):
+All documentation standards are in `standards/` at the repo root:
 
 1. **`writing-style.md`** - Prose voice and tone
 1. **`content-standards.md`** - Formatting and structure
@@ -83,9 +83,8 @@ All documentation standards are in `.claude/rules/` (auto-loaded):
 
 Also reference:
 
-- **`AGENTS.md`** - Vendor-agnostic documentation standards (in repo root)
+- **`AGENTS.md`** - Condensed summary + pointers (in repo root)
 - **`CONTRIBUTING.md`** - Setup, workflows, contribution process
-- **`instructions.md`** - Full Claude Code instructions (in this directory)
 
 ## Testing
 
@@ -102,14 +101,14 @@ npm start            # Preview changes
 ## Best practices
 
 1. **Read `CLAUDE.md` first**
-2. **Check `.claude/rules/`** - Auto-loaded standards for writing, formatting, terminology
+2. **Check `standards/`** - Detailed rules for writing, formatting, terminology
 3. **Use the appropriate skill** - Designed for specific documentation tasks
 4. **Run linters before committing** - `npm run lint:md`, `npm run lint:code`, and `vale`
 5. **Review before submit** - Use `/review-docs` skill for final checks
 
 ## Need help?
 
-- Questions about style: Check `AGENTS.md`
+- Questions about style: Check `standards/` or `AGENTS.md`
 - Setup issues: See `CONTRIBUTING.md`
 - Skill usage: Read the specific skill file
 - Claude Code general: Visit [Claude Code docs](https://github.com/anthropics/claude-code)

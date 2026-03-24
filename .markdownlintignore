@@ -3,4 +3,6 @@ build
 .claude
 AGENTS.md
 CLAUDE.md
+standards
+workflows
 sources/_partials/*
