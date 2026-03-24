@@ -5,7 +5,6 @@ required:
   - isEnabled
   - monthlyBasePriceUsd
   - monthlyUsageCreditsUsd
-  - usageDiscountPercent
   - enabledPlatformFeatures
   - maxMonthlyUsageUsd
   - maxActorMemoryGbytes
@@ -43,14 +42,13 @@ properties:
   enabledPlatformFeatures:
     type: array
     items:
-      type: array
-      items: {}
+      type: string
     example:
-      - - ACTORS
-      - - STORAGE
-      - - PROXY_SERPS
-      - - SCHEDULER
-      - - WEBHOOKS
+      - ACTORS
+      - STORAGE
+      - PROXY_SERPS
+      - SCHEDULER
+      - WEBHOOKS
   maxMonthlyUsageUsd:
     type: number
     examples: [9999]

@@ -68,9 +68,7 @@ delete:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
   responses:
     "204":
-      description: ""
-      headers: {}
-      content: {}
+      $ref: ../../components/responses/NoContent.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
@@ -82,7 +80,9 @@ delete:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+            oneOf:
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/RecordOrTokenNotFoundError"
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":

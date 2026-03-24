@@ -1,15 +1,11 @@
-title: ScheduleAction
+title: ScheduleCreateAction
 oneOf:
-  - title: ScheduleActionRunActor
+  - title: ScheduleCreateActionRunActor
     required:
-      - id
       - type
       - actorId
     type: object
     properties:
-      id:
-        type: string
-        examples: [c6KfSgoQzFhMk3etc]
       type:
         type: string
         enum: [RUN_ACTOR]
@@ -24,16 +20,12 @@ oneOf:
         anyOf:
           - $ref: ../common/OptionalRunOptions.yaml
           - type: "null"
-  - title: ScheduleActionRunActorTask
+  - title: ScheduleCreateActionRunActorTask
     required:
-      - id
       - type
       - actorTaskId
     type: object
     properties:
-      id:
-        type: string
-        examples: [c6KfSgoQzFhMk3etc]
       type:
         type: string
         enum: [RUN_ACTOR_TASK]

@@ -624,6 +624,12 @@ paths:
     $ref: paths/users/users@me@usage@monthly.yaml
   /v2/users/me/limits:
     $ref: paths/users/users@me@limits.yaml
+  /v2/browser-info:
+    $ref: paths/tools/tools@browser-info.yaml
+  /v2/tools/encode-and-sign:
+    $ref: paths/tools/tools@encode-and-sign.yaml
+  /v2/tools/decode-and-verify:
+    $ref: paths/tools/tools@decode-and-verify.yaml
 components:
   securitySchemes:
     httpBearer:

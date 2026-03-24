@@ -40,7 +40,7 @@ properties:
       - type: "null"
   options:
     anyOf:
-      - $ref: ./TaskOptions.yaml
+      - $ref: ../common/OptionalRunOptions.yaml
       - type: "null"
   input:
     anyOf:
