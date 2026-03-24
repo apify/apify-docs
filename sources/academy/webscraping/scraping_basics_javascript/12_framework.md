@@ -255,12 +255,12 @@ crawler.router.addHandler('DETAIL', async ({ $, request, pushData }) => {
   const $variants = $(".product-form__option.no-js option");
   if ($variants.length === 0) {
     // highlight-next-line
-    pushData(item);
+    await pushData(item);
   } else {
     for (const element of $variants.toArray()) {
       const variant = parseVariant($(element));
       // highlight-next-line
-      pushData({ ...item, ...variant });
+      await pushData({ ...item, ...variant });
     }
   }
 });
@@ -341,13 +341,13 @@ crawler.router.addHandler('DETAIL', async ({ $, request, pushData, log }) => {
   if ($variants.length === 0) {
     // highlight-next-line
     log.info('Saving a product');
-    pushData(item);
+    await pushData(item);
   } else {
     for (const element of $variants.toArray()) {
       const variant = parseVariant($(element));
       // highlight-next-line
       log.info('Saving a product variant');
-      pushData({ ...item, ...variant });
+      await pushData({ ...item, ...variant });
     }
   }
 });
