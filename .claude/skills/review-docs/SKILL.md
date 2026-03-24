@@ -1,114 +1,28 @@
 ---
+name: review-docs
 description: Review Apify documentation for style guide compliance, quality standards, and best practices. Use when user says "review this doc", "check this page", "audit documentation", "review before PR", "is this ready to publish", or "review-docs". Runs automated checks and manual review against Apify style guide.
-argument-hint: file-path
-allowed-tools: Read, Bash, Glob, Grep, Agent
+allowed-tools: Read Bash Glob Grep Agent
+metadata:
+  argument-hint: file-path
 ---
 
 # Documentation review
 
-Review documentation for compliance with Apify style guide, quality standards, and best practices.
+## Process
 
-## Instructions
+1. **Verify file version** - `git status` to confirm you have the latest
+2. **Run deterministic checks** - these are objective, no judgment needed:
+   - `npm run lint:md` (heading hierarchy, list numbering, spacing)
+   - `vale "<file>" --minAlertLevel=error` (prose style, pronouns, dashes, code fences, admonitions)
+   - `workflows/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
+3. **LLM review** - focus on what tools can't check:
+   - Content structure (clear intro, logical flow, next steps)
+   - Technical accuracy (code examples correct, API endpoints current)
+   - Completeness (prerequisites listed, edge cases covered)
+   - Terminology edge cases (check `standards/terminology.md` when unsure)
+   - Code example quality (complete, runnable, commented where needed)
+4. **Format output** per `workflows/review-docs/references/review-format.md`
 
-### Step 1: Check latest changes
+Tools first, LLM second. Report tool failures as objective facts. Report LLM findings as judgment calls.
 
-**CRITICAL**: Verify you're reviewing the latest version of the file before starting.
-
-- If reviewing a local file: confirm no unsaved changes with `git status`
-- If reviewing a PR: run `git fetch && git checkout <branch>` to ensure the branch is current
-
-## Standards reference
-
-Review compliance against all standards in `.claude/rules/`:
-
-- `writing-style.md` - Prose voice and tone
-- `content-standards.md` - Formatting and structure
-- `terminology.md` - Product names and capitalization
-- `grammar-rules.md` - Grammar mechanics and punctuation
-- `quality-standards.md` - Complete quality checklist
-- `file-organization.md` - File naming and directory structure
-
-## Review process
-
-### Step 2: Run automated checks
-
-```bash
-npm run lint:md        # Markdownlint - Markdown syntax/formatting
-npm run lint:code      # ESLint - Code linting
-vale "path/to/file.md" --minAlertLevel=error  # Vale - Prose and style
-```
-
-## Review checklist
-
-### Style compliance (delegated)
-
-For each rules file, launch a subagent to check the reviewed content against that file's standards. The subagent reads the rules file directly, so the review always uses the latest rules.
-
-Check content compliance against:
-
-1. `writing-style.md` - voice, tone, language patterns
-1. `content-standards.md` - formatting, front matter, headings, code, links, images
-1. `terminology.md` - product names, article usage, feature terms
-1. `grammar-rules.md` - hyphenation, punctuation, numbers, brand spelling
-
-Each subagent should return a list of violations with line numbers and suggested fixes.
-
-### Content review (manual)
-
-These aspects require judgment and aren't covered by the rules files:
-
-- [ ] **Content structure** - Clear introduction, logical progression, summary/next steps
-- [ ] **Heading hierarchy** - H2 → H3 → H4, no skipped levels
-- [ ] **Technical accuracy** - Code examples tested, API endpoints current, no deprecated features
-- [ ] **Completeness** - Prerequisites listed, all steps included, edge cases addressed
-- [ ] **Content-type checks**
-  - **Tutorials**: Clear learning objectives, sequential numbered steps, verification at each step
-  - **API docs**: All parameters documented, code samples in JS and Python, error responses
-  - **Reference pages**: Comprehensive parameter tables, default values, type information
-- [ ] **Accessibility** - Proper heading hierarchy, descriptive link text, image alt text
-- [ ] **SEO** - Descriptive title, meta description 140-160 chars, internal linking
-
-## Examples
-
-Example 1: Pre-PR review
-
-User says: "Review sources/platform/actors/running.md before I submit"
-
-Actions:
-1. Read the file
-1. Run `npm run lint:md` (or `npx markdownlint "sources/platform/actors/running.md"` for a single file)
-1. Run `vale "sources/platform/actors/running.md" --minAlertLevel=error`
-1. Check against review checklist
-1. Output structured review with strengths, issues, and priority fixes
-
-Example 2: Style audit
-
-User says: "Check if this page follows the style guide"
-
-Actions:
-1. Read the file
-1. Focus on writing quality and terminology checks
-1. Flag specific lines with issues and suggested fixes
-1. Provide priority ranking
-
-## Troubleshooting
-
-### Markdownlint reports false positives on admonitions
-
-Cause: Markdownlint doesn't understand Docusaurus `:::` admonition syntax natively.
-
-Solution: Check `.markdownlint.json` for configured exceptions. Some rules (like MD046) may be disabled for admonition blocks. Focus on Vale for prose quality instead.
-
-### Vale reports errors on Apify product names
-
-Cause: Vale styles may not include Apify-specific terminology.
-
-Solution: Check `.vale/styles/` for Apify vocabulary files. If missing, run `vale sync` to download the latest styles. Product names like "Actor", "Console", "Proxy" are correct as capitalized.
-
-### Unsure if a term should be capitalized
-
-Solution: Check `.claude/rules/terminology.md` for the definitive list. Product names (Actor, Console, Proxy, Store) are capitalized. Feature terms (task, schedule, dataset) are lowercase.
-
-## Output
-
-Provide a structured review using the format in `references/review-format.md`, with clear identification of issues, specific examples, concrete suggestions, and priority ranking.
+For detailed process notes and edge cases, see `workflows/review-docs/process.md`.
