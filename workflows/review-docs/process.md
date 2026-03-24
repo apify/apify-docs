@@ -9,31 +9,43 @@ Agent-agnostic workflow for reviewing Apify documentation.
 
 ## Step 2: Run deterministic checks
 
-These are objective - no judgment needed. Report all failures.
+These are objective - no judgment needed. Report all failures. Run in the main process (not in subagents).
 
 - `npm run lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `vale "<file>" --minAlertLevel=error` (prose style, dashes, code fences, admonitions)
 - `workflows/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
-## Step 3: Manual review
+## Step 3: Delegated standards review
 
-The deterministic tools handle mechanical checks. Focus on what requires understanding:
+Spawn one subagent per standards file to check compliance in parallel. Each subagent reads the file being reviewed plus one standards file, and returns violations with line numbers and suggested fixes.
+
+- Subagent 1: check against `standards/writing-style.md` (voice, tone, headings, links)
+- Subagent 2: check against `standards/content-standards.md` (front matter, admonitions, code blocks)
+- Subagent 3: check against `standards/terminology.md` (product names, article usage)
+- Subagent 4: check against `standards/grammar-rules.md` (hyphenation, punctuation, brand spelling)
+
+Why subagents: each standards file gets dedicated attention. A single-pass review with a summary tends to miss edge cases (comma rules, article usage, brand spelling) that a focused read catches.
+
+Why not deterministic tools in subagents: subagents may have sandbox restrictions that prevent running Bash commands. Keep all tool execution in the main process.
+
+## Step 4: Content review
+
+Run in the main process. Focus on what neither deterministic tools nor standards files cover:
 
 - [ ] Content structure (clear intro, logical progression, next steps)
 - [ ] Technical accuracy (code examples correct, API endpoints current)
 - [ ] Completeness (prerequisites listed, edge cases addressed)
-- [ ] Heading quality (sentence case nuances, gerund detection beyond -ing suffix)
-- [ ] Terminology edge cases (check `standards/terminology.md` when unsure)
 - [ ] Text formatting judgment (is bold usage for a UI element or misuse?)
 - [ ] Link quality beyond "click here" (is the text genuinely descriptive?)
 - [ ] Code example quality (complete, runnable, commented where needed)
 
-## Step 4: Format output
+## Step 5: Format output
 
-Combine tool output and manual findings into structured review per `references/review-format.md`.
+Merge deterministic results + subagent findings + content review into structured output per `references/review-format.md`.
 
 - Tool findings are objective facts
-- Manual findings are judgment calls
+- Standards findings are rule-based judgment calls
+- Content findings are subjective judgment calls
 - Prioritize by impact: critical → important → minor
 
 ## Edge cases
