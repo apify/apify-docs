@@ -1,7 +1,7 @@
 ---
 title: Agent Skills and MCPC
 sidebar_label: Agent Skills and MCPC
-description: Use Apify Agent Skills and MCPC to give AI coding assistants web scraping, data extraction, and automation capabilities through MCP servers.
+description: Use Apify Agent Skills with MCP CLI (mcpc) to give AI agents web scraping, data extraction, and automation capabilities.
 sidebar_position: 1.5
 slug: /integrations/agent-skills
 ---
@@ -9,17 +9,17 @@ slug: /integrations/agent-skills
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[Apify Agent Skills](https://github.com/apify/agent-skills) give AI coding assistants pre-built capabilities for web scraping, data extraction, and automation. Skills work with Claude Code, Cursor, Codex, Gemini CLI, and other AI tools that support [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
+[Apify Agent Skills](https://github.com/apify/agent-skills) give AI agents pre-built capabilities for web scraping, data extraction, and building Apify Actors. Skills work with Claude Code, Cursor, Codex, Gemini CLI, and other coding agents that support [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
 
-[MCPC](https://github.com/apify/mcp-cli) is a command-line client for MCP that connects your terminal and AI agents to any MCP server - including Apify's.
+[MCPC](https://github.com/apify/mcp-cli) is a universal command-line client for MCP that connects your AI agents to any MCP server - including Apify's. This CLI utility enables more token efficient tool calling, and less context bloat while working with MCP servers.
 
-Together, they let you add Apify's scraping and automation tools to any AI coding assistant with a single command.
+Together, they let you add Apify's scraping and automation tools to any AI agent with a single command.
 
 ## Prerequisites
 
 - An [Apify account](https://console.apify.com/sign-up) with an [API token](https://console.apify.com/account#/integrations)
 - [Node.js](https://nodejs.org/) version 20.6 or later
-- An AI coding assistant that supports MCP (Claude Code, Cursor, VS Code with Copilot, Codex, Gemini CLI)
+- An AI coding agent that supports MCP (Claude Code, Cursor, VS Code with Copilot, Codex, Gemini CLI etc.)
 
 ## Install Agent Skills
 
@@ -35,23 +35,19 @@ This adds skill definitions to your project. No additional configuration is need
 
 The [apify/agent-skills](https://github.com/apify/agent-skills) repository contains official Apify skills. The community-maintained [apify/awesome-skills](https://github.com/apify/awesome-skills) repository contains additional skills contributed by the community.
 
-:::note Skills consolidation
-The Apify team is consolidating the official Agent Skills repository into two core skills. Check the [repository](https://github.com/apify/agent-skills) for the latest available skills.
-:::
-
 ### How skills work
 
-Each skill is a Markdown file (`SKILL.md`) that describes a capability and its tools. When an AI coding assistant opens your project, it reads these files and gains the ability to:
+Each skill is a Markdown file (`SKILL.md`) that describes a domain-specific capability and tools the agent should use to execute the desired task. Skills can be invoked directly by `/slash-commands` and agents can also load them dynamically based on your prompt. Apify Agent Skills give AI coding assistants the ability to:
 
 - Search and run Actors from [Apify Store](https://apify.com/store)
 - Extract data from websites, social media, and e-commerce platforms
-- Export results as JSON or CSV, or display them in chat
+- [Develop, test & publish Actors](https://docs.apify.com/platform/actors/development/quick-start/build-with-ai) in Apify Store
 
-Skills use [MCPC](#install-mcpc) under the hood to communicate with MCP servers and execute Apify Actor calls.
+Skills use [MCPC](#install-mcpc) under the hood to communicate with Apify MCP server and execute Actor calls.
 
 ## Install MCPC
 
-MCPC is the command-line bridge between AI agents and MCP servers. Install it globally:
+[MCP CLI (mcpc)](https://blog.apify.com/introducing-mcpc-universal-mcp-cli-client/) is the command-line bridge between AI agents and MCP servers. Install it globally:
 
 ```bash
 npm install -g @apify/mcpc
