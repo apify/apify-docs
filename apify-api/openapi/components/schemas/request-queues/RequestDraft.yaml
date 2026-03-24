@@ -3,7 +3,6 @@ description: A request that failed to be processed during a request queue operat
 required:
   - uniqueKey
   - url
-  - method
 type: object
 properties:
   id:
