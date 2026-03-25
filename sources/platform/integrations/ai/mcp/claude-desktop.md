@@ -27,7 +27,7 @@ Download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/a
 
 :::caution Connector directory
 
-If you found Apify through the Claude Desktop connector directory, the automatic install may fail silently or show an "Unable to connect to extension server" error. Use the `.mcpb` file above or the [manual configuration](#remote-server-manual-configuration) below instead.
+If you found Apify through the Claude Desktop connector directory, the automatic install may fail silently or show an "Unable to connect to extension server" error. This is a known issue across macOS, Windows, and Linux. Try uninstalling and reinstalling the extension first. If that doesn't help, use the `.mcpb` file above or the [manual configuration](#remote-server-manual-configuration) instead.
 
 :::
 
@@ -84,13 +84,19 @@ If your version of Claude Desktop does not support the `url` field, use the `mcp
   "mcpServers": {
     "apify": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.apify.com/sse"]
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.apify.com/sse",
+        "--header",
+        "Authorization: Bearer <APIFY_TOKEN>"
+      ]
     }
   }
 }
 ```
 
-This requires Node.js version 18 or higher.
+Replace `<APIFY_TOKEN>` with your API token from the [Integrations section](https://console.apify.com/account#/integrations) in Apify Console. This requires Node.js version 18 or higher.
 
 :::
 
@@ -142,12 +148,15 @@ The local stdio server does not support output schema inference for structured A
   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - **Validate JSON syntax.** Ensure there are no trailing commas, missing quotes, or mismatched brackets. Paste your config into a JSON validator if needed.
 
-### "Unable to connect" error
+### "Unable to connect to extension server" error
 
+This error commonly appears when installing from the Claude Desktop connector directory. In some cases, the MCP server starts and communicates correctly, but Claude Desktop still shows the error.
+
+- **Uninstall and reinstall the extension.** In Claude Desktop, disable the Apify extension, remove it, then add it again.
+- **Switch to manual configuration.** If reinstalling doesn't help, use the [remote server](#remote-server-manual-configuration) or [local stdio](#local-stdio-server) setup instead of the connector directory.
 - **Verify the server URL.** For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
 - **Check your network.** Ensure your firewall or VPN is not blocking the connection.
 - **For local stdio setup:** Confirm Node.js version 18 or higher is installed by running `node -v` in your terminal.
-- **Try the remote server.** If the local server fails, switch to the [remote server configuration](#remote-server-manual-configuration) to rule out local environment issues.
 
 ### Corrupted npx cache
 

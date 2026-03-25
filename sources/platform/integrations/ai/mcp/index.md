@@ -17,7 +17,7 @@ using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-star
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
 and enables AI coding assistants to access Apify documentation and tutorials.
 
-![Apify MCP server](../../images/apify_mcp_server.png)
+![Apify MCP server](../../../images/apify_mcp_server.png)
 
 ## Prerequisites
 

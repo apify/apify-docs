@@ -40,7 +40,7 @@ Before connecting ChatGPT to Apify, you'll need:
 3. Select **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
 
-![ChatGPT Create connection](../images/chatgpt-connector.png)
+![ChatGPT Create connection](../../images/chatgpt-connector.png)
 
 Once authorized, you'll return to ChatGPT and see a success message with a list of tools available from the Apify MCP server.
 
@@ -63,7 +63,7 @@ Once your connector is ready:
 You'll need to grant permission for each Apify tool when it's used for the first time.
 You should see ChatGPT calling Apify tools - such as the [RAG Web Browser](https://apify.com/apify/rag-web-browser) - to gather information.
 
-![ChatGPT Apify tools](../images/chatgpt-with-rag-web-browser.png)
+![ChatGPT Apify tools](../../images/chatgpt-with-rag-web-browser.png)
 
 ## Limitations
 
