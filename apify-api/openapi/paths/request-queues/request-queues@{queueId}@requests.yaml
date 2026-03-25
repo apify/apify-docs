@@ -11,7 +11,7 @@ get:
     - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
     - name: exclusiveStartId
       in: query
-      description: All requests up to this one (including) are skipped from the result.
+      description: All requests up to this one (including) are skipped from the result. Using this argument will add `nextCursor` to response to be able to get next page of requests if needed.
       style: form
       explode: true
       schema:
@@ -26,6 +26,25 @@ get:
         type: number
         format: double
         example: 100
+    - name: cursor
+      in: query
+      description: A cursor string for pagination, returned in the previous response as `nextCursor`. Use this to retrieve the next page of requests.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
+    - name: filter
+      in: query
+      description: Filter requests by their state. Possible values are `locked` and `pending`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - locked
+          - pending
+        example: locked
   responses:
     "200":
       description: ""

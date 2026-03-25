@@ -18,7 +18,7 @@ properties:
     description: A unique identifier assigned to the request queue.
     examples: [WkzbQMuFYuamGv3YF]
   name:
-    type: string
+    type: [string, "null"]
     description: The name of the request queue.
     examples: [some-name]
   userId:
