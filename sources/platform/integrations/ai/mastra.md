@@ -47,6 +47,7 @@ First, import all required packages:
 import { Agent } from '@mastra/core/agent';
 import { MastraMCPClient } from '@mastra/mcp';
 import { openai } from '@ai-sdk/openai';
+
 // For Anthropic use
 // import { anthropic } from '@ai-sdk/anthropic';
 ```

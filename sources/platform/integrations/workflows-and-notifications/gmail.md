@@ -6,6 +6,10 @@ sidebar_position: 6
 slug: /integrations/gmail
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Get started
 
 To use the Apify integration for Gmail, you will need:

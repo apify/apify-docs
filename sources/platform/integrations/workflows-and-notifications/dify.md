@@ -8,8 +8,6 @@ slug: /integrations/dify
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-<ThirdPartyDisclaimer />
-
 **Connect Apify with Dify to automate workflows by running Actors, extracting structured data, and responding to Actor or task events.**
 
 ---
@@ -17,6 +15,8 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 [Dify](https://dify.ai/) is an intuitive LLM application development platform for creating and operating AI-native apps. With the Apify integration for Dify, you can connect Apify Actors and storage to your Dify Workflows and Chatflows. You can run scrapers, extract data, and trigger workflows based on Apify events.
 
 This guide explains how to set up authentication and incorporate the Apify plugin into your Dify applications as either a tool (action) or a trigger.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 

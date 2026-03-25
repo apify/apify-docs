@@ -8,8 +8,6 @@ slug: /integrations/gumloop/maps
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-<ThirdPartyDisclaimer />
-
 Search, extract, and enrich business data from Google Maps in Gumloop.
 
 ---
@@ -17,6 +15,8 @@ Search, extract, and enrich business data from Google Maps in Gumloop.
 The Gumloop Google Maps integration provides a native interface for running Apify’s Google Maps scrapers directly in your workflows. No API keys or manual polling required. All you need is a Gumloop account.
 
 Using the Gumloop Google Maps MCP node, you can simply prompt the location data you need and Gumloop will retrieve it from relevant Apify Actors. From there, you can connect it to your favorite tools and AI agents to process the information.
+
+<ThirdPartyDisclaimer />
 
 ## Available actions
 
@@ -29,7 +29,6 @@ You can pull the following types of place data from Google Maps using Gumloop’
 | Search by category | Search for places by a specific category (e.g. cafes, gyms) on Google Maps. | 3 credits per item |
 | Get place reviews | Fetch reviews for specific locations, including text, rating, and reviewer info. | 3 credits per item |
 | Find places in area | Return all visible places within a defined map area or bounding box. | 3 credits per item |
-
 
 ## Retrieve Google Maps data in Gumloop
 

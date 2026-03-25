@@ -41,6 +41,7 @@ First, import all required packages:
 import { experimental_createMCPClient as createMCPClient, generateText, stepCountIs } from 'ai';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+
 ```
 
 Connect to the Apify MCP server and get all available tools for the AI agent. You can use the [UI configurator](https://mcp.apify.com/) to select your tools visually and generate the configuration code below:

@@ -8,11 +8,11 @@ slug: /integrations/airtable
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-<ThirdPartyDisclaimer />
-
 [Airtable](https://www.airtable.com/)  is a cloud-based platform for organizing, managing, and collaborating on data. With the Apify integration for Airtable, you can automatically upload Actor run results to Airtable after a successful run.
 
 This integration uses OAuth 2.0, a secure authorization protocol, to connect your Airtable account to Apify and manage data transfers.
+
+<ThirdPartyDisclaimer />
 
 ## Connect Apify with Airtable
 

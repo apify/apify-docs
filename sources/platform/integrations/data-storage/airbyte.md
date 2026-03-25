@@ -8,8 +8,6 @@ slug: /integrations/airbyte
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-<ThirdPartyDisclaimer />
-
 Airbyte is an open-source data integration platform that allows you to move your data between different sources and destinations using pre-built connectors, which are maintained either by Airbyte itself or by its community.
 One of these connectors is the Apify Dataset connector, which makes it simple to move data from Apify datasets to any supported destination.
 
@@ -17,6 +15,8 @@ To use Airbyte's Apify connector you need to:
 
 * Have an Apify account.
 * Have an Airbyte account.
+
+<ThirdPartyDisclaimer />
 
 ## Set up Apify connector in Airbyte
 

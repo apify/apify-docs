@@ -8,8 +8,6 @@ slug: /integrations/gumloop/instagram
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-<ThirdPartyDisclaimer />
-
 Get Instagram profile posts, details, stories, reels, post comments and hashtags, users, and tagged posts in Gumloop.
 
 ---
@@ -17,6 +15,8 @@ Get Instagram profile posts, details, stories, reels, post comments and hashtags
 The Gumloop integration for Instagram provides a direct interface for running Apify’s Instagram scrapers directly in your workflows. No API tokens or manual polling required. All you need is a Gumloop account.
 
 Using the Gumloop Instagram MCP node, you can prompt the Instagram data you need and Gumloop will retrieve it from relevant Apify Actors. From there you can connect this data to other tools and AI models to process the information.
+
+<ThirdPartyDisclaimer />
 
 ## Available actions
 

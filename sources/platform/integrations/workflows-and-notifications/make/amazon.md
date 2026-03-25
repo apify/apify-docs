@@ -237,5 +237,4 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 - [YouTube Data](/platform/integrations/make/youtube)
 - [AI crawling](/platform/integrations/make/ai-crawling)
 
-
 And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

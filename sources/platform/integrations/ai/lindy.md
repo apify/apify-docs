@@ -8,9 +8,9 @@ slug: /integrations/lindy
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-<ThirdPartyDisclaimer />
-
 [Lindy](https://www.lindy.ai/) is an AI-powered automation platform that lets you create intelligent workflows and automate complex tasks. By integrating Apify with Lindy, you can leverage Apify's web scraping capabilities within Lindy's AI-driven automation workflows to extract data, monitor websites, and trigger actions based on scraped information.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 

@@ -6,6 +6,10 @@ sidebar_position: 3
 slug: /integrations/drive
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+<ThirdPartyDisclaimer />
+
 ## Get started
 
 To use the Apify integration for Google Drive, you will need:

@@ -6,11 +6,9 @@ sidebar_position: 18
 slug: /integrations/skyfire
 ---
 
-import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-<ThirdPartyDisclaimer />
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 Agentic payments enable AI agents to autonomously run Apify Actors using third-party payment providers, without requiring traditional Apify user accounts. This allows agents to discover, execute, and pay for web scraping and automation tasks independently.
 
@@ -21,6 +19,8 @@ Apify supports agentic payments through _Skyfire_, a payment network specificall
 Keep in mind that agentic payments are an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
 
 :::
+
+<ThirdPartyDisclaimer />
 
 ## What is Skyfire?
 

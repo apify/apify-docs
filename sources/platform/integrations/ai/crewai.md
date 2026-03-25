@@ -40,6 +40,7 @@ First, import all required packages:
 
 ```python
 import os
+
 from crewai import Agent, Task, Crew
 from crewai_tools import ApifyActorsTool
 from langchain_openai import ChatOpenAI
