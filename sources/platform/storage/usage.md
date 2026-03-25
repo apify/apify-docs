@@ -128,6 +128,16 @@ Go to the [API documentation](/api/v2#rate-limiting) for details and to learn wh
 
 On the free plan, Apify stores the ten most recent runs for a maximum of 4 months. On paid plans, the retention period of the plan applies. Unnamed storages and runs beyond the latest ten will be automatically deleted according to these retention periods. Named storages are retained indefinitely.
 
+
+:::info How retention periods are enforced
+
+* Free plan: Your 10 most recent runs are retained for 4 months.
+* Paid plans: All data (including your 10 most recent runs) follows your plan's retention period, which you can configure in your billing settings.
+* Named storages: Always exempt from deletion regardless of retention periods.
+
+Unnamed storages beyond the 10 most recent runs are deleted when the retention period expires.
+:::
+
 ### Preserve your storages
 
 To ensure indefinite retention of selected storages, assign them a name. This can be done via Apify Console or through our API.
@@ -150,9 +160,9 @@ Our SDKs and clients each have unique naming conventions for storages. For more 
 
 ## Named and unnamed storages
 
-The default storages for an Actor run are unnamed, identified only by an _ID_. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
+The default storages for an Actor run are unnamed, identified only by an _ID_. On the free plan, they expire after 4 months. On paid plans, they expire based on your plan's retention period. Naming a storage ensures indefinite retention regardless of plan.
 
-> Storages' names can be up to 63 characters long.
+Storages' names can be up to 63 characters long.
 
 Named and unnamed storages are identical in all aspects except for their retention period. The key advantage of named storages is their ease in identifying and verifying the correct store.
 
