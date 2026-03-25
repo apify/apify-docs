@@ -50,10 +50,9 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 1. Select **Connection**.
 1. Search for **Apify** and choose the Apify connector.
    ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
-   ![Screenshot of the connection selection interface in Workato](../images/workato/connection-selection.png)
 1. In the connection dialog, enter your **API Token**. In Apify Console, go to [**Settings > Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
+![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
 1. Click **Connect**. Workato tests the connection by making an authenticated call to verify your credentials.
-   ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
    ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
 
 Once the connection is created and authenticated, you can use it in any recipe.
@@ -78,11 +77,11 @@ _The Apify connector provides dynamic dropdown lists (pick lists) and flexible i
 
 ### Input types
 
-- **Input type (schema-based vs. JSON):** For Actor inputs, when you choose an Actor from the pick list, the connector fetches the input schema and renders dynamic fields based on the Actor's configuration. If schema fetching fails or you switch to manual input, a JSON input field appears where you can paste valid JSON instead. For task inputs, you can optionally provide an override input as JSON to modify the task's pre-configured settings.
+- **Input type (schema‑based vs. JSON):** For Actor inputs, when you choose an Actor from the pick list, the connector fetches the input schema and renders dynamic fields based on the Actor's configuration. If schema fetching fails or you switch to manual input, a JSON input field appears where you can paste valid JSON instead. For Task inputs, you can optionally provide an override input as JSON to modify the task's pre-configured settings.
 
-:::tip Copy input JSON
+:::tip Copy the Actor/Task input JSON
 
-Open the Actor or task input page in Apify Console, switch format to JSON, and copy the canonical structure:
+Open the Actor or Task Input page in Apify Console, switch format to JSON, and copy the canonical structure:
 `https://console.apify.com/actors/<actor_id>/input`
 `https://console.apify.com/actors/tasks/<task_id>/input`
 
@@ -99,7 +98,7 @@ When using manual input instead of pick lists, you'll need to provide the correc
   - Actor name format: `apify/web-scraper` (slash) or `apify~web-scraper` (tilde). The connector accepts both formats and normalizes internally.
 - **Task ID**: [Task detail page](https://console.apify.com/actors/tasks) > API panel or URL.
   - Example URL: `https://console.apify.com/actors/tasks/<taskId>`
-- **Dataset ID**: [Storage > Datasets](https://console.apify.com/storage/datasets) > dataset detail > API panel or URL.
+- **Dataset ID**: [Storage > Datasets](https://console.apify.com/storage/datasets) > Dataset detail > API panel or URL.
   - Example URL: `https://console.apify.com/storage/datasets/<datasetId>`
   - Also available in the table on the `Storage > Datasets` page
 - **Key-value store ID**: [Storage > Key-value stores](https://console.apify.com/storage/Key-value-stores) > Store detail > API panel or URL.
@@ -118,7 +117,7 @@ Each connector trigger and action field in Workato includes inline help text des
 
 The Apify connector provides the following triggers that monitor your Apify account for task completions:
 
-### Actor run finished
+### Actor Run Finished
 
 _Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted)._
 
@@ -130,11 +129,11 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 
 ![Screenshot of the Actor Run Finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
-### Task run finished
+### Task Run Finished
 
-_Triggers when an Apify task run finishes (succeeds, fails, times out, or gets aborted)._
+_Triggers when an Apify Task run finishes (succeeds, fails, times out, or gets aborted)._
 
-This trigger creates a webhook in your Apify account that will notify Workato when the selected task run finishes with the specified statuses. This trigger watches a specific saved task (an Actor with preset inputs) and fires when that task's run completes with any terminal status. You can choose specific statuses to monitor (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`). This is particularly useful for:
+This trigger creates a webhook in your Apify account that will notify Workato when the selected Task run finishes with the specified statuses. This trigger watches a specific saved task (an Actor with preset inputs) and fires when that task's run completes with any terminal status. You can choose specific statuses to monitor (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`). This is particularly useful for:
 
 - Monitoring scheduled or recurring tasks
 - Building workflows dependent on specific data collection tasks
@@ -144,7 +143,7 @@ This trigger creates a webhook in your Apify account that will notify Workato wh
 
 ## Actions
 
-_The Apify connector has the following actions for working with the Apify platform._
+_The Apify connector offers comprehensive actions to interact with the Apify platform._
 
 ### Run Actor
 
@@ -169,13 +168,13 @@ Default values for input fields will be displayed as placeholders, giving you a 
 
 ![Screenshot of the Run Actor action configuration interface in Workato](../images/workato/run-actor.png)
 
-### Run task
+### Run Task
 
 _Run an Apify Actor task with optional input overrides._
 
-This action runs an Apify task with optional input overrides and execution parameters. Tasks are pre-configured Actor runs with saved input, making them ideal for repeated executions. You can optionally override the task's configured input. You can:
+This action runs an Apify Task with optional input overrides and execution parameters. Tasks are pre-configured Actor runs with saved input, making them ideal for repeated executions. You can optionally override the task's configured input. You can:
 
-- Select from your saved tasks or input a specific task ID
+- Select from your saved tasks or input specific Task ID
 - Override the task's pre-configured input with new JSON if needed
 - Configure task options: memory (128 MB to 32 GB), timeout, and build version (defaults to `latest`)
 
@@ -211,9 +210,9 @@ For optimal results, use datasets where all items follow a consistent structure.
 
 ### Get key-value store record
 
-_Retrieves a single record from a key-value store._
+_Retrieves a single record from a Key-value store._
 
-Select a key-value store and a key to retrieve the corresponding record as a text string or binary file. Key-value stores often contain metadata, logs, or files from Actor runs. This action:
+Select a Key-value store and a key to retrieve the corresponding record as a text string or binary file. Key-value stores often contain metadata, logs, or files from Actor runs. This action:
 
 - Fetches named entries by key from specified stores with dynamic key selection
 - Accesses configuration data, screenshots, or custom outputs
@@ -222,7 +221,7 @@ Select a key-value store and a key to retrieve the corresponding record as a tex
 
 ![Screenshot of the Get Key-value store record action configuration interface in Workato](../images/workato/get-key-val.png)
 
-### Scrape single URL
+### Scrape Single URL
 
 _Scrapes a single URL using a selected Apify crawler._
 
@@ -230,11 +229,11 @@ Provide a single URL and a desired crawler type to get structured scraped data f
 
 - Scrapes content from a single specified URL
 - Supports three crawler types: **Adaptive Crawler** (Website Content Crawler), **Firefox Headless Browser**, and **Cheerio** (fast, raw HTTP)
-- Returns extracted content in structured format (text, markdown, HTML, and metadata)
+- Returns extracted content in structured format (text, markdown, HTML, metadata)
 
 ![Screenshot of the Scrape Single URL action configuration interface in Workato](../images/workato/scrape-url.png)
 
-## Long-running scrapes and async pattern in Workato
+## Long‑running scrapes and async pattern in Workato
 
 Long-running scrapes can exceed typical step execution expectations. Use this asynchronous pattern to keep recipes reliable and scalable.
 
@@ -244,7 +243,7 @@ Long-running scrapes can exceed typical step execution expectations. Use this as
    - ![Screenshot showing the Run Actor action configuration with async option in Workato](../images/workato/run-actor.png)
 1. Continue when the run finishes
    - Build a separate recipe with the **Actor Run Finished** trigger.
-   - Filter for the specific Actor or task you started in step 1.
+   - Filter for the specific Actor or Task you started in Step 1.
    - ![Screenshot showing how to filter for specific Actor in the Run Finished trigger](../images/workato/trigger-actor.png)
 1. Fetch results and process
    - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
@@ -279,4 +278,4 @@ Workato's visual interface makes it easy to connect Apify data with other busine
 - _Resource not found errors:_ Check that IDs are correct and case-sensitive
 - _Dataset field mapping issues:_ If you experience incorrect data types or missing fields in the Get Dataset Items action data pill, this may be caused by non-homogeneous data in your dataset. The connector samples only the first 25 items to determine field types, so inconsistent data structures can lead to mapping problems. Try to ensure your dataset has consistent field names and data types across all items.
 
-If you have questions or need help, reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
