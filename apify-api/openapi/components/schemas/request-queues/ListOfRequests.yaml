@@ -22,3 +22,11 @@ properties:
     type: string
     description: The ID of the last request from the previous page, used for pagination.
     examples: [Ihnsp8YrvJ8102Kj]
+  cursor:
+    type: string
+    description: A cursor string used for current page of results.
+    examples: [eyJyZXF1ZXN0SWQiOiI0SVlLUWFXZ2FKUUlWNlMifQ]
+  nextCursor:
+    type: string
+    description: A cursor string to be used to continue pagination.
+    examples: [eyJyZXF1ZXN0SWQiOiI5eFNNc1BrN1J6VUxTNXoifQ]

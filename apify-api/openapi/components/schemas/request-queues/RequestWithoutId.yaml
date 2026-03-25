@@ -1,0 +1,7 @@
+title: RequestWithoutId
+description: A request stored in the request queue, including its metadata and processing state, without the assigned ID.
+allOf:
+  - $ref: ./RequestBase.yaml
+  - required:
+      - uniqueKey
+      - url

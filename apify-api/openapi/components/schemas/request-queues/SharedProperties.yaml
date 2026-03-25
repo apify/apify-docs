@@ -1,4 +1,4 @@
-RequestItemId:
+RequestId:
   type: string
   description: A unique identifier assigned to the request.
   examples: [sbJ7klsdf7ujN9l]

@@ -7,7 +7,7 @@ required:
 type: object
 properties:
   requestId:
-    $ref: ./SharedProperties.yaml#/RequestItemId
+    $ref: ./SharedProperties.yaml#/RequestId
   wasAlreadyPresent:
     $ref: ./SharedProperties.yaml#/WasAlreadyPresent
   wasAlreadyHandled:

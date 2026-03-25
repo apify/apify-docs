@@ -6,6 +6,6 @@ anyOf:
   - required: [uniqueKey]
 properties:
   id:
-    $ref: ./SharedProperties.yaml#/RequestItemId
+    $ref: ./SharedProperties.yaml#/RequestId
   uniqueKey:
     $ref: ./SharedProperties.yaml#/UniqueKey

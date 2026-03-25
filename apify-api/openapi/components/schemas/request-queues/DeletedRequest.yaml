@@ -8,4 +8,4 @@ properties:
   uniqueKey:
     $ref: ./SharedProperties.yaml#/UniqueKey
   id:
-    $ref: ./SharedProperties.yaml#/RequestItemId
+    $ref: ./SharedProperties.yaml#/RequestId

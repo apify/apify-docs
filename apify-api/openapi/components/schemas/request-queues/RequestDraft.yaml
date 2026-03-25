@@ -6,7 +6,7 @@ required:
 type: object
 properties:
   id:
-    $ref: ./SharedProperties.yaml#/RequestItemId
+    $ref: ./SharedProperties.yaml#/RequestId
   uniqueKey:
     $ref: ./SharedProperties.yaml#/UniqueKey
   url:

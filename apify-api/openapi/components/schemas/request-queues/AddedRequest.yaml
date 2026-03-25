@@ -8,7 +8,7 @@ required:
 type: object
 properties:
   requestId:
-    $ref: ./SharedProperties.yaml#/RequestItemId
+    $ref: ./SharedProperties.yaml#/RequestId
   uniqueKey:
     $ref: ./SharedProperties.yaml#/UniqueKey
   wasAlreadyPresent:
