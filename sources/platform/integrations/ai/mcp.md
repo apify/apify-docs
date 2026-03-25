@@ -233,6 +233,8 @@ To manually configure Apify's MCP server for Claude Desktop:
 
 Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
 
+For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/integrations/claude-desktop).
+
 </TabItem>
 </Tabs>
 
@@ -430,6 +432,10 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 
 <!-- markdownlint-disable MD001 -->
 ## Troubleshooting
+
+:::tip Claude Desktop issues
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/integrations/claude-desktop#troubleshooting).
+:::
 
 ##### Authentication errors
 
