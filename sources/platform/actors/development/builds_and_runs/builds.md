@@ -57,5 +57,5 @@ By default, Apify Console uses cached data when starting a build.
 To run a clean build without using the cache:
 
 1. Go to your Actor page.
-2. Select **Source** > **Code**.
-3. Expand **Build** options and choose **Clean build**.
+1. Select **Source** > **Code**.
+1. Expand **Build** options and choose **Clean build**.
