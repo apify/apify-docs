@@ -3,8 +3,7 @@ name: review-docs
 description: Review Apify documentation for style guide compliance, quality standards, and best practices. Use when user says "review this doc", "check this page", "audit documentation", "review before PR", "is this ready to publish", or "review-docs". Runs automated checks and manual review against Apify style guide.
 allowed-tools: Read Bash Glob Grep Agent
 model: sonnet
-metadata:
-  argument-hint: file-path
+argument-hint: file-path
 ---
 
 # Documentation review

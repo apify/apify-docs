@@ -2,8 +2,7 @@
 name: api-doc
 description: Create or update OpenAPI specifications and API documentation for Apify endpoints. Use when user says "add API endpoint", "create OpenAPI spec", "document this endpoint", "add code samples for API", "update API docs", or "api-doc". Handles OpenAPI YAML, schemas, code samples, and operation IDs.
 allowed-tools: Read Write Edit Bash Glob Grep
-metadata:
-  argument-hint: endpoint-name
+argument-hint: endpoint-name
 ---
 
 # API documentation

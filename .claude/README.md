@@ -7,7 +7,6 @@ This directory contains Claude Code configuration for the Apify documentation re
 ```text
 .claude/
 ├── README.md              # This file - Quick start guide
-├── instructions.md        # Main instructions for Claude Code
 └── skills/                # Summary + pointer adapters for common tasks
     ├── doc-write/         # Documentation writing skill
     ├── api-doc/           # API documentation skill
