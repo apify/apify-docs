@@ -1,7 +1,7 @@
 ---
 title: Claude Desktop integration
 sidebar_label: Claude Desktop
-description: Set up the Apify MCP server in Claude Desktop with remote or local configuration, and troubleshoot common connection issues.
+description: Learn how to set up the Apify MCP server in Claude Desktop with remote or local configuration, and troubleshoot common connection issues.
 sidebar_position: 1.5
 slug: /integrations/claude-desktop
 ---
@@ -19,15 +19,19 @@ Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/
 
 ## Connect to Apify
 
-Choose one of the following methods, from simplest to most flexible.
+Choose one of the following methods, from simplest to most flexible:
+
+- [One-click installation](#one-click-installation-recommended) with the `.mcpb` file (recommended)
+- [Remote server configuration](#remote-server-manual-configuration) (no local dependencies)
+- [Local stdio server](#local-stdio-server) (development, testing, or offline access)
 
 ### One-click installation (recommended)
 
 Download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb). Claude Desktop automatically registers the Apify MCP server and prompts you to approve the connection.
 
-:::caution Connector directory
+:::note Direct install from Claude Desktop may fail
 
-If you found Apify through the Claude Desktop connector directory, the automatic install may fail silently or show an "Unable to connect to extension server" error. This is a known issue across macOS, Windows, and Linux. Try uninstalling and reinstalling the extension first. If that doesn't help, use the `.mcpb` file above or the [manual configuration](#remote-server-manual-configuration) instead.
+Installing Apify directly from Claude Desktop's connector list may fail silently or show connection errors. Use the `.mcpb` file above or [manual configuration](#remote-server-manual-configuration) instead. See [troubleshooting](#unable-to-connect-to-extension-server-error) for details.
 
 :::
 
@@ -75,31 +79,6 @@ Replace `<APIFY_TOKEN>` with your API token from the [Integrations section](http
 </TabItem>
 </Tabs>
 
-:::note Older Claude Desktop versions
-
-If your version of Claude Desktop does not support the `url` field, use the `mcp-remote` bridge package:
-
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://mcp.apify.com/sse",
-        "--header",
-        "Authorization: Bearer <APIFY_TOKEN>"
-      ]
-    }
-  }
-}
-```
-
-Replace `<APIFY_TOKEN>` with your API token from the [Integrations section](https://console.apify.com/account#/integrations) in Apify Console. This requires Node.js version 18 or higher.
-
-:::
-
 ### Local stdio server
 
 Run the MCP server locally for development, testing, or when you need offline access. This method requires Node.js.
@@ -134,13 +113,14 @@ The local stdio server does not support output schema inference for structured A
 
 1. Restart Claude Desktop after saving configuration changes.
 1. Open a new conversation.
-1. Look for the hammer icon in the chat input area - this indicates MCP tools are available.
-1. Click the hammer icon to confirm Apify tools appear in the list.
+1. Check that Apify tools are available in the tools list.
 1. Test with a prompt like: "Search for web scraping Actors on Apify."
 
 ## Troubleshooting
 
-### Tools not loading
+### Tools fail to load
+
+The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
 - **Restart Claude Desktop.** Configuration changes only take effect after a restart.
 - **Check the config file location.** Verify you edited the correct file:
@@ -178,6 +158,8 @@ After clearing the cache, restart Claude Desktop to re-download the server packa
 
 ### Authentication errors
 
+Authentication errors occur when the MCP server can't verify your identity. You may see "Unauthorized" or "Invalid token" messages, or Actor runs may fail silently.
+
 - **Check your API token.** Verify the token in the [Integrations section](https://console.apify.com/account#/integrations) of Apify Console.
 - **For local stdio setup:** Ensure the `APIFY_TOKEN` environment variable is set correctly in your config file.
 - **For remote OAuth:** Remove and re-add the Apify MCP server in Claude Desktop to re-authorize.
@@ -194,9 +176,9 @@ Look for files with `mcp` in the name for server-specific error messages.
 
 ## Known limitations
 
-- **Connector directory:** The Claude Desktop connector directory may not install Apify correctly. Use the [`.mcpb` file](#one-click-installation-recommended) or [manual configuration](#remote-server-manual-configuration) instead.
-- **Cowork mode:** Multi-agent cowork mode may not pass MCP tool results between agents reliably when using the local stdio server.
-- **Transport inconsistencies:** Some Claude Desktop versions have inconsistent behavior with remote MCP server connections. Update to the latest version if you experience issues.
+- The Claude Desktop connector directory may not install Apify correctly. Use the [`.mcpb` file](#one-click-installation-recommended) or [manual configuration](#remote-server-manual-configuration) instead.
+- Multi-agent cowork mode may not pass MCP tool results between agents reliably when using the local stdio server.
+- Some Claude Desktop versions have inconsistent behavior with remote MCP server connections. Update to the latest version if you experience issues.
 
 ## Next steps
 
