@@ -19,6 +19,7 @@ properties:
     description: The maximum number of requests returned in this response.
     examples: [2]
   exclusiveStartId:
+    deprecated: true
     type: string
     description: The ID of the last request from the previous page, used for pagination.
     examples: [Ihnsp8YrvJ8102Kj]

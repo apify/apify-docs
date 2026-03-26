@@ -4,7 +4,7 @@ get:
   summary: List requests
   description: |
     Returns a list of requests. This endpoint is paginated using
-    cursor (pagination by exclusiveStartId is deprecated) and limit parameters.
+    cursor (pagination by `exclusiveStartId` is deprecated) and limit parameters.
   operationId: requestQueue_requests_get
   parameters:
     - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
