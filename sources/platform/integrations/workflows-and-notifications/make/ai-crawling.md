@@ -9,6 +9,8 @@ toc_max_heading_level: 4
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+Use the Apify Scraper for AI Crawling module in [Make](https://www.make.com/) to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
+
 <ThirdPartyDisclaimer />
 
 ## Apify Scraper for AI Crawling

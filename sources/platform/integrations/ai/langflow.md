@@ -8,17 +8,9 @@ slug: /integrations/langflow
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+[Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases. For more information, visit the [Langflow documentation](https://docs.langflow.org/).
+
 <ThirdPartyDisclaimer />
-
-## What is Langflow
-
-[Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases.
-
-:::note Explore Langflow
-
-For more information on Langflow, visit its [documentation](https://docs.langflow.org/).
-
-:::
 
 ## How to use Apify with Langflow
 

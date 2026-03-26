@@ -8,11 +8,9 @@ slug: /integrations/flowise
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+[Flowise](https://flowiseai.com/) is an open-source UI visual tool to build customized LLM flows using LangChain.
+
 <ThirdPartyDisclaimer />
-
-## What is Flowise?
-
-Flowise is an open-source UI visual tool to build your customized LLM flow using Langchain.
 
 ## How to use Apify with Flowise
 

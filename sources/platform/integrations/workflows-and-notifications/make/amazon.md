@@ -9,6 +9,8 @@ unlisted: true
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+Use the Amazon Scraper module in [Make](https://www.make.com/) to extract product listings, search results, and category data from Amazon.
+
 <ThirdPartyDisclaimer />
 
 ## Apify Scraper for Amazon Data

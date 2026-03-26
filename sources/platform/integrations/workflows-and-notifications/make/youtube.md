@@ -9,6 +9,8 @@ unlisted: true
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+Use the YouTube Scraper module in [Make](https://www.make.com/) to extract channel info, video data, streams, shorts, and search results from YouTube.
+
 <ThirdPartyDisclaimer />
 
 ## Apify Scraper for YouTube Data

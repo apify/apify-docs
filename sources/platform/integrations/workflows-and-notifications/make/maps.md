@@ -10,6 +10,8 @@ unlisted: true
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+Use the Google Maps Leads Scraper modules in [Make](https://www.make.com/) to extract business contact details, reviews, and location data for sales and marketing workflows.
+
 <ThirdPartyDisclaimer />
 
 ## Apify Scraper for Google Maps Leads

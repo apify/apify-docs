@@ -8,17 +8,9 @@ slug: /integrations/vercel-ai-sdk
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+[Vercel AI SDK](https://ai-sdk.dev/) is a TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more. For more details, check out the [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
+
 <ThirdPartyDisclaimer />
-
-## What is the Vercel AI SDK
-
-[Vercel AI SDK](https://ai-sdk.dev/) is the TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more.
-
-:::note Explore Vercel AI SDK
-
-For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
-
-:::
 
 ## How to use Apify with Vercel AI SDK
 

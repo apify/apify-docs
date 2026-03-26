@@ -9,6 +9,8 @@ unlisted: true
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+Use the Facebook Scraper modules in [Make](https://www.make.com/) to extract posts, comments, and profile data from Facebook.
+
 <ThirdPartyDisclaimer />
 
 ## Apify Scraper for Facebook Data

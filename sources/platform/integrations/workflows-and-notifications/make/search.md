@@ -9,6 +9,8 @@ unlisted: true
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+Use the Google Search Scraper modules in [Make](https://www.make.com/) to crawl SERPs and extract structured results in JSON, XML, CSV, or Excel.
+
 <ThirdPartyDisclaimer />
 
 ## Apify Scraper for Google Search
