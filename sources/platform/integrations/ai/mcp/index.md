@@ -434,7 +434,9 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 ## Troubleshooting
 
 :::tip Claude Desktop issues
-For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/integrations/claude-desktop#troubleshooting).
+
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop  troubleshooting](/integrations/claude-desktop#troubleshooting).
+
 :::
 
 ##### Authentication errors

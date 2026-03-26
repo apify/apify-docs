@@ -1,7 +1,7 @@
 ---
 title: Claude Desktop integration
 sidebar_label: Claude Desktop
-description: Learn how to set up the Apify MCP server in Claude Desktop with remote or local configuration, and troubleshoot common connection issues.
+description: Set up the Apify MCP server in Claude Desktop using one-click install, remote server, or local stdio, and troubleshoot common issues.
 sidebar_position: 1.5
 slug: /integrations/claude-desktop
 ---
@@ -27,7 +27,7 @@ Choose one of the following methods, from simplest to most flexible:
 
 ### One-click installation (recommended)
 
-Download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb). Claude Desktop automatically registers the Apify MCP server and prompts you to approve the connection.
+Download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/apify-mcp-server/releases/latest/download/apify-mcp-server.mcpb). Claude Desktop automatically registers the Apify MCP server and prompts you to approve the connection.
 
 :::note Direct install from Claude Desktop may fail
 
@@ -118,27 +118,29 @@ The local stdio server does not support output schema inference for structured A
 
 ## Troubleshooting
 
-### Tools fail to load
+<!-- markdownlint-disable MD001 -->
+
+#### Tools fail to load
 
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
-- **Restart Claude Desktop.** Configuration changes only take effect after a restart.
-- **Check the config file location.** Verify you edited the correct file:
+- _Restart Claude Desktop._ Configuration changes only take effect after a restart.
+- _Check the config file location._ Verify you edited the correct file:
   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-- **Validate JSON syntax.** Ensure there are no trailing commas, missing quotes, or mismatched brackets. Paste your config into a JSON validator if needed.
+- _Validate JSON syntax._ Ensure there are no trailing commas, missing quotes, or mismatched brackets. Paste your config into a JSON validator if needed.
 
-### "Unable to connect to extension server" error
+#### "Unable to connect to extension server" error
 
 This error commonly appears when installing from the Claude Desktop connector directory. In some cases, the MCP server starts and communicates correctly, but Claude Desktop still shows the error.
 
-- **Uninstall and reinstall the extension.** In Claude Desktop, disable the Apify extension, remove it, then add it again.
-- **Switch to manual configuration.** If reinstalling doesn't help, use the [remote server](#remote-server-manual-configuration) or [local stdio](#local-stdio-server) setup instead of the connector directory.
-- **Verify the server URL.** For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
-- **Check your network.** Ensure your firewall or VPN is not blocking the connection.
-- **For local stdio setup:** Confirm Node.js version 18 or higher is installed by running `node -v` in your terminal.
+- _Uninstall and reinstall the extension._ In Claude Desktop, disable the Apify extension, remove it, then add it again.
+- _Switch to manual configuration._ If reinstalling doesn't help, use the [remote server](#remote-server-manual-configuration) or [local stdio](#local-stdio-server) setup instead of the connector directory.
+- _Verify the server URL._ For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
+- _Check your network._ Ensure your firewall or VPN is not blocking the connection.
+- _For local stdio setup:_ Confirm Node.js version 18 or higher is installed by running `node -v` in your terminal.
 
-### Corrupted npx cache
+#### Corrupted npx cache
 
 A stale or corrupted npx cache can prevent the local server from starting. Clear the cache and retry:
 
@@ -156,15 +158,15 @@ A stale or corrupted npx cache can prevent the local server from starting. Clear
 
 After clearing the cache, restart Claude Desktop to re-download the server package.
 
-### Authentication errors
+#### Authentication errors
 
 Authentication errors occur when the MCP server can't verify your identity. You may see "Unauthorized" or "Invalid token" messages, or Actor runs may fail silently.
 
-- **Check your API token.** Verify the token in the [Integrations section](https://console.apify.com/account#/integrations) of Apify Console.
-- **For local stdio setup:** Ensure the `APIFY_TOKEN` environment variable is set correctly in your config file.
-- **For remote OAuth:** Remove and re-add the Apify MCP server in Claude Desktop to re-authorize.
+- _Check your API token._ Verify the token in the [Integrations section](https://console.apify.com/account#/integrations) of Apify Console.
+- _For local stdio setup:_ Ensure the `APIFY_TOKEN` environment variable is set correctly in your config file.
+- _For remote OAuth:_ Remove and re-add the Apify MCP server in Claude Desktop to re-authorize.
 
-### Check Claude Desktop logs
+#### Check Claude Desktop logs
 
 If the above steps don't resolve your issue, check the Claude Desktop logs for MCP-related errors:
 
