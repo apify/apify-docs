@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Storage/Key-value stores
+  summary: Download records
+  description: |
+    Downloads all records from the key-value store as a ZIP archive.
+    Each record is stored as a separate file in the archive, with the filename equal to the record key.
+
+    You can optionally filter the records by `collection` or `prefix` to download only a subset of the store.
+  operationId: keyValueStore_records_get
+  parameters:
+    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
+    - name: collection
+      in: query
+      description: |
+        If specified, only records belonging to a specific collection from the key-value store schema. The key-value store need to have a schema defined for this parameter to work.
+      required: false
+      style: form
+      schema:
+        type: string
+        example: my-collection
+    - name: prefix
+      in: query
+      description: |
+        If specified, only records whose key starts with the given prefix are included in the archive.
+      required: false
+      style: form
+      schema:
+        type: string
+        example: my-prefix/
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
+  responses:
+    "200":
+      description: A ZIP archive containing the requested records.
+      headers: {}
+      content:
+        application/zip:
+          schema:
+            type: string
+            format: binary
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

@@ -28,7 +28,7 @@ post:
         maximum: 25
     - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   responses:
-    "200":
+    "201":
       description: ""
       headers: {}
       content:

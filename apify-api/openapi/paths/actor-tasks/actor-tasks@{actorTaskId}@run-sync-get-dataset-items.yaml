@@ -54,30 +54,7 @@ get:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -184,30 +161,7 @@ post:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
