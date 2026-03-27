@@ -10,7 +10,7 @@ The Apify platform provides everything you need to build, test, and deploy AI ag
 
 :::tip Build Actors with AI coding assistants
 
-Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you _develop_ Actors? See [Build Actors with AI](/actors/development/quick-start/build-with-ai).
+Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you _develop_ Actors? See [Build Actors with AI](/platform/actors/development/quick-start/build-with-ai).
 
 :::
 
@@ -36,7 +36,7 @@ apify create my-agent
 
 The command guides you through template selection. Browse all available templates at [apify.com/templates](https://apify.com/templates).
 
-If you don't have the Apify CLI installed, see the [installation guide](/cli/docs/installation).
+If you don't have the Apify CLI installed, see the [installation guide](/cli/docs/installation). <!-- served from apify-cli repo -->
 
 ## Use AI Sandbox for code execution
 
@@ -96,7 +96,7 @@ If you plan to charge users per token with pay-per-event pricing, you need to ex
 
 ## Monetize with pay-per-event pricing
 
-[Pay-per-event (PPE)](/actors/publishing/monetize/pay-per-event) pricing lets you charge users for specific actions your agent performs. Use `Actor.charge()` from the [JavaScript](/sdk/js/reference/class/Actor#charge) or [Python](/sdk/python/reference/class/Actor#charge) SDK to bill users for events like API calls, generated results, or token usage.
+[Pay-per-event (PPE)](/platform/actors/publishing/monetize/pay-per-event) pricing lets you charge users for specific actions your agent performs. Use `Actor.charge()` from the [JavaScript](/sdk/js/reference/class/Actor#charge) or [Python](/sdk/python/reference/class/Actor#charge) SDK to bill users for events like API calls, generated results, or token usage.
 
 ### PPE for AI agents
 
@@ -117,7 +117,7 @@ If an Actor's net profit goes negative (for example, from free-tier users consum
 
 :::
 
-For detailed pricing guidance, see the [pay-per-event documentation](/actors/publishing/monetize/pay-per-event).
+For detailed pricing guidance, see the [pay-per-event documentation](/platform/actors/publishing/monetize/pay-per-event).
 
 ## Deploy to Apify
 
@@ -129,8 +129,8 @@ apify push
 
 This builds and deploys your Actor. Once deployed, you can:
 
-- **Publish to Apify Store** - make your agent available to other users and start earning with PPE pricing. See the [publishing guide](/actors/publishing).
+- **Publish to Apify Store** - make your agent available to other users and start earning with PPE pricing. See the [publishing guide](/platform/actors/publishing).
 - **Run via API** - trigger your agent programmatically through the [Apify API](/api/v2).
 - **Set up schedules** - run your agent on a recurring schedule.
 
-For more deployment options, see the [deployment documentation](/actors/development/deployment).
+For more deployment options, see the [deployment documentation](/platform/actors/development/deployment).

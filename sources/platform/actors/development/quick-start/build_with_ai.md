@@ -17,7 +17,7 @@ This guide provides best practices for building new Actors or improving existing
 
 :::tip Develop AI agents on Apify
 
-Looking to build and deploy AI agents as Actors? See [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+Looking to build and deploy AI agents as Actors? See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
 
 :::
 
