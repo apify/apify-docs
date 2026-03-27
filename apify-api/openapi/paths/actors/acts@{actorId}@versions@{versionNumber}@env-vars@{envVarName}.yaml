@@ -60,8 +60,6 @@ get:
   x-py-name: get
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#get
 put:
-  tags:
-    - Actors/Actor versions
   summary: Update environment variable
   description: |
     Updates Actor environment variable using values specified by a [EnvVar
@@ -81,75 +79,12 @@ put:
     [Get environment variable](#/reference/actors/environment-variable-object/get-environment-variable)
     endpoint.
   operationId: act_version_envVar_put
-  parameters:
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
-    - name: envVarName
-      in: path
-      description: The name of the environment variable
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: MY_ENV_VAR
-  requestBody:
-    description: ""
-    content:
-      application/json:
-        schema:
-          $ref: ../../components/schemas/actors/EnvVar.yaml
-        example:
-          name: MY_ENV_VAR
-          value: my-new-value
-          isSecret: false
-    required: true
-  responses:
-    "200":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
-          example:
-            data:
-              name: MY_ENV_VAR
-              value: my-value
-              isSecret: false
-    "400":
-      $ref: ../../components/responses/BadRequest.yaml
-    "401":
-      $ref: ../../components/responses/Unauthorized.yaml
-    "403":
-      $ref: ../../components/responses/Forbidden.yaml
-    "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
-              - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
-    "405":
-      $ref: ../../components/responses/MethodNotAllowed.yaml
-    "413":
-      $ref: ../../components/responses/PayloadTooLarge.yaml
-    "415":
-      $ref: ../../components/responses/UnsupportedMediaType.yaml
-    "429":
-      $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
     - https://docs.apify.com/api/v2#/reference/actors/update-environment-variable
     - https://docs.apify.com/api/v2#tag/ActorsEnvironment-variable-object/operation/act_version_envVar_put
-  x-py-parent: ActorEnvVarClientAsync
-  x-py-name: update
-  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#update
+  $ref: "../../components/objects/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}put.yaml"
 post:
-  tags:
-    - Actors/Actor versions
   summary: Update environment variable (POST)
   description: |
     Updates Actor environment variable using values specified by a [EnvVar
@@ -157,65 +92,11 @@ post:
     passed as JSON in the POST payload.
     This endpoint is an alias for the [`PUT` update environment variable](#tag/ActorsEnvironment-variable-object/operation/act_version_envVar_put) method and behaves identically.
   operationId: act_version_envVar_post
-  parameters:
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
-    - name: envVarName
-      in: path
-      description: The name of the environment variable
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: MY_ENV_VAR
-  requestBody:
-    description: ""
-    content:
-      application/json:
-        schema:
-          $ref: ../../components/schemas/actors/EnvVar.yaml
-        example:
-          name: MY_ENV_VAR
-          value: my-new-value
-          isSecret: false
-    required: true
-  responses:
-    "200":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/actors/EnvVarResponse.yaml
-          example:
-            data:
-              name: MY_ENV_VAR
-              value: my-value
-              isSecret: false
-    "400":
-      $ref: ../../components/responses/BadRequest.yaml
-    "401":
-      $ref: ../../components/responses/Unauthorized.yaml
-    "403":
-      $ref: ../../components/responses/Forbidden.yaml
-    "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
-              - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
-    "405":
-      $ref: ../../components/responses/MethodNotAllowed.yaml
-    "413":
-      $ref: ../../components/responses/PayloadTooLarge.yaml
-    "415":
-      $ref: ../../components/responses/UnsupportedMediaType.yaml
-    "429":
-      $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
+    - https://docs.apify.com/api/v2#/reference/actors/update-environment-variable
+    - https://docs.apify.com/api/v2#tag/ActorsEnvironment-variable-object/operation/act_version_envVar_post
+  $ref: "../../components/objects/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}put.yaml"
 delete:
   tags:
     - Actors/Actor versions

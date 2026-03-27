@@ -1,0 +1,64 @@
+tags:
+  - Actors/Actor versions
+parameters:
+  - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+  - $ref: "../../parameters/runAndBuildParameters.yaml#/versionNumber"
+  - name: envVarName
+    in: path
+    description: The name of the environment variable
+    required: true
+    style: simple
+    schema:
+      type: string
+      example: MY_ENV_VAR
+requestBody:
+  description: ""
+  content:
+    application/json:
+      schema:
+        $ref: ../../schemas/actors/EnvVar.yaml
+      example:
+        name: MY_ENV_VAR
+        value: my-new-value
+        isSecret: false
+  required: true
+responses:
+  "200":
+    description: ""
+    headers: {}
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/actors/EnvVarResponse.yaml
+        example:
+          data:
+            name: MY_ENV_VAR
+            value: my-value
+            isSecret: false
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    description: Not found - the requested resource was not found.
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            - $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
+            - $ref: "../../schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "413":
+    $ref: ../../responses/PayloadTooLarge.yaml
+  "415":
+    $ref: ../../responses/UnsupportedMediaType.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+deprecated: false
+x-py-parent: ActorEnvVarClientAsync
+x-py-name: update
+x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#update

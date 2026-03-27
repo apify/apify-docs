@@ -2,10 +2,10 @@ title: Request
 description: A request stored in the request queue, including its metadata and processing state.
 allOf:
   - $ref: ./RequestBase.yaml
-  - properties:
-      id:
-        $ref: ./SharedProperties.yaml#/RequestId
-  - required:
+    required:
       - id
       - uniqueKey
       - url
+  - properties:
+      id:
+        $ref: ./SharedProperties.yaml#/RequestId

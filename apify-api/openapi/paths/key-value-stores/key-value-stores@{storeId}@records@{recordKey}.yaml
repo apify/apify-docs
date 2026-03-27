@@ -108,8 +108,6 @@ head:
   x-py-name: record_exists
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#record_exists
 put:
-  tags:
-    - Storage/Key-value stores
   summary: Store record
   description: |
     Stores a value under a specific key to the key-value store.
@@ -129,133 +127,22 @@ put:
     * Deflate compression: `Content-Encoding: deflate`
     * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
-  parameters:
-    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
-    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
-    - name: Content-Encoding
-      in: header
-      description: ""
-      required: false
-      style: simple
-      schema:
-        enum:
-          - gzip
-          - deflate
-          - br
-        type: string
-  requestBody:
-    description: ""
-    content:
-      application/json:
-        schema:
-          $ref: ../../components/schemas/key-value-stores/PutRecordRequest.yaml
-      "*/*":
-        schema: {}
-    required: true
-  responses:
-    "201":
-      description: ""
-      headers:
-        Location:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: >-
-                https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key
-      content:
-        application/json:
-          schema:
-            type: object
-          example: {}
-    "400":
-      $ref: ../../components/responses/BadRequest.yaml
-    "401":
-      $ref: ../../components/responses/Unauthorized.yaml
-    "403":
-      $ref: ../../components/responses/Forbidden.yaml
-    "405":
-      $ref: ../../components/responses/MethodNotAllowed.yaml
-    "413":
-      $ref: ../../components/responses/PayloadTooLarge.yaml
-    "415":
-      $ref: ../../components/responses/UnsupportedMediaType.yaml
-    "429":
-      $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
     - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
     - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
-  x-js-parent: KeyValueStoreClient
-  x-js-name: setRecord
-  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#setRecord
-  x-py-parent: KeyValueStoreClientAsync
-  x-py-name: set_record
-  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
+  $ref: "../../components/objects/key-value-stores/key-value-stores@{storeId}@records@{recordKey}put.yaml"
 post:
-  tags:
-    - Storage/Key-value stores
   summary: Store record (POST)
   description: |
     Stores a value under a specific key to the key-value store.
     This endpoint is an alias for the [`PUT` record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put) method and behaves identically.
-
   operationId: keyValueStore_record_post
-  parameters:
-    - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
-    - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
-    - name: Content-Encoding
-      in: header
-      description: ""
-      required: false
-      style: simple
-      schema:
-        enum:
-          - gzip
-          - deflate
-          - br
-        type: string
-  requestBody:
-    description: ""
-    content:
-      application/json:
-        schema:
-          $ref: ../../components/schemas/key-value-stores/PutRecordRequest.yaml
-      "*/*":
-        schema: {}
-    required: true
-  responses:
-    "201":
-      description: ""
-      headers:
-        Location:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: >-
-                https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key
-      content:
-        application/json:
-          schema:
-            type: object
-          example: {}
-    "400":
-      $ref: ../../components/responses/BadRequest.yaml
-    "401":
-      $ref: ../../components/responses/Unauthorized.yaml
-    "403":
-      $ref: ../../components/responses/Forbidden.yaml
-    "405":
-      $ref: ../../components/responses/MethodNotAllowed.yaml
-    "413":
-      $ref: ../../components/responses/PayloadTooLarge.yaml
-    "415":
-      $ref: ../../components/responses/UnsupportedMediaType.yaml
-    "429":
-      $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_post
+  $ref: "../../components/objects/key-value-stores/key-value-stores@{storeId}@records@{recordKey}put.yaml"
 delete:
   tags:
     - Storage/Key-value stores
