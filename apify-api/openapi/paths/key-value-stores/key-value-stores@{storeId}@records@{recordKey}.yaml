@@ -108,41 +108,9 @@ head:
   x-py-name: record_exists
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#record_exists
 put:
-  summary: Store record
-  description: |
-    Stores a value under a specific key to the key-value store.
-
-    The value is passed as the PUT payload and it is stored with a MIME content
-    type defined by the `Content-Type` header and with encoding defined by the
-    `Content-Encoding` header.
-
-    To save bandwidth, storage, and speed up your upload, send the request
-    payload compressed with Gzip compression and add the `Content-Encoding: gzip`
-    header. It is possible to set up another compression type with `Content-Encoding`
-    request header.
-
-    Below is a list of supported `Content-Encoding` types.
-
-    * Gzip compression: `Content-Encoding: gzip`
-    * Deflate compression: `Content-Encoding: deflate`
-    * Brotli compression: `Content-Encoding: br`
-  operationId: keyValueStore_record_put
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
-    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
-    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
-  $ref: "../../components/objects/key-value-stores/key-value-stores@{storeId}@records@{recordKey}put.yaml"
+  $ref: "../../components/objects/key-value-stores/key-value-stores@{storeId}@records@{recordKey}put.yaml#/put"
 post:
-  summary: Store record (POST)
-  description: |
-    Stores a value under a specific key to the key-value store.
-    This endpoint is an alias for the [`PUT` record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put) method and behaves identically.
-  operationId: keyValueStore_record_post
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
-    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
-    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_post
-  $ref: "../../components/objects/key-value-stores/key-value-stores@{storeId}@records@{recordKey}put.yaml"
+  $ref: "../../components/objects/key-value-stores/key-value-stores@{storeId}@records@{recordKey}put.yaml#/post"
 delete:
   tags:
     - Storage/Key-value stores

@@ -43,39 +43,9 @@ get:
   x-py-name: get
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#get
 put:
-  summary: Update version
-  operationId: act_version_put
-  description: |
-    Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
-
-    If the object does not define a specific property, its value will not be
-    updated.
-
-    The request needs to specify the `Content-Type: application/json` HTTP
-    header!
-
-    When providing your API authentication token, we recommend using the
-    request's `Authorization` header, rather than the URL. ([More
-    info](#/introduction/authentication)).
-
-    The response is the [Version object](#/reference/actors/version-object) as
-    returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
-    - https://docs.apify.com/api/v2#/reference/actors/update-version
-    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_put
-  $ref: "../../components/objects/actors/acts@{actorId}@versions@{versionNumber}put.yaml"
+  $ref: "../../components/objects/actors/acts@{actorId}@versions@{versionNumber}put.yaml#/put"
 post:
-  summary: Update version (POST)
-  operationId: act_version_post
-  description: |
-    Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
-    This endpoint is an alias for the [`PUT` update version](#tag/ActorsVersion-object/operation/act_version_put) method and behaves identically.
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
-    - https://docs.apify.com/api/v2#/reference/actors/update-version
-    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_post
-  $ref: "../../components/objects/actors/acts@{actorId}@versions@{versionNumber}put.yaml"
+  $ref: "../../components/objects/actors/acts@{actorId}@versions@{versionNumber}put.yaml#/post"
 delete:
   tags:
     - Actors/Actor versions
