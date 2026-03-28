@@ -113,8 +113,13 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
         },
         async contentLoaded({ actions }) {
             const { setGlobalData } = actions;
+            // Normalize singular subNavbar to subNavbars array for backward compatibility
+            const normalizedOptions = { ...options };
+            if (options.subNavbar && !options.subNavbars) {
+                normalizedOptions.subNavbars = [options.subNavbar];
+            }
             setGlobalData({
-                options,
+                options: normalizedOptions,
             });
         },
         getClientModules() {

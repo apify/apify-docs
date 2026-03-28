@@ -1,8 +1,9 @@
+import { useLocation } from '@docusaurus/router';
 import { useThemeConfig } from '@docusaurus/theme-common';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarItem from '@theme/NavbarItem';
 import React from 'react';
+
+import { getActiveSubNavbar, useSubNavbars } from '../../../subNavbarUtils';
 
 function useNavbarItems() {
     // TODO temporary casting until ThemeConfig type is improved
@@ -10,24 +11,22 @@ function useNavbarItems() {
 }
 // The primary menu displays the navbar items
 export default function NavbarMobilePrimaryMenu() {
-    // const mobileSidebar = useNavbarMobileSidebar();
-    // TODO how can the order be defined for mobile?
-    // Should we allow providing a different list of items?
     const items = useNavbarItems();
-    const baseUrl = useBaseUrl('/');
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const subNavbars = useSubNavbars();
+    const { pathname } = useLocation();
+    const activeSubNavbar = getActiveSubNavbar(subNavbars, pathname);
     return (
         <>
             {
-                subNavbar ? <>
+                activeSubNavbar ? (
                     <ul className="menu__list" style={{ marginBottom: '16px', borderBottom: '1px solid #e0e0e0', paddingBottom: '16px' }}>
                         <NavbarItem
                             key={'title'}
                             mobile
-                            href={baseUrl}
-                            label={subNavbar.title}
+                            to={activeSubNavbar.to ?? '/'}
+                            label={activeSubNavbar.title}
                         />
-                        {subNavbar.items.map((item, i) => (
+                        {activeSubNavbar.items.map((item, i) => (
                             <NavbarItem
                                 style={{ paddingLeft: '16px' }}
                                 key={i}
@@ -36,7 +35,7 @@ export default function NavbarMobilePrimaryMenu() {
                             />
                         ))}
                     </ul>
-                </> : null
+                ) : null
             }
             <ul className="menu__list">
                 <NavbarItem

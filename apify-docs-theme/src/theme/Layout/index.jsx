@@ -7,8 +7,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import React from 'react';
 
+import { getActiveSubNavbar, useSubNavbars } from '../subNavbarUtils';
+
 export default function LayoutWrapper(props) {
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const subNavbars = useSubNavbars();
     const baseUrl = useBaseUrl('/');
     const { pathname } = useLocation();
     const currentPath = pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
@@ -39,7 +41,7 @@ export default function LayoutWrapper(props) {
             </Head>
             <div
                 style={{
-                    '--ifm-navbar-height': subNavbar && !currentPath.startsWith('api/v2') ? '126px' : '68px',
+                    '--ifm-navbar-height': getActiveSubNavbar(subNavbars, pathname) && !currentPath.startsWith('api/v2') ? '126px' : '68px',
                     margin: 0,
                     padding: 0,
                     boxSizing: 'border-box',

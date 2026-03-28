@@ -1,9 +1,8 @@
 import { useLocation } from '@docusaurus/router';
-import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
+import { useThemeConfig } from '@docusaurus/theme-common';
 import {
     splitNavbarItems,
 } from '@docusaurus/theme-common/internal';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarSearch from '@theme/Navbar/Search';
@@ -11,7 +10,7 @@ import NavbarItem from '@theme/NavbarItem';
 import SearchBar from '@theme/SearchBar';
 import React from 'react';
 
-// import SearchBar from '../../SearchBar';
+import { getActiveSubNavbar, useSubNavbars } from '../../subNavbarUtils';
 import NavbarCTA from '../CTA';
 
 function NavbarItems({ items }) {
@@ -45,26 +44,27 @@ function SubNavbarTitle({ titleIcon, title }) {
 }
 
 function SubNavbar() {
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const subNavbars = useSubNavbars();
     const location = useLocation();
+    const activeSubNavbar = getActiveSubNavbar(subNavbars, location.pathname);
+
+    if (!activeSubNavbar) return null;
 
     return (
-        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname)) ? (
-            <div className="navbar__inner navbar__sub">
-                <div className="navbar__container">
-                    <div className="navbar__items">
-                        <div className="navbar__sub--title">
-                            <NavbarItem
-                                label={<SubNavbarTitle title={subNavbar.title} titleIcon={subNavbar.titleIcon} />}
-                                to={subNavbar.to ?? '/'}
-                                activeBaseRegex='(?!)'
-                            />
-                        </div>
-                        <NavbarItems items={subNavbar.items} />
+        <div className="navbar__inner navbar__sub">
+            <div className="navbar__container">
+                <div className="navbar__items">
+                    <div className="navbar__sub--title">
+                        <NavbarItem
+                            label={<SubNavbarTitle title={activeSubNavbar.title} titleIcon={activeSubNavbar.titleIcon} />}
+                            to={activeSubNavbar.to ?? '/'}
+                            activeBaseRegex='(?!)'
+                        />
                     </div>
+                    <NavbarItems items={activeSubNavbar.items} />
                 </div>
             </div>
-        ) : null
+        </div>
     );
 }
 

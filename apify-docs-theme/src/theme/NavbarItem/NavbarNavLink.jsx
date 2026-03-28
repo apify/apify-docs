@@ -4,9 +4,10 @@ import { useLocation } from '@docusaurus/router';
 import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import IconExternalLink from '@theme/Icon/ExternalLink';
 import React from 'react';
+
+import { useSubNavbars } from '../subNavbarUtils';
 
 export default function NavbarNavLink({
     activeBasePath,
@@ -20,8 +21,9 @@ export default function NavbarNavLink({
     ...props
 }) {
     const { navbar: { items = [] } } = useThemeConfig();
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
-    const allItems = [...items, ...(subNavbar?.items || [])];
+    const subNavbars = useSubNavbars();
+    const subNavbarItems = subNavbars.flatMap((nav) => nav.items || []);
+    const allItems = [...items, ...subNavbarItems];
     const location = useLocation();
     // TODO all this seems hacky
     // {to: 'version'} should probably be forbidden, in favor of {to: '/version'}
