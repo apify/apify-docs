@@ -254,7 +254,7 @@ When a **Pseudo URL** is set, the scraper attempts to enqueue matching links on 
 
 The `pageFunction` may only return nothing, `null`, `Object` or `Object[]`. If an `Object` is returned, it will be saved as a single result. Returning an `Array` of `Objects` will save each item in the array as a result.
 
-The scraping results are saved in a [dataset](/platform/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
+The scraping results are saved in a [dataset](/platform/actors/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
 
 ```js
 async function pageFunction(context) {

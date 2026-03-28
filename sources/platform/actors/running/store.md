@@ -93,7 +93,7 @@ Pay per result is also available as a pricing option when you publish your own A
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy).
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/actors/storage), and usage of [residential proxies](/platform/actors/proxy/residential-proxy) or [SERPs](/platform/actors/proxy/google-serp-proxy).
 
 ![Pay for usage Actor example](./images/store/pay_per_usage_actor_example.png)
 

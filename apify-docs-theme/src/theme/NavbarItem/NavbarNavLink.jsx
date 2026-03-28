@@ -61,15 +61,17 @@ export default function NavbarNavLink({
         .some((item) => (item.to || item.href).endsWith(location.pathname));
 
     if (href) {
+        const hrefClassName = activeBaseUrl
+            ? (location.pathname.startsWith(`/${activeBasePath}`) || dropDownHasActiveItem
+                ? 'navbar__item navbar__link navbar__link--active'
+                : 'navbar__item navbar__link')
+            : undefined;
+        const combinedClassName = [hrefClassName, props.className].filter(Boolean).join(' ') || undefined;
         return (
             <Link
                 href={prependBaseUrlToHref ? normalizedHref : href}
                 {...props}
-                {...(activeBaseUrl && {
-                    className: location.pathname.startsWith(`/${activeBasePath}`) || dropDownHasActiveItem
-                        ? 'navbar__item navbar__link navbar__link--active'
-                        : 'navbar__item navbar__link',
-                })}
+                {...(combinedClassName && { className: combinedClassName })}
                 {...linkContentProps}
             />
         );
