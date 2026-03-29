@@ -7,34 +7,28 @@ category: platform
 slug: /actors
 ---
 
-**Learn how to run, develop, and publish Apify Actors - serverless cloud programs for web data extraction and workflow automation.**
-
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
----
+Actors are serverless cloud programs that take structured JSON input, perform a task (web scraping, browser automation, data processing), and produce output. Run them manually, via API, or on a schedule, and combine them into larger automations.
 
 <CardGrid>
     <Card
-        title="Running Actors"
-        desc="In this section, you learn how to run Apify Actors. You will learn about their configuration, versioning, data retention, usage, and pricing."
+        title="Run and manage"
+        desc="Run Actors, configure tasks, set up schedules, and monitor execution."
         to="/platform/actors/running"
     />
     <Card
-        title="Actor development"
-        desc="Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images."
+        title="Develop"
+        desc="Build Actors: define inputs, write code, test, and deploy."
         to="/platform/actors/development"
     />
     <Card
-        title="Publishing and monetization"
-        desc="Learn about publishing, and monetizing your Actors on the Apify platform."
+        title="Publish and monetize"
+        desc="Publish Actors to Apify Store and set up pricing."
         to="/platform/actors/publishing"
     />
 </CardGrid>
-
-## Actors overview
-
-Actors are serverless programs to automate workflows and extract data. Each Actor takes a structured JSON input, performs a task (like web scraping, browser automation, or data processing), and can optionally produce a structured output. Actors are easy to run manually, via API, or on a schedule, and you can combine them into larger automations.
 
 :::info Additional context
 
@@ -56,25 +50,16 @@ The documentation and input/output schemas help people understand what the Actor
 
 ![Apify Actor diagram](./images/apify-actor-drawing.png)
 
-## Build Actors
-
-Build Actors to automate tasks, scrape data, or create custom workflows. The Apify platform gives you everything you need to develop, test, and deploy your code.
-
-Ready to start? Check out the [Actor development documentation](/platform/actors/development).
-
 ## Run Actors
 
-You can run Actors manually in [Apify Console](https://console.apify.com/actors), using the [API](/api), [CLI](/cli), or [scheduler](./running/schedules.md). You can easily [integrate Actors](../integrations/index.mdx) with other apps, [share](../account/collaboration/access_rights.md) them with other people, [publish](./publishing/index.mdx) them in [Apify Store](https://apify.com/store), and even [monetize](./publishing/monetize/index.mdx).
+Run Actors manually in [Apify Console](https://console.apify.com/actors), using the [API](/api/v2), [CLI](https://docs.apify.com/cli/docs), or [schedules](./running/schedules.md). [Integrate Actors](../integrations/index.mdx) with external apps, or [share](../account/collaboration/access_rights.md) them with other users in your organization.
 
-:::tip Try Actors
+Browse [Apify Store](https://apify.com/store) to find thousands of ready-made Actors for common use cases.
 
-To get a better idea of what Apify Actors are, visit [Apify Store](https://apify.com/store) and try out some of them!
+## Build Actors
 
-![Apify Store](./running/images/store-google-maps-scraper.png)
-
-:::
-
+Build custom Actors to automate tasks, scrape data, or process information. See the [development documentation](/platform/actors/development) for Actor definition, input/output schemas, deployment, and the programming interface.
 
 ## Public and private Actors
 
-Actors can be [public](./actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public Actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+Actors can be public or private. Private Actors are only visible to you. Public Actors are available in [Apify Store](https://apify.com/store) for anyone to use. You can [publish](./publishing/index.mdx) your Actors and [set up pricing](./publishing/monetize/index.mdx) for them.
