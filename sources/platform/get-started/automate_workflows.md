@@ -1,30 +1,76 @@
 ---
 title: Automate workflows
-description: Connect the Apify platform with Zapier, Make, n8n, and other automation tools to build powerful workflows.
-sidebar_position: 4
+description: Connect Apify to Zapier, Make, n8n, and other automation tools. Schedule recurring runs and set up webhooks for event-driven workflows.
+sidebar_position: 5
 slug: /get-started/automate-workflows
 ---
 
-<!-- TODO: Replace placeholder content with final copy -->
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
 
-# Automate workflows
+Connect Apify to thousands of apps without writing code, or use schedules and webhooks to automate Actor runs.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. This page will show you how to connect Apify Actors to your existing automation workflows.
+## Integration platforms
 
-## Connect with Zapier
+Apify has native integrations with popular automation tools. Connect an Actor's output to any app in their ecosystems.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+**Example: Send Actor results to Google Sheets**
 
-## Connect with Make
+1. Open your Actor run in [Apify Console](https://console.apify.com).
+1. Go to the **Integrations** tab.
+1. Select **Google Sheets** and authorize the connection.
+1. Map the dataset fields to sheet columns.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Each time the Actor runs, results flow to your spreadsheet automatically.
 
-## Connect with n8n
+For step-by-step setup guides, see:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- [Zapier integration](/platform/integrations/zapier)
+- [Make integration](/platform/integrations/make)
+- [n8n integration](/platform/integrations/n8n)
+
+## Schedules
+
+Run any Actor on a recurring basis without manual intervention.
+
+1. Open your Actor in [Apify Console](https://console.apify.com).
+1. Go to the **Schedules** tab and click **Create schedule**.
+1. Set the frequency (every hour, daily, weekly, or a custom cron expression).
+1. Save. The Actor runs automatically on schedule.
+
+<!-- TODO: screenshot of schedule configuration -->
+
+[Read more about schedules](/platform/actors/running/schedules).
+
+## Webhooks
+
+Trigger external actions when an Actor run succeeds, fails, or finishes.
+
+1. Open your Actor in [Apify Console](https://console.apify.com).
+1. Go to the **Webhooks** tab and click **Create webhook**.
+1. Enter the target URL and select the event type (e.g., **Run succeeded**).
+1. Save. Apify sends a POST request with run details to your URL each time the event fires.
+
+<!-- TODO: screenshot of webhook configuration -->
+
+[Read more about webhooks](/platform/integrations/webhooks).
 
 ## Next steps
 
-- Explore all [workflow automation integrations](/platform/integrations#workflow-automation) for detailed setup guides.
-- Learn how to use [schedules](/platform/actors/running/schedules) to run Actors on a recurring basis.
-- Set up [webhooks](/platform/integrations/webhooks) for event-driven automation.
+<CardGrid>
+    <Card
+        title="All integrations"
+        desc="Browse AI, workflow, data storage, and programming integrations."
+        to="/platform/integrations"
+    />
+    <Card
+        title="Connect AI agents"
+        desc="Use Actors as tools for LLMs and AI agent frameworks."
+        to="/platform/get-started/connect-ai-agents"
+    />
+    <Card
+        title="Platform basics"
+        desc="Understand how Actors, storage, and automation fit together."
+        to="/platform/get-started/platform-basics"
+    />
+</CardGrid>
