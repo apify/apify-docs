@@ -110,7 +110,7 @@ You can also navigate Apify Console via keyboard shortcuts.
 
 | Tab name | Description |
 | :--- | :--- |
-| [Apify Store](/platform/account/store) | Search for Actors that suit your web-scraping needs. |
+| [Apify Store](https://apify.com/store) | Search for Actors that suit your web-scraping needs. |
 | [Actors](/platform/actors) | View recent & bookmarked Actors. |
 | [Runs](/platform/actors/running/runs-and-builds) | View your recent runs. |
 | [Saved tasks](/platform/actors/running/tasks) | View your saved tasks. |
