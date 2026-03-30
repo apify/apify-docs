@@ -339,7 +339,7 @@ The [x402 protocol](https://www.x402.org/) is an open standard for internet-nati
 
 #### Prerequisites
 
-- _`mcpc` CLI_ - Install the [`mcpc` CLI](https://github.com/apify/mcpc) (`npm install -g mcpc`), the Universal MCP command-line client.
+- _`mcpc` CLI_ - Install the [`mcpc` CLI](https://github.com/apify/mcpc) (`npm install -g @apify/mcpc`), the Universal MCP command-line client.
 - _USDC on Base_ - A wallet funded with USDC on the [Base](https://www.base.org/) mainnet blockchain.
 
 #### Setup
