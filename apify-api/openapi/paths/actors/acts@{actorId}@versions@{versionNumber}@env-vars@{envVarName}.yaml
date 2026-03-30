@@ -43,7 +43,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
               - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
@@ -101,7 +101,7 @@ delete:
       content:
         application/json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
               - $ref: "../../components/schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
