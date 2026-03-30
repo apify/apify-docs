@@ -4,13 +4,24 @@ allOf:
   - type: object
     required:
       - pricingModel
-      - pricePerUnitUsd
       - unitName
     properties:
       pricingModel:
-        $ref: ./PricingModel.yaml
+        type: string
+        const: PRICE_PER_DATASET_ITEM
       unitName:
         type: string
         description: Name of the unit that is being charged
       pricePerUnitUsd:
         type: number
+        description: Price per unit in USD (for flat-rate pricing)
+      tieredPricing:
+        type: array
+        description: Tiered pricing configuration (for tiered pricing)
+        items:
+          type: object
+          properties:
+            fromUnitCount:
+              type: integer
+            pricePerUnitUsd:
+              type: number

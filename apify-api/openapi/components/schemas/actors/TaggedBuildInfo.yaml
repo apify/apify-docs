@@ -7,7 +7,7 @@ properties:
     description: The ID of the build associated with this tag.
     examples: [z2EryhbfhgSyqj6Hn]
   buildNumber:
-    type: string
+    type: [string, "null"]
     description: The build number/version string.
     examples: [0.0.2]
   finishedAt:

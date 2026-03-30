@@ -7,7 +7,8 @@ allOf:
       - pricingPerEvent
     properties:
       pricingModel:
-        $ref: ./PricingModel.yaml
+        type: string
+        const: PAY_PER_EVENT
       pricingPerEvent:
         type: object
         properties:

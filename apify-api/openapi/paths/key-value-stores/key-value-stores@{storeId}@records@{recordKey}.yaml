@@ -41,8 +41,6 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
-        "*/*":
-          schema: {}
     "302":
       description: ""
       headers:

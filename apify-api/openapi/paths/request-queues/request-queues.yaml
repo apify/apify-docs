@@ -83,8 +83,14 @@ post:
         type: string
         example: example-com
   responses:
+    "200":
+      description: Request queue with the given name already exists, returning the existing object.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/RequestQueueResponse.yaml
     "201":
-      description: ""
+      description: A new request queue was created.
       headers:
         Location:
           content:

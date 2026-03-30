@@ -1,6 +1,4 @@
 title: ExampleWebhookDispatch
-required:
-  - status
 type: object
 properties:
   status:

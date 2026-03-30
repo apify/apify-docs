@@ -47,7 +47,7 @@ shared: &shared
       content:
         application/json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
               - $ref: "../../schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
