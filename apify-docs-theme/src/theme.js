@@ -36,7 +36,7 @@ async function generateChangelogFromGitHubReleases(paths, repo) {
         markdown += release.tag_name
             ? `## [${release.name}](https://github.com/${repo}/releases/tag/${release.tag_name})\n`
             : `## ${release.name}\n`;
-        markdown += `${release.body.replaceAll(/(^#|\n#)/g, '###')}\n`;
+        markdown += `${(release.body ?? '').replaceAll(/(^#|\n#)/g, '###')}\n`;
     });
 
     paths.forEach((p) => {
@@ -102,7 +102,8 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
                     hasDefaultChangelog.set(p, true);
                 }
 
-                if (options.changelogFromRoot) {
+                const changelogExistsAtRoot = findPathInParent('CHANGELOG.md');
+                if (options.changelogFromRoot || changelogExistsAtRoot) {
                     copyChangelogFromRoot(pathsToCopyChangelog, hasDefaultChangelog);
                 } else {
                     await generateChangelogFromGitHubReleases(pathsToCopyChangelog, `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`);
