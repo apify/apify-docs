@@ -4,7 +4,7 @@ globs: ["sources/**/*.md", "sources/**/*.mdx"]
 alwaysApply: true
 ---
 When writing or editing documentation, follow the standards in `standards/`.
-When reviewing documentation, follow the process in `workflows/review-docs/process.md`.
-When writing new pages, follow the process in `workflows/doc-write/process.md`.
-When creating tutorials, follow the process in `workflows/tutorial/process.md`.
-When writing API docs, follow the process in `workflows/api-doc/process.md`.
+When reviewing documentation, follow the process in `.agents/skills/review-docs/references/process.md`.
+When writing new pages, follow the process in `.agents/skills/doc-write/references/process.md`.
+When creating tutorials, follow the process in `.agents/skills/tutorial/references/process.md`.
+When writing API docs, follow the process in `.agents/skills/api-doc/references/process.md`.

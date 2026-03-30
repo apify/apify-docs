@@ -13,7 +13,7 @@ These are objective - no judgment needed. Report all failures. Run in the main p
 
 - `npm run lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `vale "<file>" --minAlertLevel=error` (prose style, dashes, code fences, admonitions)
-- `workflows/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
+- `scripts/check-frontmatter.sh "<file>"` (description char count)
 
 ## Step 3: Delegated standards review
 

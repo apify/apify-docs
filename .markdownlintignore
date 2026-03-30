@@ -1,8 +1,8 @@
 node_modules
 build
 .claude
+.agents
 AGENTS.md
 CLAUDE.md
 standards
-workflows
 sources/_partials/*

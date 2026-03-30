@@ -5,21 +5,28 @@ This directory contains Claude Code configuration for the Apify documentation re
 ## Structure
 
 ```text
-.claude/
-├── README.md              # This file - Quick start guide
-└── skills/                # Summary + pointer adapters for common tasks
-    ├── doc-write/         # Documentation writing skill
-    ├── api-doc/           # API documentation skill
-    ├── tutorial/          # Tutorial creation skill
-    └── review-docs/       # Documentation review skill
+.agents/skills/            # Canonical skill location (AgentSkills spec)
+├── doc-write/             # Documentation writing skill
+├── api-doc/               # API documentation skill
+├── tutorial/              # Tutorial creation skill
+└── review-docs/           # Documentation review skill
+
+.claude/skills/            # Symlinks to .agents/skills/ (Claude Code discovery)
+├── doc-write -> ../../.agents/skills/doc-write
+├── api-doc -> ../../.agents/skills/api-doc
+├── tutorial -> ../../.agents/skills/tutorial
+└── review-docs -> ../../.agents/skills/review-docs
 ```
 
-Standards and workflows live at the repo root (agent-agnostic):
+Skills live in `.agents/skills/` (the AgentSkills open standard path), discoverable by Codex, Gemini CLI, OpenCode, Cursor, and others. Claude Code discovers them via symlinks in `.claude/skills/`.
+
+Standards live at the repo root (shared across all skills):
 
 ```text
 standards/                 # Writing, formatting, terminology rules
-workflows/                 # Reusable processes for doc tasks
 ```
+
+Each skill contains its own `references/` and `scripts/` (formerly in `workflows/`).
 
 ## How to use
 

@@ -100,19 +100,19 @@ Before submitting documentation, verify:
 
 ### For documentation pages
 
-Follow the writing process in `workflows/doc-write/process.md`. See `workflows/doc-write/references/doc-structures.md` for content type templates.
+Follow the writing process in `.agents/skills/doc-write/references/process.md`. See `.agents/skills/doc-write/references/doc-structures.md` for content type templates.
 
 ### For tutorials
 
-Follow the tutorial process in `workflows/tutorial/process.md`. See `workflows/tutorial/references/tutorial-template.md` for the 8-section structure.
+Follow the tutorial process in `.agents/skills/tutorial/references/process.md`. See `.agents/skills/tutorial/references/tutorial-template.md` for the 8-section structure.
 
 ### For API documentation
 
-Follow the API documentation process in `workflows/api-doc/process.md`. See `workflows/api-doc/references/openapi-patterns.md` for OpenAPI conventions.
+Follow the API documentation process in `.agents/skills/api-doc/references/process.md`. See `.agents/skills/api-doc/references/openapi-patterns.md` for OpenAPI conventions.
 
 ### For documentation review
 
-Follow the review process in `workflows/review-docs/process.md`. See `workflows/review-docs/references/review-format.md` for output format.
+Follow the review process in `.agents/skills/review-docs/references/process.md`. See `.agents/skills/review-docs/references/review-format.md` for output format.
 
 ## Pre-submission checklist
 

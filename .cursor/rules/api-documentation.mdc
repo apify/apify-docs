@@ -3,5 +3,5 @@ description: API documentation standards for OpenAPI specifications
 globs: ["apify-api/**/*.yaml", "apify-api/**/*.js"]
 alwaysApply: true
 ---
-For API documentation process and conventions, see `workflows/api-doc/process.md`.
-For OpenAPI patterns and examples, see `workflows/api-doc/references/openapi-patterns.md`.
+For API documentation process and conventions, see `.agents/skills/api-doc/references/process.md`.
+For OpenAPI patterns and examples, see `.agents/skills/api-doc/references/openapi-patterns.md`.

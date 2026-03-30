@@ -23,5 +23,5 @@ argument-hint: endpoint-name
 
 **CRITICAL**: API docs are generated, not hand-written. Never edit files in `apify-api/docs/` directly.
 
-For detailed patterns and examples, see `workflows/api-doc/references/openapi-patterns.md`.
-For edge cases and process notes, see `workflows/api-doc/process.md`.
+For detailed patterns and examples, see `references/openapi-patterns.md`.
+For edge cases and process notes, see `references/process.md`.

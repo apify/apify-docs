@@ -20,5 +20,5 @@ argument-hint: topic
 
 Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags.
 
-For detailed structure templates, see `workflows/doc-write/references/doc-structures.md`.
-For edge cases and process notes, see `workflows/doc-write/process.md`.
+For detailed structure templates, see `references/doc-structures.md`.
+For edge cases and process notes, see `references/process.md`.

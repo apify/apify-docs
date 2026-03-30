@@ -25,5 +25,5 @@ argument-hint: topic
 
 Each step should have a clear action verb, expected result, and verification. Code examples must be complete - no pseudocode.
 
-For the detailed 8-section template, see `workflows/tutorial/references/tutorial-template.md`.
-For edge cases and process notes, see `workflows/tutorial/process.md`.
+For the detailed 8-section template, see `references/tutorial-template.md`.
+For edge cases and process notes, see `references/process.md`.

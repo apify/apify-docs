@@ -138,14 +138,14 @@ Key rules at a glance:
 - See `standards/terminology.md` for Apify product name capitalization
 - Don't use em dashes (—) - use hyphen with spaces ( - ) instead
 
-## Workflows
+## Skills
 
-Reusable documentation workflows are in `workflows/`:
+Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agentskills.io)), each with its own `references/` and `scripts/`:
 
-- `workflows/review-docs/` - Documentation review process and output format
-- `workflows/doc-write/` - Writing and editing documentation pages
-- `workflows/tutorial/` - Creating structured tutorials
-- `workflows/api-doc/` - OpenAPI specification and API documentation
+- `.agents/skills/review-docs/` - Documentation review process and output format
+- `.agents/skills/doc-write/` - Writing and editing documentation pages
+- `.agents/skills/tutorial/` - Creating structured tutorials
+- `.agents/skills/api-doc/` - OpenAPI specification and API documentation
 
 ## Review checklist
 

@@ -135,17 +135,22 @@ This project uses an agent-agnostic approach: standards and workflows live at th
 ### Source of truth
 
 - **`standards/`** - Writing, formatting, terminology, and quality rules
-- **`workflows/`** - Reusable processes for doc tasks (review, write, tutorial, API docs)
+- **`.agents/skills/`** - Documentation skills with processes, references, and scripts (AgentSkills spec)
 - **`AGENTS.md`** - Condensed summary + pointers (also `CLAUDE.md` via symlink)
+
+### Skills (AgentSkills standard)
+
+- **`.agents/skills/`** - Skill definitions following the [AgentSkills spec](https://agentskills.io) (discoverable by Codex, Gemini CLI, OpenCode, Cursor, and others)
+- **`.claude/skills/`** - Symlinks to `.agents/skills/` for Claude Code discovery
 
 ### Agent-specific adapters
 
-- **`.claude/skills/`** - Summary + pointer adapters for Claude Code (trigger metadata + process summary)
-- **`.cursor/rules/`** - Thin pointers to `standards/` and `workflows/` for Cursor
+- **`.cursor/rules/`** - Thin pointers to `standards/` for Cursor
 
 ### Usage
 
-- Any AI assistant can follow `AGENTS.md` and read `standards/` and `workflows/` directly
+- Any AI assistant can follow `AGENTS.md` and read `standards/` directly
+- Skills-compatible agents (Claude Code, Codex, Gemini CLI, OpenCode, Cursor): discover skills from `.agents/skills/`
 - Claude Code users: use `/doc-write`, `/api-doc`, `/tutorial`, `/review-docs` skills
 - Cursor users: rules auto-load via glob patterns on `sources/**/*.md` files
 
