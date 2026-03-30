@@ -31,7 +31,7 @@ get:
       content:
         application/json:
           schema:
-            anyOf:
+            oneOf:
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorBuildNotFoundError"
     "405":

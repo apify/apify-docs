@@ -3,6 +3,7 @@ DatasetNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -16,6 +17,7 @@ KeyValueStoreNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -29,6 +31,7 @@ RequestQueueNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -42,6 +45,7 @@ RecordNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -55,6 +59,7 @@ RequestNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -68,6 +73,7 @@ RequestIdInvalidError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string

@@ -3,6 +3,7 @@ EnvironmentVariableNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string

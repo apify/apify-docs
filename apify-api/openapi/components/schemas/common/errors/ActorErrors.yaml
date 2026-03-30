@@ -3,10 +3,11 @@ ActorNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
-          enum: [actor-not-found, record-not-found, record-or-token-not-found]
+          enum: [actor-not-found, record-or-token-not-found]
         message:
           type: string
           example: Actor was not found
@@ -16,6 +17,7 @@ ActorBuildNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -29,6 +31,7 @@ RecordOrTokenNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -42,6 +45,7 @@ ActorRunNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -55,6 +59,7 @@ ActorRunTimeoutExceededError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -68,6 +73,7 @@ ActorRunFailedError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
@@ -81,6 +87,7 @@ ActorVersionNotFoundError:
   properties:
     error:
       type: object
+      required: [type]
       properties:
         type:
           type: string
