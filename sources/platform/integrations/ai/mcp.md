@@ -339,7 +339,7 @@ The [x402 protocol](https://www.x402.org/) is an open standard for internet-nati
 
 #### Prerequisites
 
-- _`mcpc` CLI_ - Install the [`mcpc` CLI](https://github.com/apify/mcpc) (`npm install -g @apify/mcpc`), the Universal MCP command-line client.
+- _`mcpc` CLI_ - Install the [`mcpc` CLI](https://github.com/apify/mcp-cli) (`npm install -g @apify/mcpc`), the Universal MCP command-line client.
 - _USDC on Base_ - A wallet funded with USDC on the [Base](https://www.base.org/) mainnet blockchain.
 
 #### Setup
@@ -378,7 +378,7 @@ Set up a local wallet and connect to the Apify MCP server with x402 payment supp
 1. The Apify MCP server advertises payment requirements in each paid tool's metadata.
 1. When `mcpc` calls a paid tool, it automatically signs a USDC payment using your local wallet and includes it in the request.
 1. The server verifies and settles the payment on-chain, then executes the tool and returns the result.
-1. If a tool is called without a payment, the server responds with HTTP 402 and `mcpc` signs and retries automatically.
+1. If a tool is called without a payment, the server responds that payment is required and `mcpc` signs and retries automatically.
 
 The Apify MCP server requires a minimum transaction of $1.00 USD. The payment is tracked as a balance on the server - subsequent tool calls draw from this balance without requiring a new on-chain transaction. When the balance runs out, `mcpc` automatically signs a new payment to top it up. After a period of inactivity, any remaining unused balance is refunded to the client's wallet address on the Base blockchain.
 
