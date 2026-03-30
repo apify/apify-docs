@@ -68,7 +68,7 @@ After you click on the link (or copy it to your browser), you will proceed to a 
 
 ## Dashboard overview
 
-![apify-console-homepage](./images/apify-console-homepage.png)
+![apify-console-homepage](./images/apify-console-dashboard.png)
 
 The Apify Console Dashboard provides an overview of your account setup. The header displays your account name and current plan level. The Dashboard features several sections:
 
