@@ -326,16 +326,72 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 :::
 
-## Agentic payments with Skyfire
+## Agentic payments
 
-The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable _agentic payments_. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire _PAY tokens_ to cover billing for each tool call.
+Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
 
-### Prerequisites
+- [x402 protocol](#x402-protocol) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
+- [Skyfire](#skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+
+### x402 protocol
+
+The [x402 protocol](https://www.x402.org/) is an open standard for internet-native payments. The Apify MCP server implements an MCP extension of this protocol to support agentic payments. The client automatically detects payment requirements in the tool's metadata and signs a USDC payment on the [Base](https://www.base.org/) blockchain (mainnet) to include with the tool call - no human intervention needed.
+
+#### Prerequisites
+
+- _`mcpc` CLI_ - Install the [`mcpc` CLI](https://github.com/apify/mcpc) (`npm install -g mcpc`), the Universal MCP command-line client.
+- _USDC on Base_ - A wallet funded with USDC on the [Base](https://www.base.org/) mainnet blockchain.
+
+#### Setup
+
+Set up a local wallet and connect to the Apify MCP server with x402 payment support.
+
+1. Create or import a wallet:
+
+    ```bash
+    # Create a new wallet (generates a random private key)
+    mcpc x402 init
+
+    # Or import an existing wallet from a private key
+    mcpc x402 import <private-key>
+
+    # Verify your wallet address
+    mcpc x402 info
+    ```
+
+1. Fund the wallet with USDC on Base mainnet.
+
+1. Connect to the Apify MCP server with x402 payment mode enabled. Add the `?payment=x402` query parameter to the server URL and pass the `--x402` flag to `mcpc`:
+
+    ```bash
+    mcpc connect "mcp.apify.com?payment=x402" @apify --x402
+    ```
+
+1. Call tools as usual. Payments are handled automatically:
+
+    ```bash
+    mcpc @apify tools-call call-actor actor:="apify/rag-web-browser" input:='{"query": "latest AI news"}'
+    ```
+
+#### How it works
+
+1. The Apify MCP server advertises payment requirements in each paid tool's metadata.
+1. When `mcpc` calls a paid tool, it automatically signs a USDC payment using your local wallet and includes it in the request.
+1. The server verifies and settles the payment on-chain, then executes the tool and returns the result.
+1. If a tool is called without a payment, the server responds with HTTP 402 and `mcpc` signs and retries automatically.
+
+The Apify MCP server requires a minimum transaction of $1.00 USD. The payment is tracked as a balance on the server - subsequent tool calls draw from this balance without requiring a new on-chain transaction. When the balance runs out, `mcpc` automatically signs a new payment to top it up. After a period of inactivity, any remaining unused balance is refunded to the client's wallet address on the Base blockchain.
+
+### Skyfire
+
+[Skyfire](https://www.skyfire.xyz/) provides agentic payments using managed _PAY tokens_. Instead of direct on-chain payments, the agent creates a PAY token through the Skyfire MCP server to cover billing for each tool call.
+
+#### Prerequisites
 
 - _Skyfire account_ - Sign up for a [Skyfire account](https://www.skyfire.xyz/) and fund your wallet.
 - _MCP client with multi-server support_ - An MCP client that supports multiple servers, such as Claude Desktop or VS Code.
 
-### Setup
+#### Setup
 
 Configure both the Skyfire MCP server and the Apify MCP server in your client. Enable payment mode by adding the `payment=skyfire` query parameter to the Apify server URL:
 
@@ -357,7 +413,7 @@ Configure both the Skyfire MCP server and the Apify MCP server in your client. E
 
 Replace `<YOUR_SKYFIRE_API_KEY>` with your API key from your [Skyfire dashboard](https://www.skyfire.xyz/).
 
-### How it works
+#### How it works
 
 When Skyfire payment mode is enabled, the agent handles the full payment flow autonomously:
 
@@ -366,7 +422,7 @@ When Skyfire payment mode is enabled, the agent handles the full payment flow au
 1. The agent passes the PAY token in the `skyfire-pay-id` input property when calling the Actor tool.
 1. The Actor returns results as usual. Unused funds on the token remain available for future runs or return upon expiration.
 
-To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic Payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
+To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
 
 ## Telemetry
 
