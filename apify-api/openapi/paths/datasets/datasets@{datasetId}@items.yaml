@@ -314,7 +314,7 @@ post:
     content:
       application/json:
         schema:
-          oneOf:
+          anyOf:
             - $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
             - type: array
               items:
