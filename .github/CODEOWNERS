@@ -3,19 +3,13 @@
 /CONTRIBUTING.md @TC-MO @marcel-rbro @szaganek
 
 # AI agent config (skills, rules, workflows)
-/.claude/ @TC-MO @marcel-rbro @szaganek
 /.cursor/ @TC-MO @marcel-rbro @szaganek
+/.agents/ @TC-MO @marcel-rbro @szaganek
 /.github/copilot-instructions.md @TC-MO @marcel-rbro @szaganek
 /AGENTS.md @TC-MO @marcel-rbro @szaganek
 
-# Platform docs (catch-all)
-/sources/platform/ @TC-MO
-
 # Integrations (overrides catch-all)
 /sources/platform/integrations/ @marcel-rbro
-
-# Actor publishing (overrides catch-all)
-/sources/platform/actors/publishing/ @szaganek
 
 # Legal
 /sources/legal/ @mnmkng
