@@ -10,5 +10,7 @@ properties:
     type: string
     examples: [my-value]
   isSecret:
-    type: [boolean, "null"]
     examples: [false]
+    anyOf:
+      - type: boolean
+      - type: "null"

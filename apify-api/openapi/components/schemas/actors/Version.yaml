@@ -12,24 +12,34 @@ properties:
       - $ref: ./VersionSourceType.yaml
       - type: "null"
   envVars:
-    type: [array, "null"]
-    items:
-      $ref: ./EnvVar.yaml
     description: ""
+    anyOf:
+      - type: array
+        items:
+          $ref: ./EnvVar.yaml
+      - type: "null"
   applyEnvVarsToBuild:
-    type: [boolean, "null"]
     examples: [false]
+    anyOf:
+      - type: boolean
+      - type: "null"
   buildTag:
     type: string
     examples: [latest]
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
   gitRepoUrl:
-    type: [string, "null"]
     description: URL of the Git repository when sourceType is GIT_REPO.
+    anyOf:
+      - type: string
+      - type: "null"
   tarballUrl:
-    type: [string, "null"]
     description: URL of the tarball when sourceType is TARBALL.
+    anyOf:
+      - type: string
+      - type: "null"
   gitHubGistUrl:
-    type: [string, "null"]
     description: URL of the GitHub Gist when sourceType is GITHUB_GIST.
+    anyOf:
+      - type: string
+      - type: "null"

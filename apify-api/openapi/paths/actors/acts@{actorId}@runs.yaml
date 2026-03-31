@@ -121,7 +121,13 @@ post:
           type: object
         example:
           foo: bar
-    required: true
+      application/x-www-form-urlencoded:
+        schema:
+          type: string
+      text/plain:
+        schema:
+          type: string
+    required: false
   responses:
     "201":
       description: ""

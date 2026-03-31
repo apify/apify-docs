@@ -4,6 +4,8 @@ properties:
   status:
     $ref: ../webhook-dispatches/WebhookDispatchStatus.yaml
   finishedAt:
-    type: [string, "null"]
-    format: date-time
     examples: ["2019-12-13T08:36:13.202Z"]
+    anyOf:
+      - type: string
+        format: date-time
+      - type: "null"

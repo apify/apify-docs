@@ -1,7 +1,6 @@
 title: CreateTaskRequest
 required:
   - actId
-  - name
 type: object
 properties:
   actId:
@@ -16,10 +15,13 @@ properties:
       - type: "null"
   input:
     anyOf:
-      - $ref: ./TaskInput.yaml
+      - type: object
+        additionalProperties: true
       - type: "null"
   title:
-    type: [string, "null"]
+    anyOf:
+      - type: string
+      - type: "null"
   actorStandby:
     anyOf:
       - $ref: ../actors/ActorStandby.yaml

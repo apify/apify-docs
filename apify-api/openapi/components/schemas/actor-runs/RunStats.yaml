@@ -6,9 +6,11 @@ required:
 type: object
 properties:
   inputBodyLen:
-    type: [integer, "null"]
-    minimum: 0
     examples: [240]
+    anyOf:
+      - type: integer
+        minimum: 0
+      - type: "null"
   migrationCount:
     type: integer
     minimum: 0

@@ -7,4 +7,4 @@ allOf:
     properties:
       pricingModel:
         type: string
-        const: FREE
+        enum: [FREE]

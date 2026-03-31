@@ -29,30 +29,38 @@ properties:
     examples: [7sT5jcggjjA9fNcxF]
     description: ID of the user who started the run.
   actorTaskId:
-    type: [string, "null"]
     examples: [KJHSKHausidyaJKHs]
     description: ID of the Actor task, if the run was started from a task.
+    anyOf:
+      - type: string
+      - type: "null"
   startedAt:
     type: string
     format: date-time
     examples: ["2019-11-30T07:34:24.202Z"]
     description: Time when the Actor run started.
   finishedAt:
-    type: [string, "null"]
-    format: date-time
     examples: ["2019-12-12T09:30:12.202Z"]
     description: Time when the Actor run finished.
+    anyOf:
+      - type: string
+        format: date-time
+      - type: "null"
   status:
     description: Current status of the Actor run.
     $ref: ../common/ActorJobStatus.yaml
   statusMessage:
-    type: [string, "null"]
     examples: [Actor is running]
     description: Detailed message about the run status.
+    anyOf:
+      - type: string
+      - type: "null"
   isStatusMessageTerminal:
-    type: [boolean, "null"]
     examples: [false]
     description: Whether the status message is terminal (final).
+    anyOf:
+      - type: boolean
+      - type: "null"
   meta:
     description: Metadata about the Actor run.
     $ref: ./RunMeta.yaml
@@ -79,9 +87,11 @@ properties:
     examples: [7sT5jcggjjA9fNcxF]
     description: ID of the Actor build used for this run.
   exitCode:
-    type: [integer, "null"]
     examples: [0]
     description: Exit code of the Actor run process.
+    anyOf:
+      - type: integer
+      - type: "null"
   generalAccess:
     description: General access level for the Actor run.
     $ref: ../common/GeneralAccess.yaml
@@ -132,35 +142,43 @@ properties:
         additionalProperties:
           type: string
   buildNumber:
-    type: [string, "null"]
     examples: [0.0.36]
     description: Build number of the Actor build used for this run.
+    anyOf:
+      - type: string
+      - type: "null"
   containerUrl:
     type: string
     format: uri
     examples: ["https://g8kd8kbc5ge8.runs.apify.net"]
     description: URL of the container running the Actor.
   isContainerServerReady:
-    type: [boolean, "null"]
     examples: [true]
     description: Whether the container's HTTP server is ready to accept requests.
+    anyOf:
+      - type: boolean
+      - type: "null"
   gitBranchName:
-    type: [string, "null"]
     examples: [master]
     description: Name of the git branch used for the Actor build.
+    anyOf:
+      - type: string
+      - type: "null"
   usage:
     description: Resource usage statistics for the run.
     anyOf:
       - $ref: ./RunUsage.yaml
       - type: "null"
   usageTotalUsd:
-    type: [number, "null"]
     examples: [0.2654]
     description: >-
       Total cost in USD for this run. Represents what you actually pay.
       For run owners: includes platform usage (compute units) and/or event costs depending on the Actor's pricing model.
       For run non-owners: only available for Pay-Per-Event Actors (event costs only).
       Not available for Pay-Per-Result Actors when you're not the Actor owner.
+    anyOf:
+      - type: number
+      - type: "null"
   usageUsd:
     description: >-
       Platform usage costs breakdown in USD. Only present if you own the run AND are paying for platform usage

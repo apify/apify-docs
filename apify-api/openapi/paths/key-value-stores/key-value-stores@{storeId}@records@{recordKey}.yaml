@@ -23,6 +23,17 @@ get:
     - $ref: "../../components/parameters/storageParameters.yaml#/storeId"
     - $ref: "../../components/parameters/storageParameters.yaml#/recordKey"
     - $ref: "../../components/parameters/storageParameters.yaml#/signature"
+    - name: disableRedirect
+      in: query
+      description: |
+        If `true` or `1`, the API serves the record content directly instead of redirecting to the
+        storage provider (e.g. Amazon S3). This is useful when you want to fetch the content in
+        one HTTP request without following redirects.
+      required: false
+      style: form
+      schema:
+        type: boolean
+        example: true
     - name: attachment
       in: query
       description: |
@@ -39,8 +50,7 @@ get:
       headers: {}
       content:
         "*/*":
-          schema:
-            $ref: ../../components/schemas/key-value-stores/RecordResponse.yaml
+          schema: {}
     "302":
       description: ""
       headers:

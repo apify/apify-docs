@@ -8,7 +8,7 @@ allOf:
     properties:
       pricingModel:
         type: string
-        const: PAY_PER_EVENT
+        enum: [PAY_PER_EVENT]
       pricingPerEvent:
         type: object
         properties:
@@ -17,4 +17,6 @@ allOf:
             additionalProperties:
               $ref: ./ActorChargeEvent.yaml
       minimalMaxTotalChargeUsd:
-        type: [number, "null"]
+        anyOf:
+          - type: number
+          - type: "null"
