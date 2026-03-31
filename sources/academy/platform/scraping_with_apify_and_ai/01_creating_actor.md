@@ -5,7 +5,7 @@ slug: /scraping-with-apify-and-ai/creating-actor-with-ai-chat
 unlisted: true
 ---
 
-**In this lesson, we'll use ChatGPT and a few commands to create an app for tracking prices on an e-commerce website.**
+**In this lesson, we'll use ChatGPT and the Apify platform to create an app for tracking prices on an e-commerce website.**
 
 ---
 
@@ -24,7 +24,7 @@ which contains:
 
 Try it! While the code generated will most likely work out of the box, the resulting program will have a few caveats. Some are usability issues:
 
-- _User-operated:_ We have to run the scraper ourselves. If we're tracking price trends, we'd need to remember to run it daily. And if we want alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
+- _User-operated:_ We have to run the scraper ourselves. If we're tracking price trends, we'd need to remember to run it daily. If we want, for example, alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
 - _Manual data management:_ Tracking prices over time means figuring out how to organize the exported data ourselves. Processing the data could also be tricky since different analysis tools often require different formats.
 
 Some are technical challenges:
@@ -32,7 +32,67 @@ Some are technical challenges:
 - _No monitoring:_ Even if we knew how to set up a server or home installation so our scraper runs regularly, we'd have little insight into whether it ran successfully, what errors or warnings occurred, how long it took, or what resources it used.
 - _Anti-scraping risks:_ If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually they'd block that too, and we'd seriously annoy our barista.
 
-To overcome these limitations, we'll use [Apify](https://apify.com/), a platform where our scraper can run independently of our computer. Apify expects our code to be structured as an Actor, so the setup is a bit heavier at first. But it pays off quickly - once we're ready, deploying to the platform is almost just one command.
+To overcome these limitations, we'll use [Apify](https://apify.com/), a platform where our scraper can run independently of our computer.
+
+## Creating Apify account
+
+First, let's [create a new Apify account](https://console.apify.com/sign-up). The registration will put us through a few checks to confirm we're human and our email is valid – annoying but necessary to prevent abuse of the platform.
+
+Once we have an active account, we can start working on our scraper. Using the platform's resources costs money, but worry not, everything we cover here fits within [Apify's free tier](https://apify.com/pricing).
+
+## Creating an Actor
+
+Your phone runs apps, Apify runs Actors. If we want Apify to run something for us, it must be wrapped in the Actor structure. Conveniently, the platform provides ready-made templates we can use.
+
+After login, you land on a page called **Apify Store**. Apify serves both as an infrastructure to privately deploy and run own scrapers, and as a marketplace, where anyone can offer their ready scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll go to **Actors**:
+
+![Welcome screen](images/apify-goto-actors.webp)
+
+In **Actors**, we'll choose **Develop a new Actor**:
+
+![New Actor screen](images/apify-goto-develop.webp)
+
+Apify supports several ways how to start a new project. We'll navigate through the screen to select the **Quick start: Crawlee + Cheerio (JavaScript)** code template:
+
+![Template selection screen](images/apify-goto-template.webp)
+
+This opens a preview of the template, where we'll confirm our choice:
+
+![Template preview screen](images/apify-use-template.webp)
+
+And just like that, we have our first Actor! It's only a sample scraper which walks through the apify.com website and extracts page titles, but something we can already run and it'll work.
+
+## Running an Actor
+
+The Actor's detail page has a plethora of tabs and settings, but for now we'll stay at **Source > Code**. That's where the **Web IDE** is.
+
+IDE stands for _integrated development environment_. Fear not, it's just a jargon for ‘an app for editing code, somewhat comfortably’. In the Web IDE, we can select files the Actor is made of, read and change their contents.
+
+![Web IDE](images/apify-web-ide.webp)
+
+We won't be changing anything for now. First let's try whether the Actor works. We'll hit the **Build** button, which tells the platform to take all the files and compose a program we can then run.
+
+The _build_ takes approximately one minute to finish. When done, the button becomes a **Start** button. Finally, we are ready. Let's press it.
+
+The scraper starts running and we'll have to wait another moment until the first rows start to appear in the output table.
+
+![Actor output](images/apify-output.webp)
+
+In the end, we should end up with around 100 results which we can immediately export to several formats suitable for data analysis, including CSV, which MS Excel or Google Sheets can open.
+
+![It ain't much, but it's honest work](images/honest-work.webp)
+
+## TODO
+
+Of course, page titles are not very useful, so let's change the scraper to an e-commerce prices tracker.
+
+
+
+
+
+---
+
+Apify expects our code to be structured as an Actor, so the setup is a bit heavier at first. But it pays off quickly - once we're ready, deploying to the platform is almost just one command.
 
 First, we'll use a few commands to set up an Actor template, and then we'll prompt ChatGPT to generate the code for scraping that Sales page.
 
