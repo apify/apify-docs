@@ -12,7 +12,9 @@ properties:
   uniqueKey:
     $ref: ./SharedProperties.yaml#/UniqueKey
   url:
-    $ref: ./SharedProperties.yaml#/RequestUrl
+    type: string
+    description: The URL of the request. May be truncated if it exceeds 128 characters.
+    examples: [https://apify.com]
   method:
     $ref: ./SharedProperties.yaml#/RequestMethod
   retryCount:

@@ -1,0 +1,9 @@
+description: Payment Required - the account does not have sufficient credits to perform this action.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: insufficient-credits
+        message: The account does not have sufficient credits to run the Actor.
