@@ -1,0 +1,9 @@
+description: Payment Required - a payment is required to access this resource (x402 agentic payment protocol).
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: payment-required
+        message: Payment is required to access this resource.
