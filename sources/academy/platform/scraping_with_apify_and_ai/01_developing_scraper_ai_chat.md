@@ -144,7 +144,7 @@ Now let's see if the new code works. The button we previously used for building 
 
 ![Warehouse scraper output](images/apify-output-warehouse.webp)
 
-So far, we haven't told the platform much about the data we expect, so the **Overview** pane lists only product URLs. But if we go to **All fields**, we'll see that it really scraped everything we asked for:
+At this point, we haven't told the platform much about the data we expect, so the **Overview** pane lists only product URLs. But if we go to **All fields**, we'll see that it really scraped everything we asked for:
 
 | name | url | price |
 | --- | --- | --- |
