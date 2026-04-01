@@ -1,30 +1,64 @@
 ---
 title: Choose and run an Actor
-description: Find the right Actor in the Apify Store and run it to scrape data, automate tasks, or power your AI agents.
-sidebar_position: 1
+description: Find the right Actor in Apify Store and run it to scrape data, automate tasks, or power your AI agents - no coding required.
+sidebar_position: 2
 slug: /get-started/choose-and-run-actor
 ---
 
-<!-- TODO: Replace placeholder content with final copy -->
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
 
-# Choose and run an Actor
+Actors are ready-made tools that run on the Apify platform. Pick one from the Store, configure it, click **Start**, and get structured data back. No coding required.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. This page will guide you through finding and running your first Actor on the Apify platform.
+## Find an Actor
 
-## Find an Actor in the Apify Store
+1. Go to [Apify Store](https://console.apify.com/store).
+1. Search by use case (e.g., "scrape Google results") or browse by category.
+1. Check the Actor card for a description, pricing, and user ratings.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+For this walkthrough, use [Website Content Crawler](https://apify.com/apify/website-content-crawler) - it extracts text content from any website.
 
-## Configure Actor input
+<!-- TODO: screenshot of Apify Store with Website Content Crawler -->
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+## Configure and run
 
-## Run the Actor and get results
+1. Open the Actor and click **Start**.
+1. In the **Input** tab, enter a URL in the **Start URLs** field (e.g., `https://example.com`).
+1. Optionally adjust settings like **Max crawl pages** to limit the scope.
+1. Click **Start**.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<!-- TODO: screenshot of Actor input form -->
+
+The Actor begins running immediately. You can watch progress in the **Log** tab.
+
+## Get your data
+
+When the run finishes:
+
+1. Open the **Storage** tab and click the default dataset.
+1. Preview the results in the table view.
+1. Click **Export** to download as JSON, CSV, Excel, or other formats.
+
+<!-- TODO: screenshot of dataset export -->
+
+You can also access results programmatically via the [Apify API](/api/v2) or [API clients](/platform/integrations/apify-for-ai-agents#api-client).
 
 ## Next steps
 
-- [Build your own Actor](/platform/get-started/build-an-actor) to create custom scraping and automation tools.
-- Learn about [Actor input and output](/platform/actors/running/input-and-output) for advanced configuration.
-- Browse the [Apify Store](/platform/actors/running/actors-in-store) to explore available Actors.
+<CardGrid>
+    <Card
+        title="Schedule recurring runs"
+        desc="Run Actors automatically on a schedule."
+        to="/platform/actors/running/schedules"
+    />
+    <Card
+        title="Use the API"
+        desc="Run Actors and retrieve data programmatically."
+        to="/platform/integrations/apify-for-ai-agents#rest-api"
+    />
+    <Card
+        title="Build your own Actor"
+        desc="Create custom scraping and automation tools."
+        to="/platform/get-started/build-an-actor"
+    />
+</CardGrid>

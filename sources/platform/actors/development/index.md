@@ -1,7 +1,7 @@
 ---
-title: Actor development
+title: Develop
 description: Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
-sidebar_label: Development
+sidebar_label: Develop
 sidebar_position: 2
 slug: /actors/development
 ---

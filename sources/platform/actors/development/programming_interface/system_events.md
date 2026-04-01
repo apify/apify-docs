@@ -2,7 +2,7 @@
 title: System events in Apify Actors
 description: Learn how the Apify platform notifies Actors about system events such as migration, abort, and CPU overload, and how to handle them in your code.
 slug: /actors/development/programming-interface/system-events
-sidebar_position: 4
+sidebar_position: 5
 sidebar_label: System events
 ---
 
