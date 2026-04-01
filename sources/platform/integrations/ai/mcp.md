@@ -330,8 +330,8 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
 
-- [x402 protocol](/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
-- [Skyfire](/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+- [x402 protocol](/platform/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
+- [Skyfire](/platform/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
 
 For setup instructions and details, see the individual integration pages.
 
