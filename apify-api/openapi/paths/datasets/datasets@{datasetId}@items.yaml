@@ -315,10 +315,12 @@ post:
       application/json:
         schema:
           anyOf:
-            - $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
+            - type: object
+              additionalProperties: true
             - type: array
               items:
-                $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
+                type: object
+                additionalProperties: true
           description: ""
     required: true
   responses:

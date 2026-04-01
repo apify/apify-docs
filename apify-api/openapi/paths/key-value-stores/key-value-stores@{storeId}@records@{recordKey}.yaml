@@ -73,7 +73,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
               - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RecordNotFoundError"
     "405":
