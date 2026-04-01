@@ -3,7 +3,25 @@ description: A dictionary mapping build tag names (e.g., "latest", "beta") to th
 type: object
 additionalProperties:
   anyOf:
-    - $ref: ./TaggedBuildInfo.yaml
+    - type: object
+      properties:
+        buildId:
+          type: string
+          description: The ID of the build associated with this tag.
+          examples: [z2EryhbfhgSyqj6Hn]
+        buildNumber:
+          description: The build number/version string.
+          examples: [0.0.2]
+          anyOf:
+            - type: string
+            - type: "null"
+        finishedAt:
+          description: The timestamp when the build finished.
+          examples: ["2019-06-10T11:15:49.286Z"]
+          anyOf:
+            - type: string
+              format: date-time
+            - type: "null"
     - type: "null"
 example:
   latest:

@@ -25,10 +25,14 @@ properties:
     type: string
     examples: [wRsJZtadYvn4mBZmm]
   isAdHoc:
-    type: [boolean, "null"]
+    anyOf:
+      - type: boolean
+      - type: "null"
     examples: [false]
   shouldInterpolateStrings:
-    type: [boolean, "null"]
+    anyOf:
+      - type: boolean
+      - type: "null"
     examples: [false]
   eventTypes:
     type: array
@@ -42,24 +46,45 @@ properties:
     type: boolean
     examples: [false]
   doNotRetry:
-    type: [boolean, "null"]
+    anyOf:
+      - type: boolean
+      - type: "null"
     examples: [false]
   requestUrl:
     type: string
     format: uri
     examples: ["http://example.com/"]
   payloadTemplate:
-    type: [string, "null"]
+    anyOf:
+      - type: string
+      - type: "null"
     examples: ['{\n "userId": {{userId}}...']
   headersTemplate:
-    type: [string, "null"]
+    anyOf:
+      - type: string
+      - type: "null"
     examples: ['{\n "Authorization": "Bearer ..."}']
   description:
-    type: [string, "null"]
+    anyOf:
+      - type: string
+      - type: "null"
     examples: [this is webhook description]
   lastDispatch:
     anyOf:
-      - $ref: ./ExampleWebhookDispatch.yaml
+      - type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - ACTIVE
+              - SUCCEEDED
+              - FAILED
+          finishedAt:
+            examples: ["2019-12-13T08:36:13.202Z"]
+            anyOf:
+              - type: string
+                format: date-time
+              - type: "null"
       - type: "null"
   stats:
     anyOf:

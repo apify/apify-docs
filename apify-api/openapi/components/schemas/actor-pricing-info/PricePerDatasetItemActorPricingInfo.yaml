@@ -4,7 +4,6 @@ allOf:
   - type: object
     required:
       - pricingModel
-      - unitName
     properties:
       pricingModel:
         type: string
