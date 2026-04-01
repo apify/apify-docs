@@ -36,7 +36,7 @@ To overcome these limitations, we'll use [Apify](https://apify.com/), a platform
 
 ## Creating Apify account
 
-First, let's [create a new Apify account](https://console.apify.com/sign-up). The registration will put us through a few checks to confirm we're human and our email is valid – annoying but necessary to prevent abuse of the platform.
+First, let's [create a new Apify account](https://console.apify.com/sign-up). The registration will put us through a few checks to confirm we're human and our email is valid. It's annoying, but necessary to prevent abuse of the platform.
 
 Once we have an active account, we can start working on our scraper. Using the platform's resources costs money, but worry not, everything we cover here fits within [Apify's free tier](https://apify.com/pricing).
 
