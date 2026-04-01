@@ -35,7 +35,7 @@ properties:
     type: string
     examples: [HG7ML7M8z78YcAPEB]
   buildNumber:
-    type: string
+    type: [string, "null"]
     examples: [0.0.2]
   meta:
     $ref: ./RunMeta.yaml
