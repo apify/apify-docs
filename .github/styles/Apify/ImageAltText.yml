@@ -1,0 +1,6 @@
+extends: existence
+message: "Images must include meaningful alt text."
+level: error
+scope: raw
+raw:
+  - '!\[\]\('
