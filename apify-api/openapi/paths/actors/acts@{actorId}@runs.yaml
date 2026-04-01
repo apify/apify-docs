@@ -141,6 +141,8 @@ post:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
