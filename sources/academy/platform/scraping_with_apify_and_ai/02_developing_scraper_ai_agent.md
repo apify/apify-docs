@@ -1,13 +1,19 @@
 ---
-title: Modifying an Actor with AI chat
+title: Developing a scraper with AI agent
 description: TBD
-slug: /scraping-with-apify-and-ai/modifying-actor-with-ai-chat
+slug: /scraping-with-apify-and-ai/developing-scraper-with-ai-agent
 unlisted: true
 ---
 
-**In this lesson, we'll use ChatGPT and a few commands to create an app for tracking prices on an e-commerce website.**
+**In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code on our computer and use Cursor to streamline how we make changes to our scraper.**
 
 ---
+
+:::note Course under construction
+This page hasn't been written yet. Come later, please!
+:::
+
+<!--
 
 Want to get data about prices on [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales)? Even without knowing how to code, we can open [ChatGPT](https://chatgpt.com/), type the following, and we'll have a scraper ready:
 
@@ -241,3 +247,24 @@ In the project directory, a new file called `dataset.csv` should emerge. We can 
 Well, does it? If we look closely, the prices include extra text, which isn't ideal. We'll improve this in one of the next lessons. We'll also improve the workflow so we don't have to keep copying and pasting.
 
 Despite a few flaws, we've successfully created a first working prototype of a price-watching app with no coding knowledge. And with a bit of extra command-line work, we now have something we can deploy to a platform where it can run regularly and reliably. In the next lesson, we'll do exactly that.
+
+-->
+
+<!--
+Explaining benefits (delegation and independent work, AGENTS.md). Getting environment ready, learning the ropes with a GUI/TUI. Using the `apify` CLI to start a project. Creating a basic scraper which does what we need.
+
+In lesson 3, students would try to make changes via ChatGPT and see that it gets tedious, which leads to introducing an agent-based IDE to work inside the template more comfortably.
+
+The lesson should use Cursor (or Google Antigravity). Only if it truly scales to zero as they claim and it is not required to have a paid account to try an agent. Minimal friction, just install – beats any other decision factors.
+
+If the paragraph above turns out being a wrong direction, we should use VS Code and tell people to spend $10 to try Copilot. VS Code is mainstream. Paying for Copilot is the cheapest agent offering, and it's quite powerful.
+-->
+
+<!--
+#### Installing development environment
+Explaining benefits (delegation and independent work, AGENTS.md). Getting environment ready. Use https://docs.apify.com/platform/actors/development/quick-start/build-with-ai
+#### Scraping vendor names
+Learning the ropes with a GUI/TUI, prompting the agent to update the code so that it scrapes vendor names. Run the program again, get better results.
+
+Teaser: Explain why this is fragile. In the next lesson we'll learn how to develop features of the scraper in a robust way by first specifying them as documentation.
+-->
