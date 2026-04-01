@@ -1,7 +1,7 @@
 ---
 title: Claude Desktop integration
 sidebar_label: Claude Desktop
-description: Set up the Apify MCP server in Claude Desktop using one-click install, remote server, or local stdio, and troubleshoot common issues.
+description: Set up the Apify MCP server in Claude Desktop using the remote server or one-click connector install, and troubleshoot common issues.
 sidebar_position: 1.5
 slug: /integrations/claude-desktop
 ---
@@ -9,39 +9,27 @@ slug: /integrations/claude-desktop
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/integrations/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
+Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/platform/integrations/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
 
 ## Prerequisites
 
 - An [Apify account](https://console.apify.com/sign-up) with an [API token](https://console.apify.com/account#/integrations)
 - [Claude Desktop](https://claude.ai/download) installed
-- [Node.js](https://nodejs.org/) version 18 or higher (only required for [local stdio setup](#local-stdio-server))
 
 ## Connect to Apify
 
-Choose one of the following methods, from simplest to most flexible:
+Choose one of the following methods:
 
-- [One-click installation](#one-click-installation-recommended) with the `.mcpb` file (recommended)
-- [Remote server configuration](#remote-server-manual-configuration) (no local dependencies)
-- [Local stdio server](#local-stdio-server) (development, testing, or offline access)
+- [Remote server](#remote-server-recommended) - recommended, automatic updates, OAuth support, no local dependencies
+- [One-click installation](#one-click-installation) via the connector directory
 
-### One-click installation (recommended)
+### Remote server (recommended)
 
-Download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/apify-mcp-server/releases/latest/download/apify-mcp-server.mcpb). Claude Desktop automatically registers the Apify MCP server and prompts you to approve the connection.
-
-:::note Direct install from Claude Desktop may fail
-
-Installing Apify directly from Claude Desktop's connector list may fail silently or show connection errors. Use the `.mcpb` file above or [manual configuration](#remote-server-manual-configuration) instead. See [troubleshooting](#unable-to-connect-to-extension-server-error) for details.
-
-:::
-
-### Remote server (manual configuration)
-
-The remote server at `https://mcp.apify.com` is the simplest manual setup - no local dependencies required.
+The remote server at `https://mcp.apify.com` is the recommended way to connect. It provides automatic updates, OAuth authentication, and requires no local dependencies or API token management.
 
 1. Open Claude Desktop.
 1. Go to **Settings** > **Developer** > **Edit Config**.
-1. Add the Apify MCP server configuration:
+1. Edit the configuration file to add the Apify MCP server:
 
 <Tabs>
 <TabItem value="OAuth" label="OAuth (recommended)">
@@ -74,40 +62,20 @@ On first connection, your browser opens to sign in to Apify and authorize the co
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your API token from the [Integrations section](https://console.apify.com/account#/integrations) in Apify Console.
+Replace `<APIFY_TOKEN>` with your API token obtained from the [Apify Console](https://console.apify.com/account#/integrations).
 
 </TabItem>
 </Tabs>
 
-### Local stdio server
+### One-click installation
 
-Run the MCP server locally for development, testing, or when you need offline access. This method requires Node.js.
+You can install the Apify MCP server directly from the Claude Desktop connector directory:
 
 1. Open Claude Desktop.
-1. Go to **Settings** > **Developer** > **Edit Config**.
-1. Add the following configuration:
+1. Go to **Settings** > **Connectors** > **Browse connectors**.
+1. Search for Apify and install the connector.
 
-```json
-{
-  "mcpServers": {
-    "actors-mcp-server": {
-      "command": "npx",
-      "args": ["-y", "@apify/actors-mcp-server"],
-      "env": {
-        "APIFY_TOKEN": "<APIFY_TOKEN>"
-      }
-    }
-  }
-}
-```
-
-Replace `<APIFY_TOKEN>` with your API token from the [Integrations section](https://console.apify.com/account#/integrations) in Apify Console.
-
-:::info Output schema inference
-
-The local stdio server does not support output schema inference for structured Actor results. Use the [remote server](#remote-server-manual-configuration) to get automatic output schemas with field-level type information.
-
-:::
+Alternatively, you can download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/apify-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
 
 ## Verify the connection
 
@@ -120,6 +88,21 @@ The local stdio server does not support output schema inference for structured A
 
 <!-- markdownlint-disable MD001 -->
 
+If the steps below don't resolve your issue, [submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
+
+
+#### "Unable to connect to extension server" error
+
+This is the most common issue. It typically appears when installing from the Claude Desktop connector directory. In some cases, the MCP server starts and communicates correctly, but Claude Desktop still shows the error.
+
+1. _Consider switching to the [remote server](#remote-server-recommended) setup._ Manual configuration with the remote server is the most reliable option.
+1. _Uninstall and reinstall the extension._ In Claude Desktop, disable the Apify extension, remove it, then add it again.
+1. _Clear the npx cache._ A stale cache can cause connection failures. Follow the steps in [Corrupted npx cache](#corrupted-npx-cache).
+1. _Check the [Claude Desktop logs](#check-claude-desktop-logs)_ for specific error messages.
+1. _Verify the server URL._ For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
+1. _Check your network._ Ensure your firewall or VPN is not blocking the connection.
+1. _Still not working?_ [Submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
+
 #### Tools fail to load
 
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
@@ -130,40 +113,33 @@ The MCP server shows as connected but Apify tools don't appear in the tools list
   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - _Validate JSON syntax._ Ensure there are no trailing commas, missing quotes, or mismatched brackets. Paste your config into a JSON validator if needed.
 
-#### "Unable to connect to extension server" error
-
-This error commonly appears when installing from the Claude Desktop connector directory. In some cases, the MCP server starts and communicates correctly, but Claude Desktop still shows the error.
-
-- _Uninstall and reinstall the extension._ In Claude Desktop, disable the Apify extension, remove it, then add it again.
-- _Switch to manual configuration._ If reinstalling doesn't help, use the [remote server](#remote-server-manual-configuration) or [local stdio](#local-stdio-server) setup instead of the connector directory.
-- _Verify the server URL._ For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
-- _Check your network._ Ensure your firewall or VPN is not blocking the connection.
-- _For local stdio setup:_ Confirm Node.js version 18 or higher is installed by running `node -v` in your terminal.
-
 #### Corrupted npx cache
 
-A stale or corrupted npx cache can prevent the local server from starting. Clear the cache and retry:
+A stale or corrupted npx cache can prevent the server from starting. Clear the cache and retry:
 
-- macOS and Linux:
+1. Clear the npx cache:
 
-    ```bash
-    rm -rf ~/.npm/_npx
-    ```
+    - macOS and Linux:
 
-- Windows:
+        ```bash
+        rm -rf ~/.npm/_npx
+        ```
 
-    ```bash
-    rmdir /s /q %LOCALAPPDATA%\npm-cache\_npx
-    ```
+    - Windows:
 
-After clearing the cache, restart Claude Desktop to re-download the server package.
+        ```bash
+        rmdir /s /q %LOCALAPPDATA%\npm-cache\_npx
+        ```
+
+1. Restart Claude Desktop to re-download the server package.
+1. Check the [Claude Desktop logs](#check-claude-desktop-logs) for errors.
+1. If the issue persists, switch to the [remote server](#remote-server-recommended) setup, which doesn't rely on local packages.
 
 #### Authentication errors
 
 Authentication errors occur when the MCP server can't verify your identity. You may see "Unauthorized" or "Invalid token" messages, or Actor runs may fail silently.
 
 - _Check your API token._ Verify the token in the [Integrations section](https://console.apify.com/account#/integrations) of Apify Console.
-- _For local stdio setup:_ Ensure the `APIFY_TOKEN` environment variable is set correctly in your config file.
 - _For remote OAuth:_ Remove and re-add the Apify MCP server in Claude Desktop to re-authorize.
 
 #### Check Claude Desktop logs
@@ -178,12 +154,11 @@ Look for files with `mcp` in the name for server-specific error messages.
 
 ## Known limitations
 
-- The Claude Desktop connector directory may not install Apify correctly. Use the [`.mcpb` file](#one-click-installation-recommended) or [manual configuration](#remote-server-manual-configuration) instead.
-- Multi-agent cowork mode may not pass MCP tool results between agents reliably when using the local stdio server.
 - Some Claude Desktop versions have inconsistent behavior with remote MCP server connections. Update to the latest version if you experience issues.
+- If the connector directory installation fails, use the [remote server](#remote-server-recommended) at `https://mcp.apify.com` instead.
 
 ## Next steps
 
-- [Apify MCP server](/integrations/mcp) - Explore tool selection, available tools, telemetry, and rate limits
+- [Apify MCP server](/platform/integrations/mcp) - Explore tool selection, available tools, telemetry, and rate limits
 - [Apify MCP server configurator](https://mcp.apify.com) - Select tools visually and copy configuration
 - [Apify MCP server on GitHub](https://github.com/apify/apify-mcp-server) - Report bugs and suggest features

@@ -1,6 +1,6 @@
 ---
 title: Apify MCP server
-sidebar_label: MCP
+sidebar_label: MCP server
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
 sidebar_position: 1
 slug: /integrations/mcp
@@ -210,33 +210,29 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 
 :::tip One-click installation
 
-Download and run the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
+Install the Apify connector directly from Claude Desktop: go to **Settings** > **Connectors** > **Browse connector** and search for Apify.
 
 :::
 
 To manually configure Apify's MCP server for Claude Desktop:
 
 1. Open Claude Desktop settings.
-1. Navigate to the **Developer** section.
+1. Go to **Settings** > **Developer** > **Edit Config**.
 1. Add the following to the configuration file:
 
 ```json
 {
   "mcpServers": {
-    "actors-mcp-server": {
-      "command": "npx",
-      "args": ["-y", "@apify/actors-mcp-server"],
-      "env": {
-        "APIFY_TOKEN": "<APIFY_TOKEN>"
-      }
+    "apify": {
+      "url": "https://mcp.apify.com"
     }
   }
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+On first connection, your browser opens to sign in to Apify and authorize the connection.
 
-For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/integrations/claude-desktop).
+For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
 </TabItem>
 </Tabs>
@@ -403,7 +399,7 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 
 :::tip Claude Desktop issues
 
-For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop  troubleshooting](/integrations/claude-desktop#troubleshooting).
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop  troubleshooting](/platform/integrations/claude-desktop#troubleshooting).
 
 :::
 
