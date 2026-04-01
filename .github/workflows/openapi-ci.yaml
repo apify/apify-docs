@@ -170,7 +170,7 @@ jobs:
                   PR_NUMBER: ${{ github.event.pull_request.number }}
               # Branch name convention must match what regenerate_models.yaml creates.
               run: |
-                  BRANCH="chore/update-models-docs-pr-${PR_NUMBER}"
+                  BRANCH="update-models-docs-pr-${PR_NUMBER}"
                   EXISTING_PR=$(gh pr list \
                       --repo apify/apify-client-python \
                       --head "$BRANCH" \
