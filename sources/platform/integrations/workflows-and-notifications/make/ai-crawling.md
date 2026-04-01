@@ -7,6 +7,12 @@ slug: /integrations/make/ai-crawling
 toc_max_heading_level: 4
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Use the Apify Scraper for AI Crawling module in [Make](https://www.make.com/) to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for AI Crawling
 
 Apify Scraper for AI Crawling from [Apify](https://apify.com/) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.

@@ -11,6 +11,7 @@ toc_max_heading_level: 4
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
 using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro). The server enables AI agents to
@@ -18,6 +19,8 @@ discover and run Actors from [Apify Store](https://apify.com/store), access stor
 and enables AI coding assistants to access Apify documentation and tutorials.
 
 ![Apify MCP server](../../images/apify_mcp_server.png)
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -303,7 +306,6 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 | `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
 | `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
-
 :::note Retrieving full output
 
 The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor`, `add-actor`, or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
@@ -317,7 +319,6 @@ It can search Apify Store for relevant Actors using the `search-actors` tool, in
 
 This dynamic discovery means your AI can adapt to new tasks without manual configuration.
 Each discovered Actor becomes immediately available for future use in the conversation.
-
 
 :::note Dynamic tool discovery
 
