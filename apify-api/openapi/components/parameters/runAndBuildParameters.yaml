@@ -273,6 +273,7 @@ startedAfter:
   explode: true
   schema:
     type: string
+    format: date-time
     example: "2025-09-01T00:00:00.000Z"
 
 startedBefore:
@@ -285,6 +286,7 @@ startedBefore:
   explode: true
   schema:
     type: string
+    format: date-time
     example: "2025-09-17T23:59:59.000Z"
 
 scheduleId:
