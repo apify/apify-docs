@@ -31,7 +31,7 @@ The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work wit
 ## Choose your integration method
 
 | Method | Best for | Auth |
-|---|---|---|
+| --- | --- | --- |
 | [MCP server](#mcp-server) | AI agents and coding assistants | OAuth or API token |
 | [Agent Skills](#agent-skills) | Guided scraping workflows and Actor development | API token |
 | [API client](#api-client) | Backend apps (JavaScript/Python) | API token |
@@ -81,7 +81,7 @@ npx skills add apify/agent-skills
 ```
 
 | Skill | What it does |
-|---|---|
+| --- | --- |
 | `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
 | `apify-actor-development` | Guided workflow for building and deploying custom Actors |
 | `apify-actorization` | Converts an existing project into an Apify Actor |
@@ -198,7 +198,7 @@ curl "https://api.apify.com/v2/datasets/DATASET_ID/items" \
 **Quick reference:**
 
 | Action | Method | Endpoint |
-|---|---|---|
+| --- | --- | --- |
 | Search Actors in Store | `GET` | `/v2/store` |
 | Get Actor details | `GET` | `/v2/acts/{actorId}` |
 | Run an Actor | `POST` | `/v2/acts/{actorId}/runs` |
@@ -211,7 +211,7 @@ Full reference: [Apify API v2](/api/v2)
 ## Documentation access for agents
 
 | Resource | How to access |
-|---|---|
+| --- | --- |
 | Specific doc page | Append `.md` to any docs URL (e.g. `docs.apify.com/platform/actors.md`) |
 | Specific doc page (alt) | Request with `Accept: text/markdown` header |
 | Docs index | [docs.apify.com/llms.txt](https://docs.apify.com/llms.txt) |
