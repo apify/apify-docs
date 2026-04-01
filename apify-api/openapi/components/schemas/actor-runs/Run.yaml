@@ -57,8 +57,10 @@ properties:
     description: Metadata about the Actor run.
     $ref: ./RunMeta.yaml
   pricingInfo:
-    description: Pricing information for the Actor.
-    $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
+    description: Pricing information for the Actor. Null for free or non-pay-per-event Actors.
+    anyOf:
+      - $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
+      - type: "null"
   stats:
     description: Statistics of the Actor run.
     $ref: ./RunStats.yaml
