@@ -14,7 +14,7 @@ Connect Apify to thousands of apps without writing code, or use schedules and we
 
 Apify has native integrations with popular automation tools. Connect an Actor's output to any app in their ecosystems.
 
-**Example: Send Actor results to Google Sheets**
+### Send Actor results to Google Sheets
 
 1. Open your Actor run in [Apify Console](https://console.apify.com).
 1. Go to the **Integrations** tab.

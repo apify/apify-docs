@@ -109,14 +109,14 @@ jobs:
                     assert_no_redirect "http://localhost:8080" --request-target '/\evil.com/'
                     assert_no_redirect "http://localhost:8080" --request-target '///\evil.com/'
                     # Normal trailing-slash redirect must still work
-                    assert_status "http://localhost:8080/platform/proxy/usage/" "302"
+                    assert_status "http://localhost:8080/platform/actors/proxy/usage/" "302"
 
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/" "Content-Type" "text/markdown" -H "Accept: text/markdown"
-                    assert_header "http://localhost:8080/platform/proxy/usage" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/platform/proxy/usage.md" "Content-Type" "text/markdown"
-                    assert_header "http://localhost:8080/platform/proxy/usage" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/platform/actors/proxy/usage" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/platform/actors/proxy/usage.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/platform/actors/proxy/usage" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/img/docs-og.png" "Content-Type" "image/png"
                     assert_header "http://localhost:8080/img/javascript-40x40.svg" "Content-Type" "image/svg"
                     assert_header "http://localhost:8080/llms.txt" "Content-Type" "text/markdown"
