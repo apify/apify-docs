@@ -326,47 +326,14 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 :::
 
-## Agentic payments with Skyfire
+## Agentic payments
 
-The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable _agentic payments_. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire _PAY tokens_ to cover billing for each tool call.
+Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
 
-### Prerequisites
+- [x402 protocol](/platform/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
+- [Skyfire](/platform/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
 
-- _Skyfire account_ - Sign up for a [Skyfire account](https://www.skyfire.xyz/) and fund your wallet.
-- _MCP client with multi-server support_ - An MCP client that supports multiple servers, such as Claude Desktop or VS Code.
-
-### Setup
-
-Configure both the Skyfire MCP server and the Apify MCP server in your client. Enable payment mode by adding the `payment=skyfire` query parameter to the Apify server URL:
-
-```json
-{
-  "mcpServers": {
-    "skyfire": {
-      "url": "https://api.skyfire.xyz/mcp/sse",
-      "headers": {
-        "skyfire-api-key": "<YOUR_SKYFIRE_API_KEY>"
-      }
-    },
-    "apify": {
-      "url": "https://mcp.apify.com?payment=skyfire"
-    }
-  }
-}
-```
-
-Replace `<YOUR_SKYFIRE_API_KEY>` with your API key from your [Skyfire dashboard](https://www.skyfire.xyz/).
-
-### How it works
-
-When Skyfire payment mode is enabled, the agent handles the full payment flow autonomously:
-
-1. The agent discovers relevant Actors via `search-actors` or `fetch-actor-details` (these remain free).
-1. Before executing an Actor, the agent creates a PAY token using the `create-pay-token` tool from the Skyfire MCP server (minimum $5.00 USD).
-1. The agent passes the PAY token in the `skyfire-pay-id` input property when calling the Actor tool.
-1. The Actor returns results as usual. Unused funds on the token remain available for future runs or return upon expiration.
-
-To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic Payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
+For setup instructions and details, see the individual integration pages.
 
 ## Telemetry
 

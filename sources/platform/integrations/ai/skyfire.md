@@ -13,9 +13,9 @@ Agentic payments enable AI agents to autonomously run Apify Actors using third-p
 
 Apify supports agentic payments through _Skyfire_, a payment network specifically designed for AI agents.
 
-:::warning Experimental feature
+:::caution Experimental feature
 
-Keep in mind that agentic payments are an experimental feature and may undergo significant changes considering the rapid evolution of payment protocols and AI technologies.
+Agentic payments are an experimental feature and may change significantly as payment protocols and AI technologies evolve.
 
 :::
 
