@@ -71,6 +71,19 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 - Each endpoint that has `runs/last` in its path or that has any ID related parameter (for example `actorId`, `buildId`, `runId`, `datasetId` and so on) should have at least one 404 (Not Found) error.
 - Each endpoint that has `requestBody` should have at least following error responses: 413 (Payload Too Large), 415 (Unsupported Media Type).
 
+#### Known validator false positives
+
+In some situations the OpenAPI validator raises errors that are not actually errors in the API specification, but rather limitations of the validator itself. These are known as false positives. It is important to identify these false positives and document them in the PR description, along with an explanation of why they are false positives and why they cannot be fixed.
+When deciding what is validator false positive, you can check source code and open issues of the validator: https://github.com/cdimascio/express-openapi-validator
+
+Example:
+Nullable date-time entries incorrectly raise validator errors when null. Ignore them, never try to fix them.
+```yaml
+finishedAt:
+  type: [string, "null"]
+  format: date-time
+```
+
 ### Theme system
 
 Uses `@apify/docs-theme` package - a shared theme across all 6+ documentation repos. Don't modify theme files directly. Changes to the theme propagate via CI to all projects.

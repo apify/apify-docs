@@ -62,17 +62,13 @@ properties:
       - $ref: ./ExampleRunInput.yaml
       - type: "null"
   isDeprecated:
-    anyOf:
-      - type: boolean
-      - type: "null"
+    type: [boolean, "null"]
     examples: [false]
   deploymentKey:
     type: string
     examples: [ssh-rsa AAAA ...]
   title:
-    anyOf:
-      - type: string
-      - type: "null"
+    type: [string, "null"]
     examples: [My Actor]
   taggedBuilds:
     anyOf:

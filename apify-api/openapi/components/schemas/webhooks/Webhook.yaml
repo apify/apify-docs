@@ -25,14 +25,10 @@ properties:
     type: string
     examples: [wRsJZtadYvn4mBZmm]
   isAdHoc:
-    anyOf:
-      - type: boolean
-      - type: "null"
+    type: [boolean, "null"]
     examples: [false]
   shouldInterpolateStrings:
-    anyOf:
-      - type: boolean
-      - type: "null"
+    type: [boolean, "null"]
     examples: [false]
   eventTypes:
     type: array
@@ -46,28 +42,20 @@ properties:
     type: boolean
     examples: [false]
   doNotRetry:
-    anyOf:
-      - type: boolean
-      - type: "null"
+    type: [boolean, "null"]
     examples: [false]
   requestUrl:
     type: string
     format: uri
     examples: ["http://example.com/"]
   payloadTemplate:
-    anyOf:
-      - type: string
-      - type: "null"
+    type: [string, "null"]
     examples: ['{\n "userId": {{userId}}...']
   headersTemplate:
-    anyOf:
-      - type: string
-      - type: "null"
+    type: [string, "null"]
     examples: ['{\n "Authorization": "Bearer ..."}']
   description:
-    anyOf:
-      - type: string
-      - type: "null"
+    type: [string, "null"]
     examples: [this is webhook description]
   lastDispatch:
     anyOf:
