@@ -8,8 +8,11 @@ slug: /integrations/claude-desktop
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/platform/integrations/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -62,7 +65,7 @@ On first connection, your browser opens to sign in to Apify and authorize the co
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your API token obtained from the [Apify Console](https://console.apify.com/account#/integrations).
+Replace `<APIFY_TOKEN>` with your API token obtained from [Apify Console](https://console.apify.com/account#/integrations).
 
 </TabItem>
 </Tabs>
@@ -75,7 +78,7 @@ You can install the Apify MCP server directly from the Claude Desktop connector 
 1. Go to **Settings** > **Connectors** > **Browse connectors**.
 1. Search for Apify and install the connector.
 
-Alternatively, you can download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/apify-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
+Alternatively, you can download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
 
 ## Verify the connection
 
@@ -98,7 +101,7 @@ This is the most common issue. It typically appears when installing from the Cla
 1. _Consider switching to the [remote server](#remote-server-recommended) setup._ Manual configuration with the remote server is the most reliable option.
 1. _Uninstall and reinstall the extension._ In Claude Desktop, disable the Apify extension, remove it, then add it again.
 1. _Clear the npx cache._ A stale cache can cause connection failures. Follow the steps in [Corrupted npx cache](#corrupted-npx-cache).
-1. _Check the [Claude Desktop logs](#check-claude-desktop-logs)_ for specific error messages.
+1. _Check the [Claude Desktop logs](#claude-desktop-logs)_ for specific error messages.
 1. _Verify the server URL._ For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
 1. _Check your network._ Ensure your firewall or VPN is not blocking the connection.
 1. _Still not working?_ [Submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
@@ -132,7 +135,7 @@ A stale or corrupted npx cache can prevent the server from starting. Clear the c
         ```
 
 1. Restart Claude Desktop to re-download the server package.
-1. Check the [Claude Desktop logs](#check-claude-desktop-logs) for errors.
+1. Check the [Claude Desktop logs](#claude-desktop-logs) for errors.
 1. If the issue persists, switch to the [remote server](#remote-server-recommended) setup, which doesn't rely on local packages.
 
 #### Authentication errors
@@ -142,7 +145,7 @@ Authentication errors occur when the MCP server can't verify your identity. You 
 - _Check your API token._ Verify the token in the [Integrations section](https://console.apify.com/account#/integrations) of Apify Console.
 - _For remote OAuth:_ Remove and re-add the Apify MCP server in Claude Desktop to re-authorize.
 
-#### Check Claude Desktop logs
+#### Claude Desktop logs
 
 If the above steps don't resolve your issue, check the Claude Desktop logs for MCP-related errors:
 

@@ -31,17 +31,17 @@ Before connecting ChatGPT to Apify, you'll need:
 
 1. In ChatGPT, go to **Settings > Apps & Connectors > Create**. If you don't see the **Create** button, enable Developer mode or reload the page.
 
-2. Fill in the following fields:
+1. Fill in the following fields:
 
-    - **Name** – a user-facing title, e.g., `apify-mcp`
-    - **Description** – a short description of what the connector does
-    - **MCP Server URL** – choose one of the following:
+    - **Name** - a user-facing title, e.g., `apify-mcp`
+    - **Description** - a short description of what the connector does
+    - **MCP Server URL** - choose one of the following:
         - `https://mcp.apify.com` - use the default set of Apify tools
         - `https://mcp.apify.com?tools=actors,docs,mtrunkat/url-list-download-html` - use specific tools
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
-    - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
+    - **Authentication** - OAuth, you don’t need to provide a client ID or secret.
 
-3. Select **Create** to proceed to the authentication page.
+1. Select **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
 
 ![ChatGPT Create connection](../../images/chatgpt-connector.png)
