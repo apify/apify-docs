@@ -4,6 +4,8 @@ allOf:
   - type: object
     required:
       - pricingModel
+      - pricePerUnitUsd
+      - trialMinutes
     properties:
       pricingModel:
         $ref: ./PricingModel.yaml
