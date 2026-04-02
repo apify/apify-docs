@@ -36,7 +36,7 @@ The remote server at `https://mcp.apify.com` is the recommended way to connect. 
 
 To set up the remote server, [add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL.
 
-On first connection, your browser opens to sign in to Apify and authorize the connection. This OAuth flow keeps your API token secure - you don't need to manage or paste an API token.
+On first connection, your browser opens to sign in to Apify and authorize the connection.
 
 ### One-click installation
 

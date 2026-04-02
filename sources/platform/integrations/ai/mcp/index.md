@@ -208,29 +208,9 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
 
-:::tip One-click installation
+[Add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL. On first connection, your browser opens to sign in to Apify and authorize the connection.
 
-Install the Apify connector directly from Claude Desktop: go to **Settings** > **Connectors** > **Browse connectors** and search for Apify.
-
-:::
-
-To manually configure Apify's MCP server for Claude Desktop:
-
-1. Open Claude Desktop settings.
-1. Go to **Settings** > **Developer** > **Edit Config**.
-1. Add the following to the configuration file:
-
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "url": "https://mcp.apify.com"
-    }
-  }
-}
-```
-
-On first connection, your browser opens to sign in to Apify and authorize the connection.
+You can also search for "Apify" in the connector directory and install it directly.
 
 For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
