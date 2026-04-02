@@ -8,25 +8,25 @@ crawler.router.addDefaultHandler(async ({ $, addRequests }) => {
   const buttons = $("[data-uia='top10-table-row-title'] button").toArray().slice(0, 5);
   const requests = buttons.map((buttonElement) => {
     const name = $(buttonElement).text().trim();
-    const imdbSearchUrl = `https://www.imdb.com/find/?q=${escape(name)}&s=tt&ttype=ft`;
-    return new Request({ url: imdbSearchUrl, label: 'IMDB_SEARCH' });
+    const tmdbSearchUrl = `https://www.themoviedb.org/search?query=${escape(name)}`;
+    return new Request({ url: tmdbSearchUrl, label: 'TMDB_SEARCH' });
   });
   await addRequests(requests);
 });
 
-crawler.router.addHandler('IMDB_SEARCH', async ({ enqueueLinks }) => {
-  await enqueueLinks({ selector: '.ipc-title-link-wrapper', label: 'IMDB', limit: 1 });
+crawler.router.addHandler('TMDB_SEARCH', async ({ enqueueLinks }) => {
+  await enqueueLinks({ selector: '.title a.result', label: 'TMDB', limit: 1 });
 });
 
-crawler.router.addHandler('IMDB', async ({ $, request, pushData }) => {
-  const title = $('h1').text().trim();
-  const score = $("[data-testid='hero-rating-bar__aggregate-rating__score']").first().text().trim();
+crawler.router.addHandler('TMDB', async ({ $, request, pushData }) => {
+  const title = $('.title a').first().text().trim();
+  const userScore = $('.user_score_chart').first().attr('data-percent');
 
-  if (title && score) {
+  if (title && userScore) {
     await pushData({
       url: request.url,
       title,
-      rating: score,
+      user_score: `${userScore}%`,
     });
   }
 });

@@ -14,30 +14,26 @@ async def main() -> None:
         name_cells = context.soup.select('[data-uia="top10-table-row-title"] button')
         for name_cell in name_cells[:5]:
             name = name_cell.text.strip()
-            imdb_search_url = (
-                f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
+            tmdb_search_url = (
+                f"https://www.themoviedb.org/search?query={quote_plus(name)}"
             )
-            requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
+            requests.append(Request.from_url(tmdb_search_url, label="TMDB_SEARCH"))
         await context.add_requests(requests)
 
-    @crawler.router.handler("IMDB_SEARCH")
-    async def handle_imdb_search(context: BeautifulSoupCrawlingContext) -> None:
-        await context.enqueue_links(
-            selector=".ipc-title-link-wrapper", label="IMDB", limit=1
-        )
+    @crawler.router.handler("TMDB_SEARCH")
+    async def handle_tmdb_search(context: BeautifulSoupCrawlingContext) -> None:
+        await context.enqueue_links(selector=".title a.result", label="TMDB", limit=1)
 
-    @crawler.router.handler("IMDB")
-    async def handle_imdb(context: BeautifulSoupCrawlingContext) -> None:
-        rating_element = context.soup.select_one(
-            "[data-testid='hero-rating-bar__aggregate-rating__score']"
-        )
-        title_element = context.soup.select_one("h1")
-        if rating_element and title_element:
+    @crawler.router.handler("TMDB")
+    async def handle_tmdb(context: BeautifulSoupCrawlingContext) -> None:
+        score_element = context.soup.select_one(".user_score_chart")
+        title_element = context.soup.select_one(".title a")
+        if score_element and title_element:
             await context.push_data(
                 {
                     "url": context.request.url,
                     "title": title_element.text.strip(),
-                    "rating": rating_element.text.strip(),
+                    "user_score": f"{score_element.get('data-percent')}%",
                 }
             )
 

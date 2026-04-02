@@ -166,12 +166,12 @@ teardown_file() {
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.f1academy.com/Racing-Series/Drivers/"* ]]
 }
 
-@test "scrapes Netflix ratings with Crawlee" {
+@test "scrapes Netflix user scores with Crawlee" {
   run node crawlee_netflix_ratings.mjs
 
   (( status == 0 ))
   [[ -f dataset.json ]]
   [[ $(cat dataset.json | jq '. | length') == "5" ]]
-  [[ $(cat dataset.json | jq -c '.[0] | keys') == '["rating","title","url"]' ]]
-  [[ $(cat dataset.json | jq '.[].url') == *"https://www.imdb.com/title/"* ]]
+  [[ $(cat dataset.json | jq -c '.[0] | keys') == '["title","url","user_score"]' ]]
+  [[ $(cat dataset.json | jq '.[].url') == *"https://www.themoviedb.org/"* ]]
 }

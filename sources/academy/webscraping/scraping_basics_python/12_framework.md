@@ -468,13 +468,13 @@ If you export the dataset as JSON, it should look something like this:
   <CodeBlock language="py">{CrawleeF1DriversExercise.code}</CodeBlock>
 </details>
 
-### Use Crawlee to find the ratings of the most popular Netflix films
+### Use Crawlee to find the user scores of popular Netflix titles
 
-The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the first 5 movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
+The [Global Top 10](https://www.netflix.com/tudum/top10) page has tables listing popular Netflix titles worldwide. Scrape the first 5 title names from this page, then search for each title on [TMDb](https://www.themoviedb.org/). Assume the first search result is correct and retrieve the title's user score. Each item you push to Crawlee's default dataset should include the following data:
 
-- URL of the film's IMDb page
+- URL of the title's TMDb page
 - Title
-- Rating
+- User score
 
 If you export the dataset as JSON, it should look something like this:
 
@@ -482,20 +482,20 @@ If you export the dataset as JSON, it should look something like this:
 ```json
 [
   {
-    "url": "https://www.imdb.com/title/tt32368345/?ref_=fn_tt_tt_1",
-    "title": "The Merry Gentlemen",
-    "rating": "5.0/10"
+        "url": "https://www.themoviedb.org/movie/1278263-the-merry-gentlemen",
+        "title": "The Merry Gentlemen",
+        "user_score": "61%"
   },
   {
-    "url": "https://www.imdb.com/title/tt32359447/?ref_=fn_tt_tt_1",
+        "url": "https://www.themoviedb.org/movie/1156593-hot-frosty",
     "title": "Hot Frosty",
-    "rating": "5.4/10"
+        "user_score": "61%"
   },
   ...
 ]
 ```
 
-To scrape IMDb data, you'll need to construct a `Request` object with the appropriate search URL for each movie title. The following code snippet gives you an idea of how to do this:
+To scrape TMDb data, you'll need to construct a `Request` object with the appropriate search URL for each title name. The following code snippet gives you an idea of how to do this:
 
 ```py
 from urllib.parse import quote_plus
@@ -508,8 +508,8 @@ async def main():
         requests = []
         for name_cell in context.soup.select(...):
             name = name_cell.text.strip()
-            imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
-            requests.append(Request.from_url(imdb_search_url, label="..."))
+            tmdb_search_url = f"https://www.themoviedb.org/search?query={quote_plus(name)}"
+            requests.append(Request.from_url(tmdb_search_url, label="..."))
         await context.add_requests(requests)
 
     ...
@@ -517,7 +517,7 @@ async def main():
 
 :::tip Need a nudge?
 
-When navigating to the first IMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
+When navigating to the first TMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
 
 :::
 
