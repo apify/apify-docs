@@ -148,12 +148,11 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                   PR_NUMBER: ${{ github.event.pull_request.number }}
-                  PR_SHA: ${{ github.event.pull_request.head.sha }}
               run: |
                   gh workflow run regenerate_models.yaml \
                       --repo apify/apify-client-python \
                       --field docs_pr_number="$PR_NUMBER" \
-                      --field docs_pr_sha="$PR_SHA"
+                      --field docs_workflow_run_id="${{ github.run_id }}"
 
     # When a docs PR is closed (merged or abandoned), clean up the corresponding auto-generated PR
     # in apify-client-python to avoid stale PRs piling up.
