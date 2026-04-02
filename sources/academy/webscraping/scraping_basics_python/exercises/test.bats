@@ -119,6 +119,7 @@ teardown() {
 @test "lists Guardian F1 authors" {
   run uv run -q --with=httpx --with=beautifulsoup4 python guardian_f1_authors.py
 
+  # check that each line is in the AUTHOR: TITLE format
   [[ "$output" == *' F1 '* ]]
   while IFS= read -r line; do
     [[ "$line" == *': '* ]]
