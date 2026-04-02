@@ -6,6 +6,8 @@ sidebar_position: 14
 slug: /integrations/openai-assistants
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview) allows you to build your own AI applications such as chatbots, virtual assistants, and more.
 The OpenAI Assistants can access OpenAI knowledge base ([vector store](https://platform.openai.com/docs/api-reference/vector-stores)) via file search and use function calling for dynamic interaction and data retrieval.
 
@@ -13,6 +15,8 @@ Unlike Custom GPT, OpenAI Assistants are available via API, enabling integration
 
 In this tutorial, we’ll start by demonstrating how to create an assistant and integrate real-time data using function calling with the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
 Next, we’ll show how to save data from Apify Actors into the OpenAI Vector Store for easy retrieval through [file-search](https://platform.openai.com/docs/assistants/tools/file-search).
+
+<ThirdPartyDisclaimer />
 
 ## Real-time search data for OpenAI Assistant
 

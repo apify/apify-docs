@@ -1,0 +1,144 @@
+get:
+  tags:
+    - Tools
+  summary: Get browser info
+  description: |
+    Returns information about the HTTP request, including the client IP address,
+    country code, request headers, and body length.
+
+    This endpoint is designed for proxy testing. It accepts any HTTP method so you
+    can verify that your proxy correctly forwards requests of any type and that
+    client IP addresses are anonymized.
+  operationId: tools_browser_info_get
+  security: []
+  parameters:
+    - name: skipHeaders
+      in: query
+      description: If `true` or `1`, the response omits the `headers` field.
+      schema:
+        type: boolean
+    - name: rawHeaders
+      in: query
+      description: If `true` or `1`, the response includes the `rawHeaders` field with the raw request headers.
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/tools/BrowserInfoResponse.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+post:
+  tags:
+    - Tools
+  summary: Get browser info
+  description: |
+    Returns information about the HTTP request, including the client IP address,
+    country code, request headers, and body length.
+
+    This endpoint is designed for proxy testing. It accepts any HTTP method so you
+    can verify that your proxy correctly forwards requests of any type and that
+    client IP addresses are anonymized.
+  operationId: tools_browser_info_post
+  security: []
+  parameters:
+    - name: skipHeaders
+      in: query
+      description: If `true` or `1`, the response omits the `headers` field.
+      schema:
+        type: boolean
+    - name: rawHeaders
+      in: query
+      description: If `true` or `1`, the response includes the `rawHeaders` field with the raw request headers.
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/tools/BrowserInfoResponse.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+put:
+  tags:
+    - Tools
+  summary: Get browser info
+  description: |
+    Returns information about the HTTP request, including the client IP address,
+    country code, request headers, and body length.
+
+    This endpoint is designed for proxy testing. It accepts any HTTP method so you
+    can verify that your proxy correctly forwards requests of any type and that
+    client IP addresses are anonymized.
+  operationId: tools_browser_info_put
+  security: []
+  parameters:
+    - name: skipHeaders
+      in: query
+      description: If `true` or `1`, the response omits the `headers` field.
+      schema:
+        type: boolean
+    - name: rawHeaders
+      in: query
+      description: If `true` or `1`, the response includes the `rawHeaders` field with the raw request headers.
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/tools/BrowserInfoResponse.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+delete:
+  tags:
+    - Tools
+  summary: Get browser info
+  description: |
+    Returns information about the HTTP request, including the client IP address,
+    country code, request headers, and body length.
+
+    This endpoint is designed for proxy testing. It accepts any HTTP method so you
+    can verify that your proxy correctly forwards requests of any type and that
+    client IP addresses are anonymized.
+  operationId: tools_browser_info_delete
+  security: []
+  parameters:
+    - name: skipHeaders
+      in: query
+      description: If `true` or `1`, the response omits the `headers` field.
+      schema:
+        type: boolean
+    - name: rawHeaders
+      in: query
+      description: If `true` or `1`, the response includes the `rawHeaders` field with the raw request headers.
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/tools/BrowserInfoResponse.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

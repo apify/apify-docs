@@ -50,12 +50,12 @@ By default, the builds are set to the _latest_ tag.
 
 To speed up builds triggered via API, you can use the `useCache=1` parameter. This instructs the build process to use cached Docker images and layers instead of pulling the latest copies and building each layer from scratch. Note that the cached images and layers might not always be available on the server building the image, the `useCache` parameter only functions on a best-effort basis.
 
-:::note Clean builds
+### Clean builds
 
-Running builds from the Console By default, the Console uses cached data when starting a build. You can also run a clean build without using the cache. To run a clean build:
+By default, Apify Console uses cached data when starting a build.
+
+To run a clean build without using the cache:
 
 1. Go to your Actor page.
-2. Select **Source** > **Code**.
-3. Locate the **Start** button. Next to it, click on the arrow & choose **Clean build**
-
-:::
+1. Select **Source** > **Code**.
+1. Expand **Build** options and choose **Clean build**.

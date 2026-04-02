@@ -3,23 +3,13 @@ description: A request that failed to be processed during a request queue operat
 required:
   - uniqueKey
   - url
-  - method
 type: object
 properties:
   id:
-    type: string
-    description: A unique identifier assigned to the request.
-    examples: [sbJ7klsdf7ujN9l]
+    $ref: ./SharedProperties.yaml#/RequestId
   uniqueKey:
-    type: string
-    description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
-    examples: [GET|60d83e70|e3b0c442|https://apify.com]
+    $ref: ./SharedProperties.yaml#/UniqueKey
   url:
-    type: string
-    format: uri
-    description: The URL of the request.
-    examples: [https://apify.com]
+    $ref: ./SharedProperties.yaml#/RequestUrl
   method:
-    type: string
-    description: The HTTP method of the request.
-    examples: [GET]
+    $ref: ./SharedProperties.yaml#/RequestMethod

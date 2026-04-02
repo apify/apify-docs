@@ -1,4 +1,4 @@
-title: TaskOptions
+title: OptionalRunOptions
 type: object
 properties:
   build:
@@ -9,9 +9,13 @@ properties:
     examples: [300]
   memoryMbytes:
     type: [integer, "null"]
-    examples: [128]
+    examples: [1024]
+  maxItems:
+    type: [integer, "null"]
+    examples: [1000]
+  maxTotalChargeUsd:
+    type: [number, "null"]
+    examples: [5]
   restartOnError:
     type: [boolean, "null"]
     examples: [false]
-  maxItems:
-    type: [integer, "null"]

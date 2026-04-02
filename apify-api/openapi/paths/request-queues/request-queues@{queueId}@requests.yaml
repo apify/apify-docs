@@ -4,14 +4,15 @@ get:
   summary: List requests
   description: |
     Returns a list of requests. This endpoint is paginated using
-    exclusiveStartId and limit parameters.
+    cursor (pagination by `exclusiveStartId` is deprecated) and limit parameters.
   operationId: requestQueue_requests_get
   parameters:
     - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
     - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
     - name: exclusiveStartId
       in: query
-      description: All requests up to this one (including) are skipped from the result.
+      description: All requests up to this one (including) are skipped from the result. (Deprecated, use `cursor` instead.)
+      deprecated: true
       style: form
       explode: true
       schema:
@@ -26,6 +27,25 @@ get:
         type: number
         format: double
         example: 100
+    - name: cursor
+      in: query
+      description: A cursor string for pagination, returned in the previous response as `nextCursor`. Use this to retrieve the next page of requests.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
+    - name: filter
+      in: query
+      description: Filter requests by their state. Possible values are `locked` and `pending`. (Is not compatible with deprecated `exclusiveStartId` parameter.)
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - locked
+          - pending
+        example: locked
   responses:
     "200":
       description: ""
@@ -81,7 +101,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/request-queues/RequestDraft.yaml
+          $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
     required: true
   responses:
     "201":

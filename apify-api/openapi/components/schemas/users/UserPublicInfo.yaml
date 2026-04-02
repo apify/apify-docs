@@ -1,7 +1,6 @@
 title: UserPublicInfo
 required:
   - username
-  - profile
 type: object
 properties:
   username:

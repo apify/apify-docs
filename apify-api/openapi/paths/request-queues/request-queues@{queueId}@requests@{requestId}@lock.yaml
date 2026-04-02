@@ -69,16 +69,6 @@ delete:
   parameters:
     - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
     - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
-    - name: Content-Type
-      in: header
-      description: ""
-      required: true
-      style: simple
-      schema:
-        enum:
-          - application/json
-        type: string
-        example: application/json
     - $ref: "../../components/parameters/storageParameters.yaml#/clientKeyLock"
     - name: forefront
       in: query
@@ -92,9 +82,7 @@ delete:
         example: "false"
   responses:
     "204":
-      description: ""
-      headers: {}
-      content: {}
+      $ref: ../../components/responses/NoContent.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

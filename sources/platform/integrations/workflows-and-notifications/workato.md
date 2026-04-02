@@ -12,6 +12,8 @@ slug: /integrations/workato
 
 [Workato](https://www.workato.com/) is an automation platform where you can build recipes, automated workflows that connect your apps with no-code connectors. With the Apify connector, you can run Apify Actors inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
 
+<ThirdPartyDisclaimer />
+
 ## Get started
 
 To use the Apify integration with Workato, you need:

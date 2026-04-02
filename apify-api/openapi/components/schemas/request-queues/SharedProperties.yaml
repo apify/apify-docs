@@ -1,0 +1,96 @@
+RequestId:
+  type: string
+  description: A unique identifier assigned to the request.
+  examples: [sbJ7klsdf7ujN9l]
+
+QueueId:
+  type: string
+  description: A unique identifier assigned to the request queue.
+  examples: [WkzbQMuFYuamGv3YF]
+
+UniqueKey:
+  type: string
+  description: A unique key used for request de-duplication. Requests with the same unique key are considered identical.
+  examples: [GET|60d83e70|e3b0c442|https://apify.com]
+
+RequestUrl:
+  type: string
+  format: uri
+  description: The URL of the request.
+  examples: [https://apify.com]
+
+RequestMethod:
+  description: The HTTP method of the request.
+  $ref: ../common/HttpMethod.yaml
+
+RetryCount:
+  type: integer
+  description: The number of times this request has been retried.
+  examples: [0]
+
+WasAlreadyPresent:
+  type: boolean
+  description: Indicates whether a request with the same unique key already existed in the request queue. If true, no new request was created.
+  examples: [false]
+
+WasAlreadyHandled:
+  type: boolean
+  description: Indicates whether a request with the same unique key has already been processed by the request queue.
+  examples: [false]
+
+HadMultipleClients:
+  type: boolean
+  description: Whether the request queue has been accessed by multiple different clients.
+  examples: [true]
+
+HeadLimit:
+  type: integer
+  description: The maximum number of requests returned.
+  examples: [1000]
+
+QueueUserId:
+  type: string
+  description: The ID of the user who owns the request queue.
+  examples: [wRsJZtadYvn4mBZmm]
+
+QueueCreatedAt:
+  type: string
+  format: date-time
+  description: The timestamp when the request queue was created.
+  examples: ["2019-12-12T07:34:14.202Z"]
+
+QueueAccessedAt:
+  type: string
+  format: date-time
+  description: The timestamp when the request queue was last accessed.
+  examples: ["2019-12-14T08:36:13.202Z"]
+
+TotalRequestCount:
+  type: integer
+  description: The total number of requests in the request queue.
+  minimum: 0
+  examples: [870]
+
+HandledRequestCount:
+  type: integer
+  description: The number of requests that have been handled.
+  minimum: 0
+  examples: [100]
+
+PendingRequestCount:
+  type: integer
+  description: The number of requests that are pending and have not been handled yet.
+  minimum: 0
+  examples: [670]
+
+QueueModifiedAt:
+  type: string
+  format: date-time
+  description: The timestamp when the request queue was last modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the request queue.
+  examples: ["2019-12-13T08:36:13.202Z"]
+
+LockExpiresAt:
+  type: string
+  format: date-time
+  description: The timestamp when the lock on this request expires.
+  examples: ["2022-06-14T23:00:00.000Z"]

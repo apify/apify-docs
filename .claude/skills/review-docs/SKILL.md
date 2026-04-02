@@ -1,7 +1,7 @@
 ---
 description: Review Apify documentation for style guide compliance, quality standards, and best practices. Use when user says "review this doc", "check this page", "audit documentation", "review before PR", "is this ready to publish", or "review-docs". Runs automated checks and manual review against Apify style guide.
 argument-hint: file-path
-allowed-tools: Read, Bash, Glob, Grep
+allowed-tools: Read, Bash, Glob, Grep, Agent
 ---
 
 # Documentation review
@@ -12,7 +12,10 @@ Review documentation for compliance with Apify style guide, quality standards, a
 
 ### Step 1: Check latest changes
 
-**CRITICAL**: Verify you're reviewing the latest version of the file. If reviewing a PR, confirm the branch is up to date.
+**CRITICAL**: Verify you're reviewing the latest version of the file before starting.
+
+- If reviewing a local file: confirm no unsaved changes with `git status`
+- If reviewing a PR: run `git fetch && git checkout <branch>` to ensure the branch is current
 
 ## Standards reference
 
@@ -73,7 +76,7 @@ User says: "Review sources/platform/actors/running.md before I submit"
 
 Actions:
 1. Read the file
-1. Run `npx markdownlint "sources/platform/actors/running.md"`
+1. Run `npm run lint:md` (or `npx markdownlint "sources/platform/actors/running.md"` for a single file)
 1. Run `vale "sources/platform/actors/running.md" --minAlertLevel=error`
 1. Check against review checklist
 1. Output structured review with strengths, issues, and priority fixes

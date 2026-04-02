@@ -1,0 +1,20 @@
+title: DecodeAndVerifyResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    type: object
+    required:
+      - decoded
+      - encodedByUserId
+      - isVerifiedUser
+    properties:
+      decoded:
+        description: The original object that was encoded.
+      encodedByUserId:
+        type: [string, "null"]
+        examples: [wRwJZtadYvn4mBZmm]
+      isVerifiedUser:
+        type: boolean
+        examples: [false]
