@@ -6,8 +6,6 @@ sidebar_position: 1.5
 slug: /integrations/claude-desktop
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/platform/integrations/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
@@ -28,57 +26,21 @@ Choose one of the following methods:
 
 ### Remote server (recommended)
 
-The remote server at `https://mcp.apify.com` is the recommended way to connect. It provides automatic updates, OAuth authentication, and requires no local dependencies or API token management.
+The remote server at `https://mcp.apify.com` is the recommended way to connect. Key advantages:
 
-1. Open Claude Desktop.
-1. Go to **Settings** > **Developer** > **Edit Config**.
-1. Edit the configuration file to add the Apify MCP server:
+- **Automatic updates** - always runs the latest version of the Apify MCP server
+- **OAuth authentication** - secure sign-in through your browser, no API token needed
+- **No local dependencies** - nothing to install or maintain on your machine
 
-<Tabs>
-<TabItem value="OAuth" label="OAuth (recommended)">
+To set up the remote server, [add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL.
 
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "url": "https://mcp.apify.com"
-    }
-  }
-}
-```
-
-On first connection, your browser opens to sign in to Apify and authorize the connection. This OAuth flow keeps your API token secure.
-
-</TabItem>
-<TabItem value="Bearer token" label="Bearer token">
-
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "url": "https://mcp.apify.com",
-      "headers": {
-        "Authorization": "Bearer <APIFY_TOKEN>"
-      }
-    }
-  }
-}
-```
-
-Replace `<APIFY_TOKEN>` with your API token obtained from [Apify Console](https://console.apify.com/account#/integrations).
-
-</TabItem>
-</Tabs>
+On first connection, your browser opens to sign in to Apify and authorize the connection. This OAuth flow keeps your API token secure - you don't need to manage or paste an API token.
 
 ### One-click installation
 
-You can install the Apify MCP server directly from the Claude Desktop connector directory:
+You can install the Apify MCP server directly from the [Claude Desktop connector directory](https://support.claude.com/en/articles/11175166). Search for "Apify" and install the connector.
 
-1. Open Claude Desktop.
-1. Go to **Settings** > **Connectors** > **Browse connectors**.
-1. Search for Apify and install the connector.
-
-Alternatively, you can download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
+Alternatively, download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
 
 ## Verify the connection
 
@@ -91,6 +53,10 @@ Alternatively, you can download and open the [Apify MCP server `.mcpb` file](htt
 
 <!-- markdownlint-disable MD001 -->
 
+:::note One-click installation only
+The troubleshooting steps below apply to the [one-click installation](#one-click-installation) method. The remote server runs entirely on Apify's infrastructure, so there are no local logs or configuration to debug. If you experience issues with the [remote server](#remote-server-recommended), contact [Apify support](https://apify.com/contact).
+:::
+
 If the steps below don't resolve your issue, [submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
 
 
@@ -98,11 +64,10 @@ If the steps below don't resolve your issue, [submit a GitHub issue](https://git
 
 This is the most common issue. It typically appears when installing from the Claude Desktop connector directory. In some cases, the MCP server starts and communicates correctly, but Claude Desktop still shows the error.
 
-1. _Consider switching to the [remote server](#remote-server-recommended) setup._ Manual configuration with the remote server is the most reliable option.
+1. _Consider switching to the [remote server](#remote-server-recommended) setup._ The remote server is the most reliable option.
 1. _Uninstall and reinstall the extension._ In Claude Desktop, disable the Apify extension, remove it, then add it again.
 1. _Clear the npx cache._ A stale cache can cause connection failures. Follow the steps in [Corrupted npx cache](#corrupted-npx-cache).
 1. _Check the [Claude Desktop logs](#claude-desktop-logs)_ for specific error messages.
-1. _Verify the server URL._ For remote setup, use exactly `https://mcp.apify.com` with no trailing slash.
 1. _Check your network._ Ensure your firewall or VPN is not blocking the connection.
 1. _Still not working?_ [Submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
 
@@ -111,10 +76,8 @@ This is the most common issue. It typically appears when installing from the Cla
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
 - _Restart Claude Desktop._ Configuration changes only take effect after a restart.
-- _Check the config file location._ Verify you edited the correct file:
-  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-- _Validate JSON syntax._ Ensure there are no trailing commas, missing quotes, or mismatched brackets. Paste your config into a JSON validator if needed.
+- _Reinstall the connector._ Remove the Apify connector and add it again.
+- _Switch to the [remote server](#remote-server-recommended)._ The remote server is the most reliable connection method.
 
 #### Corrupted npx cache
 
