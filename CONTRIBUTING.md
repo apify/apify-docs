@@ -182,7 +182,7 @@ The API reference documentation at [docs.apify.com/api/v2](https://docs.apify.co
 
 We use the following tools for API documentation:
 
-- **[OpenAPI 3.0](https://spec.openapis.org/oas/v3.0.3)** - API specification format
+- **[OpenAPI 3.1.2](https://spec.openapis.org/oas/v3.1.2.html)** - API specification format
 - **[Redocly CLI](https://redocly.com/docs/cli/)** - Linting and validation of OpenAPI specs
 - **[`docusaurus-plugin-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs)** - Generates MDX docs from OpenAPI
 - **[`docusaurus-theme-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs)** - Renders API reference with interactive explorer

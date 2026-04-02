@@ -188,30 +188,7 @@ get:
     "200":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -269,6 +246,54 @@ get:
   x-py-parent: DatasetClientAsync
   x-py-name: stream_items
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#stream_items
+head:
+  tags:
+    - Storage/Datasets
+  summary: Get dataset items headers
+  description: |
+    Returns only the HTTP headers for the dataset items endpoint, without the response body.
+    This is useful to check pagination metadata or verify access without downloading the full dataset.
+  operationId: dataset_items_head
+  parameters:
+    - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - name: view
+      in: query
+      description: |
+        Defines the view configuration for dataset items based on the schema definition.
+        This parameter determines how the data will be filtered and presented.
+        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
+      schema:
+        type: string
+        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../components/parameters/storageParameters.yaml#/signature"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+  deprecated: false
 post:
   tags:
     - Storage/Datasets
@@ -289,9 +314,11 @@ post:
     content:
       application/json:
         schema:
-          type: array
-          items:
-            $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
+          oneOf:
+            - $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
+            - type: array
+              items:
+                $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
           description: ""
     required: true
   responses:
@@ -316,6 +343,8 @@ post:
         application/json:
           schema:
             $ref: ../../components/schemas/datasets/PutItemResponseError.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:

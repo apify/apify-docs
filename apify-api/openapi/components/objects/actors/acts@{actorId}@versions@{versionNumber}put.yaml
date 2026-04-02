@@ -1,0 +1,94 @@
+shared: &shared
+  tags:
+    - Actors/Actor versions
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/versionNumber"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/actors/CreateOrUpdateVersionRequest.yaml
+        example:
+          versionNumber: "0.0"
+          sourceType: SOURCE_FILES
+          envVars:
+            - name: DOMAIN
+              value: http://example.com
+              isSecret: false
+            - name: SECRET_PASSWORD
+              value: MyTopSecretPassword123
+              isSecret: true
+          applyEnvVarsToBuild: false
+          buildTag: latest
+          sourceFiles: []
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/actors/VersionResponse.yaml
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+    "401":
+      $ref: ../../responses/Unauthorized.yaml
+    "403":
+      $ref: ../../responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+    "405":
+      $ref: ../../responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../responses/TooManyRequests.yaml
+  deprecated: false
+  x-py-parent: ActorVersionClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#update
+
+put:
+  <<: *shared
+  summary: Update version
+  description: |
+    Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
+
+    If the object does not define a specific property, its value will not be
+    updated.
+
+    The request needs to specify the `Content-Type: application/json` HTTP
+    header!
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+
+    The response is the [Version object](#/reference/actors/version-object) as
+    returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
+  operationId: act_version_put
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
+    - https://docs.apify.com/api/v2#/reference/actors/update-version
+    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_put
+
+post:
+  <<: *shared
+  summary: Update version (POST)
+  description: |
+    Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
+    This endpoint is an alias for the [`PUT` update version](#tag/ActorsVersion-object/operation/act_version_put) method and behaves identically.
+  operationId: act_version_post
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
+    - https://docs.apify.com/api/v2#/reference/actors/update-version
+    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_post

@@ -53,6 +53,7 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 
 ### OpenAPI specification changes
 
+- Target OpenAPI specification version should be extracted from `/openapi/openapi.yaml`. All specification changes should be compliant with syntax for that specific OpenAPI specification version.
 - Prefer re-use of existing objects via `$ref` over duplication. Reusable components can be found in `/openapi/components`.
 - Components most suitable for re-use are:
   - Request parameters and path parameters defined in  `/openapi/components/parameters`
