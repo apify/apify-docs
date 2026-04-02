@@ -43,7 +43,21 @@ Each skill is a Markdown file (`SKILL.md`) that describes a domain-specific capa
 - Extract data from websites, social media, and e-commerce platforms
 - [Develop, test & publish Actors](https://docs.apify.com/platform/actors/development/quick-start/build-with-ai) in Apify Store
 
-Skills use [MCPC](#install-mcpc) under the hood to communicate with Apify MCP server and execute Actor calls.
+Skills include bundled scripts that communicate with the Apify API to execute Actor calls. They use your `APIFY_TOKEN` from the [`.env` file](#set-up-your-api-token).
+
+## Set up your API token
+
+Agent Skills need your Apify API token to run Actors. Create a `.env` file in your project root:
+
+```bash
+APIFY_TOKEN=your_api_token
+```
+
+Get your token from the [Integrations](https://console.apify.com/account/integrations) section in Apify Console.
+
+:::caution Keep your token private
+Don't commit the `.env` file to version control. Add it to your `.gitignore` file.
+:::
 
 ## Install MCPC
 
@@ -104,87 +118,47 @@ mcpc @apify tools-call search-actors keywords:="web scraper" --json
 
 ## Configure AI coding assistants
 
-Set up Agent Skills and MCPC with your preferred AI coding assistant.
+After [installing Agent Skills](#install-agent-skills) and setting up your [API token](#set-up-your-api-token), configure your AI coding assistant to use them.
 
 <Tabs groupId="coding-assistant">
 <TabItem value="claude-code" label="Claude Code">
 
-1. Install Agent Skills in your project:
+Add skills from the plugin marketplace:
 
-    ```bash
-    npx skills add apify/agent-skills
-    ```
+```bash
+# Add the marketplace
+/plugin marketplace add https://github.com/apify/agent-skills
 
-1. Add the Apify MCP server:
+# Install a skill
+/plugin install apify-ultimate-scraper@apify-agent-skills
+```
 
-    ```bash
-    claude mcp add apify "https://mcp.apify.com" -t http
-    ```
-
-1. Start using skills by asking your assistant to scrape data, extract information, or run Actors.
+Start using skills by asking your assistant to scrape data, extract information, or run Actors.
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
-1. Install Agent Skills in your project:
-
-    ```bash
-    npx skills add apify/agent-skills
-    ```
-
-1. Create or open `.cursor/mcp.json` and add:
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com"
-        }
-      }
-    }
-    ```
-
-1. Restart Cursor to load the new MCP configuration.
+Cursor automatically discovers skill files (`SKILL.md`) in your project directory after running `npx skills add apify/agent-skills`. No additional configuration is needed.
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-1. Install Agent Skills in your project:
-
-    ```bash
-    npx skills add apify/agent-skills
-    ```
-
-1. Install an MCP-compatible extension (GitHub Copilot, Cline, or Roo Code).
-1. Open the extension's MCP configuration and add:
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com"
-        }
-      }
-    }
-    ```
+VS Code with an AI extension (GitHub Copilot, Cline, or Roo Code) automatically discovers skill files in your project directory after running `npx skills add apify/agent-skills`. No additional configuration is needed.
 
 </TabItem>
 <TabItem value="other" label="Other tools">
 
 For Codex, Gemini CLI, and other tools:
 
-1. Install Agent Skills in your project:
-
-    ```bash
-    npx skills add apify/agent-skills
-    ```
-
-1. Reference skill files directly. Most AI tools automatically discover `AGENTS.md` or `SKILL.md` files in your project directory.
-
-1. If your tool supports MCP, configure it to connect to `https://mcp.apify.com`.
+1. Run `npx skills add apify/agent-skills` to add skill files to your project.
+1. Most AI tools automatically discover `AGENTS.md` or `SKILL.md` files in your project directory.
 
 </TabItem>
 </Tabs>
+
+:::tip Connect the Apify MCP server for extra capabilities
+For additional MCP-based tools like documentation search, you can optionally connect the [Apify MCP server](/integrations/mcp). This is not required for Agent Skills to work.
+:::
 
 ## MCPC features
 
@@ -241,7 +215,7 @@ mcpc connect localhost:8080 @sandboxed
 Pass arguments to tool calls using `key:=value` syntax:
 
 | Input | Parsed type |
-|-------|------------|
+| ----- | ---------- |
 | `count:=10` | Number |
 | `enabled:=true` | Boolean |
 | `greeting:=hello` | String |
