@@ -23,7 +23,7 @@ We're getting one tiny step closer to becoming developers, but don't worry. It's
 
 ## Installing Node.js
 
-If we want either ourselves or our AI agent to run our scraper on our computer, we first need to set up the environment.
+If we want to run our scraper on our own computer, whether we do it ourselves or have our AI agent do it for us, we first need to set up the environment so the code can run locally.
 
 Previously we chose to develop our scraper in a mainstream programming language called JavaScript. To run command line programs written in JavaScript, we'll need a tool called Node.js.
 
