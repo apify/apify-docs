@@ -6,11 +6,15 @@ sidebar_position: 8
 slug: /integrations/viasocket
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';
+
 Learn how to connect Apify with viaSocket, configure triggers, authenticate using API tokens, and create automation flows.
 
 ---
 
 [viaSocket](https://viasocket.com/) is a workflow automation platform that lets you connect apps and automate tasks without writing code. With the Apify integration, you can trigger Actor runs, retrieve results, and build end-to-end automation pipelines that react to events across your connected apps.
+
+<ThirdPartyDisclaimer />
 
 ## Step 1: Generate an Apify API token
 
@@ -28,9 +32,9 @@ Never share your API token publicly or commit it to version control.
 
 1. Log in to your [viaSocket account](https://viasocket.com/) and click **Create New Flow**.
 1. In the **Trigger** section, search for and select **Apify**.
-![Search for Apify in viaSocket](../images/viasocket/viasocket-search-apify.png)
+   ![Search for Apify in viaSocket](../images/viasocket/viasocket-search-apify.png)
 1. Choose **Finished Task Run** or **Finished Actor Run** as the trigger event.
-![Select Apify trigger in viaSocket](../images/viasocket/viasocket-select-trigger.png)
+   ![Select Apify trigger in viaSocket](../images/viasocket/viasocket-select-trigger.png)
 
 ## Step 3: Connect your Apify account and configure the trigger
 
