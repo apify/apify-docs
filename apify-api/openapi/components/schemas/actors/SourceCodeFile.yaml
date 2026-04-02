@@ -1,7 +1,6 @@
 title: SourceCodeFile
 type: object
 required:
-  - format
   - content
   - name
 properties:
