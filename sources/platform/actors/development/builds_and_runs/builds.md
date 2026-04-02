@@ -59,4 +59,3 @@ To run a clean build without using the cache:
 1. Go to your Actor page.
 1. Select **Source** > **Code**.
 1. Expand **Build** options and choose **Clean build**.
->>>>>>> f543b3ec (The third round)
