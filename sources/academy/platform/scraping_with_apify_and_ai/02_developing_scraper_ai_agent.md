@@ -9,50 +9,23 @@ unlisted: true
 
 ---
 
-:::note Course under construction
-This page hasn't been written yet. Come later, please!
-:::
+In the previous lesson, modifying our scraper involved navigating through the Web IDE, copying code, switching to ChatGPT and back, pasting new code, and so on.
 
-<!--
+Such grind is okay for small edits, but it's not sustainable long-term. If we build something larger or something robust we want to be able to develop and mantain for longer time, we need to streamline the development process.
 
-Want to get data about prices on [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales)? Even without knowing how to code, we can open [ChatGPT](https://chatgpt.com/), type the following, and we'll have a scraper ready:
+To step up our game, we'll run several commands and go through a few installations to bring the tools of trade to our computer:
 
-```text
-Create a scraper in JavaScript which downloads
-https://warehouse-theme-metal.myshopify.com/collections/sales,
-extracts all the products in Sales and saves a CSV file,
-which contains:
+- We'll have the Actor files downloaded and we'll be able to run the code locally. This makes it fast and easy to verify any changes.
+- We'll have a locally installed IDE with a built-in AI agent, which we can point at the Actor files. We'll be able to tell it what we need and it'll be able to change the files directly, without any hand holding.
+- We can develop changes locally while the previous version of our code runs on Apify undisturbed. Only once we're happy with what we have, we can push the changes back to Apify, so they replace the old version.
 
-- Product name
-- Product detail page URL
-- Price
-```
-
-Try it! While the code generated will most likely work out of the box, the resulting program will have a few caveats. Some are usability issues:
-
-- _User-operated:_ We have to run the scraper ourselves. If we're tracking price trends, we'd need to remember to run it daily. And if we want alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
-- _Manual data management:_ Tracking prices over time means figuring out how to organize the exported data ourselves. Processing the data could also be tricky since different analysis tools often require different formats.
-
-Some are technical challenges:
-
-- _No monitoring:_ Even if we knew how to set up a server or home installation so our scraper runs regularly, we'd have little insight into whether it ran successfully, what errors or warnings occurred, how long it took, or what resources it used.
-- _Anti-scraping risks:_ If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually they'd block that too, and we'd seriously annoy our barista.
-
-To overcome these limitations, we'll use [Apify](https://apify.com/), a platform where our scraper can run independently of our computer. Apify expects our code to be structured as an Actor, so the setup is a bit heavier at first. But it pays off quickly - once we're ready, deploying to the platform is almost just one command.
-
-First, we'll use a few commands to set up an Actor template, and then we'll prompt ChatGPT to generate the code for scraping that Sales page.
-
-:::info The Warehouse store
-
-In this course, we'll scrape a real e-commerce site instead of artificial playgrounds or sandboxes. Shopify, a major e-commerce platform, has a demo store at [warehouse-theme-metal.myshopify.com](https://warehouse-theme-metal.myshopify.com/). It strikes a good balance between being realistic and stable enough for a tutorial.
-
-:::
+We are coming one tiny step closer to becoming developers, but don't worry, it's not like we'd now be needing to read code.
 
 ## Installing Node.js
 
-With AI, we don't need to learn coding before we build a scraper. AI writes the code for us. We still need to set up our environment so we can run that code.
+If we want us or our AI agent to be able to run our scraper on our computer, we first need to set up our environment so we can run code.
 
-We'll develop our scraper in a mainstream programming language called JavaScript. To run command line programs written in JavaScript, we'll need a tool called Node.js.
+Previously we chose to develop our scraper in a mainstream programming language called JavaScript. To run command line programs written in JavaScript, we'll need a tool called Node.js.
 
 Let's head to the [Download Node.js](https://nodejs.org/en/download) web page. We should see a row of configuration dropdowns and a rather large code block below, with quite a few commands. Let's check if the website guessed our operating system correctly, then copy the whole block to the clipboard:
 
@@ -72,9 +45,7 @@ The exact version numbers are not really important. If we see the versions print
 
 ## Installing Apify CLI
 
-Now we'll install Apify CLI. It's a command-line tool that works as a remote control for the Apify platform. It also helps us structure our scraper as an Actor so it can run on the platform.
-
-Apify CLI happens to be also made in JavaScript, so we can use the npm tool we just installed to get it on our computer:
+Now we'll install Apify CLI. It's a command-line tool that works as a remote control for the Apify platform. Apify CLI happens to be also made in JavaScript, so we can use the npm tool we just installed to get it on our computer. Run the following command:
 
 ```text
 npm install -g apify-cli
@@ -91,6 +62,46 @@ If it prints something like the following, we're ready to start building:
 ```text
 apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
 ```
+
+## Downloading Actor files
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
+:::
+
+## Running Actor locally
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
+:::
+
+## Installing Cursor
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
+:::
+
+## Modifying code with Cursor
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
+:::
+
+## Verifying changes
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
+:::
+
+## Pushing Actor to Apify
+
+:::note Course under construction
+This section hasn't been written yet. Come later, please!
+:::
+
+## Conclusion
+
+<!--
 
 ## Creating an Actor
 
@@ -261,6 +272,8 @@ If the paragraph above turns out being a wrong direction, we should use VS Code 
 -->
 
 <!--
+We'll choose [Cursor](https://cursor.com/), because it has a free plan and it's beginner-friendly.
+
 #### Installing development environment
 Explaining benefits (delegation and independent work, AGENTS.md). Getting environment ready. Use https://docs.apify.com/platform/actors/development/quick-start/build-with-ai
 #### Scraping vendor names
