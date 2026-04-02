@@ -7,6 +7,12 @@ slug: /integrations/make/search
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Use the Google Search Scraper modules in [Make](https://www.make.com/) to crawl SERPs and extract structured results in JSON, XML, CSV, or Excel.
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for Google Search
 
 The Google search modules from [Apify](https://apify.com) allows you to crawl Google Search Results Pages (SERPs) and extract data from those web pages in structured format such as JSON, XML, CSV, or Excel.
