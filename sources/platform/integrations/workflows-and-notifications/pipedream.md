@@ -23,7 +23,7 @@ Before you begin, make sure you have:
 
 1. Log into your Pipedream account and [create a new workflow](https://pipedream.com/docs/workflows).
 1. [Add an Apify step](https://pipedream.com/docs/workflows/building-workflows/steps) (trigger or action) to your workflow.
-1. When prompted, [connect your Apify account](https://pipedream.com/docs/apps/connected-accounts) by entering your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**.
+1. Select **Connect Apify** and enter your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**. See [connected accounts](https://pipedream.com/docs/apps/connected-accounts) for more details.
 1. After connecting, you can use any Apify trigger or action in your workflows.
 
 ## Use Apify as a trigger
@@ -31,7 +31,7 @@ Before you begin, make sure you have:
 [Triggers](https://pipedream.com/docs/workflows/building-workflows/triggers) start your Pipedream workflow automatically when an event occurs in Apify.
 
 1. [Create a new workflow](https://pipedream.com/docs/workflows) in Pipedream.
-1. Search for **Apify** in the trigger selection.
+1. Select **Add Trigger** and search for **Apify**.
 1. Select the trigger you want to use, e.g. **New Finished Actor Run**.
 1. Configure the trigger by selecting the Actor or task to monitor.
 1. Add subsequent steps to process the output.
