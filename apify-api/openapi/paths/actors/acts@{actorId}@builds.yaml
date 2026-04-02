@@ -38,7 +38,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/RecordOrTokenNotFoundError"
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
