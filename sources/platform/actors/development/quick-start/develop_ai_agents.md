@@ -6,7 +6,15 @@ sidebar_label: Develop AI agents
 slug: /actors/development/quick-start/develop-ai-agents
 ---
 
-The Apify platform provides everything you need to build, test, and deploy AI agents. This page walks you through the full stack: templates, sandbox code execution, LLM access through OpenRouter, pay-per-event monetization, and deployment to [Apify Store](https://apify.com/store).
+The Apify platform provides everything you need to build, test, and deploy AI agents. This page walks you through the complete toolkit: templates, sandbox code execution, LLM access through OpenRouter, pay-per-event monetization, and deployment to [Apify Store](https://apify.com/store).
+
+This page covers:
+
+- [**Start from a template**](#start-from-a-template) - Use pre-built Apify Actor templates for popular AI frameworks to scaffold your agent quickly.
+- [**AI Sandbox**](#use-ai-sandbox-for-code-execution) - Run code in an isolated environment at runtime. Useful when your agent needs to execute user-provided or dynamically generated code.
+- [**OpenRouter**](#access-llms-with-openrouter) - Access 100+ LLMs through your Apify account without managing separate API keys.
+- [**Pay-per-event pricing**](#monetize-with-pay-per-event-pricing) - Charge users for specific actions your agent performs, such as API calls or token usage.
+- [**Deploy to Apify**](#deploy-to-apify) - Push your agent to the Apify platform and publish it to Apify Store.
 
 :::tip Build with AI
 
@@ -16,7 +24,7 @@ Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to hel
 
 ## Start from a template
 
-The fastest way to start your AI agent is to use one of the AI framework templates. Each template comes pre-configured with the right file structure, dependencies, and the Apify SDK integration.
+The fastest way to start your AI agent is to use one of the Apify Actor templates built on popular AI frameworks. Each template comes pre-configured with the right file structure, dependencies, and the Apify SDK integration.
 
 Available AI framework templates include:
 
@@ -53,7 +61,7 @@ If you don't have the Apify CLI installed, see the [installation guide](/cli/doc
 
 ### Example workflow
 
-1. Your agent Actor starts AI Sandbox as a sub-Actor
+1. Your agent Actor starts the AI Sandbox Actor using the Apify SDK (similar to calling any other Actor)
 1. The agent sends code to execute via the REST API (`POST /exec`)
 1. AI Sandbox runs the code in isolation and returns results
 1. The agent processes results and iterates
@@ -67,6 +75,12 @@ AI Sandbox runs on a Debian image with Node.js version 24 and Python 3 pre-insta
 ## Access LLMs with OpenRouter
 
 The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 100+ LLMs through your Apify account. Supported providers include OpenAI, Anthropic, Google, Mistral, Meta, and more. No separate API keys or billing setup required - all costs are billed as platform usage.
+
+:::caution Paid account recommended
+
+To use the OpenRouter Actor, subscribe to a paying Apify plan. Free-tier accounts may be blocked by anti-fraud protections.
+
+:::
 
 OpenRouter exposes an OpenAI-compatible API, so you can use it with any SDK that supports the OpenAI API format.
 
