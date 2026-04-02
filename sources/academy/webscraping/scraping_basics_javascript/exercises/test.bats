@@ -125,6 +125,7 @@ teardown_file() {
 @test "lists Guardian F1 authors" {
   run node guardian_f1_authors.mjs
 
+  # check that each line is in the AUTHOR: TITLE format
   [[ "$output" == *' F1 '* ]]
   while IFS= read -r line; do
     [[ "$line" == *': '* ]]
