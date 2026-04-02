@@ -125,14 +125,16 @@ teardown_file() {
 @test "lists Guardian F1 authors" {
   run node guardian_f1_authors.mjs
 
-  # check that each line is in the AUTHOR: TITLE format
+  [[ $(echo "$output" | wc -l) -gt 5 ]]
   [[ "$output" == *' F1 '* ]]
+  [[ "$output" == *'Giles Richards: '* ]]  # writes most of them (we'll have to change this if they fire him)
+
+  # check that each line is in the AUTHOR: TITLE format
   while IFS= read -r line; do
     [[ "$line" == *': '* ]]
     [[ "$line" != ': '* ]]
     [[ "$line" != *': ' ]]
   done <<< "$output"
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
 @test "lists JavaScript GitHub repos with the LLM topic" {
