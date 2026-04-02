@@ -156,7 +156,7 @@ At this point, we haven't told the platform much about the data we expect, so th
 
 Well, does it? If we look closely, the prices include extra text, which isn't ideal. We'll improve this in one of the next lessons. We'll also improve the workflow so we don't have to keep copying and pasting code between ChatGPT and the Web IDE.
 
-:::caution If output doesn't appear
+:::tip If output doesn't appear
 
 If the scraper doesn't produce any rows, make sure you changed the input URL and applied all code changes.
 
