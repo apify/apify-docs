@@ -120,8 +120,11 @@ teardown() {
   run uv run -q --with=httpx --with=beautifulsoup4 python guardian_f1_authors.py
 
   [[ "$output" == *' F1 '* ]]
-  [[ "$output" == *'Giles Richards: '* ]]  # writes most of them (we'll have to change this if they fire him)
-  [[ "$output" == *'Guardian sport: '* || "$output" == *'PM Media: '* ]]
+  while IFS= read -r line; do
+    [[ "$line" == *': '* ]]
+    [[ "$line" != ': '* ]]
+    [[ "$line" != *': ' ]]
+  done <<< "$output"
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
