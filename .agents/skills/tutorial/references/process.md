@@ -29,7 +29,7 @@ Use simple present tense ("Create an Actor" not "Creating an Actor"). Match slug
 
 ## Step 4: Write tutorial content
 
-Follow the 8-section template in `references/tutorial-template.md`:
+Follow the 8-section template in `.agents/skills/tutorial/references/tutorial-template.md`:
 
 1. Introduction with learning objectives
 1. Prerequisites with checklist and time estimate
@@ -56,7 +56,7 @@ Verify front matter has all required fields. Run `npm run build` to catch broken
 
 ### Code examples don't render correctly
 
-Ensure every code block has a language specifier. For code tabs, use the exact Docusaurus `Tabs`/`TabItem` import pattern from `references/tutorial-template.md`.
+Ensure every code block has a language specifier. For code tabs, use the exact Docusaurus `Tabs`/`TabItem` import pattern from `.agents/skills/tutorial/references/tutorial-template.md`.
 
 ### Tutorial doesn't appear in sidebar
 
