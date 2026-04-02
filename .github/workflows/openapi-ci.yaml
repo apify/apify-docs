@@ -10,6 +10,7 @@ on:
 
 permissions:
     contents: read
+    pull-requests: read
 
 jobs:
     lint:
@@ -116,7 +117,7 @@ jobs:
                   echo "Bundle sizes:"
                   echo "  JSON: $JSON_SIZE bytes"
                   echo "  YAML: $YAML_SIZE bytes"
-                  if [ "$JSON_SIZE" -lt 1000 ] || [ "$YAML_SIZE" -lt 1000 ]; then
+                  if [[ "$JSON_SIZE" -lt 1000 ]] || [[ "$YAML_SIZE" -lt 1000 ]]; then
                     echo "Error: Bundle files are suspiciously small"
                     exit 1
                   fi
@@ -162,6 +163,7 @@ jobs:
         if: >-
             github.event_name == 'pull_request'
             && github.event.action == 'closed'
+            && github.event.pull_request.head.repo.full_name == github.repository
 
         steps:
             - name: Close corresponding apify-client-python PR
@@ -175,9 +177,9 @@ jobs:
                       --repo apify/apify-client-python \
                       --head "$BRANCH" \
                       --json number \
-                      --jq '.[0].number' 2>/dev/null || true)
+                      --jq '.[0].number // empty' 2>/dev/null || true)
 
-                  if [ -n "$EXISTING_PR" ]; then
+                  if [[ -n "$EXISTING_PR" ]]; then
                     gh pr close "$EXISTING_PR" \
                         --repo apify/apify-client-python \
                         --delete-branch \
