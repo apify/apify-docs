@@ -482,14 +482,14 @@ If you export the dataset as JSON, it should look something like this:
 ```json
 [
   {
-        "url": "https://www.themoviedb.org/movie/1278263-the-merry-gentlemen",
-        "title": "The Merry Gentlemen",
-        "user_score": "61%"
+    "url": "https://www.themoviedb.org/movie/1278263-the-merry-gentlemen",
+    "title": "The Merry Gentlemen",
+    "user_score": "61%"
   },
   {
-        "url": "https://www.themoviedb.org/movie/1156593-hot-frosty",
+    "url": "https://www.themoviedb.org/movie/1156593-hot-frosty",
     "title": "Hot Frosty",
-        "user_score": "61%"
+    "user_score": "61%"
   },
   ...
 ]
