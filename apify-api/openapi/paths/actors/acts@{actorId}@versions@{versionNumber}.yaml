@@ -23,13 +23,7 @@ get:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/RecordOrTokenNotFoundError"
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
