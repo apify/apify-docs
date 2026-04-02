@@ -5,33 +5,33 @@ slug: /scraping-with-apify-and-ai/developing-scraper-with-ai-agent
 unlisted: true
 ---
 
-**In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code on our computer and use Cursor to streamline how we make changes to our scraper.**
+**In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code onto our computer and use Cursor to streamline how we update our scraper.**
 
 ---
 
 In the previous lesson, modifying our scraper involved navigating through the Web IDE, copying code, switching to ChatGPT and back, pasting new code, and so on.
 
-Such grind is okay for small edits, but it's not sustainable long-term. If we build something larger or something robust we want to be able to develop and mantain for longer time, we need to streamline the development process.
+That kind of grind is okay for small edits, but it's not sustainable in the long run. If we want to build something larger, or something robust that we can develop and maintain over time, we need to streamline the process.
 
-To step up our game, we'll run several commands and go through a few installations to bring the tools of trade to our computer:
+To step up our game, we'll run a few commands and install a few tools so we can bring the tools of the trade onto our computer:
 
 - We'll have the Actor files downloaded and we'll be able to run the code locally. This makes it fast and easy to verify any changes.
-- We'll have a locally installed IDE with a built-in AI agent, which we can point at the Actor files. We'll be able to tell it what we need and it'll be able to change the files directly, without any hand holding.
-- We can develop changes locally while the previous version of our code runs on Apify undisturbed. Only once we're happy with what we have, we can push the changes back to Apify, so they replace the old version.
+- We'll have a locally installed IDE with a built-in AI agent that we can point at the Actor files. We'll be able to tell it what we need, and it'll change the files directly, without hand-holding.
+- We'll be able to develop changes locally while the previous version of our code keeps running on the Apify platform undisturbed. Only once we're happy with what we have will we push the changes back, so they can replace the old version.
 
-We are coming one tiny step closer to becoming developers, but don't worry, it's not like we'd now be needing to read code.
+We're getting one tiny step closer to becoming developers, but don't worry. It's not like we'll suddenly need to read code.
 
 ## Installing Node.js
 
-If we want us or our AI agent to be able to run our scraper on our computer, we first need to set up our environment so we can run code.
+If we want either ourselves or our AI agent to run our scraper on our computer, we first need to set up the environment.
 
 Previously we chose to develop our scraper in a mainstream programming language called JavaScript. To run command line programs written in JavaScript, we'll need a tool called Node.js.
 
-Let's head to the [Download Node.js](https://nodejs.org/en/download) web page. We should see a row of configuration dropdowns and a rather large code block below, with quite a few commands. Let's check if the website guessed our operating system correctly, then copy the whole block to the clipboard:
+Let's head to the [Download Node.js](https://nodejs.org/en/download) page. We should see a row of configuration dropdowns and a fairly large code block below it, with quite a few commands. Let's check whether the page guessed our operating system correctly, then copy the whole block to the clipboard:
 
 ![Download Node.js](images/nodejs-install.webp)
 
-Now let's paste it as-is to our Terminal (macOS/Linux) or Command Prompt (Windows) and let it execute using the <kbd>↵</kbd> key. Once the installation finishes, we should see versions of Node.js and npm (another related tool) printed:
+Now let's paste it as-is into Terminal (macOS/Linux) or Command Prompt (Windows) and run it with <kbd>↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
 
 ```text
 ...
@@ -41,23 +41,23 @@ $ npm -v
 11.6.2
 ```
 
-The exact version numbers are not really important. If we see the versions printed, it means we've successfully installed Node.js and npm.
+The exact version numbers aren't very important. If we see them printed, we've successfully installed Node.js and npm.
 
 ## Installing Apify CLI
 
-Now we'll install Apify CLI. It's a command-line tool that works as a remote control for the Apify platform. Apify CLI happens to be also made in JavaScript, so we can use the npm tool we just installed to get it on our computer. Run the following command:
+Now we'll install the Apify CLI. It's a command-line tool that works like a remote control for the Apify platform. It also happens to be written in JavaScript, so we can use the npm tool we just installed to get it onto our computer. Let's run this command:
 
 ```text
 npm install -g apify-cli
 ```
 
-Once the command finishes, let's try if everything went all right:
+Once the command finishes, let's check whether everything went right:
 
 ```text
 apify --version
 ```
 
-If it prints something like the following, we're ready to start building:
+If it prints something like this, we're ready:
 
 ```text
 apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
@@ -99,7 +99,7 @@ This section hasn't been written yet. Come later, please!
 This section hasn't been written yet. Come later, please!
 :::
 
-## Conclusion
+## Wrapping up
 
 <!--
 
