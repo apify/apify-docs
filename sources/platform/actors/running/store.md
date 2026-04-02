@@ -1,18 +1,13 @@
 ---
-title: Actors in Store
-description: Browse Apify Store to discover thousands of public Actors, understand their pricing models, and choose the right one for your automation needs.
-sidebar_position: 1
-slug: /actors/running/actors-in-store
-#display H2 to H4 heading
+title: Actor pricing
+description: Understand the four Actor pricing models in Apify Store - pay per event, pay per result, pay per usage, and rental - plus discount tiers.
+sidebar_position: 1.5
+slug: /actors/running/pricing
 toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-:::info Publishing and monetizing Actors
-
-Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
-
-:::
+All Actors in [Apify Store](https://apify.com/store) use one of four pricing models. This page explains each model, how charges appear on your invoice, and available discounts.
 
 import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
 
@@ -93,7 +88,7 @@ Pay per result is also available as a pricing option when you publish your own A
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy).
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/actors/storage), and usage of [residential proxies](/platform/actors/proxy/residential-proxy) or [SERPs](/platform/actors/proxy/google-serp-proxy).
 
 ![Pay for usage Actor example](./images/store/pay_per_usage_actor_example.png)
 
@@ -130,14 +125,6 @@ You can cancel the rental at any time during the trial or afterward so you are n
 To see a breakdown of rental charges, go to the **Actors** tab within the **Current period** tab in the [Billing](https://console.apify.com/billing) section.
 
 ![Rental Actors billing in Apify Console](./images/store/billing-paid-actors.png)
-
-## Report issues with Actors
-
-Each Actor has an **Issues** tab in Apify Console. There, you can open an issue (ticket) and chat with the Actor's author, platform admins,
-and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can
-always write to [community@apify.com](mailto:community@apify.com).
-
-![Paid Actors' issues tab](./images/store/paid-actors-issues-tab.png)
 
 ## Apify Store discounts
 

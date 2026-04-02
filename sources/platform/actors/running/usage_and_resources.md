@@ -1,7 +1,7 @@
 ---
 title: Usage and resources
 description: Learn about memory and processing power requirements for Apify Actors, their relationship with Docker resources, and how resource allocation affects cost.
-sidebar_position: 2
+sidebar_position: 4
 slug: /actors/running/usage-and-resources
 ---
 

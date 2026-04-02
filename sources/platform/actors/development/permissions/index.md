@@ -1,7 +1,7 @@
 ---
 title: Permissions
 description: Learn how to declare and manage permissions for your Actor, what access levels mean, and how to build secure, trusted Actors for Apify users.
-sidebar_position: 7.5
+sidebar_position: 8
 slug: /actors/development/permissions
 ---
 
@@ -104,7 +104,7 @@ Behavior at run time:
 - The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
 - If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
 
-See the full [input schema reference for details.](../actor_definition/input_schema/specification.md).
+See the full [input schema reference for details.](../input_output_schemas/specification.md).
 
 ### Requesting full permissions
 

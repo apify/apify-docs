@@ -125,9 +125,9 @@ To check if your Applet is working properly:
 
 ### Queries
 
-- **Get Dataset Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get Dataset Items**: Retrieves items from a [dataset](/platform/actors/storage/dataset)
 - **Scrape Single URL**: Runs a scraper for a specified website and returns its content
-- **Get Key-Value Store Record**: Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get Key-Value Store Record**: Retrieves a value from a [key-value store](/platform/actors/storage/key-value-store)
 
 ## Troubleshooting
 

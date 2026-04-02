@@ -1,6 +1,6 @@
 ---
 title: Apify Platform Documentation
-description: Apify is a cloud platform for web scraping, data extraction, and automation. Run pre-built Actors or develop your own tools on the Apify platform.
+description: Apify is a cloud platform for web scraping, data extraction, and AI automation. Run pre-built Actors, connect AI agents, or build your own tools.
 slug: /
 hide_table_of_contents: true
 sidebar_position: 0
@@ -8,44 +8,65 @@ sidebar_label: Home
 ---
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
-import homepageContent from "./homepage_content.json";
 
+**Apify** is a cloud platform for web scraping, data extraction, and AI automation. Run thousands of ready-made tools called **Actors**, connect them to your AI agents and workflows, or build your own.
 
-**Apify** is a cloud platform and marketplace for web data extraction and automation tools called **Actors**.
-
-## Get started
-
-Learn how to run any Actor in Apify Store or create your own. A step-by-step guides through your first steps on the Apify platform.
+## What do you want to do?
 
 <CardGrid>
     <Card
-        title="Run Actor from Apify Store"
-        desc="Apify Store is home to thousands of public Actors available to the Apify community. It's the easiest way for you to start with Apify."
-        to="/platform/actors/running"
+        title="Find and run an Actor"
+        desc="Browse thousands of ready-made Actors in Apify Store. Run one in minutes, no coding required."
+        to="/platform/get-started/choose-and-run-actor"
     />
     <Card
-        title="Build your own Actor"
-        desc="Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images."
-        to="/platform/actors/development"
+        title="Connect AI agents"
+        desc="Give your AI agent access to web data through MCP, API clients, or Agent Skills."
+        to="/platform/get-started/connect-ai-agents"
     />
     <Card
-        title="Become an expert with Apify Academy"
-        desc="Learn everything about web scraping and automation with free courses that will turn you into an expert scraper developer."
-        to="/academy"
+        title="Build a custom Actor"
+        desc="Create your own scraping or automation tool with JavaScript, Python, or any language."
+        to="/platform/get-started/build-an-actor"
+    />
+    <Card
+        title="Automate workflows"
+        desc="Connect Apify to Zapier, Make, n8n, and other tools for hands-off automation."
+        to="/platform/get-started/automate-workflows"
     />
 </CardGrid>
 
-## Contents
+## Developer tools
 
 <CardGrid>
-    {
-        homepageContent.map(({ title, description, to }, i) => (
-            <Card
-                title={title}
-                desc={description}
-                to={to}
-                key={i}
-            />)
-        )
-    }
+    <Card
+        title="API reference"
+        desc="REST API for all platform operations."
+        to="https://docs.apify.com/api/v2"
+    />
+    <Card
+        title="JavaScript SDK"
+        desc="Build Actors with the JavaScript/TypeScript SDK."
+        to="https://docs.apify.com/sdk/js/docs/overview"
+    />
+    <Card
+        title="Python SDK"
+        desc="Build Actors with the Python SDK."
+        to="https://docs.apify.com/sdk/python/docs/overview"
+    />
+    <Card
+        title="JavaScript client"
+        desc="Call Actors and manage resources from JavaScript apps."
+        to="https://docs.apify.com/api/client/js/docs"
+    />
+    <Card
+        title="Python client"
+        desc="Call Actors and manage resources from Python apps."
+        to="https://docs.apify.com/api/client/python/docs"
+    />
+    <Card
+        title="CLI"
+        desc="Create, run, and deploy Actors from the command line."
+        to="https://docs.apify.com/cli/docs"
+    />
 </CardGrid>

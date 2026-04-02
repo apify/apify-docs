@@ -1,6 +1,6 @@
 ---
 title: Performance
-sidebar_position: 9
+sidebar_position: 10
 description: Learn how to maximize Actor performance by running batch jobs, leveraging Docker layer caching, and optimizing resource usage to reduce costs.
 slug: /actors/development/performance
 ---

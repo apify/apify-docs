@@ -1,7 +1,7 @@
 ---
 title: Standby mode
 description: Use Actor Standby mode to keep an Actor ready in the background and serve real-time HTTP requests without waiting for a cold start each time.
-sidebar_position: 7.3
+sidebar_position: 7
 slug: /actors/running/standby
 sidebar_label: Standby mode
 ---
