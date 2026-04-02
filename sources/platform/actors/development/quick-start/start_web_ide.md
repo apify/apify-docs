@@ -18,7 +18,7 @@ This guide walks you through the full lifecycle of an Actor using the web IDE in
 
 ### Step 1: Create your Actor
 
-Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**](https://console.apify.com/actors/development/my-actors), then click the **Develop new** button.
+Log in to [Apify Console](https://console.apify.com), navigate to [**My Actors**](https://console.apify.com/actors/development/my-actors), then click the **Develop new** button. You can also click the **Create** button on the Dashboard and select **Create Actor**.
 
 ![Create Actor](./images/create-actor.png)
 

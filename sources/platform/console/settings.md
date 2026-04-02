@@ -26,6 +26,8 @@ Here you can manage:
 * password reset
 * two-factor authentication
 * session information and configuration
+* general resource access
+* share of run data with developers
 
 ### Session information
 

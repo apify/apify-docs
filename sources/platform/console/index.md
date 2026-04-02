@@ -70,7 +70,7 @@ After you click on the link (or copy it to your browser), you will proceed to a 
 
 ![apify-console-homepage](./images/apify-console-dashboard.png)
 
-The Apify Console Dashboard provides an overview of your account setup. The header displays your account name and current plan level. The Dashboard features several sections:
+The Apify Console Dashboard provides an overview of your account. The header displays your account name and current plan level. The Dashboard features several sections:
 
 - **Recently viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
 
@@ -81,6 +81,12 @@ The Apify Console Dashboard provides an overview of your account setup. The head
   - **Scheduled**: Check your upcoming scheduled runs and tasks.
 
 Use the side menu to navigate other parts of Apify Console easily.
+
+The **Create** dropdown in the top navigation offers three options:
+
+- **Create Actor**
+- **Create schedule**
+- **Create a new token**
 
 <!-- markdownlint-disable-next-line -->
 #### Keyboard shortcuts

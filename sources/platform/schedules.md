@@ -63,7 +63,7 @@ If you're scheduling a task, just select the task you prepared earlier using the
 
 To add more Actors or tasks, just repeat the process.
 
-New schedules are created in an enabled state by default. You can disable or enable the schedule at any time using the **Disable**/**Enable** button on the schedule detail page.
+You can disable or enable the schedule at any time using the **Disable**/**Enable** button on the schedule detail page. New schedules are created in *disabled* state by default.
 
 For integrations, you can also add a [webhook](/platform/integrations/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 
