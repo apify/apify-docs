@@ -8,24 +8,31 @@ slug: /integrations/upsonic
 
 ## What is Upsonic?
 
-[Upsonic](https://upsonic.ai) is an open-source Python framework for building AI agents. Supporting any LLM (e.g. OpenAI, Anthropic, Azure, Bedrock), it provides an `AutonomousAgent` class, an OpenClaw-like autonomous agent with built-in shell and filesystem access, a safety engine for policy-based content filtering, built-in OCR and document processing, session and long-term memory, multi-agent coordination, MCP server support, and [Universal Commerce Protocol (UCP)](https://github.com/Upsonic/awesome-ucp) tools for AI-driven commerce workflows.
+[Upsonic](https://upsonic.ai) is an open-source Python framework for building AI agents. It supports any LLM (e.g., OpenAI, Anthropic, Azure, and Bedrock) and provides:
+
+- An `AutonomousAgent` class with built-in shell and filesystem access
+- A safety engine for policy-based content filtering
+- Built-in OCR and document processing
+- Session and long-term memory
+- Multi-agent coordination and MCP server support
+- [Universal Commerce Protocol (UCP)](https://github.com/Upsonic/awesome-ucp) tools for AI-driven commerce workflows
 
 :::note Upsonic documentation
 
-Check out the [Upsonic documentation](https://docs.upsonic.ai) for more details on building AI agents.
+See the [Upsonic documentation](https://docs.upsonic.ai) for more details on building AI agents.
 
 :::
 
 ## How to use Apify with Upsonic
 
-This guide shows how to integrate Apify Actors with Upsonic using the built-in `ApifyTools` class. The example builds a restaurant discovery agent that uses the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to search Google Maps with a natural language query and save the results to a Markdown file.
+This guide shows how to integrate Apify Actors with Upsonic using the built-in `ApifyTools` class. The example builds a restaurant discovery agent that uses the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to search Google Maps with a natural language query. It saves the results to a Markdown file.
 
 ### Prerequisites
 
-- _Apify API token_: Obtain your API token from [Apify Console](https://console.apify.com/account/integrations).
-- _Anthropic API key_ (or another LLM provider): Get one from the [Anthropic Console](https://console.anthropic.com).
-- _Python environment_: Python 3.9 or later.
-- _Required packages_: Install the following dependencies:
+- Apify API token: Obtain your API token from [Apify Console](https://console.apify.com/account/integrations).
+- Anthropic API key (or another LLM provider): Get one from the [Anthropic Console](https://console.anthropic.com).
+- Python environment: Python 3.9 or later.
+- Required packages: Install the following dependencies:
 
 ```bash
 pip install 'upsonic[custom-tools]' python-dotenv apify-client anthropic
@@ -33,13 +40,13 @@ pip install 'upsonic[custom-tools]' python-dotenv apify-client anthropic
 
 :::tip Alternative LLM providers
 
-Upsonic uses LiteLLM under the hood, so you can swap `anthropic/claude-sonnet-4-6` for any supported model string, e.g. `openai/gpt-4o` or `gemini-3-flash-preview`. Update the environment variable and model name accordingly.
+Upsonic uses LiteLLM under the hood. Swap `anthropic/claude-sonnet-4-6` for any supported model string, e.g. `openai/gpt-4o` or `gemini-3-flash-preview`. Update the environment variable and model name accordingly.
 
 :::
 
 ## Basic integration example
 
-Set up a Upsonic agent with Apify tools. This example uses the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to extract content from a URL.
+Set up an Upsonic agent with Apify tools. This example uses the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to extract content from a URL.
 
 ```python
 import os
@@ -62,7 +69,7 @@ agent.print_do(task)
 
 Running this code fetches and summarizes the content from the provided URL.
 
-## Advanced scenario: Restaurant discovery agent
+## Advanced scenario: restaurant discovery agent
 
 Combine `ApifyTools` with the Google Places Crawler to build an agent that accepts a natural language query and returns a list of matching restaurants.
 
@@ -156,4 +163,4 @@ Browse [Apify Store](https://apify.com/store) to find Actors for social media sc
 - [Upsonic ApifyTools reference](https://docs.upsonic.ai/concepts/tools/scraping-tools/apify)
 - [Upsonic restaurant scout example](https://github.com/Upsonic/Examples/tree/master/examples/web_search_and_scraping/apify_google_maps_restaurant_scout)
 - [Apify Actor documentation](/platform/actors)
-- [Apify Store - browse available Actors](https://apify.com/store)
+- [Browse Actors on Apify Store](https://apify.com/store)
