@@ -166,7 +166,7 @@ If you're still stuck, open a clean new chat in ChatGPT and try the same prompt 
 
 :::
 
-## Conclusion
+## Wrapping up
 
 Despite a few flaws, we've successfully created a first working prototype of a price-watching app with no coding knowledge.
 And thanks to Apify, it can [run automatically on a weekly basis](https://docs.apify.com/platform/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/platform/storage/dataset), we can [monitor its runs](https://docs.apify.com/platform/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/platform/proxy).
