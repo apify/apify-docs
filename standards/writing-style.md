@@ -53,10 +53,9 @@ Use direct instructions, not soft recommendations:
 
 ### No sales language
 
-| Avoid                                      | Prefer                                              |
-| ------------------------------------------ | --------------------------------------------------- |
-| Experience Apify, the ultimate platform!   | Welcome to Apify, the full-stack web scraping platform.  |
-| Our highly efficient system                | Apify's system handles 500K requests per minute     |
+Don't use promotional terms (ultimate, cutting-edge, supercharge, seamless, etc.). Use factual, specific claims instead.
+
+> Enforced by Vale (`Apify.SalesLanguage`). Run `vale "<file>"` to check.
 
 ### Avoid first person
 
@@ -126,11 +125,7 @@ Acceptable uses of "our" - direct team actions or invitations:
 
 **No gerunds (-ing forms).** Use noun phrases or imperatives.
 
-| Avoid | Prefer |
-|-------|--------|
-| Finding available tags | Available tags |
-| Getting started with Actors | Get started with Actors |
-| Understanding the API | API overview |
+> Enforced by Vale (`Apify.HeadingGerund`). Run `vale "<file>"` to check.
 
 ## Text formatting
 
@@ -173,6 +168,8 @@ Use backticks for inline code:
 ### Em dashes
 
 Don't use em dashes (—). Use hyphen with spaces ( - ) instead.
+
+> Enforced by Vale (`Microsoft.Dashes`). Run `vale "<file>"` to check.
 
 ## Links
 
@@ -308,5 +305,5 @@ This guide covers writing patterns. For additional rules, see:
 - `content-standards.md` - Markdown and Docusaurus formatting (front matter, admonitions, code blocks, images, lists)
 - `grammar-rules.md` - Detailed grammar mechanics (hyphenation, contractions, e.g./i.e., list punctuation)
 - `terminology.md` - Apify product names, capitalization, and word choice
-- [CONTRIBUTING.md](../../CONTRIBUTING.md) - Contribution workflow and repository standards
+- [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution workflow and repository standards
 - Full Apify style guide: https://www.notion.so/apify/Apify-style-guide-1b9f39950a2280d49e5be69ce2961a79
