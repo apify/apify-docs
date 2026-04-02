@@ -6,7 +6,7 @@ ActorNotFoundError:
       properties:
         type:
           type: string
-          enum: [actor-not-found]
+          enum: [record-not-found]
         message:
           type: string
           example: Actor was not found
