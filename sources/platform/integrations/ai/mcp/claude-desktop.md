@@ -14,7 +14,7 @@ Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/
 
 ## Prerequisites
 
-- An [Apify account](https://console.apify.com/sign-up) with an [API token](https://console.apify.com/account#/integrations)
+- An [Apify account](https://console.apify.com/sign-up)
 - [Claude Desktop](https://claude.ai/download) installed
 
 ## Connect to Apify
@@ -58,7 +58,6 @@ The troubleshooting steps below apply to the [one-click installation](#one-click
 :::
 
 If the steps below don't resolve your issue, [submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
-
 
 #### "Unable to connect to extension server" error
 
@@ -106,7 +105,7 @@ A stale or corrupted npx cache can prevent the server from starting. Clear the c
 Authentication errors occur when the MCP server can't verify your identity. You may see "Unauthorized" or "Invalid token" messages, or Actor runs may fail silently.
 
 - _Check your API token._ Verify the token in the [Integrations section](https://console.apify.com/account#/integrations) of Apify Console.
-- _For remote OAuth:_ Remove and re-add the Apify MCP server in Claude Desktop to re-authorize.
+- _Re-authorize the connection._ Remove and re-add the Apify connector in Claude Desktop.
 
 #### Claude Desktop logs
 
