@@ -1,7 +1,7 @@
 ---
 title: Agent Skills and MCPC
 sidebar_label: Agent Skills and MCPC
-description: Use Apify Agent Skills with MCP CLI (mcpc) to give AI agents web scraping, data extraction, and automation capabilities.
+description: Use Apify Agent Skills with MCP CLI (mcpc) to give AI coding agents web scraping, data extraction, and automation capabilities through any MCP-compatible tool.
 sidebar_position: 1.5
 slug: /integrations/agent-skills
 ---
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 [Apify Agent Skills](https://github.com/apify/agent-skills) give AI agents pre-built capabilities for web scraping, data extraction, and building Apify Actors. Skills work with Claude Code, Cursor, Codex, Gemini CLI, and other coding agents that support [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
 
-[MCPC](https://github.com/apify/mcp-cli) is a universal command-line client for MCP that connects your AI agents to any MCP server - including Apify's. This CLI utility enables more token efficient tool calling, and less context bloat while working with MCP servers.
+[MCPC](https://github.com/apify/mcp-cli) is a universal command-line client for MCP that connects your AI agents to any MCP server - including Apify's. This CLI utility reduces token usage and context size when working with MCP servers.
 
 Together, they let you add Apify's scraping and automation tools to any AI agent with a single command.
 
@@ -19,7 +19,7 @@ Together, they let you add Apify's scraping and automation tools to any AI agent
 
 - An [Apify account](https://console.apify.com/sign-up) with an [API token](https://console.apify.com/account#/integrations)
 - [Node.js](https://nodejs.org/) version 20.6 or later
-- An AI coding agent that supports MCP (Claude Code, Cursor, VS Code with Copilot, Codex, Gemini CLI etc.)
+- An AI coding agent that supports MCP (Claude Code, Cursor, VS Code with Copilot, Codex, Gemini CLI, etc.)
 
 ## Install Agent Skills
 
@@ -33,15 +33,15 @@ This adds skill definitions to your project. No additional configuration is need
 
 ### Available skills
 
-The [apify/agent-skills](https://github.com/apify/agent-skills) repository contains official Apify skills. The community-maintained [apify/awesome-skills](https://github.com/apify/awesome-skills) repository contains additional skills contributed by the community.
+The [apify/agent-skills](https://github.com/apify/agent-skills) repository contains official Apify skills. The community-maintained [apify/awesome-skills](https://github.com/apify/awesome-skills) repository contains additional skills.
 
-### How skills work
+### Skill mechanics
 
 Each skill is a Markdown file (`SKILL.md`) that describes a domain-specific capability and tools the agent should use to execute the desired task. Skills can be invoked directly by `/slash-commands` and agents can also load them dynamically based on your prompt. Apify Agent Skills give AI coding assistants the ability to:
 
 - Search and run Actors from [Apify Store](https://apify.com/store)
 - Extract data from websites, social media, and e-commerce platforms
-- [Develop, test & publish Actors](https://docs.apify.com/platform/actors/development/quick-start/build-with-ai) in Apify Store
+- [Develop, test, and publish Actors](/platform/actors/development/quick-start/build-with-ai) in Apify Store
 
 Skills include bundled scripts that communicate with the Apify API to execute Actor calls. They use your `APIFY_TOKEN` from the [`.env` file](#set-up-your-api-token).
 
@@ -133,7 +133,7 @@ Add skills from the plugin marketplace:
 /plugin install apify-ultimate-scraper@apify-agent-skills
 ```
 
-Start using skills by asking your assistant to scrape data, extract information, or run Actors.
+Ask your assistant to scrape data, extract information, or run Actors.
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
@@ -157,7 +157,7 @@ For Codex, Gemini CLI, and other tools:
 </Tabs>
 
 :::tip Connect the Apify MCP server for extra capabilities
-For additional MCP-based tools like documentation search, you can optionally connect the [Apify MCP server](/integrations/mcp). This is not required for Agent Skills to work.
+For additional MCP-based tools like documentation search, you can optionally connect the [Apify MCP server](/platform/integrations/mcp). This is not required for Agent Skills to work.
 :::
 
 ## MCPC features
@@ -236,5 +236,5 @@ echo '{"keywords":"web scraper"}' | mcpc @apify tools-call search-actors
 - [Awesome Skills repository](https://github.com/apify/awesome-skills) - Community-contributed skills
 - [MCPC repository](https://github.com/apify/mcp-cli) - MCPC source code and documentation
 - [Read the MCPC introduction](https://blog.apify.com/introducing-mcpc-universal-mcp-cli-client/) - Blog post with detailed walkthrough
-- [Apify MCP server](/integrations/mcp) - Full MCP server documentation
-- [Build Actors with AI](/actors/development/quick-start/build-with-ai) - Guide to AI-assisted Actor development
+- [Apify MCP server](/platform/integrations/mcp) - Full MCP server documentation
+- [Build Actors with AI](/platform/actors/development/quick-start/build-with-ai) - Guide to AI-assisted Actor development
