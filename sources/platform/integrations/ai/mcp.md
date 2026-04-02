@@ -454,7 +454,7 @@ If you find this project useful, please star it on [GitHub](https://github.com/a
 
 To learn more about MCP and Apify integration:
 
-- [Model Context Protocol specification](https://modelcontextprotocol.io) - Learn about the open standard on the official MCP website – understanding the protocol can help you build custom agents.
+- [Model Context Protocol specification](https://modelcontextprotocol.io) - Learn about the open standard on the official MCP website - understanding the protocol can help you build custom agents.
 - [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/) - Learn how to expose over thousands of Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
 - [Video tutorial](https://www.youtube.com/watch?v=BKu8H91uCTg) - Integrate thousands of Apify Actors and Agents with Claude.
 - [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) - A specialized client Actor that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.

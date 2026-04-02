@@ -171,7 +171,7 @@ You can create pre-signed URLs either through Apify Console or programmatically 
 
 To generate a pre-signed link, you can use the **Export** button in Console.
 
-:::note
+:::note Pre-signed URL signatures
 
 The link will include a signature _only if the general resource access is set to Restricted_. For unrestricted datasets, the link will work without a signature.
 
