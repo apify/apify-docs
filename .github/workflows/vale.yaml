@@ -23,8 +23,10 @@ jobs:
                         apify-api/openapi/paths/README.md
                         apify-api/openapi/components/README.md
                         sources/legal/**/*.{md,mdx}
-                        .claude/rules/**/*.{md,mdx}
+                        .claude/**/*.{md,mdx}
                         .cursor/rules/**/*.{md,mdx}
+                        standards/**/*.{md,mdx}
+                        workflows/**/*.{md,mdx}
                     separator: ','
 
             -   uses: errata-ai/vale-action@reviewdog

@@ -7,6 +7,12 @@ slug: /integrations/make/instagram
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Use the Instagram Scraper modules in [Make](https://www.make.com/) to extract posts, comments, and profile data from Instagram.
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for Instagram Data
 
 The Instagram Scraper modules from [Apify](https://apify.com) allow you to extract posts, comments, and profile data from Instagram.

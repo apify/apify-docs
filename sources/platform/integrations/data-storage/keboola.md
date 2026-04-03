@@ -6,9 +6,13 @@ sidebar_position: 2
 slug: /integrations/keboola
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 With Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
 
 The Keboola integration allows you to run your Actors, fetch items from datasets, and retrieve results, all within the Keboola platform.
+
+<ThirdPartyDisclaimer />
 
 ## Connect Apify with Keboola
 

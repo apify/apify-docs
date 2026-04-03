@@ -6,10 +6,14 @@ sidebar_position: 13
 slug: /integrations/openai-agents
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 The _OpenAI Agents Python SDK_ enables you to build AI agents powered by OpenAI's language models that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 By connecting to the Apify MCP server, your agents can access Apify's extensive library of Actors to perform web scraping, data extraction, and automation tasks in real time.
 
 For more details about the OpenAI Agents SDK, refer to the [official documentation](https://openai.github.io/openai-agents-python/).
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -38,7 +42,6 @@ from agents.mcp import MCPServerStreamableHttp
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 
-
 async def main() -> None:
     # Create MCP server connection with Bearer token
     async with MCPServerStreamableHttp(
@@ -61,7 +64,6 @@ async def main() -> None:
         # Run the agent
         result = await Runner.run(agent, "Search the web and summarize recent trends in AI agents")
         print(result.final_output)
-
 
 if __name__ == "__main__":
     asyncio.run(main())
@@ -133,7 +135,6 @@ from agents.mcp import MCPServerStreamableHttp
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 
-
 async def main() -> None:
     # Create MCP server connection
     async with MCPServerStreamableHttp(
@@ -157,7 +158,6 @@ async def main() -> None:
         result = await Runner.run(agent, "Search the web and summarize recent trends in AI agents")
         print(result.final_output)
 
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
@@ -175,7 +175,6 @@ from agents.mcp import MCPServerStreamableHttp
 
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-
 
 async def main() -> None:
     # Create MCP server connection with Instagram scraper
@@ -202,7 +201,6 @@ async def main() -> None:
         )
         print(result.final_output)
 
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
@@ -220,7 +218,6 @@ from agents.mcp import MCPServerStreamableHttp
 
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-
 
 async def main() -> None:
     # Connect to Apify MCP server for testing
@@ -250,7 +247,6 @@ async def main() -> None:
             agent, "List all available tools and test the search-actors tool with query 'instagram'"
         )
         print(result.final_output)
-
 
 if __name__ == "__main__":
     asyncio.run(main())
