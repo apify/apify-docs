@@ -2,13 +2,21 @@ name: OpenAPI checks
 
 on:
     pull_request:
+        # The 'closed' type is needed to trigger cleanup of the corresponding apify-client-python PR.
+        types: [opened, synchronize, reopened, closed]
     push:
         branches:
             - master
 
+permissions:
+    contents: read
+    pull-requests: read
+
 jobs:
     lint:
         name: Lint specification
+        # Skip lint/build/validate on PR close events - those only need the cleanup job.
+        if: github.event_name != 'pull_request' || github.event.action != 'closed'
         runs-on: ubuntu-latest
 
         steps:
@@ -109,8 +117,73 @@ jobs:
                   echo "Bundle sizes:"
                   echo "  JSON: $JSON_SIZE bytes"
                   echo "  YAML: $YAML_SIZE bytes"
-                  if [ "$JSON_SIZE" -lt 1000 ] || [ "$YAML_SIZE" -lt 1000 ]; then
+                  if [[ "$JSON_SIZE" -lt 1000 ]] || [[ "$YAML_SIZE" -lt 1000 ]]; then
                     echo "Error: Bundle files are suspiciously small"
                     exit 1
                   fi
                   echo "✓ Bundles have valid sizes"
+
+    # When a PR changes OpenAPI specs and passes validation, trigger model regeneration in apify-client-python
+    # so the Python client stays in sync with the API spec.
+    trigger-client-model-regeneration:
+        name: Trigger Python client model regeneration
+        runs-on: ubuntu-latest
+        needs: [validate]
+        if: >-
+            github.event_name == 'pull_request'
+            && github.event.action != 'closed'
+            && github.event.pull_request.head.repo.full_name == github.repository
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Check if OpenAPI files changed
+              id: changed-files
+              uses: tj-actions/changed-files@v47
+              with:
+                  files: 'apify-api/openapi/**'
+
+            - name: Trigger apify-client-python model regeneration
+              if: steps.changed-files.outputs.any_changed == 'true'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+                  PR_NUMBER: ${{ github.event.pull_request.number }}
+              run: |
+                  gh workflow run regenerate_models.yaml \
+                      --repo apify/apify-client-python \
+                      --field docs_pr_number="$PR_NUMBER" \
+                      --field docs_workflow_run_id="${{ github.run_id }}"
+
+    # When a docs PR is closed (merged or abandoned), clean up the corresponding auto-generated PR
+    # in apify-client-python to avoid stale PRs piling up.
+    cleanup-client-model-pr:
+        name: Close Python client model PR on docs PR close
+        runs-on: ubuntu-latest
+        if: >-
+            github.event_name == 'pull_request'
+            && github.event.action == 'closed'
+            && github.event.pull_request.head.repo.full_name == github.repository
+
+        steps:
+            - name: Close corresponding apify-client-python PR
+              env:
+                  GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+                  PR_NUMBER: ${{ github.event.pull_request.number }}
+              # Branch name convention must match what regenerate_models.yaml creates.
+              run: |
+                  BRANCH="update-models-docs-pr-${PR_NUMBER}"
+                  EXISTING_PR=$(gh pr list \
+                      --repo apify/apify-client-python \
+                      --head "$BRANCH" \
+                      --json number \
+                      --jq '.[0].number // empty' 2>/dev/null || true)
+
+                  if [[ -n "$EXISTING_PR" ]]; then
+                    gh pr close "$EXISTING_PR" \
+                        --repo apify/apify-client-python \
+                        --delete-branch \
+                        --comment "Closing this PR because the source apify-docs PR #${PR_NUMBER} was closed."
+                    echo "Closed apify-client-python PR #$EXISTING_PR"
+                  else
+                    echo "No corresponding apify-client-python PR found for branch $BRANCH"
+                  fi
