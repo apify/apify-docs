@@ -66,7 +66,7 @@ A common situation in web scraping that's out of your control.
 
 Inform users about the reason for changes and how the changes impact them and the Actor + give them a date when the change takes effect.
 
-### 3. Actor changing its payment model (from rental to pay-per-result, for example)
+### 3. Actor changing its payment model (e.g. changing pay-per-event pricing)
 
 Email 1 (before the change, warning about deprecation).
 

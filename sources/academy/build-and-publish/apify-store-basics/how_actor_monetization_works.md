@@ -95,15 +95,16 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 
 ### Changing monetization
 
-Some monetization updates are applied immediately. However, significant pricing changes require a 14-day notice period.
+Monetization changes fall into two categories:
 
-Significant changes include:
+- _Non-significant changes_ (take effect immediately): decreasing prices, removing events, updating descriptions
+- _Significant changes_ (require a 14-day notice period): increasing prices, adding new paid events, changing the pricing model
 
-- Increasing prices
-- Adding a new paid pricing event (PPE)
-- Changing the pricing model
+When you submit a significant change, your users are notified and the current pricing stays active for 14 days. You can only make significant changes **once per month** per Actor, and you **cannot cancel** a planned change on your own - you need to contact [Apify support](https://apify.com/contact).
 
-You can make these significant changes only once per month.
+This means roughly one month passes between your first significant change and when you can make the next one. Plan your pricing carefully before committing.
+
+For full details, refer to the [monetization change rules](/platform/actors/publishing/monetize#change-monetization).
 
 ### Tracking and promotion
 
@@ -127,6 +128,21 @@ Also, remember that your Actor is a package deal with the Apify platform. All th
 Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression - communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
+
+### Choose pay-per-event (PPE)
+
+Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
+
+Rental pricing is being sunset (see the [rental documentation](/platform/actors/publishing/monetize/rental) for the timeline) and is no longer recommended for new Actors.
+
+:::tip Additional benefits
+
+Actors that implement PPE receive additional benefits, including increased visibility in Apify Store and enhanced discoverability.
+
+:::
+
+To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
+
 
 ### Adapt when needed
 

@@ -47,7 +47,7 @@ Now that the Issues tab is public and on the web, it also serves other goals:
 
 Check out how the team behind the **Apollo.io leads scraper** manages their [Issues tab](https://apify.com/curious_coder/apollo-io-scraper/issues/open) for a great example of professional responses and quick problem-solving.
 
-Note that this Actor is a rental, so users expect a high-quality service.
+Note that this is a paid Actor, so users expect a high-quality service.
 
 ![issues tab example](images/issues-tab-example.png)
 
