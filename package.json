@@ -127,7 +127,7 @@
             "serialize-javascript": "^7.0.4"
         },
         "@stoplight/spectral-ruleset-bundler": {
-            "rollup": "2.80.0"
+            "rollup": "4.60.1"
         }
     }
 }
