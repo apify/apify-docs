@@ -30,7 +30,7 @@ slug: /path/to/page
 
 ## Step 4: Write content
 
-Follow the structure template for the doc type in `references/doc-structures.md`:
+Follow the structure template for the doc type in `.agents/skills/doc-write/references/doc-structures.md`:
 
 - **Platform docs**: introduction → when to use → configure/use → best practices → related features
 - **Guides**: introduction → prerequisites → step-by-step → code examples → testing → summary
