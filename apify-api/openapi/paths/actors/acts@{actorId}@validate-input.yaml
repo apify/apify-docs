@@ -18,7 +18,8 @@ post:
           additionalProperties: true
   responses:
     "204":
-      $ref: ../../components/responses/NoContent.yaml
+      summary: Input is valid
+      description: The provided input is valid against the Actor's input schema.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
