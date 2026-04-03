@@ -566,6 +566,8 @@ paths:
     $ref: "paths/key-value-stores/key-value-stores@{storeId}.yaml"
   "/v2/key-value-stores/{storeId}/keys":
     $ref: "paths/key-value-stores/key-value-stores@{storeId}@keys.yaml"
+  "/v2/key-value-stores/{storeId}/records":
+    $ref: "paths/key-value-stores/key-value-stores@{storeId}@records.yaml"
   "/v2/key-value-stores/{storeId}/records/{recordKey}":
     $ref: "paths/key-value-stores/key-value-stores@{storeId}@records@{recordKey}.yaml"
   /v2/datasets:
@@ -624,6 +626,12 @@ paths:
     $ref: paths/users/users@me@usage@monthly.yaml
   /v2/users/me/limits:
     $ref: paths/users/users@me@limits.yaml
+  /v2/browser-info:
+    $ref: paths/tools/tools@browser-info.yaml
+  /v2/tools/encode-and-sign:
+    $ref: paths/tools/tools@encode-and-sign.yaml
+  /v2/tools/decode-and-verify:
+    $ref: paths/tools/tools@decode-and-verify.yaml
 components:
   securitySchemes:
     httpBearer:

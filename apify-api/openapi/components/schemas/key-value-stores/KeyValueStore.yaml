@@ -10,7 +10,7 @@ properties:
     type: string
     examples: [WkzbQMuFYuamGv3YF]
   name:
-    type: string
+    type: [string, "null"]
     examples: [d7b9MDYsbtX5L7XAj]
   userId:
     type: [string, "null"]

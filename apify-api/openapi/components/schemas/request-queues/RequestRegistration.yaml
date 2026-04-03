@@ -7,14 +7,8 @@ required:
 type: object
 properties:
   requestId:
-    type: string
-    description: A unique identifier assigned to the request.
-    examples: [YiKoxjkaS9gjGTqhF]
+    $ref: ./SharedProperties.yaml#/RequestId
   wasAlreadyPresent:
-    type: boolean
-    description: Indicates whether a request with the same unique key already existed in the request queue. If true, no new request was created.
-    examples: [false]
+    $ref: ./SharedProperties.yaml#/WasAlreadyPresent
   wasAlreadyHandled:
-    type: boolean
-    description: Indicates whether a request with the same unique key has already been processed by the request queue.
-    examples: [false]
+    $ref: ./SharedProperties.yaml#/WasAlreadyHandled

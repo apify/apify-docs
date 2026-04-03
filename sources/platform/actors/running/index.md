@@ -34,11 +34,11 @@ For this tutorial, let's choose [Website Content Crawler](https://console.apify.
 
 ### 2. Configure and run your Actor
 
-Once you select the Actor, click **Use Actor**.
+Once you select the Actor, you will be taken to the Actor's detail page.
 
 In the **Input** tab, you can customize your Actor's behavior. Website Content Crawler is pre-configured to run without extra input, so you don't need to change anything.
 
-To run the Actor, click **Save & Start**.
+To run the Actor, click **Start**.
 
 ![Actor input](./images/apify-input.png)
 

@@ -6,6 +6,12 @@ sidebar_position: 3
 slug: /integrations/drive
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Save Apify Actor run results directly to Google Drive. Set up the integration on your task to automatically upload files after each successful run.
+
+<ThirdPartyDisclaimer />
+
 ## Get started
 
 To use the Apify integration for Google Drive, you will need:
@@ -16,7 +22,7 @@ To use the Apify integration for Google Drive, you will need:
 
 ## Set up Google Drive integration
 
-1. Head over to **Integrations** tab in your saved task and click on the **Upload file** integration.
+1. Head over to **Integrations** tab in your saved task and click on the **Upload results to GDrive** integration.
 
     ![Google Drive integration](../images/google/google-integrations-add.png)
 

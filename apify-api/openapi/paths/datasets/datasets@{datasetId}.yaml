@@ -128,9 +128,7 @@ delete:
     - $ref: "../../components/parameters/storageParameters.yaml#/datasetId"
   responses:
     "204":
-      description: ""
-      headers: {}
-      content: {}
+      $ref: ../../components/responses/NoContent.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

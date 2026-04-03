@@ -53,6 +53,7 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 
 ### OpenAPI specification changes
 
+- Target OpenAPI specification version should be extracted from `/openapi/openapi.yaml`. All specification changes should be compliant with syntax for that specific OpenAPI specification version.
 - Prefer re-use of existing objects via `$ref` over duplication. Reusable components can be found in `/openapi/components`.
 - Components most suitable for re-use are:
   - Request parameters and path parameters defined in  `/openapi/components/parameters`
@@ -117,124 +118,35 @@ Use `npm run start:dev` + nginx to serve all repos together locally. See `CONTRI
 
 ---
 
-## Writing style
+## Standards
 
-### Language and tone
+Detailed writing and formatting standards are in `standards/`:
 
-- **US English** spelling (analyze, color, not analyse, colour)
-- **Active voice** and **imperative tone** ("Install the package", not "You should install")
-- **Simple English** - no sentence over 30 words, get to the point
-- **Inclusive language** - avoid gendered terms, don't use directional language (left/right) for UI
-- No first person ("I recommend") - use "you" for the reader
-- No sales language ("ultimate", "cutting-edge", "supercharge")
+- `standards/writing-style.md` - Prose voice, tone, headings, links, numbers
+- `standards/content-standards.md` - Front matter, admonitions, code blocks, images
+- `standards/terminology.md` - Product names, capitalization, article usage
+- `standards/grammar-rules.md` - Hyphenation, punctuation, numbers, brand spelling
+- `standards/file-organization.md` - File naming and directory structure
+- `standards/quality-standards.md` - Complete quality checklist before submitting
 
-### Headings
+Key rules at a glance:
 
-- **Sentence case only** - capitalize first word and proper nouns only
-- **No gerunds** (-ing forms) - use noun phrases or imperatives
-- **Capitalize after colons** when introducing a complete clause
-- **Proper hierarchy** - H1 (from frontmatter) → H2 → H3 → H4, never skip levels
+- US English, active voice, imperative tone, no sales language
+- Sentence case headings, no gerunds
+- Bold for UI elements only; `code` for filenames, commands, variables
+- All admonitions require titles
+- 140-160 character descriptions in front matter
+- See `standards/terminology.md` for Apify product name capitalization
+- Don't use em dashes (—) - use hyphen with spaces ( - ) instead
 
-Examples:
+## Skills
 
-| Avoid | Prefer |
-|---|---|
-| Store And Manage Data | Store and manage data |
-| Getting Started With Actors | Get started with Actors |
-| Step 1: install the dependencies | Step 1: Install the dependencies |
+Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agentskills.io)), each with its own `references/` and `scripts/`:
 
-### Text formatting
-
-- **Bold** for UI elements only (buttons, menus, fields) and critical warnings
-- *Italics* for emphasis and introducing new terms
-- `code` for file names, commands, config keys, variables, and code values
-- Never use bold for list introductions or general emphasis
-
-### Admonitions
-
-All admonitions must have titles (2-3 scannable words). Types: `note`, `tip`, `info`, `caution`, `danger`.
-
-```markdown
-:::note Actor versions
-Actors can have multiple versions. Pin to a specific version for production use.
-:::
-```
-
-### Lists
-
-- Numbered lists (`1.` for all items) for sequential steps
-- Bullet points for non-sequential items
-- All items must follow the same grammatical pattern (parallel structure)
-- Use Oxford commas
-
-### Links
-
-- Descriptive, action-oriented link text (never "click here" or "here")
-- Internal links use relative paths, never full URLs
-- Link external tools to official sites on first mention
-- Link Actor names on first mention
-
-### Em dashes
-
-Don't use em dashes (—). Use hyphen with spaces ( - ) instead.
-
-## Content formatting
-
-### Front matter
-
-Every `.md`/`.mdx` file requires:
-
-```yaml
----
-title: Sentence case title
-description: 140-160 character description for SEO
-sidebar_position: 1.0
-slug: /path/to/page
----
-```
-
-### Code examples
-
-- Complete and runnable
-- Syntax highlighting specified for all code blocks
-- Code tabs for multi-language examples (JavaScript + Python)
-- Version matching between Dockerfile tags and package.json
-
-### Images
-
-- Meaningful alt text on all images
-- Light theme for screenshots
-- Red indicators to highlight UI elements
-- Store in `images/` subdirectory next to the markdown file
-- PNG for screenshots, SVG for logos
-
-## Terminology
-
-### Product names (always capitalize)
-
-Apify Actor, Apify Proxy, Apify Console, Apify Store, Apify SDK, Apify CLI, Apify API
-
-### Platform terms (lowercase with "the")
-
-the Apify platform, the Apify team, the Apify ecosystem
-
-### Feature terms (always lowercase)
-
-task, schedule, run, build, dataset, key-value store, request queue, web scraping
-
-### Generic technical terms (lowercase)
-
-AI agent, MCP server, API endpoint, web scraper, proxy server
-
-### Actor references
-
-First mention: full name with link (`[Website Content Crawler](https://apify.com/apify/website-content-crawler)`). Subsequent mentions: just the name.
-
-## File organization
-
-- **Kebab-case** for file names: `web-scraping-basics.md`
-- Match slug to file path
-- Group related files in logical directories
+- `.agents/skills/review-docs/` - Documentation review process and output format
+- `.agents/skills/doc-write/` - Writing and editing documentation pages
+- `.agents/skills/tutorial/` - Creating structured tutorials
+- `.agents/skills/api-doc/` - OpenAPI specification and API documentation
 
 ## Review checklist
 

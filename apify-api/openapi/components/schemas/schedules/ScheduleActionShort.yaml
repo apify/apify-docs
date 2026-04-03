@@ -1,0 +1,36 @@
+title: ScheduleActionShort
+oneOf:
+  - title: ScheduleActionShortRunActor
+    required:
+      - id
+      - type
+      - actorId
+    type: object
+    properties:
+      id:
+        type: string
+        examples: [ZReCs7hkdieq8ZUki]
+      type:
+        type: string
+        enum: [RUN_ACTOR]
+      actorId:
+        type: string
+        examples: [HKhKmiCMrDgu9eXeE]
+  - title: ScheduleActionShortRunActorTask
+    required:
+      - id
+      - type
+      - actorTaskId
+    type: object
+    properties:
+      id:
+        type: string
+        examples: [ZReCs7hkdieq8ZUki]
+      type:
+        type: string
+        enum: [RUN_ACTOR_TASK]
+      actorTaskId:
+        type: string
+        examples: [HKhKmiCMrDgu9eXeE]
+discriminator:
+  propertyName: type

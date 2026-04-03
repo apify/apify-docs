@@ -29,7 +29,7 @@ If you did not receive the email, you can visit the [sign-in page](https://conso
 
 ### Google or GitHub
 
-If you do not want to create a new password for Apify Console, you can also use your Google or GitHub account to sign up. To do that, click the **Sign up with Google** or **Sign up with GitHub** buttons. You will proceed to the corresponding authentication page, where you must sign in and authorize Apify to access your account. Then, when you come back to Apify Console, we will create your account.
+If you do not want to create a new password for Apify Console, you can also use your Google or GitHub account to sign up. To do that, click the **Continue with Google** or **Continue with GitHub** buttons. You will proceed to the corresponding authentication page, where you must sign in and authorize Apify to access your account. Then, when you come back to Apify Console, we will create your account.
 
 If you used Google to sign up, there is no verification step after this, and you can start using Apify Console right away.
 On the other hand, if you used GitHub to create your account and your GitHub account does not have a verified email, we will ask you to verify your email address before you can start using Apify Console. The process works the same as the process for email and password authentication.
@@ -66,21 +66,27 @@ After you click on the link (or copy it to your browser), you will proceed to a 
 
 ![Apify Console reset password page](./images/console-reset-password-page.png)
 
-## Homepage overview
+## Dashboard overview
 
-![apify-console-homepage](./images/apify-console-homepage.png)
+![apify-console-homepage](./images/apify-console-dashboard.png)
 
-The Apify Console homepage provides an overview of your account setup. The header displays your account name and current plan level. The homepage features several sections:
+The Apify Console Dashboard provides an overview of your account. The header displays your account name and current plan level. The Dashboard features several sections:
 
-- **Recently Viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
+- **Recently viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
 
-- **Suggested Actors for You**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
+- **Suggested Actors for you**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
 
-- **Actor Runs**: This section is divided into two tabs:
+- **Actor runs**: This section is divided into two tabs:
   - **Recent**: View your latest Actor runs.
   - **Scheduled**: Check your upcoming scheduled runs and tasks.
 
 Use the side menu to navigate other parts of Apify Console easily.
+
+The **Create** dropdown in the top navigation offers three options:
+
+- **Create Actor**
+- **Create schedule**
+- **Create a new token**
 
 <!-- markdownlint-disable-next-line -->
 #### Keyboard shortcuts
@@ -93,7 +99,7 @@ You can also navigate Apify Console via keyboard shortcuts.
 | Shortcut       | Tab    |
 | :---           | :---   |
 | Show shortcuts | Shift? |
-| Home           | GH     |
+| Dashboard      | GH     |
 | Store          | GO     |
 | Actors         | GA     |
 | Development    | GD     |
@@ -111,13 +117,14 @@ You can also navigate Apify Console via keyboard shortcuts.
 | Tab name | Description |
 | :--- | :--- |
 | [Apify Store](/platform/console/store) | Search for Actors that suit your web-scraping needs. |
+| [Dashboard](/platform/console) | Overview of your account with recently viewed Actors, suggestions, and recent runs. |
 | [Actors](/platform/actors) | View recent & bookmarked Actors. |
 | [Runs](/platform/actors/running/runs-and-builds) | View your recent runs. |
 | [Saved tasks](/platform/actors/running/tasks) | View your saved tasks. |
-| [Schedules](/platform/schedules) | Schedule Actor runs & tasks to run at specified time. |
 | [Integrations](/platform/integrations) | View your integrations. |
+| [Schedules](/platform/schedules) | Schedule Actor runs & tasks to run at specified time. |
 | [Development](/platform/actors/development) | &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
-| [Proxy](/platform/proxy) | View your proxy usage & credentials |
+| [Proxy](/platform/proxy) | View your proxy usage & credentials. |
 | [Storage](/platform/storage) | View stored results of your runs in various data formats. |
-| [Billing](/platform/console/billing) | Billing information, statistics and invoices. |
+| [Billing](/platform/console/billing) | Billing information, statistics, and invoices. |
 | [Settings](/platform/console/settings) | Settings of your account. |

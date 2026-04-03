@@ -74,7 +74,7 @@ Once set, the page URL should not be changed. Because of those two important rea
 
 If you absolutely have to change the URL, you will have to communicate that fact to your users.
 
-💡 Learn more about the easiest ways to communicate with your users: [Emails to Actor users]
+💡 Learn more about the easiest ways to communicate with your users: [Emails to Actor users](/academy/actor-marketing-playbook/interact-with-users/emails-to-actor-users)
 
 ## How and where to set the Actor URL
 

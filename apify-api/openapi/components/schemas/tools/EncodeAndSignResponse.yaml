@@ -1,0 +1,13 @@
+title: EncodeAndSignResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    type: object
+    required:
+      - encoded
+    properties:
+      encoded:
+        type: string
+        examples: [eyJwYXlsb2FkIjoiLi4uIiwic2lnbmF0dXJlIjoiLi4uIn0=]
