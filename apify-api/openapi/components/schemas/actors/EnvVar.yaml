@@ -1,7 +1,6 @@
 title: EnvVar
 required:
   - name
-  - value
 type: object
 properties:
   name:

@@ -73,6 +73,8 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
