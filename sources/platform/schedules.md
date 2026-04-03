@@ -63,7 +63,7 @@ If you're scheduling a task, just select the task you prepared earlier using the
 
 To add more Actors or tasks, just repeat the process.
 
-Now, all you need to do is click **Save & activate** and let the scheduler take care of running your jobs on time.
+You can disable or enable the schedule at any time using the **Disable**/**Enable** button on the schedule detail page. New schedules are created in _disabled_ state by default.
 
 For integrations, you can also add a [webhook](/platform/integrations/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 
@@ -71,13 +71,13 @@ For integrations, you can also add a [webhook](/platform/integrations/webhooks) 
 
 To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2/schedules-post) endpoint.
 
-You can find your [secret API token](./integrations/index.mdx) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
+You can find your [secret API token](./integrations/index.mdx) under the [API & Integrations](https://console.apify.com/settings/integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
 :::
 
-In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's _actions_.
+In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/settings/integrations), and the schedule's _actions_.
 
 The following JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 

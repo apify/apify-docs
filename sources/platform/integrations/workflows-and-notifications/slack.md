@@ -31,7 +31,7 @@ To use the Apify integration for Slack, you will need:
 
 You can find all integrations on an Actor's or task's **Integrations** tab. For example, you can try using the [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL).
 
-Find the integration for Slack, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
+Find the integration for Slack, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > API & Integrations** window.
 
 ![Integrations tab](../images/integrations-tab.png)
 
