@@ -9,7 +9,7 @@ unlisted: true
 
 ---
 
-Want to get price data from [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales)? Even without knowing how to code, we can open [ChatGPT](https://chatgpt.com/), type the following, and have a scraper ready:
+Want to extract data from a website? Even without knowing how to code, we can open [ChatGPT](https://chatgpt.com/) and have a scraper ready. Let's say you want to track prices from [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales). You'd type something like:
 
 ```text
 Create a scraper in JavaScript which downloads
