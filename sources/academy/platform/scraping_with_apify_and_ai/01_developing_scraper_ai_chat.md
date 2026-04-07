@@ -34,6 +34,12 @@ Some are technical challenges:
 
 To overcome these limitations, we'll use [Apify](https://apify.com/), a platform where our scraper can run independently of our computer.
 
+:::info Why ChatGPT
+
+We use OpenAI ChatGPT in this course only because it's the most widely used AI chat. Any similar tool, such as Google Gemini or Anthropic Claude, will do.
+
+:::
+
 ## Creating Apify account
 
 First, let's [create a new Apify account](https://console.apify.com/sign-up). The signup flow takes us through a few checks to confirm we're human and that our email is valid. It's annoying, but necessary to prevent abuse of the platform.
