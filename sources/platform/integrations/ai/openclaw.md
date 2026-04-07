@@ -165,9 +165,14 @@ Actor execution time varies depending on the task complexity. Check Actor run st
 - _Check run logs_ - If an Actor run fails, check the logs in [Apify Console](https://console.apify.com/) for details.
 - _Verify input schema_ - Use `action: "discover"` with the `actorId` to check what input parameters the Actor expects.
 
+### Report an issue
+
+If you encounter a bug or have a feature request, [open an issue](https://github.com/apify/apify-openclaw-plugin/issues) on the plugin's GitHub repository.
+
 ## Resources
 
 - [OpenClaw documentation](https://docs.openclaw.io/) - Official OpenClaw docs
 - [Apify Actors documentation](https://docs.apify.com/platform/actors) - Learn about Apify Actors
 - [Apify Store](https://apify.com/store) - Browse 20,000+ pre-built Actors
 - [Apify API reference](https://docs.apify.com/api/v2) - Full API documentation
+- [Apify OpenClaw plugin on GitHub](https://github.com/apify/apify-openclaw-plugin) - Source code and issue tracker
