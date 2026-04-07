@@ -106,7 +106,7 @@ openclaw apify status
 The plugin registers a single `apify` tool with three actions:
 
 | Action | Purpose |
-|--------|---------|
+| ------ | ------- |
 | `discover` | Search the Apify Store for Actors by keyword, or fetch an Actor's input schema |
 | `start` | Run an Actor asynchronously and get a `runId` back |
 | `collect` | Retrieve results from completed Actor runs |
@@ -142,7 +142,7 @@ Actor execution time varies depending on the task complexity. Check Actor run st
 ## Configuration options
 
 | Option | Type | Default | Description |
-|--------|------|---------|-------------|
+| ------ | ---- | ------- | ----------- |
 | `apiKey` | string | `APIFY_API_KEY` env var | Your Apify API token |
 | `baseUrl` | string | `https://api.apify.com` | Apify API base URL |
 | `maxResults` | number | `20` | Maximum items to return per dataset (1-1000) |
