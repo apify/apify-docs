@@ -2,8 +2,10 @@ title: RequestDraftDelete
 description: A request that should be deleted.
 type: object
 anyOf:
-  - required: [id]
-  - required: [uniqueKey]
+  - title: RequestDraftDeleteById
+    required: [id]
+  - title: RequestDraftDeleteByUniqueKey
+    required: [uniqueKey]
 properties:
   id:
     $ref: ./SharedProperties.yaml#/RequestId

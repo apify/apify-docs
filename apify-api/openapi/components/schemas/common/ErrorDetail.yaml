@@ -1,0 +1,9 @@
+title: ErrorDetail
+type: object
+properties:
+  type:
+    type: string
+    description: Machine-processable error type identifier.
+  message:
+    type: string
+    description: Human-readable error message describing what went wrong.

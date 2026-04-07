@@ -2,76 +2,34 @@ DatasetNotFoundError:
   type: object
   properties:
     error:
-      type: object
-      properties:
-        type:
-          type: string
-          enum: [record-not-found]
-        message:
-          type: string
-          example: Dataset was not found
+      $ref: ../ErrorDetail.yaml
 
 KeyValueStoreNotFoundError:
   type: object
   properties:
     error:
-      type: object
-      properties:
-        type:
-          type: string
-          enum: [record-not-found]
-        message:
-          type: string
-          example: Key-value Store was not found
+      $ref: ../ErrorDetail.yaml
 
 RequestQueueNotFoundError:
   type: object
   properties:
     error:
-      type: object
-      properties:
-        type:
-          type: string
-          enum: [record-not-found]
-        message:
-          type: string
-          example: Request Queue was not found
+      $ref: ../ErrorDetail.yaml
 
 RecordNotFoundError:
   type: object
   properties:
     error:
-      type: object
-      properties:
-        type:
-          type: string
-          enum: [record-not-found]
-        message:
-          type: string
-          example: Record was not found
+      $ref: ../ErrorDetail.yaml
 
 RequestNotFoundError:
   type: object
   properties:
     error:
-      type: object
-      properties:
-        type:
-          type: string
-          enum: [record-not-found]
-        message:
-          type: string
-          example: Request was not found
+      $ref: ../ErrorDetail.yaml
 
 RequestIdInvalidError:
   type: object
   properties:
     error:
-      type: object
-      properties:
-        type:
-          type: string
-          enum: [request-id-invalid]
-        message:
-          type: string
-          example: Request ID does not correspond to uniqueKey
+      $ref: ../ErrorDetail.yaml

@@ -4,15 +4,12 @@ required:
 type: object
 properties:
   error:
+    title: ErrorDetail
     type: object
-    required:
-      - type
-      - message
     properties:
       type:
         type: string
-        examples: [run-failed]
+        description: Machine-processable error type identifier.
       message:
         type: string
-        examples:
-          - "Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)"
+        description: Human-readable error message describing what went wrong.

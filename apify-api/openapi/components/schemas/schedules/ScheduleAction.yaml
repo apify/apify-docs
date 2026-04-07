@@ -11,8 +11,7 @@ oneOf:
         type: string
         examples: [c6KfSgoQzFhMk3etc]
       type:
-        type: string
-        enum: [RUN_ACTOR]
+        const: RUN_ACTOR
       actorId:
         type: string
         examples: [jF8GGEvbEg4Au3NLA]
@@ -35,8 +34,7 @@ oneOf:
         type: string
         examples: [c6KfSgoQzFhMk3etc]
       type:
-        type: string
-        enum: [RUN_ACTOR_TASK]
+        const: RUN_ACTOR_TASK
       actorTaskId:
         type: string
         examples: [jF8GGEvbEg4Au3NLA]

@@ -4,6 +4,7 @@ required:
   - data
 properties:
   data:
+    title: DecodeAndVerifyData
     type: object
     required:
       - decoded
