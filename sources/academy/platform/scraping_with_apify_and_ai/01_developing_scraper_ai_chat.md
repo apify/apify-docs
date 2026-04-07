@@ -154,7 +154,7 @@ At this point, we haven't told the platform much about the data we expect, so th
 
 …and so on. Looks good!
 
-Well, does it? If we look closely, the prices include extra text, which isn't ideal. We'll improve this in one of the next lessons. We'll also improve the workflow so we don't have to keep copying and pasting code between ChatGPT and the Web IDE.
+Well, does it? If we look closely, the prices include extra text, which isn't ideal. We'll improve this in the next lesson.
 
 :::tip If output doesn't appear
 
@@ -169,6 +169,9 @@ If you're still stuck, open a clean new chat in ChatGPT and try the same prompt 
 ## Wrapping up
 
 Despite a few flaws, we've successfully created a first working prototype of a price-watching app with no coding knowledge.
-And thanks to Apify, it can [run automatically on a weekly basis](https://docs.apify.com/platform/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/platform/storage/dataset), we can [monitor its runs](https://docs.apify.com/platform/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/platform/proxy).
 
-In the next lesson, we'll take a look at how we can get the Actor code onto our computer and use the Cursor IDE with a built-in AI agent instead of the Web IDE, so we can develop our scraper faster and with less back-and-forth.
+And thanks to Apify, our scraper can [run automatically on a weekly basis](https://docs.apify.com/platform/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/platform/storage/dataset), we can [monitor its runs](https://docs.apify.com/platform/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/platform/proxy).
+
+To improve our project further, we copy the code, ask ChatGPT to refine it, paste it back into the Web IDE, and rebuild.
+
+Sounds tedious? In the next lesson, we'll take a look at how we can get the Actor code onto our computer and use the Cursor IDE with a built-in AI agent instead of the Web IDE, so we can develop our scraper faster and with less back-and-forth.
