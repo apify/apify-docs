@@ -44,21 +44,21 @@ Once we have an active account, we can start working on our scraper. Using the p
 
 Your phone runs apps, Apify runs Actors. If we want Apify to run something for us, it must be wrapped in the Actor structure. Conveniently, the platform provides ready-made templates we can use.
 
-After login, we land on a page called **Apify Store**. Apify serves both as infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll go to **Development > My Actors**:
+After login, we land on a page called **Apify Store**. Apify serves both as infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
 
-![Navigating the welcome screen](images/apify-nav-store.webp)
+![Apify Store welcome screen with Development menu highlighted](images/apify-nav-store.webp)
 
-Apify supports several ways to start a new project. In **My Actors**, we'll go with **Use template**:
+Apify supports several ways to start a new project. In **My Actors**, we'll click **Use template**:
 
-![Navigating the My Actors screen](images/apify-nav-my-actors.webp)
+![My Actors page with Use template button](images/apify-nav-my-actors.webp)
 
-We'll choose the first **Crawlee + Cheerio** code template which has a yellow rectangle logo containing black letters **JS**. It means it's a template using the JavaScript programming language:
+This opens the template selection screen. There are several templates to choose from, each for a different programming language or use case. We'll pick the first template, **Crawlee + Cheerio**. It has a yellow logo with the letters **JS**, which stands for JavaScript. That's the programming language our scraper will be written in:
 
-![Navigating template selection screen](images/apify-nav-templates.webp)
+![Template selection screen with Crawlee + Cheerio highlighted](images/apify-nav-templates.webp)
 
 This opens a preview of the template, where we'll confirm our choice:
 
-![Navigating the template preview screen](images/apify-nav-template.webp)
+![Template preview screen with Use template button](images/apify-nav-template.webp)
 
 And just like that, we have our first Actor! It's only a sample scraper that walks through a website and extracts page titles, but it's something we can already run, and it'll work.
 
