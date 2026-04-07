@@ -44,21 +44,21 @@ Once we have an active account, we can start working on our scraper. Using the p
 
 Your phone runs apps, Apify runs Actors. If we want Apify to run something for us, it must be wrapped in the Actor structure. Conveniently, the platform provides ready-made templates we can use.
 
-After login, we land on a page called **Apify Store**. Apify serves both as infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll go to **Actors**:
+After login, we land on a page called **Apify Store**. Apify serves both as infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll go to **Development > My Actors**:
 
-![Welcome screen](images/apify-goto-actors.webp)
+![Navigating the welcome screen](images/apify-nav-store.webp)
 
-In **Actors**, we'll choose **Develop a new Actor**:
+Apify supports several ways to start a new project. In **My Actors**, we'll go with **Use template**:
 
-![New Actor screen](images/apify-goto-develop.webp)
+![Navigating the My Actors screen](images/apify-nav-my-actors.webp)
 
-Apify supports several ways to start a new project. We'll navigate through the screen and select the **Quick start: Crawlee + Cheerio (JavaScript)** code template:
+We'll choose the first **Crawlee + Cheerio** code template which has a yellow rectangle logo containing black letters **JS**. It means it's a template using the JavaScript programming language:
 
-![Template selection screen](images/apify-goto-template.webp)
+![Navigating template selection screen](images/apify-nav-templates.webp)
 
 This opens a preview of the template, where we'll confirm our choice:
 
-![Template preview screen](images/apify-use-template.webp)
+![Navigating the template preview screen](images/apify-nav-template.webp)
 
 And just like that, we have our first Actor! It's only a sample scraper that walks through a website and extracts page titles, but it's something we can already run, and it'll work.
 
