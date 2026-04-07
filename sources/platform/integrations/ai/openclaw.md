@@ -95,11 +95,10 @@ The `apify` tool must be listed in `tools.alsoAllow` in your config, or you can 
 
 ### Verify the setup
 
-Check your configuration and test the connection:
+Check your configuration:
 
 ```bash
 openclaw apify status
-openclaw apify test
 ```
 
 ## How the Apify tool works
@@ -124,99 +123,19 @@ discover (search) -> discover (schema) -> start -> collect
 
 Most Actors accept arrays in their input (for example, `startUrls`, `queries`, `usernames`). Always batch multiple targets into a single run - one run with 5 URLs is cheaper and faster than 5 separate runs.
 
-## Examples
+## What you can do
 
-### Search Google and collect results
+Once the plugin is set up, your OpenClaw agents can:
 
-This example walks through the full discover, start, and collect workflow to scrape Google Search results.
-
-First, search for a suitable Actor:
-
-```javascript
-const search = await apify({
-  action: "discover",
-  query: "google search scraper",
-});
-```
-
-Get the Actor's input schema to understand what parameters it accepts:
-
-```javascript
-const schema = await apify({
-  action: "discover",
-  actorId: "apify~google-search-scraper",
-});
-```
-
-Start the Actor with your search queries:
-
-```javascript
-const started = await apify({
-  action: "start",
-  actorId: "apify~google-search-scraper",
-  input: { queries: ["web scraping tools", "data extraction API"], maxPagesPerQuery: 1 },
-  label: "google-search",
-});
-```
-
-Collect the results when the run completes:
-
-```javascript
-const results = await apify({
-  action: "collect",
-  runs: started.runs,
-});
-// results.completed contains the scraped data
-```
-
-### Analyze Instagram profiles
-
-Use batching to scrape multiple profiles in a single run:
-
-```javascript
-const started = await apify({
-  action: "start",
-  actorId: "apify~instagram-profile-scraper",
-  input: { usernames: ["natgeo", "nasa", "spacex"] },
-  label: "instagram-profiles",
-});
-
-const results = await apify({
-  action: "collect",
-  runs: started.runs,
-});
-```
-
-### Multi-source research
-
-Start multiple Actors in parallel for broader research, then collect all results together:
-
-```javascript
-// Start Google Search and TikTok scrapers
-const googleRun = await apify({
-  action: "start",
-  actorId: "apify~google-search-scraper",
-  input: { queries: ["AI trends 2026"], maxPagesPerQuery: 1 },
-  label: "google",
-});
-
-const tiktokRun = await apify({
-  action: "start",
-  actorId: "clockworks~tiktok-scraper",
-  input: { searchQueries: ["AI trends"], resultsPerPage: 20 },
-  label: "tiktok",
-});
-
-// Collect results from both runs
-const results = await apify({
-  action: "collect",
-  runs: [...googleRun.runs, ...tiktokRun.runs],
-});
-```
+- **Search for scrapers** - Ask your agent to find an Actor for any platform (for example, "find me an Instagram scraper") and it discovers the right one from the [Apify Store](https://apify.com/store).
+- **Scrape any website** - Your agent can extract data from Google Search, Instagram, TikTok, YouTube, Google Maps, e-commerce sites, and more.
+- **Batch multiple targets** - Scrape several URLs, profiles, or search queries in a single Actor run. One run with 5 targets is cheaper and faster than 5 separate runs.
+- **Run multiple Actors in parallel** - Start scrapers for different platforms at the same time and collect all results together.
+- **Delegate to sub-agents** - For complex research tasks, your agent can delegate scraping work to a sub-agent, keeping the parent agent's context focused on higher-level reasoning.
 
 :::note Actor runs may take some time
 
-Actor execution time varies depending on the task complexity. The `collect` action polls for completion and returns results when the runs finish. Check Actor run status in [Apify Console](https://console.apify.com/) if a run takes longer than expected.
+Actor execution time varies depending on the task complexity. Check Actor run status in [Apify Console](https://console.apify.com/) if a run takes longer than expected.
 
 :::
 
@@ -233,7 +152,7 @@ Actor execution time varies depending on the task complexity. The `collect` acti
 
 ### Authentication errors
 
-- _Check your API token_ - Verify your Apify API token is correct by running `openclaw apify test`. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
+- _Check your API token_ - Verify your Apify API token is correct by running `openclaw apify status`. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
 - _Environment variable_ - If you prefer not to store the key in config, set the `APIFY_API_KEY` environment variable instead.
 
 ### Tool not available to agents
