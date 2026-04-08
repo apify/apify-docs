@@ -5,6 +5,9 @@ slug: /scraping-with-apify-and-ai/developing-scraper-with-ai-agent
 unlisted: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 **In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code onto our computer and use Cursor to streamline how we update our scraper.**
 
 ---
@@ -64,6 +67,34 @@ apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
 ```
 
 ## Downloading Actor files
+
+We now got a hold of a handy remote control of the Apify platform, so let's use it to download the Actor files.
+
+We'll start by creating a working folder for our project somewhere on our disk.
+
+<Tabs>
+  <TabItem value="Windows" label="Windows">
+
+  ...
+
+  </TabItem>
+  <TabItem value="macOS" label="macOS">
+
+  1. Right click on your Desktop
+  2. Select **New Folder**
+  3. Name it `my-actor`
+  4. Right click on the folder icon
+  5. Select **New Terminal at Folder** to open Terminal with the folder set as current working folder
+
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
+
+  ...
+
+  </TabItem>
+</Tabs>
+
+
 
 :::note Course under construction
 This section hasn't been written yet. Come later, please!
