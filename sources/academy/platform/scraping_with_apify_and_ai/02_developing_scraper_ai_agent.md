@@ -103,7 +103,7 @@ Being inside the folder will help us to run following commands focused just on t
 
 Now we've got the code of our Actor, but we already know from the previous lesson that Actors first need to be _built_ before they can be _ran_. Let's run the following command, which installs software our Actor depends on:
 
-```
+```text
 npm install
 ```
 
