@@ -8,6 +8,13 @@ post:
   operationId: act_validate_input_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - name: build
+      in: query
+      description: |-
+        The build to be used by the run. It can be a build number (`1.2.3`), or a build tag (`latest` or `beta`).
+        If not provided, the `default` build will be used.
+      schema:
+        type: string
   requestBody:
     description: JSON payload to validate against the Actor input schema.
     required: true
