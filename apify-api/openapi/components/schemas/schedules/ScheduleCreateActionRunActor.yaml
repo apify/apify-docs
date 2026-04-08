@@ -15,5 +15,5 @@ properties:
       - type: "null"
   runOptions:
     anyOf:
-      - $ref: ../common/OptionalRunOptions.yaml
+      - $ref: ../common/TaskOptions.yaml
       - type: "null"
