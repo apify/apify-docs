@@ -1,0 +1,9 @@
+description: Payment required - the user has exceeded their usage limit or does not have enough credits.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: actor-memory-limit-exceeded
+        message: You have exceeded your usage limit. Please consider upgrading your plan.
