@@ -61,6 +61,8 @@ If the steps below don't resolve your issue, [submit a GitHub issue](https://git
 
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
+- _Check tool permissions._ Individual connector tools can be blocked in your [connector settings](https://support.anthropic.com/en/articles/11175166-how-to-manage-and-remove-integrations-in-claude). Verify that Apify tools are set to **Always allow** or **Ask first**, not blocked.
+- _Check the connector version._ Claude Desktop may silently downgrade the connector to an older version. If tools aren't appearing despite the connector showing as enabled, remove and re-add the connector to trigger an update.
 - _Restart Claude Desktop._ Configuration changes only take effect after a restart.
 - _Reinstall the connector._ Remove the Apify connector and add it again.
 
@@ -124,6 +126,7 @@ After clearing the cache:
 
 ## Known limitations
 
+- Claude Desktop may silently downgrade an installed connector to an older version (for example, from 0.9.14 back to 0.9.6). This can cause tools to stop loading even though the connector still shows as enabled. Removing and re-adding the connector may prompt an update, but doesn't always resolve the issue.
 - Some Claude Desktop versions have inconsistent behavior with remote MCP server connections. Update to the latest version if you experience issues.
 - If the connector directory installation fails, use the [remote server](#remote-server-recommended) at `https://mcp.apify.com` instead.
 
