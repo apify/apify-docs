@@ -163,11 +163,11 @@ Using Cursor's AI features requires an account, so let's create one. In the brow
 
 Similarly, when asked to connect GitHub, we'll choose **Maybe later**. Once we're all set, let's [download the app](https://cursor.com/download) and get it installed.
 
-![Download Cursor](images/cursor-install.png)
+![Download Cursor](images/cursor-install.webp)
 
 When we open the app for the first time, it requires a login. We'll click **Log In**, which will send us back to the browser. By choosing **Yes, Log In** we'll confirm that the app can use our account and let's get back to the app.
 
-![Open project in Cursor](images/cursor-open.png)
+![Open project in Cursor](images/cursor-open.webp)
 
 Let's click on **Open project** and select the folder with our Actor.
 
@@ -179,7 +179,7 @@ If you struggle to find where the Actor folder is, run `pwd` in the command line
 
 When Cursor opens the Actor's project folder, we'll see something similar to the following:
 
-![Cursor ready](images/cursor-ready.png)
+![Cursor ready](images/cursor-ready.webp)
 
 Now, finally, let's do some agentic coding!
 
