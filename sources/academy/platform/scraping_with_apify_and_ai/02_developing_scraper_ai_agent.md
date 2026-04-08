@@ -15,9 +15,9 @@ That kind of grind is okay for small edits, but it's not sustainable in the long
 
 To step up our game, we'll run a few commands and install a few tools so we can bring the tools of the trade onto our computer:
 
-- We'll have the Actor files downloaded and we'll be able to run the code locally. This makes it fast and easy to verify any changes.
-- We'll have a locally installed IDE with a built-in AI agent that we can point at the Actor files. We'll be able to tell it what we need, and it'll change the files directly, without hand-holding.
-- We'll be able to develop changes locally while the previous version of our code keeps running on the Apify platform undisturbed. Only once we're happy with what we have will we push the changes back, so they can replace the old version.
+- _Local development:_ We'll have the Actor files downloaded and we'll be able to run the code locally. This makes it fast and easy to verify any changes.
+- _Agentic coding:_ We'll have a locally installed IDE with a built-in AI agent that we can point at the Actor files. We'll be able to tell it what we need, and it'll change the files directly, without hand-holding.
+- _Basic versioning:_ We'll be able to develop changes locally while the previous version of our code keeps running on the Apify platform undisturbed. Only once we're happy with what we have will we push the changes back, so they can replace the old version.
 
 We're getting one tiny step closer to becoming developers, but don't worry. It's not like we'll suddenly need to read code.
 
@@ -31,7 +31,7 @@ Let's head to the [Download Node.js](https://nodejs.org/en/download) page. We sh
 
 ![Download Node.js](images/nodejs-install.webp)
 
-Now let's paste it as-is into Terminal (macOS/Linux) or Command Prompt (Windows) and run it with <kbd>↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
+Now let's paste it as-is into Terminal (macOS/Linux) or PowerShell (Windows) and run it with <kbd>↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
 
 ```text
 ...
@@ -45,7 +45,7 @@ The exact version numbers aren't very important. If we see them printed, we've s
 
 ## Installing Apify CLI
 
-Now we'll install the Apify CLI. It's a command-line tool that works like a remote control for the Apify platform. It also happens to be written in JavaScript, so we can use the npm tool we just installed to get it onto our computer. Let's run this command:
+Now we'll need the Apify CLI. It's a command-line tool that works like a remote control for the Apify platform. It also happens to be written in JavaScript, so we can use the npm tool we just installed to get it onto our computer. Let's run this command:
 
 ```text
 npm install -g apify-cli
@@ -57,22 +57,90 @@ Once the command finishes, let's check whether everything went right:
 apify --version
 ```
 
-If it prints something like this, we're ready:
+If it prints something like this, we have the tool installed:
 
 ```text
 apify-cli/0.0.0 (1a2b3c4) running on ... with node-0.0.0, installed via ...
 ```
 
+One more thing though. Before we can do any useful work with it, we also need to login:
+
+```text
+apify login
+```
+
+Let's confirm **Through Apify Console in your default browser** with <kbd>↵</kbd>. The command line tool opens a web page in our browser, where we'll allow it as a remote control to our Apify account. When we return back to the command line, we should see the following success message:
+
+```text
+Success: You are logged in to Apify as hjtest.
+```
+
+The message mentions our username, in this case `hjtest`. We'll remember it as we'll need it for our next task.
+
+Awesome, now we're ready to remote control Apify from the command line!
+
 ## Downloading Actor files
 
-We now got a hold of a handy remote control of the Apify platform, so let's use it to download the Actor files.
+We now got a hold of a handy remote control, let's use it to download the Actor files. In the following command, replace `hjtest` with your own username:
 
-We'll start by opening a terminal and creating a working folder for our project. Open Terminal (on macOS/Linux) or PowerShell (on Windows), then run:
+```text
+apify pull hjtest/my-actor
+```
+
+:::info Why not Actor name alone
+
+Apify puts usernames before Actor names to distinguish projects of the same name made by different creators. Resulting combination is unambiguous.
+
+:::
+
+The following output should appear:
+
+```text
+Success: Pulled to /.../my-actor/
+```
+
+The tool created a new folder called `my-actor` and pulled all Actor files to it, so that we can work on them on our computer instead of the Web IDE. Let's run another command to move us into this new folder:
+
+```text
+cd my-actor
+```
+
+Being inside the folder will help us to run following commands focused just on the project, not affecting any other folders on our disk. Let's see what we've got in the folder:
+
+```text
+ls
+```
+
+This command lists the contents of a folder. If we don't specify which folder, it does it for the folder we're in.
+
+In the output we should see items such as `README.md`, `src`, `test`, `package.json`, and others. This should be familiar, as these are the files and folders we could previously see in the Web IDE. Let's see what's inside the `src` subfolder:
+
+```text
+ls src
+```
+
+If we found `main.js`, and, more importantly, `routes.js`, we're all set up to make further modifications to our Actor!
+
+
+
+
+
+
+<!-- First let's create a working folder for our project. This command creates a `my-actor` folder in our current directory:
 
 ```text
 mkdir my-actor
-cd my-actor
 ```
+
+We could do the same by pointing and clicking, but since we're already running commands, this is faster and more imporantly, the same on all operating systems.
+
+Another command moves us into the folder, so we can work inside of it:
+
+```text
+cd my-actor
+``` -->
+
+
 
 :::note Course under construction
 This section hasn't been written yet. Come later, please!
@@ -208,7 +276,7 @@ We'll use <kbd>Shift+↵</kbd> to add a few empty lines, then paste the code fro
 Code is plain text. Some tools color it to make it easier to read, and ChatGPT does this by default. Plain text editors usually show code in black and white, and that's completely fine.
 :::
 
-When we're done, we must not forget to _save the change_ with <kbd>Ctrl+S</kbd> or, on macOS, <kbd>Cmd+S</kbd>. Now let's see if the new code works. To run the program, let's go back to Terminal (macOS/Linux) or Command Prompt (Windows) and use Apify CLI again:
+When we're done, we must not forget to _save the change_ with <kbd>Ctrl+S</kbd> or, on macOS, <kbd>Cmd+S</kbd>. Now let's see if the new code works. To run the program, let's go back to Terminal (macOS/Linux) or PowerShell (Windows) and use Apify CLI again:
 
 ```text
 apify run

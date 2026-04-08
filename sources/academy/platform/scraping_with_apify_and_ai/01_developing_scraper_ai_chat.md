@@ -104,7 +104,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 
 ![Actor input](images/apify-input.webp)
 
-Now let's go back to **Source** → **Code** so we can work with the Web IDE. We'll select a file called `routes.js` inside the `src` directory. We'll see code similar to this:
+Now let's go back to **Source** → **Code** so we can work with the Web IDE. We'll select a file called `routes.js` inside the `src` folder. We'll see code similar to this:
 
 ```js
 import { createCheerioRouter } from '@crawlee/cheerio';

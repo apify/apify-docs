@@ -33,7 +33,7 @@ Anyone with basic knowledge of chatting with an AI assistant and affinity to bui
 
 - Prior experience chatting with AI assistants, such as OpenAI ChatGPT, Google Gemini, or Anthropic Claude.
 - A macOS, Linux, or Windows machine. If it's your work computer, make sure you have permissions to install new software.
-- Familiarity with running commands in Terminal (macOS/Linux) or Command Prompt (Windows). Just generally knowing what those are and how to use them is sufficient.
+- Familiarity with running commands in Terminal (macOS/Linux) or PowerShell (Windows). Just generally knowing what those are and how to use them is sufficient.
 
 ## Course content
 
