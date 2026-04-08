@@ -10,6 +10,7 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: build
       in: query
+<<<<<<< HEAD
       description: |
         Specifies the Actor build to validate against. It can be either a build tag or build number.
         By default, the validation uses the Actor's `latest` build.
@@ -19,6 +20,13 @@ post:
         type: string
         example: 0.1.234
 
+=======
+      description: |-
+        The build to be used by the run. It can be a build number (`1.2.3`), or a build tag (`latest` or `beta`).
+        If not provided, the `default` build will be used.
+      schema:
+        type: string
+>>>>>>> 9a620738a7b1d02f4073624da04a340de5064783
   requestBody:
     description: JSON payload to validate against the Actor input schema.
     required: true
