@@ -40,6 +40,7 @@ post:
         application/json:
           schema:
             type: object
+            additionalProperties: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

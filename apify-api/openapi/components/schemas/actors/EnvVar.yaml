@@ -8,6 +8,7 @@ properties:
     examples: [MY_ENV_VAR]
   value:
     type: string
+    description: The environment variable value. This field is absent in responses when `isSecret` is `true`, as secret values are never returned by the API.
     examples: [my-value]
   isSecret:
     type: [boolean, "null"]

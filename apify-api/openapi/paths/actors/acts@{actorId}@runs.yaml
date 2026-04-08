@@ -138,11 +138,7 @@ post:
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
     "402":
-      description: Payment Required - the user has exceeded their usage limit or does not have enough credits to run the Actor.
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/PaymentRequired.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
