@@ -1,7 +1,7 @@
 ---
 title: Upsonic integration
 sidebar_label: Upsonic
-description: Learn how to integrate Apify Actors with Upsonic to give your AI agents real-time web scraping, data extraction, and automation capabilities from Apify Store.
+description: Learn how to integrate Apify Actors with Upsonic to give your AI agents real-time web scraping, data extraction, and automation capabilities from the Apify Store.
 sidebar_position: 20
 slug: /integrations/upsonic
 ---
@@ -29,7 +29,7 @@ This guide shows how to integrate Apify Actors with Upsonic using the built-in `
 
 ### Prerequisites
 
-- Apify API token: Obtain your API token from [Apify Console](https://console.apify.com/account/integrations).
+- Apify API token: Obtain your API token from the [Apify Console](https://console.apify.com/account/integrations).
 - Anthropic API key (or another LLM provider): Get one from the [Anthropic Console](https://console.anthropic.com).
 - Python environment: Python 3.9 or later.
 - Required packages: Install the following dependencies:
@@ -113,7 +113,7 @@ print("Results saved to results.md")
 
 The agent interprets the natural language query, calls the Actor with appropriate search parameters, and formats the response:
 
-```text
+```markdown
 ## Best cheap and tasty falafel places in Kadikoy
 
 ### 1. Falafella - 4.3/5
@@ -153,7 +153,7 @@ Each run takes 60-90 seconds as the Actor crawls Google Maps. Keep `maxCrawledPl
 
 :::tip Apify Store
 
-Browse [Apify Store](https://apify.com/store) to find Actors for social media scraping, e-commerce data extraction, news aggregation, and more. Pass any Actor ID to `actors` to use it immediately.
+Browse the [Apify Store](https://apify.com/store) to find Actors for social media scraping, e-commerce data extraction, news aggregation, and more. Pass any Actor ID to `actors` to use it immediately.
 
 :::
 
