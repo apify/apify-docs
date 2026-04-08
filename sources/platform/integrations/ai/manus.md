@@ -10,7 +10,9 @@ The _Manus_ integration connects Manus to Apify's library of [Actors](https://ap
 This allows Manus agents to search and run Actors, scrape URLs, and retrieve datasets directly in agent sessions - without writing any code.
 You can also import [Apify Agent Skills](https://github.com/apify/agent-skills) from GitHub to give Manus structured, reusable scraping workflows.
 
-_Example prompt_: "Search for 'best project management tools' on Google and summarize the top 10 results"
+_Example prompt_:
+
+> "Search for 'best project management tools' on Google and summarize the top 10 results"
 
 In this guide, you'll learn how to connect Manus to the Apify MCP server as a custom connector, and how to import Apify Agent Skills from GitHub.
 
@@ -18,22 +20,22 @@ In this guide, you'll learn how to connect Manus to the Apify MCP server as a cu
 
 Before connecting Manus to Apify, you'll need:
 
-- _An Apify account_ - If you don't have an Apify account, [sign up](https://console.apify.com/sign-up)
-- _A Manus account_ - MCP access is available on all Manus plans, including Free
+- [An Apify account](https://console.apify.com/sign-up) - If you don't have one yet, sign up for free.
+- [A Manus account](https://manus.im) - MCP access is available on all Manus plans, including Free.
 
 ## Connect the Apify MCP server
 
 1. In Manus, open **Settings**.
 
-    ![Manus sidebar with the Settings icon highlighted at the bottom left](../images/manus/open-settings.png)
+    ![Manus sidebar with the Settings icon highlighted at the bottom left](images/manus/open-settings.png)
 
 1. Open **Connectors**.
 
-    ![Manus Settings panel with Connectors selected in the left navigation](../images/manus/settings-connectors.png)
+    ![Manus Settings panel with Connectors selected in the left navigation](images/manus/settings-connectors.png)
 
 1. Click **+ Add connectors**.
 
-    ![Manus Connectors panel showing the + Add connectors button](../images/manus/connectors-panel.png)
+    ![Manus Connectors panel showing the + Add connectors button](images/manus/connectors-panel.png)
 
 1. Select the **Custom MCP** tab.
 1. Click **+ Add custom MCP** → choose **Direct configuration**.
@@ -44,15 +46,33 @@ Before connecting Manus to Apify, you'll need:
     - **Icon** (optional) - `https://apify.com/img/apify-logo/logomark-32x32.svg`
 1. You can leave the **Custom headers** empty and click **Save**.
 
-![Manus MCP configuration form filled in with Apify server details and the Save button highlighted](../images/manus/mcp-configuration.png)
+:::tip Customize available tools
 
-When you first use an Apify tool in a Manus session, you'll be prompted to sign in to your Apify account via OAuth. After that, the connector stays authorized for future sessions.
+The default MCP server URL exposes a predefined set of tools. You can choose exactly which tools and Actors are available by building a custom MCP URL with the [MCP configurator](https://mcp.apify.com). See [Configure tools](#configure-tools) below for details.
 
-![Manus chat interface showing the connectors menu with Apify listed](../images/manus/chat-connectors-menu.png)
+:::
 
-You can also reach the connector setup from the Manus chat interface: click **Connect Apps** → **Add Connectors** → search for **Custom MCP**.
+![Manus MCP configuration form filled in with Apify server details and the Save button highlighted](images/manus/mcp-configuration.png)
 
-![Manus chat session showing the Apify connector OAuth login prompt](../images/manus/oauth-login.png)
+## Try the MCP connector in Manus
+
+To use the Apify connector in a chat session, open the connectors menu and enable **Apify**.
+
+![Manus chat interface showing the connectors menu with Apify listed](images/manus/chat-connectors-menu.png)
+
+The first time you use an Apify tool, Manus will prompt you to **Log in** to your Apify account via OAuth. After that, the connector stays authorized for future sessions.
+
+![Manus chat session showing the Apify connector OAuth login prompt](images/manus/oauth-login.png)
+
+:::tip Revoke access
+You can revoke the Manus connector's access to your Apify account at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+:::
+
+Try asking Manus something like:
+
+> "Search for 'best project management tools' on Google and summarize the top 10 results"
+
+Manus will call `search-actors` to find [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-actor-output` to retrieve and summarize the results.
 
 ## Configure tools
 
@@ -67,17 +87,6 @@ To control which tools are available, append a `tools=` query parameter to the s
 | Specific Actors only | `https://mcp.apify.com?tools=apify/instagram-scraper,apify/google-search-scraper` |
 
 Use the interactive configurator at [mcp.apify.com](https://mcp.apify.com) to browse available tools and generate a ready-made URL.
-
-## Try the MCP connector in Manus
-
-Once your connector is ready:
-
-1. Start a new Manus session.
-1. Ask Manus to use Apify tools. For example:
-
-    > "Search for 'best project management tools' on Google and summarize the top 10 results"
-
-Manus will call `search-actors` to find the [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-actor-output` to retrieve and summarize the results.
 
 ## Import Apify Agent Skills
 
@@ -96,12 +105,16 @@ Available skills include:
 ### Import a skill from GitHub
 
 Each skill lives in its own folder inside the [apify/agent-skills](https://github.com/apify/agent-skills) repository.
-When importing in Manus, you must provide the URL of the folder that contains the `SKILL.md` file, not the repository root.
+:::note Skill folder URL
+
+When importing in Manus, provide the URL of the folder that contains the `SKILL.md` file, not the repository root.
+
+:::
 
 Folder URLs follow this format:
 
 ```text
-https://github.com/apify/agent-skills/tree/main/{skill-name}
+https://github.com/apify/agent-skills/tree/main/skills/{skill-name}
 ```
 
 To import the `apify-ultimate-scraper` skill:
@@ -109,23 +122,19 @@ To import the `apify-ultimate-scraper` skill:
 1. In Manus, go to the **Skills** tab in the sidebar.
 1. Click **+ Add** → **Import from GitHub**.
 
-<!-- TODO: Screenshot → save as ../images/manus/skills-import-github.png
-     Capture: The Manus Skills tab with the "Import from GitHub" dialog open, showing
-     the URL input field. The field should be empty or contain the example URL.
-     Highlight: Red border around the URL input field. -->
+    ![Manus Skills tab with the + Add dropdown open, showing the Import from GitHub option](images/manus/add-skill.png)
 
-1. Paste the skill folder URL:
+1. Paste the skill folder URL and click **Import**:
 
     ```text
-    https://github.com/apify/agent-skills/tree/main/apify-ultimate-scraper
+    https://github.com/apify/agent-skills/tree/main/skills/apify-ultimate-scraper
     ```
 
-1. Click **Import**.
+    ![Import from GitHub dialog with the skill URL filled in and the Import button highlighted](images/manus/import-skill.png)
 
-<!-- TODO: Screenshot → save as ../images/manus/skill-imported.png
-     Capture: The Manus Skills tab after a successful import, showing apify-ultimate-scraper
-     (or multiple Apify skills) listed and ready to use.
-     Highlight: Red border around the newly imported apify-ultimate-scraper skill entry. -->
+After importing, the skill appears in your Skills list and is enabled by default.
+
+![Manus Skills tab showing apify-ultimate-scraper imported and enabled](images/manus/added-skill.png)
 
 Repeat this for any other skill you want to add.
 
@@ -135,35 +144,32 @@ Activate a skill in any Manus chat by typing `/` followed by the skill name.
 For example, to use `apify-ultimate-scraper`:
 
 1. Type `/apify-ultimate-scraper` in the Manus chat.
+
+    ![Manus chat input with the /apify-ultimate-scraper skill selected](images/manus/linked-skill.png)
+
 1. Ask Manus to perform a task, for example:
 
     > "Get the top 10 posts from @natgeo on Instagram"
 
 Manus will load the skill instructions and use the appropriate Apify Actors to complete the task.
 
-<!-- TODO: Screenshot → save as ../images/manus/skill-in-action.png
-     Capture: A Manus chat session showing the /apify-ultimate-scraper skill triggered,
-     with Manus executing the Instagram scrape task and returning results (posts, follower
-     counts, or similar structured output).
-     Highlight: Red border around the /apify-ultimate-scraper trigger in the chat input,
-     and a red border around the structured output block in the response. -->
+![Manus chat showing /apify-ultimate-scraper triggered and structured Instagram results returned](images/manus/skill-result.png)
 
 ## Limitations
 
-- Manus times out long-running operations. Actors that require extended processing may not complete within a single session - run them asynchronously using the [Apify API](/platform/integrations/api) if needed.
+- Actors that process large amounts of data may take longer than a single Manus session allows. If a scrape times out, try reducing the scope (fewer URLs, smaller result limits) or splitting the work across multiple prompts.
 - Each MCP tool call consumes Manus credits in addition to any Apify platform costs. Complex workflows using multiple Actors can consume credits quickly.
-- Manus auto-redacts API keys in shared sessions, but avoid sharing sessions that contain sensitive or proprietary data.
+- When you share a Manus session, recipients can see conversation messages and output artifacts. Avoid including sensitive or proprietary data in sessions you plan to share. Connectors are automatically disabled in collaboration mode.
 
 ## Related integrations
 
-- [Claude integration](/platform/integrations/claude) - Use the Apify MCP server with Claude Desktop and Claude.ai
 - [ChatGPT integration](/platform/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
-- [MCP documentation](/platform/integrations/mcp) - Complete guide to the Apify MCP server
+- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with Claude Desktop, VS Code, and other clients
 
 ## Resources
 
 - [Manus MCP Connectors docs](https://manus.im/docs/integrations/mcp-connectors) - Official Manus documentation on custom MCP servers
 - [Manus Agent Skills docs](https://manus.im/docs/integrations/agent-skills) - Official Manus documentation on Skills
 - [Apify Agent Skills repository](https://github.com/apify/agent-skills) - Browse and import Apify skills
+- [Apify Store](https://apify.com/store) - Browse Actors you can run from Manus
 - [Apify MCP server configurator](https://mcp.apify.com) - Interactive tool to configure and preview the Apify MCP server
-- [Apify MCP documentation](/platform/integrations/mcp) - Complete guide to using the Apify MCP server
