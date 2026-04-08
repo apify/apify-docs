@@ -6,4 +6,6 @@ allOf:
       - pricingModel
     properties:
       pricingModel:
-        $ref: ./PricingModel.yaml
+        type: string
+        enum:
+          - FREE
