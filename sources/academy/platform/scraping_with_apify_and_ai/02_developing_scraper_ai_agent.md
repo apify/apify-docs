@@ -101,33 +101,57 @@ cd my-actor
 
 Being inside the folder will help us to run following commands focused just on the project, not affecting any other folders on our disk.
 
-## Running Actor locally
+Now we've got the code of our Actor, but we already know from the previous lesson that Actors first need to be _built_ before they can be _ran_. Let's run the following command, which installs software our Actor depends on:
 
-
-
-<!-- ## Inspecting Actor files
-
-Let's see what we've got in the folder:
-
-```text
-ls
+```
+npm install
 ```
 
-This command lists the contents of a folder. If we don't specify which folder, it does it for the folder we're in.
+The command will flood us with output about what is installed, perhaps some warnings, recommendations, etc. Unfortunately it's hard to spot through the noise if the action was successful, but it is safe to assume success if it doesn't scream red about some errors.
 
-In the output we should see items such as `README.md`, `src`, `test`, `package.json`, and others. This should be familiar, as these are the files and folders we could previously see in the Web IDE. Let's see what's inside the `src` subfolder:
+:::tip If it doesn't install
 
-```text
-ls src
-```
+If the output does scream red with errors, or if later in the lesson we find out we're unable to run the Actor, copy the whole output of `npm install` and paste it to ChatGPT for help.
 
-If we found `main.js`, and, more importantly, `routes.js`, we're all set up to make further modifications to our Actor! -->
-
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
 :::
 
+## Running the Actor locally
+
+Now that we have the Actor available on our computer, does it work? Let's try!
+
+```text
+apify run --input '{"startUrls": [{"url": "https://warehouse-theme-metal.myshopify.com/collections/sales"}]}'
+```
+
+Plain `apify run` isn't enough for now, because the Actor we made expects that we give it an input with an URL which it's supposed to scrape. Adding `--input` with the subsequent ball of special characters is technically equivalent to what we've been previously doing in Apify when changing the field on the **Input** tab.
+
+When the run is done, we should see an output similar to this one:
+
+```text
+Info: All default local stores were purged.
+Run: npm run start
+
+> crawlee-cheerio-javascript@0.0.1 start
+> node src/main.js
+
+INFO  System info {"apifyVersion":"3.7.0","apifyClientVersion":"2.22.3","crawleeVersion":"3.16.0","osType":"Darwin","nodeVersion":"v25.9.0"}
+WARN  ProxyConfiguration: The "Proxy external access" feature is not enabled for your account. Please upgrade your plan or contact support@apify.com
+INFO  CheerioCrawler: Starting the crawler.
+INFO  CheerioCrawler: Processing page: https://warehouse-theme-metal.myshopify.com/collections/sales
+INFO  CheerioCrawler: All requests from the queue have been processed, the crawler will shut down.
+INFO  CheerioCrawler: Final request statistics: {"requestsFinished":1,"requestsFailed":0,"retryHistogram":[1],"requestAvgFailedDurationMillis":null,"requestAvgFinishedDurationMillis":328,"requestsFinishedPerMinute":155,"requestsFailedPerMinute":0,"requestTotalDurationMillis":328,"requestsTotal":1,"crawlerRuntimeMillis":386}
+INFO  CheerioCrawler: Finished! Total 1 requests: 1 succeeded, 0 failed. {"terminal":true}
+```
+
+Albeit we cannot quite see how do the scraped items look like, we can spot that our scraper made a single request to https://warehouse-theme-metal.myshopify.com/collections/sales and it finished without crashing. For a start, let's call it a success!
+
+Now we could continue messing around with files and commands, but luckily, we don't have to. We have now everything in place to let an AI agent do all we wish from now on. But do we have one? One last installation, pinky promise!
+
 ## Installing Cursor
+
+Let's head to [Cursor's download page](https://cursor.com/download) and get the app installed on our machine.
+
+[Download Cursor](images/cursor-install.webp)
 
 :::note Course under construction
 This section hasn't been written yet. Come later, please!
