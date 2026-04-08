@@ -6,6 +6,8 @@ sidebar_position: 20
 slug: /integrations/upsonic
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 ## What is Upsonic?
 
 [Upsonic](https://upsonic.ai) is an open-source Python framework for building AI agents. It supports any LLM (e.g., OpenAI, Anthropic, Azure, and Bedrock) and provides:
@@ -22,6 +24,8 @@ slug: /integrations/upsonic
 See the [Upsonic documentation](https://docs.upsonic.ai) for more details on building AI agents.
 
 :::
+
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with Upsonic
 
