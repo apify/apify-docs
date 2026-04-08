@@ -111,7 +111,7 @@ The command will flood us with output about what is installed, perhaps some warn
 
 :::tip If it doesn't install
 
-If the output does scream red with errors, or if later in the lesson we find out we're unable to run the Actor, copy the whole output of `npm install` and paste it to ChatGPT for help.
+If the output does scream red with errors, or if later in the lesson you find out you're unable to run the Actor, copy the whole output of `npm install` and paste it to ChatGPT for help.
 
 :::
 
@@ -149,13 +149,39 @@ Now we could continue messing around with files and commands, but luckily, we do
 
 ## Installing Cursor
 
-Let's head to [Cursor's download page](https://cursor.com/download) and get the app installed on our machine.
+Cursor is an IDE for browsing code, similar to Apify's Web IDE, but it's an app we install on our computer. Also, it's an IDE with a built-in AI agent, which will help us with all the coding.
 
-[Download Cursor](images/cursor-install.webp)
+:::info Why Cursor
 
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
+We use Cursor in this course because it's the only of the mainstream AI-first IDEs, which offers a free plan. If you're willing to pay, any IDE with an AI agent would fare the same, be it GitHub Copilot in VS Code, Claude Code, or OpenAI Codex.
+
 :::
+
+Using Cursor's AI features requires an account, so let's create one. In the browser, let's open the [Sign Up page](https://authenticator.cursor.sh/sign-up) and we'll create a new account in one of the standard ways. When asked to start a subscription, we'll select **Skip for now** to stay on the free plan.
+
+![Skip starting a paid plan](images/cursor-plan.webp)
+
+Similarly, when asked to connect GitHub, we'll choose **Maybe later**. Once we're all set, let's [download the app](https://cursor.com/download) and get it installed.
+
+![Download Cursor](images/cursor-install.png)
+
+When we open the app for the first time, it requires a login. We'll click **Log In**, which will send us back to the browser. By choosing **Yes, Log In** we'll confirm that the app can use our account and let's get back to the app.
+
+![Open project in Cursor](images/cursor-open.png)
+
+Let's click on **Open project** and select the folder with our Actor.
+
+:::tip Locating the Actor folder
+
+If you struggle to find where the Actor folder is, run `pwd` in the command line, which prints a full path to the folder you're in.
+
+:::
+
+When Cursor opens the Actor's project folder, we'll see something similar to the following:
+
+![Cursor ready](images/cursor-ready.png)
+
+Now, finally, let's do some agentic coding!
 
 ## Modifying code with Cursor
 
