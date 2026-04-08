@@ -99,7 +99,15 @@ The tool created a new folder called `my-actor` and pulled all Actor files to it
 cd my-actor
 ```
 
-Being inside the folder will help us to run following commands focused just on the project, not affecting any other folders on our disk. Let's see what we've got in the folder:
+Being inside the folder will help us to run following commands focused just on the project, not affecting any other folders on our disk.
+
+## Running Actor locally
+
+
+
+<!-- ## Inspecting Actor files
+
+Let's see what we've got in the folder:
 
 ```text
 ls
@@ -113,34 +121,7 @@ In the output we should see items such as `README.md`, `src`, `test`, `package.j
 ls src
 ```
 
-If we found `main.js`, and, more importantly, `routes.js`, we're all set up to make further modifications to our Actor!
-
-
-
-
-
-
-<!-- First let's create a working folder for our project. This command creates a `my-actor` folder in our current directory:
-
-```text
-mkdir my-actor
-```
-
-We could do the same by pointing and clicking, but since we're already running commands, this is faster and more imporantly, the same on all operating systems.
-
-Another command moves us into the folder, so we can work inside of it:
-
-```text
-cd my-actor
-``` -->
-
-
-
-:::note Course under construction
-This section hasn't been written yet. Come later, please!
-:::
-
-## Running Actor locally
+If we found `main.js`, and, more importantly, `routes.js`, we're all set up to make further modifications to our Actor! -->
 
 :::note Course under construction
 This section hasn't been written yet. Come later, please!
