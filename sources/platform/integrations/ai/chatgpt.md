@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server
 Before connecting ChatGPT to Apify, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
-- _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
 - _ChatGPT with Developer mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer mode is active, the message input box is outlined in orange).
 
@@ -33,13 +33,13 @@ Before connecting ChatGPT to Apify, you'll need:
 
 2. Fill in the following fields:
 
-    - **Name** – a user-facing title, e.g., `apify-mcp`
-    - **Description** – a short description of what the connector does
-    - **MCP Server URL** – choose one of the following:
+    - **Name** - a user-facing title, e.g., `apify-mcp`
+    - **Description** - a short description of what the connector does
+    - **MCP Server URL** - choose one of the following:
         - `https://mcp.apify.com` - use the default set of Apify tools
         - `https://mcp.apify.com?tools=actors,docs,mtrunkat/url-list-download-html` - use specific tools
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
-    - **Authentication** – OAuth, you don’t need to provide a client ID or secret.
+    - **Authentication** - OAuth, you don’t need to provide a client ID or secret.
 
 3. Select **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.

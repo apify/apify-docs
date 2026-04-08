@@ -128,45 +128,31 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
 
-## AI Assistant rules structure
+## AI assistant rules structure
 
-This project uses a hybrid approach for AI assistant rules to ensure consistency across different tools while leveraging Cursor-specific features.
+This project uses an agent-agnostic approach: standards and workflows live at the repo root, with thin adapter files for each AI tool.
 
-### Structure overview
+### Source of truth
 
-#### Vendor-agnostic rules
+- **`standards/`** - Writing, formatting, terminology, and quality rules
+- **`.agents/skills/`** - Documentation skills with processes, references, and scripts (AgentSkills spec)
+- **`AGENTS.md`** - Condensed summary + pointers (also `CLAUDE.md` via symlink)
 
-- **`AGENTS.md`** - Primary vendor-agnostic rules file containing core documentation standards
+### Skills (AgentSkills standard)
 
-#### Cursor-specific rules
+- **`.agents/skills/`** - Skill definitions following the [AgentSkills spec](https://agentskills.io) (discoverable by Codex, Gemini CLI, OpenCode, Cursor, and others)
+- **`.claude/skills/`** - Symlinks to `.agents/skills/` for Claude Code discovery
 
-- **`.cursor/rules/documentation-style.mdc`** - Cursor-specific documentation guidelines
-- **`.cursor/rules/content-formatting.mdc`** - Cursor-specific formatting rules
-- **`.cursor/rules/api-documentation.mdc`** - Cursor-specific API documentation rules
-- **`.cursor/rules/quality-standards.mdc`** - Cursor-specific quality guidelines
-- **`.cursor/rules/file-organization.mdc`** - Cursor-specific file organization rules
+### Agent-specific adapters
 
-To verify rule application, hover over attached rules in the Cursor chat window.
+- **`.cursor/rules/`** - Thin pointers to `standards/` for Cursor
 
 ### Usage
 
-#### For general AI assistants
-
-- Reference `AGENTS.md` for vendor-agnostic documentation standards
-
-#### For Cursor-specific features
-
-- Use `.cursor/rules/*.mdc` files for Cursor-specific workflows
-- Leverage glob patterns and `alwaysApply` settings
-- Use Cursor Chat and Cmd+K with `@AGENTS.md` references
-
-### File targeting
-
-Each `.mdc` file uses glob patterns to target specific file types:
-
-- **`documentation-style.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
-- **`content-formatting.mdc`**: `["sources/**/*.md", "sources/**/*.mdx"]`
-- **`api-documentation.mdc`**: `["apify-api/**/*.yaml", "apify-api/**/*.js"]`
+- Any AI assistant can follow `AGENTS.md` and read `standards/` directly
+- Skills-compatible agents (Claude Code, Codex, Gemini CLI, OpenCode, Cursor): discover skills from `.agents/skills/`
+- Claude Code users: use `/doc-write`, `/api-doc`, `/tutorial`, `/review-docs` skills
+- Cursor users: rules auto-load via glob patterns on `sources/**/*.md` files
 
 ## Repository structure
 

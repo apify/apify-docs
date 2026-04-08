@@ -62,6 +62,10 @@ Follow proper heading hierarchy: H2 → H3 → H4. Never skip levels. (H1 is the
 #### Detail (H4 - use sparingly)
 ```
 
+## Information ordering
+
+Order sections so no concept is used before it's explained. Treat information dependencies as a directed graph - if understanding B requires A, present A first. When restructuring or reviewing a page, check that each section only relies on concepts introduced earlier on the page or linked to explicitly.
+
 ## Admonitions
 
 Use Docusaurus admonitions for important information. **All admonitions MUST have titles.**
@@ -84,25 +88,7 @@ Content of the admonition.
 :::
 ```
 
-### Examples
-
-```markdown
-:::note Actor versions
-Actors can have multiple versions. Pin to a specific version for production use.
-:::
-
-:::tip Performance optimization
-Use the `maxRequestsPerCrawl` option to limit the number of requests for testing.
-:::
-
-:::caution Breaking changes
-Version 3.0 introduces breaking changes. Review the migration guide before upgrading.
-:::
-
-:::danger Data loss risk
-Deleting a dataset is permanent. All data will be lost and cannot be recovered.
-:::
-```
+> Missing titles enforced by Vale (`Apify.AdmonitionTitle`). Run `vale "<file>"` to check.
 
 ## Code examples
 

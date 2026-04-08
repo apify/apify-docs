@@ -100,33 +100,19 @@ Before submitting documentation, verify:
 
 ### For documentation pages
 
-Use the **doc-write** skill for comprehensive guidance on:
-- Content structure (introduction, prerequisites, steps, examples, summary)
-- Documentation type distinction (tutorials vs guides vs reference)
-- Platform-specific or Academy-specific requirements
+Follow the writing process in `.agents/skills/doc-write/references/process.md`. See `.agents/skills/doc-write/references/doc-structures.md` for content type templates.
 
 ### For tutorials
 
-Use the **tutorial** skill for comprehensive guidance on:
-- Tutorial structure template (8-section format)
-- Learning objectives and expected outcomes
-- Step-by-step instructions with verification
-- Troubleshooting section
+Follow the tutorial process in `.agents/skills/tutorial/references/process.md`. See `.agents/skills/tutorial/references/tutorial-template.md` for the 8-section structure.
 
 ### For API documentation
 
-Use the **api-doc** skill for comprehensive guidance on:
-- OpenAPI specification standards
-- Operation ID conventions
-- Code sample requirements (JavaScript and Python)
-- Schema and path documentation
+Follow the API documentation process in `.agents/skills/api-doc/references/process.md`. See `.agents/skills/api-doc/references/openapi-patterns.md` for OpenAPI conventions.
 
 ### For documentation review
 
-Use the **review-docs** skill for comprehensive guidance on:
-- Review process and priority ranking
-- Common issues and how to fix them
-- Output format for review feedback
+Follow the review process in `.agents/skills/review-docs/references/process.md`. See `.agents/skills/review-docs/references/review-format.md` for output format.
 
 ## Pre-submission checklist
 

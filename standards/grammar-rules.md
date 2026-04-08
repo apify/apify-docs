@@ -151,19 +151,6 @@ Use "they/their" as a singular pronoun when the person's name isn't specified.
 
 ## Tool and brand name spelling
 
-Use the exact official spelling for tools and brand names:
+Use the exact official spelling for tools and brand names (JavaScript, TypeScript, Node.js, GitHub, ChatGPT, MongoDB, PostgreSQL, VS Code, WordPress, n8n, LangChain, jQuery, Dockerfile).
 
-| Incorrect | Correct |
-|-----------|---------|
-| Javascript | JavaScript |
-| Typescript | TypeScript |
-| NodeJS, Node.JS | Node.js |
-| Github | GitHub |
-| Chatgpt | ChatGPT |
-| N8n, N8N | n8n |
-| Mongodb | MongoDB |
-| Postgresql, Postgres | PostgreSQL |
-| Jquery | jQuery |
-| Wordpress | WordPress |
-| VSCode, VS code | VS Code |
-| DockerFile, dockerfile | Dockerfile |
+> Enforced by Vale (`Apify.Languages`). Run `vale "<file>"` to check.
