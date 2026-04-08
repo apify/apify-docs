@@ -1,0 +1,11 @@
+title: ErrorType
+type: string
+description: Machine-processable error type identifier.
+enum:
+  - actor-not-found
+  - record-not-found
+  - record-or-token-not-found
+  - request-id-invalid
+  - run-failed
+  - run-timeout-exceeded
+  - unknown-build-tag

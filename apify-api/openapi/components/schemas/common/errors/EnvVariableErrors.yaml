@@ -3,3 +3,7 @@ EnvironmentVariableNotFoundError:
   properties:
     error:
       $ref: ../ErrorDetail.yaml
+  example:
+    error:
+      type: record-not-found
+      message: Environment variable was not found

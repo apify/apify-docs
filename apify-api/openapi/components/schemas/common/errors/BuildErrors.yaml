@@ -3,3 +3,7 @@ UnknownBuildTagError:
   properties:
     error:
       $ref: ../ErrorDetail.yaml
+  example:
+    error:
+      type: unknown-build-tag
+      message: 'Build with tag "latest" was not found. Has the Actor been built already?'
