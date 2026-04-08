@@ -8,7 +8,7 @@ slug: /integrations/upsonic
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-## What is Upsonic?
+## What is Upsonic
 
 [Upsonic](https://upsonic.ai) is an open-source Python framework for building AI agents. It supports any LLM (e.g., OpenAI, Anthropic, Azure, and Bedrock) and provides:
 
@@ -19,11 +19,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 - Multi-agent coordination and MCP server support
 - [Universal Commerce Protocol (UCP)](https://github.com/Upsonic/awesome-ucp) tools for AI-driven commerce workflows
 
-:::note Upsonic documentation
-
 See the [Upsonic documentation](https://docs.upsonic.ai) for more details on building AI agents.
-
-:::
 
 <ThirdPartyDisclaimer />
 
@@ -73,7 +69,7 @@ agent.print_do(task)
 
 Running this code fetches and summarizes the content from the provided URL.
 
-## Advanced scenario: restaurant discovery agent
+## Advanced scenario: Restaurant discovery agent
 
 Combine `ApifyTools` with the Google Places Crawler to build an agent that accepts a natural language query and returns a list of matching restaurants.
 
