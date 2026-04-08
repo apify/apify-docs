@@ -75,7 +75,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/actors/EnvVar.yaml
+          $ref: ../../components/schemas/actors/EnvVarRequest.yaml
         example:
           name: ENV_VAR_NAME
           value: my-env-var
