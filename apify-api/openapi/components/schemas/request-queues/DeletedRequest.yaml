@@ -1,13 +1,5 @@
 title: DeletedRequest
 description: Confirmation of a request that was successfully deleted from a request queue.
-type: object
 anyOf:
-  - title: DeletedRequestById
-    required: [id]
-  - title: DeletedRequestByUniqueKey
-    required: [uniqueKey]
-properties:
-  uniqueKey:
-    $ref: ./SharedProperties.yaml#/UniqueKey
-  id:
-    $ref: ./SharedProperties.yaml#/RequestId
+  - $ref: ./DeletedRequestById.yaml
+  - $ref: ./DeletedRequestByUniqueKey.yaml

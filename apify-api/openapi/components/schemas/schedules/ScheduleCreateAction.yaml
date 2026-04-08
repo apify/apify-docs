@@ -1,38 +1,9 @@
 title: ScheduleCreateAction
 oneOf:
-  - title: ScheduleCreateActionRunActor
-    required:
-      - type
-      - actorId
-    type: object
-    properties:
-      type:
-        const: RUN_ACTOR
-      actorId:
-        type: string
-        examples: [jF8GGEvbEg4Au3NLA]
-      runInput:
-        anyOf:
-          - $ref: ./ScheduleActionRunInput.yaml
-          - type: "null"
-      runOptions:
-        anyOf:
-          - $ref: ../common/OptionalRunOptions.yaml
-          - type: "null"
-  - title: ScheduleCreateActionRunActorTask
-    required:
-      - type
-      - actorTaskId
-    type: object
-    properties:
-      type:
-        const: RUN_ACTOR_TASK
-      actorTaskId:
-        type: string
-        examples: [jF8GGEvbEg4Au3NLA]
-      input:
-        anyOf:
-          - type: object
-          - type: "null"
+  - $ref: ./ScheduleCreateActionRunActor.yaml
+  - $ref: ./ScheduleCreateActionRunActorTask.yaml
 discriminator:
   propertyName: type
+  mapping:
+    RUN_ACTOR: ./ScheduleCreateActionRunActor.yaml
+    RUN_ACTOR_TASK: ./ScheduleCreateActionRunActorTask.yaml
