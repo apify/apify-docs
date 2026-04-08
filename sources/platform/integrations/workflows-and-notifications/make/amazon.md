@@ -7,11 +7,17 @@ slug: /integrations/make/amazon
 unlisted: true
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Use the Amazon Scraper module in [Make](https://www.make.com/) to extract product listings, search results, and category data from Amazon.
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for Amazon Data
 
 The Amazon Scraper module from [Apify](https://apify.com) allows you to extract product, search, or category data from Amazon.
 
-To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in Apify Console under **Settings > Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
+To use the module, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token), which you can find in Apify Console under **Settings > API & Integrations**. After connecting, you can automate data extraction and incorporate the results into your workflows.
 
 ## Connect Apify Scraper for Amazon Data modules to Make
 
@@ -232,6 +238,5 @@ There are other native Make Apps powered by Apify. You can check out Apify Scrap
 - [Google Maps Emails Data](/platform/integrations/make/maps)
 - [YouTube Data](/platform/integrations/make/youtube)
 - [AI crawling](/platform/integrations/make/ai-crawling)
-
 
 And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).

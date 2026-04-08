@@ -6,6 +6,8 @@ sidebar_position: 5
 slug: /integrations/slack
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 **Learn how to integrate your Apify Actors with Slack. This article guides you from installation through to automating your whole workflow in Slack.**
 
 A tutorial can be found on [Apify Help](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
@@ -14,8 +16,9 @@ A tutorial can be found on [Apify Help](https://help.apify.com/en/articles/64540
 
 > Explore the [integration for Slack tutorial](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
 
-
 [Slack](https://slack.com/) allows you to install various services in your workspace in order to automate and centralize jobs. Apify is one of these services, and it allows you to run your Apify Actors, get notified about their run statuses, and receive your results, all without opening your browser.
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 
@@ -28,7 +31,7 @@ To use the Apify integration for Slack, you will need:
 
 You can find all integrations on an Actor's or task's **Integrations** tab. For example, you can try using the [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL).
 
-Find the integration for Slack, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
+Find the integration for Slack, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > API & Integrations** window.
 
 ![Integrations tab](../images/integrations-tab.png)
 

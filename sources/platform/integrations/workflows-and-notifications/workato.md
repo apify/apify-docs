@@ -6,7 +6,11 @@ sidebar_position: 7
 slug: /integrations/workato
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Workato](https://www.workato.com/) is an automation platform where you can build recipes, automated workflows that connect your apps with no-code connectors. With the [Apify Connector](https://apify.com), you can run _Apify Actors_ inside your recipes to launch web scraping and automation jobs, watch for run events, and further work with the results.
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 
@@ -60,7 +64,7 @@ You can authenticate the connection using either:
 #### Authenticate with API token
 
 1. In the Apify connection dialog, select **Apify API token** as the authentication type.
-1. Enter your **API Token**. In Apify Console, go to [**Settings > Integrations**](https://console.apify.com/account#/integrations) and copy your API token.
+1. Enter your **API Token**. In Apify Console, go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) and copy your API token.
 1. Click **Connect**. Workato will test the connection by making an authenticated call to verify your credentials.
 
 ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)

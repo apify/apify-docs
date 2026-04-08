@@ -144,10 +144,10 @@ teardown_file() {
   [[ "$output" == *' updatedOn: '* ]]
 }
 
-@test "finds the shortest CNN sports article" {
-  run node cnn_sports_shortest_article.mjs
+@test "counts total eurozone population" {
+  run node eurozone_population.mjs
 
-  [[ "$output" == 'https://edition.cnn.com/'* ]]
+  [[ "$output" -gt 300000000 ]]
 }
 
 @test "scrapes F1 Academy driver details with Crawlee" {
