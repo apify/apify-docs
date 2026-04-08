@@ -13,7 +13,7 @@ These are objective - no judgment needed. Report all failures. Run in the main p
 
 - `npm run lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `vale "<file>" --minAlertLevel=error` (prose style, dashes, code fences, admonitions)
-- `scripts/check-frontmatter.sh "<file>"` (description char count)
+- `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
 ## Step 3: Delegated standards review
 
@@ -41,7 +41,7 @@ Run in the main process. Focus on what neither deterministic tools nor standards
 
 ## Step 5: Format output
 
-Merge deterministic results + subagent findings + content review into structured output per `references/review-format.md`.
+Merge deterministic results + subagent findings + content review into structured output per `.agents/skills/review-docs/references/review-format.md`.
 
 - Tool findings are objective facts
 - Standards findings are rule-based judgment calls
