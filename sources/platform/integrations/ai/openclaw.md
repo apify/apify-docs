@@ -1,7 +1,7 @@
 ---
 title: OpenClaw integration
 sidebar_label: OpenClaw
-description: Learn how to integrate Apify with OpenClaw to give your AI agents web scraping and data extraction capabilities using 20,000+ pre-built Actors.
+description: Learn how to integrate Apify with OpenClaw to give your AI agents web scraping and data extraction capabilities using pre-built Actors.
 sidebar_position: 14
 slug: /integrations/openclaw
 toc_min_heading_level: 2
@@ -10,9 +10,9 @@ toc_max_heading_level: 4
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[OpenClaw](https://openclaw.io) is an open-source AI agent orchestration platform that enables you to build, deploy, and manage autonomous AI agents. The Apify plugin for OpenClaw gives your agents access to 20,000+ pre-built Actors for web scraping, data extraction, and automation through a single `apify` tool.
+[OpenClaw](https://openclaw.io) is an open-source AI agent orchestration platform that enables you to build, deploy, and manage autonomous AI agents. The Apify plugin for OpenClaw gives your agents access to thousands of pre-built Actors for web scraping, data extraction, and automation through a single `apify` tool.
 
-For more details about OpenClaw, refer to the [official documentation](https://docs.openclaw.io/).
+For more details about OpenClaw, refer to the [official documentation](https://docs.openclaw.ai/).
 
 <ThirdPartyDisclaimer />
 
@@ -33,7 +33,7 @@ Before integrating Apify with OpenClaw, you'll need:
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
 - _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations).
 - _OpenClaw_ - Version 2026.1.0 or later. Install from the [OpenClaw website](https://openclaw.io/).
-- _Node.js 22+_ - Required to run the plugin.
+- _Node.js 22+_ - Required to run the plugin. Install from [nodejs.org](https://nodejs.org/en/download/).
 
 ## Set up the Apify plugin
 
@@ -171,8 +171,8 @@ If you encounter a bug or have a feature request, [open an issue](https://github
 
 ## Resources
 
-- [OpenClaw documentation](https://docs.openclaw.io/) - Official OpenClaw docs
+- [OpenClaw documentation](https://docs.openclaw.ai/) - Official OpenClaw docs
 - [Apify Actors documentation](https://docs.apify.com/platform/actors) - Learn about Apify Actors
-- [Apify Store](https://apify.com/store) - Browse 20,000+ pre-built Actors
+- [Apify Store](https://apify.com/store) - Browse pre-built Actors
 - [Apify API reference](https://docs.apify.com/api/v2) - Full API documentation
 - [Apify OpenClaw plugin on GitHub](https://github.com/apify/apify-openclaw-plugin) - Source code and issue tracker
