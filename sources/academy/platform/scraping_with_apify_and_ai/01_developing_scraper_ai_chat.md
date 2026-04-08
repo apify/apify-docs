@@ -70,7 +70,7 @@ And just like that, we have our first Actor! It's only a sample scraper that wal
 
 ## Running sample Actor
 
-The Actor's detail page has plenty of tabs and settings, but for now we'll stay at **Source > Code**. That's where the **Web IDE** is.
+The Actor's detail page has plenty of tabs and settings, but for now we'll stay at **Source** → **Code**. That's where the **Web IDE** is.
 
 IDE stands for _integrated development environment_. Fear not, it's just a jargon for ‘an app for editing code, somewhat comfortably’. In the Web IDE, we can browse the files the Actor is made of, and change their contents.
 
@@ -96,7 +96,7 @@ In this course, we'll scrape a real e-commerce site instead of artificial playgr
 
 :::
 
-First, let's navigate through the tabs to **Source > Input**, where we can change what the Actor takes as input. The sample scraper walks through whatever website we give it in the **Start URLs** field. We'll change it to this URL:
+First, let's navigate through the tabs to **Source** → **Input**, where we can change what the Actor takes as input. The sample scraper walks through whatever website we give it in the **Start URLs** field. We'll change it to this URL:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/collections/sales
@@ -104,7 +104,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 
 ![Actor input](images/apify-input.webp)
 
-Now let's go back to **Source > Code** so we can work with the Web IDE. We'll select a file called `routes.js` inside the `src` directory. We'll see code similar to this:
+Now let's go back to **Source** → **Code** so we can work with the Web IDE. We'll select a file called `routes.js` inside the `src` directory. We'll see code similar to this:
 
 ```js
 import { createCheerioRouter } from '@crawlee/cheerio';

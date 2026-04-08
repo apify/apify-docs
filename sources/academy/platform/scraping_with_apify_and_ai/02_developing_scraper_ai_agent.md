@@ -75,7 +75,11 @@ We'll start by creating a working folder for our project somewhere on our disk.
 <Tabs>
   <TabItem value="Windows" label="Windows">
 
-  ...
+  1. Right-click on your Desktop
+  2. Select **New** → **Folder**
+  3. Name it `my-actor`
+  4. Hold **Shift** and right-click on the `my-actor` folder
+  5. Select **Open in Terminal** (Windows 11) or **Open PowerShell window here** (Windows 10)
 
   </TabItem>
   <TabItem value="macOS" label="macOS">
@@ -89,7 +93,13 @@ We'll start by creating a working folder for our project somewhere on our disk.
   </TabItem>
   <TabItem value="Linux" label="Linux">
 
-  ...
+  1. Open Terminal (press **Ctrl+Alt+T** or find it in your applications menu)
+  2. Run the following commands to create the folder and enter it:
+
+  ```text
+  mkdir ~/Desktop/my-actor
+  cd ~/Desktop/my-actor
+  ```
 
   </TabItem>
 </Tabs>
