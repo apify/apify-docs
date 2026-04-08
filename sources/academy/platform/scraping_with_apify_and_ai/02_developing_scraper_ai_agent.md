@@ -87,12 +87,6 @@ We now got a hold of a handy remote control, let's use it to download the Actor 
 apify pull hjtest/my-actor
 ```
 
-:::info Why not Actor name alone
-
-Apify puts usernames before Actor names to distinguish projects of the same name made by different creators. Resulting combination is unambiguous.
-
-:::
-
 The following output should appear:
 
 ```text
