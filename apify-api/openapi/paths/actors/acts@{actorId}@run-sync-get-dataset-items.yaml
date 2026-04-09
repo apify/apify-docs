@@ -86,6 +86,8 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "404":
       description: Not found - the requested resource was not found.
       content:
