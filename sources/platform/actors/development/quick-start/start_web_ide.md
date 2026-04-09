@@ -22,7 +22,7 @@ To create an Actor from a code template:
 1. Log in to [Apify Console](https://console.apify.com).
 1. In the left-side panel, go to **Development** > **My Actors**.
 1. Click **Develop new**.
-2. Under **Select a code template**, choose one of the available options. For this tutorial, let's use **Quick start: Crawlee + Cheerio**.
+1. Under **Select a code template**, choose one of the available options. For this tutorial, let's use **Quick start: Crawlee + Cheerio**.
 
 :::tip Explore Actor templates
 
