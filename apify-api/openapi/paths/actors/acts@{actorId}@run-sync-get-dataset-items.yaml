@@ -64,6 +64,8 @@ post:
           type: object
         example:
           foo: bar
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":
