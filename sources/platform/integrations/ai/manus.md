@@ -46,6 +46,7 @@ Before connecting Manus to Apify, you'll need:
     - **Icon** (optional) - `https://apify.com/img/apify-logo/logomark-32x32.svg`
     - **Server URL** - `https://mcp.apify.com`
     ![Manus MCP configuration form filled in with Apify server details and the Save button highlighted](images/manus/mcp-configuration.png)
+
 :::tip Customize available tools
 
 The default MCP server URL exposes a predefined set of tools. You can choose exactly which tools and Actors are available by building a custom MCP URL with the [MCP configurator](https://mcp.apify.com). See [Configure tools](#configure-tools) below for details.
@@ -103,6 +104,7 @@ Available skills include:
 ### Import a skill from GitHub
 
 Each skill lives in its own folder inside the [apify/agent-skills](https://github.com/apify/agent-skills) repository.
+
 :::note Skill folder URL
 
 When importing in Manus, provide the URL of the folder that contains the `SKILL.md` file, not the repository root.
