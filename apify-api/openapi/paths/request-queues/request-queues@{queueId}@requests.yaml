@@ -47,7 +47,7 @@ get:
           enum:
             - locked
             - pending
-        example: locked
+        example: [locked]
   responses:
     "200":
       description: ""
