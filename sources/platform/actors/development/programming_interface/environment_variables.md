@@ -120,7 +120,7 @@ For sensitive data like API keys or passwords, enable the **Secret** option. Thi
 
 :::caution Visibility of environment variables in public Actors
 
-When you [publish your Actor](/platform/actors/publishing/publish), non-secret environment variables are visible to anyone on the Actor detail page along with the source code. If you enable **Hide source files from Actor detail** in the Actor's **Settings**, non-secret environment variables are hidden as well.
+When you [publish your Actor](/platform/actors/publishing/publish), environment variables not marked as **Secret** in Apify Console are visible to anyone on the Actor detail page along with the source code. If you enable **Hide source files from Actor detail** in the Actor's **Settings**, environment variables not marked as **Secret** in Apify Console are hidden as well.
 
 Secret environment variables are never exposed on the Actor detail page regardless of this setting. Always mark sensitive values as **Secret**.
 
