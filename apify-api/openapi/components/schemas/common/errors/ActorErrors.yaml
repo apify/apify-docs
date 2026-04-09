@@ -1,8 +1,48 @@
+ActorNotFoundErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: actor-not-found
+
+RecordNotFoundErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: record-not-found
+
+RecordOrTokenNotFoundErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: record-or-token-not-found
+
+RunFailedErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: run-failed
+
+RunTimeoutExceededErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: run-timeout-exceeded
+
 ActorNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/ActorNotFoundErrorDetail"
   example:
     error:
       type: actor-not-found
@@ -12,7 +52,7 @@ ActorBuildNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -22,7 +62,7 @@ RecordOrTokenNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RecordOrTokenNotFoundErrorDetail"
   example:
     error:
       type: record-or-token-not-found
@@ -32,7 +72,7 @@ ActorRunNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -42,7 +82,7 @@ ActorRunTimeoutExceededError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RunTimeoutExceededErrorDetail"
   example:
     error:
       type: run-timeout-exceeded
@@ -52,7 +92,7 @@ ActorRunFailedError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RunFailedErrorDetail"
   example:
     error:
       type: run-failed
@@ -62,7 +102,7 @@ ActorVersionNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found

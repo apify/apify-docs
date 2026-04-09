@@ -1,8 +1,16 @@
+RequestIdInvalidErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: request-id-invalid
+
 DatasetNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -12,7 +20,7 @@ KeyValueStoreNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -22,7 +30,7 @@ RequestQueueNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -32,7 +40,7 @@ RecordNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -42,7 +50,7 @@ RequestNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
@@ -52,7 +60,7 @@ RequestIdInvalidError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "#/RequestIdInvalidErrorDetail"
   example:
     error:
       type: request-id-invalid

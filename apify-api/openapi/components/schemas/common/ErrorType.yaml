@@ -2,10 +2,19 @@ title: ErrorType
 type: string
 description: Machine-processable error type identifier.
 enum:
+  - actor-memory-limit-exceeded
   - actor-not-found
+  - invalid-input
+  - method-not-allowed
+  - permission-denied
+  - rate-limit-exceeded
   - record-not-found
+  - record-not-unique
   - record-or-token-not-found
   - request-id-invalid
+  - request-too-large
   - run-failed
   - run-timeout-exceeded
+  - token-not-valid
   - unknown-build-tag
+  - unsupported-content-encoding

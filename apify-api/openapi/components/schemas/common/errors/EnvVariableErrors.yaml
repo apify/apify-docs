@@ -2,7 +2,7 @@ EnvironmentVariableNotFoundError:
   type: object
   properties:
     error:
-      $ref: ../ErrorDetail.yaml
+      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
   example:
     error:
       type: record-not-found
