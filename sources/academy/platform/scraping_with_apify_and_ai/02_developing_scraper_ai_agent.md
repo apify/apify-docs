@@ -299,7 +299,7 @@ Actor detail https://console.apify.com/actors/EL7U7aNddXOzwEJ66
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
-We'll follow the link to our browser and in the Apify interface, we'll click the **Start** button. Soon we should see items popping up in the **Output** section. For a full overwiew, let's switch to **All fields** again:
+We'll follow the link to our browser and in the Apify interface, we'll click the **Start** button. Soon we should see items popping up in the **Output** section. For a full overview, let's switch to **All fields** again:
 
 ![Modified Apify output](images/apify-output-modified.webp)
 
