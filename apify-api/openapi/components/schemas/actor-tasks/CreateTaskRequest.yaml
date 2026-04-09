@@ -11,7 +11,7 @@ properties:
     examples: [my-task]
   options:
     anyOf:
-      - $ref: ../common/OptionalRunOptions.yaml
+      - $ref: ../common/TaskOptions.yaml
       - type: "null"
   input:
     anyOf:

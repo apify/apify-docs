@@ -1,4 +1,4 @@
-title: OptionalRunOptions
+title: TaskOptions
 type: object
 properties:
   build:
