@@ -114,6 +114,57 @@ async def main():
 </TabItem>
 </Tabs>
 
+### How to set a state (US only)
+
+:::note US states only
+State-level targeting is currently only supported for the United States.
+:::
+
+To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation.
+
+For example, your `username` parameter when targeting California will look like this:
+
+```python
+username = "groups-RESIDENTIAL,country-US_CA"
+```
+
+In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` parameter:
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['RESIDENTIAL'],
+    countryCode: 'US_CA',
+});
+// ...
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        # ...
+        proxy_configuration = await Actor.create_proxy_configuration(
+            groups=['RESIDENTIAL'],
+            country_code='US_CA',
+        )
+        # ...
+```
+
+</TabItem>
+</Tabs>
+
 ## Session persistence
 
 When using residential proxy with the `session` [parameter](./usage.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
