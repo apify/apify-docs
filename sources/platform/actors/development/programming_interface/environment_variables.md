@@ -118,6 +118,14 @@ Actor owners can define custom environment variables to pass additional configur
 
 For sensitive data like API keys or passwords, enable the **Secret** option. This will encrypt the value and redact it from logs to prevent accidental exposure.
 
+:::caution Visibility of environment variables in public Actors
+
+When you [publish your Actor](/platform/actors/publishing/publish), non-secret environment variables are visible to anyone on the Actor detail page along with the source code. If you enable **Hide source files from Actor detail** in the Actor's **Settings**, non-secret environment variables are hidden as well.
+
+Secret environment variables are never exposed on the Actor detail page regardless of this setting. Always mark sensitive values as **Secret**.
+
+:::
+
 :::info Build-time variables
 
 Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
