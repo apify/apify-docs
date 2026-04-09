@@ -176,13 +176,4 @@ To get the best search results, use specific keywords and operators, and exclude
 
 ## Other scrapers available
 
-There are other native Make Apps powered by Apify. You can check out Apify Scraper for:
-
-- [TikTok Data](/platform/integrations/make/tiktok)
-- [Google Search](/platform/integrations/make/search)
-- [Google Maps Emails Data](/platform/integrations/make/maps)
-- [YouTube Data](/platform/integrations/make/youtube)
-- [AI crawling](/platform/integrations/make/ai-crawling)
-- [Amazon](/platform/integrations/make/amazon)
-
-And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+Looking for more than just AI crawling? You can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
