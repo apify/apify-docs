@@ -23,7 +23,11 @@ Before you begin, make sure you have:
 
 1. Log into your Pipedream account and [create a new workflow](https://pipedream.com/docs/workflows).
 1. [Add an Apify step](https://pipedream.com/docs/workflows/building-workflows/steps) (trigger or action) to your workflow.
-1. Select **Connect Apify** and enter your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**. See [connected accounts](https://pipedream.com/docs/apps/connected-accounts) for more details.
+1. Select **Connect Apify** and authenticate using one of two methods:
+    - **API token** - Enter your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**.
+    - **OAuth** - Select the **Apify (OAuth)** app and authorize access to your Apify account.
+
+    See [connected accounts](https://pipedream.com/docs/apps/connected-accounts) for more details.
 1. After connecting, you can use any Apify trigger or action in your workflows.
 
 ## Use Apify as a trigger
