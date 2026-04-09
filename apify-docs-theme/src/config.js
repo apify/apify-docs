@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 const { absoluteUrl } = require('./absoluteUrl');
 
 const noIndex = ['true', '1'].includes(process.env.NO_INDEX ?? '');
