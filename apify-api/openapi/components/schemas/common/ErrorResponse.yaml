@@ -28,6 +28,7 @@ properties:
           - token-not-valid
           - unknown-build-tag
           - unsupported-content-encoding
+          - x402-payment-required
       message:
         type: string
         description: Human-readable error message describing what went wrong.

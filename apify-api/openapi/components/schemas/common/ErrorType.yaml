@@ -18,3 +18,4 @@ enum:
   - token-not-valid
   - unknown-build-tag
   - unsupported-content-encoding
+  - x402-payment-required
