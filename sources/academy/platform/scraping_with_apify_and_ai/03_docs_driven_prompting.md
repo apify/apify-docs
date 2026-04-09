@@ -6,6 +6,7 @@ unlisted: true
 ---
 
 <!--
+explain AGENTS.md
 Improving the README, e.g. input output. Pointing the agent to the README and turning the design to reality.
 -->
 
