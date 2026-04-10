@@ -1,6 +1,8 @@
 node_modules
 build
 .claude
+.agents
 AGENTS.md
 CLAUDE.md
+standards
 sources/_partials/*

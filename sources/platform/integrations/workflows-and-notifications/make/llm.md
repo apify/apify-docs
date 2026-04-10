@@ -17,7 +17,7 @@ Use the Apify Scraper for LLMs module in [Make](https://www.make.com/) to query 
 
 Apify Scraper for LLMs from [Apify](https://apify.com) is a web browsing module for OpenAI Assistants, RAG pipelines, and AI agents. It can query Google Search, scrape the top results, and return page content as Markdown for downstream AI processing.
 
-To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in Apify Console under **Settings > Integrations**. After connecting, you can automate content extraction and integrate results into your AI workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in Apify Console under **Settings > API & Integrations**. After connecting, you can automate content extraction and integrate results into your AI workflows.
 
 ## Connect Apify Scraper for LLMs
 
