@@ -1,0 +1,35 @@
+get:
+  tags:
+    - Actor runs
+  summary: Get default key-value store
+  description: |
+    Returns the default key-value store associated with an Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [Get store](/api/v2/keyValueStore-get) endpoint.
+
+    This endpoint has the same response as the [Get store](/api/v2/keyValueStore-get) endpoint.
+  operationId: actorRun_keyValueStore_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

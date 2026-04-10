@@ -520,6 +520,8 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@abort.yaml"
   "/v2/acts/{actorId}/runs/{runId}/metamorph":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml"
+  "/v2/acts/{actorId}/validate-input":
+    $ref: "paths/actors/acts@{actorId}@validate-input.yaml"
   /v2/actor-tasks:
     $ref: paths/actor-tasks/actor-tasks.yaml
   "/v2/actor-tasks/{actorTaskId}":
@@ -550,6 +552,14 @@ paths:
     $ref: paths/actor-runs/actor-runs@{runId}@resurrect.yaml
   "/v2/actor-runs/{runId}/charge":
     $ref: paths/actor-runs/actor-runs@{runId}@charge.yaml
+  "/v2/actor-runs/{runId}/dataset":
+    $ref: paths/actor-runs/actor-runs@{runId}@dataset.yaml
+  "/v2/actor-runs/{runId}/key-value-store":
+    $ref: paths/actor-runs/actor-runs@{runId}@key-value-store.yaml
+  "/v2/actor-runs/{runId}/log":
+    $ref: paths/actor-runs/actor-runs@{runId}@log.yaml
+  "/v2/actor-runs/{runId}/request-queue":
+    $ref: paths/actor-runs/actor-runs@{runId}@request-queue.yaml
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   "/v2/actor-builds/{buildId}":
