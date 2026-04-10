@@ -1,0 +1,49 @@
+post:
+  tags:
+    - Actor runs/Request queue
+  summary: Get head and lock
+  description: |
+    Returns the given number of first requests from the Actor run's default request queue and locks them.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Get head and lock](/api/v2/requestQueue-head-lock-post) endpoint.
+  operationId: actorRun_requestQueue_head_lock_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/lockSecs"
+    - name: limit
+      in: query
+      description: How many items from the queue should be returned.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 25
+        maximum: 25
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/HeadAndLockResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

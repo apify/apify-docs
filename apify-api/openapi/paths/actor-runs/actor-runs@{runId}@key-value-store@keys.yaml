@@ -1,0 +1,66 @@
+get:
+  tags:
+    - Actor runs/Key-value store
+  summary: Get list of keys
+  description: |
+    Returns a list of objects describing keys of the Actor run's default key-value store.
+
+    This endpoint is a shortcut that resolves the run's `defaultKeyValueStoreId` and proxies to the
+    [Get list of keys](/api/v2/keyValueStore-keys-get) endpoint.
+  operationId: actorRun_keyValueStore_keys_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - name: exclusiveStartKey
+      in: query
+      description: All keys up to this one (including) are skipped from the result.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Ihnsp8YrvJ8102Kj
+    - name: limit
+      in: query
+      description: Number of keys to be returned. Maximum value is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+    - name: collection
+      in: query
+      description: Limit the results to keys that belong to a specific collection from the key-value store schema. The key-value store need to have a schema defined for this parameter to work.
+      schema:
+        type: string
+        example: postImages
+    - name: prefix
+      in: query
+      description: Limit the results to keys that start with a specific prefix.
+      schema:
+        type: string
+        example: post-images-
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/ListOfKeysResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

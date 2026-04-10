@@ -1,0 +1,47 @@
+get:
+  tags:
+    - Actor runs/Request queue
+  summary: Get head
+  description: |
+    Returns given number of first requests from the Actor run's default request queue.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Get head](/api/v2/requestQueue-head-get) endpoint.
+  operationId: actorRun_requestQueue_head_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - name: limit
+      in: query
+      description: How many items from queue should be returned.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/HeadResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

@@ -1,0 +1,113 @@
+post:
+  tags:
+    - Actor runs/Request queue
+  summary: Add requests
+  description: |
+    Adds requests to the Actor run's default request queue in batch.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Add requests](/api/v2/requestQueue-requests-batch-post) endpoint.
+  operationId: actorRun_requestQueue_requests_batch_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+    - $ref: "../../components/parameters/storageParameters.yaml#/forefront"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
+          description: ""
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/BatchAddResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+delete:
+  tags:
+    - Actor runs/Request queue
+  summary: Delete requests
+  description: |
+    Batch-deletes given requests from the Actor run's default request queue.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Delete requests](/api/v2/requestQueue-requests-batch-delete) endpoint.
+  operationId: actorRun_requestQueue_requests_batch_delete
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - name: Content-Type
+      in: header
+      description: ""
+      required: true
+      style: simple
+      schema:
+        enum:
+          - application/json
+        type: string
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/request-queues/RequestDraftDelete.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/BatchDeleteResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

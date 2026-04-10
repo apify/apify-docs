@@ -1,0 +1,197 @@
+get:
+  tags:
+    - Actor runs/Dataset
+  summary: Get dataset items
+  description: |
+    Returns data stored in the default dataset of the Actor run in the desired format.
+
+    This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
+    [Get dataset items](/api/v2/dataset-items-get) endpoint.
+  operationId: actorRun_dataset_items_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - name: view
+      in: query
+      description: |
+        Defines the view configuration for dataset items based on the schema definition.
+        This parameter determines how the data will be filtered and presented.
+        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
+      schema:
+        type: string
+        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+            example: [foo: bar, foo2: bar2]
+        application/jsonl:
+          schema:
+            type: string
+          example: '{"foo":"bar"}\n{"foo2":"bar2"}\n'
+        text/csv:
+          schema:
+            type: string
+          example: 'foo,bar\nfoo2,bar2\n'
+        text/html:
+          schema:
+            type: string
+          example: <table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+          schema:
+            type: string
+        application/rss+xml:
+          schema:
+            type: string
+          example: <rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>
+        application/xml:
+          schema:
+            type: string
+          example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+head:
+  tags:
+    - Actor runs/Dataset
+  summary: Get dataset items headers
+  description: |
+    Returns only the HTTP headers for the dataset items endpoint of the Actor run's default dataset,
+    without the response body.
+  operationId: actorRun_dataset_items_head
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - name: view
+      in: query
+      description: |
+        Defines the view configuration for dataset items based on the schema definition.
+        This parameter determines how the data will be filtered and presented.
+        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
+      schema:
+        type: string
+        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+  deprecated: false
+post:
+  tags:
+    - Actor runs/Dataset
+  summary: Store items
+  description: |
+    Appends an item or an array of items to the end of the Actor run's default dataset.
+
+    This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
+    [Store items](/api/v2/dataset-items-post) endpoint.
+
+    **IMPORTANT:** The limit of request payload size for the dataset is 5 MB.
+    If the array exceeds the size, you'll need to split it into a number of smaller arrays.
+  operationId: actorRun_dataset_items_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
+            - type: array
+              items:
+                $ref: ../../components/schemas/datasets/PutItemsRequest.yaml
+          description: ""
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+    "400":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/datasets/PutItemResponseError.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+  deprecated: false

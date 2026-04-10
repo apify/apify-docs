@@ -1,0 +1,94 @@
+put:
+  tags:
+    - Actor runs/Request queue
+  summary: Prolong request lock
+  description: |
+    Prolongs a request lock in the Actor run's default request queue.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Prolong request lock](/api/v2/requestQueue-request-lock-put) endpoint.
+  operationId: actorRun_requestQueue_request_lock_put
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/lockSecs"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock expires.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/ProlongRequestLockResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+delete:
+  tags:
+    - Actor runs/Request queue
+  summary: Delete request lock
+  description: |
+    Deletes a request lock in the Actor run's default request queue.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Delete request lock](/api/v2/requestQueue-request-lock-delete) endpoint.
+  operationId: actorRun_requestQueue_request_lock_delete
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock was removed.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+  responses:
+    "204":
+      $ref: ../../components/responses/NoContent.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

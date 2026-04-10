@@ -1,0 +1,37 @@
+post:
+  tags:
+    - Actor runs/Request queue
+  summary: Unlock requests
+  description: |
+    Unlocks requests in the Actor run's default request queue that are currently locked by the client.
+
+    This endpoint is a shortcut that resolves the run's `defaultRequestQueueId` and proxies to the
+    [Unlock requests](/api/v2/requestQueue-requests-unlock-post) endpoint.
+  operationId: actorRun_requestQueue_requests_unlock_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
+  responses:
+    "200":
+      description: Number of requests that were unlocked
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/UnlockRequestsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      description: Not found - the requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

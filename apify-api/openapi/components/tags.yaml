@@ -125,6 +125,30 @@
     has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
 
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
+- name: Actor runs/Dataset
+  x-displayName: Default dataset
+  x-parent-tag-name: Actor runs
+  x-trait: "true"
+  description: |
+    These endpoints provide shortcuts to access the default dataset of an Actor run.
+    They resolve the run's `defaultDatasetId` and proxy requests to the corresponding
+    [Datasets](/api/v2/datasets) endpoints.
+- name: Actor runs/Key-value store
+  x-displayName: Default key-value store
+  x-parent-tag-name: Actor runs
+  x-trait: "true"
+  description: |
+    These endpoints provide shortcuts to access the default key-value store of an Actor run.
+    They resolve the run's `defaultKeyValueStoreId` and proxy requests to the corresponding
+    [Key-value stores](/api/v2/key-value-stores) endpoints.
+- name: Actor runs/Request queue
+  x-displayName: Default request queue
+  x-parent-tag-name: Actor runs
+  x-trait: "true"
+  description: |
+    These endpoints provide shortcuts to access the default request queue of an Actor run.
+    They resolve the run's `defaultRequestQueueId` and proxy requests to the corresponding
+    [Request queues](/api/v2/request-queues) endpoints.
 - name: Actor tasks
   x-displayName: Actor tasks - Introduction
   x-legacy-doc-urls:
