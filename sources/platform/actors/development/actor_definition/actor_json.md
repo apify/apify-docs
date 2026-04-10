@@ -36,6 +36,7 @@ import TabItem from '@theme/TabItem';
     "dockerfile": "./Dockerfile",
     "readme": "./ACTOR.md",
     "input": "./input_schema.json",
+    "output": "./output_schema.json",
     "storages": {
         "dataset": "./dataset_schema.json"
     },
@@ -78,7 +79,8 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `dockerfile` | Optional | The path to the Dockerfile to be used for building the Actor on the platform. If not specified, the system will search for Dockerfiles in the `.actor/Dockerfile` and `Dockerfile` paths, in that order. Refer to the [Dockerfile](./docker.md) section for more information. |
 | `dockerContextDir` | Optional | The path to the directory to be used as the Docker context when building the Actor. The path is relative to the location of the `actor.json` file. This property is useful for monorepos containing multiple Actors. Refer to the [Actor monorepos](../deployment/source_types.md#actor-monorepos) section for more details. |
 | `readme` | Optional | The path to the README file to be used on the platform. If not specified, the system will look for README files in the `.actor/README.md` and `README.md` paths, in that order of preference. Check out [Apify Marketing Playbook to learn how to write a quality README files](https://apify.notion.site/How-to-create-an-Actor-README-759a1614daa54bee834ee39fe4d98bc2) guidance. |
-| `input` | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. You can also provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
+| `input` | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. You can also provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. You can also use the `inputSchema` alias interchangeably. |
+| `output` | Optional | You can embed your [output schema](./output_schema/index.md) object directly in `actor.json` under the `output` field. You can also provide a path to a custom output schema. [Read more](/platform/actors/development/actor-definition/output-schema) about Actor output schemas. You can also use the `outputSchema` alias interchangeably. |
 | `changelog` | Optional | The path to the CHANGELOG file displayed in the Information tab of the Actor in Apify Console next to Readme. If not provided, the CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` is used, in this order of preference. Your Actor doesn't need to have a CHANGELOG but it is a good practice to keep it updated for published Actors. |
 | `storages.dataset` | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](/platform/actors/development/actor-definition/dataset-schema) about Actor dataset schemas. |
 | `storages.datasets` | Optional | You can define multiple datasets for the Actor under the `storages.datasets` field. This can be an object containing embedded objects or paths to a JSON schema files. [Read more](/platform/actors/development/actor-definition/dataset-schema/multiple-datasets) about multiple dataset schemas. |
