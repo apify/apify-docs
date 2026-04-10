@@ -42,7 +42,7 @@ We use OpenAI ChatGPT in this course only because it's the most widely used AI c
 
 ## Creating Apify account
 
-First, let's [create a new Apify account](https://console.apify.com/sign-up). The signup flow takes us through a few checks to confirm we're human and that our email is valid. It's annoying, but necessary to prevent abuse of the platform.
+First, let's [create a new Apify account](https://console.apify.com/sign-up). The signup flow takes us through a few checks to confirm we're human and that our email is valid. It adds a few steps, but it's necessary to prevent abuse of the platform.
 
 Once we have an active account, we can start working on our scraper. Using the platform's resources costs money, but worry not, everything we cover here fits within [Apify's free tier](https://apify.com/pricing).
 
@@ -72,7 +72,7 @@ And just like that, we have our first Actor! It's only a sample scraper that wal
 
 The Actor's detail page has plenty of tabs and settings, but for now we'll stay at **Source** → **Code**. That's where the **Web IDE** is.
 
-IDE stands for _integrated development environment_. Fear not, it's just a jargon for ‘an app for editing code, somewhat comfortably’. In the Web IDE, we can browse the files the Actor is made of, and change their contents.
+IDE stands for _integrated development environment_. Fear not, it's just jargon for ‘an app for editing code, somewhat comfortably’. In the Web IDE, we can browse the files the Actor is made of, and change their contents.
 
 ![Web IDE](images/apify-web-ide.webp)
 
@@ -124,7 +124,7 @@ router.addDefaultHandler(async ({ enqueueLinks, request, $, log, pushData }) => 
 });
 ```
 
-We'll select all the code and copy to our clipboard. Then we'll switch to [ChatGPT](https://chatgpt.com/), open **New chat** and start with a prompt like this:
+We'll select all the code and copy it to our clipboard. Then we'll switch to [ChatGPT](https://chatgpt.com/), open **New chat** and start with a prompt like this:
 
 ```text
 I'm building an Apify Actor that will run on the Apify platform.
@@ -174,10 +174,10 @@ If you're still stuck, open a clean new chat in ChatGPT and try the same prompt 
 
 ## Wrapping up
 
-Despite a few flaws, we've successfully created a first working prototype of a price-watching app with no coding knowledge.
+Despite a few flaws, we've successfully created our first working prototype of a price-watching app with no coding knowledge.
 
 And thanks to Apify, our scraper can [run automatically on a weekly basis](https://docs.apify.com/platform/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/platform/storage/dataset), we can [monitor its runs](https://docs.apify.com/platform/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/platform/proxy).
 
-To improve our project further, we copy the code, ask ChatGPT to refine it, paste it back into the Web IDE, and rebuild.
+To improve our project further, we'd copy the code, ask ChatGPT to refine it, paste it back into the Web IDE, and rebuild.
 
 Sounds tedious? In the next lesson, we'll take a look at how we can get the Actor code onto our computer and use the Cursor IDE with a built-in AI agent instead of the Web IDE, so we can develop our scraper faster and with less back-and-forth.

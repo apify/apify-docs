@@ -75,13 +75,13 @@ Let's confirm **Through Apify Console in your default browser** with <kbd>↵</k
 Success: You are logged in to Apify as hjtest.
 ```
 
-The message mentions our username, in this case `hjtest`. We'll remember it as we'll need it for our next task.
-
 Awesome, now we're ready to remote control Apify from the command line!
+
+The message mentions our username, in this case `hjtest`. We'll remember it as we'll need it for our next task.
 
 ## Downloading Actor files
 
-We now got a hold of a handy remote control, let's use it to download the Actor files. In the following command, replace `hjtest` with your own username:
+We now have a handy remote control, let's use it to download the Actor files. In the following command, replace `hjtest` with your own username:
 
 ```text
 apify pull hjtest/my-actor
@@ -99,9 +99,9 @@ The tool created a new folder called `my-actor` and pulled all Actor files to it
 cd my-actor
 ```
 
-Being inside the folder will help us to run following commands focused just on the project, not affecting any other folders on our disk.
+Being inside the folder will help us to run the following commands focused just on the project, not affecting any other folders on our disk.
 
-Now we've got the code of our Actor, but we already know from the previous lesson that Actors first need to be _built_ before they can be _ran_. Let's run the following command, which installs software our Actor depends on:
+Now we've got the code of our Actor, but we already know from the previous lesson that Actors first need to be _built_ before they can be _run_. Let's run the following command, which installs software our Actor depends on:
 
 ```text
 npm install
@@ -123,7 +123,7 @@ Now that we have the Actor available on our computer, does it work? Let's try!
 apify run --input '{"startUrls": [{"url": "https://warehouse-theme-metal.myshopify.com/collections/sales"}]}'
 ```
 
-Plain `apify run` isn't enough for now, because the Actor we made expects that we give it an input with an URL which it's supposed to scrape. Adding `--input` with the subsequent ball of special characters is technically equivalent to what we've been previously doing in Apify when changing the field on the **Input** tab.
+Plain `apify run` isn't enough for now, because the Actor we made expects us to give it an input with a URL to scrape. Adding `--input` with the subsequent ball of special characters is technically equivalent to what we've been previously doing in Apify when changing the field on the **Input** tab.
 
 When the run is done, we should see an output similar to this one:
 
@@ -143,7 +143,7 @@ INFO  CheerioCrawler: Final request statistics: {"requestsFinished":1,"requestsF
 INFO  CheerioCrawler: Finished! Total 1 requests: 1 succeeded, 0 failed. {"terminal":true}
 ```
 
-Albeit we cannot quite see how do the scraped items look like, we can spot that our scraper made a single request to https://warehouse-theme-metal.myshopify.com/collections/sales and it finished without crashing. For a start, let's call it a success!
+Although we cannot quite see what the scraped items look like, we can spot that our scraper made a single request to https://warehouse-theme-metal.myshopify.com/collections/sales and it finished without crashing. For a start, let's call it a success!
 
 Now we could continue messing around with files and commands, but luckily, we don't have to. We have now everything in place to let an AI agent do all we wish from now on. But do we have one? One last installation, pinky promise!
 
@@ -153,7 +153,7 @@ Cursor is an IDE for browsing code, similar to Apify's Web IDE, but it's an app 
 
 :::info Why Cursor
 
-We use Cursor in this course because it's the only of the mainstream AI-first IDEs, which offers a free plan. If you're willing to pay, any IDE with an AI agent would fare the same, be it GitHub Copilot in VS Code, Claude Code, or OpenAI Codex.
+We use Cursor in this course because it's one of the mainstream AI-first IDEs and it offers a free plan. If you're willing to pay, any IDE with an AI agent would fare the same, be it GitHub Copilot in VS Code, Claude Code, or OpenAI Codex.
 
 :::
 
@@ -165,7 +165,7 @@ Similarly, when asked to connect GitHub, we'll choose **Maybe later**. Once we'r
 
 ![Download Cursor](images/cursor-install.webp)
 
-When we open the app for the first time, it requires a login. We'll click **Log In**, which will send us back to the browser. By choosing **Yes, Log In** we'll confirm that the app can use our account and let's get back to the app.
+When we open the app for the first time, it requires a login. We'll click **Log In**, which will send us back to the browser. By choosing **Yes, Log In** we'll confirm that the app can use our account, then get back to the app.
 
 ![Open project in Cursor](images/cursor-open.webp)
 
@@ -194,15 +194,15 @@ Change the default input URL of the Actor
 to https://warehouse-theme-metal.myshopify.com/collections/sales
 ```
 
-After we submit the prompt, the Agent will start reading the code, planning, and working on completing the task. Before it runs commands, it'll ask us to approve them.
+After we submit the prompt, the agent will start reading the code, planning, and working on completing the task. Before it runs commands, it'll ask us to approve them.
 
 ![Cursor asking for approval to run a command](images/cursor-approve.webp)
 
-When done, it'll print summary of its work and we'll be able to review all changes made.
+When done, it'll print a summary of its work and we'll be able to review all changes made.
 
 ![Cursor asking for a review of changes](images/cursor-review.webp)
 
-We'll approve all changes and go to the command line to try out if the Actor now works as expected:
+We'll approve all changes and go to the command line to check whether the Actor now works as expected:
 
 ```text
 apify run
@@ -250,7 +250,7 @@ When the agent is done, we'll approve the changes and verify in the command line
 apify run
 ```
 
-It runs, that's nice! But looking at the output, we can't really verify what exactly gets scraped! When we're at it, let's change that with another prompt:
+It runs, that's nice! But looking at the output, we can't really verify what exactly gets scraped! While we're at it, let's change that with another prompt:
 
 ```text
 In the output of the scraper I want to see
@@ -263,7 +263,7 @@ We'll approve all changes and go to the command line again:
 apify run
 ```
 
-Now, the output of the scraper contains the actual items being scraped and we can verify we've been successful with changing the format of the prices (they appear at the very end of each line):
+Now, the output of the scraper contains the actual items being scraped and we can verify we've been successful in changing the format of the prices (they appear at the very end of each line):
 
 ```text
 ...
@@ -291,7 +291,7 @@ To replace the Actor files living on the Apify platform with the ones we have lo
 apify push
 ```
 
-The command can take a while to finish, because it also immediately triggers a build. Once it's done, the new version of the Actor is ready to be ran. The output of the command ends with these two lines:
+The command can take a while to finish, because it also immediately triggers a build. Once it's done, the new version of the Actor is ready to be run. The output of the command ends with these two lines:
 
 ```text
 ...
