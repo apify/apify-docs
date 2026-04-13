@@ -61,13 +61,7 @@ get:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/KeyValueStoreNotFoundError"
-              - $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RecordNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
@@ -98,8 +92,7 @@ head:
       description: The record exists
       headers: {}
     "404":
-      description: The record does not exist
-      headers: {}
+      $ref: ../../components/responses/NotFound.yaml
   deprecated: false
   x-js-parent: KeyValueStoreClient
   x-js-name: recordExists

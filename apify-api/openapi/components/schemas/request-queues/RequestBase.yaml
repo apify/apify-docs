@@ -15,7 +15,7 @@ properties:
     description: The final URL that was loaded, after redirects (if any).
     examples: [https://apify.com/jobs]
   payload:
-    type: [object, "null"]
+    type: [string, object, "null"]
     description: The request payload, typically used with POST or PUT requests.
     examples: [null]
   headers:

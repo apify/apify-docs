@@ -1,27 +1,3 @@
-ActorNotFoundErrorDetail:
-  allOf:
-    - $ref: ../ErrorDetail.yaml
-    - type: object
-      properties:
-        type:
-          const: actor-not-found
-
-RecordNotFoundErrorDetail:
-  allOf:
-    - $ref: ../ErrorDetail.yaml
-    - type: object
-      properties:
-        type:
-          const: record-not-found
-
-RecordOrTokenNotFoundErrorDetail:
-  allOf:
-    - $ref: ../ErrorDetail.yaml
-    - type: object
-      properties:
-        type:
-          const: record-or-token-not-found
-
 RunFailedErrorDetail:
   allOf:
     - $ref: ../ErrorDetail.yaml
@@ -37,46 +13,6 @@ RunTimeoutExceededErrorDetail:
       properties:
         type:
           const: run-timeout-exceeded
-
-ActorNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "#/ActorNotFoundErrorDetail"
-  example:
-    error:
-      type: actor-not-found
-      message: Actor was not found
-
-ActorBuildNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Actor build was not found
-
-RecordOrTokenNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "#/RecordOrTokenNotFoundErrorDetail"
-  example:
-    error:
-      type: record-or-token-not-found
-      message: Actor was not found or access denied
-
-ActorRunNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Actor run was not found
 
 ActorRunTimeoutExceededError:
   type: object
@@ -97,13 +33,3 @@ ActorRunFailedError:
     error:
       type: run-failed
       message: "Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)"
-
-ActorVersionNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Actor version was not found

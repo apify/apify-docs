@@ -1,7 +1,6 @@
 title: CreateTaskRequest
 required:
   - actId
-  - name
 type: object
 properties:
   actId:

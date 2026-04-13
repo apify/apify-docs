@@ -6,56 +6,6 @@ RequestIdInvalidErrorDetail:
         type:
           const: request-id-invalid
 
-DatasetNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Dataset was not found
-
-KeyValueStoreNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Key-value Store was not found
-
-RequestQueueNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Request Queue was not found
-
-RecordNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Record was not found
-
-RequestNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Request was not found
-
 RequestIdInvalidError:
   type: object
   properties:

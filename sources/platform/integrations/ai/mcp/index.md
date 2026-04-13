@@ -1,6 +1,6 @@
 ---
 title: Apify MCP server
-sidebar_label: MCP
+sidebar_label: MCP server
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
 sidebar_position: 1
 slug: /integrations/mcp
@@ -18,7 +18,7 @@ using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-star
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
 and enables AI coding assistants to access Apify documentation and tutorials.
 
-![Apify MCP server](../../images/apify_mcp_server.png)
+![Apify MCP server](../../../images/apify_mcp_server.png)
 
 <ThirdPartyDisclaimer />
 
@@ -208,33 +208,11 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
 
-:::tip One-click installation
+[Add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL. On first connection, your browser opens to sign in to Apify and authorize the connection.
 
-Download and run the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
+You can also search for "Apify" in the connector directory and install it directly.
 
-:::
-
-To manually configure Apify's MCP server for Claude Desktop:
-
-1. Open Claude Desktop settings.
-1. Navigate to the **Developer** section.
-1. Add the following to the configuration file:
-
-```json
-{
-  "mcpServers": {
-    "actors-mcp-server": {
-      "command": "npx",
-      "args": ["-y", "@apify/actors-mcp-server"],
-      "env": {
-        "APIFY_TOKEN": "<APIFY_TOKEN>"
-      }
-    }
-  }
-}
-```
-
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
+For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
 </TabItem>
 </Tabs>
@@ -398,6 +376,12 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 
 <!-- markdownlint-disable MD001 -->
 ## Troubleshooting
+
+:::tip Claude Desktop issues
+
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/platform/integrations/claude-desktop#troubleshooting).
+
+:::
 
 ##### Authentication errors
 
