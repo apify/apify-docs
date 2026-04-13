@@ -69,13 +69,7 @@ async def main():
 
 ### How to set a proxy country
 
-When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`.
-
-For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
-
-```python
-username = "groups-RESIDENTIAL,country-JP"
-```
+When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`. For example, to target Japan, set the username to `groups-RESIDENTIAL,country-JP`.
 
 In the [Apify SDK](/sdk) you set the country in your proxy configuration using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode`/`country_code` parameter:
 
@@ -114,19 +108,12 @@ async def main():
 </TabItem>
 </Tabs>
 
-### How to set a state (US only)
-
+### How to set a state
 :::note US states only
 State-level targeting is currently only supported for the United States.
 :::
 
-To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation.
-
-For example, your `username` parameter when targeting California will look like this:
-
-```python
-username = "groups-RESIDENTIAL,country-US_CA"
-```
+To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US-CA` 
 
 In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` parameter:
 
