@@ -72,7 +72,7 @@ delete:
         application/json:
           schema:
             oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/RecordOrTokenNotFoundError"
               - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml

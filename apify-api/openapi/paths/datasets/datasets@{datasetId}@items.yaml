@@ -173,15 +173,7 @@ get:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
-    - name: view
-      in: query
-      description: |
-        Defines the view configuration for dataset items based on the schema definition.
-        This parameter determines how the data will be filtered and presented.
-        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
-      schema:
-        type: string
-        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
     - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
@@ -274,15 +266,7 @@ head:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
-    - name: view
-      in: query
-      description: |
-        Defines the view configuration for dataset items based on the schema definition.
-        This parameter determines how the data will be filtered and presented.
-        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
-      schema:
-        type: string
-        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
     - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:

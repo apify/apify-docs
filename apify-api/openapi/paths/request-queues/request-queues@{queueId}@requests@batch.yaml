@@ -92,9 +92,8 @@ delete:
       required: true
       style: simple
       schema:
-        enum:
-          - application/json
         type: string
+        const: application/json
     - $ref: "../../components/parameters/storageParameters.yaml#/clientKey"
   requestBody:
     description: ""

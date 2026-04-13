@@ -49,6 +49,7 @@ get:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   responses:
     "201":
@@ -147,6 +148,7 @@ post:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   requestBody:
     description: ""
@@ -156,6 +158,8 @@ post:
           type: object
         example:
           foo: bar
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":

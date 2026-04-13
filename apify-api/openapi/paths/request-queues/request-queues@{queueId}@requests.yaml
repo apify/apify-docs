@@ -39,13 +39,15 @@ get:
       in: query
       description: Filter requests by their state. Possible values are `locked` and `pending`. (Is not compatible with deprecated `exclusiveStartId` parameter.)
       style: form
-      explode: true
+      explode: false
       schema:
-        type: string
-        enum:
-          - locked
-          - pending
-        example: locked
+        type: array
+        items:
+          type: string
+          enum:
+            - locked
+            - pending
+        example: [locked]
   responses:
     "200":
       description: ""
