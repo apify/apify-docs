@@ -11,7 +11,6 @@ properties:
     $ref: ./SharedProperties.yaml#/RetryCount
   loadedUrl:
     type: [string, "null"]
-    format: uri
     description: The final URL that was loaded, after redirects (if any).
     examples: [https://apify.com/jobs]
   payload:
