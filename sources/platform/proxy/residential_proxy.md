@@ -109,11 +109,13 @@ async def main():
 </Tabs>
 
 ### How to set a state
+
 :::note US states only
 State-level targeting is currently only supported for the United States.
 :::
 
-To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US-CA` 
+To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US-CA`
+
 
 In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` parameter:
 
