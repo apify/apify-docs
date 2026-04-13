@@ -12,7 +12,7 @@ You can find all your tasks in the [Apify Console](https://console.apify.com/act
 
 ## Create
 
-To create a task, open any Actor from [Apify Store](https://console.apify.com/store) or your list of [Actors](https://console.apify.com/actors) in Apify Console. At the top-right section of the page, click the **Create task** button.
+To create a task, open any Actor from [Apify Store](https://console.apify.com/store) or your list of [Actors](https://console.apify.com/actors) in Apify Console. At the top-right section of the page, click the **Save as a new task** button.
 
 ![Create a new Apify task](./images/tasks/tasks-create-task.png)
 

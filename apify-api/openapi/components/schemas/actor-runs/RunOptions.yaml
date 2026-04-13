@@ -23,7 +23,7 @@ properties:
     minimum: 0
     examples: [2048]
   maxItems:
-    type: integer
+    type: [integer, "null"]
     minimum: 1
     examples: [1000]
   maxTotalChargeUsd:

@@ -1,0 +1,15 @@
+title: ScheduleActionShortRunActorTask
+required:
+  - id
+  - type
+  - actorTaskId
+type: object
+properties:
+  id:
+    type: string
+    examples: [ZReCs7hkdieq8ZUki]
+  type:
+    const: RUN_ACTOR_TASK
+  actorTaskId:
+    type: string
+    examples: [HKhKmiCMrDgu9eXeE]
