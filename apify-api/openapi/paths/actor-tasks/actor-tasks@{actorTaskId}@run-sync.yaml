@@ -50,12 +50,7 @@ get:
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: "Request Timeout: the HTTP request exceeded the 300 second limit"
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/RunTimeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
