@@ -16,6 +16,7 @@ properties:
           - actor-not-found
           - invalid-input
           - method-not-allowed
+          - page-not-found
           - permission-denied
           - rate-limit-exceeded
           - record-not-found
@@ -25,9 +26,12 @@ properties:
           - request-too-large
           - run-failed
           - run-timeout-exceeded
+          - schedule-actor-not-found
+          - schedule-actor-task-not-found
           - token-not-valid
           - unknown-build-tag
           - unsupported-content-encoding
+          - user-not-found
       message:
         type: string
         description: Human-readable error message describing what went wrong.

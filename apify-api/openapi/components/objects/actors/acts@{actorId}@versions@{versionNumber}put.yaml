@@ -39,11 +39,7 @@ shared: &shared
     "403":
       $ref: ../../responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+      $ref: ../../responses/NotFound.yaml
     "405":
       $ref: ../../responses/MethodNotAllowed.yaml
     "413":
