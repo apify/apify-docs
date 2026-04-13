@@ -71,6 +71,22 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 - Each endpoint that has `runs/last` in its path or that has any ID related parameter (for example `actorId`, `buildId`, `runId`, `datasetId` and so on) should have at least one 404 (Not Found) error.
 - Each endpoint that has `requestBody` should have at least following error responses: 413 (Payload Too Large), 415 (Unsupported Media Type).
 
+#### Syntax hints
+- Instead of using one item `enum`, use `const`:
+Avoid this:
+```yaml
+schema:
+  type: string
+  enum:
+    - "constantValue"
+```
+Use this:
+```yaml
+schema:
+  type: string
+  const: "constantValue"
+```
+
 ### Theme system
 
 Uses `@apify/docs-theme` package - a shared theme across all 6+ documentation repos. Don't modify theme files directly. Changes to the theme propagate via CI to all projects.
