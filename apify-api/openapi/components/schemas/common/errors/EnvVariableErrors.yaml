@@ -1,9 +1,0 @@
-EnvironmentVariableNotFoundError:
-  type: object
-  properties:
-    error:
-      $ref: "./ActorErrors.yaml#/RecordNotFoundErrorDetail"
-  example:
-    error:
-      type: record-not-found
-      message: Environment variable was not found
