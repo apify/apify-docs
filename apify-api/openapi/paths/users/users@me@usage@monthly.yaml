@@ -6,7 +6,7 @@ get:
     Returns a complete summary of your usage for the current monthly usage cycle,
     an overall sum, as well as a daily breakdown of usage. It is the same
     information you will see on your account's [Billing > Historical usage page](https://console.apify.com/billing/historical-usage). The information
-    includes your use of storage, data transfer, and request queue usage.
+    includes your use of Actors, compute, data transfer, and storage.
 
     Using the `date` parameter will show your usage in the monthly usage cycle that
     includes that date.
