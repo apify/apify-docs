@@ -64,6 +64,7 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
 - Prefer automatically generated examples from schema over explicit examples.
 
 #### Error responses
+
 - Re-use schemas for error responses defined in `/apify-api/openapi/components/responses`
 - Each endpoint should have at least following error responses: 400 (Bad Request), 405 (Method Not Allowed), 429 (Too Many Requests).
 - Endpoints that define `security: []` do not use any authentication.
@@ -86,6 +87,26 @@ schema:
   type: string
   const: "constantValue"
 ```
+
+### Python API client model generation
+
+OpenAPI spec changes in this repo automatically trigger Pydantic model regeneration in `apify-client-python`. The pipeline:
+
+1. **This repo** (`.github/workflows/openapi-ci.yaml`):
+   - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
+   - Upload `static/api/openapi.{json,yaml}` as artifacts
+   - `trigger-client-model-regeneration` job calls `gh workflow run regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
+   - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
+
+2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
+   - Triggered via `workflow_dispatch` (automatically from this repo's CI or manually from GitHub UI)
+   - Downloads the OpenAPI spec artifact from this repo's workflow run (or fetches from `https://docs.apify.com/api/openapi.json` for manual runs)
+   - Runs `datamodel-codegen` to generate Pydantic models into `src/apify_client/_models.py`
+   - Runs `scripts/postprocess_generated_models.py` to fix known codegen issues (e.g. camelCase discriminator fields)
+   - Commits to branch `update-models-docs-pr-{PR_NUMBER}`, creates/updates a PR
+   - Posts a cross-repo comment on the original docs PR linking to the generated client PR
+
+Branch naming convention `update-models-docs-pr-{N}` links the two PRs.
 
 ### Theme system
 
