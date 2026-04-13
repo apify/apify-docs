@@ -121,10 +121,10 @@ The Advanced Settings module provides complete control over the content extracti
 The Advanced Settings module provides granular control over the entire crawling process:
 
 1. _Crawler Selection_: Choose from Playwright (Firefox/Chrome), or Cheerio based on website complexity
-2. _URL Management_: Define precise scoping with include/exclude URL patterns
-3. _DOM Manipulation_: Control which HTML elements to keep or remove
-4. _Content Transformation_: Apply specialized algorithms for content extraction
-5. _Output Formatting_: Select from multiple formats for AI model compatibility
+1. _URL Management_: Define precise scoping with include/exclude URL patterns
+1. _DOM Manipulation_: Control which HTML elements to keep or remove
+1. _Content Transformation_: Apply specialized algorithms for content extraction
+1. _Output Formatting_: Select from multiple formats for AI model compatibility
 
 #### Configuration options
 
@@ -149,4 +149,4 @@ In addition to the standard output fields, Advanced Settings provides:
 
 ## Other scrapers available
 
-Looking for more scrapers? You can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+Looking for more scrapers? You can access any of thousands of our scrapers on Apify Store by using the [general Apify connections on Make](https://www.make.com/en/integrations/apify).

@@ -176,4 +176,4 @@ To get the best search results, use specific keywords and operators, and exclude
 
 ## Other scrapers available
 
-Looking for more scrapers? You can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+Looking for more scrapers? You can access any of thousands of our scrapers on Apify Store by using the [general Apify connections on Make](https://www.make.com/en/integrations/apify).
