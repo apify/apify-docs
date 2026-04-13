@@ -1,11 +1,10 @@
 ---
 title: OpenClaw integration
 sidebar_label: OpenClaw
-description: Learn how to integrate Apify with OpenClaw to give your AI agents web scraping and data extraction capabilities using pre-built Actors.
+description: Learn how to integrate Apify with OpenClaw to give your AI agents access to web scraping, data extraction, and automation using pre-built Actors.
 sidebar_position: 14
 slug: /integrations/openclaw
 toc_min_heading_level: 2
-toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
@@ -16,13 +15,17 @@ For more details about OpenClaw, refer to the [official documentation](https://d
 
 <ThirdPartyDisclaimer />
 
-## TLDR
+## Quick start
+
+Install the plugin, run the setup wizard, and restart the gateway:
 
 ```bash
 openclaw plugins install @apify/apify-openclaw-plugin
 openclaw apify setup
 openclaw gateway restart
 ```
+
+Watch a quick demo of the Apify plugin for OpenClaw:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-9XJxG4b4H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -37,11 +40,21 @@ Before integrating Apify with OpenClaw, you'll need:
 
 ## Set up the Apify plugin
 
+Setting up the plugin involves three steps:
+
+1. [Install the plugin](#install-the-plugin)
+1. [Configure your API token](#configure-with-interactive-setup-recommended) (interactively or [manually](#configure-manually))
+1. [Verify the setup](#verify-the-setup)
+
 ### Install the plugin
+
+Use the OpenClaw CLI to install the Apify plugin from the plugin registry:
 
 ```bash
 openclaw plugins install @apify/apify-openclaw-plugin
 ```
+
+This downloads the plugin and registers it with your OpenClaw installation.
 
 ### Configure with interactive setup (recommended)
 
@@ -51,7 +64,7 @@ Run the setup wizard to configure your API key:
 openclaw apify setup
 ```
 
-The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file.
+The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
 
 After setup, restart the gateway to load the plugin:
 
@@ -61,7 +74,7 @@ openclaw gateway restart
 
 ### Configure manually
 
-Alternatively, add the plugin configuration directly to your `~/.openclaw/config.json`:
+If you prefer to skip the wizard, add the plugin configuration directly to your `~/.openclaw/config.json`:
 
 ```json
 {
@@ -101,13 +114,13 @@ Check your configuration:
 openclaw apify status
 ```
 
-## How the Apify tool works
+## Apify tool overview
 
 The plugin registers a single `apify` tool with three actions:
 
 | Action | Purpose |
 | ------ | ------- |
-| `discover` | Search the Apify Store for Actors by keyword, or fetch an Actor's input schema |
+| `discover` | Search Apify Store for Actors by keyword, or fetch an Actor's input schema |
 | `start` | Run an Actor asynchronously and get a `runId` back |
 | `collect` | Retrieve results from completed Actor runs |
 
@@ -121,17 +134,17 @@ discover (search) -> discover (schema) -> start -> collect
 
 ### Batch multiple targets
 
-Most Actors accept arrays in their input (for example, `startUrls`, `queries`, `usernames`). Always batch multiple targets into a single run - one run with 5 URLs is cheaper and faster than 5 separate runs.
+Most Actors accept arrays in their input (for example, `startUrls`, `queries`, `usernames`). As a best practice, batch multiple targets into a single run - one run with 5 URLs is cheaper and faster than 5 separate runs.
 
 ## What you can do
 
 Once the plugin is set up, your OpenClaw agents can:
 
-- **Search for scrapers** - Ask your agent to find an Actor for any platform (for example, "find me an Instagram scraper") and it discovers the right one from the [Apify Store](https://apify.com/store).
-- **Scrape any website** - Your agent can extract data from Google Search, Instagram, TikTok, YouTube, Google Maps, e-commerce sites, and more.
-- **Batch multiple targets** - Scrape several URLs, profiles, or search queries in a single Actor run. One run with 5 targets is cheaper and faster than 5 separate runs.
-- **Run multiple Actors in parallel** - Start scrapers for different platforms at the same time and collect all results together.
-- **Delegate to sub-agents** - For complex research tasks, your agent can delegate scraping work to a sub-agent, keeping the parent agent's context focused on higher-level reasoning.
+- _Search for scrapers_ - Ask your agent to find an Actor for any platform (for example, "find me an Instagram scraper") and it discovers the right one from [Apify Store](https://apify.com/store).
+- _Scrape any website_ - Your agent can extract data from Google Search, Instagram, TikTok, YouTube, Google Maps, e-commerce sites, and more.
+- _Batch multiple targets_ - Scrape several URLs, profiles, or search queries in a single Actor run. One run with 5 targets is cheaper and faster than 5 separate runs.
+- _Run multiple Actors in parallel_ - Start scrapers for different platforms at the same time and collect all results together.
+- _Delegate to sub-agents_ - For complex research tasks, your agent can delegate scraping work to a sub-agent, keeping the parent agent's context focused on higher-level reasoning.
 
 :::note Actor runs may take some time
 
