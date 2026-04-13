@@ -3,12 +3,12 @@ get:
     - Users
   summary: Get monthly usage
   description: |
-    Returns a complete summary of your usage for the current usage cycle,
+    Returns a complete summary of your usage for the current monthly usage cycle,
     an overall sum, as well as a daily breakdown of usage. It is the same
-    information you will see on your account's [Billing page](https://console.apify.com/billing#/usage). The information
+    information you will see on your account's [Billing > Historical usage page](https://console.apify.com/billing/historical-usage). The information
     includes your use of storage, data transfer, and request queue usage.
 
-    Using the `date` parameter will show your usage in the usage cycle that
+    Using the `date` parameter will show your usage in the monthly usage cycle that
     includes that date.
   operationId: users_me_usage_monthly_get
   parameters:
