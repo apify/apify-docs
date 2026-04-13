@@ -1,5 +1,6 @@
 ---
-title: actor.json
+title: Actor definition file (actor.json)
+sidebar_label: actor.json
 description: Configure your Actor using the .actor/actor.json file to define its name, version number, build tag, and links to input and output schema files.
 slug: /actors/development/actor-definition/actor-json
 sidebar_position: 1
