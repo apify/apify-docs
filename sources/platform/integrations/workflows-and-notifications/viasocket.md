@@ -1,6 +1,6 @@
 ---
 title: viaSocket integration
-description: Learn how to connect Apify with viaSocket, configure triggers, authenticate with API tokens, and build reliable, event-driven workflows across your apps.
+description: Learn how to connect Apify with viaSocket, configure triggers, authenticate with API tokens, and build automation workflows across your apps.
 sidebar_label: viaSocket
 sidebar_position: 8
 slug: /integrations/viasocket
@@ -8,11 +8,7 @@ slug: /integrations/viasocket
 
 import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';
 
-Learn how to connect Apify with viaSocket, configure triggers, authenticate using API tokens, and create automation flows.
-
----
-
-[viaSocket](https://viasocket.com/) is a workflow automation platform that lets you connect apps and automate tasks without writing code. With the Apify integration, you can trigger Actor runs, retrieve results, and build end-to-end automation pipelines that react to events across your connected apps.
+[viaSocket](https://viasocket.com/) is a workflow automation platform that lets you connect apps and automate tasks without writing code. With the Apify integration, you can trigger Actor runs, retrieve results, and build automation pipelines that respond to events across your connected apps.
 
 <ThirdPartyDisclaimer />
 
@@ -57,9 +53,9 @@ You can add any supported app as the next step in your flow. The example below u
 1. Select **Gmail** and choose the **Send Email** action.
 1. Connect or select your Gmail account.
 1. Map the following fields:
-    - **To** - recipient email address
-    - **Subject** - email subject line
-    - **Message Body** - use the trigger `body` object as dynamic input
+    - **To**: recipient email address
+    - **Subject**: email subject line
+    - **Message Body**: use the trigger `body` object as dynamic input
 1. Click **Test** to run the action and confirm a `200` response status.
 
 ![Gmail action configuration in viaSocket](../images/viasocket/viasocket-gmail-action.png)
@@ -72,4 +68,4 @@ You can add any supported app as the next step in your flow. The example below u
 
 ![viaSocket flow monitoring](../images/viasocket/viasocket-monitor.png)
 
-If you have any questions or need help, feel free to reach out on the [Apify Discord community](https://discord.com/invite/jyEM2PRvMU).
+For questions or help, join the [Apify Discord community](https://discord.com/invite/jyEM2PRvMU).
