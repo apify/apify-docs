@@ -266,7 +266,6 @@ enum:
   - payout-must-be-approved-to-be-marked-paid
   - payout-not-found
   - payout-number-already-exists
-  - permission-denied
   - phone-number-invalid
   - phone-number-landline
   - phone-number-opted-out
@@ -284,7 +283,6 @@ enum:
   - recaptcha-required
   - record-not-found
   - record-not-public
-  - record-not-unique
   - record-or-token-not-found
   - record-too-large
   - redirect-uri-mismatch
@@ -325,7 +323,6 @@ enum:
   - taxamo-request-failed
   - testing-error
   - token-not-provided
-  - token-not-valid
   - too-few-versions
   - too-many-actor-tasks
   - too-many-actors
