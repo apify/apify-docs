@@ -17,7 +17,7 @@ shared: &shared
     content:
       application/json:
         schema:
-          $ref: ../../schemas/actors/EnvVar.yaml
+          $ref: ../../schemas/actors/EnvVarRequest.yaml
         example:
           name: MY_ENV_VAR
           value: my-new-value
@@ -43,14 +43,7 @@ shared: &shared
     "403":
       $ref: ../../responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            oneOf:
-              - $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
-              - $ref: "../../schemas/common/errors/ActorErrors.yaml#/ActorVersionNotFoundError"
-              - $ref: "../../schemas/common/errors/EnvVariableErrors.yaml#/EnvironmentVariableNotFoundError"
+      $ref: ../../responses/NotFound.yaml
     "405":
       $ref: ../../responses/MethodNotAllowed.yaml
     "413":

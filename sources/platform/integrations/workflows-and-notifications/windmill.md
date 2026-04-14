@@ -6,9 +6,13 @@ sidebar_position: 8
 slug: /integrations/windmill
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Windmill](https://www.windmill.dev/) is an open-source automation platform for building scripts and flows that connect your tools and data. With the Apify integration for Windmill, you can run Actors and tasks, scrape websites, extract data from storage, and trigger workflows based on Apify events.
 
 This guide shows you how to install the Apify package, set up authentication, and create automated workflows that integrate with Apify.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 

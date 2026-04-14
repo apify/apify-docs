@@ -1,7 +1,7 @@
 get:
   tags:
     - Store
-  summary: Get list of Actors in store
+  summary: Get list of Actors in Store
   description: |
     Gets the list of public Actors in Apify Store. You can use `search`
     parameter to search Actors by string in title, name, description, username
@@ -74,6 +74,36 @@ get:
       explode: true
       schema:
         type: boolean
+        example: true
+    - name: responseFormat
+      in: query
+      description: |
+        Controls the shape of the response. Use `full` (default) for the
+        complete response including image URLs and all fields. Use `agent`
+        for a reduced field set optimized for LLM consumers, which only
+        includes `id`, `title`, `name`, `username`, `description`, `notice`,
+        `badge`, `categories`, and minimal `stats`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - full
+          - agent
+        default: full
+        example: agent
+    - name: includeUnrunnableActors
+      in: query
+      description: |
+        By default, search results exclude Actors that are not safe to run
+        automatically (e.g. Actors from developers who haven't passed KYC, or
+        full-permission Actors without a large user base). Set to `true` to
+        bypass this safety filtering and include all Actors in the results.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        default: false
         example: true
   responses:
     "200":

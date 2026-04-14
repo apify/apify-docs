@@ -1,0 +1,28 @@
+extends: existence
+message: "Avoid gerunds (-ing) in headings. Use noun phrases or imperatives."
+level: warning
+scope: heading
+tokens:
+  - '^\w+ing\b'
+exceptions:
+  - Billing
+  - Pricing
+  - Debugging
+  - String
+  - Caching
+  - Logging
+  - Troubleshooting
+  - Missing
+  - Polling
+  - Timing
+  - Marketing
+  - Existing
+  - Pending
+  - Underlying
+  - Remaining
+  - Corresponding
+  - Incoming
+  - Outgoing
+  - Resulting
+  - Leading
+  - Following

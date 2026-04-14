@@ -173,15 +173,7 @@ get:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
-    - name: view
-      in: query
-      description: |
-        Defines the view configuration for dataset items based on the schema definition.
-        This parameter determines how the data will be filtered and presented.
-        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
-      schema:
-        type: string
-        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
     - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
@@ -226,11 +218,7 @@ get:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
@@ -274,15 +262,7 @@ head:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
-    - name: view
-      in: query
-      description: |
-        Defines the view configuration for dataset items based on the schema definition.
-        This parameter determines how the data will be filtered and presented.
-        For complete specification details, see the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema).
-      schema:
-        type: string
-        example: overview
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
     - $ref: "../../components/parameters/storageParameters.yaml#/signature"
   responses:
@@ -346,11 +326,7 @@ post:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/DatasetNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
