@@ -318,7 +318,7 @@ headById:
       description: ""
       headers:
         $ref: ../../headers/ApifyPaginationHeaders.yaml
-        content: {}
+      content: {}
     "400":
       $ref: ../../responses/BadRequest.yaml
   deprecated: false
