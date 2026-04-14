@@ -1,0 +1,25 @@
+title: ErrorType
+type: string
+description: Machine-processable error type identifier.
+enum:
+  - actor-memory-limit-exceeded
+  - actor-not-found
+  - invalid-input
+  - method-not-allowed
+  - page-not-found
+  - permission-denied
+  - rate-limit-exceeded
+  - record-not-found
+  - record-not-unique
+  - record-or-token-not-found
+  - request-id-invalid
+  - request-too-large
+  - run-failed
+  - run-timeout-exceeded
+  - schedule-actor-not-found
+  - schedule-actor-task-not-found
+  - token-not-valid
+  - unknown-build-tag
+  - unsupported-content-encoding
+  - user-not-found
+  - x402-payment-required

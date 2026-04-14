@@ -56,7 +56,7 @@ Before using the Apify connector in recipes, create a connection inside a Workat
    ![Screenshot showing how to create connection](../images/workato/create-connection.png)
 1. Search for **Apify** and choose the Apify connector.
    ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
-1. In the connection dialog, enter your **API Token**. In [Apify Console](https://console.apify.com), go to [Settings > Integrations](https://console.apify.com/account#/integrations) and copy your API token.
+1. In the connection dialog, enter your **API Token**. In [Apify Console](https://console.apify.com), go to [Settings > API & Integrations](https://console.apify.com/settings/integrations) and copy your API token.
    ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
 1. Click **Connect**. Workato tests the connection by making an authenticated call to verify your credentials.
    ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
