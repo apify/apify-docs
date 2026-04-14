@@ -41,3 +41,6 @@
 - name: Tools
   tags:
     - Tools
+- name: Convenience endpoints
+  tags:
+    - Default storages

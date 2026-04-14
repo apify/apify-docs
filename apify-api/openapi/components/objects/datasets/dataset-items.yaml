@@ -1,0 +1,440 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedGet: &sharedGet
+  responses:
+    <<: *commonErrors
+    "200":
+      description: ""
+      headers:
+        $ref: ../../headers/ApifyPaginationHeaders.yaml
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+            example: [foo: bar, foo2: bar2]
+        application/jsonl:
+          schema:
+            type: string
+          example: '{"foo":"bar"}\n{"foo2":"bar2"}\n'
+        text/csv:
+          schema:
+            type: string
+          example: 'foo,bar\nfoo2,bar2\n'
+        text/html:
+          schema:
+            type: string
+          example: <table><tr><th>foo</th><th>bar</th></tr><tr><td>foo</td><td>bar</td></tr><tr><td>foo2</td><td>bar2</td></tr></table>
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+          schema:
+            type: string
+        application/rss+xml:
+          schema:
+            type: string
+          example: <rss><channel><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></channel></rss>
+        application/xml:
+          schema:
+            type: string
+          example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
+  deprecated: false
+
+getById:
+  <<: *sharedGet
+  tags:
+    - Storage/Datasets
+  summary: Get dataset items
+  description: |
+    Returns data stored in the dataset in a desired format.
+
+    ### Response format
+
+    The format of the response depends on <code>format</code> query parameter.
+
+    The <code>format</code> parameter can have one of the following values:
+    <code>json</code>, <code>jsonl</code>, <code>xml</code>, <code>html</code>,
+    <code>csv</code>, <code>xlsx</code> and <code>rss</code>.
+
+    The following table describes how each format is treated.
+
+    <table>
+      <tr>
+        <th>Format</th>
+        <th>Items</th>
+      </tr>
+      <tr>
+        <td><code>json</code></td>
+        <td rowspan="3">The response is a JSON, JSONL or XML array of raw item objects.</td>
+      </tr>
+      <tr>
+        <td><code>jsonl</code></td>
+      </tr>
+      <tr>
+        <td><code>xml</code></td>
+      </tr>
+      <tr>
+        <td><code>html</code></td>
+        <td rowspan="3">The response is a HTML, CSV or XLSX table, where columns correspond to the
+        properties of the item and rows correspond to each dataset item.</td>
+      </tr>
+      <tr>
+        <td><code>csv</code></td>
+      </tr>
+      <tr>
+        <td><code>xlsx</code></td>
+      </tr>
+      <tr>
+        <td><code>rss</code></td>
+        <td colspan="2">The response is a RSS file. Each item is displayed as child elements of one
+        <code>&lt;item&gt;</code>.</td>
+      </tr>
+    </table>
+
+    Note that CSV, XLSX and HTML tables are limited to 2000 columns and the column names cannot be longer than 200 characters.
+    JSON, XML and RSS formats do not have such restrictions.
+
+    ### Hidden fields
+
+    The top-level fields starting with the `#` character are considered hidden.
+    These are useful to store debugging information and can be omitted from the output by providing the `skipHidden=1` or `clean=1` query parameters.
+    For example, if you store the following object to the dataset:
+
+    ```
+    {
+        productName: "iPhone Xs",
+        description: "Welcome to the big screens."
+        #debug: {
+            url: "https://www.apple.com/lae/iphone-xs/",
+            crawledAt: "2019-01-21T16:06:03.683Z"
+        }
+    }
+    ```
+
+    The `#debug` field will be considered as hidden and can be omitted from the
+    results. This is useful to
+    provide nice cleaned data to end users, while keeping debugging info
+    available if needed. The Dataset object
+    returned by the API contains the number of such clean items in the`dataset.cleanItemCount` property.
+
+    ### XML format extension
+
+    When exporting results to XML or RSS formats, the names of object properties become XML tags and the corresponding values become tag's children. For example, the following JavaScript object:
+
+    ```
+    {
+        name: "Paul Newman",
+        address: [
+            { type: "home", street: "21st", city: "Chicago" },
+            { type: "office", street: null, city: null }
+        ]
+    }
+    ```
+
+    will be transformed to the following XML snippet:
+
+    ```
+    <name>Paul Newman</name>
+    <address>
+      <type>home</type>
+      <street>21st</street>
+      <city>Chicago</city>
+    </address>
+    <address>
+      <type>office</type>
+      <street/>
+      <city/>
+    </address>
+    ```
+
+    If the JavaScript object contains a property named `@` then its sub-properties are exported as attributes of the parent XML
+    element.
+    If the parent XML element does not have any child elements then its value is taken from a JavaScript object property named `#`.
+
+    For example, the following JavaScript object:
+
+    ```
+    {
+      "address": [{
+        "@": {
+          "type": "home"
+        },
+        "street": "21st",
+        "city": "Chicago"
+      },
+      {
+        "@": {
+          "type": "office"
+        },
+        "#": 'unknown'
+      }]
+    }
+    ```
+
+    will be transformed to the following XML snippet:
+
+    ```
+    <address type="home">
+      <street>21st</street>
+      <city>Chicago</city>
+    </address>
+    <address type="office">unknown</address>
+    ```
+
+    This feature is also useful to customize your RSS feeds generated for various websites.
+
+    By default the whole result is wrapped in a `<items>` element and each page object is wrapped in a `<item>` element.
+    You can change this using <code>xmlRoot</code> and <code>xmlRow</code> url parameters.
+
+    ### Pagination
+
+    The generated response supports [pagination](#/introduction/pagination).
+    The pagination is always performed with the granularity of a single item, regardless whether <code>unwind</code> parameter was provided.
+    By default, the **Items** in the response are sorted by the time they were stored to the database, therefore you can use pagination to incrementally fetch the items as they are being added.
+    No limit exists to how many items can be returned in one response.
+
+    If you specify `desc=1` query parameter, the results are returned in the reverse order than they were stored (i.e. from newest to oldest items).
+    Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
+  operationId: dataset_items_get
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
+    - https://docs.apify.com/api/v2#/reference/datasets/get-items
+    - https://docs.apify.com/api/v2#tag/DatasetsItem-collection/operation/dataset_items_get
+  x-js-parent: DatasetClient
+  x-js-name: listItems
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#listItems
+  x-py-parent: DatasetClientAsync
+  x-py-name: stream_items
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#stream_items
+
+getDefault:
+  <<: *sharedGet
+  tags:
+    - Default storages
+  summary: Get default dataset items
+  description: |
+    Returns data stored in the default dataset of the Actor run in the desired format.
+
+    This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
+    [Get dataset items](/api/v2/dataset-items-get) endpoint.
+  operationId: actorRun_dataset_items_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+sharedHead: &sharedHead
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../headers/ApifyPaginationHeaders.yaml
+      content: {}
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+  deprecated: false
+
+headById:
+  <<: *sharedHead
+  tags:
+    - Storage/Datasets
+  summary: Get dataset items headers
+  description: |
+    Returns only the HTTP headers for the dataset items endpoint, without the response body.
+    This is useful to check pagination metadata or verify access without downloading the full dataset.
+  operationId: dataset_items_head
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+headDefault:
+  <<: *sharedHead
+  tags:
+    - Default storages
+  summary: Get default dataset items headers
+  description: |
+    Returns only the HTTP headers for the dataset items endpoint of the Actor run's default dataset,
+    without the response body.
+
+    This endpoint is a shortcut for getting the run's `defaultDatasetId` and then using the
+    [Head dataset items](/api/v2/dataset-items-head) endpoint.
+  operationId: actorRun_dataset_items_head
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+sharedPost: &sharedPost
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: ../../schemas/datasets/PutItemsRequest.yaml
+            - type: array
+              items:
+                $ref: ../../schemas/datasets/PutItemsRequest.yaml
+          description: ""
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+    "400":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/datasets/PutItemResponseError.yaml
+    "403":
+      $ref: ../../responses/Forbidden.yaml
+    "404":
+      $ref: ../../responses/NotFound.yaml
+  deprecated: false
+
+postById:
+  <<: *sharedPost
+  tags:
+    - Storage/Datasets
+  summary: Store items
+  description: |
+    Appends an item or an array of items to the end of the dataset.
+    The POST payload is a JSON object or a JSON array of objects to save into the dataset.
+
+    If the data you attempt to store in the dataset is invalid (meaning any of the items received by the API fails the validation), the whole request is discarded and the API will return a response with status code 400.
+    For more information about dataset schema validation, see [Dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation).
+
+    **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
+  operationId: dataset_items_post
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
+    - https://docs.apify.com/api/v2#/reference/datasets/put-items
+    - https://docs.apify.com/api/v2#tag/DatasetsItem-collection/operation/dataset_items_post
+  x-js-parent: DatasetClient
+  x-js-name: pushItems
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#pushItems
+  x-py-parent: DatasetClientAsync
+  x-py-name: push_items
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#push_items
+
+postDefault:
+  <<: *sharedPost
+  tags:
+    - Default storages
+  summary: Store items
+  description: |
+    Appends an item or an array of items to the end of the Actor run's default dataset.
+
+    This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
+    [Store items](/api/v2/dataset-items-post) endpoint.
+
+  operationId: actorRun_dataset_items_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
