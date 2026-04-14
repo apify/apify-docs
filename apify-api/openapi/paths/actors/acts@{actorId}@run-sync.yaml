@@ -62,6 +62,8 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "408":

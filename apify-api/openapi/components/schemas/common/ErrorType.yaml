@@ -22,3 +22,4 @@ enum:
   - unknown-build-tag
   - unsupported-content-encoding
   - user-not-found
+  - x402-payment-required
