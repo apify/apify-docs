@@ -22,10 +22,13 @@ Before you begin, make sure you have:
 ## Connect Apify with Pipedream
 
 1. Log into your Pipedream account and [create a new workflow](https://pipedream.com/docs/workflows).
-1. [Add an Apify step](https://pipedream.com/docs/workflows/building-workflows/steps) (trigger or action) to your workflow.
-1. Select **Connect Apify** and authenticate using one of two methods:
-    - **API token** - Enter your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**.
-    - **OAuth** - Select the **Apify (OAuth)** app and authorize access to your Apify account.
+1. [Add an Apify step](https://pipedream.com/docs/workflows/building-workflows/steps) (trigger or action) to your workflow. Select one of two Apify apps:
+
+    ![Selecting the Apify app in Pipedream](../images/pipedream-select-app.png)
+
+    - **Apify** - Authenticate with your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**.
+    - **Apify (OAuth)** - Authorize access to your Apify account via OAuth.
+1. Follow the prompts to authenticate your account.
 
     See [connected accounts](https://pipedream.com/docs/apps/connected-accounts) for more details.
 1. After connecting, you can use any Apify trigger or action in your workflows.
@@ -38,6 +41,8 @@ Before you begin, make sure you have:
 1. Select **Add Trigger** and search for **Apify**.
 1. Select the trigger you want to use, e.g. **New Finished Actor Run**.
 1. Configure the trigger by selecting the Actor or task to monitor.
+
+    ![Configuring an Apify trigger in Pipedream](../images/pipedream-trigger.png)
 1. Add subsequent steps to process the output.
 
 ## Use Apify as an action
@@ -51,6 +56,8 @@ Before you begin, make sure you have:
     - Select the Actor from Apify Store or your recently used Actors
     - Provide the Actor input as JSON
     - Set optional parameters such as timeout, memory, and build tag
+
+    ![Configuring an Apify action in Pipedream](../images/pipedream-action.png)
 1. Add another Apify step with **Get Dataset Items** to retrieve the Actor's output.
 1. Add any subsequent steps to process or store the data.
 
