@@ -431,3 +431,7 @@
   x-displayName: Default storages - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor run's default storages (dataset, key-value store, and request queue) without the need to resolve the storage ID first.
+- name: Last Actor run
+  x-displayName: Last Actor run - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run and all it's sub resources without the need to resolve the run ID first.

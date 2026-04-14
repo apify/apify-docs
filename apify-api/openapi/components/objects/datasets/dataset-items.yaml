@@ -276,28 +276,20 @@ getDefault:
     - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-sharedHead: &sharedHead
-  responses:
-    "200":
-      description: ""
-      headers:
-        $ref: ../../headers/ApifyPaginationHeaders.yaml
-      content: {}
-    "400":
-      $ref: ../../responses/BadRequest.yaml
-  deprecated: false
-
-headById:
-  <<: *sharedHead
+getLastRun:
+  <<: *sharedGet
   tags:
-    - Storage/Datasets
-  summary: Get dataset items headers
+    - Last Actor run
+  summary: Get last run's dataset items
   description: |
-    Returns only the HTTP headers for the dataset items endpoint, without the response body.
-    This is useful to check pagination metadata or verify access without downloading the full dataset.
-  operationId: dataset_items_head
+    Returns data stored in the default dataset of the last Actor run in the desired format.
+
+    This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
+    [Get dataset items](/api/v2/dataset-items-get) endpoint.
+  operationId: act_runs_last_dataset_items_get
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
     - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -320,20 +312,25 @@ headById:
     - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-headDefault:
-  <<: *sharedHead
+headById:
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../headers/ApifyPaginationHeaders.yaml
+        content: {}
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+  deprecated: false
   tags:
-    - Default storages
-  summary: Get default dataset items headers
+    - Storage/Datasets
+  summary: Get dataset items headers
   description: |
-    Returns only the HTTP headers for the dataset items endpoint of the Actor run's default dataset,
-    without the response body.
-
-    This endpoint is a shortcut for getting the run's `defaultDatasetId` and then using the
-    [Head dataset items](/api/v2/dataset-items-head) endpoint.
-  operationId: actorRun_dataset_items_head
+    Returns only the HTTP headers for the dataset items endpoint, without the response body.
+    This is useful to check pagination metadata or verify access without downloading the full dataset.
+  operationId: dataset_items_head
   parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
     - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
     - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -438,3 +435,19 @@ postDefault:
   operationId: actorRun_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+
+postLastRun:
+  <<: *sharedPost
+  tags:
+    - Last Actor run
+  summary: Store items in last run's dataset
+  description: |
+    Appends an item or an array of items to the end of the last Actor run's default dataset.
+
+    This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
+    [Store items](/api/v2/dataset-items-post) endpoint.
+
+  operationId: act_runs_last_dataset_items_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

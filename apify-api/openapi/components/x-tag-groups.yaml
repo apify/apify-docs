@@ -44,3 +44,4 @@
 - name: Convenience endpoints
   tags:
     - Default storages
+    - Last Actor run

@@ -80,6 +80,21 @@ getDefault:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
+getLastRun:
+  <<: *sharedGet
+  tags:
+    - Last Actor run
+  summary: Get last run's default dataset
+  description: |
+    Returns the default dataset associated with the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
+    [Get dataset](/api/v2/dataset-get) endpoint.
+  operationId: act_runs_last_dataset_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
 sharedPut: &sharedPut
   requestBody:
     description: ""
@@ -141,6 +156,21 @@ putDefault:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
+putLastRun:
+  <<: *sharedPut
+  tags:
+    - Last Actor run
+  summary: Update last run's default dataset
+  description: |
+    Updates the default dataset associated with the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
+    [Update dataset](/api/v2/dataset-put) endpoint.
+  operationId: act_runs_last_dataset_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
 sharedDelete: &sharedDelete
   responses:
     <<: *commonErrors
@@ -170,7 +200,26 @@ deleteDefault:
   tags:
     - Default storages
   summary: Delete default dataset
-  description: Deletes default dataset associated with an Actor run.
+  description: |
+    Deletes default dataset associated with an Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
+    [ Delete dataset ](/api/v2/dataset-delete) endpoint.
   operationId: actorRun_dataset_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+
+deleteLastRun:
+  <<: *sharedDelete
+  tags:
+    - Last Actor run
+  summary: Delete last run's default dataset
+  description: |
+    Deletes the default dataset associated with the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
+    [Delete dataset](/api/v2/dataset-delete) endpoint.
+  operationId: act_runs_last_dataset_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

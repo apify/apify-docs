@@ -1,6 +1,4 @@
 get:
   $ref: "../../components/objects/datasets/dataset-items.yaml#/getDefault"
-head:
-  $ref: "../../components/objects/datasets/dataset-items.yaml#/headDefault"
 post:
   $ref: "../../components/objects/datasets/dataset-items.yaml#/postDefault"
