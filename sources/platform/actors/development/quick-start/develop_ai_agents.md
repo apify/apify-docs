@@ -74,7 +74,7 @@ If you don't have the Apify CLI installed, see the [installation guide](/cli/doc
 
 :::info Sandbox environment
 
-AI Sandbox runs on a Debian image with Node.js version 24 and Python 3 pre-installed. You can install additional dependencies through the Actor input configuration.
+AI Sandbox runs on a Debian image with Node.js version 24 and Python 3.11 pre-installed. You can install additional dependencies through the Actor input configuration.
 
 :::
 
