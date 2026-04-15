@@ -1,7 +1,7 @@
 ---
 title: Web server schema
 sidebar_label: Web server schema
-sidebar_position: 9
+sidebar_position: 6.5
 description: >-
   Attach an OpenAPI specification to your Actor to enable the interactive Endpoints tab in Apify Console and Apify Store, where you can browse and test endpoints.
 slug: /actors/development/actor-definition/web-server-schema
