@@ -15,6 +15,12 @@ import TabItem from '@theme/TabItem';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation tools by providing the AI agents with the right instructions and context.
 
+:::tip Develop AI agents on Apify
+
+Looking to build and deploy AI agents as Actors? See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+
+:::
+
 The methods on this page are complementary. Start with the [AI coding assistant instructions](#ai-coding-assistant-instructions) or [Actor templates with AGENTS.md](#use-actor-templates-with-agentsmd) to get going, then add [Agent Skills](#use-agent-skills) and the [Apify MCP server](#use-apify-mcp-server) to give your assistant more context and better results.
 
 ## Quick start
