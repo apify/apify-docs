@@ -10,17 +10,23 @@ The Apify platform provides everything you need to build, test, and deploy AI ag
 
 This page covers:
 
-- [**Start from a template**](#start-from-a-template) - Use pre-built Apify Actor templates for popular AI frameworks to scaffold your agent quickly.
-- [**AI Sandbox**](#use-ai-sandbox-for-code-execution) - Run code in an isolated environment at runtime. Useful when your agent needs to execute user-provided or dynamically generated code.
-- [**OpenRouter**](#access-llms-with-openrouter) - Access 100+ LLMs through your Apify account without managing separate API keys.
-- [**Pay-per-event pricing**](#monetize-with-pay-per-event-pricing) - Charge users for specific actions your agent performs, such as API calls or token usage.
-- [**Deploy to Apify**](#deploy-to-apify) - Push your agent to the Apify platform and publish it to Apify Store.
+- [Start from a template](#start-from-a-template) - Use pre-built Apify Actor templates for popular AI frameworks to scaffold your agent quickly.
+- [AI Sandbox](#use-ai-sandbox-for-code-execution) - Run code in an isolated environment at runtime. Useful when your agent needs to execute user-provided or dynamically generated code.
+- [OpenRouter](#access-llms-with-openrouter) - Access 100+ LLMs through your Apify account without managing separate API keys.
+- [Pay-per-event pricing](#monetize-with-pay-per-event-pricing) - Charge users for specific actions your agent performs, such as API calls or token usage.
+- [Deploy to Apify](#deploy-to-apify) - Push your agent to the Apify platform and publish it to Apify Store.
 
-:::tip Build with AI
+:::note Build with AI
 
-Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you _develop_ Actors? See [Build Actors with AI](/platform/actors/development/quick-start/build-with-ai).
+Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you develop Actors? See [Build Actors with AI](/platform/actors/development/quick-start/build-with-ai).
 
 :::
+
+## Prerequisites
+
+- An [Apify account](https://console.apify.com/sign-up).
+- The [Apify CLI](/cli/docs/installation) installed.
+- Your `APIFY_TOKEN` environment variable set. See [API token](/platform/integrations/api#api-token) for details.
 
 ## Start from a template
 
@@ -78,7 +84,7 @@ The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 10
 
 :::caution Paid account recommended
 
-To use the OpenRouter Actor, subscribe to a paying Apify plan. Free-tier accounts may be blocked by anti-fraud protections.
+To use the OpenRouter Actor, subscribe to a paid Apify plan. Free-tier accounts may be blocked by anti-fraud protections.
 
 :::
 
@@ -88,7 +94,7 @@ OpenRouter exposes an OpenAI-compatible API, so you can use it with any SDK that
 
 Use the Apify OpenRouter proxy endpoint with your Apify token:
 
-```javascript
+```js
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 
 const openrouter = createOpenRouter({
