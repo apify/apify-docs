@@ -132,7 +132,7 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 ### Recognition
 
-This is a vulnerability disclosure policy - we do not offer monetary rewards. Any decisions regarding impact classification or potential rewards for high or critical severity issues are made exclusively by Apify.
+This is a vulnerability disclosure policy - we do not guarantee monetary rewards. Any decisions regarding impact classification or potential rewards for high or critical severity issues are made exclusively by Apify. Duplicate reports of the same vulnerability, including issues already identified internally, are not eligible for rewards.
 
 ## Secure your data
 
