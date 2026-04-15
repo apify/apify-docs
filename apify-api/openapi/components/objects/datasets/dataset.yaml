@@ -12,22 +12,41 @@ commonErrors: &commonErrors
   "429":
     $ref: ../../responses/TooManyRequests.yaml
 
+common200: &common200
+  "200":
+    description: ""
+    headers: {}
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/datasets/DatasetResponse.yaml
+
+sharedById: &sharedById
+  tags:
+    - Storage/Datasets
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+
+sharedDefault: &sharedDefault
+  tags:
+    - Default storages
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+
+sharedLastRun: &sharedLastRun
+  tags:
+    - Last Actor run
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
 sharedGet: &sharedGet
   responses:
-    <<: *commonErrors
-    "200":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../schemas/datasets/DatasetResponse.yaml
+    <<: [*common200, *commonErrors]
   deprecated: false
 
 getById:
-  <<: *sharedGet
-  tags:
-    - Storage/Datasets
+  <<: [*sharedGet, *sharedById]
   summary: Get dataset
   description: |
     Returns dataset object for given dataset ID.
@@ -43,17 +62,6 @@ getById:
 
     There is a short period (up to 5 seconds) during which these counters may not match with exact counts in dataset items.
   operationId: dataset_get
-  parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
-    - name: token
-      in: query
-      description: |
-        API authentication token. It is required only when using the `username~dataset-name` format for `datasetId`.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: soSkq9ekdmfOslopH
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/get-dataset
@@ -66,9 +74,7 @@ getById:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#get
 
 getDefault:
-  <<: *sharedGet
-  tags:
-    - Default storages
+  <<: [*sharedGet, *sharedDefault]
   summary: Get default dataset
   description: |
     Returns the default dataset associated with an Actor run.
@@ -77,13 +83,9 @@ getDefault:
     [Get dataset](/api/v2/dataset-get) endpoint.
 
   operationId: actorRun_dataset_get
-  parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 getLastRun:
-  <<: *sharedGet
-  tags:
-    - Last Actor run
+  <<: [*sharedGet, *sharedLastRun]
   summary: Get last run's default dataset
   description: |
     Returns the default dataset associated with the last Actor run.
@@ -91,9 +93,6 @@ getLastRun:
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Get dataset](/api/v2/dataset-get) endpoint.
   operationId: act_runs_last_dataset_get
-  parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
 
 sharedPut: &sharedPut
   requestBody:
@@ -104,14 +103,7 @@ sharedPut: &sharedPut
           $ref: ../../schemas/datasets/UpdateDatasetRequest.yaml
     required: true
   responses:
-    <<: *commonErrors
-    "200":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../schemas/datasets/DatasetResponse.yaml
+    <<: [*common200, *commonErrors]
     "413":
       $ref: ../../responses/PayloadTooLarge.yaml
     "415":
@@ -119,17 +111,13 @@ sharedPut: &sharedPut
   deprecated: false
 
 putById:
-  <<: *sharedPut
-  tags:
-    - Storage/Datasets
+  <<: [*sharedPut, *sharedById]
   summary: Update dataset
   description: |
     Updates a dataset's name and general resource access level using a value specified by a JSON object passed in the PUT payload.
     The response is the updated dataset object, as returned by the [Get dataset](/api/v2/dataset-get) API endpoint.
   operationId:
     dataset_put
-  parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/update-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/update-dataset
@@ -142,9 +130,7 @@ putById:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#update
 
 putDefault:
-  <<: *sharedPut
-  tags:
-    - Default storages
+  <<: [*sharedPut, *sharedDefault]
   summary: Update default dataset
   description: |
     Updates the default dataset associated with an Actor run.
@@ -153,13 +139,9 @@ putDefault:
     [Put dataset](/api/v2/dataset-put) endpoint.
 
   operationId: actorRun_dataset_put
-  parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 putLastRun:
-  <<: *sharedPut
-  tags:
-    - Last Actor run
+  <<: [*sharedPut, *sharedLastRun]
   summary: Update last run's default dataset
   description: |
     Updates the default dataset associated with the last Actor run.
@@ -167,9 +149,6 @@ putLastRun:
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Update dataset](/api/v2/dataset-put) endpoint.
   operationId: act_runs_last_dataset_put
-  parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
 
 sharedDelete: &sharedDelete
   responses:
@@ -179,14 +158,10 @@ sharedDelete: &sharedDelete
   deprecated: false
 
 deleteById:
-  <<: *sharedDelete
-  tags:
-    - Storage/Datasets
+  <<: [*sharedDelete, <<: *sharedById]
   summary: Delete dataset
   description: Deletes a specific dataset.
   operationId: dataset_delete
-  parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/delete-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/delete-dataset
@@ -196,9 +171,7 @@ deleteById:
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#delete
 
 deleteDefault:
-  <<: *sharedDelete
-  tags:
-    - Default storages
+  <<: [*sharedDelete, *sharedDefault]
   summary: Delete default dataset
   description: |
     Deletes default dataset associated with an Actor run.
@@ -206,13 +179,9 @@ deleteDefault:
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [ Delete dataset ](/api/v2/dataset-delete) endpoint.
   operationId: actorRun_dataset_delete
-  parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 deleteLastRun:
-  <<: *sharedDelete
-  tags:
-    - Last Actor run
+  <<: [*sharedDelete, *sharedLastRun]
   summary: Delete last run's default dataset
   description: |
     Deletes the default dataset associated with the last Actor run.
@@ -220,6 +189,3 @@ deleteLastRun:
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Delete dataset](/api/v2/dataset-delete) endpoint.
   operationId: act_runs_last_dataset_delete
-  parameters:
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

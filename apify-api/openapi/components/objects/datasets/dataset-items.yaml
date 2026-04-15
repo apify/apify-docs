@@ -1,6 +1,4 @@
 commonErrors: &commonErrors
-  "400":
-    $ref: ../../responses/BadRequest.yaml
   "401":
     $ref: ../../responses/Unauthorized.yaml
   "403":
@@ -11,6 +9,43 @@ commonErrors: &commonErrors
     $ref: ../../responses/MethodNotAllowed.yaml
   "429":
     $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Datasets
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default storages
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run
+
+parametersGetHeadById: &parametersGetHeadById
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
+    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 sharedGet: &sharedGet
   responses:
@@ -49,12 +84,12 @@ sharedGet: &sharedGet
           schema:
             type: string
           example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
+    "400":
+      $ref: ../../responses/BadRequest.yaml
   deprecated: false
 
 getById:
-  <<: *sharedGet
-  tags:
-    - Storage/Datasets
+  <<: [*sharedGet, *sharedTagById, *parametersGetHeadById]
   summary: Get dataset items
   description: |
     Returns data stored in the dataset in a desired format.
@@ -207,29 +242,6 @@ getById:
     If you specify `desc=1` query parameter, the results are returned in the reverse order than they were stored (i.e. from newest to oldest items).
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
   operationId: dataset_items_get
-  parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
-    - $ref: "../../parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
-    - $ref: "../../parameters/storageParameters.yaml#/signature"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
     - https://docs.apify.com/api/v2#/reference/datasets/get-items
@@ -242,9 +254,7 @@ getById:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#stream_items
 
 getDefault:
-  <<: *sharedGet
-  tags:
-    - Default storages
+  <<: [*sharedGet, *sharedTagDefault]
   summary: Get default dataset items
   description: |
     Returns data stored in the default dataset of the Actor run in the desired format.
@@ -277,9 +287,7 @@ getDefault:
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 getLastRun:
-  <<: *sharedGet
-  tags:
-    - Last Actor run
+  <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's dataset items
   description: |
     Returns data stored in the default dataset of the last Actor run in the desired format.
@@ -313,7 +321,9 @@ getLastRun:
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 headById:
+  <<: [*parametersGetHeadById, *sharedTagById]
   responses:
+    <<: *commonErrors
     "200":
       description: ""
       headers:
@@ -322,36 +332,11 @@ headById:
     "400":
       $ref: ../../responses/BadRequest.yaml
   deprecated: false
-  tags:
-    - Storage/Datasets
   summary: Get dataset items headers
   description: |
     Returns only the HTTP headers for the dataset items endpoint, without the response body.
     This is useful to check pagination metadata or verify access without downloading the full dataset.
   operationId: dataset_items_head
-  parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
-    - $ref: "../../parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
-    - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 sharedPost: &sharedPost
   requestBody:
@@ -367,6 +352,7 @@ sharedPost: &sharedPost
           description: ""
     required: true
   responses:
+    <<: *commonErrors
     "201":
       description: ""
       headers:
@@ -387,17 +373,13 @@ sharedPost: &sharedPost
       content:
         application/json:
           schema:
-            $ref: ../../schemas/datasets/PutItemResponseError.yaml
-    "403":
-      $ref: ../../responses/Forbidden.yaml
-    "404":
-      $ref: ../../responses/NotFound.yaml
+            anyOf:
+              - $ref: ../../schemas/datasets/PutItemResponseError.yaml
+              - $ref: ../../schemas/common/ErrorResponse.yaml
   deprecated: false
 
 postById:
-  <<: *sharedPost
-  tags:
-    - Storage/Datasets
+  <<: [*sharedPost, *sharedTagById]
   summary: Store items
   description: |
     Appends an item or an array of items to the end of the dataset.
@@ -422,9 +404,7 @@ postById:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#push_items
 
 postDefault:
-  <<: *sharedPost
-  tags:
-    - Default storages
+  <<: [*sharedPost, *sharedTagDefault]
   summary: Store items
   description: |
     Appends an item or an array of items to the end of the Actor run's default dataset.
@@ -437,9 +417,7 @@ postDefault:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 postLastRun:
-  <<: *sharedPost
-  tags:
-    - Last Actor run
+  <<: [*sharedPost, *sharedTagLastRun]
   summary: Store items in last run's dataset
   description: |
     Appends an item or an array of items to the end of the last Actor run's default dataset.
