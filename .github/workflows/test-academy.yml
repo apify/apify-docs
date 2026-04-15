@@ -21,7 +21,7 @@ jobs:
             -   name: Setup Python
                 uses: astral-sh/setup-uv@v7
 
-            -   uses: ./.github/actions/pnpm-install
+            -   uses: apify/workflows/pnpm-install@main
 
             -   name: Test
                 run: pnpm test:academy

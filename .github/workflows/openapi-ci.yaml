@@ -27,7 +27,7 @@ jobs:
               with:
                   node-version: 24
 
-            - uses: ./.github/actions/pnpm-install
+            - uses: apify/workflows/pnpm-install@main
 
             - name: Lint with Redocly
               run: pnpm openapi:lint:redocly -- --format=github-actions
@@ -51,7 +51,7 @@ jobs:
               with:
                   node-version: 24
 
-            - uses: ./.github/actions/pnpm-install
+            - uses: apify/workflows/pnpm-install@main
 
             - name: Build bundles
               run: pnpm openapi:build
@@ -78,7 +78,7 @@ jobs:
               with:
                   node-version: 24
 
-            - uses: ./.github/actions/pnpm-install
+            - uses: apify/workflows/pnpm-install@main
 
             - name: Download bundles
               uses: actions/download-artifact@v8

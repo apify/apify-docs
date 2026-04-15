@@ -18,7 +18,7 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: ./.github/actions/pnpm-install
+            -   uses: apify/workflows/pnpm-install@main
 
             -   run: pnpm build
                 env:
@@ -179,7 +179,7 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: ./.github/actions/pnpm-install
+            -   uses: apify/workflows/pnpm-install@main
 
             -   name: List and Lint Changed Markdown Files
                 env:
@@ -203,6 +203,6 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: ./.github/actions/pnpm-install
+            -   uses: apify/workflows/pnpm-install@main
 
             -   run: pnpm lint:code

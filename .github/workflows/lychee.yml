@@ -16,7 +16,7 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: ./.github/actions/pnpm-install
+            -   uses: apify/workflows/pnpm-install@main
 
             -   name: Build docs
                 run: |
