@@ -27,7 +27,7 @@ Install the Apify integration from the Snowflake Marketplace and follow the guid
 
 In Snowsight, open the **Data Products** menu and navigate to the **Marketplace**. Search for **Apify** and open the listing, then click **Get** to begin installation.
 
-![Apify integration listing in Snowflake Marketplace](../images/snowflake/marketplace_listing.png)
+![Apify integration listing in Snowflake Marketplace](../images/snowflake/snowflake-marketplace-listing.png)
 
 ### Step 2: Set up External Access Integration
 
@@ -35,7 +35,7 @@ During installation, the app prompts you to create a **Network Rule** and an **E
 
 Follow the SQL instructions shown in the setup screen. Run the provided SQL in a Snowsight worksheet under an account-admin role, then return to the app setup and confirm the integration name.
 
-![External connections setup during app installation](../images/snowflake/step_2_setup_EAI.png)
+![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 
 :::note Required privileges
 
@@ -52,15 +52,15 @@ After the External Access Integration is in place, grant the app the remaining p
 
 The app displays the required `GRANT` statements. Copy and run them in a worksheet under the `ACCOUNTADMIN` role.
 
-![Account privileges grant during app setup](../images/snowflake/step_3_grant_privileges.png)
+![Account privileges grant during app setup](../images/snowflake/snowflake-account-privileges.png)
 
 ## Connect your Apify account
 
-![Apify Snowflake Integration home page](../images/snowflake/page_1_homepage.png)
+![Apify Snowflake Integration home page](../images/snowflake/snowflake-home.png)
 
 Open the installed app and go to the **API Token** page. The page checks whether a Snowflake secret bound to the app is configured and whether it can reach the Apify API.
 
-![API Token page showing a connected Apify account](../images/snowflake/page_2_api_token.png)
+![API Token page showing a connected Apify account](../images/snowflake/snowflake-api-token.png)
 
 If the connection check fails, create or update a Snowflake secret with your Apify API token:
 
@@ -78,7 +78,7 @@ The **Import Data from Dataset** page lets you fetch items from an Apify dataset
 
 Choose one of your named datasets from the dropdown or enter a custom dataset ID. You can find dataset IDs in [Apify Console](https://console.apify.com/storage/datasets) under **Storage** > **Datasets**.
 
-![Import Dataset page with dataset selector and Advanced options](../images/snowflake/page_3_import_dataset_step_1.png)
+![Import Dataset page with dataset selector and Advanced options](../images/snowflake/snowflake-import-dataset.png)
 
 Expand **Advanced options** to refine what data is fetched:
 
@@ -98,29 +98,31 @@ Click **Fetch Data** to retrieve a preview of the dataset.
 
 After fetching data, select how you want to load it into Snowflake:
 
-![Dataset items preview and export mode selector](../images/snowflake/page_3_import_dataset_step_2.png)
+![Dataset items preview and export mode selector](../images/snowflake/snowflake-dataset-preview.png)
 
-- **Create new table** - the app creates a new table in the `APIFY.DATASETS_EXPORTS` schema in a dedicated database. Select which columns to include, then click **Next: Export**.
+#### Create new table
 
-    ![Export settings with column selection](../images/snowflake/page_3_import_dataset_step_3.png)
+The app creates a new table in the `APIFY.DATASETS_EXPORTS` schema in a dedicated database. Select which columns to include, then click **Next: Export**.
 
-    :::note Visibility
+![Export settings with column selection](../images/snowflake/snowflake-export-settings.png)
 
-    Tables created by the app are only visible to `ACCOUNTADMIN` by default. The app grants access to exported tables via its `app_public` application role. To make the tables visible to other roles, grant that role in a Snowsight worksheet:
+:::note Visibility
 
-    ```sql
-    GRANT APPLICATION ROLE <app_name>.app_public TO ROLE <your_role>;
-    ```
+Tables created by the app are only visible to `ACCOUNTADMIN` by default. The app grants access to exported tables via its `app_public` application role. To make the tables visible to other roles, grant that role in a Snowsight worksheet:
 
-    Alternatively, open the app in Snowsight, go to the **Access management** tab, and click **Add** to assign the `app_public` role to any account role.
+```sql
+GRANT APPLICATION ROLE <app_name>.app_public TO ROLE <your_role>;
+```
 
-    ![Access management tab for granting app_public role](../images/snowflake/setup_table_access_privilege.png)
+Alternatively, open the app in Snowsight, go to the **Access management** tab, and click **Add** to assign the `app_public` role to any account role.
 
-    :::
+![Access management tab for granting app_public role](../images/snowflake/snowflake-access-management.png)
 
-- **Insert into existing table** - reference an existing table in your account. The app prompts you to grant it access to your table, then lets you map dataset columns to destination columns before inserting.
+:::
 
-Click **Next: Export** to write the data to Snowflake.
+#### Insert into existing table
+
+Reference an existing table in your account. The app prompts you to grant it access to your table, then lets you map dataset columns to destination columns before inserting. Click **Next: Export** to write the data to Snowflake.
 
 ## Run an Actor
 
@@ -135,7 +137,7 @@ Choose an Actor from two sources:
 
 You can also type a custom Actor ID (for example, `apify/web-scraper`) directly into the input.
 
-![Run Actor page with Actor source and selection dropdown](../images/snowflake/page_4_run_actor_step_1.png)
+![Run Actor page with Actor source and selection dropdown](../images/snowflake/snowflake-actor-select.png)
 
 ### Step 2: Configure and run
 
@@ -148,13 +150,13 @@ Expand **Advanced Run Options** to set:
 
 Click **Next: Run Actor** to start the run.
 
-![Actor Input JSON form with Advanced Run Options](../images/snowflake/page_4_run_actor_step_3.png)
+![Actor Input JSON form with Advanced Run Options](../images/snowflake/snowflake-actor-input.png)
 
 ### Step 3: Monitor the run
 
 The app polls the run status every five seconds and shows live updates. You can also follow the link to **View run in Apify Console** for full logs.
 
-![Actor run in progress with live status updates](../images/snowflake/page_4_run_actor_step_4.png)
+![Actor run in progress with live status updates](../images/snowflake/snowflake-actor-run-status.png)
 
 Use the **Abort Actor run** button to stop the run at any time.
 
@@ -162,7 +164,7 @@ Use the **Abort Actor run** button to stop the run at any time.
 
 When the run completes, click **Next: Import dataset** to go straight to the **Import Data from Dataset** page with the run's default dataset pre-filled. Follow the [import steps](#import-a-dataset) to load the results into Snowflake.
 
-![Completed Actor run with Next: Import dataset button](../images/snowflake/page_4_run_actor_step_5.png)
+![Completed Actor run with Next: Import dataset button](../images/snowflake/snowflake-actor-run-complete.png)
 
 ## Next steps
 
