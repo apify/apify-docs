@@ -58,7 +58,7 @@ Once the build starts, you're redirected to the **Last build** tab. Here you can
 ## Step 4: Run the Actor
 
 Finally, it's time to run the Actor:
-
+<!-- vale off -->
 1. Go to **Source** tab > **Input**.
 1. Set the **Start URL** to the URL you want to crawl or use the default value.
 1. _(Optional)_ To customize the run, expand the **Run options** section. You can adjust the following options:
@@ -67,7 +67,7 @@ Finally, it's time to run the Actor:
    - **Memory limit** – allocate the memory for the run. For details, see [Usage and resources](/platform/actors/running/usage-and-resources).
    - **Maximum cost per run**.
 1. Click **Start**.
-
+<!-- vale on -->
 Once the run starts, you can monitor its progress and view the logs in real-time. To view the results of the Actor's execution, go to the **Output** tab.
 
 To stop the run, click **Abort**.
