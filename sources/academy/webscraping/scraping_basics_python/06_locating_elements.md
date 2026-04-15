@@ -211,7 +211,7 @@ Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 ...
 ```
 
-Great! We have managed to use CSS selectors and walk the HTML tree to get a list of product titles and prices. But wait a second—what's `From $1,398.00`? One does not simply scrape a price! We'll need to clean that. But that's a job for the next lesson, which is about extracting data.
+Great! We have managed to use CSS selectors and walk the HTML tree to get a list of product titles and prices. But wait a second - what's `From $1,398.00`? One does not simply scrape a price! We'll need to clean that. But that's a job for the next lesson, which is about extracting data.
 
 ---
 

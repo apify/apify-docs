@@ -36,13 +36,13 @@ It will set up a request queue and a dataset that the other Actor runs will util
 
 The Orchestrator Actor orchestrates the parallel execution of scraper Actor runs.
 It runs multiple instances of the scraper Actor and passes the request queue and dataset to them.
-For the Actor's base structure, we use Apify CLI and create a new Actor with the following command and use the [Empty TypeScript Actor template](https://apify.com/templates/ts-empty).
+For the Actor's base structure, we use the Apify CLI and create a new Actor with the following command and use the [Empty TypeScript Actor template](https://apify.com/templates/ts-empty).
 
 ```shell
 apify create orchestrator-actor
 ````
 
-If you don't have Apify CLI installed, check out our installation [instructions](https://docs.apify.com/cli/docs/installation).
+If you don't have the Apify CLI installed, check out the installation [instructions](https://docs.apify.com/cli/docs/installation).
 
 ### Input Configuration
 
@@ -164,7 +164,7 @@ If you are pushing the Actor for the first time, you will need to [login to your
 
 :::
 
-By running this command, you will be prompted to provide the Actor ID, which you can find in the Apify Console under the Actors tab.
+By running this command, you will be prompted to provide the Actor ID, which you can find in Apify Console under the Actors tab.
 
 ![orchestrator-actor.png](./images/orchestrator-actor.png)
 
@@ -211,19 +211,19 @@ You need to push the Scraper Actor to Apify using the following command from the
 apify push
 ```
 
-After pushing the Scraper Actor to Apify, you must get the Actor ID from the Apify Console.
+After pushing the Scraper Actor to Apify, you must get the Actor ID from Apify Console.
 
 ![scraper-actor.png](./images/scraper-actor.png)
 
 ## Run orchestration in Apify Console
 
-Once you have the Orchestrator Actor and Scraper Actor pushed to Apify, you can run the Orchestrator Actor in the Apify Console.
+Once you have the Orchestrator Actor and Scraper Actor pushed to Apify, you can run the Orchestrator Actor in Apify Console.
 You can set the input for the Orchestrator Actor to specify the number of parallel runs and the target Actor ID, input, and run options.
 After you hit the **Start** button, the Orchestrator Actor will start the parallel runs of the Scraper Actor.
 
 ![orchestrator-actor-input.png](./images/orchestrator-actor-input.png)
 
-After starting the Orchestrator Actor, you will see the parallel runs initiated in the Apify Console.
+After starting the Orchestrator Actor, you will see the parallel runs initiated in Apify Console.
 
 ![scraper-actor-runs.png](./images/scraper-actor-runs.png)
 

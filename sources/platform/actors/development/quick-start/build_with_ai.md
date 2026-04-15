@@ -15,6 +15,12 @@ import TabItem from '@theme/TabItem';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation tools by providing the AI agents with the right instructions and context.
 
+:::tip Develop AI agents on Apify
+
+Looking to build and deploy AI agents as Actors? See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+
+:::
+
 The methods on this page are complementary. Start with the [AI coding assistant instructions](#ai-coding-assistant-instructions) or [Actor templates with AGENTS.md](#use-actor-templates-with-agentsmd) to get going, then add [Agent Skills](#use-agent-skills) and the [Apify MCP server](#use-apify-mcp-server) to give your assistant more context and better results.
 
 ## Quick start
@@ -54,7 +60,7 @@ All [Actor Templates](https://apify.com/templates) have AGENTS.md that will help
 apify create
 ```
 
-If you do not have Apify CLI installed, see the [installation guide](/cli/docs/installation).
+If you do not have the Apify CLI installed, see the [installation guide](/cli/docs/installation).
 
 The command above will guide you through Apify Actor initialization, where you select an Actor Template that works for you. The result is an initialized Actor (with AGENTS.md) ready for development.
 
@@ -133,9 +139,9 @@ claude mcp add apify "https://mcp.apify.com/?tools=docs" -t http
 
 ## Provide context to assistants
 
-Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
+Every page in the Apify documentation has a **Copy for LLM** button. Use it to add more context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
 
-<img src={copyForAI} alt="Copy for LLM" width="250" />
+![Page from the Apify documentation with the Copy for LLM button highlighted](./images/copy-for-llm-button.svg)
 
 ## Use `/llms.txt` files
 

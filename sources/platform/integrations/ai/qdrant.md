@@ -8,9 +8,13 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Qdrant](https://qdrant.tech) is a high performance managed vector database that allows users to store and query dense vectors for next generation AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
 
 The Apify integration for Qdrant enables you to export results from Apify Actors and Dataset items into a specific Qdrant collection.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -33,7 +37,7 @@ With the cluster ready and its URL and API key in hand, you can proceed with int
 
 ### Integration Methods
 
-You can integrate Apify with Qdrant using either the Apify Console or the Apify Python SDK.
+You can integrate Apify with Qdrant using either Apify Console or the Apify Python SDK.
 
 :::note Website Content Crawler usage
 

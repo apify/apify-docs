@@ -49,35 +49,13 @@ get:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   responses:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -93,12 +71,7 @@ get:
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: "Request Timeout: the HTTP request exceeded the 300 second limit"
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/RunTimeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -170,6 +143,7 @@ post:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   requestBody:
     description: ""
@@ -179,35 +153,14 @@ post:
           type: object
         example:
           foo: bar
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:

@@ -19,7 +19,7 @@ In the **Account** tab's **Security** section, you can set security requirements
 - Maximum session lifespan
 - Two-factor authentication requirement
 
-**[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
+**[See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
 ## Add users to your organization
 

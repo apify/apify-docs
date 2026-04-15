@@ -255,6 +255,11 @@ module.exports = {
             name: 'webpack-loader-fix',
             configureWebpack() {
                 return {
+                    resolve: {
+                        fallback: {
+                            path: require.resolve('path-browserify'),
+                        },
+                    },
                     module: {
                         rules: [
                             {

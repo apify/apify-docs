@@ -12,7 +12,7 @@ Datacenter proxies are a cheap, fast and stable way to mask your identity online
 
 Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
-You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
+You can refer to the [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
 
 ## Features
 
@@ -33,7 +33,7 @@ When using Apify's datacenter proxies, you can either select a proxy group, or t
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed, etc.).
 
-For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
+For a full list of plans and number of allocated proxy servers for each plan, see the [pricing page](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
 
 ### Dedicated proxy groups
 
@@ -307,7 +307,7 @@ await Actor.exit();
 
 ## Examples using standard libraries and languages
 
-You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952`, `session-123`).<br/>

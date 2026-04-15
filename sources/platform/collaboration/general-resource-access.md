@@ -10,7 +10,7 @@ Some resources, like storages, Actor runs or Actor builds, can be shared simply 
 
 Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use cases. However, it doesn't offer features like access revocation and in some cases, you may want to have more direct control over data access and require users to have explicit permissions to your resources.
 
-**General resource access** is an account setting that defines the default access policy at the account level. You can find General resource access in Apify Console under **Settings → Security & Privacy**. The two following options are supported:
+**General resource access** is an account setting that defines the default access policy at the account level. You can find General resource access in Apify Console under **Settings → Login & Privacy** (or **Settings → Security & Privacy** for organization accounts). The two following options are supported:
 
 - **Anyone with ID can read (default)**: Selected resources can be accessed using just their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
 - **Restricted**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
@@ -79,7 +79,7 @@ When you share an Actor with a collaborator, you can choose to share read-only a
 
 If you’re using a public Actor from Apify Store, you can choose to automatically share your runs of that Actor with its creator. This helps developers monitor usage and troubleshoot issues more effectively.
 
-- This setting is opt-in and can be enabled under **Account Settings → Privacy**
+- This setting is opt-in and can be enabled under **Settings → Login & Privacy** in the **Share run data with developers** section
 - When enabled, your runs of public Actors are automatically visible to the Actor’s creator
 - Shared runs include logs, input, and output storages (dataset, key-value store, request queue)
 
@@ -152,26 +152,26 @@ When you retrieve dataset or key-value store details using:
 - `GET https://api.apify.com/v2/datasets/:datasetId`  
 - `GET https://api.apify.com/v2/key-value-stores/:storeId`
 
-the API response includes automatically generated fields:  
+the API response includes automatically generated fields:
 
-- `itemsPublicUrl` – a pre-signed URL providing access to dataset items  
-- `keysPublicUrl` – a pre-signed URL providing access to key-value store keys  
+- `itemsPublicUrl` - a pre-signed URL providing access to dataset items
+- `keysPublicUrl` - a pre-signed URL providing access to key-value store keys
 
 These automatically generated URLs are _valid for 14 days_.
 
 The response also contains:
 
-- `consoleUrl` - provides a stable link to the resource's page in the Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
+- `consoleUrl` - provides a stable link to the resource's page in Apify Console. Unlike a direct API link, Console link will prompt unauthenticated users to sign in, ensuring they have required permissions to view the resource.
 
 :::
 
-You can create pre-signed URLs either through the Apify Console or programmatically via the Apify API client.
+You can create pre-signed URLs either through Apify Console or programmatically via the Apify API client.
 
 #### How to generate pre-signed URLs in Apify Console
 
 To generate a pre-signed link, you can use the **Export** button in Console.
 
-:::note
+:::note Pre-signed URL signatures
 
 The link will include a signature _only if the general resource access is set to Restricted_. For unrestricted datasets, the link will work without a signature.
 
@@ -237,7 +237,7 @@ If the `expiresInSecs` option is not specified, the generated link will be _perm
 
 #### Signing URLs manually
 
-If you need finer control - for example, generating links without using Apify client - you can sign URLs manually using our reference implementation.
+If you need finer control - for example, generating links without using Apify client - you can sign URLs manually using the reference implementation.
 
 [Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
 
@@ -257,7 +257,7 @@ This is very useful if you wish to expose a storage publicly with an easy to rem
 
 If you own a public Actor in Apify Store, you need to make sure that your Actor will work even for users who have restricted access to their resources. Over time, you might see a growing number of users with _General resource access_ set to _Restricted_.
 
-In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using Apify SDK, this should be the default behavior. See the detailed guide below for more information.
+In practice, this means that all API calls originating from the Actor need to have a valid API token. If you are using the Apify SDK, this should be the default behavior. See the detailed guide below for more information.
 
 
 :::caution Actor runs inherit user permissions

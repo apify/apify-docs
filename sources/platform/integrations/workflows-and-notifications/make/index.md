@@ -6,7 +6,11 @@ sidebar_position: 2
 slug: /integrations/make
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Make](https://www.make.com/) _(formerly Integromat)_ allows you to create scenarios where you can integrate various services (modules) to automate and centralize jobs. Apify has its own module you can use to run Apify Actors, get notified about run statuses, and receive Actor results directly in your Make scenario.
+
+<ThirdPartyDisclaimer />
 
 ## Connect Apify to Make
 
@@ -32,7 +36,7 @@ Alternatively, you can choose to connect using Apify API token:
 
     ![API token](../../images/apify-token.png)
 
-1. You can find this token in the Apify Console by navigating to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**
+1. You can find this token in Apify Console by navigating to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**
 
     ![Integrations token](../../images/apify-integrations-token.png)
 
@@ -93,7 +97,7 @@ You’re all set! Once the scenario is started, it will run the Actor synchronou
 ### Asynchronous run using the trigger module
 
 In this example, we will demonstrate how to run an Actor asynchronously and export its output to Google Sheets.
-Before starting, decide where you want to initiate the Actor run. You can do this manually via the Apify Console, on a schedule, or from a separate Make.com scenario.
+Before starting, decide where you want to initiate the Actor run. You can do this manually via Apify Console, on a schedule, or from a separate Make.com scenario.
 
 #### Step 1: Add the Apify "Watch Actor Runs" module
 
@@ -121,7 +125,7 @@ In the "Spreadsheet ID" field, enter the ID of the target Google Sheets file, wh
 ![make-com-async-3.png](../../images/make-com/make-com-async-3.png)
 
 That’s it! Once the Actor run is complete, its data will be exported to the Google Sheets file.
-You can initiate the Actor run via the Apify Console, a scheduler, or from another Make.com scenario.
+You can initiate the Actor run via Apify Console, a scheduler, or from another Make.com scenario.
 
 ## Available modules and triggers
 

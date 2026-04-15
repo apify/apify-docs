@@ -22,7 +22,7 @@ All usage of Apify Proxy with your password is charged towards your account. Do 
 ### External connection
 
 If you want to connect to Apify Proxy from outside of the Apify platform, you need to have a paid Apify plan (to prevent abuse).
-If you need to test Apify Proxy before you subscribe, please [contact our support](https://apify.com/contact).
+If you need to test Apify Proxy before you subscribe, please [contact Apify support](https://apify.com/contact).
 
 | Parameter | Value / explanation |
 | :--- | :--- |
@@ -116,7 +116,7 @@ If you want to specify one parameter and not the others, just provide that param
 
 ## Code examples
 
-We have code examples for connecting to our proxy using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
+There are code examples for connecting to Apify Proxy using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
 
 * [Datacenter proxy](./datacenter_proxy.md#examples)
 * [Residential proxy](./residential_proxy.md#connecting-to-residential-proxy)
@@ -137,7 +137,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 * Browser - a different IP address is used for each browser.
 * HTTP request - a different IP address is used for each request.
 
-Use [sessions](#sessions) to control how you rotate IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
+Use [sessions](#sessions) to control how you rotate IP addresses. See the guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and Apify's findings on how blocking works.
 
 ## Sessions
 
@@ -152,7 +152,7 @@ residential_proxy.md#session-persistence) proxies. For datacenter proxies, a ses
 
 ## Proxy groups
 
-You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in the Apify Console. To use a specific proxy group (or multiple groups), specify it in the `username` parameter.
+You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in Apify Console. To use a specific proxy group (or multiple groups), specify it in the `username` parameter.
 
 ## Proxy IP addresses
 
@@ -173,7 +173,7 @@ https://api.apify.com/v2/browser-info/
 
 ### A different approach to `502 Bad Gateway`
 
-Sometimes when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight:
+Sometimes the `502` status code is not comprehensive enough. Therefore, Apify Proxy uses `590-599` codes instead to provide more insight:
 
 * `590 Non Successful`: upstream responded with non-200 status code.
 * `591 RESERVED`: *this status code is reserved for further use.*
@@ -194,5 +194,5 @@ The typical issues behind these codes are:
 * `597` indicates incorrect upstream credentials.
 * `599` is a generic error, where the above is not applicable.
 
-  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
+  Note that Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
   You can find the details of the above errors and their implementation there.

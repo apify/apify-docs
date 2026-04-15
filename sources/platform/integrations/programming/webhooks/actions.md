@@ -130,7 +130,7 @@ If the string being interpolated contains only the variable, the actual variable
 { "text": "My user id is abf6vtB2nvQZ4nJzo" }
 ```
 
-To enable string interpolation, use **Interpolate variables in string fields** switch within the Apify Console. In JS API Client it's called `shouldInterpolateStrings`. This field is always `true` when integrating Actors or tasks.
+To enable string interpolation, use **Interpolate variables in string fields** switch within Apify Console. In JS API Client it's called `shouldInterpolateStrings`. This field is always `true` when integrating Actors or tasks.
 
 ### Payload template example
 

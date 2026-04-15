@@ -36,7 +36,7 @@ After you scan the QR code or set up your app manually, the app will generate a 
 
 ![Apify Console setup two-factor authentication - recovery codes](./images/console-two-factor-recovery-setup.png)
 
-In this step, you will see 16 recovery codes. If you ever lose access to your authenticated app, you will be able to use these codes to access the Apify Console. We recommend saving these codes in a safe place; ideally, you should store them in a secure password manager or print them out and keep them separate from your device.
+In this step, you will see 16 recovery codes. If you ever lose access to your authenticated app, you will be able to use these codes to access Apify Console. We recommend saving these codes in a safe place; ideally, you should store them in a secure password manager or print them out and keep them separate from your device.
 
 Under the recovery codes, you will find two fields for your recovery information. These two fields are what the support team will ask you to provide in case you lose access to your authenticator app and also to your recovery codes. We will never use the phone number for anything other than to verify your identity and help you regain access to your account, only as a last resort. Ideally, the personal information you provide will be enough to verify your identity. Always provide both the kind of personal information you provide and the actual information.
 
@@ -54,7 +54,7 @@ When you close the setup process, you should see that your two-factor authentica
 
 ## Verification after sign-in
 
-After you enable two-factor authentication, the next time you attempt to sign in, you'll need to enter a code before you can get into the Apify Console. To do that, open your authenticator app and enter the code for your Apify account into the **Code** field. After you enter the code, click on the **Verify** button, and if the provided code is correct, you will proceed to Apify Console.
+After you enable two-factor authentication, the next time you attempt to sign in, you'll need to enter a code before you can get into Apify Console. To do that, open your authenticator app and enter the code for your Apify account into the **Code** field. After you enter the code, click on the **Verify** button, and if the provided code is correct, you will proceed to Apify Console.
 
 ![Apify Console two-factor authentication form](./images/console-two-factor-authentication.png)
 
@@ -65,7 +65,7 @@ In case you lose access to your authenticator app, you can use the recovery code
 If the provided recovery code is correct, you will proceed to Apify Console, the same as if you provided the code from the authenticator app. After gaining access to Apify Console, we recommend going to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings, disabling the two-factor authentication there, and then enabling it again with the new authenticator app.
 
 :::info Removal of recovery codes
-When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact our support to help you regain access to your account.
+When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact Apify support to help you regain access to your account.
 :::
 
 ![Apify Console two-factor authentication with recovery code form](./images/console-two-factor-use-recovery-code.png)
@@ -80,9 +80,9 @@ After you disable the two-factor authentication you will be able to sign in to y
 
 ## What to do when you get locked out
 
-If you lose access to your authenticator app and do not have any recovery codes left, or you lost them as well, you will not be able to sign in to your account. In this case, you will need to contact our support. To do that, you can either send us an email to [support@apify.com](mailto:support@apify.com?subject='Locked%20out%20of%20account%20with%202FA%20enabled') or you can go to the [sign-in page](https://console.apify.com/sign-in) and sign in with your email and password. Then, on the two-factor authentication page, click on the **recovery code or begin 2FA account recovery** link. On the two-factor recovery page, click on the **Contact our support** link. This link will open up our online chat, and our support team can help you from there.
+If you lose access to your authenticator app and do not have any recovery codes left, or you lost them as well, you will not be able to sign in to your account. In this case, you will need to contact Apify support. To do that, you can either send an email to [support@apify.com](mailto:support@apify.com?subject='Locked%20out%20of%20account%20with%202FA%20enabled') or you can go to the [sign-in page](https://console.apify.com/sign-in) and sign in with your email and password. Then, on the two-factor authentication page, click on the **recovery code or begin 2FA account recovery** link. On the two-factor recovery page, click on the **Contact our support** link. This link will open up the online chat, and the support team can help you from there.
 
-For our support team to help you recover your account, you will need to provide them with the personal information you have configured during the two-factor authentication setup. If you provide the correct information, the support team will help you regain access to your account.
+For the support team to help you recover your account, you will need to provide them with the personal information you have configured during the two-factor authentication setup. If you provide the correct information, the support team will help you regain access to your account.
 
 :::caution Support verification
 The support team will not give you any clues about the information you provided; they will only verify if it is correct.

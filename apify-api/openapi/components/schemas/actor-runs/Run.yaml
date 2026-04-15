@@ -132,7 +132,7 @@ properties:
         additionalProperties:
           type: string
   buildNumber:
-    type: string
+    type: [string, "null"]
     examples: [0.0.36]
     description: Build number of the Actor build used for this run.
   containerUrl:

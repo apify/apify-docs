@@ -9,7 +9,7 @@ import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import JsLlmProjectsExercise from '!!raw-loader!roa-loader!./exercises/js_llm_projects.mjs';
-import CnnSportsShortestArticleExercise from '!!raw-loader!roa-loader!./exercises/cnn_sports_shortest_article.mjs';
+import EurozonePopulationExercise from '!!raw-loader!roa-loader!./exercises/eurozone_population.mjs';
 
 <LegacyJsCourseAdmonition />
 
@@ -135,7 +135,7 @@ const data = itemLists.flat();
 
 After modifying the loop, we also updated how we collect the items into the `data` array. Since the loop now produces an array of items per product, the result of `await Promise.all()` is an array of arrays. We use [`.flat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) to merge them into a single, non-nested array.
 
-If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
+If we run the program now, we'll see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set - our scraper should already have that info from the product listing page.
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -394,19 +394,13 @@ Your output should look something like this:
   <CodeBlock language="js">{JsLlmProjectsExercise.code}</CodeBlock>
 </details>
 
-### Find the shortest CNN article which made it to the Sports homepage
+### Count eurozone population from country pages
 
-Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
+Scrape the [countries using the euro](https://european-union.europa.eu/institutions-law-budget/euro/countries-using-euro_en) page.
 
-- Locate the element that holds the main content of the article.
-- Use `.text()` to extract all the content as plain text.
-- Use `.length` to calculate the character count.
-
-Skip pages without text (like those that only have a video). Sort the results and print the URL of the shortest article that made it to the homepage.
-
-At the time of writing, the shortest article on the CNN Sports homepage is [about a donation to the Augusta National Golf Club](https://edition.cnn.com/2024/10/03/sport/masters-donation-hurricane-helene-relief-spt-intl/), which is just 1,642 characters long.
+Locate links for countries in the **Euro area countries** section. Visit each linked country detail page, find the value labeled **Population**, and sum them all to get the total population of all countries using euro as their currency. Print one number, the sum.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{CnnSportsShortestArticleExercise.code}</CodeBlock>
+  <CodeBlock language="js">{EurozonePopulationExercise.code}</CodeBlock>
 </details>

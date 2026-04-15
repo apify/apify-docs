@@ -22,7 +22,7 @@ This guide walks you through the full lifecycle of an Actor. You'll start by cre
 
 ### Step 1: Create your Actor
 
-Use Apify CLI to create a new Actor:
+Use the Apify CLI to create a new Actor:
 
 ```bash
 apify create

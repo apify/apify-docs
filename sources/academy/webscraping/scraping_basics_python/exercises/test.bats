@@ -134,10 +134,10 @@ teardown() {
   [[ "$output" == *"'posted_on': datetime.date("* ]]
 }
 
-@test "finds the shortest CNN sports article" {
-  run uv run -q --with=httpx --with=beautifulsoup4 python cnn_sports_shortest_article.py
+@test "counts total eurozone population" {
+  run uv run -q --with=httpx --with=beautifulsoup4 python eurozone_population.py
 
-  [[ "$output" == 'https://edition.cnn.com/'* ]]
+  [[ "$output" -gt 300000000 ]]
 }
 
 @test "scrapes F1 Academy driver details with Crawlee" {

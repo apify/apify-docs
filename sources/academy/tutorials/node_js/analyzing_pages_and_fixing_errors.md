@@ -78,9 +78,9 @@ Note that an error can happen only in a few pages out of a thousand and look com
 Snapshots can tell you if:
 
 - A website has changed its layout. This can also mean A/B testing or different content for different locations.
-- You have been blocked—you open a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) or an **Access Denied** page.
-- Data load later dynamically—the page is empty.
-- The page was redirected—the content is different.
+- You have been blocked - you open a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) or an **Access Denied** page.
+- Data load later dynamically - the page is empty.
+- The page was redirected - the content is different.
 
 You can learn how to take snapshots in Puppeteer or Playwright in [this short lesson](../../webscraping/puppeteer_playwright/page/page_methods.md)
 

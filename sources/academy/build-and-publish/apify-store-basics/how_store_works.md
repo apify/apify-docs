@@ -40,7 +40,6 @@ Actors on Apify Store can be public or private:
 You can monetize your Actors using three different pricing models:
 
 - Pay for usage: charge based on how much the Actor is used.
-- Pay per result: the price is based on the number of results produced, with the first few free.
 - Pay per event: the price is based on specific events triggered by the Actor.
 - Monthly billing: set a fixed monthly rental rate for using the Actor.
 
@@ -97,7 +96,7 @@ A high number of monthly users indicates widespread trust and effective performa
 
 Each Actor has an **Issues** tab in Apify Console and on the web. Here, users can open an issue (ticket) and engage in discussions with the Actor's creator, platform admins, and other users. The tab is ideal for asking questions, requesting new features, or providing feedback.
 
-Since the **Issues** tab is public, the level of activity — or lack thereof — can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
+Since the **Issues** tab is public, the level of activity - or lack thereof - can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
 
 Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
 

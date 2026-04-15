@@ -55,6 +55,7 @@ post:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   requestBody:
     description: ""
@@ -64,35 +65,14 @@ post:
           type: object
         example:
           foo: bar
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -109,12 +89,10 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "408":
       description: ""
       headers: {}
@@ -122,6 +100,8 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items
@@ -177,35 +157,13 @@ get:
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
   responses:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -223,11 +181,7 @@ get:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "408":
       description: ""
       headers: {}
@@ -235,6 +189,8 @@ get:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-without-input-and-get-dataset-items

@@ -8,11 +8,15 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Milvus](https://milvus.io/) is an open-source vector database optimized for performing similarity searches on large datasets of high-dimensional vectors.
 Its focus on efficient vector similarity search allows for the creation of powerful and scalable retrieval systems.
 
 The Apify integration for Milvus allows exporting results from Apify Actors and Dataset items into a Milvus collection.
 It can also be connected to a managed Milvus instance on [Zilliz Cloud](https://cloud.zilliz.com).
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -35,7 +39,7 @@ Once the cluster is ready, and you have the `URI` and `Token`, you can set up th
 
 ### Integration Methods
 
-You can integrate Apify with Milvus using either the Apify Console or the Apify Python SDK.
+You can integrate Apify with Milvus using either Apify Console or the Apify Python SDK.
 
 :::note Website Content Crawler usage
 

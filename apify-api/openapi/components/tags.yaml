@@ -406,6 +406,20 @@
 
     :::
   x-trait: true
+- name: Tools
+  x-displayName: Tools - Introduction
+  description: |
+    The API endpoints described in this section provide utility tools for encoding,
+    signing, and verifying data, as well as inspecting HTTP request details.
+
+    - **Browser info** (`/v2/browser-info`) - Returns details about the incoming HTTP request,
+      including the client IP address, country code, and headers. Accepts any HTTP method
+      (GET, POST, PUT, DELETE) so you can use it to test proxy behavior and verify that
+      client IP addresses are anonymized correctly.
+    - **Encode and sign** (`/v2/tools/encode-and-sign`) - Encodes and signs a JSON object,
+      tying it to the authenticated user's identity.
+    - **Decode and verify** (`/v2/tools/decode-and-verify`) - Decodes and verifies a value
+      previously created by the encode-and-sign endpoint.
 - name: Users
   x-displayName: Users - Introduction
   x-legacy-doc-urls:

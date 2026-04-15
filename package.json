@@ -64,19 +64,19 @@
         "patch-package": "^8.0.0",
         "path-browserify": "^1.0.1",
         "rimraf": "^6.0.0",
-        "typescript": "5.9.3",
+        "typescript": "6.0.2",
         "typescript-eslint": "^8.38.0"
     },
     "dependencies": {
         "@apify/ui-icons": "^1.26.0",
-        "@apify/ui-library": "^1.97.2",
-        "@docusaurus/core": "^3.8.1",
-        "@docusaurus/faster": "^3.8.1",
-        "@docusaurus/plugin-client-redirects": "^3.8.1",
-        "@docusaurus/plugin-content-docs": "^3.8.1",
-        "@docusaurus/preset-classic": "^3.8.1",
-        "@docusaurus/theme-common": "^3.8.1",
-        "@docusaurus/theme-mermaid": "^3.8.1",
+        "@apify/ui-library": "^1.131.1",
+        "@docusaurus/core": "~3.9.2",
+        "@docusaurus/faster": "~3.9.2",
+        "@docusaurus/plugin-client-redirects": "~3.9.2",
+        "@docusaurus/plugin-content-docs": "~3.9.2",
+        "@docusaurus/preset-classic": "~3.9.2",
+        "@docusaurus/theme-common": "~3.9.2",
+        "@docusaurus/theme-mermaid": "~3.9.2",
         "@redocly/cli": "^2.0.0",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "clsx": "^2.0.0",
@@ -91,7 +91,7 @@
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-github-btn": "^1.4.0",
-        "styled-components": "6.3.11",
+        "styled-components": "6.3.12",
         "unist-util-visit": "^5.0.0"
     },
     "browserslist": {
@@ -116,6 +116,18 @@
     "overrides": {
         "openapi-to-postmanv2": {
             "js-yaml": "4.1.1"
+        },
+        "@stoplight/spectral-core": {
+            "minimatch": "3.1.5"
+        },
+        "copy-webpack-plugin": {
+            "serialize-javascript": "^7.0.4"
+        },
+        "css-minimizer-webpack-plugin": {
+            "serialize-javascript": "^7.0.4"
+        },
+        "@stoplight/spectral-ruleset-bundler": {
+            "rollup": "2.80.0"
         }
     }
 }

@@ -37,11 +37,7 @@ put:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
@@ -69,16 +65,6 @@ delete:
   parameters:
     - $ref: "../../components/parameters/storageParameters.yaml#/queueId"
     - $ref: "../../components/parameters/storageParameters.yaml#/requestId"
-    - name: Content-Type
-      in: header
-      description: ""
-      required: true
-      style: simple
-      schema:
-        enum:
-          - application/json
-        type: string
-        example: application/json
     - $ref: "../../components/parameters/storageParameters.yaml#/clientKeyLock"
     - name: forefront
       in: query
@@ -92,9 +78,7 @@ delete:
         example: "false"
   responses:
     "204":
-      description: ""
-      headers: {}
-      content: {}
+      $ref: ../../components/responses/NoContent.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
@@ -102,11 +86,7 @@ delete:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/StorageErrors.yaml#/RequestQueueNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":

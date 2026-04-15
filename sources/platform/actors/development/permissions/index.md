@@ -43,7 +43,7 @@ To learn how to migrate your Actors to run under limited permissions, check out 
 
 ### Configure Actor permissions level
 
-You can set the permission level for your Actor in the Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
+You can set the permission level for your Actor in Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
 
 ![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
 

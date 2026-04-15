@@ -6,6 +6,8 @@ sidebar_position: 7
 slug: /integrations/bubble
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
 :::tip Explore the live demo
@@ -13,6 +15,8 @@ slug: /integrations/bubble
 Open the demo Bubble app to check out the integration end-to-end before building your own: [apify-28595.bubbleapps.io](https://apify-28595.bubbleapps.io)
 
 :::
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 
@@ -277,7 +281,7 @@ Ensure your API token is correctly set in the action (preferably as `Current Use
 
 ### Missing Actors or Tasks
 
-If your Actor or Task doesn't appear in list responses, run it at least once in the Apify Console so it becomes discoverable.
+If your Actor or Task doesn't appear in list responses, run it at least once in Apify Console so it becomes discoverable.
 
 ### Timeout errors
 
@@ -287,4 +291,4 @@ Bubble workflows have execution time limits. For long‑running Actors, set the 
 
 Check that your JSON input is valid when providing **Input overrides** and that dynamic expressions resolve to valid JSON values. Verify the structure of the dataset output when displaying it in your app.
 
-If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
