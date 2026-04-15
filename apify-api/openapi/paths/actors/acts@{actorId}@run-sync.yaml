@@ -42,6 +42,8 @@ post:
           type: object
         example:
           foo: bar
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":
@@ -60,12 +62,10 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "408":
       description: ""
       headers: {}
@@ -73,6 +73,8 @@ post:
         application/json:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -128,11 +130,7 @@ get:
           schema:
             $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "408":
       description: ""
       headers: {}

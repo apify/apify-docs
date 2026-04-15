@@ -22,7 +22,7 @@ To use the Apify integration for Gmail, you will need:
 
 ## Set up Gmail integration
 
-1. Head over to **Integrations** tab in your task and click on Send email generic integration.
+1. Head over to **Integrations** tab in your task and click on the **Send results email via Gmail** integration.
 
     ![Google Drive integration](../images/google/google-integrations-add.png)
 

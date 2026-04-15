@@ -139,9 +139,9 @@ claude mcp add apify "https://mcp.apify.com/?tools=docs" -t http
 
 ## Provide context to assistants
 
-Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
+Every page in the Apify documentation has a **Copy for LLM** button. Use it to add more context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
 
-<img src={copyForAI} alt="Copy for LLM" width="250" />
+![Page from the Apify documentation with the Copy for LLM button highlighted](./images/copy-for-llm-button.svg)
 
 ## Use `/llms.txt` files
 
