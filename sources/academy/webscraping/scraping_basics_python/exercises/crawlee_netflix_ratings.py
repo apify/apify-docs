@@ -22,7 +22,7 @@ async def main() -> None:
 
     @crawler.router.handler("TMDB_SEARCH")
     async def handle_tmdb_search(context: BeautifulSoupCrawlingContext) -> None:
-        await context.enqueue_links(selector=".title a.result", label="TMDB", limit=1)
+        await context.enqueue_links(selector=".results a", label="TMDB", limit=1)
 
     @crawler.router.handler("TMDB")
     async def handle_tmdb(context: BeautifulSoupCrawlingContext) -> None:

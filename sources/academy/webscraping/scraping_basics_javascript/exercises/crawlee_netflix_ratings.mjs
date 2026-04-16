@@ -15,7 +15,7 @@ crawler.router.addDefaultHandler(async ({ $, addRequests }) => {
 });
 
 crawler.router.addHandler('TMDB_SEARCH', async ({ enqueueLinks }) => {
-  await enqueueLinks({ selector: '.title a.result', label: 'TMDB', limit: 1 });
+  await enqueueLinks({ selector: '.results a', label: 'TMDB', limit: 1 });
 });
 
 crawler.router.addHandler('TMDB', async ({ $, request, pushData }) => {
