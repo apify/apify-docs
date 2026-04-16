@@ -33,24 +33,21 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 During installation, the app prompts you to create a **Network Rule** and an **External Access Integration** so the app can reach the Apify API.
 
-Follow the instructions shown in the setup screen. Create an EAI and fill in your Apify token.
+Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, click **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your [Apify API token](https://console.apify.com/settings/integrations).
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 
 :::note Required privileges
 
-The role setting up the app must be able to create an External Access Integration and a Network Rule, and must grant the app the `CREATE DATABASE` and `READ SESSION` account-level privileges.
+The role setting up the app must be able to create an External Access Integration and a Network Rule, and must grant the app the `READ SESSION` account-level privilege.
 
 :::
 
 ### Step 3: Grant required privileges
 
-After the External Access Integration is in place, grant the app the remaining privileges it needs:
+After the External Access Integration is in place, grant the app the remaining privilege it needs. Click the **Grant** button to allow the app to read the current Snowflake user session:
 
-- **CREATE DATABASE** - lets the app create a dedicated database for exported data.
 - **READ SESSION** - lets the app associate Apify API tokens with individual Snowflake users.
-
-You give the app the required permissions by clicking the `GRANT` button.
 
 ![Account privileges grant during app setup](../images/snowflake/snowflake-account-privileges.png)
 
@@ -58,17 +55,11 @@ You give the app the required permissions by clicking the `GRANT` button.
 
 ![Apify Snowflake Integration home page](../images/snowflake/snowflake-home.png)
 
-Open the installed app and go to the **API Token** page. The page checks whether a Snowflake secret bound to the app is configured and whether it can reach the Apify API.
+Once installation is complete, open the app and go to the **API Token** page to verify the connection is working. If the token secret was configured correctly during setup, the page shows your Apify username and email.
 
 ![API Token page showing a connected Apify account](../images/snowflake/snowflake-api-token.png)
 
-If the connection check fails, create or update a Snowflake secret with your Apify API token:
-
-1. In Snowsight, go to **Admin** > **Security** > **Secrets**.
-1. Create a new secret of type **Generic String** and paste your [Apify API token](https://console.apify.com/settings/integrations).
-1. Bind the secret to the app according to the instructions shown on the API Token page.
-
-Once the secret is configured, the page confirms your connected Apify username and email.
+To update your Apify API token later, go to **Configurations** > **Credentials** in App settings, find the secret bound to this app, and update its value.
 
 ## Import a dataset
 
