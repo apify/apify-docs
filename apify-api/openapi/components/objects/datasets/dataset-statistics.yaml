@@ -1,0 +1,63 @@
+sharedGet: &sharedGet
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/datasets/DatasetStatisticsResponse.yaml
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+    "401":
+      $ref: ../../responses/Unauthorized.yaml
+    "403":
+      $ref: ../../responses/Forbidden.yaml
+    "404":
+      $ref: ../../responses/NotFound.yaml
+    "405":
+      $ref: ../../responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../responses/TooManyRequests.yaml
+
+getById:
+  <<: *sharedGet
+  tags:
+    - Storage/Datasets
+  summary: Get dataset statistics
+  description: |
+    Returns statistics for given dataset.
+
+    Provides only [field statistics](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics).
+
+  operationId: dataset_statistics_get
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+
+getDefault:
+  <<: *sharedGet
+  tags:
+    - Default storages
+  summary: Get default dataset statistics
+  description: |
+    Returns statistics for the Actor run's default dataset.
+
+    This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
+    [Get dataset statistics](/api/v2/dataset-statistics-get) endpoint.
+  operationId: actorRun_dataset_statistics_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+
+getLastRun:
+  <<: *sharedGet
+  tags:
+    - Last Actor run
+  summary: Get last run's dataset statistics
+  description: |
+    Returns statistics for the last Actor run's default dataset.
+
+    This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
+    [Get dataset statistics](/api/v2/dataset-statistics-get) endpoint.
+  operationId: act_runs_last_dataset_statistics_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

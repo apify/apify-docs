@@ -514,6 +514,12 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml"
   "/v2/acts/{actorId}/runs/last":
     $ref: "paths/actors/acts@{actorId}@runs@last.yaml"
+  "/v2/acts/{actorId}/runs/last/dataset":
+    $ref: "paths/actors/acts@{actorId}@runs@last@dataset.yaml"
+  "/v2/acts/{actorId}/runs/last/dataset/items":
+    $ref: "paths/actors/acts@{actorId}@runs@last@dataset@items.yaml"
+  "/v2/acts/{actorId}/runs/last/dataset/statistics":
+    $ref: "paths/actors/acts@{actorId}@runs@last@dataset@statistics.yaml"
   "/v2/acts/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
   "/v2/acts/{actorId}/runs/{runId}/abort":
@@ -550,6 +556,12 @@ paths:
     $ref: paths/actor-runs/actor-runs@{runId}@resurrect.yaml
   "/v2/actor-runs/{runId}/charge":
     $ref: paths/actor-runs/actor-runs@{runId}@charge.yaml
+  "/v2/actor-runs/{runId}/dataset":
+    $ref: paths/actor-runs/actor-runs@{runId}@dataset.yaml
+  "/v2/actor-runs/{runId}/dataset/items":
+    $ref: "paths/actor-runs/actor-runs@{runId}@dataset@items.yaml"
+  "/v2/actor-runs/{runId}/dataset/statistics":
+    $ref: "paths/actor-runs/actor-runs@{runId}@dataset@statistics.yaml"
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   "/v2/actor-builds/{buildId}":

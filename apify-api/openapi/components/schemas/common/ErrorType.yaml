@@ -304,6 +304,7 @@ enum:
   - schedule-actor-task-not-found
   - schedule-name-not-unique
   - schema-validation
+  - schema-validation-error
   - schema-validation-failed
   - sign-up-method-not-allowed
   - slack-integration-not-custom
