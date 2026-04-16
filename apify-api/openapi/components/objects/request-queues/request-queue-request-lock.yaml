@@ -1,0 +1,211 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests locks
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedPut: &sharedPut
+  responses:
+    <<: *commonErrors
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/ProlongRequestLockResponse.yaml
+  deprecated: false
+
+putById:
+  <<: [*sharedPut, *sharedTagById]
+  summary: Prolong request lock
+  description: |
+    Prolongs request lock. The request lock can be prolonged only by the client
+    that has locked it using [Get and lock head
+    operation](#/reference/request-queues/queue-head-with-locks).
+  operationId: requestQueue_request_lock_put
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../parameters/storageParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock expires.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/prolong-request-lock
+    - https://docs.apify.com/api/v2#/reference/request-queues/prolong-request-lock
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-lock/operation/requestQueue_request_lock_put
+  x-js-parent: RequestQueueClient
+  x-js-name: prolongRequestLock
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#prolongRequestLock
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: prolong_request_lock
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#prolong_request_lock
+
+putDefault:
+  <<: [*sharedPut, *sharedTagDefault]
+  summary: Prolong default request queue's request lock
+  description: |
+    Prolongs a request lock in the default request queue.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Prolong request lock](/api/v2/request-queue-request-lock-put) endpoint.
+  operationId: actorRun_requestQueue_request_lock_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../parameters/storageParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock expires.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+
+putLastRun:
+  <<: [*sharedPut, *sharedTagLastRun]
+  summary: Prolong last run's default request queue's request lock
+  description: |
+    Prolongs a request lock in the last Actor run's default request queue.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Prolong request lock](/api/v2/request-queue-request-lock-put) endpoint.
+  operationId: act_runs_last_requestQueue_request_lock_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../parameters/storageParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock expires.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+
+sharedDelete: &sharedDelete
+  responses:
+    <<: *commonErrors
+    "204":
+      $ref: ../../responses/NoContent.yaml
+  deprecated: false
+
+deleteById:
+  <<: [*sharedDelete, *sharedTagById]
+  summary: Delete request lock
+  description: |
+    Deletes a request lock. The request lock can be deleted only by the client
+    that has locked it using [Get and lock head
+    operation](#/reference/request-queues/queue-head-with-locks).
+  operationId: requestQueue_request_lock_delete
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock was removed.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/delete-request-lock
+    - https://docs.apify.com/api/v2#/reference/request-queues/delete-request-lock
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-lock/operation/requestQueue_request_lock_delete
+  x-js-parent: RequestQueueClient
+  x-js-name: deleteRequestLock
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#deleteRequestLock
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: delete_request_lock
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#delete_request_lock
+
+deleteDefault:
+  <<: [*sharedDelete, *sharedTagDefault]
+  summary: Delete default request queue's request lock
+  description: |
+    Deletes a request lock in the default request queue.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Delete request lock](/api/v2/request-queue-request-lock-delete) endpoint.
+  operationId: actorRun_requestQueue_request_lock_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock was removed.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"
+
+deleteLastRun:
+  <<: [*sharedDelete, *sharedTagLastRun]
+  summary: Delete last run's default request queue's request lock
+  description: |
+    Deletes a request lock in the last Actor run's default request queue.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Delete request lock](/api/v2/request-queue-request-lock-delete) endpoint.
+  operationId: act_runs_last_requestQueue_request_lock_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/storageParameters.yaml#/requestId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKeyLock"
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock was removed.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: "false"

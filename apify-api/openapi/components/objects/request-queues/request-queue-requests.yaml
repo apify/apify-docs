@@ -1,0 +1,281 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedGet: &sharedGet
+  responses:
+    <<: *commonErrors
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/ListOfRequestsResponse.yaml
+  deprecated: false
+
+parametersGetById: &parametersGetById
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKey"
+    - name: exclusiveStartId
+      in: query
+      description: All requests up to this one (including) are skipped from the result. (Deprecated, use `cursor` instead.)
+      deprecated: true
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Ihnsp8YrvJ8102Kj
+    - name: limit
+      in: query
+      description: Number of keys to be returned. Maximum value is `10000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+    - name: cursor
+      in: query
+      description: A cursor string for pagination, returned in the previous response as `nextCursor`. Use this to retrieve the next page of requests.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
+    - name: filter
+      in: query
+      description: Filter requests by their state. Possible values are `locked` and `pending`. You can combine multiple values separated by commas, which will mean the union of these filters – requests matching any of the specified states will be returned. (Not compatible with deprecated `exclusiveStartId` parameter.)
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - locked
+            - pending
+        example: [locked]
+
+getById:
+  <<: [*sharedGet, *sharedTagById, *parametersGetById]
+  summary: List requests
+  description: |
+    Returns a list of requests. This endpoint is paginated using
+    cursor (pagination by `exclusiveStartId` is deprecated) and limit parameters.
+  operationId: requestQueue_requests_get
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/list-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/list-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-collection/operation/requestQueue_requests_get
+  x-js-parent: RequestQueueClient
+  x-js-name: paginateRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#paginateRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: list_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_requests
+
+getDefault:
+  <<: [*sharedGet, *sharedTagDefault]
+  summary: List default request queue's requests
+  description: |
+    Returns a list of requests from the default request queue.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [List requests](/api/v2/request-queue-requests-get) endpoint.
+  operationId: actorRun_requestQueue_requests_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKey"
+    - name: exclusiveStartId
+      in: query
+      description: All requests up to this one (including) are skipped from the result. (Deprecated, use `cursor` instead.)
+      deprecated: true
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Ihnsp8YrvJ8102Kj
+    - name: limit
+      in: query
+      description: Number of keys to be returned. Maximum value is `10000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+    - name: cursor
+      in: query
+      description: A cursor string for pagination, returned in the previous response as `nextCursor`. Use this to retrieve the next page of requests.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
+    - name: filter
+      in: query
+      description: Filter requests by their state. Possible values are `locked` and `pending`. You can combine multiple values separated by commas, which will mean the union of these filters – requests matching any of the specified states will be returned. (Not compatible with deprecated `exclusiveStartId` parameter.)
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - locked
+            - pending
+        example: [locked]
+
+getLastRun:
+  <<: [*sharedGet, *sharedTagLastRun]
+  summary: List last run's default request queue's requests
+  description: |
+    Returns a list of requests from the last Actor run's default request queue.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [List requests](/api/v2/request-queue-requests-get) endpoint.
+  operationId: act_runs_last_requestQueue_requests_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKey"
+    - name: exclusiveStartId
+      in: query
+      description: All requests up to this one (including) are skipped from the result. (Deprecated, use `cursor` instead.)
+      deprecated: true
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Ihnsp8YrvJ8102Kj
+    - name: limit
+      in: query
+      description: Number of keys to be returned. Maximum value is `10000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+    - name: cursor
+      in: query
+      description: A cursor string for pagination, returned in the previous response as `nextCursor`. Use this to retrieve the next page of requests.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
+    - name: filter
+      in: query
+      description: Filter requests by their state. Possible values are `locked` and `pending`. You can combine multiple values separated by commas, which will mean the union of these filters – requests matching any of the specified states will be returned. (Not compatible with deprecated `exclusiveStartId` parameter.)
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - locked
+            - pending
+        example: [locked]
+
+sharedPost: &sharedPost
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/request-queues/RequestWithoutId.yaml
+    required: true
+  responses:
+    <<: *commonErrors
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/AddRequestResponse.yaml
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+postById:
+  <<: [*sharedPost, *sharedTagById]
+  summary: Add request
+  description: |
+    Adds request to the queue. Response contains ID of the request and info if
+    request was already present in the queue or handled.
+
+    If request with same `uniqueKey` was already present in the queue then
+    returns an ID of existing request.
+  operationId: requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/storageParameters.yaml#/queueId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKey"
+    - $ref: "../../parameters/storageParameters.yaml#/forefront"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/add-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-collection/operation/requestQueue_requests_post
+  x-js-parent: RequestQueueClient
+  x-js-name: addRequest
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#addRequest
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: add_request
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#add_request
+
+postDefault:
+  <<: [*sharedPost, *sharedTagDefault]
+  summary: Add request to default request queue
+  description: |
+    Adds request to the default request queue.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Add request](/api/v2/request-queue-requests-post) endpoint.
+  operationId: actorRun_requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKey"
+    - $ref: "../../parameters/storageParameters.yaml#/forefront"
+
+postLastRun:
+  <<: [*sharedPost, *sharedTagLastRun]
+  summary: Add request to last run's default request queue
+  description: |
+    Adds request to the last Actor run's default request queue.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Add request](/api/v2/request-queue-requests-post) endpoint.
+  operationId: act_runs_last_requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/storageParameters.yaml#/clientKey"
+    - $ref: "../../parameters/storageParameters.yaml#/forefront"
