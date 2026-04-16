@@ -133,7 +133,7 @@ putDefault:
     passed in the PUT payload.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-get) endpoint.
+    [Update store](/api/v2/key-value-store-put) endpoint.
 
   operationId: actorRun_keyValueStore_put
 
@@ -176,7 +176,7 @@ deleteDefault:
     Delete the default key-value store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-delete) endpoint.
+    [Delete store](/api/v2/key-value-store-delete) endpoint.
 
   operationId: actorRun_keyValueStore_delete
 
@@ -187,6 +187,6 @@ deleteLastRun:
     Deletes the last Actor run key-value store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-delete) endpoint.
+    [Delete store](/api/v2/key-value-store-delete) endpoint.
 
   operationId: act_runs_last_keyValueStore_delete
