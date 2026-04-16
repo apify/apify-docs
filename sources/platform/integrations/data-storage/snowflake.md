@@ -33,7 +33,7 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 During installation, the app prompts you to create a **Network Rule** and an **External Access Integration** so the app can reach the Apify API.
 
-Follow the SQL instructions shown in the setup screen. Run the provided SQL in a Snowsight worksheet under an account-admin role, then return to the app setup and confirm the integration name.
+Follow the instructions shown in the setup screen. Create an EAI and fill in your Apify token.
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 
@@ -50,7 +50,7 @@ After the External Access Integration is in place, grant the app the remaining p
 - **CREATE DATABASE** - lets the app create a dedicated database for exported data.
 - **READ SESSION** - lets the app associate Apify API tokens with individual Snowflake users.
 
-The app displays the required `GRANT` statements. Copy and run them in a worksheet under the `ACCOUNTADMIN` role.
+You give the app the required permissions by clicking the `GRANT` button.
 
 ![Account privileges grant during app setup](../images/snowflake/snowflake-account-privileges.png)
 
@@ -133,9 +133,9 @@ The **Run Actor** page lets you trigger an Apify Actor run from within Snowflake
 Choose an Actor from two sources:
 
 - **Recently used Actors** - lists Actors from your Apify account.
-- **Apify Store** - browses publicly available Actors. Click **Load all Actors** to load the full catalog.
+- **Apify Store** - browses publicly available Actors.
 
-You can also type a custom Actor ID (for example, `apify/web-scraper`) directly into the input.
+You can also type a custom Actor ID (for example, `E2jjCZBezvAZnX8Rb`) directly into the input.
 
 ![Run Actor page with Actor source and selection dropdown](../images/snowflake/snowflake-actor-select.png)
 
@@ -168,6 +168,6 @@ When the run completes, click **Next: Import dataset** to go straight to the **I
 
 ## Next steps
 
-With Apify data in Snowflake, you can query it with standard SQL, join it with your existing tables, and connect it to BI tools like Tableau, Looker, or Snowflake's own data sharing features.
+With Apify data in Snowflake, you can query it with standard SQL, join it with your existing tables, and connect it to business intelligence (BI) tools like Tableau, Looker, or Snowflake's own data-sharing features.
 
-If you have any questions or need assistance, contact us at [integrations@apify.com](mailto:integrations@apify.com), through our live chat, or in our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need assistance, contact us at [integrations@apify.com](mailto:integrations@apify.com), through the live chat, or in the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
