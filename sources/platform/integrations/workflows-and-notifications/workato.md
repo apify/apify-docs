@@ -186,7 +186,7 @@ Scrapes a single URL using a selected Apify crawler.
 Provide a single URL and a desired crawler type to get structured scraped data from that page as a JSON object. This action provides immediate, on-demand scraping capabilities:
 
 - Scrapes content from a single specified URL.
-- Supports three crawler types: **Adaptive Crawler** (Website Content Crawler), **Firefox Headless Browser**, and **Cheerio** (fast, raw HTTP).
+- Supports three crawler types: **Adaptive Crawler**, **Firefox Headless Browser**, and **Cheerio** (fast, raw HTTP).
 - Returns extracted content in structured format (text, markdown, HTML, metadata).
 
 ![Screenshot of the scrape single URL action configuration in Workato](../images/workato/scrape-url.png)
