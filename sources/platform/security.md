@@ -42,7 +42,7 @@ We invite security researchers, ethical hackers, and the broader community to he
 
 The following Apify-owned services and assets are eligible for security research:
 
-#### Platform & API
+#### Platform and API
 
 - [apify.com](https://apify.com) - marketing site and Apify Store
 - [console.apify.com](https://console.apify.com) - primary web application
