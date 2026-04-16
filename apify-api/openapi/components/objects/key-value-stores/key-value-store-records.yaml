@@ -71,8 +71,6 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  tags:
-    - Last Actor run
   summary: Download last run's default store's records
   description: |
     Downloads all records from the default key-value store of the last Actor run as a ZIP archive.

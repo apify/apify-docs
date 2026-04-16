@@ -145,7 +145,7 @@ putLastRun:
     passed in the PUT payload.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-put) endpoint.
+    [Update store](/api/v2/key-value-store-put) endpoint.
 
   operationId: act_runs_last_keyValueStore_put
 

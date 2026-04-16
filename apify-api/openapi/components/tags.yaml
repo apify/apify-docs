@@ -438,11 +438,11 @@
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor run's default key-value store without the need to resolve the key-value store ID first.
 
-     Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
+    Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
 - name: Last Actor run's default dataset
   x-displayName: Last Actor run's default dataset - Introduction
   description: |
-    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default key-value store without the need to resolve the key-value store ID first.
+    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default dataset without the need to resolve the dataset ID first.
 
     Subset of functionality described in: [Datasets](/api/v2/storage-datasets)
 - name: Last Actor run's default key-value store
