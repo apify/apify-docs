@@ -1,33 +1,3 @@
-datasetId:
-  name: datasetId
-  in: path
-  description: Dataset ID or `username~dataset-name`.
-  required: true
-  style: simple
-  schema:
-    type: string
-    example: WkzbQMuFYuamGv3YF
-
-storeId:
-  name: storeId
-  in: path
-  description: Key-value store ID or `username~store-name`.
-  required: true
-  style: simple
-  schema:
-    type: string
-    example: WkzbQMuFYuamGv3YF
-
-recordKey:
-  name: recordKey
-  in: path
-  description: Key of the record.
-  required: true
-  style: simple
-  schema:
-    type: string
-    example: someKey
-
 queueId:
   name: queueId
   in: path

@@ -25,17 +25,17 @@ sharedById: &sharedById
   tags:
     - Storage/Datasets
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
 
 sharedDefault: &sharedDefault
   tags:
-    - Default storages
+    - Default dataset
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 sharedLastRun: &sharedLastRun
   tags:
-    - Last Actor run
+    - Last Actor run's default dataset
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

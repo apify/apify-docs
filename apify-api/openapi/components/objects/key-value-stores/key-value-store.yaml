@@ -25,17 +25,17 @@ sharedById: &sharedById
   tags:
     - Storage/Key-value stores
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
 
 sharedDefault: &sharedDefault
   tags:
-    - Default storages
+    - Default key-value store
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 sharedLastRun: &sharedLastRun
   tags:
-    - Last Actor run
+    - Last Actor run's default key-value store
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

@@ -31,12 +31,12 @@ getById:
 
   operationId: dataset_statistics_get
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
 
 getDefault:
   <<: *sharedGet
   tags:
-    - Default storages
+    - Default dataset
   summary: Get default dataset statistics
   description: |
     Returns statistics for the Actor run's default dataset.
@@ -50,7 +50,7 @@ getDefault:
 getLastRun:
   <<: *sharedGet
   tags:
-    - Last Actor run
+    - Last Actor run's default dataset
   summary: Get last run's dataset statistics
   description: |
     Returns statistics for the last Actor run's default dataset.
