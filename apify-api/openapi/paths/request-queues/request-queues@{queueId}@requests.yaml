@@ -37,7 +37,7 @@ get:
         example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
     - name: filter
       in: query
-      description: Filter requests by their state. Possible values are `locked` and `pending`. (Is not compatible with deprecated `exclusiveStartId` parameter.)
+      description: Filter requests by their state. Possible values are `locked` and `pending`. You can combine multiple values separated by commas, which will mean the union of these filters – requests matching any of the specified states will be returned. (Not compatible with deprecated `exclusiveStartId` parameter.)
       style: form
       explode: false
       schema:
