@@ -126,13 +126,13 @@ Please adhere strictly to the following rules. Failure to do so may result in le
 
 - _Do not publicly disclose vulnerabilities until resolved._ This ensures that the issue can be properly evaluated and mitigated before being exposed to potential exploitation.
 - _Treat all related information as confidential._ Any details about a vulnerability you are reporting are considered confidential information and cannot be disclosed unless explicitly approved by Apify in writing.
-- _Comply with all legal terms._ As per our [Terms of Service](https://docs.apify.com/legal), you must not take any action that might cause an overload, disruption, or denial of service, result in unauthorized access to another user's data, or have a similar adverse effect on Apify's services or other users.
+- _Comply with Apify legal terms._ As per our [Acceptable Use Policy](https://docs.apify.com/legal/acceptable-use-policy), you must not take any action that might cause an overload, disruption, or denial of service, result in unauthorized access to another user's data, or have a similar adverse effect on Apify's services or other users.
 
 :::
 
 ### Recognition
 
-This is a vulnerability disclosure policy - we do not guarantee monetary rewards. Any decisions regarding impact classification or potential rewards for high or critical severity issues are made exclusively by Apify. Duplicate reports of the same vulnerability, including issues already identified internally, are not eligible for rewards.
+This is a vulnerability disclosure policy, not a bug bounty program, and we do not guarantee monetary rewards hereunder. Any decisions regarding impact classification or potential rewards for high or critical severity issues are made at our sole discretion on case-by-case basis. Duplicate reports of the same vulnerability, including issues already identified internally, are not eligible for rewards.
 
 ## Secure your data
 
