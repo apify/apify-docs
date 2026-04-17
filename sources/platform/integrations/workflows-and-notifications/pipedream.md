@@ -30,7 +30,7 @@ Before you begin, make sure you have:
     - **Apify (OAuth)** - Authorize access to your Apify account via OAuth.
 1. Follow the prompts to authenticate your account.
 
-    See [connected accounts](https://pipedream.com/docs/apps/connected-accounts) for more details.
+    See Pipedream's [connected accounts documentation](https://pipedream.com/docs/apps/connected-accounts).
 1. After connecting, you can use any Apify trigger or action in your workflows.
 
 ## Use Apify as a trigger
