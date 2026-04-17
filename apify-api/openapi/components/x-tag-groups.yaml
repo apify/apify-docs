@@ -49,3 +49,5 @@
     - Last Actor run's default dataset
     - Last Actor run's default key-value store
     - Last Actor run's default request queue
+    - Last Actor run's Log
+    - Last Actor task run's Log

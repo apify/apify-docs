@@ -21,3 +21,26 @@ download:
   schema:
     type: boolean
     example: false
+
+buildOrRunId:
+  name: buildOrRunId
+  in: path
+  description: ID of the Actor build or run.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: HG7ML7M8z78YcAPE
+
+raw:
+  name: raw
+  in: query
+  description: |
+    If `true` or `1`, the logs will be kept verbatim. By default, the API removes
+    ANSI escape codes from the logs, keeping only printable characters.
+  required: false
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: false

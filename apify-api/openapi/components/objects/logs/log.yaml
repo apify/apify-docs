@@ -1,0 +1,117 @@
+sharedGet: &sharedGet
+  responses:
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+    "401":
+      $ref: ../../responses/Unauthorized.yaml
+    "403":
+      $ref: ../../responses/Forbidden.yaml
+    "404":
+      $ref: ../../responses/NotFound.yaml
+    "405":
+      $ref: ../../responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../responses/TooManyRequests.yaml
+    "200":
+      description: ""
+      headers: {}
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: |
+              2017-07-14T06:00:49.733Z Application started.
+              2017-07-14T06:00:49.741Z Input: { test: 123 }
+              2017-07-14T06:00:49.752Z Some useful debug information follows.
+  deprecated: false
+
+getById:
+  <<: *sharedGet
+  tags:
+    - Logs
+  summary: Get log
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/logs/log/get-log
+    - https://docs.apify.com/api/v2#/reference/logs/get-log
+    - https://docs.apify.com/api/v2#tag/LogsLog/operation/log_get
+  description: |
+    Retrieves logs for a specific Actor build or run.
+  operationId: log_get
+  parameters:
+    - $ref: "../../parameters/logParameters.yaml#/buildOrRunId"
+    - $ref: "../../parameters/logParameters.yaml#/stream"
+    - $ref: "../../parameters/logParameters.yaml#/download"
+    - $ref: "../../parameters/logParameters.yaml#/raw"
+  x-js-parent: LogClient
+  x-js-name: stream
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/LogClient#stream
+  x-py-parent: LogClientAsync
+  x-py-name: stream
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/LogClientAsync#stream
+
+getByRunId:
+  <<: *sharedGet
+  tags:
+    - Actor runs
+  summary: Get run's Log
+  description: |
+    Retrieves Actor run's logs.
+
+    This endpoint is a shortcut for getting the run's log. Same as [Get log](/api/v2/log-get) endpoint.
+  operationId: actorRun_log_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/logParameters.yaml#/stream"
+    - $ref: "../../parameters/logParameters.yaml#/download"
+    - $ref: "../../parameters/logParameters.yaml#/raw"
+
+getByBuildId:
+  <<: *sharedGet
+  tags:
+    - Actor builds
+  summary: Get build's Log
+  description: |
+    Retrieves Actor build's logs.
+
+    This endpoint is a shortcut for getting the build's log. Same as [Get log](/api/v2/log-get) endpoint.
+  operationId: actorBuild_log_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/buildId"
+    - $ref: "../../parameters/logParameters.yaml#/stream"
+    - $ref: "../../parameters/logParameters.yaml#/download"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-builds/build-log/get-log
+    - https://docs.apify.com/api/v2#/reference/actor-builds/get-log
+    - https://docs.apify.com/api/v2#tag/Actor-buildsBuild-log/operation/actorBuild_log_get
+
+getLastRun:
+  <<: *sharedGet
+  tags:
+    - Last Actor run's Log
+  summary: Get last Actor run's Log
+  description: |
+    Retrieves last Actor run's logs.
+
+    This endpoint is a shortcut for getting last Actor run's log. Same as [Get log](/api/v2/log-get) endpoint.
+  operationId: act_runs_last_log_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/logParameters.yaml#/stream"
+    - $ref: "../../parameters/logParameters.yaml#/download"
+    - $ref: "../../parameters/logParameters.yaml#/raw"
+
+getTaskLastRun:
+  <<: *sharedGet
+  tags:
+    - Last Actor task run's Log
+  summary: Get last Actor task run's Log
+  description: |
+    Retrieves last Actor task run's logs.
+
+    This endpoint is a shortcut for getting last Actor task run's log. Same as [Get log](/api/v2/log-get) endpoint.
+  operationId: actorTask_last_log_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/logParameters.yaml#/stream"
+    - $ref: "../../parameters/logParameters.yaml#/download"
+    - $ref: "../../parameters/logParameters.yaml#/raw"

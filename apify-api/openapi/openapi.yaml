@@ -544,6 +544,8 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head.yaml"
   "/v2/acts/{actorId}/runs/last/request-queue/head/lock":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head@lock.yaml"
+  "/v2/acts/{actorId}/runs/last/log":
+    $ref: "paths/actors/acts@{actorId}@runs@last@log.yaml"
   "/v2/acts/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
   "/v2/acts/{actorId}/runs/{runId}/abort":
@@ -566,6 +568,8 @@ paths:
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@run-sync-get-dataset-items.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/log":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@log.yaml"
   /v2/actor-runs:
     $ref: paths/actor-runs/actor-runs.yaml
   "/v2/actor-runs/{runId}":
@@ -610,6 +614,8 @@ paths:
     $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@head.yaml"
   "/v2/actor-runs/{runId}/request-queue/head/lock":
     $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@head@lock.yaml"
+  "/v2/actor-runs/{runId}/log":
+    $ref: "paths/actor-runs/actor-runs@{runId}@log.yaml"
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   "/v2/actor-builds/{buildId}":
