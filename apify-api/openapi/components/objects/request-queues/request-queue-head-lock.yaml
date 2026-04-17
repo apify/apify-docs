@@ -1,0 +1,100 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests locks
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedPost: &sharedPost
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/HeadAndLockResponse.yaml
+    <<: *commonErrors
+  deprecated: false
+
+postById:
+  <<: [*sharedPost, *sharedTagById]
+  summary: Get head and lock
+  description: |
+    Returns the given number of first requests from the queue and locks them for
+    the given time.
+
+    If this endpoint locks the request, no other client or run will be able to get and
+    lock these requests.
+
+    The response contains the `hadMultipleClients` boolean field which indicates
+    that the queue was accessed by more than one client (with unique or empty
+    `clientKey`).
+  operationId: requestQueue_head_lock_post
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue-head-with-locks/get-head-and-lock
+    - https://docs.apify.com/api/v2#/reference/request-queues/get-head-and-lock
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue-head-with-locks/operation/requestQueue_head_lock_post
+  x-js-parent: RequestQueueClient
+  x-js-name: listAndLockHead
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#listAndLockHead
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: list_and_lock_head
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_and_lock_head
+
+postDefault:
+  <<: [*sharedPost, *sharedTagDefault]
+  summary: Get and lock default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the Actor run
+    and locks them for the given time.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
+  operationId: actorRun_requestQueue_head_lock_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+postLastRun:
+  <<: [*sharedPost, *sharedTagLastRun]
+  summary: Get and lock last run's default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the last Actor run
+    and locks them for the given time.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
+  operationId: act_runs_last_requestQueue_head_lock_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

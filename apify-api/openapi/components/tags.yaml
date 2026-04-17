@@ -439,6 +439,12 @@
     The API endpoints described in this section are convenience endpoints that provide access to Actor run's default key-value store without the need to resolve the key-value store ID first.
 
     Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
+- name: Default request queue
+  x-displayName: Default request queue - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor run's default request queue without the need to resolve the request queue ID first.
+
+    Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)
 - name: Last Actor run's default dataset
   x-displayName: Last Actor run's default dataset - Introduction
   description: |
@@ -451,3 +457,9 @@
     The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default key-value store without the need to resolve the key-value store ID first.
 
     Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
+- name: Last Actor run's default request queue
+  x-displayName: Last Actor run's default request queue - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default request queue without the need to resolve the request queue ID first.
+
+    Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)
