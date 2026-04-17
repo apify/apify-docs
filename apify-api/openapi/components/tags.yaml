@@ -463,15 +463,15 @@
     The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default request queue without the need to resolve the request queue ID first.
 
     Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)
-- name: Last Actor run's Log
-  x-displayName: Last Actor run's Log - Introduction
+- name: Last Actor run's log
+  x-displayName: Last Actor run's log - Introduction
   description: |
-    The API endpoint described in this section is convenience endpoint that provide access to last Actor run's log.
+    The API endpoint described in this section is convenience endpoint that provides access to last Actor run's log.
 
     Same as of functionality described in: [Logs](/api/v2/logs)
-- name: Last Actor task run's Log
-  x-displayName: Last Actor task run's Log - Introduction
+- name: Last Actor task run's log
+  x-displayName: Last Actor task run's log - Introduction
   description: |
-    The API endpoint described in this section is convenience endpoint that provide access to last Actor task run's log.
+    The API endpoint described in this section is convenience endpoint that provides access to last Actor task run's log.
 
     Same as of functionality described in: [Logs](/api/v2/logs)

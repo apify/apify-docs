@@ -42,6 +42,10 @@ getById:
     - $ref: "../../parameters/logParameters.yaml#/stream"
     - $ref: "../../parameters/logParameters.yaml#/download"
     - $ref: "../../parameters/logParameters.yaml#/raw"
+  security:
+    - httpBearer: []
+    - apiKey: []
+    - {}
   x-js-parent: LogClient
   x-js-name: stream
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/LogClient#stream
@@ -53,7 +57,7 @@ getByRunId:
   <<: *sharedGet
   tags:
     - Actor runs
-  summary: Get run's Log
+  summary: Get run's log
   description: |
     Retrieves Actor run's logs.
 
@@ -87,8 +91,8 @@ getByBuildId:
 getLastRun:
   <<: *sharedGet
   tags:
-    - Last Actor run's Log
-  summary: Get last Actor run's Log
+    - Last Actor run's log
+  summary: Get last Actor run's log
   description: |
     Retrieves last Actor run's logs.
 
@@ -103,8 +107,8 @@ getLastRun:
 getTaskLastRun:
   <<: *sharedGet
   tags:
-    - Last Actor task run's Log
-  summary: Get last Actor task run's Log
+    - Last Actor task run's log
+  summary: Get last Actor task run's log
   description: |
     Retrieves last Actor task run's logs.
 
