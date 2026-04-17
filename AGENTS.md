@@ -59,17 +59,56 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
   - Request parameters and path parameters defined in  `/openapi/components/parameters`
   - Request/response schemas defined in `/openapi/components/schemas`
   - Explicit non-automatic examples defined in `/openapi/components/examples`
+  - Objects that are not standardized in the OpenAPI specification defined in `/openapi/components/objects`
+- Objects that exist in several variants with only minor differences across different files can be extracted into file in `/openapi/components/objects`. Within one file the YAML anchor syntax can be used to define a shared and unique portion of such objects and avoid some code duplication. These objects will be used only during bundling process through references, but they will not be standalone entities in the generated specification.
 - When changing files in `/openapi/paths` look for opportunities to extract shared duplicate objects into re-usable components saved in `/openapi/components`.
 - When adding new endpoints, check first if any existing path is similar and if yes, try to re-use same components. If by adding new paths you create new duplication, try to extract it into a new components and reference it instead.
 - Prefer automatically generated examples from schema over explicit examples.
 
 #### Error responses
+
 - Re-use schemas for error responses defined in `/apify-api/openapi/components/responses`
 - Each endpoint should have at least following error responses: 400 (Bad Request), 405 (Method Not Allowed), 429 (Too Many Requests).
 - Endpoints that define `security: []` do not use any authentication.
 - Each endpoint that uses authentication should have at least following error responses: 401 (Unauthorized), 403 (Forbidden).
 - Each endpoint that has `runs/last` in its path or that has any ID related parameter (for example `actorId`, `buildId`, `runId`, `datasetId` and so on) should have at least one 404 (Not Found) error.
 - Each endpoint that has `requestBody` should have at least following error responses: 413 (Payload Too Large), 415 (Unsupported Media Type).
+
+#### Syntax hints
+- Instead of using one item `enum`, use `const`:
+Avoid this:
+```yaml
+schema:
+  type: string
+  enum:
+    - "constantValue"
+```
+Use this:
+```yaml
+schema:
+  type: string
+  const: "constantValue"
+```
+
+### Python API client model generation
+
+OpenAPI spec changes in this repo automatically trigger Pydantic model regeneration in `apify-client-python`. The pipeline:
+
+1. **This repo** (`.github/workflows/openapi-ci.yaml`):
+   - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
+   - Upload `static/api/openapi.{json,yaml}` as artifacts
+   - `trigger-client-model-regeneration` job calls `gh workflow run regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
+   - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
+
+2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
+   - Triggered via `workflow_dispatch` (automatically from this repo's CI or manually from GitHub UI)
+   - Downloads the OpenAPI spec artifact from this repo's workflow run (or fetches from `https://docs.apify.com/api/openapi.json` for manual runs)
+   - Runs `datamodel-codegen` to generate Pydantic models into `src/apify_client/_models.py`
+   - Runs `scripts/postprocess_generated_models.py` to fix known codegen issues (e.g. camelCase discriminator fields)
+   - Commits to branch `update-models-docs-pr-{PR_NUMBER}`, creates/updates a PR
+   - Posts a cross-repo comment on the original docs PR linking to the generated client PR
+
+Branch naming convention `update-models-docs-pr-{N}` links the two PRs.
 
 ### Theme system
 

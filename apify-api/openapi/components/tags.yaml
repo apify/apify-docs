@@ -406,20 +406,6 @@
 
     :::
   x-trait: true
-- name: Tools
-  x-displayName: Tools - Introduction
-  description: |
-    The API endpoints described in this section provide utility tools for encoding,
-    signing, and verifying data, as well as inspecting HTTP request details.
-
-    - **Browser info** (`/v2/browser-info`) - Returns details about the incoming HTTP request,
-      including the client IP address, country code, and headers. Accepts any HTTP method
-      (GET, POST, PUT, DELETE) so you can use it to test proxy behavior and verify that
-      client IP addresses are anonymized correctly.
-    - **Encode and sign** (`/v2/tools/encode-and-sign`) - Encodes and signs a JSON object,
-      tying it to the authenticated user's identity.
-    - **Decode and verify** (`/v2/tools/decode-and-verify`) - Decodes and verifies a value
-      previously created by the encode-and-sign endpoint.
 - name: Users
   x-displayName: Users - Introduction
   x-legacy-doc-urls:
@@ -436,3 +422,44 @@
   description: The API endpoints described in this section return information about
     user accounts.
   x-trait: true
+- name: Tools
+  x-displayName: Tools - Introduction
+  description: |
+    The API endpoints described in this section provide utility tools for encoding,
+    signing, and verifying data, as well as inspecting HTTP request details.
+- name: Default dataset
+  x-displayName: Default dataset - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor run's default dataset without the need to resolve the dataset ID first.
+
+    Subset of functionality described in: [Datasets](/api/v2/storage-datasets)
+- name: Default key-value store
+  x-displayName: Default key-value store - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor run's default key-value store without the need to resolve the key-value store ID first.
+
+    Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
+- name: Default request queue
+  x-displayName: Default request queue - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor run's default request queue without the need to resolve the request queue ID first.
+
+    Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)
+- name: Last Actor run's default dataset
+  x-displayName: Last Actor run's default dataset - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default dataset without the need to resolve the dataset ID first.
+
+    Subset of functionality described in: [Datasets](/api/v2/storage-datasets)
+- name: Last Actor run's default key-value store
+  x-displayName: Last Actor run's default key-value store - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default key-value store without the need to resolve the key-value store ID first.
+
+    Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
+- name: Last Actor run's default request queue
+  x-displayName: Last Actor run's default request queue - Introduction
+  description: |
+    The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default request queue without the need to resolve the request queue ID first.
+
+    Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)

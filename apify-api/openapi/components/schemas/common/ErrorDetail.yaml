@@ -1,0 +1,8 @@
+title: ErrorDetail
+type: object
+properties:
+  type:
+    $ref: ErrorType.yaml
+  message:
+    type: string
+    description: Human-readable error message describing what went wrong.
