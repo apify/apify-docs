@@ -63,8 +63,16 @@ The first time Manus tries to call an Apify tool, it will pause and prompt you t
 
 ![Manus chat session showing the Apify connector OAuth login prompt](images/manus/oauth-login.png)
 
+:::tip Authentication fallback
+
+If the OAuth login doesn't work, you can authenticate with your API token instead. See [OAuth login not working](#oauth-login-not-working) for instructions.
+
+:::
+
 :::tip Revoke access
+
 You can revoke the Manus connector's access to your Apify account at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+
 :::
 
 Try asking Manus something like:
@@ -154,6 +162,20 @@ For example, to use `apify-ultimate-scraper`:
 Manus will load the skill instructions and use the appropriate Apify Actors to complete the task.
 
 ![Manus chat showing /apify-ultimate-scraper triggered and structured Instagram results returned](images/manus/skill-result.png)
+
+## Troubleshooting
+
+### OAuth login not working
+
+If the OAuth prompt fails or you can't complete the login flow, you can connect using your Apify API token directly.
+
+1. Go to [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and copy your API token.
+1. In Manus, open the Apify connector settings and add a custom header:
+    - **Header name** - `Authorization`
+    - **Header value** - `Bearer <APIFY_API_TOKEN>` (replace `<APIFY_API_TOKEN>` with your actual token)
+1. Click **Save**.
+
+    ![Manus MCP configuration with the Authorization header set to Bearer token in custom headers](images/manus/api-token-connection.png)
 
 ## Limitations
 
