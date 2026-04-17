@@ -528,6 +528,22 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records.yaml"
   "/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}":
     $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records@{recordKey}.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests/batch":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@batch.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests/unlock":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@unlock.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@{requestId}.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}/lock":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@{requestId}@lock.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/head":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head.yaml"
+  "/v2/acts/{actorId}/runs/last/request-queue/head/lock":
+    $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head@lock.yaml"
   "/v2/acts/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
   "/v2/acts/{actorId}/runs/{runId}/abort":
@@ -578,6 +594,22 @@ paths:
     $ref: "paths/actor-runs/actor-runs@{runId}@key-value-store@records.yaml"
   "/v2/actor-runs/{runId}/key-value-store/records/{recordKey}":
     $ref: "paths/actor-runs/actor-runs@{runId}@key-value-store@records@{recordKey}.yaml"
+  "/v2/actor-runs/{runId}/request-queue":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue.yaml"
+  "/v2/actor-runs/{runId}/request-queue/requests":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@requests.yaml"
+  "/v2/actor-runs/{runId}/request-queue/requests/batch":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@requests@batch.yaml"
+  "/v2/actor-runs/{runId}/request-queue/requests/unlock":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@requests@unlock.yaml"
+  "/v2/actor-runs/{runId}/request-queue/requests/{requestId}":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@requests@{requestId}.yaml"
+  "/v2/actor-runs/{runId}/request-queue/requests/{requestId}/lock":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@requests@{requestId}@lock.yaml"
+  "/v2/actor-runs/{runId}/request-queue/head":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@head.yaml"
+  "/v2/actor-runs/{runId}/request-queue/head/lock":
+    $ref: "paths/actor-runs/actor-runs@{runId}@request-queue@head@lock.yaml"
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   "/v2/actor-builds/{buildId}":
