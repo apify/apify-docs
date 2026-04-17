@@ -59,6 +59,8 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
   - Request parameters and path parameters defined in  `/openapi/components/parameters`
   - Request/response schemas defined in `/openapi/components/schemas`
   - Explicit non-automatic examples defined in `/openapi/components/examples`
+  - Objects that are not standardized in the OpenAPI specification defined in `/openapi/components/objects`
+- Objects that exist in several variants with only minor differences across different files can be extracted into file in `/openapi/components/objects`. Within one file the YAML anchor syntax can be used to define a shared and unique portion of such objects and avoid some code duplication. These objects will be used only during bundling process through references, but they will not be standalone entities in the generated specification.
 - When changing files in `/openapi/paths` look for opportunities to extract shared duplicate objects into re-usable components saved in `/openapi/components`.
 - When adding new endpoints, check first if any existing path is similar and if yes, try to re-use same components. If by adding new paths you create new duplication, try to extract it into a new components and reference it instead.
 - Prefer automatically generated examples from schema over explicit examples.
