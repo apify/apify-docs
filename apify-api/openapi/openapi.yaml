@@ -520,6 +520,14 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@last@dataset@items.yaml"
   "/v2/acts/{actorId}/runs/last/dataset/statistics":
     $ref: "paths/actors/acts@{actorId}@runs@last@dataset@statistics.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store/keys":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@keys.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store/records":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records.yaml"
+  "/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}":
+    $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records@{recordKey}.yaml"
   "/v2/acts/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
   "/v2/acts/{actorId}/runs/{runId}/abort":
@@ -562,6 +570,14 @@ paths:
     $ref: "paths/actor-runs/actor-runs@{runId}@dataset@items.yaml"
   "/v2/actor-runs/{runId}/dataset/statistics":
     $ref: "paths/actor-runs/actor-runs@{runId}@dataset@statistics.yaml"
+  "/v2/actor-runs/{runId}/key-value-store":
+    $ref: paths/actor-runs/actor-runs@{runId}@key-value-store.yaml
+  "/v2/actor-runs/{runId}/key-value-store/keys":
+    $ref: "paths/actor-runs/actor-runs@{runId}@key-value-store@keys.yaml"
+  "/v2/actor-runs/{runId}/key-value-store/records":
+    $ref: "paths/actor-runs/actor-runs@{runId}@key-value-store@records.yaml"
+  "/v2/actor-runs/{runId}/key-value-store/records/{recordKey}":
+    $ref: "paths/actor-runs/actor-runs@{runId}@key-value-store@records@{recordKey}.yaml"
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   "/v2/actor-builds/{buildId}":

@@ -1,3 +1,13 @@
+datasetId:
+  name: datasetId
+  in: path
+  description: Dataset ID or `username~dataset-name`.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+
 format:
   name: format
   in: query
