@@ -104,15 +104,18 @@ const prettifyPRLinks = () => (tree) => {
  * @param {string} changelog The markdown content.
  * @param {object} [opts]
  * @param {string} [opts.title] The frontmatter title.
- * @param {string} [opts.displayedSidebar] The sidebar to display on the changelog page.
+ * @param {string} [opts.displayedSidebar] The sidebar to display on the changelog page. Omitted from frontmatter if undefined.
  * @returns {string} The markdown content with frontmatter.
  */
-function addFrontmatter(changelog, { title = 'Changelog', displayedSidebar = 'docs' } = {}) {
+function addFrontmatter(changelog, { title = 'Changelog', displayedSidebar } = {}) {
+    const fields = [
+        `title: ${title}`,
+        `sidebar_label: ${title}`,
+        ...(displayedSidebar !== undefined ? [`displayed_sidebar: ${displayedSidebar}`] : []),
+        `toc_max_heading_level: 3`,
+    ];
     return `---
-title: ${title}
-sidebar_label: ${title}
-displayed_sidebar: ${displayedSidebar}
-toc_max_heading_level: 3
+${fields.join('\n')}
 ---
 ${changelog}`;
 }

@@ -87,7 +87,10 @@ function theme(
                     ),
                 ];
 
-                const displayedSidebar = options.changelogDisplayedSidebar ?? 'docs';
+                const { changelogDisplayedSidebar: displayedSidebar } = options;
+                const displayedSidebarLine = displayedSidebar !== undefined
+                    ? `displayed_sidebar: ${displayedSidebar}\n`
+                    : '';
                 const hasDefaultChangelog = new Map();
 
                 for (const p of pathsToCopyChangelog) {
@@ -96,8 +99,7 @@ function theme(
                     fs.writeFileSync(`${p}/changelog.md`, `---
 title: Changelog
 sidebar_label: Changelog
-displayed_sidebar: ${displayedSidebar}
----
+${displayedSidebarLine}---
 It seems that the changelog is not available.
 This either means that your Docusaurus setup is misconfigured, or that your GitHub repository contains no releases yet.
 `);
