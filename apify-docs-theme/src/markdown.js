@@ -102,13 +102,16 @@ const prettifyPRLinks = () => (tree) => {
 /**
  * Adds frontmatter to the markdown content.
  * @param {string} changelog The markdown content.
- * @param {string} title The frontmatter title.
+ * @param {object} [opts]
+ * @param {string} [opts.title] The frontmatter title.
+ * @param {string} [opts.displayedSidebar] The sidebar to display on the changelog page.
  * @returns {string} The markdown content with frontmatter.
  */
-function addFrontmatter(changelog, title = 'Changelog') {
+function addFrontmatter(changelog, { title = 'Changelog', displayedSidebar = 'docs' } = {}) {
     return `---
 title: ${title}
 sidebar_label: ${title}
+displayed_sidebar: ${displayedSidebar}
 toc_max_heading_level: 3
 ---
 ${changelog}`;
@@ -131,9 +134,11 @@ function escapeMDXCharacters(changelog) {
 /**
  * Updates the markdown content for better UX and compatibility with Docusaurus v3.
  * @param {string} changelog The markdown content.
+ * @param {object} [opts]
+ * @param {string} [opts.displayedSidebar] The sidebar to display on the changelog page.
  * @returns {string} The updated markdown content.
  */
-function updateChangelog(changelog) {
+function updateChangelog(changelog, { displayedSidebar } = {}) {
     const pipeline = unified()
         .use(remarkParse)
         .use(removeGitCliffMarkers)
@@ -143,7 +148,7 @@ function updateChangelog(changelog) {
         .use(remarkStringify);
 
     changelog = pipeline.processSync(changelog).toString();
-    changelog = addFrontmatter(changelog);
+    changelog = addFrontmatter(changelog, { displayedSidebar });
     changelog = escapeMDXCharacters(changelog);
     return changelog;
 }
