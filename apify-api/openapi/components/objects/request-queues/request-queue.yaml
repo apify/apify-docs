@@ -40,6 +40,13 @@ sharedLastRun: &sharedLastRun
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
 
+sharedTaskLastRun: &sharedTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
 sharedGet: &sharedGet
   responses:
     <<: [*common200, *commonErrors]
@@ -80,6 +87,16 @@ getLastRun:
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Get request queue](/api/v2/request-queue-get) endpoint.
   operationId: act_runs_last_requestQueue_get
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTaskLastRun]
+  summary: Get last task run's default request queue
+  description: |
+    Returns the default request queue associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get request queue](/api/v2/request-queue-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_get
 
 sharedPut: &sharedPut
   requestBody:
@@ -143,6 +160,16 @@ putLastRun:
     [Update request queue](/api/v2/request-queue-put) endpoint.
   operationId: act_runs_last_requestQueue_put
 
+putTaskLastRun:
+  <<: [*sharedPut, *sharedTaskLastRun]
+  summary: Update last task run's default request queue
+  description: |
+    Updates the default request queue associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Update request queue](/api/v2/request-queue-put) endpoint.
+  operationId: actorTask_runs_last_requestQueue_put
+
 sharedDelete: &sharedDelete
   responses:
     <<: *commonErrors
@@ -182,3 +209,13 @@ deleteLastRun:
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Delete request queue](/api/v2/request-queue-delete) endpoint.
   operationId: act_runs_last_requestQueue_delete
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTaskLastRun]
+  summary: Delete last task run's default request queue
+  description: |
+    Deletes the default request queue associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Delete request queue](/api/v2/request-queue-delete) endpoint.
+  operationId: actorTask_runs_last_requestQueue_delete

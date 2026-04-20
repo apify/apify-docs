@@ -22,6 +22,10 @@ sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default dataset
 
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default dataset
+
 parametersGetHeadById: &parametersGetHeadById
   parameters:
     - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
@@ -320,6 +324,40 @@ getLastRun:
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get last task run's dataset items
+  description: |
+    Returns data stored in the default dataset of the last Actor task run in the desired format.
+
+    This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
+    [Get dataset items](/api/v2/dataset-items-get) endpoint.
+  operationId: actorTask_runs_last_dataset_items_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/datasetParameters.yaml#/format"
+    - $ref: "../../parameters/datasetParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetParameters.yaml#/view"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
 headById:
   <<: [*parametersGetHeadById, *sharedTagById]
   responses:
@@ -428,4 +466,18 @@ postLastRun:
   operationId: act_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
+postTaskLastRun:
+  <<: [*sharedPost, *sharedTagTaskLastRun]
+  summary: Store items in last task run's dataset
+  description: |
+    Appends an item or an array of items to the end of the last Actor task run's default dataset.
+
+    This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
+    [Store items](/api/v2/dataset-items-post) endpoint.
+
+  operationId: actorTask_runs_last_dataset_items_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
