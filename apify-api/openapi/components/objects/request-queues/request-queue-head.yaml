@@ -24,6 +24,10 @@ sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default request queue
 
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
 sharedGet: &sharedGet
   responses:
     "200":
@@ -89,6 +93,21 @@ getLastRun:
   operationId: act_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get last task run's default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get head](/api/v2/request-queue-head-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_head_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
