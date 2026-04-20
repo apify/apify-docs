@@ -1,44 +1,48 @@
 post:
   tags:
     - Actors
-  summary: Validate Actor input
+  summary: Validate input
   description: |
-    Validates whether the provided JSON payload matches the Actor input schema without starting a run.
-    Use this endpoint before triggering an Actor to catch schema violations and return actionable error messages.
-  operationId: act_validate_input_post
+    Validates the provided input against the Actor's input schema for the specified build.
+
+    The endpoint checks whether the JSON payload conforms to the input schema
+    defined in the Actor's build. If no `build` query parameter is provided,
+    the `latest` build tag is used by default.
+  operationId: act_validateInput_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: build
       in: query
-<<<<<<< HEAD
       description: |
-        Specifies the Actor build to validate against. It can be either a build tag or build number.
-        By default, the validation uses the Actor's `latest` build.
+        Optional tag or number of the Actor build to use for input schema validation.
+        By default, the `latest` build tag is used.
+      required: false
       style: form
       explode: true
       schema:
         type: string
-        example: 0.1.234
-
-=======
-      description: |-
-        The build to be used by the run. It can be a build number (`1.2.3`), or a build tag (`latest` or `beta`).
-        If not provided, the `default` build will be used.
-      schema:
-        type: string
->>>>>>> 9a620738a7b1d02f4073624da04a340de5064783
+        example: latest
   requestBody:
-    description: JSON payload to validate against the Actor input schema.
-    required: true
+    description: JSON input to validate against the Actor's input schema.
     content:
       application/json:
         schema:
           type: object
-          additionalProperties: true
+    required: true
   responses:
-    "204":
-      summary: Input is valid
-      description: The provided input is valid against the Actor's input schema.
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - valid
+            properties:
+              valid:
+                type: boolean
+                description: Whether the input is valid according to the Actor's input schema.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
@@ -46,11 +50,7 @@ post:
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "413":

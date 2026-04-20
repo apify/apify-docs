@@ -295,7 +295,6 @@ delete:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
     "204":
-      summary: Success
       description: The Actor was successfully deleted.
       headers: {}
       content:
