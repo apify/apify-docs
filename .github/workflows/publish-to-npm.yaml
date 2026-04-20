@@ -99,6 +99,7 @@ jobs:
                     author_name: github-actions[bot]
                     author_email: 41898282+github-actions[bot]@users.noreply.github.com
                     message: 'chore: publish new version of @apify/docs-theme [skip ci]'
+                    pull: '--rebase --autostash'
 
     rebuild-docs:
         needs: publish
