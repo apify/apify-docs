@@ -1,0 +1,6 @@
+get:
+  $ref: "../../components/objects/request-queues/request-queue.yaml#/getDefault"
+put:
+  $ref: "../../components/objects/request-queues/request-queue.yaml#/putDefault"
+delete:
+  $ref: "../../components/objects/request-queues/request-queue.yaml#/deleteDefault"

@@ -5,5 +5,5 @@ content:
       $ref: ../schemas/common/ErrorResponse.yaml
     example:
       error:
-        type: record-not-unique
+        type: actor-name-not-unique
         message: Record with the given name already exists.

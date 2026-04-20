@@ -1,0 +1,195 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedPost: &sharedPost
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../schemas/request-queues/RequestWithoutId.yaml
+          description: ""
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/BatchAddResponse.yaml
+    <<: *commonErrors
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+postById:
+  <<: [*sharedPost, *sharedTagById]
+  summary: Add requests
+  description: |
+    Adds requests to the queue in batch. The maximum requests in batch is limited
+    to 25. The response contains an array of unprocessed and processed requests.
+    If any add operation fails because the request queue rate limit is exceeded
+    or an internal failure occurs,
+    the failed request is returned in the unprocessedRequests response
+    parameter.
+    You can resend these requests to add. It is recommended to use an
+    exponential backoff algorithm for these retries.
+    If a request with the same `uniqueKey` was already present in the queue,
+    then it returns an ID of the existing request.
+  operationId: requestQueue_requests_batch_post
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/add-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/add-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesBatch-request-operations/operation/requestQueue_requests_batch_post
+  x-js-parent: RequestQueueClient
+  x-js-name: batchAddRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: batch_add_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#batch_add_requests
+
+postDefault:
+  <<: [*sharedPost, *sharedTagDefault]
+  summary: Batch add requests to default request queue
+  description: |
+    Adds requests to the default request queue of the Actor run in batch.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Add requests](/api/v2/request-queue-requests-batch-post) endpoint.
+  operationId: actorRun_requestQueue_requests_batch_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+
+postLastRun:
+  <<: [*sharedPost, *sharedTagLastRun]
+  summary: Batch add requests to last run's default request queue
+  description: |
+    Adds requests to the default request queue of the last Actor run in batch.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Add requests](/api/v2/request-queue-requests-batch-post) endpoint.
+  operationId: act_runs_last_requestQueue_requests_batch_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+
+sharedDelete: &sharedDelete
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../schemas/request-queues/RequestDraftDelete.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/BatchDeleteResponse.yaml
+    <<: *commonErrors
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+deleteById:
+  <<: [*sharedDelete, *sharedTagById]
+  summary: Delete requests
+  description: |
+    Batch-deletes given requests from the queue. The number of requests in a
+    batch is limited to 25. The response contains an array of unprocessed and
+    processed requests.
+    If any delete operation fails because the request queue rate limit is
+    exceeded or an internal failure occurs,
+    the failed request is returned in the `unprocessedRequests` response
+    parameter.
+    You can re-send these delete requests. It is recommended to use an
+    exponential backoff algorithm for these retries.
+    Each request is identified by its ID or uniqueKey parameter. You can use
+    either of them to identify the request.
+  operationId: requestQueue_requests_batch_delete
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/contentTypeJson"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations/delete-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/delete-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesBatch-request-operations/operation/requestQueue_requests_batch_delete
+  x-js-parent: RequestQueueClient
+  x-js-name: batchDeleteRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchDeleteRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: batch_delete_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#batch_delete_requests
+
+deleteDefault:
+  <<: [*sharedDelete, *sharedTagDefault]
+  summary: Batch delete requests from default request queue
+  description: |
+    Batch-deletes requests from the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Delete requests](/api/v2/request-queue-requests-batch-delete) endpoint.
+  operationId: actorRun_requestQueue_requests_batch_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/contentTypeJson"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+deleteLastRun:
+  <<: [*sharedDelete, *sharedTagLastRun]
+  summary: Batch delete requests from last run's default request queue
+  description: |
+    Batch-deletes requests from the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Delete requests](/api/v2/request-queue-requests-batch-delete) endpoint.
+  operationId: act_runs_last_requestQueue_requests_batch_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/contentTypeJson"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

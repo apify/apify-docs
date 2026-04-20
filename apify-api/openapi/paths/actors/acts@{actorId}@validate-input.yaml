@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors
-  summary: Validate input
+  summary: Validate Actor input
   description: |
     Validates the provided input against the Actor's input schema for the specified build.
 
