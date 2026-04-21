@@ -6,14 +6,13 @@ category: platform
 slug: /console
 ---
 
-## Sign-up
+[Apify Console](https://console.apify.com) is a web application where you can manage all your Apify projects and resources.
 
-To use Apify Console, you first need to create an account. To create it please go to the [sign-up page](https://console.apify.com/sign-up).
-At the moment we support 3 different methods of creating an account:
+## Create an account
 
-![Apify Console sign-up form](./images/console-sign-up-form.png)
+To use Apify Console, create an account at the [sign-up page](https://console.apify.com/sign-up).
 
-### Email and password
+### Use an email and password
 
 This is the most common way of creating an account. You just need to provide your email address and a password. The password needs to be at least 8 characters, should not be your email address, and should either contain special characters or be long enough to be secure. The password field has a strength indicator below it that will tell you if your password is strong enough.
 
@@ -25,9 +24,7 @@ We are using Google reCAPTCHA to prevent spam accounts. Usually, you will not se
 
 If you did not receive the email, you can visit the [sign-in page](https://console.apify.com/sign-in). There, you will either proceed to the verification page right away, or you can sign in and will be redirected afterward. On the verification page, you can click on the **Resend verification email** button to send the email again.
 
-![Apify Console email verification page](./images/console-email-verification-page.png)
-
-### Google or GitHub
+### Use a Google or GitHub account
 
 If you do not want to create a new password for Apify Console, you can also use your Google or GitHub account to sign up. To do that, click the **Continue with Google** or **Continue with GitHub** buttons. You will proceed to the corresponding authentication page, where you must sign in and authorize Apify to access your account. Then, when you come back to Apify Console, we will create your account.
 
@@ -36,65 +33,33 @@ On the other hand, if you used GitHub to create your account and your GitHub acc
 
 If you already have an account in Apify Console connected to Google or GitHub, clicking on these buttons on the sign-up page will not create a new account but will directly sign you in.
 
-## Sign-in
-
-To sign in to your account, please go to the [sign-in page](https://console.apify.com/sign-in).
-There, you can use any of the authentication methods you have set up for your account. If you have multiple authentication methods, you can choose which one you want to use by using the corresponding button or form.
-
-If you sign in through email and password and have two-factor authentication enabled on your account, you will proceed to the two-factor authentication page after you enter your password. There, you will need to enter the code from your authenticator app to sign in.
-If you do not have two-factor authentication enabled, you will be directly redirected to Apify Console.
-
-![Apify Console sign-in form](./images/console-sign-in-form.png)
-
-### Forgotten password
-
-In case you forgot your password, you can click on the **Forgot your password?** link, which will redirect you to the [forgot password page](https://console.apify.com/forgot-password). There, you will need to enter your email address and click on the **Reset password** button. We will then send an email to the address connected to your account with a link to the password reset page, which will allow you to change your password.
-
-![Apify Console forgotten password page](./images/console-forgotten-password-page.png)
-
-## Add different authentication methods
+### Add authentication methods
 
 After you create your account, you might still want to use the other authentication methods. To do that, go to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings. There, you will see all available authentication methods and their configuration.
 
-![Apify Console sign-in methods section on account page](./images/console-sign-in-methods-section.png)
+## Sign in to Apify Console
 
-## Reset your password
+To sign in to your account, visit the [sign-in page](https://console.apify.com/sign-in).
 
-This section also allows you to reset your password if you ever forget it. To do that, click the **Send email to reset password** button.
-We will then send an email to the address connected to your account with a link to the password reset page.
-After you click on the link (or copy it to your browser), you will proceed to a page where you can set up a new password.
+### Dashboard overview
 
-![Apify Console reset password page](./images/console-reset-password-page.png)
+Once you sign in to Apify Console, you land on the **Dashboard** section that provides an overview of your account:
 
-## Dashboard overview
+- **Recently viewed**: Displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
 
-![apify-console-homepage](./images/apify-console-dashboard.png)
+- **Suggested Actors for you**: Recommends Actors that might interest you based on your and other users' recent activities.
 
-The Apify Console Dashboard provides an overview of your account. The header displays your account name and current plan level. The Dashboard features several sections:
+- **Actor runs**: Shows your recent Actor runs, as well as scheduled runs and tasks.
 
-- **Recently viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
-
-- **Suggested Actors for you**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
-
-- **Actor runs**: This section is divided into two tabs:
-  - **Recent**: View your latest Actor runs.
-  - **Scheduled**: Check your upcoming scheduled runs and tasks.
-
-Use the side menu to navigate other parts of Apify Console easily.
-
-The **Create** dropdown in the top navigation offers three options:
-
-- **Create Actor**
-- **Create schedule**
-- **Create a new token**
+To navigate to other parts of Apify Console, use the left-side panel.
 
 <!-- markdownlint-disable-next-line -->
-#### Keyboard shortcuts
+### Keyboard shortcuts
 
-You can also navigate Apify Console via keyboard shortcuts.
+You can navigate Apify Console using keyboard shortcuts.
 
 <details>
-<summary>Keyboard Shortcuts</summary>
+<summary>Keyboard shortcuts</summary>
 
 | Shortcut       | Tab    |
 | :---           | :---   |

@@ -1,0 +1,51 @@
+shared: &shared
+  tags:
+    - Tools
+  summary: Get browser info
+  description: |
+    Returns information about the HTTP request, including the client IP address,
+    country code, request headers, and body length.
+
+    This endpoint is designed for proxy testing. It accepts any HTTP method so you
+    can verify that your proxy correctly forwards requests of any type and that
+    client IP addresses are anonymized.
+  security: []
+  parameters:
+    - name: skipHeaders
+      in: query
+      description: If `true` or `1`, the response omits the `headers` field.
+      schema:
+        type: boolean
+    - name: rawHeaders
+      in: query
+      description: If `true` or `1`, the response includes the `rawHeaders` field with the raw request headers.
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/tools/BrowserInfoResponse.yaml
+    "405":
+      $ref: ../../responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../responses/TooManyRequests.yaml
+  deprecated: false
+
+get:
+  <<: *shared
+  operationId: tools_browser_info_get
+
+post:
+  <<: *shared
+  operationId: tools_browser_info_post
+
+put:
+  <<: *shared
+  operationId: tools_browser_info_put
+
+delete:
+  <<: *shared
+  operationId: tools_browser_info_delete
