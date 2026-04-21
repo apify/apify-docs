@@ -57,6 +57,15 @@ Alternatively, download and open the [Apify MCP server `.mcpb` file](https://git
 
 If the steps below don't resolve your issue, [submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
 
+:::tip Start here
+
+Before diving into specific issues, always do these two things first:
+
+1. _Check the [Claude Desktop logs](#claude-desktop-logs)_ at the correct path for your operating system. Look for files with `mcp` in the name - they contain the actual server errors.
+1. _Enable the tools you need in the connector configuration._ By default, the connector blocks some tools. Open the Apify connector settings in Claude Desktop and make sure the tool categories you need are enabled. See [Tool selection](/platform/integrations/mcp#tool-selection) for the full list.
+
+:::
+
 #### Tools fail to load
 
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
