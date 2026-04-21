@@ -124,6 +124,44 @@ After clearing the cache:
 1. Check the [Claude Desktop logs](#claude-desktop-logs) for errors.
 1. If the issue persists, switch to the [remote server](#remote-server-recommended) setup, which doesn't rely on local packages.
 
+#### Connector does not work in Claude Cowork
+
+The Apify connector shows as connected in Cowork, but Claude doesn't recognize the tools or can't call them. The same connector works fine in regular Claude Chat.
+
+Cowork launches local MCP servers with a different mechanism than Claude Chat and requires a system-wide `node` binary. If Node.js is only installed through a version manager (such as nvm, fnm, nodenv, or Volta), Cowork cannot find it and the server fails to start. The [Claude Desktop logs](#claude-desktop-logs) show `spawn node ENOENT` in this case.
+
+Install Node.js system-wide and restart Claude Desktop:
+
+<Tabs groupId="operating-system">
+<TabItem value="macos" label="macOS">
+
+```bash
+brew install node
+```
+
+Or download the installer from [nodejs.org](https://nodejs.org).
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+Download and run the installer from [nodejs.org](https://nodejs.org).
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+```bash
+# Debian/Ubuntu
+sudo apt install nodejs
+
+# Fedora
+sudo dnf install nodejs
+```
+
+</TabItem>
+</Tabs>
+
+A system-wide installation can coexist with an existing version-manager installation. If installing Node.js system-wide is not an option, switch to the [remote server](#remote-server-recommended) setup, which doesn't require a local Node.js runtime.
+
 ## Known limitations
 
 - Claude Desktop may silently downgrade an installed connector to an older version (for example, from 0.9.14 back to 0.9.6). This can cause tools to stop loading even though the connector still shows as enabled. Removing and re-adding the connector may prompt an update, but doesn't always resolve the issue.
