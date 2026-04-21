@@ -66,7 +66,7 @@ A common situation in web scraping that's out of your control.
 
 Inform users about the reason for changes and how the changes impact them and the Actor + give them a date when the change takes effect.
 
-### 3. Actor changing its payment model (e.g. changing pay-per-event pricing)
+### 3. Actor changing its payment model (e.g., changing pay-per-event pricing)
 
 Email 1 (before the change, warning about deprecation).
 
@@ -115,7 +115,7 @@ Actor downtime, performance issues, Actor directly influenced by platform hiccup
 
 Apologize to users and or let them know you're working on it/everything is fixed now. This approach helps maintain trust and reassures users that you're addressing the situation.
 
-:::tip
+:::tip AI-assisted email drafts
 
 It might be an obvious tip, but If you're not great at emails, just write a short draft and ask ChatGPT to polish it. Play with the style until you find the one that suits you. You can even create templates for each situation. If ChatGPT is being too wordy, you can ask it to write at 9th or 10th-grade level, and it will use simpler words and sentences.
 
