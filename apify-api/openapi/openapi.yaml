@@ -510,6 +510,8 @@ paths:
     $ref: "paths/actors/acts@{actorId}@run-sync.yaml"
   "/v2/acts/{actorId}/run-sync-get-dataset-items":
     $ref: "paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml"
+  "/v2/acts/{actorId}/validate-input":
+    $ref: "paths/actors/acts@{actorId}@validate-input.yaml"
   "/v2/acts/{actorId}/runs/{runId}/resurrect":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml"
   "/v2/acts/{actorId}/runs/last":
