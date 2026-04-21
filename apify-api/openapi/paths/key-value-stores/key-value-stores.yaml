@@ -87,6 +87,12 @@ post:
         type: string
         example: eshop-values
   responses:
+    "200":
+      description: Returns the existing key-value store object if a store with the given name already exists.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/KeyValueStoreResponse.yaml
     "201":
       description: ""
       headers:
