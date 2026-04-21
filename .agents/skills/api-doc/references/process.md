@@ -26,7 +26,7 @@ apify-api/openapi/
 
 ## Step 3: Create or update files
 
-See `references/openapi-patterns.md` for detailed patterns and examples.
+See `.agents/skills/api-doc/references/openapi-patterns.md` for detailed patterns and examples.
 
 Key conventions:
 

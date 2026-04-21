@@ -4,15 +4,4 @@ required:
 type: object
 properties:
   error:
-    type: object
-    required:
-      - type
-      - message
-    properties:
-      type:
-        type: string
-        examples: [run-failed]
-      message:
-        type: string
-        examples:
-          - "Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)"
+    $ref: ErrorDetail.yaml

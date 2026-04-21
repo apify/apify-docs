@@ -30,17 +30,15 @@ To find an Actor in Apify Store:
 
 For this tutorial, let's choose [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme).
 
-![Apify Store](./images/store.png)
-
 ### 2. Configure and run your Actor
 
-Once you select the Actor, click **Use Actor**.
+Once you select the Actor, you will be taken to the Actor's detail page.
 
 In the **Input** tab, you can customize your Actor's behavior. Website Content Crawler is pre-configured to run without extra input, so you don't need to change anything.
 
-To run the Actor, click **Save & Start**.
+To run the Actor, click **Start**.
 
-![Actor input](./images/apify-input.png)
+![Website Content Crawler in Apify Console. Input tab is open and the Start button is highlighted](./images/configure-and-run-actor.svg)
 
 ### 3. Wait for the results
 
@@ -49,17 +47,11 @@ The Actor might take a while to gather results and finish its run. While waiting
 - Check the tabs where you can find more information about the Actor run. For example, its logs or storage.
 - Use the **API** button to view the related API endpoints.
 
-![Run](./images/actor-run.png)
+![Website Content Crawler in Apify Console. Output tab is open and the API and Export buttons are highlighted](./images/results-of-actor-run.svg)
 
 ### 4. Save the results
 
-The results of the Actor run appear in the **Output** tab.
-
-![Actor results](./images/actor-results.png)
-
-To save the data, click **Export**. You can choose from multiple formats.
-
-![Export results](./images/export-results.png)
+The results of the Actor run appear in the **Output** tab. To save the data, click **Export**. You can choose from multiple formats.
 
 And that's it! You've run your first Actor!
 

@@ -15,7 +15,6 @@ UniqueKey:
 
 RequestUrl:
   type: string
-  format: uri
   description: The URL of the request.
   examples: [https://apify.com]
 

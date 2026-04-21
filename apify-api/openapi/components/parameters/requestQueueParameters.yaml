@@ -1,0 +1,164 @@
+queueId:
+  name: queueId
+  in: path
+  description: Queue ID or `username~queue-name`.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+
+requestId:
+  name: requestId
+  in: path
+  description: Request ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: xpsmkDlspokDSmklS
+
+clientKey:
+  name: clientKey
+  in: query
+  description: |
+    A unique identifier of the client accessing the request queue. It must
+    be a string between 1 and 32 characters long. This identifier is used to
+    determine whether the queue was accessed by multiple clients. If
+    `clientKey` is not provided,
+    the system considers this API call to come from a new client. For
+    details, see the `hadMultipleClients` field returned by the [Get
+    head](#/reference/request-queues/queue-head) operation.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: client-abc
+
+lockSecs:
+  name: lockSecs
+  in: query
+  description: How long the requests will be locked for (in seconds).
+  required: true
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 60
+
+forefront:
+  name: forefront
+  in: query
+  description: |
+    Determines if request should be added to the head of the queue or to the
+    end. Default value is `false` (end of queue).
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "false"
+
+exclusiveStartId:
+  name: exclusiveStartId
+  in: query
+  description: All requests up to this one (including) are skipped from the result. (Deprecated, use `cursor` instead.)
+  deprecated: true
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: Ihnsp8YrvJ8102Kj
+
+listLimit:
+  name: limit
+  in: query
+  description: Number of keys to be returned. Maximum value is `10000`.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 100
+
+cursor:
+  name: cursor
+  in: query
+  description: A cursor string for pagination, returned in the previous response as `nextCursor`. Use this to retrieve the next page of requests.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: eyJyZXF1ZXN0SWQiOiI2OFRqQ2RaTDNvM2hiUU0ifQ
+
+filter:
+  name: filter
+  in: query
+  description: Filter requests by their state. Possible values are `locked` and `pending`. You can combine multiple values separated by commas, which will mean the union of these filters – requests matching any of the specified states will be returned. (Not compatible with deprecated `exclusiveStartId` parameter.)
+  style: form
+  explode: false
+  schema:
+    type: array
+    items:
+      type: string
+      enum:
+        - locked
+        - pending
+    example: [locked]
+
+headLimit:
+  name: limit
+  in: query
+  description: How many items from queue should be returned.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 100
+
+headLockLimit:
+  name: limit
+  in: query
+  description: How many items from the queue should be returned.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 25
+    maximum: 25
+
+lockForefront:
+  name: forefront
+  in: query
+  description: |
+    Determines if request should be added to the head of the queue or to the
+    end after lock expires.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "false"
+
+deleteForefront:
+  name: forefront
+  in: query
+  description: |
+    Determines if request should be added to the head of the queue or to the
+    end after lock was removed.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "false"
+
+contentTypeJson:
+  name: Content-Type
+  in: header
+  description: ""
+  required: true
+  style: simple
+  schema:
+    type: string
+    const: application/json
