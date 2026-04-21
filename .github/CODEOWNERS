@@ -7,15 +7,16 @@
 /.agents/ @TC-MO @marcel-rbro @szaganek
 /.github/copilot-instructions.md @TC-MO @marcel-rbro @szaganek
 /AGENTS.md @TC-MO @marcel-rbro @szaganek
+/standards/ @TC-MO @marcel-rbro @szaganek
 
-# Integrations (overrides catch-all)
+# Integrations
 /sources/platform/integrations/ @marcel-rbro
 
 # Legal
 /sources/legal/ @mnmkng
 
 # Academy
-/sources/academy/ @honzajavorek @TC-MO
+/sources/academy/ @honzajavorek @szaganek
 
 # OpenAPI spec
 /apify-api/ @janbuchar @fnesveda
