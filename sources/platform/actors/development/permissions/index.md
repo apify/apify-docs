@@ -31,7 +31,7 @@ Actors with **Limited permissions** receive [a restricted scoped token](../../..
 - [Metamorph](../programming_interface/metamorph.md) to another Actor with limited permissions.
 - Read and write to storages provided via Actor input (for example, when the user provides a dataset that the Actor should write into).
 - Read basic user information from the environment (whether the user is paying, their proxy password, or public profile).
-- Run any other Actor with limited permissions.
+- Run any other Actor with limited permissions and obtain the results.
 
 This approach ensures your Actor has everything it needs to function while protecting user data from unnecessary exposure.
 

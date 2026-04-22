@@ -38,3 +38,19 @@
 - name: Users
   tags:
     - Users
+- name: Tools
+  tags:
+    - Tools
+- name: Convenience endpoints
+  tags:
+    - Default dataset
+    - Default key-value store
+    - Default request queue
+    - Last Actor run's default dataset
+    - Last Actor run's default key-value store
+    - Last Actor run's default request queue
+    - Last Actor run's log
+    - Last Actor task run's default dataset
+    - Last Actor task run's default key-value store
+    - Last Actor task run's default request queue
+    - Last Actor task run's log

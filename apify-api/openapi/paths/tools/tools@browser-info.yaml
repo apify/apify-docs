@@ -1,0 +1,10 @@
+get:
+  $ref: "../../components/objects/tools/tool.yaml#/get"
+post:
+  $ref: "../../components/objects/tools/tool.yaml#/post"
+
+put:
+  $ref: "../../components/objects/tools/tool.yaml#/put"
+
+delete:
+  $ref: "../../components/objects/tools/tool.yaml#/delete"

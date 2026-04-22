@@ -31,53 +31,31 @@ get:
     # XXX: do we support maxTotalChargeUsd for task runs?
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/clean"
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/view"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipFailedPages"
   responses:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -93,12 +71,7 @@ get:
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: "Request Timeout: the HTTP request exceeded the 300 second limit"
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/schemas/common/ErrorResponse.yaml
+      $ref: ../../components/responses/RunTimeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -152,25 +125,26 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/format"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/clean"
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../components/parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/view"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/skipFailedPages"
   requestBody:
     description: ""
     content:
@@ -179,35 +153,14 @@ post:
           type: object
         example:
           foo: bar
+      "*/*":
+        schema: {}
     required: true
   responses:
     "201":
       description: ""
       headers:
-        X-Apify-Pagination-Offset:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "0"
-        X-Apify-Pagination-Limit:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Count:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "100"
-        X-Apify-Pagination-Total:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "10204"
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:

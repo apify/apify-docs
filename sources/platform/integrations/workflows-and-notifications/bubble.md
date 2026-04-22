@@ -6,6 +6,8 @@ sidebar_position: 7
 slug: /integrations/bubble
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
 :::tip Explore the live demo
@@ -13,6 +15,8 @@ slug: /integrations/bubble
 Open the demo Bubble app to check out the integration end-to-end before building your own: [apify-28595.bubbleapps.io](https://apify-28595.bubbleapps.io)
 
 :::
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 

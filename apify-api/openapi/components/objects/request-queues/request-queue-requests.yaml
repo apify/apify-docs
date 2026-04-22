@@ -1,0 +1,211 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
+sharedGet: &sharedGet
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/ListOfRequestsResponse.yaml
+    <<: *commonErrors
+  deprecated: false
+
+getById:
+  <<: [*sharedGet, *sharedTagById]
+  summary: List requests
+  description: |
+    Returns a list of requests. This endpoint is paginated using
+    cursor (pagination by `exclusiveStartId` is deprecated) and limit parameters.
+  operationId: requestQueue_requests_get
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/cursor"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/filter"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/list-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/list-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-collection/operation/requestQueue_requests_get
+  x-js-parent: RequestQueueClient
+  x-js-name: paginateRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#paginateRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: list_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_requests
+
+getDefault:
+  <<: [*sharedGet, *sharedTagDefault]
+  summary: List default request queue's requests
+  description: |
+    Returns a list of requests from the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [List requests](/api/v2/request-queue-requests-get) endpoint.
+  operationId: actorRun_requestQueue_requests_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/cursor"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/filter"
+
+getLastRun:
+  <<: [*sharedGet, *sharedTagLastRun]
+  summary: List last run's default request queue's requests
+  description: |
+    Returns a list of requests from the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [List requests](/api/v2/request-queue-requests-get) endpoint.
+  operationId: act_runs_last_requestQueue_requests_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/cursor"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/filter"
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: List last task run's default request queue's requests
+  description: |
+    Returns a list of requests from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [List requests](/api/v2/request-queue-requests-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_requests_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/cursor"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/filter"
+
+sharedPost: &sharedPost
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/request-queues/RequestWithoutId.yaml
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/AddRequestResponse.yaml
+    <<: *commonErrors
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+postById:
+  <<: [*sharedPost, *sharedTagById]
+  summary: Add request
+  description: |
+    Adds request to the queue. Response contains ID of the request and info if
+    request was already present in the queue or handled.
+
+    If request with same `uniqueKey` was already present in the queue then
+    returns an ID of existing request.
+  operationId: requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/add-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-collection/operation/requestQueue_requests_post
+  x-js-parent: RequestQueueClient
+  x-js-name: addRequest
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#addRequest
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: add_request
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#add_request
+
+postDefault:
+  <<: [*sharedPost, *sharedTagDefault]
+  summary: Add request to default request queue
+  description: |
+    Adds a request to the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Add request](/api/v2/request-queue-requests-post) endpoint.
+  operationId: actorRun_requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+
+postLastRun:
+  <<: [*sharedPost, *sharedTagLastRun]
+  summary: Add request to last run's default request queue
+  description: |
+    Adds a request to the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Add request](/api/v2/request-queue-requests-post) endpoint.
+  operationId: act_runs_last_requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+
+postTaskLastRun:
+  <<: [*sharedPost, *sharedTagTaskLastRun]
+  summary: Add request to last task run's default request queue
+  description: |
+    Adds a request to the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Add request](/api/v2/request-queue-requests-post) endpoint.
+  operationId: actorTask_runs_last_requestQueue_requests_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"

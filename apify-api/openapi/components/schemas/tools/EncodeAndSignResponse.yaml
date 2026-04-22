@@ -1,0 +1,7 @@
+title: EncodeAndSignResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    $ref: ./EncodeAndSignData.yaml
