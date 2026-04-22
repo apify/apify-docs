@@ -505,7 +505,7 @@ aside > div > a > b {
     height: 0.9em;
     vertical-align: -0.1em;
     background-color: currentColor;
-    mask-image: url('/img/external_link_icon.svg');
+    mask-image: url('/img/external-link.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
