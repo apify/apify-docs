@@ -6,7 +6,9 @@ sidebar_position: 20
 slug: /integrations/manus
 ---
 
-The _Manus_ integration connects Manus to Apify's library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+[Manus](https://manus.im) is a general-purpose AI agent that can autonomously browse the web, write code, and complete multi-step tasks on your behalf.
+
+The Manus integration connects Manus to Apify's library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 This allows Manus agents to search and run Actors, scrape URLs, and retrieve datasets directly in agent sessions - without writing any code.
 You can also import [Apify Agent Skills](https://github.com/apify/agent-skills) from GitHub to give Manus structured, reusable scraping workflows.
 
