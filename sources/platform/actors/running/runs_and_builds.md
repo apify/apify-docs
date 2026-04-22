@@ -12,9 +12,9 @@ An Actor is a combination of source code and various settings in a Docker contai
 An Actor build consists of the source code built as a Docker image, making the Actor ready to run on the Apify platform.
 
 <details>
-    <summary>What is a Docker image?</summary>
+<summary>What is a Docker image?</summary>
 
-    A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. For details, see [Docker's website](https://www.docker.com/resources/what-container/).
+A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. For details, see [Docker's website](https://www.docker.com/resources/what-container/).
 
 </details>
 
@@ -49,8 +49,8 @@ Each run has its own default [storages](../../storage) assigned, which it might 
 To view what's happening while the Actor is running:
 
 1. In Apify Console, go to the Actor's page.
-2. In the **Runs** tab, select the run you want to inspect.
-3. Select the **Log** tab.
+1. In the **Runs** tab, select the run you want to inspect.
+1. Select the **Log** tab.
 
 ![Actor run details](./images/actor-run-details.svg)
 
