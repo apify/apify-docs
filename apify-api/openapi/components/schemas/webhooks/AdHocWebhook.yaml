@@ -1,0 +1,30 @@
+title: AdHocWebhook
+description: |
+  An ad-hoc webhook attached to a single Actor or task run via the `webhooks` query parameter.
+  Captures the minimal shape required to deliver a webhook for a specific run; unlike
+  [`WebhookCreate`](#/schemas/WebhookCreate) it has no `condition` field, because the run is
+  already implied by the request that creates it.
+type: object
+required:
+  - eventTypes
+  - requestUrl
+properties:
+  eventTypes:
+    type: array
+    description: List of events that trigger the webhook.
+    items:
+      $ref: ./WebhookEventType.yaml
+    examples:
+      - [ACTOR.RUN.SUCCEEDED]
+  requestUrl:
+    type: string
+    description: URL to which the webhook sends its payload.
+    examples: ["http://example.com/"]
+  payloadTemplate:
+    type: [string, "null"]
+    description: Optional template for the JSON payload sent by the webhook.
+    examples: ['{\n "userId": {{userId}}...']
+  headersTemplate:
+    type: [string, "null"]
+    description: Optional template for the HTTP headers sent by the webhook.
+    examples: ['{\n "Authorization": "Bearer ..."}']
