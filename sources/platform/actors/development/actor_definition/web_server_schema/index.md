@@ -1,13 +1,12 @@
 ---
 title: Web server schema
 sidebar_label: Web server schema
-sidebar_position: 6.5
-description: >-
-  Attach an OpenAPI specification to your Actor to enable the interactive Endpoints tab in Apify Console and Apify Store, where you can browse and test endpoints.
+sidebar_position: 7
+description: Attach an OpenAPI specification to your Actor to enable the interactive Standby tab in Apify Console and Apify Store, where you can browse and test endpoints.
 slug: /actors/development/actor-definition/web-server-schema
 ---
 
-The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable [standby mode](/platform/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Endpoints** tab on the Actor's detail page, where you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
+The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable [standby mode](/platform/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Standby** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
 
 ![Apify Console showing the Standby tab with the Endpoints section rendered from the Actor's OpenAPI spec](../images/console-standby-openapi-swagger.png)
 
@@ -91,9 +90,9 @@ Follow the standard [OpenAPI 3.x format](https://spec.openapis.org/oas/latest.ht
 
 ## Build and deploy
 
-The platform validates `webServerSchema` at build time, similar to other Actor schemas like [input schema](/platform/actors/development/actor-definition/input-schema) and [dataset schema](/platform/actors/development/actor-definition/dataset-schema). If the spec is malformed, the build fails with a validation error.
+The build process validates `webServerSchema`, similar to other Actor schemas like [input schema](/platform/actors/development/actor-definition/input-schema) and [dataset schema](/platform/actors/development/actor-definition/dataset-schema). If the spec is malformed, the build fails with a validation error.
 
-Once deployed, the **Endpoints** tab appears automatically on the Actor's detail page when you enable [standby mode](/platform/actors/development/programming-interface/standby). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
+Once deployed, the **Standby** tab appears automatically on the Actor's detail page when you enable [standby mode](/platform/actors/development/programming-interface/standby). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
 
 :::note Servers field is overwritten
 
@@ -105,5 +104,5 @@ Your `servers` array is replaced with the Actor's standby URL at display time. C
 
 | Field | Description |
 | --- | --- |
-| `usesStandbyMode` | Must be `true` for the **Endpoints** tab to appear. See [standby mode](/platform/actors/development/programming-interface/standby). |
-| `webServerSchema` | The OpenAPI spec that powers the **Endpoints** tab. Defined in [`.actor/actor.json`](/platform/actors/development/actor-definition/actor-json) as an inline object or a path to a JSON file. |
+| `usesStandbyMode` | Must be `true` for the **Standby** tab to appear. See [standby mode](/platform/actors/development/programming-interface/standby). |
+| `webServerSchema` | The OpenAPI spec that powers the **Standby** tab. Defined in [`.actor/actor.json`](/platform/actors/development/actor-definition/actor-json) as an inline object or a path to a JSON file. |
