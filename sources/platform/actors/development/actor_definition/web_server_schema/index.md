@@ -97,7 +97,7 @@ Once deployed, the **Endpoints** tab appears automatically on the Actor's detail
 
 :::note Servers field is overwritten
 
-The platform replaces the `servers` array in your spec with the Actor's standby URL at display time. Custom server URLs are ignored.
+Your `servers` array is replaced with the Actor's standby URL at display time. Custom server URLs are ignored.
 
 :::
 
