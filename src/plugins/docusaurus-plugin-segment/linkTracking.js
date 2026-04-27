@@ -1,6 +1,16 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
-// Opt-in link trackers. Currently limited to Trust Center to avoid Segment noise - see https://github.com/apify/apify-docs/issues/2409.
+/**
+ * Opt-in link trackers. Currently limited to Trust Center to avoid Segment noise.
+ * @see https://github.com/apify/apify-docs/issues/2409
+ *
+ * Each entry has a `test(url)` predicate and an `element` label — a human-readable identifier
+ * for the clicked UI element, sent as the `element` property in the Segment "Clicked" event.
+ * Individual links can also opt in via a `data-tracking-id` attribute, which takes precedence.
+ *
+ * @example
+ * { test: (url) => url.hostname === 'trust.apify.com', element: 'trust-center-link' }
+ */
 const LINK_TRACKERS = [
     {
         test: (url) => url.hostname === 'trust.apify.com',
@@ -30,13 +40,15 @@ function handleLinkClick(event) {
     if (!/^https?:$/.test(url.protocol)) return;
 
     const tracker = LINK_TRACKERS.find(({ test }) => test(url));
-    if (!tracker) return;
+    const dataId = anchor.dataset.trackingId; // reads data-tracking-id attribute
+
+    if (!tracker && !dataId) return;
 
     const isApifyDomain = /(^|\.)apify\.com$/.test(url.hostname);
 
     window.analytics.track('Clicked', {
         app: 'docs',
-        element: tracker.element ?? 'link',
+        element: dataId ?? tracker?.element ?? 'link',
         button_text: anchor.textContent?.trim().slice(0, 200) || null,
         href: url.href,
         is_subdomain: isApifyDomain && url.hostname !== window.location.hostname,
