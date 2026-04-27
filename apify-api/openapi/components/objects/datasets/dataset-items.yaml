@@ -16,35 +16,39 @@ sharedTagById: &sharedTagById
 
 sharedTagDefault: &sharedTagDefault
   tags:
-    - Default storages
+    - Default dataset
 
 sharedTagLastRun: &sharedTagLastRun
   tags:
-    - Last Actor run
+    - Last Actor run's default dataset
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default dataset
 
 parametersGetHeadById: &parametersGetHeadById
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetParameters.yaml#/format"
+    - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetParameters.yaml#/view"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 sharedGet: &sharedGet
@@ -264,26 +268,26 @@ getDefault:
   operationId: actorRun_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/datasetParameters.yaml#/format"
+    - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetParameters.yaml#/view"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 getLastRun:
@@ -298,26 +302,60 @@ getLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/format"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/clean"
+    - $ref: "../../parameters/datasetParameters.yaml#/format"
+    - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/limit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/fields"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/omit"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/unwind"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/flatten"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/descDataset"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/attachment"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/delimiter"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/bom"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRoot"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/xmlRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHeaderRow"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipHidden"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipEmpty"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/simplified"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/view"
-    - $ref: "../../parameters/datasetItemsParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetParameters.yaml#/view"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get last task run's dataset items
+  description: |
+    Returns data stored in the default dataset of the last Actor task run in the desired format.
+
+    This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
+    [Get dataset items](/api/v2/dataset-items-get) endpoint.
+  operationId: actorTask_runs_last_dataset_items_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/datasetParameters.yaml#/format"
+    - $ref: "../../parameters/datasetParameters.yaml#/clean"
+    - $ref: "../../parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../parameters/datasetParameters.yaml#/limit"
+    - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/omit"
+    - $ref: "../../parameters/datasetParameters.yaml#/unwind"
+    - $ref: "../../parameters/datasetParameters.yaml#/flatten"
+    - $ref: "../../parameters/datasetParameters.yaml#/descDataset"
+    - $ref: "../../parameters/datasetParameters.yaml#/attachment"
+    - $ref: "../../parameters/datasetParameters.yaml#/delimiter"
+    - $ref: "../../parameters/datasetParameters.yaml#/bom"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRoot"
+    - $ref: "../../parameters/datasetParameters.yaml#/xmlRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHeaderRow"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipHidden"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipEmpty"
+    - $ref: "../../parameters/datasetParameters.yaml#/simplified"
+    - $ref: "../../parameters/datasetParameters.yaml#/view"
+    - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 headById:
@@ -391,7 +429,7 @@ postById:
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
   operationId: dataset_items_post
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
     - https://docs.apify.com/api/v2#/reference/datasets/put-items
@@ -428,4 +466,18 @@ postLastRun:
   operationId: act_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
+postTaskLastRun:
+  <<: [*sharedPost, *sharedTagTaskLastRun]
+  summary: Store items in last task run's dataset
+  description: |
+    Appends an item or an array of items to the end of the last Actor task run's default dataset.
+
+    This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
+    [Store items](/api/v2/dataset-items-post) endpoint.
+
+  operationId: actorTask_runs_last_dataset_items_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

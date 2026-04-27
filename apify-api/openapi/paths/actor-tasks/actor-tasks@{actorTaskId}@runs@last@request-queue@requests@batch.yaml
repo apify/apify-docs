@@ -1,0 +1,4 @@
+post:
+  $ref: "../../components/objects/request-queues/request-queue-requests-batch.yaml#/postTaskLastRun"
+delete:
+  $ref: "../../components/objects/request-queues/request-queue-requests-batch.yaml#/deleteTaskLastRun"

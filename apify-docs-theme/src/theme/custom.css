@@ -497,6 +497,20 @@ aside > div > a > b {
     display: none;
 }
 
+.external-link::after {
+    content: '';
+    display: inline-block;
+    margin: 0 0.05em 0 0.1em;
+    width: 0.9em;
+    height: 0.9em;
+    vertical-align: -0.1em;
+    background-color: currentColor;
+    mask-image: url('/img/external-link.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
 .dropdown > .navbar__link::after {
     border-color: currentColor;
     border-style: solid;

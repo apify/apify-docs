@@ -1,0 +1,2 @@
+get:
+  $ref: "../../components/objects/logs/log.yaml#/getByRunId"

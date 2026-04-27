@@ -25,19 +25,26 @@ sharedById: &sharedById
   tags:
     - Storage/Datasets
   parameters:
-    - $ref: "../../parameters/storageParameters.yaml#/datasetId"
+    - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
 
 sharedDefault: &sharedDefault
   tags:
-    - Default storages
+    - Default dataset
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
 
 sharedLastRun: &sharedLastRun
   tags:
-    - Last Actor run
+    - Last Actor run's default dataset
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
+sharedTaskLastRun: &sharedTaskLastRun
+  tags:
+    - Last Actor task run's default dataset
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
 
 sharedGet: &sharedGet
@@ -93,6 +100,16 @@ getLastRun:
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Get dataset](/api/v2/dataset-get) endpoint.
   operationId: act_runs_last_dataset_get
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTaskLastRun]
+  summary: Get last task run's default dataset
+  description: |
+    Returns the default dataset associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultDatasetId` and then using the
+    [Get dataset](/api/v2/dataset-get) endpoint.
+  operationId: actorTask_runs_last_dataset_get
 
 sharedPut: &sharedPut
   requestBody:
@@ -150,6 +167,16 @@ putLastRun:
     [Update dataset](/api/v2/dataset-put) endpoint.
   operationId: act_runs_last_dataset_put
 
+putTaskLastRun:
+  <<: [*sharedPut, *sharedTaskLastRun]
+  summary: Update last task run's default dataset
+  description: |
+    Updates the default dataset associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultDatasetId` and then using the
+    [Update dataset](/api/v2/dataset-put) endpoint.
+  operationId: actorTask_runs_last_dataset_put
+
 sharedDelete: &sharedDelete
   responses:
     <<: *commonErrors
@@ -189,3 +216,13 @@ deleteLastRun:
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Delete dataset](/api/v2/dataset-delete) endpoint.
   operationId: act_runs_last_dataset_delete
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTaskLastRun]
+  summary: Delete last task run's default dataset
+  description: |
+    Deletes the default dataset associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultDatasetId` and then using the
+    [Delete dataset](/api/v2/dataset-delete) endpoint.
+  operationId: actorTask_runs_last_dataset_delete
