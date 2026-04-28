@@ -1,8 +1,6 @@
 
 ## Apify API client for JavaScript
 
-> Source: https://docs.apify.com/api/client/js/llms.txt — this is a curated subset. Update when new concept/guide pages are added.
-
 - [Overview](https://docs.apify.com/api/client/js/docs.md): The official JavaScript library to access the Apify API, with automatic retries, TypeScript support, and cross-platform compatibility.
   - [Changelog](https://docs.apify.com/api/client/js/docs/changelog.md)
   - [Use in bundled environments](https://docs.apify.com/api/client/js/docs/concepts/bundled-environments.md): Use the Apify API client for JavaScript in browsers, Cloudflare Workers, and other edge runtimes.
@@ -15,8 +13,6 @@
 - [apify-client reference](https://docs.apify.com/api/client/js/reference.md)
 
 ## Apify API client for Python
-
-> Source: https://docs.apify.com/api/client/python/llms.txt
 
 - [Overview](https://docs.apify.com/api/client/python/docs.md): The official Python library to access the Apify API, with automatic retries, async support, and comprehensive API coverage.
   - [Changelog](https://docs.apify.com/api/client/python/docs/changelog.md)
@@ -38,8 +34,6 @@
 - [apify-client reference](https://docs.apify.com/api/client/python/reference.md)
 
 ## Apify SDK for JavaScript
-
-> Source: https://docs.apify.com/sdk/js/llms.txt
 
 - [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/docs/overview.md): The official library for creating Apify Actors in JavaScript, providing tools for web crawling, scraping, and automation at scale.
   - [Changelog](https://docs.apify.com/sdk/js/docs/changelog.md)
@@ -67,8 +61,6 @@
 
 ## Apify SDK for Python
 
-> Source: https://docs.apify.com/sdk/python/llms.txt
-
 - [Overview](https://docs.apify.com/sdk/python/docs/overview.md): The official library for creating Apify Actors in Python, providing tools for web scraping, automation, and data storage integration.
   - [Changelog](https://docs.apify.com/sdk/python/docs/changelog.md)
   - [Accessing Apify API](https://docs.apify.com/sdk/python/docs/concepts/access-apify-api.md): Access Apify API features not covered by the SDK.
@@ -94,8 +86,6 @@
 - [apify-sdk-python reference](https://docs.apify.com/sdk/python/reference.md)
 
 ## Apify CLI
-
-> Source: https://docs.apify.com/cli/llms.txt
 
 - [Apify CLI overview](https://docs.apify.com/cli/docs.md): An introduction to Apify CLI, a command-line interface for creating, developing, building, and running Apify Actors and managing the Apify cloud platform.
   - [Changelog](https://docs.apify.com/cli/docs/changelog.md)
