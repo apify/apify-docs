@@ -44,6 +44,7 @@
         "lint:code": "eslint .",
         "lint:code:fix": "eslint . --fix",
         "test:academy": "bats --print-output-on-failure -r .",
+        "test:llms-size": "node ./scripts/checkLlmsSize.mjs",
         "postinstall": "patch-package",
         "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs"
     },

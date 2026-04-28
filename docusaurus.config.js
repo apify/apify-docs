@@ -275,7 +275,7 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
-                siteDescription: 'The entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt',
+                siteDescription: 'Apify is the largest marketplace of tools for AI. 25,000 ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -326,6 +326,66 @@ module.exports = {
                     },
                     excludeRoutes: [
                         '/',
+                        // API: exclude all deprecated act-* endpoints
+                        '/api/v2/act-*',
+                        // API: exclude individual CRUD endpoint pages (keep Introduction pages)
+                        '/api/v2/actor-build-abort-post',
+                        '/api/v2/actor-build-delete',
+                        '/api/v2/actor-build-get',
+                        '/api/v2/actor-build-log-get',
+                        '/api/v2/actor-build-openapi-json-get',
+                        '/api/v2/actor-builds-get',
+                        '/api/v2/actor-run-*',
+                        '/api/v2/actor-runs-get',
+                        '/api/v2/actor-task-*',
+                        '/api/v2/actor-tasks-get',
+                        '/api/v2/actor-tasks-post',
+                        '/api/v2/acts-get',
+                        '/api/v2/acts-post',
+                        '/api/v2/dataset-*',
+                        '/api/v2/datasets-*',
+                        '/api/v2/key-value-store-*',
+                        '/api/v2/key-value-stores-*',
+                        '/api/v2/log-get',
+                        '/api/v2/post-*',
+                        '/api/v2/request-queue-*',
+                        '/api/v2/request-queues-*',
+                        '/api/v2/schedule-*',
+                        '/api/v2/schedules-get',
+                        '/api/v2/schedules-post',
+                        '/api/v2/store-get',
+                        '/api/v2/tools-*',
+                        '/api/v2/user-get',
+                        '/api/v2/users-me-*',
+                        '/api/v2/webhook-*',
+                        '/api/v2/webhooks-get',
+                        '/api/v2/webhooks-post',
+                        // Academy: exclude legacy JS course
+                        '/academy/scraping-basics-javascript/legacy',
+                        '/academy/scraping-basics-javascript/legacy/**',
+                        // Academy: exclude individual Node.js tutorials (keep index)
+                        '/academy/node-js/*',
+                        // Academy: exclude individual Python tutorials (keep index)
+                        '/academy/python/*',
+                        // Academy: exclude exercise solutions
+                        '/academy/expert-scraping-with-apify/solutions',
+                        '/academy/expert-scraping-with-apify/solutions/**',
+                        // Academy: exclude legacy scraper tutorials (keep index)
+                        '/academy/apify-scrapers/*',
+                        // Academy: exclude marketing playbook deep pages
+                        '/academy/actor-marketing-playbook/**',
+                        // Academy: exclude misc
+                        '/academy/tutorials',
+                        '/academy/php/**',
+                        // Legal: exclude outdated docs
+                        '/legal/old/**',
+                        '/legal/fair-share-program-terms-and-conditions',
+                        '/legal/challenge-terms-and-conditions',
+                        '/legal/candidate-referral-program-terms',
+                        // Misc singleton pages
+                        '/open-source',
+                        '/sdk',
+                        '/search',
                     ],
                     routeRules: [
                         {
