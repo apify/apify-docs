@@ -73,7 +73,7 @@ function reorderSections(content) {
         return orderA - orderB;
     });
 
-    return header + sections.map((s) => s.content).join('');
+    return header + sections.map((s) => s.content.replace(/\n*$/, '\n')).join('\n');
 }
 
 async function joinFiles() {
