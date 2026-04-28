@@ -57,6 +57,15 @@ Alternatively, download and open the [Apify MCP server `.mcpb` file](https://git
 
 If the steps below don't resolve your issue, [submit a GitHub issue](https://github.com/apify/apify-mcp-server/issues) or contact [Apify support](https://apify.com/contact).
 
+:::tip Quick checks
+
+Before diving into specific issues, check these two things first:
+
+1. _Check the [Claude Desktop logs](#claude-desktop-logs)._ Look for files with `mcp` in the name.
+1. _Check [tool permissions](#tools-fail-to-load)._ The connector may block some tools by default.
+
+:::
+
 #### Tools fail to load
 
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
@@ -123,6 +132,44 @@ After clearing the cache:
 1. Restart Claude Desktop to re-download the server package.
 1. Check the [Claude Desktop logs](#claude-desktop-logs) for errors.
 1. If the issue persists, switch to the [remote server](#remote-server-recommended) setup, which doesn't rely on local packages.
+
+#### Connector does not work in Claude Cowork
+
+The Apify connector shows as connected in Cowork, but Claude doesn't recognize the tools or can't call them. The same connector works fine in regular Claude Chat.
+
+Cowork launches local MCP servers with a different mechanism than Claude Chat and requires a system-wide `node` binary. If Node.js is only installed through a version manager (such as nvm, fnm, nodenv, or Volta), Cowork cannot find it and the server fails to start. The [Claude Desktop logs](#claude-desktop-logs) show `spawn node ENOENT` in this case.
+
+Install Node.js system-wide and restart Claude Desktop:
+
+<Tabs groupId="operating-system">
+<TabItem value="macos" label="macOS">
+
+```bash
+brew install node
+```
+
+Or download the installer from [nodejs.org](https://nodejs.org).
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+Download and run the installer from [nodejs.org](https://nodejs.org).
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+```bash
+# Debian/Ubuntu
+sudo apt install nodejs
+
+# Fedora
+sudo dnf install nodejs
+```
+
+</TabItem>
+</Tabs>
+
+A system-wide installation can coexist with an existing version-manager installation. If installing Node.js system-wide is not an option, switch to the [remote server](#remote-server-recommended) setup, which doesn't require a local Node.js runtime.
 
 ## Known limitations
 
