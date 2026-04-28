@@ -32,6 +32,9 @@ jobs:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
+            -   name: Check llms.txt size
+                run: npm run test:llms-size
+
             -   name: Install Nginx
                 run: |
                     sudo apt-get update
