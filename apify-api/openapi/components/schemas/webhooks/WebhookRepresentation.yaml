@@ -1,0 +1,28 @@
+title: WebhookRepresentation
+description: |
+  Minimal representation of an ad-hoc webhook attached to a single Actor run or build via the
+  `webhooks` query parameter. The query parameter value is a Base64-encoded JSON array whose
+  items match this schema. Persistent webhook fields (e.g. `condition`) are not used here.
+required:
+  - eventTypes
+  - requestUrl
+type: object
+properties:
+  eventTypes:
+    type: array
+    items:
+      $ref: ./WebhookEventType.yaml
+    examples:
+      - [ACTOR.RUN.SUCCEEDED]
+  requestUrl:
+    type: string
+    description: The URL to which the webhook sends its payload.
+    examples: ["http://example.com/"]
+  payloadTemplate:
+    type: [string, "null"]
+    description: Optional template for the JSON payload sent by the webhook.
+    examples: ['{\n "userId": {{userId}}...']
+  headersTemplate:
+    type: [string, "null"]
+    description: Optional template for the HTTP headers sent by the webhook.
+    examples: ['{\n "Authorization": "Bearer ..."}']
