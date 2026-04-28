@@ -1,4 +1,6 @@
-title: WebhookDispatchList
+title: ListOfWebhookDispatchesResponse
+required:
+  - data
 type: object
 properties:
   data:
