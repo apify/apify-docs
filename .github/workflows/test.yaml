@@ -101,6 +101,21 @@ jobs:
                         fi
                     }
 
+                    # Like assert_header but follows redirects and asserts on the
+                    # final response's Content-Type. Use for URLs that legitimately
+                    # redirect before serving the content (e.g. child repo homepages).
+                    # Only Content-Type is supported because curl's writeout variable
+                    # %{content_type} is the only header it exposes after -L.
+                    function assert_final_content_type() {
+                        url=$1
+                        expected=$2
+                        shift 2
+                        extra_args=("$@")
+                        actual=$(curl -s -L -o /dev/null -w "%{content_type}" "${extra_args[@]}" "$url")
+                        echo "→ $url → final Content-Type: $actual"
+                        echo "$actual" | grep -q "$expected" || (echo "❌ Expected '$expected' in final Content-Type for $url, got '$actual'" && exit 1)
+                    }
+
                     echo "🧪 Checking open redirect protection..."
                     # Backslash URLs must not produce redirects (the redirect Location
                     # would contain \, which browsers normalize to /, creating
@@ -125,7 +140,19 @@ jobs:
                     assert_header "http://localhost:8080/llms.txt" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/llms-full.txt" "Content-Type" "text/markdown"
 
+                    echo "🧪 Checking .md counterparts of pages that are excluded from llms.txt..."
+                    # Pages excluded from the llms.txt index (see scripts/joinLlmsFiles.mjs)
+                    # must still serve their .md markdown counterparts. Regression test for
+                    # https://github.com/apify/apify-docs/pull/2470#discussion_r3161627392
+                    assert_header "http://localhost:8080/sdk.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/open-source.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/v2/actor-builds-get.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/v2/dataset-get.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/academy/tutorials.md" "Content-Type" "text/markdown"
+
                     echo "🧪 Checking Nginx responses... (apify-sdk-js)"
+                    assert_final_content_type "http://localhost:8080/sdk/js" "text/html"
+                    assert_final_content_type "http://localhost:8080/sdk/js" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -133,6 +160,8 @@ jobs:
                     assert_header "http://localhost:8080/sdk/js/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-python)"
+                    assert_final_content_type "http://localhost:8080/sdk/python" "text/html"
+                    assert_final_content_type "http://localhost:8080/sdk/python" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -140,6 +169,8 @@ jobs:
                     assert_header "http://localhost:8080/sdk/python/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-client-js)"
+                    assert_final_content_type "http://localhost:8080/api/client/js" "text/html"
+                    assert_final_content_type "http://localhost:8080/api/client/js" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -147,6 +178,8 @@ jobs:
                     assert_header "http://localhost:8080/api/client/js/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-client-python)"
+                    assert_final_content_type "http://localhost:8080/api/client/python" "text/html"
+                    assert_final_content_type "http://localhost:8080/api/client/python" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -154,6 +187,8 @@ jobs:
                     assert_header "http://localhost:8080/api/client/python/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-cli)"
+                    assert_final_content_type "http://localhost:8080/cli" "text/html"
+                    assert_final_content_type "http://localhost:8080/cli" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/cli/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
