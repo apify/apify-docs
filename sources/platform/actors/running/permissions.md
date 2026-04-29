@@ -49,7 +49,7 @@ When you browse Actors in Apify Console or Store, you can see the Actor's permis
 
 ![Limited-permissions badge shown on Actor detail page](images/permissions-actor-store-screen-limited.png)
 
-Moreover, full permissions Actors will have a small badge on the Actor detail page and will ask you for approval before you run them (read more below).
+Moreover, full-permission Actors will have a small badge on the Actor detail page and will ask you for approval before you run them (read more below).
 
 ![Full-permissions badge shown on Actor detail page](images/permissions-actor-detail-screen-full.png)
 
@@ -59,7 +59,7 @@ Whenever possible, choose Actors that use **limited permissions**. They are safe
 
 Before you can run a full-permission Actor you don't own, you must approve its permissions in Apify Console. This is a one-time action per Actor. Once you approve it, the approval persists and you can run the Actor freely.
 
-To approve the actor, click the **Start** button on the Actor detail screen and a confirmation modal shows up. Alternatively, you can open the three-dot menu in the top right corner and select **Approve Actor permissions**.
+To approve the Actor, click the **Start** button on the Actor detail screen and a confirmation modal shows up. Alternatively, you can open the three-dot menu in the top right corner and select **Approve Actor permissions**.
 
 ![Confirmation modal to approve running a full-permission Actor](./images/permissions-approve-full-permission-actor.png)
 
