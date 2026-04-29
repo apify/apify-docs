@@ -1,0 +1,23 @@
+.body {
+    background-color: white;
+    padding: 1px 10px;
+    border-radius: 5px;
+    border-left: 1px solid rgb(116, 116, 116);
+    border-right: 1px solid rgb(116, 116, 116);
+    border-bottom: 1.5px solid rgb(116, 116, 116);
+    box-shadow: 0 0 1px rgb(116, 116, 116);
+}
+
+html[data-theme='dark'] .body {
+    background-color: #4a4a4cd3;
+}
+
+.text {
+    color: rgb(39, 39, 39);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+html[data-theme='dark'] .text {
+    color: rgb(255, 255, 255);
+}
