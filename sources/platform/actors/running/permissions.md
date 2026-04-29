@@ -81,7 +81,7 @@ If you try to run an unapproved full-permission Actor through the API or any oth
 
 :::tip Approval through Console only
 
-You can only approve an Actor's permissions through Apify Console, not through the API. This is by design — it prevents automated tools and AI agents from bypassing the approval check on your behalf.
+You can only approve an Actor's permissions through Apify Console, not through the API. This is by design - it prevents automated tools and AI agents from bypassing the approval check on your behalf.
 
 :::
 
@@ -94,7 +94,7 @@ If you scheduled (or integrated with) a limited-permission Actor from the Store,
 ### Exceptions: When the approval is not needed
 
 - **Your own Actors**: You never need to approve Actors you own. They always run without an approval step.
-- **Actor-to-Actor calls**: When an approved full-permission Actor calls or [metamorphs](../development/programming_interface/metamorph.md) into another full-permission Actor, the called Actor runs without requiring separate approval. By approving the first Actor, you are choosing to trust it in whatever it does — including calling other Actors.
+- **Actor-to-Actor calls**: When an approved full-permission Actor calls or [metamorphs](../development/programming_interface/metamorph.md) into another full-permission Actor, the called Actor runs without requiring separate approval. By approving the first Actor, you are choosing to trust it in whatever it does - including calling other Actors.
 
 ### Skip approvals {#skip-approval}
 
