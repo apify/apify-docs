@@ -9,7 +9,7 @@ Every time a user runs your Actor, it runs under their Apify account. **Actor pe
 
 Your Actors can request two levels of access:
 
-- **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
+- **Limited permissions (default):** Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
 Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
@@ -41,23 +41,31 @@ To learn how to migrate your Actors to run under limited permissions, check out 
 
 :::
 
+### End-user experience
+
+Users see a visible permission badge on your Actor's store page and Actor detail page indicating whether it requires **Limited permissions** or **Full permissions**.
+
+![User experience for users viewing limited permission Actor in Console](../../running/images/permissions-actor-store-screen-limited.png)
+
+![User experience for users viewing full permission Actor in Console](../../running/images/permissions-actor-detail-screen-full.png)
+
+Moreover, when users run a full-permission Actor for the first time, **they need to explicitly [approve the Actor's permissions](../../running/permissions.md#full-permission-actors) in Console**. This applies even when the Actor is executed via MCP, CLI, or API, which makes Actors will full-permissions less suitable for fully autonomous AI workflows.
+
+![Confirmation modal to approve running a full-permission Actor](../../running/images/permissions-approve-full-permission-actor.png)
+
+Finally, Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store, and in some situations (autonomus agent worklofs) they might even be excluded from search results.
+
+When possible, design your Actors to use limited permissions and request only the access they truly need.
+
 ### Configure Actor permissions level
 
 You can set the permission level for your Actor in Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
 
 ![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
 
-### End-user experience
+:::warning Upgrading to full permissions is a breaking change
 
-Users see a visible permission badge on your Actor's detail page indicating whether it requires **Limited permissions** or **Full permissions**. The experience of running an Actor remains the same for users.
-
-![User experience for users viewing limited permission Actor in console](./images/end_user_ux_limited_permissions.png)
-
-![User experience for users viewing full permission Actor in console](./images/end_user_ux_full_permissions.png)
-
-:::warning Impact on Actor Quality score
-
-When possible, design your Actors to use limited permissions and request only the access they truly need. Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store.
+If you choose to switch your existing Actor in Store from limited to full permissions, your users won't be able to run the Actor until they approve it. It means that any existing schedules or integrations will immediately stop working.
 
 :::
 
