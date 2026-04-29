@@ -22,7 +22,7 @@ Actors with **Full permissions** receive a token that grants complete access to 
 
 Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
- A limited-permission Actor can:
+A limited-permission Actor can:
 
 - Read and write to its default storages.
 - Create any additional storage, and write to that storage.
@@ -37,7 +37,7 @@ This approach ensures your Actor has everything it needs to function while prote
 
 :::info Migrating to limited permissions
 
-To learn how to migrate your Actors to run under limited permissions, check out the [Migration guide](./migration_guide.md)
+To learn how to migrate your Actors to run under limited permissions, check out the [Migration guide](./migration_guide.md).
 
 :::
 
@@ -49,11 +49,11 @@ Users see a visible permission badge on your Actor's store page and Actor detail
 
 ![User experience for users viewing full permission Actor in Console](../../running/images/permissions-actor-detail-screen-full.png)
 
-Moreover, when users run a full-permission Actor for the first time, **they need to explicitly [approve the Actor's permissions](../../running/permissions.md#full-permission-actors) in Console**. This applies even when the Actor is executed via MCP, CLI, or API, which makes Actors will full-permissions less suitable for fully autonomous AI workflows.
+Moreover, when users run a full-permission Actor for the first time, **they need to explicitly [approve the Actor's permissions](../../running/permissions.md#full-permission-actors) in Console**. This applies even when the Actor is executed via MCP, CLI, or API, which makes Actors with full permissions less suitable for fully autonomous AI workflows.
 
 ![Confirmation modal to approve running a full-permission Actor](../../running/images/permissions-approve-full-permission-actor.png)
 
-Finally, Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store, and in some situations (autonomus agent worklofs) they might even be excluded from search results.
+Finally, Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store, and in some situations (autonomous agent workflows) they might even be excluded from search results.
 
 When possible, design your Actors to use limited permissions and request only the access they truly need.
 

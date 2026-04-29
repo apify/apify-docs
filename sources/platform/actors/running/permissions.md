@@ -11,9 +11,9 @@ When you run an Actor, it runs under your Apify account and may need access to y
 
 The approach is similar to mobile platforms (Android, iOS) where each app explicitly requests the access it needs and the user approves it. The difference is that instead of granular per-Actor permissions, we use two broad permission levels which cover the vast majority of use cases. If you are a developer, see the [development guide on Actor permissions](../development/permissions) to learn how to declare and manage permissions for your Actors.
 
-::::
+:::
 
-The permissions model follows the principle of least privilege. Actors run only with the access they explicitly request, giving you transparency and control over what the Actor can access in their account.
+The permissions model follows the principle of least privilege. Actors run only with the access they explicitly request, giving you transparency and control over what the Actor can access in your account.
 
 There are two permission levels:
 
@@ -26,7 +26,7 @@ Actors using **Limited permissions** are safer to run and suit most tasks. Actor
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token. Traditionally, this token grants access to the user's entire Apify account via Apify API. Actors with **full permissions** will continue to operate this way.
+When a user runs an Actor, it receives an Apify API token. Traditionally, this token grants access to the user's entire Apify account via the Apify API. Actors with **full permissions** will continue to operate this way.
 
 Actors with **limited permissions** receive a restricted token. This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
@@ -87,7 +87,7 @@ You can only approve an Actor's permissions through Apify Console, not through t
 
 :::tip You are always protected
 
-If you scheduled (or integrated with) a limited permission Actor from the Store, and its author changes its permissions to full permissions, the schedule will stop working until you approve the Actor.
+If you scheduled (or integrated with) a limited-permission Actor from the Store, and its author changes its permissions to full permissions, the schedule will stop working until you approve the Actor.
 
 :::
 
