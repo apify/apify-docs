@@ -12,7 +12,7 @@ Your Actors can request two levels of access:
 - **Limited permissions (default):** Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
-Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
+Use limited permissions on your Actors whenever possible and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
 
 ## How Actor permissions work
 
@@ -49,7 +49,7 @@ Users see a visible permission badge on your Actor's store page and Actor detail
 
 ![User experience for users viewing full permission Actor in Console](../../running/images/permissions-actor-detail-screen-full.png)
 
-Moreover, when users run a full-permission Actor for the first time, **they need to explicitly [approve the Actor's permissions](../../running/permissions.md#full-permission-actors) in Console**. This applies even when the Actor is executed via MCP, CLI, or API, which makes Actors with full permissions less suitable for fully autonomous AI workflows.
+Moreover, when users run a full-permission Actor for the first time, *they need to explicitly [approve the Actor's permissions](../../running/permissions.md#full-permission-actors) in Console*. This applies even when the Actor is executed via MCP, CLI, or API, which makes Actors with full permissions less suitable for fully autonomous AI workflows.
 
 ![Confirmation modal to approve running a full-permission Actor](../../running/images/permissions-approve-full-permission-actor.png)
 
@@ -59,7 +59,7 @@ When possible, design your Actors to use limited permissions and request only th
 
 ### Configure Actor permissions level
 
-You can set the permission level for your Actor in Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
+You can set the permission level for your Actor in Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might continue using full permissions until you update their configuration.
 
 ![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
 

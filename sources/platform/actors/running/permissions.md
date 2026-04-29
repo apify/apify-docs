@@ -43,9 +43,9 @@ A limited-permission Actor can:
 
 This approach ensures the Actor has everything it needs to function while protecting your data from unnecessary exposure.
 
-### Recognizing permission levels in Console and Store
+### Recognizing permission levels in Apify Console and Apify Store
 
-When you browse Actors in Apify Console or Store, you can see the Actor's permissions level in the **Security** section in the left bar. Hover over the badge to see a short explanation of what access that Actor will have when it runs under your account.
+When you browse Actors in Apify Console or Apify Store, you can see the Actor's permissions level in the **Security** section in the left bar. Hover over the badge to see a short explanation of what access that Actor will have when it runs under your account.
 
 ![Limited-permissions badge shown on Actor detail page](images/permissions-actor-store-screen-limited.png)
 
