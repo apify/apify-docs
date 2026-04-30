@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously with input and return output
+  summary: Run Actor synchronously and return output
   description: |
     Runs a specific Actor and returns its output.
 
@@ -85,7 +85,7 @@ post:
 get:
   tags:
     - Actors/Actor runs
-  summary: Without input
+  summary: Run Actor synchronously without input
   description: |
     Runs a specific Actor and returns its output.
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
