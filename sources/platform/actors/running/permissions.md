@@ -49,7 +49,7 @@ When you browse Actors in Apify Console or Apify Store, you can see the Actor's 
 
 ![Limited-permissions badge shown on Actor detail page](images/permissions-actor-store-screen-limited.png)
 
-Moreover, full-permission Actors will have a small badge on the Actor detail page and will ask you for approval before you run them (read more below).
+Moreover, full-permission Actors have a small badge on the Actor detail page and ask you for approval before you run them (read more below).
 
 ![Full-permissions badge shown on Actor detail page](images/permissions-actor-detail-screen-full.png)
 
