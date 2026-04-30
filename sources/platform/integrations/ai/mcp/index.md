@@ -9,7 +9,6 @@ toc_max_heading_level: 4
 
 <!-- markdownlint-disable MD024 -->
 
-import KeyboardKey from "@site/src/components/KeyboardKey/KeyboardKey";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
@@ -164,7 +163,7 @@ The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install b
 VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subscription):
 
 1. Ensure you have GitHub Copilot installed
-1. Open Command Palette (<KeyboardKey is='CMD' />/<KeyboardKey is='CTRL' /> + <KeyboardKey is='Shift' /> + <KeyboardKey is='P' />) and run _MCP: Open User Configuration_ command.
+1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run _MCP: Open User Configuration_ command.
    - This will open `mcp.json` file in your user profile. If the file does not exist, VS Code creates it for you.
 1. Add the following to the configuration file:
 
