@@ -27,11 +27,13 @@ get:
       $ref: ../../components/responses/BadRequest.yaml
     "403":
       # It should be 404, but is 403 for backwards compatibility. https://github.com/apify/apify-core/pull/17414
-      description: Not found - the requested resource was not found.
+      # Returned both when the default build does not exist (error type `unknown-build-tag`)
+      # and when the caller lacks read permission for the Actor (error type `insufficient-permissions`).
+      description: Forbidden - insufficient permissions, or the requested resource was not found.
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/common/errors/BuildErrors.yaml#/UnknownBuildTagError"
+            $ref: ../../components/schemas/common/ErrorResponse.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "405":
