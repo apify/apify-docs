@@ -49,6 +49,10 @@ jobs:
             -   name: Start Nginx with project config
                 run: |
                     PWD_PATH="$(pwd)"
+                    # Rewrite the apify-docs backend to the local docusaurus serve
+                    # so CI tests the freshly built site, not deployed prod.
+                    cp nginx.conf nginx-test.conf
+                    sed -i 's|https://apify.github.io/apify-docs|http://localhost:3000|g' nginx-test.conf
                     cat > default.conf <<EOF
                     worker_processes auto;
                     error_log ${PWD_PATH}/logs/error.log;
@@ -56,10 +60,9 @@ jobs:
                     events {}
                     http {
                         access_log ${PWD_PATH}/logs/access.log;
-                        include ${PWD_PATH}/nginx.conf;
+                        include ${PWD_PATH}/nginx-test.conf;
                     }
                     EOF
-                    sed -i 's|https://apify.github.io/apify-docs|http://localhost:3000|g' default.conf
                     mkdir -p "${PWD_PATH}/logs"
                     nginx -c "${PWD_PATH}/default.conf"
                     sleep 1
