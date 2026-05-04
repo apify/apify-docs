@@ -5,7 +5,9 @@ sidebar_position: 7.5
 slug: /actors/development/permissions
 ---
 
-Every time a user runs your Actor, it runs under their Apify account. **Actor permissions** define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
+Every time a user runs your Actor, it runs under their Apify account. Actor permissions define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
+
+## Permission levels
 
 Your Actors can request two levels of access:
 
@@ -43,17 +45,23 @@ To learn how to migrate your Actors to run under limited permissions, check out 
 
 ### Configure Actor permissions level
 
-You can set the permission level for your Actor in Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
+New Actors use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
 
-![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
+To configure the permission level for your Actor:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor you want to configure.
+1. Go to the **Settings** tab.
+1. In the **Actor permissions** section, use the dropdown to select the right permission level.
+
+![Actor permissions configuration in Actor settings](./images/configure-actor-permission-level.svg)
 
 ### End-user experience
 
-Users see a visible permission badge on your Actor's detail page indicating whether it requires **Limited permissions** or **Full permissions**. The experience of running an Actor remains the same for users.
+Users see a permission level badge on your Actor's detail page. The experience of running an Actor remains the same for users.
 
-![User experience for users viewing limited permission Actor in console](./images/end_user_ux_limited_permissions.png)
-
-![User experience for users viewing full permission Actor in console](./images/end_user_ux_full_permissions.png)
+![Limited permissions badge next to Actor name in Apify Console](./images/actor-permission-level.svg)
 
 :::warning Impact on Actor Quality score
 
