@@ -15,14 +15,16 @@ The approach is similar to mobile platforms (Android, iOS) where each app explic
 
 The permissions model follows the principle of least privilege. Actors run only with the access they explicitly request, giving you transparency and control over what the Actor can access in your account.
 
+## Permission levels
+
 There are two permission levels:
 
-- **Limited permissions (default):** Actors with this permission level have restricted access, primarily to their own storages, the data they generate, and resources they are given an explicit access to. They cannot access any other data in your Apify account.
-- **Full permissions:** Grants the Actor access to all data in your Apify account.
+- **Limited permissions (default):** An Actor has access to its own storages, the data it generates, and resources that it's given an explicit access to. It can't access any other data in your Apify account.
+- **Full permissions:** An Actor has access to all data in your Apify account. For example, it can perform administrative tasks in your account, manage your datasets or schedules.
 
-This model protects your data and strengthens platform security by clearly showing what level of access each Actor requires.
+This model protects your data and strengthens platform security by showing what level of access each Actor requires.
 
-Actors using **Limited permissions** are safer to run and suit most tasks. Actors that need **full permissions** (for example, to perform administrative tasks in your account, manage your datasets or schedules) clearly indicate this in their detail page and will require your **explicit approval** before running for the first time.
+Actors that need full permissions clearly indicate this in their detail page and will require your **explicit approval** before running for the first time. Whenever possible, choose Actors that use limited permissions. They are safer, easier to trust, and sufficient for most workflows.
 
 ## How Actor permissions work
 
@@ -43,17 +45,15 @@ A limited-permission Actor can:
 
 This approach ensures the Actor has everything it needs to function while protecting your data from unnecessary exposure.
 
-### Recognizing permission levels in Apify Console and Apify Store
+### View permission levels in Apify Console and Apify Store
 
-When you browse Actors in Apify Console or Apify Store, you can see the Actor's permissions level in the **Security** section in the left bar. Hover over the badge to see a short explanation of what access that Actor will have when it runs under your account.
+To view an Actor's permission level in [Apify Console](https://console.apify.com) or Apify Store, check the badge in the **Security** section. Hover over the badge to see what access the Actor will have when it runs under your account.
 
 ![Limited-permissions badge shown on Actor detail page](images/permissions-actor-store-screen-limited.png)
 
 Moreover, full-permission Actors have a small badge on the Actor detail page and ask you for approval before you run them (read more below).
 
 ![Full-permissions badge shown on Actor detail page](images/permissions-actor-detail-screen-full.png)
-
-Whenever possible, choose Actors that use **limited permissions**. They are safer, easier to trust, and sufficient for most workflows.
 
 ## Full-permission Actors
 

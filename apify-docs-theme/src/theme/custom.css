@@ -367,6 +367,23 @@ html[data-theme='dark'] {
     }
 }
 
+.markdown kbd {
+    background-color: white;
+    padding: 1.5px 10px;
+    border-radius: 5px;
+    border-left: 1px solid rgb(116, 116, 116);
+    border-right: 1px solid rgb(116, 116, 116);
+    border-bottom: 1.5px solid rgb(116, 116, 116);
+    box-shadow: 0 0 1px rgb(116, 116, 116);
+    color: rgb(39, 39, 39);
+    font-size: 1.5rem;
+}
+
+html[data-theme='dark'] .markdown kbd {
+    background-color: #4a4a4cd3;
+    color: rgb(255, 255, 255);
+}
+
 /* Setting the base size to 10px so it's easy to use rem for scaling (1.6rem = 16px) */
 html {
     font-size: 10px;

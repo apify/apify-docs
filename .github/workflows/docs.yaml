@@ -18,21 +18,16 @@ jobs:
 
         steps:
             -   uses: actions/checkout@v6
-            -   name: Use Node.js 22
+            -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
-                run: |
-                    corepack enable
+            -   uses: apify/workflows/pnpm-install@main
 
             -   name: Build docs
                 run: |
-                    npm ci --force
-                    npm run build
+                    pnpm build
                 env:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}

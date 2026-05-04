@@ -5,14 +5,16 @@ sidebar_position: 7.5
 slug: /actors/development/permissions
 ---
 
-Every time a user runs your Actor, it runs under their Apify account. **Actor permissions** define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
+Every time a user runs your Actor, it runs under their Apify account. Actor permissions define the level of access your Actor needs to run. This gives users transparency and control over what data your Actor can access, building trust in your tools.
+
+## Permission levels
 
 Your Actors can request two levels of access:
 
 - **Limited permissions (default):** Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
-Use limited permissions on your Actors whenever possible and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
+Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
 
 ## How Actor permissions work
 
@@ -41,6 +43,26 @@ To learn how to migrate your Actors to run under limited permissions, check out 
 
 :::
 
+### Configure Actor permissions level
+
+New Actors use limited permissions by default. Older Actors might still use full permissions until you update their configuration.
+
+To configure the permission level for your Actor:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor you want to configure.
+1. Go to the **Settings** tab.
+1. In the **Actor permissions** section, use the dropdown to select the right permission level.
+
+![Actor permissions configuration in Actor settings](./images/configure-actor-permission-level.svg)
+
+:::warning Upgrading to full permissions is a breaking change
+
+If you choose to switch your existing Actor in Store from limited to full permissions, your users won't be able to run the Actor until they approve it. It means that any existing schedules or integrations will immediately stop working.
+
+:::
+
 ### End-user experience
 
 Users see a visible permission badge on your Actor's Store page and Actor detail page indicating whether it requires **Limited permissions** or **Full permissions**.
@@ -53,19 +75,9 @@ Moreover, when users run a full-permission Actor for the first time, _they need 
 
 ![Confirmation modal to approve running a full-permission Actor](../../running/images/permissions-approve-full-permission-actor.png)
 
-Finally, Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in Apify Store, and in some situations (autonomous agent workflows) they might even be excluded from search results.
+:::warning Impact on Actor Quality score
 
-When possible, design your Actors to use limited permissions and request only the access they truly need.
-
-### Configure Actor permissions level
-
-You can set the permission level for your Actor in Apify Console under its **Settings** tab. New Actors are configured to use limited permissions by default. Older Actors will continue to use full permissions until you update their configuration.
-
-![Actor permissions configuration in Actor settings](./images/actor_settings_permissions.webp)
-
-:::warning Upgrading to full permissions is a breaking change
-
-If you choose to switch your existing Actor in Store from limited to full permissions, your users won't be able to run the Actor until they approve it. It means that any existing schedules or integrations will immediately stop working.
+When possible, design your Actors to use limited permissions and request only the access they truly need. Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in Apify Store, and in some situations (autonomous agent workflows) they might even be excluded from search results.
 
 :::
 
@@ -114,7 +126,7 @@ Behavior at run time:
 
 See the full [input schema reference for details](../actor_definition/input_schema/specification.md).
 
-### Requesting full permissions
+### Request full permissions
 
 Designing your Actors to work under limited permissions is the recommended approach, it helps improve your [Actor Quality score](../../publishing/quality_score.mdx#trustworthiness) and increases user trust and adoption. However, some use cases do legitimately require broader access to user data (e.g., to perform administrative tasks or orchestrate other Actors). If your Actor falls in this category or cannot function with limited permissions for another reason:
 
