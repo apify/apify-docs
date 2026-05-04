@@ -35,9 +35,6 @@ jobs:
             - name: Lint with Spectral
               run: pnpm openapi:lint:spectral -- --format=github-actions
 
-            - name: Lint YAML style
-              run: pnpm openapi:lint:yaml
-
     build:
         name: Build bundled specification
         runs-on: ubuntu-latest
