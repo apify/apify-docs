@@ -30,10 +30,10 @@ jobs:
             - uses: apify/workflows/pnpm-install@main
 
             - name: Lint with Redocly
-              run: pnpm openapi:lint:redocly -- --format=github-actions
+              run: pnpm openapi:lint:redocly --format=github-actions
 
             - name: Lint with Spectral
-              run: pnpm openapi:lint:spectral -- --format=github-actions
+              run: pnpm openapi:lint:spectral --format=github-actions
 
     build:
         name: Build bundled specification
