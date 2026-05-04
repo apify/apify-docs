@@ -962,7 +962,7 @@ If your Actor runs with limited permissions, it must declare what access it need
 
 :::note Runtime behavior
 
-This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store).
+This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#view-permission-levels-in-apify-console-and-apify-store).
 
 :::
 

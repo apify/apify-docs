@@ -11,7 +11,7 @@ Every time a user runs your Actor, it runs under their Apify account. Actor perm
 
 Your Actors can request two levels of access:
 
-- **Limited permissions (default):**  Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
+- **Limited permissions (default):** Actors with this permission level have restricted access, primarily to their own storages and the data they generate. They cannot access other user data on the Apify platform.
 - **Full permissions:** This level grants an Actor access to all of a user's Apify account data.
 
 Most Actors should use limited permissions to request only the specific access they need and reserve full permissions for exceptional cases where the Actor cannot function otherwise.
@@ -24,7 +24,7 @@ Actors with **Full permissions** receive a token that grants complete access to 
 
 Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
- A limited-permission Actor can:
+A limited-permission Actor can:
 
 - Read and write to its default storages.
 - Create any additional storage, and write to that storage.
@@ -39,7 +39,7 @@ This approach ensures your Actor has everything it needs to function while prote
 
 :::info Migrating to limited permissions
 
-To learn how to migrate your Actors to run under limited permissions, check out the [Migration guide](./migration_guide.md)
+To learn how to migrate your Actors to run under limited permissions, check out the [Migration guide](./migration_guide.md).
 
 :::
 
@@ -57,15 +57,27 @@ To configure the permission level for your Actor:
 
 ![Actor permissions configuration in Actor settings](./images/configure-actor-permission-level.svg)
 
+:::warning Upgrading to full permissions is a breaking change
+
+If you choose to switch your existing Actor in Store from limited to full permissions, your users won't be able to run the Actor until they approve it. It means that any existing schedules or integrations will immediately stop working.
+
+:::
+
 ### End-user experience
 
-Users see a permission level badge on your Actor's detail page. The experience of running an Actor remains the same for users.
+Users see a visible permission badge on your Actor's Store page and Actor detail page indicating whether it requires **Limited permissions** or **Full permissions**.
 
-![Limited permissions badge next to Actor name in Apify Console](./images/actor-permission-level.svg)
+![User experience for users viewing limited permission Actor in Console](../../running/images/permissions-actor-store-screen-limited.png)
+
+![User experience for users viewing full permission Actor in Console](../../running/images/permissions-actor-detail-screen-full.png)
+
+Moreover, when users run a full-permission Actor for the first time, _they need to explicitly [approve the Actor's permissions](../../running/permissions.md#full-permission-actors) in Console_. This applies even when the Actor is executed via MCP, CLI, or API, which makes Actors with full permissions less suitable for fully autonomous AI workflows.
+
+![Confirmation modal to approve running a full-permission Actor](../../running/images/permissions-approve-full-permission-actor.png)
 
 :::warning Impact on Actor Quality score
 
-When possible, design your Actors to use limited permissions and request only the access they truly need. Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in the store.
+When possible, design your Actors to use limited permissions and request only the access they truly need. Actors requiring full permissions may receive a lower [Actor Quality score](../../publishing/quality_score.mdx), which can reduce their ranking in Apify Store, and in some situations (autonomous agent workflows) they might even be excluded from search results.
 
 :::
 
@@ -94,7 +106,7 @@ Example input schema field (single resource):
 Selecting multiple resources:
 
 - Use `type: "array"` to let users choose more than one storage.
-- Each selected resource will have the same `resourcePermissions`
+- Each selected resource will have the same `resourcePermissions`.
 
 ```json
 {
@@ -112,9 +124,9 @@ Behavior at run time:
 - The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
 - If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
 
-See the full [input schema reference for details.](../actor_definition/input_schema/specification.md).
+See the full [input schema reference for details](../actor_definition/input_schema/specification.md).
 
-### Requesting full permissions
+### Request full permissions
 
 Designing your Actors to work under limited permissions is the recommended approach, it helps improve your [Actor Quality score](../../publishing/quality_score.mdx#trustworthiness) and increases user trust and adoption. However, some use cases do legitimately require broader access to user data (e.g., to perform administrative tasks or orchestrate other Actors). If your Actor falls in this category or cannot function with limited permissions for another reason:
 
