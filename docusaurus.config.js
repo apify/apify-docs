@@ -28,10 +28,7 @@ module.exports = {
     trailingSlash: false,
     organizationName: 'apify',
     projectName: 'apify-docs',
-    scripts: [
-        '/js/custom.js',
-        ...config.scripts ?? [],
-    ],
+    scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
         experimental_faster: {
             // swcJsLoader: true,
@@ -75,10 +72,8 @@ module.exports = {
         },
     ].filter(Boolean),
 
-    onBrokenLinks:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
-    onBrokenAnchors:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
+    onBrokenLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+    onBrokenAnchors: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     themes: [
         [
             require.resolve('./apify-docs-theme'),
@@ -218,14 +213,21 @@ module.exports = {
                                     const sidebarLabel = item.frontMatter.sidebar_label;
                                     const { title } = item;
                                     const id = item.type === 'schema' ? `schemas/${item.id}` : item.id;
-                                    const className = item.type === 'api'
-                                        ? clsx({
-                                            'menu__list-item--deprecated': item.api.deprecated,
-                                            'api-method': !!item.api.method,
-                                        }, item.api.method)
-                                        : clsx({
-                                            'menu__list-item--deprecated': item.schema.deprecated,
-                                        }, 'schema');
+                                    const className =
+                                        item.type === 'api'
+                                            ? clsx(
+                                                  {
+                                                      'menu__list-item--deprecated': item.api.deprecated,
+                                                      'api-method': !!item.api.method,
+                                                  },
+                                                  item.api.method,
+                                              )
+                                            : clsx(
+                                                  {
+                                                      'menu__list-item--deprecated': item.schema.deprecated,
+                                                  },
+                                                  'schema',
+                                              );
                                     // const endpoint = item.api.servers[0].url + item.api.path;
                                     const endpoint = item.api.path.replace('/v2', '');
                                     const { method } = item.api;
@@ -275,7 +277,8 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
-                siteDescription: 'Apify is the largest marketplace of tools for AI. 25,000 ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing',
+                siteDescription:
+                    'Apify is the largest marketplace of tools for AI. 25,000 ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -309,7 +312,9 @@ module.exports = {
                                         try {
                                             const parsedUrl = parse(splitValueLines[i + 1]);
                                             if (isInternal(parsedUrl, config.absoluteUrl) && parsedUrl.pathname) {
-                                                if (splitValueLines[i + 1]) splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
+                                                if (splitValueLines[i + 1])
+                                                    splitValueLines[i + 1] =
+                                                        `https://api.apify.com${parsedUrl.pathname}`;
                                             }
                                         } catch {
                                             // do nothing, leave the line as is
@@ -330,10 +335,7 @@ module.exports = {
                     // To exclude a page from the llms.txt index while keeping its .md
                     // file accessible, add it to LLMS_INDEX_EXCLUDE_PATTERNS in
                     // scripts/joinLlmsFiles.mjs instead.
-                    excludeRoutes: [
-                        '/',
-                        '/search',
-                    ],
+                    excludeRoutes: ['/', '/search'],
                     routeRules: [
                         {
                             route: '/api/**',
@@ -375,8 +377,7 @@ module.exports = {
     markdown: {
         mermaid: true,
         hooks: {
-            onBrokenMarkdownLinks:
-            /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+            onBrokenMarkdownLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
         },
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
@@ -419,7 +420,18 @@ module.exports = {
             ...config.themeConfig.prism,
             additionalLanguages: [
                 ...config.themeConfig.prism.additionalLanguages,
-                'http', 'bash', 'ruby', 'java', 'scala', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
+                'http',
+                'bash',
+                'ruby',
+                'java',
+                'scala',
+                'go',
+                'csharp',
+                'powershell',
+                'dart',
+                'objectivec',
+                'ocaml',
+                'r',
             ],
         },
         zoom: {
@@ -539,7 +551,7 @@ module.exports = {
     },
     staticDirectories: ['apify-docs-theme/static', 'static'],
     customFields: {
-        ...config.customFields ?? [],
+        ...(config.customFields ?? []),
     },
     clientModules: ['./clientModule.js'],
 };

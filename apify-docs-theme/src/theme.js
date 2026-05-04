@@ -50,9 +50,11 @@ function copyChangelogFromRoot(paths, hasDefaultChangelog, { displayedSidebar } 
     for (const docsPath of paths) {
         const targetChangelogPath = path.join(docsPath, 'changelog.md');
 
-        if (fs.existsSync(targetChangelogPath)
-            && fs.statSync(targetChangelogPath).mtime >= fs.statSync(sourceChangelogPath).mtime
-            && !hasDefaultChangelog.get(docsPath)) {
+        if (
+            fs.existsSync(targetChangelogPath) &&
+            fs.statSync(targetChangelogPath).mtime >= fs.statSync(sourceChangelogPath).mtime &&
+            !hasDefaultChangelog.get(docsPath)
+        ) {
             continue;
         }
 
@@ -61,10 +63,7 @@ function copyChangelogFromRoot(paths, hasDefaultChangelog, { displayedSidebar } 
     }
 }
 
-function theme(
-    context,
-    options,
-) {
+function theme(context, options) {
     return {
         name: '@apify/docs-theme',
         getPathsToWatch() {
@@ -81,28 +80,27 @@ function theme(
                 const versioned = findPathInParent('website/versioned_docs');
                 const pathsToCopyChangelog = [
                     findPathInParentOrThrow('docs'),
-                    ...(versioned
-                        ? fs.readdirSync(versioned).map((version) => path.join(versioned, version))
-                        : []
-                    ),
+                    ...(versioned ? fs.readdirSync(versioned).map((version) => path.join(versioned, version)) : []),
                 ];
 
                 const { changelogDisplayedSidebar: displayedSidebar } = options;
-                const displayedSidebarLine = displayedSidebar !== undefined
-                    ? `displayed_sidebar: ${displayedSidebar}\n`
-                    : '';
+                const displayedSidebarLine =
+                    displayedSidebar !== undefined ? `displayed_sidebar: ${displayedSidebar}\n` : '';
                 const hasDefaultChangelog = new Map();
 
                 for (const p of pathsToCopyChangelog) {
                     // the changelog page has to exist for the sidebar to work - async loadContent() is (apparently) not awaited for by sidebar
                     if (fs.existsSync(path.join(p, 'changelog.md'))) continue;
-                    fs.writeFileSync(`${p}/changelog.md`, `---
+                    fs.writeFileSync(
+                        `${p}/changelog.md`,
+                        `---
 title: Changelog
 sidebar_label: Changelog
 ${displayedSidebarLine}---
 It seems that the changelog is not available.
 This either means that your Docusaurus setup is misconfigured, or that your GitHub repository contains no releases yet.
-`);
+`,
+                    );
                     hasDefaultChangelog.set(p, true);
                 }
 
@@ -126,9 +124,7 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
             });
         },
         getClientModules() {
-            return [
-                require.resolve('./theme/custom.css'),
-            ];
+            return [require.resolve('./theme/custom.css')];
         },
         configureWebpack() {
             return {

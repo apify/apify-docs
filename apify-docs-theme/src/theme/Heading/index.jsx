@@ -65,12 +65,11 @@ export default function Heading({ as: As, id, ...props }) {
             {...props}
             className={clsx(
                 'anchor',
-                hideOnScroll
-                    ? styles.anchorWithHideOnScrollNavbar
-                    : styles.anchorWithStickyNavbar,
+                hideOnScroll ? styles.anchorWithHideOnScrollNavbar : styles.anchorWithStickyNavbar,
                 props.className,
             )}
-            id={id}>
+            id={id}
+        >
             {props.children}
             <a
                 onClick={handleCopy}
