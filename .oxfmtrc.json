@@ -1,0 +1,20 @@
+{
+    "printWidth": 120,
+    "ignorePatterns": [
+        "**/*.md",
+        "**/*.mdx",
+        "**/*.json",
+        "**/*.jsonc",
+        "**/*.yaml",
+        "**/*.yml",
+        "**/node_modules",
+        "**/dist",
+        "**/build",
+        ".docusaurus",
+        "coverage",
+        "patches",
+        "sources",
+        "apify-api",
+        "examples"
+    ]
+}
