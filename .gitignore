@@ -12,6 +12,7 @@ pids
 .idea
 .vscode
 yarn.lock
+.yarn
 tmp
 types
 .history

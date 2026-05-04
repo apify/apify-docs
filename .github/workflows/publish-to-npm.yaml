@@ -29,12 +29,6 @@ jobs:
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
-
-            -   name: Enable corepack
-                run: |
-                    corepack enable
 
             -   name: Check changes in theme
                 id: changed-theme-files
@@ -57,13 +51,9 @@ jobs:
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
                     registry-url: 'https://registry.npmjs.org'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
-                run: |
-                    corepack enable
+            -   uses: apify/workflows/pnpm-install@main
 
             -   name: Setup git user and npm
                 run: |
@@ -74,14 +64,14 @@ jobs:
                 run: |
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
                     PACKAGE_NAME=$(jq -r .name package.json)
-                    LATEST_VERSION=$(npm show "$PACKAGE_NAME" version 2>/dev/null || jq -r .version package.json)
-                    npm pkg set "version=$LATEST_VERSION"
-                    npm version patch --no-git-tag-version
+                    LATEST_VERSION=$(pnpm show "$PACKAGE_NAME" version 2>/dev/null || jq -r .version package.json)
+                    pnpm pkg set "version=$LATEST_VERSION"
+                    pnpm version patch --no-git-tag-version
 
             -   name: Deploy theme to npm
                 run: |
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
-                    npm publish
+                    pnpm publish --no-git-checks
 
             -   name: Wait until the new theme version is available on npm
                 run: |
@@ -90,7 +80,7 @@ jobs:
                     PACKAGE_VER=$(jq -r .version package.json);
                     for _ in $(seq 1 10); do
                         EXIT_CODE=0;
-                        npm show "$PACKAGE_NAME@$PACKAGE_VER" || EXIT_CODE=1;
+                        pnpm show "$PACKAGE_NAME@$PACKAGE_VER" || EXIT_CODE=1;
                         if [[ $EXIT_CODE -eq 1 ]]; then
                             echo "The new package version ($PACKAGE_VER) is not yet available, waiting 30 seconds...";
                             sleep 30;
@@ -99,7 +89,7 @@ jobs:
                         echo "The new package version ($PACKAGE_VER) is live, proceeding!";
                         break;
                     done;
-                    npm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
+                    pnpm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
 
             -   name: Commit the new theme version
                 continue-on-error: true
@@ -109,6 +99,7 @@ jobs:
                     author_name: github-actions[bot]
                     author_email: 41898282+github-actions[bot]@users.noreply.github.com
                     message: 'chore: publish new version of @apify/docs-theme [skip ci]'
+                    pull: '--rebase --autostash'
 
     rebuild-docs:
         needs: publish
