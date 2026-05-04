@@ -7,7 +7,6 @@ function collectSlugs(pathname) {
 
     let direntry;
 
-    // eslint-disable-next-line no-cond-assign
     while ((direntry = dir.readSync()) !== null) {
         if (direntry.isFile() && direntry.name.endsWith('.md')) {
             const mdContent = readFileSync(join(pathname, direntry.name), { encoding: 'utf-8' });

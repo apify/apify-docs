@@ -49,7 +49,7 @@
         "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs"
     },
     "devDependencies": {
-        "@apify/eslint-config": "^1.0.0",
+        "@apify/eslint-config": "^2.0.0",
         "@apify/tsconfig": "^0.1.0",
         "@stoplight/spectral-cli": "^6.15.0",
         "@types/react": "^19.0.0",
