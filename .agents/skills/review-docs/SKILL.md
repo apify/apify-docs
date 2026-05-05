@@ -12,7 +12,7 @@ argument-hint: file-path
 
 1. **Verify file version** - `git status` to confirm you have the latest
 2. **Run deterministic checks** (main process) - these are objective, no judgment needed:
-   - `npm run lint:md` (heading hierarchy, list numbering, spacing)
+   - `pnpm lint:md` (heading hierarchy, list numbering, spacing)
    - `vale "<file>" --minAlertLevel=error` (prose style, pronouns, dashes, code fences, admonitions)
    - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 3. **Delegated standards review** - spawn one subagent per standards file to check compliance. Each subagent reads the file being reviewed plus one standards file, and returns violations with line numbers and suggested fixes:

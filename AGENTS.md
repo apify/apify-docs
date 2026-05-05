@@ -14,17 +14,17 @@ One unified site built from multiple repositories. See `CONTRIBUTING.md` for mul
 ## Commands
 
 ```bash
-npm install              # Install dependencies (runs patch-package via postinstall)
-npm start                # Dev server (rebuilds API docs, port 3000)
-npm run build            # Production build (catches broken links, bad frontmatter)
-npm run lint             # Run all linters (markdownlint + ESLint)
-npm run lint:md          # Markdownlint only
-npm run lint:code        # ESLint only
-npm run lint:fix         # Auto-fix both linters
-vale sync                # Download Vale styles (first time only)
+pnpm install            # Install dependencies (runs patch-package via postinstall)
+pnpm start              # Dev server (rebuilds API docs, port 3000)
+pnpm build              # Production build (catches broken links, bad frontmatter)
+pnpm lint               # Run all linters (markdownlint + oxlint)
+pnpm lint:md            # Markdownlint only
+pnpm lint:code          # oxlint only
+pnpm lint:fix           # Auto-fix both linters
+vale sync               # Download Vale styles (first time only)
 vale "path/to/file.md" --minAlertLevel=error  # Prose style check
-npm run api:rebuild      # Regenerate API docs from OpenAPI specs
-npm run openapi:lint     # Validate OpenAPI spec (Redocly + Spectral + YAML)
+pnpm api:rebuild        # Regenerate API docs from OpenAPI specs
+pnpm openapi:lint       # Validate OpenAPI spec (Redocly + Spectral + YAML)
 ```
 
 ## Architecture
@@ -38,7 +38,7 @@ API docs are generated, NOT hand-written. The workflow:
    - `code-samples-decorator.mjs` - Auto-adds code samples if files exist in `/code_samples/{js,curl}/`
    - `legacy-doc-url-decorator.mjs` - Adds backward-compatible URLs
    - `client-references-links-decorator.mjs` - Links to client library docs
-1. **Build command**: `npm run api:rebuild` = clean + bundle with Redocly + generate with Docusaurus
+1. **Build command**: `pnpm api:rebuild` = clean + bundle with Redocly + generate with Docusaurus
 1. **Output**: Markdown files in `apify-api/docs/` (gitignored, regenerated on each build)
 
 Never edit generated API docs directly. Edit the OpenAPI YAML source or add code samples.
@@ -133,7 +133,7 @@ Post-build scripts (`scripts/joinLlmsFiles.mjs` + `indentLlmsFile.mjs`) combine 
 | apify-sdk-python | 3004 | Python SDK docs |
 | apify-cli | 3005 | CLI documentation |
 
-Use `npm run start:dev` + nginx to serve all repos together locally. See `CONTRIBUTING.md` for setup.
+Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUTING.md` for setup.
 
 ## Deployment
 
@@ -147,12 +147,12 @@ Use `npm run start:dev` + nginx to serve all repos together locally. See `CONTRI
 1. **Broken links on build** - `onBrokenLinks: 'throw'` fails CI. Check slugs match file paths
 1. **Missing frontmatter** - Description or slug errors break SEO and navigation
 1. **Missing code block language** - Always specify language for syntax highlighting
-1. **Stale API docs locally** - Run `npm run api:rebuild` after changing OpenAPI specs
+1. **Stale API docs locally** - Run `pnpm api:rebuild` after changing OpenAPI specs
 
 ## Quick reference
 
 - **Add new doc**: Create `.md` in `sources/{platform,academy}/`, add frontmatter with title/description/slug
-- **Add API endpoint**: Edit `apify-api/openapi/paths/**/*.yaml`, add code samples, run `npm run api:rebuild`
+- **Add API endpoint**: Edit `apify-api/openapi/paths/**/*.yaml`, add code samples, run `pnpm api:rebuild`
 - **Fix broken build**: Check `onBrokenLinks` errors, verify slugs match file paths, validate frontmatter
 
 ---
@@ -200,4 +200,4 @@ When creating or reviewing documentation, verify:
 - [ ] Images have alt text, use light theme
 - [ ] Terminology matches rules above
 - [ ] US English, active voice, no sales language
-- [ ] `npm run lint` passes
+- [ ] `pnpm lint` passes

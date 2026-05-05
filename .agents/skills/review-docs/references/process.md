@@ -11,7 +11,7 @@ Agent-agnostic workflow for reviewing Apify documentation.
 
 These are objective - no judgment needed. Report all failures. Run in the main process (not in subagents).
 
-- `npm run lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
+- `pnpm lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `vale "<file>" --minAlertLevel=error` (prose style, dashes, code fences, admonitions)
 - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 

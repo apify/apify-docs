@@ -32,7 +32,7 @@ Documentation ecosystem consists of:
 ### Prerequisites
 
 - **Node.js 22** (see [.nvmrc](.nvmrc))
-- **npm** or **pnpm**
+- **pnpm 10** (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
 - **Git**
 
 ### Quick setup
@@ -43,21 +43,21 @@ git clone https://github.com/apify/apify-docs.git
 cd apify-docs
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm start
+pnpm start
 ```
 
 The site will be available at `http://localhost:3000`
 
 ### Available scripts
 
-- `npm start` - Start development server with API docs
-- `npm run build` - Build for production
-- `npm run lint` - Run all linting checks
-- `npm run lint:fix` - Fix linting issues automatically
-- `npm run api:rebuild` - Regenerate API documentation
+- `pnpm start` - Start development server with API docs
+- `pnpm build` - Build for production
+- `pnpm lint` - Run all linting checks
+- `pnpm lint:fix` - Fix linting issues automatically
+- `pnpm api:rebuild` - Regenerate API documentation
 
 ## Documentation architecture
 

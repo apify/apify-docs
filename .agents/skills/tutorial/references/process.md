@@ -44,15 +44,15 @@ Each step should have a clear action verb, expected result, and verification. Co
 
 ## Step 5: Quality check
 
-- Run `npm run lint:md` on the new file
+- Run `pnpm lint:md` on the new file
 - Run `vale "<file>" --minAlertLevel=error`
-- Run `npm start` (or `npm run build`) to verify no broken links or slug conflicts
+- Run `pnpm start` (or `pnpm build`) to verify no broken links or slug conflicts
 
 ## Edge cases
 
 ### Build fails after adding tutorial
 
-Verify front matter has all required fields. Run `npm run build` to catch broken links and slug issues.
+Verify front matter has all required fields. Run `pnpm build` to catch broken links and slug issues.
 
 ### Code examples don't render correctly
 

@@ -127,4 +127,4 @@ print(queue)
 1. Filename must match `operationId` from the OpenAPI spec
 1. The `code-samples-decorator.mjs` Redocly plugin auto-detects files and adds `x-codeSamples`
 1. Missing samples are logged during build - check console output
-1. Run `npm run api:rebuild` to verify samples appear
+1. Run `pnpm api:rebuild` to verify samples appear
