@@ -38,9 +38,9 @@ Follow the structure template for the doc type in `.agents/skills/doc-write/refe
 
 ## Step 5: Quality check
 
-- Run `npm run lint:md` on the new or edited file
+- Run `pnpm lint:md` on the new or edited file
 - Run `vale "<file>" --minAlertLevel=error`
-- Run `npm start` (or `npm run build`) to verify no broken links or slug conflicts
+- Run `pnpm start` (or `pnpm build`) to verify no broken links or slug conflicts
 
 Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags.
 

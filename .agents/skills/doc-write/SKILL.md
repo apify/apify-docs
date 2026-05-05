@@ -16,7 +16,7 @@ argument-hint: topic
    - **Platform docs**: intro → prerequisites → main content → code examples → next steps
    - **Guides**: intro with goal → step-by-step instructions → verification → troubleshooting
    - **Reference**: brief description → parameters/options → examples → related pages
-5. **Quality check** - run `npm run lint:md` and `vale` before finishing
+5. **Quality check** - run `pnpm lint:md` and `vale` before finishing
 
 Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags.
 
