@@ -1,5 +1,5 @@
 - name: Actors
-  x-displayName: Actors
+  x-displayName: Actors - Introduction
   x-legacy-doc-urls:
     - "#/reference/actors"
     - "#tag/Actors"
@@ -15,7 +15,7 @@
     - A tilde-separated combination of the Actor owner's username and the Actor name (e.g., `janedoe~my-actor`).
 
 - name: Actors/Actor versions
-  x-displayName: Actor versions
+  x-displayName: Actor versions - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
     - "#/reference/actors/version-collection"
@@ -44,7 +44,7 @@
     For more information about source code and Actor versions, check out [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
     in Actors documentation.
 - name: Actors/Actor builds
-  x-displayName: Actor builds
+  x-displayName: Actor builds - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
     - "#/reference/actors/build-collection"
@@ -56,7 +56,7 @@
   description: |
     The API endpoints in this section allow you to manage your Apify Actors builds.
 - name: Actors/Actor runs
-  x-displayName: Actor runs
+  x-displayName: Actor runs - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
     - "#/reference/actors/run-collection"
@@ -80,7 +80,7 @@
     For more information about platform usage and resource calculations, see the [Usage and Resources documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
   x-trait: "true"
 - name: Actors/Webhook collection
-  x-displayName: Webhook collection
+  x-displayName: Webhook collection - Introduction
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
     - "#/reference/actors/webhook-collection"
@@ -89,7 +89,7 @@
     The API endpoint in this section allows you to get a list of webhooks of a specific Actor.
   x-trait: "true"
 - name: Actor builds
-  x-displayName: Actor builds
+  x-displayName: Actor builds - Introduction
   x-legacy-doc-urls:
     - "#/reference/actor-builds"
     - "#tag/Actor-builds"
@@ -110,7 +110,7 @@
 
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Actor runs
-  x-displayName: Actor runs
+  x-displayName: Actor runs - Introduction
   x-legacy-doc-urls:
     - "#/reference/actor-runs"
     - "#tag/Actor-runs"
@@ -126,7 +126,7 @@
 
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Actor tasks
-  x-displayName: Actor tasks
+  x-displayName: Actor tasks - Introduction
   x-legacy-doc-urls:
     - "#/reference/actor-tasks"
     - "#tag/Actor-tasks"
@@ -168,7 +168,7 @@
   x-displayName: ""
   description: Storage-related API endpoints for managing datasets, key-value stores, and request queues.
 - name: Storage/Datasets
-  x-displayName: Datasets
+  x-displayName: Datasets - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
     - "#/reference/datasets"
@@ -198,7 +198,7 @@
     :::
   x-trait: "true"
 - name: Storage/Key-value stores
-  x-displayName: Key-value stores
+  x-displayName: Key-value stores - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
     - "#/reference/key-value-stores/key-collection"
@@ -228,7 +228,7 @@
     :::
   x-trait: "true"
 - name: Storage/Request queues
-  x-displayName: Request queues
+  x-displayName: Request queues - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
     - "#/reference/request-queues"
@@ -256,7 +256,7 @@
 
     :::
 - name: Storage/Request queues/Requests
-  x-displayName: Requests
+  x-displayName: Requests - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
     - "#/reference/request-queues/request-collection"
@@ -280,7 +280,7 @@
 
     :::
 - name: Storage/Request queues/Requests locks
-  x-displayName: Requests locks
+  x-displayName: Requests locks - Introduction
   x-parent-tag-name: Storage
   x-legacy-doc-urls:
 
@@ -310,7 +310,7 @@
   x-displayName: ""
   description: Webhook-related API endpoints for configuring automated notifications.
 - name: Webhooks/Webhooks
-  x-displayName: Webhooks
+  x-displayName: Webhooks - Introduction
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
     - "#/reference/webhooks"
@@ -334,7 +334,7 @@
 
     For more information see [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 - name: Webhooks/Webhook dispatches
-  x-displayName: Webhook dispatches
+  x-displayName: Webhook dispatches - Introduction
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
     - "#/reference/webhook-dispatches"
@@ -345,7 +345,7 @@
     - "#tag/Webhook-dispatchesWebhook-dispatch-object"
   description: This section describes API endpoints to get webhook dispatches.
 - name: Schedules
-  x-displayName: Schedules
+  x-displayName: Schedules - Introduction
   x-legacy-doc-urls:
     - "#/reference/schedules"
     - "#tag/Schedules"
@@ -370,7 +370,7 @@
     For details, see the documentation of the [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
   x-trait: "true"
 - name: Store
-  x-displayName: Store
+  x-displayName: Store - Introduction
   x-legacy-doc-urls:
     - "#/reference/store"
     - "#tag/Store"
@@ -388,7 +388,7 @@
     :::
   x-trait: true
 - name: Logs
-  x-displayName: Logs
+  x-displayName: Logs - Introduction
   x-legacy-doc-urls:
     - "#/reference/logs"
     - "#tag/Logs"
@@ -407,7 +407,7 @@
     :::
   x-trait: true
 - name: Users
-  x-displayName: Users
+  x-displayName: Users - Introduction
   x-legacy-doc-urls:
     - "#/reference/users"
     - "#tag/Users"
@@ -423,72 +423,72 @@
     user accounts.
   x-trait: true
 - name: Tools
-  x-displayName: Tools
+  x-displayName: Tools - Introduction
   description: |
     The API endpoints described in this section provide utility tools for encoding,
     signing, and verifying data, as well as inspecting HTTP request details.
 - name: Default dataset
-  x-displayName: Default dataset
+  x-displayName: Default dataset - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor run's default dataset without the need to resolve the dataset ID first.
 
     Subset of functionality described in: [Datasets](/api/v2/storage-datasets)
 - name: Default key-value store
-  x-displayName: Default key-value store
+  x-displayName: Default key-value store - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor run's default key-value store without the need to resolve the key-value store ID first.
 
     Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
 - name: Default request queue
-  x-displayName: Default request queue
+  x-displayName: Default request queue - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor run's default request queue without the need to resolve the request queue ID first.
 
     Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)
 - name: Last Actor run's default dataset
-  x-displayName: Last Actor run's default dataset
+  x-displayName: Last Actor run's default dataset - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default dataset without the need to resolve the dataset ID first.
 
     Subset of functionality described in: [Datasets](/api/v2/storage-datasets)
 - name: Last Actor run's default key-value store
-  x-displayName: Last Actor run's default key-value store
+  x-displayName: Last Actor run's default key-value store - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default key-value store without the need to resolve the key-value store ID first.
 
     Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
 - name: Last Actor run's default request queue
-  x-displayName: Last Actor run's default request queue
+  x-displayName: Last Actor run's default request queue - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor's last run's default request queue without the need to resolve the request queue ID first.
 
     Subset of functionality described in: [Request queues](/api/v2/storage-request-queues)
 - name: Last Actor run's log
-  x-displayName: Last Actor run's log
+  x-displayName: Last Actor run's log - Introduction
   description: |
     The API endpoint described in this section is convenience endpoint that provides access to last Actor run's log.
 
     Same as of functionality described in: [Logs](/api/v2/logs)
 - name: Last Actor task run's log
-  x-displayName: Last Actor task run's log
+  x-displayName: Last Actor task run's log - Introduction
   description: |
     The API endpoint described in this section is convenience endpoint that provides access to last Actor task run's log.
 
     Same as of functionality described in: [Logs](/api/v2/logs)
 - name: Last Actor task run's default dataset
-  x-displayName: Last Actor task run's default dataset
+  x-displayName: Last Actor task run's default dataset - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor task's last run's default dataset without the need to resolve the dataset ID first.
 
     Subset of functionality described in: [Datasets](/api/v2/storage-datasets)
 - name: Last Actor task run's default key-value store
-  x-displayName: Last Actor task run's default key-value store
+  x-displayName: Last Actor task run's default key-value store - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor task's last run's default key-value store without the need to resolve the key-value store ID first.
 
     Subset of functionality described in: [Key-value stores](/api/v2/storage-key-value-stores)
 - name: Last Actor task run's default request queue
-  x-displayName: Last Actor task run's default request queue
+  x-displayName: Last Actor task run's default request queue - Introduction
   description: |
     The API endpoints described in this section are convenience endpoints that provide access to Actor task's last run's default request queue without the need to resolve the request queue ID first.
 
