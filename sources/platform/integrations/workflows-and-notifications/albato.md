@@ -1,6 +1,6 @@
 ---
 title: Albato integration
-description: Connect Apify Actors to 1,000+ apps with Albato. Trigger workflows when Actor or task runs finish and automatically pass scraped data to any app.
+description: Connect Apify Actors to over 1,000 apps with Albato. Trigger workflows when Actor or task runs finish and pass scraped data to any app.
 sidebar_label: Albato
 sidebar_position: 7
 slug: /integrations/albato
@@ -8,18 +8,20 @@ slug: /integrations/albato
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Albato](https://albato.com/automate) is a no-code integration platform that connects 1,000+ apps through a visual automation builder. With the [Apify integration for Albato](https://albato.com/apps/apify), you can trigger workflows when Actors or tasks finish, run Actors on demand, retrieve datasets, and pass scraped data to CRMs, spreadsheets, messaging apps, and more.
+With [Apify integration for Albato](https://albato.com/apps/apify), you can connect your Apify Actors to over 1,000 apps through a visual automation builder.
 
-In this guide, you'll learn how to connect your Apify account to Albato and build an automated workflow that runs an Actor and sends the results to another app.
+Your Albato workflows can start Apify Actors or tasks, fetch items from a dataset, retrieve records from key-value stores, find Actor or task runs, or send custom requests to the Apify API.
+
+You can use the Albato integration to trigger a workflow whenever an Actor or a task finishes.
 
 <ThirdPartyDisclaimer />
 
 ## Connect Apify with Albato
 
-### Prerequisites
+To use the Apify integration on Albato, you will need to:
 
-- An [Apify account](https://console.apify.com/).
-- An [Albato account](https://albato.com/) (free 7-day trial available).
+- Have an [Apify account](https://console.apify.com/).
+- Have an [Albato account](https://albato.com/) (free 7-day trial available).
 
 ### Step 1: Get your Apify API token
 
@@ -29,7 +31,7 @@ Log in to [Apify Console](https://console.apify.com/).
 
 Go to **Settings > API & Integrations**.
 
-![API and Integrations settings](../images/albato-api-settings.png)
+![API and integrations settings](../images/albato-api-settings.png)
 
 Copy your **Personal API token**.
 
@@ -77,45 +79,69 @@ Every time the selected Actor finishes a run, Albato fetches the scraped data an
 
 ## Build a workflow with an Apify action
 
-You can also start an Actor directly from an Albato workflow. This is useful when you want another event — such as a new CRM record or a form submission — to kick off a scraping job.
+You can also start an Actor directly from an Albato workflow. This is useful when you want another event, such as a new CRM record or a form submission, to kick off a scraping job.
 
 Create a new automation and choose any app as the trigger (for example, **HubSpot > New Contact**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
 
-## Available triggers and actions
+## Triggers
 
-### Triggers
+### Finished Actor run
 
-> **Finished Actor Run** — triggers when a selected Actor run finishes.
+> Triggers when a selected Actor run is finished.
 
-> **Finished Task Run** — triggers when a selected task run finishes.
+### Finished task run
 
-### Actions
+> Triggers when a selected Actor task run is finished.
 
-> **Run Actor** — runs a selected Actor.
+## Actions
 
-> **Run task** — runs a pre-configured Actor task.
+### Run Actor
 
-> **Last Run Actor** — retrieves data from the most recent Actor run.
+> Runs a selected Actor.
 
-> **Last Run task** — retrieves data from the most recent task run.
+### Run task
 
-> **Find last actor run** — searches for the latest run of a specific Actor.
+> Runs a selected Actor task.
 
-> **Find last task run** — searches for the latest run of a specific task.
+### Last Actor run
 
-> **Created actor task** — creates a new Actor task configuration.
+> Retrieves data from the most recent Actor run.
 
-> **Get dataset** — retrieves items from a dataset.
+### Last task run
 
-> **Get key-value store record** — reads a record from a key-value store.
+> Retrieves data from the most recent Actor task run.
 
-> **Get list of keys** — lists all keys in a key-value store.
+### Find last Actor run
 
-> **Custom API request** — sends a custom request to any Apify API endpoint.
+> Finds the most recent Actor run.
+
+### Find last task run
+
+> Finds the most recent Actor task run.
+
+### Create Actor task
+
+> Creates a new Actor task configuration.
+
+### Get dataset
+
+> Retrieves items from a [dataset](/platform/storage/dataset).
+
+### Get key-value store record
+
+> Retrieves a value from a [key-value store](/platform/storage/key-value-store).
+
+### Get list of keys
+
+> Lists keys in a [key-value store](/platform/storage/key-value-store).
+
+### Custom API request
+
+> Sends a custom request to any Apify API endpoint.
 
 ## Resources
 
 - [Apify integration page on Albato](https://albato.com/apps/apify)
 - [How to connect Apify to Albato](https://albato.com/blog/publications/how-to-connect-apify-to-albato)
 
-If you have any questions or need help, reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
