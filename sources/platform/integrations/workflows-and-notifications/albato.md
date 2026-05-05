@@ -2,7 +2,7 @@
 title: Albato integration
 description: Connect Apify Actors to over 1,000 apps with Albato. Trigger workflows when Actor or task runs finish and automatically pass scraped data to any app.
 sidebar_label: Albato
-sidebar_position: 7
+sidebar_position: 7.0
 slug: /integrations/albato
 ---
 
@@ -18,7 +18,7 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 ## Connect Apify with Albato
 
-To use the Apify integration on Albato, you will need to:
+To use the Apify integration on Albato, you'll need to:
 
 - Have an [Apify account](https://console.apify.com/).
 - Have an [Albato account](https://albato.com/) (free 7-day trial available).
@@ -79,7 +79,7 @@ Every time the selected Actor finishes a run, Albato fetches the scraped data an
 
 ## Build a workflow with an Apify action
 
-You can also start an Actor directly from an Albato workflow. This is useful when you want another event, such as a new CRM record or a form submission, to kick off a scraping job.
+You can also start an Actor directly from an Albato workflow. This is useful when you want another event, such as a new CRM record or a form submission, to start a scraping job.
 
 Create a new automation and choose any app as the trigger (for example, **HubSpot > New Contact**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
 
@@ -144,4 +144,4 @@ Create a new automation and choose any app as the trigger (for example, **HubSpo
 - [Apify integration page on Albato](https://albato.com/apps/apify)
 - [How to connect Apify to Albato](https://albato.com/blog/publications/how-to-connect-apify-to-albato)
 
-If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have questions or need help, join the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
