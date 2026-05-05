@@ -162,7 +162,10 @@ function filterLlmsIndex(content) {
             for (let j = i + 1; j < filteredLines.length; j++) {
                 const next = filteredLines[j];
                 if (next.startsWith('## ')) break;
-                if (linkLine.test(next)) { hasEntries = true; break; }
+                if (linkLine.test(next)) {
+                    hasEntries = true;
+                    break;
+                }
             }
             if (!hasEntries) {
                 while (result.length && result.at(-1).trim() === '') result.pop();
@@ -226,9 +229,7 @@ async function joinFiles() {
     console.log('Wrote and reordered build/llms.txt');
 
     // llms-full.txt: fetch and append full content from external repos (unchanged behavior)
-    const contents = await Promise.all(
-        EXTERNAL_FETCH_URLS.map((route) => fetchFile(route)),
-    );
+    const contents = await Promise.all(EXTERNAL_FETCH_URLS.map((route) => fetchFile(route)));
     const joined = contents.filter(Boolean).join('\n\n');
     await fs.appendFile(path.join(BUILD_DIR, 'llms-full.txt'), joined, 'utf8');
     console.log('Wrote llms-full.txt to build/');

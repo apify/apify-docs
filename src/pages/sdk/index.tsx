@@ -56,9 +56,9 @@ export default function Home() {
                     heading="Apify SDK"
                     description={
                         <>
-                            The Apify SDK is a toolkit for building Actors—serverless microservices running on the Apify platform.
-                            Apify comes with first-class support for JavaScript/TypeScript and Python,
-                            but you can run any containerized code as Actors.
+                            The Apify SDK is a toolkit for building Actors—serverless microservices running on the Apify
+                            platform. Apify comes with first-class support for JavaScript/TypeScript and Python, but you
+                            can run any containerized code as Actors.
                         </>
                     }
                 />
@@ -89,5 +89,6 @@ export default function Home() {
                     </StyledContent>
                 </Section>
             </UiLibraryWrapper>
-        </Layout>);
+        </Layout>
+    );
 }

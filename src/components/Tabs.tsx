@@ -36,18 +36,21 @@ interface TabsProps {
 export default function Tabs({ items }: TabsProps) {
     const [activeTab, setActiveTab] = React.useState(0);
 
-    return (<>
-        <TabsWrapper>
-            {items.map(({ title }, index) => (
-                <Heading
-                    key={title?.toLocaleString()}
-                    type="titleS"
-                    className={clsx('TabItem', activeTab === index && 'TabItem-active')}
-                    onClick={() => setActiveTab(index)}
-                >{title}</Heading>
-            ))}
-        </TabsWrapper>
-        {items[activeTab].content}
-    </>
+    return (
+        <>
+            <TabsWrapper>
+                {items.map(({ title }, index) => (
+                    <Heading
+                        key={title?.toLocaleString()}
+                        type="titleS"
+                        className={clsx('TabItem', activeTab === index && 'TabItem-active')}
+                        onClick={() => setActiveTab(index)}
+                    >
+                        {title}
+                    </Heading>
+                ))}
+            </TabsWrapper>
+            {items[activeTab].content}
+        </>
     );
 }

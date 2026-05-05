@@ -6,9 +6,7 @@
     h1 {
         margin-bottom: 0 !important;
     }
-    padding-bottom: calc(
-        var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading)
-    );
+    padding-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
 
     @media (max-width: 767px) {
         flex-direction: column;

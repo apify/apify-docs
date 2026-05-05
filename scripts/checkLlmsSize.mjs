@@ -21,10 +21,7 @@ async function checkFile(filePath) {
 const llmsPath = path.join(BUILD_DIR, 'llms.txt');
 const llmsFullPath = path.join(BUILD_DIR, 'llms-full.txt');
 
-const [llmsChars, llmsFullChars] = await Promise.all([
-    checkFile(llmsPath),
-    checkFile(llmsFullPath),
-]);
+const [llmsChars, llmsFullChars] = await Promise.all([checkFile(llmsPath), checkFile(llmsFullPath)]);
 
 if (llmsChars === null || llmsFullChars === null) {
     process.exit(1);

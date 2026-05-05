@@ -272,3 +272,6 @@ jobs:
             -   uses: apify/workflows/pnpm-install@main
 
             -   run: pnpm lint:code
+
+            -   name: Format check
+                run: pnpm format:check
