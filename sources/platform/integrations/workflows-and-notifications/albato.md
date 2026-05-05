@@ -1,6 +1,6 @@
 ---
 title: Albato integration
-description: Connect Apify Actors to over 1,000 apps with Albato. Trigger workflows when Actor or task runs finish and pass scraped data to any app.
+description: Connect Apify Actors to over 1,000 apps with Albato. Trigger workflows when Actor or task runs finish and automatically pass scraped data to any app.
 sidebar_label: Albato
 sidebar_position: 7
 slug: /integrations/albato
