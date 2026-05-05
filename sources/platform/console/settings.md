@@ -27,6 +27,7 @@ Here you can manage:
 * two-factor authentication
 * session information and configuration
 * general resource access
+* [Actor permissions approval](../actors/running/permissions.md#full-permission-actors) (require or skip approval when running full-permission Actors)
 * share of run data with developers
 
 ### Session information
