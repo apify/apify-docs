@@ -129,7 +129,8 @@ await Actor.init();
 // ...
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
-    countryCode: 'US_CA',
+    countryCode: 'US',
+    subdivisionCode: 'CA',
 });
 // ...
 await Actor.exit();
@@ -146,7 +147,8 @@ async def main():
         # ...
         proxy_configuration = await Actor.create_proxy_configuration(
             groups=['RESIDENTIAL'],
-            country_code='US_CA',
+            country_code='US',
+            subdivision_code='CA',
         )
         # ...
 ```
