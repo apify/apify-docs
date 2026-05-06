@@ -60,7 +60,7 @@ If you are accessing your key-value stores using the `username~store-name` [stor
 
 :::tip Authentication
 
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](../integrations/programming/api.md#authentication) documentation.
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](../integrations/built-in/api.md#authentication) documentation.
 
 :::
 
