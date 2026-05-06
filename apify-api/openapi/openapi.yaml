@@ -37,9 +37,9 @@ info:
     ## Authentication
     <span id="/introduction/authentication"></span>
 
-    You can find your API token on the
-    [Integrations](https://console.apify.com/account#/integrations) page in the
-    Apify Console.
+    **You can find your API token on the
+    [Integrations](https://console.apify.com/settings/integrations) page in the
+    Apify Console.**
 
     To use your token in a request, either:
 
@@ -54,7 +54,7 @@ info:
     in browser history and server logs. This creates a chance for someone
     unauthorized to access your API token.
 
-    **Do not share your API token or password with untrusted parties.**
+    **Never share your API token or password with untrusted parties!**
 
     For more information, see our
     [integrations](https://docs.apify.com/platform/integrations) documentation.
