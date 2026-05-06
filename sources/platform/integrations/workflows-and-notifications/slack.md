@@ -25,15 +25,15 @@ To use the Apify integration for Slack, you will need:
 
 You can find all integrations on an Actor's or task's **Integrations** tab. For example, you can try using [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL).
 
-Find the integration for Slack, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > API & Integrations** window.
+Find the integration for Slack, then click the **Configure** button. Log in with your Slack account when prompted, then select your workspace in the **Settings > API & Integrations** window.
 
 ![Apify Integrations tab listing available integration options with Configure buttons next to each](../images/integrations-tab.png)
 
-Then, head back to your task to finish the setup. Select what type of events you would like to be notified of (e.g., when a run is created, when a run succeeds, when a run fails, etc.), your workspace, and the channel you want to receive the notifications in (you can set up an ad-hoc channel for this test). In the **Message** field, you can see how the notification will look, or you can craft a new custom one. See [Custom message format](#custom-message-format) for the template syntax and the full list of available variables.
+Head back to your task to finish the setup. Select the events you want to receive notifications for (run created, run succeeded, run failed, and so on), your workspace, and the channel for the notifications. You can use an ad-hoc channel to test. In the **Message** field, preview the default notification or craft a custom one. See [Custom message format](#custom-message-format) for the template syntax and the full list of available variables.
 
 ![Slack integration setup form with event type selection, workspace, channel, and Message template fields](../images/slack-integration-setup.png)
 
-Once you are done, click the **Save** button.
+Click the **Save** button.
 
 ## Step 2: Give the Apify integration a trial run
 
