@@ -23,7 +23,7 @@ The organization account is available on all plans. [Visit the pricing page](htt
 ## Create an organization
 
 To create an organization account:
-
+<!-- vale off -->
 1. Log in to [Apify Console](https://console.apify.com).
 1. In the left-side panel, go to **Settings**.
 1. Select the **Organizations** tab.
@@ -32,7 +32,7 @@ To create an organization account:
    * Organization name
    * Organization username
    * Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
-
+<!-- vale on -->
 You can create up to 5 organizations and be a member of as many organizations as you need.
 
 ## Convert an existing account
