@@ -20,17 +20,24 @@ You can set up an organization in two ways.
 
 The organization account is available on all plans. [Visit the pricing page](https://apify.com/pricing) for more information.
 
-## Create a new organization
+## Create an organization
 
-You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://console.apify.com/settings/organizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
+To create an organization account:
 
-![Create a new organization](../images/organizations/create-new-org.png)
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Settings**.
+1. Select the **Organizations** tab.
+1. In **My organizations**, select **Create a new organization**.
+1. Complete the following information:
+   - Organization name
+   - Organization username
+   - Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
 
-**You can own up to 5 and be a member of as many organizations as you need.**
+You can create up to 5 organizations and be a member of as many organizations as you need.
 
 ## Convert an existing account
 
-> **When you convert an existing user account into an organization,**
+> **When you convert an existing user account into an organization:**
 >
 > * **You will no longer be able to sign in to the converted user account.**
 > * **An organization cannot be converted back to a personal account.**
@@ -41,8 +48,6 @@ Before converting your personal account into an organization, make sure it has a
 An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to **leave all the organizations you are a part of**.
 
 Then, under the **Organizations** [tab](https://console.apify.com/settings/organizations), click the **Convert this user account to an organization** button.
-
-![Convert your account to an organization](../images/organizations/convert-to-organization.png)
 
 Next, enter an organization name and select **Convert**.
 
