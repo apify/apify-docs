@@ -67,21 +67,31 @@ This example shows how to scrape data with an Apify Actor and automatically send
 
 In Albato, click **Create automation**. Select **Apify** as the trigger app and choose the **Finished Actor Run** trigger. This fires every time a selected Actor completes a run. Select your Apify connection and pick the Actor you want to monitor.
 
+![Albato trigger setup panel with Apify selected, the Finished actor run event chosen, and an Apify connection configured](../images/albato-trigger-setup.png)
+
 ### Step 2: Add an action to retrieve the data
 
 Click **+** to add the next step. Select **Apify** as the action app and choose the **Get dataset** action. Map the **Run ID** from the trigger output to fetch the correct dataset.
+
+![Albato action setup panel with Apify selected, the Get dataset action chosen, and an Apify connection configured](../images/albato-action-setup.png)
 
 ### Step 3: Send the data to Google Sheets
 
 Click **+** to add another step. Select **Google Sheets** as the action app and choose the **Create/update a row** action. Select your spreadsheet and map the dataset fields to the corresponding columns. Click **Save** and turn on the automation.
 
+![Albato action setup panel with Google Sheets selected, the Create/update a row action chosen, and the spreadsheet and sheet fields configured](../images/albato-google-sheets-action.png)
+
 Every time the selected Actor finishes a run, Albato fetches the scraped data and adds it to your spreadsheet automatically.
+
+![Albato automation canvas showing the complete three-step workflow: Apify Finished actor run trigger, Apify Get dataset action, and Google Sheets Create/update a row action](../images/albato-automation-canvas.png)
 
 ## Build a workflow with an Apify action
 
 You can also start an Actor directly from an Albato workflow. This is useful when you want another event, such as a new CRM record or a form submission, to start a scraping job.
 
 Create a new automation and choose any app as the trigger (for example, **HubSpot > Contact added**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
+
+![Albato automation canvas showing a three-step workflow: HubSpot Contact added trigger, Apify Run Actor action, and Apify Get dataset action](../images/albato-action-workflow-canvas.png)
 
 ### Handling long-running Actors
 
