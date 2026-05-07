@@ -8,7 +8,7 @@ slug: /integrations/albato
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Albato](https://albato.com/automate) is a no-code automation platform that connects over 1,000 apps through a visual workflow builder. With [Apify integration for Albato](https://albato.com/apps/apify), you can use Apify Actors as triggers or actions inside your Albato workflows to scrape data, run automation jobs, and pass results to any connected app.
+[Albato](https://albato.com/automate) is a no-code integration platform that connects over 1,000 apps through a visual automation builder. With [Apify integration for Albato](https://albato.com/apps/apify), you can use Apify Actors as triggers or actions inside your Albato workflows to scrape data, run automation jobs, and pass results to any connected app.
 
 Your Albato workflows can start Apify Actors or tasks, fetch items from a dataset, retrieve records from key-value stores, find Actor or task runs, or send custom requests to the Apify API.
 
@@ -39,7 +39,7 @@ Copy your **Personal API token**.
 
 ### Step 2: Create the Apify connection in Albato
 
-Log in to [Albato](https://albato.com/).
+Log in to [Albato](https://albato.com/app/user/auth/login?lang=en).
 
 ![Albato login](../images/albato-login.png)
 
@@ -73,7 +73,7 @@ Click **+** to add the next step. Select **Apify** as the action app and choose 
 
 ### Step 3: Send the data to Google Sheets
 
-Click **+** to add another step. Select **Google Sheets** as the action app and choose the **Add Row** action. Select your spreadsheet and map the dataset fields to the corresponding columns. Click **Save** and turn on the automation.
+Click **+** to add another step. Select **Google Sheets** as the action app and choose the **Create/update a row** action. Select your spreadsheet and map the dataset fields to the corresponding columns. Click **Save** and turn on the automation.
 
 Every time the selected Actor finishes a run, Albato fetches the scraped data and adds it to your spreadsheet automatically.
 
@@ -81,7 +81,7 @@ Every time the selected Actor finishes a run, Albato fetches the scraped data an
 
 You can also start an Actor directly from an Albato workflow. This is useful when you want another event, such as a new CRM record or a form submission, to start a scraping job.
 
-Create a new automation and choose any app as the trigger (for example, **HubSpot > New Contact**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
+Create a new automation and choose any app as the trigger (for example, **HubSpot > Contact added**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
 
 ### Handling long-running Actors
 
@@ -151,7 +151,7 @@ Confirm that you copied the **Personal API token** from **Settings > API & Integ
 
 ### Actor or task doesn't appear in the dropdown
 
-Albato lists Actors and tasks tied to the connected Apify account. If a recently created Actor or task isn't showing up, refresh the action configuration in Albato or recreate the connection. To use a public Actor from [Apify Store](https://apify.com/store), open it once in Apify Console so it's added to your account.
+Albato lists Actors and tasks tied to the connected Apify account. If a recently created Actor or task isn't showing up, refresh the connection and the action configuration. To use a public Actor from [Apify Store](https://apify.com/store), open it once in Apify Console so it's added to your account.
 
 ### Workflow times out before the Actor finishes
 
