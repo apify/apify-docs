@@ -2,13 +2,13 @@
 title: Albato integration
 description: Connect Apify Actors to over 1,000 apps with Albato. Trigger workflows when Actor or task runs finish and automatically pass scraped data to any app.
 sidebar_label: Albato
-sidebar_position: 7.0
+sidebar_position: 7
 slug: /integrations/albato
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-With [Apify integration for Albato](https://albato.com/apps/apify), you can connect your Apify Actors to over 1,000 apps through a visual automation builder.
+[Albato](https://albato.com/automate) is a no-code automation platform that connects over 1,000 apps through a visual workflow builder. With [Apify integration for Albato](https://albato.com/apps/apify), you can use Apify Actors as triggers or actions inside your Albato workflows to scrape data, run automation jobs, and pass results to any connected app.
 
 Your Albato workflows can start Apify Actors or tasks, fetch items from a dataset, retrieve records from key-value stores, find Actor or task runs, or send custom requests to the Apify API.
 
@@ -16,12 +16,12 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 <ThirdPartyDisclaimer />
 
+## Prerequisites
+
+- An [Apify account](https://console.apify.com/).
+- An [Albato account](https://albato.com/) (free 7-day trial available).
+
 ## Connect Apify with Albato
-
-To use the Apify integration on Albato, you'll need to:
-
-- Have an [Apify account](https://console.apify.com/).
-- Have an [Albato account](https://albato.com/) (free 7-day trial available).
 
 ### Step 1: Get your Apify API token
 
@@ -83,6 +83,10 @@ You can also start an Actor directly from an Albato workflow. This is useful whe
 
 Create a new automation and choose any app as the trigger (for example, **HubSpot > New Contact**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
 
+### Handling long-running Actors
+
+Apify Actors often run for several minutes, which doesn't fit well into a single synchronous workflow step. For Actors that take longer than a few seconds to finish, use the asynchronous pattern: start the run with the **Run Actor** action, then build a separate automation that uses the **Finished Actor Run** trigger to continue processing once the run completes. This avoids blocking your workflow while the Actor is still running and is also more reliable for runs that exceed the platform's step timeout.
+
 ## Triggers
 
 ### Finished Actor run
@@ -97,11 +101,11 @@ Create a new automation and choose any app as the trigger (for example, **HubSpo
 
 ### Run Actor
 
-> Runs a selected Actor.
+> Starts a selected Actor and returns immediately without waiting for the run to finish. To process the run output, pair this with the **Finished Actor Run** trigger or fetch results later with **Last Actor run** or **Get dataset**. See [Handling long-running Actors](#handling-long-running-actors).
 
 ### Run task
 
-> Runs a selected Actor task.
+> Starts a selected Actor task and returns immediately without waiting for the run to finish. As with **Run Actor**, pair this with the **Finished task run** trigger to continue once the run completes.
 
 ### Last Actor run
 
@@ -138,6 +142,24 @@ Create a new automation and choose any app as the trigger (for example, **HubSpo
 ### Custom API request
 
 > Sends a custom request to any Apify API endpoint.
+
+## Troubleshooting
+
+### Connection fails with "invalid token"
+
+Confirm that you copied the **Personal API token** from **Settings > API & Integrations** in Apify Console, not a different scoped token. Make sure no spaces or line breaks were added when pasting the token into Albato. If the connection still fails, generate a new token in Apify Console and recreate the connection.
+
+### Actor or task doesn't appear in the dropdown
+
+Albato lists Actors and tasks tied to the connected Apify account. If a recently created Actor or task isn't showing up, refresh the action configuration in Albato or recreate the connection. To use a public Actor from [Apify Store](https://apify.com/store), open it once in Apify Console so it's added to your account.
+
+### Workflow times out before the Actor finishes
+
+The **Run Actor** and **Run task** actions return immediately after the run starts, but downstream steps that read the run output can time out if the Actor takes longer than Albato's step limit. Use the asynchronous pattern: start the run in one automation, then continue processing in a separate automation triggered by **Finished Actor Run**. See [Handling long-running Actors](#handling-long-running-actors).
+
+### Dataset is empty
+
+The **Get dataset** action requires a valid **Run ID** and a run that finished successfully with output. Verify the run in [Apify Console](https://console.apify.com/) under **Runs** to confirm it completed and produced items before fetching the dataset.
 
 ## Resources
 
