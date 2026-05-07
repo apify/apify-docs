@@ -1,0 +1,129 @@
+---
+title: Publish your Actor task
+description: Publish a saved Actor task as a public use-case landing page on Apify Store by completing the display information, input, and dataset schema sections.
+slug: /actors/publishing/publish-task
+sidebar_position: 2
+---
+
+Actor tasks are useful for saving pre-configured inputs for your Actors. Public tasks can help with discoveribility and give the community real-world examples of use-cases and configurations of your Actor. Publishing a task creates a use-case landing page that shows users what the Actor does, how to configure it, and what output to expect. The page is indexed by search engines and surfaced from your Actor's **Examples** tab. People searching Google or asking an AI assistant for that specific job find your Actor first, which means more runs, more reviews, and - for monetized Actors - more revenue. This guide walks through the three sections you complete in the **Publication** tab and the steps to make a task public.
+
+Before you publish a task, your Actor itself must already be public. See [Publish your Actor](./publish.mdx) for the prerequisites that apply at the Actor level.
+
+:::note Prerequisites
+
+- A published Actor that you own or maintain.
+- A [saved task](/actors/running/tasks) with a complete input configuration.
+- An [input schema](/platform/actors/development/actor-definition/input-schema) and [dataset schema](/platform/actors/development/actor-definition/dataset-schema) defined on the parent Actor.
+
+:::
+
+## Make your task public
+
+Once your task runs reliably and produces the output you want users to see, publish it from Apify Console.
+
+1. From your task's page in Apify Console, open the **Publication** tab.
+1. Complete the three sections: **Display information**, **Input**, and **Dataset schema**.
+1. Click **Publish task**.
+
+{/* ![Publication tab on a task page](./images/task-publication-tab.webp) */}
+
+TODO: add image [Publication tab overview showing the three accordion sections (Display information, Input, Dataset schema) and the Publish task button at the bottom]
+
+The use-case landing page is published at:
+
+```text
+https://apify.com/[username]/[actor-name]/examples/[task-name]
+```
+
+This is where users will likely first interact with your task. Open the URL after publishing and check that every field renders as intended.
+
+{/* ![Use-case landing page](./images/use-case-landing-page.webp) */}
+
+TODO: add image [the published use-case landing page as it appears to a visitor]
+
+### Display information
+
+This section controls how your task appears on the use-case landing page and in search results. It has three required fields, with two live previews on the right that update as you type:
+
+- **Page Preview** — how the use-case landing page will look to visitors.
+- **SERP Preview** — how the page will appear in Google search results.
+
+{/* ![Display information section with page and SERP previews](./images/task-display-information.webp) */}
+
+TODO: add image [Display information section expanded, showing the SEO task title, SEO description, and Use case fields on the left, and the Page Preview and SERP Preview panels on the right]
+
+The fields are:
+
+- **SEO task title** — shown as the heading on the landing page and as the page title in Google search results. Up to 60 characters.
+- **SEO description** — appears under the title on the landing page and as the meta description in search results. Up to 160 characters.
+- **Use case** — pick the option that best matches your task's job-to-be-done. The list is curated by Apify and offers sub-categories of the use cases supported by the parent Actor. Each task can have a single use case, which appears as a tag on the landing page.
+
+For best SEO results, aim for _40_ to _50_ characters in the title and _140_ to _156_ characters in the description.
+
+:::tip Title format
+
+Frame the title as the user's job-to-be-done, not as a description of the Actor's mechanics. A good title combines an action, a target, and a qualifier.
+
+Good examples:
+
+- Monitor hotel brand reputation in New York
+- Scrape flower shops in Sydney
+- Track competitor pricing on Amazon UK
+
+Avoid titles like "Google Maps scraper - task 3" or "Test run" that describe the Actor instead of the user's goal.
+
+:::
+
+### Input
+
+The Input section controls which fields from your task's input configuration appear on the public landing page. By default, every field defined in your task input is selected. Deselect any field that should stay private.
+
+This control affects display only. The task itself always runs with the full input configuration, regardless of which fields are selected here.
+
+{/* ![Input section with field selection](./images/task-input-section.webp) */}
+
+TODO: add image [Input section expanded, showing the field type legend (Text, Number, Boolean, List, Object), the Deselect all link, and the list of input fields with checkboxes]
+
+Use this section to:
+
+- Hide credentials, API keys, or other sensitive values.
+- Hide technical fields that would confuse first-time users.
+- Show only the fields that demonstrate how the task is configured for its specific use case.
+
+:::caution Hide sensitive input before publishing
+
+Every field is shown by default, and Apify does not automatically detect or hide credentials in your task input. Field visibility is the only control for these values, so review every field carefully and deselect anything that should not be public.
+
+:::
+
+### Dataset schema
+
+The Dataset schema section selects which view of the parent Actor's dataset is rendered on the landing page. Each view organizes the output fields differently. Pick the one that best matches the task's use case.
+
+{/* ![Dataset schema view selection](./images/task-dataset-schema.webp) */}
+
+TODO: add image [Dataset schema section expanded, showing the Select the dataset schema view dropdown and the field type legend below it]
+
+If the parent Actor exposes a single dataset schema view, the section is set automatically. If it exposes multiple views, choose the one that best presents the data for this specific task.
+
+For more on configuring views, see [Dataset schema](/platform/actors/development/actor-definition/dataset-schema).
+
+## How your task appears on the Actor detail page
+
+Published tasks also surface in the **Examples** tab of the parent Actor's detail page, with a preview of the output schema and a link to the full use-case landing page. This gives users browsing the Actor a fast way to see real-world configurations without leaving the page.
+
+{/* ![Examples tab on the Actor detail page](./images/actor-examples-tab.webp) */}
+
+TODO: add image [Examples tab on the parent Actor's detail page, showing the list of published tasks with output schema previews]
+
+The task listed first in the **Examples** tab is the one most visitors will click. When you have multiple published tasks, lead with the one that represents your strongest use case.
+
+## Source code visibility
+
+Input field visibility is controlled per field in the [Input](#input) section above. To control how the parent Actor's source code is shown, follow the visibility instructions in [Publish your Actor](./publish.mdx#source-code-visibility).
+
+## Next steps
+
+- Add [automated testing](./testing.mdx) to keep the task healthy after launch.
+- Set up [monetization](./monetize/index.mdx) for the parent Actor.
+- Track quality with the [Actor quality score](./quality_score.mdx).
