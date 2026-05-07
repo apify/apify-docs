@@ -29,9 +29,9 @@ To create an organization account:
 1. Select the **Organizations** tab.
 1. In **My organizations**, select **Create a new organization**.
 1. Complete the following information:
-   - Organization name
-   - Organization username
-   - Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
+   * Organization name
+   * Organization username
+   * Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
 
 You can create up to 5 organizations and be a member of as many organizations as you need.
 
