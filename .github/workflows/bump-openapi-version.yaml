@@ -27,3 +27,4 @@ jobs:
                   author_name: github-actions[bot]
                   author_email: 41898282+github-actions[bot]@users.noreply.github.com
                   message: "chore(openapi): Update OpenAPI version [skip ci]"
+                  pull: '--rebase --autostash'

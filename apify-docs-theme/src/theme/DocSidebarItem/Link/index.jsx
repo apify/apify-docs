@@ -9,20 +9,8 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-export default function DocSidebarItemLink({
-    item,
-    onItemClick,
-    activePath,
-    level,
-    index,
-    ...props
-}) {
-    const {
-        href,
-        label,
-        className,
-        autoAddBaseUrl,
-    } = item;
+export default function DocSidebarItemLink({ item, onItemClick, activePath, level, index, ...props }) {
+    const { href, label, className, autoAddBaseUrl } = item;
     const isActive = isActiveSidebarItem(item, activePath);
     const isInternalLink = isInternalUrl(href);
     const baseUrl = useDocusaurusContext().siteConfig.url;
@@ -45,22 +33,20 @@ export default function DocSidebarItemLink({
                 'menu__list-item',
                 className,
             )}
-            key={label}>
+            key={label}
+        >
             <Link
-                className={clsx(
-                    'menu__link',
-                    !isInternalLink && styles.menuExternalLink,
-                    {
-                        'menu__link--active': isActive,
-                    },
-                )}
+                className={clsx('menu__link', !isInternalLink && styles.menuExternalLink, {
+                    'menu__link--active': isActive,
+                })}
                 autoAddBaseUrl={autoAddBaseUrl}
                 aria-current={isActive ? 'page' : undefined}
                 to={href}
                 {...(isInternalLink && {
                     onClick: onItemClick ? () => onItemClick(item) : undefined,
                 })}
-                {...props}>
+                {...props}
+            >
                 {label}
                 {!isInternalLink && <IconExternalLink />}
             </Link>

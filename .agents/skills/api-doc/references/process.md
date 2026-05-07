@@ -50,21 +50,21 @@ paths:
 ## Step 5: Validate and test
 
 ```bash
-npm run openapi:lint     # Validate OpenAPI spec (Redocly + Spectral + YAML)
-npm run api:rebuild      # Regenerate API docs
-npm start                # Preview locally
+pnpm openapi:lint        # Validate OpenAPI spec (Redocly + Spectral + YAML)
+pnpm api:rebuild         # Regenerate API docs
+pnpm start               # Preview locally
 ```
 
 ## Edge cases
 
 ### OpenAPI validation fails
 
-Run `npm run openapi:lint` for detailed errors. Common issues: unclosed quotes in YAML, missing required fields (`summary`, `operationId`, `responses`), or `$ref` pointing to non-existent files.
+Run `pnpm openapi:lint` for detailed errors. Common issues: unclosed quotes in YAML, missing required fields (`summary`, `operationId`, `responses`), or `$ref` pointing to non-existent files.
 
 ### Code samples not appearing in docs
 
-Filename must exactly match the `operationId` from the path YAML. Check build console output - missing samples are logged during `npm run api:rebuild`.
+Filename must exactly match the `operationId` from the path YAML. Check build console output - missing samples are logged during `pnpm api:rebuild`.
 
 ### Generated docs are stale after editing
 
-Run `npm run api:rebuild` to clean and regenerate. The files in `apify-api/docs/` are gitignored and regenerated on every build.
+Run `pnpm api:rebuild` to clean and regenerate. The files in `apify-api/docs/` are gitignored and regenerated on every build.

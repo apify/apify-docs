@@ -64,8 +64,10 @@ function installLinkClickTracker() {
     document.addEventListener('auxclick', handleLinkClick, { capture: true });
 }
 
-export default ExecutionEnvironment.canUseDOM ? {
-    onRouteDidUpdate() {
-        installLinkClickTracker();
-    },
-} : null;
+export default ExecutionEnvironment.canUseDOM
+    ? {
+          onRouteDidUpdate() {
+              installLinkClickTracker();
+          },
+      }
+    : null;

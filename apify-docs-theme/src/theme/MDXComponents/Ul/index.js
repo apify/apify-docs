@@ -14,5 +14,5 @@ function transformUlClassName(className) {
 }
 
 export default function MDXUl(props) {
-    return <ul {...props} className={transformUlClassName(props.className)}/>;
+    return <ul {...props} className={transformUlClassName(props.className)} />;
 }

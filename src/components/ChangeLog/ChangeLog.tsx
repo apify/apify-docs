@@ -8,25 +8,25 @@ const CHANGE_LOG_API_URL = 'https://cms.apify.com/api/change-log-items';
 const CHANGE_LOG_WEB_URL = 'https://apify.com/change-log';
 
 interface ChangeLogItem {
-  attributes: {
-    title: string;
-    publishedAt: string;
-    path: string;
-    components: {
-      data: {
-        attributes: {
-          value: string;
+    attributes: {
+        title: string;
+        publishedAt: string;
+        path: string;
+        components: {
+            data: {
+                attributes: {
+                    value: string;
+                };
+            }[];
         };
-      }[];
-    };
-    types: {
-      data: {
-        attributes: {
-          value: string;
+        types: {
+            data: {
+                attributes: {
+                    value: string;
+                };
+            }[];
         };
-      }[];
     };
-  };
 }
 
 const humanizeDate = (date: string) => {
@@ -66,11 +66,7 @@ export default function ChangeLog() {
     }, []);
 
     if (isError) {
-        return (
-            <div>
-                We&apos;re sorry, it wasn&apos;t possible to fetch current change log data.
-            </div>
-        );
+        return <div>We&apos;re sorry, it wasn&apos;t possible to fetch current change log data.</div>;
     }
 
     if (isLoading) {
@@ -83,18 +79,20 @@ export default function ChangeLog() {
                 <div>
                     {changeLogData.map((changeLog: ChangeLogItem) => (
                         <div key={changeLog.attributes.path} className={styles.changeLogItem}>
-                            <div className={styles.changeLogDate}>
-                                {humanizeDate(changeLog.attributes.publishedAt)}
-                            </div>
+                            <div className={styles.changeLogDate}>{humanizeDate(changeLog.attributes.publishedAt)}</div>
                             <Link to={`${CHANGE_LOG_WEB_URL}/${changeLog.attributes.path}`}>
                                 <h3>{changeLog.attributes.title}</h3>
                             </Link>
                             <div className={styles.changeLogProperties}>
                                 {changeLog.attributes.types.data.map((type) => (
-                                    <span key={type.attributes.value} className={styles.changeLogChipType}>{type.attributes.value}</span>
+                                    <span key={type.attributes.value} className={styles.changeLogChipType}>
+                                        {type.attributes.value}
+                                    </span>
                                 ))}
                                 {changeLog.attributes.components.data.map((component) => (
-                                    <span key={component.attributes.value} className={styles.changeLogChipComponent}>{component.attributes.value}</span>
+                                    <span key={component.attributes.value} className={styles.changeLogChipComponent}>
+                                        {component.attributes.value}
+                                    </span>
                                 ))}
                             </div>
                         </div>
@@ -104,7 +102,9 @@ export default function ChangeLog() {
                 <div>Change log is empty right now.</div>
             )}
             <div>
-                <Link to={CHANGE_LOG_WEB_URL} className="actionLink">See all changes</Link>
+                <Link to={CHANGE_LOG_WEB_URL} className="actionLink">
+                    See all changes
+                </Link>
             </div>
         </div>
     );

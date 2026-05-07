@@ -19,7 +19,7 @@ argument-hint: endpoint-name
    - Operation IDs: `{objectName}_{httpMethod}` in camelCase
    - Code sample filenames must match `operationId`
 4. **Register in main spec** - add path `$ref` to `apify-api/openapi/openapi.yaml`
-5. **Validate** - `npm run openapi:lint` then `npm run api:rebuild`
+5. **Validate** - `pnpm openapi:lint` then `pnpm api:rebuild`
 
 **CRITICAL**: API docs are generated, not hand-written. Never edit files in `apify-api/docs/` directly.
 

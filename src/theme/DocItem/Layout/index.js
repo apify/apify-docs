@@ -23,9 +23,7 @@ function useDocTOC() {
     const hidden = frontMatter.hide_table_of_contents;
     const canRender = !hidden && toc.length > 0;
     const mobile = canRender ? <DocItemTOCMobile /> : undefined;
-    const desktop = canRender && (windowSize === 'desktop' || windowSize === 'ssr') ? (
-        <DocItemTOCDesktop />
-    ) : undefined;
+    const desktop = canRender && (windowSize === 'desktop' || windowSize === 'ssr') ? <DocItemTOCDesktop /> : undefined;
     return {
         hidden,
         mobile,
