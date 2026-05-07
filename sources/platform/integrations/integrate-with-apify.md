@@ -45,7 +45,7 @@ To integrate your service with Apify, you have two options:
 
 ### Build an integration Actor
 
-One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](./built-in/actors/integration_ready_actors.md).
+One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](./built-in/actors/integration-ready-actors.md).
 
 ### Build an external integration
 
