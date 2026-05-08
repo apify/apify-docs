@@ -26,15 +26,23 @@ Your local `.actor/actor.json` file overrides variables set in Apify Console. To
 
 :::
 
+By default, the environment variables you define are passed only to the Actor **run**, not to the **build**. This page covers run-time environment variables; for variables passed to the build process (Docker build arguments), see [Build-time environment variables](#build-time-environment-variables).
+
 Check out how you can [access environment variables in Actors](#access-environment-variables).
 
 ## System environment variables
 
 Apify sets several system environment variables for each Actor run. These variables provide essential context and information about the Actor's execution environment.
 
+:::info Run-time only
+
+System environment variables are set only when the Actor runs. They are not available during the build process, even if you enable **Apply environment variables also to the build process** in the Actor's **Code** > **Environment variables** section. That option only forwards user-defined environment variables to the build; system variables such as `ACTOR_RUN_ID`, `APIFY_TOKEN`, or `ACTOR_DEFAULT_DATASET_ID` are never passed to builds.
+
+:::
+
 Here's a table of key system environment variables:
 
-| Environment Variable | Description |
+| Environment variable | Description |
 | -------------------- | ----------- |
 | `ACTOR_ID` | ID of the Actor. |
 | `ACTOR_FULL_NAME` | Full technical name of the Actor, in the format `owner-username/actor-name`. |
@@ -221,17 +229,27 @@ async def main():
 
 ## Build-time environment variables
 
-You can also use environment variables during the Actor's build process. In this case, they function as Docker build arguments. To use them in your Dockerfile, include `ARG` instruction:
+The environment variables described above apply only to Actor **runs**. To make a variable available during the Actor's **build** process, you need to opt in explicitly. In this case, the variables function as Docker build arguments. To use them in your Dockerfile, include the `ARG` instruction:
 
 ```docker
 ARG MY_BUILD_VARIABLE
 RUN echo $MY_BUILD_VARIABLE
 ```
 
+To pass your user-defined environment variables to the build, enable **Apply environment variables also to the build process** in your Actor's **Code** > **Environment variables** section in Apify Console.
+
+:::caution Only user-defined variables are passed to the build
+
+Even with **Apply environment variables also to the build process** enabled, only the variables you define in the Actor's **Environment variables** section are forwarded to the build. The Apify [system environment variables](#system-environment-variables) (such as `ACTOR_RUN_ID`, `APIFY_TOKEN`, or `ACTOR_DEFAULT_DATASET_ID`) are never available at build time, since the build is not associated with a specific run.
+
+:::
+
 :::caution Variables set during the build
 
 Build-time environment variables are not suitable for secrets, as they are not encrypted.
 
 :::
+
+Once a build starts, its environment variables are frozen into that build's Docker image. To change them, you need to create a new build. Learn more in [Builds](../builds_and_runs/builds.md).
 
 By leveraging environment variables effectively, you can create more flexible and configurable Actors that adapt to different execution contexts and user requirements.
