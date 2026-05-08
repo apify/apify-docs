@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every Actor must have a Dockerfile, as Actors run in Docker containers.
+The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every Actor must have a Dockerfile, as Actors run in Docker containers. You can place the Dockerfile either in the `.actor` directory (recommended) or in the root of your project. See the [Actor definition](/platform/actors/development/actor-definition/actor-json) documentation for details on how to configure the Dockerfile path in `actor.json`.
 
 :::note Local testing
 
