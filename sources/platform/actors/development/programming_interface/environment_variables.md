@@ -15,18 +15,12 @@ import TabItem from '@theme/TabItem';
 
 ## How to use environment variables in an Actor
 
-You can set up environment variables for your Actor in two ways:
+Environment variables come from two sources:
 
-- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
-- [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
+- [System environment variables](#system-environment-variables) - set automatically by the Apify platform for each Actor run.
+- [Custom environment variables](#custom-environment-variables) - defined by the Actor owner, either in `.actor/actor.json` or in Apify Console.
 
-:::info Environment variable precedence
-
-Your local `.actor/actor.json` file overrides variables set in Apify Console. To use Console variables, remove the `environmentVariables` key from the local file.
-
-:::
-
-By default, the environment variables you define are passed only to the Actor **run**, not to the **build**. This page covers run-time environment variables; for variables passed to the build process (Docker build arguments), see [Build-time environment variables](#build-time-environment-variables).
+By default, both kinds of variables are passed only to the Actor **run**, not to the **build**. For variables passed to the build process (Docker build arguments), see [Build-time environment variables](#build-time-environment-variables).
 
 Check out how you can [access environment variables in Actors](#access-environment-variables).
 
@@ -91,7 +85,20 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
-## Set up environment variables in `actor.json`
+## Custom environment variables
+
+Actor owners can define custom environment variables to pass additional configuration to their Actors. There are two ways to set them up:
+
+- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
+- [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
+
+:::info Environment variable precedence
+
+Your local `.actor/actor.json` file overrides variables set in Apify Console. To use Console variables, remove the `environmentVariables` key from the local file.
+
+:::
+
+### Set up environment variables in `actor.json`
 
 Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
 
@@ -113,9 +120,9 @@ Be aware that if you define `environmentVariables` in `.actor/actor.json`, it on
 
 :::
 
-## Set up environment variables in Apify Console
+### Set up environment variables in Apify Console
 
-Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
+To set custom variables in Apify Console:
 
 1. Go to your Actor's **Source** page in Apify Console
 
@@ -139,6 +146,47 @@ Once you start a build, you cannot change its environment variables. To use diff
 
 Learn more in [Builds](../builds_and_runs/builds.md).
 :::
+
+### Use the `Configuration` class
+
+For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// get current token
+const token = Actor.config.get('token');
+// use different token
+Actor.config.set('token', 's0m3n3wt0k3n');
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        old_token = Actor.configuration.token
+        Actor.log.info(f'old_token = {old_token}')
+
+        # use different token
+        Actor.configuration.token = 's0m3n3wt0k3n'
+
+        new_token = Actor.configuration.token
+        Actor.log.info(f'new_token = {new_token}')
+```
+
+</TabItem>
+</Tabs>
 
 ## Access environment variables
 
@@ -181,47 +229,6 @@ async def main():
 
         # print MYSQL_USER to console
         print(mysql_user)
-```
-
-</TabItem>
-</Tabs>
-
-## Use the `Configuration` class
-
-For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-// get current token
-const token = Actor.config.get('token');
-// use different token
-Actor.config.set('token', 's0m3n3wt0k3n');
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        old_token = Actor.configuration.token
-        Actor.log.info(f'old_token = {old_token}')
-
-        # use different token
-        Actor.configuration.token = 's0m3n3wt0k3n'
-
-        new_token = Actor.configuration.token
-        Actor.log.info(f'new_token = {new_token}')
 ```
 
 </TabItem>
