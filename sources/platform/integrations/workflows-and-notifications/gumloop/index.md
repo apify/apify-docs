@@ -2,7 +2,7 @@
 title: Gumloop integration
 description: Connect Apify Actors to Gumloop to retrieve data for AI-powered workflows using native MCP nodes for Instagram, Google Maps, TikTok, and YouTube.
 sidebar_label: Gumloop
-sidebar_position: 3
+sidebar_position: 0
 slug: /integrations/gumloop
 ---
 

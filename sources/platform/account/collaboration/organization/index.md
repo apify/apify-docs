@@ -1,7 +1,7 @@
 ---
 title: Organization account
 description: Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.
-sidebar_position: 12.1
+sidebar_position: 0
 slug: /account/collaboration/organization
 ---
 

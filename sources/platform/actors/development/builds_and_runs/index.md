@@ -1,6 +1,6 @@
 ---
 title: Builds and runs
-sidebar_position: 7
+sidebar_position: 0
 description: Learn about Actor builds and runs, including how Docker images are created, how runs are executed, and their lifecycle on the Apify platform.
 slug: /actors/development/builds-and-runs
 ---

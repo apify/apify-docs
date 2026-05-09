@@ -1,7 +1,7 @@
 ---
 title: Actor output schema
 sidebar_label: Actor output schema
-sidebar_position: 4
+sidebar_position: 0
 description: Define an output schema to specify where your Actor stores its results and how Apify Console and the Actor run API endpoint display them to users.
 slug: /actors/development/actor-definition/output-schema
 ---

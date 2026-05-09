@@ -1,6 +1,6 @@
 ---
 title: Actor definition
-sidebar_position: 3
+sidebar_position: 0
 description: Learn how to define an Actor by adding a .actor directory with actor.json, a Dockerfile, README, and input schema files to your source code.
 slug: /actors/development/actor-definition
 ---

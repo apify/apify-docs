@@ -2,7 +2,7 @@
 title: n8n integration
 description: Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and reacting to Actor or task run events in real time.
 sidebar_label: n8n
-sidebar_position: 7
+sidebar_position: 0
 slug: /integrations/n8n
 ---
 

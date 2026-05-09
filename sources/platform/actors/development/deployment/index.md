@@ -1,6 +1,6 @@
 ---
 title: Deployment
-sidebar_position: 6
+sidebar_position: 0
 description: Learn how to deploy your Actor to the Apify platform using the Apify CLI or the console, and how to trigger new builds from a Git repository.
 slug: /actors/development/deployment
 ---

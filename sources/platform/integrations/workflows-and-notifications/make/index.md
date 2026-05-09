@@ -2,7 +2,7 @@
 title: Make integration
 description: Connect Apify Actors to Make scenarios to run Actors, monitor run statuses, and receive Actor results directly inside your automated workflows.
 sidebar_label: Make
-sidebar_position: 2
+sidebar_position: 0
 slug: /integrations/make
 ---
 

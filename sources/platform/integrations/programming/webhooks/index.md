@@ -1,7 +1,7 @@
 ---
 title: Webhook integration
 description: Learn how to integrate multiple Apify Actors or external systems with your Actor or task run. Send alerts when your Actor run succeeds or fails.
-sidebar_position: 2
+sidebar_position: 0
 sidebar_label: Webhook integration
 slug: /integrations/webhooks
 ---

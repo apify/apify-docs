@@ -1,7 +1,7 @@
 ---
 title: Collaboration
 description: Learn how to collaborate with other users and manage permissions for organizations or private resources such as Actors, Actor runs, and storages.
-sidebar_position: 12
+sidebar_position: 0
 category: platform
 slug: /account/collaboration
 ---
