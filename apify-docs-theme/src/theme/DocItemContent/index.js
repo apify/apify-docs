@@ -51,10 +51,13 @@ export default function DocItemContent({ children }) {
         '/api/v2/logs',
         '/api/v2/users',
         '/api/client',
-        '/platform',
         '/sdk',
         '/cli',
         '/academy',
+        '/get-started',
+        '/actors',
+        '/integrations',
+        '/account',
     ];
 
     // Define paths that should not show LLMButtons (e.g., changelog pages)
