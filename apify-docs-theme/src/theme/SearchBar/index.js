@@ -17,11 +17,11 @@ import './styles.css';
 function matchesCurrentInstance(href, baseUrl) {
     if (baseUrl === '/') {
         return (
-            href.startsWith('/academy')
-            || href.startsWith('/get-started')
-            || href.startsWith('/actors')
-            || href.startsWith('/integrations')
-            || href.startsWith('/account')
+            href.startsWith('/academy') ||
+            href.startsWith('/get-started') ||
+            href.startsWith('/actors') ||
+            href.startsWith('/integrations') ||
+            href.startsWith('/account')
         );
     }
 
