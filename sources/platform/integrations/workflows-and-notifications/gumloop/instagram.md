@@ -74,6 +74,6 @@ You can pull the following types of data from public Instagram accounts using Gu
 
 ## Other integrations
 
-- [TikTok](/platform/integrations/gumloop/tiktok)
-- [YouTube](/platform/integrations/gumloop/youtube)
-- [Google Maps](/platform/integrations/gumloop/maps)
+- [TikTok](/integrations/gumloop/tiktok)
+- [YouTube](/integrations/gumloop/youtube)
+- [Google Maps](/integrations/gumloop/maps)

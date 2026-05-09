@@ -23,7 +23,7 @@ An Apify integration can be _general_, allowing users to integrate any Actor fro
 General integrations allow users to integrate Actors into their workflows by connecting Apify with other platforms. Examples include:
 
 - [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
-- [Keboola](/platform/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
+- [Keboola](/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
 
 ### Actor-specific integrations
 

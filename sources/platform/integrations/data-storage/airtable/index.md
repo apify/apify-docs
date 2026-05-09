@@ -28,7 +28,7 @@ You can integrate Apify with Airtable using one of two options:
 - _Apify extension_ on Airtable website.
 - _Console integration_ on the Actor page.
 
-This guide explains how to use the _Apify extension_. For console integration instructions, see the [Console integration](/platform/integrations/airtable/console) documentation
+This guide explains how to use the _Apify extension_. For console integration instructions, see the [Console integration](/integrations/airtable/console) documentation
 
 ## Setup
 

@@ -20,6 +20,6 @@ To define a webhook, select a system **event** that triggers the webhook. Then, 
 
 :::
 
-* [**Events**](/platform/integrations/webhooks/events)
-* [**Actions**](/platform/integrations/webhooks/actions)
-* [**Ad-hoc webhooks**](/platform/integrations/webhooks/ad-hoc-webhooks)
+* [**Events**](/integrations/webhooks/events)
+* [**Actions**](/integrations/webhooks/actions)
+* [**Ad-hoc webhooks**](/integrations/webhooks/ad-hoc-webhooks)

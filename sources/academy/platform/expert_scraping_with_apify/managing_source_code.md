@@ -16,7 +16,7 @@ In this brief lesson, we'll discuss how to better manage an Actor's source code.
 
 Thus far, every time we've updated our code on the Apify platform, we've used the `apify push` CLI command; however, this can be problematic for a few reasons - mainly because, if someone else wants to make a change to/maintain your code, they don't have access to it, as it is on your local machine.
 
-If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/platform/integrations/github) in the Apify docs.
+If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/integrations/github) in the Apify docs.
 
 Also, try to explore the **Multifile editor** in one of the Actors you developed in the previous lessons before moving forward.
 
@@ -52,7 +52,7 @@ The final step is to click on **API** in the top right corner of your Actor's pa
 
 And scroll through all of the links until you find the **Build Actor** API endpoint. Copy this endpoint's URL, then head back over to your GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
+![Adding a webhook to your GitHub repo](../../../actors/development/deployment/images/ci-github-integration.png)
 
 And you're done! 🎉
 

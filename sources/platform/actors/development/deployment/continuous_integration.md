@@ -161,4 +161,4 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
 
 Setting up continuous integration (CI) for your Apify Actors ensures that CI automatically tests and builds your code whenever you push changes to your repository. This helps catch issues early and streamlines your deployment process, whether you're releasing to production or maintaining a beta branch.
 
-You can also integrate directly with GitHub, check out the [official Apify GitHub integration documentation](/platform/integrations/github).
+You can also integrate directly with GitHub, check out the [official Apify GitHub integration documentation](/integrations/github).

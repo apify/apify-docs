@@ -12,7 +12,7 @@ You can check out a catalog of Integration Actors within [Apify Store](https://a
 
 :::
 
-Actor integrations provide a way to connect your Actors with other Actors or tasks easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
+Actor integrations provide a way to connect your Actors with other Actors or tasks easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zExnYbvFoBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -27,7 +27,7 @@ To integrate one Actor with another:
 
 This leads you to a setup screen, where you can provide:
 
-- **Triggers**: Events that will trigger the integrated Actor. These are the same as webhook [event types](/platform/integrations/webhooks/events) (*run succeeded*, *build failed*, etc.)
+- **Triggers**: Events that will trigger the integrated Actor. These are the same as webhook [event types](/integrations/webhooks/events) (*run succeeded*, *build failed*, etc.)
 
 ![Integration trigger select](./images/integration_triggers.png)
 

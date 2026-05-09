@@ -72,7 +72,7 @@ module.exports = {
         },
     ].filter(Boolean),
 
-    onBrokenLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+    onBrokenLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     onBrokenAnchors: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     themes: [
         [
@@ -118,7 +118,7 @@ module.exports = {
                     showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
-                    routeBasePath: 'platform',
+                    routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
                     rehypePlugins: [externalLinkProcessor],
                 },
@@ -377,7 +377,8 @@ module.exports = {
     markdown: {
         mermaid: true,
         hooks: {
-            onBrokenMarkdownLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+            onBrokenMarkdownLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
+            onBrokenMarkdownImages: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
         },
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);

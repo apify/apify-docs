@@ -78,12 +78,12 @@ You should see ChatGPT calling Apify tools - such as the [RAG Web Browser](https
 
 ## Related integrations
 
-- [OpenAI Assistants integration](/platform/integrations/openai-assistants) - Use Apify Actors with OpenAI Assistants API via function calling
-- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
+- [OpenAI Assistants integration](/integrations/openai-assistants) - Use Apify Actors with OpenAI Assistants API via function calling
+- [OpenAI Agents SDK integration](/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
 
 ## Resources
 
 - [ChatGPT Developer mode](https://platform.openai.com/docs/guides/developer-mode) - Learn how to enable Developer Mode in ChatGPT
 - [Connectors and MCP servers](https://platform.openai.com/docs/guides/tools-connectors-mcp) - Official OpenAI documentation on using MCP servers with ChatGPT
 - [Apify MCP server](https://mcp.apify.com) - Interactive configuration tool for the Apify MCP server
-- [Apify MCP documentation](/platform/integrations/mcp) - Complete guide to using the Apify MCP server
+- [Apify MCP documentation](/integrations/mcp) - Complete guide to using the Apify MCP server

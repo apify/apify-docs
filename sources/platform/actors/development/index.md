@@ -8,7 +8,7 @@ slug: /actors/development
 
 This section will guide you through the whole story of [Actor](../index.mdx) development.
 
-You can follow chapters sequentially from [Quick start](/platform/actors/development/quick-start), where you learn how to create your first Actor in just a few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](/sources/platform/actors/development/performance.md) section, where you learn how to fine-tune your Actor to get the most out of the Apify platform.
+You can follow chapters sequentially from [Quick start](/get-started/build-an-actor), where you learn how to create your first Actor in just a few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](/sources/actors/development/performance.md) section, where you learn how to fine-tune your Actor to get the most out of the Apify platform.
 
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
@@ -16,32 +16,32 @@ import CardGrid from "@site/src/components/CardGrid";
 <CardGrid>
     <Card
         title="Quick start"
-        to="/platform/actors/development/quick-start"
+        to="/get-started/build-an-actor"
         desc="Create your first Actor using Apify Console IDE or locally."
     />
     <Card
         title="Actor definition"
-        to="/platform/actors/development/actor-definition"
+        to="/actors/development/actor-definition"
         desc="Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory."
     />
     <Card
         title="Programming interface"
-        to="/platform/actors/development/programming-interface"
+        to="/actors/development/programming-interface"
         desc="Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors."
     />
     <Card
         title="Deployment"
-        to="/platform/actors/development/deployment"
+        to="/actors/development/deployment"
         desc="Learn how to deploy your Actors to the Apify platform and build them."
     />
     <Card
         title="Builds and runs"
-        to="/platform/actors/development/builds-and-runs"
+        to="/actors/development/builds-and-runs"
         desc="Learn about Actor builds and runs, their lifecycle, versioning, and other properties."
     />
     <Card
         title="Performance"
-        to="/platform/actors/development/performance"
+        to="/actors/development/performance"
         desc="Learn how to get the maximum value out of your Actors, minimize costs, and maximize results."
     />
 </CardGrid>

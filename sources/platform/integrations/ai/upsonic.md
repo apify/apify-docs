@@ -162,5 +162,5 @@ Browse the [Apify Store](https://apify.com/store) to find Actors for social medi
 - [Upsonic documentation](https://docs.upsonic.ai)
 - [Upsonic ApifyTools reference](https://docs.upsonic.ai/concepts/tools/scraping-tools/apify)
 - [Upsonic restaurant scout example](https://github.com/Upsonic/Examples/tree/master/examples/web_search_and_scraping/apify_google_maps_restaurant_scout)
-- [Apify Actor documentation](/platform/actors)
+- [Apify Actor documentation](/actors)
 - [Browse Actors on Apify Store](https://apify.com/store)

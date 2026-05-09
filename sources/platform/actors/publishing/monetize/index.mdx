@@ -21,7 +21,7 @@ Actors in Apify Store can be published under one of the following pricing models
 
     <RentalSunset/>
 
-For a detailed comparison of pricing models from the perspective of your users, see [Actors in Store](/platform/actors/running/actors-in-store).
+For a detailed comparison of pricing models from the perspective of your users, see [Actors in Store](/actors/running/actors-in-store).
 
 ## Key benefits
 
@@ -96,7 +96,7 @@ If the monthly profit does not meet these thresholds, as per the [Terms & Condit
 When monetizing your Actor, you might want to limit features or usage for users on the Apify free plan. If you choose to do this, you _must_ handle it transparently:
 
 - Communicate upfront: Clearly state any limitations in your Actor's `README` and input schema. Users should know about restrictions _before_ they run the Actor.
-- Graceful exits: If a free user hits a limit, don't crash the Actor or return a system error. Instead, exit gracefully with a clear [status message](/platform/actors/development/programming-interface/status-messages#communicating-limitations) explaining the limit (e.g., "Free tier limit reached").
+- Graceful exits: If a free user hits a limit, don't crash the Actor or return a system error. Instead, exit gracefully with a clear [status message](/actors/development/programming-interface/status-messages#communicating-limitations) explaining the limit (e.g., "Free tier limit reached").
 - Avoid confusion: Never make a policy restriction look like a bug or platform error.
 
 ## Actor analytics
