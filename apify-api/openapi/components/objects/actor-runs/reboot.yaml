@@ -24,7 +24,7 @@ sharedReboot: &sharedReboot
 lastRunByActor:
   <<: *sharedReboot
   tags:
-    - Actors/Last run
+    - Last Actor run's reboot
   summary: Reboot Actor's last run
   description: |
     Reboots the last run of the specified Actor and returns an object that
@@ -42,7 +42,7 @@ lastRunByActor:
 lastRunByActorTask:
   <<: *sharedReboot
   tags:
-    - Actor tasks/Last run
+    - Last Actor task run's reboot
   summary: Reboot Actor task's last run
   description: |
     Reboots the last run of the specified Actor task and returns an object that

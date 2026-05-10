@@ -39,7 +39,7 @@ buildQueryParameter: &buildQueryParameter
 lastRunByActor:
   <<: *sharedMetamorph
   tags:
-    - Actors/Last run
+    - Last Actor run's metamorph
   summary: Metamorph Actor's last run
   description: |
     Transforms the last run of the specified Actor into a run of another Actor with
@@ -57,7 +57,7 @@ lastRunByActor:
 lastRunByActorTask:
   <<: *sharedMetamorph
   tags:
-    - Actor tasks/Last run
+    - Last Actor task run's metamorph
   summary: Metamorph Actor task's last run
   description: |
     Transforms the last run of the specified Actor task into a run of another Actor with
