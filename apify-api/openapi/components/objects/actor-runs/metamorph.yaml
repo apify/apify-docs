@@ -1,0 +1,73 @@
+sharedMetamorph: &sharedMetamorph
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/actor-runs/RunResponse.yaml
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+    "401":
+      $ref: ../../responses/Unauthorized.yaml
+    "403":
+      $ref: ../../responses/Forbidden.yaml
+    "404":
+      $ref: ../../responses/NotFound.yaml
+    "405":
+      $ref: ../../responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../responses/TooManyRequests.yaml
+  deprecated: false
+
+buildQueryParameter: &buildQueryParameter
+  name: build
+  in: query
+  description: |
+    Optional build of the target Actor.
+
+    It can be either a build tag or build number. By default, the run uses
+    the build specified in the default run configuration for the target
+    Actor (typically `latest`).
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: beta
+
+lastRunByActor:
+  <<: *sharedMetamorph
+  tags:
+    - Actors/Last run
+  summary: Metamorph Actor's last run
+  description: |
+    Transforms the last run of the specified Actor into a run of another Actor with
+    a new input.
+
+    This endpoint is a shortcut for [Metamorph run](#/reference/actor-runs/metamorph-run/metamorph-run)
+    on the Actor's last run.
+  operationId: act_runs_last_metamorph_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/targetActorId"
+    - *buildQueryParameter
+
+lastRunByActorTask:
+  <<: *sharedMetamorph
+  tags:
+    - Actor tasks/Last run
+  summary: Metamorph Actor task's last run
+  description: |
+    Transforms the last run of the specified Actor task into a run of another Actor with
+    a new input.
+
+    This endpoint is a shortcut for [Metamorph run](#/reference/actor-runs/metamorph-run/metamorph-run)
+    on the Actor task's last run.
+  operationId: actorTask_runs_last_metamorph_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/targetActorId"
+    - *buildQueryParameter

@@ -1,0 +1,62 @@
+sharedAbort: &sharedAbort
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/actor-runs/RunResponse.yaml
+          example:
+            $ref: ../../examples/AbortedRunExample.yaml
+    "400":
+      $ref: ../../responses/BadRequest.yaml
+    "401":
+      $ref: ../../responses/Unauthorized.yaml
+    "403":
+      $ref: ../../responses/Forbidden.yaml
+    "404":
+      $ref: ../../responses/NotFound.yaml
+    "405":
+      $ref: ../../responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../responses/TooManyRequests.yaml
+  deprecated: false
+
+lastRunByActor:
+  <<: *sharedAbort
+  tags:
+    - Actors/Last run
+  summary: Abort Actor's last run
+  description: |
+    Aborts the last run of the specified Actor and returns an object that
+    contains all the details about the run.
+
+    This endpoint is a shortcut for [Abort run](#/reference/actor-runs/abort-run/abort-run)
+    on the Actor's last run. Only runs that are starting or running are aborted.
+    For runs with status `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call
+    does nothing.
+  operationId: act_runs_last_abort_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/gracefully"
+
+lastRunByActorTask:
+  <<: *sharedAbort
+  tags:
+    - Actor tasks/Last run
+  summary: Abort Actor task's last run
+  description: |
+    Aborts the last run of the specified Actor task and returns an object that
+    contains all the details about the run.
+
+    This endpoint is a shortcut for [Abort run](#/reference/actor-runs/abort-run/abort-run)
+    on the Actor task's last run. Only runs that are starting or running are aborted.
+    For runs with status `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call
+    does nothing.
+  operationId: actorTask_runs_last_abort_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/gracefully"
