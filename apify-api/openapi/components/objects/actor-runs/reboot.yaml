@@ -21,6 +21,33 @@ sharedReboot: &sharedReboot
       $ref: ../../responses/TooManyRequests.yaml
   deprecated: false
 
+byRunId:
+  <<: *sharedReboot
+  tags:
+    - Actor runs
+  summary: Reboot run
+  description: |
+    Reboots an Actor run and returns an object that contains all the details
+    about the rebooted run.
+
+    Only runs that are running, i.e. runs with status `RUNNING` can be rebooted.
+
+    The run's container will be restarted, so any data not persisted in the
+    key-value store, dataset, or request queue will be lost.
+  operationId: actorRun_reboot_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/reboot-run/reboot-run
+    - https://docs.apify.com/api/v2#/reference/actor-runs/reboot-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsReboot-run/operation/actorRun_reboot_post
+  x-js-parent: RunClient
+  x-js-name: reboot
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#reboot
+  x-py-parent: RunClientAsync
+  x-py-name: reboot
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RunClientAsync#reboot
+
 lastRunByActor:
   <<: *sharedReboot
   tags:
