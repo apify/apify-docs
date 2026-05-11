@@ -285,6 +285,34 @@ const themeConfig = {
         async: true,
         defer: true,
     },
+    announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
+        ? (() => {
+              const absoluteUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
+
+              const hostname = absoluteUrl.hostname;
+
+              if (!hostname.includes('pr-') && !hostname.includes('preview')) {
+                  return undefined;
+              }
+
+              const prNumber = hostname.split('.')[0]?.split('-')[1];
+
+              if (!prNumber) {
+                  return undefined;
+              }
+
+              // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
+              const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
+
+              return {
+                  id: 'apify-docs-preview-banner',
+                  content: `You are visiting <a href="${githubUrl}" target="_blank">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
+                  backgroundColor: '#B80F0A',
+                  textColor: '#FFFFFF',
+                  isCloseable: false,
+              };
+          })()
+        : undefined,
 };
 
 const plugins = [
@@ -302,7 +330,9 @@ const plugins = [
                 return {
                     resolveLoader: {
                         alias: {
-                            'roa-loader': require.resolve(`${__dirname}/roa-loader/`),
+                            'roa-loader': require.resolve(
+                                `${__dirname}/roa-loader/`
+                            ),
                         },
                     },
                 };
@@ -319,8 +349,10 @@ const scripts = [
         'data-modal-title': 'Apify AI Assistant',
         'data-project-color': '#666666',
         'data-button-hide': 'true',
-        'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
-        'data-modal-example-questions': 'How to run an Actor?,Create a version of an Actor?',
+        'data-project-logo':
+            'https://apify.com/img/apify-logo/logomark-32x32.svg',
+        'data-modal-example-questions':
+            'How to run an Actor?,Create a version of an Actor?',
         'data-modal-override-open-id': 'ask-ai-input',
         'data-modal-override-open-class': 'search-input',
         'data-scale-factor': '1.6',
