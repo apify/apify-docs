@@ -54,14 +54,14 @@ The following Apify-owned services and assets are eligible for security research
 #### Open source projects ([github.com/apify](https://github.com/apify))
 
 - Crawlee:
- 	- [JavaScript](https://github.com/apify/crawlee)
- 	- [Python](https://github.com/apify/crawlee-python)
+	- [JavaScript](https://github.com/apify/crawlee)
+	- [Python](https://github.com/apify/crawlee-python)
 - Apify SDK:
- 	- [JavaScript](https://github.com/apify/apify-sdk-js)
- 	- [Python](https://github.com/apify/apify-sdk-python)
+	- [JavaScript](https://github.com/apify/apify-sdk-js)
+	- [Python](https://github.com/apify/apify-sdk-python)
 - Apify Client:
- 	- [JavaScript](https://github.com/apify/apify-client-js)
- 	- [Python](https://github.com/apify/apify-client-python)
+	- [JavaScript](https://github.com/apify/apify-client-js)
+	- [Python](https://github.com/apify/apify-client-python)
 
 #### Out-of-scope assets
 
