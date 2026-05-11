@@ -46,8 +46,7 @@
         "test:academy": "bats --print-output-on-failure -r .",
         "test:llms-size": "node ./scripts/checkLlmsSize.mjs",
         "postinstall": "patch-package",
-        "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs",
-        "preinstall": "npx only-allow pnpm"
+        "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs"
     },
     "devDependencies": {
         "@apify/oxlint-config": "^0.2.5",
@@ -110,5 +109,12 @@
     "engines": {
         "node": ">=18.0.0"
     },
-    "packageManager": "pnpm@10.24.0"
+    "packageManager": "pnpm@10.33.4",
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "10.33.4",
+            "onFail": "warn"
+        }
+    }
 }
