@@ -93,7 +93,7 @@ sharedGet: &sharedGet
   deprecated: false
 
 listById:
-  <<: [*sharedGet, *sharedTagById]
+  <<: [*sharedGet, *sharedTagById, *parametersGetHeadById]
   summary: Get dataset items
   description: |
     Returns data stored in the dataset in a desired format.
