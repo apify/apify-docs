@@ -40,7 +40,7 @@ sharedGet: &sharedGet
             $ref: ../../schemas/key-value-stores/ListOfKeysResponse.yaml
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
   summary: Get list of keys
   description: |
@@ -68,7 +68,7 @@ getById:
   x-py-name: list_keys
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#list_keys
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Get default store's list of keys
   description: |
@@ -85,7 +85,7 @@ getDefault:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixKeys"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's default store's list of keys
   description: |
@@ -103,7 +103,7 @@ getLastRun:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixKeys"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: Get last task run's default store's list of keys
   description: |
