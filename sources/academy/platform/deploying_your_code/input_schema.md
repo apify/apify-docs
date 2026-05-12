@@ -5,7 +5,7 @@ sidebar_position: 2
 slug: /deploying-your-code/input-schema
 ---
 
-**Learn to generate a user interface on the Apify platform for your Actor's input using the input schema file inside the `.actor` directory.**
+**Learn to define your Actor's input UI on the Apify platform with an `INPUT_SCHEMA.json` file stored inside the `.actor` configuration directory.**
 
 ---
 
