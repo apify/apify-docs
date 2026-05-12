@@ -23,7 +23,7 @@ Inside the `.actor` directory at the root of our project, we'll create `INPUT_SC
 
 :::tip Actor configuration directory
 
-If you don't have a `.actor` directory yet, create one. This directory contains your Actor's configuration files, including `actor.json`, `INPUT_SCHEMA.json`, `Dockerfile`, and `README.md`. For more details, see the [Actor definition](/platform/actors/development/actor-definition) documentation.
+Create a `.actor` directory at the root of your project. It holds your Actor's configuration: `actor.json`, `INPUT_SCHEMA.json`, `Dockerfile`, and `README.md`. See [Actor definition](/platform/actors/development/actor-definition) for the full reference.
 
 :::
 
