@@ -31,7 +31,7 @@ Here are a few examples of Actors in other languages:
 Follow these main steps to turn a piece of code into an Actor:
 
 1. Handle [accepting inputs and writing outputs](./inputs_outputs.md).
-2. Create a [`.actor` directory](/platform/actors/development/actor-definition) with an `actor.json` file to define your Actor.
+2. Create the [`.actor` directory](/platform/actors/development/actor-definition) and an `actor.json` configuration file.
 3. Create an [input schema](./input_schema.md) _(optional)_.
 4. Add a [Dockerfile](./docker_file.md).
 5. [Deploy](./deploying.md) to the Apify platform!
