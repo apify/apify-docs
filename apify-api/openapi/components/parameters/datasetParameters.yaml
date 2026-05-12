@@ -55,6 +55,20 @@ fields:
     type: string
     example: "myValue,myOtherValue"
 
+outputFields:
+  name: outputFields
+  in: query
+  description: |
+    A comma-separated list of output field names that positionally rename the fields specified in the `fields` parameter.
+    For example, `?fields=headline,url&outputFields=title,link` renames `headline` to `title` and `url` to `link` in the output.
+    The number of names in `outputFields` must match the number of names in `fields`.
+    Requires the `fields` parameter to be specified as well.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "title,link"
+
 omit:
   name: omit
   in: query
@@ -239,3 +253,27 @@ skipFailedPages:
   schema:
     type: boolean
     example: false
+
+feedTitle:
+  name: feedTitle
+  in: query
+  description: |
+    Overrides the auto-generated RSS channel `<title>` element.
+    Only used when `format=rss`. If not provided, the title defaults to `Dataset <label>`.
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "Latest posts from r/pasta"
+
+feedDescription:
+  name: feedDescription
+  in: query
+  description: |
+    Overrides the auto-generated RSS channel `<description>` element.
+    Only used when `format=rss`. If not provided, the description defaults to `Items in dataset with id "<datasetId>".`
+  style: form
+  explode: true
+  schema:
+    type: string
+    example: "Scraped forum posts"

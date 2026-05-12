@@ -34,6 +34,7 @@ parametersGetHeadById: &parametersGetHeadById
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -49,6 +50,8 @@ parametersGetHeadById: &parametersGetHeadById
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 sharedGet: &sharedGet
@@ -273,6 +276,7 @@ getDefault:
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -288,6 +292,8 @@ getDefault:
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 getLastRun:
@@ -307,6 +313,7 @@ getLastRun:
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -322,6 +329,8 @@ getLastRun:
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 getTaskLastRun:
@@ -341,6 +350,7 @@ getTaskLastRun:
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -356,6 +366,8 @@ getTaskLastRun:
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 headById:
