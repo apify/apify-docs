@@ -111,6 +111,17 @@ info:
     minutes) for the run to finish and returns its output. If the run takes
     longer, the request will time out and throw an error.
 
+    ## Legacy `/v2/acts/` URL prefix
+    <span id="/introduction/legacy-acts-prefix"></span>
+
+    Actor-scoped endpoints previously lived under `/v2/acts/`. That prefix is
+    **deprecated but continues to work** for backward compatibility — every
+    `/v2/acts/...` URL routes to the same handler as its `/v2/actors/...`
+    counterpart, returns the same response, and shares the same rate-limit bucket
+    and API usage counter. New integrations should use the canonical
+    `/v2/actors/` prefix, but existing clients (older SDK versions, persisted
+    webhook `requestUrl`s, saved cURL snippets) keep working without any changes.
+
     ## Response structure
     <span id="/introduction/response-structure"></span>
 
@@ -741,6 +752,5 @@ security:
   - apiKey: []
 tags:
   $ref: components/tags.yaml
-  
 x-tagGroups:
   $ref: components/x-tag-groups.yaml

@@ -86,6 +86,12 @@ Expected response codes:
 
 * `201`
 
+:::note Legacy `/v2/acts/` paths
+
+Actor-scoped endpoints previously lived under `/v2/acts/`. That prefix is **deprecated but continues to work** — `/v2/acts/...` routes to the same handler as `/v2/actors/...`, returns the same response, and shares the same rate-limit bucket. New integrations should use the canonical `/v2/actors/` prefix, but existing clients (older SDK versions, persisted webhook URLs, saved cURL snippets) keep working without any changes.
+
+:::
+
 ### 2. Retrieve results
 
 #### From a Dataset
