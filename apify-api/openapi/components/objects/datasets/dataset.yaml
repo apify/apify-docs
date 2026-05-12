@@ -54,6 +54,9 @@ sharedGet: &sharedGet
 
 getById:
   <<: [*sharedGet, *sharedById]
+  tags:
+    - Storage/Datasets
+    - Actor Runtime API/Datasets
   summary: Get dataset
   description: |
     Returns dataset object for given dataset ID.

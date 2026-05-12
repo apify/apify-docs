@@ -60,6 +60,7 @@ get:
 post:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Start Actor
   summary: Run Actor
   description: |
     Runs an Actor and immediately returns without waiting for the run to finish.

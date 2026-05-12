@@ -41,6 +41,13 @@
 - name: Tools
   tags:
     - Tools
+- name: Actor Runtime API
+  tags:
+    - Actor Runtime API
+    - Actor Runtime API/Actor runs
+    - Actor Runtime API/Start Actor
+    - Actor Runtime API/Key-value stores
+    - Actor Runtime API/Datasets
 - name: Convenience endpoints
   tags:
     - Default dataset

@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Get run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets
@@ -55,6 +56,7 @@ get:
 put:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Update run
   description: |
     This endpoint can be used to update both the run's status message and to configure its general resource access level.

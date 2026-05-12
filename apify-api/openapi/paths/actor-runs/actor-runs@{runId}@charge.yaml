@@ -1,6 +1,7 @@
 post:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Charge events in run
   description: |
     Charge for events in the run of your [pay per event Actor](https://docs.apify.com/platform/actors/running/actors-in-store#pay-per-event).
