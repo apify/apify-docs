@@ -21,7 +21,7 @@ Without an input schema, the users of our Actor will have to provide the input i
 
 Inside the `.actor` directory at the root of our project, we'll create a file named **INPUT_SCHEMA.json** (so the full path is `.actor/INPUT_SCHEMA.json`) and start writing the first part of the schema.
 
-:::tip .actor directory
+:::tip Actor configuration directory
 
 If you don't have a `.actor` directory yet, create one. This directory contains your Actor's configuration files, including `actor.json`, `INPUT_SCHEMA.json`, `Dockerfile`, and `README.md`. For more details, see the [Actor definition](/platform/actors/development/actor-definition) documentation.
 
