@@ -19,7 +19,7 @@ Without an input schema, the users of our Actor will have to provide the input i
 
 ## Schema title & description {#title-and-description}
 
-Inside the `.actor` directory at the root of our project, we'll create a file named **INPUT_SCHEMA.json** (so the full path is `.actor/INPUT_SCHEMA.json`) and start writing the first part of the schema.
+Inside the `.actor` directory at the root of our project, we'll create `INPUT_SCHEMA.json` and start writing the first part of the schema.
 
 :::tip Actor configuration directory
 
