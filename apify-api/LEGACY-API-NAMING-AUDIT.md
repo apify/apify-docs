@@ -185,18 +185,7 @@ Apify's pricing terminology has moved to `FLAT_PRICE_PER_MONTH` (see `actor-pric
 
 **Fix:** Rename to `actor-already-subscribed` / `actor-subscription-required` / etc. (or whatever matches current product naming).
 
-## 11. Deprecated fields still in active schemas
-
-These fields are marked `deprecated: true` but kept for backward compatibility. v3 is the natural place to remove them.
-
-| Field | Schema | Replacement |
-| --- | --- | --- |
-| `restartOnError` | `actors/Actor.yaml:30`, `actors/CreateActorRequest.yaml:22`, `actors/UpdateActorRequest.yaml:26` | `defaultRunOptions.restartOnError` |
-| `inputSchema` | `actor-builds/Build.yaml:57` | `actorDefinition.input` |
-| `readme` | `actor-builds/Build.yaml:61` | `actorDefinition.readme` |
-| `exclusiveStartId` | `request-queues/ListOfRequests.yaml:18` | `cursor` / `nextCursor` |
-
-## 12. Tilde-separated ID convention
+## 11. Tilde-separated ID convention
 
 Multiple resources accept either an ID or a `username~resource-name` string. The convention is documented but the string syntax (`~`) is unusual for HTTP path parameters and creates ambiguity with URL encoding.
 
@@ -210,7 +199,7 @@ Multiple resources accept either an ID or a `username~resource-name` string. The
 
 **Optional v3 consideration:** Either drop the tilde syntax entirely (require canonical IDs), or replace it with a more standard `username/resource-name` style on a different endpoint.
 
-## 13. Docs site links still point at legacy paths
+## 12. Docs site links still point at legacy paths
 
 Several documentation pages link to the legacy `/v2/acts-get` page slug or hardcode `/v2/acts/` URLs. While these are documentation rather than the API spec, they will need updating alongside an `actors` rename.
 
@@ -231,7 +220,7 @@ Several documentation pages link to the legacy `/v2/acts-get` page slug or hardc
 - `sources/academy/tutorials/node_js/apify_free_google_serp_api.md:15`
 - `sources/platform/integrations/programming/webhooks/actions.md:100` (uses `"actId":` in an example payload)
 
-## 14. Schedule action: `runInput` / `runOptions` vs `input`
+## 13. Schedule action: `runInput` / `runOptions` vs `input`
 
 `ScheduleActionRunActor` and `ScheduleActionRunActorTask` serve symmetric purposes but spell the payload differently. The Actor variant uses `runInput` + `runOptions`; the Task variant uses just `input` (no options at all).
 
@@ -244,7 +233,7 @@ Several documentation pages link to the legacy `/v2/acts-get` page slug or hardc
 
 **Fix:** Pick one name (`input` is the obvious choice — it's what Tasks already use and matches the input object on a Run). Add `runOptions` to the Task variant for parity, or drop it from the Actor variant.
 
-## 15. `WebhookEventType` enum: `TEST` breaks the `ACTOR.<KIND>.<STATE>` pattern
+## 14. `WebhookEventType` enum: `TEST` breaks the `ACTOR.<KIND>.<STATE>` pattern
 
 Every other event uses dotted three-segment naming (`ACTOR.RUN.SUCCEEDED`, `ACTOR.BUILD.ABORTED`). `TEST` is a bare top-level value used by the "Test webhook" endpoint.
 
@@ -252,7 +241,7 @@ Every other event uses dotted three-segment naming (`ACTOR.RUN.SUCCEEDED`, `ACTO
 
 **Fix:** Either move it out of the user-facing enum entirely (it's only emitted by `/webhooks/{webhookId}/test`, so it doesn't need to be a subscribable event), or rename to `WEBHOOK.TEST.TRIGGERED` for consistency.
 
-## 16. `WebhookDispatch.eventData` is missing `actorTaskId`
+## 15. `WebhookDispatch.eventData` is missing `actorTaskId`
 
 `WebhookCondition` (the subscription side) supports `actorId`, `actorTaskId`, and `actorRunId`. The dispatched payload (`WebhookDispatch.eventData`) only declares `actorId` and `actorRunId` — task-triggered webhooks have no way to expose the task ID in the dispatch envelope.
 
@@ -260,7 +249,7 @@ Every other event uses dotted three-segment naming (`ACTOR.RUN.SUCCEEDED`, `ACTO
 
 **Fix:** Add optional `actorTaskId` to `eventData` so condition fields and event fields stay symmetric.
 
-## 17. `RunOrigin` enum mixes user-facing and internal values
+## 16. `RunOrigin` enum mixes user-facing and internal values
 
 `DEVELOPMENT` and `TEST` look like internal/test-mode origins; the user-facing channels are `WEB`, `API`, `SCHEDULER`, `WEBHOOK`, `ACTOR`, `CLI`, `STANDBY`.
 
@@ -268,7 +257,7 @@ Every other event uses dotted three-segment naming (`ACTOR.RUN.SUCCEEDED`, `ACTO
 
 **Fix:** Either document `DEVELOPMENT` / `TEST` as internal-only (and consider removing them from the public schema), or rename to a clearer `DEV_CONSOLE` / `INTERNAL_TEST` to indicate intent.
 
-## 18. `ActorJobStatus` enum: `TIMING-OUT` / `TIMED-OUT` use hyphens
+## 17. `ActorJobStatus` enum: `TIMING-OUT` / `TIMED-OUT` use hyphens
 
 The other compound state names in the same enum are unhyphenated (`ABORTING`, `ABORTED`). Hyphens are unusual in enum identifiers and break code generators that map enums to symbol names.
 
@@ -276,7 +265,7 @@ The other compound state names in the same enum are unhyphenated (`ABORTING`, `A
 
 **Fix:** Rename to `TIMING_OUT` / `TIMED_OUT`. This is a breaking change because Webhook payloads and run responses ship these strings to clients.
 
-## 19. `RunStats.metamorph` is a count, but the name is singular
+## 18. `RunStats.metamorph` is a count, but the name is singular
 
 `Run.metamorphs` is an array of metamorph events; `RunStats.metamorph` is an integer count of metamorphs. The other counter fields next to it follow the `<noun>Count` pattern (`migrationCount`, `rebootCount`, `restartCount`, `resurrectCount`).
 
@@ -284,7 +273,7 @@ The other compound state names in the same enum are unhyphenated (`ABORTING`, `A
 
 **Fix:** Rename to `metamorphCount`.
 
-## 20. `RunStats.inputBodyLen` uses HTTP terminology for non-HTTP data
+## 19. `RunStats.inputBodyLen` uses HTTP terminology for non-HTTP data
 
 Input is not necessarily an HTTP request body; it's a JSON object (or binary) stored on the run. `inputBodyLen` reads like a header-style abbreviation.
 
@@ -292,7 +281,7 @@ Input is not necessarily an HTTP request body; it's a JSON object (or binary) st
 
 **Fix:** Rename to `inputBytes` or `inputSizeBytes`.
 
-## 21. `ActorStandby.disableStandbyFieldsOverride` is a double negative
+## 20. `ActorStandby.disableStandbyFieldsOverride` is a double negative
 
 `disable…Override` requires two mental negations to evaluate (`true` = the override is disabled = overrides are not allowed).
 
@@ -300,7 +289,7 @@ Input is not necessarily an HTTP request body; it's a JSON object (or binary) st
 
 **Fix:** Rename to `lockStandbyFields` (positive) or `allowFieldsOverride` (inverted boolean).
 
-## 22. `Version.applyEnvVarsToBuild` is verb-phrased
+## 21. `Version.applyEnvVarsToBuild` is verb-phrased
 
 Boolean fields normally describe state (`is*`, `has*`, plain adjective). `applyEnvVarsToBuild` reads like a command.
 
@@ -308,7 +297,7 @@ Boolean fields normally describe state (`is*`, `has*`, plain adjective). `applyE
 
 **Fix:** Rename to `envVarsIncludedInBuild` or `propagateEnvVarsToBuild`.
 
-## 23. Units suffix: `Mbytes` / `Gbytes` are non-standard
+## 22. Units suffix: `Mbytes` / `Gbytes` are non-standard
 
 Apify schemas use `Mbytes` (megabytes) and `Gbytes` (gigabytes) consistently across memory, disk, storage, transfer, and proxy traffic fields. Standard SI/IEC abbreviations are `MB` and `GB`; the current spelling reads as "Mbytes / Gbytes" and is uncommon in REST APIs.
 
@@ -324,7 +313,7 @@ Apify schemas use `Mbytes` (megabytes) and `Gbytes` (gigabytes) consistently acr
 
 **Fix:** Rename `*Mbytes` → `*Mb` (or `*MB`) and `*Gbytes` → `*Gb` (or `*GB`) consistently. Affects ~25 schemas plus stored response examples.
 
-## 24. User stats use `Job` instead of `Run` terminology
+## 23. User stats use `Job` instead of `Run` terminology
 
 The user resource quotas talk about "Actor jobs" while the rest of the API consistently uses "Actor runs".
 
@@ -335,7 +324,7 @@ The user resource quotas talk about "Actor jobs" while the rest of the API consi
 
 **Fix:** Rename to `activeActorRunCount` / `maxConcurrentActorRuns`. (`ActorJobStatus` is the only legitimate use of the "job" terminology because it covers both runs and builds.)
 
-## 25. `StoreListActor.isWhiteListedForAgenticPayment` is misspelled
+## 24. `StoreListActor.isWhiteListedForAgenticPayment` is misspelled
 
 The compound word "whitelisted" is normally a single word in camelCase. The field uses `WhiteListed` (double capital). The accompanying description even spells it correctly ("whitelisted").
 
@@ -346,7 +335,7 @@ The compound word "whitelisted" is normally a single word in camelCase. The fiel
 
 **Fix:** Rename to `isWhitelistedForAgenticPayment`.
 
-## 26. Dataset query parameters explicitly emulate retired Apify Crawler product
+## 25. Dataset query parameters explicitly emulate retired Apify Crawler product
 
 Two dataset query parameters explicitly say in their own description that they're there to emulate the legacy Apify Crawler product and are not recommended for new integrations.
 
@@ -358,7 +347,7 @@ Two dataset query parameters explicitly say in their own description that they'r
 
 **Fix:** Drop `simplified` and `skipFailedPages` in v3. Consider keeping `clean` for ergonomics or dropping it as well.
 
-## 27. Key-value store query parameter: two YAML keys map to one HTTP name `collection`
+## 26. Key-value store query parameter: two YAML keys map to one HTTP name `collection`
 
 `collectionKeys` and `collectionRecords` are two distinct YAML anchors in `keyValueStoreParameters.yaml`, but both emit the HTTP query parameter `name: collection`. They differ only in description (one for the keys endpoint, one for the records endpoint).
 
@@ -366,7 +355,7 @@ Two dataset query parameters explicitly say in their own description that they'r
 
 **Fix:** Collapse into a single shared parameter (the descriptions can be reused via $ref). Not a wire change — only a spec-source cleanup.
 
-## 28. `ActorDefinition.actorSpecification` is an integer version field stuck at `1`
+## 27. `ActorDefinition.actorSpecification` is an integer version field stuck at `1`
 
 `actorSpecification: integer const: 1` doesn't communicate intent. A field called `version` or `schemaVersion` would make the meaning self-explanatory.
 
@@ -374,7 +363,7 @@ Two dataset query parameters explicitly say in their own description that they'r
 
 **Fix:** Rename to `schemaVersion` (matches dataset/KV store schema terminology) and consider bumping to `2` if v3 introduces breaking changes elsewhere in the actor definition.
 
-## 29. Tags duplicated between nested and standalone variants
+## 28. Tags duplicated between nested and standalone variants
 
 Because each Actor sub-resource has both an `/v2/acts/{actorId}/...` route and a standalone `/v2/actor-{runs,builds,tasks}/...` route, the tag list duplicates the same concept twice.
 
@@ -388,7 +377,7 @@ Because each Actor sub-resource has both an `/v2/acts/{actorId}/...` route and a
 
 **Fix:** Collapse to one tag per concept once `/v2/acts/` is gone. The `runs/last/*` endpoints could be retired entirely and replaced with documentation about how to call the canonical endpoints after fetching `runs/last`.
 
-## 30. "curl" code samples are actually `apify` CLI commands
+## 29. "curl" code samples are actually `apify` CLI commands
 
 The samples directory at `code_samples/curl/` ships shell snippets like `apify actors start <ACTOR ID>` rather than `curl` invocations. They're labelled "cURL" in the rendered docs.
 
@@ -396,7 +385,7 @@ The samples directory at `code_samples/curl/` ships shell snippets like `apify a
 
 **Fix:** Either rename the directory and the label to `cli` (this matches the actual content), or provide real `curl` examples for v3. The current labelling misleads anyone copying the snippet expecting a portable HTTP request.
 
-## 31. Decorator workaround for inconsistent operationIds
+## 30. Decorator workaround for inconsistent operationIds
 
 `apify-api/plugins/decorators/code-samples-decorator.mjs` contains a special case that remaps `PostResurrectRun` (PascalCase) to `actorRun_resurrect_post` (snake_case) so it can find the right code sample file. The decorator's existence is a symptom of the operationId inconsistency listed in §5.
 
@@ -416,28 +405,27 @@ The most impactful breaking changes for v3, ranked by reach:
 8. **Move `/v2/browser-info` → `/v2/tools/browser-info`**.
 9. **Replace `buildOrRunId`** combined parameter with discrete endpoints.
 10. **Replace "rented" terminology** in `ErrorType` enum.
-11. **Remove deprecated fields** (`restartOnError` on Actor, `inputSchema` / `readme` on Build, `exclusiveStartId` on ListOfRequests).
-12. **Decide tilde-separated ID syntax** future.
-13. **Unify docs site links** that hardcode `acts/`.
-14. **Schedule actions**: normalize `runInput`/`runOptions` vs `input`.
-15. **Webhook event type `TEST`** breaks the `ACTOR.X.Y` pattern.
-16. **WebhookDispatch.eventData** missing `actorTaskId`.
-17. **RunOrigin enum** mixes internal (`DEVELOPMENT`, `TEST`) and external values.
-18. **`ActorJobStatus`** enum: `TIMING-OUT` / `TIMED-OUT` should use underscores.
-19. **`RunStats.metamorph`** → `metamorphCount`.
-20. **`RunStats.inputBodyLen`** → `inputBytes`.
-21. **`ActorStandby.disableStandbyFieldsOverride`** double-negative.
-22. **`Version.applyEnvVarsToBuild`** verb-phrased boolean.
-23. **`Mbytes` / `Gbytes`** unit suffix → `Mb` / `Gb` (or `MB` / `GB`).
-24. **User stats**: `activeActorJobCount` / `maxConcurrentActorJobs` → `*ActorRunCount` / `maxConcurrentActorRuns`.
-25. **`StoreListActor.isWhiteListedForAgenticPayment`** typo: should be `isWhitelisted…`.
-26. **Drop `simplified` and `skipFailedPages`** dataset params (self-described as legacy Crawler emulation).
-27. **Collapse `collectionKeys` / `collectionRecords`** duplicate YAML anchors.
-28. **`ActorDefinition.actorSpecification`** → `schemaVersion`.
-29. **Collapse duplicate tags** once `/v2/acts/` is gone (Actor builds, Actor runs, Last run's *, etc.).
-30. **Rename `code_samples/curl/`** (or replace contents with real `curl` snippets).
-31. **Retire `PostResurrectRun` decorator workaround** in `code-samples-decorator.mjs`.
+11. **Decide tilde-separated ID syntax** future.
+12. **Unify docs site links** that hardcode `acts/`.
+13. **Schedule actions**: normalize `runInput`/`runOptions` vs `input`.
+14. **Webhook event type `TEST`** breaks the `ACTOR.X.Y` pattern.
+15. **WebhookDispatch.eventData** missing `actorTaskId`.
+16. **RunOrigin enum** mixes internal (`DEVELOPMENT`, `TEST`) and external values.
+17. **`ActorJobStatus`** enum: `TIMING-OUT` / `TIMED-OUT` should use underscores.
+18. **`RunStats.metamorph`** → `metamorphCount`.
+19. **`RunStats.inputBodyLen`** → `inputBytes`.
+20. **`ActorStandby.disableStandbyFieldsOverride`** double-negative.
+21. **`Version.applyEnvVarsToBuild`** verb-phrased boolean.
+22. **`Mbytes` / `Gbytes`** unit suffix → `Mb` / `Gb` (or `MB` / `GB`).
+23. **User stats**: `activeActorJobCount` / `maxConcurrentActorJobs` → `*ActorRunCount` / `maxConcurrentActorRuns`.
+24. **`StoreListActor.isWhiteListedForAgenticPayment`** typo: should be `isWhitelisted…`.
+25. **Drop `simplified` and `skipFailedPages`** dataset params (self-described as legacy Crawler emulation).
+26. **Collapse `collectionKeys` / `collectionRecords`** duplicate YAML anchors.
+27. **`ActorDefinition.actorSpecification`** → `schemaVersion`.
+28. **Collapse duplicate tags** once `/v2/acts/` is gone (Actor builds, Actor runs, Last run's *, etc.).
+29. **Rename `code_samples/curl/`** (or replace contents with real `curl` snippets).
+30. **Retire `PostResurrectRun` decorator workaround** in `code-samples-decorator.mjs`.
 
-Items 1–4 dominate the breaking surface — they show up in nearly every Actor/Run/Build/Task/storage response the API returns. Items 5–13 are spec-wide cleanups. Items 14–31 are targeted schema/enum/field-level adjustments that are individually small but add up to a measurably more consistent API.
+Items 1–4 dominate the breaking surface — they show up in nearly every Actor/Run/Build/Task/storage response the API returns. Items 5–12 are spec-wide cleanups. Items 13–30 are targeted schema/enum/field-level adjustments that are individually small but add up to a measurably more consistent API.
 
 The first four together represent the bulk of the breaking-change surface area, since they show up in every Actor / Run / Build / Task / storage response the API has produced for years.
