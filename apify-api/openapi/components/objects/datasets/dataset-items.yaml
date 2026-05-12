@@ -92,7 +92,7 @@ sharedGet: &sharedGet
       $ref: ../../responses/BadRequest.yaml
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById, *parametersGetHeadById]
   summary: Get dataset items
   description: |
@@ -257,7 +257,7 @@ getById:
   x-py-name: stream_items
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#stream_items
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Get default dataset items
   description: |
@@ -290,7 +290,7 @@ getDefault:
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's dataset items
   description: |
@@ -324,7 +324,7 @@ getLastRun:
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: Get last task run's dataset items
   description: |
