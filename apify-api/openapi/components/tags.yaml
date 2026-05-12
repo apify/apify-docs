@@ -126,7 +126,7 @@
     If any returned run object contains usage in dollars, your effective unit pricing at the time of query
     has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
 
-    After a run reaches a finished state, aggregated fields such as `stats`, dollar usage totals, and pay-per-event counts are eventually consistent - they usually update within a few seconds. For values that must match finalized totals, wait about 10 seconds after the run ended, then fetch the run again or poll with a short delay.
+    For completed runs, aggregated fields such as `stats` or dollar usage totals are eventually consistent and update within a few seconds. For values that must match finalized totals, wait about 10 seconds after the run completed, then fetch the run again.
 
     You can learn more about platform usage in the [documentation](https://docs.apify.com/platform/actors/running/usage-and-resources#usage).
 - name: Actor tasks
