@@ -9,7 +9,7 @@ slug: /deploying-your-code/input-schema
 
 ---
 
-Writing an [input schema](/platform/actors/development/actor-definition/input-schema) for an Actor is optional, but recommended. The Apify platform reads [`.actor/INPUT_SCHEMA.json`](/platform/actors/development/actor-definition) and generates a user interface for entering input into your Actor, which makes it easier for non-developers and developers alike to configure and understand the inputs your Actor accepts. Because of this, we'll write an input schema for our example Actor.
+Writing an [input schema](/platform/actors/development/actor-definition/input-schema) for an Actor is optional, but recommended. The Apify platform reads input schema and generates a user interface for entering input into your Actor, which makes it easier for non-developers and developers alike to configure and understand the inputs your Actor accepts. Because of this, we'll write an input schema for our example Actor.
 
 :::note JSON requirement
 
