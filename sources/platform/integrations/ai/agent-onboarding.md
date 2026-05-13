@@ -12,17 +12,15 @@ import TabItem from '@theme/TabItem';
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
-This page is the entry point for developers integrating AI agents with the Apify platform. It covers how to connect, run Actors, retrieve data, and access documentation programmatically.
+## Core concepts
 
-**Core concepts:**
-
-- **Actors** - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
-- **Datasets** - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
-- **API** - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/platform/integrations/mcp), [CLI](/cli), and client libraries.
+- _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
+- _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
+- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/platform/integrations/mcp), [CLI](/cli), and client libraries.
 
 ## Prerequisites
 
-Sign up at [console.apify.com](https://console.apify.com/sign-up) using Google or GitHub. The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
+Sign up to [Apify Console](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
 
 :::tip Free exploration
 
@@ -39,7 +37,9 @@ Every Apify Actor follows the same pattern: send input as JSON, get structured d
 
 After [connecting the MCP server](#mcp-server) to your AI assistant, ask:
 
-> Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
+```text
+Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
+```
 
 Your agent calls [`search-actors`](/platform/integrations/mcp#available-tools), [`call-actor`](/platform/integrations/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
 
@@ -82,7 +82,6 @@ When an agent calls Actors automatically, set run limits to prevent surprise bil
 
 - `memory` (MB) - power of 2, minimum 128. Lower memory means lower cost per second.
 - `timeout` (seconds) - cap how long a single run can last.
-- `maxItems` - cap billed items for pay-per-result Actors.
 - `maxTotalChargeUsd` - cap total run cost for pay-per-event Actors.
 
 See [Usage and resources](/platform/actors/running/usage-and-resources) and [Billing](/platform/console/billing) for details.
@@ -94,7 +93,6 @@ See [Usage and resources](/platform/actors/running/usage-and-resources) and [Bil
 | Method | Best for | Auth |
 | :--- | :--- | :--- |
 | [MCP server](#mcp-server) | AI agents and coding assistants | OAuth or API token |
-| [Agent Skills](#agent-skills) | Guided scraping workflows and Actor development | API token |
 | [API client](#api-client) | Backend apps (JavaScript/Python) | API token |
 | [CLI](#cli) | Building and deploying custom Actors | API token |
 | [REST API](#rest-api) | Any language, HTTP integrations, no-code tools | API token |
@@ -103,52 +101,45 @@ See [Usage and resources](/platform/actors/running/usage-and-resources) and [Bil
 
 The [Apify MCP server](/platform/integrations/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
 
-_Remote (recommended)_ - works with Claude Code, Cursor, VS Code, GitHub Copilot, and other remote-capable clients:
+#### Remote (recommended)
 
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "url": "https://mcp.apify.com"
+Works with Claude Code, Cursor, VS Code, GitHub Copilot, and other remote-capable clients.
+
+1. Add the following to your MCP client's configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com"
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-OAuth handles authentication automatically - you'll be prompted to sign in on first use.
+1. Restart your client and sign in when prompted. OAuth handles authentication automatically.
 
-_Local/stdio_ - for clients that only support local MCP servers (e.g. Claude Desktop):
+#### Local/stdio
 
-```json
-{
-  "mcpServers": {
-    "apify": {
-      "command": "npx",
-      "args": ["-y", "@apify/actors-mcp-server"],
-      "env": { "APIFY_TOKEN": "YOUR_TOKEN" }
+For clients that only support local MCP servers, for example Claude Desktop.
+
+1. Add the following to your MCP client's configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "command": "npx",
+          "args": ["-y", "@apify/actors-mcp-server"],
+          "env": { "APIFY_TOKEN": "YOUR_TOKEN" }
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For advanced options and tool customization, see the full [MCP server documentation](/platform/integrations/mcp).
+1. Replace `YOUR_TOKEN` with your API token and restart the client.
 
-### Agent Skills
-
-Pre-built workflows that guide AI agents through data extraction and Actor development tasks.
-
-```bash
-npx skills add apify/agent-skills
-```
-
-| Skill | What it does |
-| :--- | :--- |
-| `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
-| `apify-actor-development` | Guided workflow for building and deploying custom Actors |
-| `apify-actorization` | Converts an existing project into an Apify Actor |
-| `apify-generate-output-schema` | Auto-generates output schemas from Actor source code |
-
-Skills work with Claude Code, Cursor, Gemini CLI, and OpenAI Codex. See the [skills registry](https://skills.sh/apify/agent-skills) for the full list and details.
+For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For details, see the [MCP server documentation](/platform/integrations/mcp).
 
 ### API client
 
@@ -231,22 +222,41 @@ Full reference: [Apify CLI documentation](/cli).
 
 For HTTP-native integrations or languages without a dedicated client. Base URL: `https://api.apify.com/v2`. Authenticate with the `Authorization: Bearer YOUR_TOKEN` header.
 
-_Quick reference:_
+#### Quick reference
 
 | Action | Method | Endpoint |
 | :--- | :--- | :--- |
-| Search Actors in Store | `GET` | `/v2/store` |
-| Get Actor details | `GET` | `/v2/acts/{actorId}` |
-| Run an Actor | `POST` | `/v2/acts/{actorId}/runs` |
-| Run Actor (sync, get results) | `POST` | `/v2/acts/{actorId}/run-sync-get-dataset-items` |
-| Get run status | `GET` | `/v2/actor-runs/{runId}` |
-| Get dataset items | `GET` | `/v2/datasets/{datasetId}/items` |
+| [Search Actors in Store](/api/v2/store-get) | `GET` | `/v2/store` |
+| [Get Actor details](/api/v2/act-get) | `GET` | `/v2/acts/{actorId}` |
+| [Run an Actor](/api/v2/act-runs-post) | `POST` | `/v2/acts/{actorId}/runs` |
+| [Run Actor (sync, get results)](/api/v2/act-run-sync-get-dataset-items-post) | `POST` | `/v2/acts/{actorId}/run-sync-get-dataset-items` |
+| [Get run status](/api/v2/actor-run-get) | `GET` | `/v2/actor-runs/{runId}` |
+| [Get dataset items](/api/v2/dataset-items-get) | `GET` | `/v2/datasets/{datasetId}/items` |
 
 The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/act-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/act-runs-post) for longer runs.
 
 For runs that take longer than the sync timeout, prefer [webhooks](/platform/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
 
 Full reference: [Apify API v2](/api/v2).
+
+## Agent Skills
+
+Once your agent is connected via MCP or a coding assistant, [Apify Agent Skills](https://skills.sh/apify/agent-skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
+
+Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
+
+```bash
+npx skills add apify/agent-skills
+```
+
+| Skill | What it does |
+| :--- | :--- |
+| `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
+| `apify-actor-development` | Guided workflow for building and deploying custom Actors |
+| `apify-actorization` | Converts an existing project into an Apify Actor |
+| `apify-generate-output-schema` | Auto-generates output schemas from Actor source code |
+
+For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
 
 ## Documentation access for agents
 
@@ -262,23 +272,6 @@ Apify documentation is available in formats optimized for programmatic consumpti
 | MCP docs tools | `search-apify-docs`, `fetch-apify-docs` |
 
 For targeted lookups, prefer `.md` URLs for specific pages or the MCP docs tools over the full `llms-full.txt` file, which may be truncated by agents with limited context windows.
-
-## Frequently asked questions
-
-**Which package: `apify` or `apify-client`?**
-`apify-client` is for _calling_ Actors from your app. `apify` is the SDK for _building_ Actors on the Apify platform. These are different packages.
-
-**Can I use Apify without an account?**
-Partially. The MCP server lets you search Actors, read details, and browse docs without authentication. Running Actors requires a free account.
-
-**How do I find the right Actor?**
-Use `search-actors` via MCP, browse [Apify Store](https://apify.com/store), or ask your AI agent. Every Actor has a README with capabilities and input schema.
-
-**What's the difference between MCP and Agent Skills?**
-MCP connects your agent to Apify as a tool provider (search, run, get results). Agent Skills add guided workflows on top - multi-step scraping across platforms, Actor development lifecycle, and more.
-
-**Can I build my own Actor?**
-Yes. Install the [CLI](/cli), run `apify create`, and follow the prompts. Use the `apify-actor-development` skill for a guided workflow. Deploy with `apify push`.
 
 ## Useful resources
 
