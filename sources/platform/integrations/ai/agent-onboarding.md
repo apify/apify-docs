@@ -30,6 +30,65 @@ The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work wit
 
 :::
 
+## Run your first Actor
+
+Every Apify Actor follows the same pattern: send input as JSON, get structured data back. The shortest path through each of the main integration methods, using the agent-optimized [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor:
+
+<Tabs>
+<TabItem value="mcp" label="MCP">
+
+After [connecting the MCP server](#mcp-server) to your AI assistant, ask:
+
+> Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
+
+Your agent calls [`search-actors`](/platform/integrations/mcp#available-tools), [`call-actor`](/platform/integrations/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
+
+</TabItem>
+<TabItem value="javascript" label="JavaScript">
+
+```typescript
+import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
+const run = await client.actor('apify/rag-web-browser').call({
+    query: 'Apify documentation',
+    maxResults: 3,
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+import os
+from apify_client import ApifyClient
+
+client = ApifyClient(token=os.environ['APIFY_TOKEN'])
+run = client.actor('apify/rag-web-browser').call(
+    run_input={'query': 'Apify documentation', 'maxResults': 3},
+)
+items = client.dataset(run['defaultDatasetId']).list_items().items
+```
+
+</TabItem>
+</Tabs>
+
+The pattern is the same across every integration method: pick an Actor, send input, receive structured data. Choose the connection method below that fits your stack.
+
+:::caution Cost controls
+
+When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/act-runs-post):
+
+- `memory` (MB) - power of 2, minimum 128. Lower memory means lower cost per second.
+- `timeout` (seconds) - cap how long a single run can last.
+- `maxItems` - cap billed items for pay-per-result Actors.
+- `maxTotalChargeUsd` - cap total run cost for pay-per-event Actors.
+
+See [Usage and resources](/platform/actors/running/usage-and-resources) and [Billing](/platform/console/billing) for details.
+
+:::
+
 ## Choose your integration method
 
 | Method | Best for | Auth |
@@ -183,7 +242,9 @@ _Quick reference:_
 | Get run status | `GET` | `/v2/actor-runs/{runId}` |
 | Get dataset items | `GET` | `/v2/datasets/{datasetId}/items` |
 
-The sync endpoint (`run-sync-get-dataset-items`) runs an Actor and returns results in a single request (waits up to 5 minutes). Use async endpoints for longer runs.
+The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/act-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/act-runs-post) for longer runs.
+
+For runs that take longer than the sync timeout, prefer [webhooks](/platform/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
 
 Full reference: [Apify API v2](/api/v2).
 
