@@ -48,13 +48,11 @@ Once we have an active account, we can start working on our scraper. Using the p
 
 ## Creating a new Actor
 
-Your phone runs apps, Apify runs Actors. If we want Apify to run something for us, it must be wrapped in the Actor structure. Conveniently, the platform provides ready-made templates we can use.
-
 After login, we land on a page called **Apify Store**. Apify serves both as infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
 
 ![Apify Store welcome screen with Development menu highlighted](images/apify-nav-store.webp)
 
-Apify supports several ways to start a new project. In **My Actors**, we'll click **Use template**:
+Your phone runs apps, Apify runs Actors. If we want Apify to run something for us, it must be wrapped in the Actor structure. Conveniently, the platform provides ready-made templates we can use. In **My Actors**, we'll click **Use template**:
 
 ![My Actors page with Use template button](images/apify-nav-my-actors.webp)
 
@@ -96,15 +94,25 @@ In this course, we'll scrape a real e-commerce site instead of artificial playgr
 
 :::
 
-First, let's navigate through the tabs to **Source** → **Input**, where we can change what the Actor takes as input. The sample scraper walks through whatever website we give it in the **Start URLs** field. We'll change it to this URL:
+We'll open **New chat** in [ChatGPT](https://chatgpt.com/) and prepare a beginning of a prompt like this:
 
 ```text
-https://warehouse-theme-metal.myshopify.com/collections/sales
+I'm building an Apify Actor that will run on the Apify platform.
+I need to modify a sample template project so it downloads
+https://warehouse-theme-metal.myshopify.com/collections/sales,
+extracts all products in Sales, and returns data with
+the following information for each product:
+
+- Product name
+- Product detail page URL
+- Price
+
+Before the program ends, it should log how many products it collected.
+Code from routes.js follows. Reply with a code block containing
+a new version of that file.
 ```
 
-![Actor input](images/apify-input.webp)
-
-Now let's go back to **Source** → **Code** so we can work with the Web IDE. We'll select a file called `routes.js` inside the `src` folder. We'll see code similar to this:
+Now let's switch back to Apify. In **Source** → **Code**, where we can work with the Web IDE, we'll select a file called `routes.js` inside the `src` folder. We'll see code similar to this:
 
 ```js
 import { createCheerioRouter } from '@crawlee/cheerio';
@@ -124,29 +132,31 @@ router.addDefaultHandler(async ({ enqueueLinks, request, $, log, pushData }) => 
 });
 ```
 
-We'll select all the code and copy it to our clipboard. Then we'll switch to [ChatGPT](https://chatgpt.com/), open **New chat** and start with a prompt like this:
+We'll select full contents of the `routes.js` file and copy it to our clipboard, use <kbd>Shift+↵</kbd> to add a few empty lines, then paste the code from our clipboard.
+
+After we submit it, ChatGPT should return a large code block with a new version of `routes.js`. We'll copy it, switch back to the Web IDE, and replace the original `routes.js` content.
+
+And that's it, our scraper is ready!
+
+## Changing Actor input
+
+Umm, almost ready… Before we try if the new code works, we should also change what the Actor takes as input. The sample scraper walked through whatever website it got in the **Start URLs** input field, but we want our new scraper to work with the Warehouse Store URL for Sales:
 
 ```text
-I'm building an Apify Actor that will run on the Apify platform.
-I need to modify a sample template project so it downloads
-https://warehouse-theme-metal.myshopify.com/collections/sales,
-extracts all products in Sales, and returns data with
-the following information for each product:
-
-- Product name
-- Product detail page URL
-- Price
-
-Before the program ends, it should log how many products it collected.
-Code from routes.js follows. Reply with a code block containing
-a new version of that file.
+https://warehouse-theme-metal.myshopify.com/collections/sales
 ```
 
-We'll use <kbd>Shift+↵</kbd> to add a few empty lines, then paste the code from our clipboard. After we submit it, ChatGPT should return a large code block with a new version of `routes.js`. We'll copy it, switch back to the Web IDE, and replace the original `routes.js` content. That's it, we're ready to roll!
+Let's navigate through the tabs to **Source** → **Input**, change the URL, and click the **Save** button somewhat hidden under the form:
+
+![Actor input](images/apify-input.webp)
+
+Now we're finally all set.
 
 ## Scraping products
 
-Now let's see if the new code works. The button we previously used for building and running conveniently became a **Save, Build & Start** button, so let's press it and see what happens. In a minute or so we should see the results appearing in the output area.
+After our changes, the main button we previously used for building and running conveniently became a **Save, Build & Start** button. Let's press it and see what happens!
+
+Our project will automatically hop through all the phases and then, in a minute or so, we should see the results appearing in the output area.
 
 ![Warehouse scraper output](images/apify-output-warehouse.webp)
 
