@@ -1,6 +1,6 @@
 ---
 title: Apify for AI agents
-sidebar_label: AI agents
+sidebar_label: Agent onboarding
 description: Connect your AI agent to the Apify platform - scrape the web, run Actors, and retrieve structured data via MCP, Agent Skills, client libraries, or the REST API.
 sidebar_position: 1
 slug: /integrations/agent-onboarding
