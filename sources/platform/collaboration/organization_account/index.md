@@ -9,10 +9,10 @@ Organization accounts allow groups to collaborate on projects. It enables you to
 
 You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
 
-You can set up an organization in two ways.
+You can set up an organization in two ways:
 
-* [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
+- [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
+- [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
 > Prefer video to reading? [See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
@@ -29,21 +29,21 @@ To create an organization account:
 1. Select the **Organizations** tab.
 1. In **My organizations**, select **Create a new organization**.
 1. Complete the following information:
-   * Organization name
-   * Organization username
-   * Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
+   - Organization name
+   - Organization username
+   - Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
 <!-- vale on -->
 You can create up to 5 organizations and be a member of as many organizations as you need.
 
 ## Convert an existing account
 
-> **When you convert an existing user account into an organization:**
->
-> * **You will no longer be able to sign in to the converted user account.**
-> * **An organization cannot be converted back to a personal account.**
-> * **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up](./setup.md) the organization.**
+When you convert an existing user account into an organization:
 
-Before converting your personal account into an organization, make sure it has a **username**.
+- You won't be able to sign in to the converted account.
+- An organization cannot be converted back to a personal account.
+- During conversion, a new account with the same login credentials is created for you. You can then use that account to [set up the organization](./setup.md).
+
+Before converting your personal account into an organization, make sure it has a username.
 
 An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to **leave all the organizations you are a part of**.
 
