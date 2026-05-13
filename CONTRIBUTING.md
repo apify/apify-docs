@@ -117,9 +117,10 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 3. Screenshots:
 
-    - Use light theme when taking screenshots
-    - Include meaningful alt texts
-    - Use red indicators
+    - Keep screenshots to a minimum. If an image shows what your prose already describes, it's probably not needed.
+    - Always include meaningful alt texts. Remember that it might be the only way for some users to understand the content.
+    - Use light theme when taking screenshots.
+    - To highlight UI elements, use `#F86606` color for indicators. Don't use arrows.
 
 ### Front matter metadata best practices
 
