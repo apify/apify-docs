@@ -43,7 +43,7 @@ sharedGet: &sharedGet
     <<: [*common200, *commonErrors]
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
   summary: Download records
   description: |
@@ -58,7 +58,7 @@ getById:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Download default store's records
   description: |
@@ -73,7 +73,7 @@ getDefault:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Download last run's default store's records
   description: |
@@ -89,7 +89,7 @@ getLastRun:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: Download last task run's default store's records
   description: |
