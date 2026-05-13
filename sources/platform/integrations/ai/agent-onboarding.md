@@ -241,7 +241,7 @@ Full reference: [Apify API v2](/api/v2).
 
 ## Agent Skills
 
-Once your agent is connected via MCP or a coding assistant, [Apify Agent Skills](https://skills.sh/apify/agent-skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
+Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](https://skills.sh/apify/agent-skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
 
 Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
 
@@ -271,7 +271,7 @@ Apify documentation is available in formats optimized for programmatic consumpti
 | Actor Store pages | Append `.md` to any Apify Store URL |
 | MCP docs tools | `search-apify-docs`, `fetch-apify-docs` |
 
-For targeted lookups, prefer `.md` URLs for specific pages or the MCP docs tools over the full `llms-full.txt` file, which may be truncated by agents with limited context windows.
+For targeted lookups, prefer `.md` URLs for specific pages or the MCP docs tools over the full `llms-full.txt` file. Agents with limited context windows may not load `llms-full.txt` fully.
 
 ## Useful resources
 
