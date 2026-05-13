@@ -48,7 +48,7 @@ Once we have an active account, we can start working on our scraper. Using the p
 
 ## Creating a new Actor
 
-After login, we land on a page called **Apify Store**. Apify serves both as infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
+After logging in, we land on a page called **Apify Store**. Apify serves as both infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
 
 ![Apify Store welcome screen with Development menu highlighted](images/apify-nav-store.webp)
 
@@ -112,7 +112,7 @@ Code from routes.js follows. Reply with a code block containing
 a new version of that file.
 ```
 
-Now let's switch back to Apify. In **Source** → **Code**, where we can work with the Web IDE, we'll select a file called `routes.js` inside the `src` folder. We'll see code similar to this:
+Now let's switch back to Apify. In **Source** → **Code**, where we have the Web IDE, we'll select a file called `routes.js` inside the `src` folder. We'll see code similar to this:
 
 ```js
 import { createCheerioRouter } from '@crawlee/cheerio';
@@ -132,7 +132,7 @@ router.addDefaultHandler(async ({ enqueueLinks, request, $, log, pushData }) => 
 });
 ```
 
-We'll select full contents of the `routes.js` file and copy it to our clipboard, use <kbd>Shift+↵</kbd> to add a few empty lines, then paste the code from our clipboard.
+We'll select the full contents of the `routes.js` file and copy them to our clipboard. Then we'll use <kbd>Shift+↵</kbd> to add a few empty lines and paste the copied code.
 
 After we submit it, ChatGPT should return a large code block with a new version of `routes.js`. We'll copy it, switch back to the Web IDE, and replace the original `routes.js` content.
 
@@ -140,13 +140,13 @@ And that's it, our scraper is ready!
 
 ## Changing Actor input
 
-Umm, almost ready… Before we try if the new code works, we should also change what the Actor takes as input. The sample scraper walked through whatever website it got in the **Start URLs** input field, but we want our new scraper to work with the Warehouse Store URL for Sales:
+Almost ready… Before we test whether the new code works, we should also change what the Actor takes as input. The sample scraper walked through whatever website it got in the **Start URLs** input field, but we want our new scraper to use the Warehouse store Sales URL:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/collections/sales
 ```
 
-Let's navigate through the tabs to **Source** → **Input**, change the URL, and click the **Save** button somewhat hidden under the form:
+Let's navigate through the tabs to **Source** → **Input**, change the URL, and click the **Save** button, which is somewhat hidden below the form:
 
 ![Actor input](images/apify-input.webp)
 
@@ -156,7 +156,7 @@ Now we're finally all set.
 
 After our changes, the main button we previously used for building and running conveniently became a **Save, Build & Start** button. Let's press it and see what happens!
 
-Our project will automatically hop through all the phases and then, in a minute or so, we should see the results appearing in the output area.
+Our project will automatically go through all phases, and then, in a minute or so, we should see the results appearing in the output area.
 
 ![Warehouse scraper output](images/apify-output-warehouse.webp)
 
