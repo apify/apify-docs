@@ -15,14 +15,10 @@ function rehypeFixCodeLanguage() {
             if (node.tagName !== 'pre') return;
 
             const preClasses = node.properties?.className ?? [];
-            const langClass = preClasses.find(
-                (c) => typeof c === 'string' && c.startsWith('language-'),
-            );
+            const langClass = preClasses.find((c) => typeof c === 'string' && c.startsWith('language-'));
             if (!langClass) return;
 
-            const code = (node.children ?? []).find(
-                (c) => c.type === 'element' && c.tagName === 'code',
-            );
+            const code = (node.children ?? []).find((c) => c.type === 'element' && c.tagName === 'code');
             if (!code) return;
 
             if (!code.properties) code.properties = {};

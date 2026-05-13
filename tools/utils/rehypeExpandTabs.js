@@ -13,9 +13,7 @@ function isTabsContainer(node) {
 }
 
 function buildReplacement(tabsContainer) {
-    const labels = selectAll('ul[role="tablist"] li[role="tab"]', tabsContainer).map((li) =>
-        toString(li).trim(),
-    );
+    const labels = selectAll('ul[role="tablist"] li[role="tab"]', tabsContainer).map((li) => toString(li).trim());
     const panels = selectAll('div[role="tabpanel"]', tabsContainer);
 
     const result = [];
