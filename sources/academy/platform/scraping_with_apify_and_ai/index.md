@@ -25,7 +25,7 @@ The end product will, unlike programs vibe-coded carelessly, reach the level of 
 - Use Cursor (AI agent) to improve the program so that it is robust and maintainable.
 - Save time and effort with the Apify platform.
 
-## Who this course is for
+## Who is this course for
 
 Anyone with basic knowledge of chatting with an AI assistant and affinity to building digital products who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of web technologies or scraping.
 
