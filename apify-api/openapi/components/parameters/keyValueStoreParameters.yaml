@@ -22,8 +22,6 @@ exclusiveStartKey:
   name: exclusiveStartKey
   in: query
   description: All keys up to this one (including) are skipped from the result.
-  style: form
-  explode: true
   schema:
     type: string
     example: Ihnsp8YrvJ8102Kj
@@ -32,8 +30,6 @@ limit:
   name: limit
   in: query
   description: Number of keys to be returned.
-  style: form
-  explode: true
   schema:
     type: number
     format: int32
@@ -83,7 +79,6 @@ attachment:
     If `true` or `1`, the response will be served with `Content-Disposition: attachment` header,
     causing web browsers to offer downloading HTML records instead of displaying them.
   required: false
-  style: form
   schema:
     type: boolean
     example: true
