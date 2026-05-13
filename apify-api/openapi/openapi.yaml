@@ -115,7 +115,7 @@ info:
     <span id="/introduction/legacy-acts-prefix"></span>
 
     Actor-scoped endpoints previously lived under `/v2/acts/`. That prefix is
-    **deprecated but continues to work** for backward compatibility — every
+    **deprecated but continues to work** for backward compatibility - every
     `/v2/acts/...` URL routes to the same handler as its `/v2/actors/...`
     counterpart, returns the same response, and shares the same rate-limit bucket
     and API usage counter. New integrations should use the canonical
