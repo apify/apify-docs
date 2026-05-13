@@ -10,20 +10,20 @@ unlisted: true
 
 import DocCardList from '@theme/DocCardList';
 
-**Learn how to use AI to extract information from websites in this practical course, starting from the absolute basics.**
+**Learn how to use AI to extract information from websites, starting from the absolute basics.**
 
 ---
 
-In this course we'll use AI assistants to create an application for watching prices. It'll be able to scrape product pages of an e-commerce website and record prices. Data from several runs of such program would be useful for seeing trends in price changes, detecting discounts, etc.
+In this practical course, we'll use AI assistants to create an application for watching prices. It'll be able to scrape product pages of an e-commerce website and record prices. Data gathered from several runs of such program would be useful for seeing trends in price changes or detecting discounts.
 
 The end product will, unlike programs vibe-coded carelessly, reach the level of quality allowing for further extensibility and comfortable maintenance, so that it can be published to [Apify Store](https://apify.com/store).
 
 ## What we'll do
 
 - Use ChatGPT (AI chat) to create a program which extracts data from a web page.
-- Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open.
+- Save extracted data in various formats, for example CSV which MS Excel or Google Sheets can open.
 - Use Cursor (AI agent) to improve the program so that it is robust and maintainable.
-- Save time and effort with Apify's scraping platform.
+- Save time and effort with the Apify platform.
 
 ## Who this course is for
 
@@ -31,9 +31,9 @@ Anyone with basic knowledge of chatting with an AI assistant and affinity to bui
 
 ## Requirements
 
-- Prior experience chatting with AI assistants, such as OpenAI ChatGPT, Google Gemini, or Anthropic Claude.
+- Prior experience chatting with AI assistants, such as ChatGPT from OpenAI, Google Gemini, or Claude by Anthropic.
 - A macOS, Linux, or Windows machine. If it's your work computer, make sure you have permissions to install new software.
-- Familiarity with running commands in Terminal (macOS/Linux) or PowerShell (Windows). Just generally knowing what those are and how to use them is sufficient.
+- Familiarity with running commands in terminal (macOS/Linux) or PowerShell (Windows). Just knowing what those are and how to use them is sufficient.
 
 ## Course content
 

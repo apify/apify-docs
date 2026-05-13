@@ -24,8 +24,8 @@ which contains:
 
 Try it! The generated code will most likely work out of the box, but the resulting program will still have a few caveats. Some are usability issues:
 
-- _User-operated:_ We have to run the scraper ourselves. If we're tracking price trends, we'd need to remember to run it daily. If we want, for example, alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
-- _Manual data management:_ Tracking prices over time means figuring out how to organize the exported data ourselves. Processing the data could also be tricky since different analysis tools often require different formats.
+- _User-operated:_ We have to run the scraper ourselves. If we're tracking price trends, we need to remember to run it daily. If we want, for example, alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
+- _Manual data management:_ Tracking prices over time means figuring out how to organize the exported data ourselves. Processing the data could also be tricky, since different analysis tools often require different formats.
 
 Some are technical challenges:
 
@@ -72,7 +72,7 @@ And just like that, we have our first Actor! It's only a sample scraper that wal
 
 The Actor's detail page has plenty of tabs and settings, but for now we'll stay at **Source** → **Code**. That's where the **Web IDE** is.
 
-IDE stands for _integrated development environment_. Fear not, it's just jargon for ‘an app for editing code, somewhat comfortably’. In the Web IDE, we can browse the files the Actor is made of, and change their contents.
+IDE stands for _integrated development environment_. Fear not, it's just jargon for “an app for editing code, somewhat comfortably”. In the Web IDE, we can browse the files the Actor is made of, and change their contents.
 
 ![Web IDE](images/apify-web-ide.webp)
 
