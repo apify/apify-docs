@@ -318,6 +318,6 @@ jobs:
                       for mime_type in "${allowed_mime_types[@]}"; do
                         echo " - $mime_type"
                       done
-                      echo 'Please use "npm run opt:images" to convert images to allowed formats.'
+                      echo 'Please use "npm run opt:images -- path/to/your/images" to convert images to allowed formats.'
                       exit 1
                     fi
