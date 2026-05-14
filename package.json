@@ -41,6 +41,7 @@
         "lint:md:fix": "markdownlint '**/*.md' --fix",
         "lint:code": "oxlint --type-aware",
         "lint:code:fix": "oxlint --type-aware --fix",
+        "opt:images": "optimizt --webp",
         "format": "oxfmt",
         "format:check": "oxfmt --check",
         "test:academy": "bats --print-output-on-failure -r .",
@@ -51,6 +52,7 @@
     "devDependencies": {
         "@apify/oxlint-config": "^0.2.5",
         "@apify/tsconfig": "^0.1.2",
+        "@funboxteam/optimizt": "^5.0.2",
         "@stoplight/spectral-cli": "^6.15.0",
         "@types/react": "^19.0.0",
         "babel-plugin-styled-components": "^2.1.4",

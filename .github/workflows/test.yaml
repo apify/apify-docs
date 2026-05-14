@@ -275,3 +275,49 @@ jobs:
 
             -   name: Format check
                 run: pnpm format:check
+
+
+    lint_images:
+        name: Lint images
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v6
+
+            -   name: Get added files in sources
+                id: changed-files
+                uses: tj-actions/changed-files@v47
+                with:
+                    files: 'sources/**'
+                    separator: "\n"
+
+            -   name: Check image MIME types
+                env:
+                    ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+                run: |
+                    set -euo pipefail
+
+                    allowed_mime_types=(
+                        "image/webp"
+                        "image/svg+xml"
+                    )
+
+                    failed=0
+                    while IFS= read -r file_path; do
+                      [[ -n "$file_path" ]] || continue
+                      mime_type=$(file --mime-type --brief "$file_path")
+
+                      if [[ "$mime_type" == image/* ]] && [[ ! " ${allowed_mime_types[*]} " =~ " ${mime_type} " ]]; then
+                        echo "Disallowed image: $file_path ($mime_type)"
+                        failed=1
+                      fi
+                    done <<< "$ADDED_FILES"
+
+                    if [[ "$failed" -eq 1 ]]; then
+                      echo "Allowed image MIME types:"
+                      for mime_type in "${allowed_mime_types[@]}"; do
+                        echo " - $mime_type"
+                      done
+                      echo 'Please use "npm run opt:images" to convert images to allowed formats.'
+                      exit 1
+                    fi
