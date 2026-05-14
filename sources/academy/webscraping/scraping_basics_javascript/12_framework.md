@@ -449,7 +449,7 @@ If you export the dataset as JSON, it should look something like this:
 ]
 ```
 
-To scrape TMDb data, you'll need to construct a `Request` object with the appropriate search URL for each title name. The following code snippet gives you an idea of how to do this:
+To scrape TMDb data, you need to construct a `Request` object with the appropriate search URL for each title name. The following code snippet gives you an idea of how to do this:
 
 ```js
 import { CheerioCrawler, Request } from 'crawlee';
