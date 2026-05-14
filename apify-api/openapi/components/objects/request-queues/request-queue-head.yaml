@@ -40,7 +40,7 @@ sharedGet: &sharedGet
     <<: *commonErrors
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
   summary: Get head
   description: |
@@ -68,7 +68,7 @@ getById:
   x-py-name: list_head
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_head
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Get default request queue head
   description: |
@@ -82,7 +82,7 @@ getDefault:
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's default request queue head
   description: |
@@ -97,7 +97,7 @@ getLastRun:
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: Get last task run's default request queue head
   description: |

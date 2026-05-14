@@ -1,5 +1,5 @@
 get:
-  $ref: "../../components/objects/datasets/dataset-items.yaml#/getById"
+  $ref: "../../components/objects/datasets/dataset-items.yaml#/listById"
 head:
   $ref: "../../components/objects/datasets/dataset-items.yaml#/headById"
 post:
