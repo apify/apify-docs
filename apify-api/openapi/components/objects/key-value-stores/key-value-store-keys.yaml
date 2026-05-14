@@ -42,6 +42,9 @@ sharedGet: &sharedGet
 
 listById:
   <<: [*sharedGet, *sharedTagById]
+  tags:
+    - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Get list of keys
   description: |
     Returns a list of objects describing keys of a given key-value store, as

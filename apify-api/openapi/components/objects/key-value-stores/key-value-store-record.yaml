@@ -95,6 +95,9 @@ sharedPutPost: &sharedPutPost
 
 getById:
   <<: [*sharedGet, *sharedTagById]
+  tags:
+    - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Get record
   description: |
     Gets a value stored in the key-value store under a specific key.
@@ -201,6 +204,9 @@ headById:
 
 putById:
   <<: [*sharedPutPost, *sharedTagById]
+  tags:
+    - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Store record
   description: |
     Stores a value under a specific key to the key-value store.
@@ -281,6 +287,9 @@ putTaskLastRun:
 
 postById:
   <<: [*sharedPutPost, *sharedTagById]
+  tags:
+    - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Store record (POST)
   description: |
     Stores a value under a specific key to the key-value store.
@@ -342,6 +351,9 @@ postTaskLastRun:
 
 deleteById:
   <<: [*sharedDelete, *sharedTagById]
+  tags:
+    - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Delete record
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete

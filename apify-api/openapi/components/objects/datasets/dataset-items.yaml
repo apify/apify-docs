@@ -97,6 +97,9 @@ sharedGet: &sharedGet
 
 listById:
   <<: [*sharedGet, *sharedTagById, *parametersGetHeadById]
+  tags:
+    - Storage/Datasets
+    - Actor Runtime API/Datasets
   summary: Get dataset items
   description: |
     Returns data stored in the dataset in a desired format.
@@ -430,6 +433,9 @@ sharedPost: &sharedPost
 
 postById:
   <<: [*sharedPost, *sharedTagById]
+  tags:
+    - Storage/Datasets
+    - Actor Runtime API/Datasets
   summary: Store items
   description: |
     Appends an item or an array of items to the end of the dataset.

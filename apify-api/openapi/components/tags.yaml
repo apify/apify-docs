@@ -431,6 +431,40 @@
   description: |
     The API endpoints described in this section provide utility tools for encoding,
     signing, and verifying data, as well as inspecting HTTP request details.
+- name: Actor Runtime API
+  x-displayName: ""
+  description: |
+    The Actor Runtime API is the HTTP REST interface between a running Actor (front-end SDK) and the Actor runtime system (back-end).
+    This subset of the Apify API enables thin, language-agnostic SDKs to be auto-generated for any programming language,
+    and allows third-party implementations of the Actor runtime back-end.
+
+    For the full Actor specification, see the [Actor Programming Model Whitepaper](https://github.com/apify/actor-whitepaper).
+- name: Actor Runtime API/Actor runs
+  x-displayName: Actor runs
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Manage Actor runs - get status, update status message, abort, reboot, metamorph, and charge users.
+- name: Actor Runtime API/Start Actor
+  x-displayName: Start Actor
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Start a new Actor run. Requires the Actor ID to identify which Actor to start.
+- name: Actor Runtime API/Key-value stores
+  x-displayName: Key-value stores
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Read, write, and delete records in key-value stores. Key-value stores hold arbitrary files (binary or JSON)
+    identified by string keys. Each Actor run has a default key-value store that contains the Actor's input.
+- name: Actor Runtime API/Datasets
+  x-displayName: Datasets
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Append and read items from datasets. Datasets are append-only storage for structured JSON objects.
+    Each Actor run has a default dataset for storing results.
 - name: Default dataset
   x-displayName: Default dataset - Introduction
   description: |
