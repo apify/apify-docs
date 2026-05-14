@@ -7,7 +7,7 @@ CU
 booleans
 env
 npm
-serverless
+[Ss]erverless
 [Bb]oolean
 node_modules
 [Rr]egex
