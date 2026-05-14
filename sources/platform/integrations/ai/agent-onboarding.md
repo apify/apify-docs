@@ -72,6 +72,16 @@ items = client.dataset(run['defaultDatasetId']).list_items().items
 ```
 
 </TabItem>
+<TabItem value="cli" label="CLI">
+
+```bash
+apify login                                       # one-time
+apify call apify/rag-web-browser \
+    -i '{"query": "Apify documentation", "maxResults": 3}' \
+    --output-dataset
+```
+
+</TabItem>
 </Tabs>
 
 The pattern is the same across every integration method: pick an Actor, send input, receive structured data. Choose the connection method below that fits your stack.
@@ -197,20 +207,32 @@ Full reference: [Python API client docs](https://docs.apify.com/api/client/pytho
 
 For running Actors and building custom ones from the command line.
 
-```bash
-npm install -g apify-cli                        # or: brew install apify-cli
-apify login                                      # authenticate with your API token
+Install on macOS or Linux (Windows and Homebrew alternatives in the [CLI install docs](/cli/docs/installation)):
 
-# Discover Actors
+```bash
+curl -fsSL https://apify.com/install-cli.sh | bash
+apify login                                      # authenticate with your API token
+```
+
+Discover and inspect Actors:
+
+```bash
+apify actors search scraping                     # search Apify Store
 apify actors info apify/web-scraper --readme     # get Actor README
 apify actors info apify/web-scraper --input      # get input schema
+```
 
-# Run an Actor and get output
+Run an Actor and get its output:
+
+```bash
 apify actors call apify/web-scraper \
     -i '{"startUrls": [{"url": "https://example.com"}]}' \
     --output-dataset
+```
 
-# Build and deploy custom Actors
+Build and deploy custom Actors:
+
+```bash
 apify create my-actor                            # scaffold (JS/TS/Python)
 apify run                                        # test locally
 apify push                                       # deploy to Apify cloud
