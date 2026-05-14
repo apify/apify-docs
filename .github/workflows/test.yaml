@@ -304,7 +304,6 @@ jobs:
 
                     failed=0
                     while IFS= read -r file_path; do
-                      [[ -n "$file_path" ]] || continue
                       mime_type=$(file --mime-type --brief "$file_path")
 
                       if [[ "$mime_type" == image/* ]] && [[ ! " ${allowed_mime_types[*]} " =~ " ${mime_type} " ]]; then
