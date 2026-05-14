@@ -284,39 +284,20 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v6
 
-            -   name: Get added files in sources
+            -   name: Get changed unoptimized image files in sources
                 id: changed-files
                 uses: tj-actions/changed-files@v47
                 with:
-                    files: 'sources/**'
+                    files: |
+                        sources/**/*.{png,jpg,jpeg,gif,bmp,tif,tiff,avif}
                     separator: "\n"
 
-            -   name: Check image MIME types
+            -   name: Fail on unoptimized images
+                if: steps.changed-files.outputs.any_changed == 'true'
                 env:
-                    ADDED_FILES: ${{ steps.changed-files.outputs.added_files }}
+                    UNOPTIMIZED_IMAGE_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
                 run: |
-                    set -euo pipefail
-
-                    allowed_mime_types=(
-                        "image/webp"
-                        "image/svg+xml"
-                    )
-
-                    failed=0
-                    while IFS= read -r file_path; do
-                      mime_type=$(file --mime-type --brief "$file_path")
-
-                      if [[ "$mime_type" == image/* ]] && [[ ! " ${allowed_mime_types[*]} " =~ " ${mime_type} " ]]; then
-                        echo "Disallowed image: $file_path ($mime_type)"
-                        failed=1
-                      fi
-                    done <<< "$ADDED_FILES"
-
-                    if [[ "$failed" -eq 1 ]]; then
-                      echo "Allowed image MIME types:"
-                      for mime_type in "${allowed_mime_types[@]}"; do
-                        echo " - $mime_type"
-                      done
-                      echo 'Please use "npm run opt:images -- path/to/your/images" to convert images to allowed formats.'
-                      exit 1
-                    fi
+                    echo "Unoptimized images detected:"
+                    echo "$UNOPTIMIZED_IMAGE_FILES" | sed 's/^/ - /'
+                    echo 'Please use "npm run opt:images -- path/to/your/images" to convert images to allowed formats (you can point it to individual files or directories).'
+                    exit 1
