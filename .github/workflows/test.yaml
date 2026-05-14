@@ -297,7 +297,9 @@ jobs:
                 env:
                     UNOPTIMIZED_IMAGE_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
                 run: |
-                    echo "Unoptimized images detected:"
-                    echo "$UNOPTIMIZED_IMAGE_FILES" | sed 's/^/ - /'
-                    echo 'Please use "npm run opt:images -- path/to/your/images" to convert images to allowed formats (you can point it to individual files or directories).'
+                    echo "Unoptimized images detected! Please run the following commands:"
+                    echo ""
+                    echo "$UNOPTIMIZED_IMAGE_FILES" | sed 's|^|npm run opt:images -- |'
+                    echo ""
+                    echo 'Note: You can point "npm run opt:images" also to whole directories.'
                     exit 1
