@@ -114,9 +114,10 @@ info:
     ## Legacy `/v2/acts/` URL prefix
     <span id="/introduction/legacy-acts-prefix"></span>
 
-    Older Actor endpoints use the /v2/acts/ URL prefix. This prefix is deprecated 
-    but backward compatible. In new integrations, use /v2/actors/. 
-    Existing URLs and clients don't require changes.
+    The `/v2/acts/` prefix is deprecated but still fully functional, and 
+    such endpoint routes to the same handler as its `/v2/actors/...` counterpart. 
+    New integrations should use the canonical /v2/actors/ prefix, 
+    but existing clients keep working without changes.
 
     ## Response structure
     <span id="/introduction/response-structure"></span>
