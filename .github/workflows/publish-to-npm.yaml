@@ -91,24 +91,13 @@ jobs:
                     done;
                     pnpm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
 
-            -   name: Stage the new theme version
-                id: stage-theme
-                continue-on-error: true
-                run: |
-                    git pull --rebase --autostash
-                    git add 'apify-docs-theme/package.json' 'apify-docs-theme/package-lock.json'
-                    if git diff --cached --quiet; then
-                      echo "has-changes=false" >> "$GITHUB_OUTPUT"
-                    else
-                      echo "has-changes=true" >> "$GITHUB_OUTPUT"
-                    fi
-
             -   name: Commit the new theme version
-                if: steps.stage-theme.outputs.has-changes == 'true'
                 continue-on-error: true
-                uses: apify/workflows/commit@v0.44.0
+                uses: apify/actions/signed-commit@v1.0.0
                 with:
-                    commit-message: 'chore: publish new version of @apify/docs-theme [skip ci]'
+                    message: 'chore: publish new version of @apify/docs-theme [skip ci]'
+                    add: 'apify-docs-theme/package.json apify-docs-theme/package-lock.json'
+                    pull: '--rebase --autostash'
                     github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
     rebuild-docs:

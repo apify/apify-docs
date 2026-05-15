@@ -20,21 +20,10 @@ jobs:
             - name: Bump OpenAPI version
               run: echo "v2-$(date -u +%Y-%m-%dT%H%M%SZ)" > apify-api/openapi/components/version.yaml
 
-            - name: Stage changes
-              id: stage
-              run: |
-                  git pull --rebase --autostash
-                  git add -A
-                  if git diff --cached --quiet; then
-                    echo "has-changes=false" >> "$GITHUB_OUTPUT"
-                  else
-                    echo "has-changes=true" >> "$GITHUB_OUTPUT"
-                  fi
-
             - name: Commit changes
               id: commit
-              if: steps.stage.outputs.has-changes == 'true'
-              uses: apify/workflows/commit@v0.44.0
+              uses: apify/actions/signed-commit@v1.0.0
               with:
-                  commit-message: "chore(openapi): Update OpenAPI version [skip ci]"
+                  message: "chore(openapi): Update OpenAPI version [skip ci]"
+                  pull: '--rebase --autostash'
                   github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
