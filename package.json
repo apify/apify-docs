@@ -41,6 +41,7 @@
         "lint:md:fix": "markdownlint '**/*.md' --fix",
         "lint:code": "oxlint --type-aware",
         "lint:code:fix": "oxlint --type-aware --fix",
+        "opt:images": "pnx --config.onlyBuiltDependencies=* @343dev/optimizt --webp",
         "format": "oxfmt",
         "format:check": "oxfmt --check",
         "test:academy": "bats --print-output-on-failure -r .",

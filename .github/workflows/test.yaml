@@ -275,3 +275,35 @@ jobs:
 
             -   name: Format check
                 run: pnpm format:check
+
+
+    lint_images:
+        name: Lint images
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v6
+
+            -   name: Get changed unoptimized image files in sources
+                id: changed-files
+                uses: tj-actions/changed-files@v47
+                with:
+                    files: |
+                        sources/**/*.{png,jpg,jpeg,gif,bmp,tif,tiff,avif}
+                    separator: "\n"
+
+            -   name: Fail on unoptimized images
+                if: steps.changed-files.outputs.any_changed == 'true'
+                env:
+                    UNOPTIMIZED_IMAGE_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+                run: |
+                    echo "Unoptimized images detected! Please run the following commands:"
+                    echo ""
+                    while IFS= read -r file_path; do
+                      echo "pnpm opt:images $file_path"
+                    done <<< "$UNOPTIMIZED_IMAGE_FILES"
+                    echo ""
+                    echo "Don't forget to change image paths to end with .webp in your Markdown."
+                    echo "If you point the same command at a whole directory, it will convert "
+                    echo "and optimize all images inside."
+                    exit 1
