@@ -36,7 +36,7 @@ To overcome these limitations, we'll use [Apify](https://apify.com/), a platform
 
 :::info Why ChatGPT
 
-We use OpenAI ChatGPT in this course only because it's the most widely used AI chat. Any similar tool, such as Google Gemini or Anthropic Claude, will do.
+We use ChatGPT from OpenAI in this course only because it's the most widely used AI chat. Any similar tool, such as Google Gemini or Claude by Anthropic, will do.
 
 :::
 
