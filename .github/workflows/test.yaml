@@ -300,8 +300,10 @@ jobs:
                     echo "Unoptimized images detected! Please run the following commands:"
                     echo ""
                     while IFS= read -r file_path; do
-                      echo "npm run opt:images -- $file_path"
+                      echo "pnpm opt:images $file_path"
                     done <<< "$UNOPTIMIZED_IMAGE_FILES"
                     echo ""
-                    echo 'Note: You can point "npm run opt:images" also to whole directories.'
+                    echo "Don't forget to change image paths to end with .webp in your Markdown."
+                    echo "If you point the same command at a whole directory, it will convert "
+                    echo "and optimize all images inside."
                     exit 1
