@@ -26,9 +26,12 @@ export default function LayoutWrapper(props) {
         pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path)),
     );
 
-    const shouldRenderAlternateLink = currentPath && currentPath !== '404' && !isVersionedPage;
+    const shouldRenderAlternateLink =
+        currentPath && currentPath !== '404' && currentPath !== 'search' && !isVersionedPage;
 
-    const alternateMarkdownLink = useBaseUrl(`/${currentPath}.md`, { absolute: true });
+    const alternateMarkdownLink = useBaseUrl(`/${currentPath}.md`, {
+        absolute: true,
+    });
 
     return (
         <>
