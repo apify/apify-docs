@@ -19,7 +19,7 @@ Prompting a chat or agent is quick and straightforward, but it doesn't leave us 
 
 Traditionally, we'd create such documentation after having made our software. With AI, we can describe how our program works before we have it done, and then point the AI agent to it as a specification and tell it to make it happen.
 
-## Understanding README
+## Starting with README
 
 It's a good practice to always have a README file alongside a software project. It's a plain text file where the project authors write down information that is commonly required to understand what is it all about.
 
@@ -53,7 +53,7 @@ To learn Markdown basics, check out the [Getting Started](https://www.markdowngu
 
 :::
 
-## Creating README
+## Recreating README.md
 
 We could go through the existing README.md and only adjust and add what we need, but for the purpose of this lesson it's easier if we start from scratch. We'll delete the contents of the file and start with a title and intro:
 
@@ -68,7 +68,7 @@ Now we'll add a section about how to develop the program:
 ```md
 ## Development
 
-The project has a structure of Apify Actor.
+This project is an Apify Actor that runs on the Apify platform.
 
 - Have Node.js and Apify CLI installed
 - Run `npm install` to install dependencies
@@ -80,47 +80,36 @@ This should be good enough for any human or AI agent as a primer into how to ori
 
 ## Documenting current behavior
 
-:::note Course under construction
-This page hasn't been written yet. Come later, please!
-:::
+Now let's add a summary of the scraper's current behavior:
 
-<!-- I'm building an Apify Actor that will run on the Apify platform.
-I need to modify a sample template project so it downloads
-https://warehouse-theme-metal.myshopify.com/collections/sales,
-extracts all products in Sales, and returns data with
+```md
+## Behavior
+
+- Downloads the Sales page:
+https://warehouse-theme-metal.myshopify.com/collections/sales
+  This is also the default input URL of the Actor.
+- Extracts all products, and returns data with
 the following information for each product:
+    - Product name
+    - Product detail page URL
+    - Price
+- In the output of the scraper user can see how the items
+  being saved look like.
+- Before it ends, it logs how many products it collected.
+- The output schema of the Actor aims to represent the items
+  being saved the best way in the Apify interface.
 
-- Product name
-- Product detail page URL
-- Price
+### Prices handling
 
-Before the program ends, it should log how many products it collected.
-Code from routes.js follows. Reply with a code block containing
-a new version of that file. -->
+Saves prices as numbers. Because some prices are "from",
+the price field is called `minPrice`, as in minimum price.
 
-<!-- Change the default input URL of the Actor
-to https://warehouse-theme-metal.myshopify.com/collections/sales -->
+- `Sale price$74.95` becomes `74.95`
+- `Sale priceFrom $1,398.00` becomes `1398.00`
+- `Sale price$158.00` becomes `158.00`
+```
 
-<!-- Change the code so that the Actor saves prices as numbers.
-Because some prices are "from", let's call the "price" field
-"minPrice" instead, as in minimum price. Example follows.
-
-Before:
-Sale price$74.95
-Sale priceFrom $1,398.00
-Sale price$158.00
-
-After:
-74.95
-1398.00
-158.00 -->
-
-<!-- In the output of the scraper I want to see
-how the items being saved look like. -->
-
-<!-- Change the output schema of the Actor
-so that it represents the items being
-saved the best way in the Apify interface. -->
+Most of the text above is a just all our past prompts, slightly rephrased. Because we now describe the behavior of the program in the README, it's straightforward for anyone to for example understand the specifics of price processing. If later there's a bug, it's now clear what were our original intentions.
 
 ## Dealing with price intervals
 
