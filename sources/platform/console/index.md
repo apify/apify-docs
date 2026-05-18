@@ -51,45 +51,25 @@ Once you sign in to Apify Console, you land on the **Dashboard** section that pr
 
 - **Actor runs**: Shows your recent Actor runs, as well as scheduled runs and tasks.
 
-To navigate to other parts of Apify Console, use the left-side panel.
-
 <!-- markdownlint-disable-next-line -->
-### Keyboard shortcuts
 
-You can navigate Apify Console using keyboard shortcuts.
+## Navigate Apify Console
 
-<details>
-<summary>Keyboard shortcuts</summary>
+To navigate Apify Console, use the left-side panel or keyboard shortcuts.
 
-| Shortcut       | Tab    |
-| :---           | :---   |
-| Show shortcuts | Shift? |
-| Dashboard      | GH     |
-| Store          | GO     |
-| Actors         | GA     |
-| Development    | GD     |
-| Saved tasks    | GT     |
-| Runs           | GR     |
-| Integrations   | GI     |
-| Schedules      | GU     |
-| Storage        | GE     |
-| Proxy          | GP     |
-| Settings       | GS     |
-| Billing        | GB     |
+| Section | Keyboard shortcut | Description |
+| :--- | :--- | :--- |
+| [Apify Store](/platform/console/store) | <kbd>G</kbd> + <kbd>O</kbd> | Search for Actors that suit your web-scraping needs. |
+| [Dashboard](/platform/console) | <kbd>G</kbd> + <kbd>H</kbd> | Overview of your account with recently viewed Actors, suggestions, and recent runs. |
+| [Actors](/platform/actors) | <kbd>G</kbd> + <kbd>A</kbd> | View recent and bookmarked Actors. |
+| [Runs](/platform/actors/running/runs-and-builds) | <kbd>G</kbd> + <kbd>R</kbd> | View your recent runs. |
+| [Saved tasks](/platform/actors/running/tasks) | <kbd>G</kbd> + <kbd>T</kbd> | View your saved tasks. |
+| [Integrations](/platform/integrations) | <kbd>G</kbd> + <kbd>I</kbd> | View your integrations. |
+| [Schedules](/platform/schedules) | <kbd>G</kbd> + <kbd>U</kbd> | Schedule Actor runs and tasks to run at a specified time. |
+| [Development](/platform/actors/development) | <kbd>G</kbd> + <kbd>D</kbd> | &bull; **My Actors** - see Actors developed by you. <br/> &bull; **Insights** - see analytics for your Actors. <br/> &bull; **Messaging** - check reported issues or send emails to users of your Actors. |
+| [Proxy](/platform/proxy) | <kbd>G</kbd> + <kbd>P</kbd> | View your proxy usage and credentials. |
+| [Storage](/platform/storage) | <kbd>G</kbd> + <kbd>E</kbd> | View stored results of your runs in various data formats. |
+| [Billing](/platform/console/billing) | <kbd>G</kbd> + <kbd>B</kbd> | View billing information, statistics, and invoices. |
+| [Settings](/platform/console/settings) | <kbd>G</kbd> + <kbd>S</kbd> | Change settings of your account. |
 
-</details>
-
-| Tab name | Description |
-| :--- | :--- |
-| [Apify Store](/platform/console/store) | Search for Actors that suit your web-scraping needs. |
-| [Dashboard](/platform/console) | Overview of your account with recently viewed Actors, suggestions, and recent runs. |
-| [Actors](/platform/actors) | View recent & bookmarked Actors. |
-| [Runs](/platform/actors/running/runs-and-builds) | View your recent runs. |
-| [Saved tasks](/platform/actors/running/tasks) | View your saved tasks. |
-| [Integrations](/platform/integrations) | View your integrations. |
-| [Schedules](/platform/schedules) | Schedule Actor runs & tasks to run at specified time. |
-| [Development](/platform/actors/development) | &bull; My Actors - See Actors developed by you. <br/> &bull; Insights - see analytics for your Actors. <br/> &bull; Messaging - check on issues reported in your Actors or send emails to users of your Actors. |
-| [Proxy](/platform/proxy) | View your proxy usage & credentials. |
-| [Storage](/platform/storage) | View stored results of your runs in various data formats. |
-| [Billing](/platform/console/billing) | Billing information, statistics, and invoices. |
-| [Settings](/platform/console/settings) | Settings of your account. |
+To view all keyboard shortcuts, press <kbd>Shift</kbd> + <kbd>?</kbd>.

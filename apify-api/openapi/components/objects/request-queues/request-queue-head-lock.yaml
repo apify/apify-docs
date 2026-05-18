@@ -12,18 +12,6 @@ commonErrors: &commonErrors
   "429":
     $ref: ../../responses/TooManyRequests.yaml
 
-sharedTagById: &sharedTagById
-  tags:
-    - Storage/Request queues/Requests locks
-
-sharedTagDefault: &sharedTagDefault
-  tags:
-    - Default request queue
-
-sharedTagLastRun: &sharedTagLastRun
-  tags:
-    - Last Actor run's default request queue
-
 sharedPost: &sharedPost
   responses:
     "201":
@@ -37,7 +25,9 @@ sharedPost: &sharedPost
   deprecated: false
 
 postById:
-  <<: [*sharedPost, *sharedTagById]
+  <<: *sharedPost
+  tags:
+    - Storage/Request queues/Requests locks
   summary: Get head and lock
   description: |
     Returns the given number of first requests from the queue and locks them for
@@ -67,7 +57,9 @@ postById:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_and_lock_head
 
 postDefault:
-  <<: [*sharedPost, *sharedTagDefault]
+  <<: *sharedPost
+  tags:
+    - Default request queue
   summary: Get and lock default request queue head
   description: |
     Returns the given number of first requests from the default request queue of the Actor run
@@ -83,7 +75,9 @@ postDefault:
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
 postLastRun:
-  <<: [*sharedPost, *sharedTagLastRun]
+  <<: *sharedPost
+  tags:
+    - Last Actor run's default request queue
   summary: Get and lock last run's default request queue head
   description: |
     Returns the given number of first requests from the default request queue of the last Actor run
@@ -94,6 +88,25 @@ postLastRun:
   operationId: act_runs_last_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+postTaskLastRun:
+  <<: *sharedPost
+  tags:
+    - Last Actor task run's default request queue
+  summary: Get and lock last task run's default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the last Actor task run
+    and locks them for the given time.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
+  operationId: actorTask_runs_last_requestQueue_head_lock_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"

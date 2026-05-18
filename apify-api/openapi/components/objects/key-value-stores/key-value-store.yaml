@@ -40,6 +40,13 @@ sharedLastRun: &sharedLastRun
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
 
+sharedTaskLastRun: &sharedTaskLastRun
+  tags:
+    - Last Actor task run's default key-value store
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+
 sharedGet: &sharedGet
   responses:
     <<: [*common200, *commonErrors]
@@ -85,6 +92,16 @@ getLastRun:
     [Get store](/api/v2/key-value-store-get) endpoint.
 
   operationId: act_runs_last_keyValueStore_get
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTaskLastRun]
+  summary: Get last task run's default store
+  description: |
+    Gets an object that contains all the details about the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Get store](/api/v2/key-value-store-get) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_get
 
 sharedPut: &sharedPut
   requestBody:
@@ -149,6 +166,16 @@ putLastRun:
 
   operationId: act_runs_last_keyValueStore_put
 
+putTaskLastRun:
+  <<: [*sharedPut, *sharedTaskLastRun]
+  summary: Update last task run's default store
+  description: |
+    Updates the default key-value store associated with the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Update store](/api/v2/key-value-store-put) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_put
+
 sharedDelete: &sharedDelete
   responses:
     <<: *commonErrors
@@ -190,3 +217,13 @@ deleteLastRun:
     [Delete store](/api/v2/key-value-store-delete) endpoint.
 
   operationId: act_runs_last_keyValueStore_delete
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTaskLastRun]
+  summary: Delete last task run's default store
+  description: |
+    Deletes the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Delete store](/api/v2/key-value-store-delete) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_delete

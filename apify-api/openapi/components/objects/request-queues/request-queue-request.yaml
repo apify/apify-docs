@@ -24,6 +24,10 @@ sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default request queue
 
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
 sharedGet: &sharedGet
   responses:
     "200":
@@ -79,6 +83,20 @@ getLastRun:
   operationId: act_runs_last_requestQueue_request_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get request from last task run's default request queue
+  description: |
+    Returns a request from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get request](/api/v2/request-queue-request-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_request_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
 
@@ -160,6 +178,22 @@ putLastRun:
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
+putTaskLastRun:
+  <<: [*sharedPut, *sharedTagTaskLastRun]
+  summary: Update request in last task run's default request queue
+  description: |
+    Updates a request in the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Update request](/api/v2/request-queue-request-put) endpoint.
+  operationId: actorTask_runs_last_requestQueue_request_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
 sharedDelete: &sharedDelete
   responses:
     <<: *commonErrors
@@ -209,6 +243,21 @@ deleteLastRun:
   operationId: act_runs_last_requestQueue_request_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTagTaskLastRun]
+  summary: Delete request from last task run's default request queue
+  description: |
+    Deletes a request from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Delete request](/api/v2/request-queue-request-delete) endpoint.
+  operationId: actorTask_runs_last_requestQueue_request_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

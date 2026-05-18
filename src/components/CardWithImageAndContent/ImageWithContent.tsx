@@ -11,12 +11,8 @@ interface CardWithImageAndContentProps {
 export default function CardWithImageAndContent({ image, content, height }: CardWithImageAndContentProps) {
     return (
         <div className={styles.cardWithImageAndContent} style={{ height }}>
-            {image && <div className={styles.cardWithImageAndContentImage}>
-                {image}
-            </div> }
-            <div className={styles.cardWithImageAndContentContent}>
-                {content}
-            </div>
+            {image && <div className={styles.cardWithImageAndContentImage}>{image}</div>}
+            <div className={styles.cardWithImageAndContentContent}>{content}</div>
         </div>
     );
 }

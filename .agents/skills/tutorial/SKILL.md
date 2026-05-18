@@ -21,7 +21,7 @@ argument-hint: topic
    6. Troubleshooting (common issues + fixes)
    7. Summary (what was learned)
    8. Next steps (links to related content)
-5. **Quality check** - run `npm run lint:md` and `vale` before finishing
+5. **Quality check** - run `pnpm lint:md` and `vale` before finishing
 
 Each step should have a clear action verb, expected result, and verification. Code examples must be complete - no pseudocode.
 

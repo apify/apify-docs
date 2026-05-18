@@ -24,6 +24,10 @@ sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default request queue
 
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
 sharedGet: &sharedGet
   responses:
     "200":
@@ -36,7 +40,7 @@ sharedGet: &sharedGet
     <<: *commonErrors
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
   summary: Get head
   description: |
@@ -64,7 +68,7 @@ getById:
   x-py-name: list_head
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_head
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Get default request queue head
   description: |
@@ -78,7 +82,7 @@ getDefault:
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's default request queue head
   description: |
@@ -89,6 +93,21 @@ getLastRun:
   operationId: act_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+listTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get last task run's default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get head](/api/v2/request-queue-head-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_head_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

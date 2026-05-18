@@ -28,13 +28,6 @@ The Apify Workato connector is available in the Workato Community library. To in
 1. Search for **Apify**.
 1. Click on the connector and then click **Install**.
 
-After installation, the Apify connector appears in **Connector SDK** under the **Tools** tab. To make it available in your projects, you need to release it:
-
-1. Go to **Tools** > **Connector SDK** and select the Apify connector.
-1. Click **Release latest version** in the top-right corner.
-
-![Screenshot showing the Release latest version button in the Workato Connector SDK](../images/workato/release-connector.png)
-
 ## Connect your Apify account
 
 Before using the Apify connector in recipes, create a connection inside a Workato project.
@@ -43,8 +36,7 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 
 1. In Workato, go to **Workspace > Projects**.
 1. Click **Create project**.
-1. Choose either **Start from scratch** or **Build a workflow app**.
-1. Name and create the project.
+1. Name the project, select **Start from scratch**, and click **Create project**.
 
 ![Screenshot showing how to create a new project in Workato](../images/workato/create-project.png)
 
@@ -113,7 +105,7 @@ This action runs an Apify Actor with your specified input and execution paramete
 
 - Select from your recently used Actors or Apify Store Actors.
 - Provide input using dynamic schema-based fields or raw JSON.
-- Configure run options: memory (128 MB to 32 GB), timeout, and build version (defaults to `latest`).
+- Configure run options: memory (128 MB to 32 GB), timeout, and build tag (defaults to the Actor's default build tag).
 - Choose between synchronous (wait for completion) or asynchronous execution.
 
 URL input fields are validated before the run starts. The dataset item limit rejects zero or negative values; leave it empty for no limit.
@@ -136,7 +128,7 @@ This action runs an Apify task with optional input overrides and execution param
 
 - Select from your saved tasks or input a specific task ID.
 - Override the task's pre-configured input with new JSON if needed.
-- Configure task options: memory (128 MB to 32 GB), timeout, and build version (defaults to `latest`).
+- Configure task options: memory (128 MB to 32 GB), timeout, and build tag (defaults to the Actor's default build tag).
 
 ![Screenshot of the run task action configuration in Workato](../images/workato/run-task.png)
 

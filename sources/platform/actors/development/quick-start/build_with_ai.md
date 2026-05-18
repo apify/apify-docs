@@ -9,15 +9,15 @@ toc_max_heading_level: 4
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
-import copyForAI from "./images/copy-for-ai.png";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation tools by providing the AI agents with the right instructions and context.
 
-:::tip Develop AI agents on Apify
+:::tip Different goal?
 
-Looking to build and deploy AI agents as Actors? See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+- _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/platform/integrations/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
 
 :::
 

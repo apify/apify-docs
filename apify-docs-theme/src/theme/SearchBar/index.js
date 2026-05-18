@@ -32,9 +32,7 @@ export function Link(props) {
     const { siteConfig } = useDocusaurusContext();
 
     if (matchesCurrentInstance(props.href, siteConfig.baseUrl)) {
-        return <RouterLink {...props}>
-            {props.children}
-        </RouterLink>;
+        return <RouterLink {...props}>{props.children}</RouterLink>;
     }
 
     return <a {...props}>{props.children}</a>;
@@ -45,14 +43,17 @@ export default function SearchBar({ onClick }) {
     const location = useLocation();
     const history = useHistory();
 
-    const navigate = useCallback((href) => {
-        const shortHref = href.substring('https://docs.apify.com'.length);
+    const navigate = useCallback(
+        (href) => {
+            const shortHref = href.substring('https://docs.apify.com'.length);
 
-        if (matchesCurrentInstance(shortHref, siteConfig.baseUrl)) {
-            return history.push(shortHref);
-        }
-        return window.location.assign(href);
-    }, [history, siteConfig.baseUrl]);
+            if (matchesCurrentInstance(shortHref, siteConfig.baseUrl)) {
+                return history.push(shortHref);
+            }
+            return window.location.assign(href);
+        },
+        [history, siteConfig.baseUrl],
+    );
 
     const getVersion = useCallback(() => {
         const match = location.pathname.match(/\/(\d+\.\d+|next)/);
@@ -64,17 +65,16 @@ export default function SearchBar({ onClick }) {
         <BrowserOnly>
             {() => (
                 <div className="SearchButton-Container">
-
-                <div onClick={onClick} className="AlgoliaContainer" style={{ marginRight: '12px' }}>
-                    <ApifySearch
-                        algoliaAppId={siteConfig.themeConfig.algolia.appId}
-                        algoliaIndexName='apify_sdk_v2'
-                        algoliaKey={siteConfig.themeConfig.algolia.apiKey}
-                        filters={`version:${getVersion()}`}
-                        navigate={navigate}
-                    />
-                </div>
-                <KapaAIButton />
+                    <div onClick={onClick} className="AlgoliaContainer" style={{ marginRight: '12px' }}>
+                        <ApifySearch
+                            algoliaAppId={siteConfig.themeConfig.algolia.appId}
+                            algoliaIndexName="apify_sdk_v2"
+                            algoliaKey={siteConfig.themeConfig.algolia.apiKey}
+                            filters={`version:${getVersion()}`}
+                            navigate={navigate}
+                        />
+                    </div>
+                    <KapaAIButton />
                 </div>
             )}
         </BrowserOnly>

@@ -10,10 +10,6 @@ properties:
     items:
       $ref: ./Request.yaml
     description: The array of requests.
-  count:
-    type: integer
-    description: The total number of requests matching the query.
-    examples: [2]
   limit:
     type: integer
     description: The maximum number of requests returned in this response.

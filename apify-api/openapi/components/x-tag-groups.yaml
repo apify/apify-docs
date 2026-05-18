@@ -49,3 +49,14 @@
     - Last Actor run's default dataset
     - Last Actor run's default key-value store
     - Last Actor run's default request queue
+    - Last Actor run's log
+    - Last Actor run's abort
+    - Last Actor run's metamorph
+    - Last Actor run's reboot
+    - Last Actor task run's default dataset
+    - Last Actor task run's default key-value store
+    - Last Actor task run's default request queue
+    - Last Actor task run's log
+    - Last Actor task run's abort
+    - Last Actor task run's metamorph
+    - Last Actor task run's reboot

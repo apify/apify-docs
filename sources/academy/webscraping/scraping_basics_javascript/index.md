@@ -29,7 +29,7 @@ In this course we'll use JavaScript to create an application for watching prices
 - Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
-## Who this course is for
+## Who is this course for
 
 Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of other web technologies or scraping.
 

@@ -13,14 +13,14 @@
 1. **Git**
 2. **Node.js 22** (see [.nvmrc](.nvmrc) file)
 3. **GitHub access**
-4. **npm** or **pnpm** package manager
+4. **pnpm 10** package manager (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
 
 ### Installation steps
 
 <!-- vale off -->
 1. Clone the repository
-2. Run `npm install`
-3. Start development server: `npm start`
+2. Run `pnpm install`
+3. Start development server: `pnpm start`
 <!-- vale on -->
 
 This will be enough to work on Platform, Academy and OpenAPI. If you want to work on the entire documentation set, you need to join them using nginx.
@@ -28,8 +28,8 @@ This will be enough to work on Platform, Academy and OpenAPI. If you want to wor
 #### Join all repositories with nginx
 
 1. Clone all the repositories
-2. Run `npm start:dev` instead of `npm start` from the main repository
-3. Run `npm start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
+2. Run `pnpm start:dev` instead of `pnpm start` from the main repository
+3. Run `pnpm start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
 
     |Repository|Port|
     |:---|:---|
@@ -117,9 +117,10 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 3. Screenshots:
 
-    - Use light theme when taking screenshots
-    - Include meaningful alt texts
-    - Use red indicators
+    - Keep screenshots to a minimum. If an image shows what your prose already describes, it's probably not needed.
+    - Always include meaningful alt texts. Remember that it might be the only way for some users to understand the content.
+    - Use light theme when taking screenshots.
+    - To highlight UI elements, use `#F86606` color for indicators. Don't use arrows.
 
 ### Front matter metadata best practices
 
@@ -189,9 +190,9 @@ We use the following tools for API documentation:
 
 ### Basic commands
 
-- `npm start` - Starts docs preview server including API reference
-- `npm run openapi:lint:redocly` - Validates OpenAPI spec with Redocly CLI
-- `npm run api:rebuild` - Regenerates API docs from OpenAPI specs
+- `pnpm start` - Starts docs preview server including API reference
+- `pnpm openapi:lint:redocly` - Validates OpenAPI spec with Redocly CLI
+- `pnpm api:rebuild` - Regenerates API docs from OpenAPI specs
 
 ### Adding new documentation
 
@@ -277,7 +278,7 @@ Add languages by adding new folders at the appropriate path level.
 #### Submitting changes
 
 1. Make your changes following the guidelines above
-2. Test locally using provided npm commands
+2. Test locally using provided pnpm commands
 3. Submit a pull request to the `master` branch
 4. Ensure all CI checks pass
 
@@ -289,8 +290,8 @@ Add languages by adding new folders at the appropriate path level.
 
     ```bash
 
-    npm install
-    npm start
+    pnpm install
+    pnpm start
 
     ```
 
@@ -299,7 +300,7 @@ Add languages by adding new folders at the appropriate path level.
     - Clone all documentation repositories
     - Configure nginx server
     - Update hosts file
-    - Use `npm start:dev`
+    - Use `pnpm start:dev`
 
 ## Quality check
 
@@ -308,15 +309,15 @@ Add languages by adding new folders at the appropriate path level.
 1. **Markdown**:
 
     ```bash
-    npm run lint:md # Checks for any issues using markdownlint
-    npm run lint:md:fix # Applies fixes
+    pnpm lint:md # Checks for any issues using markdownlint
+    pnpm lint:md:fix # Applies fixes
     ```
 
 2. **Code**:
 
     ```bash
-    npm run lint:code # Checks .js & .ts files
-    npm run lint:code:fix # Applies fixes
+    pnpm lint:code # Checks .js & .ts files
+    pnpm lint:code:fix # Applies fixes
     ```
 
 3. **Prose**:
@@ -329,7 +330,7 @@ Add languages by adding new folders at the appropriate path level.
 
 - **Broken links**: [Periodic GitHub Action](.github/workflows/lychee.yml) checks broken links by [lychee](https://lychee.cli.rs/). If the Action fails, we manually fix the issues.
 
-- **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `npm run test:academy`. If the Action fails, we rework the exercises.
+- **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `pnpm test:academy`. If the Action fails, we rework the exercises.
 
 ## Pull request process
 

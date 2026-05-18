@@ -114,10 +114,10 @@ async def main():
 State-level targeting is currently only supported for the United States.
 :::
 
-To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US-CA`
+To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US_CA`.
 
 
-In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` parameter:
+In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` and `subdivisionCode`/`subdivision_code` parameters:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -129,7 +129,8 @@ await Actor.init();
 // ...
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
-    countryCode: 'US_CA',
+    countryCode: 'US',
+    subdivisionCode: 'CA',
 });
 // ...
 await Actor.exit();
@@ -146,7 +147,8 @@ async def main():
         # ...
         proxy_configuration = await Actor.create_proxy_configuration(
             groups=['RESIDENTIAL'],
-            country_code='US_CA',
+            country_code='US',
+            subdivision_code='CA',
         )
         # ...
 ```

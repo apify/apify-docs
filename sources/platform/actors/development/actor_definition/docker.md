@@ -2,7 +2,7 @@
 title: Dockerfile
 description: Learn about Docker base images for Apify Actors and how to choose the right image based on your Actor's requirements and programming language.
 slug: /actors/development/actor-definition/dockerfile
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.

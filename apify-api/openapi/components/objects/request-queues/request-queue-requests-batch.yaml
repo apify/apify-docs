@@ -24,6 +24,10 @@ sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default request queue
 
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
 sharedPost: &sharedPost
   requestBody:
     description: ""
@@ -109,6 +113,21 @@ postLastRun:
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
 
+postTaskLastRun:
+  <<: [*sharedPost, *sharedTagTaskLastRun]
+  summary: Batch add requests to last task run's default request queue
+  description: |
+    Adds requests to the default request queue of the last Actor task run in batch.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Add requests](/api/v2/request-queue-requests-batch-post) endpoint.
+  operationId: actorTask_runs_last_requestQueue_requests_batch_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+
 sharedDelete: &sharedDelete
   requestBody:
     description: ""
@@ -190,6 +209,21 @@ deleteLastRun:
   operationId: act_runs_last_requestQueue_requests_batch_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/contentTypeJson"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTagTaskLastRun]
+  summary: Batch delete requests from last task run's default request queue
+  description: |
+    Batch-deletes requests from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Delete requests](/api/v2/request-queue-requests-batch-delete) endpoint.
+  operationId: actorTask_runs_last_requestQueue_requests_batch_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/contentTypeJson"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

@@ -8,7 +8,9 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 import React from 'react';
 
 export default function LayoutWrapper(props) {
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const {
+        options: { subNavbar },
+    } = usePluginData('@apify/docs-theme');
     const baseUrl = useBaseUrl('/');
     const { pathname } = useLocation();
     const currentPath = pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
@@ -20,8 +22,8 @@ export default function LayoutWrapper(props) {
         'typedoc-plugin-default': typedocPluginData,
     };
 
-    const isVersionedPage = Object.values(allPluginData).some(
-        (pluginData) => pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path)),
+    const isVersionedPage = Object.values(allPluginData).some((pluginData) =>
+        pluginData.versions?.some((version) => !version.isLast && pathname.startsWith(version.path)),
     );
 
     const shouldRenderAlternateLink = currentPath && currentPath !== '404' && !isVersionedPage;
@@ -31,11 +33,9 @@ export default function LayoutWrapper(props) {
     return (
         <>
             <Head>
-                {
-                    shouldRenderAlternateLink
-                        ? <link rel="alternate" type="text/markdown" href={alternateMarkdownLink}/>
-                        : null
-                }
+                {shouldRenderAlternateLink ? (
+                    <link rel="alternate" type="text/markdown" href={alternateMarkdownLink} />
+                ) : null}
             </Head>
             <div
                 style={{
@@ -43,7 +43,8 @@ export default function LayoutWrapper(props) {
                     margin: 0,
                     padding: 0,
                     boxSizing: 'border-box',
-                }}>
+                }}
+            >
                 <Layout {...props} />
             </div>
         </>
