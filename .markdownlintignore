@@ -4,5 +4,6 @@ build
 .agents
 AGENTS.md
 CLAUDE.md
+GEMINI.md
 standards
 sources/_partials/*
