@@ -53,7 +53,7 @@ jobs:
                     node-version: 24
                     registry-url: 'https://registry.npmjs.org'
 
-            -   uses: apify/workflows/pnpm-install@main
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   name: Setup git user and npm
                 run: |
@@ -93,13 +93,12 @@ jobs:
 
             -   name: Commit the new theme version
                 continue-on-error: true
-                uses: EndBug/add-and-commit@v10
+                uses: apify/actions/signed-commit@v1.0.0
                 with:
-                    add: 'apify-docs-theme/package*.json'
-                    author_name: github-actions[bot]
-                    author_email: 41898282+github-actions[bot]@users.noreply.github.com
                     message: 'chore: publish new version of @apify/docs-theme [skip ci]'
+                    add: 'apify-docs-theme/package.json apify-docs-theme/package-lock.json'
                     pull: '--rebase --autostash'
+                    github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
     rebuild-docs:
         needs: publish

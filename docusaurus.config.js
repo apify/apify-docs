@@ -8,6 +8,8 @@ const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
+const { rehypeExpandTabs } = require('./tools/utils/rehypeExpandTabs');
+const { rehypeFixCodeLanguage } = require('./tools/utils/rehypeFixCodeLanguage');
 
 /**
  * Helper to extract text from a node recursively.
@@ -354,6 +356,8 @@ module.exports = {
                             categoryName: 'Platform documentation',
                         },
                     ],
+                    // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
+                    beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
                     // Add custom remark processing to remove LLM button text
                     remarkPlugins: [removeLlmButtons],
                 },
