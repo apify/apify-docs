@@ -19,11 +19,108 @@ Prompting a chat or agent is quick and straightforward, but it doesn't leave us 
 
 Traditionally, we'd create such documentation after having made our software. With AI, we can describe how our program works before we have it done, and then point the AI agent to it as a specification and tell it to make it happen.
 
+## Understanding README
+
+It's a good practice to always have a README file alongside a software project. It's a plain text file where the project authors write down information that is commonly required to understand what is it all about.
+
+The file is just text, but people started using special characters to add formatting to it. One such popular convention is called Markdown, and if README is formatted with it, it's called README.md.
+
+If we take a look at our files in Cursor, we can see that Apify's template already has one README.md included. After opening it we should see something like this:
+
+```md
+# JavaScript Crawlee & CheerioCrawler Actor Template
+
+<!-- This is an Apify template readme -->
+
+This template example was built with [Crawlee](https://crawlee.dev/) to scrape data from a website using [Cheerio](https://cheerio.js.org/) wrapped into [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler).
+
+## Quick Start
+
+...
+```
+
+Many sections follow, which detail every aspect of the project, how to develop it, put it to the platform, and so on.
+
+Notice that headings start with one or more `#` characters, and there are also bullet points, links, or even code blocks. That's Markdown.
+
+Cursor knows Markdown, so it helps with readability by coloring characters which take part in the formatting (this is done with code, too, and it's called _syntax highlighting_).
+
+:::tip README playground and Markdown basics
+
+The [Make a README](https://www.makeareadme.com/) website explains reasons why people shouldn't forget about adding README to their projects. It also includes a playground where you can write your document and immediately see how will your Markdown be understood and formatted.
+
+To learn Markdown basics, check out the [Getting Started](https://www.markdownguide.org/getting-started/) page at Markdown Guide, which features also [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/), and more.
+
+:::
+
 ## Creating README
+
+We could go through the existing README.md and only adjust and add what we need, but for the purpose of this lesson it's easier if we start from scratch. We'll delete the contents of the file and start with a title and intro:
+
+```md
+# My Actor
+
+An app for tracking prices on an e-commerce website.
+```
+
+Now we'll add a section about how to develop the program:
+
+```md
+## Development
+
+The project has a structure of Apify Actor.
+
+- Have Node.js and Apify CLI installed
+- Run `npm install` to install dependencies
+- Run `apify run` to start scraping
+- Run `apify push` to upload new version of the program to Apify
+```
+
+This should be good enough for any human or AI agent as a primer into how to orientate in the project, how to install it, and how to run it.
+
+## Documenting current behavior
 
 :::note Course under construction
 This page hasn't been written yet. Come later, please!
 :::
+
+<!-- I'm building an Apify Actor that will run on the Apify platform.
+I need to modify a sample template project so it downloads
+https://warehouse-theme-metal.myshopify.com/collections/sales,
+extracts all products in Sales, and returns data with
+the following information for each product:
+
+- Product name
+- Product detail page URL
+- Price
+
+Before the program ends, it should log how many products it collected.
+Code from routes.js follows. Reply with a code block containing
+a new version of that file. -->
+
+<!-- Change the default input URL of the Actor
+to https://warehouse-theme-metal.myshopify.com/collections/sales -->
+
+<!-- Change the code so that the Actor saves prices as numbers.
+Because some prices are "from", let's call the "price" field
+"minPrice" instead, as in minimum price. Example follows.
+
+Before:
+Sale price$74.95
+Sale priceFrom $1,398.00
+Sale price$158.00
+
+After:
+74.95
+1398.00
+158.00 -->
+
+<!-- In the output of the scraper I want to see
+how the items being saved look like. -->
+
+<!-- Change the output schema of the Actor
+so that it represents the items being
+saved the best way in the Apify interface. -->
 
 ## Dealing with price intervals
 
