@@ -1,11 +1,20 @@
 ---
-title: Creating integration Actors
-description: Build Actors designed to work as integrations with other Actors and tasks. Handle dynamic input, payload fields, and large datasets efficiently.
+title: Develop integration-ready Actors
+description: Learn how to develop Actors that work cleanly as integration targets, including input design, payload handling, and dataset processing patterns.
+sidebar_label: Develop integration-ready Actors
 sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---
 
-Any Actor can be used in integrations. In order to provide a smooth experience for its users, there are few things to keep in mind.
+This page is for Actor developers. It covers the patterns to follow when building an Actor that other users will connect as an integration target - input shape, handling the implicit `payload` field, and processing dataset references rather than dataset contents.
+
+:::note Integration Actors
+
+For inspiration, browse [Integration Actors in Apify Store](https://apify.com/store/categories/integrations) - published Actors designed to be used as integration targets.
+
+:::
+
+Any Actor can be used as an integration target, but Actors designed for the role give users a smoother experience. The rest of this page assumes you are developing such an Actor.
 
 ## General guidelines
 

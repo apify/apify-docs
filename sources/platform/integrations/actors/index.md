@@ -61,6 +61,6 @@ The UI keeps variables enclosed in strings, which means the payload template is 
 
 ## Next steps
 
-- [Creating integration Actors](/platform/integrations/actors/integration-ready-actors) - design your own Actor to be used as an integration target.
+- [Develop integration-ready Actors](/platform/integrations/actors/integration-ready-actors) - design your own Actor to be used as an integration target.
 - [Integrating Actors via API](/platform/integrations/actors/integrating-actors-via-api) - set up the same integrations programmatically with the Apify API.
 - [Connecting scrapers with Apify integrations](https://blog.apify.com/connecting-scrapers-apify-integration/) - a complete walkthrough on the Apify blog. <!-- TODO: confirm the linked blog post is still current and matches the new catalog flow; if not, replace or remove. -->
