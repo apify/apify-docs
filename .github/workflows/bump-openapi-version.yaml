@@ -22,8 +22,8 @@ jobs:
 
             - name: Commit changes
               id: commit
-              uses: EndBug/add-and-commit@v10
+              uses: apify/actions/signed-commit@v1.0.0
               with:
-                  author_name: github-actions[bot]
-                  author_email: 41898282+github-actions[bot]@users.noreply.github.com
                   message: "chore(openapi): Update OpenAPI version [skip ci]"
+                  pull: '--rebase --autostash'
+                  github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}

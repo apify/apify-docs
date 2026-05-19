@@ -7,8 +7,6 @@ get:
     retrieve and manage the last run of given actor task or any of its default storages.
     All the endpoints require an authentication token.
 
-    The endpoints accept the same HTTP methods and query parameters as
-    the respective storage endpoints.
     The base path represents the last actor task run object is:
 
     `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status}`
@@ -17,42 +15,21 @@ get:
     (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
     are the same as in the [Run object](/api/v2/actor-run-get) endpoint.
 
-    In order to access the default storages of the last actor task run, i.e. log, key-value store, dataset and request queue,
-    use the following endpoints:
+    ##### Convenience endpoints for last Actor task run
 
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/log{?token,status}`
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store{?token,status}`
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/dataset{?token,status}`
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/request-queue{?token,status}`
+    * [Dataset](/api/v2/last-actor-task-runs-default-dataset)
 
-    These API endpoints have the same usage as the equivalent storage endpoints.
-    For example,
-    `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store` has the same HTTP method and parameters as the
-    [Key-value store object](/api/v2/storage-key-value-stores) endpoint.
+    * [Key-value store](/api/v2/last-actor-task-runs-default-key-value-store)
 
-    Additionally, each of the above API endpoints supports all sub-endpoints
-    of the original one:
+    * [Request queue](/api/v2/last-actor-task-runs-default-request-queue)
 
-    ##### Storage endpoints
+    * [Log](/api/v2/last-actor-task-runs-log)
 
-    * [Dataset - introduction](/api/v2/storage-datasets)
-
-    * [Key-value store - introduction](/api/v2/storage-key-value-stores)
-
-    * [Request queue - introduction](/api/v2/storage-request-queues)
-
-    For example, to download data from a dataset of the last succeeded actor task run in XML format,
-    send HTTP GET request to the following URL:
-
-    ```
-    https://api.apify.com/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-    ```
-
-    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: actorTask_runs_last_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":
       description: ""

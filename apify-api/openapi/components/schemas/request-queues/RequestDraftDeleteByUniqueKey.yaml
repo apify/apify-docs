@@ -1,0 +1,9 @@
+title: RequestDraftDeleteByUniqueKey
+description: A request that should be deleted, identified by its unique key.
+type: object
+required: [uniqueKey]
+properties:
+  id:
+    $ref: ./SharedProperties.yaml#/RequestId
+  uniqueKey:
+    $ref: ./SharedProperties.yaml#/UniqueKey

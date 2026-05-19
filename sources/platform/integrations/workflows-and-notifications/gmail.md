@@ -6,6 +6,12 @@ sidebar_position: 6
 slug: /integrations/gmail
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Send automated email notifications with Actor run results to any Gmail address. Set up the integration on your task to receive emails after each successful run.
+
+<ThirdPartyDisclaimer />
+
 ## Get started
 
 To use the Apify integration for Gmail, you will need:
@@ -16,7 +22,7 @@ To use the Apify integration for Gmail, you will need:
 
 ## Set up Gmail integration
 
-1. Head over to **Integrations** tab in your task and click on Send email generic integration.
+1. Head over to **Integrations** tab in your task and click on the **Send results email via Gmail** integration.
 
     ![Google Drive integration](../images/google/google-integrations-add.png)
 

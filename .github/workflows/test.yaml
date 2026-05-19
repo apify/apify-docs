@@ -13,24 +13,20 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v6
 
-            -   name: Use Node.js 22
+            -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
-                run: |
-                    corepack enable
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
-            -   name: Install Dependencies
-                run: npm ci --force
-
-            -   run: npm run build
+            -   run: pnpm build
                 env:
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
+
+            -   name: Check llms.txt size
+                run: npm run test:llms-size
 
             -   name: Install Nginx
                 run: |
@@ -39,13 +35,15 @@ jobs:
 
             -   name: Start Docusaurus server
                 run: |
-                    nohup npx docusaurus serve --port 3000 --no-open &
+                    nohup pnpm exec docusaurus serve --port 3000 --no-open &
                     sleep 5
                     curl -f http://localhost:3000 > /dev/null
 
             -   name: Start Nginx with project config
                 run: |
                     PWD_PATH="$(pwd)"
+                    cp nginx.conf nginx-test.conf
+                    sed -i 's|https://apify.github.io/apify-docs|http://127.0.0.1:3000|g' nginx-test.conf
                     cat > default.conf <<EOF
                     worker_processes auto;
                     error_log ${PWD_PATH}/logs/error.log;
@@ -53,10 +51,9 @@ jobs:
                     events {}
                     http {
                         access_log ${PWD_PATH}/logs/access.log;
-                        include ${PWD_PATH}/nginx.conf;
+                        include ${PWD_PATH}/nginx-test.conf;
                     }
                     EOF
-                    sed -i 's|https://apify.github.io/apify-docs|http://localhost:3000|g' default.conf
                     mkdir -p "${PWD_PATH}/logs"
                     nginx -c "${PWD_PATH}/default.conf"
                     sleep 1
@@ -98,6 +95,38 @@ jobs:
                         fi
                     }
 
+                    # Like assert_header but follows redirects and asserts on the
+                    # final response's Content-Type. Use for URLs that legitimately
+                    # redirect before serving the content (e.g. child repo homepages).
+                    # Only Content-Type is supported because curl's writeout variable
+                    # %{content_type} is the only header it exposes after -L.
+                    function assert_final_content_type() {
+                        url=$1
+                        expected=$2
+                        shift 2
+                        extra_args=("$@")
+                        actual=$(curl -s -L -o /dev/null -w "%{content_type}" "${extra_args[@]}" "$url")
+                        echo "→ $url → final Content-Type: $actual"
+                        echo "$actual" | grep -q "$expected" || (echo "❌ Expected '$expected' in final Content-Type for $url, got '$actual'" && exit 1)
+                    }
+
+                    # Asserts that the HTML at $url contains a
+                    # <link rel="alternate" type="text/markdown" href="$expected_href">
+                    # tag (attribute order/quoting may vary; we only require
+                    # type=text/markdown and the expected href on the same
+                    # <link> element). AI crawlers rely on this tag to find
+                    # the .md counterpart of an HTML page.
+                    function assert_html_md_alternate() {
+                        url=$1
+                        expected_href=$2
+                        matched=$(curl -s "$url" | grep -oE '<link [^>]*type="?text/markdown[^>]*>' | grep -F "$expected_href" || true)
+                        echo "→ $url → ${matched:-no match}"
+                        if [ -z "$matched" ]; then
+                            echo "❌ Expected <link rel=\"alternate\" type=\"text/markdown\" href=\"$expected_href\"> in HTML for $url"
+                            exit 1
+                        fi
+                    }
+
                     echo "🧪 Checking open redirect protection..."
                     # Backslash URLs must not produce redirects (the redirect Location
                     # would contain \, which browsers normalize to /, creating
@@ -122,7 +151,32 @@ jobs:
                     assert_header "http://localhost:8080/llms.txt" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/llms-full.txt" "Content-Type" "text/markdown"
 
+                    echo "🧪 Checking .md counterparts of pages that are excluded from llms.txt..."
+                    # Pages excluded from the llms.txt index (see scripts/joinLlmsFiles.mjs)
+                    # must still serve their .md markdown counterparts. Regression test for
+                    # https://github.com/apify/apify-docs/pull/2470#discussion_r3161627392
+                    assert_header "http://localhost:8080/sdk.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/open-source.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/v2/actor-builds-get.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/api/v2/dataset-get.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/academy/tutorials.md" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking HTML alternate links to .md counterparts..."
+                    # The HTML version of every page (including those excluded from the
+                    # llms.txt index) must advertise its .md counterpart via
+                    # <link rel="alternate" type="text/markdown" href="..."> so that
+                    # AI crawlers can discover the markdown version.
+                    assert_html_md_alternate "http://localhost:8080/sdk" "https://docs.apify.com/sdk.md"
+                    assert_html_md_alternate "http://localhost:8080/open-source" "https://docs.apify.com/open-source.md"
+                    assert_html_md_alternate "http://localhost:8080/api/v2/actor-builds-get" "https://docs.apify.com/api/v2/actor-builds-get.md"
+                    assert_html_md_alternate "http://localhost:8080/api/v2/dataset-get" "https://docs.apify.com/api/v2/dataset-get.md"
+                    assert_html_md_alternate "http://localhost:8080/academy/tutorials" "https://docs.apify.com/academy/tutorials.md"
+                    # Sanity check: a regular (non-excluded) page also has the alternate.
+                    assert_html_md_alternate "http://localhost:8080/platform/proxy/usage" "https://docs.apify.com/platform/proxy/usage.md"
+
                     echo "🧪 Checking Nginx responses... (apify-sdk-js)"
+                    assert_final_content_type "http://localhost:8080/sdk/js" "text/html"
+                    assert_final_content_type "http://localhost:8080/sdk/js" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/js/docs/introduction/quick-start" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -130,6 +184,8 @@ jobs:
                     assert_header "http://localhost:8080/sdk/js/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-python)"
+                    assert_final_content_type "http://localhost:8080/sdk/python" "text/html"
+                    assert_final_content_type "http://localhost:8080/sdk/python" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/sdk/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -137,6 +193,8 @@ jobs:
                     assert_header "http://localhost:8080/sdk/python/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-client-js)"
+                    assert_final_content_type "http://localhost:8080/api/client/js" "text/html"
+                    assert_final_content_type "http://localhost:8080/api/client/js" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/api/client/js/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -144,6 +202,8 @@ jobs:
                     assert_header "http://localhost:8080/api/client/js/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-client-python)"
+                    assert_final_content_type "http://localhost:8080/api/client/python" "text/html"
+                    assert_final_content_type "http://localhost:8080/api/client/python" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/api/client/python/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -151,6 +211,8 @@ jobs:
                     assert_header "http://localhost:8080/api/client/python/llms-full.txt" "Content-Type" "text/markdown"
 
                     echo "🧪 Checking Nginx responses... (apify-cli)"
+                    assert_final_content_type "http://localhost:8080/cli" "text/html"
+                    assert_final_content_type "http://localhost:8080/cli" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/cli/docs/changelog.md" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
@@ -178,19 +240,12 @@ jobs:
                     files_ignore: '!sources/api/*.{md,mdx}'
                     separator: ","
 
-            -   name: Use Node.js 22
+            -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
-                run: |
-                    corepack enable
-
-            -   name: Install Dependencies
-                run: npm ci --force
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   name: List and Lint Changed Markdown Files
                 env:
@@ -198,7 +253,7 @@ jobs:
                 run: |
                     IFS=',' read -ra FILE_ARRAY <<< "$ALL_CHANGED_FILES"
                     for file in "${FILE_ARRAY[@]}"; do
-                      npx markdownlint "$file"
+                      pnpm exec markdownlint "$file"
                     done
 
 
@@ -209,18 +264,46 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v6
 
-            -   name: Use Node.js 22
+            -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
+            -   uses: apify/actions/pnpm-install@v1.1.2
+
+            -   run: pnpm lint:code
+
+            -   name: Format check
+                run: pnpm format:check
+
+
+    lint_images:
+        name: Lint images
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v6
+
+            -   name: Get changed unoptimized image files in sources
+                id: changed-files
+                uses: tj-actions/changed-files@v47
+                with:
+                    files: |
+                        sources/**/*.{png,jpg,jpeg,gif,bmp,tif,tiff,avif}
+                    separator: "\n"
+
+            -   name: Fail on unoptimized images
+                if: steps.changed-files.outputs.any_changed == 'true'
+                env:
+                    UNOPTIMIZED_IMAGE_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
                 run: |
-                    corepack enable
-
-            -   name: Install Dependencies
-                run: npm ci --force
-
-            -   run: npm run lint:code
+                    echo "Unoptimized images detected! Please run the following commands:"
+                    echo ""
+                    while IFS= read -r file_path; do
+                      echo "pnpm opt:images $file_path"
+                    done <<< "$UNOPTIMIZED_IMAGE_FILES"
+                    echo ""
+                    echo "Don't forget to change image paths to end with .webp in your Markdown."
+                    echo "If you point the same command at a whole directory, it will convert "
+                    echo "and optimize all images inside."
+                    exit 1

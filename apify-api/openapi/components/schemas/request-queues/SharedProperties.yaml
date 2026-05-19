@@ -15,7 +15,6 @@ UniqueKey:
 
 RequestUrl:
   type: string
-  format: uri
   description: The URL of the request.
   examples: [https://apify.com]
 
@@ -80,7 +79,7 @@ HandledRequestCount:
 PendingRequestCount:
   type: integer
   description: The number of requests that are pending and have not been handled yet.
-  minimum: 0
+  # minimum: 0 Bug in API allows negative numbers https://github.com/apify/apify-core/issues/27403
   examples: [670]
 
 QueueModifiedAt:

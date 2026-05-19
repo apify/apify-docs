@@ -80,6 +80,12 @@ post:
         type: string
         example: eshop-items
   responses:
+    "200":
+      description: Returns the existing dataset object if a dataset with the given name already exists.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/datasets/DatasetResponse.yaml
     "201":
       description: ""
       headers:

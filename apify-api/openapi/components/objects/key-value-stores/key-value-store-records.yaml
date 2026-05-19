@@ -1,0 +1,291 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Key-value stores
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default key-value store
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default key-value store
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default key-value store
+
+common200: &common200
+  "200":
+    description: A ZIP archive containing the requested records.
+    headers: {}
+    content:
+      application/zip:
+        schema:
+          type: string
+          format: binary
+
+sharedGet: &sharedGet
+  responses:
+    <<: [*common200, *commonErrors]
+  deprecated: false
+
+listById:
+  <<: [*sharedGet, *sharedTagById]
+  summary: Download records
+  description: |
+    Downloads all records from the key-value store as a ZIP archive.
+    Each record is stored as a separate file in the archive, with the filename equal to the record key.
+
+    You can optionally filter the records by `collection` or `prefix` to download only a subset of the store.
+  operationId: keyValueStore_records_get
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+listDefault:
+  <<: [*sharedGet, *sharedTagDefault]
+  summary: Download default store's records
+  description: |
+    Downloads all records from the default key-value store of the Actor run as a ZIP archive.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [Download records](/api/v2/key-value-store-records-get) endpoint.
+  operationId: actorRun_keyValueStore_records_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+listLastRun:
+  <<: [*sharedGet, *sharedTagLastRun]
+  summary: Download last run's default store's records
+  description: |
+    Downloads all records from the default key-value store of the last Actor run as a ZIP archive.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [Download records](/api/v2/key-value-store-records-get) endpoint.
+  operationId: act_runs_last_keyValueStore_records_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+listTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Download last task run's default store's records
+  description: |
+    Downloads all records from the default key-value store of the last Actor task run as a ZIP archive.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Download records](/api/v2/key-value-store-records-get) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_records_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+
+sharedPutPost: &sharedPutPost
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/key-value-stores/PutRecordRequest.yaml
+      "*/*":
+        schema: {}
+    required: true
+  responses:
+    <<: *commonErrors
+    "201":
+      description: ""
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+putById:
+  <<: [*sharedPutPost, *sharedTagById]
+  summary: Store record
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    The value is passed as the PUT payload and it is stored with a MIME content
+    type defined by the `Content-Type` header and with encoding defined by the
+    `Content-Encoding` header.
+
+    To save bandwidth, storage, and speed up your upload, send the request
+    payload compressed with Gzip compression and add the `Content-Encoding: gzip`
+    header. It is possible to set up another compression type with `Content-Encoding`
+    request header.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Gzip compression: `Content-Encoding: gzip`
+    * Deflate compression: `Content-Encoding: deflate`
+    * Brotli compression: `Content-Encoding: br`
+  operationId: keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
+  x-js-parent: KeyValueStoreClient
+  x-js-name: setRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#setRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: set_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
+
+postById:
+  <<: [*sharedPutPost, *sharedTagById]
+  summary: Store record (POST)
+  description: |
+    Stores a value under a specific key to the key-value store.
+    This endpoint is an alias for the [`PUT` record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put) method and behaves identically.
+  operationId: keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+putDefault:
+  <<: [*sharedPutPost, *sharedTagDefault]
+  summary: Store record
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [PUT record](/api/v2/key-value-store-record-put) endpoint.
+  operationId: keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
+  x-js-parent: KeyValueStoreClient
+  x-js-name: setRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#setRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: set_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
+
+postDefault:
+  <<: [*sharedPutPost, *sharedTagDefault]
+  summary: Store record (POST)
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [POST record](/api/v2/key-value-store-record-post) endpoint.
+  operationId: keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+putLastRun:
+  <<: [*sharedPutPost, *sharedTagLastRun]
+  summary: Store record
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [PUT record](/api/v2/key-value-store-record-put) endpoint.
+  operationId: keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
+  x-js-parent: KeyValueStoreClient
+  x-js-name: setRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#setRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: set_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
+
+postLastRun:
+  <<: [*sharedPutPost, *sharedTagLastRun]
+  summary: Store record (POST)
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [POST record](/api/v2/key-value-store-record-post) endpoint.
+  operationId: keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+putTaskLastRun:
+  <<: [*sharedPutPost, *sharedTagTaskLastRun]
+  summary: Store record in last task run's default store
+  description: |
+    Stores a value under a specific key to the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [PUT record](/api/v2/key-value-store-record-put) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_records_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+postTaskLastRun:
+  <<: [*sharedPutPost, *sharedTagTaskLastRun]
+  summary: Store record in last task run's default store (POST)
+  description: |
+    Stores a value under a specific key to the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [POST record](/api/v2/key-value-store-record-post) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_records_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"

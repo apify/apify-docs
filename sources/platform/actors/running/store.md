@@ -21,8 +21,8 @@ import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
 All Actors in [Apify Store](https://apify.com/store) fall into one of the four pricing models:
 
 1. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
-1. [**Pay per result**](#pay-per-result) - you do not pay for platform usage the Actor generates and instead just pay for the results it produces.
-1. [**Pay per usage**](#pay-per-usage) - you can run the Actor and you pay for the platform usage the Actor generates.
+1. [**Pay per usage**](#pay-per-usage) - you only pay for the platform resources (compute units, data transfer, etc.) the
+ Actor consumes. There are no additional charges from the Actor developer.
 1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
 
 :::note Post-run storage costs
@@ -56,40 +56,6 @@ Your charges appear on your invoices and in the [Historical usage tab](https://c
 ![Pay per event Actor - run detail](./images/store/pay_per_event_price_on_run_detail.png)
 
 If charges seem incorrect, contact the Actor author or the Apify support team. You can also open an issue directly on the Actor's detail page in Apify Console.
-
-### Pay per result
-
-When you run an Actor that is _paid per result_, you pay for the successful results the Actor returns, and you are not charged for the underlying platform usage.
-
-:::info Estimation simplified
-
-This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join the [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
-
-:::
-
-<!-- TODO - add a bit about the ability to set the maximum limits Actor should return -->
-
-![Actor paid per result in Console](./images/store/console_pay_per_result_tag.png)
-
-All platform costs generated _during_ the Actor run are not charged to your account.
-
-You can limit how many results an Actor returns - and therefore control how much you're charged - by setting a maximum items limit in the Options section below the Actor input on the Actor detail page.
-
-![Max items for pay-per-result](./images/store/max-items-for-pay-per-result.png)
-
-Your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the Billing section of Apify Console, where pay per result charges are shown as a separate service. The cost also appears on individual run detail pages and in the overview of all runs.
-
-![Statistics in the billing section](./images/store/pay_per_result_billing_usage_section.png)
-
-![Run cost shown on the run detail](./images/store/pay_per_result_run_detail.png)
-
-![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
-
-To see total charges for a specific Actor, check the bottom of the [Historical usage tab](https://console.apify.com/billing/historical-usage).
-
-![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
-
-Pay per result is also available as a pricing option when you publish your own Actors - see [Monetizing your Actor](/platform/actors/publishing/monetize) for details.
 
 ### Pay per usage
 

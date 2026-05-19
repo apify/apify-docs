@@ -1,0 +1,113 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests locks
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
+sharedGet: &sharedGet
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/HeadResponse.yaml
+    <<: *commonErrors
+  deprecated: false
+
+listById:
+  <<: [*sharedGet, *sharedTagById]
+  summary: Get head
+  description: |
+    Returns given number of first requests from the queue.
+
+    The response contains the `hadMultipleClients` boolean field which indicates
+    that the queue was accessed by more than one client (with unique or empty
+    `clientKey`).
+    This field is used by [Apify SDK](https://sdk.apify.com) to determine
+    whether the local cache is consistent with the request queue, and thus
+    optimize performance of certain operations.
+  operationId: requestQueue_head_get
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head
+    - https://docs.apify.com/api/v2#/reference/request-queues/get-head
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue-head/operation/requestQueue_head_get
+  x-js-parent: RequestQueueClient
+  x-js-name: listHead
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#listHead
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: list_head
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_head
+
+listDefault:
+  <<: [*sharedGet, *sharedTagDefault]
+  summary: Get default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Get head](/api/v2/request-queue-head-get) endpoint.
+  operationId: actorRun_requestQueue_head_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+listLastRun:
+  <<: [*sharedGet, *sharedTagLastRun]
+  summary: Get last run's default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Get head](/api/v2/request-queue-head-get) endpoint.
+  operationId: act_runs_last_requestQueue_head_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+listTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get last task run's default request queue head
+  description: |
+    Returns the given number of first requests from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get head](/api/v2/request-queue-head-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_head_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

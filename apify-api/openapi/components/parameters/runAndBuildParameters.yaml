@@ -179,13 +179,19 @@ webhooks:
   in: query
   description: |
     Specifies optional webhooks associated with the Actor run, which can be used to receive a notification
-    e.g. when the Actor finished or failed. The value is a Base64-encoded
-    JSON array of objects defining the webhooks. For more information, see
+    e.g. when the Actor finished or failed. The value is a Base64-encoded JSON array whose items follow
+    the WebhookRepresentation schema. For more information, see
     [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
   style: form
   explode: true
   schema:
     type: string
+    contentEncoding: base64
+    contentMediaType: application/json
+    contentSchema:
+      type: array
+      items:
+        $ref: ../schemas/webhooks/WebhookRepresentation.yaml
     example: dGhpcyBpcyBqdXN0IGV4YW1wbGUK...
 
 waitForFinishRun:
@@ -258,10 +264,12 @@ status:
     Single status or comma-separated list of statuses, see ([available
     statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)). Used to filter runs by the specified statuses only.
   style: form
-  explode: true
+  explode: false
   schema:
-    type: string
-    example: SUCCEEDED
+    type: array
+    items:
+      type: string
+    example: [SUCCEEDED]
 
 startedAfter:
   name: startedAfter
@@ -271,6 +279,7 @@ startedAfter:
     The value must be a valid ISO 8601 datetime string (UTC).
   style: form
   explode: true
+  allowReserved: true
   schema:
     type: string
     format: date-time
@@ -284,6 +293,7 @@ startedBefore:
     The value must be a valid ISO 8601 datetime string (UTC).
   style: form
   explode: true
+  allowReserved: true
   schema:
     type: string
     format: date-time

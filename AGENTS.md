@@ -14,17 +14,17 @@ One unified site built from multiple repositories. See `CONTRIBUTING.md` for mul
 ## Commands
 
 ```bash
-npm install              # Install dependencies (runs patch-package via postinstall)
-npm start                # Dev server (rebuilds API docs, port 3000)
-npm run build            # Production build (catches broken links, bad frontmatter)
-npm run lint             # Run all linters (markdownlint + ESLint)
-npm run lint:md          # Markdownlint only
-npm run lint:code        # ESLint only
-npm run lint:fix         # Auto-fix both linters
-vale sync                # Download Vale styles (first time only)
+pnpm install            # Install dependencies (runs patch-package via postinstall)
+pnpm start              # Dev server (rebuilds API docs, port 3000)
+pnpm build              # Production build (catches broken links, bad frontmatter)
+pnpm lint               # Run all linters (markdownlint + oxlint)
+pnpm lint:md            # Markdownlint only
+pnpm lint:code          # oxlint only
+pnpm lint:fix           # Auto-fix both linters
+vale sync               # Download Vale styles (first time only)
 vale "path/to/file.md" --minAlertLevel=error  # Prose style check
-npm run api:rebuild      # Regenerate API docs from OpenAPI specs
-npm run openapi:lint     # Validate OpenAPI spec (Redocly + Spectral + YAML)
+pnpm api:rebuild        # Regenerate API docs from OpenAPI specs
+pnpm openapi:lint       # Validate OpenAPI spec (Redocly + Spectral + YAML)
 ```
 
 ## Architecture
@@ -38,7 +38,7 @@ API docs are generated, NOT hand-written. The workflow:
    - `code-samples-decorator.mjs` - Auto-adds code samples if files exist in `/code_samples/{js,curl}/`
    - `legacy-doc-url-decorator.mjs` - Adds backward-compatible URLs
    - `client-references-links-decorator.mjs` - Links to client library docs
-1. **Build command**: `npm run api:rebuild` = clean + bundle with Redocly + generate with Docusaurus
+1. **Build command**: `pnpm api:rebuild` = clean + bundle with Redocly + generate with Docusaurus
 1. **Output**: Markdown files in `apify-api/docs/` (gitignored, regenerated on each build)
 
 Never edit generated API docs directly. Edit the OpenAPI YAML source or add code samples.
@@ -59,17 +59,56 @@ Add code samples by creating files in `apify-api/openapi/code_samples/{javascrip
   - Request parameters and path parameters defined in  `/openapi/components/parameters`
   - Request/response schemas defined in `/openapi/components/schemas`
   - Explicit non-automatic examples defined in `/openapi/components/examples`
+  - Objects that are not standardized in the OpenAPI specification defined in `/openapi/components/objects`
+- Objects that exist in several variants with only minor differences across different files can be extracted into file in `/openapi/components/objects`. Within one file the YAML anchor syntax can be used to define a shared and unique portion of such objects and avoid some code duplication. These objects will be used only during bundling process through references, but they will not be standalone entities in the generated specification.
 - When changing files in `/openapi/paths` look for opportunities to extract shared duplicate objects into re-usable components saved in `/openapi/components`.
 - When adding new endpoints, check first if any existing path is similar and if yes, try to re-use same components. If by adding new paths you create new duplication, try to extract it into a new components and reference it instead.
 - Prefer automatically generated examples from schema over explicit examples.
 
 #### Error responses
+
 - Re-use schemas for error responses defined in `/apify-api/openapi/components/responses`
 - Each endpoint should have at least following error responses: 400 (Bad Request), 405 (Method Not Allowed), 429 (Too Many Requests).
 - Endpoints that define `security: []` do not use any authentication.
 - Each endpoint that uses authentication should have at least following error responses: 401 (Unauthorized), 403 (Forbidden).
 - Each endpoint that has `runs/last` in its path or that has any ID related parameter (for example `actorId`, `buildId`, `runId`, `datasetId` and so on) should have at least one 404 (Not Found) error.
 - Each endpoint that has `requestBody` should have at least following error responses: 413 (Payload Too Large), 415 (Unsupported Media Type).
+
+#### Syntax hints
+- Instead of using one item `enum`, use `const`:
+Avoid this:
+```yaml
+schema:
+  type: string
+  enum:
+    - "constantValue"
+```
+Use this:
+```yaml
+schema:
+  type: string
+  const: "constantValue"
+```
+
+### Python API client model generation
+
+OpenAPI spec changes in this repo automatically trigger Pydantic model regeneration in `apify-client-python`. The pipeline:
+
+1. **This repo** (`.github/workflows/openapi-ci.yaml`):
+   - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
+   - Upload `static/api/openapi.{json,yaml}` as artifacts
+   - `trigger-client-model-regeneration` job calls `gh workflow run regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
+   - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
+
+2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
+   - Triggered via `workflow_dispatch` (automatically from this repo's CI or manually from GitHub UI)
+   - Downloads the OpenAPI spec artifact from this repo's workflow run (or fetches from `https://docs.apify.com/api/openapi.json` for manual runs)
+   - Runs `datamodel-codegen` to generate Pydantic models into `src/apify_client/_models.py`
+   - Runs `scripts/postprocess_generated_models.py` to fix known codegen issues (e.g. camelCase discriminator fields)
+   - Commits to branch `update-models-docs-pr-{PR_NUMBER}`, creates/updates a PR
+   - Posts a cross-repo comment on the original docs PR linking to the generated client PR
+
+Branch naming convention `update-models-docs-pr-{N}` links the two PRs.
 
 ### Theme system
 
@@ -94,7 +133,7 @@ Post-build scripts (`scripts/joinLlmsFiles.mjs` + `indentLlmsFile.mjs`) combine 
 | apify-sdk-python | 3004 | Python SDK docs |
 | apify-cli | 3005 | CLI documentation |
 
-Use `npm run start:dev` + nginx to serve all repos together locally. See `CONTRIBUTING.md` for setup.
+Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUTING.md` for setup.
 
 ## Deployment
 
@@ -108,134 +147,45 @@ Use `npm run start:dev` + nginx to serve all repos together locally. See `CONTRI
 1. **Broken links on build** - `onBrokenLinks: 'throw'` fails CI. Check slugs match file paths
 1. **Missing frontmatter** - Description or slug errors break SEO and navigation
 1. **Missing code block language** - Always specify language for syntax highlighting
-1. **Stale API docs locally** - Run `npm run api:rebuild` after changing OpenAPI specs
+1. **Stale API docs locally** - Run `pnpm api:rebuild` after changing OpenAPI specs
 
 ## Quick reference
 
 - **Add new doc**: Create `.md` in `sources/{platform,academy}/`, add frontmatter with title/description/slug
-- **Add API endpoint**: Edit `apify-api/openapi/paths/**/*.yaml`, add code samples, run `npm run api:rebuild`
+- **Add API endpoint**: Edit `apify-api/openapi/paths/**/*.yaml`, add code samples, run `pnpm api:rebuild`
 - **Fix broken build**: Check `onBrokenLinks` errors, verify slugs match file paths, validate frontmatter
 
 ---
 
-## Writing style
+## Standards
 
-### Language and tone
+Detailed writing and formatting standards are in `standards/`:
 
-- **US English** spelling (analyze, color, not analyse, colour)
-- **Active voice** and **imperative tone** ("Install the package", not "You should install")
-- **Simple English** - no sentence over 30 words, get to the point
-- **Inclusive language** - avoid gendered terms, don't use directional language (left/right) for UI
-- No first person ("I recommend") - use "you" for the reader
-- No sales language ("ultimate", "cutting-edge", "supercharge")
+- `standards/writing-style.md` - Prose voice, tone, headings, links, numbers
+- `standards/content-standards.md` - Front matter, admonitions, code blocks, images
+- `standards/terminology.md` - Product names, capitalization, article usage
+- `standards/grammar-rules.md` - Hyphenation, punctuation, numbers, brand spelling
+- `standards/file-organization.md` - File naming and directory structure
+- `standards/quality-standards.md` - Complete quality checklist before submitting
 
-### Headings
+Key rules at a glance:
 
-- **Sentence case only** - capitalize first word and proper nouns only
-- **No gerunds** (-ing forms) - use noun phrases or imperatives
-- **Capitalize after colons** when introducing a complete clause
-- **Proper hierarchy** - H1 (from frontmatter) → H2 → H3 → H4, never skip levels
+- US English, active voice, imperative tone, no sales language
+- Sentence case headings, no gerunds
+- Bold for UI elements only; `code` for filenames, commands, variables
+- All admonitions require titles
+- 140-160 character descriptions in front matter
+- See `standards/terminology.md` for Apify product name capitalization
+- Don't use em dashes (—) - use hyphen with spaces ( - ) instead
 
-Examples:
+## Skills
 
-| Avoid | Prefer |
-|---|---|
-| Store And Manage Data | Store and manage data |
-| Getting Started With Actors | Get started with Actors |
-| Step 1: install the dependencies | Step 1: Install the dependencies |
+Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agentskills.io)), each with its own `references/` and `scripts/`:
 
-### Text formatting
-
-- **Bold** for UI elements only (buttons, menus, fields) and critical warnings
-- *Italics* for emphasis and introducing new terms
-- `code` for file names, commands, config keys, variables, and code values
-- Never use bold for list introductions or general emphasis
-
-### Admonitions
-
-All admonitions must have titles (2-3 scannable words). Types: `note`, `tip`, `info`, `caution`, `danger`.
-
-```markdown
-:::note Actor versions
-Actors can have multiple versions. Pin to a specific version for production use.
-:::
-```
-
-### Lists
-
-- Numbered lists (`1.` for all items) for sequential steps
-- Bullet points for non-sequential items
-- All items must follow the same grammatical pattern (parallel structure)
-- Use Oxford commas
-
-### Links
-
-- Descriptive, action-oriented link text (never "click here" or "here")
-- Internal links use relative paths, never full URLs
-- Link external tools to official sites on first mention
-- Link Actor names on first mention
-
-### Em dashes
-
-Don't use em dashes (—). Use hyphen with spaces ( - ) instead.
-
-## Content formatting
-
-### Front matter
-
-Every `.md`/`.mdx` file requires:
-
-```yaml
----
-title: Sentence case title
-description: 140-160 character description for SEO
-sidebar_position: 1.0
-slug: /path/to/page
----
-```
-
-### Code examples
-
-- Complete and runnable
-- Syntax highlighting specified for all code blocks
-- Code tabs for multi-language examples (JavaScript + Python)
-- Version matching between Dockerfile tags and package.json
-
-### Images
-
-- Meaningful alt text on all images
-- Light theme for screenshots
-- Red indicators to highlight UI elements
-- Store in `images/` subdirectory next to the markdown file
-- PNG for screenshots, SVG for logos
-
-## Terminology
-
-### Product names (always capitalize)
-
-Apify Actor, Apify Proxy, Apify Console, Apify Store, Apify SDK, Apify CLI, Apify API
-
-### Platform terms (lowercase with "the")
-
-the Apify platform, the Apify team, the Apify ecosystem
-
-### Feature terms (always lowercase)
-
-task, schedule, run, build, dataset, key-value store, request queue, web scraping
-
-### Generic technical terms (lowercase)
-
-AI agent, MCP server, API endpoint, web scraper, proxy server
-
-### Actor references
-
-First mention: full name with link (`[Website Content Crawler](https://apify.com/apify/website-content-crawler)`). Subsequent mentions: just the name.
-
-## File organization
-
-- **Kebab-case** for file names: `web-scraping-basics.md`
-- Match slug to file path
-- Group related files in logical directories
+- `.agents/skills/review-docs/` - Documentation review process and output format
+- `.agents/skills/doc-write/` - Writing and editing documentation pages
+- `.agents/skills/tutorial/` - Creating structured tutorials
+- `.agents/skills/api-doc/` - OpenAPI specification and API documentation
 
 ## Review checklist
 
@@ -250,4 +200,4 @@ When creating or reviewing documentation, verify:
 - [ ] Images have alt text, use light theme
 - [ ] Terminology matches rules above
 - [ ] US English, active voice, no sales language
-- [ ] `npm run lint` passes
+- [ ] `pnpm lint` passes

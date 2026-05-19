@@ -15,6 +15,8 @@ function clickHandler() {
 
 export default function NavbarCTA() {
     return (
-        <a href="https://console.apify.com" onClick={clickHandler} className={styles.getStarted}>{buttonText}</a>
+        <a href="https://console.apify.com" onClick={clickHandler} className={styles.getStarted}>
+            {buttonText}
+        </a>
     );
 }

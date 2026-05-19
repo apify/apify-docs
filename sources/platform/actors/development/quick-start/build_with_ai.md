@@ -9,11 +9,17 @@ toc_max_heading_level: 4
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
-import copyForAI from "./images/copy-for-ai.png";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation tools by providing the AI agents with the right instructions and context.
+
+:::tip Different goal?
+
+- _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/platform/integrations/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
+
+:::
 
 The methods on this page are complementary. Start with the [AI coding assistant instructions](#ai-coding-assistant-instructions) or [Actor templates with AGENTS.md](#use-actor-templates-with-agentsmd) to get going, then add [Agent Skills](#use-agent-skills) and the [Apify MCP server](#use-apify-mcp-server) to give your assistant more context and better results.
 
@@ -133,9 +139,9 @@ claude mcp add apify "https://mcp.apify.com/?tools=docs" -t http
 
 ## Provide context to assistants
 
-Every page in the Apify documentation has a **Copy for LLM** button. You can use it to add additional context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
+Every page in the Apify documentation has a **Copy for LLM** button. Use it to add more context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
 
-<img src={copyForAI} alt="Copy for LLM" width="250" />
+![Page from the Apify documentation with the Copy for LLM button highlighted](./images/copy-for-llm-button.svg)
 
 ## Use `/llms.txt` files
 

@@ -302,9 +302,7 @@ const plugins = [
                 return {
                     resolveLoader: {
                         alias: {
-                            'roa-loader': require.resolve(
-                                `${__dirname}/roa-loader/`,
-                            ),
+                            'roa-loader': require.resolve(`${__dirname}/roa-loader/`),
                         },
                     },
                 };
