@@ -57,7 +57,7 @@ For a custom run or build, enter its ID - you can find it on the run's or build'
 
 Actor integrations are regular [HTTP POST webhooks](https://www.redhat.com/en/topics/automation/what-is-a-webhook) targeting the Apify API. The Integrations UI is a friendlier wrapper that lets you fill the payload template through the Actor input UI instead of plain text, and constructs the URL that starts the target Actor with the chosen options.
 
-The UI keeps variables enclosed in strings, which means the payload template is valid JSON rather than only the interpolated result. It also adds a `payload` field with the default webhook payload, so integration-ready Actors can read run data from `payload` without users having to set variables themselves.
+The UI keeps variables enclosed in strings, which means the payload template is valid JSON rather than only the interpolated result. The UI also adds a `payload` field with the default webhook payload, so integration-ready Actors can read run data from `payload` without users having to set variables themselves.
 
 ## Next steps
 
