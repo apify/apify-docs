@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Tools
+  summary: Get OpenAPI definition
+  description: |
+    Returns the OpenAPI specification document for the Apify API.
+
+    The returned document describes every endpoint of the Apify public API.
+    No authentication is required.
+  operationId: openapi_json_get
+  security: []
+  responses:
+    "200":
+      description: The OpenAPI specification document for the Apify API.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            description: A standard OpenAPI 3.x JSON document.
+    "405":
+      $ref: ../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../components/responses/TooManyRequests.yaml
