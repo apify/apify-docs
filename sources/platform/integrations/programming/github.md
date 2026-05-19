@@ -6,11 +6,7 @@ sidebar_position: 3
 slug: /integrations/github
 ---
 
-import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-
 With the Apify integration for [GitHub](https://github.com/), you can create an Actor from a public or private repository, rebuild it automatically on every push, and trigger workflows in your repo when an Actor run fails, succeeds, or times out. To run automated tests and multi-branch builds with GitHub Actions, see [Continuous integration for Actors](/platform/actors/development/deployment/continuous-integration).
-
-<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
