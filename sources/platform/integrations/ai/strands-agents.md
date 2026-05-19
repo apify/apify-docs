@@ -43,7 +43,7 @@ Use a `.env` file or your secrets manager in production. Never commit `APIFY_TOK
 The package reads the following environment variables:
 
 | Variable | Description | Required |
-|---|---|---|
+| --- | --- | --- |
 | `APIFY_TOKEN` | Apify API token used to authorize Actor runs and dataset reads. | Yes |
 | `STRANDS_APIFY_QUIET` | Set to `1` to suppress the diagnostic panel printed on each tool call. Auto-suppressed in non-interactive environments. | No |
 
@@ -271,7 +271,7 @@ Included in `APIFY_CORE_TOOLS`.
 Scrape a single URL and return its content as markdown. No Actor input schema needed.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `url` | `str` | *required* | The URL to scrape (must include `http://` or `https://`) |
 | `timeout_secs` | `int` | `120` | Maximum wait time in seconds |
 | `crawler_type` | `str` | `"cheerio"` | Engine: `"cheerio"` (fast, no JS), `"playwright:adaptive"` (renders JS when needed), `"playwright:firefox"` (full JS, best anti-bot bypass) |
@@ -287,7 +287,7 @@ Scrape https://docs.apify.com/academy and summarize the page.
 Run any Actor from [Apify Store](https://apify.com/store) and return run metadata only (run ID, status, dataset ID). Use this when you need the run metadata but will fetch results separately with `apify_get_dataset_items`.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `actor_id` | `str` | *required* | Actor identifier in `"username/actor-name"` format |
 | `run_input` | `dict` | `None` | JSON-serializable input matching the Actor's input schema |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
@@ -307,7 +307,7 @@ Run the Actor 'apify/website-content-crawler' with input {"startUrls": [{"url": 
 Run any Actor and fetch its dataset results in a single call. Provides access to all 4,000+ Actors in Apify Store, but requires you to provide the Actor's input JSON.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `actor_id` | `str` | *required* | Actor identifier in `"username/actor-name"` format |
 | `run_input` | `dict` | `None` | JSON-serializable input matching the Actor's input schema |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
@@ -336,7 +336,7 @@ Run the Actor 'apify/rag-web-browser' with input {"query": "latest AI safety res
 Fetch items from an existing Apify dataset. Use this after `apify_run_actor` to retrieve results, or to paginate through large datasets.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `dataset_id` | `str` | *required* | The dataset ID (returned by `apify_run_actor`) |
 | `limit` | `int` | `100` | Maximum items to return |
 | `offset` | `int` | `0` | Items to skip (for pagination) |
@@ -352,7 +352,7 @@ Fetch the first 50 items from dataset ID 'abc123' and summarize the key findings
 Run a saved [Actor task](/platform/actors/running/tasks) with optional input overrides. Tasks are pre-configured Actor runs saved in Apify Console.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `task_id` | `str` | *required* | Task identifier in `"username/task-name"` format or a task ID |
 | `task_input` | `dict` | `None` | Optional input fields to override the task's saved defaults |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
@@ -369,7 +369,7 @@ Run my saved task 'john/daily-news-scrape' and return the run status.
 Run a saved task and fetch its dataset results in one call.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `task_id` | `str` | *required* | Task identifier in `"username/task-name"` format or a task ID |
 | `task_input` | `dict` | `None` | Optional input fields to override the task's saved defaults |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
@@ -394,7 +394,7 @@ Included in `APIFY_SEARCH_TOOLS`.
 Search Google and return structured results (organic links, ads, People Also Ask). Uses [Google Search Scraper](https://apify.com/apify/google-search-scraper).
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | *required* | Google search query. Supports operators like `site:`, `"exact phrase"`, `OR` |
 | `results_limit` | `int` | `10` | Maximum results to return (multiples of 10 trigger extra pages) |
 | `country_code` | `str` | `None` | Two-letter country code for localized results (e.g. `"us"`, `"de"`) |
@@ -412,7 +412,7 @@ Search Google for 'best python web frameworks 2025' and return the top 5 results
 Search Google Maps for businesses and places, optionally with reviews. Uses [Google Maps Scraper](https://apify.com/compass/crawler-google-places).
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | *required* | Google Maps search query (e.g. `"restaurants in Prague"`) |
 | `results_limit` | `int` | `20` | Maximum places to return |
 | `language` | `str` | `None` | Language for results (e.g. `"en"`, `"de"`) |
@@ -431,7 +431,7 @@ Find the top-rated Italian restaurants in Berlin with reviews.
 Scrape YouTube videos, channels, or search results. Uses [YouTube Scraper](https://apify.com/streamers/youtube-scraper). Provide at least one of `search_query` or `urls`.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | `None` | YouTube search query (e.g. `"python tutorial"`) |
 | `urls` | `list[str]` | `None` | Specific YouTube video or channel URLs to scrape |
 | `results_limit` | `int` | `20` | Maximum results to return |
@@ -448,7 +448,7 @@ Search YouTube for 'AWS re:Invent 2025 keynote' and return the top 5 videos with
 Crawl a website and extract content from multiple pages as markdown. Uses [Website Content Crawler](https://apify.com/apify/website-content-crawler). This is the multi-page version - use `apify_scrape_url` for single pages.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `start_url` | `str` | *required* | Starting URL to crawl from |
 | `max_pages` | `int` | `10` | Maximum number of pages to crawl |
 | `max_depth` | `int` | `2` | Maximum link depth from the start URL |
@@ -465,7 +465,7 @@ Crawl https://docs.example.com up to 20 pages and summarize the documentation st
 Scrape product data from e-commerce sites (Amazon, eBay, Walmart, and others). Uses [E-commerce Scraping Tool](https://apify.com/apify/e-commerce-scraping-tool). The Actor auto-detects the platform.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `url` | `str` | *required* | Product or listing page URL |
 | `url_type` | `str` | `"product"` | `"product"` for a single product page, `"listing"` for a category/search results page |
 | `results_limit` | `int` | `20` | Maximum products to return (relevant for listings) |
@@ -488,7 +488,7 @@ Included in `APIFY_SOCIAL_TOOLS`.
 Scrape Instagram profiles, posts, reels, or hashtags. Uses [Instagram Scraper](https://apify.com/apify/instagram-scraper). Provide at least one of `search_query` or `urls`.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | `None` | Username, hashtag, or keyword. If it looks like an Instagram URL, it's treated as a direct URL. |
 | `urls` | `list[str]` | `None` | Direct Instagram URLs to scrape (profiles, posts, reels) |
 | `results_type` | `str` | `"posts"` | What to scrape: `"posts"`, `"comments"`, or `"details"` (profile metadata) |
@@ -508,7 +508,7 @@ Scrape the latest 15 posts from the hashtag #webdevelopment on Instagram.
 Scrape recent posts from a LinkedIn profile. Uses [LinkedIn Profile Posts](https://apify.com/apimaestro/linkedin-profile-posts).
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `profile_url` | `str` | *required* | LinkedIn profile URL (e.g. `"https://www.linkedin.com/in/username"`) or bare username |
 | `results_limit` | `int` | `20` | Maximum posts to return (capped at 100) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
@@ -524,7 +524,7 @@ Get the last 10 posts from https://www.linkedin.com/in/satyanadella and summariz
 Search for LinkedIn profiles by keywords with optional filters. Uses [LinkedIn Profile Search](https://apify.com/harvestapi/linkedin-profile-search).
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | *required* | Keywords like job titles, skills, or names (e.g. `"software engineer"`) |
 | `results_limit` | `int` | `20` | Maximum profiles to return |
 | `locations` | `list[str]` | `None` | Filter by locations (e.g. `["San Francisco", "New York"]`) |
@@ -543,7 +543,7 @@ Find 10 machine learning engineers in London and return their profile summaries.
 Get full details from a single LinkedIn profile (experience, education, skills). Uses [LinkedIn Profile Detail](https://apify.com/apimaestro/linkedin-profile-detail). No LinkedIn account or cookies required.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `profile_url` | `str` | *required* | LinkedIn profile URL or bare username |
 | `include_email` | `bool` | `False` | Include email if publicly available |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
@@ -559,7 +559,7 @@ Get the full profile details for https://www.linkedin.com/in/example-user includ
 Scrape tweets from Twitter/X by search, handles, or URLs. Uses [Twitter Scraper Lite](https://apify.com/apidojo/twitter-scraper-lite). Supports Twitter advanced search operators. Provide at least one of `search_query`, `urls`, or `twitter_handles`.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | `None` | Search query with support for operators like `from:user`, `#hashtag`, `min_faves:N`, `since:YYYY-MM-DD` |
 | `urls` | `list[str]` | `None` | Specific tweet, profile, or list URLs |
 | `twitter_handles` | `list[str]` | `None` | Handles without `@` (e.g. `["NASA", "WHO"]`) |
@@ -579,7 +579,7 @@ Find the latest 20 tweets mentioning #AI from the past week, sorted by most popu
 Scrape TikTok videos by search, hashtag, profile, or direct URL. Uses [TikTok Scraper](https://apify.com/clockworks/tiktok-scraper). Provide at least one of `search_query`, `hashtags`, `profiles`, or `urls`.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `search_query` | `str` | `None` | Keyword to search TikTok |
 | `hashtags` | `list[str]` | `None` | Hashtags without `#` (e.g. `["fyp", "cooking"]`) |
 | `profiles` | `list[str]` | `None` | TikTok usernames to scrape videos from |
@@ -598,7 +598,7 @@ Scrape the top 10 TikTok videos for the hashtag 'programming' and return their v
 Scrape posts from a Facebook page or profile. Uses [Facebook Posts Scraper](https://apify.com/apify/facebook-posts-scraper).
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `page_url` | `str` | *required* | Facebook page or profile URL |
 | `results_limit` | `int` | `20` | Maximum posts to return |
 | `only_posts_newer_than` | `str` | `None` | Date filter: `"2024-01-01"`, `"1 week ago"`, `"3 months ago"` |
@@ -621,15 +621,15 @@ Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month
 
 ## Troubleshooting
 
-| Problem                                         | Cause                                | Fix                                                                                                |
-| ----------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| `APIFY_TOKEN environment variable is not set`   | Token not configured                 | Run `export APIFY_TOKEN=your_apify_token` before executing your script                                   |
-| `apify-client package is required`              | Missing dependency                   | Run `pip install strands-apify`                                                                    |
-| `Invalid URL` or `urls[N]: Invalid URL scheme '...'` | Tool input wasn't a well-formed http(s) URL | Confirm the URL has an `http://` or `https://` scheme and a valid host. When passing a list, the index in `urls[N]` points to the offending entry. |
-| Actor run finishes with status `FAILED`         | Invalid input or Actor error         | The error text includes the Actor's `statusMessage` (e.g. `Message: invalid query`) - fix the input based on that, or check the full run logs in [Apify Console](https://console.apify.com). |
-| Actor run finishes with status `TIMED-OUT`      | Timeout too short for the workload   | Increase the `timeout_secs` parameter (use 600+ for large crawls)                                  |
-| Agent selects the wrong tool                    | Too many tools registered or ambiguous prompt | Reduce the number of registered tools, add more context to the prompt, or use a more capable model |
-| Empty results from social media tools           | Private or geo-restricted profile    | Verify the profile is public. Test with a known public account first.                              |
+| Problem | Cause | Fix |
+| --- | --- | --- |
+| `APIFY_TOKEN environment variable is not set` | Token not configured | Run `export APIFY_TOKEN=your_apify_token` before executing your script |
+| `apify-client package is required` | Missing dependency | Run `pip install strands-apify` |
+| `Invalid URL` or `urls[N]: Invalid URL scheme '...'` | URL is not well-formed http(s) | Confirm the URL has an `http://` or `https://` scheme and a valid host. The index in `urls[N]` points to the offending entry. |
+| Actor run finishes with status `FAILED` | Invalid input or Actor error | Check the `statusMessage` in the error text, or check the full run logs in [Apify Console](https://console.apify.com). |
+| Actor run finishes with status `TIMED-OUT` | Timeout too short for the workload | Increase the `timeout_secs` parameter (use 600+ for large crawls) |
+| Agent selects the wrong tool | Too many tools registered or ambiguous prompt | Reduce the number of registered tools, add more context to the prompt, or use a more capable model |
+| Empty results from social media tools | Private or geo-restricted profile | Verify the profile is public. Test with a known public account first. |
 
 ## Resources
 
