@@ -2,8 +2,8 @@
 title: Strands Agents SDK integration
 sidebar_label: Strands Agents SDK
 description: >-
-  Learn how to integrate Apify with the Strands Agents SDK to give your
-  AI agents web scraping, search, and social media capabilities.
+  Integrate Apify with the Strands Agents SDK to give your AI agents web
+  scraping, search, crawling, and social media capabilities through 18 prebuilt tools.
 sidebar_position: 20
 slug: /integrations/strands-agents
 ---
