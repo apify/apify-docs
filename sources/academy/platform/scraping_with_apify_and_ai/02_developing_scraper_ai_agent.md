@@ -253,8 +253,7 @@ apify run
 It runs, that's nice! But looking at the output, we can't really verify what exactly gets scraped! While we're at it, let's change that with another prompt:
 
 ```text
-In the output of the scraper I want to see
-how the items being saved look like.
+I want the scraper to log each item before it's saved.
 ```
 
 We'll approve all changes and go to the command line again:
@@ -263,7 +262,7 @@ We'll approve all changes and go to the command line again:
 apify run
 ```
 
-Now, the output of the scraper contains the actual items being scraped and we can verify we've been successful in changing the format of the prices (they appear at the very end of each line):
+Now, the scraper prints the actual items being scraped and we can verify we've been successful in changing the format of the prices (they appear at the very end of each line):
 
 ```text
 ...

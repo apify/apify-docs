@@ -43,19 +43,21 @@ Many sections follow, which detail every aspect of the project, how to develop i
 
 Notice that headings start with one or more `#` characters, and there are also bullet points, links, or even code blocks. That's Markdown.
 
-Cursor knows Markdown, so it helps with readability by coloring characters which take part in the formatting (this is done with code, too, and it's called _syntax highlighting_).
+![Markdown syntax highlighting in Cursor](images/cursor-readme.webp)
 
-:::tip README playground and Markdown basics
+Cursor knows Markdown, so it helps with readability by coloring characters which take part in the formatting (this is done with code, too, and it's called _syntax highlighting_). The **Preview** button gives you an idea how will your Markdown be understood and formatted if published.
 
-The [Make a README](https://www.makeareadme.com/) website explains reasons why people shouldn't forget about adding README to their projects. It also includes a playground where you can write your document and immediately see how will your Markdown be understood and formatted.
+![Markdown preview in Cursor](images/cursor-readme-preview.webp)
 
-To learn Markdown basics, check out the [Getting Started](https://www.markdownguide.org/getting-started/) page at Markdown Guide, which features also [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/), and more.
+:::tip README and Markdown basics
+
+The [Make a README](https://www.makeareadme.com/) website explains reasons why people shouldn't forget about adding README to their projects. To learn Markdown basics, check out the [Getting Started](https://www.markdownguide.org/getting-started/) page at Markdown Guide, which features also [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/), and more.
 
 :::
 
 ## Recreating README.md
 
-We could go through the existing README.md and only adjust and add what we need, but for the purpose of this lesson it's easier if we start from scratch. We'll delete the contents of the file and start with a title and intro:
+We could go through the existing README.md and only adjust and add what we need, but for the purpose of this lesson it's easier if we start from scratch. We'll delete the contents of the file and start with a new title and intro:
 
 ```md
 # My Actor
@@ -85,51 +87,152 @@ Now let's add a summary of the scraper's current behavior:
 ```md
 ## Behavior
 
-- Downloads the Sales page:
+- Downloads the Sales page at
 https://warehouse-theme-metal.myshopify.com/collections/sales
-  This is also the default input URL of the Actor.
-- Extracts all products, and returns data with
-the following information for each product:
+- The Sales page is the default input URL of the Actor.
+- Extracts all products, and returns data with the following info for each product:
     - Product name
     - Product detail page URL
     - Price
-- In the output of the scraper user can see how the items
-  being saved look like.
+- Logs each item before it's saved.
 - Before it ends, it logs how many products it collected.
-- The output schema of the Actor aims to represent the items
-  being saved the best way in the Apify interface.
+- The output schema of the Actor aims to represent the items being saved the best way in the Apify interface.
 
 ### Prices handling
 
-Saves prices as numbers. Because some prices are "from",
-the price field is called `minPrice`, as in minimum price.
+Saves prices as numbers. Because some prices are "from", the price field is called `minPrice`, as in minimum price.
 
 - `Sale price$74.95` becomes `74.95`
 - `Sale priceFrom $1,398.00` becomes `1398.00`
 - `Sale price$158.00` becomes `158.00`
 ```
 
-Most of the text above is a just all our past prompts, slightly rephrased. Because we now describe the behavior of the program in the README, it's straightforward for anyone to for example understand the specifics of price processing. If later there's a bug, it's now clear what were our original intentions.
+Most of the text above is just all our past prompts, slightly rephrased. Because we now describe the behavior of the program in the README, it's straightforward for anyone to for example understand the specifics of price processing. If later there's a bug, it's now clear what were our original intentions.
 
-## Dealing with price intervals
+## Adding vendor name
 
-:::note Course under construction
-This page hasn't been written yet. Come later, please!
-:::
+The README documents everything we already have. Now let's use it as a specification of what should be done. Let's add vendor name to the output data:
 
-<!--
-In the next lesson, we'll take a look at how we can develop our scraper by documenting how it should behave instead of prompting the AI agent feature by feature, without a track record of our intentions.
+```md
+- Extracts all products, and returns data with the following info for each product:
+    - Product name
+    - Product detail page URL
+    - Price
+<!-- highlight-next-line -->
+    - Vendor name
+```
 
-Improving the README, e.g. input output. Pointing the agent to the README and turning the design to reality.
--->
+We'll save the file with <kbd>Ctrl+S</kbd> (or <kbd>⌘+S</kbd> on macOS), and give the following prompt to the AI agent:
 
-<!--
-#### Creating README.md
-Create simple README.md where we document how the scraper behaves, what it produces as an output, etc. Primer to Markdown.
-#### Dealing with price intervals
-Explain focus on product and domain knowledge. In the README explain how the scraper should handle prices like "From $1,398.00", introduce minPrice, keep prices as numbers, etc.
+```text
+Ensure that all behavior documented in README is correctly implemented.
+```
 
-Let the agent implement handling of variants based on the README. Run updated code, see results.
+Very likely we'll need to approve some commands, as the agent will fetch the Warehouse store page for inspection, and run various development tools.
 
-Teaser: Imagine the target website changes something (happens often!). In such case the README won't help. Let's deal with that.
--->
+When done, it'll print a summary of its work and we'll be able to review all changes made. We'll approve all changes and go to the command line to check whether the Actor now scrapes vendor name as well:
+
+```text
+apify run
+```
+
+In the output, we should see each item being logged before it's saved, and they'll now contain vendor name. It's not the easiest to spot, but in the following example output, the first product has `vendorName` se to `JBL` and the other to `Sony`:
+
+```text
+INFO  Saving product {"productName":"JBL Flip 4 Waterproof Portable B
+luetooth Speaker","productUrl":"https://warehouse-theme-metal.myshopi
+fy.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker","ve
+ndorName":"JBL","minPrice":74.95}
+INFO  Saving product {"productName":"Sony XBR-950G BRAVIA 4K HDR Ultr
+a HD TV","productUrl":"https://warehouse-theme-metal.myshopify.com/pr
+oducts/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
+,"vendorName":"Sony","minPrice":1398}
+...
+```
+
+We've successfully prompted the AI agent in a docs-first approach!
+
+## Adding image URL and SKU
+
+Now let's add two more details about each product. We'll want the scraper to figure out URL to the product image, and a number of units in stock, a so called [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit):
+
+```md
+- Extracts all products, and returns data with the following info for each product:
+    - Product name
+    - Product detail page URL
+    - Price
+    - Vendor name
+<!-- highlight-next-line -->
+    - Product image URL
+<!-- highlight-next-line -->
+    - SKU
+```
+
+For the SKU, we better describe how exactly we want it handled, by adding another section to the README. We'll scroll the whole Sales page in our browser, pick all forms in which the SKU is presented, and write down concrete example on what's expected to happen:
+
+```md
+### SKU handling
+
+Saves SKU as a number. Examples:
+
+- `In stock, 672 units` becomes `672`
+- `Only 2 units left` becomes `2`
+- `Sold out` becomes `0`
+```
+
+We won't forget to save the file again and we'll repeat the same prompt as before to bring our specification to reality:
+
+```text
+Ensure that all behavior documented in README is correctly implemented.
+```
+
+When it's done, let's check how do the scraped items look like now:
+
+```text
+apify run
+```
+
+This is the first product we see in the output:
+
+```text
+INFO  Saving product {"productName":"JBL Flip 4 Waterproof Portable B
+luetooth Speaker","productUrl":"https://warehouse-theme-metal.myshopi
+fy.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker","ve
+ndorName":"JBL","imageUrl":"https://warehouse-theme-metal.myshopify.c
+om/cdn/shop/products/13549_790__2_73a2a189-b3d5-4ec8-a4c3-b506e1beab7
+0.jpg?v=1559820925&width=500","minPrice":74.95,"sku":672}
+```
+
+With a bit of effort we can recognize it has `sku` set to `672` and if we copy the `imageUrl` value and open it in our browser, we can visually verify that it's a correct image for the JBL bluetooth speaker. This is somewhat tedious, so let's see if Apify displays it better.
+
+## Pushing Actor to Apify
+
+We've made quite some changes to our Actor and we tested that they work as intended, and that's the best time to push a new version of the project to Apify:
+
+```text
+apify push
+```
+
+After the command finishes, we'll navigate to the URL it gives us at the end:
+
+```text
+...
+Actor detail https://console.apify.com/actors/EL7U7aNddXOzwEJ66
+Success: Actor was deployed to Apify cloud and built there.
+```
+
+In the Apify interface, we'll click the **Start** button. Soon we should see items popping up in the **Output** section.
+
+Thanks to the sentence ‘The output schema of the Actor aims to represent the items being saved the best way in the Apify interface’ the agent improved how our Actor talks to Apify and we don't have to switch to **All fields** anymore:
+
+![Improved Apify output](images/apify-output-products.webp)
+
+What more, we can even see the images!
+
+## Wrapping up
+
+We wrote down words about how our scraper should behave, then we waved a magic wand, and our words turned to reality. But instead of letting all our precious specifications and decisions to flush through the prompt windows, we saved it to a file in form of eternal documentation for anyone to read.
+
+This approach can still be improved though. Scrapers assume that the target page has a certain structure. But what if it suddenly changes? That unfortunately happens very often. And what if we need to support corner cases that appear only from time to time?
+
+In the next lesson, we'll take a look at how we can develop our scraper by saving pieces of the target website and testing our program against it.
