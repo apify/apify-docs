@@ -55,8 +55,6 @@ For private repositories, configure a [deployment key](/platform/actors/developm
 
 ## Build automatically on every push
 
-{/* REVIEWER QUESTION: The "Link a Git repository" panel says "set Apify to automatically build the Actor on changes", which suggests the native GitHub flow above already wires up auto-builds on push. If so, the manual GitHub webhook recipe below is now the legacy/advanced path. Please confirm the current behavior and let me know whether to (a) keep the manual recipe as-is, (b) replace it with a one-line note + link to CI for Actors, or (c) keep both with a short "the flow above already triggers builds; use this for finer control" intro. */}
-
 After you link an Actor to a GitHub repository, add a webhook in GitHub to trigger a new build on every push:
 
 1. In Apify Console, open the Actor's **API** tab and select **API Endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
@@ -145,10 +143,6 @@ For the full list of variables you can use, see [Webhook actions](/platform/inte
 1. Trigger a real failure (for example, by aborting a run that's configured to fail or by running the Actor with invalid input) and confirm an issue is created.
 
 If the test fails, check the webhook **Dispatches** log for the response from GitHub. Common causes are an expired token, missing repository permissions, or a typo in the repository path.
-
-### Video walkthrough
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jZUp-rRbayc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Resources
 
