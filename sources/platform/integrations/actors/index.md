@@ -32,7 +32,7 @@ To connect an Actor with another Actor or task:
 
 On the setup screen, configure:
 
-- **Triggers** - Events that fire the integrated Actor. These match webhook [event types](/platform/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
+- **Triggers** - Events that trigger the integrated Actor. These match webhook [event types](/platform/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
 
     ![Integration trigger select](./images/integration_triggers.png)
 
@@ -41,7 +41,7 @@ On the setup screen, configure:
 
 ## Test your integration
 
-When you add a new integration, you can test it using a past run or build as a trigger. The integrated Actor or task runs as if the trigger event just happened. The only difference from a regular run is that the event type is set to `TEST`. The test run still consumes compute units. <!-- TODO: confirm "compute units" is still the right billing-unit name in this context. -->
+When you add a new integration, you can test it using a past run or build as a trigger. The integrated Actor or task runs as if the trigger event just happened. The only difference from a regular run is that the event type is set to `TEST`. Test runs consume compute units. <!-- TODO: confirm "compute units" is still the right billing-unit name in this context. -->
 
 To test, set the input and options, save, then pick an option from the test menu:
 
@@ -51,7 +51,7 @@ To test, set the input and options, save, then pick an option from the test menu
 
 ![Test integration options](./images/integrations_test_options.png)
 
-For a custom run or build, enter its ID - you can find it on the run's or build's detail page. The run or build must belong to the **source** Actor, since that is where the trigger originates.
+For a custom run or build, enter its ID - you can find it on the run's or build's detail page. The run or build must belong to the source Actor, since that is where the trigger originates.
 
 ## Implementation details
 
@@ -59,6 +59,8 @@ Actor integrations are regular [HTTP POST webhooks](https://www.redhat.com/en/to
 
 The UI keeps variables enclosed in strings, which means the payload template is valid JSON rather than only the interpolated result. It also adds a `payload` field with the default webhook payload, so integration-ready Actors can read run data from `payload` without users having to set variables themselves.
 
-## Blog tutorial
+## Next steps
 
-For a complete walkthrough, see [Connecting scrapers with Apify integrations](https://blog.apify.com/connecting-scrapers-apify-integration/). <!-- TODO: confirm the linked blog post is still current and matches the new catalog flow; if not, replace or remove. -->
+- [Creating integration Actors](/platform/integrations/actors/integration-ready-actors) - design your own Actor to be used as an integration target.
+- [Integrating Actors via API](/platform/integrations/actors/integrating-actors-via-api) - set up the same integrations programmatically with the Apify API.
+- [Connecting scrapers with Apify integrations](https://blog.apify.com/connecting-scrapers-apify-integration/) - a complete walkthrough on the Apify blog. <!-- TODO: confirm the linked blog post is still current and matches the new catalog flow; if not, replace or remove. -->
