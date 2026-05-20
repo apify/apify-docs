@@ -285,6 +285,34 @@ const themeConfig = {
         async: true,
         defer: true,
     },
+    announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
+        ? (() => {
+              const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
+
+              const { hostname } = parsedUrl;
+
+              if (!hostname.includes('pr-') && !hostname.includes('preview')) {
+                  return undefined;
+              }
+
+              const prNumber = hostname.split('.')[0]?.split('-')[1];
+
+              if (!prNumber) {
+                  return undefined;
+              }
+
+              // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
+              const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
+
+              return {
+                  id: 'apify-docs-preview-banner',
+                  content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
+                  backgroundColor: '#B80F0A',
+                  textColor: '#FFFFFF',
+                  isCloseable: false,
+              };
+          })()
+        : undefined,
 };
 
 const plugins = [
