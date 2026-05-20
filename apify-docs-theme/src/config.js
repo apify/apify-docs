@@ -287,9 +287,9 @@ const themeConfig = {
     },
     announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
         ? (() => {
-              const absoluteUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
+              const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
 
-              const { hostname } = absoluteUrl;
+              const { hostname } = parsedUrl;
 
               if (!hostname.includes('pr-') && !hostname.includes('preview')) {
                   return undefined;
