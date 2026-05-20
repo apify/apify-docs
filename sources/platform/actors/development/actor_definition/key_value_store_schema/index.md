@@ -10,18 +10,7 @@ The key‑value store schema organizes keys into logical groups called collectio
 
 ## Why use collections
 
-Without collections, users browsing a key-value store see a flat list of all keys. With collections, they see organized tabs that group related files together.
-
-**Use collections when your Actor stores:**
-
-- Different file types (images, documents, reports)
-- Files serving different purposes (screenshots vs. downloaded PDFs)
-- Output that users typically want to access separately
-
-**Skip collections when:**
-
-- Your Actor stores only a few well-known keys (like `OUTPUT` or `STATE`)
-- All stored items are the same type and purpose
+Without collections, users see a flat list of all keys. With collections, they see organized tabs grouping related files (e.g., screenshots vs. downloaded PDFs). Skip collections if your Actor stores only a few well-known keys like `OUTPUT` or `STATE`.
 
 ## Example
 

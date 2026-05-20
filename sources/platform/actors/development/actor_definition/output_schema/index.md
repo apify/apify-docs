@@ -10,19 +10,9 @@ The Actor output schema builds upon the schemas for the [dataset](/platform/acto
 
 ## Why output schema matters
 
-Without an output schema, users see a generic output tab and must figure out where to find results. With a schema, they see clearly labeled outputs that link directly to the data.
+Without an output schema, users see a generic output tab and must figure out where to find results. With a schema, they see clearly labeled outputs linking directly to the data. The `GET Run` API response includes these output URLs, enabling AI agents and integrations to discover and chain Actors programmatically.
 
-**For users:**
-
-- See exactly what outputs the Actor produces before running it
-- Access results with one click instead of navigating storage tabs
-- Understand the relationship between different output types
-
-**For API consumers and AI agents:**
-
-- The `GET Run` API response includes output URLs, enabling programmatic discovery
-- AI agents can chain Actors by understanding what data each produces
-- Integrations can auto-populate with the correct output endpoints
+For an example, see [Google Search Scraper](https://apify.com/apify/google-search-scraper) which defines outputs for organic results and related queries.
 
 :::tip Define output schema
 

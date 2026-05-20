@@ -8,49 +8,15 @@ sidebar_label: Dataset schema
 
 The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
 
-## Why use dataset views
+## Why use views
 
-Views work like database views - they provide different perspectives on the same dataset by selecting and arranging specific fields. Instead of showing users a table with 50 columns, views let you present focused subsets of data.
+Views provide different perspectives on the same dataset - like database views. Instead of showing 50 columns, you present focused subsets. Users find data faster, and AI agents can better understand your output.
 
-**Benefits for Actor creators:**
+For a real-world example, see [Google Maps Scraper](https://apify.com/compass/crawler-google-places) which uses views to separate place details from review data.
 
-- Users find relevant data faster, improving satisfaction
-- Clear organization signals professionalism and quality
-- AI agents can better understand and process your Actor's output
+**Use multiple views when** your Actor has many fields that group into categories, or serves different use cases. **A single view is fine** for simple Actors with fewer than 10 fields.
 
-**Benefits for Actor users:**
-
-- See only the fields that matter for their use case
-- Switch between perspectives without downloading and filtering data
-- Get a cleaner export when downloading specific views
-
-## When to use views
-
-**Use multiple views when:**
-
-- Your Actor serves different use cases (e.g., quick overview vs. detailed analysis)
-- Output has many fields that naturally group into categories
-- Different users need different field combinations
-
-**A single default view is sufficient when:**
-
-- Output has fewer than 10 fields
-- All fields are equally relevant to all users
-- The Actor has a single, focused purpose
-
-## How to organize views
-
-**By use case**: If your Actor can scrape different content types (posts, comments, profiles), create a view for each. The default view should match the most common use case.
-
-**By detail level**: Create an "Overview" view with essential fields and a "Details" view with everything.
-
-**By audience**: Business users might want summary metrics; technical users might want raw data and metadata.
-
-:::note Input and views are independent
-
-Selecting different input options does not automatically switch the output view. Users must manually select the appropriate view tab after the run completes.
-
-:::
+**Organize views** by use case (overview vs. details), by content type (posts vs. comments), or by audience (summary for business users, raw data for developers). The first view defined becomes the default.
 
 ## Example
 
@@ -196,8 +162,6 @@ This example shows a product scraper with two views: a quick overview and detail
     }
 }
 ```
-
-The first view defined (`overview`) becomes the default. Users see it immediately after the run completes and can switch to other views using the tab selector.
 
 ## Structure
 
