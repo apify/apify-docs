@@ -306,7 +306,7 @@ const themeConfig = {
 
               return {
                   id: 'apify-docs-preview-banner',
-                  content: `You are visiting <a href="${githubUrl}" target="_blank">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
+                  content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
                   backgroundColor: '#B80F0A',
                   textColor: '#FFFFFF',
                   isCloseable: false,
