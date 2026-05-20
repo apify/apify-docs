@@ -97,7 +97,7 @@ OpenAPI spec changes in this repo automatically trigger Pydantic model regenerat
 1. **This repo** (`.github/workflows/openapi-ci.yaml`):
    - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
    - Upload `static/api/openapi.{json,yaml}` as artifacts
-   - `trigger-client-model-regeneration` job calls `gh workflow run regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
+   - `trigger-client-model-regeneration` job calls `gh workflow run manual_regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
    - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
 
 2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
