@@ -137,7 +137,7 @@ Learn more in [Builds](../builds_and_runs/builds.md).
 
 ### Secure environment variables
 
-For sensitive data such as API keys or passwords, enable the **Secret** option when defining a variable in Apify Console. Secret values are encrypted at rest and redacted from logs to prevent accidental exposure.
+For sensitive data such as API keys or passwords, enable the **Secret** option when defining a variable in Apify Console. Secret values are encrypted at rest and redacted from Actor run logs to prevent accidental exposure.
 
 :::caution Visibility of environment variables in public Actors
 
