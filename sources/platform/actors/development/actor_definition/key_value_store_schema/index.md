@@ -8,6 +8,21 @@ slug: /actors/development/actor-definition/key-value-store-schema
 
 The key‑value store schema organizes keys into logical groups called collections, which can be used to filter and categorize data both in the API and the visual user interface. This organization helps users navigate and find specific data more efficiently, while schema‑defined rules (such as content types and JSON schema) ensure that stored values remain consistent and valid.
 
+## Why use collections
+
+Without collections, users browsing a key-value store see a flat list of all keys. With collections, they see organized tabs that group related files together.
+
+**Use collections when your Actor stores:**
+
+- Different file types (images, documents, reports)
+- Files serving different purposes (screenshots vs. downloaded PDFs)
+- Output that users typically want to access separately
+
+**Skip collections when:**
+
+- Your Actor stores only a few well-known keys (like `OUTPUT` or `STATE`)
+- All stored items are the same type and purpose
+
 ## Example
 
 Consider an example Actor that calls `Actor.setValue()` to save a record into the key-value store:

@@ -10,11 +10,19 @@ The Actor output schema builds upon the schemas for the [dataset](/platform/acto
 
 ## Why output schema matters
 
-Output schema is essential for:
+Without an output schema, users see a generic output tab and must figure out where to find results. With a schema, they see clearly labeled outputs that link directly to the data.
 
-- AI agent integration: When agents use Actors through the MCP server or API, they need to know what results to expect. Without output schema, agents cannot effectively chain Actors or process results.
-- User experience: Clear output definitions help users understand what data they will receive before running an Actor.
-- API consumers: The output schema appears in the `GET Run` API response, enabling programmatic discovery of Actor outputs.
+**For users:**
+
+- See exactly what outputs the Actor produces before running it
+- Access results with one click instead of navigating storage tabs
+- Understand the relationship between different output types
+
+**For API consumers and AI agents:**
+
+- The `GET Run` API response includes output URLs, enabling programmatic discovery
+- AI agents can chain Actors by understanding what data each produces
+- Integrations can auto-populate with the correct output endpoints
 
 :::tip Define output schema
 

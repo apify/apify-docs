@@ -8,6 +8,50 @@ sidebar_label: Dataset schema
 
 The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
 
+## Why use dataset views
+
+Views work like database views - they provide different perspectives on the same dataset by selecting and arranging specific fields. Instead of showing users a table with 50 columns, views let you present focused subsets of data.
+
+**Benefits for Actor creators:**
+
+- Users find relevant data faster, improving satisfaction
+- Clear organization signals professionalism and quality
+- AI agents can better understand and process your Actor's output
+
+**Benefits for Actor users:**
+
+- See only the fields that matter for their use case
+- Switch between perspectives without downloading and filtering data
+- Get a cleaner export when downloading specific views
+
+## When to use views
+
+**Use multiple views when:**
+
+- Your Actor serves different use cases (e.g., quick overview vs. detailed analysis)
+- Output has many fields that naturally group into categories
+- Different users need different field combinations
+
+**A single default view is sufficient when:**
+
+- Output has fewer than 10 fields
+- All fields are equally relevant to all users
+- The Actor has a single, focused purpose
+
+## How to organize views
+
+**By use case**: If your Actor can scrape different content types (posts, comments, profiles), create a view for each. The default view should match the most common use case.
+
+**By detail level**: Create an "Overview" view with essential fields and a "Details" view with everything.
+
+**By audience**: Business users might want summary metrics; technical users might want raw data and metadata.
+
+:::note Input and views are independent
+
+Selecting different input options does not automatically switch the output view. Users must manually select the appropriate view tab after the run completes.
+
+:::
+
 ## Example
 
 Let's consider an example Actor that calls `Actor.pushData()` to store data into dataset:
@@ -113,6 +157,47 @@ The template above defines the configuration for the default dataset output view
 The default behavior of the Output tab UI table is to display all fields from `transformation.fields` in the specified order. You can customize the display properties for specific formats or column labels if needed.
 
 ![Output tab UI](../images/output-schema-example.png)
+
+### Multiple views example
+
+This example shows a product scraper with two views: a quick overview and detailed pricing information.
+
+```json title=".actor/dataset_schema.json"
+{
+    "actorSpecification": 1,
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["productName", "price", "inStock", "url"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "url": { "format": "link" },
+                    "inStock": { "format": "boolean" }
+                }
+            }
+        },
+        "pricing": {
+            "title": "Pricing details",
+            "transformation": {
+                "fields": ["productName", "price", "originalPrice", "discount", "currency", "pricePerUnit"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "price": { "format": "number" },
+                    "originalPrice": { "format": "number" },
+                    "discount": { "format": "number" }
+                }
+            }
+        }
+    }
+}
+```
+
+The first view defined (`overview`) becomes the default. Users see it immediately after the run completes and can switch to other views using the tab selector.
 
 ## Structure
 
