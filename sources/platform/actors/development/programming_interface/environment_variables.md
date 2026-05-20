@@ -90,11 +90,17 @@ Actor owners can define custom environment variables to pass additional configur
 - [Define in `actor.json`](#define-in-actorjson)
 - [Define in Apify Console](#define-in-apify-console)
 
-:::info Environment variable precedence
+Your local `.actor/actor.json` file overrides variables set in Apify Console.
+To use Console variables, remove the `environmentVariables` key from the local file.
 
-Your local `.actor/actor.json` file overrides variables set in Apify Console. To use Console variables, remove the `environmentVariables` key from the local file.
+:::info Build-time variables
 
+Once an Actor is built, the customer environment variables are baked in and cannot be changed.
+To use different variables, you must create a new build.
+
+Learn more in [Builds](../builds_and_runs/builds.md).
 :::
+
 
 ### Define in `actor.json`
 
@@ -127,13 +133,6 @@ To set custom variables in Apify Console:
 1. Navigate to the **Environment variables** section.
 
 1. Add your custom variables.
-
-:::info Build-time variables
-
-Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
-
-Learn more in [Builds](../builds_and_runs/builds.md).
-:::
 
 ### Secure environment variables
 
