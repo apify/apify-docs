@@ -195,7 +195,7 @@ async def main():
 
 ### Use the `Configuration` class
 
-For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
+For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
