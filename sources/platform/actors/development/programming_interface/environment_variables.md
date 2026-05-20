@@ -6,7 +6,7 @@ sidebar_position: 3
 sidebar_label: Environment variables
 ---
 
-**Learn how your Actors get runtime context using environment variables, either set by the Apify platform or custom.**
+**Learn how your Actors get runtime context from environment variables - either set by the Apify platform or defined by you.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,7 +28,7 @@ Apify sets several system environment variables for each Actor run. These variab
 
 :::info Run-time only
 
-System environment variables are set only when the Actor runs. They are not available during the build process, even if you enable **Apply environment variables also to the build process** in the Actor's **Code** > **Environment variables** section. That option only forwards user-defined environment variables to the build; system variables such as `ACTOR_RUN_ID`, `APIFY_TOKEN`, or `ACTOR_DEFAULT_DATASET_ID` are never passed to builds.
+System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Code** > **Environment variables**. That option forwards only your custom variables.
 
 :::
 
@@ -87,8 +87,8 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 
 Actor owners can define custom environment variables to pass additional configuration to their Actors. There are two ways to set them up:
 
-- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
-- [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
+- [Define in `actor.json`](#define-in-actorjson)
+- [Define in Apify Console](#define-in-apify-console)
 
 :::info Environment variable precedence
 
@@ -96,7 +96,7 @@ Your local `.actor/actor.json` file overrides variables set in Apify Console. To
 
 :::
 
-### Set up environment variables in `actor.json`
+### Define in `actor.json`
 
 Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
 
@@ -118,31 +118,33 @@ Be aware that if you define `environmentVariables` in `.actor/actor.json`, it on
 
 :::
 
-### Set up environment variables in Apify Console
+### Define in Apify Console
 
 To set custom variables in Apify Console:
 
-1. Go to your Actor's **Source** page in Apify Console
+1. Go to your Actor's **Source** page in Apify Console.
 
 1. Navigate to the **Environment variables** section.
 
 1. Add your custom variables.
-
-For sensitive data like API keys or passwords, enable the **Secret** option. This will encrypt the value and redact it from logs to prevent accidental exposure.
-
-:::caution Visibility of environment variables in public Actors
-
-When you [publish your Actor](/platform/actors/publishing/publish), environment variables not marked as **Secret** in Apify Console are visible to anyone on the Actor detail page alongside the source code. Enable **Hide source files from Actor detail** in the Actor's **Settings** to hide both.
-
-Secret environment variables are never exposed on the Actor detail page regardless of this setting. Always mark sensitive values as **Secret**.
-
-:::
 
 :::info Build-time variables
 
 Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
 
 Learn more in [Builds](../builds_and_runs/builds.md).
+:::
+
+### Secure environment variables
+
+For sensitive data such as API keys or passwords, enable the **Secret** option when defining a variable in Apify Console. Secret values are encrypted at rest and redacted from logs to prevent accidental exposure.
+
+:::caution Visibility of environment variables in public Actors
+
+When you [publish your Actor](/platform/actors/publishing/publish), environment variables not marked as **Secret** are visible to anyone on the Actor detail page alongside the source code. Enable **Hide source files from Actor detail** in the Actor's **Settings** to hide both.
+
+Secret environment variables are never exposed on the Actor detail page regardless of this setting. Always mark sensitive values as **Secret**.
+
 :::
 
 ## Access environment variables
