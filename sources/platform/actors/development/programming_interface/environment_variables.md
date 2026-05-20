@@ -6,16 +6,14 @@ sidebar_position: 3
 sidebar_label: Environment variables
 ---
 
-**Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables set by the Apify platform.**
+**Learn how your Actors get runtime context using environment variables, either set by the Apify platform or custom.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
 
-## How to use environment variables in an Actor
-
-Environment variables come from two sources:
+Actor runs get their environment variables from two sources:
 
 - [System environment variables](#system-environment-variables) - set automatically by the Apify platform for each Actor run.
 - [Custom environment variables](#custom-environment-variables) - defined by the Actor owner, either in `.actor/actor.json` or in Apify Console.
@@ -147,47 +145,6 @@ Once you start a build, you cannot change its environment variables. To use diff
 Learn more in [Builds](../builds_and_runs/builds.md).
 :::
 
-### Use the `Configuration` class
-
-For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-// get current token
-const token = Actor.config.get('token');
-// use different token
-Actor.config.set('token', 's0m3n3wt0k3n');
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        old_token = Actor.configuration.token
-        Actor.log.info(f'old_token = {old_token}')
-
-        # use different token
-        Actor.configuration.token = 's0m3n3wt0k3n'
-
-        new_token = Actor.configuration.token
-        Actor.log.info(f'new_token = {new_token}')
-```
-
-</TabItem>
-</Tabs>
-
 ## Access environment variables
 
 You can access environment variables in your code as follows:
@@ -233,6 +190,49 @@ async def main():
 
 </TabItem>
 </Tabs>
+
+
+### Use the `Configuration` class
+
+For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// get current token
+const token = Actor.config.get('token');
+// use different token
+Actor.config.set('token', 's0m3n3wt0k3n');
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        old_token = Actor.configuration.token
+        Actor.log.info(f'old_token = {old_token}')
+
+        # use different token
+        Actor.configuration.token = 's0m3n3wt0k3n'
+
+        new_token = Actor.configuration.token
+        Actor.log.info(f'new_token = {new_token}')
+```
+
+</TabItem>
+</Tabs>
+
 
 ## Build-time environment variables
 
