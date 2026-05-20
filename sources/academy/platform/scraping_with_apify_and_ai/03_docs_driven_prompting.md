@@ -13,11 +13,11 @@ We made our lives easier with an AI agent. Improving our scraper now takes way l
 
 Prompting a chat or agent is quick and straightforward, but it doesn't leave much trace of our intentions:
 
-- If we want someone else to take over later, it'll be hard for them to figure out why we made certain decisions and whether behavior is intentional or accidental.
-- If we get busy with other things and return after a few months, we'll basically become that "someone else" from the first bullet. After a week we remember why we process prices a certain way, but after a year it's mostly fuzzy memories.
-- If we want other people to use our scraper, they'll need simple instructions for how to run it and what to expect.
+- If we want someone else to take over later, it'll be hard for them to figure out why we made some decisions and whether behavior is intentional or accidental.
+- If we get busy with other things and return after a few months, we'll basically become that "someone else" from the first bullet. After a week, we remember why we process prices a certain way. After a year, it's mostly fuzzy memories.
+- If we want other people to use our scraper, they need simple instructions on how to run it and what to expect.
 
-Traditionally, we'd write such documentation after finishing the software. With AI, we can describe how the program should work before it's done, point the agent to that spec, and ask it to make it real.
+Traditionally, we'd write this documentation after finishing the software. With AI, we can describe how the program should work before it's done, point the agent to that spec, and ask it to make it real.
 
 ## Starting with README
 
@@ -25,7 +25,7 @@ It's good practice to have a README file in every software project. It's a plain
 
 The file is just text, but people use special characters to format it. A popular convention for that is Markdown, and when a README uses it, the file is usually called `README.md`.
 
-If we look at our files in Cursor, we'll see the Apify template already includes a `README.md`. After opening it, we should see something like this:
+If we look at our files in Cursor, we'll see the Apify template already includes a `README.md`. After opening it, we'll see something like this:
 
 ```md
 # JavaScript Crawlee & CheerioCrawler Actor Template
@@ -45,7 +45,7 @@ Notice that headings start with one or more `#` characters. We also get bullet p
 
 ![Markdown syntax highlighting in Cursor](images/cursor-readme.webp)
 
-Cursor understands Markdown, so it improves readability by coloring the formatted parts (this is called _syntax highlighting_). The **Preview** button shows how your Markdown will look when rendered.
+Cursor understands Markdown, so it improves readability by coloring the formatted parts (this is called syntax highlighting). The **Preview** button shows how your Markdown will look once rendered.
 
 ![Markdown preview in Cursor](images/cursor-readme-preview.webp)
 
@@ -57,7 +57,7 @@ The [Make a README](https://www.makeareadme.com/) website explains why people sh
 
 ## Recreating README.md
 
-We could edit the existing `README.md`, but for this lesson it's easier to start from scratch. We'll delete the file contents and begin with a new title and intro:
+We could edit the existing `README.md`, but for this lesson it's easier to start from scratch. We'll clear the file and start with a new title and intro:
 
 ```md
 # My Actor
@@ -78,18 +78,18 @@ This is an Apify Actor that runs on Apify.
 - Run `apify push` to upload new version of the program to Apify
 ```
 
-This is enough for both humans and AI agents to quickly understand how to set up and run the project.
+This is enough for both people and AI agents to quickly understand how to set things up and run them.
 
 ## Documenting current behavior
 
-Now let's add a summary of the scraper's current behavior:
+Now let's add a summary of what our scraper already does:
 
 ```md
 ## Behavior
 
 - Downloads the Sales page: https://warehouse-theme-metal.myshopify.com/collections/sales
 - The Sales page is the default input URL of the Actor.
-- Extracts all products and returns this info for each one:
+- Extracts all products and saves this for each one:
     - Product name
     - Product detail page URL
     - Price
@@ -99,7 +99,7 @@ Now let's add a summary of the scraper's current behavior:
 
 ### Prices handling
 
-Saves prices as numbers. Some prices are "from" values, so we name the field `minPrice`.
+Saves prices as numbers. Some prices are "from" values, so we call the field `minPrice`.
 
 - `Sale price$74.95` becomes `74.95`
 - `Sale priceFrom $1,398.00` becomes `1398.00`
@@ -110,10 +110,10 @@ Most of the text above is just our past prompts, slightly rephrased. Because we 
 
 ## Adding vendor name
 
-The README documents what we already have. Now let's use it as a spec for what comes next. We'll add vendor name to the output data:
+The README documents what we already have. Now let's use it as a spec for what comes next. We'll add vendor name to the output:
 
 ```md
-- Extracts all products, and returns data with the following info for each product:
+- Extracts all products and saves this for each one:
     - Product name
     - Product detail page URL
     - Price
@@ -121,13 +121,13 @@ The README documents what we already have. Now let's use it as a spec for what c
     - Vendor name
 ```
 
-We'll save the file with <kbd>Ctrl+S</kbd> (or <kbd>⌘+S</kbd> on macOS), then give this prompt to the AI agent:
+We'll save the file with <kbd>Ctrl+S</kbd> (or <kbd>⌘+S</kbd> on macOS), then send this prompt to the AI agent:
 
 ```text
 Ensure all behavior documented in README is correctly implemented.
 ```
 
-We'll likely need to approve some commands, because the agent may fetch the Warehouse store page and run local dev tools.
+We'll likely need to approve some commands, because the agent may fetch the Warehouse store page and run local tools.
 
 When it's done, it'll print a summary and we'll review the changes. Then we'll approve them and run this command to check whether the Actor now scrapes vendor name too:
 
@@ -149,14 +149,14 @@ oducts/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
 ...
 ```
 
-Nice! We just used a docs-first approach with the AI agent!
+Nice! We just used a docs-first approach with an AI agent!
 
 ## Adding image URL and SKU
 
 Now let's add two more details for each product. We want the scraper to get the product image URL and the number of units in stock, also called [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit):
 
 ```md
-- Extracts all products, and returns data with the following info for each product:
+- Extracts all products and saves this for each one:
     - Product name
     - Product detail page URL
     - Price
@@ -167,7 +167,7 @@ Now let's add two more details for each product. We want the scraper to get the 
     - SKU
 ```
 
-For SKU, it's better to describe exactly how we want it handled, so we'll add another section to the README. We'll scroll through the Sales page, find different SKU formats, and write concrete examples of what should happen:
+For SKU, it's better to describe exactly how we want it handled, so we'll add another section to the README. We'll scroll through the Sales page, find different SKU formats, and write clear examples of what should happen:
 
 ```md
 ### SKU handling
@@ -179,7 +179,7 @@ Saves SKU as a number. Examples:
 - `Sold out` becomes `0`
 ```
 
-We'll save the file again and repeat the same prompt as before to turn our spec into implementation:
+We'll save the file again and repeat the same prompt as before to turn our spec into code:
 
 ```text
 Ensure all behavior documented in README is correctly implemented.
@@ -202,7 +202,7 @@ om/cdn/shop/products/13549_790__2_73a2a189-b3d5-4ec8-a4c3-b506e1beab7
 0.jpg?v=1559820925&width=500","minPrice":74.95,"sku":672}
 ```
 
-With a bit of effort, we can see `sku` is `672`. If we copy the `imageUrl` value into a browser, we can verify it's the right image for the JBL Bluetooth speaker. That's a bit tedious, so let's see if Apify displays it better.
+With a bit of effort, we can see `sku` is `672`. If we copy the `imageUrl` value into a browser, we can check it's the right image for the JBL Bluetooth speaker. That's a bit tedious, so let's see if Apify shows it better.
 
 ## Pushing Actor to Apify
 
@@ -212,7 +212,7 @@ We've made quite a few changes to our Actor and tested them, so this is a good t
 apify push
 ```
 
-After the command finishes, we'll navigate to the URL it gives us at the end:
+After the command finishes, we'll open the URL it gives us at the end:
 
 ```text
 ...
@@ -230,8 +230,8 @@ Even better, we can see images right away!
 
 ## Wrapping up
 
-We wrote down how our scraper should behave, waved a magic wand, and those words turned into working code. But instead of letting all our decisions disappear in prompt windows, we saved them in a file as durable documentation anyone can read.
+We wrote down how our scraper should behave, waved a magic wand, and those words turned into working code. But instead of letting all our decisions disappear in prompt windows, we saved them in a file as durable documentation anyone can read later.
 
-This approach still has room to grow. Scrapers assume the target page has a certain structure. But what if that structure suddenly changes? That, unfortunately, happens a lot. And what if we need to support corner cases that appear only sometimes?
+This approach still has room to grow. Scrapers assume the target page has a certain structure. But what if that structure suddenly changes? Unfortunately, that happens a lot. And what if we need to support corner cases that show up only sometimes?
 
 In the next lesson, we'll take a look at how we can develop our scraper by saving pieces of the target website and testing our program against it.
