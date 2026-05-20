@@ -98,7 +98,7 @@ Your local `.actor/actor.json` file overrides variables set in Apify Console. To
 
 ### Define in `actor.json`
 
-Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
+Actor owners can define custom environment variables in [`.actor/actor.json`](/platform/actors/development/actor-definition/actor-json). All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
 
 ```json
 {
