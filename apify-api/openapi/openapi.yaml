@@ -37,9 +37,9 @@ info:
     ## Authentication
     <span id="/introduction/authentication"></span>
 
-    You can find your API token on the
-    [Integrations](https://console.apify.com/account#/integrations) page in the
-    Apify Console.
+    **You can find your API token on the
+    [Integrations](https://console.apify.com/settings/integrations) page in the
+    Apify Console.**
 
     To use your token in a request, either:
 
@@ -54,7 +54,7 @@ info:
     in browser history and server logs. This creates a chance for someone
     unauthorized to access your API token.
 
-    **Do not share your API token or password with untrusted parties.**
+    **Never share your API token or password with untrusted parties!**
 
     For more information, see our
     [integrations](https://docs.apify.com/platform/integrations) documentation.
@@ -548,6 +548,12 @@ paths:
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head@lock.yaml"
   "/v2/acts/{actorId}/runs/last/log":
     $ref: "paths/actors/acts@{actorId}@runs@last@log.yaml"
+  "/v2/acts/{actorId}/runs/last/abort":
+    $ref: "paths/actors/acts@{actorId}@runs@last@abort.yaml"
+  "/v2/acts/{actorId}/runs/last/metamorph":
+    $ref: "paths/actors/acts@{actorId}@runs@last@metamorph.yaml"
+  "/v2/acts/{actorId}/runs/last/reboot":
+    $ref: "paths/actors/acts@{actorId}@runs@last@reboot.yaml"
   "/v2/acts/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
   "/v2/acts/{actorId}/runs/{runId}/abort":
@@ -572,6 +578,12 @@ paths:
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last/log":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@log.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/abort":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@abort.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/metamorph":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@metamorph.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/reboot":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@reboot.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last/dataset":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@dataset.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items":
