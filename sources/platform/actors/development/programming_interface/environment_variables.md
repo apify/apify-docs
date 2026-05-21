@@ -120,7 +120,7 @@ Actor owners can define custom environment variables in [`.actor/actor.json`](/p
 
 :::info Git-workflow with actor.json
 
-Be aware that if you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not be set from `.actor/actor.json` and you need to define them in Apify Console.
+If you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not be set from `.actor/actor.json` and you need to define them in Apify Console.
 
 :::
 
