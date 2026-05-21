@@ -8,16 +8,16 @@ slug: /integrations/github
 
 With the Apify integration for [GitHub](https://github.com/), you can create an Actor from a public or private repository, rebuild it automatically on every push, and trigger workflows in your repo when an Actor run fails, succeeds, or times out. To run automated tests and multi-branch builds with GitHub Actions, see [Continuous integration for Actors](/platform/actors/development/deployment/continuous-integration).
 
-## Prerequisites
+## Create an Actor from a GitHub repository
+
+Follow these steps to build a new Actor from code hosted on GitHub.
+
+### Prerequisites
 
 To use the GitHub integration, you need:
 
 - An [Apify account](https://console.apify.com/).
 - A GitHub account with access to the repository you want to link.
-
-## Create an Actor from a GitHub repository
-
-Follow these steps to build a new Actor from code hosted on GitHub.
 
 ### Step 1: Open the new Actor page
 
@@ -53,7 +53,7 @@ For private repositories, configure a [deployment key](/platform/actors/developm
 
 After you link an Actor to a GitHub repository, add a webhook in GitHub to trigger a new build on every push:
 
-1. In Apify Console, open the Actor's **API** tab and select **API Endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
+1. In Apify Console, open the Actor's **API** dropdown and select **API endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
 
     ```text
     https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
@@ -110,7 +110,7 @@ Anyone with this token can create issues in the selected repository. Don't commi
 
 In the same webhook form, configure the request that GitHub expects.
 
-Set **Headers template** to authenticate with the personal access token and tell GitHub which API version to use:
+Set **Headers template** to authenticate with the personal access token and specify which GitHub API version to use:
 
 ```json
 {
@@ -136,7 +136,7 @@ For the full list of variables you can use, see [Webhook actions](/platform/inte
 
 1. Click **Save** to add the webhook.
 1. Click **Test** to send a sample payload to the GitHub API. Verify a new issue appears in the repository.
-1. Trigger a real failure (for example, by aborting a run that's configured to fail or by running the Actor with invalid input) and confirm an issue is created.
+1. Trigger a real failure (for example, run the Actor with input that you know will cause a failure) and confirm an issue is created.
 
 If the test fails, check the webhook **Dispatches** log for the response from GitHub. Common causes are an expired token, missing repository permissions, or a typo in the repository path.
 
