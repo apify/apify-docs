@@ -113,7 +113,7 @@ Actor owners can define custom environment variables in [`.actor/actor.json`](/p
   "version": "0.1",
   "buildTag": "latest",
   "environmentVariables": {
-    "MYSQL_USER": "my_username",
+    "MYSQL_USER": "my_username"
   }
 }
 ```
