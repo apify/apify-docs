@@ -4,7 +4,6 @@ allOf:
   - type: object
     required:
       - pricingModel
-      - pricePerUnitUsd
       - unitName
     properties:
       pricingModel:
@@ -15,3 +14,8 @@ allOf:
         description: Name of the unit that is being charged
       pricePerUnitUsd:
         type: number
+        description: |
+          Price per unit in USD. Mutually exclusive with `tieredPricing` —
+          exactly one of the two is present on a pricing record.
+      tieredPricing:
+        $ref: ./TieredPricingPerDatasetItem.yaml

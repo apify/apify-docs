@@ -1,13 +1,30 @@
 title: ActorChargeEvent
+description: |
+  Definition of a single chargeable event for a pay-per-event Actor.
+  Each event is either flat-priced (`eventPriceUsd` is set) or
+  tier-priced (`eventTieredPricingUsd` is set); the two are mutually
+  exclusive.
 type: object
 required:
-  - eventPriceUsd
   - eventTitle
   - eventDescription
 properties:
-  eventPriceUsd:
-    type: number
   eventTitle:
     type: string
+    description: Human-readable title shown to users in the billing UI.
   eventDescription:
     type: string
+    description: Human-readable description of what triggers this event.
+  eventPriceUsd:
+    type: number
+    description: |
+      Flat price per event in USD. Present only for non-tiered events;
+      mutually exclusive with `eventTieredPricingUsd`.
+  eventTieredPricingUsd:
+    $ref: ./TieredPricingPerEvent.yaml
+  isPrimaryEvent:
+    type: boolean
+    description: Whether this event is the Actor's primary chargeable event.
+  isOneTimeEvent:
+    type: boolean
+    description: Whether this event can only be charged once per Actor run.

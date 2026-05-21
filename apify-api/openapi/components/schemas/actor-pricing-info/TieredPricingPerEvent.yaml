@@ -1,0 +1,8 @@
+title: TieredPricingPerEvent
+description: |
+  Tiered price-per-event pricing for a single charge event, keyed by
+  subscription tier (e.g. `FREE`, `BRONZE`, `SILVER`, `GOLD`, `PLATINUM`,
+  `DIAMOND`). The actual price applied is resolved from the user's tier.
+type: object
+additionalProperties:
+  $ref: ./TieredPricingPerEventEntry.yaml
