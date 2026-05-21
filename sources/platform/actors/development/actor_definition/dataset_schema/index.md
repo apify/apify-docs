@@ -6,23 +6,199 @@ slug: /actors/development/actor-definition/dataset-schema
 sidebar_label: Dataset schema
 ---
 
-The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
+The dataset schema defines the structure and presentation of data produced by an Actor. It controls what fields each dataset item contains and how that data appears in the Output tab UI.
 
-## Why use views
+## Schema components
 
-Dataset views are like database views - different perspectives on the same data. Instead of showing all 50 fields at once, views present focused subsets. Users find data faster, and AI agents can better understand your output.
+A dataset schema has two main components:
+
+| Component | Purpose | Required |
+| --- | --- | --- |
+| `fields` | JSON Schema describing the structure of each dataset item. Enables validation and provides metadata for AI agents. | No |
+| `views` | Display configurations that control how data appears in the Output tab. Each view can show different fields, ordering, and formatting. | Yes |
+
+Both components work together: `fields` describes *what* data your Actor produces, while `views` controls *how* that data is presented.
+
+```json title=".actor/dataset_schema.json"
+{
+    "actorSpecification": 1,
+    "fields": { /* JSON Schema describing each item */ },
+    "views": { /* UI display configurations */ }
+}
+```
+
+## File structure
+
+Place the dataset schema in the `.actor` folder in your Actor's root directory. You can organize it in two ways:
+
+### Inline in actor.json
+
+```json title=".actor/actor.json"
+{
+    "actorSpecification": 1,
+    "name": "my-scraper",
+    "title": "My Scraper",
+    "version": "1.0.0",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "fields": {},
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "transformation": {},
+                    "display": { "component": "table" }
+                }
+            }
+        }
+    }
+}
+```
+
+### Separate file
+
+```json title=".actor/actor.json"
+{
+    "actorSpecification": 1,
+    "name": "my-scraper",
+    "title": "My Scraper",
+    "version": "1.0.0",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    }
+}
+```
+
+```json title=".actor/dataset_schema.json"
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {},
+            "display": { "component": "table" }
+        }
+    }
+}
+```
+
+Use a separate file when your schema is complex or you want to keep `actor.json` concise.
+
+## Fields
+
+The `fields` property defines the structure of each dataset item using [JSON Schema](https://json-schema.org/). This schema enables validation and provides metadata that helps both humans and AI agents understand your Actor's output.
+
+### Why define fields
+
+When AI agents interact with Actors through the MCP server or API, they rely on field metadata to understand what data the Actor produces. Including `title`, `description`, and `example` properties enables agents to:
+
+- Understand the meaning of each output field
+- Chain Actors together by matching inputs to outputs
+- Generate appropriate queries and handle responses correctly
+
+Without this metadata, agents must infer field meanings from names alone, which leads to errors.
+
+### Field properties
+
+Each field in your schema can include standard JSON Schema properties:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `type` | string | The data type (`string`, `number`, `boolean`, `array`, `object`, `null`). |
+| `title` | string | A human-readable name for the field. |
+| `description` | string | Explains what the field contains and how to interpret it. |
+| `example` | any | A sample value that demonstrates the expected format. |
+| `enum` | array | A list of allowed values for the field. |
+
+### Example with field metadata
+
+```json title=".actor/dataset_schema.json"
+{
+    "actorSpecification": 1,
+    "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "productName": {
+                "type": "string",
+                "title": "Product name",
+                "description": "The full name of the product as displayed on the product page.",
+                "example": "Wireless Bluetooth Headphones"
+            },
+            "price": {
+                "type": "number",
+                "title": "Price",
+                "description": "The current price in USD. Does not include shipping or taxes.",
+                "example": 49.99
+            },
+            "currency": {
+                "type": "string",
+                "title": "Currency code",
+                "description": "Three-letter ISO 4217 currency code.",
+                "example": "USD",
+                "enum": ["USD", "EUR", "GBP"]
+            },
+            "inStock": {
+                "type": "boolean",
+                "title": "In stock",
+                "description": "Whether the product is currently available for purchase.",
+                "example": true
+            },
+            "url": {
+                "type": "string",
+                "title": "Product URL",
+                "description": "Direct link to the product page.",
+                "example": "https://example.com/products/wireless-headphones"
+            }
+        },
+        "required": ["productName", "price", "url"]
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["productName", "price", "inStock", "url"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "url": { "format": "link" },
+                    "inStock": { "format": "boolean" }
+                }
+            }
+        }
+    }
+}
+```
+
+:::tip Naming convention
+
+Use `camelCase` for field names. This matches the convention used in input schemas and ensures consistency across your Actor's configuration.
+
+:::
+
+For validation options and error handling, see [Dataset validation](./validation.md).
+
+## Views
+
+Views control how data appears in the Output tab UI. Each view defines which fields to show, in what order, and with what formatting.
+
+### Why use views
+
+Dataset views are like database views - different perspectives on the same data. Instead of showing all fields at once, views present focused subsets. Users find data faster, and AI agents can better understand your output.
 
 For a real-world example, see [Google Maps Scraper](https://apify.com/compass/crawler-google-places) which uses views to separate place details from review data.
 
 ### When to use views
 
-- **Control field order and formatting** - Without views, fields appear in JSON property order. Views let you order fields logically and format URLs as links, numbers with units, etc.
+- **Control field order and formatting** - Without views, fields appear in JSON property order. Views let you order fields logically and format URLs as links, images inline, etc.
 - **Expand nested data with `unwind`** - Arrays of nested objects appear collapsed by default. Use `unwind` to expand them into readable rows.
 - **Create focused perspectives** - A scraper with 50+ fields can offer an "Overview" view and a "Details" view. Same data, different focus.
 
-**A single view is fine** for simple Actors with fewer than 10 fields where all fields are equally relevant.
+A single view is fine for simple Actors with fewer than 10 fields where all fields are equally relevant.
 
-### Organizing by use case
+### Organizing views by use case
 
 The same data often serves different purposes. An e-commerce scraper could offer a "Marketing" view (name, image, description) and a "Pricing" view (price, discount, competitor price). The first view defined becomes the default.
 
@@ -33,18 +209,14 @@ Views show the same data from different angles. They're NOT for:
 - **Separating unrelated data types** - Storing posts, comments, and profiles in one dataset, then using views to separate them. Use separate datasets for unrelated data types.
 - **Controlling export formats** - Views don't change how data exports to JSON, CSV, or Excel. Export format is set in download options or the Dataset API `format` parameter. Views only affect Console UI display.
 
-## Example
+### Basic view example
 
-Let's consider an example Actor that calls `Actor.pushData()` to store data into dataset:
+The following Actor stores data using `Actor.pushData()`:
 
 ```javascript title="main.js"
 import { Actor } from 'apify';
-// Initialize the JavaScript SDK
 await Actor.init();
 
-/**
- * Actor code
- */
 await Actor.pushData({
     numericField: 10,
     pictureUrl: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
@@ -56,11 +228,10 @@ await Actor.pushData({
     objectField: {},
 });
 
-// Exit successfully
 await Actor.exit();
 ```
 
-To set up the Actor's output tab UI using a single configuration file, use the following template for the `.actor/actor.json` configuration:
+Configure the Output tab UI with a dataset schema:
 
 ```json title=".actor/actor.json"
 {
@@ -130,18 +301,18 @@ To set up the Actor's output tab UI using a single configuration file, use the f
 }
 ```
 
-The template above defines the configuration for the default dataset output view. Under the `views` property, there is one view titled _Overview_. The view configuration consists of two main steps:
+Each view has two parts:
 
-1. `transformation` - set up how to fetch the data.
-2. `display` - set up how to visually present the fetched data.
+1. `transformation` - Which fields to fetch and how to transform them
+2. `display` - How to visually present the data in the UI
 
-The default behavior of the Output tab UI table is to display all fields from `transformation.fields` in the specified order. You can customize the display properties for specific formats or column labels if needed.
+The Output tab displays fields from `transformation.fields` in the specified order:
 
 ![Output tab UI](../images/output-schema-example.png)
 
 ### Multiple views example
 
-The following example shows an e-commerce scraper with two views tailored to different use cases - marketing and pricing analysis:
+Create multiple views for different use cases. This e-commerce scraper offers Marketing and Pricing views:
 
 ```json title=".actor/dataset_schema.json"
 {
@@ -149,7 +320,7 @@ The following example shows an e-commerce scraper with two views tailored to dif
     "views": {
         "marketing": {
             "title": "Marketing",
-            "description": "Fields useful for marketing and content creation",
+            "description": "Fields for marketing and content creation",
             "transformation": {
                 "fields": ["productName", "imageUrl", "description", "price"]
             },
@@ -196,231 +367,86 @@ The following example shows an e-commerce scraper with two views tailored to dif
 
 The first view defined becomes the default tab.
 
-## Structure
+## Handling nested structures
 
-Output configuration files need to be located in the `.actor` folder within the Actor's root directory.
+Tabular formats (Output tab table, Excel, CSV) require flat data. If your Actor produces nested JSON structures, transform them using these options:
 
-You have two choices of how to organize files within the `.actor` folder.
+### Flatten nested objects
 
-### Single configuration file
+Use `transformation.flatten` to convert nested objects into flat key-value pairs:
 
-```json title=".actor/actor.json"
+```json
 {
-    "actorSpecification": 1,
-    "name": "this-is-book-library-scraper",
-    "title": "Book Library scraper",
-    "version": "1.0.0",
-    "storages": {
-        "dataset": {
-            "actorSpecification": 1,
-            "fields": {},
-            "views": {
-                "overview": {
-                    "title": "Overview",
-                    "transformation": {},
-                    "display": {}
-                }
-            }
-        }
+    "transformation": {
+        "flatten": ["address"],
+        "fields": ["name", "address.street", "address.city"]
     }
 }
 ```
 
-### Separate configuration files
+With `flatten: ["address"]`, the object `{"address": {"street": "Main St", "city": "NYC"}}` becomes `{"address.street": "Main St", "address.city": "NYC"}`.
 
-```json title=".actor/actor.json"
+Use the flattened property names (e.g., `address.street`) in both `transformation.fields` and `display.properties`.
+
+### Unwind arrays
+
+Use `transformation.unwind` to expand arrays of nested objects into separate rows:
+
+```json
 {
-    "actorSpecification": 1,
-    "name": "this-is-book-library-scraper",
-    "title": "Book Library scraper",
-    "version": "1.0.0",
-    "storages": {
-        "dataset": "./dataset_schema.json"
+    "transformation": {
+        "unwind": ["reviews"],
+        "fields": ["productName", "reviewText", "rating"]
     }
 }
 ```
 
-```json title=".actor/dataset_schema.json"
-{
-    "actorSpecification": 1,
-    "fields": {},
-    "views": {
-        "overview": {
-            "title": "Overview",
-            "transformation": {},
-            "display": {
-                "component": "table"
-            }
-        }
-    }
-}
-```
+With `unwind: ["reviews"]`, a product with 5 reviews becomes 5 rows in the output, each containing the product name plus one review's data.
 
-Both of these methods are valid so choose one that suits your needs best.
+### Flatten in Actor code
 
-## Handle nested structures
+Alternatively, flatten nested structures in your Actor code before calling `Actor.pushData()`.
 
-The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). If your Actor produces nested JSON structures, you need to transform the nested data into a flat tabular format. You can flatten the data in the following ways:
+## Reference
 
-- Use `transformation.flatten` to flatten the nested structure of specified fields. This transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it's necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
-
-- Use `transformation.unwind` to deconstruct the nested children into parent objects.
-
-- Change the output structure in an Actor from nested to flat before the results are saved in the dataset.
-
-## Dataset schema structure definitions
-
-The dataset schema structure defines the various components and properties that govern the organization and representation of the output data produced by an Actor. It specifies the structure of the data, the transformations to be applied, and the visual display configurations for the Output tab UI.
-
-### DatasetSchema object definition
+### DatasetSchema object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `actorSpecification` | integer | true | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
-| `fields` | JSONSchema compatible object | false | Schema of one dataset object. <br/>Use JsonSchema Draft 2020-12 or <br/>other compatible formats. Refer to [Field schema](#field-schema) section for details. |
-| `views` | DatasetView object | true | An object with a description of an API <br/>and UI views. |
+| `actorSpecification` | integer | true | Version of the dataset schema structure. Currently only version 1 is available. |
+| `fields` | JSONSchema object | false | Schema of one dataset object using JSON Schema Draft 2020-12 or compatible format. |
+| `views` | Object | true | An object containing view definitions. Each key is a view ID, each value is a DatasetView object. |
 
-### DatasetView object definition
-
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `title` | string | true | The title is visible in UI in the Output tab <br/>and in the API. |
-| `description` | string | false | The description is only available in the API response. |
-| `transformation` | ViewTransformation object | true | The definition of data transformation <br/> applied when dataset data is loaded from <br/>Dataset API. |
-| `display` | ViewDisplay object | true | The definition of Output tab UI visualization. |
-
-### ViewTransformation object definition
+### DatasetView object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `fields` | string[] | true | Selects fields to be presented in the output. <br/>The order of fields matches the order of columns <br/>in visualization UI. If a field value <br/>is missing, it will be presented as **undefined** in the UI. |
-| `unwind` | string[] | false | Deconstructs nested children into parent object, <br/>For example, with `unwind:["foo"]`, the object `{"foo": {"bar": "hello"}}` <br/> is transformed into `{"bar": "hello"}`. |
-| `flatten` | string[] | false | Transforms nested object into flat structure. <br/>For example, with `flatten:["foo"]` the object `{"foo":{"bar": "hello"}}` <br/> is transformed into `{"foo.bar": "hello"}`. |
-| `omit` | string[] | false | Removes the specified fields from the output. <br/>Nested fields names can be used as well. |
-| `limit` | integer | false | The maximum number of results returned. <br/>Default is all results. |
-| `desc` | boolean | false | By default, results are sorted in ascending based on the write event into the dataset. <br/> If `desc:true`, the newest writes to the dataset will be returned first. |
+| `title` | string | true | The title shown in the Output tab and API. |
+| `description` | string | false | Description of the view. Only available in API responses. |
+| `transformation` | ViewTransformation | true | Defines how to fetch and transform data from the Dataset API. |
+| `display` | ViewDisplay | true | Defines how to render data in the Output tab UI. |
 
-### ViewDisplay object definition
+### ViewTransformation object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `component` | string | true | Only the `table` component is available. |
-| `properties` | Object | false | An object with keys matching the `transformation.fields` <br/> and `ViewDisplayProperty` as values. If properties are not set, the table will be rendered automatically with fields formatted as `strings`, `arrays` or `objects`. |
+| `fields` | string[] | true | Fields to include in the output. Order determines column order in the UI. Missing field values display as **undefined**. |
+| `unwind` | string[] | false | Array fields to expand into parent objects. With `unwind: ["foo"]`, `{"foo": {"bar": "hello"}}` becomes `{"bar": "hello"}`. |
+| `flatten` | string[] | false | Object fields to flatten. With `flatten: ["foo"]`, `{"foo": {"bar": "hello"}}` becomes `{"foo.bar": "hello"}`. |
+| `omit` | string[] | false | Fields to exclude from output. Supports nested field names. |
+| `limit` | integer | false | Maximum number of results. Default is all results. |
+| `desc` | boolean | false | Sort order. Default is ascending (oldest first). Set `true` for descending (newest first). |
 
-### ViewDisplayProperty object definition
+### ViewDisplay object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `label` | string | false | In the Table view, the label will be visible as the table column's header. |
-| `format` | One of <ul><li>`text`</li><li>`number`</li><li>`date`</li><li>`link`</li><li>`boolean`</li><li>`image`</li><li>`array`</li><li>`object`</li></ul> | false | Describes how output data values are formatted to be rendered in the Output tab UI. |
+| `component` | string | true | Display component. Only `table` is available. |
+| `properties` | Object | false | Field display settings. Keys match `transformation.fields`, values are ViewDisplayProperty objects. If not set, fields render as strings, arrays, or objects automatically. |
 
-## Field schema
+### ViewDisplayProperty object
 
-The `fields` property in the dataset schema defines the structure of individual dataset items using [JSON Schema](https://json-schema.org/). This schema enables validation and provides metadata that helps both humans and AI agents understand your Actor's output.
-
-### Why field descriptions matter
-
-When AI agents interact with Actors through the MCP server or API, they rely on the field schema to understand what data the Actor produces. Including `title`, `description`, and `example` properties for each field enables agents to:
-
-- Understand the meaning of each output field
-- Chain Actors together by matching inputs to outputs
-- Generate appropriate queries and handle responses correctly
-
-Without this metadata, agents must infer field meanings from names alone, which leads to errors and a degraded experience.
-
-### Define field metadata
-
-Each field in your schema can include standard JSON Schema properties:
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `type` | string | The data type (`string`, `number`, `boolean`, `array`, `object`, `null`). |
-| `title` | string | A human-readable name for the field. |
-| `description` | string | Explains what the field contains and how to interpret it. |
-| `example` | any | A sample value that demonstrates the expected format. |
-| `enum` | array | A list of allowed values for the field. |
-
-### Example with field descriptions
-
-The following example shows a dataset schema for a product scraper with full field metadata:
-
-```json title=".actor/dataset_schema.json"
-{
-    "actorSpecification": 1,
-    "fields": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-            "productName": {
-                "type": "string",
-                "title": "Product name",
-                "description": "The full name of the product as displayed on the product page.",
-                "example": "Wireless Bluetooth Headphones"
-            },
-            "price": {
-                "type": "number",
-                "title": "Price",
-                "description": "The current price in USD. Does not include shipping or taxes.",
-                "example": 49.99
-            },
-            "currency": {
-                "type": "string",
-                "title": "Currency code",
-                "description": "Three-letter ISO 4217 currency code.",
-                "example": "USD",
-                "enum": ["USD", "EUR", "GBP"]
-            },
-            "inStock": {
-                "type": "boolean",
-                "title": "In stock",
-                "description": "Whether the product is currently available for purchase.",
-                "example": true
-            },
-            "categories": {
-                "type": "array",
-                "title": "Categories",
-                "description": "List of category names the product belongs to, from broadest to most specific.",
-                "items": {
-                    "type": "string"
-                },
-                "example": ["Electronics", "Audio", "Headphones"]
-            },
-            "url": {
-                "type": "string",
-                "title": "Product URL",
-                "description": "Direct link to the product page.",
-                "example": "https://example.com/products/wireless-headphones"
-            }
-        },
-        "required": ["productName", "price", "url"]
-    },
-    "views": {
-        "overview": {
-            "title": "Overview",
-            "transformation": {
-                "fields": ["productName", "price", "inStock", "url"]
-            },
-            "display": {
-                "component": "table",
-                "properties": {
-                    "url": {
-                        "label": "Link",
-                        "format": "link"
-                    },
-                    "inStock": {
-                        "format": "boolean"
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-:::tip Naming convention
-
-Use `camelCase` for field names in your schema. This matches the convention used in input schemas and ensures consistency across your Actor's configuration.
-
-:::
-
-For validation options and error handling, see [Dataset validation](./validation.md).
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| `label` | string | false | Column header text in the table view. |
+| `format` | string | false | Display format: `text`, `number`, `date`, `link`, `boolean`, `image`, `array`, or `object`. |
