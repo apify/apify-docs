@@ -52,6 +52,22 @@ const themeConfig = {
                 target: '_self',
                 rel: 'dofollow',
             },
+            {
+                label: 'Limits',
+                href: `${absoluteUrl}/limits`,
+                activeBasePath: 'limits',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Security',
+                href: `${absoluteUrl}/security`,
+                activeBasePath: 'security',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
             // ECOSYSTEM (right)
             {
                 label: 'Academy',

@@ -1,9 +1,8 @@
 ---
 title: Security
 description: Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.
-sidebar_position: 5
 category: platform
-slug: /account/security
+slug: /security
 ---
 
 ## SOC 2 type II compliance

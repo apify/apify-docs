@@ -1,9 +1,8 @@
 ---
 title: Limits
 description: View default resource limits for the Apify platform, including max memory, disk size, and number of Actors and tasks per user per plan tier.
-sidebar_position: 7
 category: platform
-slug: /account/limits
+slug: /limits
 ---
 
 The tables below demonstrate the Apify platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](/api/v2#rate-limiting).
