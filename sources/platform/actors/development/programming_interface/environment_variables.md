@@ -26,7 +26,7 @@ Check out how you can [access environment variables in Actors](#access-environme
 
 Apify sets several system environment variables for each Actor run. These variables provide essential context and information about the Actor's execution environment.
 
-:::info Run-time only
+:::info Runtime only
 
 System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Code** > **Environment variables**. That option forwards only your custom variables.
 
