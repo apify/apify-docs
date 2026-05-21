@@ -52,12 +52,21 @@ const themeConfig = {
                 target: '_self',
                 rel: 'dofollow',
             },
+            // ECOSYSTEM (right)
+            {
+                label: 'Academy',
+                href: `${absoluteUrl}/academy`,
+                activeBasePath: 'academy',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+            },
             {
                 label: 'APIs & SDKs',
                 type: 'dropdown',
                 to: `${absoluteUrl}/api/v2`,
                 activeBasePath: 'api',
-                position: 'left',
+                position: 'right',
                 target: '_self',
                 rel: 'dofollow',
                 items: [
@@ -99,55 +108,7 @@ const themeConfig = {
                     },
                 ],
             },
-            // ECOSYSTEM (right)
-            {
-                label: 'Academy',
-                href: `${absoluteUrl}/academy`,
-                activeBasePath: 'academy',
-                position: 'right',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'Open source',
-                type: 'dropdown',
-                to: `${absoluteUrl}/open-source`,
-                activeBasePath: 'open-source',
-                target: '_self',
-                position: 'right',
-                className: 'navbar__item',
-                items: [
-                    {
-                        label: 'Crawlee',
-                        href: 'https://crawlee.dev',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Fingerprint Suite',
-                        href: 'https://github.com/apify/fingerprint-suite',
-                    },
-                    {
-                        label: 'impit',
-                        href: 'https://github.com/apify/impit',
-                    },
-                    {
-                        label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcp-cli',
-                    },
-                    {
-                        label: 'Actor whitepaper',
-                        href: 'https://whitepaper.actor',
-                    },
-                    {
-                        label: 'proxy-chain',
-                        href: 'https://github.com/apify/proxy-chain',
-                    },
-                    {
-                        label: 'Apify on GitHub',
-                        href: 'https://github.com/apify',
-                    },
-                ],
-            },
+            // UTILITY (row 1 — icon class routes it there in NavbarContent)
             {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
                 label: 'Discord',
@@ -236,21 +197,36 @@ const themeConfig = {
                 ],
             },
             {
-                title: 'Other',
+                title: 'Open source',
                 items: [
                     {
-                        label: 'CLI',
-                        href: `${absoluteUrl}/cli/docs`,
-                        position: 'left',
-                        target: '_self',
+                        label: 'Crawlee',
+                        href: 'https://crawlee.dev',
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Open source',
-                        href: `${absoluteUrl}/open-source`,
-                        position: 'left',
-                        target: '_self',
-                        rel: 'dofollow',
+                        label: 'Fingerprint Suite',
+                        href: 'https://github.com/apify/fingerprint-suite',
+                    },
+                    {
+                        label: 'impit',
+                        href: 'https://github.com/apify/impit',
+                    },
+                    {
+                        label: 'MCP CLI',
+                        href: 'https://github.com/apify/mcp-cli',
+                    },
+                    {
+                        label: 'proxy-chain',
+                        href: 'https://github.com/apify/proxy-chain',
+                    },
+                    {
+                        label: 'Actor whitepaper',
+                        href: 'https://whitepaper.actor',
+                    },
+                    {
+                        label: 'Apify on GitHub',
+                        href: 'https://github.com/apify',
                     },
                 ],
             },
@@ -258,13 +234,10 @@ const themeConfig = {
                 title: 'More',
                 items: [
                     {
-                        label: 'Crawlee',
-                        to: 'https://crawlee.dev',
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
                         rel: 'dofollow',
-                    },
-                    {
-                        label: 'GitHub',
-                        href: 'https://github.com/apify',
                     },
                     {
                         href: 'https://discord.com/invite/jyEM2PRvMU',

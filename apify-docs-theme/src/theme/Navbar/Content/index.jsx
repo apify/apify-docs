@@ -9,7 +9,6 @@ import NavbarItem from '@theme/NavbarItem';
 import SearchBar from '@theme/SearchBar';
 import React from 'react';
 
-// import SearchBar from '../../SearchBar';
 import NavbarCTA from '../CTA';
 
 function NavbarItems({ items }) {
@@ -22,9 +21,9 @@ function NavbarItems({ items }) {
     );
 }
 
-function NavbarContentLayout({ left, right }) {
+function NavbarRow({ modifier, left, right }) {
     return (
-        <div className="navbar__inner">
+        <div className={`navbar__inner navbar__row navbar__row--${modifier}`}>
             <div className="navbar__container">
                 <div className="navbar__items">{left}</div>
                 <div className="navbar__items navbar__items--right">{right}</div>
@@ -67,12 +66,18 @@ function SubNavbar() {
     ) : null;
 }
 
+const isUtilityItem = (item) => typeof item?.className === 'string' && item.className.split(/\s+/).includes('icon');
+
 export default function NavbarContent() {
     const {
         navbar: { items },
     } = useThemeConfig();
     const [leftItems, rightItems] = splitNavbarItems(items);
     const searchBarItem = items.find((item) => item.type === 'search');
+
+    // Pull icon-class items (Discord, GitHub) into the utility row.
+    const utilityItems = rightItems.filter(isUtilityItem);
+    const navRightItems = rightItems.filter((item) => !isUtilityItem(item));
 
     return (
         <div
@@ -84,25 +89,28 @@ export default function NavbarContent() {
                 flexDirection: 'column',
             }}
         >
-            <NavbarContentLayout
-                left={
-                    <>
-                        <NavbarLogo />
-                        <NavbarItems items={leftItems} />
-                    </>
-                }
+            {/* Row 1: utilities (logo + search + AI + utility icons + console CTA) */}
+            <NavbarRow
+                modifier="utility"
+                left={<NavbarLogo />}
                 right={
                     <>
-                        <NavbarItems items={rightItems} />
                         {!searchBarItem && (
                             <NavbarSearch>
                                 <SearchBar />
                             </NavbarSearch>
                         )}
+                        <NavbarItems items={utilityItems} />
                         <NavbarCTA />
                         <NavbarMobileSidebarToggle />
                     </>
                 }
+            />
+            {/* Row 2: navigation (product zone left, ecosystem/reference right) */}
+            <NavbarRow
+                modifier="nav"
+                left={<NavbarItems items={leftItems} />}
+                right={<NavbarItems items={navRightItems} />}
             />
             <SubNavbar />
         </div>
