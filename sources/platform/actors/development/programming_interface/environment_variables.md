@@ -6,12 +6,8 @@ sidebar_position: 3
 sidebar_label: Environment variables
 ---
 
-**Learn how your Actors get runtime context from environment variables - either set by the Apify platform or defined by you.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 Actor runs get their environment variables from two sources:
 
@@ -31,8 +27,6 @@ Apify sets several system environment variables for each Actor run. These variab
 System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Code** > **Environment variables**. That option forwards only your custom variables.
 
 :::
-
-Here's a table of key system environment variables:
 
 | Environment variable | Description |
 | -------------------- | ----------- |
@@ -92,15 +86,6 @@ Actor owners can define custom environment variables to pass additional configur
 
 Your local `.actor/actor.json` file overrides variables set in Apify Console.
 To use Console variables, remove the `environmentVariables` key from the local file.
-
-:::info Build-time variables
-
-Once an Actor is built, the customer environment variables are baked in and cannot be changed.
-To use different variables, you must create a new build.
-
-Learn more in [Builds](../builds_and_runs/builds.md).
-:::
-
 
 ### Define in `actor.json`
 
@@ -259,5 +244,3 @@ Build-time environment variables are not suitable for secrets, as they are not e
 :::
 
 Once a build starts, its environment variables are frozen into that build's Docker image. To change them, you need to create a new build. Learn more in [Builds](../builds_and_runs/builds.md).
-
-By leveraging environment variables effectively, you can create more flexible and configurable Actors that adapt to different execution contexts and user requirements.
