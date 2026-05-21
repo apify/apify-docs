@@ -8,6 +8,54 @@ sidebar_label: Dataset schema
 
 The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
 
+## Why use views
+
+Dataset views are similar to database views - they provide different perspectives on the same underlying data. Views let you control how data appears in the Output tab, making it easier for users to find and understand the information most relevant to their needs.
+
+Not every Actor needs multiple views. If your dataset is simple with a handful of fields, a single default view works well. But as your output grows more complex, views help users navigate the data without feeling overwhelmed.
+
+### Benefits for Actor developers
+
+- **Better user experience**: Present data in the most useful way for each use case
+- **Reduced support burden**: Users find what they need without asking questions
+- **Cleaner output**: Control field ordering and formatting instead of relying on default JSON property order
+- **AI agent compatibility**: Structured views help agents understand and process your Actor's output
+
+### When to use views
+
+Views solve three main problems:
+
+#### Present data more clearly using order and format
+
+Even Actors with few fields benefit from views. Without a view, fields appear in the order they were written to the dataset, which may not be the most logical order. Views let you control field order and apply formatting - for example, displaying URLs as clickable links or showing images inline instead of as text URLs.
+
+#### Display nested data using unwind
+
+Some Actors produce datasets with arrays of nested objects. For example, an Instagram scraper searching profiles might return posts, reels, and likes as arrays within each profile object. Without views, these appear as collapsed arrays. Using `unwind`, you can expand these arrays so users see the actual data in a readable table format.
+
+#### Separate fields for easier comparison using fields and omit
+
+Actors that scrape detailed information often produce datasets with many fields. Consider a real estate scraper returning 50+ fields per listing. Instead of showing everything at once, you can create focused views: an "Overview" with address and price, a "Rooms and size" view with dimensions, and a "Features" view with amenities. Users can quickly compare listings on the dimensions they care about.
+
+### Organizing views by use case
+
+The same scraped data often serves different purposes. Rather than creating separate Actors, use views to surface relevant fields for each use case.
+
+For example, an e-commerce Actor scraping product data could offer:
+
+- **Marketing view**: Product name, image, description, and price - fields a marketing team needs for content creation
+- **Pricing analysis view**: Product name, price, currency, discount percentage, and competitor price - fields an analyst needs to track pricing trends
+
+The underlying dataset is identical. Each view surfaces the fields most relevant for that specific use case.
+
+### What views are NOT for
+
+Views are different ways to look at the same scraped data. They are NOT for presenting completely unrelated data stored in the same dataset.
+
+**Anti-pattern**: An Actor that scrapes posts, comments, AND user profiles, stores all three in one dataset with no shared fields, then uses views to separate them.
+
+**Better approach**: Use separate datasets for unrelated data types, or split into separate Actors if the outputs are genuinely independent.
+
 ## Example
 
 Let's consider an example Actor that calls `Actor.pushData()` to store data into dataset:
@@ -113,6 +161,63 @@ The template above defines the configuration for the default dataset output view
 The default behavior of the Output tab UI table is to display all fields from `transformation.fields` in the specified order. You can customize the display properties for specific formats or column labels if needed.
 
 ![Output tab UI](../images/output-schema-example.png)
+
+### Multiple views example
+
+The following example shows an e-commerce scraper with two views tailored to different use cases - marketing and pricing analysis:
+
+```json title=".actor/dataset_schema.json"
+{
+    "actorSpecification": 1,
+    "views": {
+        "marketing": {
+            "title": "Marketing",
+            "description": "Fields useful for marketing and content creation",
+            "transformation": {
+                "fields": ["productName", "imageUrl", "description", "price"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "imageUrl": {
+                        "label": "Image",
+                        "format": "image"
+                    }
+                }
+            }
+        },
+        "pricing": {
+            "title": "Pricing analysis",
+            "description": "Fields for competitive pricing analysis",
+            "transformation": {
+                "fields": [
+                    "productName",
+                    "price",
+                    "currency",
+                    "discountPercent",
+                    "competitorPrice",
+                    "priceDifference"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "discountPercent": {
+                        "label": "Discount %",
+                        "format": "number"
+                    },
+                    "priceDifference": {
+                        "label": "vs. Competitor",
+                        "format": "number"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Both views display the same underlying dataset. The first view appears as the default tab, so place the most commonly used view first.
 
 ## Structure
 
