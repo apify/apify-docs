@@ -85,7 +85,7 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 
 ## Custom environment variables
 
-Actor owners can define custom environment variables to pass additional configuration to their Actors. There are two ways to set them up:
+Actor owners can define custom environment variables to pass additional configuration to their Actors.
 
 - [Define in `actor.json`](#define-in-actorjson)
 - [Define in Apify Console](#define-in-apify-console)
