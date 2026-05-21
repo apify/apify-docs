@@ -20,8 +20,20 @@ Both components work together: `fields` describes *what* data your Actor produce
 ```json title=".actor/dataset_schema.json"
 {
     "actorSpecification": 1,
-    "fields": { /* JSON Schema describing each item */ },
-    "views": { /* UI display configurations */ }
+    "fields": {
+        "type": "object",
+        "properties": {
+            "title": { "type": "string" },
+            "price": { "type": "number" }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": { "fields": ["title", "price"] },
+            "display": { "component": "table" }
+        }
+    }
 }
 ```
 
