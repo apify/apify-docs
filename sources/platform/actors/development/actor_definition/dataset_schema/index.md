@@ -12,10 +12,8 @@ The dataset schema defines the structure and presentation of data produced by an
 
 A dataset schema has two main components:
 
-| Component | Purpose | Required |
-| --- | --- | --- |
-| `fields` | JSON Schema describing the structure of each dataset item. Enables validation and provides metadata for AI agents. | No |
-| `views` | Display configurations that control how data appears in the Output tab. Each view can show different fields, ordering, and formatting. | Yes |
+- **`fields`** (optional) - JSON Schema describing the structure of each dataset item. Enables validation and provides metadata for AI agents.
+- **`views`** (required) - Display configurations that control how data appears in the Output tab. Each view can show different fields, ordering, and formatting.
 
 Both components work together: `fields` describes *what* data your Actor produces, while `views` controls *how* that data is presented.
 
