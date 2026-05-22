@@ -120,7 +120,7 @@ const themeConfig = {
                     },
                     {
                         label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcp-cli',
+                        href: 'https://github.com/apify/mcpc',
                     },
                     {
                         label: 'Actor whitepaper',
