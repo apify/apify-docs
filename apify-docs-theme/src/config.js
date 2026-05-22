@@ -234,6 +234,12 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'llms.txt',
+                        href: `${absoluteUrl}/llms.txt`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
                 ],
             },
             {
