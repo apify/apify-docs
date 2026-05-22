@@ -51,11 +51,11 @@ properties:
     description: Specifies the default amount of memory in megabytes to be used when the Actor is started. Can be an integer or a [dynamic memory expression](/platform/actors/development/actor-definition/dynamic-actor-memory).
   minMemoryMbytes:
     type: integer
-    minimum: 256
+    minimum: 128
     description: Specifies the minimum amount of memory in megabytes required by the Actor.
   maxMemoryMbytes:
     type: integer
-    minimum: 256
+    minimum: 128
     description: Specifies the maximum amount of memory in megabytes required by the Actor.
   usesStandbyMode:
     type: boolean
