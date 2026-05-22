@@ -17,7 +17,7 @@ Last Updated: January 13, 2025
 ---
 
 
-<i>If you wish to execute this DPA, continue [here](https://eform.pandadoc.com/?eform=5344745e-5f8e-44eb-bcbd-1a2f45dbd692) and follow instructions in the PandaDoc form.</i>
+<i>If you wish to execute this DPA, contact us at privacy@apify.com.</i>
 
 ---
 
