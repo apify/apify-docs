@@ -4,6 +4,7 @@ required:
   - status
   - startedAt
   - usageTotalUsd
+  - buildNumber
 type: object
 properties:
   id:
@@ -25,5 +26,8 @@ properties:
   usageTotalUsd:
     type: number
     examples: [0.02]
+  buildNumber:
+    type: string
+    examples: [0.1.1]
   meta:
     $ref: ./BuildsMeta.yaml
