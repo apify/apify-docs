@@ -140,6 +140,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 - Auto-deploy on merge to `master`
 - Preview builds on pull requests
 - PR titles must use [Conventional Commits](https://www.conventionalcommits.org/) format (`docs:`, `fix:`, `feat:`, etc.) - enforced by CI
+- Keep PR descriptions short - one or two sentences covering what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`, `## Details`), bullet lists that restate the diff, and filler text. The diff is the record of what changed; the description explains the why.
 
 ## Common pitfalls
 

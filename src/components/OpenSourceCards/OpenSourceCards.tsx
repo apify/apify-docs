@@ -123,7 +123,7 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
             />
             <CardWithImageAndContent
                 image={
-                    <Link to="https://github.com/apify/mcp-cli" className={styles.imageLink}>
+                    <Link to="https://github.com/apify/mcpc" className={styles.imageLink}>
                         <div className={styles.iconWrapper}>
                             <img src={useBaseUrl('/img/landing-pages/mcpc.svg')} alt="mcpc" />
                         </div>
@@ -132,7 +132,7 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                 content={
                     <div className="cardContentWrapper">
                         <div className="cardContentWrapperText">
-                            <Link to="https://github.com/apify/mcp-cli" className={styles.headingLink}>
+                            <Link to="https://github.com/apify/mcpc" className={styles.headingLink}>
                                 <Heading type="titleM">mcpc</Heading>
                             </Link>
                             <Text color={theme.color.neutral.textMuted}>
@@ -142,11 +142,11 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                         </div>
                         <div className={styles.githubButtonWrapper}>
                             <GitHubButton
-                                href="https://github.com/apify/mcp-cli"
+                                href="https://github.com/apify/mcpc"
                                 data-color-scheme={colorMode}
                                 data-size="large"
                                 data-show-count="true"
-                                aria-label="Star apify/mcp-cli on GitHub"
+                                aria-label="Star apify/mcpc on GitHub"
                             >
                                 Star
                             </GitHubButton>

@@ -120,7 +120,7 @@ const themeConfig = {
                     },
                     {
                         label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcp-cli',
+                        href: 'https://github.com/apify/mcpc',
                     },
                     {
                         label: 'Actor whitepaper',
@@ -231,6 +231,12 @@ const themeConfig = {
                         label: 'Open source',
                         href: `${absoluteUrl}/open-source`,
                         position: 'left',
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'llms.txt',
+                        href: `${absoluteUrl}/llms.txt`,
                         target: '_self',
                         rel: 'dofollow',
                     },
