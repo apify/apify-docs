@@ -15,7 +15,7 @@ allOf:
       pricePerUnitUsd:
         type: number
         description: |
-          Price per unit in USD. Mutually exclusive with `tieredPricing` —
-          exactly one of the two is present on a pricing record.
+          Price per unit in USD. Mutually exclusive with `tieredPricing` - exactly one of the two is present
+          on a pricing record.
       tieredPricing:
         $ref: ./TieredPricingPerDatasetItem.yaml

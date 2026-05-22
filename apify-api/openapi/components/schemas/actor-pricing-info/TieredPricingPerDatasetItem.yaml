@@ -1,8 +1,7 @@
 title: TieredPricingPerDatasetItem
 description: |
-  Tiered price-per-dataset-item pricing, keyed by subscription tier (e.g.
-  `FREE`, `BRONZE`, `SILVER`, `GOLD`, `PLATINUM`, `DIAMOND`). The actual
-  price applied to a run is resolved from the user's tier.
+  Tiered price-per-dataset-item pricing, keyed by subscription tier (e.g. `FREE`, `BRONZE`, `SILVER`, `GOLD`,
+  `PLATINUM`, `DIAMOND`). The actual price applied to a run is resolved from the user's tier.
 type: object
 additionalProperties:
   $ref: ./TieredPricingPerDatasetItemEntry.yaml
