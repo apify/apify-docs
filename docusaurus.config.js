@@ -345,7 +345,7 @@ module.exports = {
                         },
                         {
                             route: '/academy/**',
-                            categoryName: 'Apify academy',
+                            categoryName: 'Apify Academy',
                         },
                         {
                             route: '/legal/**',
