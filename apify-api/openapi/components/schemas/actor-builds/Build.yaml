@@ -65,12 +65,10 @@ properties:
     type: string
     examples: [0.1.1]
   actVersion:
+    title: BuildActVersion
     type: object
     description: Snapshot of the Actor version that this build was created from.
     properties:
-      gitRepoUrl:
-        type: string
-        examples: ["https://github.com/apifytech/actor-crawler.git#experimental:web-scraper"]
       sourceType:
         $ref: ../actors/VersionSourceType.yaml
       buildTag:
@@ -79,6 +77,15 @@ properties:
       versionNumber:
         type: string
         examples: ["0.0"]
+      gitRepoUrl:
+        type: string
+        description: URL of the git repository, present when sourceType is GIT_REPO.
+        examples: ["https://github.com/apifytech/actor-crawler.git#experimental:web-scraper"]
+      sourceFiles:
+        type: array
+        description: Inline source files, present when sourceType is SOURCE_FILES.
+        items:
+          $ref: ../actors/SourceCodeFile.yaml
   actorDefinition:
     anyOf:
       - $ref: ../actors/ActorDefinition.yaml

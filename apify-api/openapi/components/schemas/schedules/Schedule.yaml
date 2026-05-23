@@ -26,6 +26,7 @@ Schedule:
         title:
           type: [string, "null"]
         notifications:
+          title: ScheduleNotifications
           type: object
           description: Notification settings for this schedule.
           properties:
