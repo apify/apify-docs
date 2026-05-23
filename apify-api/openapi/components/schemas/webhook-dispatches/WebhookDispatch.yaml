@@ -39,22 +39,9 @@ properties:
         type: string
         examples: [JgwXN9BdwxGcu9MMF]
   webhook:
-    title: WebhookDispatchWebhookSummary
-    type: [object, "null"]
-    description: A summary of the webhook that triggered this dispatch.
-    properties:
-      actionType:
-        type: string
-        examples: [HTTP_REQUEST]
-      condition:
-        $ref: ../webhooks/WebhookCondition.yaml
-      requestUrl:
-        type: string
-        format: uri
-        examples: ["https://example.com/webhook"]
-      isAdHoc:
-        type: boolean
-        examples: [false]
+    anyOf:
+      - $ref: ./WebhookDispatchWebhookSummary.yaml
+      - type: "null"
   calls:
     title: calls
     type: array
