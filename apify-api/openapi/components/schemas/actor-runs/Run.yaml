@@ -177,3 +177,7 @@ properties:
         items:
           $ref: ./Metamorph.yaml
       - type: "null"
+  platformUsageBillingModel:
+    type: string
+    description: Indicates which party covers platform usage costs for this run.
+    examples: [USER]

@@ -38,6 +38,24 @@ properties:
       actorRunId:
         type: string
         examples: [JgwXN9BdwxGcu9MMF]
+  webhook:
+    title: webhook
+    type: [object, "null"]
+    description: A summary of the webhook that triggered this dispatch.
+    properties:
+      actionType:
+        type: string
+        examples: [HTTP_REQUEST]
+      condition:
+        type: object
+        additionalProperties: true
+      requestUrl:
+        type: string
+        format: uri
+        examples: ["https://example.com/webhook"]
+      isAdHoc:
+        type: boolean
+        examples: [false]
   calls:
     title: calls
     type: array

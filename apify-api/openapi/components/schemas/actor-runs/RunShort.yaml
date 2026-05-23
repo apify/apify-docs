@@ -18,6 +18,9 @@ properties:
   actId:
     type: string
     examples: [HDSasDasz78YcAPEB]
+  userId:
+    type: string
+    examples: [7sT5jcggjjA9fNcxF]
   actorTaskId:
     type: [string, "null"]
     examples: [KJHSKHausidyaJKHs]
@@ -37,6 +40,9 @@ properties:
   buildNumber:
     type: string
     examples: [0.0.2]
+  buildNumberInt:
+    type: integer
+    examples: [10000]
   meta:
     $ref: ./RunMeta.yaml
   usageTotalUsd:

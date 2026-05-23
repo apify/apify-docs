@@ -25,6 +25,13 @@ Schedule:
           examples: [Schedule of actor ...]
         title:
           type: [string, "null"]
+        notifications:
+          type: object
+          description: Notification settings for this schedule.
+          properties:
+            email:
+              type: boolean
+              examples: [true]
         actions:
           type: array
           items:

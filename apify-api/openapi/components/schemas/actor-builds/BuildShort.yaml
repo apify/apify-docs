@@ -13,6 +13,9 @@ properties:
   actId:
     type: string
     examples: [janedoe~my-actor]
+  userId:
+    type: string
+    examples: [klmdEpoiojmdEMlk3]
   status:
     $ref: ../common/ActorJobStatus.yaml
   startedAt:
@@ -29,5 +32,8 @@ properties:
   buildNumber:
     type: string
     examples: [0.1.1]
+  buildNumberInt:
+    type: integer
+    examples: [10000]
   meta:
     $ref: ./BuildsMeta.yaml

@@ -64,6 +64,21 @@ properties:
   buildNumber:
     type: string
     examples: [0.1.1]
+  actVersion:
+    type: object
+    description: Snapshot of the Actor version that this build was created from.
+    properties:
+      gitRepoUrl:
+        type: string
+        examples: ["https://github.com/apifytech/actor-crawler.git#experimental:web-scraper"]
+      sourceType:
+        $ref: ../actors/VersionSourceType.yaml
+      buildTag:
+        type: string
+        examples: [experimental]
+      versionNumber:
+        type: string
+        examples: ["0.0"]
   actorDefinition:
     anyOf:
       - $ref: ../actors/ActorDefinition.yaml

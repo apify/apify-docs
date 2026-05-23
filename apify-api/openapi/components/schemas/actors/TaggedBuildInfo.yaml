@@ -10,6 +10,10 @@ properties:
     type: string
     description: The build number/version string.
     examples: [0.0.2]
+  buildNumberInt:
+    type: integer
+    description: The build number encoded as a single integer.
+    examples: [42]
   finishedAt:
     type: [string, "null"]
     format: date-time
