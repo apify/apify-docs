@@ -39,6 +39,7 @@ properties:
     examples: [HG7ML7M8z78YcAPEB]
   buildNumber:
     type: string
+    pattern: ^[0-9]+(\.[0-9]+)+(-[0-9A-Za-z][0-9A-Za-z\-\.]*)?$
     examples: [0.0.2]
   buildNumberInt:
     type: integer
