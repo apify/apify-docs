@@ -70,7 +70,9 @@ properties:
     description: Snapshot of the Actor version that this build was created from.
     properties:
       sourceType:
-        $ref: ../actors/VersionSourceType.yaml
+        type: string
+        description: The source type of the Actor version (e.g. SOURCE_FILES, GIT_REPO, TARBALL, GITHUB_GIST).
+        examples: [SOURCE_FILES]
       buildTag:
         type: string
         examples: [experimental]
