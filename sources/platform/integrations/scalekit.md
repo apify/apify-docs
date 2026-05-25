@@ -1,7 +1,7 @@
 ---
 title: Scalekit integration
 sidebar_label: Scalekit
-description: Add per-user OAuth to Apify Actors with Scalekit AgentKit. Store tokens server-side, manage authorization flows, and call tools in 100+ connectors.
+description: Add delegated Auth to your actors. Define scopes and access 5K+ tools. Zero token code.
 sidebar_position: 21
 slug: /integrations/scalekit
 ---
