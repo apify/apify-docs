@@ -9,7 +9,7 @@ The secret input feature lets you mark specific input fields of an Actor as sens
 
 :::tip MCP Connectors for third-party credentials
 
-If the third-party service you need exposes a [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) server, consider using [MCP Connectors](/platform/integrations/mcp-connectors) instead. The user authorizes the service once in their account settings, and the Actor receives a Connector ID rather than a credential - the token itself never enters the Actor. For credentials without an MCP server (database passwords, generic API keys), continue to use `isSecret: true`.
+If the third-party service you need exposes a [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) server, consider using [MCP Connectors](/platform/integrations/mcp-connectors) instead. The user authorizes the service once in their account settings, and the Actor receives a Connector ID rather than a credential. The service token, API key, or PAT stays server-side and is injected by the MCP Proxy at runtime. For credentials without an MCP server (database passwords, generic API keys), continue to use `isSecret: true`.
 
 :::
 

@@ -8,7 +8,7 @@ slug: /integrations/mcp-connectors
 
 MCP Connectors let Actors call third-party services through [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) on your behalf, using your credentials. Supported services include Notion, Slack, GitHub, Sentry, and Supabase.
 
-You authorize a Connector once in your account settings. When you run an Actor that accepts Connectors, the input form shows a picker filtered to those compatible with the Actor's requirements. At runtime, the Apify platform injects your credentials server-side. The Actor never sees a token.
+You authorize a Connector once in your account settings. When you run an Actor that accepts Connectors, the input form shows a picker filtered to those compatible with the Actor's requirements. At runtime, the Apify platform injects your service credentials server-side. The Actor authenticates to the proxy with its Apify run token, never with your third-party credentials.
 
 MCP Connectors are distinct from the [Apify MCP server](/platform/integrations/mcp). The MCP server exposes Apify Actors as tools to outside AI clients (Claude, ChatGPT, Cursor, and others); MCP Connectors do the opposite, letting Apify Actors call external MCP servers as tools. The two features are independent and can be used together or separately.
 
@@ -40,7 +40,7 @@ The Actor code uses a standard MCP client - no Apify-specific SDK is required.
 
 MCP Connectors are designed so that the Actor never holds your credentials, and you stay in control of what the Actor can do with them.
 
-- Your credentials stay private. The Actor code never sees your tokens or API keys. The platform injects them on your behalf before forwarding each request.
+- Your third-party credentials stay private. The Actor uses its Apify run token to reach the proxy; the OAuth token, API key, or PAT stored in the Connector never enters the Actor. The platform injects it server-side before forwarding each request.
 - You control which Connectors an Actor can access. An Actor can only use Connectors you explicitly provide in the input. It cannot reach your other Connectors.
 - Actors are held to what they declare. The proxy enforces that an Actor can only call tools it explicitly declared in its input schema. It cannot use your Connector to call anything beyond that, regardless of what the Connector supports.
 - Access ends when the run ends. The proxy session expires as soon as the Actor run finishes.
@@ -59,7 +59,11 @@ When you create a Connector, the platform inspects the MCP server URL you provid
 
 At launch, Notion and Supabase can be connected with no OAuth app setup on your side. Services such as GitHub, Slack, Google, and Microsoft require the Own OAuth Client flow - the same approach used by Claude Code, VS Code, and ChatGPT integrations.
 
-For step-by-step instructions on creating, authorizing, and managing Connectors, see [Account settings - MCP Connectors](/platform/console/settings#mcp-connectors).
+Create and manage your Connectors in [Settings > API & Integrations > MCP Connectors](/platform/console/settings#mcp-connectors).
+
+## Run an Actor with a Connector
+
+When you run an Actor that accepts MCP Connectors, the input form shows a Connector picker filtered to those compatible with the Actor's requirements. Pick one of your authorized Connectors, or create a new one inline. To set Connectors up in advance, see [Account settings - MCP Connectors](/platform/console/settings#mcp-connectors).
 
 ## Use cases
 
