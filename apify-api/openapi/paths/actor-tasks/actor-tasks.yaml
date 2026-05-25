@@ -88,13 +88,12 @@ post:
     the POST payload.
 
     The response is the full task object as returned by the
-    [Get task](#/reference/tasks/task-object/get-task) endpoint.
+    [Get task](/api/v2/actor-task-get) endpoint.
 
     The request needs to specify the `Content-Type: application/json` HTTP header!
 
     When providing your API authentication token, we recommend using the
-    request's `Authorization` header, rather than the URL. ([More
-    info](#/introduction/authentication)).
+    request's `Authorization` header, rather than the URL.
   operationId: actorTasks_post
   requestBody:
     description: ""
