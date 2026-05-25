@@ -9,7 +9,7 @@ properties:
     type: string
     examples: [Group1]
   description:
-    type: string
+    type: [string, "null"]
     examples: [Group1 description]
   availableCount:
     type: integer

@@ -53,9 +53,21 @@ properties:
     $ref: ../actors/ActorStats.yaml
   currentPricingInfo:
     $ref: ./CurrentPricingInfo.yaml
-  isWhiteListedForAgenticPayment:
+  isWhiteListedForAgenticPayments:
     type: [boolean, "null"]
     description: Whether the Actor is whitelisted for agentic payment processing.
+  actorReviewCount:
+    type: integer
+    examples: [69]
+  actorReviewRating:
+    type: number
+    examples: [4.7]
+  bookmarkCount:
+    type: integer
+    examples: [1269]
+  badge:
+    type: [string, "null"]
+    examples: [null]
   readmeSummary:
     type: string
     description: A brief, LLM-generated readme summary
