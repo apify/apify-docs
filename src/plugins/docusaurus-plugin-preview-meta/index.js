@@ -28,15 +28,16 @@ async function walkHtmlFiles(dir) {
 }
 
 function canonicalUrlForFile(outDir, file) {
-    const urlPath = path
-        .relative(outDir, file)
-        .replace(/\\/g, '/')
-        .replace(/\/?index\.html$/, '')
-        .replace(/\.html$/, '');
+    const relative = path.relative(outDir, file).replace(/\\/g, '/');
+    // Docusaurus serves 404.html at the literal /404.html path; preserve it for parity with production.
+    if (relative === '404.html') return `${CANONICAL_ORIGIN}/404.html`;
+    const urlPath = relative.replace(/\/?index\.html$/, '').replace(/\.html$/, '');
     return urlPath ? `${CANONICAL_ORIGIN}/${urlPath}` : CANONICAL_ORIGIN;
 }
 
-const CANONICAL_TAG_REGEX = /<link[^>]+rel=["']canonical["'][^>]*\/?>/i;
+// SWC's HTML minifier strips quotes from attributes and omits </head>, so the regex must be
+// quote-optional and the fallback must target <body instead of </head>.
+const CANONICAL_TAG_REGEX = /<link\b[^>]*?\brel=["']?canonical["']?[^>]*>/i;
 
 module.exports = function previewMetaPlugin() {
     return {
@@ -58,6 +59,8 @@ module.exports = function previewMetaPlugin() {
                         next = content.replace(CANONICAL_TAG_REGEX, canonicalTag);
                     } else if (content.includes('</head>')) {
                         next = content.replace('</head>', `${canonicalTag}</head>`);
+                    } else if (content.includes('<body')) {
+                        next = content.replace('<body', `${canonicalTag}<body`);
                     } else {
                         return;
                     }
