@@ -14,7 +14,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 With the [Scalekit Node SDK](https://www.npmjs.com/package/@scalekit-sdk/node) inside your Actor, each user who runs it can connect their own SaaS accounts. Scalekit stores the OAuth tokens server-side, refreshes them automatically, and proxies API calls on the user's behalf. Your Actor never touches a token directly.
 
-See the [Scalekit Agent Auth documentation](https://docs.scalekit.com/agent-auth/overview/) for the full API reference.
+See the [AgentKit documentation](https://docs.scalekit.com/agentkit/overview) for the full API reference.
 
 <ThirdPartyDisclaimer />
 
@@ -284,7 +284,7 @@ Scalekit supports 90+ OAuth connectors. Common services include:
 
 Change `connectionName` in `getOrCreateConnectedAccount` and `getAuthorizationLink` to connect to a different service. The rest of the code stays the same.
 
-[Browse all connectors](https://docs.scalekit.com/reference/agent-connectors)
+[Browse all connectors](https://docs.scalekit.com/agentkit/connectors)
 
 :::tip Multiple services per user
 
@@ -294,10 +294,10 @@ Use the same `identifier` across connectors to let your Actor access multiple se
 
 ## Resources
 
-- [Scalekit Agent Auth documentation](https://docs.scalekit.com/agent-auth/overview/)
-- [Agent Auth quickstart](https://docs.scalekit.com/agent-auth/quickstart/)
-- [All available connectors](https://docs.scalekit.com/reference/agent-connectors)
-- [Agentic tool calling](https://docs.scalekit.com/agent-auth/tools/agent-tools-quickstart/)
+- [AgentKit documentation](https://docs.scalekit.com/agentkit/overview)
+- [AgentKit quickstart](https://docs.scalekit.com/agentkit/quickstart)
+- [All available connectors](https://docs.scalekit.com/agentkit/connectors)
+- [Agentic tool calling](https://docs.scalekit.com/agentkit/tools/agent-tools-quickstart)
 - [Notion + YouTube Agent example](https://github.com/scalekit-developers/agentkit-apify-actor-example)
 - [Apify Actor per-user OAuth cookbook](https://docs.scalekit.com/cookbooks/apify-actor-per-user-oauth/)
 - [Apify Actor documentation](/platform/actors)
