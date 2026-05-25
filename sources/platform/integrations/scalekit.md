@@ -297,7 +297,7 @@ Use the same `identifier` across connectors to let your Actor access multiple se
 - [AgentKit documentation](https://docs.scalekit.com/agentkit/overview)
 - [AgentKit quickstart](https://docs.scalekit.com/agentkit/quickstart)
 - [All available connectors](https://docs.scalekit.com/agentkit/connectors)
-- [Agentic tool calling](https://docs.scalekit.com/agentkit/tools/agent-tools-quickstart)
+- [Agentic tool calling](https://docs.scalekit.com/agentkit/tools/overview)
 - [Notion + YouTube Agent example](https://github.com/scalekit-developers/agentkit-apify-actor-example)
 - [Apify Actor per-user OAuth cookbook](https://docs.scalekit.com/cookbooks/apify-actor-per-user-oauth/)
 - [Apify Actor documentation](/platform/actors)
