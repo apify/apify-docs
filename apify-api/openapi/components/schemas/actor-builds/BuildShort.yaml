@@ -31,7 +31,7 @@ properties:
     examples: [0.02]
   buildNumber:
     type: string
-    pattern: ^(0|[1-9][0-9]?)\.(0|[1-9][0-9]?)(\.[1-9][0-9]{0,4})?$
+    pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])(\.[1-9][0-9]{0,4})?$
     examples: [0.1.1]
   buildNumberInt:
     type: integer
