@@ -10,7 +10,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 ## What is Scalekit
 
-[Scalekit](https://scalekit.com) is auth infrastructure for AI agents. It provides a token vault and connector layer that handles OAuth 2.0 flows, token storage, automatic refresh, and API proxying for 90+ third-party services including Notion, Gmail, Slack, Google Calendar, GitHub, and more.
+[Scalekit](https://scalekit.com) is auth infrastructure for AI agents. It provides a token vault and connector layer that handles OAuth 2.0 flows, token storage, automatic refresh, and API proxying for 100+ third-party services including Notion, Gmail, Slack, Google Calendar, GitHub, and more.
 
 With the [Scalekit Node SDK](https://www.npmjs.com/package/@scalekit-sdk/node) inside your Actor, each user who runs it can connect their own SaaS accounts. Scalekit stores the OAuth tokens server-side, refreshes them automatically, and proxies API calls on the user's behalf. Your Actor never touches a token directly.
 
@@ -263,7 +263,7 @@ For a complete working example, see [Notion + YouTube Agent](https://github.com/
 
 ## Available connectors
 
-Scalekit supports 90+ OAuth connectors. Common services include:
+Scalekit supports 100+ connectors. Common services include:
 
 | Service | `connectionName` |
 | --- | --- |
