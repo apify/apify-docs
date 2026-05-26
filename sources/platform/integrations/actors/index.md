@@ -1,5 +1,5 @@
 ---
-title: What are Actor integrations?
+title: What are Actor integrations
 description: Learn how to connect Actors and tasks on the Apify platform using the integrations catalog in Apify Console to build automated multi-step workflows.
 sidebar_label: Actor-to-Actor
 sidebar_position: 0
@@ -14,9 +14,6 @@ You can check out a catalog of Integration Actors within [Apify Store](https://a
 
 Actor integrations connect your Actors with other Actors or tasks, letting you build multi-step workflows on the Apify platform. Because any [integration-ready Actor](/platform/integrations/actors/integration-ready-actors) can act as the target of an integration, the community can keep extending the catalog with new integrations.
 
-<!-- TODO: confirm the YouTube video (zExnYbvFoBM) still reflects the current flow; replace or remove if outdated. -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zExnYbvFoBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ## Add an integration
 
 To connect an Actor with another Actor or task:
@@ -26,18 +23,13 @@ To connect an Actor with another Actor or task:
 1. In the **Add integration** catalog, find the target Actor in one of two places:
     - **Suggested for this Actor** - Actors relevant to the source Actor's output. <!-- TODO: confirm how an Actor ends up in this list (Store category, manual curation, similarity, or a combination). -->
     - **Search integrations** field at the top - search across the full catalog.
-1. Click the Actor card to open its setup screen. <!-- TODO: confirm the post-selection screen still uses the trigger + payload + variables layout described below. Recapture screenshots if the UI differs. -->
-
-<!-- TODO: add a screenshot of the new Add integration dialog. -->
+1. Click the Actor card to open its setup screen.
 
 On the setup screen, configure:
 
-- **Triggers** - Events that trigger the integrated Actor. These match webhook [event types](/platform/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
-
-    ![Integration trigger select](./images/integration_triggers.png)
-
-- **Input for the integrated Actor** - The input usually has two parts: static fields whose value doesn't change between runs (for example, a database connection string or table name) and dynamic fields specific to the triggering run (for example, a dataset ID). Static fields go in as-is. Dynamic fields are pulled from the implicit `payload` field (the default for most integration-ready Actors) or set with variables.
-- **Available variables** - The same variables as in webhooks. The most common is `{{resource}}`, which holds the Run object in the shape returned by the [API](/api/v2/actor-run-get), or the Build object for build event types. Variables support dot notation, so `{{resource.defaultDatasetId}}` or `{{resource.defaultKeyValueStoreId}}` is usually all you need.
+- **Start when** - Events that trigger the integrated Actor. These match webhook [event types](/platform/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
+- **Actor input** - The input usually has two parts: static fields whose value doesn't change between runs (for example, a database connection string or table name) and dynamic fields specific to the triggering run (for example, a dataset ID). Static fields go in as-is. Dynamic fields are pulled from the implicit `payload` field (the default for most integration-ready Actors) or set with variables. The **Available variables** button in the input panel lists the variables you can interpolate.
+- **Available variables** - The same variables as in webhooks. The most common is `{{resource}}`, which holds the Run object in the shape returned by the [API](/api/v2/actor-run-get), or the Build object for build event types. Variables support dot notation, `{{resource.defaultDatasetId}}` and `{{resource.defaultKeyValueStoreId}}` cover most cases.
 
 ## Test your integration
 

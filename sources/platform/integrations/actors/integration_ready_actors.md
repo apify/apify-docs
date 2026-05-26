@@ -26,13 +26,13 @@ Only the dataset ID is passed to the Actor as input, not the dataset contents. T
 
 ## Example
 
-To illustrate the above, here is a simplified example of an Actor that uploads a dataset to a table/collection in some database.
+To illustrate the above, here is a simplified example of an Actor that uploads a dataset to a database table or collection.
 
 Start with an input that looks something like this:
 
 - `datasetId: string` - ID of the dataset to upload
-- `connectionString: string` - credentials for the database connection
-- `tableName: string` - name of the table or collection
+- `connectionString: string` - Credentials for the database connection
+- `tableName: string` - Name of the table or collection
 
 With this input schema, users have to provide an input that looks like this:
 
@@ -65,7 +65,7 @@ Explicitly stating what is the expected input when Actor is being used as an int
 However, if the Actor is only supposed to be used as an integration, use a different input schema:
 
 - `connectionString: string` - Credentials for the database connection
-- `tableName: string` - Name of table / collection
+- `tableName: string` - Name of the table or collection
 
 In this case, users only need to provide the "static" part of the input:
 
