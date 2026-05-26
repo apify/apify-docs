@@ -35,7 +35,7 @@ On the setup screen, configure:
 
 ## Test your integration
 
-When you add a new integration, you can test it using a past run or build as a trigger. The integrated Actor or task runs as if the trigger event just happened. The only difference from a regular run is that the event type is set to `TEST`. Test runs consume compute units. <!-- TODO: confirm "compute units" is still the right billing-unit name in this context. -->
+When you add a new integration, you can test it using a past run or build as a trigger. The integrated Actor or task runs as if the trigger event just happened. The only difference from a regular run is that the event type is set to `TEST`. Test runs consume compute units.
 
 To test, set the input and options, save, then pick an option from the test menu:
 
@@ -57,4 +57,4 @@ The UI keeps variables enclosed in strings, which means the payload template is 
 
 - [Develop integration-ready Actors](/platform/integrations/actors/integration-ready-actors) - design your own Actor to be used as an integration target.
 - [Integrating Actors via API](/platform/integrations/actors/integrating-actors-via-api) - set up the same integrations programmatically with the Apify API.
-- [Connecting scrapers with Apify integrations](https://blog.apify.com/connecting-scrapers-apify-integration/) - a complete walkthrough on the Apify blog. <!-- TODO: confirm the linked blog post is still current and matches the new catalog flow; if not, replace or remove. -->
+- [Connecting scrapers with Apify integrations](https://blog.apify.com/connecting-scrapers-apify-integration/) - a complete walkthrough on the Apify blog.
