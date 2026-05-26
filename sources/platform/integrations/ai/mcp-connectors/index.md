@@ -30,6 +30,7 @@ flowchart LR
     proxy --> external
 ```
 
+<br/>
 1. The Actor developer declares which Connectors the Actor accepts in its input schema (either a specific server, or any MCP-compatible Connector).
 1. When you run the Actor, you select an eligible Connector in the input form. If you don't have one yet, you can create and authorize a new Connector in advance under **Settings > API & Integrations** or inline within the Actor input.
 1. When the Actor sends an MCP request to `APIFY_MCP_PROXY_URL/<connectorId>`, the Apify MCP Proxy validates the request, injects your credentials, and forwards it to the upstream MCP server the Connector is authorized against.
