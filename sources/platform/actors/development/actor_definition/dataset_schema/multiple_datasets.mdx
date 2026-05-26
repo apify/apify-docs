@@ -111,10 +111,10 @@ The **Storage** tab in the Actor run view displays all datasets defined by the A
 
 To export a non-default dataset:
 
-1. Open the Actor run.
-1. Select the **Storage** tab.
-1. Select the dataset you want to export.
-1. Select **Export** and choose a format: JSON, CSV, XML, Excel, HTML, RSS, or JSONL.
+1. On the Actor run page, select the **Storage** tab.
+1. Open the **Dataset** dropdown and select the dataset you want to export.
+1. Under **Export dataset**, choose a format: JSON, CSV, XML, Excel, HTML Table, RSS, or JSONL.
+1. Select **Download**.
 
 :::caution Run page Export button
 
@@ -122,7 +122,12 @@ The **Export** button on the Run page exports only the `default` dataset. To exp
 
 :::
 
-To export programmatically, call the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON`, or use the SDK methods shown in [Access datasets in Actor code](#access-datasets-in-actor-code). See [Datasets](../../../../storage/dataset.md) for export formats and query parameters.
+To export programmatically:
+
+- Call the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
+- From inside an Actor, open the dataset (see [Access datasets in Actor code](#access-datasets-in-actor-code)), then call `getData` / `get_data` to read items into memory, or `exportTo` / `export_to` to write a JSON or CSV file to the key-value store.
+
+See [Datasets](../../../../storage/dataset.md) for formats and query parameters.
 
 ## Surface datasets on the run page
 
