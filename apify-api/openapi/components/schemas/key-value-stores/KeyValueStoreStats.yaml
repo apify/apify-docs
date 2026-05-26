@@ -21,3 +21,6 @@ properties:
   s3StorageBytes:
     type: integer
     examples: [18]
+  storageBytes:
+    type: integer
+    examples: [457225]
