@@ -8,7 +8,7 @@ slug: /integrations/mcp-connectors
 
 MCP Connectors let Actors call third-party services through [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) on your behalf, using your credentials. Supported services include Notion, Slack, GitHub, Sentry, and Supabase.
 
-You authorize a Connector once in your account settings. When you run an Actor that accepts Connectors, the input form shows a picker filtered to those compatible with the Actor's requirements. At runtime, the Apify platform injects your service credentials server-side. The Actor authenticates to the proxy with its Apify run token, never with your third-party credentials.
+You authorize a Connector once in your [Account settings > API & Integrations](https://console.apify.com/settings/integrations). When you run an Actor that accepts Connectors, the input form shows a picker filtered to those compatible with the Actor's requirements. At runtime, the Apify platform injects your service credentials server-side. The Actor authenticates to the proxy with its Apify run token, never with your third-party credentials.
 
 MCP Connectors are distinct from the [Apify MCP server](/platform/integrations/mcp). The MCP server exposes Apify Actors as tools to outside AI clients (Claude, ChatGPT, Cursor, and others); MCP Connectors do the opposite, letting Apify Actors call external MCP servers as tools. The two features are independent and can be used together or separately.
 
@@ -30,8 +30,8 @@ flowchart LR
     proxy --> external
 ```
 
-1. The Actor developer declares which Connectors the Actor accepts in its input schema.
-1. When you run the Actor, you select an eligible Connector in the input form. If you don't have one yet, you can create and authorize a new Connector in advance under **Settings > API & Integrations**.
+1. The Actor developer declares which Connectors the Actor accepts in its input schema (either a specific server, or any MCP-compatible Connector).
+1. When you run the Actor, you select an eligible Connector in the input form. If you don't have one yet, you can create and authorize a new Connector in advance under **Settings > API & Integrations** or inline within the Actor input.
 1. When the Actor sends an MCP request to `APIFY_MCP_PROXY_URL/<connectorId>`, the Apify MCP Proxy validates the request, injects your credentials, and forwards it to the upstream MCP server the Connector is authorized against.
 
 The Actor code uses a standard MCP client - no Apify-specific SDK is required.
@@ -56,8 +56,6 @@ When you create a Connector, the platform inspects the MCP server URL you provid
 | API key or bearer token | The MCP server uses a static API key or personal access token (PAT). |
 | OAuth | The server supports OAuth and either (a) supports Dynamic Client Registration (DCR), so Apify registers an OAuth client automatically, or (b) Apify provides a managed OAuth client for that service. |
 | Own OAuth client | The server uses OAuth but neither DCR nor an Apify-managed client is available. You register your own OAuth app with the provider and supply the credentials to Apify. |
-
-At launch, Notion and Supabase can be connected with no OAuth app setup on your side. Services such as GitHub, Slack, Google, and Microsoft require the Own OAuth Client flow - the same approach used by Claude Code, VS Code, and ChatGPT integrations.
 
 Create and manage your Connectors in [Settings > API & Integrations > MCP Connectors](/platform/console/settings#mcp-connectors).
 
