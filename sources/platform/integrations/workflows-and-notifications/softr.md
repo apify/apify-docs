@@ -19,7 +19,7 @@ From a Softr workflow, you can:
 - Run an Apify Actor with custom JSON input, with an option to wait for the run to finish.
 - Run an Actor and return the dataset items in a single step.
 - Get the most recent Actor run, optionally filtered by status.
-- Run a saved Apify task.
+- Run an Apify task.
 - Run a task and return its dataset items in one step.
 - Fetch items from an existing dataset by ID.
 - Read a single record from a key-value store.
@@ -28,8 +28,8 @@ From a Softr workflow, you can:
 
 You will need:
 
-- An [Apify account](https://console.apify.com/) and an API token from **Settings > API & Integrations** in the Apify Console.
-- A Softr workspace with access to the [Workflows](https://docs.softr.io/workflows) feature.
+- An [Apify account](https://console.apify.com/) and an API token from **Settings → API & Integrations** in Apify Console.
+- A Softr workspace with access to [Workflows](https://docs.softr.io/workflows).
 
 In Softr, open your app's **Workflows**, add an Apify action, paste your Apify API token to connect, then pick the Actor, task, dataset, or key-value store you want to use and map your inputs.
 
