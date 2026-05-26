@@ -1,7 +1,7 @@
 ---
 title: Scalekit integration
 sidebar_label: Scalekit
-description: Add delegated Auth to your actors. Define scopes and access 5K+ tools. Zero token code.
+description: Learn how to use Scalekit with Apify Actors to add per-user OAuth authorization, enabling access to 100+ third-party services like Notion, Gmail, and Slack.
 sidebar_position: 21
 slug: /integrations/scalekit
 ---
@@ -24,10 +24,10 @@ This guide shows how to add per-user OAuth to an Apify Actor using Scalekit. The
 
 ### Prerequisites
 
-- A [Scalekit account](https://app.scalekit.com) with your `SCALEKIT_ENV_URL`, `SCALEKIT_CLIENT_ID`, and `SCALEKIT_CLIENT_SECRET` from **Dashboard > Developers > Settings > API Credentials**
-- An [Apify account](https://console.apify.com/)
-- A connection configured in the Scalekit dashboard (go to **Agent Auth > Connections > + Create Connection** and select the service, for example Notion)
-- Node.js version 18 or later
+- _A Scalekit account_ with your `SCALEKIT_ENV_URL`, `SCALEKIT_CLIENT_ID`, and `SCALEKIT_CLIENT_SECRET` from **Dashboard > Developers > Settings > API Credentials** - [sign up here](https://app.scalekit.com)
+- _An Apify account_ - [sign up here](https://console.apify.com/)
+- _A configured connection_ in the Scalekit dashboard - go to **Agent Auth > Connections > + Create Connection** and select the service, for example Notion
+- _Node.js 18+_
 
 Install the Scalekit SDK in your Actor project:
 
