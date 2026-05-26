@@ -103,17 +103,28 @@ echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 ```
 
 
-## Configure the output schema
-
-### Storage tab
+## View and export datasets
 
 The **Storage** tab in the Actor run view displays all datasets defined by the Actor and used by the run (up to 10).
 
-The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more clearly, define an [output schema](../../actor_definition/output_schema/index.md).
+To export a non-default dataset:
 
-### Output schema
+1. Open the Actor run.
+1. Select the **Storage** tab.
+1. Select the dataset you want to export.
+1. Select **Export** and choose a format: JSON, CSV, XML, Excel, HTML, RSS, or JSONL.
 
-Actors with output schemas can reference datasets through variables using aliases:
+:::caution Run page Export button
+
+The **Export** button on the Run page exports only the `default` dataset. To export other datasets, use the **Storage** tab as described above.
+
+:::
+
+To access non-default datasets programmatically, use the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON` or the SDK reference returned by `openDataset` / `open_dataset`. See [Datasets](../../../../storage/dataset.md) for export formats and query parameters.
+
+## Configure the output schema
+
+The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more prominently on the run page, define an [output schema](../../actor_definition/output_schema/index.md) that references each dataset by alias:
 
 ```json
 {
