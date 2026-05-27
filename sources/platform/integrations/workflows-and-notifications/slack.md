@@ -1,22 +1,18 @@
 ---
 title: Slack integration
-description: Learn how to integrate your Apify Actors with Slack. This article guides you from installation through to automating your whole workflow in Slack.
+description: Learn how to integrate your Apify Actors with Slack, from installation through setting up notifications and running Actors directly from Slack.
 sidebar_label: Slack
 sidebar_position: 5
 slug: /integrations/slack
 ---
 
-import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-
 Run Apify Actors, get notified about run status, and receive scraped results straight in [Slack](https://slack.com/) - without leaving the app or opening a browser.
 
 For a step-by-step walkthrough, see the [Apify integration for Slack tutorial](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
 
-<ThirdPartyDisclaimer />
-
 ## Get started
 
-To use the Apify integration for Slack, you will need:
+To use the Apify integration for Slack, you need:
 
 - An [Apify account](https://console.apify.com/).
 - A Slack account (and workspace).
@@ -45,7 +41,7 @@ You can now run the same Actor or task directly from Slack by typing `/apify cal
 
 ![Slack message field showing the /apify call command with an Actor or task ID](../images/slack-apify-message.png)
 
-When an Actor doesn't require you to fill in any input fields, you can run it by simply typing `/apify call [Actor or task ID]`.
+When an Actor doesn't require you to fill in any input fields, you can run it by typing `/apify call [Actor or task ID]`.
 
 You're all set! If you have questions or need help, reach out on the [Apify Discord channel](https://discord.com/invite/jyEM2PRvMU).
 
