@@ -10,14 +10,16 @@ slug: /actor-marketing-playbook/store-basics/how-actor-monetization-works
 
 ---
 
+import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+
 ## Monetizing your Actor
 
 Monetizing your Actor on the Apify platform involves several key steps:
 
 1. _Development_: create and refine your Actor.
-2. _Testing_: ensure your Actor works reliably.
-3. _Publication & monetization_: publish your Actor and set up its monetization model.
-4. _Promotion_: attract users to your Actor.
+1. _Testing_: ensure your Actor works reliably.
+1. _Publication & monetization_: publish your Actor and set up its monetization model.
+1. _Promotion_: attract users to your Actor.
 
 ---
 
@@ -64,27 +66,9 @@ If you want more details about PPE pricing, refer to our [PPE documentation](/pl
 
 :::
 
-### Pay-per-result pricing model
-
-![pay per result model example](images/ppr-model.png)
-
-- _How it works_: you charge users based on the number of results your Actor generates. You earn 80% of the revenue minus platform usage costs.
-- _Profit calculation_: `profit = (0.8 * revenue) - platform usage costs`
-- _Cost breakdown_:
-  - Compute unit: $0.3 per CU
-  - Residential proxies: $13 per GB
-  - SERPs proxy: $3 per 1,000 SERPs
-  - Data transfer (external): $0.20 per GB
-  - Dataset storage: $1 per 1,000 GB-hours
-- _Example_: you set a price of $1 per 1,000 results. Two users generate 50,000 and 20,000 results, paying $50 and $20, respectively. If the platform usage costs are $5 and $2, your profit is $49.
-
-:::info Pay-per-result details
-
-If you want more details about PPR pricing, refer to our [PPR documentation](/platform/actors/publishing/monetize/pay-per-result).
-
-:::
-
 ### Rental pricing model
+
+<RentalSunset/>
 
 ![rental model example](images/rental-model.png)
 
@@ -103,10 +87,10 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 ## Setting up monetization
 
 1. _Go to your Actor page_: navigate to the **Publication** tab and open the **Monetization** section.
-2. _Fill in billing details_: set up your payment details for payouts.
-3. _Choose your pricing model_: use the monetization wizard to select your model.
-4. _Define chargeable events (PPE)_: select the events users pay for (for example, per result, per API call, or per Actor start), then set clear names, descriptions, and prices.
-5. _Choose a primary event (PPE)_: select the event that best represents the main value of your Actor. This primary event is emphasized on the Actor detail page, so users can quickly understand what they are mainly paying for.
+1. _Fill in billing details_: set up your payment details for payouts.
+1. _Choose your pricing model_: use the monetization wizard to select your model.
+1. _Define chargeable events (PPE)_: select the events users pay for (for example, per result, per API call, or per Actor start), then set clear names, descriptions, and prices.
+1. _Choose a primary event (PPE)_: select the event that best represents the main value of your Actor. This primary event is emphasized on the Actor detail page, so users can quickly understand what they are mainly paying for.
 
 
 ### Changing monetization
@@ -140,29 +124,15 @@ Also, remember that your Actor is a package deal with the Apify platform. All th
 
 ### Do research in Apify Store
 
-Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression — communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
+Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression - communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
 
 Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
 
-### Rental, pay-per-result (PPR), or pay-per-event (PPE)
-
-Rental pricing allows you to charge a monthly fee for your Actor and users cover their own compute usage.
-
-Pay-per-result (PPR) charges users based on the number of items your Actor adds to the dataset. This model works best when each dataset item represents clear value to the user - like scraped product listings, extracted contact information, or processed documents.
-
-Pay-per-event (PPE) gives you the most flexibility and growth potential. You can charge for any meaningful event your Actor performs (for example, page scraped, browser page opened, or an external API call). This makes costs predictable for users, lets you model value precisely, and is fully compatible with AI and MCP-based integrations.
-
-:::tip Additional benefits
-
-Actors that implement PPE receive additional benefits, including increased visibility in Apify Store and enhanced discoverability.
-
-:::
-
-To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
-
 ### Adapt when needed
 
-Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary.
+Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary. You can also choose to [pass platform usage costs to users](/platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) while you’re still figuring out the right price.
+
+To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
 
 Keep an eye on SEO as well. If you monitor the volume of the keywords your Actor is targeting as well as how well your Actor's page is ranking for those keywords, you can estimate the number of people who actually end up trying your tool (aka conversion rate). If your keywords are getting volume, but conversions are lower than expected, it might point to a few issues It could be due to your pricing, a verbose README, or complex input. If users are bouncing right away, it makes sense to check out your pricing and your closest competitors to see where adjustments might help.
 
@@ -180,15 +150,15 @@ Example of useful pricing estimates from the **Analytics** tab:
 
 :::tip Use emails!
 
-📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here:  [Emails to Actor users]
+📫 Don't forget to set an email sequence to warn and remind your users about pricing changes. Learn more about emailing your users here:  [Emails to Actor users](/academy/actor-marketing-playbook/interact-with-users/emails-to-actor-users)
 
 :::
 
 ## Resources
 
 - Learn about [incentives behind monetization](https://apify.com/partners/actor-developers)
-- Detailed guide to [setting up monetization models](https://docs.apify.com/academy/get-most-of-actors/monetizing-your-actor)
-- Guide to [publishing Actors](https://docs.apify.com/platform/actors/publishing)
+- Detailed guide to [setting up monetization models](/platform/actors/publishing/monetize)
+- Guide to [publishing Actors](/platform/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Read a blog post from our CEO on the [reasoning behind monetizing Actors](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/)
 - Learn about the [Creator plan](https://apify.com/pricing/creator-plan), which allows you to create and freely test your own Actors for $1

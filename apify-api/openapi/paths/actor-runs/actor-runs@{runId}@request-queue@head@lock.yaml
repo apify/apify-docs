@@ -1,0 +1,2 @@
+post:
+  $ref: "../../components/objects/request-queues/request-queue-head-lock.yaml#/postDefault"

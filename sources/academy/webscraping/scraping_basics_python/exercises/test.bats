@@ -119,10 +119,16 @@ teardown() {
 @test "lists Guardian F1 authors" {
   run uv run -q --with=httpx --with=beautifulsoup4 python guardian_f1_authors.py
 
+  [[ $(echo "$output" | wc -l) -gt 5 ]]
   [[ "$output" == *' F1 '* ]]
   [[ "$output" == *'Giles Richards: '* ]]  # writes most of them (we'll have to change this if they fire him)
-  [[ "$output" == *'Guardian sport: '* || "$output" == *'PM Media: '* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+
+  # check that each line is in the AUTHOR: TITLE format
+  while IFS= read -r line; do
+    [[ "$line" == *': '* ]]
+    [[ "$line" != ': '* ]]
+    [[ "$line" != *': ' ]]
+  done <<< "$output"
 }
 
 @test "lists Python database jobs" {
@@ -134,10 +140,10 @@ teardown() {
   [[ "$output" == *"'posted_on': datetime.date("* ]]
 }
 
-@test "finds the shortest CNN sports article" {
-  run uv run -q --with=httpx --with=beautifulsoup4 python cnn_sports_shortest_article.py
+@test "counts total eurozone population" {
+  run uv run -q --with=httpx --with=beautifulsoup4 python eurozone_population.py
 
-  [[ "$output" == 'https://edition.cnn.com/'* ]]
+  [[ "$output" -gt 300000000 ]]
 }
 
 @test "scrapes F1 Academy driver details with Crawlee" {
@@ -150,12 +156,12 @@ teardown() {
   [[ $(cat dataset.json | jq '.[].url') == *"https://www.f1academy.com/Racing-Series/Drivers/"* ]]
 }
 
-@test "scrapes Netflix ratings with Crawlee" {
+@test "scrapes Netflix user scores with Crawlee" {
   run uv run -q --with=crawlee[beautifulsoup] python crawlee_netflix_ratings.py
 
   (( status == 0 ))
   [[ -f dataset.json ]]
   [[ $(cat dataset.json | jq '. | length') -eq 5 ]]
-  [[ $(cat dataset.json | jq -c '.[0] | keys') == '["rating","title","url"]' ]]
-  [[ $(cat dataset.json | jq '.[].url') == *"https://www.imdb.com/title/"* ]]
+  [[ $(cat dataset.json | jq -c '.[0] | keys') == '["title","url","user_score"]' ]]
+  [[ $(cat dataset.json | jq '.[].url') == *"https://www.themoviedb.org/"* ]]
 }

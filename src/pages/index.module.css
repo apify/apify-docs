@@ -1,11 +1,9 @@
-
-
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
 
- .cards {
+.cards {
     margin: 0 auto;
     display: grid;
     gap: 2.4rem;
@@ -83,11 +81,11 @@
 }
 
 .card {
-    [class*="cardTitle"] {
+    [class*='cardTitle'] {
         font-size: 1.6rem !important;
     }
 
-    [class*="cardDescription"] {
+    [class*='cardDescription'] {
         font-size: 1.2rem !important;
     }
 }
@@ -117,12 +115,26 @@
 }
 
 @media (min-width: 768px) {
-    .cards { grid-template-columns: repeat(2, 1fr); }
-    .bannerContentImage { display: initial !important; width: 25rem; }
-    .bannerContentImageAfter { display: none !important; }
-    .bannerContentActions { width: 38.4rem; }
-    .bannerContentDescription { width: 25rem; margin-bottom: 0; }
-    .actionCards { grid-template-columns: repeat(2, 1fr); }
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bannerContentImage {
+        display: initial !important;
+        width: 25rem;
+    }
+    .bannerContentImageAfter {
+        display: none !important;
+    }
+    .bannerContentActions {
+        width: 38.4rem;
+    }
+    .bannerContentDescription {
+        width: 25rem;
+        margin-bottom: 0;
+    }
+    .actionCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .smallBannerContent {
         flex-direction: row;
         justify-content: space-between;
@@ -130,8 +142,12 @@
         align-self: stretch;
         text-align: left;
     }
-    .smallBannerContent h2 { align-self: flex-start; }
-    .smallBannerContentText { width: 41.8rem; }
+    .smallBannerContent h2 {
+        align-self: flex-start;
+    }
+    .smallBannerContentText {
+        width: 41.8rem;
+    }
     .bannerContent {
         display: flex;
         justify-content: space-between;
@@ -140,10 +156,18 @@
 }
 
 @media (min-width: 1024px) {
-    .cards { grid-template-columns: repeat(3, 1fr); }
-    .actionCards { width: 896px; }
-    .bannerContentActions { width: 41.8rem; }
-    .bannerContentDescription { width: 38.4rem; }
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .actionCards {
+        width: 896px;
+    }
+    .bannerContentActions {
+        width: 41.8rem;
+    }
+    .bannerContentDescription {
+        width: 38.4rem;
+    }
     .bannerContentImage {
         width: 38.4rem;
         position: absolute;
@@ -152,11 +176,14 @@
 }
 
 @media (min-width: 1440px) {
-    .actionCards { width: 1200px; }
-    .bannerContentDescription { width: 50.2rem; }
+    .actionCards {
+        width: 1200px;
+    }
+    .bannerContentDescription {
+        width: 50.2rem;
+    }
     .bannerContentImage {
         width: 50.2rem;
         margin-top: 14.2rem;
     }
-
 }

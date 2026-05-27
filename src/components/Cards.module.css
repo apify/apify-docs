@@ -7,7 +7,7 @@
     background-color: rgb(241, 242, 247);
 }
 
-html[data-theme="dark"] .card-hoverable:hover {
+html[data-theme='dark'] .card-hoverable:hover {
     background-color: rgb(30, 40, 59);
 }
 
@@ -43,14 +43,14 @@ html[data-theme="dark"] .card-hoverable:hover {
 .card-links {
     list-style-type: none;
     padding: 0 0.5rem 1rem 1rem;
-    margin: 0; 
+    margin: 0;
     font-size: 80%;
 }
 
 .card-links a {
-    color: var(--ifm-color-content)
+    color: var(--ifm-color-content);
 }
 
 .card-links a:hover {
-    color: var(--ifm-link-color)
+    color: var(--ifm-link-color);
 }

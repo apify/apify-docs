@@ -17,16 +17,13 @@ exports.isInternal = (href, hostName) => {
 exports.externalLinkProcessor = () => {
     return async (tree) => {
         (await visit)(tree, 'element', (node) => {
-            if (
-                node.tagName === 'a'
-                && node.properties
-                && typeof node.properties.href === 'string'
-            ) {
+            if (node.tagName === 'a' && node.properties && typeof node.properties.href === 'string') {
                 const href = parse(node.properties.href);
 
                 if (!exports.isInternal(href, internalUrl)) {
                     node.properties.target = '_blank';
                     node.properties.rel = 'noopener';
+                    node.properties.className = 'external-link';
                 } else {
                     node.properties.target = null;
                     node.properties.rel = null;

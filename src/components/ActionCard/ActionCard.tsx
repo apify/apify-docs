@@ -10,9 +10,9 @@ import { Text } from '../Text';
 import styles from './styles.module.css';
 
 const StyledHorizontalTile = styled(HorizontalTile)`
-  height: 100%;
-  & > * {
-    display: inherit;
+    height: 100%;
+    & > * {
+        display: inherit;
     }
 `;
 
@@ -29,23 +29,29 @@ export default function ActionCard({ title, description, to, width, iconSrc, tit
     const { siteConfig } = useDocusaurusContext();
     const external = to.startsWith('http');
 
-    const Tile = <StyledHorizontalTile
-
-        content={
-            <div className={styles.actionCardContent}>
-                <div className={styles.actionCardContentHeader}>
-                    {iconSrc && <img src={iconSrc} alt={title} width={24} height={24} />}
-                    <Heading type='titleM' as={titleAs}>{title}</Heading>
+    const Tile = (
+        <StyledHorizontalTile
+            content={
+                <div className={styles.actionCardContent}>
+                    <div className={styles.actionCardContentHeader}>
+                        {iconSrc && <img src={iconSrc} alt={title} width={24} height={24} />}
+                        <Heading type="titleM" as={titleAs}>
+                            {title}
+                        </Heading>
+                    </div>
+                    {description && (
+                        <div className={styles.cardContentDescription}>
+                            <Text align="left" color={theme.color.neutral.textSubtle}>
+                                {description}
+                            </Text>
+                        </div>
+                    )}
                 </div>
-                { description && <div className={styles.cardContentDescription}>
-                    <Text align='left' color={theme.color.neutral.textSubtle}>{description}</Text>
-                </div>
-                }
-            </div>
-        }
-        isClickable
-        action={<ArrowRight20 strokeWidth={1.5} /> }
-    />;
+            }
+            isClickable
+            action={<ArrowRight20 strokeWidth={1.5} />}
+        />
+    );
 
     if (external) {
         return (

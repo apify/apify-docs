@@ -1,0 +1,9 @@
+signature:
+  name: signature
+  in: query
+  description: Signature used for the access.
+  required: false
+  style: form
+  schema:
+    type: string
+    example: 2wTI46Bg8qWQrV7tavlPI

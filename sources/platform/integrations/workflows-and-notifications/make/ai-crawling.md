@@ -1,17 +1,23 @@
 ---
 title: Make - AI crawling Actor integration
-description: Learn about AI Crawling scraper modules.
+description: Use Apify Scraper for AI Crawling in Make to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
 sidebar_label: AI Crawling
 sidebar_position: 6
 slug: /integrations/make/ai-crawling
 toc_max_heading_level: 4
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+Use the Apify Scraper for AI Crawling module in [Make](https://www.make.com/) to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
+
+<ThirdPartyDisclaimer />
+
 ## Apify Scraper for AI Crawling
 
 Apify Scraper for AI Crawling from [Apify](https://apify.com/) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 ## Connect Apify Scraper for AI Crawling
 
@@ -19,7 +25,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
@@ -39,7 +45,7 @@ Once connected, you can build workflows to automate website extraction and integ
 
 After connecting the app, you can use one of the two modules as native scrapers to extract website content.
 
-### Standard Settings Module
+### Standard Settings module
 
 The Standard Settings module is a streamlined component of the Website Content Crawler that allows you to quickly extract content from websites using optimized default settings. This module is perfect for extracting content from blogs, documentation sites, knowledge bases, or any text-rich website to feed into AI models.
 
@@ -95,7 +101,7 @@ For each crawled web page, you'll receive:
 }
 ```
 
-### Advanced Settings Module
+### Advanced Settings module
 
 The Advanced Settings module provides complete control over the content extraction process, allowing you to fine-tune every aspect of the crawling and transformation pipeline. This module is ideal for complex websites, JavaScript-heavy applications, or when you need precise control over content extraction.
 
@@ -115,10 +121,10 @@ The Advanced Settings module provides complete control over the content extracti
 The Advanced Settings module provides granular control over the entire crawling process:
 
 1. _Crawler Selection_: Choose from Playwright (Firefox/Chrome), or Cheerio based on website complexity
-2. _URL Management_: Define precise scoping with include/exclude URL patterns
-3. _DOM Manipulation_: Control which HTML elements to keep or remove
-4. _Content Transformation_: Apply specialized algorithms for content extraction
-5. _Output Formatting_: Select from multiple formats for AI model compatibility
+1. _URL Management_: Define precise scoping with include/exclude URL patterns
+1. _DOM Manipulation_: Control which HTML elements to keep or remove
+1. _Content Transformation_: Apply specialized algorithms for content extraction
+1. _Output Formatting_: Select from multiple formats for AI model compatibility
 
 #### Configuration options
 
@@ -141,12 +147,6 @@ In addition to the standard output fields, Advanced Settings provides:
 - _HTML Transformations_: Results from different content extraction algorithms
 - _File Storage Options_: Flexible storage for HTML, screenshots, or downloaded files
 
-Looking for more than just AI crawling? You can use other native Make apps powered by Apify:
+## Other scrapers available
 
-- [TikTok Data](/platform/integrations/make/tiktok)
-- [Google Search](/platform/integrations/make/search)
-- [Google Maps Emails Data](/platform/integrations/make/maps)
-- [YouTube Data](/platform/integrations/make/youtube)
-- [Amazon](/platform/integrations/make/amazon)
-
-And more! Because you can access any of thousands of our scrapers on Apify Store by using the [general Apify connections](https://www.make.com/en/integrations/apify).
+Looking for more scrapers? You can access any of thousands of our scrapers on Apify Store by using the [general Apify connections on Make](https://www.make.com/en/integrations/apify).

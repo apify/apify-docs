@@ -19,19 +19,23 @@ export default function PlainCard({ icon, title, description, to, width }: Plain
     const { siteConfig } = useDocusaurusContext();
     const external = to.startsWith('http');
 
-    const Tile = <VerticalTile
-        style={{ height: '100%' }}
-        content={
-            <div className={styles.plainCardContent}>
-                {icon}
-                <div className={styles.plainCardContentText}>
-                    <Heading type='titleM'>{title}</Heading>
-                    <Text align='left' color={theme.color.neutral.textSubtle}>{description}</Text>
+    const Tile = (
+        <VerticalTile
+            style={{ height: '100%' }}
+            content={
+                <div className={styles.plainCardContent}>
+                    {icon}
+                    <div className={styles.plainCardContentText}>
+                        <Heading type="titleM">{title}</Heading>
+                        <Text align="left" color={theme.color.neutral.textSubtle}>
+                            {description}
+                        </Text>
+                    </div>
                 </div>
-            </div>
-        }
-        isClickable
-    />;
+            }
+            isClickable
+        />
+    );
 
     if (external) {
         return (

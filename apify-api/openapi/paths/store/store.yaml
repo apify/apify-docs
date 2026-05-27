@@ -1,7 +1,7 @@
 get:
   tags:
     - Store
-  summary: Get list of Actors in store
+  summary: Get list of Actors in Store
   description: |
     Gets the list of public Actors in Apify Store. You can use `search`
     parameter to search Actors by string in title, name, description, username
@@ -13,28 +13,8 @@ get:
     It will not return more than 1,000 records.
   operationId: store_get
   parameters:
-    - name: limit
-      in: query
-      description: |
-        Maximum number of elements to return. The default and maximum value is
-        `1,000`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 99
-    - name: offset
-      in: query
-      description: |
-        Number of elements that should be skipped at the start. The default
-        value is `0`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 10
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
     - name: search
       in: query
       description: |
@@ -95,6 +75,36 @@ get:
       schema:
         type: boolean
         example: true
+    - name: responseFormat
+      in: query
+      description: |
+        Controls the shape of the response. Use `full` (default) for the
+        complete response including image URLs and all fields. Use `agent`
+        for a reduced field set optimized for LLM consumers, which only
+        includes `id`, `title`, `name`, `username`, `description`, `notice`,
+        `badge`, `categories`, and minimal `stats`.
+      style: form
+      explode: true
+      schema:
+        type: string
+        enum:
+          - full
+          - agent
+        default: full
+        example: agent
+    - name: includeUnrunnableActors
+      in: query
+      description: |
+        By default, search results exclude Actors that are not safe to run
+        automatically (e.g. Actors from developers who haven't passed KYC, or
+        full-permission Actors without a large user base). Set to `true` to
+        bypass this safety filtering and include all Actors in the results.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        default: false
+        example: true
   responses:
     "200":
       description: ""
@@ -103,61 +113,12 @@ get:
         application/json:
           schema:
             $ref: ../../components/schemas/store/ListOfActorsInStoreResponse.yaml
-          example:
-            data:
-              total: 100
-              offset: 0
-              limit: 1000
-              desc: false
-              count: 1
-              items:
-                - id: zdc3Pyhyz3m8vjDeM
-                  title: My Public Actor
-                  name: my-public-actor
-                  username: jane35
-                  userFullName: Jane Doe
-                  description: My public Actor!
-                  pictureUrl: https://...
-                  userPictureUrl: https://...
-                  url: https://...
-                  stats:
-                    totalBuilds: 9
-                    totalRuns: 16
-                    totalUsers: 6
-                    totalUsers7Days: 2
-                    totalUsers30Days: 6
-                    totalUsers90Days: 6
-                    totalMetamorphs: 2
-                    lastRunStartedAt: "2019-07-08T14:01:05.546Z"
-                  currentPricingInfo:
-                    pricingModel: FREE
-                  isWhiteListedForAgenticPayment: true
-                - id: zdc3Pyhyz3m8vjDeM
-                  title: My Public Actor
-                  name: my-public-actor
-                  username: jane35
-                  userFullName: Jane H. Doe
-                  categories:
-                    - MARKETING
-                    - LEAD_GENERATION
-                  description: My public Actor!
-                  pictureUrl: https://...
-                  userPictureUrl: https://...
-                  url: https://...
-                  stats:
-                    totalBuilds: 9
-                    totalRuns: 16
-                    totalUsers: 6
-                    totalUsers7Days: 2
-                    totalUsers30Days: 6
-                    totalUsers90Days: 6
-                    totalMetamorphs: 2
-                    lastRunStartedAt: "2019-07-08T14:01:05.546Z"
-                  currentPricingInfo:
-                    pricingModel: FREE
-                  isWhiteListedForAgenticPayment: false
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store

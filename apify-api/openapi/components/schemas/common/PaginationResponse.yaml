@@ -12,7 +12,7 @@ properties:
     type: integer
     description: The total number of items available across all pages.
     minimum: 0
-    examples: [2]
+    examples: [1]
   offset:
     type: integer
     description: The starting position for this page of results.
@@ -31,4 +31,4 @@ properties:
     type: integer
     description: The number of items returned in this response.
     minimum: 0
-    examples: [2]
+    examples: [1]

@@ -1,14 +1,16 @@
 ---
 title: Gmail integration
-description: Learn how to integrate Apify with Gmail
+description: Learn how to integrate Apify Actors with Gmail to send automated email notifications with Actor run results to any Gmail address you choose.
 sidebar_label: Gmail
 sidebar_position: 6
 slug: /integrations/gmail
 ---
 
-**Learn how to integrate your Apify Actors with Gmail. This article shows you how to automatically send an email with results when an Actor run succeeds.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+Send automated email notifications with Actor run results to any Gmail address. Set up the integration on your task to receive emails after each successful run.
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 
@@ -20,7 +22,7 @@ To use the Apify integration for Gmail, you will need:
 
 ## Set up Gmail integration
 
-1. Head over to **Integrations** tab in your task and click on Send email generic integration.
+1. Head over to **Integrations** tab in your task and click on the **Send results email via Gmail** integration.
 
     ![Google Drive integration](../images/google/google-integrations-add.png)
 

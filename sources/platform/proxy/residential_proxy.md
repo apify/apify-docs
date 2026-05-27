@@ -8,19 +8,15 @@ slug: /proxy/residential-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Achieve a higher level of anonymity using IP addresses from human users. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.**
-
----
-
 Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies](./datacenter_proxy.md), traffic from residential proxies is indistinguishable from that of legitimate users.
 
 This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
 Residential proxies support [IP address rotation](./usage.md#ip-address-rotation) and [sessions](#session-persistence).
 
-**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in the Apify Console.
+**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in Apify Console.
 
-## Connecting to residential proxy
+## Connect to residential proxy
 
 Connecting to residential proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences.
 
@@ -73,13 +69,7 @@ async def main():
 
 ### How to set a proxy country
 
-When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`.
-
-For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
-
-```python
-username = "groups-RESIDENTIAL,country-JP"
-```
+When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`. For example, to target Japan, set the username to `groups-RESIDENTIAL,country-JP`.
 
 In the [Apify SDK](/sdk) you set the country in your proxy configuration using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode`/`country_code` parameter:
 
@@ -111,6 +101,54 @@ async def main():
         proxy_configuration = await Actor.create_proxy_configuration(
             groups=['RESIDENTIAL'],
             country_code='FR',
+        )
+        # ...
+```
+
+</TabItem>
+</Tabs>
+
+### How to set a state
+
+:::note US states only
+State-level targeting is currently only supported for the United States.
+:::
+
+To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US_CA`.
+
+
+In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` and `subdivisionCode`/`subdivision_code` parameters:
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['RESIDENTIAL'],
+    countryCode: 'US',
+    subdivisionCode: 'CA',
+});
+// ...
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        # ...
+        proxy_configuration = await Actor.create_proxy_configuration(
+            groups=['RESIDENTIAL'],
+            country_code='US',
+            subdivision_code='CA',
         )
         # ...
 ```

@@ -1,15 +1,19 @@
 ---
 title: n8n - Website Content Crawler by Apify
-description: Learn about Website Content Crawler module.
+description: Use the Website Content Crawler node in n8n to extract clean text and Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks.
 sidebar_label: Website Content Crawler
 sidebar_position: 6
 slug: /integrations/n8n/website-content-crawler
 toc_max_heading_level: 4
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -56,7 +60,6 @@ See the [**Connect** section for n8n self-hosted](#connect-self-hosted) for deta
 
 With authentication set up, you can now create workflows that incorporate the Apify node.
 
-
 ## n8n self-hosted setup
 
 This section explains how to install and connect the Apify node when running your own n8n instance.
@@ -82,7 +85,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
     ![Sign up page](../make/images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in the Apify Console.
+1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
     ![Apify Console token for n8n](../make/images/apify-console-token-for-make.png)
 
@@ -95,7 +98,6 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.
 
 ![Apify token on n8n](images/token.png)
-
 
 ## Website Content Crawler by Apify module
 
@@ -157,7 +159,7 @@ You can access any of thousands of our scrapers on Apify Store by using the [gen
 
 You can select the _Crawler type_ by choosing the rendering engine (browser or HTTP client) and the _Content extraction algorithm_ from multiple HTML transformers. _Element selectors_ allow you to specify which elements to keep, remove, or click, while _URL patterns_ let you define inclusion and exclusion rules with glob syntax. You can also set _Crawling parameters_ like concurrency, depth, timeouts, and retries. For robust crawling, you can configure _Proxy configuration_ settings and select from various _Output options_ for content formats and storage.
 
-## Usage as an AI Agent Tool
+## Usage as an AI agent tool
 
 You can setup Apify's Scraper for AI Crawling node as a tool for your AI Agents.
 

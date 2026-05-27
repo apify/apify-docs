@@ -1,15 +1,9 @@
 title: ScheduleAction
-required:
-  - id
-  - type
-  - actorId
-type: object
-properties:
-  id:
-    type: string
-    examples: [ZReCs7hkdieq8ZUki]
-  type:
-    $ref: ./ScheduleActionType.yaml
-  actorId:
-    type: string
-    examples: [HKhKmiCMrDgu9eXeE]
+oneOf:
+  - $ref: ./ScheduleActionRunActor.yaml
+  - $ref: ./ScheduleActionRunActorTask.yaml
+discriminator:
+  propertyName: type
+  mapping:
+    RUN_ACTOR: ./ScheduleActionRunActor.yaml
+    RUN_ACTOR_TASK: ./ScheduleActionRunActorTask.yaml

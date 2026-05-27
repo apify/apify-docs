@@ -32,7 +32,7 @@ If you already have your code hosted by a Git provider, you can use it to create
 
 ![Create an Actor from Git repository](./images/create-actor-git.png)
 
-You can also push your existing code from your local machine using [Apify CLI](/cli). This is useful when you develop your code locally and then you want to push it to the Apify Console to run the code as an Actor in the cloud. For this option, you'll need the [Apify CLI installed](/cli/docs/installation) on your machine. By clicking on the **Push your code using the Apify command-line interface (CLI)** button, you will be presented with instructions on how to push your code to the Apify Console.
+You can also push your existing code from your local machine using [Apify CLI](/cli). This is useful when you develop your code locally and then you want to push it to Apify Console to run the code as an Actor in the cloud. For this option, you'll need the [Apify CLI installed](/cli/docs/installation) on your machine. By clicking on the **Push your code using the Apify command-line interface (CLI)** button, you will be presented with instructions on how to push your code to Apify Console.
 
 ![Push your code using the Apify CLI](./images/create-actor-cli.png)
 
@@ -72,7 +72,7 @@ If you want to use the template locally, you can again use our [Apify CLI](/cli)
 
 :::tip Local development
 
-Creating an Actor from a template locally is a great option if you want to develop your code using your local environment and IDE and then push the final solution back to the Apify Console.
+Creating an Actor from a template locally is a great option if you want to develop your code using your local environment and IDE and then push the final solution back to Apify Console.
 
 :::
 

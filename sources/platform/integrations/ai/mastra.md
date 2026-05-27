@@ -1,28 +1,20 @@
 ---
 title: Mastra MCP integration
 sidebar_label: Mastra
-description: Learn how to build AI Agents with Mastra via Apify Actors MCP server
+description: Learn how to build AI agents with Mastra and the Apify Actors MCP server to access web scraping and automation tools from any LLM you choose.
 sidebar_position: 11
 slug: /integrations/mastra
 ---
 
-**Learn how to build AI agents with Mastra and Apify Actors MCP Server.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. It supports any LLM (e.g. GPT-4, Claude, Gemini), and you can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com). For more information, check out the [Mastra documentation](https://mastra.ai/docs).
 
-## What is Mastra
-
-[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. Supporting any LLM (e.g., GPT-4, Claude, Gemini). You can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com).
-
-:::note Explore Mastra
-
-Check out the [Mastra docs](https://mastra.ai/docs) for more information.
-
-:::
+<ThirdPartyDisclaimer />
 
 ## What is MCP server
 
-A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server exposes specific data sources or tools to agents via a standardized protocol. It acts as a bridge, connecting large language models (LLMs) to external systems like databases, APIs, or local filesystems. Built on a client-server architecture, MCP servers enable secure, real-time interaction, allowing agents to fetch context or execute actions without custom integrations. Think of it as a modular plugin system for agents, simplifying how they access and process data. Apify provides [Actors MCP Server](https://mcp.apify.com/) to expose [Apify Actors](https://docs.apify.com/platform/actors) from the [Apify Store](https://apify.com/store) as tools via the MCP protocol.
+A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server exposes specific data sources or tools to agents via a standardized protocol. It acts as a bridge, connecting large language models (LLMs) to external systems like databases, APIs, or local filesystems. Built on a client-server architecture, MCP servers enable secure, real-time interaction, allowing agents to fetch context or execute actions without custom integrations. Think of it as a modular plugin system for agents, simplifying how they access and process data. Apify provides [Actors MCP server](https://mcp.apify.com/) to expose [Apify Actors](https://docs.apify.com/platform/actors) from the [Apify Store](https://apify.com/store) as tools via the MCP protocol.
 
 ## How to use Apify with Mastra via MCP
 
@@ -39,7 +31,7 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
   npm install @mastra/core @mastra/mcp @ai-sdk/openai
   ```
 
-### Building the TikTok profile search and analysis agent
+### Build the TikTok profile search and analysis agent
 
 First, import all required packages:
 
@@ -47,6 +39,7 @@ First, import all required packages:
 import { Agent } from '@mastra/core/agent';
 import { MastraMCPClient } from '@mastra/mcp';
 import { openai } from '@ai-sdk/openai';
+
 // For Anthropic use
 // import { anthropic } from '@ai-sdk/anthropic';
 ```
@@ -124,7 +117,7 @@ await mcpClient.disconnect();
 
 :::note Use any Apify Actor
 
-Since it uses the [Apify MCP Server](https://mcp.apify.com), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by updating the startup request’s `actors` parameter.
+Since it uses the [Apify MCP server](https://mcp.apify.com), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by updating the startup request’s `actors` parameter.
 No other changes are needed in the agent code.
 
 :::
@@ -216,7 +209,7 @@ await mcpClient.disconnect();
 
 - [Apify Actors](https://docs.apify.com/platform/actors)
 - [Mastra Documentation](https://mastra.ai/docs)
-- [Apify MCP Server](https://mcp.apify.com)
+- [Apify MCP server](https://mcp.apify.com)
 - [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/)
 - [Apify Store](https://apify.com/store)
 - [What are AI Agents?](https://blog.apify.com/what-are-ai-agents/)

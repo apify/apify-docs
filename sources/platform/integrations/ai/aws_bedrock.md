@@ -1,14 +1,12 @@
 ---
 title: Amazon Bedrock integrations
 sidebar_label: Amazon Bedrock
-description: Learn how to integrate Apify with Amazon Bedrock Agents to provide web data for AI agents
+description: Learn how to integrate Apify with Amazon Bedrock Agents to supply your AI agents with real-time web data using the RAG Web Browser Actor easily.
 sidebar_position: 15
 slug: /integrations/aws_bedrock
 ---
 
-**Learn how to integrate Apify with Amazon Bedrock Agents to provide web data for AI agents.**
-
----
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 [Amazon Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that provides access to large language models (LLMs), allowing users to create and manage retrieval-augmented generative (RAG) pipelines, and create AI agents to plan and perform actions.
 AWS Bedrock supports a wide range of models from providers such as A21 Labs, Anthropic, Cohere, Meta, and Mistral AI.
@@ -17,6 +15,8 @@ These models are designed to handle complex, multistep tasks across systems, kno
 In this tutorial, we’ll demonstrate how to create and use AWS Bedrock AI agent and integrate it with Apify Actors.
 The AI agent will be configured to either answer questions from an internal LLM knowledge or to leverage the [RAG Web Browser](https://apify.com/apify/rag-web-browser) to perform internet searches for relevant information.
 This approach enables the agent to provide more comprehensive and accurate responses by combining internal knowledge with real-time data from the web.
+
+<ThirdPartyDisclaimer />
 
 ## AWS Bedrock AI agents
 
@@ -42,7 +42,7 @@ The following image illustrates the key components of an AWS Bedrock AI agent:
 
 ![AWS-Bedrock-AI-Agent](../images/aws-bedrock-ai-agent.png)
 
-### Building an Agent
+### Build an Agent
 
 To begin, open the Amazon Bedrock console and select agents from the left navigation panel.
 On the next screen, click Create agent to start building your agent.

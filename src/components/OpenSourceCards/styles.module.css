@@ -17,7 +17,7 @@
 }
 
 .headingLink::after {
-    content: " ";
+    content: ' ';
     display: block;
     background-image: url('/img/external_link_icon.svg');
     background-size: 1.5rem 1.5rem;

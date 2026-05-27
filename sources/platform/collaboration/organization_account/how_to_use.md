@@ -1,28 +1,24 @@
 ---
 title: Using the organization account
-description: Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.
+description: Learn to use and manage your organization account using Apify Console or the Apify API. View the organizations you are in and manage your memberships.
 sidebar_position: 2
 slug: /collaboration/organization-account/how-to-use
 sidebar_label: How to use
----
-
-**Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.**
-
 ---
 
 Once an account becomes an organization, you can no longer log into it. Instead, you can switch into the organization from one of its member accounts to manage account information, memberships, and Actor runs.
 
 While you can't manage an organization account via [API](/api/v2), you can still manage its runs and resources via API like you would with any other account.
 
-**[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
+**[See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
-## In the Apify Console
+## In Apify Console
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
 ![Switch to organization account](../images/organizations/switch-to-organization.png)
 
-In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it—no need to log in and out.
+In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it - no need to log in and out.
 
 The resources you can access and account details you can edit will depend on your [permissions](../list_of_permissions.md) in the organization.
 
@@ -30,7 +26,7 @@ The resources you can access and account details you can edit will depend on you
 
 ### Manage your organizations
 
-You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://console.apify.com/account#/myorganization).
+You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://console.apify.com/settings/organizations).
 
 If you want to leave an organization you own, you must first transfer ownership to someone else.
 
@@ -44,7 +40,7 @@ The organization, its Actors, and its integrations will keep running as they are
 
 While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 
-As a member of an organization, you are assigned an [API token](../../integrations/index.mdx) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
+As a member of an organization, you are assigned an [API token](../../integrations/index.mdx) (under the **API & Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
 ![Integration tokens](../images/organizations/integrations.png)
 

@@ -9,14 +9,14 @@ const PlatformLink = ({ cardItem, href, isExternalLink }) => (
         <span style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
             <span>🗒️</span>
             <span style={{ marginLeft: '0.5rem', marginRight: '0.3rem' }}>{cardItem}</span>
-            {
-                isExternalLink && (
-                    <>
-                        <span style={{ flex: 1 }}></span>
-                        <span><ExternalLinkIcon /></span>
-                    </>
-                )
-            }
+            {isExternalLink && (
+                <>
+                    <span style={{ flex: 1 }}></span>
+                    <span>
+                        <ExternalLinkIcon />
+                    </span>
+                </>
+            )}
         </span>
     </Link>
 );

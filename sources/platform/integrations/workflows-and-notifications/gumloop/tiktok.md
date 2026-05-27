@@ -1,10 +1,12 @@
 ---
 title: Gumloop - TikTok Actor integration
-description: Learn about TikTok scraper modules. Extract videos, profile data, followers, and hashtag data.
+description: Use the Gumloop TikTok node powered by Apify to extract videos, profile data, followers, and search results without managing API tokens or tasks.
 sidebar_label: TikTok
 sidebar_position: 3
 slug: /integrations/gumloop/tiktok
 ---
+
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 Get TikTok hashtag videos, profile videos, followers, video details, and search results in Gumloop.
 
@@ -12,6 +14,8 @@ Get TikTok hashtag videos, profile videos, followers, video details, and search 
 
 The Gumloop TikTok integration provides a native interface for running Apify’s TikTok scrapers directly in your workflows. No API tokens or manual polling required. All you need is a Gumloop account.
 Using the Gumloop TikTok MCP node, you can simply prompt the TikTok data you need and Gumloop will retrieve it from relevant Apify Actors. From there, you can connect it to your favorite tools and AI agents to process the information.
+
+<ThirdPartyDisclaimer />
 
 ## Available actions
 
@@ -22,10 +26,10 @@ You can pull the following types of data from TikTok using Gumloop’s TikTok no
 | Get hashtag videos | Fetch videos from TikTok hashtags with captions, engagement metrics, play counts, and author information. | 3 credits per item |
 | Get profile videos | Get videos from TikTok user profiles with video metadata, engagement stats, music info, and timestamps. | 3 credits per item |
 | Get profile followers | Retrieve followers or following lists from TikTok profiles, including usernames, follower counts, and bios. | 3 credits per item |
-| Get video details | Get comprehensive data on a specific TikTok video using its URL—includes engagement and video-level metrics. | 5 credits per item |
+| Get video details | Get comprehensive data on a specific TikTok video using its URL - includes engagement and video-level metrics. | 5 credits per item |
 | Search videos | Search TikTok for videos and users using queries. Returns video details and user profile info. | 3 credits per item |
 
-## Retrieve Tiktok Data in Gumloop
+## Retrieve TikTok data in Gumloop
 
 1. _Add the Gumloop TikTok MCP node_
 

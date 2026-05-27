@@ -1,0 +1,15 @@
+extends: existence
+message: "Avoid sales language. Use factual, specific claims instead."
+level: warning
+scope: sentence
+tokens:
+  - ultimate
+  - cutting-edge
+  - supercharge
+  - best-in-class
+  - game-changing
+  - revolutionary
+  - world-class
+  - next-generation
+  - state-of-the-art
+  - seamless

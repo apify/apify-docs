@@ -1,12 +1,8 @@
 ---
 title: Actor definition
 sidebar_position: 3
-description: Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory.
+description: Learn how to define an Actor by adding a .actor directory with actor.json, a Dockerfile, README, and input schema files to your source code.
 slug: /actors/development/actor-definition
----
-
-**Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory.**
-
 ---
 
 A single isolated Actor consists of source code and various settings. You can think of an Actor as a cloud app or service that runs on the Apify platform. The run of an Actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.

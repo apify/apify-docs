@@ -1,12 +1,8 @@
 ---
 title: Migration guide
-description: How to migrate your Actor to limited permissions. Common migration paths, code examples, and common issues.
+description: Migrate your Actor to limited permissions using the latest Apify SDK, with step-by-step migration paths, code examples, and fixes for common issues.
 sidebar_position: 9
 slug: /actors/development/permissions/migration-guide
----
-
-**Migrate your Actor to limited permissions, review common migration paths, code examples, and solutions to common issues.**
-
 ---
 
 This guide explains how to migrate your existing Actors to use [limited permissions](index.md#how-actor-permissions-work). Before you start, make sure your Actor uses the latest [Apify SDK](https://docs.apify.com/sdk).
@@ -20,11 +16,17 @@ Before you start it's helpful to understand [what access restrictions limited pe
 
 ## Test your Actor with limited permissions before migrating
 
-You can override the permission level for a single run using run options under the **Actor Source** tab in Console:
+To override the permission level for a single run:
 
-![Forcing Actor permissions for a single run.](./images/actor_run_permission_override.png)
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor you want to test.
+1. Go to the **Source** tab.
+1. Under **Run options**, use the **Actor permissions** dropdown to select **Limited permissions**.
 
-You can do the same using the Apify Client as well:
+![Forcing Actor permissions for a single run.](./images/override-actor-permission-level.svg)
+
+You can do the same using the Apify Client:
 
 ```ts
 import { ACTOR_PERMISSION_LEVEL } from '@apify/consts';
@@ -34,12 +36,11 @@ await apifyClient.actor(actorId).call(input, {
 });
 ```
 
-Or just using the API:
+Or using the API:
 
 ```tsx
  POST https://api.apify.com/v2/acts/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
 ```
-
 
 ## Common migration paths
 

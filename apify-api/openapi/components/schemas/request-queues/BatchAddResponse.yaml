@@ -6,3 +6,14 @@ type: object
 properties:
   data:
     $ref: ./BatchAddResult.yaml
+example:
+  data:
+    processedRequests:
+      - requestId: YiKoxjkaS9gjGTqhF
+        uniqueKey: "http://example.com"
+        wasAlreadyPresent: true
+        wasAlreadyHandled: false
+    unprocessedRequests:
+      - uniqueKey: http://example.com/2
+        url: http://example.com/2
+        method: GET
