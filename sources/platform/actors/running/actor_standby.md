@@ -46,7 +46,8 @@ This approach can be useful if you cannot modify the request headers.
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
     ```
 
-:::tip
+:::tip Scoped tokens
+
 You can use [scoped tokens](/platform/integrations/api#limited-permissions) to send standby requests. This is useful for allowing third-party services to interact with your Actor without granting access to your entire account.
 
 However, [restricting what an Actor can access](/platform/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) using a scoped token is not supported when running in Standby mode.
@@ -62,6 +63,12 @@ it well. Please head to the Actor README to learn more about the capabilities of
 
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
+
+## Health checks and stuck runs
+
+The platform checks a Standby run's readiness once, before marking it ready to receive requests. After that, no further health checks run for the lifetime of the run.
+
+A Standby run restarts only when its process exits or the run is migrated to a different machine. If the server stays alive but stops responding, the platform does not detect the failure. To avoid stuck runs, design your Actor to exit the process on unrecoverable errors. See the [Standby development guide](../development/programming_interface/actor_standby.md#readiness-probe) for details.
 
 ## What is the timeout for incoming requests
 
