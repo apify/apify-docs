@@ -354,7 +354,7 @@ graph LR
 
 </div>
 
-![Selecting the inbound connector](../images/camunda/modeler/select-inbound.png)
+![Selecting the inbound connector](../images/camunda/modeler/select-inbound.webp)
 
 **When to use:**
 
@@ -392,7 +392,7 @@ graph LR
 
 </div>
 
-![Selecting the Message Start Event connector](../images/camunda/modeler/message-start-event-select.png)
+![Selecting the Message Start Event connector](../images/camunda/modeler/message-start-event-select.webp)
 
 **When to use:**
 
@@ -409,7 +409,7 @@ graph LR
 | **Message ID Expression** | _(Optional)_ Expression to extract a unique ID from the webhook payload for deduplication (e.g., `=connectorData.eventData.actorRunId`). Camunda uses this ID to deduplicate messages. If a webhook with the same Message ID arrives twice, the second one is silently ignored. |
 | **Message TTL** | _(Optional)_ Time-to-live for the message in the broker as an ISO-8601 duration (e.g., `PT1H` for 1 hour) |
 
-![Configuring the Message Start Event](../images/camunda/modeler/message-start-event-config.png)
+![Configuring the Message Start Event](../images/camunda/modeler/message-start-event-config.webp)
 
 ### Intermediate Catch Event
 
@@ -443,7 +443,7 @@ graph LR
 
 </div>
 
-![Selecting the Intermediate Catch Event connector](../images/camunda/modeler/intermediate-select.png)
+![Selecting the Intermediate Catch Event connector](../images/camunda/modeler/intermediate-select.webp)
 
 **When to use:**
 
@@ -459,7 +459,7 @@ graph LR
 | **Message ID Expression** | _(Optional)_ Expression to extract a unique ID from the webhook payload for deduplication |
 | **Message TTL** | _(Optional)_ Time-to-live for the message in the broker as an ISO-8601 duration (e.g., `PT1H`) |
 
-![Configuring the Intermediate Catch Event connector](../images/camunda/modeler/intermediate-setup.png)
+![Configuring the Intermediate Catch Event connector](../images/camunda/modeler/intermediate-setup.webp)
 
 ### Boundary Event
 
@@ -515,9 +515,9 @@ graph LR
 
 **Configuration:** Same as the [Intermediate Catch Event](#intermediate-catch-event) (common inbound fields plus Correlation Keys, Message ID Expression, and Message TTL). Additionally, choose whether the boundary event is **interrupting** or **non-interrupting**.
 
-![Configuring the Boundary Event](../images/camunda/modeler/boundary-event-config.png)
+![Configuring the Boundary Event](../images/camunda/modeler/boundary-event-config.webp)
 
-![Completed boundary event flow](../images/camunda/modeler/boundary-finished-flow.png)
+![Completed boundary event flow](../images/camunda/modeler/boundary-finished-flow.webp)
 
 ## Set up your first process
 
@@ -534,23 +534,23 @@ Apify Connectors are packaged as **element templates** (JSON files defining the 
 
 1. Create a new project in your Camunda Modeler.
 
-    ![Creating a new project](../images/camunda/modeler/create-project.png)
+    ![Creating a new project](../images/camunda/modeler/create-project.webp)
 
 2. Upload the outbound connector template to your project.
 
-    ![Uploading the connector template](../images/camunda/modeler/upload-template.png)
+    ![Uploading the connector template](../images/camunda/modeler/upload-template.webp)
 
 3. **Publish** the connector template to the project.
 
-    ![Publishing the connector template](../images/camunda/modeler/publish-template.png)
+    ![Publishing the connector template](../images/camunda/modeler/publish-template.webp)
 
 4. Create a new **BPMN diagram**.
 
-    ![Creating a new BPMN diagram](../images/camunda/modeler/create-bpmn-diagram.png)
+    ![Creating a new BPMN diagram](../images/camunda/modeler/create-bpmn-diagram.webp)
 
 5. Design a process using the **Apify Connector** as a service task.
 
-    ![Designing a process using the Apify connector](../images/camunda/modeler/create-apify-bpmn-task.png)
+    ![Designing a process using the Apify connector](../images/camunda/modeler/create-apify-bpmn-task.webp)
 
 6. Set the connector input variables and run the process. For a quick smoke test, use these values:
 
@@ -564,15 +564,15 @@ Apify Connectors are packaged as **element templates** (JSON files defining the 
 
     The process should complete in approximately 30 seconds.
 
-    ![Setting the connector input variables](../images/camunda/modeler/set-inputs-and-run.png)
+    ![Setting the connector input variables](../images/camunda/modeler/set-inputs-and-run.webp)
 
 7. Find the process in **Camunda Operate**. By default, Operate shows only running processes - switch to the **Finished** filter to see completed instances.
 
-    ![Process in Operate](../images/camunda/operate/select.png)
+    ![Process in Operate](../images/camunda/operate/select.webp)
 
 8. Verify the process result in **Camunda Operate**.
 
-    ![Verifying the result in Operate](../images/camunda/operate/check-run-result.png)
+    ![Verifying the result in Operate](../images/camunda/operate/check-run-result.webp)
 
 :::note Next steps
 
@@ -625,9 +625,9 @@ For flows that start with an inbound event, use **Deploy** (without Run), then t
 
 In Web Modeler, switch to the **Play** tab and click **Start instance with cached data**. Inspect the path and variables in the **Instance History** and **Variables** panels. For details and saved scenarios, see [Play your process](https://docs.camunda.io/docs/components/modeler/web-modeler/play-your-process/) in the Camunda docs.
 
-![Play mode: completed instance with variables](../images/camunda/operate/select-finished.png)
+![Play mode: completed instance with variables](../images/camunda/operate/select-finished.webp)
 
-![Deploying the process](../images/camunda/modeler/set-inputs-and-deploy.png)
+![Deploying the process](../images/camunda/modeler/set-inputs-and-deploy.webp)
 
 ## Usage patterns
 
