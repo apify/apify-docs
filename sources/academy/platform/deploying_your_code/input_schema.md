@@ -1,15 +1,15 @@
 ---
 title: How to write Actor input schema
-description: Learn how to generate a user interface on the platform for your Actor's input with a single file - the INPUT_SCHEMA.json file.
+description: Learn to define your Actor's input UI on the Apify platform with an INPUT_SCHEMA.json file stored inside the .actor configuration directory.
 sidebar_position: 2
 slug: /deploying-your-code/input-schema
 ---
 
-**Learn how to generate a user interface on the platform for your Actor's input with a single file - the INPUT_SCHEMA.json file.**
+**Learn to define your Actor's input UI on the Apify platform with an `INPUT_SCHEMA.json` file stored inside the `.actor` configuration directory.**
 
 ---
 
-Though writing an [input schema](/actors/development/actor-definition/input-schema) for an Actor is not a required step, it's definitely an ideal one. The Apify platform will read the `INPUT_SCHEMA.json` file within the root of your project and generate a user interface for entering input into your Actor, which makes it significantly easier for non-developers (and even developers) to configure and understand the inputs your Actor can receive. Because of this, we'll be writing an input schema for our example Actor.
+Writing an [input schema](/actors/development/actor-definition/input-schema) for an Actor is optional, but recommended. The Apify platform reads input schema and generates a user interface for entering input into your Actor, which makes it easier for non-developers and developers alike to configure and understand the inputs your Actor accepts. Because of this, we'll write an input schema for our example Actor.
 
 :::note JSON requirement
 
@@ -19,7 +19,13 @@ Without an input schema, the users of our Actor will have to provide the input i
 
 ## Schema title & description {#title-and-description}
 
-In the root of our project, we'll create a file named **INPUT_SCHEMA.json** and start writing the first part of the schema.
+Inside the `.actor` directory at the root of our project, we'll create `INPUT_SCHEMA.json` and start writing the first part of the schema.
+
+:::tip Actor configuration directory
+
+Create a `.actor` directory at the root of your project. It holds your Actor's configuration: `actor.json`, `INPUT_SCHEMA.json`, `Dockerfile`, and `README.md`. See [Actor definition](/actors/development/actor-definition) for the full reference.
+
+:::
 
 ```json
 {
@@ -110,4 +116,4 @@ It's not expected to memorize all of the fields that properties can take or the 
 
 ## Next up {#next}
 
-In the [next lesson](/actors/development/actor-definition/dataset-schema), we'll learn how to generate an appealing Overview table to display our Actor's results in real time, so users can get immediate feedback about the data being extracted.
+In the [next lesson](./output_schema.md), we'll learn how to generate an appealing Overview table to display our Actor's results in real time, so users can get immediate feedback about the data being extracted.

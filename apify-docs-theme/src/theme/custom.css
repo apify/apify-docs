@@ -999,6 +999,20 @@ nav.navbar[class*='navbarHidden'] {
     transform: translate3d(0, calc(-210%), 0);
 }
 
+/* Pin the announcement bar to the top of the viewport and push the
+   navbar down so it sits below the bar instead of sliding under it.
+   The sibling selector keeps the navbar at top: 0 when there is no
+   announcement bar (e.g. production builds). */
+div[class*='announcementBar_'] {
+    position: sticky;
+    top: 0;
+    z-index: calc(var(--ifm-z-index-fixed) + 1);
+}
+
+div[class*='announcementBar_'] ~ nav.navbar {
+    top: var(--docusaurus-announcement-bar-height);
+}
+
 .navbar__items--right a.icon,
 div[class*='colorModeToggle'] {
     display: initial;

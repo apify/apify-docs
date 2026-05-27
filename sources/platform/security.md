@@ -27,11 +27,8 @@ To learn more about Apify's security practices, data protection measures, and co
 ## Security Whitepaper
 
 At Apify, security is our top priority every day. Security best practices are reflected in our development, deployment, monitoring, and project management processes.
-Read the Apify Security Whitepaper for a comprehensive description of Apify's security measures and commitments:
 
-<a href="https://apify.com/security-whitepaper.pdf" target="_blank" title="Apify Security Whitepaper">
-    <img src={require("./images/security/whitepaper-cover.png").default} width="50%" title="Apify Security Whitepaper" />
-</a>
+Read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf) for a comprehensive description of Apify's security measures and commitments.
 
 ## Vulnerability disclosure policy
 

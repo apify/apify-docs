@@ -66,7 +66,7 @@ export default function Home() {
                 align="center"
                 description={
                     <Text color={theme.color.neutral.textMuted} size="large">
-                        Learn how to put the web to work with Apify.
+                        Learn how to put the web to work.
                     </Text>
                 }
             />

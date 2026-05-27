@@ -6,6 +6,10 @@ allOf:
     required:
       - items
     properties:
+      unnamed:
+        type: boolean
+        description: Whether the listing was filtered to only unnamed request queues.
+        examples: [false]
       items:
         type: array
         description: The array of request queues.

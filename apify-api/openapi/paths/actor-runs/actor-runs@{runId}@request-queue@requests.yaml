@@ -1,4 +1,4 @@
 get:
-  $ref: "../../components/objects/request-queues/request-queue-requests.yaml#/getDefault"
+  $ref: "../../components/objects/request-queues/request-queue-requests.yaml#/listDefault"
 post:
   $ref: "../../components/objects/request-queues/request-queue-requests.yaml#/postDefault"
