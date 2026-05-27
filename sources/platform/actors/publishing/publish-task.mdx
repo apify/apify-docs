@@ -41,13 +41,13 @@ Each strong task focuses on a specific industry, location, or workflow. A user s
 
 ### Target search traffic and AI discovery
 
-Each landing page also includes a markdown (`.md`) version that LLMs can access directly, making your task discoverable through AI-powered search and AI assistants.
+Each landing page is indexed by search engines and includes a markdown (`.md`) version that LLMs can access directly, making your task discoverable through AI-powered search and AI assistants.
 
 Think of each task as a keyword-targeted landing page. Consider:
 
-- **Location-specific tasks** - "Scrape real estate listings in Austin" rather than "Scrape real estate listings".
-- **Industry-specific tasks** - "Monitor competitor pricing for electronics" rather than "Monitor competitor pricing".
-- **Workflow-specific tasks** - "Export LinkedIn company data to Google Sheets" rather than "Export LinkedIn data".
+- Location-specific tasks - "Scrape real estate listings in Austin" rather than "Scrape real estate listings".
+- Industry-specific tasks - "Monitor competitor pricing for electronics" rather than "Monitor competitor pricing".
+- Workflow-specific tasks - "Export LinkedIn company data to Google Sheets" rather than "Export LinkedIn data".
 
 The more specific the task, the less competition it has in search results and the more relevant it is to the person who finds it.
 
@@ -62,7 +62,7 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 Once your task runs reliably and produces the output you want users to see, publish it from Apify Console.
 
 1. From your task's page in Apify Console, open the **Publication** tab.
-1. Complete the three sections: **Display information**, **Input**, and **Dataset schema**.
+1. Complete the 3 sections: **Display information**, **Input**, and **Dataset schema**.
 1. Click **Publish task**.
 
 ![Publication tab on a task page](./images/public-tasks/task-publication-tab.webp)
@@ -73,22 +73,28 @@ This section controls how your task appears on the public task landing page and 
 
 There are 3 fields to fill:
 
-- **SEO task title** — shown as the heading on the landing page and as the page title in search results.
-- **SEO description** — appears under the title on the landing page and as the meta description in search results.
-- **Use case** — pick the option that best matches your task's job-to-be-done. The list is curated by Apify and offers sub-categories of the use cases supported by the parent Actor.
-
+- **SEO task title** - shown as the heading on the landing page and as the page title in search results.
+- **SEO description** - appears under the title on the landing page and as the meta description in search results.
+- **Use case** - pick the option that best matches your task's job-to-be-done. The list is curated by Apify and offers sub-categories of the use cases supported by the parent Actor.
 
 You can live preview how the fields propagate on the right (they update as you type):
 
-- **Page Preview** — how the landing page will look to visitors.
-- **SERP Preview** — how the page will appear in Google search results.
+- **Page Preview** - how the landing page will look to visitors.
+- **SERP Preview** - how the page will appear in Google search results.
 
 ![Display information section with page and SERP previews](./images/public-tasks/task-display-information.webp)
-
 
 :::tip Title format
 
 Frame the title as the user's job-to-be-done, not as a description of the Actor's mechanics. A good title combines an action, a target, and a qualifier.
+
+Good examples:
+
+- Track competitors' store locations
+- Get a local B2B leads list
+- Verify business emails from Google Maps
+
+Avoid titles like "Google Maps scraper - task 3" or "Test task" that describe the Actor instead of the user's goal.
 
 :::
 
@@ -97,7 +103,6 @@ Frame the title as the user's job-to-be-done, not as a description of the Actor'
 The Input section controls which fields from your task's input configuration appear on the public landing page. By default, every field defined in your task input is selected. Deselect any field that is not relevant to the task's use case.
 
 This control affects display only. The task itself always runs with the full input configuration, regardless of which fields are selected here.
-
 
 ![Input section with field selection](./images/public-tasks/task-input-section.webp)
 
@@ -146,7 +151,7 @@ The landing page displays the information you configured in the [Display informa
 - The selected **input fields** with their configured values, so visitors can see exactly how the task is set up.
 - A preview of the **Dataset schema fields** based on the dataset view you selected.
 - A call-to-action button that lets visitors try the task immediately.
-- There are additional sections on the landing page explaining generically **how Apify works** and **how to integrate** it.
+- Generic sections explaining how Apify works and how to integrate it.
 
 ### What happens when a visitor tries the task
 
