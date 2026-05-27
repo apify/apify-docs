@@ -1,13 +1,9 @@
 ---
 title: Standby mode
-description: Use an Actor as a real-time API server.
+description: Use Actor Standby mode to keep an Actor ready in the background and serve real-time HTTP requests without waiting for a cold start each time.
 sidebar_position: 7.3
 slug: /actors/running/standby
 sidebar_label: Standby mode
----
-
-**Use Actors in lightweight Standby mode for fast API responses.**
-
 ---
 
 Traditional Actors are designed to run a single job and then stop. They're mostly intended for batch jobs, such as when you need to perform a large scrape or data processing task.

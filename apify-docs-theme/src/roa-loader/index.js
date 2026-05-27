@@ -23,21 +23,23 @@ async function getHash(source) {
     }
 
     const memory = source.match(/playwright|puppeteer/i) ? 4096 : 1024;
-    const res = await (await fetch(signingUrl, {
-        method: 'POST',
-        body: JSON.stringify({
-            input: JSON.stringify({ code: source }),
-            options: {
-                build: 'latest',
-                contentType: 'application/json; charset=utf-8',
-                memory,
-                timeout: 180,
+    const res = await (
+        await fetch(signingUrl, {
+            method: 'POST',
+            body: JSON.stringify({
+                input: JSON.stringify({ code: source }),
+                options: {
+                    build: 'latest',
+                    contentType: 'application/json; charset=utf-8',
+                    memory,
+                    timeout: 180,
+                },
+            }),
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
             },
-        }),
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-        },
-    })).json();
+        })
+    ).json();
 
     if (!res.data || !res.data.encoded) {
         console.error(`Signing failed:' ${inspect(res.error) || 'Unknown error'}`, res);

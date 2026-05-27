@@ -31,12 +31,11 @@ function Footer() {
         <footer className={clsx(styles.footer, style)}>
             <div className={styles.container}>
                 <div className={clsx('row', styles.top)}>
-                    { links.map((column, i) => (
+                    {links.map((column, i) => (
                         <div key={i} className={`col col--2`}>
                             <FooterLinksColumn {...{ column }} />
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
                 <div className={clsx('row', styles.bottom)}>
                     <div className="col col--6">

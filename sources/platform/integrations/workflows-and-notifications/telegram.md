@@ -1,14 +1,12 @@
 ---
 title: Telegram integration through Zapier
 sidebar_label: Telegram
-description: Learn how to integrate your Apify Actors with Zapier.
+description: Learn how to integrate Apify Actors with Telegram through Zapier to automatically send Telegram messages with Actor run results and notifications.
 sidebar_position: 4
 slug: /integrations/telegram
 ---
 
-**Learn how to integrate your Apify Actors with Telegram through Zapier.**
-
----
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 With [Apify integration for Zapier](https://zapier.com/apps/apify/integrations), you can connect your Apify Actors to Slack, Trello, Google Sheets, Dropbox, Salesforce, and loads more.
 
@@ -19,6 +17,8 @@ You can use the Zapier integration to trigger a workflow whenever an Actor or a 
 Complementary to the following guide we've created a detailed video, that will guide you through the process of setting up your Telegram integration through Zapier.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XldEuQleq3c?si=86qbdrzWpVLoY_fr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<ThirdPartyDisclaimer />
 
 ## Connect Apify with Zapier
 
@@ -63,7 +63,7 @@ The connection configuration options open in a new tab in your browser or in a m
 
 ![Apify Zapier connection](../images/zapier-new-connection.png)
 
-In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > Integrations**.
+In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > API & Integrations**.
 
 ![Integrations token](../images/apify-integrations-token.png)
 
@@ -73,7 +73,7 @@ The connection is now created and the configuration form closed.
 
 ## Connect Telegram bot with Zapier
 
-### Step 1: Create & connect new bot on Telegram
+### Step 1: Create and connect new bot on Telegram
 
 After setting up Apify as your trigger within Zapier, it's time to set up Telegram as the action that will occur based on the trigger.
 
@@ -100,7 +100,6 @@ The best way to do it's to:
 1. Issue the `/newbot` command in conversation with it and follow the instructions, until you get your HTTP API token.
 
     ![BotFather conversation with new HTTP API token](../images/botfather-HTTP-API-blurred.png)
-
 
 ### Step 2: Create action for your new Telegram bot
 

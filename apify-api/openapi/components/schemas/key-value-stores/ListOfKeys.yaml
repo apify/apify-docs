@@ -18,11 +18,11 @@ properties:
     type: integer
     examples: [2]
   exclusiveStartKey:
-    type: string
+    type: [string, "null"]
     examples: [some-key]
   isTruncated:
     type: boolean
     examples: [true]
   nextExclusiveStartKey:
-    type: string
+    type: [string, "null"]
     examples: [third-key]

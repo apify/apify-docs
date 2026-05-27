@@ -5,15 +5,15 @@ category: build-and-publish
 slug: /actor-marketing-playbook/store-basics/how-to-build-actors
 ---
 
-At Apify, we try to make building web scraping and automation straightforward. You can customize our universal scrapers with JavaScript for quick tweaks, use our code templates for rapid setup in JavaScript, TypeScript, or Python, or build from scratch using our JavaScript and Python SDKs or Crawlee libraries for Node.js and Python for ultimate flexibility and control. This guide offers a quick overview of our tools to help you find the right fit for your needs.
+At Apify, we try to make building web scraping and automation straightforward. You can customize the universal scrapers with JavaScript for quick tweaks, use code templates for rapid setup in JavaScript, TypeScript, or Python, or build from scratch using the JavaScript and Python SDKs or Crawlee libraries for Node.js and Python for full flexibility and control. This guide offers a quick overview of the tools to help you find the right fit for your needs.
 
 ## Three ways to build Actors
 
-1. [Our universal scrapers](https://apify.com/scrapers/universal-web-scrapers) — customize our boilerplate tools to your needs with a bit of JavaScript and setup.
-2. [Our code templates](https://apify.com/templates) for web scraping projects — for a quick project setup to save you development time (includes JavaScript, TypeScript, and Python templates).
-3. Open-source libraries and SDKs
-    1. [JavaScript SDK](https://docs.apify.com/sdk/js/) & [Python SDK](https://docs.apify.com/sdk/python/) — for creating your own solution from scratch on the Apify platform using our free development kits. Involves more coding but offers infinite flexibility.
-    2. [Crawlee](https://crawlee.dev/) and [Crawlee for Python](https://crawlee.dev/python) — for creating your own solutions from scratch using our free web automation libraries. Involves even more coding but offers infinite flexibility. There’s also no need to host these on the platform.
+1. [Universal scrapers](https://apify.com/scrapers/universal-web-scrapers) - customize the boilerplate tools to your needs with a bit of JavaScript and setup.
+1. [Code templates](https://apify.com/templates) for web scraping projects - for a quick project setup to save you development time (includes JavaScript, TypeScript, and Python templates).
+1. Open-source libraries and SDKs
+    1. [JavaScript SDK](https://docs.apify.com/sdk/js/) and [Python SDK](https://docs.apify.com/sdk/python/) - for creating your own solution from scratch on the Apify platform using the free development kits. Involves more coding but offers infinite flexibility.
+    1. [Crawlee](https://crawlee.dev/) and [Crawlee for Python](https://crawlee.dev/python) - for creating your own solutions from scratch using the free web automation libraries. Involves even more coding but offers infinite flexibility. There’s also no need to host these on the platform.
 
 ## Universal scrapers & what are they for
 
@@ -133,9 +133,9 @@ While these tools are distinct, they can be combined. For example, you can use C
 
 Basically, the choice here depends on how much flexibility you need and how much coding you're willing to do. More flexibility → more coding.
 
-[Universal scrapers](https://apify.com/scrapers/universal-web-scrapers) are simple to set up but are less flexible and configurable. Our [libraries](https://crawlee.dev/), on the other hand, enable the development of a standard [Node.js](https://nodejs.org/) or Python application, so be prepared to write a little more code. The reward for that is almost infinite flexibility.
+[Universal scrapers](https://apify.com/scrapers/universal-web-scrapers) are simple to set up but are less flexible and configurable. The [Crawlee libraries](https://crawlee.dev/), on the other hand, enable the development of a standard [Node.js](https://nodejs.org/) or Python application, so be prepared to write a little more code. The reward for that is almost infinite flexibility.
 
-[Code templates](https://apify.com/templates) are sort of a middle ground between scrapers and libraries. But since they are built on libraries, they are still on the rather more coding than less coding side. They will only give you a starter code to begin with. Please take this into account when choosing the way to build your scraper, and if in doubt — just ask us, and we'll help you out.
+[Code templates](https://apify.com/templates) are sort of a middle ground between scrapers and libraries. But since they are built on libraries, they are still on the rather more coding than less coding side. They will only give you a starter code to begin with. Please take this into account when choosing the way to build your scraper, and if in doubt - just ask us, and we'll help you out.
 
 ## Switching sides: How to transfer an existing solution from another platform
 
@@ -157,7 +157,7 @@ To use SuperScraper API, you can deploy it with an Apify API token and access it
 
 - [How to integrate Scrapy projects](https://docs.apify.com/cli/docs/integrating-scrapy)
 - Scrapy monitoring: how to [manage your Scrapy spider on Apify](https://blog.apify.com/scrapy-monitoring-spidermon/)
-- Run ScrapingBee, ScraperAPI, and ScrapingAnt on Apify — [SuperScraper API Tutorial](https://www.youtube.com/watch?v=YKs-I-2K1Rg)
+- Run ScrapingBee, ScraperAPI, and ScrapingAnt on Apify - [SuperScraper API Tutorial](https://www.youtube.com/watch?v=YKs-I-2K1Rg)
 
 ## General resources
 

@@ -1,41 +1,58 @@
 ---
 title: Runs and builds
-description: Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.
+description: Learn about Actor builds and runs, including their lifecycle, version tagging, storage assignment, sharing options, and data retention policy.
 sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---
 
-**Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.**
-
----
+An Actor is a combination of source code and various settings in a Docker container. To run, it must be built first.
 
 ## Builds
 
-An Actor is a combination of source code and various settings in a Docker container. To run, it needs to be built. An Actor build consists of the source code built as a Docker image, making the Actor ready to run on the Apify platform.
+An Actor build consists of the source code built as a Docker image, making the Actor ready to run on the Apify platform.
 
-:::info What is Docker image?
-A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. For more information visit Docker's [site](https://www.docker.com/resources/what-container/).
-:::
+<details>
+<summary>What is a Docker image?</summary>
 
-With every new version of an Actor, a new build is created. Each Actor build has its number (for example, **1.2.34**), and some builds are tagged for easier use (for example, _latest_ or _beta_). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options. To change which build a tag refers to, you can reassign it using the [Actor update](/api/v2/act-put) API endpoint.
+A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. For details, see [Docker's website](https://www.docker.com/resources/what-container/).
 
-![Actor run options](./images/runs_and_builds/actor-run-options.png)
+</details>
 
-Each build may have different features, input, or output. By fixing the build to an exact version, you can ensure that you won't be affected by a breaking change in a new Actor version. However, you will lose updates.
+When running an Actor, you can choose what build to run by selecting a tag or number in the run options.
+
+![Actor run options](./images/actor-run-options.svg)
+
+### Build numbers
+
+With every new version of an Actor, a new build is created. Each Actor build has its number. For example, **1.2.34**.
+
+Each build might have different features, input, or output. By fixing the build to an exact version, you make sure that you won't be affected by a breaking change in a new Actor version. However, you will lose updates.
+
+### Build tags
+
+On top of the number, some builds are also tagged. For example, _latest_ or _beta_.
+
+Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/act-put) API endpoint.
 
 ## Runs
 
-When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [Usage and resources](./usage_and_resources.md).
+When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources, such as CPU, memory, and disk space. For details, see [Usage and resources](./usage_and_resources.md).
 
-Each run has its own (default) [storages](../../storage) assigned, which it may but not necessarily need to use:
+Each run has its own default [storages](../../storage) assigned, which it might use:
 
 - [Key-value store](../../storage/key-value-store) containing the input and enabling Actor to store other files.
 - [Dataset](../../storage/dataset) enabling Actor to store the results.
 - [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed.
 
-What's happening inside of an Actor is visible on the Actor run log in the Actor run detail:
+### View run logs
 
-![Actor run](./images/runs_and_builds/actor-run-detail.png)
+To view what's happening while the Actor is running:
+
+1. In Apify Console, go to the Actor's page.
+1. In the **Runs** tab, select the run you want to inspect.
+1. Select the **Log** tab.
+
+![Actor run details](./images/actor-run-details.svg)
 
 ### Origin
 
@@ -88,9 +105,8 @@ flowchart LR
 | FAILED     | terminal     | Run failed                                  |
 | TIMING-OUT | transitional | Timing out now                              |
 | TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by the user                       |
-| ABORTED    | terminal     | Aborted by the user                             |
-
+| ABORTING   | transitional | Being aborted by the user                   |
+| ABORTED    | terminal     | Aborted by the user                         |
 
 ### Aborting runs
 
@@ -127,6 +143,6 @@ Apify securely stores your ten most recent runs indefinitely, ensuring your reco
 
 **Actor builds** are deleted only when they are _not tagged_ and have not been used for over 90 days.
 
-## Sharing
+## Share
 
 Share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.

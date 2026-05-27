@@ -1,29 +1,20 @@
 ---
 title: 🔺 Vercel AI SDK integration
 sidebar_label: Vercel AI SDK
-description: Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK 🔺.
+description: Learn how to integrate Apify Actors as tools for AI agents built with Vercel AI SDK to access real-time web data in your TypeScript applications.
 sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
 ---
 
-**Learn how to integrate Apify Actors as tools for AI with Vercel AI SDK.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+[Vercel AI SDK](https://ai-sdk.dev/) is a TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more. For more details, check out the [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
 
-## What is the Vercel AI SDK
-
-[Vercel AI SDK](https://ai-sdk.dev/) is the TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more.
-
-:::note Explore Vercel AI SDK
-
-For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with Vercel AI SDK
 
 Apify is a marketplace of ready-to-use web scraping and automation tools, AI agents, and MCP servers that you can equip your own AI with. This guide demonstrates how to use Apify tools with a simple AI agent built with Vercel AI SDK.
-
 
 ### Prerequisites
 
@@ -34,7 +25,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
     npm install @modelcontextprotocol/sdk @openrouter/ai-sdk-provider ai
     ```
 
-### Building a simple pub search AI agent using Apify Google Maps scraper
+### Build a simple pub search AI agent using Apify Google Maps scraper
 
 First, import all required packages:
 
@@ -42,6 +33,7 @@ First, import all required packages:
 import { experimental_createMCPClient as createMCPClient, generateText, stepCountIs } from 'ai';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+
 ```
 
 Connect to the Apify MCP server and get all available tools for the AI agent. You can use the [UI configurator](https://mcp.apify.com/) to select your tools visually and generate the configuration code below:
@@ -106,6 +98,6 @@ await mcpClient.close();
 - [Apify Actors](https://docs.apify.com/platform/actors)
 - [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
-- [Apify MCP Server](https://mcp.apify.com)
-- [Apify MCP Server documentation](https://docs.apify.com/platform/integrations/mcp)
+- [Apify MCP server](https://mcp.apify.com)
+- [Apify MCP server documentation](https://docs.apify.com/platform/integrations/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

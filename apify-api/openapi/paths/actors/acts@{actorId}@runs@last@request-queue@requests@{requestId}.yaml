@@ -1,0 +1,6 @@
+get:
+  $ref: "../../components/objects/request-queues/request-queue-request.yaml#/getLastRun"
+put:
+  $ref: "../../components/objects/request-queues/request-queue-request.yaml#/putLastRun"
+delete:
+  $ref: "../../components/objects/request-queues/request-queue-request.yaml#/deleteLastRun"

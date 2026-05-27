@@ -8,15 +8,11 @@ slug: /proxy/datacenter-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.**
-
----
-
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
 Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
-You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
+You can refer to the [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
 
 ## Features
 
@@ -37,7 +33,7 @@ When using Apify's datacenter proxies, you can either select a proxy group, or t
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed, etc.).
 
-For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
+For a full list of plans and number of allocated proxy servers for each plan, see the [pricing page](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
 
 ### Dedicated proxy groups
 
@@ -47,7 +43,7 @@ This feature is also useful if you have your own pool of proxy servers and still
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
 
-## Connecting to datacenter proxies
+## Connect to datacenter proxies
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
@@ -87,7 +83,6 @@ await Actor.exit();
 ```
 
 </TabItem>
-
 
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
@@ -138,7 +133,6 @@ if __name__ == '__main__':
 ```
 
 </TabItem>
-
 
 <TabItem value="gotScraping()" label="gotScraping()">
 
@@ -192,7 +186,6 @@ If the session is discarded due to the reasons above, it is assigned a new IP ad
 
 To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
-
 ### Examples using sessions
 
 <Tabs groupId="main">
@@ -223,7 +216,6 @@ await Actor.exit();
 ```
 
 </TabItem>
-
 
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
@@ -280,7 +272,6 @@ if __name__ == '__main__':
 
 </TabItem>
 
-
 <TabItem value="gotScraping()" label="gotScraping()">
 
 ```javascript
@@ -316,7 +307,7 @@ await Actor.exit();
 
 ## Examples using standard libraries and languages
 
-You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952`, `session-123`).<br/>
@@ -350,7 +341,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -377,7 +367,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="Python 2" label="Python 2">
 
 ```python
@@ -401,7 +390,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="PHP" label="PHP">
 
 ```php
@@ -420,13 +408,11 @@ if ($response) echo $response;
 
 </TabItem>
 
-
 <TabItem value="PHP (Guzzle)" label="PHP (Guzzle)">
 
 ```php
 <?php
 require 'vendor/autoload.php';
-
 
 $client = new \GuzzleHttp\Client([
     // Replace <YOUR_PROXY_PASSWORD> below with your password

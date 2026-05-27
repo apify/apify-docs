@@ -1,0 +1,98 @@
+recordKey:
+  name: recordKey
+  in: path
+  description: Key of the record.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: someKey
+
+storeId:
+  name: storeId
+  in: path
+  description: Key-value store ID or `username~store-name`.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+
+exclusiveStartKey:
+  name: exclusiveStartKey
+  in: query
+  description: All keys up to this one (including) are skipped from the result.
+  schema:
+    type: string
+    example: Ihnsp8YrvJ8102Kj
+
+limit:
+  name: limit
+  in: query
+  description: Number of keys to be returned.
+  schema:
+    type: number
+    format: int32
+    minimum: 1
+    maximum: 1000
+    default: 1000
+    example: 100
+
+collectionKeys:
+  name: collection
+  in: query
+  description: Limit the results to keys that belong to a specific collection from the key-value store schema. The key-value store need to have a schema defined for this parameter to work.
+  schema:
+    type: string
+    example: postImages
+
+prefixKeys:
+  name: prefix
+  in: query
+  description: Limit the results to keys that start with a specific prefix.
+  schema:
+    type: string
+    example: post-images-
+
+collectionRecords:
+  name: collection
+  in: query
+  description: |
+    If specified, only records belonging to a specific collection from the key-value store schema. The key-value store need to have a schema defined for this parameter to work.
+  schema:
+    type: string
+    example: my-collection
+
+prefixRecords:
+  name: prefix
+  in: query
+  description: |
+    If specified, only records whose key starts with the given prefix are included in the archive.
+  schema:
+    type: string
+    example: my-prefix/
+
+attachment:
+  name: attachment
+  in: query
+  description: |
+    If `true` or `1`, the response will be served with `Content-Disposition: attachment` header,
+    causing web browsers to offer downloading HTML records instead of displaying them.
+  required: false
+  schema:
+    type: boolean
+    example: true
+
+Content-Encoding:
+  name: Content-Encoding
+  in: header
+  description: ""
+  required: false
+  style: simple
+  schema:
+    enum:
+      - gzip
+      - deflate
+      - br
+      - identity
+    type: string

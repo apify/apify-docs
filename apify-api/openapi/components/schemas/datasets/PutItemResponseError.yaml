@@ -5,3 +5,17 @@ type: object
 properties:
   error:
     $ref: ./DatasetSchemaValidationError.yaml
+example:
+  error:
+    type: schema-validation-error
+    message: Schema validation failed
+    data:
+      invalidItems:
+        - itemPosition: 2
+          validationErrors:
+            - instancePath: /1/stringField
+              schemaPath: /items/properties/stringField/type
+              keyword: type
+              params:
+                type: string
+              message: must be string

@@ -1,22 +1,26 @@
 ---
 title: OpenAI Agents SDK integration
 sidebar_label: OpenAI Agents SDK
-description: Learn how to integrate Apify with the OpenAI Agents SDK using the Model Context Protocol to build AI agents with web data access.
+description: Learn how to integrate Apify with the OpenAI Agents SDK via the Apify MCP server to give your AI agents real-time web data and Actor access.
 sidebar_position: 13
 slug: /integrations/openai-agents
 ---
+
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 The _OpenAI Agents Python SDK_ enables you to build AI agents powered by OpenAI's language models that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 By connecting to the Apify MCP server, your agents can access Apify's extensive library of Actors to perform web scraping, data extraction, and automation tasks in real time.
 
 For more details about the OpenAI Agents SDK, refer to the [official documentation](https://openai.github.io/openai-agents-python/).
 
+<ThirdPartyDisclaimer />
+
 ## Prerequisites
 
 Before integrating Apify with OpenAI Agents SDK, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
-- _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the Apify MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the Apify MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _OpenAI API key_ - Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys). You need this to use OpenAI Agents SDK.
 - _Python packages_ - Install the required packages:
 
@@ -24,7 +28,7 @@ Before integrating Apify with OpenAI Agents SDK, you'll need:
     pip install agents openai
     ```
 
-## Building a web search agent with Apify MCP
+## Build a web search agent with Apify MCP
 
 You can connect to the Apify MCP server using streamable HTTP with Bearer token authentication. Use your Apify API token by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
 
@@ -37,7 +41,6 @@ from agents.mcp import MCPServerStreamableHttp
 
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-
 
 async def main() -> None:
     # Create MCP server connection with Bearer token
@@ -62,7 +65,6 @@ async def main() -> None:
         result = await Runner.run(agent, "Search the web and summarize recent trends in AI agents")
         print(result.final_output)
 
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
@@ -84,7 +86,7 @@ The agent may take some time (seconds or even minutes) to execute tool calls, es
 
 :::
 
-### Using specific Actors
+### Use specific Actors
 
 You can configure the Apify MCP server to expose specific Actors by including them in the URL query parameters. For example, to use an Instagram scraper:
 
@@ -133,7 +135,6 @@ from agents.mcp import MCPServerStreamableHttp
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 
-
 async def main() -> None:
     # Create MCP server connection
     async with MCPServerStreamableHttp(
@@ -157,7 +158,6 @@ async def main() -> None:
         result = await Runner.run(agent, "Search the web and summarize recent trends in AI agents")
         print(result.final_output)
 
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
@@ -175,7 +175,6 @@ from agents.mcp import MCPServerStreamableHttp
 
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-
 
 async def main() -> None:
     # Create MCP server connection with Instagram scraper
@@ -202,7 +201,6 @@ async def main() -> None:
         )
         print(result.final_output)
 
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
@@ -220,7 +218,6 @@ from agents.mcp import MCPServerStreamableHttp
 
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-
 
 async def main() -> None:
     # Connect to Apify MCP server for testing
@@ -251,7 +248,6 @@ async def main() -> None:
         )
         print(result.final_output)
 
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
@@ -262,7 +258,7 @@ For a comprehensive example with error handling and reporting, refer to the [Ope
 
 ### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **Integrations** section of the [Apify Console](https://console.apify.com/account#/integrations). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **API & Integrations** section of the [Apify Console](https://console.apify.com/settings/integrations). Without a valid token, the server cannot start Actor runs.
 - _Set environment variables_: When running your agent, ensure you have set the `APIFY_TOKEN` and `OPENAI_API_KEY` environment variables.
 
 ### Agent execution issues

@@ -1,0 +1,17 @@
+UnknownBuildTagErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: unknown-build-tag
+
+UnknownBuildTagError:
+  type: object
+  properties:
+    error:
+      $ref: "#/UnknownBuildTagErrorDetail"
+  example:
+    error:
+      type: unknown-build-tag
+      message: Build with tag "latest" was not found. Has the Actor been built already?

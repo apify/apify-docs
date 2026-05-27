@@ -1,20 +1,20 @@
 ---
 title: Zapier integration
-description: Learn how to integrate your Apify Actors with Zapier.
+description: Connect Apify Actors to Slack, Google Sheets, Salesforce, and more with Zapier. Trigger workflows when Actor or task runs finish and retrieve results.
 sidebar_label: Zapier
 sidebar_position: 1
 slug: /integrations/zapier
 ---
 
-**Learn how to integrate your Apify Actors with Zapier.**
-
----
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 With [Apify integration for Zapier](https://zapier.com/apps/apify/integrations), you can connect your Apify Actors to Slack, Trello, Google Sheets, Dropbox, Salesforce, and loads more.
 
 Your Zapier workflows can start Apify Actors or tasks, fetch items from a dataset, set and get records from key-value stores, or find Actor or task runs.
 
 You can use the Zapier integration to trigger a workflow whenever an Actor or a task finishes.
+
+<ThirdPartyDisclaimer />
 
 ## Connect Apify with Zapier
 
@@ -94,11 +94,11 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Triggers
 
-### Finished Actor Run
+### Finished Actor run
 
 > Triggers when a selected Actor run is finished.
 
-### Finished Task Run
+### Finished task run
 
 > Triggers when a selected Actor task run is finished.
 
@@ -123,15 +123,15 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Searches
 
-### Fetch Dataset Items
+### Fetch dataset items
 
 > Retrieves items from a [dataset](/platform/storage/dataset).
 
-### Find Last Actor Run
+### Find last Actor run
 
 > Finds the most recent Actor run.
 
-### Find Last Task Run
+### Find last task run
 
 > Finds the most recent Actor task run.
 

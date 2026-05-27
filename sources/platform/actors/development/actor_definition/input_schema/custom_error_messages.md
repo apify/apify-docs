@@ -1,11 +1,8 @@
 ---
 title: Custom error messages
 description: Learn how to define custom error messages for input validation in your Actor's input schema. Make validation feedback clearer and more user-friendly.
+sidebar_position: 3
 slug: /actors/development/actor-definition/input-schema/custom-error-messages
----
-
-**Learn how to define custom error messages for input validation in your Actor's input schema. Make validation feedback clearer and more user-friendly.**
-
 ---
 
 When an input fails validation against an Actor's input schema, the resulting errors are processed and displayed to the user. By default, these messages are generic and may not clearly explain what the validation rule actually means.
@@ -102,4 +99,4 @@ It's possible to define custom error messages in sub-properties as well. For obj
 
 ## Best practices
 
-Custom error messages can be useful in specific cases, but they aren't always necessary. In most situations, the default validation messages are clear enough and ensure consistency across the platform. Use custom messages only when they meaningfully improve clarity—for example, when the default message would expose an unreadable regular expression or fail to explain a non-obvious requirement.
+Custom error messages can be useful in specific cases, but they aren't always necessary. In most situations, the default validation messages are clear enough and ensure consistency across the platform. Use custom messages only when they meaningfully improve clarity - for example, when the default message would expose an unreadable regular expression or fail to explain a non-obvious requirement.

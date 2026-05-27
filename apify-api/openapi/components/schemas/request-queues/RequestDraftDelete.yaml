@@ -1,0 +1,5 @@
+title: RequestDraftDelete
+description: A request that should be deleted.
+anyOf:
+  - $ref: ./RequestDraftDeleteById.yaml
+  - $ref: ./RequestDraftDeleteByUniqueKey.yaml

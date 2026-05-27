@@ -1,14 +1,16 @@
 ---
 title: Google Drive integration
-description: Learn how to integrate Apify with Google Drive
+description: Automatically save Apify Actor run results to Google Drive. Set up the integration on your task to upload files to your Drive after each successful run.
 sidebar_label: Google Drive
 sidebar_position: 3
 slug: /integrations/drive
 ---
 
-**Learn how to integrate your Apify Actors with Google Drive. This article shows you how to automatically save results to your drive when an Actor run succeeds.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+Save Apify Actor run results directly to Google Drive. Set up the integration on your task to automatically upload files after each successful run.
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 
@@ -20,7 +22,7 @@ To use the Apify integration for Google Drive, you will need:
 
 ## Set up Google Drive integration
 
-1. Head over to **Integrations** tab in your saved task and click on the **Upload file** integration.
+1. Head over to **Integrations** tab in your saved task and click on the **Upload results to GDrive** integration.
 
     ![Google Drive integration](../images/google/google-integrations-add.png)
 

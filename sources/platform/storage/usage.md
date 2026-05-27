@@ -1,16 +1,12 @@
 ---
 title: Storage usage
-description: Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.
+description: "Learn how to use Apify storage options: datasets, key-value stores, and request queues. Covers data retention, rate limiting, and secure sharing."
 sidebar_position: 9.1
 category: platform
 slug: /storage/usage
 ---
 
 import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
-
-**Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.**
-
----
 
 ## Dataset
 
@@ -23,7 +19,6 @@ import StoragePricingCalculator from "@site/src/components/StoragePricingCalcula
 The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
 
 ![Key-value store graphic](../images/key-value-overview.svg)
-
 
 ## Request queue
 
@@ -55,7 +50,7 @@ Additionally, you can quickly share the contents and details of your storage by 
 ![Storage API](./images/overview-api.png)
 
 <!-- vale Microsoft.Dashes = NO -->
-These URLs link to API _endpoints_—the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
+These URLs link to API _endpoints_ - the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
 <!-- vale Microsoft.Dashes = YES -->
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
@@ -73,15 +68,15 @@ In most cases, when accessing your storages via API, you will need to provide a 
 
 For read (GET) requests, it is enough to use a store's alphanumerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
-With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
+With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#authentication) header or as a query parameter. You can find your token on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-datasets).
 
-### Apify API Clients
+### Apify API clients
 
-The Apify API Clients allow you to access your datasets from any Node.js or Python application, whether it's running on the Apify platform or externally.
+The Apify API clients allow you to access your datasets from any Node.js or Python application, whether it's running on the Apify platform or externally.
 
-You can visit [API Clients](/api) documentations for more information.
+You can visit [API clients](/api) documentations for more information.
 
 ### Apify SDKs
 
@@ -131,17 +126,32 @@ Go to the [API documentation](/api/v2#rate-limiting) for details and to learn wh
 
 ## Data retention
 
-Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. Unnamed datasets and runs beyond the latest ten will be automatically deleted after 7 days unless otherwise specified. Named datasets are retained indefinitely.
+On the free plan, Apify stores the ten most recent runs for a maximum of 4 months. On paid plans, the retention period of the plan applies. Unnamed storages and runs beyond the latest ten will be automatically deleted according to these retention periods. Named storages are retained indefinitely.
 
-### Preserving your storages
 
-To ensure indefinite retention of your storages, assign them a name. This can be done via Apify Console or through our API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
+:::info How retention periods are enforced
 
-![Finding your store's ID](./images/find-store-id.png)
+* Free plan: Your 10 most recent runs are retained for 4 months.
+* Paid plans: All data (including your 10 most recent runs) follows your plan's retention period, which you can configure in your billing settings.
+* Named storages: Always exempt from deletion regardless of retention periods.
 
-Find and open your storage by clicking the ID, click on the **Actions** menu, choose **Rename**, and enter its new name in the field. Your storage will now be preserved indefinitely.
+Unnamed storages beyond the 10 most recent runs are deleted when the retention period expires.
+:::
 
-To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2/actor-run-get) endpoint. You can then give it a new name using the `Update \[storage\]` endpoint. For example, [Update dataset](/api/v2/dataset-put).
+### Preserve your storages
+
+To ensure indefinite retention of selected storages, assign them a name. This can be done via Apify Console or through our API.
+
+1. In [Apify Console](https://console.apify.com), head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.
+1. Check that store's details to find its ID:
+
+   ![Finding your store's ID](./images/find-store-id.png)
+
+1. Click the ID to open the storage details.
+1. Click on the **Actions** menu and choose **Rename**.
+1. Enter a new name in the field. Your storage will now be preserved indefinitely.
+
+To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2/actor-run-get) endpoint. You can then give it a new name using the `Update [storage]` endpoint. For example, [Update dataset](/api/v2/dataset-put).
 
 Our SDKs and clients each have unique naming conventions for storages. For more information check out documentation:
 
@@ -150,15 +160,15 @@ Our SDKs and clients each have unique naming conventions for storages. For more 
 
 ## Named and unnamed storages
 
-The default storages for an Actor run are unnamed, identified only by an _ID_. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
+The default storages for an Actor run are unnamed, identified only by an _ID_. On the free plan, they expire after 4 months. On paid plans, they expire based on your plan's retention period. Naming a storage ensures indefinite retention regardless of plan.
 
-> Storages' names can be up to 63 characters long.
+Storages' names can be up to 63 characters long.
 
 Named and unnamed storages are identical in all aspects except for their retention period. The key advantage of named storages is their ease in identifying and verifying the correct store.
 
 For example, storage names `janedoe~my-storage-1` and `janedoe~web-scrape-results` are easier to tell apart than the alphanumerical IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`.
 
-## Sharing
+## Share
 
 You can grant [access rights](../collaboration/index.md) to other Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md).
 
@@ -172,7 +182,7 @@ If your storage resource is set to _restricted_, all API calls must include a va
 
 :::
 
-### Sharing storages between runs
+### Share storages between runs
 
 Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
@@ -190,7 +200,7 @@ Learn how restricted access works in [General resource access](/platform/collabo
 
 :::
 
-## Deleting storages
+## Delete storages
 
 Named storages are only removed upon your request.<br/>
 You can delete storages in the following ways:

@@ -7,10 +7,5 @@ import styles from './styles.module.css';
 // alert classes?
 const InfimaClasses = 'alert alert--info';
 export default function Details({ ...props }) {
-    return (
-        <DetailsGeneric
-            {...props}
-            className={clsx(InfimaClasses, styles.details, props.className)}
-        />
-    );
+    return <DetailsGeneric {...props} className={clsx(InfimaClasses, styles.details, props.className)} />;
 }

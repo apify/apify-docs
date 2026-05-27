@@ -8,10 +8,6 @@ slug: /proxy/google-serp-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to collect search results from Google Search-powered tools. Get search results from localized domains in multiple countries, e.g. the US and Germany.**
-
----
-
 Google SERP proxy allows you to extract search results from Google Search-powered services. It allows searching in [various countries](#country-selection) and to dynamically switch between country domains.
 
 Our Google SERP proxy currently supports the below services.
@@ -24,7 +20,7 @@ Our Google SERP proxy currently supports the below services.
 
 When using the proxy, **pricing is based on the number of requests made**.
 
-## Connecting to Google SERP proxy
+## Connect to Google SERP proxy
 
 Requests made through the proxy are automatically routed through a proxy server from the selected country and pure **HTML code of the search result page is returned**.
 
@@ -53,7 +49,6 @@ You must use the correct Google domain to get results for your desired country c
 For example:
 
 * Search results from the USA: `http://www.google.com/search?q=<query>`
-
 
 * Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
 
@@ -93,7 +88,7 @@ To retrieve more than 10 results, use the `numPages` parameter described before 
 
 ## Examples
 
-### Using the Apify SDK
+### Use the Apify SDK
 
 If you are developing your own Apify [Actor](../actors/index.mdx) using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [npm package](https://www.npmjs.com/package/got-scraping) by specifying the proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with the Apify SDK.
 
@@ -177,7 +172,7 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-### Using standard libraries and languages
+### Use standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of Apify Console.
 
@@ -218,7 +213,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -241,7 +235,6 @@ print(opener.open(f"http://www.google.com/search?{query}").read())
 ```
 
 </TabItem>
-
 
 <TabItem value="Python 2" label="Python 2">
 
@@ -269,7 +262,6 @@ print(opener.open(url).read())
 ```
 
 </TabItem>
-
 
 <TabItem value="PHP" label="PHP">
 

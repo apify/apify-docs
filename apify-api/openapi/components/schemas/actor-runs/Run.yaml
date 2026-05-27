@@ -97,8 +97,43 @@ properties:
     type: string
     examples: [FL35cSF7jrxr3BY39]
     description: ID of the default request queue for this run.
+  storageIds:
+    type: object
+    description: A map of aliased storage IDs associated with this run, grouped by storage type.
+    properties:
+      datasets:
+        type: object
+        description: Aliased dataset IDs for this run.
+        properties:
+          default:
+            type: string
+            description: ID of the default dataset for this run.
+            example: wmKPijuyDnPZAPRMk
+        additionalProperties:
+          type: string
+      keyValueStores:
+        type: object
+        description: Aliased key-value store IDs for this run.
+        properties:
+          default:
+            type: string
+            description: ID of the default key-value store for this run.
+            example: eJNzqsbPiopwJcgGQ
+        additionalProperties:
+          type: string
+      requestQueues:
+        type: object
+        description: Aliased request queue IDs for this run.
+        properties:
+          default:
+            type: string
+            description: ID of the default request queue for this run.
+            example: FL35cSF7jrxr3BY39
+        additionalProperties:
+          type: string
   buildNumber:
-    type: string
+    type: [string, "null"]
+    pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])(\.[1-9][0-9]{0,4})$
     examples: [0.0.36]
     description: Build number of the Actor build used for this run.
   containerUrl:
@@ -126,12 +161,13 @@ properties:
       Total cost in USD for this run. Represents what you actually pay.
       For run owners: includes platform usage (compute units) and/or event costs depending on the Actor's pricing model.
       For run non-owners: only available for Pay-Per-Event Actors (event costs only).
-      Not available for Pay-Per-Result Actors when you're not the Actor owner.
+      Requires authentication token to access.
   usageUsd:
     description: >-
       Platform usage costs breakdown in USD. Only present if you own the run AND are paying for platform usage
       (Pay-Per-Usage, Rental, or Pay-Per-Event with usage costs like standby Actors).
-      Not available for standard Pay-Per-Event Actors or Pay-Per-Result Actors owned by others.
+      Not available for standard Pay-Per-Event Actors.
+      Requires authentication token to access.
     anyOf:
       - $ref: ./RunUsageUsd.yaml
       - type: "null"
@@ -142,3 +178,7 @@ properties:
         items:
           $ref: ./Metamorph.yaml
       - type: "null"
+  platformUsageBillingModel:
+    type: string
+    description: Indicates which party covers platform usage costs for this run.
+    examples: [USER]

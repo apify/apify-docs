@@ -2,12 +2,8 @@
 title: Local Actor development
 sidebar_label: Local development
 sidebar_position: 1
-description: Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.
+description: Create your first Actor locally using the Apify CLI, configure its input and storage, then deploy it to the Apify platform to run in the cloud.
 slug: /actors/development/quick-start/locally
----
-
-**Create your first Actor locally on your machine, deploy it to the Apify platform, and run it in the cloud.**
-
 ---
 
 import PromptButton from "@site/src/components/PromptButton";
@@ -26,7 +22,7 @@ This guide walks you through the full lifecycle of an Actor. You'll start by cre
 
 ### Step 1: Create your Actor
 
-Use Apify CLI to create a new Actor:
+Use the Apify CLI to create a new Actor:
 
 ```bash
 apify create
@@ -81,7 +77,6 @@ In the next step, we’ll explore the results in more detail.
 Let's explore the Actor structure.
 <!-- vale Apify.Capitalization = NO -->
 #### The `.actor` folder
-
 
 The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
 <!-- vale Apify.Capitalization = YES -->
@@ -143,7 +138,7 @@ Let's now deploy your Actor to the Apify platform, where you can run the Actor o
     apify push
     ```
 
-### Step 5: It's Time to Iterate!
+### Step 5: It's time to iterate!
 
 Good job! 🎉 You're ready to develop your Actor. You can make changes to your Actor and implement your use case.
 

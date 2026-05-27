@@ -1,24 +1,16 @@
 ---
 title: 🤖🚀 CrewAI integration
 sidebar_label: CrewAI
-description: Learn how to build AI Agents with Apify and CrewAI 🤖🚀.
+description: Learn how to integrate Apify Actors with CrewAI to equip multi-agent AI crews with real-time web scraping and data extraction capabilities now.
 sidebar_position: 3
 slug: /integrations/crewai
 ---
 
-**Learn how to build AI Agents with Apify and CrewAI.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+[CrewAI](https://www.crewai.com/) is an open-source Python framework designed to orchestrate autonomous, role-playing AI agents that collaborate as a "crew" to tackle complex tasks. It enables developers to define agents with specific roles, assign tasks, and integrate tools - like Apify Actors - for real-world data retrieval and automation. For more details, check out the [CrewAI documentation](https://docs.crewai.com/).
 
-## What is CrewAI
-
-[CrewAI](https://www.crewai.com/) is an open-source Python framework designed to orchestrate autonomous, role-playing AI agents that collaborate as a "crew" to tackle complex tasks. It enables developers to define agents with specific roles, assign tasks, and integrate tools—like Apify Actors—for real-world data retrieval and automation.
-
-:::note Explore CrewAI
-
-For more in-depth details on CrewAI, check out its [official documentation](https://docs.crewai.com/).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with CrewAI
 
@@ -34,12 +26,13 @@ This guide demonstrates how to integrate Apify Actors with CrewAI by building a 
     pip install 'crewai[tools]' langchain-apify langchain-openai
     ```
 
-### Building the TikTok profile search and analysis crew
+### Build the TikTok profile search and analysis crew
 
 First, import all required packages:
 
 ```python
 import os
+
 from crewai import Agent, Task, Crew
 from crewai_tools import ApifyActorsTool
 from langchain_openai import ChatOpenAI

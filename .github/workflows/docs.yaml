@@ -18,29 +18,23 @@ jobs:
 
         steps:
             -   uses: actions/checkout@v6
-            -   name: Use Node.js 22
+            -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
-                run: |
-                    corepack enable
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   name: Build docs
                 run: |
-                    npm ci --force
-                    npm run build
+                    pnpm build
                 env:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                     INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
             -   name: Set up GitHub Pages
-                uses: actions/configure-pages@v5
+                uses: actions/configure-pages@v6
 
             -   name: Upload GitHub Pages artifact
                 uses: actions/upload-pages-artifact@v4
@@ -48,7 +42,7 @@ jobs:
                     path: ./build
 
             -   name: Deploy artifact to GitHub Pages
-                uses: actions/deploy-pages@v4
+                uses: actions/deploy-pages@v5
 
             -   name: Invalidate CloudFront cache
                 run: |

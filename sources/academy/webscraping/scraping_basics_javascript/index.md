@@ -29,7 +29,7 @@ In this course we'll use JavaScript to create an application for watching prices
 - Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
-## Who this course is for
+## Who is this course for
 
 Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of other web technologies or scraping.
 
@@ -56,7 +56,7 @@ Scrapers are programs specifically designed to mine data from the internet. Poin
 
 ### Why become a scraper dev
 
-As a scraper developer, you are not limited by whether certain data is available programmatically through an official API—the entire web becomes your API! Here are some things you can do if you understand scraping:
+As a scraper developer, you are not limited by whether certain data is available programmatically through an official API - the entire web becomes your API! Here are some things you can do if you understand scraping:
 
 - Improve your productivity by building personal tools, such as your own real estate or rare sneakers watchdog.
 - Companies can hire you to build custom scrapers mining data important for their business.

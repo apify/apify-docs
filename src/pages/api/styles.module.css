@@ -4,7 +4,7 @@
         line-height: 3.2rem;
     }
 
-    h2+div {
+    h2 + div {
         font-size: 1.6rem;
         line-height: 2.4rem;
     }

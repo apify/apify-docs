@@ -6,96 +6,28 @@ get:
     This is not a single endpoint, but an entire group of endpoints that lets
     you retrieve the run or any of its default storages.
 
-    The endpoints accept the same HTTP methods and query parameters as
-    the respective storage endpoints.
+    ##### Convenience endpoints for Actor run default storages
 
-    The base path that represents the Actor run object is:
+    * [Dataset](/api/v2/default-dataset)
 
-    `/v2/actor-runs/{runId}{?token}`
+    * [Key-value store](/api/v2/default-key-value-store)
 
-    In order to access the default storages of the Actor run, i.e. log,
-    key-value store, dataset and request queue, use the following endpoints:
-
-    * `/v2/actor-runs/{runId}/log{?token}`
-    * `/v2/actor-runs/{runId}/key-value-store{?token}`
-    * `/v2/actor-runs/{runId}/dataset{?token}`
-    * `/v2/actor-runs/{runId}/request-queue{?token}`
-
-    These API endpoints have the same usage as the equivalent storage endpoints.
-
-    For example, `/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and
-    parameters as the [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
-
-    Additionally, each of the above API endpoints supports all sub-endpoints
-    of the original one:
-
-    #### Log
-
-    * `/v2/actor-runs/{runId}/log` [Log](#/reference/logs)
-
-    #### Key-value store
-
-    * `/v2/actor-runs/{runId}/key-value-store/keys{?token}` [Key
-    collection](#/reference/key-value-stores/key-collection)
-    * `/v2/actor-runs/{runId}/key-value-store/records/{recordKey}{?token}`
-    [Record](#/reference/key-value-stores/record)
-
-    #### Dataset
-
-    * `/v2/actor-runs/{runId}/dataset/items{?token}` [Item
-    collection](#/reference/datasets/item-collection)
-
-    #### Request queue
-
-    * `/v2/actor-runs/{runId}/request-queue/requests{?token}` [Request
-    collection](#/reference/request-queues/request-collection)
-    * `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}`
-    [Request collection](#/reference/request-queues/request)
-    * `/v2/actor-runs/{runId}/request-queue/head{?token}` [Queue
-    head](#/reference/request-queues/queue-head)
-
-    For example, to download data from a dataset of the Actor run in XML format,
-    send HTTP GET request to the following URL:
-
-    ```
-    https://api.apify.com/v2/actor-runs/{runId}/dataset/items?format=xml
-    ```
-
-    In order to save new items to the dataset, send HTTP POST request with JSON
-    payload to the same URL.
+    * [Request queue](/api/v2/default-request-queue)
 
     Gets an object that contains all the details about a
     specific run of an Actor.
 
     By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait
     for the run to finish. This is useful to avoid periodic polling when waiting for Actor run to complete.
+    Note that the first response after completion can still show preliminary `stats`, costs, and event counts.
+    For stable figures, wait about 10 seconds and call the endpoint again.
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the run. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
   operationId: actorRun_get
   parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
-    - name: waitForFinish
-      in: query
-      description: |
-        The maximum number of seconds the server waits for the run to finish. By
-        default it is `0`, the maximum value is `60`. <!--
-        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-        If the run finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
-        otherwise it will have a transitional status (e.g. `RUNNING`).
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 60
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":
       description: ""
@@ -105,82 +37,18 @@ get:
           schema:
             allOf:
               - $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          example:
-            data:
-              id: HG7ML7M8z78YcAPEB
-              actId: HDSasDasz78YcAPEB
-              userId: 7sT5jcggjjA9fNcxF
-              actorTaskId: KJHSKHausidyaJKHs
-              startedAt: "2019-11-30T07:34:24.202Z"
-              finishedAt: "2019-12-12T09:30:12.202Z"
-              status: RUNNING
-              statusMessage: Actor is running
-              isStatusMessageTerminal: false
-              meta:
-                origin: WEB
-                clientIp: 172.234.12.34
-                userAgent: Mozilla/5.0 (iPad)
-              stats:
-                inputBodyLen: 240
-                migrationCount: 0
-                restartCount: 0
-                resurrectCount: 2
-                memAvgBytes: 267874071.9
-                memMaxBytes: 404713472
-                memCurrentBytes: 0
-                cpuAvgUsage: 33.75321011075384
-                cpuMaxUsage: 169.65073553494125
-                cpuCurrentUsage: 0
-                netRxBytes: 103508042
-                netTxBytes: 4854600
-                durationMillis: 248472
-                runTimeSecs: 248.472
-                metamorph: 0
-                computeUnits: 0.13804
-              options:
-                build: latest
-                timeoutSecs: 300
-                memoryMbytes: 1024
-                diskMbytes: 2048
-              buildId: 7sT5jcggjjA9fNcxF
-              exitCode: 0
-              generalAccess: RESTRICTED
-              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
-              defaultDatasetId: wmKPijuyDnPZAPRMk
-              defaultRequestQueueId: FL35cSF7jrxr3BY39
-              buildNumber: 0.0.36
-              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
-              isContainerServerReady: true
-              gitBranchName: master
-              usage:
-                ACTOR_COMPUTE_UNITS: 3
-                DATASET_READS: 4
-                DATASET_WRITES: 4
-                KEY_VALUE_STORE_READS: 5
-                KEY_VALUE_STORE_WRITES: 3
-                KEY_VALUE_STORE_LISTS: 5
-                REQUEST_QUEUE_READS: 2
-                REQUEST_QUEUE_WRITES: 1
-                DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES: 3
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
-                PROXY_SERPS: 3
-              usageTotalUsd: 0.2654
-              usageUsd:
-                ACTOR_COMPUTE_UNITS: 0.072
-                DATASET_READS: 0.0004
-                DATASET_WRITES: 0.0002
-                KEY_VALUE_STORE_READS: 0.0006
-                KEY_VALUE_STORE_WRITES: 0.002
-                KEY_VALUE_STORE_LISTS: 0.004
-                REQUEST_QUEUE_READS: 0.005
-                REQUEST_QUEUE_WRITES: 0.02
-                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES: 0.0002
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
-                PROXY_SERPS: 0.0006
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
@@ -217,14 +85,7 @@ put:
     When a run is accessible anonymously, all of the run's default storages and logs also become accessible anonymously.
   operationId: actorRun_put
   parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
   requestBody:
     description: ""
     content:
@@ -249,82 +110,22 @@ put:
         application/json:
           schema:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
-          example:
-            data:
-              id: HG7ML7M8z78YcAPEB
-              actId: HDSasDasz78YcAPEB
-              userId: 7sT5jcggjjA9fNcxF
-              actorTaskId: KJHSKHausidyaJKHs
-              startedAt: "2019-11-30T07:34:24.202Z"
-              finishedAt: "2019-12-12T09:30:12.202Z"
-              status: RUNNING
-              statusMessage: Actor is running
-              isStatusMessageTerminal: false
-              meta:
-                origin: WEB
-                clientIp: 172.234.12.34
-                userAgent: Mozilla/5.0 (iPad)
-              stats:
-                inputBodyLen: 240
-                migrationCount: 0
-                restartCount: 0
-                resurrectCount: 2
-                memAvgBytes: 267874071.9
-                memMaxBytes: 404713472
-                memCurrentBytes: 0
-                cpuAvgUsage: 33.75321011075384
-                cpuMaxUsage: 169.65073553494125
-                cpuCurrentUsage: 0
-                netRxBytes: 103508042
-                netTxBytes: 4854600
-                durationMillis: 248472
-                runTimeSecs: 248.472
-                metamorph: 0
-                computeUnits: 0.13804
-              options:
-                build: latest
-                timeoutSecs: 300
-                memoryMbytes: 1024
-                diskMbytes: 2048
-              buildId: 7sT5jcggjjA9fNcxF
-              exitCode: 0
-              generalAccess: RESTRICTED
-              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
-              defaultDatasetId: wmKPijuyDnPZAPRMk
-              defaultRequestQueueId: FL35cSF7jrxr3BY39
-              buildNumber: 0.0.36
-              containerUrl: "https://g8kd8kbc5ge8.runs.apify.net"
-              isContainerServerReady: true
-              gitBranchName: master
-              usage:
-                ACTOR_COMPUTE_UNITS: 3
-                DATASET_READS: 4
-                DATASET_WRITES: 4
-                KEY_VALUE_STORE_READS: 5
-                KEY_VALUE_STORE_WRITES: 3
-                KEY_VALUE_STORE_LISTS: 5
-                REQUEST_QUEUE_READS: 2
-                REQUEST_QUEUE_WRITES: 1
-                DATA_TRANSFER_INTERNAL_GBYTES: 1
-                DATA_TRANSFER_EXTERNAL_GBYTES: 3
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
-                PROXY_SERPS: 3
-              usageTotalUsd: 0.2654
-              usageUsd:
-                ACTOR_COMPUTE_UNITS: 0.072
-                DATASET_READS: 0.0004
-                DATASET_WRITES: 0.0002
-                KEY_VALUE_STORE_READS: 0.0006
-                KEY_VALUE_STORE_WRITES: 0.002
-                KEY_VALUE_STORE_LISTS: 0.004
-                REQUEST_QUEUE_READS: 0.005
-                REQUEST_QUEUE_WRITES: 0.02
-                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
-                DATA_TRANSFER_EXTERNAL_GBYTES: 0.0002
-                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
-                PROXY_SERPS: 0.0006
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
@@ -339,21 +140,22 @@ delete:
     organization that initiated the run can delete it.
   operationId: actorRun_delete
   parameters:
-    - name: runId
-      in: path
-      description: Run ID.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: 3KH8gEpp4d8uQSe8T
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"
   responses:
     "204":
-      description: ""
-      headers: {}
-      content: {}
+      $ref: ../../components/responses/NoContent.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run

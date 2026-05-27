@@ -1,30 +1,20 @@
 ---
 title: Actor environment variables
-description: Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK.
+description: Learn how Actors receive runtime context from system environment variables set by the Apify platform and custom variables you define.
 slug: /actors/development/programming-interface/environment-variables
 sidebar_position: 3
 sidebar_label: Environment variables
 ---
 
-**Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables set by the Apify platform.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
----
+Actor runs get their environment variables from two sources:
 
-## How to use environment variables in an Actor
+- [System environment variables](#system-environment-variables) - set automatically by the Apify platform for each Actor run.
+- [Custom environment variables](#custom-environment-variables) - defined by the Actor owner, either in `.actor/actor.json` or in Apify Console.
 
-You can set up environment variables for your Actor in two ways:
-
-- [Set up environment variables in `actor.json`](#set-up-environment-variables-in-actorjson)
-- [Set up environment variables in Apify Console](#set-up-environment-variables-in-apify-console)
-
-:::info Environment variable precedence
-
-Your local `.actor/actor.json` file overrides variables set in Apify Console. To use Console variables, remove the `environmentVariables` key from the local file.
-
-:::
+By default, both kinds of variables are passed only to the Actor **run**, not to the **build**. For variables passed to the build process (Docker build arguments), see [Build-time environment variables](#build-time-environment-variables).
 
 Check out how you can [access environment variables in Actors](#access-environment-variables).
 
@@ -32,10 +22,14 @@ Check out how you can [access environment variables in Actors](#access-environme
 
 Apify sets several system environment variables for each Actor run. These variables provide essential context and information about the Actor's execution environment.
 
-Here's a table of key system environment variables:
+:::info Runtime only
 
-| Environment Variable | Description |
-|----------------------|-------------|
+System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Code** > **Environment variables**. That option forwards only your custom variables.
+
+:::
+
+| Environment variable | Description |
+| -------------------- | ----------- |
 | `ACTOR_ID` | ID of the Actor. |
 | `ACTOR_FULL_NAME` | Full technical name of the Actor, in the format `owner-username/actor-name`. |
 | `ACTOR_RUN_ID` | ID of the Actor run. |
@@ -44,11 +38,11 @@ Here's a table of key system environment variables:
 | `ACTOR_BUILD_TAGS` | A comma-separated list of tags of the Actor build used in the run. Note that this environment variable is assigned at the time of start of the Actor and doesn't change over time, even if the assigned build tags change. |
 | `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
+| `ACTOR_STORAGES_JSON` | JSON-encoded unique identifiers of storages associated with the current Actor run. |
 | `ACTOR_DEFAULT_DATASET_ID` | Unique identifier for the default dataset associated with the current Actor run. |
 | `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | Unique identifier for the default key-value store associated with the current Actor run. |
 | `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | Unique identifier for the default request queue associated with the current Actor run. |
-| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input).  |
-| `ACTOR_MAX_PAID_DATASET_ITEMS` | For paid-per-result Actors, the user-set limit on returned results. Do not exceed this limit. |
+| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input). |
 | `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
 | `ACTOR_RESTART_ON_ERROR` | If **1**, the Actor run will be restarted if it fails. |
 | `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
@@ -56,7 +50,7 @@ Here's a table of key system environment variables:
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
 | `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
-| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
+| `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
@@ -70,8 +64,8 @@ Here's a table of key system environment variables:
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
-| `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
-| `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
 
 
 <!-- vale Microsoft.RangeFormat = NO -->
@@ -83,9 +77,19 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
-## Set up environment variables in `actor.json`
+## Custom environment variables
 
-Actor owners can define custom environment variables in `.actor/actor.json`. All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
+Actor owners can define custom environment variables to pass additional configuration to their Actors.
+
+- [Define in `actor.json`](#define-in-actorjson)
+- [Define in Apify Console](#define-in-apify-console)
+
+Your local `.actor/actor.json` file overrides variables set in Apify Console.
+To use Console variables, remove the `environmentVariables` key from the local file.
+
+### Define in `actor.json`
+
+Actor owners can define custom environment variables in [`.actor/actor.json`](/platform/actors/development/actor-definition/actor-json). All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
 
 ```json
 {
@@ -94,34 +98,37 @@ Actor owners can define custom environment variables in `.actor/actor.json`. All
   "version": "0.1",
   "buildTag": "latest",
   "environmentVariables": {
-    "MYSQL_USER": "my_username",
+    "MYSQL_USER": "my_username"
   }
 }
 ```
 
 :::info Git-workflow with actor.json
 
-Be aware that if you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not be set from `.actor/actor.json` and you need to define them in Apify Console.
+If you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not be set from `.actor/actor.json` and you need to define them in Apify Console.
 
 :::
 
-## Set up environment variables in Apify Console
+### Define in Apify Console
 
-Actor owners can define custom environment variables to pass additional configuration to their Actors. To set custom variables:
+To set custom variables in Apify Console:
 
-1. Go to your Actor's **Source** page in the Apify Console
+1. Go to your Actor's **Source** page in Apify Console.
 
 1. Navigate to the **Environment variables** section.
 
 1. Add your custom variables.
 
-For sensitive data like API keys or passwords, enable the **Secret** option. This will encrypt the value and redact it from logs to prevent accidental exposure.
+### Secure environment variables
 
-:::info Build-time variables
+For sensitive data such as API keys or passwords, enable the **Secret** option when defining a variable in Apify Console. Secret values are encrypted at rest and redacted from Actor run logs to prevent accidental exposure.
 
-Once you start a build, you cannot change its environment variables. To use different variables, you must create a new build.
+:::caution Visibility of environment variables in public Actors
 
-Learn more in [Builds](../builds_and_runs/builds.md).
+When you [publish your Actor](/platform/actors/publishing/publish), environment variables not marked as **Secret** are visible to anyone on the Actor detail page alongside the source code. Enable **Hide source files from Actor detail** in the Actor's **Settings** to hide both.
+
+Secret environment variables are never exposed on the Actor detail page regardless of this setting. Always mark sensitive values as **Secret**.
+
 :::
 
 ## Access environment variables
@@ -170,9 +177,10 @@ async def main():
 </TabItem>
 </Tabs>
 
-## Use the `Configuration` class
 
-For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class
+### Use the `Configuration` class
+
+For more convenient access to Actor configuration, use the [`Configuration`](/sdk/js/reference/class/Configuration) class.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -211,14 +219,23 @@ async def main():
 </TabItem>
 </Tabs>
 
+
 ## Build-time environment variables
 
-You can also use environment variables during the Actor's build process. In this case, they function as Docker build arguments. To use them in your Dockerfile, include `ARG` instruction:
+The environment variables described above apply only to Actor **runs**. To make a variable available during the Actor's **build** process, you need to opt in explicitly. In this case, the variables function as Docker build arguments. To use them in your Dockerfile, include the `ARG` instruction:
 
 ```docker
 ARG MY_BUILD_VARIABLE
 RUN echo $MY_BUILD_VARIABLE
 ```
+
+To pass your user-defined environment variables to the build, enable **Apply environment variables also to the build process** in your Actor's **Code** > **Environment variables** section in Apify Console.
+
+:::caution Only user-defined variables are passed to the build
+
+Even with **Apply environment variables also to the build process** enabled, only the variables you define in the Actor's **Environment variables** section are forwarded to the build. The Apify [system environment variables](#system-environment-variables) (such as `ACTOR_RUN_ID`, `APIFY_TOKEN`, or `ACTOR_DEFAULT_DATASET_ID`) are never available at build time, since the build is not associated with a specific run.
+
+:::
 
 :::caution Variables set during the build
 
@@ -226,4 +243,4 @@ Build-time environment variables are not suitable for secrets, as they are not e
 
 :::
 
-By leveraging environment variables effectively, you can create more flexible and configurable Actors that adapt to different execution contexts and user requirements.
+Once a build starts, its environment variables are frozen into that build's Docker image. To change them, you need to create a new build. Learn more in [Builds](../builds_and_runs/builds.md).
