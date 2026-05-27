@@ -68,7 +68,7 @@ the system starts new Actor runs, which you will see in the Actor runs tab, with
 
 The platform checks a Standby run's readiness once, before marking it ready to receive requests. After that, no further health checks run for the lifetime of the run.
 
-A Standby run restarts only when its process exits or the run is migrated to a different machine. If the server stays alive but stops responding, the platform does not detect the failure. To avoid stuck runs, design your Actor to exit the process on unrecoverable errors. See the [Standby development guide](../development/programming_interface/actor_standby.md#readiness-probe) for details.
+A Standby run restarts only when its process exits or the run is migrated to a different machine. If the server stays alive but stops responding, the platform does not detect the failure. For related Actor build guidance, see the [Standby development guide](../development/programming_interface/actor_standby.md#readiness-probe).
 
 ## What is the timeout for incoming requests
 
