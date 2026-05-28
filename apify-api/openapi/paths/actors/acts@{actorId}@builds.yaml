@@ -111,7 +111,7 @@ post:
               schema:
                 type: string
               example: >-
-                https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/runs/HG7ML7M8z78YcAPEB
+                https://api.apify.com/v2/actors/zdc3Pyhyz3m8vjDeM/runs/HG7ML7M8z78YcAPEB
       content:
         application/json:
           schema:
