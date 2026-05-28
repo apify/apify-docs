@@ -15,7 +15,7 @@ The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18
 ## Prerequisites
 
 - Python 3.10 or newer
-- [An Apify account](https://console.apify.com) and API token from the [Integrations](https://console.apify.com/account/integrations) page in Apify Console
+- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/account/integrations) page in Apify Console
 - At least one model provider configured. Strands supports Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, and LMStudio.
 
 ## Installation
@@ -26,10 +26,10 @@ Install the Strands SDK and the Apify tools:
 pip install strands-agents strands-apify
 ```
 
-Export your Apify token:
+Export your Apify API token:
 
 ```bash
-export APIFY_TOKEN=your_apify_token_here
+export APIFY_TOKEN=your_apify_api_token_here
 ```
 
 :::tip Keep your token out of source code
