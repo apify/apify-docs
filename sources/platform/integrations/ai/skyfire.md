@@ -163,7 +163,7 @@ Make a standard Actor run request to the [run Actor endpoint](https://docs.apify
 
 ```bash title="Example of using the synchronous run endpoint"
 curl -X POST \
-  'https://api.apify.com/v2/acts/ACTOR_ID/run-sync' \
+  'https://api.apify.com/v2/actors/ACTOR_ID/run-sync' \
   -H 'skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
