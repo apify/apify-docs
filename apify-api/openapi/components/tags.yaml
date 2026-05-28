@@ -473,12 +473,48 @@
     The API endpoint described in this section is convenience endpoint that provides access to last Actor run's log.
 
     Same as of functionality described in: [Logs](/api/v2/logs)
+- name: Last Actor run's abort
+  x-displayName: Last Actor run's abort - Introduction
+  description: |
+    The API endpoint described in this section is a convenience endpoint that aborts the Actor's last run.
+
+    Same as of functionality described in: [Abort run](/api/v2/actor-run-abort-post)
+- name: Last Actor run's metamorph
+  x-displayName: Last Actor run's metamorph - Introduction
+  description: |
+    The API endpoint described in this section is a convenience endpoint that metamorphs the Actor's last run into a run of another Actor.
+
+    Same as of functionality described in: [Metamorph run](/api/v2/actor-run-metamorph-post)
+- name: Last Actor run's reboot
+  x-displayName: Last Actor run's reboot - Introduction
+  description: |
+    The API endpoint described in this section is a convenience endpoint that reboots the Actor's last run.
+
+    Same as of functionality described in: [Reboot run](/api/v2/actor-run-reboot-post)
 - name: Last Actor task run's log
   x-displayName: Last Actor task run's log - Introduction
   description: |
     The API endpoint described in this section is convenience endpoint that provides access to last Actor task run's log.
 
     Same as of functionality described in: [Logs](/api/v2/logs)
+- name: Last Actor task run's abort
+  x-displayName: Last Actor task run's abort - Introduction
+  description: |
+    The API endpoint described in this section is a convenience endpoint that aborts the Actor task's last run.
+
+    Same as of functionality described in: [Abort run](/api/v2/actor-run-abort-post)
+- name: Last Actor task run's metamorph
+  x-displayName: Last Actor task run's metamorph - Introduction
+  description: |
+    The API endpoint described in this section is a convenience endpoint that metamorphs the Actor task's last run into a run of another Actor.
+
+    Same as of functionality described in: [Metamorph run](/api/v2/actor-run-metamorph-post)
+- name: Last Actor task run's reboot
+  x-displayName: Last Actor task run's reboot - Introduction
+  description: |
+    The API endpoint described in this section is a convenience endpoint that reboots the Actor task's last run.
+
+    Same as of functionality described in: [Reboot run](/api/v2/actor-run-reboot-post)
 - name: Last Actor task run's default dataset
   x-displayName: Last Actor task run's default dataset - Introduction
   description: |

@@ -8,6 +8,8 @@ const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
+const { rehypeExpandTabs } = require('./tools/utils/rehypeExpandTabs');
+const { rehypeFixCodeLanguage } = require('./tools/utils/rehypeFixCodeLanguage');
 
 /**
  * Helper to extract text from a node recursively.
@@ -253,6 +255,7 @@ module.exports = {
                 allowedInDev: false,
             },
         ],
+        resolve(__dirname, 'src/plugins/docusaurus-plugin-preview-meta'),
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
@@ -278,7 +281,7 @@ module.exports = {
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
                 siteDescription:
-                    'Apify is the largest marketplace of tools for AI. 25,000 ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing',
+                    'Apify is the largest marketplace of tools for AI. Thousands of ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing.md',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -343,7 +346,7 @@ module.exports = {
                         },
                         {
                             route: '/academy/**',
-                            categoryName: 'Apify academy',
+                            categoryName: 'Apify Academy',
                         },
                         {
                             route: '/legal/**',
@@ -354,6 +357,8 @@ module.exports = {
                             categoryName: 'Platform documentation',
                         },
                     ],
+                    // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
+                    beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
                     // Add custom remark processing to remove LLM button text
                     remarkPlugins: [removeLlmButtons],
                 },
