@@ -258,7 +258,7 @@ agent(
 
 :::note Include Actor input fields in your prompt
 
-The agent passes `run_input` as a plain dictionary to the Actor. For Actors with complex input schemas, spell out the required fields directly in your prompt so the model knows exactly what to provide.
+The agent passes `run_input` as a JSON object to the Actor. For Actors with complex input schemas, spell out the required fields directly in your prompt so the model knows exactly what to provide.
 
 :::
 
@@ -298,7 +298,7 @@ Run any Actor from [Apify Store](https://apify.com/store) and return run metadat
 | `memory_mbytes` | `int` | `None` | Memory allocation in MB (uses Actor default if not set) |
 | `build` | `str` | `None` | Build tag or number to pin a specific Actor version |
 
-To find the input schema, open the Actor's page on [Apify Store](https://apify.com/store) and check the **Input** tab. The `run_input` dict must match that schema.
+To find the input schema, open the Actor's page on [Apify Store](https://apify.com/store) and check the **Input** tab. The `run_input` JSON object must match that schema.
 
 Example prompt:
 
