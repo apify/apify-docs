@@ -227,20 +227,17 @@ async function main() {
         return;
     }
 
-    const [{ indexMap, flatLists }, cacheTitles] = await Promise.all([
-        loadSidebars(),
-        loadCacheTitles(),
-    ]);
+    const [{ indexMap, flatLists }, cacheTitles] = await Promise.all([loadSidebars(), loadCacheTitles()]);
 
     // Build prev/next from each sidebar's flat order independently. Doesn't
     // cross sidebars (e.g. academy's `courses` vs `tutorials`).
     const prevNext = new Map();
     for (const flat of flatLists) {
         for (let i = 0; i < flat.length; i++) {
-            const pn = {};
-            if (i > 0) pn.previous = flat[i - 1];
-            if (i < flat.length - 1) pn.next = flat[i + 1];
-            if (!prevNext.has(flat[i].route)) prevNext.set(flat[i].route, pn);
+            const nav = {};
+            if (i > 0) nav.previous = flat[i - 1];
+            if (i < flat.length - 1) nav.next = flat[i + 1];
+            if (!prevNext.has(flat[i].route)) prevNext.set(flat[i].route, nav);
         }
     }
 
@@ -257,15 +254,12 @@ async function main() {
 
         const route = fileToRoute(filePath);
         const sidebarEntry = indexMap.get(route);
-        const pn = prevNext.get(route) || {};
+        const nav = prevNext.get(route) || {};
 
         // Title preference: cache (true page title, e.g. "Apify platform
         // documentation") > sidebar label (sometimes shorter, e.g. "Home") >
         // first H1 in content > generic fallback.
-        const title = cacheTitles.get(route)
-            || sidebarEntry?.label
-            || titleFromContent(content)
-            || 'Untitled';
+        const title = cacheTitles.get(route) || sidebarEntry?.label || titleFromContent(content) || 'Untitled';
 
         if (!sidebarEntry && !cacheTitles.has(route)) unknownRoutes.push(route);
 
@@ -274,8 +268,8 @@ async function main() {
             url: routeToUrl(route),
             parents: sidebarEntry?.parents || [],
             children: sidebarEntry?.children || [],
-            previous: pn.previous,
-            next: pn.next,
+            previous: nav.previous,
+            next: nav.next,
         });
 
         await fs.writeFile(filePath, header + content, 'utf8');
