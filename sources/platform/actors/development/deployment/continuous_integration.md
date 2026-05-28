@@ -38,7 +38,7 @@ Choose the method that best fits your workflow.
 1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
 
       ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
+      https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
       ```
 
    :::note API token
@@ -78,7 +78,7 @@ Now your Actor will automatically rebuild on every push to the GitHub repository
       :::
 
       ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
+      https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
       ```
 
    1. Name the secret & paste in your API endpoint

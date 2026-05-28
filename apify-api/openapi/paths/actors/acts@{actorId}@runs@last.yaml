@@ -9,7 +9,7 @@ get:
 
     The base path represents the last Actor run object is:
 
-    `/v2/acts/{actorId}/runs/last{?token,status}`
+    `/v2/actors/{actorId}/runs/last{?token,status}`
 
     Using the `status` query parameter you can ensure to only get a run with a certain status
     (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
