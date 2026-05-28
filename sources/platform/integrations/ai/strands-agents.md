@@ -8,14 +8,18 @@ sidebar_position: 20
 slug: /integrations/strands-agents
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 The [Strands Agents SDK](https://github.com/strands-agents/sdk-python) is an open-source Python SDK by AWS for building AI agents. It follows a model-tools-prompt pattern: the SDK sends the prompt to the model, executes any tool calls the model requests, and feeds the results back until the task is complete.
 
 The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18 tools grouped into three tool sets, giving your agent scraping, crawling, search, and social media capabilities through the [Apify platform](https://apify.com/).
 
+<ThirdPartyDisclaimer />
+
 ## Prerequisites
 
 - Python 3.10 or newer
-- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/account/integrations) page in Apify Console
+- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console
 - At least one model provider configured. Strands supports Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, and LMStudio.
 
 ## Installation
@@ -152,28 +156,28 @@ Three ways to import tools:
 
 1. Import a whole tool set when your agent needs the full category:
 
-```python
-from strands import Agent
-from strands_apify import APIFY_CORE_TOOLS
+    ```python
+    from strands import Agent
+    from strands_apify import APIFY_CORE_TOOLS
 
-agent = Agent(model=model, tools=APIFY_CORE_TOOLS)
-```
+    agent = Agent(model=model, tools=APIFY_CORE_TOOLS)
+    ```
 
 1. Import individual tools for tighter control:
 
-```python
-from strands_apify import apify_scrape_url, apify_google_search_scraper
+    ```python
+    from strands_apify import apify_scrape_url, apify_google_search_scraper
 
-agent = Agent(model=model, tools=[apify_scrape_url, apify_google_search_scraper])
-```
+    agent = Agent(model=model, tools=[apify_scrape_url, apify_google_search_scraper])
+    ```
 
 1. Mix tool sets with individual tools:
 
-```python
-from strands_apify import APIFY_CORE_TOOLS, apify_twitter_scraper
+    ```python
+    from strands_apify import APIFY_CORE_TOOLS, apify_twitter_scraper
 
-agent = Agent(model=model, tools=[*APIFY_CORE_TOOLS, apify_twitter_scraper])
-```
+    agent = Agent(model=model, tools=[*APIFY_CORE_TOOLS, apify_twitter_scraper])
+    ```
 
 :::caution Avoid `APIFY_ALL_TOOLS` in production
 
@@ -221,7 +225,7 @@ agent("Find the latest 10 tweets mentioning #WebScraping and summarize the main 
 
 ### Run any Actor from Apify Store
 
-The pre-built tools cover the most common use cases, but [Apify Store](https://apify.com/store) has 4,000+ Actors. Use `apify_run_actor_and_get_dataset` to give your agent access to any of them.
+The pre-built tools cover the most common use cases, but [Apify Store](https://apify.com/store) has thousands of Actors. Use `apify_run_actor_and_get_dataset` to give your agent access to any of them.
 
 Unlike pre-built tools (like `apify_google_search_scraper`) that expose typed parameters, `apify_run_actor_and_get_dataset` requires you to provide the Actor's input JSON directly. Your prompt must include the correct input shape.
 
@@ -252,19 +256,19 @@ agent(
 )
 ```
 
-:::note The LLM constructs the input
+:::note Include Actor input fields in your prompt
 
-The agent passes `run_input` as a plain dict. For complex Actor schemas, include the key fields explicitly in your prompt.
+The agent passes `run_input` as a plain dictionary to the Actor. For Actors with complex input schemas, spell out the required fields directly in your prompt so the model knows exactly what to provide.
 
 :::
 
 ## Tool reference
 
-Parameters, defaults, and example prompts for each tool.
+This section lists every tool in `strands-apify` with its parameters, default values, and an example prompt you can use directly in your agent.
 
 ### Core tools
 
-Included in `APIFY_CORE_TOOLS`.
+The following tools are included in the `APIFY_CORE_TOOLS` tool set. They cover running Actors, fetching dataset items, scraping single URLs, and executing saved tasks.
 
 #### `apify_scrape_url`
 
@@ -304,7 +308,7 @@ Run the Actor 'apify/website-content-crawler' with input {"startUrls": [{"url": 
 
 #### `apify_run_actor_and_get_dataset`
 
-Run any Actor and fetch its dataset results in a single call. Provides access to all 4,000+ Actors in Apify Store, but requires you to provide the Actor's input JSON.
+Run any Actor and fetch its dataset results in a single call. Provides access to thousands of Actors in Apify Store, but requires you to provide the Actor's input JSON.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -387,7 +391,7 @@ Run my task 'john/daily-news-scrape' and summarize the top 10 results.
 
 ### Search and crawling tools
 
-Included in `APIFY_SEARCH_TOOLS`.
+The following tools are included in the `APIFY_SEARCH_TOOLS` tool set. They cover Google Search, Google Maps, YouTube, multi-page website crawling, and e-commerce scraping.
 
 #### `apify_google_search_scraper`
 
@@ -481,7 +485,7 @@ Scrape the product details from https://www.amazon.com/dp/B0EXAMPLE and return t
 
 ### Social media tools
 
-Included in `APIFY_SOCIAL_TOOLS`.
+The following tools are included in the `APIFY_SOCIAL_TOOLS` tool set. They cover Instagram, LinkedIn, Twitter/X, TikTok, and Facebook.
 
 #### `apify_instagram_scraper`
 
@@ -610,7 +614,7 @@ Example prompt:
 Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month ago.
 ```
 
-## Tips for production
+## Production environment best practices
 
 - Increase `timeout_secs` to 600+ when crawling large sites or scraping high-volume datasets. The default is 300 seconds.
 - Paginate datasets with `apify_get_dataset_items` using `limit` and `offset` instead of fetching everything in one call.
