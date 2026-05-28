@@ -61,7 +61,7 @@
         "markdownlint-cli": "^0.48.0",
         "oxfmt": "0.46.0",
         "oxlint": "1.62.0",
-        "oxlint-tsgolint": "0.22.0",
+        "oxlint-tsgolint": "0.23.0",
         "patch-package": "^8.0.0",
         "path-browserify": "^1.0.1",
         "rimraf": "^6.0.0",
