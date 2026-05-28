@@ -1,9 +1,5 @@
 title: CommonActorPricingInfo
 type: object
-required:
-  - apifyMarginPercentage
-  - createdAt
-  - startedAt
 properties:
   apifyMarginPercentage:
     type: number
