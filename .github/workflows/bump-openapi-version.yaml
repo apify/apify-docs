@@ -22,7 +22,7 @@ jobs:
 
             - name: Commit changes
               id: commit
-              uses: apify/actions/signed-commit@v1.0.0
+              uses: apify/actions/signed-commit@v1.2.0
               with:
                   message: "chore(openapi): Update OpenAPI version [skip ci]"
                   pull: '--rebase --autostash'
