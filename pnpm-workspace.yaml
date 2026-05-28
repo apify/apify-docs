@@ -8,7 +8,7 @@ overrides:
   css-minimizer-webpack-plugin>serialize-javascript: ^7.0.4
   "@stoplight/spectral-ruleset-bundler>rollup": 2.80.0
   postcss: ^8.5.10
-  yaml@1: ^1.10.3
+  yaml@1: ^2.0.0
   lodash: ^4.18.0
   protobufjs: ^8.0.0
   dompurify: ^3.4.0
