@@ -1,8 +1,7 @@
 import Head from '@docusaurus/Head';
 import { useAllDocsData } from '@docusaurus/plugin-content-docs/client';
 import { useLocation } from '@docusaurus/router';
-// cannot use any of the theme aliases here as it causes a circular dependency :( ideas welcome
-import Layout from '@docusaurus/theme-classic/lib/theme/Layout/index';
+import Layout from '@theme-original/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import React from 'react';
