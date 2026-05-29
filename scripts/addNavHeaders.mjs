@@ -52,6 +52,39 @@ function mdLink(label, route) {
     return `[${escapeLinkLabel(label)}](${routeToUrl(route)})`;
 }
 
+// Synthetic root parent prepended to every page — the agent's link back to the
+// full index. It points at `llms.txt` (not a `.md`), so it carries an explicit
+// `url` rather than a route. See issue #2557.
+const ROOT_PARENT = { label: 'Apify documentation', url: `${SITE_URL}/llms.txt` };
+
+// A nav item is either {label, route} (a real per-page `.md`) or {label, url}
+// (a literal link, e.g. the llms.txt root). Render whichever it carries.
+function navLink(item) {
+    return item.url ? `[${escapeLinkLabel(item.label)}](${item.url})` : mdLink(item.label, item.route);
+}
+
+// The section landing (`/platform`, `/academy`, `/api`, ...) is modeled in the
+// sidebar as a sibling *link* ("Home"), not an ancestor category, so `walk()`
+// never records it as a parent. Derive it from the route's first path segment.
+function sectionLandingRoute(route) {
+    const seg = route.split('/').find(Boolean);
+    return seg ? `/${seg}` : null;
+}
+
+// Full upward chain for a page: llms.txt root, then the section landing, then
+// the sidebar-category ancestors from `walk()`. Bounded by site depth (~5), so
+// unlike `children` there's no fan-out/size risk. See issue #2557.
+function buildParents(route, sidebarParents, titleFor) {
+    const parents = [ROOT_PARENT];
+    const landing = sectionLandingRoute(route);
+    if (landing && landing !== route && !sidebarParents.some((p) => p.route === landing)) {
+        const label = titleFor(landing);
+        if (label) parents.push({ label, route: landing });
+    }
+    parents.push(...sidebarParents);
+    return parents;
+}
+
 // Quote the `title:` value if it contains characters that would derail a
 // downstream YAML-ish parser reading the title line. We intentionally don't
 // commit to strict YAML for the body (the `- [Label](url)` list items aren't
@@ -208,7 +241,7 @@ function renderHeader({ title, url, parents, children, previous, next }) {
     lines.push(`url: ${url}`);
     if (parents && parents.length > 0) {
         lines.push('parents:');
-        for (const p of parents) lines.push(`  - ${mdLink(p.label, p.route)}`);
+        for (const p of parents) lines.push(`  - ${navLink(p)}`);
     }
     if (children && children.length > 0) {
         lines.push('children:');
@@ -243,6 +276,10 @@ async function main() {
         }
     }
 
+    // Resolve a route to its best display title (cache title > sidebar label).
+    // Used for the section-landing parent, whose sidebar label is "Home".
+    const titleFor = (r) => cacheTitles.get(r) || indexMap.get(r)?.label || null;
+
     let processed = 0;
     let skipped = 0;
     const unknownRoutes = [];
@@ -268,7 +305,7 @@ async function main() {
         const header = renderHeader({
             title,
             url: routeToUrl(route),
-            parents: sidebarEntry?.parents || [],
+            parents: buildParents(route, sidebarEntry?.parents || [], titleFor),
             children: sidebarEntry?.children || [],
             previous: nav.previous,
             next: nav.next,
