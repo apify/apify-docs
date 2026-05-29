@@ -76,7 +76,7 @@ You can adjust the platform usage limits and enable overage, allowing you to con
 
 :::caution Immediate overage invoicing
 
-If your overage platform usage reaches the threshold for your plan before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice. The threshold is _$50_ on the Starter plan and _$200_ on higher plans.
+If your overage platform usage reaches the threshold for your plan before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice. The threshold is $50 on the Starter plan and $200 on higher plans.
 
 :::
 
