@@ -66,6 +66,16 @@ function quoteTitle(value) {
 
 // --- Sidebar walking -------------------------------------------------------
 
+// Push `{ label, route }` onto `list` if `node` is listed and has a real route.
+// Returns whether a route was found, so the caller can decide whether to lift
+// children up through an href-less grouping category.
+function pushRoutedChild(list, node) {
+    if (node.unlisted === true) return false;
+    const route = normalizeRoute(node.href);
+    if (route) list.push({ label: node.label, route });
+    return route !== null;
+}
+
 /**
  * Walk one sidebar tree, populating:
  *  - `indexMap`: normalizedRoute → { label, parents[], children[] }
@@ -96,18 +106,10 @@ function walk(node, ancestors, indexMap, flat) {
         if (Array.isArray(node.items)) {
             for (const child of node.items) {
                 if (child.unlisted === true) continue;
-                const childRoute = normalizeRoute(child.href);
-                if (childRoute) {
-                    children.push({ label: child.label, route: childRoute });
-                } else if (child.type === 'category' && Array.isArray(child.items)) {
-                    // Lift one level through an href-less grouping category.
-                    for (const grand of child.items) {
-                        if (grand.unlisted === true) continue;
-                        const grandRoute = normalizeRoute(grand.href);
-                        if (grandRoute) {
-                            children.push({ label: grand.label, route: grandRoute });
-                        }
-                    }
+                // Lift one level through an href-less grouping category so its
+                // routed children stay grouped under this node.
+                if (!pushRoutedChild(children, child) && child.type === 'category' && Array.isArray(child.items)) {
+                    for (const grand of child.items) pushRoutedChild(children, grand);
                 }
             }
         }
