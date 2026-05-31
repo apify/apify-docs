@@ -6,16 +6,14 @@ slug: /actors/development/actor-definition/dataset-schema
 sidebar_label: Dataset schema
 ---
 
-The dataset schema defines the structure and presentation of data produced by an Actor. It controls what fields each dataset item contains and how that data appears in the Output tab UI.
+The dataset schema defines the structure and presentation of data produced by an Actor. It controls what fields each dataset item contains and how that data appears in the Output tab.
 
 ## Schema components
 
-A dataset schema has two main components:
+A dataset schema has two components:
 
 - `views` _(required)_ - Display configurations for how data appears in the Output tab. Each view can show different fields, ordering, and formatting.
 - `fields` _(optional)_ - JSON Schema describing each dataset item. Enables validation and provides metadata for AI agents.
-
-Both components work together: `fields` describes _what_ data your Actor produces, while `views` controls _how_ that data is presented.
 
 ```json title=".actor/dataset_schema.json"
 {
@@ -97,11 +95,11 @@ Use a separate file when your schema is complex or you want to keep `actor.json`
 
 ## Fields
 
-The `fields` property defines the structure of each dataset item using [JSON Schema](https://json-schema.org/). This schema enables validation and provides metadata that helps both humans and AI agents understand your Actor's output.
+The `fields` property defines the structure of each dataset item using [JSON Schema](https://json-schema.org/). It enables validation and provides metadata that help humans and AI agents understand your Actor's output.
 
 ### Why define fields
 
-When AI agents interact with Actors through the MCP server or API, they rely on field metadata to understand what data the Actor produces. Including `title`, `description`, and `example` properties enables agents to:
+When AI agents interact with Actors through the MCP server or API, they rely on field metadata to understand the Actor's output. Including `title`, `description`, and `example` properties lets agents:
 
 - Understand the meaning of each output field
 - Chain Actors together by matching inputs to outputs
@@ -121,13 +119,13 @@ Each field in your schema can include standard JSON Schema properties:
 | `example` | any | A sample value that demonstrates the expected format. |
 | `enum` | array | A list of allowed values for the field. |
 
-### Example with field metadata
+### Field metadata example
 
 ```json title=".actor/dataset_schema.json"
 {
     "actorSpecification": 1,
     "fields": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
         "type": "object",
         "properties": {
             "productName": {
@@ -188,23 +186,23 @@ Use `camelCase` for field names. This matches the convention used in input schem
 
 :::
 
-For validation options and error handling, see [Dataset validation](./validation.md).
+See [Dataset validation](./validation.md) for validation options and error handling.
 
 ## Views
 
-Views control how data appears in the Output tab UI. Each view defines which fields to show, in what order, and with what formatting.
+Views control how data appears in the Output tab. Each view defines which fields to show, their order, their formatting.
 
 ### Why use views
 
-Dataset views are like database views - different perspectives on the same data. Instead of showing all fields at once, views present focused subsets. Users find data faster, and AI agents can better understand your output.
+Dataset views are like database views - different perspectives on the same data. Instead of showing all fields at once, views present focused subsets.
 
-For a real-world example, see [Google Maps Scraper](https://apify.com/compass/crawler-google-places) which uses views to separate place details from review data.
+[Google Maps Scraper](https://apify.com/compass/crawler-google-places) uses views to separate place details from review data.
 
 ### When to use views
 
-- **Control field order and formatting** - Without views, fields appear in JSON property order. Views let you order fields logically and format URLs as links, images inline, etc.
-- **Expand nested data with `unwind`** - Arrays of nested objects appear collapsed by default. Use `unwind` to expand them into readable rows.
-- **Create focused perspectives** - A scraper with 50+ fields can offer an "Overview" view and a "Details" view. Same data, different focus.
+- Control field order and formatting - Without views, fields appear in JSON property order. Views let you order fields logically and format URLs as links, images inline, etc.
+- Expand nested data with `unwind` - Arrays of nested objects appear collapsed by default. Use `unwind` to expand them into readable rows.
+- Create focused perspectives - A scraper with 50+ fields can offer an "Overview" view and a "Details" view. Same data, different focus.
 
 A single view is fine for simple Actors with fewer than 10 fields where all fields are equally relevant.
 
@@ -212,16 +210,16 @@ A single view is fine for simple Actors with fewer than 10 fields where all fiel
 
 The same data often serves different purposes. An e-commerce scraper could offer a "Marketing" view (name, image, description) and a "Pricing" view (price, discount, competitor price). The first view defined becomes the default.
 
-### What views are NOT for
+### What views are not for
 
-Views show the same data from different angles. They're NOT for:
+Views show the same data from different angles. Don't use views for:
 
-- **Separating unrelated data types** - Storing posts, comments, and profiles in one dataset, then using views to separate them. Use separate datasets for unrelated data types.
-- **Controlling export formats** - Views don't change how data exports to JSON, CSV, or Excel. Export format is set in download options or the Dataset API `format` parameter. Views only affect Console UI display.
+- Separating unrelated data types - Storing posts, comments, and profiles in one dataset, then using views to separate them. Use separate datasets for unrelated data types.
+- Controlling export formats - Views don't change how data exports to JSON, CSV, or Excel. Export format is set in download options or the Dataset API `format` parameter. Views only affect Console UI display.
 
 ### Basic view example
 
-The following Actor stores data using `Actor.pushData()`:
+This Actor stores data using `Actor.pushData()`:
 
 ```javascript title="main.js"
 import { Actor } from 'apify';
@@ -241,7 +239,7 @@ await Actor.pushData({
 await Actor.exit();
 ```
 
-Configure the Output tab UI with a dataset schema:
+Configure the Output tab with a dataset schema:
 
 ```json title=".actor/actor.json"
 {
@@ -375,8 +373,6 @@ Create multiple views for different use cases. This e-commerce scraper offers Ma
 }
 ```
 
-The first view defined becomes the default tab.
-
 ## Handle nested structures
 
 Tabular formats (Output tab table, Excel, CSV) require flat data. If your Actor produces nested JSON structures, transform them using these options:
@@ -413,8 +409,6 @@ Use `transformation.unwind` to expand arrays of nested objects into separate row
 
 With `unwind: ["reviews"]`, a product with five reviews becomes five rows in the output, each containing the product name plus one review's data.
 
-### Flatten in Actor code
-
 Alternatively, flatten nested structures in your Actor code before calling `Actor.pushData()`.
 
 ## Reference
@@ -434,7 +428,7 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 | `title` | string | true | The title shown in the Output tab and API. |
 | `description` | string | false | Description of the view. Only available in API responses. |
 | `transformation` | ViewTransformation | true | Defines how to fetch and transform data from the Dataset API. |
-| `display` | ViewDisplay | true | Defines how to render data in the Output tab UI. |
+| `display` | ViewDisplay | true | Defines how to render data in the Output tab. |
 
 ### ViewTransformation object
 
