@@ -377,7 +377,7 @@ Create multiple views for different use cases. This e-commerce scraper offers Ma
 
 The first view defined becomes the default tab.
 
-## Handling nested structures
+## Handle nested structures
 
 Tabular formats (Output tab table, Excel, CSV) require flat data. If your Actor produces nested JSON structures, transform them using these options:
 
