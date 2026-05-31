@@ -411,7 +411,7 @@ Use `transformation.unwind` to expand arrays of nested objects into separate row
 }
 ```
 
-With `unwind: ["reviews"]`, a product with 5 reviews becomes 5 rows in the output, each containing the product name plus one review's data.
+With `unwind: ["reviews"]`, a product with five reviews becomes five rows in the output, each containing the product name plus one review's data.
 
 ### Flatten in Actor code
 
