@@ -208,7 +208,7 @@ For a real-world example, see [Google Maps Scraper](https://apify.com/compass/cr
 
 A single view is fine for simple Actors with fewer than 10 fields where all fields are equally relevant.
 
-### Organizing views by use case
+### Organize views by use case
 
 The same data often serves different purposes. An e-commerce scraper could offer a "Marketing" view (name, image, description) and a "Pricing" view (price, discount, competitor price). The first view defined becomes the default.
 
