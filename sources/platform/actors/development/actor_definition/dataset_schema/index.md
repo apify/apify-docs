@@ -15,7 +15,7 @@ A dataset schema has two main components:
 - `views` _(required)_ - Display configurations for how data appears in the Output tab. Each view can show different fields, ordering, and formatting.
 - `fields` _(optional)_ - JSON Schema describing each dataset item. Enables validation and provides metadata for AI agents.
 
-Both components work together: `fields` describes *what* data your Actor produces, while `views` controls *how* that data is presented.
+Both components work together: `fields` describes _what_ data your Actor produces, while `views` controls _how_ that data is presented.
 
 ```json title=".actor/dataset_schema.json"
 {
