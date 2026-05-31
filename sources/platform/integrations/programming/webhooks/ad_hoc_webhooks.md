@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 An ad-hoc webhook is a single-use webhook created for a specific Actor run when starting the run using the [Apify API](/api/v2). The webhook triggers once when the run transitions to the specified state. Define ad-hoc webhooks using the `webhooks` URL parameter added to the API endpoint that starts an Actor or Actor task:
 
 ```text
-https://api.apify.com/v2/acts/[ACTOR_ID]/runs?token=[YOUR_API_TOKEN]&webhooks=[AD_HOC_WEBHOOKS]
+https://api.apify.com/v2/actors/[ACTOR_ID]/runs?token=[YOUR_API_TOKEN]&webhooks=[AD_HOC_WEBHOOKS]
 ```
 
 replace `AD_HOC_WEBHOOKS` with a base64 encoded stringified JSON array of webhook definitions:

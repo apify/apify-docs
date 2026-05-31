@@ -81,3 +81,35 @@ properties:
   readmeSummary:
     type: string
     description: A brief, LLM-generated readme summary
+  seoTitle:
+    type: [string, "null"]
+    examples: [Web Scraper]
+  seoDescription:
+    type: [string, "null"]
+    examples: ["Crawls websites using Chrome and extracts data from pages using JavaScript."]
+  pictureUrl:
+    type: [string, "null"]
+    examples: ["https://apify-image-uploads-prod.s3.amazonaws.com/.../actor-picture.png"]
+  standbyUrl:
+    type: [string, "null"]
+    examples: ["https://my-actor.apify.actor"]
+  notice:
+    type: string
+    examples: [NONE]
+  categories:
+    type: array
+    items:
+      type: string
+    examples: [["DEVELOPER_TOOLS", "OPEN_SOURCE"]]
+  isCritical:
+    type: boolean
+    examples: [false]
+  isGeneric:
+    type: boolean
+    examples: [false]
+  isSourceCodeHidden:
+    type: boolean
+    examples: [false]
+  hasNoDataset:
+    type: boolean
+    examples: [false]

@@ -11,8 +11,8 @@ properties:
     description: The name of the Actor.
   version:
     type: string
-    pattern: ^[0-9]+\.[0-9]+$
-    description: The version of the Actor, specified in the format [Number].[Number], e.g., 0.1, 1.0.
+    pattern: ^[0-9]+(\.[0-9]+)+$
+    description: The version of the Actor, typically a dot-separated sequence of numbers (e.g., `0.1`, `1.0`, or `0.0.1`).
   buildTag:
     type: string
     description: The tag name to be applied to a successful build of the Actor. Defaults to 'latest' if not specified.
@@ -51,11 +51,11 @@ properties:
     description: Specifies the default amount of memory in megabytes to be used when the Actor is started. Can be an integer or a [dynamic memory expression](/platform/actors/development/actor-definition/dynamic-actor-memory).
   minMemoryMbytes:
     type: integer
-    minimum: 256
+    minimum: 128
     description: Specifies the minimum amount of memory in megabytes required by the Actor.
   maxMemoryMbytes:
     type: integer
-    minimum: 256
+    minimum: 128
     description: Specifies the maximum amount of memory in megabytes required by the Actor.
   usesStandbyMode:
     type: boolean
