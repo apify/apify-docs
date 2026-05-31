@@ -314,7 +314,7 @@ Configure the Output tab UI with a dataset schema:
 Each view has two parts:
 
 1. `transformation` - Which fields to fetch and how to transform them
-2. `display` - How to visually present the data in the UI
+1. `display` - How to visually present the data in the UI
 
 The Output tab displays fields from `transformation.fields` in the specified order:
 
