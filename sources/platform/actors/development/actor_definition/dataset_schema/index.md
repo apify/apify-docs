@@ -41,7 +41,7 @@ Both components work together: `fields` describes *what* data your Actor produce
 
 Place the dataset schema in the `.actor` folder in your Actor's root directory. You can organize it in two ways:
 
-### Inline in actor.json
+### Inline in `actor.json`
 
 ```json title=".actor/actor.json"
 {
