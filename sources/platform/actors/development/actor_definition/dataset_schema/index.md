@@ -440,7 +440,7 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `fields` | string[] | true | Fields to include in the output. Order determines column order in the UI. Missing field values display as **undefined**. |
+| `fields` | string[] | true | Fields to include in the output. Order determines column order in the UI. Missing field values display as `undefined`. |
 | `unwind` | string[] | false | Array fields to expand into parent objects. With `unwind: ["foo"]`, `{"foo": {"bar": "hello"}}` becomes `{"bar": "hello"}`. |
 | `flatten` | string[] | false | Object fields to flatten. With `flatten: ["foo"]`, `{"foo": {"bar": "hello"}}` becomes `{"foo.bar": "hello"}`. |
 | `omit` | string[] | false | Fields to exclude from output. Supports nested field names. |
