@@ -1,0 +1,16 @@
+title: WebhookDispatchWebhookSummary
+description: A summary of the webhook that triggered this dispatch.
+type: object
+properties:
+  actionType:
+    type: string
+    examples: [HTTP_REQUEST]
+  condition:
+    $ref: ../webhooks/WebhookCondition.yaml
+  requestUrl:
+    type: string
+    format: uri
+    examples: ["https://example.com/webhook"]
+  isAdHoc:
+    type: boolean
+    examples: [false]

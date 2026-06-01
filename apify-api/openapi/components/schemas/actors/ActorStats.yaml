@@ -26,3 +26,31 @@ properties:
     type: string
     format: date-time
     examples: ["2019-07-08T14:01:05.546Z"]
+  actorReviewCount:
+    type: integer
+    examples: [69]
+  actorReviewRating:
+    type: number
+    examples: [4.7]
+  bookmarkCount:
+    type: integer
+    examples: [1269]
+  publicActorRunStats30Days:
+    type: object
+    description: Run status counts over the past 30 days.
+    properties:
+      ABORTED:
+        type: integer
+        examples: [2542]
+      FAILED:
+        type: integer
+        examples: [1234]
+      SUCCEEDED:
+        type: integer
+        examples: [732805]
+      "TIMED-OUT":
+        type: integer
+        examples: [12556]
+      TOTAL:
+        type: integer
+        examples: [749137]

@@ -27,3 +27,9 @@ properties:
   reasonForChange:
     type: [string, "null"]
     x-internal: true
+  isPriceChangeNotificationSuppressed:
+    type: boolean
+    x-internal: true
+  forceContainsSignificantPriceChange:
+    type: boolean
+    x-internal: true

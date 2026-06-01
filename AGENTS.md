@@ -97,7 +97,7 @@ OpenAPI spec changes in this repo automatically trigger Pydantic model regenerat
 1. **This repo** (`.github/workflows/openapi-ci.yaml`):
    - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
    - Upload `static/api/openapi.{json,yaml}` as artifacts
-   - `trigger-client-model-regeneration` job calls `gh workflow run regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
+   - `trigger-client-model-regeneration` job calls `gh workflow run manual_regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
    - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
 
 2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
@@ -140,6 +140,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 - Auto-deploy on merge to `master`
 - Preview builds on pull requests
 - PR titles must use [Conventional Commits](https://www.conventionalcommits.org/) format (`docs:`, `fix:`, `feat:`, etc.) - enforced by CI
+- Keep PR descriptions short - one or two sentences covering what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`, `## Details`), bullet lists that restate the diff, and filler text. The diff is the record of what changed; the description explains the why.
 
 ## Common pitfalls
 

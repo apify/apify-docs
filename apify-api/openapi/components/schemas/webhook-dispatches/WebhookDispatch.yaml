@@ -38,6 +38,10 @@ properties:
       actorRunId:
         type: string
         examples: [JgwXN9BdwxGcu9MMF]
+  webhook:
+    anyOf:
+      - $ref: ./WebhookDispatchWebhookSummary.yaml
+      - type: "null"
   calls:
     title: calls
     type: array
