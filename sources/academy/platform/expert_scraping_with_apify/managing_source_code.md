@@ -40,19 +40,15 @@ First, let's create a repository. This can be done [in a number of ways](https:/
 
 Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, and then push all of the files to the remote one.
 
-After you've created your repo, navigate on the Apify platform to the Actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
+After you've created your repo, in the Apify platform navigate to your Amazon scraping Actor that we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
 
 ![Select source code location](./images/select-source-location.png)
 
 Then, go ahead and paste the link to your repository into the **Git URL** text field and click **Save**.
 
-The final step is to click on **API** in the top right corner of your Actor's page:
+The final step is to check your **Build settings**. Under the Git URL field, there're two options: **Automatic builds** and **Manual builds**. Select **Automatic builds**. It tells Apify to rebuild your Actor whenever you push to GitHub, with no extra configuration needed.
 
-![API button](./images/api-button.jpg)
-
-And scroll through all of the links until you find the **Build Actor** API endpoint. Copy this endpoint's URL, then head back over to your GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
-
-![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
+![Build settings with Automatic builds selected](./images/build-settings.webp)
 
 And you're done! 🎉
 
@@ -60,7 +56,7 @@ And you're done! 🎉
 
 This was a bit of overhead, but the good news is that you don't ever have to configure this stuff again for this Actor. Now, every time the content of your **main**/**master** branch changes, the Actor on the Apify platform will rebuild based on the newest code.
 
-Think of it as combining two steps into one! Normally, you'd have to do a `git push` from your terminal in order to get the newest code onto GitHub, then run `apify push` to push it to the platform.
+Think of it as combining two steps into one. Normally, you'd have to do a `git push` from your terminal to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 
 It's also important to know that GitHub/Gitlab repository integration is standard practice. As projects grow and the number of contributors and maintainers increases, it only makes sense to have a GitHub repository integrated with the project's Actor. For the remainder of this course, all Actors created will be integrated with a GitHub repository.
 
