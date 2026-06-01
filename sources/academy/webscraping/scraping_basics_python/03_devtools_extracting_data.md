@@ -78,7 +78,7 @@ In the next lesson, we'll start with our Python project. First we'll be figuring
 
 ### Extract the price of IKEA's most expensive artificial plant
 
-At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number.
+At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number. You might also need [`replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) to handle spaces.
 
 <details>
   <summary>Solution</summary>
@@ -90,8 +90,8 @@ At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/a
   1. Notice that the price is structured into two elements, with the integer separated from the currency, under a class named `plp-price__integer`. This structure is convenient for extracting the value.
   1. In the **Console**, execute `document.querySelector('.plp-price__integer')`. This returns the element representing the first price in the listing. Since `document.querySelector()` returns the first matching element, it directly selects the most expensive plant's price.
   1. Save the element in a variable by executing `price = document.querySelector('.plp-price__integer')`.
-  1. Convert the price text into a number by executing `parseInt(price.textContent)`.
-  1. At the time of writing, this returns `699`, meaning [699 SEK](https://www.google.com/search?q=699%20sek).
+  1. Convert the price text into a number by executing `parseInt(price.textContent.replace(' ', ''))`. The price text contains spaces as thousand separators, so `.replace(' ', '')` strips them before parsing. You'll explore this technique further in the [Extracting data](./07_extracting_data.md#removing-dollar-sign-and-commas) lesson.
+  1. At the time of writing, this returns `1299`, meaning [1 299 SEK](https://www.google.com/search?q=1299%20sek).
 
 </details>
 
