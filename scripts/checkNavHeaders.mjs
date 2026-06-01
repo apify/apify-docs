@@ -138,7 +138,9 @@ for (const { path, keys } of PAGES) {
         const body = await fetchText(`${BASE}${path}`);
         const before = failures.length;
         checkPage(path, body, keys);
-        console.log(`${failures.length === before ? '✅' : '❌'} ${path}  [${['title', 'url', 'parents', ...keys].join(', ')}]`);
+        console.log(
+            `${failures.length === before ? '✅' : '❌'} ${path}  [${['title', 'url', 'parents', ...keys].join(', ')}]`,
+        );
     } catch (err) {
         fail(path, err.message);
         console.log(`❌ ${path}  (fetch failed)`);
