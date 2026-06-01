@@ -39,29 +39,31 @@ Provide schemas for individual datasets as file references or inline. Schemas fo
 
 The keys of the `datasets` object are aliases that refer to specific datasets. The previous example defines two datasets aliased as `default` and `categories`.
 
-:::info Alias versus named dataset
-
-Aliases and names are different. Named datasets have specific behavior on the Apify platform (the automatic data retention policy doesn't apply to them). Aliased datasets follow the data retention of their run. Aliases only have meaning within a specific run.
-
-:::
-
 Requirements:
 
 - The `datasets` object must contain the `default` alias
 - The `datasets` and `dataset` objects are mutually exclusive (use one or the other)
 
+:::info Alias versus named dataset
+
+On the Apify platform, aliases and names behave differently. Named datasets are persistent. The automatic data retention policy doesn't apply to them. Aliased datasets follow the data retention of their run, and aliases only have meaning within a specific run.
+
+Behavior differs when an SDK runs outside the platform. See the SDK notes below.
+
+:::
+
 See the full [Actor schema reference](../actor_json.md#reference).
 
 ## Access datasets in Actor code
 
-Access aliased datasets: using the Apify SDK, or reading the `ACTOR_STORAGES_JSON` environment variable directly.
+Access aliased datasets through the Apify SDK or by reading the `ACTOR_STORAGES_JSON` environment variable directly.
 
 ### Apify SDK
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
-In the JavaScript/TypeScript SDK `>=3.7.0`, use `openDataset` with `alias` option:
+In the JavaScript/TypeScript SDK `>=3.7.0`, use [`Actor.openDataset`](https://docs.apify.com/sdk/js/reference/class/Actor#openDataset) with the `alias` option:
 
 ```js
 const categoriesDataset = await Actor.openDataset({alias: 'categories'});
@@ -76,7 +78,7 @@ When the JavaScript SDK runs outside the Apify platform, aliases fall back to na
 </TabItem>
 <TabItem value="Python" label="Python">
 
-In the Python SDK `>=3.3.0`, use `open_dataset` with `alias` parameter:
+In the Python SDK `>=3.3.0`, use [`Actor.open_dataset`](https://docs.apify.com/sdk/python/reference/class/Actor#open_dataset) with the `alias` parameter:
 
 ```py
 categories_dataset = await Actor.open_dataset(alias='categories')
@@ -103,17 +105,33 @@ echo $ACTOR_STORAGES_JSON | jq '.datasets.categories'
 ```
 
 
-## Configure the output schema
-
-### Storage tab
+## View and export datasets
 
 The **Storage** tab in the Actor run view displays all datasets defined by the Actor and used by the run (up to 10).
 
-The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more clearly, define an [output schema](../../actor_definition/output_schema/index.md).
+To export a non-default dataset:
 
-### Output schema
+1. On the Actor run page, select the **Storage** tab.
+1. Open the **Dataset** dropdown and select the dataset you want to export.
+1. Under **Export dataset**, choose a format: JSON, CSV, XML, Excel, HTML Table, RSS, or JSONL.
+1. Select **Download**.
 
-Actors with output schemas can reference datasets through variables using aliases:
+:::caution Run page Export button
+
+The **Export** button on the Run page exports only the `default` dataset.
+
+:::
+
+To export programmatically:
+
+- Call the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
+- From inside an Actor, open the dataset (see [Access datasets in Actor code](#access-datasets-in-actor-code)), then call `getData` / `get_data` to read items into memory, or `exportTo` / `export_to` to write a JSON or CSV file to the key-value store.
+
+See [Datasets](../../../../storage/dataset.md) for formats and query parameters.
+
+## Surface datasets on the run page
+
+The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more prominently on the run page, define an [output schema](../../actor_definition/output_schema/index.md) that references each dataset by alias:
 
 ```json
 {
