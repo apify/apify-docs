@@ -11,27 +11,25 @@ A published task gets its own public landing page that shows users an example of
 
 This guide walks you through the publication process on the **Publication** tab and the steps to make a task public.
 
-Before you publish a task, your Actor itself must already be public. See [Publish your Actor](./publish.mdx) for the prerequisites that apply at the Actor level.
+## Prerequisites
 
-:::note Prerequisites
+Before you publish a task, make sure you have:
 
-- A published Actor that you own or maintain.
-- A [saved task](../running/tasks.md) with a complete input configuration.
+- A [published Actor](./publish.mdx) that you own or maintain.
+- A [saved task](/platform/actors/running/tasks) with a complete input configuration.
 - An [input schema](/platform/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/platform/actors/development/actor-definition/dataset-schema) defined on the Actor.
-
-:::
 
 ## What tasks to publish
 
 Focus on tasks that represent a real use case someone would search for and that show your Actor solving a specific problem. Not every saved task needs a public landing page.
 
-### Demonstrate a specific job-to-be-done
+### Focus on a real use case
 
 The best tasks aim to solve a problem a user actually has. Instead of publishing a generic "default configuration" task, publish one that answers a question someone might type into a search engine or AI agent.
 
-For example, if you maintain a Google Maps scraper, Amazon scraper and Yahoo scraper Actors:
+For example, if you maintain Google Maps, Amazon, and Yahoo scraper Actors:
 
-| Weak task | Strong task |
+| ❌ Weak task | ✅ Strong task |
 | --- | --- |
 | Google Maps - default config | Find dentists in San Francisco with reviews |
 | Test run 2 | Extract restaurant emails for local marketing |
@@ -59,12 +57,12 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 
 :::
 
-## Make your task public
+## Publish your tasks
 
 Once your task runs reliably and produces the output you want users to see, publish it from Apify Console.
 
 1. From your task's page in Apify Console, open the **Publication** tab.
-1. Complete the 3 sections: **Display information**, **Input**, and **Dataset schema**.
+1. Complete the three sections: [Display information](#display-information), [Input](#input), and [Dataset schema](#dataset-schema).
 1. Click **Publish task**.
 
 ![Publication tab on a task page.](./images/public-tasks/task-publication-tab.webp)
@@ -73,7 +71,7 @@ Once your task runs reliably and produces the output you want users to see, publ
 
 This section controls how your task appears on the public task landing page and in search results.
 
-There are 3 fields in this section:
+There are three fields in this section:
 
 - **Slug:** the URL-friendly name used in the task's landing page URL.
 - **SEO task title:** shown as the heading on the landing page and as the page title in search results.
@@ -88,7 +86,7 @@ You can live preview how the fields propagate on the right (they update as you t
 
 :::tip Title format
 
-Frame the title as the user's job-to-be-done, not as a description of the Actor's mechanics. A good title combines an action, a target, and a qualifier.
+Frame the title as the user's goal, not as a description of the Actor's mechanics. A good title combines an action, a target, and a qualifier.
 
 Good examples:
 
