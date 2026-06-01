@@ -20,7 +20,7 @@ Thus far, you've run Actors on the platform and written an Actor of your own, wh
 
 ## Advanced Actor overview {#advanced-actors}
 
-In this course, we'll be working out of the Amazon scraper built in the [Web scraping basics for JavaScript devs](../../webscraping/scraping_basics_legacy/index.md) course. If you haven't gone through it yet, we recommend doing so - it covers the fundamentals this project is built on. If you'd rather skip straight to this course, a working implementation is available at [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper).
+In this course, we'll be working out of the Amazon scraper built in the [Web scraping basics for JavaScript devs](../../webscraping/scraping_basics_legacy/index.md) course. If you haven't gone through it yet, we recommend doing so, it covers the fundamentals this project is built on. If you'd rather skip straight to this course, a working implementation is available at [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper).
 
 Take another look at the files within your Amazon scraper project. You'll notice that there is a **Dockerfile**. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
 
@@ -48,11 +48,11 @@ Prior to moving forward, please read over these resources:
 
 In this task, we'll be building on top of the [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper).
 
-Once our Amazon Actor has completed its run, we might want to send an email to ourselves, but instead of that let's call another Actor through a webhook. The Actor called will be a new Actor that you will create, which will take the dataset ID as input, then filter through all of the results and return only the cheapest result for each unique ASIN. All of the results of the Actor will be pushed to its default dataset.
+Once our Amazon Actor has completed its run, we might want to send an email to ourselves, but let's call another Actor through a webhook instead. The Actor called will be a new Actor that you will create. It will take the dataset ID as input, then filter through all of the results and return only the cheapest result for each unique ASIN. All of the results of the Actor will be pushed to its default dataset.
 
 :::note Starter repo
 
-The [starter repo](https://github.com/apify-projects/academy-amazon-scraper) produces one result per product, so in practice the filtering Actor will pass every item through unchanged. That's fine - the goal here is to learn how to pass data between Actors using webhooks, not to do complex filtering.
+The [starter repo](https://github.com/apify-projects/academy-amazon-scraper) produces one result per product, so in practice the filtering Actor will pass every item through unchanged. That's fine, the goal here is to learn how to pass data between Actors using webhooks, not to do complex filtering.
 
 :::
 
