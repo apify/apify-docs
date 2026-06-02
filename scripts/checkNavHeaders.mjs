@@ -58,10 +58,21 @@ const PAGES = [
 const failures = [];
 const fail = (page, msg) => failures.push(`${page} → ${msg}`);
 
-async function fetchText(url) {
-    const res = await fetch(url, { headers: { Accept: 'text/markdown' } });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return res.text();
+async function fetchText(url, attempts = 3) {
+    for (let i = 1; ; i++) {
+        try {
+            const res = await fetch(url, { headers: { Accept: 'text/markdown' } });
+            if (res.ok) return await res.text();
+            throw new Error(`HTTP ${res.status} for ${url}`);
+        } catch (err) {
+            // A 4xx is deterministic (e.g. a genuinely missing page) - fail fast.
+            // Anything else is transient: a 5xx, or undici throwing "terminated"
+            // when a pooled keep-alive socket goes stale mid-read (seen on the
+            // ~42MB llms-full.txt with the server's Keep-Alive: timeout=5). Retry.
+            if (i >= attempts || /^HTTP 4\d\d /.test(err.message)) throw err;
+            await new Promise((resolve) => setTimeout(resolve, 250 * i));
+        }
+    }
 }
 
 // Returns the frontmatter lines (between the opening and closing `---`), or null
