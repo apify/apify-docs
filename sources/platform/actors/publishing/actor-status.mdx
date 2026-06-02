@@ -1,0 +1,52 @@
+---
+title: Display Actor status
+description: Learn how to add a status badge to your Actor's page in Apify Store.
+slug: /actors/publishing/actor-status
+sidebar_position: 6
+---
+
+You can display an Actor status badge and a custom message on your Actor's page in Apify Store. Use this option to keep your users informed about the current status of the Actor development process.
+
+## Access status options
+
+To access the available status options for an Actor:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor whose status you want to update.
+1. Go to the **Publication** tab.
+1. Expand the **Display information** section.
+
+### Add custom status
+
+To let your Actor users know about ongoing work, use the custom status. For example, you can inform users about fixing an issue or developing a new feature.
+
+To add a custom status to your Actor:
+
+1. In **Actor status** section, switch on the **Custom status** toggle.
+1. Complete the following fields:
+    - **Title** – the status message, for example _A new version coming soon_.
+    - **Description** – additional explanation of the status. This field is optional.
+1. Select **Save**.
+
+### Mark Actor as under maintenance
+
+To let users know that the Actor might temporarily not work as expected, use the **Under maintenance** status:
+
+1. In **Actor status** section, switch on the **Under maintenance** toggle.
+1. _(Optional)_ In the **Under maintenance message** field, add an additional explanation.
+1. Select **Save**.
+
+Note that the **Under maintenance** status makes your Actor rank lower in search results. It's also automatically set when your Actor fails the [automated testing](../development/automated_tests.md) process.
+
+### Mark Actor as deprecated
+
+To let your users know that the Actor is no longer being developed, use the **Deprecated** status:
+
+1. In **Actor status** section, switch on the **Deprecated** toggle.
+1. _(Optional)_ In the **Deprecated message** field, add an additional explanation.
+1. Select **Save**.
+
+Don't delete the Actor as it might break the existing integrations.
+
+Note that the deprecated Actors aren't searchable in Apify Store. The **Deprecated** status is also automatically set when your Actor fails the [automated testing](../development/automated_tests.md) process for 30 days.
