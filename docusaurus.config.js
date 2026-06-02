@@ -255,6 +255,7 @@ module.exports = {
                 allowedInDev: false,
             },
         ],
+        resolve(__dirname, 'src/plugins/docusaurus-plugin-preview-meta'),
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
