@@ -1,8 +1,8 @@
 ---
 title: LlamaIndex integration
+sidebar_position: 3
 description: Learn how to integrate Apify with LlamaIndex to feed vector databases and large language models with web data crawled from the web using Actors.
 sidebar_label: LlamaIndex
-sidebar_position: 7
 slug: /integrations/llama-index
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: 🦜🔗 LangChain integration
+sidebar_position: 1
 sidebar_label: LangChain
 description: Learn how to integrate Apify with LangChain to feed vector databases and large language models with web data crawled from the web using Actors.
-sidebar_position: 5
 slug: /integrations/langchain
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Milvus integration
+sidebar_position: 3
 description: Learn how to integrate Apify with Milvus to export Actor results and dataset items into a Milvus vector database collection for semantic search.
 sidebar_label: Milvus
-sidebar_position: 16
 slug: /integrations/milvus
 toc_min_heading_level: 2
 toc_max_heading_level: 4

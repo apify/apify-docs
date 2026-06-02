@@ -1,8 +1,8 @@
 ---
 title: Snowflake integration
+sidebar_position: 1
 description: Use the Apify Snowflake Native App to run Actors and import dataset results directly into your Snowflake tables from within the Snowflake UI.
 sidebar_label: Snowflake
-sidebar_position: 1
 slug: /integrations/snowflake
 ---
 

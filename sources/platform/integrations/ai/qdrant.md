@@ -1,8 +1,8 @@
 ---
 title: Qdrant integration
+sidebar_position: 3
 description: Learn how to integrate Apify with Qdrant to export Actor results and dataset items into a Qdrant vector database collection for AI-powered search.
 sidebar_label: Qdrant
-sidebar_position: 18
 slug: /integrations/qdrant
 toc_min_heading_level: 2
 toc_max_heading_level: 4

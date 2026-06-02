@@ -1,8 +1,8 @@
 ---
 title: 🤖🚀 CrewAI integration
+sidebar_position: 2
 sidebar_label: CrewAI
 description: Learn how to integrate Apify Actors with CrewAI to equip multi-agent AI crews with real-time web scraping and data extraction capabilities now.
-sidebar_position: 3
 slug: /integrations/crewai
 ---
 

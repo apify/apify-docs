@@ -1,8 +1,8 @@
 ---
 title: 🦜🔘➡️ LangGraph integration
+sidebar_position: 3
 sidebar_label: LangGraph
 description: Learn how to build stateful multi-agent AI workflows with LangGraph and Apify Actors to search, extract, and analyze real-time web data at scale.
-sidebar_position: 8
 slug: /integrations/langgraph
 ---
 

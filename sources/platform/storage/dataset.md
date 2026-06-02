@@ -53,7 +53,7 @@ The [Apify API](/api/v2/storage-datasets) enables you programmatic access to you
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/built-in/api.md#authentication)).
 
 To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2/datasets-get) endpoint.
 
