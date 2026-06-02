@@ -7,17 +7,23 @@
 // served pages actually carry that header and that it never leaked into
 // `llms-full.txt`.
 //
-// It runs against a live server over HTTP (in CI: Nginx on :8080), so it tests
-// the real served bytes, not the files on disk.
+// The per-page checks run against a live server over HTTP (in CI: Nginx on
+// :8080), so they test the real served bytes. The llms-full.txt leak guard
+// instead reads the build artifact off disk - see readLlmsFull() for why.
 //
 // Usage:
 //   node scripts/checkNavHeaders.mjs [baseUrl]
 //   baseUrl defaults to $NAV_HEADERS_BASE_URL or http://localhost:8080
 
 import { execFile } from 'node:child_process';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
+
+// Resolved relative to this script, so the disk read works regardless of cwd.
+const LLMS_FULL_FILE = fileURLToPath(new URL('../build/llms-full.txt', import.meta.url));
 
 const BASE = (process.argv[2] || process.env.NAV_HEADERS_BASE_URL || 'http://localhost:8080').replace(/\/$/, '');
 const SITE_URL = 'https://docs.apify.com';
@@ -79,6 +85,24 @@ async function fetchText(url) {
         return stdout;
     } catch (err) {
         throw new Error((err.stderr || err.message || '').toString().trim() || `curl failed for ${url}`);
+    }
+}
+
+// Read llms-full.txt for the leak guard. This is deliberately NOT an HTTP fetch:
+// the file is ~42MB and the CI server truncates the response mid-body (undici
+// reports "terminated", curl reports "transfer closed with N bytes remaining"),
+// so no client can read it reliably over the wire. The leak guard is anyway a
+// build-artifact invariant - the nav header must never be concatenated into
+// llms-full.txt (issue #2557), which is about what addNavHeaders.mjs leaves in
+// build/, not how it's served - so read the file straight off disk. Fall back to
+// HTTP only when there is no local build (e.g. checking a remote deployment).
+async function readLlmsFull() {
+    try {
+        return { source: LLMS_FULL_FILE, text: await readFile(LLMS_FULL_FILE, 'utf8') };
+    } catch (err) {
+        if (err.code !== 'ENOENT') throw err;
+        const url = `${BASE}/llms-full.txt`;
+        return { source: url, text: await fetchText(url) };
     }
 }
 
@@ -171,16 +195,16 @@ for (const { path, keys } of PAGES) {
 // synthetic root breadcrumb appears only in the header, so its presence here
 // means a leak.
 try {
-    const llmsFull = await fetchText(`${BASE}/llms-full.txt`);
-    if (llmsFull.includes(ROOT_PARENT)) {
-        fail('/llms-full.txt', 'nav header leaked into llms-full.txt (found the root breadcrumb)');
-        console.log('❌ /llms-full.txt  (nav header leaked in)');
+    const { source, text } = await readLlmsFull();
+    if (text.includes(ROOT_PARENT)) {
+        fail('llms-full.txt', `nav header leaked into ${source} (found the root breadcrumb)`);
+        console.log('❌ llms-full.txt  (nav header leaked in)');
     } else {
-        console.log('✅ /llms-full.txt  (no nav header leaked in)');
+        console.log(`✅ llms-full.txt  (no nav header leaked in; read ${source})`);
     }
 } catch (err) {
-    fail('/llms-full.txt', err.message);
-    console.log('❌ /llms-full.txt  (fetch failed)');
+    fail('llms-full.txt', err.message);
+    console.log('❌ llms-full.txt  (read failed)');
 }
 
 if (failures.length > 0) {
