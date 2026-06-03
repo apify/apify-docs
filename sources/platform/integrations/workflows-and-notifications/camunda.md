@@ -29,7 +29,7 @@ All Apify Connector operations require an Apify API token.
 
 :::tip Security best practice
 
-In Camunda, avoid hardcoding your token directly in the process design. Instead, use [Camunda Secrets](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) (e.g. `secrets.APIFY_TOKEN`) to store your Apify API token securely.
+In Camunda, avoid hardcoding your token directly in the process design. Instead, use [Camunda Secrets](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) (e.g. `{{secrets.APIFY_TOKEN}}`) to store your Apify API token securely.
 
 :::
 
@@ -126,7 +126,7 @@ Scrape a webpage using one of Apify's standard crawlers.
 | --------- | ------------- |
 | **Operation** | Select `Scrape single URL` |
 | **URL** | The full URL to scrape (e.g. `https://example.com`) |
-| **Crawler Type** | `Cheerio` (lightweight), `JSDOM`, `Playwright Adaptive`, or `Playwright Firefox` |
+| **Crawler Type** | `Cheerio (Raw HTTP)` (lightweight), `Adaptive`, or `Firefox (Headless Browser)` |
 
 #### Get dataset items
 
@@ -232,9 +232,17 @@ graph LR
 
 #### Find the URL
 
-Camunda SaaS: Open [Camunda Console](https://console.camunda.io/), select your cluster, and open the **API** tab. Copy the **Connectors** base URL (it looks like `https://{region}.connectors.camunda.io/{clusterId}`) and paste it into the **Camunda webhook URL** field.
+Camunda SaaS: Open [Camunda Console](https://console.camunda.io/), select your cluster, and open the **API** tab under **Client Credentials**. Your **Region ID** and **Cluster ID** form the base URL: `https://{clusterId}.{region}.connectors.camunda.io`. Paste it into the **Camunda webhook URL** field.
 
-Self-Managed / Hybrid: Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints).
+:::tip Easiest way to get the URL
+
+After deploying your BPMN diagram in **Web Modeler**, click on the inbound event element and open the **Webhooks** tab in the properties panel. It displays the complete, ready-to-use webhook URL for your cluster. See [HTTP Webhook connector](https://docs.camunda.io/docs/components/connectors/protocol/http-webhook/#activate-the-http-webhook-connector-by-deploying-your-diagram) for details.
+
+Note: The **Webhooks** tab is only available in Web Modeler on SaaS. If you're using Desktop Modeler or Self-Managed, construct the URL manually using the patterns above.
+
+:::
+
+Self-Managed / Hybrid: Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints). If you set a `contextPath` in your Helm chart, include it in the URL. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for hybrid setup.
 
 Local development: Use a tunneling tool such as ngrok to expose your local connectors runtime, then paste the public tunnel URL into the field.
 
