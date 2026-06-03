@@ -129,6 +129,10 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
 
+### File naming conventions
+
+For file names, use lowercase letters and hyphens (kebab-case). For example `web-scraping-basics.mdx`
+
 ## AI assistant rules structure
 
 This project uses an agent-agnostic approach: standards and workflows live at the repo root, with thin adapter files for each AI tool.
