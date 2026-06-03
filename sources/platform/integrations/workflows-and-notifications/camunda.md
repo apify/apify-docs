@@ -17,7 +17,7 @@ slug: /integrations/camunda
 To use the Apify integration with Camunda, you need:
 
 - An [Apify account](https://console.apify.com/)
-- A [Camunda 8](https://camunda.com/) environment, version 8.8 or 8.9 (SaaS, Self-Managed, or Hybrid)
+- A [Camunda 8](https://camunda.com/) environment, version 8.8, 8.9, or 8.10 (SaaS, Self-Managed, or Hybrid)
 
 ## Authentication
 
@@ -29,7 +29,7 @@ All Apify Connector operations require an **Apify API token**.
 
 :::tip Security best practice
 
-In Camunda, avoid hardcoding your token directly in the process design. Instead, use [Camunda Secrets](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) (e.g., `secrets.APIFY_TOKEN`) to store your Apify API token securely.
+In Camunda, avoid hardcoding your token directly in the process design. Instead, use [Camunda Secrets](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) (e.g., `{{secrets.APIFY_TOKEN}}`) to store your Apify API token securely.
 
 :::
 
@@ -126,7 +126,7 @@ Quickly scrape a webpage using one of Apify's standard crawlers.
 | --------- | ------------- |
 | **Operation** | Select `Scrape single URL` |
 | **URL** | The full URL to scrape (e.g., `https://example.com`) |
-| **Crawler Type** | `Cheerio` (lightweight), `JSDOM`, `Playwright Adaptive`, or `Playwright Firefox` |
+| **Crawler Type** | `Cheerio (Raw HTTP)` (lightweight), `Adaptive`, or `Firefox (Headless Browser)` |
 
 #### Get dataset items
 
@@ -235,15 +235,23 @@ graph LR
 
 #### Find the URL
 
-**Camunda SaaS:** Open [Camunda Console](https://console.camunda.io/), select your cluster, and open the **API** tab. Copy the **Connectors** base URL (it looks like `https://{region}.connectors.camunda.io/{clusterId}`) and paste it into the **Camunda webhook URL** field.
+**Camunda SaaS:** Open [Camunda Console](https://console.camunda.io/), select your cluster, and open the **API** tab under **Client Credentials**. Your **Region ID** and **Cluster ID** form the base URL: `https://{clusterId}.{region}.connectors.camunda.io`. Paste it into the **Camunda webhook URL** field.
 
-**Self-Managed / Hybrid:** Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints).
+:::tip Easiest way to get the URL
+
+After deploying your BPMN diagram in **Web Modeler**, click on the inbound event element and open the **Webhooks** tab in the properties panel. It displays the complete, ready-to-use webhook URL for your cluster. See [HTTP Webhook connector](https://docs.camunda.io/docs/components/connectors/protocol/http-webhook/#activate-the-http-webhook-connector-by-deploying-your-diagram) for details.
+
+Note: The **Webhooks** tab is only available in Web Modeler on SaaS. If you're using Desktop Modeler or Self-Managed, construct the URL manually using the patterns above.
+
+:::
+
+**Self-Managed / Hybrid:** Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints). If you set a `contextPath` in your Helm chart, include it in the URL. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for hybrid setup.
 
 **Local development:** Use a tunneling tool such as ngrok to expose your local connectors runtime, then paste the public tunnel URL into the field.
 
 #### Reuse the URL across BPMNs
 
-If you build several BPMNs on the same Camunda cluster, store the base URL as a [Camunda Secret](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) and reference it with `=secrets.CAMUNDA_WEBHOOK_URL` in each template.
+If you build several BPMNs on the same Camunda cluster, store the base URL as a [Camunda Secret](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) and reference it with `{{secrets.CAMUNDA_WEBHOOK_URL}}` in each template.
 
 :::caution Webhook verification
 
@@ -792,17 +800,27 @@ Use the Actor ID format for dynamic workflows where the identifier comes from pr
 
 For datasets, you still need the ID. Find it in the Storage section or in run details.
 
-### Common FEEL expressions
+### Common expressions
 
-Camunda uses FEEL (Friendly Enough Expression Language) for dynamic values. The leading `=` in each expression tells Camunda to evaluate what follows as a FEEL expression rather than a literal string.
+The connector templates accept two distinct syntaxes that look similar but are evaluated at different stages by different components: **FEEL expressions** and **secret placeholders**.
 
-| Expression | Use case |
+**FEEL expressions** (prefix: `=`) are evaluated by the Zeebe engine before the connector runs. The leading `=` tells the engine to parse the field as FEEL (Friendly Enough Expression Language) and resolve it to a concrete value. Use FEEL to reference process variables, filter events, or build output mappings.
+
+| FEEL expression | Use case |
 | ------------ | ---------- |
-| `=secrets.APIFY_TOKEN` | Accessing a secure credential |
 | `=runResult.data.id` | Accessing the run ID from a response |
 | `=runResult.data.defaultDatasetId` | Accessing the default dataset ID |
 | `=connectorData.status` | Reading the status from inbound webhook payload |
 | `=connectorData.runId` | Reading the run ID from inbound webhook payload |
+
+**Secret placeholders** (syntax: `{{secrets.NAME}}`) are not FEEL. The engine passes them through as literal strings and the connector runtime substitutes them at execution time, just before the outbound HTTP call. This keeps the secret value out of process variables, audit logs, and incident messages. Use them anywhere a credential or sensitive URL belongs — directly in plain text fields (no `=` prefix), or inside a FEEL string wrapped in quotes (e.g. `="Bearer " + "{{secrets.APIFY_TOKEN}}"`).
+
+| Placeholder | Use case |
+| ------------ | ---------- |
+| `{{secrets.APIFY_TOKEN}}` | Reference a stored Apify API token |
+| `{{secrets.CAMUNDA_WEBHOOK_URL}}` | Reference a stored Camunda webhook URL |
+
+See [Manage Secrets](https://docs.camunda.io/docs/components/console/manage-clusters/manage-secrets/) for how to create and store secrets in your Camunda cluster.
 
 ### Webhook payload structure
 
