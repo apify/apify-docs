@@ -147,7 +147,9 @@ Plugins require a local installation of the Claude Code CLI. They aren't availab
 
 ### OAuth login doesn't work
 
-If the browser OAuth flow fails, authenticate the Apify MCP server with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it in your shell before starting Claude Code:
+If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
+
+If the OAuth flow still fails after opening the URL, authenticate the Apify MCP server with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it in your shell before starting Claude Code:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
