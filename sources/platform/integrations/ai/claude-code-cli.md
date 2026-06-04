@@ -14,7 +14,11 @@ The [Apify plugin for Claude Code](https://github.com/apify/apify-claude-code-pl
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five skills covering Actor development, actorization, output schema generation, SDK integration, and a CLI-driven scraping workflow.
 
+:::info CLI only
+
 This guide covers installation in the Claude Code CLI. Support for the Claude Code app is still in development.
+
+:::
 
 ## Prerequisites
 
@@ -93,7 +97,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> "Find a good Actor for scraping Google Maps places, then show its input requirements, pricing, and output fields. Don't run it yet."
+> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the actor yet."
 
 The agent searches Apify Store, fetches the top Actor's details through `plugin:apify:apify`, and summarizes its inputs, pricing, and output - all without running the Actor.
 
