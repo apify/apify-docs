@@ -6,13 +6,15 @@ sidebar_position: 21
 slug: /integrations/claude-code-cli
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [Claude Code CLI](https://code.claude.com/docs/en/overview) is Anthropic's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
 The [Apify plugin for Claude Code](https://github.com/apify/apify-claude-code-plugin) connects Claude Code to Apify's library of [Actors](https://apify.com/store) and bundles:
 
 - The [Apify MCP server](/platform/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
-- Five skills covering Actor development, actorization, output schema generation, SDK integration, and a CLI-driven scraping workflow.
+- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
 :::info CLI only
 
@@ -91,9 +93,13 @@ The plugin bundles the Apify MCP server, but it stays disabled until you sign in
 
     ![Terminal showing successful authentication to plugin:apify:apify](images/claude_code_cli/13-auth-success.png)
 
+:::tip Session persistence
+
 The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
-## Try it
+:::
+
+## Run your first prompt
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
@@ -113,11 +119,19 @@ The agent searches Apify Store, fetches the top Actor's details through `plugin:
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
 
-Some prompts that route to specific skills:
+Example prompts that route to specific skills:
 
-- _Ultimate scraper_ - "Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website."
-- _Actor development_ - "Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL."
-- _SDK integration_ - "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
+_Ultimate scraper:_
+
+> "Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website."
+
+_Actor development:_
+
+> "Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL."
+
+_SDK integration:_
+
+> "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
 
 ## Troubleshooting
 
