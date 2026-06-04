@@ -25,7 +25,7 @@ The Actor uses OAuth 2.0 to connect to your Airtable account:
 1. Click **Connect** next to Airtable and follow the OAuth consent flow.
 1. Once connected, the OAuth account field is populated automatically.
 
-![Apify Console Integrations tab showing Airtable OAuth connection screen](../images/airtable/airtable_console_oauth.png)
+![Apify Console Integrations tab showing Airtable OAuth connection screen](../images/airtable/airtable_console_oauth.webp)
 
 The Actor retrieves a fresh access token at the start of each run. Your Airtable credentials are never stored or logged.
 
@@ -48,9 +48,9 @@ A safety switch for **Create** mode only. Defaults to `false`.
 
 ### Base
 
-Accepts a base ID (`appXXXXXXXXXXXXXX`, found in the Airtable URL) or a base name. Base IDs are recommended — they are immutable and globally unique.
+Accepts a base ID (`appXXXXXXXXXXXXXX`, found in the Airtable URL) or a base name. Base IDs are recommended - they are immutable and globally unique.
 
-![Airtable base URL highlighting the base ID portion](../images/airtable/airtable_console_app_id.png)
+![Airtable base URL highlighting the base ID portion](../images/airtable/airtable_console_app_id.webp)
 
 ### Table
 
@@ -61,7 +61,7 @@ Accepts a table name or table ID (`tblXXXXXXXXXXXXXX`). When using **Create** mo
 Specifies the dataset to import from:
 
 - A static dataset ID (for example, `cqxkhXcn2SCjTpeCz`).
-- `{{resource.defaultDatasetId}}` when used as an integration — automatically passes the upstream Actor's dataset.
+- `{{resource.defaultDatasetId}}` when used as an integration - automatically passes the upstream Actor's dataset.
 
 ### Unique ID
 
@@ -71,7 +71,7 @@ Enables duplicate detection. When set, the Actor reads existing values from the 
 
 An array defining how dataset fields map to Airtable columns.
 
-![Field mappings editor showing multiple mapping rows configured](../images/airtable/airtable_console_field_mapping.png)
+![Field mappings editor showing multiple mapping rows configured](../images/airtable/airtable_console_field_mapping.webp)
 
 Each mapping has these properties:
 
@@ -111,7 +111,7 @@ Chain the Actor after another Actor so results are imported automatically:
 1. Configure the base, table, operation, and field mappings.
 1. Connect your Airtable account via OAuth.
 
-![Apify integration setup screen showing Airtable Data Import Actor configuration](../images/airtable/airtable_console_datased_id.png)
+![Apify integration setup screen showing Airtable Data Import Actor configuration](../images/airtable/airtable_console_datased_id.webp)
 
 ## Understand the output
 
@@ -199,7 +199,7 @@ After import, the Actor pushes a summary to its dataset:
 - Text values are truncated at 10,000 characters per field.
 - `number` fields are created with integer precision; create decimal fields manually.
 - Imports process at approximately 50 records per second (10 per batch, 200ms delay).
-- Progress is automatically persisted — if a run is interrupted, it resumes from where it left off.
+- Progress is automatically persisted - if a run is interrupted, it resumes from where it left off.
 
 ## Next steps
 
