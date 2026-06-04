@@ -17,13 +17,13 @@ Automating your Actor development process can save time and reduce errors, espec
 
 Set up continuous integration for your Actors using one of these methods:
 
-- [Option 1: GitHub Actions](#option-1-set-up-automated-builds-with-github-actions) - the most flexible approach, with support for tests, multi-branch builds, and custom workflows.
-- [Option 2: Build API webhook](#option-2-trigger-builds-with-a-webhook) - works with Bitbucket, GitLab, and other Git hosting providers that support webhooks.
-- [Option 3: GitHub integration](#option-3-use-the-apify-github-integration) - the quickest setup with no workflow files needed, but less flexible than GitHub Actions.
+- [GitHub Actions](#github-actions) - the most flexible approach, with support for tests, multi-branch builds, and custom workflows.
+- [API webhook](#api-webhook) - works with Bitbucket, GitLab, and other Git hosting providers that support webhooks.
+- [GitHub integration](#github-integration) - the quickest setup with no workflow files needed, but less flexible than GitHub Actions.
 
-## Option 1: Set up automated builds with GitHub Actions
+## Set up automated builds with GitHub Actions {#github-actions}
 
-Use the official [`apify/push-actor-action`](https://github.com/apify/push-actor-action) GitHub Action to push your Actor source code to the Apify platform and build it on every push. This works similarly to running `apify push` with the Apify CLI, and gives you full control over your CI pipeline - you can run tests, manage multiple branches, and customize the workflow to fit your needs.
+To push your Actor source code to the Apify platform and build it on every push, use the official [`apify/push-actor-action`](https://github.com/apify/push-actor-action) GitHub Action. It works similarly to running `apify push` with the Apify CLI, and gives you full control over your CI pipeline: you can run tests, manage multiple branches, and customize the workflow.
 
 ### Prerequisites
 
@@ -34,8 +34,12 @@ Use the official [`apify/push-actor-action`](https://github.com/apify/push-actor
 
 ### Step 1: Add your Apify token to GitHub secrets
 
-1. Go to your GitHub repository > **Settings** > **Secrets and variables** > **Actions** > **New repository secret**.
-1. Name the secret `APIFY_TOKEN` and paste in your API token.
+1. Go to your GitHub repository.
+1. Select **Settings** > **Security and quality**  > **Secrets and variables** > **Actions**.
+1. In the **Secrets** tab, go to **Repository secrets** and select **New repository secret**.
+1. Complete the following fields:
+  - **Name**: use `APIFY_TOKEN` as a name for your secret.
+  - **Secret**: paste your Apify API token.
 
    ![Add Apify token to secrets](./images/ci-add-token.png)
 
@@ -133,9 +137,9 @@ jobs:
 
 For the full list of inputs (such as `actor-id`, `version`, and `working-directory`) and outputs, see the [`apify/push-actor-action` README](https://github.com/apify/push-actor-action).
 
-## Option 2: Trigger builds with a webhook
+## Trigger builds with a webhook {#api-webhook}
 
-If you use Bitbucket, GitLab, or another Git hosting provider that supports webhooks, you can trigger Actor builds by calling the Apify build API on every push. This approach only triggers a build - it doesn't push your source code to the platform.
+If you use Bitbucket, GitLab, or another Git hosting provider that supports webhooks, you can trigger Actor builds by calling the Apify build API on every push. This approach only triggers a build, it doesn't push your source code to the platform.
 
 :::note Source code
 
@@ -143,7 +147,9 @@ When using the webhook approach, the Actor must have its source set to a Git rep
 
 :::
 
-1. Go to your Actor's detail page in Apify Console, click the **API** tab in the top right, then select **API Endpoints**. Copy the **Build Actor** API endpoint URL:
+1. Go to your Actor's detail page in Apify Console.
+1. Go to the **API** tab. 
+1. Select **API Endpoints** and copy the **Build Actor** API endpoint URL:
 
    ```text
    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
@@ -161,7 +167,7 @@ For a more complete Bitbucket setup with automated tests, see the [Bitbucket CI 
 
 :::
 
-## Option 3: Use the Apify GitHub integration
+## Use the Apify GitHub integration {#github-integration}
 
 Apify Console includes a built-in [GitHub integration](/platform/integrations/github) that links an Actor directly to a GitHub repository. When you connect a repository, Apify automatically rebuilds the Actor on every push - no workflow files or webhook configuration needed.
 
