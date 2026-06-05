@@ -1,7 +1,7 @@
 ---
-title: Build Actors with MCP Connectors
-sidebar_label: Build with Connectors
-description: Declare MCP Connectors in your Actor input schema, connect to them from TypeScript or Python, and apply tool-permission constraints at runtime.
+title: Build Actors with MCP connectors
+sidebar_label: Build with connectors
+description: Declare MCP connectors in your Actor input schema, connect to them from TypeScript or Python, and apply tool-permission constraints at runtime.
 sidebar_position: 1
 slug: /integrations/mcp-connectors/use-in-actors
 ---
@@ -9,20 +9,20 @@ slug: /integrations/mcp-connectors/use-in-actors
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide explains how to build Actors that accept [MCP Connectors](/platform/integrations/mcp-connectors) as input, connect to them at runtime, and constrain which tools they can call.
+This guide explains how to build Actors that accept [MCP connectors](/platform/integrations/mcp-connectors) as input, connect to them at runtime, and constrain which tools they can call.
 
-## Declare Connectors in the input schema
+## Declare connectors in the input schema
 
-To accept MCP Connectors as input, set `resourceType: "mcpConnector"` on the input field. This renders a Connector picker in Apify Console and enforces which Connectors are compatible with the Actor.
+To accept MCP connectors as input, set `resourceType: "mcpConnector"` on the input field. This renders a connector picker in Apify Console and enforces which connectors are compatible with the Actor.
 
-### Single Connector
+### Single connector
 
-For an Actor that uses one Connector, set `type` to `string`:
+For an Actor that uses one connector, set `type` to `string`:
 
 ```json
 {
     "slackConnector": {
-        "title": "Slack Connector",
+        "title": "Slack connector",
         "description": "Connector to your Slack workspace",
         "type": "string",
         "resourceType": "mcpConnector",
@@ -33,20 +33,20 @@ For an Actor that uses one Connector, set `type` to `string`:
 }
 ```
 
-At runtime, the input value is a single Connector ID:
+At runtime, the input value is a single connector ID:
 
 ```json
 { "slackConnector": "conn_abc123" }
 ```
 
-### Multiple Connectors
+### Multiple connectors
 
-For an Actor that accepts several Connectors, set `type` to `array`:
+For an Actor that accepts several connectors, set `type` to `array`:
 
 ```json
 {
     "mcpConnectors": {
-        "title": "MCP Connectors",
+        "title": "MCP connectors",
         "description": "MCP server connections for this Actor to use",
         "type": "array",
         "resourceType": "mcpConnector",
@@ -57,7 +57,7 @@ For an Actor that accepts several Connectors, set `type` to `array`:
 }
 ```
 
-At runtime, the input value is an array of Connector IDs:
+At runtime, the input value is an array of connector IDs:
 
 ```json
 { "mcpConnectors": ["conn_abc123", "conn_def456"] }
@@ -65,11 +65,11 @@ At runtime, the input value is an array of Connector IDs:
 
 ## The `mcpServers` rule list
 
-Each entry in `mcpServers` is an independent rule that defines an eligible Connector by the upstream server URL it targets and the tools it must support. A Connector is eligible if it satisfies at least one entry: its server URL matches the entry's `url` pattern and it meets the entry's `tools` constraints.
+Each entry in `mcpServers` is an independent rule that defines an eligible connector by the upstream server URL it targets and the tools it must support. A connector is eligible if it satisfies at least one entry: its server URL matches the entry's `url` pattern and it meets the entry's `tools` constraints.
 
 The rules serve two purposes at once:
 
-- _Eligibility filter_ - the Connector picker in the input form only offers Connectors that match at least one rule.
+- _Eligibility filter_ - the connector picker in the input form only offers connectors that match at least one rule.
 - _Runtime ceiling_ - the proxy holds the Actor to its declaration. The Actor can only see (through a filtered `tools/list`) and call (through a guarded `tools/call`) tools that fall within the rule it matched.
 
 ### `url`
@@ -86,7 +86,7 @@ URL pattern of the server an entry targets. The `*` wildcard matches zero or mor
 
 ### `tools.required`
 
-An optional array of tool name patterns. For each pattern, the Connector must support at least one tool with a matching name. The `*` wildcard matches zero or more characters. Omit `required` (or use `["*"]`) to place no restriction on tool names.
+An optional array of tool name patterns. For each pattern, the connector must support at least one tool with a matching name. The `*` wildcard matches zero or more characters. Omit `required` (or use `["*"]`) to place no restriction on tool names.
 
 ```json
 "mcpServers": [
@@ -128,7 +128,7 @@ Example combining `required` patterns with hints:
 ## Input schema reference
 
 ```typescript
-// Single Connector (type: "string")
+// Single connector (type: "string")
 {
     title: string;              // Required.
     description: string;        // Required.
@@ -136,8 +136,8 @@ Example combining `required` patterns with hints:
     resourceType: "mcpConnector";
     mcpServers: McpServer[];    // Required. At least one entry.
 
-    editor?: "resourcePicker"   // Default. Shows a Connector picker in the UI.
-           | "textfield"        // Accepts a Connector ID as free text.
+    editor?: "resourcePicker"   // Default. Shows a connector picker in the UI.
+           | "textfield"        // Accepts a connector ID as free text.
            | "hidden";
 
     nullable?: boolean;
@@ -148,7 +148,7 @@ Example combining `required` patterns with hints:
     sectionDescription?: string;
 }
 
-// Multiple Connectors (type: "array")
+// Multiple connectors (type: "array")
 {
     title: string;
     description: string;
@@ -156,7 +156,7 @@ Example combining `required` patterns with hints:
     resourceType: "mcpConnector";
     mcpServers: McpServer[];
 
-    editor?: "resourcePicker"   // Default. Shows a Connector picker in the UI.
+    editor?: "resourcePicker"   // Default. Shows a connector picker in the UI.
            | "hidden";
 
     minItems?: number;
@@ -192,7 +192,7 @@ Example combining `required` patterns with hints:
 {
     "properties": {
         "slackConnector": {
-            "title": "Slack Connector",
+            "title": "Slack connector",
             "description": "Read-only access to your Slack workspace",
             "type": "string",
             "resourceType": "mcpConnector",
@@ -220,7 +220,7 @@ Any server, any tools:
 {
     "properties": {
         "mcpConnectors": {
-            "title": "MCP Connectors",
+            "title": "MCP connectors",
             "description": "Give this Actor access to any MCP servers you want it to use",
             "type": "array",
             "resourceType": "mcpConnector",
@@ -240,7 +240,7 @@ Multiple allowed servers, send-only tools:
 {
     "properties": {
         "messagingConnectors": {
-            "title": "Messaging Connectors",
+            "title": "Messaging connectors",
             "description": "Connections to messaging services for sending notifications",
             "type": "array",
             "resourceType": "mcpConnector",
@@ -267,7 +267,7 @@ Any server that supports at least one output-writing tool:
 {
     "properties": {
         "outputConnectors": {
-            "title": "Output Connectors",
+            "title": "Output connectors",
             "description": "Connectors to any MCP servers that support at least one output-writing tool",
             "type": "array",
             "resourceType": "mcpConnector",
@@ -284,11 +284,11 @@ Any server that supports at least one output-writing tool:
 
 ## Connect from the Actor
 
-Every Actor run receives two environment variables for MCP Connector access.
+Every Actor run receives two environment variables for MCP connector access.
 
 | Variable | Description |
 | --- | --- |
-| `APIFY_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to a Connector at `${APIFY_MCP_PROXY_URL}/<connectorId>`. |
+| `APIFY_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to a connector at `${APIFY_MCP_PROXY_URL}/<connectorId>`. |
 | `APIFY_TOKEN` | API token of the user who started the Actor. Use it as the bearer token for proxy requests. |
 
 The Actor uses a standard MCP client to connect to the proxy URL with the token as a bearer credential. No Apify-specific MCP SDK is required.
@@ -388,9 +388,9 @@ asyncio.run(main())
 </TabItem>
 </Tabs>
 
-## Connect multiple Connectors
+## Connect multiple connectors
 
-When the input field uses `type: "array"`, create one MCP client per Connector ID. Each Connector gets its own session through the proxy.
+When the input field uses `type: "array"`, create one MCP client per connector ID. Each connector gets its own session through the proxy.
 
 ```typescript
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
@@ -417,13 +417,13 @@ const clients = await Promise.all(
 
 ## Tool permissions
 
-Three independent layers control which tools are accessible when an Actor uses a Connector. A tool is available only if it passes every configured layer. An unconfigured layer imposes no restriction.
+Three independent layers control which tools are accessible when an Actor uses a connector. A tool is available only if it passes every configured layer. An unconfigured layer imposes no restriction.
 
 ```mermaid
 flowchart TD
     A([Tool call])
-    B["Layer 0 — Auth-level permissions<br/>OAuth scopes or API key / PAT permissions<br/>granted when the Connector was authorized"]
-    C["Layer 1 — Connector tool allowlist<br/>All tools discovered on the upstream server<br/>are allowed by default"]
+    B["Layer 0 — Auth-level permissions<br/>OAuth scopes or API key / PAT permissions<br/>granted when the connector was authorized"]
+    C["Layer 1 — connector tool allowlist<br/>All tools discovered on the upstream server<br/>are allowed by default"]
     D["Layer 2 — Actor input schema<br/>Tool constraints in mcpServers<br/>act as eligibility filter and runtime ceiling"]
     E([Tool available])
 
@@ -435,11 +435,11 @@ flowchart TD
 
 ### Layer 0 - authentication scope
 
-When you authorize a Connector, the permissions granted at the auth step (OAuth scopes, or the permissions configured on an API key or PAT) bound everything that follows. A tool that requires write access to a resource the token cannot reach will fail at the upstream MCP server, regardless of what the other layers allow.
+When you authorize a connector, the permissions granted at the auth step (OAuth scopes, or the permissions configured on an API key or PAT) bound everything that follows. A tool that requires write access to a resource the token cannot reach will fail at the upstream MCP server, regardless of what the other layers allow.
 
-### Layer 1 - Connector tool allowlist
+### Layer 1 - connector tool allowlist
 
-At the Connector level, all tools the upstream MCP server discovers are allowed by default. The set of discovered tools is fixed at the time the Connector is authorized.
+At the connector level, all tools the upstream MCP server discovers are allowed by default. The set of discovered tools is fixed at the time the connector is authorized.
 
 ### Layer 2 - input schema constraints
 
@@ -449,7 +449,7 @@ For the full schema, see [The `mcpServers` rule list](#the-mcpservers-rule-list)
 
 ## Related pages
 
-- [MCP Connectors overview](/platform/integrations/mcp-connectors)
+- [MCP connectors overview](/platform/integrations/mcp-connectors)
 - [Input schema specification - resource type](/platform/actors/development/actor-definition/input-schema/specification/v1#resource-type)
-- [Account settings - MCP Connectors](/platform/console/settings#mcp-connectors)
+- [Account settings - MCP connectors](/platform/console/settings#mcp-connectors)
 - [Apify environment variables](/platform/actors/development/programming-interface/environment-variables#system-environment-variables)

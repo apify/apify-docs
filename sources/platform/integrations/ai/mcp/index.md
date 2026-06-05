@@ -22,9 +22,9 @@ and enables AI coding assistants to access Apify documentation and tutorials.
 
 <ThirdPartyDisclaimer />
 
-:::info Apify MCP server vs MCP Connectors
+:::info Apify MCP server vs MCP connectors
 
-This page covers the Apify MCP server, which exposes Apify Actors as tools to outside AI clients. If you are building an Actor that needs to call third-party MCP servers (such as Notion or Slack) on a user's behalf, see [MCP Connectors](/platform/integrations/mcp-connectors) instead.
+This page covers the Apify MCP server, which exposes Apify Actors as tools to outside AI clients. If you are building an Actor that needs to call third-party MCP servers (such as Notion or Slack) on a user's behalf, see [MCP connectors](/platform/integrations/mcp-connectors) instead.
 
 :::
 

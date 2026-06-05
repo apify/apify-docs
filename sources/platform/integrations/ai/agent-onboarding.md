@@ -17,7 +17,7 @@ Connect your AI agent or application to Apify - the platform for web scraping, d
 - _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
 - _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
 - _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/platform/integrations/mcp), [CLI](/cli), and client libraries.
-- _MCP Connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP Connectors](/platform/integrations/mcp-connectors) to receive Connector IDs as input instead of asking users for raw credentials.
+- _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/platform/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
 
 ## Prerequisites
 

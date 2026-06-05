@@ -78,9 +78,9 @@ AI Sandbox runs on a Debian image with Node.js version 24 and Python 3.11 pre-in
 
 :::
 
-## Connect to user services with MCP Connectors
+## Connect to user services with MCP connectors
 
-If your agent needs to act on a user's third-party accounts - posting to Slack, writing to Notion, querying GitHub - use [MCP Connectors](/platform/integrations/mcp-connectors). The user authorizes each service once in their account settings, and your Actor receives a Connector ID as input. Your Actor uses its Apify run token to reach the MCP Proxy; the third-party service credential stored in the Connector stays server-side and never enters the Actor. Declare which services your Actor accepts in the input schema with `resourceType: "mcpConnector"`. See [Build Actors with MCP Connectors](/platform/integrations/mcp-connectors/use-in-actors) for the full schema and code samples.
+If your agent needs to act on a user's third-party accounts - posting to Slack, writing to Notion, querying GitHub - use [MCP connectors](/platform/integrations/mcp-connectors). The user authorizes each service once in their account settings, and your Actor receives a connector ID as input. Your Actor uses its Apify run token to reach the MCP Proxy; the third-party service credential stored in the connector stays server-side and never enters the Actor. Declare which services your Actor accepts in the input schema with `resourceType: "mcpConnector"`. See [Build Actors with MCP connectors](/platform/integrations/mcp-connectors/use-in-actors) for the full schema and code samples.
 
 ## Access LLMs with OpenRouter
 

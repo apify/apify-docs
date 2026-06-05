@@ -38,13 +38,13 @@ In the **Session information** section, you can adjust the session configuration
 
 The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically. Here, you can manage your **API tokens**, which are necessary for using the [Apify API](https://docs.apify.com/api/v2). The tab also shows **third-party apps and services** connected to your account, **account-level integrations**, and **Actor OAuth accounts**. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/platform/integrations).
 
-### MCP Connectors
+### MCP connectors
 
-The **MCP Connectors** section lets you authorize third-party MCP servers (such as Notion, Slack, GitHub, or Supabase) once and reuse those connections across any Actor that accepts them. For an overview of the feature, see [MCP Connectors](/platform/integrations/mcp-connectors).
+The **MCP connectors** section lets you authorize third-party MCP servers (such as Notion, Slack, GitHub, or Supabase) once and reuse those connections across any Actor that accepts them. For an overview of the feature, see [MCP connectors](/platform/integrations/mcp-connectors).
 
-#### Create a Connector
+#### Create a connector
 
-1. Open **Settings > API & Integrations > MCP Connectors** and click **Create new Connector**.
+1. Open **Settings > API & Integrations > MCP connectors** and click **Create new connector**.
 1. Enter the MCP server URL, for example:
 
     ```text
@@ -61,7 +61,7 @@ The **MCP Connectors** section lets you authorize third-party MCP servers (such 
     * _OAuth_ - the server supports OAuth and Apify can either register an OAuth client automatically (Dynamic Client Registration) or use an Apify-managed OAuth client. A consent screen opens in a popup. Grant access and close the popup.
     * _Own OAuth client_ - the server supports OAuth but you need to register your own OAuth app with the provider (see below). Enter your client ID, client secret, authorization URL, and token URL, then complete the OAuth consent flow.
 
-1. Review the discovered tools. Once authorized, the platform connects to the MCP server and discovers the tools it exposes. You can see them by expanding the Connector card.
+1. Review the discovered tools. Once authorized, the platform connects to the MCP server and discovers the tools it exposes. You can see them by expanding the connector card.
 
 #### Set up your own OAuth client
 
@@ -76,7 +76,7 @@ Most OAuth providers - including GitHub, Slack, Google, and Microsoft Entra - do
     ```
 
 1. Copy the client ID and client secret.
-1. In the Connector creation modal, select **Own OAuth client** and provide:
+1. In the connector creation modal, select **Own OAuth client** and provide:
     * Client ID
     * Client secret
     * Authorization URL (for example, `https://github.com/login/oauth/authorize`)
@@ -84,13 +84,13 @@ Most OAuth providers - including GitHub, Slack, Google, and Microsoft Entra - do
 
 This is the same approach used by Claude Code, VS Code, and ChatGPT integrations.
 
-#### Reauthorize a Connector
+#### Reauthorize a connector
 
-The platform refreshes OAuth access tokens automatically and transparently. The Actor never needs to handle this. Reauthorization is only needed when the refresh token itself has expired or been revoked, for example if you removed Apify's access from the provider's app settings. In that case, the **Authorize** button appears on the Connector card. Click it to go through the OAuth consent flow again.
+The platform refreshes OAuth access tokens automatically and transparently. The Actor never needs to handle this. Reauthorization is only needed when the refresh token itself has expired or been revoked, for example if you removed Apify's access from the provider's app settings. In that case, the **Authorize** button appears on the connector card. Click it to go through the OAuth consent flow again.
 
-#### Delete a Connector
+#### Delete a connector
 
-Click **Delete** on the Connector card. The Connector is removed immediately and can no longer be used by any Actor.
+Click **Delete** on the connector card. The connector is removed immediately and can no longer be used by any Actor.
 
 ## Organizations
 

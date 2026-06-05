@@ -59,13 +59,12 @@ Use lowercase for generic technical terms:
 - **web scraper** (never "Web Scraper")
 - **proxy server** (never "Proxy Server")
 
-## MCP Connectors
+## MCP connectors
 
-`MCP Connectors` is an Apify feature name. Capitalize both words when referring to the feature, and capitalize `Connector` on its own when it refers to a Connector created through the feature. Use lowercase `connector` only in a generic sense (for example, "a database connector").
+`MCP connectors` is an Apify feature name. Use lowercase `connectors` when referring to the feature, and lowercase `connector` on its own when it refers to a specific connector created through the feature.
 
-- **MCP Connectors** - the feature
-- **Connector** - a specific authorized Connector (e.g. "create a Connector")
-- **connector** - generic usage only
+- **MCP connectors** - the feature
+- **connector** - a specific authorized connector (e.g. "create a connector")
 
 `MCP server` and `MCP Proxy` keep their existing capitalization rules (`MCP server` lowercase as a generic term; `MCP Proxy` capitalized when referring to the Apify MCP Proxy component).
 

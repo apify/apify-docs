@@ -890,7 +890,7 @@ As with objects, the sub-schema feature for arrays only works for level 1 sub-pr
 
 Resource type identifies what kind of Apify Platform object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
 
-Supported resource types are storage resources (dataset, key-value store, request queue) and [MCP Connectors](/platform/integrations/mcp-connectors), which let an Actor call third-party MCP servers using credentials the user has authorized in their account.
+Supported resource types are storage resources (dataset, key-value store, request queue) and [MCP connectors](/platform/integrations/mcp-connectors), which let an Actor call third-party MCP servers using credentials the user has authorized in their account.
 
 For Actor developers, the resource input value is a string representing either the resource ID or (unique) name.
 The type of the property is either `string` or `array`. In case of `array` (for multiple resources) the return value is an array of IDs or names.
@@ -937,7 +937,7 @@ Rendered input:
 | --- | --- | --- | --- |
 | `type` | `string` | Yes | Specifies the type of input - `string` for single value. |
 | `editor` | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul> | No | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li><li>`mcpConnector`</li></ul> | Yes | Type of Apify Platform resource. Use `mcpConnector` to accept an [MCP Connector](/platform/integrations/mcp-connectors) as input. |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li><li>`mcpConnector`</li></ul> | Yes | Type of Apify Platform resource. Use `mcpConnector` to accept an [MCP connector](/platform/integrations/mcp-connectors) as input. |
 | `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes for storage resources; not used for `mcpConnector` | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. |
 | `pattern` | String | No | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
 | `minLength` | Integer | No | Minimum length of the string. |
@@ -949,7 +949,7 @@ Rendered input:
 | --- | --- | --- | --- |
 | `type` | `array` | Yes | Specifies the type of input - `array` for multiple values. |
 | `editor` | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul> | No | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li><li>`mcpConnector`</li></ul> | Yes | Type of Apify Platform resource. Use `mcpConnector` to accept [MCP Connectors](/platform/integrations/mcp-connectors) as input. |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li><li>`mcpConnector`</li></ul> | Yes | Type of Apify Platform resource. Use `mcpConnector` to accept [MCP connectors](/platform/integrations/mcp-connectors) as input. |
 | `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes for storage resources; not used for `mcpConnector` | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
 | `minItems` | Integer | No | Minimum number of items the array can contain. |
 | `maxItems` | Integer | No | Maximum number of items the array can contain. |
@@ -967,16 +967,16 @@ This setting defines runtime access only and doesn't change field visibility or 
 
 :::
 
-#### MCP Connector resource type
+#### MCP connector resource type
 
-When `resourceType` is `mcpConnector`, the input field accepts one or more [MCP Connectors](/platform/integrations/mcp-connectors) the user has authorized in their account. The Actor receives the Connector ID (or an array of IDs) as the input value and connects to the upstream MCP server through the Apify MCP Proxy at runtime.
+When `resourceType` is `mcpConnector`, the input field accepts one or more [MCP connectors](/platform/integrations/mcp-connectors) the user has authorized in their account. The Actor receives the connector ID (or an array of IDs) as the input value and connects to the upstream MCP server through the Apify MCP Proxy at runtime.
 
 The `mcpConnector` resource type does not use `resourcePermissions`. Instead, eligibility and per-tool access are declared through a required `mcpServers` field, which lists the upstream MCP server URLs and tool constraints the Actor accepts:
 
 ```json
 {
     "slackConnector": {
-        "title": "Slack Connector",
+        "title": "Slack connector",
         "description": "Read-only access to your Slack workspace",
         "type": "string",
         "resourceType": "mcpConnector",
@@ -993,7 +993,7 @@ The `mcpConnector` resource type does not use `resourcePermissions`. Instead, el
 }
 ```
 
-The same declaration acts as both eligibility filter (the input picker only offers compatible Connectors) and runtime ceiling (the proxy rejects tool calls outside the declared set). For the full `mcpServers` schema, behavioral hints, and code samples, see [Build Actors with MCP Connectors](/platform/integrations/mcp-connectors/use-in-actors).
+The same declaration acts as both eligibility filter (the input picker only offers compatible connectors) and runtime ceiling (the proxy rejects tool calls outside the declared set). For the full `mcpServers` schema, behavioral hints, and code samples, see [Build Actors with MCP connectors](/platform/integrations/mcp-connectors/use-in-actors).
 
 ### Deprecation of `patternKey` and `patternValue`
 
