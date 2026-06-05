@@ -36,8 +36,9 @@ To push your Actor source code to the Apify platform and build it on every push,
 1. Select **Settings** > **Security and quality**  > **Secrets and variables** > **Actions**.
 1. In the **Secrets** tab, go to **Repository secrets** and select **New repository secret**.
 1. Complete the following fields:
-  - **Name**: use `APIFY_TOKEN` as a name for your secret.
-  - **Secret**: paste your Apify API token.
+
+    - **Name**: use `APIFY_TOKEN` as a name for your secret.
+    - **Secret**: paste your Apify API token.
 
 ### Step 2: Create a GitHub Actions workflow
 
@@ -144,7 +145,7 @@ When using the webhook approach, the Actor must have its source set to a Git rep
 :::
 
 1. Go to your Actor's detail page in Apify Console.
-1. Go to the **API** tab. 
+1. Go to the **API** tab.
 1. Select **API Endpoints** and copy the **Build Actor** API endpoint URL:
 
    ```text
