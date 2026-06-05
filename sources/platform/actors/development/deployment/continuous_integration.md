@@ -30,8 +30,6 @@ To push your Actor source code to the Apify platform and build it on every push,
 - Your Actor source code in a GitHub repository with a valid `.actor/actor.json` file.
 - An Apify API token. Find yours in [Apify Console](https://console.apify.com/settings/integrations) under **Settings** > **Integrations**.
 
-  ![Apify token in app](./images/ci-token.png)
-
 ### Step 1: Add your Apify token to GitHub secrets
 
 1. Go to your GitHub repository.
@@ -40,8 +38,6 @@ To push your Actor source code to the Apify platform and build it on every push,
 1. Complete the following fields:
   - **Name**: use `APIFY_TOKEN` as a name for your secret.
   - **Secret**: paste your Apify API token.
-
-   ![Add Apify token to secrets](./images/ci-add-token.png)
 
 ### Step 2: Create a GitHub Actions workflow
 
