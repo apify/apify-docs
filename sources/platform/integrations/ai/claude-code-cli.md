@@ -63,7 +63,7 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 ## Authenticate to Apify
 
-The plugin bundles the Apify MCP server, but it stays disabled until you sign in. Authenticate so the `apify` agent can run Actors and read your account data.
+The plugin bundles the Apify MCP server. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
 1. Run `/mcp` to open the MCP server manager.
 
@@ -145,11 +145,11 @@ Run `/plugins`, open the **Installed** tab, select the `apify` plugin, and choos
 
 Plugins require a local installation of the Claude Code CLI. They aren't available in remote or web sessions (claude.ai/code). Install or update the Claude Code CLI locally.
 
-### OAuth login doesn't work
+### OAuth doesn't work, or you're running headless
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If the OAuth flow still fails after opening the URL, authenticate the Apify MCP server with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it in your shell before starting Claude Code:
+If you're running Claude Code in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting Claude Code:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
@@ -168,6 +168,6 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ## Resources
 
-- [Apify plugin for Claude Code](https://github.com/apify/apify-claude-code-plugin) - Source repository
+- [Apify plugin for Claude Code](https://github.com/apify/apify-claude-code-plugin) - Source repository and full README with advanced setup notes (Apify CLI install, all auth paths, available MCP tools)
 - [Claude Code documentation](https://code.claude.com/docs/en/overview) - Official Claude Code docs
 - [Apify Store](https://apify.com/store) - Browse Actors you can run from Claude Code
