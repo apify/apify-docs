@@ -413,7 +413,7 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 
 ## Reference
 
-### DatasetSchema object
+### `DatasetSchema` object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -421,7 +421,7 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 | `fields` | JSONSchema object | false | Schema of one dataset object using JSON Schema Draft 2020-12 or compatible format. |
 | `views` | Object | true | An object containing view definitions. Each key is a view ID, each value is a DatasetView object. |
 
-### DatasetView object
+### `DatasetView` object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -430,7 +430,7 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 | `transformation` | ViewTransformation | true | Defines how to fetch and transform data from the Dataset API. |
 | `display` | ViewDisplay | true | Defines how to render data in the Output tab. |
 
-### ViewTransformation object
+### `ViewTransformation` object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -441,14 +441,14 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 | `limit` | integer | false | Maximum number of results. Default is all results. |
 | `desc` | boolean | false | Sort order. Default is ascending (oldest first). Set `true` for descending (newest first). |
 
-### ViewDisplay object
+### `ViewDisplay` object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `component` | string | true | Display component. Only `table` is available. |
 | `properties` | Object | false | Field display settings. Keys match `transformation.fields`, values are ViewDisplayProperty objects. If not set, fields render as strings, arrays, or objects automatically. |
 
-### ViewDisplayProperty object
+### `ViewDisplayProperty` object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
