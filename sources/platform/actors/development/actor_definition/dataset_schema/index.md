@@ -215,7 +215,7 @@ The same data often serves different purposes. An e-commerce scraper could offer
 Views show the same data from different angles. Don't use views for:
 
 - Separating unrelated data types - Storing posts, comments, and profiles in one dataset, then using views to separate them. Use separate datasets for unrelated data types.
-- Controlling export formats - Views don't change how data exports to JSON, CSV, or Excel. Export format is set in download options or the Dataset API `format` parameter. Views only affect Console UI display.
+- Controlling export formats - Views don't change how data exports to JSON, CSV, or Excel. Export format is set in download options or the [Dataset API `format` parameter](/api/v2/dataset-items-get). Views only affect Console UI display.
 
 ### Basic view example
 
