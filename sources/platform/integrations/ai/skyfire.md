@@ -188,9 +188,23 @@ curl -X POST \
 
 You can also use the asynchronous [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor) if you don't need to wait for results immediately.
 
-### Retrieving results
+### Access the run and its storages
 
-After your Actor run completes, you can retrieve results using the [dataset endpoints](https://docs.apify.com/api/v2#/reference/datasets) or [key-value store endpoints](https://docs.apify.com/api/v2#/reference/key-value-stores). Include the same `skyfire-pay-id` header to authenticate these requests.
+To access a run and its storages, reuse the same `skyfire-pay-id` header as authentication. As long as you send the token that paid for the run, you can call the [run](https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run), [dataset](https://docs.apify.com/api/v2#/reference/datasets), and [key-value store](https://docs.apify.com/api/v2#/reference/key-value-stores) endpoints for that run and its default storages.
+
+This is useful when you start a run asynchronously with the [Run Actor](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor) endpoint and then poll its status or fetch results separately.
+
+```bash
+# Get run status - authenticate with the same Skyfire PAY token
+curl -s \
+  -H 'skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN' \
+  'https://api.apify.com/v2/actor-runs/RUN_ID'
+
+# Fetch dataset items for the run
+curl -s \
+  -H 'skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN' \
+  'https://api.apify.com/v2/datasets/DATASET_ID/items'
+```
 
 ### Supported Actors
 
