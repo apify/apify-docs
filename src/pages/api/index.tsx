@@ -141,7 +141,7 @@ echo '{ "searchStringsArray": ["Apify"] }' |
 curl -X POST -d @- \\
   -H 'Content-Type: application/json' \\
   -H 'Authorization: Bearer <YOUR_API_TOKEN>' \\
-  -L 'https://api.apify.com/v2/acts/compass~crawler-google-places/run-sync-get-dataset-items'
+  -L 'https://api.apify.com/v2/actors/compass~crawler-google-places/run-sync-get-dataset-items'
                            `}
                         </CodeBlock>
                     </ClientCodeWrapper>

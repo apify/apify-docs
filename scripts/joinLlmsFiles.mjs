@@ -116,7 +116,7 @@ const SECTION_ORDER = [
     'Apify SDK for JavaScript',
     'Apify SDK for Python',
     'Apify CLI',
-    'Apify academy',
+    'Apify Academy',
     'Legal documents',
 ];
 

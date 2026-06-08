@@ -18,4 +18,4 @@ You can also organize the results from the store by different criteria, includin
 
 Once you select an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
 
-For more information, see [Actors in Store](/sources/platform/actors/running/store.md).
+For more information, see [Actors in Store](/sources/platform/actors/running/store/index.md).

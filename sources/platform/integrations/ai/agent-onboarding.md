@@ -9,6 +9,7 @@ toc_max_heading_level: 3
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
@@ -22,11 +23,7 @@ Connect your AI agent or application to Apify - the platform for web scraping, d
 
 Sign up to [Apify Console](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
 
-:::tip Free exploration
-
-The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication. You can browse Actors and documentation without an account.
-
-:::
+<ClaudeCodeWebEgress />
 
 ## Run your first Actor
 
@@ -110,6 +107,12 @@ See [Usage and resources](/platform/actors/running/usage-and-resources) and [Bil
 ### MCP server
 
 The [Apify MCP server](/platform/integrations/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
+
+:::tip Free exploration
+
+The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication. You can browse Actors and documentation without an account.
+
+:::
 
 #### Remote (recommended)
 
