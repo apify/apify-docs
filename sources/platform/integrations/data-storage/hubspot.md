@@ -68,16 +68,16 @@ Click the **+ Add Lead Enrichment** button in the Apify card to open the configu
 
 For **Apply Rules To**, you have three options:
 
-- **Only this company** — enrich only the current company.
-- **Specific companies** — pick multiple companies from a list.
-- **All companies** — target every company in your portal with a website URL.
+- **Only this company**—enrich only the current company.
+- **Specific companies**—pick multiple companies from a list.
+- **All companies**—target every company in your portal with a website URL.
 
 ![Configuration wizard - Step 1 showing the enrichment details form with name, leads count, department, deduplication dropdown, and apply rules radio buttons](../images/hubspot/hubspot_config_wizard_step_1.webp)
 
 If the current company has no website URL in its HubSpot record, a warning dialog appears with two options:
 
-- **Update the HubSpot record** — edit the company in HubSpot, then click **Check again**.
-- **Use a temporary URL** — enter a URL manually just for this enrichment (does not change the HubSpot record).
+- **Update the HubSpot record**—edit the company in HubSpot, then click **Check again**.
+- **Use a temporary URL**—enter a URL manually just for this enrichment (does not change the HubSpot record).
 
 ### Step 2: Map fields
 
@@ -98,15 +98,15 @@ Field mappings define which data from the scraper goes into which HubSpot contac
 
 Each mapping row has three settings:
 
-- **APIFY FIELD (SOURCE)** — dropdown of available output fields from the scraper.
-- **HUBSPOT CONTACT FIELD (TARGET)** — dropdown of your HubSpot contact properties (both standard and custom).
-- **WHEN ALREADY SET** — **Overwrite** (replace existing value) or **Skip if set** (keep existing non-empty values).
+- **Apify FIELD (SOURCE)**—dropdown of available output fields from the scraper.
+- **HUBSPOT CONTACT FIELD (TARGET)**—dropdown of your HubSpot contact properties (both standard and custom).
+- **WHEN ALREADY SET**—**Overwrite** (replace existing value) or **Skip if set** (keep existing non-empty values).
 
 ![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/hubspot/hubspot_config_wizard_step_2.webp)
 
 - Each HubSpot property can only be used once as a target.
 - Click **Add a mapping** to add more rows.
-- You can save a config with zero mappings — a confirmation dialog will ask you to confirm.
+- You can save a config with zero mappings—a confirmation dialog will ask you to confirm.
 
 Click **Save & Run** to save the configuration and immediately start an enrichment run.
 
@@ -155,9 +155,9 @@ Each run in the history table shows:
 Expand a row (click the arrow) to see:
 
 - Error message (if the run failed).
-- Per-company breakdown — Created, Updated, Skipped, and Error counts per company (up to 5 companies displayed).
-- Companies in run — list of company domains included.
-- Field mappings used — the exact mappings that were applied.
+- Per-company breakdown—Created, Updated, Skipped, and Error counts per company (up to 5 companies displayed).
+- Companies in run—list of company domains included.
+- Field mappings used—the exact mappings that were applied.
 
 The history shows 20 runs per page and auto-refreshes every 10 seconds while the newest run is active.
 
@@ -196,8 +196,8 @@ If a matching contact is found, it is updated. If no match is found, a new conta
 
 For each field mapping, you choose what happens when the target HubSpot property already has a value:
 
-- **Overwrite** — the existing value is always replaced with the scraped value.
-- **Skip if set** — if the HubSpot property already has a non-empty value, it is preserved. The scraped value is only written if the property is currently empty.
+- **Overwrite**—the existing value is always replaced with the scraped value.
+- **Skip if set**—if the HubSpot property already has a non-empty value, it is preserved. The scraped value is only written if the property is currently empty.
 
 If all mapped fields are already populated and all are set to **Skip if set**, the contact is skipped entirely.
 
@@ -247,7 +247,7 @@ Yes. Running the Contact Details Scraper consumes your Apify account credits bas
 
 ### How do I uninstall?
 
-Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot — only the app connection is removed.
+Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot—only the app connection is removed.
 
 ## Troubleshooting
 
@@ -262,7 +262,7 @@ Remove the Apify app from your HubSpot account through HubSpot's app management 
 - Edit the company record in HubSpot and add the website URL, then click **Check again**.
 - Or enter a temporary URL in the card for this enrichment only.
 
-A company without a website cannot be enriched — the scraper needs a URL to visit.
+A company without a website cannot be enriched—the scraper needs a URL to visit.
 
 ### Run errors
 
