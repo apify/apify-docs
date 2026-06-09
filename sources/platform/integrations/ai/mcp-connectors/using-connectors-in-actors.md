@@ -423,7 +423,7 @@ Three independent layers control which tools are accessible when an Actor uses a
 flowchart TD
     A([Tool call])
     B["Layer 0 — Auth-level permissions<br/>OAuth scopes or API key / PAT permissions<br/>granted when the connector was authorized"]
-    C["Layer 1 — connector tool allowlist<br/>All tools discovered on the upstream server<br/>are allowed by default"]
+    C["Layer 1 — connector tool allowlist<br/>All tools allowed by default;<br/>restrict in Apify Console"]
     D["Layer 2 — Actor input schema<br/>Tool constraints in mcpServers<br/>act as eligibility filter and runtime ceiling"]
     E([Tool available])
 
@@ -439,7 +439,7 @@ When you authorize a connector, the permissions granted at the auth step (OAuth 
 
 ### Layer 1 - connector tool allowlist
 
-At the connector level, all tools the upstream MCP server discovers are allowed by default. The set of discovered tools is fixed at the time the connector is authorized.
+At the connector level, all tools the upstream MCP server discovers are allowed by default. You can restrict which tools the connector permits in Apify Console. This is useful when you want to limit access at the connector level. The set of discovered tools is fixed at the time the connector is authorized.
 
 ### Layer 2 - input schema constraints
 

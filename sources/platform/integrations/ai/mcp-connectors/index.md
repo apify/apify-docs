@@ -45,6 +45,7 @@ MCP connectors are designed so that the Actor never holds your credentials, and 
 - You control which connectors an Actor can access. An Actor can only use connectors you explicitly provide in the input. It cannot reach your other connectors.
 - Actors are held to what they declare. The proxy enforces that an Actor can only call tools it explicitly declared in its input schema. It cannot use your connector to call anything beyond that, regardless of what the connector supports.
 - Access ends when the run ends. The proxy session expires as soon as the Actor run finishes.
+- You control which tools a connector permits. The restriction applies to every Actor using the connector, on top of each Actor's own declared tool constraints.
 
 For the developer-side controls and tool-permission model, see [Build Actors with MCP connectors](/platform/integrations/mcp-connectors/use-in-actors#tool-permissions).
 
@@ -57,6 +58,10 @@ When you create a connector, the platform inspects the MCP server URL you provid
 | API key or bearer token | The MCP server uses a static API key or personal access token (PAT). |
 | OAuth | The server supports OAuth and either (a) supports Dynamic Client Registration (DCR), so Apify registers an OAuth client automatically, or (b) Apify provides a managed OAuth client for that service. |
 | Own OAuth client | The server uses OAuth but neither DCR nor an Apify-managed client is available. You register your own OAuth app with the provider and supply the credentials to Apify. |
+
+Apify provides automatic OAuth client setup for Notion and Supabase. For GitHub, Slack, Google, Microsoft Entra, and other providers, register your own OAuth app and use the Own OAuth Client flow.
+
+Tools are discovered when you first authorize a connector. To pick up new tools added to the upstream server, re-authorize the connector.
 
 Create and manage your connectors in [Settings > API & Integrations > MCP connectors](/platform/console/settings#mcp-connectors).
 
@@ -72,12 +77,6 @@ Typical patterns that MCP connectors enable:
 - Combine Apify scraping with the user's own integrations. An Actor crawls a list of companies, then enriches the output by calling MCP tools the user has connected (CRM, project tracker, internal database).
 - Multi-service workflows. An Actor that monitors something can post a message to Slack on one condition and write a row to a database on another, with both connections supplied by the user at runtime.
 - Reusable utility Actors. A single Actor takes a generic input (a dataset ID, a URL, a search query) and one or more user-supplied connectors as the destination, so the same Actor works across many services.
-
-## Current limitations
-
-- Apify-managed OAuth clients are limited at launch. Only Notion and Supabase work without OAuth app registration. For other OAuth-based services (GitHub, Slack, Google, Microsoft, and others), use the Own OAuth Client flow.
-- Per-tool restrictions on connectors are not editable in the UI. The platform discovers and displays the tools a connector exposes, but the connector itself does not yet support restricting individual tools. All discovered tools are allowed by default at the connector level. Tool restrictions can still be enforced from the Actor side through the input schema - see [Tool permissions](/platform/integrations/mcp-connectors/use-in-actors#tool-permissions).
-- Tools are discovered once. Tool discovery happens when you first authorize a connector. There is no automatic re-discovery if the upstream server adds new tools.
 
 ## Next steps
 
