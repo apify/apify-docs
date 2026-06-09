@@ -66,6 +66,7 @@ System variables apply only to Actor runs and are never passed to builds - not e
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
+| `APIFY_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to an [MCP connector](/platform/integrations/mcp-connectors) at `${APIFY_MCP_PROXY_URL}/<connectorId>` using `APIFY_TOKEN` as the bearer token. |
 
 
 <!-- vale Microsoft.RangeFormat = NO -->
