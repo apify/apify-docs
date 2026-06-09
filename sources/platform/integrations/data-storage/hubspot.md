@@ -72,7 +72,7 @@ For **Apply Rules To**, you have three options:
 - **Specific companies** — pick multiple companies from a list.
 - **All companies** — target every company in your portal with a website URL.
 
-![Configuration wizard - Step 1 showing the enrichment details form with name, leads count, department, deduplication dropdown, and apply rules radio buttons](../images/hubspot/hubspot_config_wizard_step_1.png)
+![Configuration wizard - Step 1 showing the enrichment details form with name, leads count, department, deduplication dropdown, and apply rules radio buttons](../images/hubspot/hubspot_config_wizard_step_1.webp)
 
 If the current company has no website URL in its HubSpot record, a warning dialog appears with two options:
 
@@ -102,7 +102,7 @@ Each mapping row has three settings:
 - **HUBSPOT CONTACT FIELD (TARGET)** — dropdown of your HubSpot contact properties (both standard and custom).
 - **WHEN ALREADY SET** — **Overwrite** (replace existing value) or **Skip if set** (keep existing non-empty values).
 
-![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/hubspot/hubspot_config_wizard_step_2.png)
+![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/hubspot/hubspot_config_wizard_step_2.webp)
 
 - Each HubSpot property can only be used once as a target.
 - Click **Add a mapping** to add more rows.
@@ -123,7 +123,7 @@ The main card view shows all your enrichment configurations for the current HubS
 | **STATUS** | Real-time status badge. |
 | **ACTIONS** | Refresh (re-run), Edit, Delete. |
 
-![Active enrichments list view showing multiple enrichment configs with status badges and action buttons](../images/hubspot/hubspot_active_enrichments_list.png)
+![Active enrichments list view showing multiple enrichment configs with status badges and action buttons](../images/hubspot/hubspot_active_enrichments_list.webp)
 
 The list updates automatically every second while any config is actively running.
 
@@ -150,7 +150,7 @@ Each run in the history table shows:
 | **Skipped** | Number of contacts intentionally skipped. |
 | **Results** | External link to view dataset in Apify Console. |
 
-![Run history view with expanded row showing per-company breakdown, field mappings used, and companies in run](../images/hubspot/hubspot_per_company_result.png)
+![Run history view with expanded row showing per-company breakdown, field mappings used, and companies in run](../images/hubspot/hubspot_per_company_result.webp)
 
 Expand a row (click the arrow) to see:
 
@@ -255,7 +255,7 @@ Remove the Apify app from your HubSpot account through HubSpot's app management 
 
 **Symptom:** When creating a lead enrichment, you see a warning that the company has no website URL.
 
-![Website URL field highlighted in a HubSpot company record](../images/hubspot/hubspot_website_url.png)
+![Website URL field highlighted in a HubSpot company record](../images/hubspot/hubspot_website_url.webp)
 
 **Solution:**
 
@@ -292,5 +292,5 @@ Try re-running with different filters or verify the company website is accessibl
 ## Next steps
 
 - After setting up your first enrichment, browse the [Apify Store](https://apify.com/store) for more scraping Actors.
-- If you are building custom workflows, see how to [integrate Actors via API](/platform/integrations/actors/integrating_actors_via_api).
+- If you are building custom workflows, see how to [integrate Actors via API](/platform/integrations/actors/integrating-actors-via-api).
 - For questions or help, contact the Apify team at [integrations@apify.com](mailto:integrations@apify.com) or in the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
