@@ -1,6 +1,6 @@
 ---
 title: Airtable integration
-description: Automatically import Apify dataset items into your Airtable bases using the Airtable Data Import Actor.
+description: Automatically import items from any Apify dataset into Airtable using the Airtable Data Import Actor. Use standalone or in automated workflows.
 sidebar_label: Airtable
 sidebar_position: 1
 slug: /integrations/airtable
@@ -8,7 +8,7 @@ slug: /integrations/airtable
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-The Airtable Data Import Actor transfers items from any Apify dataset into an [Airtable](https://www.airtable.com/) base. Use it standalone or chain it after other Actors in automated workflows via [integrations](/platform/integrations).
+The [Airtable Data Import Actor](https://console.apify.com/actors/f4DM1wGmMQdnTLbrE/info/readme?build=latest) transfers items from any Apify dataset into an [Airtable](https://www.airtable.com/) base. Use it standalone or chain it after other Actors in automated workflows via [integrations](/platform/integrations).
 
 <ThirdPartyDisclaimer />
 
@@ -16,6 +16,7 @@ The Airtable Data Import Actor transfers items from any Apify dataset into an [A
 
 - An [Apify account](https://console.apify.com/)
 - An [Airtable account](https://www.airtable.com/)
+- The [Airtable Data Import Actor](https://console.apify.com/actors/f4DM1wGmMQdnTLbrE/info/readme?build=latest)
 
 ## Connect to Airtable
 
@@ -31,20 +32,22 @@ The Actor retrieves a fresh access token at the start of each run. Your Airtable
 
 ## Configure the Actor
 
+Configure the Actor from its **Input** tab in Apify Console. Each field is described below.
+
 ### Operation
 
 Controls how the Actor handles the target table and its existing records.
 
-- **Append**: Adds new records to the table. Existing records are never modified or deleted. Use for continuous pipelines.
-- **Override**: Deletes all existing records before importing. Use for full data refreshes.
-- **Create**: Creates a new table with fields from your mappings, then imports data. If the table already exists, the `clearOnCreate` setting determines what happens.
+- `Append`: Adds new records to the table. Existing records are never modified or deleted. Use for continuous pipelines.
+- `Override`: Deletes all existing records before importing. Use for full data refreshes.
+- `Create`: Creates a new table with fields from your mappings, then imports data. If the table already exists, the `clearOnCreate` setting determines what happens.
 
 ### Clear on create
 
-A safety switch for **Create** mode only. Defaults to `false`.
+A safety switch for `Create` mode only. Defaults to `false`.
 
-- **Enabled** (`true`): Clears all existing records and imports. Use for automated fresh starts.
-- **Disabled** (`false`): Throws an error if the table exists, preventing accidental data loss.
+- `Enabled` (`true`): Clears all existing records and imports. Use for automated fresh starts.
+- `Disabled` (`false`): Throws an error if the table exists, preventing accidental data loss.
 
 ### Base
 
@@ -54,7 +57,7 @@ Accepts a base ID (`appXXXXXXXXXXXXXX`, found in the Airtable URL) or a base nam
 
 ### Table
 
-Accepts a table name or table ID (`tblXXXXXXXXXXXXXX`). When using **Create** mode and the table does not exist, the Actor creates it automatically.
+Accepts a table name or table ID (`tblXXXXXXXXXXXXXX`). When using `Create` mode and the table does not exist, the Actor creates it automatically.
 
 ### Dataset ID
 
@@ -101,9 +104,9 @@ The Actor creates `number` fields with integer precision. For decimal values, cr
 
 :::
 
-## Set up as a workflow integration
+## Import results from another Actor automatically
 
-Chain the Actor after another Actor so results are imported automatically:
+Chain the Actor after a scraping or extraction Actor so its dataset flows into Airtable on every run. Use this for scheduled scrapers, recurring price checks, or any pipeline where fresh data should reach your base without a manual trigger.
 
 1. Open the upstream Actor in Apify Console and go to the **Integrations** tab.
 1. Click **Add integration** and select **Airtable Data Import Actor**.
@@ -111,11 +114,11 @@ Chain the Actor after another Actor so results are imported automatically:
 1. Configure the base, table, operation, and field mappings.
 1. Connect your Airtable account via OAuth.
 
-![Apify integration setup screen showing Airtable Data Import Actor configuration](../images/airtable/airtable_console_datased_id.webp)
+![Apify integration setup screen showing Airtable Data Import Actor configuration](../images/airtable/airtable_console_dataset_id.webp)
 
-## Understand the output
+## Example of the output
 
-After import, the Actor pushes a summary to its dataset:
+After each run, the Actor writes a JSON summary to its dataset. Each field reports a key result from the import operation:
 
 ```json
 {
@@ -205,4 +208,4 @@ After import, the Actor pushes a summary to its dataset:
 
 - [Learn about Apify integrations](/platform/integrations) to chain Actors in automated workflows.
 - [Explore Airtable's API documentation](https://airtable.com/developers/web/api/field-model) for field type details.
-- If you have questions, contact us at [info@apify.com](mailto:info@apify.com), through the live chat, or in the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+- If you have questions about the Airtable integration, reach out via the support live chat in Console or the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
