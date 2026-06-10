@@ -59,7 +59,7 @@ Instantiate the Mastra MCP client:
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-        url: new URL('https://mcp.apify.com/sse'),
+        url: new URL('https://mcp.apify.com'),
         requestInit: {
             headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
         },
@@ -165,7 +165,7 @@ process.env.OPENAI_API_KEY = "your-openai-api-key";
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-        url: new URL('https://mcp.apify.com/sse'),
+        url: new URL('https://mcp.apify.com'),
         requestInit: {
             headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
         },
