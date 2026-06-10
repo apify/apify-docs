@@ -16,11 +16,9 @@ The [Apify plugin for Claude Code](https://github.com/apify/apify-claude-code-pl
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
-:::info CLI only
-
 This guide covers installation in the Claude Code CLI. Support for the Claude Code app is still in development.
 
-:::
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -30,8 +28,6 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 ## Install the plugin
 
 1. In Claude Code, run `/plugins` to open the plugin manager.
-
-    ![Typing /plugins in Claude Code with the slash-command autocomplete](images/claude_code_cli/01-run-plugins.png)
 
 1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
 
@@ -43,23 +39,13 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
     https://github.com/apify/apify-claude-code-plugin
     ```
 
-    ![Add Marketplace dialog with the Apify repository URL pasted](images/claude_code_cli/03-add-marketplace-url.png)
-
 1. Open the **Discover** tab. The `apify` plugin appears under **Install Plugins**. Press Enter to view its details.
-
-    ![Discover tab showing the apify plugin available to install](images/claude_code_cli/04-discover-apify.png)
 
 1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
 
-    ![Apify plugin details page with version, description, and install scope options](images/claude_code_cli/05-plugin-details.png)
-
 1. Run `/reload-plugins` to activate the plugin in the current session.
 
-    ![Install confirmation prompting to run /reload-plugins](images/claude_code_cli/06-install-confirm.png)
-
 1. Open the **Installed** tab to confirm the `apify` plugin is listed as enabled.
-
-    ![Installed tab showing the apify plugin enabled after /reload-plugins](images/claude_code_cli/07-reloaded-installed.png)
 
 ## Authenticate to Apify
 
@@ -67,7 +53,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Run `/mcp` to open the MCP server manager.
 
-1. Find **plugin:apify:apify** in the list - it shows **disabled** - and press Enter to open it.
+1. Find **plugin:apify:apify** in the list (currently **disabled**) and press Enter to open it.
 
     ![MCP server list with plugin:apify:apify shown as disabled](images/claude_code_cli/09-mcp-needs-auth.png)
 
@@ -80,8 +66,6 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
     ![plugin:apify:apify MCP server detail with the Authenticate option](images/claude_code_cli/11-mcp-authenticate.png)
 
 1. Review the permissions and click **Allow access**.
-
-    ![Apify OAuth permission page with the Allow access button](images/claude_code_cli/12-oauth-allow.png)
 
     :::caution Dynamic registration warning
 
@@ -103,7 +87,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the actor yet."
+> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet."
 
 The agent searches Apify Store, fetches the top Actor's details through `plugin:apify:apify`, and summarizes its inputs, pricing, and output - all without running the Actor.
 
@@ -145,7 +129,7 @@ Run `/plugins`, open the **Installed** tab, select the `apify` plugin, and choos
 
 Plugins require a local installation of the Claude Code CLI. They aren't available in remote or web sessions (claude.ai/code). Install or update the Claude Code CLI locally.
 
-### OAuth doesn't work, or you're running headless
+### Browser doesn't open, or OAuth fails
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
@@ -158,7 +142,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Limitations
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes compute units on the Apify platform in addition to any Claude usage.
+- Each Actor run consumes Apify platform usage from your plan in addition to any Claude usage. See [Billing](/platform/console/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
