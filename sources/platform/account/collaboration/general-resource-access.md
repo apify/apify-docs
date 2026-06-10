@@ -12,8 +12,8 @@ Thanks to the hard-to-guess, unique IDs, it’s also secure enough for most use 
 
 **General resource access** is an account setting that defines the default access policy at the account level. You can find General resource access in Apify Console under **Settings → Login & Privacy** (or **Settings → Security & Privacy** for organization accounts). The two following options are supported:
 
-- **Anyone with ID can read (default)**: Selected resources can be accessed using just their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
-- **Restricted**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
+- **Anyone with ID can read**: Selected resources can be accessed using just their unique resource ID. This means if you share the resource ID with someone, they would be able to view it without providing an API token or viewing the resource by visiting the Console URL.
+- **Restricted (default)**: With this setting, only signed-in users with an explicit access to the resources can access them. To access restricted resources via API, a valid token needs to be provided.
 
 This setting affects the following resources:
 

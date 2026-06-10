@@ -14,7 +14,7 @@ Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you 
 
 :::
 
-import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+import RentalSunset from '../../../../_partials/_rental-sunsetting.mdx';
 
 ## Pricing models
 
@@ -35,39 +35,39 @@ With pay per event pricing, you pay for specific events defined by the Actor cre
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 
-![Example pay per event Actor](./images/store/pay_per_event_example_actor.png)
+![Example pay per event Actor](../images/store/pay_per_event_example_actor.png)
 
 :::caution Some Actors charge platform usage separately
 
-Most pay per event Actors include [platform usage](./usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
+Most pay per event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
 
 :::
 
-![Pay per event with usage not included in Apify Store](./images/store/pay_per_event_and_usage_example_actor.png)
+![Pay per event with usage not included in Apify Store](../images/store/pay_per_event_and_usage_example_actor.png)
 
 When starting a run, you can define a maximum charge limit. The Actor terminates gracefully when it reaches that limit - and even if it does not stop immediately, you are never charged for produced events over the defined limit.
 
-![Pay per event Actor - max charge per run](./images/store/pay_per_event_max_charge_per_run.png)
+![Pay per event Actor - max charge per run](../images/store/pay_per_event_max_charge_per_run.png)
 
 Your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the Billing section of Apify Console. The cost of each run also appears on the run detail page.
 
-![Pay per event Actor - historical usage tab](./images/store/pay_per_event_historical_usage_tab.png)
+![Pay per event Actor - historical usage tab](../images/store/pay_per_event_historical_usage_tab.png)
 
-![Pay per event Actor - run detail](./images/store/pay_per_event_price_on_run_detail.png)
+![Pay per event Actor - run detail](../images/store/pay_per_event_price_on_run_detail.png)
 
 If charges seem incorrect, contact the Actor author or the Apify support team. You can also open an issue directly on the Actor's detail page in Apify Console.
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/actors/storage), and usage of [residential proxies](/actors/proxy/residential-proxy) or [SERPs](/actors/proxy/google-serp-proxy).
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage_and_resources.md) includes components such as compute units, operations on [storages](/actors/storage), and usage of [residential proxies](/actors/proxy/residential-proxy) or [SERPs](/actors/proxy/google-serp-proxy).
 
-![Pay for usage Actor example](./images/store/pay_per_usage_actor_example.png)
+![Pay for usage Actor example](../images/store/pay_per_usage_actor_example.png)
 
 :::info Estimating Actor usage cost
 
 With this model, it's very easy to see how many platform resources each Actor run consumed, but it is quite difficult to estimate their usage beforehand. The best way to find the costs of free Actors upfront is to try out the Actor on a limited scope (for example, on a small number of pages) and evaluate the consumption. You can easily do that using our [free plan](https://apify.com/pricing).
 
-_For more information on platform usage cost see the [usage and resources](./usage_and_resources.md) page._
+_For more information on platform usage cost see the [usage and resources](../usage_and_resources.md) page._
 
 :::
 
@@ -79,7 +79,7 @@ Rental Actors are Actors for which you have to pay a recurring fee to the develo
 
 Most rental Actors have a _free trial_ period. The length of the trial is displayed on each Actor's page.
 
-![Rental Actor example](./images/store/rental-actor-example.png)
+![Rental Actor example](../images/store/rental-actor-example.png)
 
 You don't need a paid plan to start a rental Actor's free trial. After the trial, you must subscribe to one of [Apify's paid plans](https://apify.com/pricing) to continue renting and using the Actor. If you are on a paid plan, the monthly rental fee is automatically subtracted from your prepaid platform usage when the trial expires, then recurs monthly. If you are not on a paid plan when the trial ends, you are not charged but cannot use the Actor until you subscribe.
 
@@ -89,13 +89,13 @@ _Example_: You activate a 7-day trial at _noon on April 1, 2021_. Without cancel
 
 [//]: # (TODO better link for platform usage costs explaining what it is!)
 
-Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](./usage_and_resources.md). Most of the fee goes directly to the developer, and you also pay normal [platform usage costs](https://apify.com/pricing) on top - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
+Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](../usage_and_resources.md). Most of the fee goes directly to the developer, and you also pay normal [platform usage costs](https://apify.com/pricing) on top - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
 
 You can cancel the rental at any time during the trial or afterward so you are not charged when the current rental period expires. You can always turn it back on later.
 
 To see a breakdown of rental charges, go to the **Actors** tab within the **Current period** tab in the [Billing](https://console.apify.com/billing) section.
 
-![Rental Actors billing in Apify Console](./images/store/billing-paid-actors.png)
+![Rental Actors billing in Apify Console](../images/store/billing-paid-actors.png)
 
 ## Report issues with Actors
 
@@ -103,7 +103,7 @@ Each Actor has an **Issues** tab in Apify Console. There, you can open an issue 
 and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can
 always write to [community@apify.com](mailto:community@apify.com).
 
-![Paid Actors' issues tab](./images/store/paid-actors-issues-tab.png)
+![Paid Actors' issues tab](../images/store/paid-actors-issues-tab.png)
 
 ## Apify Store discounts
 
@@ -119,10 +119,10 @@ Additional discounts are available for Enterprise customers.
 
 To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in Apify Store.
 
-![Apify Store discounts](./images/store/apify_store_discounts_web.png)
+![Apify Store discounts](../images/store/apify_store_discounts_web.png)
 
 In Apify Console, you can find information about pricing and available discounts in the Actor's header section.
 
-![Apify Store discounts](./images/store/apify_store_discounts_console.png)
+![Apify Store discounts](../images/store/apify_store_discounts_console.png)
 
-![Apify Store discounts full table](./images/store/apify_store_discounts_full_table.png)
+![Apify Store discounts full table](../images/store/apify_store_discounts_full_table.png)

@@ -1,6 +1,6 @@
 ---
 title: Airtable integration
-description: Connect Apify with Airtable to automatically upload Actor run results to your base. Use the Apify extension on Airtable or the Console integration.
+description: Connect Apify with Airtable to automatically upload Actor run results to your base using the Apify extension on Airtable.
 sidebar_label: Airtable
 sidebar_position: 0
 slug: /integrations/airtable
@@ -20,15 +20,6 @@ To use the Apify integration for Airtable, ensure you have:
 
 - An [Apify account](https://console.apify.com/)
 - An [Airtable account](https://www.airtable.com/)
-
-## Types of integration
-
-You can integrate Apify with Airtable using one of two options:
-
-- _Apify extension_ on Airtable website.
-- _Console integration_ on the Actor page.
-
-This guide explains how to use the _Apify extension_. For console integration instructions, see the [Console integration](/integrations/airtable/console) documentation
 
 ## Setup
 

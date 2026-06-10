@@ -61,4 +61,4 @@ For information on [adding members and assigning roles](./setup.md), see the Set
 
 Actor and task runs are billed to the account they are started from. **Always make sure you start your runs from the correct account** to avoid having an organization's runs billed to your personal account.
 
-To find out about organization pricing, get in touch at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20pricing) or [visit the pricing page](https://apify.com/pricing).
+To learn about organization pricing, [contact support](http://apify.com/contact) or [visit the pricing page](https://apify.com/pricing).

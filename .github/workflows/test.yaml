@@ -221,6 +221,11 @@ jobs:
 
                     echo "✅ All Nginx header checks passed."
 
+            -   name: Verify per-page .md navigation headers
+                # Checks the Vercel-style nav header that scripts/addNavHeaders.mjs
+                # prepends to every per-page .md in postbuild (#2596 / issue #2557).
+                run: node scripts/checkNavHeaders.mjs http://localhost:8080
+
             -   name: Stop Nginx
                 if: always()
                 run: nginx -c "$(pwd)/default.conf" -s stop

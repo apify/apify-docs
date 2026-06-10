@@ -11,6 +11,7 @@ import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
 import PromptButton from "@site/src/components/PromptButton";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
 
 This guide provides best practices for building new Actors or improving existing ones using AI code generation tools by providing the AI agents with the right instructions and context.
 
@@ -29,7 +30,7 @@ The methods on this page are complementary. Start with the [AI coding assistant 
 <TabItem value="prompt" label="Start with a prompt">
 
 1. Create a directory: `mkdir my-new-actor`.
-1. Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
+1. Open the directory in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc. Using Claude Code on the web? See the setup note below first.
 1. Copy the [AI coding assistant prompt](#ai-coding-assistant-instructions) and paste it into your AI coding assistant.
 1. Run it, and develop your first Actor with the help of AI.
 
@@ -38,11 +39,13 @@ The methods on this page are complementary. Start with the [AI coding assistant 
 
 1. [Install the Apify CLI](/cli/docs/installation) if you haven't already.
 1. Run `apify create` to initialize an Actor from a [template](https://apify.com/templates) (includes AGENTS.md).
-1. Open the project in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc.
+1. Open the project in _Cursor_, _Claude Code_, _VS Code with GitHub Copilot_, etc. Using Claude Code on the web? See the setup note below first.
 1. Start developing - your AI coding assistant automatically picks up context from AGENTS.md.
 
 </TabItem>
 </Tabs>
+
+<ClaudeCodeWebEgress />
 
 ## AI coding assistant instructions
 
