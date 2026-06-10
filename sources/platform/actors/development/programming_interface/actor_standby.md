@@ -131,6 +131,8 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
+After the readiness probe completes, the platform performs no further health checks against your Standby server. A run only restarts when the process exits or the run is migrated, so on unrecoverable errors, exit the process rather than swallow the error. That triggers the normal end-of-run restart path.
+
 ## Determining an Actor is started in Standby
 
 Actors that support Actor Standby can still be started in standard mode, for example from the Console or via the API.
