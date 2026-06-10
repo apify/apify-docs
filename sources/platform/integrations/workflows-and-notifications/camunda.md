@@ -17,7 +17,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 To use the Apify integration with Camunda, you need:
 
 - An [Apify account](https://console.apify.com/)
-- A [Camunda 8](https://camunda.com/) environment, version 8.8, 8.9, or 8.10 (SaaS, Self-Managed, or Hybrid)
+- A [Camunda 8](https://camunda.com/) environment (version 8.8, 8.9, or 8.10), with a self-hosted connectors runtime to host the Apify connector code. Self-Managed and Hybrid setups are supported; pure Camunda SaaS is not (see [Installation](#installation) for why and how).
 
 ## Authentication
 
@@ -64,6 +64,108 @@ graph LR
 ```
 
 </div>
+
+### Where the connector runs
+
+Camunda Connectors are Java components that execute on a **connectors runtime**. Camunda SaaS ships a managed runtime preloaded with Camunda's first-party connectors (HTTP REST, Slack, AWS, etc.), but it does not load third-party connector JARs uploaded by tenants.
+
+The Apify Connector is a third-party JAR, so you host the connectors runtime yourself. Two deployment paths are supported:
+
+- **Self-Managed:** you run the entire Camunda 8 stack (Zeebe, Operate, Tasklist, and the connectors runtime) on your own infrastructure.
+- **Hybrid:** Zeebe and the BPMN engine run on Camunda SaaS, while you run a self-hosted connectors runtime that authenticates back to the SaaS cluster.
+
+<div style={{textAlign: 'center'}}>
+
+```mermaid
+graph LR
+    subgraph Apify
+        A[Actors / tasks]
+    end
+    subgraph You ["Your infrastructure"]
+        CR[Connectors runtime<br/>with Apify JAR]
+    end
+    subgraph Camunda
+        Z[Zeebe / BPMN engine]
+    end
+    A <-. "Apify API + webhooks" .-> CR
+    CR <-. "gRPC + REST" .-> Z
+
+    classDef apify fill:#fde5d0,stroke:#f86606,color:#000
+    classDef camunda fill:#d6e3ff,stroke:#246dff,color:#000
+    classDef self fill:#d4f3df,stroke:#20a34e,color:#000
+    class A apify
+    class Z camunda
+    class CR self
+    style Apify fill:#fff7f0,stroke:#f86606
+    style Camunda fill:#f0f5ff,stroke:#246dff
+    style You fill:#f0fbf3,stroke:#20a34e
+```
+
+</div>
+
+See [Installation](#installation) below for setup. For deeper reference, the Camunda docs cover [hosting custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/) and [running connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/).
+
+## Installation
+
+Each connector release publishes two artifacts on the [GitHub Releases page](https://github.com/apify/apify-camunda-integration/releases):
+
+| Artifact | What it is | Where it goes |
+| --- | --- | --- |
+| `apify-camunda-connector-<version>.jar` | The shaded connector runtime JAR (includes all dependencies) | Drop it on the Camunda connectors runtime classpath - see [Run the connectors runtime](#run-the-connectors-runtime) |
+| `apify-camunda-connector-element-templates-<version>.zip` | All five element template JSONs | Upload to your Camunda **Web Modeler** project, or place into the `resources/element-templates/` directory of **Desktop Modeler** |
+
+Pick the release whose version matches your Camunda 8 minor.
+
+### Choose your deployment scenario
+
+| Scenario | Supported? | Notes |
+| --- | --- | --- |
+| **Self-Managed** | Yes | You control the connectors runtime on your own infrastructure. |
+| **Hybrid** | Yes | Zeebe runs on Camunda SaaS, while you host the connectors runtime. |
+| **Pure SaaS** | No | The managed connectors runtime cannot load custom JARs. Use [Hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) instead. |
+
+### Run the connectors runtime
+
+The simplest path is the official `camunda/connectors-bundle` Docker image with the Apify JAR mounted. From [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/):
+
+```bash
+docker run --rm \
+  -v $PWD/apify-camunda-connector-<version>.jar:/opt/app/connector.jar \
+  camunda/connectors-bundle:8.9.0
+```
+
+Substitute `<version>` with the JAR's release tag (e.g. `1.0.0`). The `camunda/connectors-bundle` tag should match your Camunda 8 minor - `8.9.0` for an 8.9 cluster, `8.8.0` for 8.8, and so on.
+
+**Hybrid mode** (your connectors runtime attached to Camunda SaaS Zeebe): pass cluster credentials as environment variables alongside the JAR mount. Find the cluster ID, region, and client credentials in Camunda Console under your cluster's **API** tab.
+
+```bash
+docker run --rm \
+  -v $PWD/apify-camunda-connector-<version>.jar:/opt/app/connector.jar \
+  -e CAMUNDA_CLIENT_MODE=saas \
+  -e CAMUNDA_CLIENT_CLOUD_CLUSTERID='<YOUR_CLUSTER_ID>' \
+  -e CAMUNDA_CLIENT_CLOUD_REGION='<YOUR_REGION>' \
+  -e CAMUNDA_CLIENT_AUTH_CLIENTID='<YOUR_CLIENT_ID>' \
+  -e CAMUNDA_CLIENT_AUTH_CLIENTSECRET='<YOUR_CLIENT_SECRET>' \
+  camunda/connectors-bundle:8.9.0
+```
+
+For production, bake the JAR into a custom image:
+
+```dockerfile
+FROM camunda/connectors-bundle:8.9.0
+COPY apify-camunda-connector-<version>.jar /opt/app/connector.jar
+```
+
+See [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/) and [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for the full configuration reference (scopes, alternate auth modes, Helm charts).
+
+### Make the runtime publicly reachable
+
+The connectors runtime must be reachable from the public internet so Apify can deliver webhook events to it.
+
+- **Production:** expose the runtime through your ingress, reverse proxy, or load balancer with a stable HTTPS URL.
+- **Local development:** use a tunneling tool like [ngrok](https://ngrok.com/) (`ngrok http <runtime-port>`) and paste the public tunnel URL into the **Camunda webhook URL** field on each inbound template.
+
+The connector registers and removes the Apify-side webhook automatically on BPMN deploy and undeploy. See [Configure the Camunda webhook URL](#configure-the-camunda-webhook-url) below for more on this field.
 
 ## Outbound connector
 
@@ -186,7 +288,7 @@ Inbound connectors enable Apify to start or resume your Camunda processes via we
 
 - The connector receives webhooks whenever a run reaches a terminal status (`SUCCEEDED`, `FAILED`, `TIMED_OUT`, or `ABORTED`). The connector monitors all four simultaneously; use the Activation Condition to filter which events trigger your process.
 - Activation Condition: Use this optional filter to specify which events should actually trigger the connector.
-- Compatibility: Inbound connectors work with Camunda SaaS, Self-Managed, and Hybrid environments.
+- Compatibility: Inbound connectors work in Self-Managed and Hybrid setups (your connectors runtime hosts the Apify code; see [Installation](#installation)).
 
 See [Configure the Camunda webhook URL](#configure-the-camunda-webhook-url) for one-time setup instructions.
 For end-to-end examples, refer to [Usage patterns](#usage-patterns).
@@ -232,19 +334,17 @@ graph LR
 
 #### Find the URL
 
-Camunda SaaS: Open [Camunda Console](https://console.camunda.io/), select your cluster, and open the **API** tab under **Client Credentials**. Your **Region ID** and **Cluster ID** form the base URL: `https://{clusterId}.{region}.connectors.camunda.io`. Paste it into the **Camunda webhook URL** field.
+The URL is the public address of _your connectors runtime_ - the one hosting the Apify JAR (see [Installation](#installation)). Apify POSTs event payloads to that URL.
 
-:::tip Easiest way to get the URL
+**Self-Managed or Hybrid:** Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints). If you set a `contextPath` in your Helm chart or deployment config, include it in the URL. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for hybrid setup details.
 
-After deploying your BPMN diagram in **Web Modeler**, click on the inbound event element and open the **Webhooks** tab in the properties panel. It displays the complete, ready-to-use webhook URL for your cluster. See [HTTP Webhook connector](https://docs.camunda.io/docs/components/connectors/protocol/http-webhook/#activate-the-http-webhook-connector-by-deploying-your-diagram) for details.
+**Local development:** Use a tunneling tool such as [ngrok](https://ngrok.com/) (`ngrok http <runtime-port>`) to expose your local connectors runtime, then paste the public tunnel URL into the field.
 
-Note: The **Webhooks** tab is only available in Web Modeler on SaaS. If you're using Desktop Modeler or Self-Managed, construct the URL manually using the patterns above.
+:::caution Web Modeler's Webhooks tab does not apply here
+
+The **Webhooks** tab in Camunda Web Modeler shows the URL of Camunda's SaaS-managed connectors runtime - which does not host the Apify connector code. Your self-hosted runtime does. Use your own runtime's public address in the **Camunda webhook URL** field, not the URL the Webhooks tab displays.
 
 :::
-
-Self-Managed / Hybrid: Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints). If you set a `contextPath` in your Helm chart, include it in the URL. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for hybrid setup.
-
-Local development: Use a tunneling tool such as ngrok to expose your local connectors runtime, then paste the public tunnel URL into the field.
 
 #### Reuse the URL across BPMNs
 
@@ -794,9 +894,11 @@ For datasets, you still need the ID. Find it in the Storage section or in run de
 
 ### Common expressions
 
-The connector templates accept two distinct syntaxes that look similar but are evaluated at different stages by different components: **FEEL expressions** and **secret placeholders**.
+The connector templates accept two distinct syntaxes that look similar but are evaluated at different stages by different components: FEEL expressions and secret placeholders.
 
-**FEEL expressions** (prefix: `=`) are evaluated by the Zeebe engine before the connector runs. The leading `=` tells the engine to parse the field as FEEL (Friendly Enough Expression Language) and resolve it to a concrete value. Use FEEL to reference process variables, filter events, or build output mappings.
+#### FEEL expressions
+
+FEEL expressions (prefix: `=`) are evaluated by the Zeebe engine before the connector runs. The leading `=` tells the engine to parse the field as FEEL (Friendly Enough Expression Language) and resolve it to a concrete value. Use FEEL to reference process variables, filter events, or build output mappings.
 
 | FEEL expression | Use case |
 | ------------ | ---------- |
@@ -805,7 +907,9 @@ The connector templates accept two distinct syntaxes that look similar but are e
 | `=connectorData.status` | Reading the status from inbound webhook payload |
 | `=connectorData.runId` | Reading the run ID from inbound webhook payload |
 
-**Secret placeholders** (syntax: `{{secrets.NAME}}`) are not FEEL. The engine passes them through as literal strings and the connector runtime substitutes them at execution time, just before the outbound HTTP call. This keeps the secret value out of process variables, audit logs, and incident messages. Use them anywhere a credential or sensitive URL belongs — directly in plain text fields (no `=` prefix), or inside a FEEL string wrapped in quotes (e.g. `="Bearer " + "{{secrets.APIFY_TOKEN}}"`).
+#### Secret placeholders
+
+Secret placeholders (syntax: `{{secrets.NAME}}`) are not FEEL. The engine passes them through as literal strings and the connector runtime substitutes them at execution time, just before the outbound HTTP call. This keeps the secret value out of process variables, audit logs, and incident messages. Use them anywhere a credential or sensitive URL belongs - directly in plain text fields (no `=` prefix), or inside a FEEL string wrapped in quotes (e.g. `="Bearer " + "{{secrets.APIFY_TOKEN}}"`).
 
 | Placeholder | Use case |
 | ------------ | ---------- |
