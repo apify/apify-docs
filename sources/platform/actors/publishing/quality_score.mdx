@@ -9,6 +9,16 @@ The Actor quality score is a metric that evaluates your Actor's performance acro
 
 ---
 
+## How the quality score affects ranking
+
+The Actor quality score drives ranking across all three Apify search surfaces:
+
+- _Apify Store search_ at [apify.com/store](https://apify.com/store).
+- The _Apify MCP server_ `search-actors` tool used by external AI agents. See [Apify MCP server](/platform/integrations/mcp).
+- _Apify AI_, the conversational interface inside Apify Console. See [Apify AI](/console/apify-ai).
+
+All three surfaces use the same backend, so a higher quality score lifts your Actor's visibility across each of them at once. There is no separate ranking mechanism for AI-driven discovery, and you do not need to optimize separately for it.
+
 ## How to view your score
 
 Navigate to **Console > Insights > Actor quality**, and then select your Actor.

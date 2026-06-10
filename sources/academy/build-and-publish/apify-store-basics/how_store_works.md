@@ -100,6 +100,10 @@ Since the **Issues** tab is public, the level of activity - or lack thereof - ca
 
 Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
 
+## How to make your Actor appear in search
+
+Apify ranks Actors in Apify Store search, the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool, and [Apify AI](/console/apify-ai) using the same metric: the [Actor quality score](/platform/actors/publishing/quality-score). Improving your quality score lifts visibility across all three surfaces at once - there is no separate optimization for AI-driven discovery.
+
 ## Resources
 
 - Best practices on setting up [testing for your Actor](https://docs.apify.com/platform/actors/publishing/test)
