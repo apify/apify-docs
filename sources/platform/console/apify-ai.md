@@ -35,6 +35,15 @@ Apify AI does not yet support the following operations. Use Apify Console direct
 - [Publishing](/platform/actors/publishing) Actors.
 - Configuring external [integrations](/platform/integrations).
 
+## Daily usage limit
+
+Apify AI has a daily token limit per user:
+
+- Free plan users get a lower daily allowance.
+- Users on any paid plan share the same higher daily allowance.
+
+The exact value is not published because it may change. If you hit the limit, wait until the next day or upgrade to a paid plan for the higher allowance.
+
 ## For Actor creators
 
 Actors are ranked in Apify AI by the same [Actor quality score](/platform/actors/publishing/quality-score) that drives ranking in Apify Store search and the MCP server `search-actors` tool. Improving your quality score lifts your Actor's visibility across all three surfaces at once. See [Actor quality score](/platform/actors/publishing/quality-score) for what the score measures and how to improve it.
