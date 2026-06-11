@@ -60,7 +60,7 @@
         "cross-env": "^10.0.0",
         "markdownlint": "^0.40.0",
         "markdownlint-cli": "^0.48.0",
-        "oxfmt": "0.53.0",
+        "oxfmt": "0.54.0",
         "oxlint": "1.62.0",
         "oxlint-tsgolint": "0.23.0",
         "patch-package": "^8.0.0",
