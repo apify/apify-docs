@@ -22,6 +22,15 @@ Typically, datasets comprise results from web scraping, crawling, and data proce
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
+## Dataset schema
+
+Actors can define a [dataset schema](/platform/actors/development/actor-definition/dataset-schema) that describes the structure of each dataset item and controls how data appears in the Output tab. The schema has two components:
+
+- `fields` - JSON Schema describing each item's structure, enabling validation and providing metadata for AI agents
+- `views` - Display configurations that control field ordering, formatting, and presentation in the Console
+
+Dataset schemas are defined in the Actor's `.actor` folder and apply to the Actor's default dataset.
+
 ## Basic usage
 
 You can access your datasets in several ways:
