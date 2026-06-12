@@ -74,13 +74,13 @@ You can make major monetization changes to each Actor only **once per month**. A
 
 ## Make your Actor eligible for agentic payments
 
-[Agentic payments](/platform/integrations/x402) let AI agents discover, run, and pay for your Actor without an Apify account, using protocols such as [x402](/platform/integrations/x402) and [Skyfire](/platform/integrations/skyfire). Eligible Actors are flagged with `allowsAgenticUsers=true` and surface in agentic discovery, for example when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store) with `allowsAgenticUsers=true`.
+Agentic payments let AI agents discover, run, and pay for your Actor without an Apify account, using protocols such as [x402](/platform/integrations/x402) and [Skyfire](/platform/integrations/skyfire). Eligible Actors are flagged with `allowsAgenticUsers=true` and surface in agentic discovery, for example when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store) with `allowsAgenticUsers=true`.
 
 To be eligible for agentic payments, your Actor must:
 
 - Use the [pay per event](/platform/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
 - Run with [limited permissions](/platform/actors/development/permissions). Actors that request full permissions are excluded.
-- Not use [Standby](/platform/actors/running/standby) mode for now. Standby support is coming soon.
+- Not use [Standby](/platform/actors/running/standby) mode for now. Standby support is coming later.
 
 Actors that meet these criteria become available to agentic users automatically - there is no separate opt-in.
 

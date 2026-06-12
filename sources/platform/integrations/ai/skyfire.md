@@ -164,7 +164,7 @@ To learn the Skyfire-specific payment details before paying, call the endpoint w
 ```bash
 curl -si \
   -H 'X-APIFY-PAYMENT-PROTOCOL: SKYFIRE' \
-  'https://api.apify.com/v2/actors/ACTOR_ID/run-sync'
+  'https://api.apify.com/v2/actors/ACTOR_ID/run-sync-get-dataset-items'
 # → HTTP 402 with the Skyfire payment requirements
 ```
 
@@ -176,7 +176,7 @@ Make a standard Actor run request to the [run Actor endpoint](https://docs.apify
 
 ```bash title="Example of using the synchronous run endpoint"
 curl -X POST \
-  'https://api.apify.com/v2/actors/ACTOR_ID/run-sync' \
+  'https://api.apify.com/v2/actors/ACTOR_ID/run-sync-get-dataset-items' \
   -H 'skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -208,7 +208,11 @@ curl -s \
 
 ### Supported Actors
 
-Not all Actors in Apify Store can be run using agentic payments.
+Not all Actors in Apify Store can be run using agentic payments. To be eligible, an Actor must:
+
+- Use the [pay per event](/platform/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
+- Run with [limited permissions](/platform/actors/development/permissions). Actors that request full permissions are excluded.
+- Not use [Standby](/platform/actors/running/standby) mode for now. Standby support is coming later.
 
 Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
 
