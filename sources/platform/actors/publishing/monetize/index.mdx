@@ -33,10 +33,10 @@ To set up monetization for your Actor, first complete your billing and payment d
 The monetization setup consists of three steps:
 
 1. In the **Actor pricing** step, you can:
-    - Define [events](/platform/actors/publishing/monetize/pay-per-event#actor-events) and their prices.
     - Modify or delete the [`apify-actor-start`](/platform/actors/publishing/monetize/pay-per-event#synthetic-start-event) event.
+    - Modify or delete the [`apify-default-dataset-item`](/platform/actors/publishing/monetize/pay-per-event#synthetic-default-dataset-item-event) event.
+    - Define [custom events](/platform/actors/publishing/monetize/pay-per-event#actor-events) and their prices.
     - [Transfer the platform usage costs on to users](/platform/actors/publishing/monetize/pay-per-event#platform-usage-costs).
-    - Apply Apify Store discounts.
     - Set the minimal cost that users can choose as max cost per run.
 1. In the **Primary event** step, select the event that best represents the main value of your Actor. By default, the dataset event or the only existing event is used.
 1. In the **Review** step, verify the final pricing for your Actor before confirming.

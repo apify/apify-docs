@@ -163,7 +163,7 @@ Use the [Apify SDKs](/sdk) (JS or Python) or the [`apify actor charge`](/cli/doc
 
 :::info Synthetic Actor start event recommended
 
-Apify recommends using the synthetic Actor start event in PPE Actors. It benefits both you and your users.
+Apify recommends using the synthetic Actor start event in all Actors. It benefits both you and your users.
 
 :::
 
@@ -192,7 +192,11 @@ The default price of the event is set intentionally low. This pricing means that
 
 For new Actors, the `apify-actor-start` event is added automatically.
 
-For existing Actors, you can add this event manually in the **Actor pricing** step of the [monetization setup](/platform/actors/publishing/monetize#set-up-monetization).
+For existing Actors, you can add this event manually:
+
+1. Access your Actor's [monetization setup](/platform/actors/publishing/monetize#set-up-monetization).
+1. In the **Actor pricing** step, under **Event name**, add `apify-actor-start`.
+1. Complete the remaining event details: title, description, and price.
 
 #### Synthetic start event for Actors with start event
 
@@ -200,7 +204,7 @@ Your Actor might already have a start event defined, such as `actor-start` or an
 
 If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the **Publication** tab.
 
-### Use synthetic default dataset item event `apify-default-dataset-item`
+### Use synthetic default dataset item event `apify-default-dataset-item` {#synthetic-default-dataset-item-event}
 
 The `apify-default-dataset-item` synthetic event charges users for each item written to the run's default dataset. It lets you align PPE pricing with per-result use cases without adding charging code to your Actor.
 
