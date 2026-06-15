@@ -9,6 +9,7 @@ toc_max_heading_level: 3
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
@@ -17,16 +18,13 @@ Connect your AI agent or application to Apify - the platform for web scraping, d
 - _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
 - _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
 - _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/platform/integrations/mcp), [CLI](/cli), and client libraries.
+- _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/platform/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
 
 ## Prerequisites
 
 Sign up to [Apify Console](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
 
-:::tip Free exploration
-
-The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication. You can browse Actors and documentation without an account.
-
-:::
+<ClaudeCodeWebEgress />
 
 ## Run your first Actor
 
@@ -110,6 +108,12 @@ See [Usage and resources](/platform/actors/running/usage-and-resources) and [Bil
 ### MCP server
 
 The [Apify MCP server](/platform/integrations/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
+
+:::tip Free exploration
+
+The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication. You can browse Actors and documentation without an account.
+
+:::
 
 #### Remote (recommended)
 

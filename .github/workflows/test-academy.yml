@@ -19,9 +19,9 @@ jobs:
                     node-version: 24
 
             -   name: Setup Python
-                uses: astral-sh/setup-uv@v7
+                uses: astral-sh/setup-uv@v8.1.0
 
-            -   uses: apify/actions/pnpm-install@v1.0.0
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   name: Test
                 run: pnpm test:academy

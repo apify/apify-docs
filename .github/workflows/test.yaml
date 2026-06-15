@@ -18,7 +18,7 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: apify/actions/pnpm-install@v1.0.0
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   run: pnpm build
                 env:
@@ -221,6 +221,11 @@ jobs:
 
                     echo "✅ All Nginx header checks passed."
 
+            -   name: Verify per-page .md navigation headers
+                # Checks the Vercel-style nav header that scripts/addNavHeaders.mjs
+                # prepends to every per-page .md in postbuild (#2596 / issue #2557).
+                run: node scripts/checkNavHeaders.mjs http://localhost:8080
+
             -   name: Stop Nginx
                 if: always()
                 run: nginx -c "$(pwd)/default.conf" -s stop
@@ -245,7 +250,7 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: apify/actions/pnpm-install@v1.0.0
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   name: List and Lint Changed Markdown Files
                 env:
@@ -269,7 +274,7 @@ jobs:
                 with:
                     node-version: 24
 
-            -   uses: apify/actions/pnpm-install@v1.0.0
+            -   uses: apify/actions/pnpm-install@v1.1.2
 
             -   run: pnpm lint:code
 
