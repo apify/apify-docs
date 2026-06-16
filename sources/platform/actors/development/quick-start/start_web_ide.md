@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 This guide walks you through the full lifecycle of an Actor using the web IDE in Apify Console: create an Actor from a code template, build it, configure its input, and run it in the cloud.
 
-## Prerequisites
+## Before you start
 
 To complete this tutorial, you need an Apify account. If you don't have it yet, [sign up for free](https://console.apify.com/sign-up).
 
@@ -21,8 +21,10 @@ To create an Actor from a code template:
 
 1. Log in to [Apify Console](https://console.apify.com).
 1. In the left-side panel, go to **Development** > **My Actors**.
-1. Click **Develop new**.
-1. Under **Select a code template**, choose one of the available options. For this tutorial, let's use **Quick start: Crawlee + Cheerio**.
+1. Select **Develop new**.
+1. In the first step, choose a type of Actor you want to create: web scraper, AI agent, API and data pipeline, or browser automation. Let's select **web scraper**.
+1. In the second step, choose the programming language: TypeScript, JavaScript, or Python. Let's select **JavaScript**.
+1. Based on your choice, Apify suggests the code templates. For this tutorial, let's use the recommended **Crawlee + Cheerio**.
 
 :::tip Explore Actor templates
 
