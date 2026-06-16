@@ -50,7 +50,7 @@ We have two methods to run an Actor or task and retrieve its data in Make.com, d
 - **Synchronous run using the action module**
 - **Asynchronous run using the trigger module**
 
-:::info
+:::info Synchronous run timeout
 
 Make.com imposes a hard timeout for synchronous runs, the timeout varies based on your plan. If the Actor or task takes longer than the timeout to complete, the data will not be fully returned.
 If you anticipate that the Actor run will exceed the timeout, use the asynchronous method with a trigger module instead.

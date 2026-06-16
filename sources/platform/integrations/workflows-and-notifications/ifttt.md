@@ -78,7 +78,7 @@ To use Apify as an action in your Applet:
 
 1. Select the Actor or task you want to use from the dropdown menu.
 
- :::note
+ :::note Actor or task not in the dropdown?
 
  IFTTT displays up to 50 recent items in a dropdown. If your Actor or task isn't visible, try using it at least once via API or in Apify Console to make it appear in the list.
 
