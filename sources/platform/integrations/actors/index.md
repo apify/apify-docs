@@ -5,7 +5,7 @@ sidebar_label: Actor-to-Actor
 slug: /integrations/actors
 ---
 
-**Actor-to-Actor integrations** connect Apify Actors with other Actors or tasks _on the platform itself_, letting you build multi-step workflows without leaving Apify. This is different from the third-party integrations covered elsewhere in this section — instead of routing data out to Make, n8n, or a warehouse, you chain Actors so the output of one becomes the trigger for another.
+**Actor-to-Actor integrations** connect Apify Actors with other Actors or tasks _on the platform itself_, letting you build multi-step workflows without leaving Apify. This is different from the third-party integrations covered elsewhere in this section - instead of routing data out to Make, n8n, or a warehouse, you chain Actors so the output of one becomes the trigger for another.
 
 Any [integration-ready Actor](/platform/integrations/actors/integration-ready-actors) can act as the target of an Actor-to-Actor integration, so the catalog keeps growing as new Actors are published.
 
