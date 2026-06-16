@@ -26,7 +26,7 @@ jobs:
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
             -   name: Check llms.txt size
-                run: npm run test:llms-size
+                run: pnpm run test:llms-size
 
             -   name: Install Nginx
                 run: |
