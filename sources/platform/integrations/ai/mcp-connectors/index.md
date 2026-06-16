@@ -2,7 +2,6 @@
 title: MCP connectors
 sidebar_label: MCP connectors
 description: Use MCP connectors to let Apify Actors call third-party services through Model Context Protocol on your behalf, without exposing your credentials to Actor code.
-sidebar_position: 0.5
 slug: /integrations/mcp-connectors
 ---
 

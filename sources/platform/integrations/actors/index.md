@@ -2,7 +2,6 @@
 title: Actor-to-Actor integrations
 description: Learn how to connect Actors and tasks on the Apify platform using the integrations catalog in Apify Console to build automated multi-step workflows.
 sidebar_label: Actor-to-Actor
-sidebar_position: 0
 slug: /integrations/actors
 ---
 
