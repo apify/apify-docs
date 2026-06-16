@@ -41,7 +41,7 @@ Copy your **Personal API token**.
 
 Log in to [Albato](https://albato.com/app/user/auth/login?lang=en).
 
-![Albato login](../images/albato-login.png)
+![Albato login screen](../images/albato-login.png)
 
 Go to **Apps** and click **Add a connection**.
 
