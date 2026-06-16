@@ -27,15 +27,15 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 Log in to [Apify Console](https://console.apify.com/).
 
-![Apify Console](../images/albato-apify-console.png)
+<img width="624" height="352" alt="Apify1" src="https://github.com/user-attachments/assets/7bf3a43f-2117-47e5-a955-a56e26d68b02" />
 
 Go to **Settings > API & Integrations**.
 
-![API and integrations settings](../images/albato-api-settings.png)
+<img width="624" height="352" alt="Apify2" src="https://github.com/user-attachments/assets/e5a24420-7e3c-4bf0-b6d9-0e91266a6a72" />
 
 Copy your **Personal API token**.
 
-![Personal API token](../images/albato-api-token.png)
+<img width="624" height="352" alt="Apify3" src="https://github.com/user-attachments/assets/ea857857-6afe-4660-a388-a71c816817b6" />
 
 ### Step 2: Create the Apify connection in Albato
 
@@ -45,19 +45,19 @@ Log in to [Albato](https://albato.com/app/user/auth/login?lang=en).
 
 Go to **Apps** and click **Add a connection**.
 
-![Add a connection](../images/albato-add-connection.png)
+<img width="624" height="352" alt="Apify5" src="https://github.com/user-attachments/assets/eb0eea0d-f6a7-4948-afd9-993517911a94" />
 
 Search for **Apify**, select it, and click **Add a connection**.
 
-![Search for Apify](../images/albato-search-apify.png)
+<img width="624" height="352" alt="Apify6" src="https://github.com/user-attachments/assets/ee66f0dc-cc71-47b8-982e-557018a87044" />
 
 Paste the API token you copied from Apify and click **Continue**.
 
-![Paste API token](../images/albato-paste-token.png)
+<img width="624" height="352" alt="Apify7" src="https://github.com/user-attachments/assets/ca51d165-7fc9-48e3-ac0b-369585985fbe" />
 
 A success notification confirms the connection is active.
 
-![Connection success](../images/albato-connection-success.png)
+<img width="624" height="352" alt="Apify8" src="https://github.com/user-attachments/assets/3140b85d-577c-42e3-9f93-de0507030282" />
 
 ## Build a workflow with an Apify trigger
 
@@ -99,59 +99,26 @@ Apify Actors often run for several minutes, which doesn't fit well into a single
 
 ## Triggers
 
-### Finished Actor run
-
-> Triggers when a selected Actor run is finished.
-
-### Finished task run
-
-> Triggers when a selected Actor task run is finished.
+| Name | Description |
+| --- | --- |
+| Finished Actor run | Triggers when a selected Actor run is finished. |
+| Finished task run | Triggers when a selected Actor task run is finished. |
 
 ## Actions
 
-### Run Actor
-
-> Starts a selected Actor and returns immediately without waiting for the run to finish. To process the run output, pair this with the **Finished Actor Run** trigger or fetch results later with **Last Actor run** or **Get dataset**. See [Handling long-running Actors](#handling-long-running-actors).
-
-### Run task
-
-> Starts a selected Actor task and returns immediately without waiting for the run to finish. As with **Run Actor**, pair this with the **Finished task run** trigger to continue once the run completes.
-
-### Last Actor run
-
-> Retrieves data from the most recent Actor run.
-
-### Last task run
-
-> Retrieves data from the most recent Actor task run.
-
-### Find last Actor run
-
-> Finds the most recent Actor run.
-
-### Find last task run
-
-> Finds the most recent Actor task run.
-
-### Create Actor task
-
-> Creates a new Actor task configuration.
-
-### Get dataset
-
-> Retrieves items from a [dataset](/platform/storage/dataset).
-
-### Get key-value store record
-
-> Retrieves a value from a [key-value store](/platform/storage/key-value-store).
-
-### Get list of keys
-
-> Lists keys in a [key-value store](/platform/storage/key-value-store).
-
-### Custom API request
-
-> Sends a custom request to any Apify API endpoint.
+| Name | Description |
+| --- | --- |
+| Run Actor | Starts a selected Actor and returns immediately without waiting for the run to finish. To process the run output, pair this with the **Finished Actor Run** trigger or fetch results later with **Last Actor run** or **Get dataset**. See [Handling long-running Actors](#handling-long-running-actors). |
+| Run task | Starts a selected Actor task and returns immediately without waiting for the run to finish. As with **Run Actor**, pair this with the **Finished task run** trigger to continue once the run completes. |
+| Last Actor run | Retrieves data from the most recent Actor run. |
+| Last task run | Retrieves data from the most recent Actor task run. |
+| Find last Actor run | Finds the most recent Actor run. |
+| Find last task run | Finds the most recent Actor task run. |
+| Create Actor task | Creates a new Actor task configuration. |
+| Get dataset | Retrieves items from a [dataset](/platform/storage/dataset). |
+| Get key-value store record | Retrieves a value from a [key-value store](/platform/storage/key-value-store). |
+| Get list of keys | Lists keys in a [key-value store](/platform/storage/key-value-store). |
+| Custom API request | Sends a custom request to any Apify API endpoint. |
 
 ## Troubleshooting
 
