@@ -27,15 +27,15 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 Log in to [Apify Console](https://console.apify.com/).
 
-<img width="624" height="352" alt="Apify1" src="https://github.com/user-attachments/assets/7bf3a43f-2117-47e5-a955-a56e26d68b02" />
+![Apify Console dashboard after signing in](../images/albato-apify-console.png)
 
 Go to **Settings > API & Integrations**.
 
-<img width="624" height="352" alt="Apify2" src="https://github.com/user-attachments/assets/e5a24420-7e3c-4bf0-b6d9-0e91266a6a72" />
+![Apify Console Settings page with the API & Integrations tab open](../images/albato-api-settings.png)
 
 Copy your **Personal API token**.
 
-<img width="624" height="352" alt="Apify3" src="https://github.com/user-attachments/assets/ea857857-6afe-4660-a388-a71c816817b6" />
+![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.png)
 
 ### Step 2: Create the Apify connection in Albato
 
@@ -45,19 +45,19 @@ Log in to [Albato](https://albato.com/app/user/auth/login?lang=en).
 
 Go to **Apps** and click **Add a connection**.
 
-<img width="624" height="352" alt="Apify5" src="https://github.com/user-attachments/assets/eb0eea0d-f6a7-4948-afd9-993517911a94" />
+![Albato Apps page with the Add a connection button highlighted](../images/albato-add-connection.png)
 
 Search for **Apify**, select it, and click **Add a connection**.
 
-<img width="624" height="352" alt="Apify6" src="https://github.com/user-attachments/assets/ee66f0dc-cc71-47b8-982e-557018a87044" />
+![Albato connection search with Apify selected from the app list](../images/albato-search-apify.png)
 
 Paste the API token you copied from Apify and click **Continue**.
 
-<img width="624" height="352" alt="Apify7" src="https://github.com/user-attachments/assets/ca51d165-7fc9-48e3-ac0b-369585985fbe" />
+![Albato connection dialog with the Apify API token pasted into the token field](../images/albato-paste-token.png)
 
 A success notification confirms the connection is active.
 
-<img width="624" height="352" alt="Apify8" src="https://github.com/user-attachments/assets/3140b85d-577c-42e3-9f93-de0507030282" />
+![Albato success notification confirming the Apify connection is active](../images/albato-connection-success.png)
 
 ## Build a workflow with an Apify trigger
 
