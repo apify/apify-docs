@@ -83,7 +83,7 @@ post:
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
     received in the response JSON to the [Get dataset items](#/reference/datasets/item-collection/get-items)
     API endpoint.
-  operationId: act_runs_post
+  operationId: actor_runs_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"

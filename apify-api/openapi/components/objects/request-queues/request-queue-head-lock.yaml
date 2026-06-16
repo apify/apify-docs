@@ -85,7 +85,7 @@ postLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
-  operationId: act_runs_last_requestQueue_head_lock_post
+  operationId: actor_runs_last_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

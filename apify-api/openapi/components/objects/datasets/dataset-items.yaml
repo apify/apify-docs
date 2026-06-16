@@ -304,7 +304,7 @@ listLastRun:
 
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
     [Get dataset items](/api/v2/dataset-items-get) endpoint.
-  operationId: act_runs_last_dataset_items_get
+  operationId: actor_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
@@ -475,7 +475,7 @@ postLastRun:
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
-  operationId: act_runs_last_dataset_items_post
+  operationId: actor_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

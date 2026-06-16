@@ -32,7 +32,7 @@ Each build might have different features, input, or output. By fixing the build 
 
 On top of the number, some builds are also tagged. For example, _latest_ or _beta_.
 
-Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/act-put) API endpoint.
+Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/actor-put) API endpoint.
 
 ## Runs
 
@@ -127,7 +127,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/act-run-resurrect-post) API endpoint.
+Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/actor-run-resurrect-post) API endpoint.
 
 :::info Settings adjustments
 You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:

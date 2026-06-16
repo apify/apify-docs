@@ -74,7 +74,7 @@ Triggers the execution of any Apify Actor by ID, allowing users to start custom 
 
 Recommended features:
 
-- Select Actor: The Actor list will be pre-populated with Actors that the user created or used, using the [List of Actors API](https://docs.apify.com/api/v2/acts-get) and enriched with Actors from the store, which the user has not run already using [API](https://docs.apify.com/api/v2/store-get).
+- Select Actor: The Actor list will be pre-populated with Actors that the user created or used, using the [List of Actors API](https://docs.apify.com/api/v2/actors-get) and enriched with Actors from the store, which the user has not run already using [API](https://docs.apify.com/api/v2/store-get).
 - Synchronous vs. asynchronous run: flow will wait until the run/task finishes (consider a timeout on your platform side)
 - Input UI: upon selecting an Actor, dynamically display specific Actor input and preload default example values based on the Actor Input schema. Alternatively, allow users to insert a JSON input for the Actor.
 - Additionally, it should include the option to choose [Actor build](https://docs.apify.com/platform/actors/running/runs-and-builds), [memory](https://docs.apify.com/platform/actors/running/usage-and-resources#memory), and [timeout](https://docs.apify.com/platform/actors/running/usage-and-resources#memory).
@@ -133,7 +133,7 @@ Monitors the status of an Actor run by ID, useful for triggering follow-up steps
 
 Recommended features:
 
-- _Select Actor runs to watch_: Dropdown (list of user's Actors). Populated via [List Actors API](https://docs.apify.com/api/v2/acts-get)
+- _Select Actor runs to watch_: Dropdown (list of user's Actors). Populated via [List Actors API](https://docs.apify.com/api/v2/actors-get)
 
 ##### Watch task runs
 
