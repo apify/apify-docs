@@ -27,11 +27,11 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 Log in to [Apify Console](https://console.apify.com/).
 
-![Apify Console dashboard after signing in](../images/albato-apify-console.png)
+![Apify Console dashboard for signing in](../images/albato-apify-console.png)
 
 Go to **Settings > API & Integrations**.
 
-![Apify Console Settings page with the API & Integrations tab open](../images/albato-api-settings.png)
+![Apify Console Settings page open](../images/albato-api-settings.png)
 
 Copy your **Personal API token**.
 
@@ -45,7 +45,7 @@ Log in to [Albato](https://albato.com/app/user/auth/login?lang=en).
 
 Go to **Apps** and click **Add a connection**.
 
-![Albato Apps page with the Add a connection button highlighted](../images/albato-add-connection.png)
+![Albato Apps page with the Add a connection button](../images/albato-add-connection.png)
 
 Search for **Apify**, select it, and click **Add a connection**.
 
@@ -53,11 +53,11 @@ Search for **Apify**, select it, and click **Add a connection**.
 
 Paste the API token you copied from Apify and click **Continue**.
 
-![Albato connection dialog with the Apify API token pasted into the token field](../images/albato-paste-token.png)
+![Albato connection tab with the Apify API token pasted into the token field](../images/albato-paste-token.png)
 
 A success notification confirms the connection is active.
 
-![Albato success notification confirming the Apify connection is active](../images/albato-connection-success.png)
+![Albato success notification confirming the Apify connection was created](../images/albato-connection-success.png)
 
 ## Build a workflow with an Apify trigger
 
