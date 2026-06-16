@@ -1,0 +1,34 @@
+---
+title: Programming
+description: Integrate the Apify platform programmatically using the REST API, webhooks, and GitHub.
+sidebar_label: Programming
+slug: /integrations/programming
+---
+
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
+
+Build directly against the Apify platform with the REST API, drive workflows from webhooks, and trigger Actors from your repo activity.
+
+<CardGrid>
+    <Card
+        title="API"
+        desc="Control the Apify platform programmatically. Start Actors, fetch results, and manage storages."
+        to="/platform/integrations/api"
+        smallImage
+    />
+    <Card
+        title="Webhooks"
+        desc="Trigger external events when an Actor run succeeds, fails, or hits a status."
+        to="/platform/integrations/webhooks"
+        imageUrl="/img/platform/integrations/webhooks.svg"
+        smallImage
+    />
+    <Card
+        title="GitHub"
+        desc="Trigger Apify runs from GitHub events or push run output back to a repo."
+        to="/platform/integrations/github"
+        imageUrl="/img/platform/integrations/github.svg"
+        smallImage
+    />
+</CardGrid>

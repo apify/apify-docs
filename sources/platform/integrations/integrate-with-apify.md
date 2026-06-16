@@ -1,6 +1,7 @@
 ---
 title: Integrate with Apify
 sidebar_label: Create new integration
+sidebar_position: 1
 description: Partner with Apify to build general or Actor-specific integrations that bring web scraping and automation data into your platform or service.
 slug: /integrations/integrate
 ---
@@ -21,7 +22,7 @@ An Apify integration can be _general_, allowing users to integrate any Actor fro
 
 General integrations allow users to integrate Actors into their workflows by connecting Apify with other platforms. Examples include:
 
-- [Zapier](./workflow-automation/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
+- [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
 - [Keboola](/platform/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
 
 ### Actor-specific integrations
