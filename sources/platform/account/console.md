@@ -59,7 +59,7 @@ To navigate Apify Console, use the left-side panel or keyboard shortcuts.
 
 | Section | Keyboard shortcut | Description |
 | :--- | :--- | :--- |
-| [Apify Store](/account/store) | <kbd>G</kbd> + <kbd>O</kbd> | Search for Actors that suit your web-scraping needs. |
+| [Apify Store](/actors/running/actors-in-store) | <kbd>G</kbd> + <kbd>O</kbd> | Search for Actors that suit your web-scraping needs. |
 | [Dashboard](/account/console) | <kbd>G</kbd> + <kbd>H</kbd> | Overview of your account with recently viewed Actors, suggestions, and recent runs. |
 | [Actors](/actors) | <kbd>G</kbd> + <kbd>A</kbd> | View recent and bookmarked Actors. |
 | [Runs](/actors/running/runs-and-builds) | <kbd>G</kbd> + <kbd>R</kbd> | View your recent runs. |
