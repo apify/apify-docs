@@ -24,7 +24,7 @@ To create an Actor from a code template:
 1. Select **Develop new**.
 1. In the first step, choose a type of Actor you want to create: web scraper, AI agent, API and data pipeline, or browser automation. Let's select **web scraper**.
 1. In the second step, choose the programming language: TypeScript, JavaScript, or Python. Let's select **JavaScript**.
-1. Based on your choice, Apify suggests the code templates. For this tutorial, let's use the recommended **Crawlee + Cheerio**.
+1. Based on your choice, Apify suggests Actor templates. For this tutorial, let's use the recommended **Crawlee + Cheerio**.
 
 :::tip Explore Actor templates
 
