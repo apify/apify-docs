@@ -52,7 +52,7 @@
     },
     "devDependencies": {
         "@apify/oxlint-config": "^0.2.5",
-        "@apify/tsconfig": "^0.1.2",
+        "@apify/tsconfig": "^0.2.0",
         "@stoplight/spectral-cli": "^6.15.0",
         "@types/react": "^19.0.0",
         "babel-plugin-styled-components": "^2.1.4",

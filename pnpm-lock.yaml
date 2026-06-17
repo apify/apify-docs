@@ -106,8 +106,8 @@ importers:
         specifier: ^0.2.5
         version: 0.2.5(oxlint@1.62.0(oxlint-tsgolint@0.23.0))
       '@apify/tsconfig':
-        specifier: ^0.1.2
-        version: 0.1.2
+        specifier: ^0.2.0
+        version: 0.2.0
       '@stoplight/spectral-cli':
         specifier: ^6.15.0
         version: 6.15.1
@@ -378,8 +378,8 @@ packages:
     peerDependencies:
       oxlint: ^1.61.0
 
-  '@apify/tsconfig@0.1.2':
-    resolution: {integrity: sha512-9dzEI1ZQ5+iM0k0fmPJrpdSSPUolVdeI1nDGFZMjD9UabTmIvjQrzui+1a25uy913AUEBrKTojEPj87pU9/Ekg==}
+  '@apify/tsconfig@0.2.0':
+    resolution: {integrity: sha512-0i6rF+hgXw6mQXhENYNTnP+Yo4WY38d698k/pk4rIpdCx/sSuEprR2N5WdtMaN628vCB+aZjff0jPN2EnQYtjQ==}
 
   '@apify/ui-icons@1.34.1':
     resolution: {integrity: sha512-R4katxq0cjcIWTKNJRCFaJcUPk224cjZZSalXyZX7s75CLXeAolqR/NoV+o6ClwVBlXHXCP/EsUZOHx80+5iRg==}
@@ -9377,7 +9377,7 @@ snapshots:
     dependencies:
       oxlint: 1.62.0(oxlint-tsgolint@0.23.0)
 
-  '@apify/tsconfig@0.1.2': {}
+  '@apify/tsconfig@0.2.0': {}
 
   '@apify/ui-icons@1.34.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
