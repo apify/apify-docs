@@ -67,12 +67,12 @@ graph LR
 
 ### Where the connector runs
 
-Camunda Connectors are Java components that execute on a **connectors runtime**. Camunda SaaS ships a managed runtime preloaded with Camunda's first-party connectors (HTTP REST, Slack, AWS, etc.), but it does not load third-party connector JARs uploaded by tenants.
+Camunda Connectors are Java components that execute on a connectors runtime. Camunda SaaS ships a managed runtime preloaded with Camunda's first-party connectors (HTTP REST, Slack, AWS, etc.), but it does not load third-party connector JARs uploaded by tenants.
 
 The Apify Connector is a third-party JAR, so you host the connectors runtime yourself. Two deployment paths are supported:
 
-- **Self-Managed:** you run the entire Camunda 8 stack (Zeebe, Operate, Tasklist, and the connectors runtime) on your own infrastructure.
-- **Hybrid:** Zeebe and the BPMN engine run on Camunda SaaS, while you run a self-hosted connectors runtime that authenticates back to the SaaS cluster.
+- Self-Managed: you run the entire Camunda 8 stack (Zeebe, Operate, Tasklist, and the connectors runtime) on your own infrastructure.
+- Hybrid: Zeebe and the BPMN engine run on Camunda SaaS, while you run a self-hosted connectors runtime that authenticates back to the SaaS cluster.
 
 <div style={{textAlign: 'center'}}>
 
@@ -111,50 +111,115 @@ Each connector release publishes two artifacts on the [GitHub Releases page](htt
 
 | Artifact | What it is | Where it goes |
 | --- | --- | --- |
-| `apify-camunda-connector-<version>.jar` | The shaded connector runtime JAR (includes all dependencies) | Drop it on the Camunda connectors runtime classpath - see [Run the connectors runtime](#run-the-connectors-runtime) |
+| `apify-camunda-connector-<version>-c8.8.jar` / `-c8.9.jar` | The shaded connector runtime JAR (includes all dependencies), one per Camunda minor | Download the suffix matching your Camunda minor (`-c8.8` or `-c8.9`) and drop it on the connectors runtime classpath - see [Run the connectors runtime](#run-the-connectors-runtime) |
 | `apify-camunda-connector-element-templates-<version>.zip` | All five element template JSONs | Upload to your Camunda **Web Modeler** project, or place into the `resources/element-templates/` directory of **Desktop Modeler** |
 
 Pick the release whose version matches your Camunda 8 minor.
+
+:::note Both artifacts are required
+
+The element templates add the connector to your Modeler palette, but the JAR is what actually runs it. Importing the templates alone lets you model and deploy a process; the Apify task will fail at runtime until a self-hosted connectors runtime has the JAR loaded. This is unlike Camunda's built-in connectors, which need only a template because their code already ships in every `connectors-bundle`.
+
+:::
 
 ### Choose your deployment scenario
 
 | Scenario | Supported? | Notes |
 | --- | --- | --- |
-| **Self-Managed** | Yes | You control the connectors runtime on your own infrastructure. |
-| **Hybrid** | Yes | Zeebe runs on Camunda SaaS, while you host the connectors runtime. |
-| **Pure SaaS** | No | The managed connectors runtime cannot load custom JARs. Use [Hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) instead. |
+| Self-Managed | Yes | You control the connectors runtime on your own infrastructure. |
+| Hybrid | Yes | Zeebe runs on Camunda SaaS, while you host the connectors runtime. |
+| Pure SaaS | No | The managed connectors runtime cannot load custom JARs. Use [Hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) instead. |
 
 ### Run the connectors runtime
 
-The simplest path is the official `camunda/connectors-bundle` Docker image with the Apify JAR mounted. From [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/):
+The connector runs on the official `camunda/connectors-bundle` Docker image with the Apify JAR mounted in (from [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/)). Three things apply to both setups below:
+
+- **JAR and image must match your Camunda minor.** Use the `-c8.8` JAR with an `8.8.x` bundle, the `-c8.9` JAR with an `8.9.x` bundle. Substitute `<version>` with the JAR's release tag (e.g. `1.0.0`) and use a recent patch of your minor for the image tag (e.g. `8.9.4`, `8.8.12`); any patch of the matching minor works.
+- **Mount into `/opt/custom/`, not `/opt/app/`.** The bundle launches with `-Dloader.path=/opt/custom/`, the directory whose JARs are added to the runtime classloader that can see the Connector SDK. A JAR in `/opt/app/` lands on the plain system classpath and fails at startup with `NoClassDefFoundError: io/camunda/connector/api/outbound/OutboundConnectorFunction`.
+- **The runtime listens on container port `8080`.** Publish it with `-p` (the examples below map it to host `8086`) for health checks (`http://localhost:8086/actuator/health/readiness`) and for the inbound webhook tunnel.
+
+The connector also needs to know where your cluster is and how to authenticate. That part depends on the [deployment scenario](#choose-your-deployment-scenario) you chose - pick one below.
+
+#### Self-Managed
+
+You run Zeebe and the connectors runtime yourself. Point the runtime at your cluster's Zeebe gateway (gRPC) and orchestration REST API, and supply its authentication. The example below uses OIDC (Keycloak) and includes the Apify token as an environment variable:
 
 ```bash
-docker run --rm \
-  -v $PWD/apify-camunda-connector-<version>.jar:/opt/app/connector.jar \
-  camunda/connectors-bundle:8.9.0
+docker run --rm --name apify-connectors \
+  --network <camunda-network> \
+  --add-host host.docker.internal:host-gateway \
+  -p 8086:8080 \
+  -v $PWD/apify-camunda-connector-<version>-c8.9.jar:/opt/custom/connector.jar \
+  -e CAMUNDA_CLIENT_MODE=self-managed \
+  -e CAMUNDA_CLIENT_GRPCADDRESS=http://<zeebe-host>:26500 \
+  -e CAMUNDA_CLIENT_RESTADDRESS=http://<orchestration-host>:8080 \
+  -e CAMUNDA_CLIENT_AUTH_METHOD=oidc \
+  -e CAMUNDA_CLIENT_AUTH_TOKENURL=http://<keycloak-host>:18080/auth/realms/camunda-platform/protocol/openid-connect/token \
+  -e CAMUNDA_CLIENT_AUTH_CLIENTID=<client-id> \
+  -e CAMUNDA_CLIENT_AUTH_CLIENTSECRET=<client-secret> \
+  -e CAMUNDA_CLIENT_AUTH_AUDIENCE=orchestration-api \
+  -e CAMUNDA_CLIENT_AUTH_SCOPE='openid profile email' \
+  -e SECRET_APIFY_TOKEN=<apify-token> \
+  camunda/connectors-bundle:8.9.4
 ```
 
-Substitute `<version>` with the JAR's release tag (e.g. `1.0.0`). The `camunda/connectors-bundle` tag should match your Camunda 8 minor - `8.9.0` for an 8.9 cluster, `8.8.0` for 8.8, and so on.
+Placeholder examples for common self-hosted setups:
 
-**Hybrid mode** (your connectors runtime attached to Camunda SaaS Zeebe): pass cluster credentials as environment variables alongside the JAR mount. Find the cluster ID, region, and client credentials in Camunda Console under your cluster's **API** tab.
+- `<zeebe-host>`: Zeebe gRPC host, e.g. `orchestration`.
+- `<orchestration-host>`: Orchestration REST host, e.g. `orchestration`.
+- `<keycloak-host>`: OIDC token host, e.g. `host.docker.internal`.
+- `<camunda-network>`: Docker network name, e.g. `camunda-89_camunda-platform`.
+- `<client-id>`: OIDC client ID, e.g. `connectors`.
+- `<client-secret>`: OIDC client secret, e.g. `demo-connectors-secret`.
+- `<apify-token>`: Apify API token, e.g. `apify_api_xxxx`.
+
+In most Self-Managed deployments, run the connectors runtime in the same Docker Compose or Helm release as the rest of Camunda.
+
+Reuse the values already configured for the bundled `connectors` service. Then either replace that service image with your custom image or add the Apify JAR to the existing service.
+
+See Camunda's [connectors configuration](https://docs.camunda.io/docs/self-managed/connectors-deployment/connectors-configuration/) reference.
+
+Inside the cluster network, the orchestration REST API uses port `8080` on both versions. Only the host-published port differs (`8088` on 8.8, `8080` on 8.9).
+
+#### Hybrid
+
+Zeebe and the BPMN engine run on Camunda SaaS; you run only the connectors runtime. Pass your SaaS cluster credentials as environment variables. Find the cluster ID, region, and client credentials in Camunda Console under your cluster's **API** tab:
 
 ```bash
 docker run --rm \
-  -v $PWD/apify-camunda-connector-<version>.jar:/opt/app/connector.jar \
+  -p 8086:8080 \
+  -v $PWD/apify-camunda-connector-<version>-c8.9.jar:/opt/custom/connector.jar \
   -e CAMUNDA_CLIENT_MODE=saas \
   -e CAMUNDA_CLIENT_CLOUD_CLUSTERID='<YOUR_CLUSTER_ID>' \
   -e CAMUNDA_CLIENT_CLOUD_REGION='<YOUR_REGION>' \
   -e CAMUNDA_CLIENT_AUTH_CLIENTID='<YOUR_CLIENT_ID>' \
   -e CAMUNDA_CLIENT_AUTH_CLIENTSECRET='<YOUR_CLIENT_SECRET>' \
-  camunda/connectors-bundle:8.9.0
+  camunda/connectors-bundle:8.9.4
 ```
 
-For production, bake the JAR into a custom image:
+The client credentials need the **Orchestration Cluster REST API** scope at minimum. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for scopes and alternate auth modes.
+
+#### Provide the Apify token to the runtime
+
+If your templates reference `{{secrets.APIFY_TOKEN}}` (recommended over hardcoding), the self-hosted runtime resolves it from an environment variable on the connectors-runtime container. The variable name depends on your Camunda minor:
+
+| Camunda minor | Environment variable |
+| --- | --- |
+| 8.8.x | `APIFY_TOKEN=<your token>` |
+| 8.9.x | `SECRET_APIFY_TOKEN=<your token>` |
+
+The `{{secrets.APIFY_TOKEN}}` reference in the template stays the same; only the environment variable name changes. Add the matching `-e` flag to your `docker run` (or the equivalent secret in Compose/Helm). For the full version matrix and how to customize the prefix, see [COMPATIBILITY.md](https://github.com/apify/apify-camunda-integration/blob/main/COMPATIBILITY.md).
+
+#### Bake the JAR into a custom image for production
+
+For production, build a self-contained image instead of mounting the JAR at runtime (immutable, versioned, and registry-friendly for Kubernetes/Helm):
 
 ```dockerfile
-FROM camunda/connectors-bundle:8.9.0
-COPY apify-camunda-connector-<version>.jar /opt/app/connector.jar
+FROM camunda/connectors-bundle:8.9.4
+COPY apify-camunda-connector-<version>-c8.9.jar /opt/custom/connector.jar
 ```
+
+Build and push it (`docker build -t <your-registry>/apify-connectors:<tag> .`), then reference that image as your connectors runtime. Configuration (cluster connection, secrets) stays external via environment variables - do not bake tokens or credentials into the image.
 
 See [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/) and [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for the full configuration reference (scopes, alternate auth modes, Helm charts).
 
@@ -162,10 +227,10 @@ See [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-con
 
 The connectors runtime must be reachable from the public internet so Apify can deliver webhook events to it.
 
-- **Production:** expose the runtime through your ingress, reverse proxy, or load balancer with a stable HTTPS URL.
-- **Local development:** use a tunneling tool like [ngrok](https://ngrok.com/) (`ngrok http <runtime-port>`) and paste the public tunnel URL into the **Camunda webhook URL** field on each inbound template.
+- Production: expose the runtime through your ingress, reverse proxy, or load balancer with a stable HTTPS URL.
+- Local development: use a tunneling tool like [ngrok](https://ngrok.com/) pointed at the **host port you published** (e.g. `ngrok http 8086` for the `-p 8086:8080` mapping above, not the container's internal `8080`), and paste the public tunnel URL into the **Camunda webhook URL** field on each inbound template.
 
-The connector registers and removes the Apify-side webhook automatically on BPMN deploy and undeploy. See [Configure the Camunda webhook URL](#configure-the-camunda-webhook-url) below for more on this field.
+Whichever address you choose, paste it into the **Camunda webhook URL** field on each inbound template. The connector takes care of registering and removing the Apify-side webhook automatically on BPMN deploy and undeploy. See [Configure the Camunda webhook URL](#configure-the-camunda-webhook-url) below for more on this field.
 
 ## Outbound connector
 
@@ -194,7 +259,7 @@ Start a new execution of an Actor.
 | Setting | Description |
 | --------- | ------------- |
 | **Operation** | Select `Run Actor` |
-| **Actor** | The Actor name or ID (e.g. `apify/web-scraper` or `E2jjCZBezvAZnX8Rb`) |
+| **Actor** | The Actor name, e.g. `apify/web-scraper` (IDs also work; see [Find Actor and task identifiers](#find-actor-and-task-identifiers)) |
 | **Input Body** | _(Optional)_ JSON input configuration for the run (e.g. `={ "message": "Hello from Camunda!" }`) |
 | **Wait for Finish** | `true` (Synchronous) or `false` (Asynchronous) |
 | **Timeout (seconds)** | _(Optional)_ Maximum duration for the run |
@@ -334,11 +399,11 @@ graph LR
 
 #### Find the URL
 
-The URL is the public address of _your connectors runtime_ - the one hosting the Apify JAR (see [Installation](#installation)). Apify POSTs event payloads to that URL.
+The URL is the public address of **your connectors runtime** - the one hosting the Apify JAR (see [Installation](#installation)). Apify POSTs event payloads to that URL.
 
-**Self-Managed or Hybrid:** Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints). If you set a `contextPath` in your Helm chart or deployment config, include it in the URL. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for hybrid setup details.
+Self-Managed or Hybrid: Use the public URL of your connectors-runtime reverse proxy or ingress (the host serving the `/inbound/*` endpoints). If you set a `contextPath` in your Helm chart or deployment config, include it in the URL. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for hybrid setup details.
 
-**Local development:** Use a tunneling tool such as [ngrok](https://ngrok.com/) (`ngrok http <runtime-port>`) to expose your local connectors runtime, then paste the public tunnel URL into the field.
+Local development: Use a tunneling tool such as [ngrok](https://ngrok.com/) pointed at the host port you published for the runtime container (e.g. `ngrok http 8086` for a `-p 8086:8080` mapping), then paste the public tunnel URL into the field.
 
 :::caution Web Modeler's Webhooks tab does not apply here
 
@@ -391,7 +456,7 @@ All inbound connectors share these common fields:
 | **Apify API token** | Your Apify API token (see [Authentication](#authentication)) |
 | **Camunda webhook URL** | Base URL of your Camunda cluster's webhook endpoint (the connector appends `/inbound/{webhookId}` to register a webhook with Apify; see [Configure the Camunda webhook URL](#configure-the-camunda-webhook-url)) |
 | **Resource Type** | `Actor` or `Task` |
-| **Actor** / **Task** | The Actor or task name or ID to monitor (e.g. `apify/web-scraper` or `E2jjCZBezvAZnX8Rb`; the field label changes based on the selected Resource Type) |
+| **Actor** / **Task** | The Actor or task name to monitor, e.g. `apify/web-scraper` (the field label changes based on the selected Resource Type; IDs also work, see [Find Actor and task identifiers](#find-actor-and-task-identifiers)) |
 | **Activation Condition** | _(Optional)_ FEEL expression to filter events (e.g. `=connectorData.status = "SUCCEEDED"`; leave empty to process all events) |
 | **Result Variable** | _(Optional)_ Variable name to store the webhook payload |
 | **Result Expression** | _(Optional)_ FEEL expression to transform the data (e.g. `={ result: connectorData }`) |
@@ -884,9 +949,9 @@ Find the Actor or task identifier in either of these locations:
 - URL path: From `apify.com/compass/crawler-google-places`, use `compass/crawler-google-places`.
 - Actor page: Listed under the Actor name on the Actor detail page.
 
-#### Use Actor ID for dynamic workflows
+#### Actor IDs in dynamic workflows
 
-Use the Actor ID format for dynamic workflows where the identifier comes from previous step data (for example, a run result or webhook payload).
+Names are recommended for identifiers you type by hand. In dynamic workflows the identifier often comes from previous step data - a run result or webhook payload (e.g. `connectorData.actorId`). That value is an ID, which the connector still accepts and resolves automatically.
 
 #### Find dataset IDs
 
