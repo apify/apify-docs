@@ -1,35 +1,41 @@
 ---
 title: Get started
-description: Find your way around the Apify platform - build, run, integrate, automate.
+description: A short orientation to the Apify platform — what Actors are, how to run your first one, and where to go next.
 sidebar_label: Overview
 sidebar_position: 0
 slug: /get-started
 ---
 
-import Card from "@site/src/components/Card";
-import CardGrid from "@site/src/components/CardGrid";
+Apify is a cloud platform for running serverless programs called Actors. This page is a short orientation: what an Actor is, how to run your first one, and where to go next.
 
-Find your way around the Apify platform. Pick a path below.
+## What's an Actor?
 
-<CardGrid>
-    <Card
-        title="Build an Actor"
-        desc="Build serverless cloud programs locally, in the web IDE, or with AI."
-        to="/get-started/build-an-actor"
-    />
-    <Card
-        title="Run Actors"
-        desc="Run pre-built Actors from the Store or your own."
-        to="/actors/running"
-    />
-    <Card
-        title="Integrate"
-        desc="Connect Apify to AI frameworks, automation tools, or data destinations."
-        to="/integrations"
-    />
-    <Card
-        title="Manage your account"
-        desc="Billing, security, organization, and access settings."
-        to="/account"
-    />
-</CardGrid>
+Actors are serverless programs that automate workflows and extract data. Each Actor takes a structured JSON input, performs a task (web scraping, browser automation, or data processing, for example), and can optionally produce a structured output. You can run Actors manually, via API, or on a schedule, and combine them into larger automations.
+
+[Apify Store](https://apify.com/store) has thousands of public Actors built by Apify and the open-source community. You can also publish your own.
+
+## Run your first Actor
+
+Open [Apify Store](https://apify.com/store), pick an Actor, click **Start**, and review the output. No code required.
+
+For background on the pricing models you'll see in Store (pay per event, pay per usage, rental), see [Actors in Store](/actors/running/actors-in-store).
+
+## Build your first Actor
+
+Three quick-start paths for developers:
+
+- [Local development](/get-started/locally) — develop with the Apify CLI in your own editor and terminal, then deploy.
+- [Web IDE](/get-started/web-ide) — develop in the browser, zero local setup.
+- [Build with AI](/get-started/build-with-ai) — use AI coding assistants (Claude Code, Cursor, GitHub Copilot) with the Apify MCP server.
+
+Building an AI agent rather than a scraper?
+
+- [Develop AI agents](/get-started/develop-ai-agents) — templates, sandboxes, LLM access through OpenRouter, and pay-per-event monetization.
+
+## Common next steps
+
+- [Schedule an Actor to run automatically](/actors/running/schedules)
+- [Trigger Actors from Zapier, Make, n8n, or your own API](/integrations)
+- [Connect an external AI agent to Apify](/integrations/agent-onboarding)
+- [Set up an organization for your team](/account/collaboration/organization)
+- [Publish and monetize your own Actor](/actors/publishing)

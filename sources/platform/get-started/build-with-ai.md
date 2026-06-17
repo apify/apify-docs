@@ -3,7 +3,7 @@ title: Build Actors with AI
 sidebar_position: 3
 sidebar_label: Build with AI
 description: Build new Actors or improve existing ones using AI coding tools by providing the right context, prompts, Agent Skills, and the Apify MCP server.
-slug: /get-started/build-an-actor/build-with-ai
+slug: /get-started/build-with-ai
 toc_max_heading_level: 4
 ---
 
@@ -17,7 +17,7 @@ This guide provides best practices for building new Actors or improving existing
 
 :::tip Different goal?
 
-- _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/get-started/build-an-actor/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+- _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/get-started/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
 - _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/integrations/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
 
 :::

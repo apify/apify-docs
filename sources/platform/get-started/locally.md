@@ -3,7 +3,7 @@ title: Local Actor development
 sidebar_label: Local development
 sidebar_position: 1
 description: Create your first Actor locally using the Apify CLI, configure its input and storage, then deploy it to the Apify platform to run in the cloud.
-slug: /get-started/build-an-actor/locally
+slug: /get-started/locally
 ---
 
 import PromptButton from "@site/src/components/PromptButton";

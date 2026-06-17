@@ -3,7 +3,7 @@ title: Develop AI agents on Apify
 description: Build and deploy AI agents on Apify with framework templates, sandboxes, OpenRouter for LLM access, and pay-per-event pricing.
 sidebar_position: 4.0
 sidebar_label: Develop AI agents
-slug: /get-started/build-an-actor/develop-ai-agents
+slug: /get-started/develop-ai-agents
 ---
 
 The Apify platform provides everything you need to build, test, and deploy AI agents. This page walks you through the complete toolkit: templates, sandbox code execution, LLM access through OpenRouter, pay-per-event monetization, and deployment to [Apify Store](https://apify.com/store).
@@ -18,7 +18,7 @@ This page covers:
 
 :::note Build with AI
 
-Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you develop Actors? See [Build Actors with AI](/get-started/build-an-actor/build-with-ai).
+Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you develop Actors? See [Build Actors with AI](/get-started/build-with-ai).
 
 :::
 
