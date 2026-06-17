@@ -2,7 +2,7 @@ packages:
   - apify-docs-theme
 
 overrides:
-  openapi-to-postmanv2>js-yaml: 4.1.1
+  openapi-to-postmanv2>js-yaml: 4.2.0
   "@stoplight/spectral-core>minimatch": 3.1.5
   copy-webpack-plugin>serialize-javascript: ^7.0.4
   css-minimizer-webpack-plugin>serialize-javascript: ^7.0.4
@@ -24,6 +24,8 @@ minimumReleaseAgeExclude:
   - "apify"
   - "crawlee"
   - "got-scraping"
+  # Renovate security update: js-yaml@4.2.0
+  - js-yaml@4.2.0
 
 nodeLinker: hoisted
 linkWorkspacePackages: true
