@@ -3,7 +3,7 @@ title: Proxy
 description: Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.
 sidebar_position: 0
 category: platform
-slug: /actors/proxy
+slug: /proxy
 ---
 
 import Tabs from '@theme/Tabs';
@@ -79,17 +79,17 @@ Several types of proxy servers exist, each offering distinct advantages, disadva
     <Card
         title="Datacenter proxy"
         desc="The fastest and cheapest option. It uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
-        to="/actors/proxy/datacenter-proxy"
+        to="/proxy/datacenter-proxy"
     />
     <Card
         title="Residential proxy"
         desc="IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked."
-        to="/actors/proxy/residential-proxy"
+        to="/proxy/residential-proxy"
     />
     <Card
         title="Google SERP proxy"
         desc="Download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results."
-        to="/actors/proxy/google-serp-proxy"
+        to="/proxy/google-serp-proxy"
     />
 </CardGrid>
 

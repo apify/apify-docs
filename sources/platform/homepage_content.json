@@ -7,12 +7,12 @@
     {
         "title": "Storage",
         "description": "Store anything from images and key-value pairs to structured output data.",
-        "to": "/actors/storage"
+        "to": "/storage"
     },
     {
         "title": "Proxy",
         "description": "Learn to anonymously and reliably access websites in scraping/automation jobs.",
-        "to": "/actors/proxy"
+        "to": "/proxy"
     },
     {
         "title": "Schedules",

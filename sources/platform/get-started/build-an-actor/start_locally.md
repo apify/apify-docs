@@ -97,7 +97,7 @@ Find more info in the [Input schema](/actors/development/actor-definition/input-
 
 #### Actor's `storage`
 
-The Actor system provides two storage types for files and results: [key-value](/actors/storage/key-value-store) store and [dataset](/actors/storage/dataset).
+The Actor system provides two storage types for files and results: [key-value](/storage/key-value-store) store and [dataset](/storage/dataset).
 
 ##### Key-value store
 

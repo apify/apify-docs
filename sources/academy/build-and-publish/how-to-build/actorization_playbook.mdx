@@ -61,7 +61,7 @@ For more inspiration on which open-source libraries to wrap as Actors, see the [
 Use these criteria to decide if your project is a good candidate for Actorization:
 
 1. _Is it self-contained?_ Does the project work non-interactively, with a well-defined, preferably structured input and output format? Positive examples include various data processing utilities, web scrapers and other automation scripts. Negative examples are GUI applications or applications that run indefinitely. If you want to run HTTP APIs on Apify, you can do so using [Actor Standby](/actors/development/programming-interface/standby).
-2. _Can the state be stored in Apify storages?_ If the application has state that can be stored in a small number of files it can utilize [key-value store](/actors/storage/key-value-store), or if it processes records that can be stored in Apify’s [request queue](/actors/storage/request-queue). If the output consists of one or many similar JSON objects, it can utilize [dataset](/actors/storage/dataset).
+2. _Can the state be stored in Apify storages?_ If the application has state that can be stored in a small number of files it can utilize [key-value store](/storage/key-value-store), or if it processes records that can be stored in Apify’s [request queue](/storage/request-queue). If the output consists of one or many similar JSON objects, it can utilize [dataset](/storage/dataset).
 3. _Can it be containerized?_ The project needs to be able to run in a Docker container. Apify currently does not support GPU workloads. External services (e.g., databases) need to be managed by developer.
 4. _Can it use Apify tooling?_ Javascript/Typescript applications and Python applications can be Actorized with the help of the [Apify SDK](/sdk), which makes easy for your code to interacts with the Apify platform. Applications that can be run using just the CLI can also be Actorized using the Apify CLI by writing a simple shell script that retrieves user input using [Apify CLI](/cli/), then runs your application and sends the results back to Apify (also using the CLI). If your application is implemented differently, you can still call the [Apify API](/api/v2) directly - it’s just HTTP and pretty much every language has support for that but the implementation is less straightforward.
 
@@ -102,7 +102,7 @@ These steps are the bare minimum you need to run your code on Apify. The rest of
 
 Most Actors accept an input and produce an output. As part of Actorization, you need to define the input and output structure of your application.
 
-For detailed information, read the docs for [input schema](/actors/development/actor-definition/input-schema), [dataset schema](/actors/development/actor-definition/dataset-schema), and general [storage](/actors/storage).
+For detailed information, read the docs for [input schema](/actors/development/actor-definition/input-schema), [dataset schema](/actors/development/actor-definition/dataset-schema), and general [storage](/storage).
 
 
 #### Design guidelines
@@ -115,7 +115,7 @@ For detailed information, read the docs for [input schema](/actors/development/a
 
 ### 3. Handle state persistence (optional)
 
-If your application performs a number of well-defined subtasks, the [request queue](/actors/storage/request-queue) lets you pause and resume execution on job restart. This is important for long-running jobs that might be migrated between servers at some point. In addition, this allows the Apify platform to display the progress to your users in the UI.
+If your application performs a number of well-defined subtasks, the [request queue](/storage/request-queue) lets you pause and resume execution on job restart. This is important for long-running jobs that might be migrated between servers at some point. In addition, this allows the Apify platform to display the progress to your users in the UI.
 
 A lightweight alternative to the request queue is simply storing the state of your application as a JSON object in the key-value store and checking for that when your Actor is starting.
 

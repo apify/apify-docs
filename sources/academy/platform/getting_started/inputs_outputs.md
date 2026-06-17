@@ -96,7 +96,7 @@ On the results tab, there are a whole lot of options for which format to view/do
 
 There's our solution! Did it work for you as well? Now, we can download the data right from the Dataset tab to be used elsewhere, or even programmatically retrieve it by using [Apify's API](/api/v2) (we'll be discussing how to do this in the next lesson).
 
-It's important to note that the default dataset of the Actor, which we pushed our solution to, will be retained for 7 days. If we wanted the data to be retained for an indefinite period of time, we'd have to use a named dataset. For more information about named storages vs unnamed storages, read a bit about [data retention on the Apify platform](/actors/storage/usage#data-retention).
+It's important to note that the default dataset of the Actor, which we pushed our solution to, will be retained for 7 days. If we wanted the data to be retained for an indefinite period of time, we'd have to use a named dataset. For more information about named storages vs unnamed storages, read a bit about [data retention on the Apify platform](/storage/usage#data-retention).
 
 ## Next up {#next}
 

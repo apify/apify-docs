@@ -143,7 +143,7 @@ The Actor takes the `url` from the input and then:
 3. Extracts headings (H1 - H6) from the page.
 4. Stores the extracted data.
 
-The extracted data is stored in the [Dataset](/actors/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
+The extracted data is stored in the [Dataset](/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
 :::tip Customize template
 

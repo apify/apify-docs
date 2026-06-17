@@ -67,8 +67,8 @@ To navigate Apify Console, use the left-side panel or keyboard shortcuts.
 | [Integrations](/integrations) | <kbd>G</kbd> + <kbd>I</kbd> | View your integrations. |
 | [Schedules](/actors/running/schedules) | <kbd>G</kbd> + <kbd>U</kbd> | Schedule Actor runs and tasks to run at a specified time. |
 | [Development](/actors/development) | <kbd>G</kbd> + <kbd>D</kbd> | &bull; **My Actors** - see Actors developed by you. <br/> &bull; **Insights** - see analytics for your Actors. <br/> &bull; **Messaging** - check reported issues or send emails to users of your Actors. |
-| [Proxy](/actors/proxy) | <kbd>G</kbd> + <kbd>P</kbd> | View your proxy usage and credentials. |
-| [Storage](/actors/storage) | <kbd>G</kbd> + <kbd>E</kbd> | View stored results of your runs in various data formats. |
+| [Proxy](/proxy) | <kbd>G</kbd> + <kbd>P</kbd> | View your proxy usage and credentials. |
+| [Storage](/storage) | <kbd>G</kbd> + <kbd>E</kbd> | View stored results of your runs in various data formats. |
 | [Billing](/account/billing) | <kbd>G</kbd> + <kbd>B</kbd> | View billing information, statistics, and invoices. |
 | [Settings](/account/settings) | <kbd>G</kbd> + <kbd>S</kbd> | Change settings of your account. |
 

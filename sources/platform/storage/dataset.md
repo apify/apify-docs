@@ -3,7 +3,7 @@ title: Dataset
 description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.
 sidebar_position: 9.2
 toc_max_heading_level: 4
-slug: /actors/storage/dataset
+slug: /storage/dataset
 ---
 
 **Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.**
@@ -18,7 +18,7 @@ Dataset storage enables you to sequentially save and retrieve data. A unique dat
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
 > Named datasets are retained indefinitely.
-> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/actors/storage/usage#named-and-unnamed-storages)
+> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/storage/usage#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -52,7 +52,7 @@ To view or download a dataset:
 1. Browse the data in **Table** or **JSON** view.
 1. Click **Export** to download the data in your preferred format.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/actors/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -451,7 +451,7 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-See the [Storage overview](/actors/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+See the [Storage overview](/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 

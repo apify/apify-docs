@@ -3,7 +3,7 @@ title: Storage usage
 description: "Learn how to use Apify storage options: datasets, key-value stores, and request queues. Covers data retention, rate limiting, and secure sharing."
 sidebar_position: 9.1
 category: platform
-slug: /actors/storage/usage
+slug: /storage/usage
 ---
 
 import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";

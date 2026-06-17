@@ -3,7 +3,7 @@ title: Key-value store
 description: Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.
 toc_max_heading_level: 4
 sidebar_position: 9.3
-slug: /actors/storage/key-value-store
+slug: /storage/key-value-store
 ---
 
 **Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
@@ -20,7 +20,7 @@ Each Actor run is assigned its own key-value store when it is created. The store
 Key-value stores are mutable - you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/actors/storage/usage#named-and-unnamed-storages)
+> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/storage/usage#named-and-unnamed-storages)
 
 ## Basic usage
 
@@ -37,7 +37,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
-To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/actors/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail-header.png)
@@ -329,7 +329,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/actors/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 
