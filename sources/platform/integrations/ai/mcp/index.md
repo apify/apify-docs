@@ -218,7 +218,7 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 
 You can also search for "Apify" in the connector directory and install it directly.
 
-For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
+For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/integrations/claude-desktop).
 
 </TabItem>
 </Tabs>
@@ -315,8 +315,8 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
 
-- [x402 protocol](/platform/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
-- [Skyfire](/platform/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+- [x402 protocol](/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
+- [Skyfire](/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
 
 For setup instructions and details, see the individual integration pages.
 
@@ -385,7 +385,7 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 
 :::tip Claude Desktop issues
 
-For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/platform/integrations/claude-desktop#troubleshooting).
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/integrations/claude-desktop#troubleshooting).
 
 :::
 

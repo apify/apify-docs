@@ -2,7 +2,7 @@
 title: n8n integration
 description: Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and reacting to Actor or task run events in real time.
 sidebar_label: n8n
-sidebar_position: 7
+sidebar_position: 0
 slug: /integrations/n8n
 ---
 
@@ -117,7 +117,7 @@ Actions allow you to perform operations like running an Actor within a workflow.
 1. Click **Add Node**, search for **Apify**, and select it.
 1. Select any operation. In this example we will use **Run Actor**.
 1. Configure it:
-    - **Custom input**: JSON input for the Actor run, which you can find on the Actor input page in Apify Console. See [Inputs](/platform/actors/running/input-and-output#input) for more information. If empty, the run uses the input specified in the default run configuration
+    - **Custom input**: JSON input for the Actor run, which you can find on the Actor input page in Apify Console. See [Inputs](/actors/running/input-and-output#input) for more information. If empty, the run uses the input specified in the default run configuration
     - **Timeout**: Timeout for the Actor run in seconds. Zero value means there is no timeout
     - **Memory**: Amount of memory allocated for the Actor run, in megabytes
     - **Build Tag**: Specifies the Actor build tag to run. By default, the run uses the build specified in the default run configuration for the Actor (typically `latest`)
@@ -185,11 +185,11 @@ Pull data from Apify storage.
 
 #### Datasets
 
-- **Get Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get Items**: Retrieves items from a [dataset](/storage/dataset)
 
 #### Key-Value Stores
 
-- **Get Record**:  Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get Record**:  Retrieves a value from a [key-value store](/storage/key-value-store)
 
 ### Triggers
 

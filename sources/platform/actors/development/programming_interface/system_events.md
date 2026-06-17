@@ -6,8 +6,6 @@ sidebar_position: 4
 sidebar_label: System events
 ---
 
-**Learn about system events sent to your Actor and how to benefit from them.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -73,7 +73,7 @@ Some sites will allow you to construct non-overlapping ranges. For example, you 
 
 Non-overlapping ranges should remove the possibility of duplicate products (unless a [listing has multiple values](#can-a-listing-have-more-values)) and the lowest number of pages.
 
-If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
+If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/storage/request-queue).
 
 #### Can a listing have more values? {#can-a-listing-have-more-values}
 
@@ -279,6 +279,6 @@ await crawler.addRequests(requestsToEnqueue);
 
 ## Summary {#summary}
 
-And that's it. We have an elegant solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../../platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
+And that's it. We have an elegant solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../../expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
 
 Check out the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).

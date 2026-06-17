@@ -19,35 +19,104 @@ const themeConfig = {
             target: '_self',
         },
         items: [
+            // PRODUCT (left)
+            {
+                label: 'Get started',
+                href: `${absoluteUrl}/get-started`,
+                activeBasePath: 'get-started',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Actors',
+                href: `${absoluteUrl}/actors`,
+                activeBasePath: 'actors',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Storage',
+                href: `${absoluteUrl}/storage`,
+                activeBasePath: 'storage',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Proxy',
+                href: `${absoluteUrl}/proxy`,
+                activeBasePath: 'proxy',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Account',
+                href: `${absoluteUrl}/account`,
+                activeBasePath: 'account',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Integrations',
+                href: `${absoluteUrl}/integrations`,
+                activeBasePath: 'integrations',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Limits',
+                href: `${absoluteUrl}/limits`,
+                activeBasePath: 'limits',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Security',
+                href: `${absoluteUrl}/security`,
+                activeBasePath: 'security',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            // ECOSYSTEM (right)
             {
                 label: 'Academy',
                 href: `${absoluteUrl}/academy`,
                 activeBasePath: 'academy',
-                position: 'left',
+                position: 'right',
                 target: '_self',
                 rel: 'dofollow',
             },
             {
-                label: 'Platform',
-                href: `${absoluteUrl}/platform`,
-                className: 'navbar__active',
-                activeBasePath: 'platform',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'API',
+                label: 'APIs & SDKs',
                 type: 'dropdown',
-                to: `${absoluteUrl}/api`,
+                to: `${absoluteUrl}/api/v2`,
+                activeBasePath: 'api',
+                position: 'right',
                 target: '_self',
                 rel: 'dofollow',
-                activeBasePath: 'api',
-                position: 'left',
                 items: [
                     {
-                        label: 'Reference',
+                        label: 'API Reference',
                         href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -63,79 +132,15 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                label: 'SDK',
-                type: 'dropdown',
-                to: `${absoluteUrl}/sdk`,
-                activeBasePath: 'sdk',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-                items: [
                     {
-                        label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        html: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                 ],
             },
-            {
-                label: 'CLI',
-                href: `${absoluteUrl}/cli/docs`,
-                position: 'left',
-                activeBasePath: 'cli',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'Open source',
-                type: 'dropdown',
-                to: `${absoluteUrl}/open-source`,
-                activeBasePath: 'open-source',
-                target: '_self',
-                position: 'left',
-                className: 'navbar__item',
-                items: [
-                    {
-                        label: 'Crawlee',
-                        href: 'https://crawlee.dev',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Fingerprint Suite',
-                        href: 'https://github.com/apify/fingerprint-suite',
-                    },
-                    {
-                        label: 'impit',
-                        href: 'https://github.com/apify/impit',
-                    },
-                    {
-                        label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcpc',
-                    },
-                    {
-                        label: 'Actor whitepaper',
-                        href: 'https://whitepaper.actor',
-                    },
-                    {
-                        label: 'proxy-chain',
-                        href: 'https://github.com/apify/proxy-chain',
-                    },
-                    {
-                        label: 'Apify on GitHub',
-                        href: 'https://github.com/apify',
-                    },
-                ],
-            },
+            // UTILITY (row 1 — icon class routes it there in NavbarContent)
             {
                 href: 'https://discord.com/invite/jyEM2PRvMU',
                 label: 'Discord',
@@ -170,8 +175,14 @@ const themeConfig = {
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Platform',
-                        href: `${absoluteUrl}/platform`,
+                        label: 'Get started',
+                        href: `${absoluteUrl}/get-started`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Actors',
+                        href: `${absoluteUrl}/actors`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -218,27 +229,36 @@ const themeConfig = {
                 ],
             },
             {
-                title: 'Other',
+                title: 'Open source',
                 items: [
                     {
-                        label: 'CLI',
-                        href: `${absoluteUrl}/cli/docs`,
-                        position: 'left',
-                        target: '_self',
+                        label: 'Crawlee',
+                        href: 'https://crawlee.dev',
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Open source',
-                        href: `${absoluteUrl}/open-source`,
-                        position: 'left',
-                        target: '_self',
-                        rel: 'dofollow',
+                        label: 'Fingerprint Suite',
+                        href: 'https://github.com/apify/fingerprint-suite',
                     },
                     {
-                        label: 'llms.txt',
-                        href: `${absoluteUrl}/llms.txt`,
-                        target: '_self',
-                        rel: 'dofollow',
+                        label: 'impit',
+                        href: 'https://github.com/apify/impit',
+                    },
+                    {
+                        label: 'MCP CLI',
+                        href: 'https://github.com/apify/mcp-cli',
+                    },
+                    {
+                        label: 'proxy-chain',
+                        href: 'https://github.com/apify/proxy-chain',
+                    },
+                    {
+                        label: 'Actor whitepaper',
+                        href: 'https://whitepaper.actor',
+                    },
+                    {
+                        label: 'Apify on GitHub',
+                        href: 'https://github.com/apify',
                     },
                 ],
             },
@@ -246,13 +266,10 @@ const themeConfig = {
                 title: 'More',
                 items: [
                     {
-                        label: 'Crawlee',
-                        to: 'https://crawlee.dev',
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
                         rel: 'dofollow',
-                    },
-                    {
-                        label: 'GitHub',
-                        href: 'https://github.com/apify',
                     },
                     {
                         href: 'https://discord.com/invite/jyEM2PRvMU',
@@ -291,34 +308,6 @@ const themeConfig = {
         async: true,
         defer: true,
     },
-    announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
-        ? (() => {
-              const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
-
-              const { hostname } = parsedUrl;
-
-              if (!hostname.includes('pr-') && !hostname.includes('preview')) {
-                  return undefined;
-              }
-
-              const prNumber = hostname.split('.')[0]?.split('-')[1];
-
-              if (!prNumber) {
-                  return undefined;
-              }
-
-              // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
-              const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
-
-              return {
-                  id: 'apify-docs-preview-banner',
-                  content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
-                  backgroundColor: '#B80F0A',
-                  textColor: '#FFFFFF',
-                  isCloseable: false,
-              };
-          })()
-        : undefined,
 };
 
 const plugins = [

@@ -12,7 +12,7 @@ You can check out a catalog of Integration Actors within [Apify Store](https://a
 
 :::
 
-Actor-to-Actor integrations connect your Actors with other Actors or tasks, letting you build multi-step workflows on the Apify platform. Because any [integration-ready Actor](/platform/integrations/actors/integration-ready-actors) can act as the target of an integration, the community can keep extending the catalog with new integrations.
+Actor-to-Actor integrations connect your Actors with other Actors or tasks, letting you build multi-step workflows on the Apify platform. Because any [integration-ready Actor](/integrations/actors/integration-ready-actors) can act as the target of an integration, the community can keep extending the catalog with new integrations.
 
 ## Add an integration
 
@@ -27,7 +27,7 @@ To connect an Actor with another Actor or task:
 
 On the setup screen, configure:
 
-- **Start when** - Events that trigger the integrated Actor. These match webhook [event types](/platform/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
+- **Start when** - Events that trigger the integrated Actor. These match webhook [event types](/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
 - **Actor input** - The input usually has two parts: static fields whose value doesn't change between runs (for example, a database connection string or table name) and dynamic fields specific to the triggering run (for example, a dataset ID). Static fields go in as-is. Dynamic fields are pulled from the implicit `payload` field (the default for most integration-ready Actors) or set with variables. The **Available variables** button in the input panel lists the variables you can interpolate.
 - **Available variables** - The same variables as in webhooks. The most common is `{{resource}}`, which holds the Run object in the shape returned by the [API](/api/v2/actor-run-get), or the Build object for build event types. Variables support dot notation, `{{resource.defaultDatasetId}}` and `{{resource.defaultKeyValueStoreId}}` cover most cases.
 

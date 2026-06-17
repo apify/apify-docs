@@ -1,16 +1,12 @@
 ---
 title: Running Actors
 description: Start an Actor from Apify Console or via API. Learn about Actor lifecycles, how to specify settings and version, provide input, and resurrect finished runs.
-sidebar_position: 7.1
+sidebar_position: 0
 slug: /actors/running
 ---
 
-**In this section, you'll learn how to run Apify Actors using Apify Console or programmatically. You'll learn about their configuration, versioning, data retention, usage, and pricing.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 ## Run your first Apify Actor
 

@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/platform/integrations/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
+Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/integrations/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
 
 <ThirdPartyDisclaimer />
 
@@ -179,6 +179,6 @@ A system-wide installation can coexist with an existing version-manager installa
 
 ## Next steps
 
-- [Apify MCP server](/platform/integrations/mcp) - Explore tool selection, available tools, telemetry, and rate limits
+- [Apify MCP server](/integrations/mcp) - Explore tool selection, available tools, telemetry, and rate limits
 - [Apify MCP server configurator](https://mcp.apify.com) - Select tools visually and copy configuration
 - [Apify MCP server on GitHub](https://github.com/apify/apify-mcp-server) - Report bugs and suggest features

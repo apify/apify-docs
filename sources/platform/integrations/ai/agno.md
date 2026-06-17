@@ -131,6 +131,6 @@ Agno supports any Apify Actor via the ApifyTools class. You can specify a single
 
 - [How to build an AI agent](https://blog.apify.com/how-to-build-an-ai-agent/)
 - [Agno framework documentation](https://docs.agno.com)
-- [Apify Actor documentation](/platform/actors)
+- [Apify Actor documentation](/actors)
 - [Apify Store - browse available Actors](https://apify.com/store)
 - [Agno Apify toolkit documentation](https://docs.agno.com/tools/toolkits/others/apify#apify)

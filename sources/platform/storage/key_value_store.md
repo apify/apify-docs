@@ -6,12 +6,8 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-**Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
@@ -19,8 +15,13 @@ Each Actor run is assigned its own key-value store when it is created. The store
 
 Key-value stores are mutable - you can both add entries and delete them.
 
-> Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+:::info Retention period
+
+Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
+
+:::
+
+![Key-value store graphic](./images/key-value-overview.svg)
 
 ## Basic usage
 
@@ -37,7 +38,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
-To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail-header.png)
@@ -182,7 +183,11 @@ await exampleStore.setValue('some-key', null);
 await Actor.exit();
 ```
 
-> Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
+:::note Automatic parsing
+
+JSON is automatically parsed to a JavaScript object, text data is returned as a string, and other data is returned as a binary buffer.
+
+:::
 
 ```js
 import { Actor } from 'apify';
@@ -240,7 +245,11 @@ async def main():
         await example_store.set_value('some-key', None)
 ```
 
-> Note that JSON is automatically parsed to a Python dictionary, text data returned as a string and other data is returned as binary buffer.
+:::note Automatic parsing
+
+JSON is automatically parsed to a Python dictionary, text data is returned as a string, and other data is returned as a binary buffer.
+
+:::
 
 ```python
 from apify import Actor
@@ -269,9 +278,9 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or t
 
 You can grant [access rights](../collaboration/index.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
-You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
 ### Share key-value stores between runs
 
@@ -329,7 +338,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/storage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 

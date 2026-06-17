@@ -42,7 +42,7 @@ Your profit is calculated from the mentioned formula:
 where:
 
 - _Revenue_: The amount charged for events via the PPE charging API or through JS/Python SDK. You receive 80% of this revenue.
-- _Platform costs_: The underlying platform usage costs for running the Actor. For more details, visit the [Computing your costs for PPE Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-actors) section.
+- _Platform costs_: The underlying platform usage costs for running the Actor. For more details, visit the [Computing your costs for PPE Actors](/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-actors) section.
 
 Only revenue and cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there.
 
@@ -89,7 +89,7 @@ The `eventChargeLimitReached` property checks if the user's limit allows for ano
 
 :::info ACTOR_MAX_TOTAL_CHARGE_USD environment variable
 
-For pay-per-event Actors, users set a spending limit through Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/platform/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
+For pay-per-event Actors, users set a spending limit through Apify Console. This limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/actors/development/programming-interface/environment-variables), which contains the user's maximum cost.
 The Apify SDK's `ChargeResult` respects the user set limit already.
 
 :::
@@ -169,7 +169,7 @@ Apify recommends using the synthetic Actor start event in all Actors. It benefit
 
 Starting an Actor takes time, and creates additional cost for the Actor creator, because the profit equals revenue minus platform costs.
 
-One of the options to charge for the time spent on starting the Actor is to charge an “Actor start” event. Unfortunately, this makes your Actor comparably expensive with other tools on the market (outside of [Apify Store](/platform/console/store)) that do not incur this startup cost.
+One of the options to charge for the time spent on starting the Actor is to charge an “Actor start” event. Unfortunately, this makes your Actor comparably expensive with other tools on the market (outside of [Apify Store](https://apify.com/store)) that do not incur this startup cost.
 
 We want to make it easier for Actor creators to stay competitive, but also help them to be profitable. Therefore, we have the Apify Actor synthetic start event `apify-actor-start`. This event is enabled by default for all new PPE Actors, and when you use it Apify will cover the compute unit cost of the first 5 seconds of every Actor run.
 
@@ -426,7 +426,7 @@ Fixed pricing is simpler for users to predict, while usage-based pricing more ac
 
 Your profit and costs are computed _only from the first two users_ since they are on Apify paid plans.
 
-The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE Actors](/platform/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-actors) section.
+The platform usage costs are just examples, but you can see the actual costs in the [Computing your costs for PPE Actors](/actors/publishing/monetize/pricing-and-costs#computing-your-costs-for-ppe-actors) section.
 
 ### Revenue breakdown
 
