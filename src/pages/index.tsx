@@ -130,7 +130,7 @@ export default function Home() {
                             icon={<Schedules />}
                             title="Schedules"
                             description="Automatically start Actors and saved tasks at specific times."
-                            to="/schedules"
+                            to="/actors/running/schedules"
                         />
                         <CardWithIcon
                             icon={<Integrations />}
@@ -142,13 +142,13 @@ export default function Home() {
                             icon={<Monitoring />}
                             title="Monitoring"
                             description="Check the performance of your Actors, validate data quality, and receive alerts."
-                            to="/monitoring"
+                            to="/actors/running/monitoring"
                         />
                         <CardWithIcon
                             icon={<Collaboration />}
                             title="Collaboration"
                             description="Share Actors with other people, manage your organizations and permissions."
-                            to="/collaboration"
+                            to="/account/collaboration"
                         />
                         <CardWithIcon
                             icon={<Security />}
