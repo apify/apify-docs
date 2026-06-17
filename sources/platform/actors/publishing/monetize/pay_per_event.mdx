@@ -8,11 +8,24 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The PPE pricing model offers a flexible monetization option for Actors on Apify Store as it allows you to charge users based on specific events triggered programmatically by your Actor's code.
+The pay per event (PPE) pricing model offers a flexible monetization option for Actors on Apify Store:
 
-PPE lets you define pricing for individual events. You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge)/[Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly. Common events include Actor start, dataset item creation, and external API calls.
+- You can charge users based on specific events triggered programmatically by your Actor's code. Common events include starting an Actor, creating a dataset item, or calling an external API.
+- You can define different pricing for individual events.
+- You can charge for specific events directly from your Actor using the [JS](/sdk/js/reference/class/Actor#charge) or [Python](/sdk/python/reference/class/Actor#charge) SDK, or by calling the [PPE charging API](/api/v2/post-charge-run) directly.
 
-The details on how your cost is computed can be found in [Example of a PPE pricing](#example-of-a-ppe-pricing).
+See the key benefits of the PPE pricing model:
+
+| Category | Pay per event (PPE) |
+| --- | --- |
+| Revenue scalability | Unlimited, scales with usage |
+| AI/MCP compatibility | ✅ Fully compatible |
+| User cost predictability | Predictable |
+| Store discounts | ✅ Store discounts available |
+| Marketing boost | Priority store placement |
+| Commission opportunities | Standard 20% |
+| Custom event billing | ✅ Charge for any event |
+| Per-result billing | Optional (via event; automatic via `apify-default-dataset-item`) |
 
 :::tip Additional benefits
 
@@ -54,21 +67,19 @@ An Actor's negative net profit does not affect the positive profit of another Ac
 1. _Test your pricing_: Run your Actor and analyze cost-effectiveness using a special dataset.
 1. _Communicate value_: Ensure pricing reflects the value provided and is competitive.
 
-## Pass platform usage to users
+## Pass platform usage costs on to users {#platform-usage-costs}
 
-During initial development or when testing pricing strategies, you can pass the platform usage costs directly to users to avoid negative profit margins. Users then pay for both the defined events and the underlying platform usage. Use this approach temporarily until you determine accurate event prices.
+To avoid negative profit margins during initial development or when testing pricing strategies, you can pass the platform usage costs on to users. As a result, users pay for both the defined events and the underlying platform usage.
 
 :::caution Reduced pricing transparency
 
-Charging platform usage separately is less transparent for users and may discourage them from using your Actor. This also negatively impacts your [**Actor quality score**](../quality-score). Turn off this option once you determine accurate event prices.
+Charging platform usage separately is less transparent for users and may discourage them from using your Actor. It also negatively impacts your [**Actor quality score**](../quality-score). Use this approach only until you determine accurate event prices.
 
 :::
 
-Use the **Pay per event + usage** toggle to enable or disable this option in the monetization flow.
+To pass platform usage costs on to users, in the **Actor pricing** step of the [monetization setup](/platform/actors/publishing/monetize#set-up-monetization), switch on the **Pay per event + usage** toggle.
 
-![Pay per event with usage toggle button](../images/pay_per_event_and_usage_toggle.png)
-
-The option can be turned off at any time with immediate effect, as it is a positive change for the user. Turning it on will take 14 days.
+Turning this option on takes 14 days to take effect. However, you can turn it off immediately, as it is a positive change for users.
 
 ## Respect user spending limits
 
@@ -148,11 +159,11 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 Use the [Apify SDKs](/sdk) (JS or Python) or the [`apify actor charge`](/cli/docs/next/reference#apify-actor-charge-eventname) when using the Apify CLI to simplify PPE implementation into your Actor. SDKs help you handle pricing, usage tracking, idempotency keys, API errors, and, event charging via an API. You can also choose not to use it, but then you must handle API integration and possible edge cases manually.
 
-### Use synthetic start event `apify-actor-start`
+### Use synthetic start event `apify-actor-start` {#synthetic-start-event}
 
 :::info Synthetic Actor start event recommended
 
-We recommend using the synthetic Actor start event in PPE Actors. It benefits both you and your users.
+Apify recommends using the synthetic Actor start event in all Actors. It benefits both you and your users.
 
 :::
 
@@ -177,15 +188,15 @@ The default price of the event is set intentionally low. This pricing means that
 - You can increase the price of the event if you wish, but you _won't get more free compute_.
 - You can delete the event if you wish, but if you do, you will _lose the free 5 seconds_ of compute.
 
-#### Synthetic start event for new Actors
+#### Synthetic start event for new and existing Actors
 
-For new Actors, this event is added automatically as you can see on the following screen:
+For new Actors, the `apify-actor-start` event is added automatically.
 
-![New Actor - synthetic start event](../images/apify-actor-start.png)
+For existing Actors, you can add this event manually:
 
-#### Synthetic start event for existing Actors
-
-If you have existing Actors, you can add this event manually in Apify Console in the **Publication** tab.
+1. Access your Actor's [monetization setup](/platform/actors/publishing/monetize#set-up-monetization).
+1. In the **Actor pricing** step, under **Event name**, add `apify-actor-start`.
+1. Complete the remaining event details: title, description, and price.
 
 #### Synthetic start event for Actors with start event
 
@@ -193,7 +204,7 @@ Your Actor might already have a start event defined, such as `actor-start` or an
 
 If you want to use the synthetic start event, remove the existing start event from your Actor and add the synthetic start event in Apify Console in the **Publication** tab.
 
-### Use synthetic default dataset item event `apify-default-dataset-item`
+### Use synthetic default dataset item event `apify-default-dataset-item` {#synthetic-default-dataset-item-event}
 
 The `apify-default-dataset-item` synthetic event charges users for each item written to the run's default dataset. It lets you align PPE pricing with per-result use cases without adding charging code to your Actor.
 
@@ -312,7 +323,7 @@ async def main():
 
 Try to limit the number of events. Fewer events make it easier for users to understand your pricing and predict their costs.
 
-### Make events produce visible results
+### Make events produce visible results {#actor-events}
 
 For Actors that produce data, events should map to something concrete in the user's dataset or storage.
 
