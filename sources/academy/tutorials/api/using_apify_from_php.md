@@ -258,7 +258,7 @@ $response = $client->get("https://api.apify.com/v2/browser-info");
 echo $response->getBody();
 ```
 
-[See the proxy docs](/proxy/usage) for more details on using specific proxies.
+[See the proxy docs](/proxy) for more details on using specific proxies.
 
 ## Feedback
 
