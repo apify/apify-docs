@@ -46,7 +46,7 @@ The exact value is not published because it may change. If you hit the limit, wa
 
 ## For Actor creators
 
-Search ranking in Apify AI uses parameters similar to those evaluated by the [Actor quality score](/platform/actors/publishing/quality-score), the same as Apify Store search and the MCP server `search-actors` tool. The two are separate systems that correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
+Search ranking in Apify AI evaluates parameters similar to those in the [Actor quality score](/platform/actors/publishing/quality-score), the same as Apify Store search and the MCP server `search-actors` tool. As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
 
 ## Related
 

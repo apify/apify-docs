@@ -35,7 +35,7 @@ The Apify MCP server and [Apify AI](/console/apify-ai) share the same Actor sear
 - _MCP server_ - a programmatic interface for external AI agents, IDEs, and CLIs. Use it when you build or operate your own agent.
 - _Apify AI_ - the conversational interface inside [Apify Console](https://console.apify.com) for users who interact with Apify through a chat UI rather than their own agent.
 
-Actor ranking on both surfaces uses parameters similar to those evaluated by the [Actor quality score](/platform/actors/publishing/quality-score), so Actors with higher quality scores tend to rank higher.
+Actor ranking on both surfaces evaluates parameters similar to those in the [Actor quality score](/platform/actors/publishing/quality-score), so Actors with higher quality scores tend to rank higher.
 
 ## Prerequisites
 
