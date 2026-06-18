@@ -28,6 +28,15 @@ This page covers the Apify MCP server, which exposes Apify Actors as tools to ou
 
 :::
 
+## Apify AI vs the MCP server
+
+The Apify MCP server and [Apify AI](/console/apify-ai) share the same Actor search and execution backend, but they serve different audiences:
+
+- _MCP server_ - a programmatic interface for external AI agents, IDEs, and CLIs. Use it when you build or operate your own agent.
+- _Apify AI_ - the conversational interface inside [Apify Console](https://console.apify.com) for users who interact with Apify through a chat UI rather than their own agent.
+
+Actor ranking on both surfaces uses parameters similar to those evaluated by the [Actor quality score](/platform/actors/publishing/quality-score), so Actors with higher quality scores tend to rank higher.
+
 ## Prerequisites
 
 Before connecting your AI to Apify, you'll need three things:
