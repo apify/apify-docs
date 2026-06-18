@@ -110,10 +110,6 @@ To improve your Actor's visibility in search, focus on improving its quality sco
 
 Search in [Apify Console](https://console.apify.com) is an exception: results are personalized for each individual user. The ranking criteria are the same as the public Store, but the order is individual, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store).
 
-### Disputing Actor categories
-
-If you believe your Actor is in the wrong category, contact Apify support. In a later phase, you will be able to see and dispute categories directly in the Actor publication settings.
-
 ## Resources
 
 - Best practices on setting up [testing for your Actor](https://docs.apify.com/platform/actors/publishing/test)
