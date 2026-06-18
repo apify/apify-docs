@@ -100,20 +100,6 @@ Since the **Issues** tab is public, the level of activity - or lack thereof - ca
 
 Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
 
-## How Apify Store search works
-
-Apify ranks Actors in [Apify Store](https://apify.com/store) search, the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool, and [Apify AI](/console/apify-ai) using criteria similar to what the [Actor quality score](/platform/actors/publishing/quality-score) evaluates, with extra emphasis on popularity. A higher quality score makes your Actor more likely to place higher, though no specific position is guaranteed.
-
-To improve your Actor's visibility, focus on improving its quality score. See [Actor quality score](/platform/actors/publishing/quality-score) for what the score measures and how to influence each category.
-
-### Search in Apify Console is personalized
-
-Search in [Apify Console](https://console.apify.com) is an exception: results are personalized for each individual user. The ranking criteria are the same as the public Store, but the order is individual, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store).
-
-### Disputing Actor categories
-
-If you believe your Actor is in the wrong category, contact Apify support. In a later phase, you will be able to see and dispute categories directly in the Actor publication settings.
-
 ## Resources
 
 - Best practices on setting up [testing for your Actor](https://docs.apify.com/platform/actors/publishing/test)
