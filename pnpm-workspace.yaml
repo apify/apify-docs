@@ -31,3 +31,16 @@ preferWorkspacePackages: true
 publicHoistPattern:
   - "*"
 legacyPeerDeps: true
+
+# pnpm v11 enables strictDepBuilds by default and fails the install if a
+# dependency's build scripts are neither approved nor explicitly declined.
+# These packages ship prebuilt binaries or have non-essential lifecycle
+# scripts, so we keep them disabled as on pnpm v10.
+allowBuilds:
+  "@apify/ui-icons": false
+  "@parcel/watcher": false
+  "@swc/core": false
+  core-js: false
+  core-js-pure: false
+  postman-code-generators: false
+  protobufjs: false
