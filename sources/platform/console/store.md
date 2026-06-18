@@ -20,6 +20,6 @@ Once you select an Actor from the store, you'll be directed to its specific page
 
 ## Search
 
-Search results in Apify Console are personalized to each individual user, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Ranking criteria on both surfaces are similar to what the [Actor quality score](/platform/actors/publishing/quality-score) evaluates, with extra emphasis on popularity.
+Search results in Apify Console are personalized to each individual user, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Both surfaces rank Actors using criteria similar to the [Actor quality score](/platform/actors/publishing/quality-score), with extra weight on popularity.
 
 For more information, see [Actors in Store](/sources/platform/actors/running/store/index.md).

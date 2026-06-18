@@ -102,7 +102,7 @@ Learn more about how to handle the [Issues tab](/academy/actor-marketing-playboo
 
 ## How Apify Store search works
 
-Search ranking and the [Actor quality score](/platform/actors/publishing/quality-score) are separate systems, but they evaluate similar parameters, with extra emphasis on popularity. As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool. No specific position is guaranteed.
+Search ranking and the [Actor quality score](/platform/actors/publishing/quality-score) are separate systems. Search ranking evaluates parameters similar to those in the quality score, with extra weight on popularity. As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool. No specific position is guaranteed.
 
 To improve your Actor's visibility in search, focus on improving its quality score. See [Actor quality score](/platform/actors/publishing/quality-score) for what the score measures and how to influence each category.
 
