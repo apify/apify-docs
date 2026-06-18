@@ -6,12 +6,8 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-**Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
@@ -19,8 +15,11 @@ Each Actor run is assigned its own key-value store when it is created. The store
 
 Key-value stores are mutable - you can both add entries and delete them.
 
-> Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+:::info Retention period
+
+Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+
+:::
 
 ## Basic usage
 
@@ -182,7 +181,11 @@ await exampleStore.setValue('some-key', null);
 await Actor.exit();
 ```
 
-> Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
+:::note Automatic parsing
+
+JSON is automatically parsed to a JavaScript object, text data is returned as a string, and other data is returned as a binary buffer.
+
+:::
 
 ```js
 import { Actor } from 'apify';
@@ -240,7 +243,11 @@ async def main():
         await example_store.set_value('some-key', None)
 ```
 
-> Note that JSON is automatically parsed to a Python dictionary, text data returned as a string and other data is returned as binary buffer.
+:::note Automatic parsing
+
+JSON is automatically parsed to a Python dictionary, text data is returned as a string, and other data is returned as a binary buffer.
+
+:::
 
 ```python
 from apify import Actor
