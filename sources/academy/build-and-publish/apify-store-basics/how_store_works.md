@@ -100,6 +100,10 @@ Since the **Issues** tab is public, the level of activity - or lack thereof - ca
 
 Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
 
+## Disputing Actor categories
+
+If you believe your Actor is in the wrong category, contact Apify support. In a later phase, you will be able to see and dispute categories directly in the Actor publication settings.
+
 ## Resources
 
 - Best practices on setting up [testing for your Actor](https://docs.apify.com/platform/actors/publishing/test)

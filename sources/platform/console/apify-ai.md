@@ -6,7 +6,7 @@ category: platform
 slug: /console/apify-ai
 ---
 
-Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in plain English and runs the right Actor for you. It is powered by the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/platform/integrations/mcp), so improvements to an Actor's quality lift its visibility across all three surfaces.
+Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in plain English and runs the right Actor for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/platform/integrations/mcp).
 
 <!-- TODO: add screenshot of the Store search bar showing the "Ask AI" routing -->
 
@@ -46,10 +46,10 @@ The exact value is not published because it may change. If you hit the limit, wa
 
 ## For Actor creators
 
-Actors are ranked in Apify AI by the same [Actor quality score](/platform/actors/publishing/quality-score) that drives ranking in Apify Store search and the MCP server `search-actors` tool. Improving your quality score lifts your Actor's visibility across all three surfaces. See [Actor quality score](/platform/actors/publishing/quality-score) for what the score measures and how to improve it.
+Search ranking in Apify AI uses parameters similar to those evaluated by the [Actor quality score](/platform/actors/publishing/quality-score), the same as Apify Store search and the MCP server `search-actors` tool. The two are separate systems that correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
 
 ## Related
 
 - [Apify MCP server](/platform/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
-- [Actor quality score](/platform/actors/publishing/quality-score) - how Apify ranks Actors across search surfaces.
+- [Actor quality score](/platform/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
 - [Apify Store](/console/store) - the Console view of the Store, including the search bar entry point.
