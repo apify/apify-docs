@@ -46,7 +46,7 @@ The exact value is not published because it may change. If you hit the limit, wa
 
 ## For Actor creators
 
-Actors are ranked in Apify AI by the same [Actor quality score](/platform/actors/publishing/quality-score) that drives ranking in Apify Store search and the MCP server `search-actors` tool. Improving your quality score lifts your Actor's visibility across all three surfaces at once. See [Actor quality score](/platform/actors/publishing/quality-score) for what the score measures and how to improve it.
+Apify AI ranks Actors using the same recommender backend as Apify Store search and the Apify MCP server. See [How Apify Store search works](/academy/actor-marketing-playbook/store-basics/how-store-works#how-apify-store-search-works) for what affects your Actor's visibility, and [Actor quality score](/platform/actors/publishing/quality-score) for the underlying metric.
 
 ## Related
 
