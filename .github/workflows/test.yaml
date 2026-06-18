@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
@@ -235,7 +235,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Get changed files
                 id: changed-files
@@ -267,7 +267,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
@@ -287,7 +287,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Get changed unoptimized image files in sources
                 id: changed-files
