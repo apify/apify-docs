@@ -20,6 +20,6 @@ Once you select an Actor from the store, you'll be directed to its specific page
 
 ## Search
 
-The Store search bar in Apify Console uses a recommender system that personalizes results to your account and intent, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Long, intent-heavy queries are routed to [Apify AI](/console/apify-ai), the conversational AI interface inside Apify Console. Short keyword queries stay on regular Store search. Both are ranked by the [Actor quality score](/platform/actors/publishing/quality-score).
+Search results in Apify Console are personalized to each individual user, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Long, intent-heavy queries are routed to [Apify AI](/console/apify-ai), the conversational AI interface inside Apify Console. Short keyword queries stay on regular Store search. Both are ranked using criteria similar to the [Actor quality score](/platform/actors/publishing/quality-score), with extra emphasis on popularity.
 
 For more information, see [Actors in Store](/sources/platform/actors/running/store/index.md).

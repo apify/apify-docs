@@ -102,24 +102,13 @@ Learn more about how to handle the [Issues tab](/academy/actor-marketing-playboo
 
 ## How Apify Store search works
 
-Apify Store search is powered by a recommender system, not a classic keyword search. Results are personalized and intent-based, so the same query can return different Actors for different users - and you might not always see the Actors you use most often. That is expected behavior, not a drop in ranking.
+Apify ranks Actors in [Apify Store](https://apify.com/store) search, the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool, and [Apify AI](/console/apify-ai) using criteria similar to what the [Actor quality score](/platform/actors/publishing/quality-score) evaluates, with extra emphasis on popularity. A higher quality score makes your Actor more likely to place higher, though no specific position is guaranteed.
 
-### Web Store vs. Apify Console
+To improve your Actor's visibility, focus on improving its quality score. See [Actor quality score](/platform/actors/publishing/quality-score) for what the score measures and how to influence each category.
 
-Search behaves differently on the public Store at [apify.com/store](https://apify.com/store) and in [Apify Console](https://console.apify.com). Console search is personalized to your account and intent, so a query can bring back different results in each place.
+### Search in Apify Console is personalized
 
-### What influences your Actor's visibility
-
-Visibility comes mainly from quality signals:
-
-- _Usage and retention_ - active users and repeat runs.
-- _Reliability_ - successful runs and passing automated tests.
-- _Documentation_ - a clear [README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme) drives activation.
-- _Feedback_ - reviews, ratings, and a well-maintained [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab).
-
-Keywords in your Actor's description, README, and categories still play a role, but the system is designed so that focusing on a genuinely good Actor - clear README, reliable runs, responsive support - is what lifts your visibility. Apify does not guarantee placement, and there is no way to game the ranking.
-
-These signals are aggregated into the [Actor quality score](/platform/actors/publishing/quality-score), which drives ranking across Store search, the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool, and [Apify AI](/console/apify-ai).
+Search in [Apify Console](https://console.apify.com) is an exception: results are personalized for each individual user. The ranking criteria are the same as the public Store, but the order is individual, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store).
 
 ### Disputing Actor categories
 
