@@ -2,7 +2,6 @@
 title: Gumloop - Instagram Actor integration
 description: Use the Gumloop Instagram node powered by Apify to extract posts, comments, reels, stories, and profile data without managing API tokens or tasks.
 sidebar_label: Instagram
-sidebar_position: 1
 slug: /integrations/gumloop/instagram
 ---
 

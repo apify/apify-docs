@@ -65,7 +65,7 @@ The most common workflow involving Apify API consists of the following steps:
 For shorter runs where you need immediate results:
 
 ```http title="Endpoint"
-POST https://api.apify.com/v2/acts/:actorId/run-sync
+POST https://api.apify.com/v2/actors/:actorId/run-sync
 ```
 
 Expected response codes:
@@ -79,7 +79,7 @@ Expected response codes:
 For longer-running operations or when you don't need immediate results.
 
 ```http title="Endpoint"
-POST https://api.apify.com/v2/acts/:actorId/runs
+POST https://api.apify.com/v2/actors/:actorId/runs
 ```
 
 Expected response codes:

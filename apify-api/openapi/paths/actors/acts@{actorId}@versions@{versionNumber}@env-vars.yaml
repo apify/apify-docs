@@ -84,7 +84,7 @@ post:
               schema:
                 type: string
               example: >-
-                https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/1.0/env-vars/ENV_VAR_NAME
+                https://api.apify.com/v2/actors/zdc3Pyhyz3m8vjDeM/versions/1.0/env-vars/ENV_VAR_NAME
       content:
         application/json:
           schema:

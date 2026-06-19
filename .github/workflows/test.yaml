@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
@@ -26,7 +26,7 @@ jobs:
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
             -   name: Check llms.txt size
-                run: npm run test:llms-size
+                run: pnpm run test:llms-size
 
             -   name: Install Nginx
                 run: |
@@ -221,6 +221,11 @@ jobs:
 
                     echo "✅ All Nginx header checks passed."
 
+            -   name: Verify per-page .md navigation headers
+                # Checks the Vercel-style nav header that scripts/addNavHeaders.mjs
+                # prepends to every per-page .md in postbuild (#2596 / issue #2557).
+                run: node scripts/checkNavHeaders.mjs http://localhost:8080
+
             -   name: Stop Nginx
                 if: always()
                 run: nginx -c "$(pwd)/default.conf" -s stop
@@ -230,7 +235,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Get changed files
                 id: changed-files
@@ -262,7 +267,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
@@ -282,7 +287,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Get changed unoptimized image files in sources
                 id: changed-files
