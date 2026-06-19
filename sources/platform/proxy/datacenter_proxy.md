@@ -309,9 +309,11 @@ await Actor.exit();
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of Apify Console.
 
-> The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952`, `session-123`).<br/>
-> Use `auto` for default settings.
+:::note Username field
+
+Use the `username` field to specify your proxy settings (for example, `groups-BUYPROXIES94952`, `session-123`), or set it to `auto` for default settings. It isn't your Apify username.
+
+:::
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
