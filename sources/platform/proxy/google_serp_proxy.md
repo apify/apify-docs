@@ -18,7 +18,7 @@ Our Google SERP proxy currently supports the below services.
 
 :::caution Google-only
 
-Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
+Google SERP proxy can _only_ be used for Google Search and Shopping. It cannot be used to access other websites.
 
 :::
 
@@ -182,7 +182,7 @@ You can find your proxy password on the [Proxy page](https://console.apify.com/p
 
 :::note Username field
 
-The `username` field is **not** your Apify username. Instead, you specify proxy settings (for example, `groups-GOOGLE_SERP`). Use `groups-GOOGLE_SERP` to use proxies from all available countries.
+The `username` field is _not_ your Apify username. Instead, you specify proxy settings (for example, `groups-GOOGLE_SERP`). Use `groups-GOOGLE_SERP` to use proxies from all available countries.
 
 :::
 
