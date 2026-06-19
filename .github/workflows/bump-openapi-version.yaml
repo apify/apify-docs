@@ -27,3 +27,14 @@ jobs:
                   message: "chore(openapi): Update OpenAPI version [skip ci]"
                   pull: '--rebase --autostash'
                   github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+
+            # The commit above carries "[skip ci]", so it does not trigger any push-based
+            # workflow. Trigger the API client create/update routine from here instead, so a
+            # new OpenAPI version always kicks off client regeneration.
+            - name: Trigger API client update routine
+              env:
+                  GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+              run: |
+                  gh workflow run update-clients.yml \
+                      --repo apify/apify-client-orchestration
+                  echo "✅ Triggered API client create/update routine in apify-client-orchestration"
