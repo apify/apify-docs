@@ -4,8 +4,6 @@ description: Use the Apify API to integrate Actors and tasks together using webh
 slug: /integrations/actors/integrating-actors-via-api
 ---
 
-**Learn how to integrate with other Actors and tasks using the Apify API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
