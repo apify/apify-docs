@@ -1,7 +1,6 @@
 ---
 title: Ad-hoc webhooks
 description: Set up one-time webhooks for Actor runs initiated through the Apify API or from the Actor's code. Trigger events when the run reaches a specific state.
-sidebar_position: 3
 slug: /integrations/webhooks/ad-hoc-webhooks
 ---
 

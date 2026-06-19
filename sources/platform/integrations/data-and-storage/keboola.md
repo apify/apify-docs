@@ -2,7 +2,6 @@
 title: Keboola integration
 description: Integrate Apify Actors with Keboola to extract data from various sources and load it into Keboola for processing, transformation, and further integration.
 sidebar_label: Keboola
-sidebar_position: 2
 slug: /integrations/keboola
 ---
 

@@ -2,7 +2,6 @@
 title: n8n integration
 description: Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and reacting to Actor or task run events in real time.
 sidebar_label: n8n
-sidebar_position: 7
 slug: /integrations/n8n
 ---
 
@@ -145,7 +144,7 @@ You can run Apify operations, retrieve the results, and use AI to process, analy
     - **Tools**: Search for **Apify**, select **Apify Tool**, and click  **Add to Workflow**. Choose any available operation and configure it.
 1. **Run the workflow**: Save it, then provide a prompt instructing the Agent to use the Apify tool with the operations you configured earlier.
 
-:::note
+:::note Let AI fill in parameters
 
   Let the AI model define the parameters in your node when possible. Click the _sparkle_ icon next to a parameter to have the AI fill it in for you.
 

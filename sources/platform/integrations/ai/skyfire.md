@@ -2,7 +2,6 @@
 title: Agentic payments with Skyfire
 sidebar_label: Skyfire
 description: Learn how to use agentic payments with Skyfire to enable AI agents to autonomously discover and run Apify Actors without an Apify user account.
-sidebar_position: 18
 slug: /integrations/skyfire
 ---
 

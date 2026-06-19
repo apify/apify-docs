@@ -2,7 +2,6 @@
 title: API integration
 description: Use the Apify REST API to control all platform features from your code. Authenticate with an API token and use official JavaScript or Python clients.
 sidebar_label: API integration
-sidebar_position: 1
 slug: /integrations/api
 ---
 

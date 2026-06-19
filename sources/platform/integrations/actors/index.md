@@ -2,17 +2,18 @@
 title: Actor-to-Actor integrations
 description: Learn how to connect Actors and tasks on the Apify platform using the integrations catalog in Apify Console to build automated multi-step workflows.
 sidebar_label: Actor-to-Actor
-sidebar_position: 0
 slug: /integrations/actors
 ---
 
-:::note Integration Actors
+**Actor-to-Actor integrations** connect Apify Actors with other Actors or tasks _on the platform itself_, letting you build multi-step workflows without leaving Apify. This is different from the third-party integrations covered elsewhere in this section - instead of routing data out to Make, n8n, or a warehouse, you chain Actors so the output of one becomes the trigger for another.
 
-You can check out a catalog of Integration Actors within [Apify Store](https://apify.com/store/categories/integrations).
+Any [integration-ready Actor](/platform/integrations/actors/integration-ready-actors) can act as the target of an Actor-to-Actor integration, so the catalog keeps growing as new Actors are published.
+
+:::note Browse the catalog
+
+You can browse all Actors built specifically as integration targets in the [Integrations category](https://apify.com/store/categories/integrations) on Apify Store.
 
 :::
-
-Actor-to-Actor integrations connect your Actors with other Actors or tasks, letting you build multi-step workflows on the Apify platform. Because any [integration-ready Actor](/platform/integrations/actors/integration-ready-actors) can act as the target of an integration, the community can keep extending the catalog with new integrations.
 
 ## Add an integration
 

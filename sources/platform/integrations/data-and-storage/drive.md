@@ -2,7 +2,6 @@
 title: Google Drive integration
 description: Automatically save Apify Actor run results to Google Drive. Set up the integration on an Actor or saved task to upload files after each successful run.
 sidebar_label: Google Drive
-sidebar_position: 3
 slug: /integrations/drive
 ---
 

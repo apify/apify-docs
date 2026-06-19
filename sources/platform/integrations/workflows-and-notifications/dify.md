@@ -2,7 +2,6 @@
 title: Dify integration
 description: Connect Apify with Dify to automate workflows by running Actors, extracting data, and responding to Apify events.
 sidebar_label: Dify
-sidebar_position: 9
 slug: /integrations/dify
 ---
 

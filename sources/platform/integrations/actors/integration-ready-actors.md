@@ -2,7 +2,6 @@
 title: Develop integration-ready Actors
 description: Learn how to develop Actors that work cleanly as integration targets, including input design, payload handling, and dataset processing patterns.
 sidebar_label: Develop integration-ready Actors
-sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---
 

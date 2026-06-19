@@ -2,7 +2,6 @@
 title: Amazon Bedrock integrations
 sidebar_label: Amazon Bedrock
 description: Learn how to integrate Apify with Amazon Bedrock Agents to supply your AI agents with real-time web data using the RAG Web Browser Actor easily.
-sidebar_position: 15
 slug: /integrations/aws_bedrock
 ---
 
