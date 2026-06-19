@@ -2,7 +2,6 @@
 title: Airtable integration
 description: Automatically import items from any Apify dataset into Airtable using the Airtable Data Import Actor. Use standalone or in automated workflows.
 sidebar_label: Airtable
-sidebar_position: 1
 slug: /integrations/airtable
 ---
 

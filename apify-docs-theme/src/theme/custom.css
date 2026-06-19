@@ -679,7 +679,6 @@ article .card h2 {
     display: inline-block !important;
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
 }
 
 .tsd-flag {
@@ -718,10 +717,6 @@ article .card h2 {
 
 aside button[class*='collapseSidebarButton'] svg {
     transform: scale(0.7) rotate(180deg);
-}
-
-.table-of-contents__link {
-    height: 20px;
 }
 
 .navbar .dropdown--hoverable::after {

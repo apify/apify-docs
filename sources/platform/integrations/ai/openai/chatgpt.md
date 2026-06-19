@@ -2,7 +2,6 @@
 title: ChatGPT integration
 sidebar_label: ChatGPT
 description: Learn how to connect ChatGPT to the Apify MCP server to give your conversations access to real-time web data and Actor-powered automation tasks.
-sidebar_position: 12
 slug: /integrations/chatgpt
 ---
 

@@ -2,7 +2,6 @@
 title: Claude Desktop integration
 sidebar_label: Claude Desktop
 description: Learn how to set up the Apify MCP server in Claude Desktop using the remote server or one-click connector install, and troubleshoot common issues.
-sidebar_position: 2
 slug: /integrations/claude-desktop
 ---
 

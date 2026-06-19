@@ -2,7 +2,6 @@
 title: Windmill integration
 description: Use Windmill to run Apify Actors and tasks, react to events via webhooks or polling, and move data between Apify and other services using scripts.
 sidebar_label: Windmill
-sidebar_position: 8
 slug: /integrations/windmill
 ---
 

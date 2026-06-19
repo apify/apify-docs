@@ -1,8 +1,8 @@
 ---
 title: Integrate with Apify
 sidebar_label: Create new integration
+sidebar_position: 1
 description: Partner with Apify to build general or Actor-specific integrations that bring web scraping and automation data into your platform or service.
-sidebar_position: 90.00
 slug: /integrations/integrate
 ---
 
@@ -45,7 +45,7 @@ To integrate your service with Apify, you have two options:
 
 ### Build an integration Actor
 
-One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](./actors/integration_ready_actors.md).
+One way to reach out to Apify users is directly within [Apify Console](https://console.apify.com). To do that, you need to build an integrable Actor that can be piped into other Actors to upload existing data into a database. This can then be easily configured within Apify Console. Follow the [guide on building integration-ready Actors](./actors/integration-ready-actors.md).
 
 ### Build an external integration
 

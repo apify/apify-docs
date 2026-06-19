@@ -2,7 +2,6 @@
 title: Activepieces integration
 description: Connect Apify Actors with Activepieces to build automated flows that trigger on run events, retrieve data from storage, and start Actors from any trigger.
 sidebar_label: Activepieces
-sidebar_position: 7
 slug: /integrations/activepieces
 ---
 

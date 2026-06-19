@@ -16,7 +16,11 @@ Our Google SERP proxy currently supports the below services.
 * Google Shopping (`http://www.google.<country domain>/shopping/product/<product ID>`).
 * Google Shopping Search (`http://www.google.<country domain>/search?tbm=shop`).
 
-> Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
+:::caution Google-only
+
+Google SERP proxy can _only_ be used for Google Search and Shopping. It cannot be used to access other websites.
+
+:::
 
 When using the proxy, **pricing is based on the number of requests made**.
 
@@ -176,9 +180,11 @@ await Actor.exit();
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of Apify Console.
 
-> The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-GOOGLE_SERP`).<br/>
-> Use `groups-GOOGLE_SERP` to use proxies from all available countries.
+:::note Username field
+
+Use the `username` field to specify your proxy settings (for example, `groups-GOOGLE_SERP`), or set it to `groups-GOOGLE_SERP` to use proxies from all available countries. It isn't your Apify username.
+
+:::
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 

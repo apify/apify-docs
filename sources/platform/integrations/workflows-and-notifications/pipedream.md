@@ -2,7 +2,6 @@
 title: Pipedream integration
 description: Connect Apify with Pipedream to automate workflows by running Actors, managing storage, and reacting to Actor or task run events.
 sidebar_label: Pipedream
-sidebar_position: 7
 slug: /integrations/pipedream
 ---
 

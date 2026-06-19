@@ -2,7 +2,6 @@
 title: Build Actors with MCP connectors
 sidebar_label: Build with connectors
 description: Declare MCP connectors in your Actor input schema, connect to them from TypeScript or Python, and apply tool-permission constraints at runtime.
-sidebar_position: 1
 slug: /integrations/mcp-connectors/use-in-actors
 ---
 
