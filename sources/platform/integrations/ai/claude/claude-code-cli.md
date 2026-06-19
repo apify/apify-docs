@@ -30,7 +30,7 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
 
-    ![Plugins Marketplaces tab with + Add Marketplace at the top of the list](images/claude-code-cli/02-marketplaces-tab.png)
+    ![Plugins Marketplaces tab with + Add Marketplace at the top of the list](images/claude-code-cli/02-marketplaces-tab.webp)
 
 1. Paste the Apify plugin repository URL and press Enter:
 
@@ -54,15 +54,15 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Find **plugin:apify:apify** in the list (currently **disabled**) and press Enter to open it.
 
-    ![MCP server list with plugin:apify:apify shown as disabled](images/claude-code-cli/09-mcp-needs-auth.png)
+    ![MCP server list with plugin:apify:apify shown as disabled](images/claude-code-cli/09-mcp-needs-auth.webp)
 
 1. Select **Enable**. Claude Code enables the server and returns you to the `/mcp` list.
 
-    ![plugin:apify:apify MCP server detail with Enable and Authenticate options](images/claude-code-cli/10-mcp-enable.png)
+    ![plugin:apify:apify MCP server detail with Enable and Authenticate options](images/claude-code-cli/10-mcp-enable.webp)
 
 1. Find **plugin:apify:apify** again and press Enter to reopen it, then select **Authenticate**. Claude Code opens a browser tab for the Apify OAuth flow.
 
-    ![plugin:apify:apify MCP server detail with the Authenticate option](images/claude-code-cli/11-mcp-authenticate.png)
+    ![plugin:apify:apify MCP server detail with the Authenticate option](images/claude-code-cli/11-mcp-authenticate.webp)
 
 1. Review the permissions and click **Allow access**.
 
@@ -74,7 +74,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Back in the terminal, you'll see `Authentication successful. Connected to plugin:apify:apify`.
 
-    ![Terminal showing successful authentication to plugin:apify:apify](images/claude-code-cli/13-auth-success.png)
+    ![Terminal showing successful authentication to plugin:apify:apify](images/claude-code-cli/13-auth-success.webp)
 
 :::tip Session persistence
 
@@ -90,7 +90,7 @@ Describe what you want in natural language. The `apify` agent routes the request
 
 The agent searches Apify Store, fetches the top Actor's details through `plugin:apify:apify`, and summarizes its inputs, pricing, and output - all without running the Actor.
 
-![Claude Code session calling plugin:apify:apify and returning Google Maps Actor details](images/claude-code-cli/14-example-prompt.png)
+![Claude Code session calling plugin:apify:apify and returning Google Maps Actor details](images/claude-code-cli/14-example-prompt.webp)
 
 ## Bundled skills
 
@@ -122,7 +122,7 @@ _SDK integration:_
 
 Run `/plugins`, open the **Installed** tab, select the `apify` plugin, and choose **Enable plugin**. If the action reads **Disable plugin** instead, the plugin is already enabled - the MCP server may need authentication; see [Authenticate to Apify](#authenticate-to-apify).
 
-![apify plugin detail in the Installed tab with the enable/disable actions](images/claude-code-cli/08-installed-detail.png)
+![apify plugin detail in the Installed tab with the enable/disable actions](images/claude-code-cli/08-installed-detail.webp)
 
 ### The `/plugins` command isn't available
 
