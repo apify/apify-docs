@@ -1,7 +1,6 @@
 ---
 title: Integrate Actors via API
 description: Use the Apify API to integrate Actors and tasks together using webhooks. Configure the required fields to display integrations in Apify Console.
-sidebar_position: 2
 slug: /integrations/actors/integrating-actors-via-api
 ---
 

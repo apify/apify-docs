@@ -2,7 +2,6 @@
 title: GitHub integration
 description: Connect Apify with GitHub to build Actors from a repository, rebuild on every push, and create issues automatically when an Actor run fails.
 sidebar_label: GitHub
-sidebar_position: 3
 slug: /integrations/github
 ---
 

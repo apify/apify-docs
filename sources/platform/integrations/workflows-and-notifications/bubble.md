@@ -2,7 +2,6 @@
 title: Bubble integration
 description: Connect Apify Actors to your Bubble application using the Apify plugin to run web scraping jobs and display extracted data in your no-code app.
 sidebar_label: Bubble
-sidebar_position: 7
 slug: /integrations/bubble
 ---
 

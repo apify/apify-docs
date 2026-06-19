@@ -2,7 +2,6 @@
 title: Manus integration
 sidebar_label: Manus
 description: Learn how to connect Manus to the Apify MCP server to give your agent sessions access to real-time web data and thousands of Actor-powered automation tools.
-sidebar_position: 20
 slug: /integrations/manus
 ---
 

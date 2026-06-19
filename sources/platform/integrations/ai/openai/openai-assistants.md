@@ -2,7 +2,6 @@
 title: OpenAI Assistants integration
 sidebar_label: OpenAI Assistants
 description: Learn how to integrate Apify with OpenAI Assistants to provide real-time web search data and store scraped Actor results in OpenAI Vector Store.
-sidebar_position: 14
 slug: /integrations/openai-assistants
 ---
 
@@ -25,7 +24,7 @@ To begin, we need to create an OpenAI Assistant with the appropriate instruction
 After that, we can initiate a conversation with the assistant by creating a thread, adding messages, and running the assistant to receive responses.
 The image below provides an overview of the entire process:
 
-![Apify-OpenAI Assistant integration](../images/openai-assistant-rag-web-browser.png)
+![Apify-OpenAI Assistant integration](../../images/openai-assistant-rag-web-browser.png)
 
 Before we start creating the assistant, we need to install all dependencies:
 
@@ -250,7 +249,7 @@ To provide real-time or proprietary data, OpenAI Assistants can access the [Open
 With the [Apify OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration), data saving and updating the OpenAI Vector Store can be fully automated.
 The following image illustrates the Apify-OpenAI Vector Store integration:
 
-![Apify-OpenAI Vector Store integration](../images/openai-vector-store-integration.png)
+![Apify-OpenAI Vector Store integration](../../images/openai-vector-store-integration.png)
 
 In this example, we'll demonstrate how to save data into the OpenAI Vector Store and use it in the assistant.
 For more information on automating this process, check out the blog post [How we built an AI salesperson with the OpenAI Assistants API](https://blog.apify.com/enterprise-support-openai-assistant/).
