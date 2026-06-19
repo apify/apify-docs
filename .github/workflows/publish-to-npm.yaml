@@ -65,8 +65,11 @@ jobs:
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
                     PACKAGE_NAME=$(jq -r .name package.json)
                     LATEST_VERSION=$(pnpm show "$PACKAGE_NAME" version 2>/dev/null || jq -r .version package.json)
-                    pnpm pkg set "version=$LATEST_VERSION"
-                    pnpm version patch --no-git-tag-version
+                    # Compute the next patch version from the latest published one and write it directly.
+                    # Avoid `pnpm version patch`, which refuses to run when the working tree is dirty
+                    # (it becomes dirty whenever the committed version has drifted behind npm).
+                    NEXT_VERSION=$(npx --yes semver -i patch "$LATEST_VERSION")
+                    pnpm pkg set "version=$NEXT_VERSION"
 
             -   name: Deploy theme to npm
                 run: |
@@ -92,11 +95,10 @@ jobs:
                     pnpm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
 
             -   name: Commit the new theme version
-                continue-on-error: true
                 uses: apify/actions/signed-commit@v1.0.0
                 with:
                     message: 'chore: publish new version of @apify/docs-theme [skip ci]'
-                    add: 'apify-docs-theme/package.json apify-docs-theme/package-lock.json'
+                    add: 'apify-docs-theme/package.json'
                     pull: '--rebase --autostash'
                     github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
