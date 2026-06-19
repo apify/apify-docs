@@ -168,7 +168,7 @@ If the proxy server becomes unresponsive or the session expires, a new IP addres
 
 :::tip Keep sessions alive
 
-If you really need to persist the same session, you can try sending some data using that session (for example, every 20 seconds) to keep it alive. Provided the connection is not interrupted, this will let you keep the IP address for longer.
+To keep a session active, send a request through it before its 1-minute timer expires (for example, every 20 seconds). Each request resets the timer, so as long as the connection isn't interrupted, the session persists.
 
 :::
 
