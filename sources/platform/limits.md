@@ -8,8 +8,6 @@ slug: /limits
 
 The tables below demonstrate the Apify platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](/api/v2#rate-limiting).
 
-> If needed, the limits shown below can be increased on paid accounts. For details, contact us at **[hello@apify.com](mailto:hello@apify.com)** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
-
 ## Actor runtime limits
 
 <table>
@@ -130,3 +128,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
 ## Usage limit
 
 To protect you from accidental overspending, the Apify platform introduces usage limits based on your billing plan. For details, see [Limits](./console/billing.md#limits).
+
+## Increase limits
+
+On paid accounts, there's an option to increase the Actor runtime limits and Apify platform limits. For details, [contact support](http://apify.com/contact).

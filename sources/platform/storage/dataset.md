@@ -6,19 +6,18 @@ toc_max_heading_level: 4
 slug: /storage/dataset
 ---
 
-**Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 Dataset storage enables you to sequentially save and retrieve data. A unique dataset is automatically created and assigned to each Actor run when the first item is stored.
 
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
-> Named datasets are retained indefinitely.
-> Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+:::info Retention period
+
+Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+
+:::
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -62,7 +61,11 @@ The [Apify API](/api/v2/storage-datasets) enables you programmatic access to you
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+:::tip Pass tokens in the Authorization header
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](../integrations/programming/api.md#authentication).
+
+:::
 
 To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2/datasets-get) endpoint.
 
@@ -84,7 +87,11 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items
 
 Control the data export by appending a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
 
-> If you fill both `omit` and `field` parameters with the same value, then >`omit` parameter will take precedence and the field is excluded from the >results.
+:::note `omit` takes precedence
+
+If you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+
+:::
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
@@ -94,7 +101,11 @@ To retrieve the `hotel` and `cafe` fields, you would send your GET request to th
 https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2Ccafe
 ```
 
-> Use `%2C` instead of commas for URL encoding, as `%2C` represent a comma. For more on URL encoding check out [this page](https://www.url-encode-decode.com)
+:::tip URL-encode commas
+
+Use `%2C` instead of commas for URL encoding, as `%2C` represents a comma. For more on URL encoding, see [this page](https://www.url-encode-decode.com).
+
+:::
 
 To add data to a dataset, issue a POST request to the [Put items](/api/v2/dataset-items-post) endpoint with the data as a JSON object payload.
 
@@ -102,7 +113,11 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2/datase
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at _400 requests per second_ to avoid overloading the servers.
+:::caution Rate limit
+
+API data push to a dataset is capped at _400 requests per second_ to avoid overloading the servers.
+
+:::
 
 Example payload:
 
@@ -136,7 +151,11 @@ const myDatasetClient = apifyClient.dataset('jane-doe/my-dataset');
 
 You can then use that variable to [access the dataset's items and manage it](/api/client/js/reference/class/DatasetClient).
 
-> When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+:::note `omit` takes precedence
+
+When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+
+:::
 
 Check out the [JavaScript API client documentation](/api/client/js/reference/class/DatasetClient) for [help with setup](/api/client/js/docs) and more details.
 
@@ -152,7 +171,11 @@ my_dataset_client = apify_client.dataset('jane-doe/my-dataset')
 
 You can then use that variable to [access the dataset's items and manage it](/api/client/python/reference/class/DatasetClient).
 
-> When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+:::note `omit` takes precedence
+
+When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+
+:::
 
 Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
@@ -191,7 +214,11 @@ await Actor.pushData([{ foo: 'hotel' }, { foo: 'cafe' }]);
 await Actor.exit();
 ```
 
-> It's crucial to use the `await` keyword when calling `pushData()`, to ensure data storage completes before the Actor process terminates.
+:::caution Always await pushData()
+
+It's crucial to use the `await` keyword when calling `pushData()`, to ensure data storage completes before the Actor process terminates.
+
+:::
 
 If you want to use something other than the default dataset, e.g. a dataset that you share between Actors or between Actor runs, you can use the [`Actor.openDataset()`](/sdk/js/reference/class/Actor#openDataset) method.
 

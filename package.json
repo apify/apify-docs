@@ -52,15 +52,15 @@
     },
     "devDependencies": {
         "@apify/oxlint-config": "^0.2.5",
-        "@apify/tsconfig": "^0.1.2",
+        "@apify/tsconfig": "^0.2.0",
         "@stoplight/spectral-cli": "^6.15.0",
         "@types/react": "^19.0.0",
         "babel-plugin-styled-components": "^2.1.4",
         "bats": "^1.13.0",
         "cross-env": "^10.0.0",
-        "markdownlint": "^0.40.0",
-        "markdownlint-cli": "^0.48.0",
-        "oxfmt": "0.53.0",
+        "markdownlint": "^0.41.0",
+        "markdownlint-cli": "^0.49.0",
+        "oxfmt": "0.55.0",
         "oxlint": "1.62.0",
         "oxlint-tsgolint": "0.23.0",
         "patch-package": "^8.0.0",
@@ -111,12 +111,12 @@
     "engines": {
         "node": ">=18.0.0"
     },
-    "packageManager": "pnpm@10.33.4",
+    "packageManager": "pnpm@11.7.0",
     "devEngines": {
         "packageManager": {
             "name": "pnpm",
-            "version": "10.33.4",
-            "onFail": "warn"
+            "version": "11.7.0",
+            "onFail": "error"
         }
     }
 }

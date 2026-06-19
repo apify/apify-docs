@@ -104,6 +104,9 @@ You should be able to open https://docs.apify.loc in your browser and run all th
       - danger
     - Use code tabs for multiple languages
     - Include proper metadata in front matter
+    - Use concise, meaningful headings:
+      - Use sentence case.
+      - Avoid question-like titles ("How to...", "What is...").
 
     Example of proper usage and formatting:
 
