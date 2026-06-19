@@ -311,7 +311,7 @@ You can find your proxy password on the [Proxy page](https://console.apify.com/p
 
 :::note Username field
 
-The `username` field is _not_ your Apify username. Instead, you specify proxy settings (for example, `groups-BUYPROXIES94952`, `session-123`). Use `auto` for default settings.
+Use the `username` field to specify your proxy settings (for example, `groups-BUYPROXIES94952`, `session-123`), or set it to `auto` for default settings. It is not your Apify username.
 
 :::
 

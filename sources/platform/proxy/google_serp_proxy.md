@@ -182,7 +182,7 @@ You can find your proxy password on the [Proxy page](https://console.apify.com/p
 
 :::note Username field
 
-The `username` field is _not_ your Apify username. Instead, you specify proxy settings (for example, `groups-GOOGLE_SERP`). Use `groups-GOOGLE_SERP` to use proxies from all available countries.
+Use the `username` field to specify your proxy settings (for example, `groups-GOOGLE_SERP`), or set it to `groups-GOOGLE_SERP` to use proxies from all available countries. It is not your Apify username.
 
 :::
 
