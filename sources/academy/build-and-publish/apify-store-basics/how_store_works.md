@@ -108,7 +108,7 @@ To improve your Actor's visibility in search, focus on improving its quality sco
 
 ### Search in Apify Console is personalized
 
-Search in [Apify Console](https://console.apify.com) is an exception: results are personalized for each individual user, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Quality score still correlates with ranking - the order is just adjusted per user.
+In [Apify Console](https://console.apify.com), search results are personalized for each user. As a result, the same query can return different Actors than in [Apify Store](https://apify.com/store). Quality score still correlates with ranking, but the order is adjusted per user.
 
 ## Resources
 
