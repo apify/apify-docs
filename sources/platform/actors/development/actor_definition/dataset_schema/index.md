@@ -8,6 +8,12 @@ sidebar_label: Dataset schema
 
 The dataset schema defines the structure and presentation of data produced by an Actor. It controls what fields each dataset item contains and how that data appears in the Output tab.
 
+:::warning Version format requirement
+
+Apify's platform requires the `actor.json` `version` field in `MAJOR.MINOR` format (e.g., `1.0`, `0.1`, `2.3`), where each segment is a number from 0–99. Three-part semantic versions like `1.0.0` are rejected by the platform. See the [actor.json reference](../actor_json.md) for details.
+
+:::
+
 ## Schema components
 
 A dataset schema has two components:
@@ -46,7 +52,7 @@ Place the dataset schema in the `.actor` folder in your Actor's root directory. 
     "actorSpecification": 1,
     "name": "my-scraper",
     "title": "My Scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": {
             "actorSpecification": 1,
@@ -70,7 +76,7 @@ Place the dataset schema in the `.actor` folder in your Actor's root directory. 
     "actorSpecification": 1,
     "name": "my-scraper",
     "title": "My Scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": "./dataset_schema.json"
     }
@@ -151,7 +157,7 @@ Configure the Output tab with a dataset schema:
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": {
             "actorSpecification": 1,
