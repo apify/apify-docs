@@ -2,13 +2,12 @@
 title: HubSpot integration
 description: Enrich your HubSpot CRM with business contacts scraped from company websites using Apify's Contact Details Scraper, installed as a CRM card.
 sidebar_label: HubSpot
-sidebar_position: 5
 slug: /integrations/hubspot
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-With the Apify integration for [HubSpot](https://www.hubspot.com/), you can enrich your CRM with business contacts scraped from company websites. The integration runs as a CRM card inside your HubSpot portal, uses Apify's Contact Details Scraper to extract contacts, and writes results back as HubSpot contacts automatically.
+With the Apify integration for [HubSpot](https://www.hubspot.com/), you can enrich your CRM with business contacts scraped from company websites. The integration runs as a CRM card inside your HubSpot portal, uses Apify's [Contact Details Scraper](https://apify.com/vdrmota/contact-info-scraper) to extract contacts, and writes results back as HubSpot contacts automatically.
 
 <ThirdPartyDisclaimer />
 
@@ -26,10 +25,10 @@ To use the Apify integration for HubSpot, you need:
 Install the Apify app from the HubSpot Marketplace:
 
 1. Find the **Apify** app in the HubSpot Marketplace (or use the install link provided by your Apify contact).
-2. Click **Install**. This starts a two-step OAuth authorization:
+1. Select **Install**. This starts a two-step OAuth authorization:
    - **Step 1:** Authorize HubSpot to share your CRM data with Apify (contacts, companies, properties).
    - **Step 2:** You are redirected to Apify Console to authorize your Apify account.
-3. On success, you see an installation confirmation page.
+1. On success, you see an installation confirmation page.
 
 The app is now connected to both your HubSpot portal and your Apify account.
 
@@ -38,11 +37,11 @@ The app is now connected to both your HubSpot portal and your Apify account.
 After installation, add the Apify card to your CRM record pages:
 
 1. In HubSpot, go to **CRM** > **Contacts** (or **Companies**).
-2. Open any contact or company record.
-3. Click the **Customize** button on the right side of the record page.
-4. Select the **Default view**.
-5. Click **Add card**, then go to the **Card Library**.
-6. Search for **Apify** and click **Add card**.
+1. Open any contact or company record.
+1. Select the **Customize** button on the right side of the record page.
+1. Select the **Default view**.
+1. Select **Add card**, then go to the **Card Library**.
+1. Search for **Apify** and select **Add card**.
 
 The Apify card now appears on the right sidebar of your CRM record pages.
 
@@ -54,7 +53,7 @@ The card is designed for company record pages. When viewing a contact record, th
 
 ## Create a lead enrichment
 
-Click the **+ Add Lead Enrichment** button in the Apify card to open the configuration wizard.
+Select the **+ Add Lead Enrichment** button in the Apify card to open the configuration wizard.
 
 ### Step 1: Configure enrichment details
 
@@ -76,7 +75,7 @@ For **Apply Rules To**, you have three options:
 
 If the current company has no website URL in its HubSpot record, a warning dialog appears with two options:
 
-- **Update the HubSpot record** - edit the company in HubSpot, then click **Check again**.
+- **Update the HubSpot record** - edit the company in HubSpot, then select **Check again**.
 - **Use a temporary URL** - enter a URL manually just for this enrichment (does not change the HubSpot record).
 
 ### Step 2: Map fields
@@ -105,10 +104,10 @@ Each mapping row has three settings:
 ![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/hubspot/hubspot_config_wizard_step_2.webp)
 
 - Each HubSpot property can only be used once as a target.
-- Click **Add a mapping** to add more rows.
-- You can save a config with zero mappings -a confirmation dialog will ask you to confirm.
+- Select **Add a mapping** to add more rows.
+- You can save a config with zero mappings - a confirmation dialog will ask you to confirm.
 
-Click **Save & Run** to save the configuration and immediately start an enrichment run.
+Select **Save & Run** to save the configuration and immediately start an enrichment run.
 
 ## Manage your enrichments
 
@@ -129,7 +128,7 @@ The list updates automatically every second while any config is actively running
 
 ### Run history
 
-Click any config name in the active enrichments list to open its run history.
+Select any config name in the active enrichments list to open its run history.
 
 The header shows:
 
@@ -152,18 +151,18 @@ Each run in the history table shows:
 
 ![Run history view with expanded row showing per-company breakdown, field mappings used, and companies in run](../images/hubspot/hubspot_per_company_result.webp)
 
-Expand a row (click the arrow) to see:
+Expand a row (select the arrow) to see:
 
 - Error message (if the run failed).
-- Per-company breakdown -Created, Updated, Skipped, and Error counts per company (up to 5 companies displayed).
-- Companies in run -list of company domains included.
-- Field mappings used -the exact mappings that were applied.
+- Per-company breakdown - Created, Updated, Skipped, and Error counts per company (up to 5 companies displayed).
+- Companies in run - list of company domains included.
+- Field mappings used - the exact mappings that were applied.
 
 The history shows 20 runs per page and auto-refreshes every 10 seconds while the newest run is active.
 
 ### Abort a run
 
-While a run is in progress, an **Abort** button appears next to the status badge. Clicking it stops both the scraper and data-import processes and marks the run as errored with "Aborted by user."
+While a run is in progress, an **Abort** button appears next to the status badge. Selecting it stops both the scraper and data-import processes and marks the run as errored with "Aborted by user."
 
 ## Run statuses
 
@@ -179,7 +178,7 @@ Each run goes through these stages:
 
 Only one run can be active per config. Starting a new run while one is in progress will show an error.
 
-Click the info icon on any completed run to see detailed statistics, including rows total, created/updated/skipped counts, per-company breakdown, and links to the scraper and import runs on Apify Console.
+Select the info icon on any completed run to see detailed statistics, including rows total, created/updated/skipped counts, per-company breakdown, and links to the scraper and import runs on Apify Console.
 
 ## How data is written
 
@@ -239,7 +238,7 @@ Each run in the Run History view has a **Results** link that opens the full data
 
 ### Can I cancel a run that is in progress?
 
-Yes. Click the **Abort** button that appears next to the status badge on any running or importing run.
+Yes. Select the **Abort** button that appears next to the status badge on any running or importing run.
 
 ### Does this cost Apify credits?
 
@@ -247,7 +246,7 @@ Yes. Running the Contact Details Scraper consumes your Apify account credits bas
 
 ### How do I uninstall?
 
-Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot -only the app connection is removed.
+Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot - only the app connection is removed.
 
 ## Troubleshooting
 
@@ -259,10 +258,10 @@ Remove the Apify app from your HubSpot account through HubSpot's app management 
 
 **Solution:**
 
-- Edit the company record in HubSpot and add the website URL, then click **Check again**.
+- Edit the company record in HubSpot and add the website URL, then select **Check again**.
 - Or enter a temporary URL in the card for this enrichment only.
 
-A company without a website cannot be enriched -the scraper needs a URL to visit.
+A company without a website cannot be enriched - the scraper needs a URL to visit.
 
 ### Run errors
 
@@ -275,7 +274,7 @@ A company without a website cannot be enriched -the scraper needs a URL to visit
 | **Scraping** | Company website is unreachable, blocks crawlers, or has no contacts to extract. |
 | **Importing** | HubSpot API rate limits, property validation errors, or authentication expired. |
 
-Click the info icon on the errored run to see the specific error message. You can also click **View scraper run** or **View import Actor run** to see details in Apify Console.
+Select the info icon on the errored run to see the specific error message. You can also select **View scraper run** or **View import Actor run** to see details in Apify Console.
 
 ### No matching dataset items
 
