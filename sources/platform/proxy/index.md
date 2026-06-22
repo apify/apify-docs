@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
-[Apify Proxy](https://apify.com/proxy) lets you rotate IP addresses when scraping to avoid geographic [blocking](/academy/anti-scraping/techniques). Use it from your [Actors](../actors/index.mdx) or any application that supports HTTP proxies — Apify monitors the IP pool's health and rotates addresses to prevent IP-based blocking.
+[Apify Proxy](https://apify.com/proxy) lets you rotate IP addresses when scraping to avoid geographic [blocking](/academy/anti-scraping/techniques). Use it from your [Actors](../actors/index.mdx) or any application that supports HTTP proxies. Apify monitors the IP pool's health and rotates addresses to prevent IP-based blocking.
 
 Your proxy settings and password are on the [Proxy](https://console.apify.com/proxy) page in Apify Console. For pricing, see [apify.com/pricing](https://apify.com/pricing).
 
