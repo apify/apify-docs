@@ -3,10 +3,6 @@
     "sources/platform/console/index.md",
     "sources/platform/console/settings.md",
     "sources/platform/console/billing.md",
-    "sources/platform/console/two-factor-authentication.md",
-    "sources/platform/console/store.md",
-    "sources/platform/schedules.md",
-    "sources/platform/collaboration/organization_account/index.md",
-    "sources/platform/collaboration/organization_account/setup.md"
+    "sources/platform/console/store.md"
   ]
 }
