@@ -35,12 +35,6 @@ Before connecting your AI to Apify, you'll need three things:
 - _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
-:::info Use without an account
-
-A core set of tools for Actor discovery and documentation lookup works without an Apify account or API token. Authentication is only required to run Actors and access storage or run data. See [Anonymous access](#anonymous-access) for the list of tools and how to enable token-free access.
-
-:::
-
 ## Quick start
 
 You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
@@ -273,7 +267,7 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 ### Anonymous access
 
-The hosted server accepts requests without an API token when the `tools` query parameter contains _only_ tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+The Apify MCP server accepts requests without an API token when the `tools` query parameter contains _only_ tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
 
 - `search-actors`
 - `fetch-actor-details`
