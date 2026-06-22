@@ -65,7 +65,7 @@ These URLs link to API _endpoints_ - the places where your data is stored. Endpo
 
 :::caution Token security
 
-Never share a URL containing your authentication token — it would compromise your account's security. If the data you want to share requires a token, download it first and share it as a file.
+Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download it first and share it as a file.
 
 :::
 
@@ -203,7 +203,7 @@ Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actor
 
 :::note Concurrent write order
 
-When multiple runs write to a storage simultaneously, the order of writes is not guaranteed — data is written as each request is processed. The same applies in key-value stores and request queues: if a delete request precedes a read request for the same record, the read request fails.
+When multiple runs write to a storage simultaneously, the order of writes is not guaranteed. Data is written as each request is processed. The same applies in key-value stores and request queues: if a delete request precedes a read request for the same record, the read request fails.
 
 :::
 
