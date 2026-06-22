@@ -1,7 +1,6 @@
 ---
 title: Storage
 description: Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
-sidebar_label: Overview
 sidebar_position: 9
 category: platform
 slug: /storage
