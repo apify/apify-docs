@@ -7,7 +7,6 @@
   "scripts": {
     "extract": "bash scripts/extract.sh",
     "extract:all": "bash scripts/extract-all.sh",
-    "auth": "playwright test --project=setup --headed",
     "test": "playwright test --project=tests",
     "test:headed": "playwright test --project=tests --headed",
     "report": "playwright show-report",

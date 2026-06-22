@@ -26,20 +26,15 @@ export default defineConfig({
     video: 'retain-on-failure',
   },
 
+  // No setup project and no storageState file: authentication is a worker-scoped
+  // fixture (tests/auth.fixture.ts) that logs in fresh each run and keeps the
+  // session in memory. Nothing on disk has to pre-exist — works the same locally
+  // and in CI, where credentials come from GitHub Secrets.
   projects: [
-    {
-      name: 'setup',
-      testMatch: /auth\.setup\.ts/,
-      use: { ...devices['Desktop Chrome'] },
-    },
     {
       name: 'tests',
       testMatch: /from-doc\.spec\.ts/,
-      dependencies: ['setup'],
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: 'auth.json',
-      },
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 });

@@ -45,7 +45,7 @@ produce and a human commits.
 ```bash
 pnpm install
 pnpm exec playwright install chromium
-cp .env.example .env   # fill in CONSOLE_STAGING_URL
+cp .env.example .env   # fill in CONSOLE_STAGING_URL + seeded-user email/password
 ```
 
 ## Generate / refresh the assertion baseline
@@ -63,15 +63,16 @@ Review the diff in `assertions/`, then commit. This is the step a human owns.
 ## Run the tests
 
 ```bash
-# Authenticate once (seeded staging user). Opens a browser; log in by hand
-# (incl. 2FA), then press the green "Resume" button in Playwright Inspector.
-# Writes auth.json (gitignored). Skip on subsequent runs.
-pnpm auth
-
 pnpm test            # evaluate all stored assertions against staging
 pnpm issues          # machine-readable, action-oriented failures
 pnpm report          # HTML report (failures include screenshots, video, trace)
 ```
+
+Authentication is automatic: a worker-scoped fixture (`tests/auth.fixture.ts`)
+logs in once per run with `CONSOLE_STAGING_USER_EMAIL` / `_PASSWORD` and keeps
+the session in memory. **No `auth.json` is written or read** — nothing has to
+pre-exist, so it behaves identically locally and in CI (where the credentials
+come from GitHub Secrets). The seeded staging user has no 2FA.
 
 `pnpm test` always writes `output/issues.json` — a summary plus one entry per
 failing assertion, sorted by `source_line`, each carrying `source_file:line`,
@@ -95,7 +96,7 @@ assertion set; remove one → delete its `assertions/<slug>.json`.
 - **Left-nav group check.** The documented global nav items (Dashboard/Store/
   Actors/…) are a Console-wide check, not a per-page claim — not modeled yet.
 - **Session-gated pages.** Pages like `/settings/security` re-prompt for
-  credentials when the stored session is stale; needs a `requires_fresh_session`
+  credentials even within a valid session; needs a `requires_fresh_session`
   field plus a re-auth flow.
 - **Multi-step flows.** The schema only supports atomic claims (one
   navigate-then-check). "Click X, then Y, then Z" sequences are not modeled.
@@ -116,7 +117,7 @@ docs-tests/
 │   └── extract-all.sh           # whole manifest
 ├── reporters/issues-reporter.ts # custom Playwright reporter → output/issues.json
 ├── tests/
-│   ├── auth.setup.ts            # interactive login, saves auth.json
+│   ├── auth.fixture.ts          # worker-scoped login from env creds (in-memory session)
 │   ├── from-doc.spec.ts         # reads assertions/*.json, emits tests
 │   └── similarity.ts            # suggest-replacement helper for failures
 ├── playwright.config.ts
