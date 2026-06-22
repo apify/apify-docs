@@ -7,6 +7,21 @@ const BASE_URL = process.env.CONSOLE_STAGING_URL;
 
 type StorageState = Awaited<ReturnType<BrowserContext['storageState']>>;
 
+// Step logging for the login flow. The worker fixture runs before any test, and
+// the `list` reporter prints nothing until a test completes — so without this a
+// slow or stuck login is indistinguishable from a crash. Each line carries the
+// elapsed time since the step before it, so a frozen step is obvious. Writes to
+// stderr to bypass Playwright's per-test stdout buffering and show up live.
+function makeLogger() {
+  let last = Date.now();
+  return (step: string): void => {
+    const now = Date.now();
+    const delta = ((now - last) / 1000).toFixed(1);
+    last = now;
+    process.stderr.write(`[auth +${delta}s] ${step}\n`);
+  };
+}
+
 // Worker-scoped authentication. Logs in ONCE per worker with credentials from
 // the environment (.env locally, GitHub Secrets in CI) and hands the resulting
 // session to every test as an in-memory storageState.
@@ -24,28 +39,46 @@ export const test = base.extend<object, { authState: StorageState }>({
         );
       }
 
+      const log = makeLogger();
+      log('starting login (worker fixture)');
+
       const context = await browser.newContext({ baseURL: BASE_URL });
       const page = await context.newPage();
-      await page.goto('/sign-in');
+      log('navigating to /sign-in');
+      // The Console is an SPA that never reaches networkidle (it holds live
+      // connections open), so wait on DOM content and let the form hydrate.
+      await page.goto('/sign-in', { waitUntil: 'domcontentloaded' });
+      log(`loaded ${new URL(page.url()).pathname}`);
 
-      // Selectors aren't pinned to the Console DOM; each field tries a few
-      // resilient locators. If a step misses, the retained trace shows the form.
-      const email = page
-        .locator('input[type="email"], input[name="email"], input[name="username"]')
-        .first();
+      // The Apify sign-in is a TWO-STEP native form (verified against staging):
+      //   step 1: #email + a "Next" submit button
+      //   step 2: #password + a "Log in" submit button
+      // Both steps stay on /sign-in (SPA). The "Continue with Google/GitHub"
+      // buttons are SSO — never click those; target the native submit buttons.
+      const email = page.locator('#email, input[type="email"]').first();
+      log('waiting for email field');
       await email.waitFor({ state: 'visible', timeout: 15_000 });
       await email.fill(EMAIL);
+      log('email filled, clicking Next');
 
-      const password = page.locator('input[type="password"], input[name="password"]').first();
+      await page.getByRole('button', { name: /^next$/i }).click();
+
+      const password = page.locator('#password, input[type="password"]').first();
+      log('waiting for password field');
+      await password.waitFor({ state: 'visible', timeout: 15_000 });
       await password.fill(PASSWORD);
+      log('password filled, clicking Log in');
 
-      await page.getByRole('button', { name: /sign in|log in|continue/i }).first().click();
+      await page.getByRole('button', { name: /^log ?in$/i }).click();
+      log('submitted credentials, waiting to leave /sign-in');
 
       // Confirm we left the sign-in page; otherwise creds/selectors are wrong.
       await page.waitForURL((url) => !/\/sign-in/.test(url.pathname), { timeout: 15_000 });
+      log(`logged in, landed on ${new URL(page.url()).pathname}`);
 
       const state = await context.storageState();
       await context.close();
+      log('session captured, handing off to tests');
 
       await use(state);
     },
