@@ -13,15 +13,16 @@ if [[ ! -f pages.json ]]; then
   exit 1
 fi
 
-mapfile -t PAGES < <(jq -r '.pages[]' pages.json)
+PAGE_COUNT=$(jq -r '.pages | length' pages.json)
+echo "Extracting ${PAGE_COUNT} page(s) from pages.json..."
 
-echo "Extracting ${#PAGES[@]} page(s) from pages.json..."
-for page in "${PAGES[@]}"; do
+# Portable read loop (works on bash 3.2, no mapfile).
+while IFS= read -r page; do
   [[ -z "$page" ]] && continue
   echo ""
   echo "→ $page"
   bash scripts/extract.sh "$page"
-done
+done < <(jq -r '.pages[]' pages.json)
 
 echo ""
 echo "Done. Stored assertion sets:"

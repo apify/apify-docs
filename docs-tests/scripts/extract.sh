@@ -44,16 +44,20 @@ $(cat "$ABS_DOC")
 EOF
 )
 
+# `</dev/null` keeps claude from draining the caller's stdin (otherwise it eats
+# the page list when invoked in a loop from extract-all.sh).
 RAW_OUTPUT=$(cd /tmp && claude -p \
   --disable-slash-commands \
   --system-prompt "$(cat "$DOCS_TESTS_DIR/$SYSTEM_PROMPT_FILE")" \
   --output-format json \
   --model sonnet \
-  "$USER_PROMPT" | jq -r '.result')
+  "$USER_PROMPT" </dev/null | jq -r '.result')
 
 # Slice out the JSON between <output> sentinels; discard any stray prose.
-echo "$RAW_OUTPUT" \
-  | awk '/<output>/{flag=1;next} /<\/output>/{flag=0} flag' \
+# -0777 slurps the whole stream so this works whether the tags and JSON are on
+# their own lines or share one line.
+printf '%s' "$RAW_OUTPUT" \
+  | perl -0777 -ne 'print $1 if m{<output>\s*(.*?)\s*</output>}s' \
   > "$OUTPUT_FILE"
 
 if [[ ! -s "$OUTPUT_FILE" ]]; then
