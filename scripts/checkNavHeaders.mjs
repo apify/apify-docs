@@ -60,7 +60,7 @@ const PAGES = [
     { path: '/api/v2.md', keys: ['children', 'next'] },
     // Leaf pages: no children, but sit between two neighbours.
     { path: '/platform/storage/dataset.md', keys: ['previous', 'next'] },
-    { path: '/platform/proxy/usage.md', keys: ['previous', 'next'] },
+    { path: '/platform/proxy/datacenter-proxy.md', keys: ['previous', 'next'] },
     { path: '/api/v2/dataset-get.md', keys: ['previous', 'next'] },
     { path: '/academy/tutorials.md', keys: ['next'] },
     { path: '/legal/general-terms-and-conditions.md', keys: ['previous', 'next'] },
