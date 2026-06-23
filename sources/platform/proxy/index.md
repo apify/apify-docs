@@ -17,12 +17,12 @@ Your proxy settings and password are on the [Proxy](https://console.apify.com/pr
 
 ## Proxy types
 
-Several types of proxy servers exist, each offering distinct advantages, disadvantages, and varying pricing structures. You can use them to access websites from various geographies and with different levels of anonymity.
+Each proxy type has distinct advantages, disadvantages, and pricing. Use them to access websites from different geographies and with different levels of anonymity.
 
 <CardGrid>
     <Card
         title="Datacenter proxy"
-        desc="The fastest and cheapest option. It uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
+        desc="The fastest and cheapest option. It uses datacenters to change your IP address. Other users' activity can get these IPs blocked."
         to="/platform/proxy/datacenter-proxy"
     />
     <Card
@@ -102,7 +102,7 @@ For more examples connecting to Apify Proxy from the SDKs and other libraries:
 
 ## Connection settings
 
-To connect to Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at the Apify Proxy hostname and provide it with your Apify Proxy password and the other parameters described below.
+To connect to Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). Configure your HTTP client to use the proxy server at the Apify Proxy hostname, and provide your Apify Proxy password and the parameters described below.
 
 The full connection string has the following format:
 
@@ -118,8 +118,8 @@ All usage of Apify Proxy with your password is charged towards your account. Do 
 
 ### External connection
 
-If you want to connect to Apify Proxy from outside of the Apify platform, you need to have a paid Apify plan (to prevent abuse).
-If you need to test Apify Proxy before you subscribe, please [contact Apify support](https://apify.com/contact).
+To connect to Apify Proxy from outside the Apify platform, you need a paid Apify plan (to prevent abuse).
+To test Apify Proxy before subscribing, [contact Apify support](https://apify.com/contact).
 
 | Parameter | Value / explanation |
 | :--- | :--- |
@@ -130,7 +130,7 @@ If you need to test Apify Proxy before you subscribe, please [contact Apify supp
 
 :::caution External connections
 
-If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
+If you use these parameters from Actors running on the Apify platform, the connection is still treated as external. It won't work on the Free plan, and on paid plans you'll be charged for external data transfer. Use the [Connection from Actors](#connection-from-actors) parameters instead.
 
 :::
 
@@ -142,10 +142,10 @@ http://auto:apify_proxy_EaAFg6CFhc4eKk54Q1HbGDEiUTrk480uZv03@proxy.apify.com:800
 
 ### Connection from Actors
 
-If you want to connect to Apify Proxy from Actors running on the Apify platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
+To connect from Actors running on the Apify platform, use the built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management).
 
-If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
-By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
+To connect manually instead, find the configuration values in the [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
+This connects you directly through Apify infrastructure, bypassing the public Internet, which improves connection speed and avoids external data transfer charges.
 
 | Parameter | Source / explanation |
 | :--- | :--- |
@@ -198,7 +198,7 @@ The table below describes the available parameters.
         <td>
             <p>If specified to <code>session-new_job_123</code>, for example, all proxied requests with the same session identifier are routed through the same IP address. If not specified, each proxied request is assigned a randomly picked least used IP address.</p>
             <p>The session string can only contain numbers (0–9), letters (a-z or A-Z), dot (.), underscore (_), a tilde (~). The maximum length is 50 characters.</p>
-            <p>Session management may work differently for residential and SERP proxies. Check relevant documentations for more details.</p>
+            <p>Session management may work differently for residential and SERP proxies. Check the relevant documentation for details.</p>
         </td>
     </tr>
     <tr>
@@ -212,11 +212,11 @@ The table below describes the available parameters.
     </tbody>
 </table>
 
-If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to `auto`, which serves as a default placeholder, because the proxy username cannot be empty.
+To specify only some parameters, provide those and omit the rest. To use the default behavior (not specifying `groups`, `session`, or `country`), set the username to `auto` (a placeholder, since the username cannot be empty).
 
 ## IP address rotation {#ip-address-rotation}
 
-Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users. This greatly enhances performance and data throughout.
+Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users. This improves performance and data throughput.
 
 Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
@@ -227,11 +227,11 @@ Use [sessions](#sessions) to control how you rotate IP addresses. See the guide 
 
 ## Sessions
 
-Sessions allow you to use the same IP address for multiple connections. In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy and so the IP address. On the other hand by switching the IP address, you can avoid being blocked by the website.
+Sessions allow you to use the same IP address for multiple connections. When you need to keep a session (for example, to stay logged in to a website), keep the same proxy, and so the same IP address. Switching the IP address, by contrast, helps you avoid being blocked.
 
 To set a new session, pass the `session` parameter in your [username](#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
 
-We recommend you to use [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction when managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
+We recommend the [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction for managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
 Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the session. Google SERP proxies do not support sessions.
 
 ## Proxy groups
@@ -240,7 +240,7 @@ You can see which proxy groups you have access to on the [Proxy page](https://co
 
 ## Proxy IP addresses
 
-If you need to allow communication to `apify.proxy.com`, add the following IP addresses to your firewall rule or whitelist:
+If you need to allow communication to `proxy.apify.com`, add the following IP addresses to your firewall rule or whitelist:
 
 * `18.208.102.16`
 * `35.171.134.41`
