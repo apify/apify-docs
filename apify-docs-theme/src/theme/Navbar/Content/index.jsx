@@ -91,14 +91,21 @@ export default function NavbarContent() {
                         <NavbarLogo />
                     </>
                 }
-                center={!searchBarItem && (
-                    <NavbarSearch>
-                        <SearchBar />
-                    </NavbarSearch>
-                )}
+                center={
+                    !searchBarItem && (
+                        <NavbarSearch>
+                            <SearchBar />
+                        </NavbarSearch>
+                    )
+                }
                 right={
                     <>
-                        <a href="https://discord.com/invite/jyEM2PRvMU" className="icon" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://discord.com/invite/jyEM2PRvMU"
+                            className="icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             Discord
                         </a>
                         <NavbarCTA />
