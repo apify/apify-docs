@@ -20,33 +20,78 @@ const themeConfig = {
         },
         items: [
             {
+                label: 'Actors',
+                href: `${absoluteUrl}/platform/actors`,
+                className: 'navbar__active',
+                activeBasePath: 'platform/actors',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Storage',
+                href: `${absoluteUrl}/platform/storage`,
+                className: 'navbar__active',
+                activeBasePath: 'platform/storage',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Proxy',
+                href: `${absoluteUrl}/platform/proxy`,
+                className: 'navbar__active',
+                activeBasePath: 'platform/proxy',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Integrations',
+                href: `${absoluteUrl}/platform/integrations`,
+                className: 'navbar__active',
+                activeBasePath: 'platform/integrations',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Limits',
+                href: `${absoluteUrl}/platform/limits`,
+                className: 'navbar__active',
+                activeBasePath: 'platform/limits',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Security',
+                href: `${absoluteUrl}/platform/security`,
+                className: 'navbar__active',
+                activeBasePath: 'platform/security',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
                 label: 'Academy',
                 href: `${absoluteUrl}/academy`,
                 activeBasePath: 'academy',
-                position: 'left',
+                position: 'right',
                 target: '_self',
                 rel: 'dofollow',
             },
             {
-                label: 'Platform',
-                href: `${absoluteUrl}/platform`,
-                className: 'navbar__active',
-                activeBasePath: 'platform',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'API',
+                label: 'API & SDK',
                 type: 'dropdown',
                 to: `${absoluteUrl}/api`,
                 target: '_self',
                 rel: 'dofollow',
                 activeBasePath: 'api',
-                position: 'left',
+                position: 'right',
                 items: [
                     {
-                        label: 'Reference',
+                        label: 'API Reference',
                         href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
@@ -63,17 +108,6 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                label: 'SDK',
-                type: 'dropdown',
-                to: `${absoluteUrl}/sdk`,
-                activeBasePath: 'sdk',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-                items: [
                     {
                         label: 'SDK for JavaScript',
                         href: `${absoluteUrl}/sdk/js/docs/overview`,
@@ -86,62 +120,13 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                label: 'CLI',
-                href: `${absoluteUrl}/cli/docs`,
-                position: 'left',
-                activeBasePath: 'cli',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'Open source',
-                type: 'dropdown',
-                to: `${absoluteUrl}/open-source`,
-                activeBasePath: 'open-source',
-                target: '_self',
-                position: 'left',
-                className: 'navbar__item',
-                items: [
                     {
-                        label: 'Crawlee',
-                        href: 'https://crawlee.dev',
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
                         rel: 'dofollow',
                     },
-                    {
-                        label: 'Fingerprint Suite',
-                        href: 'https://github.com/apify/fingerprint-suite',
-                    },
-                    {
-                        label: 'impit',
-                        href: 'https://github.com/apify/impit',
-                    },
-                    {
-                        label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcpc',
-                    },
-                    {
-                        label: 'Actor whitepaper',
-                        href: 'https://whitepaper.actor',
-                    },
-                    {
-                        label: 'proxy-chain',
-                        href: 'https://github.com/apify/proxy-chain',
-                    },
-                    {
-                        label: 'Apify on GitHub',
-                        href: 'https://github.com/apify',
-                    },
                 ],
-            },
-            {
-                href: 'https://discord.com/invite/jyEM2PRvMU',
-                label: 'Discord',
-                title: 'Chat on Discord',
-                position: 'right',
-                className: 'icon',
             },
         ],
     },
@@ -293,31 +278,31 @@ const themeConfig = {
     },
     announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
         ? (() => {
-              const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
+            const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
 
-              const { hostname } = parsedUrl;
+            const { hostname } = parsedUrl;
 
-              if (!hostname.includes('pr-') && !hostname.includes('preview')) {
-                  return undefined;
-              }
+            if (!hostname.includes('pr-') && !hostname.includes('preview')) {
+                return undefined;
+            }
 
-              const prNumber = hostname.split('.')[0]?.split('-')[1];
+            const prNumber = hostname.split('.')[0]?.split('-')[1];
 
-              if (!prNumber) {
-                  return undefined;
-              }
+            if (!prNumber) {
+                return undefined;
+            }
 
-              // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
-              const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
+            // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
+            const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
 
-              return {
-                  id: 'apify-docs-preview-banner',
-                  content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
-                  backgroundColor: '#B80F0A',
-                  textColor: '#FFFFFF',
-                  isCloseable: false,
-              };
-          })()
+            return {
+                id: 'apify-docs-preview-banner',
+                content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
+                backgroundColor: '#B80F0A',
+                textColor: '#FFFFFF',
+                isCloseable: false,
+            };
+        })()
         : undefined,
 };
 

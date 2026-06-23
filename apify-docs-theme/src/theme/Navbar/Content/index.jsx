@@ -22,11 +22,12 @@ function NavbarItems({ items }) {
     );
 }
 
-function NavbarContentLayout({ left, right }) {
+function NavbarContentLayout({ left, center, right }) {
     return (
         <div className="navbar__inner">
             <div className="navbar__container">
                 <div className="navbar__items">{left}</div>
+                <div className="navbar__items navbar__items--center">{center}</div>
                 <div className="navbar__items navbar__items--right">{right}</div>
             </div>
         </div>
@@ -88,19 +89,32 @@ export default function NavbarContent() {
                 left={
                     <>
                         <NavbarLogo />
+                    </>
+                }
+                center={!searchBarItem && (
+                    <NavbarSearch>
+                        <SearchBar />
+                    </NavbarSearch>
+                )}
+                right={
+                    <>
+                        <a href="https://discord.com/invite/jyEM2PRvMU" className="icon" target="_blank" rel="noopener noreferrer">
+                            Discord
+                        </a>
+                        <NavbarCTA />
+                        <NavbarMobileSidebarToggle />
+                    </>
+                }
+            />
+            <NavbarContentLayout
+                left={
+                    <>
                         <NavbarItems items={leftItems} />
                     </>
                 }
                 right={
                     <>
                         <NavbarItems items={rightItems} />
-                        {!searchBarItem && (
-                            <NavbarSearch>
-                                <SearchBar />
-                            </NavbarSearch>
-                        )}
-                        <NavbarCTA />
-                        <NavbarMobileSidebarToggle />
                     </>
                 }
             />
