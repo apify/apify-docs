@@ -18,7 +18,7 @@ get:
     You can also sort by your last run by using the `sortBy=stats.lastRunStartedAt` query parameter.
     In this case, descending order means the most recently run Actor appears first.
 
-  operationId: acts_get
+  operationId: actors_get
   parameters:
     - name: my
       in: query
@@ -109,7 +109,7 @@ post:
     under which that Actor will be classified in Apify Store. For this, it's
     best to use the [constants from our `apify-shared-js`
     package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
-  operationId: acts_post
+  operationId: actors_post
   requestBody:
     description: ""
     content:

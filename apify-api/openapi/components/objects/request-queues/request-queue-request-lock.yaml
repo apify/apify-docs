@@ -92,7 +92,7 @@ putLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Prolong request lock](/api/v2/request-queue-request-lock-put) endpoint.
-  operationId: act_runs_last_requestQueue_request_lock_put
+  operationId: actor_runs_last_requestQueue_request_lock_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
@@ -175,7 +175,7 @@ deleteLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Delete request lock](/api/v2/request-queue-request-lock-delete) endpoint.
-  operationId: act_runs_last_requestQueue_request_lock_delete
+  operationId: actor_runs_last_requestQueue_request_lock_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

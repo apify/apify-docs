@@ -6,7 +6,7 @@ get:
     Gets the list of versions of a specific Actor. The response is a JSON object
     with the list of [Version objects](#/reference/actors/version-object), where each
     contains basic information about a single version.
-  operationId: act_versions_get
+  operationId: actor_versions_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
@@ -99,7 +99,7 @@ post:
 
     The response is the [Version object](#/reference/actors/version-object) as
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
-  operationId: act_versions_post
+  operationId: actor_versions_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   requestBody:

@@ -122,7 +122,7 @@ lastRunByActor:
 
     This endpoint is a shortcut for [Metamorph run](#/reference/actor-runs/metamorph-run/metamorph-run)
     on the Actor's last run.
-  operationId: act_runs_last_metamorph_post
+  operationId: actor_runs_last_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"

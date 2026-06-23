@@ -99,7 +99,7 @@ getLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Get dataset](/api/v2/dataset-get) endpoint.
-  operationId: act_runs_last_dataset_get
+  operationId: actor_runs_last_dataset_get
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTaskLastRun]
@@ -165,7 +165,7 @@ putLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Update dataset](/api/v2/dataset-put) endpoint.
-  operationId: act_runs_last_dataset_put
+  operationId: actor_runs_last_dataset_put
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTaskLastRun]
@@ -215,7 +215,7 @@ deleteLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
     [Delete dataset](/api/v2/dataset-delete) endpoint.
-  operationId: act_runs_last_dataset_delete
+  operationId: actor_runs_last_dataset_delete
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTaskLastRun]

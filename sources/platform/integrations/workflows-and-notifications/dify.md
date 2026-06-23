@@ -155,7 +155,7 @@ When triggering a Chatflow, you must provide a **Payload template** in the Apify
 
 ### Access Apify Data in Dify  
 
-When an Apify Actor run completes and triggers your Dify workflow, Apify sends a [JSON response object](https://docs.apify.com/api/v2/act-runs-post#responses) containing information about the completed run. This includes details like the run ID, Actor ID, dataset ID, and status.
+When an Apify Actor run completes and triggers your Dify workflow, Apify sends a [JSON response object](https://docs.apify.com/api/v2/actor-runs-post#responses) containing information about the completed run. This includes details like the run ID, Actor ID, dataset ID, and status.
 
 #### Understand nested data access
 
