@@ -16,10 +16,10 @@ properties:
     description: Where the source code of the version lives.
   envVars:
     anyOf:
-    - $ref: ./EnvVar.yaml
-    - type: "null"
-    items:
-      $ref: ./EnvVar.yaml
+      - type: array
+        items:
+          $ref: ./EnvVar.yaml
+      - type: "null"
     description: Environment variables for the version.
   applyEnvVarsToBuild:
     type: [boolean, "null"]

@@ -37,10 +37,10 @@ properties:
     deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
     anyOf:
-      - $ref: ./Version.yaml
+      - type: array
+        items:
+          $ref: ./Version.yaml
       - type: "null"
-    items:
-      $ref: ./Version.yaml
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
