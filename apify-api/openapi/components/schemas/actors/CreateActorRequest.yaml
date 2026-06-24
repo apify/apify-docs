@@ -36,7 +36,9 @@ properties:
     examples: [false]
     deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
-    type: [array, "null"]
+    anyOf:
+      - $ref: ./Version.yaml
+      - type: "null"
     items:
       $ref: ./Version.yaml
     description: "An array of `Version` objects. Each object represents a specific version of the

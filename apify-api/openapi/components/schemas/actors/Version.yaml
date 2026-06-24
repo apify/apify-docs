@@ -15,7 +15,9 @@ properties:
       - type: "null"
     description: Where the source code of the version lives.
   envVars:
-    type: [array, "null"]
+    anyOf:
+    - $ref: ./EnvVar.yaml
+    - type: "null"
     items:
       $ref: ./EnvVar.yaml
     description: Environment variables for the version.
