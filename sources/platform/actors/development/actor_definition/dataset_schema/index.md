@@ -1,7 +1,7 @@
 ---
 title: Dataset schema specification
 sidebar_position: 5
-description: Define a dataset schema to control how your Actor output data is structured, validated, and displayed in Apify Console UI and API responses.
+description: Define a dataset schema to control how your Actor's dataset is structured, validated, and displayed in Apify Console, the API, and integrations.
 slug: /actors/development/actor-definition/dataset-schema
 sidebar_label: Dataset schema
 ---
@@ -280,11 +280,11 @@ Create multiple views for different use cases. This e-commerce scraper offers Ma
 
 ## Fields
 
-The `fields` property defines the structure of each dataset item using [JSON Schema](https://json-schema.org/). It enables validation and provides metadata that help humans and AI agents understand your Actor's output.
+The `fields` property defines the structure of each dataset item using [JSON Schema](https://json-schema.org/). It enables validation and provides metadata that help humans and AI agents understand the data in your dataset.
 
 ### Why define fields
 
-When AI agents interact with Actors through the MCP server or API, they rely on field metadata to understand the Actor's output. Including `title`, `description`, and `example` properties lets agents:
+When AI agents interact with Actors through the MCP server or API, they rely on field metadata to understand the data in your dataset. Including `title`, `description`, and `example` properties lets agents:
 
 - Understand the meaning of each output field
 - Chain Actors together by matching inputs to outputs

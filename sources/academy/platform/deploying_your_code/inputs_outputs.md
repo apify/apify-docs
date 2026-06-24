@@ -127,7 +127,7 @@ print(solution)
 
 ## Writing output {#writing-output}
 
-Similarly to reading input, you can write the Actor's output either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
+Similarly to reading input, you can write the Actor's results either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
 
 ### Writing output with the Apify SDK
 
