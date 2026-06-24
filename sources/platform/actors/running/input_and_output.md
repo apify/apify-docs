@@ -43,7 +43,7 @@ If the Actor is configured by developer to use [dynamic memory](../development/a
 
 ## Output
 
-An Actor can produce results in several places. Structured, tabular results are usually stored in the run's default [Dataset](../../storage/dataset), while files and other unstructured data go to its [Key-value store](../../storage/key-value-store). Always read the Actor's README to learn what an Actor produces and where it stores it. For more details about storages, visit the [Storage](../../storage/index.md) section.
+An Actor can produce results in several places. Structured, tabular results are usually stored in the run's default (or additional) [Dataset](../../storage/dataset), while files and other unstructured data go to its [Key-value store](../../storage/key-value-store). Always read the Actor's README to learn what an Actor produces and where it stores it. For more details about storages, visit the [Storage](../../storage/index.md) section.
 
 To describe where its results are and how to reach them, an Actor can define an [output schema](/platform/actors/development/actor-definition/output-schema). The platform uses this schema to automatically generate the Actor _output object_ - an immutable JSON object whose properties link to the run's results. The output object is defined solely by the output schema, not by the Actor's code, and the API returns it as the run's `output` property immediately when the run starts, without waiting for the run to finish or for the results to be produced. This makes it useful for previewing results, generating API examples, and building integrations.
 
