@@ -26,7 +26,7 @@ properties:
   buildTag:
     type: string
     examples: [latest]
-    description: The tag name to apply to a successful build of the Actor.
+    description: The tag name to apply to a successful build of this version.
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
     description: Applies when the `sourceType` is `SOURCE_FILES`. Represents the Actor's

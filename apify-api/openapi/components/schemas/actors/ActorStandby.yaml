@@ -24,5 +24,5 @@ properties:
     description: If `true`, prevents the standby mode configuration from being overridden elsewhere.
   shouldPassActorInput:
     type: [boolean, "null"]
-    description: Whether to pass the Actor's input to the standby run. If `false`, the run relays
-      on per-request data.
+    description: Whether to pass the Actor's input to the standby run. If `false`, the standby runs
+      start with no input.
