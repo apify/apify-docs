@@ -76,7 +76,7 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
-| `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
+| `APIFY_HEADLESS` | _Deprecated_ - on the Apify platform this is always set to **1**, so web browsers inside the Actor always run in headless mode (no windowing system available). |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
