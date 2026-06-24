@@ -1,20 +1,26 @@
 title: DefaultRunOptions
 type: object
+description: The default settings applied to an Actor run. Can be overridden elsewhere.
 properties:
   build:
     type: string
     examples: [latest]
+    description: Which build to run. Either a build tag or a version number.
   timeoutSecs:
     type: integer
     examples: [3600]
+    description: Timeout in seconds. 0 if no timeout.
   memoryMbytes:
     type: integer
     examples: [2048]
+    description: In MB, the amount of memory allocated to the run.
   restartOnError:
     type: boolean
     examples: [false]
+    description: Whether to automatically restart the run if it fails.
   maxItems:
     type: [integer, "null"]
+    description: Maximum number of items the run might produce.
   forcePermissionLevel:
     anyOf:
       - $ref: ./ActorPermissionLevel.yaml
