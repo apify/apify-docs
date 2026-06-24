@@ -3,7 +3,7 @@ get:
     - Actor tasks
   summary: Run task synchronously
   description: |
-    Runs a specific task and returns a key-value store record.
+    Runs an Actor task and synchronously returns a key-value store record.
 
     The response contains the record stored under the `OUTPUT` key in the run's
     default key-value store. This is a convention, not a guarantee - Actors aren't
