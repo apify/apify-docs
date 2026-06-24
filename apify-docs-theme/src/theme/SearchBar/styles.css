@@ -37,7 +37,9 @@
     outline: none;
     box-sizing: border-box;
     cursor: pointer;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     position: relative;
     text-align: center;
     transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);

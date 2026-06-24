@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useState, useCallback } from 'react';
 
 import { ApifySearch } from '@apify/docs-search-modal';
+import { SparklesIcon } from './SparklesIcon';
 
 // needs to be imported as the last thing, so that it can override the default styles
 // TODO: update simple-import-sort to allow importing css as last.
@@ -106,6 +107,7 @@ function KapaAIButton({ onClick }) {
             {() => (
                 <div onClick={onClick}>
                     <button type="button" className="AskAI-Button" aria-label="Ask AI">
+                        <SparklesIcon size={14} />
                         Ask AI
                     </button>
                 </div>
