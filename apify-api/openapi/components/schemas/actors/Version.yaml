@@ -39,4 +39,4 @@ properties:
     description: URL to download the source code from as a tarball or ZIP file. Applies when the `sourceType` is `TARBALL`.
   gitHubGistUrl:
     type: [string, "null"]
-    description: URL to the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
+    description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
