@@ -30,7 +30,7 @@ System variables apply only to Actor runs and are never passed to builds - not e
 
 ### Standard Actor variables
 
-Variables prefixed with `ACTOR_` are defined by the [Actor specification](https://whitepaper.actor/). They describe the run's execution context - identifiers, default storages, resource limits, and timing - and aren't specific to the Apify platform.
+Variables prefixed with `ACTOR_` are defined by the [Actor specification](https://whitepaper.actor/#environment-variables). They describe the run's execution context - identifiers, default storages, resource limits, and timing - and aren't specific to the Apify platform.
 
 | Environment variable | Description |
 | -------------------- | ----------- |
