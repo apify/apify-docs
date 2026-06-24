@@ -3,7 +3,7 @@ post:
     - Actors/Actor runs
   summary: Run Actor synchronously and return key-value store record
   description: |
-    Runs a specific Actor and returns its output.
+    Runs a specific Actor and returns a key-value store record.
 
     The POST payload including its `Content-Type` header is passed as `INPUT` to
     the Actor (usually <code>application/json</code>).
@@ -96,7 +96,7 @@ get:
     - Actors/Actor runs
   summary: Run Actor synchronously without input
   description: |
-    Runs a specific Actor and returns its output. The response contains the
+    Runs a specific Actor and returns a key-value store record. The response contains the
     record stored under the `OUTPUT` key in the run's default key-value store.
     This is a convention, not a guarantee - the record may not exist, in which
     case the response contains no data. Use the `outputRecordKey` query parameter
