@@ -83,7 +83,7 @@ You should see information about the run, including its ID and the ID of its def
 
 ## Getting the results from dataset
 
-Actors usually store their results in a default dataset. The [Actor runs endpoint](/api/v2/actor-runs) lets you get overall info about an Actor run's default dataset.
+An Actor usually stores its results in a default dataset created separately for each run. The [Actor runs endpoint](/api/v2/actor-runs) lets you get overall info about an Actor run's default dataset.
 
 ```php
 // Replace <RUN_ID> with the run ID you from earlier

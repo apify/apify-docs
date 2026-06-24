@@ -127,7 +127,7 @@ print(solution)
 
 ## Writing output {#writing-output}
 
-Similarly to reading input, you can write the Actor's results either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
+An Actor's results generally go into its storages - a dataset, key-value store, or request queue. Similarly to reading input, you can write them either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
 
 ### Writing output with the Apify SDK
 
