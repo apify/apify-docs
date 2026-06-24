@@ -47,7 +47,7 @@ properties:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   categories:
     type: [array, "null"]
-    examples: ["SOCIAL_MEDIA"]
+    examples: [["SOCIAL_MEDIA"]]
     items:
       type: string
     description: A list of categories that best define the Actor. Reflected in Apify Store's search and filtering options.
