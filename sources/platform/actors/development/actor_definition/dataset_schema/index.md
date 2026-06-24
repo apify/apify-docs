@@ -1,7 +1,7 @@
 ---
 title: Dataset schema specification
 sidebar_position: 5
-description: Define a dataset schema to control how your Actor's dataset is structured, validated, and displayed in Apify Console, the API, and integrations.
+description: Define a dataset schema to control how your Actor's results are structured, validated, and displayed in Apify Console, the API, and integrations.
 slug: /actors/development/actor-definition/dataset-schema
 sidebar_label: Dataset schema
 ---
