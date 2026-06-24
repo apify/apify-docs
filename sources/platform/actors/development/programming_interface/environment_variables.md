@@ -41,7 +41,7 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | Unique identifier for the default key-value store associated with the current Actor run. |
 | `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | Unique identifier for the default request queue associated with the current Actor run. |
 | `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input). |
-| `ACTOR_STORAGES_JSON` | JSON-encoded unique identifiers of storages associated with the current Actor run. |
+| `ACTOR_STORAGES_JSON` | JSON-encoded unique identifiers of storages associated with the current Actor run, e.g. `{ "keyValueStores": { "default": "<id>" }, "datasets": { "default": "<id>" }, "requestQueues": { "default": "<id>" } }`. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
 | `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
 | `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
@@ -56,22 +56,6 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
-
-For example, `ACTOR_STORAGES_JSON` holds the IDs of the run's default storages:
-
-```json
-{
-  "keyValueStores": {
-    "default": "GIieeLjB8eZ8Pso6d"
-  },
-  "datasets": {
-    "default": "Hh5C07EdRuzjkGogf"
-  },
-  "requestQueues": {
-    "default": "jaU9kRNpd3dofIBVs"
-  }
-}
-```
 
 <!-- vale Microsoft.RangeFormat = NO -->
 
