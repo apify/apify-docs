@@ -8,29 +8,35 @@ properties:
     type: string
     pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])$
     examples: ["0.0"]
+    description: The version number of the Actor. Must be a dot-separated sequence of numbers.
   sourceType:
     anyOf:
       - $ref: ./VersionSourceType.yaml
       - type: "null"
+    description: Where the source code of the version lives.
   envVars:
     type: [array, "null"]
     items:
       $ref: ./EnvVar.yaml
-    description: ""
+    description: Environment variables for the version.
   applyEnvVarsToBuild:
     type: [boolean, "null"]
     examples: [false]
+    description: Whether to inject the environment variables at build time.
   buildTag:
     type: string
     examples: [latest]
+    description: The tag name to apply to a successful build of the Actor.
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
+    description: Applies when the `sourceType` is `SOURCE_FILES`. Represents the Actor's
+      file structure as an array of files and folders.
   gitRepoUrl:
     type: [string, "null"]
-    description: URL of the Git repository when sourceType is GIT_REPO.
+    description: URL of the Git repository to clone the source code from. Applies when the `sourceType` is `GIT_REPO`.
   tarballUrl:
     type: [string, "null"]
-    description: URL of the tarball when sourceType is TARBALL.
+    description: URL to download the source code from as a tarball or ZIP file. Applies when the `sourceType` is `TARBALL`.
   gitHubGistUrl:
     type: [string, "null"]
-    description: URL of the GitHub Gist when sourceType is GITHUB_GIST.
+    description: URL to the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.

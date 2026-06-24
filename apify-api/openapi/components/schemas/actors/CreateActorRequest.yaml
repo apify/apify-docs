@@ -3,22 +3,34 @@ type: object
 properties:
   name:
     type: [string, "null"]
-    examples: [MyActor]
+    examples: [instagram-scraper]
+    description: The identifier of the Actor. Use lowercase letters, numbers, and hyphens.
+      Spaces or special characters aren't allowed. Must be unique across your account.
   description:
     type: [string, "null"]
-    examples: [My favourite actor!]
+    examples: [This scraper extracts posts and comments from Instagram.]
+    description: Short description of the Actor, displayed in Apify Store and Console.
   title:
     type: [string, "null"]
-    examples: [My actor]
+    examples: [Instagram scraper]
+    description: Human-readable name of the Actor, displayed in Apify Store and Console.
+      Can contain spaces and capital letters. Recommended length is 40-50 characters.
+      You can change this title without affecting the Actor's URL or SEO.
   isPublic:
     type: [boolean, "null"]
     examples: [false]
+    description: Whether the Actor is available to users in Apify Store. If `false`, the Actor is private
+      and only visible to you.
   seoTitle:
     type: [string, "null"]
-    examples: [My actor]
+    examples: [Free Instagram scraper]
+    description: Name of the Actor to display by search engines such as Google. Can be different
+      from the Actor's name displayed in Apify Store and Console. Recommended length is 40-50 characters.
   seoDescription:
     type: [string, "null"]
-    examples: [My actor is the best]
+    examples: [The best scraper for Instagram]
+    description: Description of the Actor to display by search engines such as Google.
+      Recommended length is 140-156 characters.
   restartOnError:
     type: boolean
     examples: [false]
@@ -27,25 +39,31 @@ properties:
     type: [array, "null"]
     items:
       $ref: ./Version.yaml
-    description: ""
+    description: "An array of `Version` objects. Each object represents a specific version of the
+      Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   categories:
     type: [array, "null"]
+    examples: ["SOCIAL_MEDIA"]
     items:
       type: string
-    description: ""
+    description: A list of categories that best define the Actor. Reflected in Apify Store's search and filtering options.
   defaultRunOptions:
     $ref: ./DefaultRunOptions.yaml
   actorStandby:
     anyOf:
       - $ref: ./ActorStandby.yaml
       - type: "null"
+    description: The configuration of the Actor's standby mode. For details, see [Standby mode](https://docs.apify.com/platform/actors/development/programming-interface/standby).
   exampleRunInput:
     anyOf:
       - $ref: ./ExampleRunInput.yaml
       - type: "null"
+    description: Sample input payload that demonstrates what a typical run input for an Actor
+      looks like. Used when no explicit input for a run is provided.
   isDeprecated:
     type: [boolean, "null"]
+    description: Whether the Actor is deprecated.
