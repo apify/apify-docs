@@ -15,9 +15,9 @@ post:
     Many Actors store their results in a dataset instead; to get those, use the
     Run Actor synchronously and get dataset items endpoint.
 
-    The `OUTPUT` record is unrelated to an Actor's [output
-    schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema),
-    which defines how an Actor describes its results.
+    This `OUTPUT` record is not to be confused with the Actor
+    [output object](https://docs.apify.com/platform/actors/development/actor-definition/output-schema#output-object-definition),
+    which is a separate concept defined by the Actor's output schema.
 
     The Actor is started with the default options; you can override them using
     various URL query parameters.
@@ -100,9 +100,10 @@ get:
     record stored under the `OUTPUT` key in the run's default key-value store.
     This is a convention, not a guarantee - the record may not exist, in which
     case the response contains no data. Use the `outputRecordKey` query parameter
-    to return a different record. The `OUTPUT` record is unrelated to an Actor's
-    [output
-    schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema).
+    to return a different record. This `OUTPUT` record is not to be confused with
+    the Actor
+    [output object](https://docs.apify.com/platform/actors/development/actor-definition/output-schema#output-object-definition),
+    which is a separate concept defined by the Actor's output schema.
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the API endpoint returns a timeout error.
     The Actor is not passed any input.
