@@ -20,13 +20,17 @@ Check out how you can [access environment variables in Actors](#access-environme
 
 ## System environment variables
 
-Apify sets several system environment variables for each Actor run. These variables provide essential context and information about the Actor's execution environment.
+Apify sets several system environment variables for each Actor run. They come in two groups, identified by their name prefix: standard `ACTOR_` variables defined by the Actor specification, and Apify-specific `APIFY_` variables that extend it.
 
 :::info Runtime only
 
 System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Code** > **Environment variables**. That option forwards only your custom variables.
 
 :::
+
+### Standard Actor variables
+
+Variables prefixed with `ACTOR_` are defined by the [Actor specification](https://whitepaper.actor/). They describe the run's execution context - identifiers, default storages, resource limits, and timing - and aren't specific to the Apify platform.
 
 | Environment variable | Description |
 | -------------------- | ----------- |
@@ -52,6 +56,22 @@ System variables apply only to Actor runs and are never passed to builds - not e
 | `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
+
+<!-- vale Microsoft.RangeFormat = NO -->
+
+:::note Date format
+
+All date-related variables use the UTC timezone and are in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (e.g., _2022-07-13T14:23:37.281Z_).
+
+:::
+<!-- vale Microsoft.RangeFormat = YES -->
+
+### Apify platform variables
+
+Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go beyond the Actor specification. They expose features unique to the Apify platform, such as your API token, Apify Proxy, and details about the user who started the run.
+
+| Environment variable | Description |
+| -------------------- | ----------- |
 | `APIFY_TOKEN` | API token of the user who started the Actor. |
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
@@ -67,16 +87,6 @@ System variables apply only to Actor runs and are never passed to builds - not e
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
-
-
-<!-- vale Microsoft.RangeFormat = NO -->
-
-:::note Date format
-
-All date-related variables use the UTC timezone and are in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (e.g., _2022-07-13T14:23:37.281Z_).
-
-:::
-<!-- vale Microsoft.RangeFormat = YES -->
 
 ## Custom environment variables
 
