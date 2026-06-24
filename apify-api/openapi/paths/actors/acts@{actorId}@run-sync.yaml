@@ -1,14 +1,23 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously and return output
+  summary: Run Actor synchronously and return key-value store record
   description: |
     Runs a specific Actor and returns its output.
 
     The POST payload including its `Content-Type` header is passed as `INPUT` to
     the Actor (usually <code>application/json</code>).
-    The HTTP response contains Actors `OUTPUT` record from its default
-    key-value store.
+
+    The response contains the record stored under the `OUTPUT` key in the run's
+    default key-value store. This is a convention, not a guarantee - Actors aren't
+    required to store a record under this key, so the response may not contain any
+    data. Use the `outputRecordKey` query parameter to return a different record.
+    Many Actors store their results in a dataset instead; to get those, use the
+    Run Actor synchronously and get dataset items endpoint.
+
+    The `OUTPUT` record is unrelated to an Actor's [output
+    schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema),
+    which defines how an Actor describes its results.
 
     The Actor is started with the default options; you can override them using
     various URL query parameters.
@@ -87,7 +96,13 @@ get:
     - Actors/Actor runs
   summary: Run Actor synchronously without input
   description: |
-    Runs a specific Actor and returns its output.
+    Runs a specific Actor and returns its output. The response contains the
+    record stored under the `OUTPUT` key in the run's default key-value store.
+    This is a convention, not a guarantee - the record may not exist, in which
+    case the response contains no data. Use the `outputRecordKey` query parameter
+    to return a different record. The `OUTPUT` record is unrelated to an Actor's
+    [output
+    schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema).
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the API endpoint returns a timeout error.
     The Actor is not passed any input.

@@ -3,7 +3,15 @@ get:
     - Actor tasks
   summary: Run task synchronously
   description: |
-    Run a specific task and return its output.
+    Runs a specific task and returns its output.
+
+    The response contains the record stored under the `OUTPUT` key in the run's
+    default key-value store. This is a convention, not a guarantee - Actors aren't
+    required to store a record under this key, so the response may not contain any
+    data. Use the `outputRecordKey` query parameter to return a different record.
+    Many Actors store their results in a dataset instead. The `OUTPUT` record is
+    unrelated to an Actor's [output
+    schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema).
 
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the HTTP request fails with a timeout error (this won't abort
@@ -64,6 +72,14 @@ post:
   summary: Run task synchronously
   description: |
     Runs an Actor task and synchronously returns its output.
+
+    The response contains the record stored under the `OUTPUT` key in the run's
+    default key-value store. This is a convention, not a guarantee - Actors aren't
+    required to store a record under this key, so the response may not contain any
+    data. Use the `outputRecordKey` query parameter to return a different record.
+    Many Actors store their results in a dataset instead. The `OUTPUT` record is
+    unrelated to an Actor's [output
+    schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema).
 
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the HTTP request fails with a timeout error (this won't abort

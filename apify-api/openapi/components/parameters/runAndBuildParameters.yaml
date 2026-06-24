@@ -313,8 +313,9 @@ outputRecordKey:
   name: outputRecordKey
   in: query
   description: |
-    Key of the record from run's default key-value store to be returned
-    in the response. By default, it is `OUTPUT`.
+    Key of the record from the run's default key-value store to return in the
+    response. Defaults to `OUTPUT`. Actors aren't required to store a record
+    under this key, so if it doesn't exist the response contains no data.
   style: form
   explode: true
   schema:
