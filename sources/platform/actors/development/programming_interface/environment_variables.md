@@ -57,6 +57,22 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
 
+For example, `ACTOR_STORAGES_JSON` holds the IDs of the run's default storages:
+
+```json
+{
+  "keyValueStores": {
+    "default": "GIieeLjB8eZ8Pso6d"
+  },
+  "datasets": {
+    "default": "Hh5C07EdRuzjkGogf"
+  },
+  "requestQueues": {
+    "default": "jaU9kRNpd3dofIBVs"
+  }
+}
+```
+
 <!-- vale Microsoft.RangeFormat = NO -->
 
 :::note Date format
