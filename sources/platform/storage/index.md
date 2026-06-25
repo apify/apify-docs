@@ -38,7 +38,13 @@ Access your storage through Apify Console, the API, the API clients, or the SDKs
 
 ### Apify Console
 
-In Apify Console, open the [**Storage**](https://console.apify.com/storage) section in the left-side menu. Click through the tabs to view your key-value stores, datasets, and request queues, or select **API** in the top right corner to view related endpoints. To open a storage, click its **ID**.
+To view your storages in [Apify Console](https://console.apify.com/storage):
+
+1. Open the **Storage** section in the left-side menu.
+1. Select a tab to view your key-value stores, datasets, or request queues.
+1. Select a storage's **ID** to open its detail page.
+
+To view the related API endpoints, select **API** in the top right corner.
 
 ![Storages in app](./images/datasets-app.png)
 
@@ -51,8 +57,6 @@ Use the **Include unnamed storages** checkbox to either display or hide unnamed 
 To rename a store, open the **Actions** menu and select **Rename**.
 
 To share a storage, select **Share** in the **Actions** menu and provide an email, username, or user ID.
-
-![Storage API](./images/overview-api.png)
 
 These URLs link to API _endpoints_ where your data is stored. _Read_ endpoints don't require an [authentication token](/api/v2#authentication). Calls are authenticated by a hard-to-guess ID, which keeps sharing secure. Operations such as _update_ or _delete_ do require the token.
 
