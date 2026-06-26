@@ -9,11 +9,12 @@ get:
 
     The base path represents the last actor task run object is:
 
-    `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status}`
+    `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status,origin}`
 
     Using the `status` query parameter you can ensure to only get a run with a certain status
-    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
-    are the same as in the [Run object](/api/v2/actor-run-get) endpoint.
+    (e.g. `status=SUCCEEDED`). Similarly, the `origin` query parameter filters runs by the means
+    by which they were started (e.g. `origin=API`). The output of this endpoint and other query
+    parameters are the same as in the [Run object](/api/v2/actor-run-get) endpoint.
 
     ##### Convenience endpoints for last Actor task run
 
@@ -29,6 +30,7 @@ get:
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":

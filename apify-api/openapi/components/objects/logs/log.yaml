@@ -101,6 +101,7 @@ getLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/logParameters.yaml#/stream"
     - $ref: "../../parameters/logParameters.yaml#/download"
     - $ref: "../../parameters/logParameters.yaml#/raw"
@@ -118,6 +119,7 @@ getTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/logParameters.yaml#/stream"
     - $ref: "../../parameters/logParameters.yaml#/download"
     - $ref: "../../parameters/logParameters.yaml#/raw"

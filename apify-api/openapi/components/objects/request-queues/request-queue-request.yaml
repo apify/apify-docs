@@ -84,6 +84,7 @@ getLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
 
 getTaskLastRun:
@@ -98,6 +99,7 @@ getTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
 
 sharedPut: &sharedPut
@@ -174,6 +176,7 @@ putLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
@@ -190,6 +193,7 @@ putTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
@@ -244,6 +248,7 @@ deleteLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
@@ -259,5 +264,6 @@ deleteTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

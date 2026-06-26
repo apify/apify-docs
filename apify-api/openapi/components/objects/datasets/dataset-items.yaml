@@ -308,6 +308,7 @@ listLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -345,6 +346,7 @@ listTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -479,6 +481,7 @@ postLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
@@ -493,3 +496,4 @@ postTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"

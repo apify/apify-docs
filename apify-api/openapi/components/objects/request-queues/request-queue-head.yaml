@@ -94,6 +94,7 @@ listLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
@@ -109,5 +110,6 @@ listTaskLastRun:
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
