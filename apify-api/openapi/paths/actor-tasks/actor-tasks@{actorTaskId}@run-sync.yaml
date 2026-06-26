@@ -50,7 +50,7 @@ get:
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      $ref: ../../components/responses/RunTimeout.yaml
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

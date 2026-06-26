@@ -6,10 +6,12 @@ properties:
   name:
     type: string
     examples: [MY_ENV_VAR]
+    description: The name of the environment variable.
   value:
     type: string
-    description: The environment variable value. This field is absent in responses when `isSecret` is `true`, as secret values are never returned by the API.
     examples: [my-value]
+    description: The value of the environment variable. If `isSecret` is `true`, this value isn't returned by the API.
   isSecret:
     type: [boolean, "null"]
     examples: [false]
+    description: Whether the environment variable is encrypted. Secret values aren't returned by the API.

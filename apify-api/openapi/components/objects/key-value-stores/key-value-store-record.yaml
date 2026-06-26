@@ -183,11 +183,10 @@ headById:
     Check if a value is stored in the key-value store under a specific key.
   operationId: keyValueStore_record_head
   responses:
+    <<: *commonErrors
     "200":
       description: The record exists
       headers: {}
-    "404":
-      $ref: ../../responses/NotFound.yaml
   deprecated: false
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
