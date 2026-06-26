@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate](./index.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
 You can refer to the [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
 
@@ -39,7 +39,7 @@ For a full list of plans and number of allocated proxy servers for each plan, se
 
 When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is also useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./usage.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking). If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
+This feature is also useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./index.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking). If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
 
@@ -47,11 +47,11 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
-If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./usage.md#sessions).
+If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./index.md#sessions).
 
 ### Username parameters {#username-parameters}
 
-The `username` field enables you to pass various [parameters](./usage.md#connection-settings), such as groups, session and country, for your proxy connection.
+The `username` field enables you to pass various [parameters](./index.md#connection-settings), such as groups, session and country, for your proxy connection.
 
 **This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
@@ -171,9 +171,9 @@ await Actor.exit();
 
 ## Session persistence
 
-When you use datacenter proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+When you use datacenter proxy with the `session` [parameter](./index.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./usage.md#sessions)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
 
 This IP/session ID combination is persisted and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
@@ -184,7 +184,7 @@ If you use the session at least once a day, it will never expire, with two possi
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 
-To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
+To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
 ### Examples using sessions
 
