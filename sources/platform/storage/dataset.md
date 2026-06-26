@@ -15,11 +15,13 @@ Typically, datasets comprise results from web scraping, crawling, and data proce
 
 :::info Retention period
 
-Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage#named-and-unnamed-storages)
 
 :::
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
+
+![Dataset graphic](./images/datasets-overview.png)
 
 ## Dataset schema
 
@@ -51,7 +53,7 @@ To view or download a dataset:
 1. Browse the data in **Table** or **JSON** view.
 1. Click **Export** to download the data in your preferred format.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -478,7 +480,7 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+See the [Storage overview](/platform/storage#share-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 
