@@ -1,0 +1,76 @@
+name: impit conda-forge cross-OS test
+
+# Manual test harness: installs `impit` strictly from the conda-forge channel
+# (never pip) on Linux, Windows and macOS, across every version conda-forge
+# ships, and exercises it against https://crawlee.dev/.
+#
+# Not part of the docs build. Triggered on demand or on pushes to the test branch.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/conda-impit-setup-test-mimexl
+    paths:
+      - '.github/workflows/impit-conda-crossos-test.yaml'
+      - '.github/impit-test/**'
+
+jobs:
+  test:
+    name: impit ${{ matrix.impit }} on ${{ matrix.label }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # macos-13 is Intel (osx-64); conda-forge has no osx-arm64 impit build,
+        # so Apple Silicon (macos-14/latest) is intentionally excluded.
+        os: [ubuntu-latest, windows-latest, macos-13]
+        impit: ['0.9.3', '0.13.0', '0.13.1']
+        include:
+          - os: ubuntu-latest
+            label: Linux
+          - os: windows-latest
+            label: Windows
+          - os: macos-13
+            label: macOS (Intel)
+
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up conda (Miniforge / conda-forge only)
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          channels: conda-forge
+          channel-priority: strict
+          python-version: '3.12'
+          activate-environment: impit-test
+
+      - name: Install impit ${{ matrix.impit }} from conda-forge (no pip)
+        run: conda install -n impit-test -c conda-forge --override-channels -y "impit=${{ matrix.impit }}"
+
+      - name: Verify impit came from conda-forge, not pip
+        run: |
+          echo "=== conda list impit ==="
+          conda list -n impit-test impit
+          channel=$(conda list -n impit-test impit | awk '$1=="impit"{print $NF}')
+          echo "resolved channel: $channel"
+          if [ "$channel" != "conda-forge" ]; then
+            echo "::error::impit was not installed from conda-forge (channel=$channel)"
+            exit 1
+          fi
+
+      - name: Run impit tests against crawlee.dev
+        run: python .github/impit-test/test_impit.py "impit_${{ matrix.impit }}_${{ matrix.label }}.json"
+
+      - name: Upload result JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: impit-${{ matrix.impit }}-${{ matrix.label }}
+          path: impit_*.json
+          if-no-files-found: ignore
