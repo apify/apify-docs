@@ -16,23 +16,19 @@ on:
       - '.github/impit-test/**'
 
 jobs:
-  test:
+  test-linux-windows:
     name: impit ${{ matrix.impit }} on ${{ matrix.label }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        # macos-13 is Intel (osx-64); conda-forge has no osx-arm64 impit build,
-        # so Apple Silicon (macos-14/latest) is intentionally excluded.
-        os: [ubuntu-latest, windows-latest, macos-13]
+        os: [ubuntu-latest, windows-latest]
         impit: ['0.9.3', '0.13.0', '0.13.1']
         include:
           - os: ubuntu-latest
             label: Linux
           - os: windows-latest
             label: Windows
-          - os: macos-13
-            label: macOS (Intel)
 
     defaults:
       run:
@@ -72,5 +68,66 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: impit-${{ matrix.impit }}-${{ matrix.label }}
+          path: impit_*.json
+          if-no-files-found: ignore
+
+  test-macos:
+    # conda-forge has no osx-arm64 impit build, and the Intel macos-13 runner
+    # image is retired. So run the osx-64 build on an Apple Silicon runner under
+    # Rosetta 2 (preinstalled) by forcing conda's subdir to osx-64.
+    name: impit ${{ matrix.impit }} on macOS (osx-64 via Rosetta)
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        impit: ['0.9.3', '0.13.0', '0.13.1']
+
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    env:
+      CONDA_SUBDIR: osx-64
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up conda (Miniforge / conda-forge only)
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          channels: conda-forge
+          channel-priority: strict
+          activate-environment: impit-test
+
+      - name: Pin env to osx-64 (x86_64 via Rosetta) and create with Python 3.12
+        run: |
+          conda config --env --set subdir osx-64
+          conda install -n impit-test -c conda-forge --override-channels -y python=3.12
+
+      - name: Install impit ${{ matrix.impit }} from conda-forge (no pip)
+        run: conda install -n impit-test -c conda-forge --override-channels -y "impit=${{ matrix.impit }}"
+
+      - name: Verify impit came from conda-forge, not pip
+        run: |
+          echo "=== conda info / platform ==="
+          conda run -n impit-test python -c "import platform; print('machine:', platform.machine())"
+          echo "=== conda list impit ==="
+          conda list -n impit-test impit
+          channel=$(conda list -n impit-test impit | awk '$1=="impit"{print $NF}')
+          echo "resolved channel: $channel"
+          if [ "$channel" != "conda-forge" ]; then
+            echo "::error::impit was not installed from conda-forge (channel=$channel)"
+            exit 1
+          fi
+
+      - name: Run impit tests against crawlee.dev
+        run: conda run -n impit-test python .github/impit-test/test_impit.py "impit_${{ matrix.impit }}_macOS.json"
+
+      - name: Upload result JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: impit-${{ matrix.impit }}-macOS
           path: impit_*.json
           if-no-files-found: ignore
