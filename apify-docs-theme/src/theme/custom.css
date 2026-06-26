@@ -551,34 +551,16 @@ aside > div > a > b {
     top: 10px;
 }
 
-.navbar .icon {
-    font-size: 0;
-    padding: 4px;
-    line-height: 0;
-}
-
-.navbar .icon::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-size: cover;
-}
-
-.navbar .icon[href*='github']::before {
-    background-image: url('/img/github-brand.svg');
-}
-
-html[data-theme='dark'] .navbar .navbar__link[href*='github']:before {
-    background-image: url('/img/github-brand-dark.svg');
-}
-
-.navbar .icon[href*='discord']::before {
-    background-image: url('/img/discord-brand.svg');
-}
-
-html[data-theme='dark'] .navbar .navbar__link[href*='discord']:before {
-    background-image: url('/img/discord-brand-dark.svg');
+.navbar .icon[href*='discord'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-Neutral_BackgroundMuted);
+    border: 1px solid var(--color-neutral-border);
+    border-radius: 4px;
+    color: var(--ifm-navbar-link-color);
 }
 
 .navbar .icon svg[class*='iconExternalLink'],
