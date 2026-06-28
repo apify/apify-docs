@@ -80,6 +80,27 @@ const SITE_URL = process.env.APIFY_DOCS_ABSOLUTE_URL || 'https://docs.apify.com'
 
 const isExcludedRoute = createMatcher(LLMS_INDEX_EXCLUDE_PATTERNS);
 
+// Top-level links injected into the llms.txt header (before the first `##`
+// section). Used for resources that live outside the generated docs routes.
+const HEADER_LINKS = [
+    '- [Apify Agent General Interface (AGI)](https://agi.apify.com): Entry point to Apify for autonomous AI agents, enabling them to use and pay for the Apify platform and Actors through agentic payment protocols like x402 or MPP, without account setup or ongoing billing.',
+];
+
+/**
+ * Insert HEADER_LINKS into the llms.txt header, just before the first `##`
+ * section heading so they sit alongside the intro resource links.
+ */
+function insertHeaderLinks(content) {
+    if (!HEADER_LINKS.length) return content;
+
+    const firstSection = content.search(/^## /m);
+    const block = `${HEADER_LINKS.join('\n')}\n\n`;
+    if (firstSection === -1) {
+        return `${content.replace(/\n*$/, '\n\n')}${block}`;
+    }
+    return `${content.slice(0, firstSection)}${block}${content.slice(firstSection)}`;
+}
+
 const EXTERNAL_FETCH_URLS = [
     'https://docs.apify.com/api/client/js/llms-full.txt',
     'https://docs.apify.com/api/client/python/llms-full.txt',
@@ -219,7 +240,7 @@ async function joinFiles() {
     // llms.txt: filter out routes we don't want indexed (their .md files are
     // still served), append curated static content, then reorder all sections
     const generated = await fs.readFile(llmsPath, 'utf8');
-    await fs.writeFile(llmsPath, filterLlmsIndex(generated), 'utf8');
+    await fs.writeFile(llmsPath, insertHeaderLinks(filterLlmsIndex(generated)), 'utf8');
 
     const curatedContent = await fs.readFile(CURATED_FILE, 'utf8');
     await fs.appendFile(llmsPath, curatedContent, 'utf8');

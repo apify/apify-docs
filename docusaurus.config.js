@@ -281,7 +281,7 @@ module.exports = {
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
                 siteDescription:
-                    'Apify is the largest marketplace of tools for AI. Thousands of ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing.md\n\nAI agents can buy prepaid, spend-capped API tokens through the Apify Agent General Interface (AGI) at https://agi.apify.com',
+                    'Apify is the largest marketplace of tools for AI. Thousands of ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing.md',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
