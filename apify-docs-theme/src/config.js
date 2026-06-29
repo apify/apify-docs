@@ -263,13 +263,6 @@ const themeConfig = {
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Open source',
-                        href: `${absoluteUrl}/open-source`,
-                        position: 'left',
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
                         label: 'llms.txt',
                         href: `${absoluteUrl}/llms.txt`,
                         target: '_self',
