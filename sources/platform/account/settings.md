@@ -3,7 +3,7 @@ title: Account settings
 description: Learn how to manage your Apify account, configure integrations, create and manage organizations, and set notification preferences in the Settings tab.
 sidebar_position: 4
 category: platform
-slug: /console/settings
+slug: /account/settings
 ---
 
 ## Account
@@ -36,11 +36,11 @@ In the **Session information** section, you can adjust the session configuration
 
 ## API & Integrations
 
-The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically. Here, you can manage your **API tokens**, which are necessary for using the [Apify API](https://docs.apify.com/api/v2). The tab also shows **third-party apps and services** connected to your account, **account-level integrations**, and **Actor OAuth accounts**. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/platform/integrations).
+The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically. Here, you can manage your **API tokens**, which are necessary for using the [Apify API](https://docs.apify.com/api/v2). The tab also shows **third-party apps and services** connected to your account, **account-level integrations**, and **Actor OAuth accounts**. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/integrations).
 
 ### MCP connectors
 
-The **MCP connectors** section lets you authorize third-party MCP servers (such as Notion, Slack, GitHub, or Supabase) once and reuse those connections across any Actor that accepts them. For an overview of the feature, see [MCP connectors](/platform/integrations/mcp-connectors).
+The **MCP connectors** section lets you authorize third-party MCP servers (such as Notion, Slack, GitHub, or Supabase) once and reuse those connections across any Actor that accepts them. For an overview of the feature, see [MCP connectors](/integrations/mcp-connectors).
 
 #### Create a connector
 

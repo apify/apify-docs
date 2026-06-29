@@ -3,7 +3,7 @@ title: Apify Console
 description: "Get started with Apify Console: create an account, sign in with email, Google, or GitHub, and manage your web scraping projects from one place."
 sidebar_position: 1
 category: platform
-slug: /console
+slug: /account/console
 ---
 
 [Apify Console](https://console.apify.com) is a web application where you can manage all your Apify projects and resources.
@@ -59,17 +59,17 @@ To navigate Apify Console, use the left-side panel or keyboard shortcuts.
 
 | Section | Keyboard shortcut | Description |
 | :--- | :--- | :--- |
-| [Apify Store](/platform/console/store) | <kbd>G</kbd> + <kbd>O</kbd> | Search for Actors that suit your web-scraping needs. |
-| [Dashboard](/platform/console) | <kbd>G</kbd> + <kbd>H</kbd> | Overview of your account with recently viewed Actors, suggestions, and recent runs. |
-| [Actors](/platform/actors) | <kbd>G</kbd> + <kbd>A</kbd> | View recent and bookmarked Actors. |
-| [Runs](/platform/actors/running/runs-and-builds) | <kbd>G</kbd> + <kbd>R</kbd> | View your recent runs. |
-| [Saved tasks](/platform/actors/running/tasks) | <kbd>G</kbd> + <kbd>T</kbd> | View your saved tasks. |
-| [Integrations](/platform/integrations) | <kbd>G</kbd> + <kbd>I</kbd> | View your integrations. |
-| [Schedules](/platform/schedules) | <kbd>G</kbd> + <kbd>U</kbd> | Schedule Actor runs and tasks to run at a specified time. |
-| [Development](/platform/actors/development) | <kbd>G</kbd> + <kbd>D</kbd> | &bull; **My Actors** - see Actors developed by you. <br/> &bull; **Insights** - see analytics for your Actors. <br/> &bull; **Messaging** - check reported issues or send emails to users of your Actors. |
-| [Proxy](/platform/proxy) | <kbd>G</kbd> + <kbd>P</kbd> | View your proxy usage and credentials. |
-| [Storage](/platform/storage) | <kbd>G</kbd> + <kbd>E</kbd> | View stored results of your runs in various data formats. |
-| [Billing](/platform/console/billing) | <kbd>G</kbd> + <kbd>B</kbd> | View billing information, statistics, and invoices. |
-| [Settings](/platform/console/settings) | <kbd>G</kbd> + <kbd>S</kbd> | Change settings of your account. |
+| [Apify Store](/console/store) | <kbd>G</kbd> + <kbd>O</kbd> | Search for Actors that suit your web-scraping needs. |
+| [Dashboard](/account/console) | <kbd>G</kbd> + <kbd>H</kbd> | Overview of your account with recently viewed Actors, suggestions, and recent runs. |
+| [Actors](/actors) | <kbd>G</kbd> + <kbd>A</kbd> | View recent and bookmarked Actors. |
+| [Runs](/actors/running/runs-and-builds) | <kbd>G</kbd> + <kbd>R</kbd> | View your recent runs. |
+| [Saved tasks](/actors/running/tasks) | <kbd>G</kbd> + <kbd>T</kbd> | View your saved tasks. |
+| [Integrations](/integrations) | <kbd>G</kbd> + <kbd>I</kbd> | View your integrations. |
+| [Schedules](/actors/running/schedules) | <kbd>G</kbd> + <kbd>U</kbd> | Schedule Actor runs and tasks to run at a specified time. |
+| [Development](/actors/development) | <kbd>G</kbd> + <kbd>D</kbd> | &bull; **My Actors** - see Actors developed by you. <br/> &bull; **Insights** - see analytics for your Actors. <br/> &bull; **Messaging** - check reported issues or send emails to users of your Actors. |
+| [Proxy](/proxy) | <kbd>G</kbd> + <kbd>P</kbd> | View your proxy usage and credentials. |
+| [Storage](/storage) | <kbd>G</kbd> + <kbd>E</kbd> | View stored results of your runs in various data formats. |
+| [Billing](/account/billing) | <kbd>G</kbd> + <kbd>B</kbd> | View billing information, statistics, and invoices. |
+| [Settings](/account/settings) | <kbd>G</kbd> + <kbd>S</kbd> | Change settings of your account. |
 
 To view all keyboard shortcuts, press <kbd>Shift</kbd> + <kbd>?</kbd>.

@@ -2,7 +2,7 @@
 title: Setup
 description: Configure your organization account by inviting new members and assigning their roles. Manage team members' access permissions to the organization's resources.
 sidebar_position: 1
-slug: /collaboration/organization-account/setup
+slug: /account/collaboration/organization/setup
 ---
 
 After creating your organization, you can configure its settings. The **Account** tab allows you to:
@@ -37,7 +37,7 @@ To edit the permissions for each role, click on the **Configure permissions** bu
 
 > Each member can only have one role to avoid conflicting permissions.
 
-You can configure individual permissions for each resource type such as Actors, Actor tasks or storage. Bear in mind that if a user has the **read** permission for [storages](../../storage/index.md), you cannot prevent them from accessing a particular storage (e.g. a certain [dataset](../../storage/index.md)) - they will have access to all of the organization's storages.
+You can configure individual permissions for each resource type such as Actors, Actor tasks or storage. Bear in mind that if a user has the **read** permission for [storages](/storage), you cannot prevent them from accessing a particular storage (e.g. a certain [dataset](/storage)) - they will have access to all of the organization's storages.
 
 **Some permissions have dependencies**. For example, if someone has the **Actor run** permission, it is likely they will also need the **storage write** permission, so they can store the results from their Actor runs.
 

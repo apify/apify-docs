@@ -2,7 +2,7 @@
 title: Using the organization account
 description: Learn to use and manage your organization account using Apify Console or the Apify API. View the organizations you are in and manage your memberships.
 sidebar_position: 2
-slug: /collaboration/organization-account/how-to-use
+slug: /account/collaboration/organization/how-to-use
 sidebar_label: How to use
 ---
 
@@ -40,7 +40,7 @@ The organization, its Actors, and its integrations will keep running as they are
 
 While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 
-As a member of an organization, you are assigned an [API token](../../integrations/index.mdx) (under the **API & Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
+As a member of an organization, you are assigned an [API token](/integrations) (under the **API & Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
 ![Integration tokens](../images/organizations/integrations.png)
 

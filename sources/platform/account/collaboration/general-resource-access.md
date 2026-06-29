@@ -3,7 +3,7 @@ title: General resource access
 description: Control how Apify resources are shared. Set default access to open ID-based access or restricted, and manage link sharing and pre-signed URLs.
 sidebar_position: 1
 category: platform
-slug: /collaboration/general-resource-access
+slug: /account/collaboration/general-resource-access
 ---
 
 Some resources, like storages, Actor runs or Actor builds, can be shared simply by sending their unique resource ID or Console link and the recipient can then view the data in Console or fetch it via API without needing an API token. This is very useful for ad-hoc collaboration, integrating third party tools that connect to data in your Apify account or quick prototypes.
@@ -305,7 +305,7 @@ const recordUrl = await storeClient.getRecordPublicUrl(recordKey);
 await Actor.pushData({ recordUrl });
 ```
 
-To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+To learn more about generating pre-signed URLs, refer to the section [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
 
 :::note Using Console URLs

@@ -2,14 +2,14 @@
 title: List of permissions
 description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.
 sidebar_position: 12.2
-slug: /collaboration/list-of-permissions
+slug: /account/collaboration/list-of-permissions
 ---
 
 This document contains all the access options that can be granted to resources on the Apify platform.
 
 ## Actors
 
-To learn about Apify Actors, check out the [documentation](../actors/index.mdx).
+To learn about Apify Actors, check out the [documentation](/actors).
 
 ### Actor
 
@@ -30,11 +30,11 @@ To learn about Apify Actors, check out the [documentation](../actors/index.mdx).
 | View runs            | View a list of Actor task runs and their details.          |
 | Manage access rights | Manage Actor task access rights.                           |
 
-To learn about Actor tasks, see the [documentation](../actors/running/tasks.md).
+To learn about Actor tasks, see the [documentation](/actors/running/tasks).
 
 ## Storage
 
-For more information about Storage, see its [documentation](../storage/index.md).
+For more information about Storage, see its [documentation](/storage).
 
 ### Dataset
 
@@ -44,7 +44,7 @@ For more information about Storage, see its [documentation](../storage/index.md)
 | Write                | Edit dataset settings, push data to it, and remove the dataset. |
 | Manage access rights | Manage dataset access rights.                                   |
 
-To learn about dataset storage, see its [documentation](../storage/dataset.md).
+To learn about dataset storage, see its [documentation](/storage/dataset).
 
 ### Key-value-store
 
@@ -54,7 +54,7 @@ To learn about dataset storage, see its [documentation](../storage/dataset.md).
 | Write                | Edit key-value store settings, add, update or remove its records, and delete the key-value store. |
 | Manage access rights | Manage key-value store access rights.                                                             |
 
-To learn about key-value stores, see the [documentation](../storage/key_value_store.md).
+To learn about key-value stores, see the [documentation](/storage/key-value-store).
 
 ### Request queue
 
@@ -64,7 +64,7 @@ To learn about key-value stores, see the [documentation](../storage/key_value_st
 | Write                | Edit request queue settings, add, update, or remove its records, and delete the request queue. |
 | Manage access rights | Manage request queue access rights.                                                            |
 
-To learn about request queue storage, see the [documentation](../storage/request_queue.md).
+To learn about request queue storage, see the [documentation](/storage/request-queue).
 
 ## Proxy
 
@@ -72,11 +72,11 @@ To learn about request queue storage, see the [documentation](../storage/request
 |------------|---------------------------|
 | Proxy      | Allow to use Apify Proxy. |
 
-To learn about Apify Proxy, see its [documentation](../proxy/index.md).
+To learn about Apify Proxy, see its [documentation](/proxy).
 
 ## User permissions
 
-Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](./organization_account/index.md).
+Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](/account/collaboration/organization).
 
 | Permission          | Description                                                           |
 |---------------------|-----------------------------------------------------------------------|

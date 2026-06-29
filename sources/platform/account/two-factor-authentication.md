@@ -3,7 +3,7 @@ title: Two-factor authentication
 description: Enable two-factor authentication on your Apify Console account using an authenticator app to add a second layer of security against unauthorized access.
 sidebar_position: 5
 category: platform
-slug: /console/two-factor-authentication
+slug: /account/two-factor-authentication
 ---
 
 Two-factor authentication (2FA) provides an extra layer of security that helps protect your Apify account. With 2FA enabled, logging into your account consists of two steps:

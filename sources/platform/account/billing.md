@@ -3,7 +3,7 @@ title: Billing
 description: View invoices, track current billing cycle usage, manage subscriptions and limits, and review historical usage from the Billings page in Console.
 sidebar_position: 3
 category: platform
-slug: /console/billing
+slug: /account/billing
 ---
 
 ## Current period

@@ -3,7 +3,7 @@ title: Schedules
 description: Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.
 sidebar_position: 8
 category: platform
-slug: /schedules
+slug: /actors/running/schedules
 ---
 
 Schedules allow you to run your Actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
@@ -30,7 +30,7 @@ Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tas
 
 ## Set up a new schedule
 
-Before setting up a new schedule, you should have the [Actor](./actors/index.mdx) or [task](./actors/running/tasks.md) you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the [Actor](/actors) or [task](/actors/running/tasks) you want to schedule prepared and tested.
 
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
@@ -50,7 +50,7 @@ You can adjust how often your Actor or task runs using the [schedule setup tool]
 
 Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Click on the **Add** dropdown and select whether you want to schedule an Actor or task.
 
-If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like [build](./actors/development/builds_and_runs/builds.md), timeout, [memory](./actors/running/usage_and_resources.md).
+If you're scheduling an Actor run, you'll be able to specify the Actor's [input](/actors/running/input-and-output) and running options like [build](/actors/development/builds-and-runs/builds), timeout, [memory](/actors/running/usage-and-resources).
 The **timeout** value is specified in seconds; a value of _0_ means there is no timeout, and the Actor runs until it finishes.
 
  If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
@@ -65,13 +65,13 @@ To add more Actors or tasks, just repeat the process.
 
 You can disable or enable the schedule at any time using the **Disable**/**Enable** button on the schedule detail page. New schedules are created in _disabled_ state by default.
 
-For integrations, you can also add a [webhook](/platform/integrations/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
+For integrations, you can also add a [webhook](/integrations/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 
 ### Apify API
 
 To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2/schedules-post) endpoint.
 
-You can find your [secret API token](./integrations/index.mdx) under the [API & Integrations](https://console.apify.com/settings/integrations) tab of your Apify account settings.
+You can find your [secret API token](/integrations) under the [API & Integrations](https://console.apify.com/settings/integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
