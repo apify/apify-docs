@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 To define a schema for a default dataset of an Actor run, you need to set `fields` property in the dataset schema.
 
-:::info
+:::info Define a single item
 
 The schema defines a single item in the dataset. Be careful not to define the schema as an array, it always needs to be a schema of an object.
 
