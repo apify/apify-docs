@@ -55,7 +55,7 @@ The next step it to build the Actor:
 
 Once the build starts, you're redirected to the **Last build** tab. Here you can check the build progress and view Docker build logs.
 
-![Source code of an Actor in the web IDE](./images/build-actor-in-web-ide.svg)
+![Source code of an Actor in the web IDE](../images/build-actor-in-web-ide.svg)
 
 ## Step 4: Run the Actor
 

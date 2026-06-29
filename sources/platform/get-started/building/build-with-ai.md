@@ -18,7 +18,7 @@ This guide provides best practices for building new Actors or improving existing
 :::tip Different goal?
 
 - _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/get-started/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
-- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/integrations/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
+- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/get-started/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
 
 :::
 
@@ -144,7 +144,7 @@ claude mcp add apify "https://mcp.apify.com/?tools=docs" -t http
 
 Every page in the Apify documentation has a **Copy for LLM** button. Use it to add more context to your AI assistant, or even open the page in ChatGPT, Claude, or Perplexity and ask additional questions.
 
-![Page from the Apify documentation with the Copy for LLM button highlighted](./images/copy-for-llm-button.svg)
+![Page from the Apify documentation with the Copy for LLM button highlighted](../images/copy-for-llm-button.svg)
 
 ## Use `/llms.txt` files
 

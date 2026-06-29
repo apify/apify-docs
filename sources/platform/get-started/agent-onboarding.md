@@ -1,9 +1,9 @@
 ---
 title: Apify for AI agents
-sidebar_label: Apify for AI agents
-sidebar_position: 2
+sidebar_label: Agent onboarding
+sidebar_position: 1
 description: Connect your AI agent to the Apify platform - scrape the web, run Actors, and retrieve structured data via MCP, Agent Skills, client libraries, or the REST API.
-slug: /integrations/agent-onboarding
+slug: /get-started/agent-onboarding
 toc_max_heading_level: 3
 ---
 
@@ -307,4 +307,4 @@ For targeted lookups, prefer `.md` URLs for specific pages or the MCP docs tools
 - [API client for JavaScript](https://docs.apify.com/api/client/js) | [for Python](https://docs.apify.com/api/client/python) - Client libraries
 - [Storage documentation](/storage) - Datasets, key-value stores, and request queues
 - [Build with AI](/actors/development) - Build and deploy your first Actor
-- [Framework integrations](./ai/crewai.md) - CrewAI, LangChain, LlamaIndex, and more
+- [Framework integrations](../integrations/ai/crewai.md) - CrewAI, LangChain, LlamaIndex, and more
