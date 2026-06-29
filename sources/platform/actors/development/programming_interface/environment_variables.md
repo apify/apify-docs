@@ -76,7 +76,6 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
-| `APIFY_HEADLESS` | _Deprecated_ - on the Apify platform this is always set to **1**, so web browsers inside the Actor always run in headless mode (no windowing system available). |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
@@ -87,6 +86,7 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/platform/actors/running/runs-and-builds#origin) documentation. |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
+| ~~`APIFY_HEADLESS`~~ | _Deprecated_ - on the Apify platform this is always set to **1**, so web browsers inside the Actor always run in headless mode (no windowing system available). |
 
 ## Custom environment variables
 
