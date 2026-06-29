@@ -65,7 +65,7 @@ The following variables are available in every template. Reference nested fields
 | Variable      | Type     | Description                                                                                                                |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------|
 | `userId`      | string   | ID of the Apify user who owns the integration.                                                                             |
-| `eventType`   | string   | Type of the trigger event. See [Webhook events](/integrations/webhooks/events) for the full list.                 |
+| `eventType`   | string   | Type of the trigger event. See [Webhook events](/integrations/webhooks/events) for the full list.                          |
 | `createdAt`   | string   | ISO 8601 timestamp of when the event was dispatched.                                                                       |
 | `eventData`   | object   | Identifiers of the entities involved in the event.                                                                         |
 | `resource`    | object   | Full snapshot of the triggering resource (an Actor run or an Actor build).                                                 |
