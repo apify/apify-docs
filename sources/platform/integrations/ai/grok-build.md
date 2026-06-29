@@ -38,28 +38,27 @@ The Apify plugin lives in the official xAI marketplace. Make sure that marketpla
 
 ## Install the plugin
 
-3. Start Grok Build:
+1. Start Grok Build:
 
     ```bash
     grok
     ```
 
-4. Run `/plugins` to open the extensions manager, then open the **Marketplace** tab. The official `plugin-marketplace` appears in the list.
+2. Run `/plugins` to open the extensions manager, then open the **Marketplace** tab. The official `plugin-marketplace` appears in the list.
 
-5. Search for `apify`.
+3. Search for `apify`.
 
-6. Select the **apify** plugin and press `i` to install it.
+4. Select the **apify** plugin and press `i` to install it.
 
 ## Authenticate to Apify
 
 The plugin bundles the Apify MCP server. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-7. Open the **MCP servers** tab. The Apify MCP server appears with a **[needs auth]** label.
+1. Open the **MCP servers** tab. The Apify MCP server appears with a **[needs auth]** label.
 
+2. Select the Apify MCP server to start the OAuth flow. Grok Build opens a browser tab for Apify.
 
-8. Select the Apify MCP server to start the OAuth flow. Grok Build opens a browser tab for Apify.
-
-9. Review the permissions and click **Allow access**.
+3. Review the permissions and click **Allow access**. Apify requests access to your profile and to run Actors and manage your runs and storage on your behalf.
 
     :::caution Dynamic registration warning
 
@@ -67,7 +66,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
     :::
 
-10. After you finish the OAuth flow, the **[needs auth]** label disappears and the Apify MCP server is connected.
+4. After you finish the OAuth flow, the **[needs auth]** label disappears and the Apify MCP server is connected.
 
 :::tip Session persistence
 
