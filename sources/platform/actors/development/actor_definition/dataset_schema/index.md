@@ -418,6 +418,8 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `actorSpecification` | integer | true | Version of the dataset schema structure. Only version 1 is available. |
+| `title` | string | false | Human-readable title for the dataset. Displayed in the Output tab UI and API responses. |
+| `description` | string | false | Description of the dataset. Provides additional context in the Output tab UI and API responses. |
 | `fields` | JSONSchema object | false | Schema of one dataset object using JSON Schema Draft 2020-12 or compatible format. |
 | `views` | Object | true | An object containing view definitions. Each key is a view ID, each value is a DatasetView object. |
 
