@@ -66,7 +66,7 @@ Finally, it's time to run the Actor:
 1. _(Optional)_ To customize the run, expand the **Run options** section. You can adjust the following options:
    - **Build** – select the build version to run.
    - **Timeout** – set the timeout for the run in seconds.
-   - **Memory limit** – allocate the memory for the run. For details, see [Usage and resources](/platform/actors/running/usage-and-resources).
+   - **Memory limit** – allocate the memory for the run. For details, see [Usage and resources](/actors/running/usage-and-resources).
    - **Maximum cost per run**.
 1. Click **Start**.
 <!-- vale on -->
@@ -138,5 +138,5 @@ Once you've made the desired changes, you can push the updated code back to the 
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- Check [Continuous integration](/platform/actors/development/deployment/continuous-integration) documentation to automate your Actor development process.
-- After you finish building your first Actor, you can [share it with other users and even monetize it](/platform/actors/publishing).
+- Check [Continuous integration](/actors/development/deployment/continuous-integration) documentation to automate your Actor development process.
+- After you finish building your first Actor, you can [share it with other users and even monetize it](/actors/publishing).

@@ -17,8 +17,8 @@ This guide provides best practices for building new Actors or improving existing
 
 :::tip Different goal?
 
-- _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/platform/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
-- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/platform/integrations/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
+- _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
+- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/integrations/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
 
 :::
 
@@ -157,7 +157,7 @@ The entire Apify documentation is available in Markdown format for use with LLMs
 
 Add `.md` to any documentation page URL to view its Markdown source.
 
-Example: `https://docs.apify.com/platform/actors` > `https://docs.apify.com/platform/actors.md`
+Example: `https://docs.apify.com/actors` > `https://docs.apify.com/actors.md`
 
 :::
 

@@ -18,7 +18,7 @@ This page covers:
 
 :::note Build with AI
 
-Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you develop Actors? See [Build Actors with AI](/platform/actors/development/quick-start/build-with-ai).
+Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to help you develop Actors? See [Build Actors with AI](/actors/development/quick-start/build-with-ai).
 
 :::
 
@@ -26,7 +26,7 @@ Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to hel
 
 - An [Apify account](https://console.apify.com/sign-up).
 - The [Apify CLI](/cli/docs/installation) installed.
-- Your `APIFY_TOKEN` environment variable set. See [API token](/platform/integrations/api#api-token) for details.
+- Your `APIFY_TOKEN` environment variable set. See [API token](/integrations/api#api-token) for details.
 
 ## Start from a template
 
@@ -80,7 +80,7 @@ AI Sandbox runs on a Debian image with Node.js version 24 and Python 3.11 pre-in
 
 ## Connect to user services with MCP connectors
 
-If your agent needs to act on a user's third-party accounts - posting to Slack, writing to Notion, querying GitHub - use [MCP connectors](/platform/integrations/mcp-connectors). The user authorizes each service once in their account settings, and your Actor receives a connector ID as input. Your Actor uses its Apify run token to reach the MCP Proxy; the third-party service credential stored in the connector stays server-side and never enters the Actor. Declare which services your Actor accepts in the input schema with `resourceType: "mcpConnector"`. See [Build Actors with MCP connectors](/platform/integrations/mcp-connectors/use-in-actors) for the full schema and code samples.
+If your agent needs to act on a user's third-party accounts - posting to Slack, writing to Notion, querying GitHub - use [MCP connectors](/integrations/mcp-connectors). The user authorizes each service once in their account settings, and your Actor receives a connector ID as input. Your Actor uses its Apify run token to reach the MCP Proxy; the third-party service credential stored in the connector stays server-side and never enters the Actor. Declare which services your Actor accepts in the input schema with `resourceType: "mcpConnector"`. See [Build Actors with MCP connectors](/integrations/mcp-connectors/use-in-actors) for the full schema and code samples.
 
 ## Access LLMs with OpenRouter
 
@@ -120,7 +120,7 @@ Pay-per-event pricing can charge users per token. To do this, extract token coun
 
 ## Monetize with pay-per-event pricing
 
-[Pay-per-event (PPE)](/platform/actors/publishing/monetize/pay-per-event) pricing lets you charge users for specific actions your agent performs. Use `Actor.charge()` from the [JavaScript SDK](/sdk/js/reference/class/Actor#charge) or [Python SDK](/sdk/python/reference/class/Actor#charge) to bill users for events like API calls, generated results, or token usage.
+[Pay-per-event (PPE)](/actors/publishing/monetize/pay-per-event) pricing lets you charge users for specific actions your agent performs. Use `Actor.charge()` from the [JavaScript SDK](/sdk/js/reference/class/Actor#charge) or [Python SDK](/sdk/python/reference/class/Actor#charge) to bill users for events like API calls, generated results, or token usage.
 
 ### PPE for AI agents
 
@@ -141,7 +141,7 @@ If an Actor's net profit goes negative (for example, from free-tier users consum
 
 :::
 
-For detailed pricing guidance, see the [pay-per-event documentation](/platform/actors/publishing/monetize/pay-per-event).
+For detailed pricing guidance, see the [pay-per-event documentation](/actors/publishing/monetize/pay-per-event).
 
 ## Deploy to Apify
 
@@ -153,8 +153,8 @@ apify push
 
 This builds and deploys your Actor. Once deployed, you can:
 
-- Publish to Apify Store - make your agent available to other users and start earning with PPE pricing. See the [publishing documentation](/platform/actors/publishing).
+- Publish to Apify Store - make your agent available to other users and start earning with PPE pricing. See the [publishing documentation](/actors/publishing).
 - Run via API - trigger your agent programmatically through the [Apify API](/api/v2).
 - Set up schedules - run your agent on a recurring schedule.
 
-For more deployment options, see the [deployment documentation](/platform/actors/development/deployment).
+For more deployment options, see the [deployment documentation](/actors/development/deployment).

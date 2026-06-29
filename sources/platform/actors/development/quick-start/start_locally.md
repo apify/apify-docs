@@ -78,7 +78,7 @@ Let's explore the Actor structure.
 <!-- vale Apify.Capitalization = NO -->
 #### The `.actor` folder
 
-The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) definition.
+The `.actor` folder contains the Actor configuration. The `actor.json` file defines the Actor's name, description, and other settings. Find more info in the [actor.json](https://docs.apify.com/actors/development/actor-definition/actor-json) definition.
 <!-- vale Apify.Capitalization = YES -->
 
 #### Actor's `input`
@@ -93,11 +93,11 @@ This JSON Schema validates input automatically (no error handling needed), power
 
 :::
 
-Find more info in the [Input schema](/platform/actors/development/actor-definition/input-schema) documentation.
+Find more info in the [Input schema](/actors/development/actor-definition/input-schema) documentation.
 
 #### Actor's `storage`
 
-The Actor system provides two storage types for files and results: [key-value](/platform/storage/key-value-store) store and [dataset](/platform/storage/dataset).
+The Actor system provides two storage types for files and results: [key-value](/storage/key-value-store) store and [dataset](/storage/dataset).
 
 ##### Key-value store
 
@@ -111,8 +111,8 @@ The dataset stores a series of data objects from web scraping, crawling, or data
 
 You define the Actor output using the Output schema files:
 
-- [Dataset Schema Specification](/platform/actors/development/actor-definition/dataset-schema)
-- [Key-value Store Schema Specification](/platform/actors/development/actor-definition/key-value-store-schema)
+- [Dataset Schema Specification](/actors/development/actor-definition/dataset-schema)
+- [Key-value Store Schema Specification](/actors/development/actor-definition/key-value-store-schema)
 
 The system uses this to generate an immutable JSON file that tells users where to find the Actor's results.
 
@@ -146,5 +146,5 @@ Good job! 🎉 You're ready to develop your Actor. You can make changes to your 
 
 - Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- Check [Continuous integration](/platform/actors/development/deployment/continuous-integration) documentation to automate your Actor development process.
-- After you finish building your first Actor, you can [share it with other users and even monetize it](/platform/actors/publishing).
+- Check [Continuous integration](/actors/development/deployment/continuous-integration) documentation to automate your Actor development process.
+- After you finish building your first Actor, you can [share it with other users and even monetize it](/actors/publishing).

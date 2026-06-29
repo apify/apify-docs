@@ -48,7 +48,7 @@ You're all set! If you have questions or need help, reach out on the [Apify Disc
 
 The **Message** field on the Slack integration setup screen accepts a [Handlebars](https://handlebarsjs.com/) template. When the integration fires, Apify renders the template with data from the triggering event and posts the result to the configured channel.
 
-The Slack integration uses Handlebars, so all built-in helpers (`{{#if}}`, `{{#each}}`, `{{#unless}}`, and so on) work in your template. [Webhook actions](/platform/integrations/webhooks/actions) use a separate JSON payload template engine; don't mix the two.
+The Slack integration uses Handlebars, so all built-in helpers (`{{#if}}`, `{{#each}}`, `{{#unless}}`, and so on) work in your template. [Webhook actions](/integrations/webhooks/actions) use a separate JSON payload template engine; don't mix the two.
 
 A few rules apply to every template:
 
@@ -65,7 +65,7 @@ The following variables are available in every template. Reference nested fields
 | Variable      | Type     | Description                                                                                                                |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------|
 | `userId`      | string   | ID of the Apify user who owns the integration.                                                                             |
-| `eventType`   | string   | Type of the trigger event. See [Webhook events](/platform/integrations/webhooks/events) for the full list.                 |
+| `eventType`   | string   | Type of the trigger event. See [Webhook events](/integrations/webhooks/events) for the full list.                 |
 | `createdAt`   | string   | ISO 8601 timestamp of when the event was dispatched.                                                                       |
 | `eventData`   | object   | Identifiers of the entities involved in the event.                                                                         |
 | `resource`    | object   | Full snapshot of the triggering resource (an Actor run or an Actor build).                                                 |

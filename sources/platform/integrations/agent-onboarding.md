@@ -17,8 +17,8 @@ Connect your AI agent or application to Apify - the platform for web scraping, d
 
 - _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
 - _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
-- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/platform/integrations/mcp), [CLI](/cli), and client libraries.
-- _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/platform/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
+- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/integrations/mcp), [CLI](/cli), and client libraries.
+- _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ After [connecting the MCP server](#mcp-server) to your AI assistant, ask:
 Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
 ```
 
-Your agent calls [`search-actors`](/platform/integrations/mcp#available-tools), [`call-actor`](/platform/integrations/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
+Your agent calls [`search-actors`](/integrations/mcp#available-tools), [`call-actor`](/integrations/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
 
 </TabItem>
 <TabItem value="javascript" label="JavaScript">
@@ -92,7 +92,7 @@ When an agent calls Actors automatically, set run limits to prevent surprise bil
 - `timeout` (seconds) - cap how long a single run can last.
 - `maxTotalChargeUsd` - cap total run cost for pay-per-event Actors.
 
-See [Usage and resources](/platform/actors/running/usage-and-resources) and [Billing](/platform/console/billing) for details.
+See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/account/billing) for details.
 
 :::
 
@@ -107,7 +107,7 @@ See [Usage and resources](/platform/actors/running/usage-and-resources) and [Bil
 
 ### MCP server
 
-The [Apify MCP server](/platform/integrations/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
+The [Apify MCP server](/integrations/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
 
 :::tip Free exploration
 
@@ -153,7 +153,7 @@ For clients that only support local MCP servers, for example Claude Desktop.
 
 1. Replace `YOUR_TOKEN` with your API token and restart the client.
 
-For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For details, see the [MCP server documentation](/platform/integrations/mcp).
+For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For details, see the [MCP server documentation](/integrations/mcp).
 
 ### API client
 
@@ -261,7 +261,7 @@ For HTTP-native integrations or languages without a dedicated client. Base URL: 
 
 The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/act-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/act-runs-post) for longer runs.
 
-For runs that take longer than the sync timeout, prefer [webhooks](/platform/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
+For runs that take longer than the sync timeout, prefer [webhooks](/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
 
 Full reference: [Apify API v2](/api/v2).
 
@@ -290,7 +290,7 @@ Apify documentation is available in formats optimized for programmatic consumpti
 
 | Resource | How to access |
 | :--- | :--- |
-| Specific doc page | Append `.md` to any docs URL (for example, `docs.apify.com/platform/actors.md`) |
+| Specific doc page | Append `.md` to any docs URL (for example, `docs.apify.com/actors.md`) |
 | Specific doc page (alt) | Request with `Accept: text/markdown` header |
 | Docs index | [docs.apify.com/llms.txt](https://docs.apify.com/llms.txt) |
 | Full docs (large) | [docs.apify.com/llms-full.txt](https://docs.apify.com/llms-full.txt) |
@@ -301,10 +301,10 @@ For targeted lookups, prefer `.md` URLs for specific pages or the MCP docs tools
 
 ## Useful resources
 
-- [MCP server integration](/platform/integrations/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
+- [MCP server integration](/integrations/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints
 - [API client for JavaScript](https://docs.apify.com/api/client/js) | [for Python](https://docs.apify.com/api/client/python) - Client libraries
-- [Storage documentation](/platform/storage) - Datasets, key-value stores, and request queues
-- [Build with AI](/platform/actors/development) - Build and deploy your first Actor
+- [Storage documentation](/storage) - Datasets, key-value stores, and request queues
+- [Build with AI](/actors/development) - Build and deploy your first Actor
 - [Framework integrations](./ai/crewai.md) - CrewAI, LangChain, LlamaIndex, and more

@@ -17,7 +17,7 @@ Key-value stores are mutable - you can both add entries and delete them.
 
 :::info Retention period
 
-Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/platform/storage#named-and-unnamed-storages)
+Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
 
 :::
 
@@ -38,7 +38,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
-To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/storage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail-header.png)
@@ -276,11 +276,11 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or t
 
 ## Share
 
-You can grant [access rights](../collaboration/index.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](/account/collaboration) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](/account/collaboration/list-of-permissions).
 
-You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
 ### Share key-value stores between runs
 
@@ -338,7 +338,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage#share-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 
