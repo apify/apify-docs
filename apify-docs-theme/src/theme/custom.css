@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap');
 
 html[data-theme='dark'] {
-    --ifm-navbar-background-color: #1a1b23;
-    --ifm-background-color: #1a1b23;
-    --ifm-background-surface-color: #242736;
+    --ifm-navbar-background-color: #0f0f0f;
+    --ifm-background-color: #020202;
+    --ifm-background-surface-color: #1d1d1d;
 
-    --ifm-font-color-base: #f2f3fb;
+    --ifm-font-color-base: #dfdfdf;
 
-    --ifm-pre-background: #242736;
+    --ifm-pre-background: #1d1d1d;
 
     --ifm-color-primary: #5d9df1;
     --ifm-link-color: #5d9df1;
@@ -24,54 +24,54 @@ html[data-theme='dark'] {
     --docsearch-text-color: #8d92af;
 
     /* TRON colors */
-    --color-Neutral_Text: #f3f4fa;
-    --color-Neutral_TextMuted: #b0b8d1;
-    --color-Neutral_Border: #d1d5e4;
-    --color-Neutral_Hover: #2a2d39;
-    --color-Neutral_Background: #1a1b21;
-    --color-Neutral_BackgroundMuted: #252832;
-    --color-Neutral_ChipBackground: #555d76;
-    --color-Neutral_ChipBackgroundActive: #8c93a8;
-    --color-Neutral_SeparatorSubtle: #31384d;
+    --color-Neutral_Text: #dfdfdf;
+    --color-Neutral_TextMuted: #a3a3a3;
+    --color-Neutral_Border: #2a2a2a;
+    --color-Neutral_Hover: #313131;
+    --color-Neutral_Background: #020202;
+    --color-Neutral_BackgroundMuted: #0f0f0f;
+    --color-Neutral_ChipBackground: #606060;
+    --color-Neutral_ChipBackgroundActive: #959595;
+    --color-Neutral_SeparatorSubtle: #161616;
     --color-Primary_ChipText: #8ebcff;
     --color-Primary_ChipBackground: #1a3a78;
     --color-Primary_TextInteractive: #6f9dff;
 
     /* EXPERIMENT: tokens for shared components */
-    --color-neutral-text: #f3f4fa;
-    --color-neutral-text-muted: #b2b8cc;
-    --color-neutral-text-subtle: #8c93a8;
-    --color-neutral-text-disabled: #575d71;
-    --color-neutral-text-on-primary: #1a1b21;
-    --color-neutral-icon-on-primary: #1a1b21;
-    --color-neutral-background: #1a1b21;
-    --color-neutral-background-muted: #252832;
-    --color-neutral-background-subtle: #2a2d39;
-    --color-neutral-background-white: #f3f4fa;
-    --color-neutral-card-background: #1e2027;
-    --color-neutral-border: #414758;
-    --color-neutral-separator-subtle: #343847;
-    --color-neutral-hover: #2d313e;
-    --color-neutral-disabled: #343847;
-    --color-neutral-overflow: #2a2d39;
-    --color-neutral-icon: #b2b8cc;
-    --color-neutral-icon-subtle: #6e758a;
-    --color-neutral-icon-disabled: #575d71;
-    --color-neutral-field-border: #343847;
-    --color-neutral-action-secondary: #575d71;
-    --color-neutral-action-secondary-hover: #6e758a;
-    --color-neutral-action-secondary-active: #343847;
-    --color-neutral-chip-background: #575d71;
-    --color-neutral-chip-background-hover: #6e758a;
-    --color-neutral-chip-background-active: #8c93a8;
-    --color-neutral-chip-background-disabled: #8c93a8;
-    --color-neutral-large-tooltip-background: #2a2d39;
-    --color-neutral-large-tooltip-border: #343847;
-    --color-neutral-small-tooltip-background: #1a1b21;
-    --color-neutral-small-tooltip-border: #252832;
-    --color-neutral-overlay: #101114cc;
-    --color-neutral-field-background: #101114;
-    --color-neutral-text-placeholder: #6e758a;
+    --color-neutral-text: #dfdfdf;
+    --color-neutral-text-muted: #a3a3a3;
+    --color-neutral-text-subtle: #888888;
+    --color-neutral-text-disabled: #454545;
+    --color-neutral-text-on-primary: #161616;
+    --color-neutral-icon-on-primary: #161616;
+    --color-neutral-background: #020202;
+    --color-neutral-background-muted: #0f0f0f;
+    --color-neutral-background-subtle: #1d1d1d;
+    --color-neutral-background-white: #f3f3f3;
+    --color-neutral-card-background: #0f0f0f;
+    --color-neutral-border: #2a2a2a;
+    --color-neutral-separator-subtle: #161616;
+    --color-neutral-hover: #313131;
+    --color-neutral-disabled: #383838;
+    --color-neutral-overflow: #2a2a2a;
+    --color-neutral-icon: #d8d8d8;
+    --color-neutral-icon-subtle: #6d6d6d;
+    --color-neutral-icon-disabled: #454545;
+    --color-neutral-field-border: #454545;
+    --color-neutral-action-secondary: #2a2a2a;
+    --color-neutral-action-secondary-hover: #454545;
+    --color-neutral-action-secondary-active: #454545;
+    --color-neutral-chip-background: #606060;
+    --color-neutral-chip-background-hover: #7b7b7b;
+    --color-neutral-chip-background-active: #959595;
+    --color-neutral-chip-background-disabled: #959595;
+    --color-neutral-large-tooltip-background: #2a2a2a;
+    --color-neutral-large-tooltip-border: #383838;
+    --color-neutral-small-tooltip-background: #2a2a2a;
+    --color-neutral-small-tooltip-border: #383838;
+    --color-neutral-overlay: #101114;
+    --color-neutral-field-background: #0f0f0f;
+    --color-neutral-text-placeholder: #7b7b7b;
     --color-primary-text: #6f9dff;
     --color-primary-text-interactive: #6f9dff;
     --color-primary-icon: #3970d7;

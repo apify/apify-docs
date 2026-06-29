@@ -8,7 +8,7 @@
 }
 
 html[data-theme='dark'] .card-hoverable:hover {
-    background-color: rgb(30, 40, 59);
+    background-color: var(--color-neutral-hover);
 }
 
 .card-image-container {
