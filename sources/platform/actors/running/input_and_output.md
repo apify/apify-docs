@@ -1,6 +1,6 @@
 ---
 title: Input and output
-description: Learn how Actors receive input and where they store their output, including the Actor output object and how to access run results from Console or the API.
+description: Learn how Actors receive input and where they store their output, including the Actor output object and how to access run results from Apify Console or the API.
 sidebar_position: 2
 slug: /actors/running/input-and-output
 ---
