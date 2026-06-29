@@ -8,17 +8,20 @@ slug: /actors/development
 
 This section will guide you through the whole story of [Actor](../index.mdx) development.
 
-You can follow chapters sequentially from [Quick start](/actors/development/quick-start), where you learn how to create your first Actor in just a few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](/actors/development/performance) section, where you learn how to fine-tune your Actor to get the most out of the Apify platform.
+New to building Actors? Start with [Get started](/get-started) to create your first one in minutes. This section covers the technical Actor model in depth, from the Actor definition through to the [Performance](/actors/development/performance) section, where you learn to fine-tune your Actor to get the most out of the Apify platform.
+
+## Technology stack
+
+Any code that can run inside of a Docker container can be turned into an Apify [Actor](../index.mdx). This gives you freedom in choosing your technical stack, including programming language and technologies.
+
+But to fully benefit from running on top of the Apify platform, we recommend you choose either JavaScript/Node.js or Python, where Apify provides first-level support regarding its SDK, API clients, and learning materials.
+
+For these languages, you can also [choose from many code templates](https://apify.com/templates) that help you to kickstart your project quickly.
 
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
 <CardGrid>
-    <Card
-        title="Quick start"
-        to="/actors/development/quick-start"
-        desc="Create your first Actor using Apify Console IDE or locally."
-    />
     <Card
         title="Actor definition"
         to="/actors/development/actor-definition"
