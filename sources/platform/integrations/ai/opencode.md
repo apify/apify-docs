@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 [OpenCode](https://opencode.ai) is an open-source AI coding agent that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
-The [Apify plugin for OpenCode](https://www.npmjs.com/package/opencode-apify) connects OpenCode to Apify's library of [Actors](https://apify.com/store) by bundling the [Apify MCP server](/platform/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+The [Apify plugin for OpenCode](https://www.npmjs.com/package/opencode-apify) connects OpenCode to Apify's library of [Actors](https://apify.com/store) by bundling the [Apify MCP server](/platform/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 <ThirdPartyDisclaimer />
 
@@ -39,7 +39,7 @@ Alternatively, add the plugin to your `opencode.json`:
 
 ## Authenticate to Apify
 
-The plugin bundles the Apify MCP server. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
 1. List the configured MCP servers:
 
