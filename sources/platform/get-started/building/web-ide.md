@@ -3,6 +3,8 @@ title: Web IDE
 sidebar_position: 2
 description: Create and run your first Actor using the web IDE in Apify Console, from writing your first lines of code to deploying it live in the cloud.
 slug: /get-started/web-ide
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';

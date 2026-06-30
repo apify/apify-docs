@@ -5,6 +5,8 @@ sidebar_position: 1
 description: Connect your AI agent to the Apify platform - scrape the web, run Actors, and retrieve structured data via MCP, Agent Skills, client libraries, or the REST API.
 slug: /get-started/agent-onboarding
 toc_max_heading_level: 3
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';

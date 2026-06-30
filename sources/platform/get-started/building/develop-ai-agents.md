@@ -4,6 +4,8 @@ description: Build and deploy AI agents on Apify with framework templates, sandb
 sidebar_position: 4.0
 sidebar_label: Develop AI agents
 slug: /get-started/develop-ai-agents
+pagination_next: null
+pagination_prev: null
 ---
 
 The Apify platform provides everything you need to build, test, and deploy AI agents. This page walks you through the complete toolkit: templates, sandbox code execution, LLM access through OpenRouter, pay-per-event monetization, and deployment to [Apify Store](https://apify.com/store).
