@@ -194,10 +194,13 @@ docker run --rm \
   -e CAMUNDA_CLIENT_CLOUD_REGION='<YOUR_REGION>' \
   -e CAMUNDA_CLIENT_AUTH_CLIENTID='<YOUR_CLIENT_ID>' \
   -e CAMUNDA_CLIENT_AUTH_CLIENTSECRET='<YOUR_CLIENT_SECRET>' \
+  -e SECRET_APIFY_TOKEN='<apify-token>' \
   camunda/connectors-bundle:8.9.4
 ```
 
 The client credentials need the **Orchestration Cluster REST API** scope at minimum. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for scopes and alternate auth modes.
+
+The `SECRET_APIFY_TOKEN` variable name above is for Camunda 8.9. On 8.8 the runtime expects `APIFY_TOKEN` instead - see [Provide the Apify token to the runtime](#provide-the-apify-token-to-the-runtime) for the version matrix.
 
 #### Provide the Apify token to the runtime
 
@@ -208,7 +211,12 @@ If your templates reference `{{secrets.APIFY_TOKEN}}` (recommended over hardcodi
 | 8.8.x | `APIFY_TOKEN=<your token>` |
 | 8.9.x | `SECRET_APIFY_TOKEN=<your token>` |
 
-The `{{secrets.APIFY_TOKEN}}` reference in the template stays the same; only the environment variable name changes. Add the matching `-e` flag to your `docker run` (or the equivalent secret in Compose/Helm). For the full version matrix and how to customize the prefix, see [COMPATIBILITY.md](https://github.com/apify/apify-camunda-integration/blob/main/COMPATIBILITY.md).
+The template always references the secret as `{{secrets.APIFY_TOKEN}}` - the prefix never appears there. The runtime adds it when resolving the value:
+
+- **8.9** applies a default `SECRET_` prefix, so `{{secrets.APIFY_TOKEN}}` resolves against `SECRET_APIFY_TOKEN`.
+- **8.8** has no prefix, so it resolves against `APIFY_TOKEN`.
+
+Add the matching `-e` flag to your `docker run` (or the equivalent secret in Compose/Helm). For the full version matrix and how to customize the prefix, see [COMPATIBILITY.md](https://github.com/apify/apify-camunda-integration/blob/main/COMPATIBILITY.md).
 
 #### Bake the JAR into a custom image for production
 
