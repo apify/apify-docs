@@ -1,13 +1,12 @@
 title: UserPrivateInfo
+# The id, email, profile and createdAt fields are omitted when this endpoint is accessed
+# from an Actor run, so they cannot be marked as always required (see apify-core
+# src/api/src/routes/users/user.ts REMOVE_FIELDS_WHEN_ACCESSED_BY_ACTOR_RUN).
 required:
-  - id
   - username
-  - profile
-  - email
   - proxy
   - plan
   - effectivePlatformFeatures
-  - createdAt
   - isPaying
 type: object
 properties:

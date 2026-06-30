@@ -1,24 +1,9 @@
 title: Plan
+# When /users/me is accessed from an Actor run, the plan object is reduced to only
+# availableProxyGroups (see apify-core src/api/src/routes/users/user.ts). The other
+# fields are therefore only present in the full response and cannot be always required.
 required:
-  - id
-  - description
-  - isEnabled
-  - monthlyBasePriceUsd
-  - monthlyUsageCreditsUsd
-  - enabledPlatformFeatures
-  - maxMonthlyUsageUsd
-  - maxActorMemoryGbytes
-  - maxMonthlyActorComputeUnits
-  - maxMonthlyResidentialProxyGbytes
-  - maxMonthlyProxySerps
-  - maxMonthlyExternalDataTransferGbytes
-  - maxActorCount
-  - maxActorTaskCount
-  - dataRetentionDays
   - availableProxyGroups
-  - teamAccountSeatCount
-  - supportLevel
-  - availableAddOns
 type: object
 properties:
   id:
