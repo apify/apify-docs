@@ -94,11 +94,8 @@ const themeConfig = {
             {
                 label: 'APIs, SDKs & CLI',
                 type: 'dropdown',
-                to: `${absoluteUrl}/api/v2`,
-                activeBasePath: 'api',
+                activeBaseRegex: '^/(api|sdk|cli)/',
                 position: 'right',
-                target: '_self',
-                rel: 'dofollow',
                 items: [
                     {
                         label: 'API Reference',

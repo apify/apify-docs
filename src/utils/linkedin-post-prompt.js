@@ -80,7 +80,7 @@ Mix these types (3-5 per post):
 - Industry-specific: #SaaS #MarketResearch #SalesOps
 - Outcome-focused: #Productivity #Efficiency #Automation
 - Broad professional: #BusinessGrowth #ProfessionalDevelopment
-- Tool/: #NoCode #DataAnalysis #WebScraping
+- Tool/platform: #NoCode #DataAnalysis #WebScraping
 
 Demo video concepts:
 - Post #1: Split-screen showing manual process vs. automated
