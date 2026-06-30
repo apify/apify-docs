@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 [GitHub Copilot](https://github.com/features/copilot) is GitHub's AI coding assistant. In VS Code, its agent mode reads and edits your workspace, runs commands, and completes multi-step development tasks.
 
-The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-copilot-plugin) connects Copilot to Apify's library of [Actors](https://apify.com/store) and bundles:
+The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects Copilot to Apify's library of [Actors](https://apify.com/store) and bundles:
 
 - The [Apify MCP server](/platform/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
@@ -32,7 +32,7 @@ The plugin is distributed as a repository you clone into your workspace. Copilot
 1. Clone the plugin repository:
 
     ```bash
-    git clone https://github.com/apify/apify-copilot-plugin apify-copilot
+    git clone https://github.com/apify/apify-github-copilot-plugin apify-copilot
     ```
 
 1. Open the cloned `apify-copilot` folder in VS Code. The Explorer shows an `apify` folder containing `agents`, `skills`, `.mcp.json`, and `plugin.json`.
@@ -43,7 +43,9 @@ The plugin is distributed as a repository you clone into your workspace. Copilot
 
     ![VS Code Settings showing Chat: Plugin Locations with the apify entry set to true](images/github-copilot/enable-plugin-setting.webp)
 
-1. Reload VS Code. Run **Developer: Reload Window** from the Command Palette, or restart the editor.
+1. Reload VS Code. Open the Command Palette (`Ctrl+Shift+P`, or `Cmd+Shift+P` on macOS), run **Developer: Reload Window**, or restart the editor.
+
+    ![VS Code Command Palette with the Developer: Reload Window command selected](images/github-copilot/reload-window.webp)
 
 1. Open Copilot Chat, open the mode picker, and select the **apify** agent.
 
@@ -57,9 +59,9 @@ The plugin registers the Apify MCP server (`https://mcp.apify.com/`) through `.m
 
     ![apify/.mcp.json with the Start action above the apify-mcp-server entry](images/github-copilot/mcp-start.webp)
 
-1. VS Code prompts that the MCP server wants to authenticate to `console-backend.apify.com`. Select **Allow**, then **Open** to launch the browser.
+1. VS Code prompts that the MCP server wants to authenticate to `console-backend.apify.com`. Select **Allow**.
 
-    ![VS Code dialog asking to allow the apify-mcp-server to authenticate to console-backend.apify.com](images/github-copilot/mcp-oauth-allow.webp)
+1. VS Code asks to open the Apify authorization page in your browser. Select **Open**.
 
 1. Complete the Apify OAuth flow in the browser: select an existing connection or create a new one, then review the permissions and confirm access.
 
@@ -152,7 +154,7 @@ Start from the **apify** agent. It is the single entry point that detects the av
 
 ## Resources
 
-- [Apify plugin for GitHub Copilot](https://github.com/apify/apify-copilot-plugin) - Source repository and full README with advanced setup notes
+- [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) - Source repository and full README with advanced setup notes
 - [GitHub Copilot documentation](https://docs.github.com/en/copilot) - Official GitHub Copilot docs
 - [Apify MCP server documentation](/platform/integrations/mcp) - Connect the Apify MCP server to other clients
 - [Apify Store](https://apify.com/store) - Browse Actors you can run from Copilot
