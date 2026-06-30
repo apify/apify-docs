@@ -307,7 +307,8 @@ listLastRun:
   operationId: act_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -344,7 +345,8 @@ listTaskLastRun:
   operationId: actorTask_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -478,7 +480,8 @@ postLastRun:
   operationId: act_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
@@ -492,4 +495,5 @@ postTaskLastRun:
   operationId: actorTask_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"

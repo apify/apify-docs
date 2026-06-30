@@ -83,7 +83,8 @@ getLastRun:
   operationId: act_runs_last_requestQueue_request_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
 
 getTaskLastRun:
@@ -97,7 +98,8 @@ getTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_request_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
 
 sharedPut: &sharedPut
@@ -173,7 +175,8 @@ putLastRun:
   operationId: act_runs_last_requestQueue_request_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
@@ -189,7 +192,8 @@ putTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_request_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
@@ -243,7 +247,8 @@ deleteLastRun:
   operationId: act_runs_last_requestQueue_request_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
@@ -258,6 +263,7 @@ deleteTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_request_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

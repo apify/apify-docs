@@ -123,7 +123,7 @@ Actions allow you to perform operations like running an Actor within a workflow.
     - **Wait for finish**: Whether to wait for the run to finish before continuing. If true, the node will wait for the run to complete (successfully or not) before moving to the next node
     ![Apify Node](../../images/n8n-run-actor-example.png)
 1. Add another Apify operation called **Get Dataset Items**.
-    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the output of the Actor run
+    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the items from the Actor run's default dataset
     ![Apify Node](../../images/n8n-get-dataset-items-example.png)
 1. Add any subsequent nodes (e.g. Google Sheets) to process or store the output
 1. Save and execute the workflow
