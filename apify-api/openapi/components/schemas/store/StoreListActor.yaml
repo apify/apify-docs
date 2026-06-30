@@ -4,8 +4,6 @@ required:
   - title
   - name
   - username
-  - userFullName
-  - description
   - stats
   - currentPricingInfo
 type: object
@@ -26,7 +24,7 @@ properties:
     type: string
     examples: [Jane H. Doe]
   description:
-    type: string
+    type: [string, "null"]
     examples: [My public actor!]
   categories:
     type: array
