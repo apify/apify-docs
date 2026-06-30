@@ -29,8 +29,8 @@ get:
   operationId: actorTask_runs_last_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../components/parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../components/parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":

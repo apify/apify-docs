@@ -96,8 +96,8 @@ listLastRun:
   operationId: act_runs_last_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/exclusiveStartKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/limit"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionKeys"
@@ -115,8 +115,8 @@ listTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/exclusiveStartKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/limit"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionKeys"

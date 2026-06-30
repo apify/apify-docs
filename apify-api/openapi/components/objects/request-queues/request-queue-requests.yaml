@@ -93,8 +93,8 @@ listLastRun:
   operationId: act_runs_last_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
@@ -112,8 +112,8 @@ listTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
@@ -193,8 +193,8 @@ postLastRun:
   operationId: act_runs_last_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
 
@@ -209,7 +209,7 @@ postTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"

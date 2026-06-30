@@ -88,25 +88,6 @@ gracefully:
     type: boolean
     example: true
 
-statusLastRun:
-  name: status
-  in: query
-  description: Filter for the run status.
-  style: form
-  explode: true
-  schema:
-    type: string
-    example: SUCCEEDED
-
-originLastRun:
-  name: origin
-  in: query
-  description: Filter for the run origin, i.e. the means by which the run was started.
-  style: form
-  explode: true
-  schema:
-    $ref: ../schemas/actor-runs/RunOrigin.yaml
-
 timeout: &timeout
   name: timeout
   in: query

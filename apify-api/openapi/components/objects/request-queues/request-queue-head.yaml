@@ -93,8 +93,8 @@ listLastRun:
   operationId: act_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
@@ -109,7 +109,7 @@ listTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

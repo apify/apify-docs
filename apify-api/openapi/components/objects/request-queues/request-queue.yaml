@@ -38,16 +38,16 @@ sharedLastRun: &sharedLastRun
     - Last Actor run's default request queue
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
 
 sharedTaskLastRun: &sharedTaskLastRun
   tags:
     - Last Actor task run's default request queue
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/originLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
 
 sharedGet: &sharedGet
   responses:
