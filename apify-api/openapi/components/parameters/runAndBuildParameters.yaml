@@ -88,16 +88,6 @@ gracefully:
     type: boolean
     example: true
 
-statusLastRun:
-  name: status
-  in: query
-  description: Filter for the run status.
-  style: form
-  explode: true
-  schema:
-    type: string
-    example: SUCCEEDED
-
 timeout: &timeout
   name: timeout
   in: query
