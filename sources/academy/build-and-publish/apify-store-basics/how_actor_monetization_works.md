@@ -34,7 +34,7 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 :::info Pass platform usage costs to users
 
-Optionally, you can [pass costs associated with the platform usage](../../../actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) to the users.
+Optionally, you can [pass costs associated with the platform usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) to the users.
 
 Profit calculation: `profit = 0.8 * revenue`
 
@@ -130,7 +130,7 @@ Learn more about what makes a good readme here: [How to create an Actor README](
 
 ### Adapt when needed
 
-Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary. You can also choose to [pass platform usage costs to users](/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) while you’re still figuring out the right price.
+Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary. You can also choose to [pass platform usage costs to users](/actors/publishing/monetize/pay-per-event#platform-usage-costs) while you’re still figuring out the right price.
 
 To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
 
