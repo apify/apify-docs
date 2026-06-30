@@ -265,6 +265,21 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 :::
 
+### Anonymous access
+
+The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+
+- `search-actors`
+- `fetch-actor-details`
+- `search-apify-docs`
+- `fetch-apify-docs`
+
+For example, the following URL connects without authentication:
+
+`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
+
+If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication.
+
 ### Available tools
 
 | Tool name | Category | Enabled by default | Description |
