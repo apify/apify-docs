@@ -8,7 +8,8 @@ interface GitButtonProps {
 
 function GitButtonInner({ href, ariaLabel }: GitButtonProps) {
     const { colorMode } = useColorMode();
-    const src = `https://buttons.github.io/buttons.html#${new URLSearchParams({
+    // unauthenticated GitHub API requests (60/hr) can throttle star counts — replace iframe with a direct GitHub API call + server-side token to fix
+const src = `https://buttons.github.io/buttons.html#${new URLSearchParams({
         href,
         'data-icon': 'octicon-mark-github',
         'data-text': 'Star',
