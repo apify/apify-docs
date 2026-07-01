@@ -220,6 +220,11 @@ You can also search for "Apify" in the connector directory and install it direct
 For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
 </TabItem>
+<TabItem value="gamut" label="Gamut">
+
+Add the Apify MCP server to a [Gamut](https://www.gamut.so/mcp/search-ai/apify) agent by navigating to **Connections**, clicking **Add Connection**, and searching for **Apify**. Click **+** to add it, then authenticate with your Apify account when prompted.
+
+</TabItem>
 </Tabs>
 
 ### Local stdio
