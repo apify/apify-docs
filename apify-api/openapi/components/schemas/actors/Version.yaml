@@ -26,9 +26,9 @@ properties:
     examples: [false]
     description: Whether to inject the environment variables at build time.
   buildTag:
-    type: string
+    type: [string, "null"]
     examples: [latest]
-    description: The tag name to apply to a successful build of this version.
+    description: The tag name to apply to a successful build of this version. Can be `null` when the version has no build tag.
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
     description: Applies when the `sourceType` is `SOURCE_FILES`. Represents the Actor's
