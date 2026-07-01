@@ -36,7 +36,6 @@ html[data-theme='dark'] {
     --color-Primary_ChipText: var(--color-primary-chip-text);
     --color-Primary_ChipBackground: var(--color-primary-chip-background);
     --color-Primary_TextInteractive: var(--color-primary-text-interactive);
-
 }
 
 :root {
