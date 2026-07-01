@@ -8,13 +8,11 @@ slug: /proxy/unblocker-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Unblocker proxy bypasses anti-bot and anti-captcha systems automatically, so you don't need to figure out how to get through them yourself.
+Unblocker proxy is designed for scraping websites protected by anti-bot and anti-captcha systems. Instead of building and maintaining your own detection and bypass logic, you can route requests through Unblocker proxy, which automatically handles many common protection mechanisms.
 
-Use Unblocker proxy when a website blocks scrapers with anti-bot protection or captchas, and you want the proxy to handle bypassing them for you instead of building and maintaining your own bypass logic.
+This makes it a good choice for accessing websites with advanced bot protection while keeping your scraping code simple.
 
-## Pricing
-
-Unblocker proxy uses unit-based pricing. Each request through Unblocker proxy is currently billed at 10 units.
+**Pricing is based on units.** Each request through Unblocker proxy is currently billed at 10 units.
 
 ## Connect to Unblocker proxy
 
