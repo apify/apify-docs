@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 
 const StyledHorizontalTile = styled(HorizontalTile)`
     height: 100%;
-    background-color: var(--color-neutral-background);
+    background-color: var(--color-neutral-card-background);
     border-color: var(--color-neutral-border);
     & > * {
         display: inherit;
