@@ -118,7 +118,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
   - Use them to attract attention or as visual shortcuts. Use emojis consistently to invoke a user's iconic memory. The visual language should match across the whole input schema (and README) so the user can understand what section or field is referred to without reading the whole title.
     - Don't overload the schema with emojis. They attract attention, so you need to use them sparingly.
 
-:::tip
+:::tip Using emojis
 
 Read more on the use of emojis: [Actors and emojis](/academy/actor-marketing-playbook/actor-basics/actors-and-emojis)
 
