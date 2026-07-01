@@ -128,7 +128,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
 
 ## Usage limit
 
-To protect you from accidental overspending, the Apify platform introduces usage limits based on your billing plan. For details, see [Limits](/account/billing#limits).
+To protect you from accidental overspending, the Apify platform introduces usage limits based on your billing plan. For details, see [Limits](./console/billing.md#limits).
 
 ## Increase limits
 

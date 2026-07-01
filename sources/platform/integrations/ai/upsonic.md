@@ -62,7 +62,7 @@ agent = Agent(
     ],
 )
 
-task = Task("What information can you find on https://docs.apify.com/actors?")
+task = Task("What information can you find on https://docs.apify.com/platform/actors?")
 agent.print_do(task)
 ```
 
@@ -161,5 +161,5 @@ Browse the [Apify Store](https://apify.com/store) to find Actors for social medi
 - [Upsonic documentation](https://docs.upsonic.ai)
 - [Upsonic ApifyTools reference](https://docs.upsonic.ai/concepts/tools/scraping-tools/apify)
 - [Upsonic restaurant scout example](https://github.com/Upsonic/Examples/tree/master/examples/web_search_and_scraping/apify_google_maps_restaurant_scout)
-- [Apify Actor documentation](/actors)
+- [Apify Actor documentation](/platform/actors)
 - [Browse Actors on Apify Store](https://apify.com/store)

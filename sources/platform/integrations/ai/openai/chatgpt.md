@@ -24,7 +24,7 @@ Before connecting ChatGPT to Apify, you'll need:
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
 - _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
-- _ChatGPT with Developer mode enabled_ - You must enable [Developer Mode](https://.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer mode is active, the message input box is outlined in orange).
+- _ChatGPT with Developer mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer mode is active, the message input box is outlined in orange).
 
 ## Create an MCP connector
 
@@ -77,12 +77,12 @@ You should see ChatGPT calling Apify tools - such as the [RAG Web Browser](https
 
 ## Related integrations
 
-- [OpenAI Assistants integration](/integrations/openai-assistants) - Use Apify Actors with OpenAI Assistants API via function calling
-- [OpenAI Agents SDK integration](/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
+- [OpenAI Assistants integration](/platform/integrations/openai-assistants) - Use Apify Actors with OpenAI Assistants API via function calling
+- [OpenAI Agents SDK integration](/platform/integrations/openai-agents) - Integrate Apify MCP server with OpenAI Agents SDK
 
 ## Resources
 
-- [ChatGPT Developer mode](https://.openai.com/docs/guides/developer-mode) - Learn how to enable Developer Mode in ChatGPT
-- [Connectors and MCP servers](https://.openai.com/docs/guides/tools-connectors-mcp) - Official OpenAI documentation on using MCP servers with ChatGPT
+- [ChatGPT Developer mode](https://platform.openai.com/docs/guides/developer-mode) - Learn how to enable Developer Mode in ChatGPT
+- [Connectors and MCP servers](https://platform.openai.com/docs/guides/tools-connectors-mcp) - Official OpenAI documentation on using MCP servers with ChatGPT
 - [Apify MCP server](https://mcp.apify.com) - Interactive configuration tool for the Apify MCP server
-- [Apify MCP documentation](/integrations/mcp) - Complete guide to using the Apify MCP server
+- [Apify MCP documentation](/platform/integrations/mcp) - Complete guide to using the Apify MCP server

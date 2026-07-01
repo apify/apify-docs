@@ -69,6 +69,6 @@ You can pull the following types of data from TikTok using Gumloop’s TikTok no
 
 ## Other integrations
 
-- [Instagram](/integrations/gumloop/instagram)
-- [YouTube](/integrations/gumloop/youtube)
-- [Google Maps](/integrations/gumloop/maps)
+- [Instagram](/platform/integrations/gumloop/instagram)
+- [YouTube](/platform/integrations/gumloop/youtube)
+- [Google Maps](/platform/integrations/gumloop/maps)

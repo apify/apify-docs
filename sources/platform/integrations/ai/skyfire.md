@@ -29,7 +29,7 @@ With Skyfire integration, agents can discover available Apify Actors, execute sc
 
 ## Use Skyfire with Apify MCP server
 
-The [Apify MCP server](https://docs.apify.com/integrations/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
+The [Apify MCP server](https://docs.apify.com/platform/integrations/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
 
 ### Prerequisites
 
@@ -209,9 +209,9 @@ curl -s \
 
 Not all Actors in Apify Store can be run using agentic payments. To be eligible, an Actor must:
 
-- Use the [pay per event](/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
-- Run with [limited permissions](/actors/development/permissions). Actors that request full permissions are excluded.
-- Not use [Standby](/actors/running/standby) mode for now. Standby support is coming later.
+- Use the [pay per event](/platform/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
+- Run with [limited permissions](/platform/actors/development/permissions). Actors that request full permissions are excluded.
+- Not use [Standby](/platform/actors/running/standby) mode for now. Standby support is coming later.
 
 Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
 
@@ -234,7 +234,7 @@ The following operations are not supported with agentic payments:
 
 ## Resources
 
-- **[Model Context Protocol documentation](https://docs.apify.com/integrations/mcp)** - Complete guide to using the Apify MCP server
+- **[Model Context Protocol documentation](https://docs.apify.com/platform/integrations/mcp)** - Complete guide to using the Apify MCP server
 - **[Skyfire documentation](https://skyfire.xyz/)** - Official Skyfire guides and API reference
 - **[Apify API reference](https://docs.apify.com/api/v2)** - Complete API documentation for direct integration
-- **[Actor permissions](https://docs.apify.com/actors/development/permissions)** - Understanding Actor permission levels
+- **[Actor permissions](https://docs.apify.com/platform/actors/development/permissions)** - Understanding Actor permission levels

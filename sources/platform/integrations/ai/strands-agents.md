@@ -352,7 +352,7 @@ Fetch the first 50 items from dataset ID 'abc123' and summarize the key findings
 
 #### `apify_run_task`
 
-Run a saved [Actor task](/actors/running/tasks) with optional input overrides. Tasks are pre-configured Actor runs saved in Apify Console.
+Run a saved [Actor task](/platform/actors/running/tasks) with optional input overrides. Tasks are pre-configured Actor runs saved in Apify Console.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |

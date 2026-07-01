@@ -23,7 +23,7 @@ An Apify integration can be _general_, allowing users to integrate any Actor fro
 General integrations allow users to integrate Actors into their workflows by connecting Apify with other platforms. Examples include:
 
 - [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
-- [Keboola](/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
+- [Keboola](/platform/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
 
 ### Actor-specific integrations
 
@@ -39,7 +39,7 @@ For more examples both general and Actor-specific, check [integrations](./index.
 To integrate your service with Apify, you have two options:
 
 - Build an external integration using the [Apify API](https://docs.apify.com/api/v2)
-- Build an [Apify Actor](https://docs.apify.com/actors) that will be used as integration within [Apify Console](https://console.apify.com)
+- Build an [Apify Actor](https://docs.apify.com/platform/actors) that will be used as integration within [Apify Console](https://console.apify.com)
 
 ![Integration-ready Actors](./images/integration-ready-actors.png)
 
@@ -60,7 +60,7 @@ Apify supports two main authentication methods for secure API access.
 _OAuth 2.0_ - Use OAuth 2.0 to allow users to authorize your integration without sharing their credentials.
 <!-- TODO expand section possibly? -->
 
-_API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com/integrations/api#api-token).
+_API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com/platform/integrations/api#api-token).
 
 ### API implementation
 
@@ -77,7 +77,7 @@ Recommended features:
 - Select Actor: The Actor list will be pre-populated with Actors that the user created or used, using the [List of Actors API](https://docs.apify.com/api/v2/acts-get) and enriched with Actors from the store, which the user has not run already using [API](https://docs.apify.com/api/v2/store-get).
 - Synchronous vs. asynchronous run: flow will wait until the run/task finishes (consider a timeout on your platform side)
 - Input UI: upon selecting an Actor, dynamically display specific Actor input and preload default example values based on the Actor Input schema. Alternatively, allow users to insert a JSON input for the Actor.
-- Additionally, it should include the option to choose [Actor build](https://docs.apify.com/actors/running/runs-and-builds), [memory](https://docs.apify.com/actors/running/usage-and-resources#memory), and [timeout](https://docs.apify.com/actors/running/usage-and-resources#memory).
+- Additionally, it should include the option to choose [Actor build](https://docs.apify.com/platform/actors/running/runs-and-builds), [memory](https://docs.apify.com/platform/actors/running/usage-and-resources#memory), and [timeout](https://docs.apify.com/platform/actors/running/usage-and-resources#memory).
 - Field mapping: allowing users to map fields to data acquired in previous steps of the workflow.
 
 ##### Run a task
@@ -183,15 +183,15 @@ These identifiers enable better analytics and support for your integration.
 For inspiration, check out the public repositories of Apify's existing external integrations:
 
 - Zapier
-  - [Zapier integration documentation](https://docs.apify.com/integrations/zapier)
+  - [Zapier integration documentation](https://docs.apify.com/platform/integrations/zapier)
   - [Source code on GitHub](https://github.com/apify/apify-zapier-integration)
 - Make.com
-  - [Make.com integration documentation](https://docs.apify.com/integrations/make)
+  - [Make.com integration documentation](https://docs.apify.com/platform/integrations/make)
 - Kestra
   - [Kestra integration documentation](https://kestra.io/plugins/plugin-apify)
   - [Source code on GitHub](https://github.com/kestra-io/plugin-apify)
 - Keboola
-  - [Keboola integration documentation](https://docs.apify.com/integrations/keboola)
+  - [Keboola integration documentation](https://docs.apify.com/platform/integrations/keboola)
   - [Source code on GitHub](https://github.com/apify/keboola-ex-apify/) (JavaScript)
   - [Google Maps Reviews Scraper integration](https://github.com/apify/keboola-gmrs/) (Actor-specific)
 - Airbyte

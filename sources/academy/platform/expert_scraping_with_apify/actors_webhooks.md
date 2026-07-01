@@ -32,8 +32,8 @@ Webhooks are a powerful tool that can be used for just about anything. You can s
 
 Prior to moving forward, please read over these resources:
 
-- Read about [running Actors, handling Actor inputs, memory and CPU](/actors/running).
-- Learn about [Actor webhooks](/integrations/webhooks), which we will implement in the next lesson.
+- Read about [running Actors, handling Actor inputs, memory and CPU](/platform/actors/running).
+- Learn about [Actor webhooks](/platform/integrations/webhooks), which we will implement in the next lesson.
 - Learn [how to run Actors](/academy/api/run-actor-and-retrieve-data-via-api) using Apify's REST API.
 
 ## Knowledge check 📝 {#quiz}

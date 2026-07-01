@@ -247,4 +247,4 @@ When you configure the dataset fields schema, we generate a field list and measu
   - For objects, this tracks the number of keys
   - For booleans, this tracks whether the boolean was set to true. Minimum is always 0, but maximum can be either 1 or 0 based on whether at least one item in the dataset has the boolean field set to true.
 
-You can use them in [monitoring](/actors/running/monitoring#alert-configuration).
+You can use them in [monitoring](../../../../monitoring#alert-configuration).
