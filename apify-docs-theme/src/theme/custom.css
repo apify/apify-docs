@@ -299,6 +299,7 @@ footer .col {
 
 .navbar__sub {
     padding: 0.8rem var(--ifm-spacing-horizontal);
+    background: var(--color-neutral-background-muted);
     height: 58px;
 }
 
@@ -443,7 +444,7 @@ aside .icon svg[class*='iconExternalLink'] {
     margin-right: 1.6rem;
     padding-right: 2rem;
     position: relative;
-    border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
+    border-right: 1px solid var(--color-neutral-border);
     justify-content: center;
 }
 
@@ -744,12 +745,12 @@ html .plugin-docs .theme-doc-markdown h3 {
 
 html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link,
 html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .toc-highlight {
-    color: #b3b8d2;
+    color: var(--color-neutral-text);
 }
 
 html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active,
 html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
-    color: #f2f3fb;
+    color: var(--color-neutral-text);
 }
 
 .theme-doc-sidebar-menu .menu__link--active,
