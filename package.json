@@ -70,7 +70,7 @@
     },
     "dependencies": {
         "@apify/ui-icons": "^1.26.0",
-        "@apify/ui-library": "^1.131.1",
+        "@apify/ui-library": "^1.151.0",
         "@docusaurus/core": "~3.9.2",
         "@docusaurus/faster": "~3.9.2",
         "@docusaurus/plugin-client-redirects": "~3.9.2",
