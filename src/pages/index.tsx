@@ -41,6 +41,7 @@ import styles from './index.module.css';
 const StyledBanner = styled(Banner)`
     width: 100%;
     padding: 40px 16px 24px 16px;
+    background-color: var(--color-neutral-card-background);
 
     @media (min-width: ${theme.layout.tablet}) {
         width: 738px;

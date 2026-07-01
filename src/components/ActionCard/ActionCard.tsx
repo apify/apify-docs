@@ -11,8 +11,15 @@ import styles from './styles.module.css';
 
 const StyledHorizontalTile = styled(HorizontalTile)`
     height: 100%;
+    background-color: var(--color-neutral-card-background);
+    border-color: var(--color-neutral-border);
     & > * {
         display: inherit;
+    }
+
+    &:hover {
+        background-color: var(--color-neutral-card-background-hover);
+        border-color: var(--color-neutral-border);
     }
 `;
 
@@ -49,7 +56,7 @@ export default function ActionCard({ title, description, to, width, iconSrc, tit
                 </div>
             }
             isClickable
-            action={<ArrowRight20 strokeWidth={1.5} />}
+            action={<ArrowRight20 strokeWidth={1.5} style={{ color: 'var(--color-neutral-icon)' }} />}
         />
     );
 

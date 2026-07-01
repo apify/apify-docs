@@ -70,7 +70,7 @@
     },
     "dependencies": {
         "@apify/ui-icons": "^1.26.0",
-        "@apify/ui-library": "^1.131.1",
+        "@apify/ui-library": "^1.151.0",
         "@docusaurus/core": "~3.9.2",
         "@docusaurus/faster": "~3.9.2",
         "@docusaurus/plugin-client-redirects": "~3.9.2",
@@ -92,7 +92,6 @@
         "raw-loader": "^4.0.2",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
-        "react-github-btn": "^1.4.0",
         "styled-components": "^6.4.1",
         "unist-util-visit": "^5.0.0"
     },

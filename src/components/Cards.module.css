@@ -1,14 +1,11 @@
 .card {
-    border: 1px solid #b3b8d2;
+    background: var(--color-neutral-card-background);
+    border: 1px solid var(--color-neutral-border);
     border-radius: 0.5rem;
 }
 
 .card-hoverable:hover {
-    background-color: rgb(241, 242, 247);
-}
-
-html[data-theme='dark'] .card-hoverable:hover {
-    background-color: rgb(30, 40, 59);
+    background-color: var(--color-neutral-card-background-hover);
 }
 
 .card-image-container {
@@ -36,7 +33,7 @@ html[data-theme='dark'] .card-hoverable:hover {
     font-size: 120%;
     padding: 20px 1rem;
     margin: 0px 0px 10px 0px;
-    border-bottom: 1px #b3b8d2 solid;
+    border-bottom: 1px solid var(--color-neutral-border);
     box-sizing: border-box;
 }
 
