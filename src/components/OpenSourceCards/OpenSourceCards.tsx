@@ -95,10 +95,7 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
-                            <GitButton
-                                href="https://github.com/apify/impit"
-                                ariaLabel="Star apify/impit on GitHub"
-                            />
+                            <GitButton href="https://github.com/apify/impit" ariaLabel="Star apify/impit on GitHub" />
                         </div>
                     </div>
                 }
@@ -123,10 +120,7 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
-                            <GitButton
-                                href="https://github.com/apify/mcpc"
-                                ariaLabel="Star apify/mcpc on GitHub"
-                            />
+                            <GitButton href="https://github.com/apify/mcpc" ariaLabel="Star apify/mcpc on GitHub" />
                         </div>
                     </div>
                 }
