@@ -17,7 +17,17 @@ import './styles.css';
  */
 function matchesCurrentInstance(href, baseUrl) {
     if (baseUrl === '/') {
-        return href.startsWith('/academy') || href.startsWith('/platform');
+        return (
+            href.startsWith('/academy') ||
+            href.startsWith('/get-started') ||
+            href.startsWith('/actors') ||
+            href.startsWith('/storage') ||
+            href.startsWith('/proxy') ||
+            href.startsWith('/account') ||
+            href.startsWith('/integrations') ||
+            href.startsWith('/limits') ||
+            href.startsWith('/security')
+        );
     }
 
     return href.startsWith(baseUrl);

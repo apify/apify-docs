@@ -24,10 +24,10 @@ These native nodes eliminate the complexity of managing Apify tasks while provid
 
 The following data sources are available natively in Gumloop:
 
-- [Instagram](/platform/integrations/gumloop/instagram)
-- [Google Maps](/platform/integrations/gumloop/maps)
-- [TikTok](/platform/integrations/gumloop/tiktok)
-- [YouTube](/platform/integrations/gumloop/youtube)
+- [Instagram](/integrations/gumloop/instagram)
+- [Google Maps](/integrations/gumloop/maps)
+- [TikTok](/integrations/gumloop/tiktok)
+- [YouTube](/integrations/gumloop/youtube)
 
 ### Gumloop credits
 

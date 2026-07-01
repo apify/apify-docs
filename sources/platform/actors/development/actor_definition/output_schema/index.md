@@ -6,7 +6,7 @@ description: Define an output schema to specify where your Actor stores its resu
 slug: /actors/development/actor-definition/output-schema
 ---
 
-The Actor output schema builds upon the schemas for the [dataset](/platform/actors/development/actor-definition/dataset-schema) and [key-value store](/platform/actors/development/actor-definition/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
+The Actor output schema builds upon the schemas for the [dataset](/actors/development/actor-definition/dataset-schema) and [key-value store](/actors/development/actor-definition/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
 
 ## Why output schema matters
 
@@ -263,7 +263,7 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
 
 :::note Output schema complements dataset schema
 
-The output schema defines *where* data is stored and how to access it. The [dataset schema](/platform/actors/development/actor-definition/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
+The output schema defines *where* data is stored and how to access it. The [dataset schema](/actors/development/actor-definition/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
 
 - Output schema: Declares that results are in the default dataset
 - Dataset schema: Describes each field with `title`, `description`, and `example`

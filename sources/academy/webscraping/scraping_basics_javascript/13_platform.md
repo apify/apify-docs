@@ -2,7 +2,7 @@
 title: Using a scraping platform with Node.js
 sidebar_label: Using a platform
 description: Lesson about building a Node.js application for watching prices. Using the Apify platform to deploy a scraper.
-slug: /scraping-basics-javascript/platform
+slug: /scraping-basics-javascript/
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
@@ -64,7 +64,7 @@ Success: You are logged in to Apify as user1234!
 
 ## Turning our program to an Actor
 
-Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://docs.apify.com/platform/actors) - a standardized container with designated places for input and output.
+Every program that runs on the Apify platform first needs to be packaged as a so-called [Actor](https://docs.apify.com/actors) - a standardized container with designated places for input and output.
 
 Many [Actor templates](https://apify.com/templates/categories/javascript) simplify the setup for new projects. We'll skip those, as we're about to package an existing program.
 
@@ -183,7 +183,7 @@ When the run finishes, the interface will turn green. On the **Output** tab, we 
 
 :::info Accessing data
 
-We don't need to click buttons to download the data. It's possible to retrieve it also using Apify's API, the `apify datasets` CLI command, or the JavaScript SDK. Learn more in the [Dataset docs](https://docs.apify.com/platform/storage/dataset).
+We don't need to click buttons to download the data. It's possible to retrieve it also using Apify's API, the `apify datasets` CLI command, or the JavaScript SDK. Learn more in the [Dataset docs](https://docs.apify.com/storage/dataset).
 
 :::
 
@@ -191,15 +191,15 @@ We don't need to click buttons to download the data. It's possible to retrieve i
 
 Now that our scraper is deployed, let's automate its execution. In the Apify web interface, we'll go to [Schedules](https://console.apify.com/schedules). Let's click **Create new**, review the periodicity (default: daily), and specify the Actor to run. Then we'll click **Enable** - that's it!
 
-From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/platform/monitoring), and even set up alerts.
+From now on, the Actor will execute daily. We can inspect each run, view logs, check collected data, [monitor stats and charts](https://docs.apify.com/actors/running/monitoring), and even set up alerts.
 
 ![Schedule detail page](../scraping_basics/images/actor-schedule.webp)
 
 ## Adding support for proxies
 
-If monitoring shows that our scraper frequently fails to reach the Warehouse Shop website, it's likely being blocked. To avoid this, we can [configure proxies](https://docs.apify.com/platform/proxy) so our requests come from different locations, reducing the chances of detection and blocking.
+If monitoring shows that our scraper frequently fails to reach the Warehouse Shop website, it's likely being blocked. To avoid this, we can [configure proxies](https://docs.apify.com/proxy) so our requests come from different locations, reducing the chances of detection and blocking.
 
-Proxy configuration is a type of [Actor input](https://docs.apify.com/platform/actors/running/input-and-output#input). Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled manually. Inside the `.actor` directory we'll create a new file, `inputSchema.json`, with the following content:
+Proxy configuration is a type of [Actor input](https://docs.apify.com/actors/running/input-and-output#input). Crawlee scrapers automatically connect their default dataset to the Actor output, but input must be handled manually. Inside the `.actor` directory we'll create a new file, `inputSchema.json`, with the following content:
 
 ```json title=".actor/inputSchema.json"
 {
@@ -331,4 +331,4 @@ We've reached the end of the course - congratulations! Together, we've built a p
 - Executes periodically without manual intervention, collecting data over time.
 - Uses proxies to avoid being blocked.
 
-We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even [start publishing scrapers](https://docs.apify.com/platform/actors/publishing) for others to use - for a fee?
+We hope this serves as a solid foundation for your next scraping project. Perhaps you'll even [start publishing scrapers](https://docs.apify.com/actors/publishing) for others to use - for a fee?

@@ -1,7 +1,8 @@
 ---
 title: Proxy
 description: Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.
-sidebar_position: 10
+sidebar_label: Overview
+sidebar_position: 0
 category: platform
 slug: /proxy
 ---
@@ -23,17 +24,17 @@ Each proxy type has distinct advantages, disadvantages, and pricing. Use them to
     <Card
         title="Datacenter proxy"
         desc="The fastest and cheapest option. It uses datacenters to change your IP address. Other users' activity can get these IPs blocked."
-        to="/platform/proxy/datacenter-proxy"
+        to="/proxy/datacenter-proxy"
     />
     <Card
         title="Residential proxy"
         desc="IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked."
-        to="/platform/proxy/residential-proxy"
+        to="/proxy/residential-proxy"
     />
     <Card
         title="Google SERP proxy"
         desc="Download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results."
-        to="/platform/proxy/google-serp-proxy"
+        to="/proxy/google-serp-proxy"
     />
 </CardGrid>
 
@@ -229,7 +230,7 @@ Use [sessions](#sessions) to control how you rotate IP addresses. See the guide 
 
 Sessions allow you to use the same IP address for multiple connections. When you need to keep a session (for example, to stay logged in to a website), keep the same proxy, and so the same IP address. Switching the IP address, by contrast, helps you avoid being blocked.
 
-To set a new session, pass the `session` parameter in your [username](#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
+To set a new session, pass the `session` parameter in your [username](#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
 
 We recommend the [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction for managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
 Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the session. Google SERP proxies do not support sessions.
