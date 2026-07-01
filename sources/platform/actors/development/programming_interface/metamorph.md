@@ -35,7 +35,7 @@ To make your Actor compatible with metamorph, use `Actor.getInput()` instead of 
 
 :::note Runtime limits
 
-There's a limit to how many times you can metamorph a single run. Refer to the [Actor runtime limits](/limits#actor-limits) for more details.
+There's a limit to how many times you can metamorph a single run. Refer to the [Actor runtime limits](/platform/limits#actor-limits) for more details.
 
 :::
 

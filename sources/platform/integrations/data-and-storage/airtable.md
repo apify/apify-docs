@@ -7,7 +7,7 @@ slug: /integrations/airtable
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-The [Airtable Data Import Actor](https://console.apify.com/actors/f4DM1wGmMQdnTLbrE/info/readme?build=latest) transfers items from any Apify dataset into an [Airtable](https://www.airtable.com/) base. Use it standalone or chain it after other Actors in automated workflows via [integrations](/integrations).
+The [Airtable Data Import Actor](https://console.apify.com/actors/f4DM1wGmMQdnTLbrE/info/readme?build=latest) transfers items from any Apify dataset into an [Airtable](https://www.airtable.com/) base. Use it standalone or chain it after other Actors in automated workflows via [integrations](/platform/integrations).
 
 <ThirdPartyDisclaimer />
 
@@ -205,6 +205,6 @@ After each run, the Actor writes a JSON summary to its dataset. Each field repor
 
 ## Next steps
 
-- [Learn about Apify integrations](/integrations) to chain Actors in automated workflows.
+- [Learn about Apify integrations](/platform/integrations) to chain Actors in automated workflows.
 - [Explore Airtable's API documentation](https://airtable.com/developers/web/api/field-model) for field type details.
 - If you have questions about the Airtable integration, reach out via the support live chat in Console or the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

@@ -70,6 +70,6 @@ You can pull the following types of place data from Google Maps using Gumloop’
 
 ## Other integrations
 
-- [TikTok](/integrations/gumloop/tiktok)
-- [Instagram](/integrations/gumloop/instagram)
-- [YouTube](/integrations/gumloop/youtube)
+- [TikTok](/platform/integrations/gumloop/tiktok)
+- [Instagram](/platform/integrations/gumloop/instagram)
+- [YouTube](/platform/integrations/gumloop/youtube)

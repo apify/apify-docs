@@ -186,7 +186,7 @@ If you're still stuck, open a clean new chat in ChatGPT and try the same prompt 
 
 Despite a few flaws, we've successfully created our first working prototype of a price-watching app with no coding knowledge.
 
-And thanks to Apify, our scraper can [run automatically on a weekly basis](https://docs.apify.com/actors/running/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/storage/dataset), we can [monitor its runs](https://docs.apify.com/actors/running/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/proxy).
+And thanks to Apify, our scraper can [run automatically on a weekly basis](https://docs.apify.com/platform/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/platform/storage/dataset), we can [monitor its runs](https://docs.apify.com/platform/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/platform/proxy).
 
 To improve our project further, we'd copy the code, ask ChatGPT to refine it, paste it back into the Web IDE, and rebuild.
 

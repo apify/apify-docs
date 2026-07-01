@@ -31,7 +31,7 @@ Before using the Apify piece in Activepieces, you need:
 
 - An [Apify account](https://console.apify.com/)
 - An [Activepieces account](https://www.activepieces.com/) or self-hosted instance
-- An Apify [API key](/integrations/api#api-token) with access to the Actors, tasks, and storages you want to use
+- An Apify [API key](/platform/integrations/api#api-token) with access to the Actors, tasks, and storages you want to use
 
 ## Connect Apify with Activepieces
 
@@ -136,7 +136,7 @@ Both triggers create and manage Apify webhooks automatically when you enable or 
   - **Build**, **Memory**, **Timeout**
   - **Wait for finish** behavior similar to **Run Actor**.
 
-- **Get Dataset Items** retrieves items from an Apify [dataset](/storage/dataset):
+- **Get Dataset Items** retrieves items from an Apify [dataset](/platform/storage/dataset):
   - Choose a dataset from your account.
   - Configure `offset` and `limit` to page through items.
   - Returns dataset items, their count, and the dataset ID.
@@ -146,7 +146,7 @@ Both triggers create and manage Apify webhooks automatically when you enable or 
   - Lets you choose a **crawler type** (e.g., Cheerio, JSDOM, Playwright variants).
   - Returns the Actor run details and the scraped items (HTML and markdown).
 
-- **Get Key-Value Store Record** retrieves a value from an Apify [key-value store](/storage/key-value-store):
+- **Get Key-Value Store Record** retrieves a value from an Apify [key-value store](/platform/storage/key-value-store):
   - Select a key-value store.
   - Select a record key from that store.
   - Returns the value as JSON, text, or a file reference, depending on its type.

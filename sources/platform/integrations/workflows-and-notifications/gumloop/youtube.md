@@ -70,7 +70,7 @@ You can pull the following types of data from YouTube using Gumloop’s YouTube 
 
 ## Other integrations
 
-- [TikTok](/integrations/gumloop/tiktok)
-- [Instagram](/integrations/gumloop/instagram)
-- [Google Maps](/integrations/gumloop/maps)
+- [TikTok](/platform/integrations/gumloop/tiktok)
+- [Instagram](/platform/integrations/gumloop/instagram)
+- [Google Maps](/platform/integrations/gumloop/maps)
 

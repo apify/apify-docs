@@ -71,9 +71,9 @@ Before you begin, make sure you have:
 - **Run task** - Runs a selected Actor task and optionally waits for it to finish.
 - **Run task synchronously** - Runs a selected task and returns its dataset items when it finishes.
 - **Scrape single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows.
-- **Get dataset items** - Retrieves items from a [dataset](/storage/dataset).
-- **Get key-value store record** - Retrieves a record from a [key-value store](/storage/key-value-store).
-- **Set key-value store record** - Creates or updates a record in a [key-value store](/storage/key-value-store).
+- **Get dataset items** - Retrieves items from a [dataset](/platform/storage/dataset).
+- **Get key-value store record** - Retrieves a record from a [key-value store](/platform/storage/key-value-store).
+- **Set key-value store record** - Creates or updates a record in a [key-value store](/platform/storage/key-value-store).
 
 ## Resources
 

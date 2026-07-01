@@ -37,7 +37,7 @@ To fetch the results from the Actor run, you can use the `actorRunId` event prop
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]
 ```
 
-Apart from the event data, actions also have the `resource` object available, which can provide more details about the object that triggered the event. For more information about the `resource` objects, see the [Webhooks Actions page](/integrations/webhooks/actions#resource)
+Apart from the event data, actions also have the `resource` object available, which can provide more details about the object that triggered the event. For more information about the `resource` objects, see the [Webhooks Actions page](/platform/integrations/webhooks/actions#resource)
 
 ## Actor build events
 

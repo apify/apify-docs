@@ -47,21 +47,20 @@ const MD_LINK = /^\[(?:\\.|[^\]\\])+\]\(https:\/\/docs\.apify\.com\/\S+\)$/;
 // children, previous and next, while each page only asserts what its position in
 // the tree guarantees (so reordering siblings can't make it flaky).
 const PAGES = [
-    // Section landings: only the universal keys, sometimes a `next`. In the v3 IA
-    // each section has its own sidebar, so a section landing is the first item
-    // (no `previous`) and a sibling link rather than a category (no `children`).
+    // Section landings: only the universal keys, sometimes a `next`.
+    { path: '/platform.md', keys: ['next'] },
     { path: '/academy.md', keys: [] },
     { path: '/api.md', keys: [] },
     { path: '/legal.md', keys: ['next'] },
-    { path: '/actors.md', keys: ['next'] },
-    { path: '/storage.md', keys: ['next'] },
-    { path: '/integrations.md', keys: ['next'] },
     // Category pages: have a `children` list plus neighbours.
-    { path: '/actors/running.md', keys: ['children', 'previous', 'next'] },
+    { path: '/platform/actors.md', keys: ['children', 'previous', 'next'] },
+    { path: '/platform/actors/running.md', keys: ['children', 'previous', 'next'] },
+    { path: '/platform/storage.md', keys: ['children', 'previous', 'next'] },
+    { path: '/platform/integrations.md', keys: ['children', 'previous', 'next'] },
     { path: '/api/v2.md', keys: ['children', 'next'] },
     // Leaf pages: no children, but sit between two neighbours.
-    { path: '/storage/dataset.md', keys: ['previous', 'next'] },
-    { path: '/proxy/datacenter-proxy.md', keys: ['previous', 'next'] },
+    { path: '/platform/storage/dataset.md', keys: ['previous', 'next'] },
+    { path: '/platform/proxy/datacenter-proxy.md', keys: ['previous', 'next'] },
     { path: '/api/v2/dataset-get.md', keys: ['previous', 'next'] },
     { path: '/academy/tutorials.md', keys: ['next'] },
     { path: '/legal/general-terms-and-conditions.md', keys: ['previous', 'next'] },
