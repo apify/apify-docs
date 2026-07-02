@@ -428,6 +428,10 @@ sharedPost: &sharedPost
             anyOf:
               - $ref: ../../schemas/datasets/PutItemResponseError.yaml
               - $ref: ../../schemas/common/ErrorResponse.yaml
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
   deprecated: false
 
 postById:
