@@ -60,7 +60,7 @@ Learn more about search intent here: [SEO](/academy/actor-marketing-playbook/pro
 
 Both descriptions can be found and edited on the very right **Publication tab →  Display information.** It has to be done separately for each Actor.
 
-:::note
+:::note Note
 
 Setting the SEO description and SEO name is optional. If not set, the description will just be duplicated.
 
