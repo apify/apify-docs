@@ -162,13 +162,13 @@ When using residential proxy with the `session` [parameter](./index.md#sessions)
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
 
-This IP/session ID combination is persisted for 1 minute. Each subsequent request resets the expiration time to 1 minute.
+This IP/session ID combination persists for around 30 minutes. The exact session lifetime is set by the upstream provider that handles the request (for example, Oxylabs and IPRoyal both use a 30-minute lifetime).
 
 If the proxy server becomes unresponsive or the session expires, a new IP address is selected for the next request.
 
-:::tip Keep sessions alive
+:::tip Reuse sessions
 
-To keep a session active, send a request through it before its 1-minute timer expires (for example, every 20 seconds). Each request resets the timer, so as long as the connection isn't interrupted, the session persists.
+To keep using the same IP address, reuse the same session ID within its lifetime. Once the session expires, a new IP address is assigned.
 
 :::
 

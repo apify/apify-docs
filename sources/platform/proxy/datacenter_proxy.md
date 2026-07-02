@@ -10,14 +10,14 @@ import TabItem from '@theme/TabItem';
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](./index.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate](./index.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy picks a small random subset of the available IP addresses and, from that subset, selects the one used the longest time ago for the specific hostname.
 
 You can refer to the [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
 
 ## Features
 
 * Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
-* Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
+* Intelligent rotation of IP addresses so target hosts are accessed via proxies from a random subset that have accessed them the longest time ago, to reduce the chance of blocking.
 * Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
 * Ensures proxies are located in specific countries using IP geolocation.
 * Allows selection of groups of proxy servers with specific characteristics.

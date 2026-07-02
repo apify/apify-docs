@@ -84,8 +84,8 @@ Use Google's `start` parameter to handle pagination manually. The `start` parame
 
 Google has deprecated the `num` query parameter, which previously controlled the number of results displayed per page.
 
-:::caution Ignored parameter
-If you include the `num` parameter in your requests, it will be ignored. Google no longer supports this parameter, and Google SERP proxy does not process it.
+:::caution Unsupported parameter
+Because Google no longer supports the `num` parameter, Google SERP proxy does not use it to control the number of results per page. A request with an invalid `num` value (for example `num=0` or a non-numeric value) is rejected with a `400` error, so avoid sending it.
 :::
 
 To retrieve more than 10 results, use the `numPages` parameter described before instead.

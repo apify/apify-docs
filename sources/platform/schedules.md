@@ -157,3 +157,9 @@ Additionally, you can use the following shortcut expressions:
 * `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
 * `@daily` = `0 0 * * *` - run once a day, at midnight.
 * `@hourly` = `0 * * * *` - on the hour, every hour.
+
+:::note Random time offset
+
+To avoid usage spikes, these shortcut expressions do not fire at the exact time shown. The platform adds a random offset to each run: 1 - 30 minutes for `@hourly`, 5 minutes - 6 hours for `@daily`, 5 minutes - 12 hours for `@weekly`, and 5 minutes - 24 hours for `@monthly` and `@yearly`. The offset is fixed per schedule when it is created. To run at an exact time, use the equivalent full cron expression instead.
+
+:::

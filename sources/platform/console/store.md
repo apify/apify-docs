@@ -22,4 +22,4 @@ Once you select an Actor from the store, you'll be directed to its specific page
 
 Search results in Apify Console are personalized to each individual user, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Both Console and the public Store rank Actors using parameters similar to those in the [Actor quality score](/platform/actors/publishing/quality-score).
 
-For more information, see [Actors in Store](/sources/platform/actors/running/store/index.md).
+For more information, see [Actors in Store](/platform/actors/running/actors-in-store).
