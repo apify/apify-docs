@@ -1,0 +1,68 @@
+name: Docs UI drift tests
+
+# Verifies Console-UI claims extracted from the platform docs against Console
+# staging with Playwright. Assertions are a committed, human-reviewed baseline
+# (docs-tests/assertions/); this job only evaluates them — extraction runs
+# locally, never in CI.
+#
+# Credentials come from repo Actions secrets (CONSOLE_STAGING_*). The seeded
+# staging user is low-privilege and has no 2FA; login is scripted fresh each run
+# and the session is held in memory (no auth file).
+
+on:
+    schedule:
+        -   cron: '0 6 * * 1'   # Production: every Monday 06:00 UTC
+    workflow_dispatch:           # Manual on-demand run (testing + ad-hoc checks)
+    push:
+        branches:
+            -   docs/ui-tests-ci-check   # TEMPORARY: validate this workflow on the throwaway test branch. Remove before merging to a real branch.
+
+defaults:
+    run:
+        working-directory: docs-tests
+
+jobs:
+    ui-drift:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v6
+
+            -   name: Use Node.js 24
+                uses: actions/setup-node@v6
+                with:
+                    node-version: 24
+
+            -   name: Install pnpm
+                uses: pnpm/action-setup@v4
+                with:
+                    version: 11
+
+            -   name: Install docs-tests dependencies
+                run: pnpm install --frozen-lockfile
+
+            -   name: Install Playwright browser
+                run: pnpm exec playwright install --with-deps chromium
+
+            -   name: Run docs UI drift tests
+                env:
+                    CI: 'true'
+                    CONSOLE_STAGING_URL: ${{ secrets.CONSOLE_STAGING_URL }}
+                    CONSOLE_STAGING_USER_EMAIL: ${{ secrets.CONSOLE_STAGING_USER_EMAIL }}
+                    CONSOLE_STAGING_USER_PASSWORD: ${{ secrets.CONSOLE_STAGING_USER_PASSWORD }}
+                run: pnpm test
+
+            -   name: Upload Playwright report
+                if: always()
+                uses: actions/upload-artifact@v4
+                with:
+                    name: playwright-report
+                    path: docs-tests/playwright-report/
+                    retention-days: 14
+
+            -   name: Upload drift report (issues.json)
+                if: always()
+                uses: actions/upload-artifact@v4
+                with:
+                    name: drift-report
+                    path: docs-tests/output/
+                    retention-days: 14
