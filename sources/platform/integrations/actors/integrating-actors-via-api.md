@@ -22,7 +22,7 @@ The webhook should look something like this:
 
 ```json5
 {
-    "requestUrl": "https://api.apify.com/v2/acts/<integration-actor-id>/runs",
+    "requestUrl": "https://api.apify.com/v2/actors/<integration-actor-id>/runs",
     "eventTypes": ["ACTOR.RUN.SUCCEEDED"],
     "condition": {
         "actorId": "<actor-id>",
