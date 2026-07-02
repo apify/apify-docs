@@ -33,9 +33,10 @@ jobs:
                     node-version: 24
 
             -   name: Install pnpm
+                # Version is read from the repo root package.json ("packageManager"
+                # field); do not also pass `version` here or the action errors on a
+                # version conflict.
                 uses: pnpm/action-setup@v4
-                with:
-                    version: 11
 
             -   name: Install docs-tests dependencies
                 run: pnpm install --frozen-lockfile
