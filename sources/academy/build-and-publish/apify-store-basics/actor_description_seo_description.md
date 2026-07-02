@@ -14,7 +14,7 @@ Learn about Actor description and meta description. Where to set them and best p
 
 First impressions are important, especially when it comes to tools. Actor descriptions are the first connection potential users have with your Actor. You can set two kinds of descriptions: _regular description_ (in Apify Store) and _SEO description_ (on Google search), along with their respective names: regular name and SEO name.
 
-:::tip
+:::tip Tip
 
 You can change descriptions and names as many times as you want.
 
