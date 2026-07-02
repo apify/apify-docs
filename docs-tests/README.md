@@ -86,8 +86,19 @@ without re-running the browser.
 Edit `pages.json` and re-run `pnpm extract:all`. Add a page → it gets an
 assertion set; remove one → delete its `assertions/<slug>.json`.
 
+## CI
+
+`.github/workflows/docs-ui-tests.yaml` runs the evaluation on a weekly schedule
+and on manual dispatch: it installs Playwright, logs in with the
+`CONSOLE_STAGING_*` repo secrets, evaluates the committed baseline against
+staging, uploads the report, and files a `docs-ui-drift` issue when an assertion
+fails. Extraction never runs in CI — the reviewed baseline is the only input.
+
 ## Known gaps (deferred)
 
+- **Coverage is a starting slice.** `pages.json` covers the Console section
+  (index, settings, billing, store) — routes and landing-page elements. Widening
+  to more pages is a follow-up: add to `pages.json`, re-extract, review, commit.
 - **Detail-page fixtures.** Assertions about Actor-detail, Schedule-detail, etc.
   need a known fixture to navigate to. The runner currently *skips* element
   assertions with no `at` route — surfacing the gap without false negatives.
@@ -95,13 +106,12 @@ assertion set; remove one → delete its `assertions/<slug>.json`.
   1 webhook, 1 completed run) from the Notion plan.
 - **Left-nav group check.** The documented global nav items (Dashboard/Store/
   Actors/…) are a Console-wide check, not a per-page claim — not modeled yet.
-- **Session-gated pages.** Pages like `/settings/security` re-prompt for
-  credentials even within a valid session; needs a `requires_fresh_session`
-  field plus a re-auth flow.
 - **Multi-step flows.** The schema only supports atomic claims (one
   navigate-then-check). "Click X, then Y, then Z" sequences are not modeled.
-- **No CI yet.** Local only; wiring into a scheduled GitHub Action (modeled on
-  `.github/workflows/lychee.yml`) is the follow-up.
+- **Surface mismatch.** Some docs describe the public marketing site (e.g.
+  `apify.com/store`) while the harness tests the Console (`/store`); the two can
+  use different labels, so those element claims may not map. Check the surface a
+  page actually documents before adding element assertions for it.
 
 ## Files
 
