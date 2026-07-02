@@ -30,9 +30,9 @@ Here you can manage:
 * [Actor permissions approval](../actors/running/permissions.md#full-permission-actors) (require or skip approval when running full-permission Actors)
 * share of run data with developers
 
-### Session information
+### Session
 
-In the **Session information** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days. This customization helps ensure compliance with organization security policies.
+In the **Session** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days. This customization helps ensure compliance with organization security policies.
 
 ## API & Integrations
 
@@ -44,7 +44,7 @@ The **MCP connectors** section lets you authorize third-party MCP servers (such 
 
 #### Create a connector
 
-1. Open **Settings > API & Integrations > MCP connectors** and click **Create new connector**.
+1. Open **Settings > API & Integrations > MCP connectors** and click **Add connector**.
 1. Enter the MCP server URL, for example:
 
     ```text
