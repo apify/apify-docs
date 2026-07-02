@@ -152,20 +152,15 @@ To use a custom `Dockerfile`, you can either:
 If no `Dockerfile` is provided, the system uses the following default:
 
 ```dockerfile
-FROM apify/actor-node:24
+FROM apify/actor-node:20
 
-COPY --chown=myuser:myuser package*.json ./
+# Copy all files and directories from the directory to the Docker image
+COPY . ./
 
-RUN npm --quiet set progress=false \
- && npm install --only=prod --no-optional \
- && echo "Installed NPM packages:" \
- && (npm list --only=prod --no-optional --all || true) \
- && echo "Node.js version:" \
- && node --version \
- && echo "NPM version:" \
- && npm --version
-
-COPY --chown=myuser:myuser . ./
+# Install NPM packages, skip optional and development dependencies to keep the image small,
+# avoid logging too much and show the dependency tree
+RUN npm install --quiet --only=prod --no-optional \
+ && (npm list || true)
 ```
 
 For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).

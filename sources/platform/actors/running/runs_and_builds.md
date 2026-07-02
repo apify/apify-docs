@@ -64,10 +64,12 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`WEB`|Manually from Apify Console in "normal" mode (someone else's Actor or task)|
 |`API`|From [Apify API](https://docs.apify.com/api)|
 |`CLI`|From [Apify CLI](https://docs.apify.com/cli/)|
+|`CI`|From a continuous integration pipeline|
 |`SCHEDULER`|Using a schedule|
 |`WEBHOOK`|Using a webhook|
 |`ACTOR`|From another Actor run|
 |`STANDBY`|From [Actor Standby](./standby)|
+|`MCP`|From an MCP (Model Context Protocol) client|
 
 ## Lifecycle
 
@@ -119,7 +121,7 @@ You can abort a run in Apify Console using the **Abort** button or via API using
 
 ### Resurrection of finished run
 
-Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
+Any Actor run in a terminal state, i.e., run with status **SUCCEEDED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
 
 The whole process of resurrection looks as follows:
 

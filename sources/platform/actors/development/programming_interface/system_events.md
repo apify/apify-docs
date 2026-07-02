@@ -28,10 +28,11 @@ The following table outlines the system events available:
 
 | Event name | Payload | Description |
 | --- | --- | --- |
-| `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Emitted approximately every second, indicating whether the Actor is using maximum available CPU resources. |
+| `systemInfo` | `{ memAvgBytes, memCurrentBytes, memMaxBytes, cpuAvgUsage, cpuMaxUsage, cpuCurrentUsage: Float, isCpuOverloaded: Boolean }` | Emitted approximately every second with the run's current memory and CPU usage statistics. |
+| `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Emitted alongside `systemInfo` for backwards compatibility, indicating whether the Actor is using maximum available CPU resources. |
 | `migrating` | `{ timeRemainingSecs: Float }` | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
 | `aborting` | N/A | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup. |
-| `persistState` | `{ isMigrating: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. |
+| `persistState` | `{ isMigrating: Boolean, isAborting: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. Also sent during a graceful abort with `isAborting: true`. |
 
 ## How system events work
 
@@ -42,17 +43,18 @@ Actors receive system events through a WebSocket connection. The address is spec
     // Event name
     name: String,
 
-    // Time when the event was created, in ISO format
-    createdAt: String,
-
-    // Optional object with payload
-    data: Object,
+    // Object with the event payload, including the creation time
+    data: {
+        // Time when the event was created, in ISO format
+        createdAt: String,
+        // ...event-specific fields
+    },
 }
 ```
 
 :::note Virtual events
 
-Some events like `persistState`, are generated virtually at the Actor SDK level, not sent via WebSocket.
+Some events, like the regular `persistState`, are generated virtually at the Actor SDK level rather than sent via WebSocket. During a graceful abort, however, the platform does send a `persistState` event over the WebSocket with `isAborting: true`.
 
 :::
 

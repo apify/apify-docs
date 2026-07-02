@@ -143,8 +143,8 @@ When using the webhook approach, the Actor must have its source set to a Git rep
 :::
 
 1. Go to your Actor's detail page in Apify Console.
-1. Go to the **API** tab.
-1. Select **API Endpoints** and copy the **Build Actor** API endpoint URL:
+1. Select the **API** dropdown button.
+1. Select **API endpoints** and copy the **Build Actor** API endpoint URL:
 
    ```text
    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60

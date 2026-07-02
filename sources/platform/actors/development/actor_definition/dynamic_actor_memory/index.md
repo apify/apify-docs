@@ -142,6 +142,7 @@ After the expression is evaluated, the memory value goes through these steps:
     - 900 → 1024 MB
     - 3,600 → 4096 MB
 
+1. The value is capped to the maximum Actor memory allowed by your subscription plan. If an expression requests more memory than your plan allows, the run gets the plan limit instead, even when the requested value is below 32 GB.
 1. If the Actor has minimum or maximum memory limits defined (`minMemoryMbytes` / `maxMemoryMbytes`), the value is adjusted to stay within those limits.
 1. The value is adjusted to stay within platform limits (128 MB to 32 GB).
 

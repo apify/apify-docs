@@ -44,6 +44,7 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_STORAGES_JSON` | JSON-encoded unique identifiers of storages associated with the current Actor run, e.g. `{ "keyValueStores": { "default": "<id>" }, "datasets": { "default": "<id>" }, "requestQueues": { "default": "<id>" } }`. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
 | `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
+| `ACTOR_MAX_PAID_DATASET_ITEMS` | For pay-per-result Actors, the user-set limit on the number of dataset items to charge for. Empty if not set. |
 | `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
 | `ACTOR_RESTART_ON_ERROR` | If **1**, the Actor run will be restarted if it fails. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
@@ -78,6 +79,7 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
+| `APIFY_PROXY_HOSTNAME` | Hostname of the Apify Proxy to use when building a proxy connection string. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
