@@ -79,13 +79,13 @@ To learn about Apify Proxy, see its [documentation](../proxy/index.md).
 
 Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](./organization_account/index.md).
 
-| Permission           | Description                                                     |
-|----------------------|-----------------------------------------------------------------|
+| Permission           | Description                                                            |
+|----------------------|------------------------------------------------------------------------|
 | Manage access tokens | Manage the account's access tokens, i.e. API token and proxy password. |
-| Manage billing       | Manage the subscription and billing of the account.            |
-| Update profile       | Make changes in profile information.                            |
-| Update email         | Update the contact email for the account.                      |
-| View invoices        | See the account's invoices.                                    |
-| View payouts         | View the account's payouts.                                    |
-| View monetization    | View the account's monetization details.                       |
-| Manage organization  | Change the organization's settings.                            |
+| Manage billing       | Manage the subscription and billing of the account.                    |
+| Update profile       | Make changes in profile information.                                   |
+| Update email         | Update the contact email for the account.                              |
+| View invoices        | See the account's invoices.                                            |
+| View payouts         | View the account's payouts.                                            |
+| View monetization    | View the account's monetization details.                               |
+| Manage organization  | Change the organization's settings.                                    |
