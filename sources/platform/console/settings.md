@@ -44,7 +44,7 @@ The **MCP connectors** section lets you authorize third-party MCP servers (such 
 
 #### Create a connector
 
-1. Open **Settings > API & Integrations > MCP connectors** and click **Add connector**.
+1. Open **Settings > API & Integrations > MCP connectors** and select **Add connector**.
 1. Enter the MCP server URL, for example:
 
     ```text
