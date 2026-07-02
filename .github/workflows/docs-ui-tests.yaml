@@ -115,7 +115,8 @@ jobs:
                     fi
 
                     # Ensure the dedup label exists (upsert), then reuse an open
-                    # issue if present, otherwise create a new one.
+                    # issue if present, otherwise create a new one. No assignee;
+                    # labels are docs-ui-drift (dedup marker) + t-docs.
                     gh label create docs-ui-drift --repo "$REPO" \
                       --color BFD4F2 --description "Automated Console UI drift report" --force || true
 
@@ -129,6 +130,5 @@ jobs:
                       gh issue create --repo "$REPO" \
                         --title "Docs UI drift detected by scheduled tests" \
                         --body-file "$BODY" \
-                        --label docs-ui-drift --label documentation --label t-docs \
-                        --assignee marcel-rbro
+                        --label docs-ui-drift --label t-docs
                     fi
