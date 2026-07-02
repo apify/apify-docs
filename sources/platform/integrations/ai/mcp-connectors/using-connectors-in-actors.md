@@ -14,6 +14,12 @@ This guide explains how to build Actors that accept [MCP connectors](/platform/i
 
 To accept MCP connectors as input, set `resourceType: "mcpConnector"` on the input field. This renders a connector picker in Apify Console and enforces which connectors are compatible with the Actor.
 
+:::note Availability
+
+MCP connector support is rolling out gradually and is not yet enabled for all accounts. If the connector picker does not appear in Apify Console, the feature is not yet available for you. Until then, a `mcpConnector` field of type `string` falls back to a plain text input and a field of type `array` falls back to a JSON editor.
+
+:::
+
 ### Single connector
 
 For an Actor that uses one connector, set `type` to `string`:

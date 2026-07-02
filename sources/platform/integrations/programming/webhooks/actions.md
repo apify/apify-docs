@@ -51,7 +51,7 @@ You can also use [Headers template](/platform/integrations/webhooks/actions#head
 
 :::
 
-Note that webhook HTTP requests have a timeout of _30 seconds_.
+Note that webhook HTTP requests have a timeout of _2 minutes_.
 If your endpoint performs a time-consuming operation, respond to the request immediately to prevent timeouts before Apify receives the response. To ensure reliable completion of the time-consuming operation, consider using a message queue internally to retry the operation on internal failure.
 
 In rare cases, the webhook might be invoked more than once.

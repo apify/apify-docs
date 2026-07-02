@@ -112,14 +112,14 @@ Replace `YOUR_SKYFIRE_API_KEY` with Skyfire buyer API key, which you can obtain 
 When an agent uses the Apify MCP server with Skyfire payments, the workflow proceeds as follows:
 
 1. The agent searches for suitable Actors using the search tools or works with pre-loaded Actors.
-1. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $5 and calls the Skyfire MCP server to create it.
+1. When attempting to run an Actor, the agent recognizes the need for a Skyfire PAY token with a minimum of $1 and calls the Skyfire MCP server to create it.
 1. The agent calls the Actor tool with the payment token.
 1. The Apify platform validates the token and starts the Actor run.
 1. The Actor does the work and delivers results.
 1. When the run completes, the agent receives the Actor results and can retrieve additional data if needed.
 1. Finally, Apify's billing system charges the Skyfire PAY token for the actual usage cost.
 
-Any unused funds remain available in the token for future runs or are returned to your Skyfire wallet when the token expires. This means you will not lose money if the actual usage is less than the $5 minimum.
+Any unused funds remain available in the token for future runs or are returned to your Skyfire wallet when the token expires. This means you will not lose money if the actual usage is less than the $1 minimum.
 
 ![The flow](../images/skyfire-apify-agentic-flow.png)
 
@@ -155,19 +155,6 @@ Instead of using a traditional Apify API token, pass your Skyfire PAY token in t
 ```text
 skyfire-pay-id: YOUR_SKYFIRE_PAY_TOKEN
 ```
-
-### Discover payment requirements
-
-To learn the Skyfire-specific payment details before paying, call the endpoint without a token and add the `X-APIFY-PAYMENT-PROTOCOL: SKYFIRE` header. The API responds with HTTP `402` and the Skyfire payment requirements, which you use to create a PAY token.
-
-```bash
-curl -si \
-  -H 'X-APIFY-PAYMENT-PROTOCOL: SKYFIRE' \
-  'https://api.apify.com/v2/actors/ACTOR_ID/run-sync-get-dataset-items'
-# → HTTP 402 with the Skyfire payment requirements
-```
-
-Once you send the `skyfire-pay-id` header, the protocol is inferred from it, so you no longer need to include `X-APIFY-PAYMENT-PROTOCOL`.
 
 ### Run an Actor
 
@@ -221,7 +208,7 @@ https://api.apify.com/v2/store?allowsAgenticUsers=true
 
 ### Payment requirements
 
-Your Skyfire PAY token must have at least _$5_ available to run Actors. However, you will only be charged for actual usage. If an Actor run costs less than 5$, the unused funds remain available in your token for future runs or return to your Skyfire wallet when the token expires.
+Your Skyfire PAY token must have at least _$1_ available to run Actors. However, you will only be charged for actual usage. If an Actor run costs less than $1, the unused funds remain available in your token for future runs or return to your Skyfire wallet when the token expires.
 
 ### Unsupported features
 

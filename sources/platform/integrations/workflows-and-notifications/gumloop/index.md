@@ -71,7 +71,7 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
 1. _Create and save tasks in Apify_
 
-   The Apify Task Runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Create a task** next to the Run button. Configure your task settings and save.
+   The Apify Task Runner node fetches tasks from your saved tasks in Apify Console. To create a task, navigate to [**Actors**](https://console.apify.com/actors), click on the Actor you want to use, and then click **Save as a new task** next to the Run button. Configure your task settings and save.
 
     ![Create a task on an Actor](images/create_apify_task.png)
 
