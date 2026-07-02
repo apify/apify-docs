@@ -33,7 +33,7 @@ To create an organization account:
    - Organization username
    - Organization email _(optional)_ – a dedicated email address for notifications. To use the owner's email address instead, leave this field empty.
 <!-- vale on -->
-You can create up to 5 organizations and be a member of as many organizations as you need.
+You can create up to 10 organizations and be a member of as many organizations as you need.
 
 ## Convert an existing account
 
@@ -44,6 +44,8 @@ When you convert an existing user account into an organization:
 - During conversion, a new account with the same login credentials is created for you. You can then use that account to [set up the organization](./setup.md).
 
 Before converting your personal account into an organization, make sure it has a username.
+
+You can't convert your account to an organization while you're on the Creator plan. Upgrade to a different plan to continue.
 
 An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to **leave all the organizations you are a part of**.
 

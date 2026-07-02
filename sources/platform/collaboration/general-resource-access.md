@@ -245,7 +245,7 @@ Manual signing uses standard _HMAC (SHA-256)_ with `urlSigningSecretKey` of the 
 
 ### Sharing storages by name
 
-A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is  **Anyone with name or ID can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
+A convenient feature of storages is that you can name them. If you choose to do so there is an extra access level setting that applies to storages only, which is  **Anyone with ID or name can read**. In that case anyone that knows the storage name is able to read it via API or view it using the storages Console URL.
 
 :::tip Exposing public named datasets
 

@@ -9,12 +9,11 @@ After creating your organization, you can configure its settings. The **Account*
 
 - Set the organization's email address
 - Change the username
-- Configure security settings
 - Delete the account.
 
 The **Members** tab lets you to update your organization's members and set its owner.
 
-In the **Account** tab's **Security** section, you can set security requirements for organization members. These include:
+In the **Security & Privacy** tab, you can set security requirements for organization members. These include:
 
 - Maximum session lifespan
 - Two-factor authentication requirement
