@@ -49,7 +49,7 @@ if (sets.length === 0) {
 for (const data of sets) {
   test.describe(`Doc-derived assertions from ${data.source_file}`, () => {
     for (const a of data.assertions) {
-      test(`[${a.kind}] ${a.id} — ${a.target}`, async ({ page }) => {
+      test(`[${a.kind}] ${a.id} — ${a.target}`, async ({ page, browser }) => {
         test.info().annotations.push({
           type: 'source',
           description: `${data.source_file}:${a.source_line} — "${a.source_quote}"`,
@@ -59,6 +59,23 @@ for (const data of sets) {
           type: 'assertion-data',
           description: JSON.stringify({ ...a, source_file: data.source_file }),
         });
+
+        // Assertions tagged needs_auth:false (the sign-up / sign-in pages) must
+        // run logged OUT. The shared `page` carries the worker's authenticated
+        // session, and visiting /sign-up while signed in redirects to the app,
+        // so its buttons ("Sign up", "Continue with Google/GitHub") vanish. Use
+        // a fresh context with no storageState instead.
+        if (!a.needs_auth) {
+          const anonContext = await browser.newContext({
+            baseURL: process.env.CONSOLE_STAGING_URL,
+          });
+          try {
+            await runAssertion(await anonContext.newPage(), a);
+          } finally {
+            await anonContext.close();
+          }
+          return;
+        }
 
         await runAssertion(page, a);
       });

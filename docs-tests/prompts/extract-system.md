@@ -72,28 +72,39 @@ map the page_context to a known route.
 
 1. **Only extract Console-UI claims.** Skip prose about concepts, payloads, API
    behavior, webhooks internals, or anything not visible in the Console.
-2. **One assertion = one specific, locatable UI fact.** Examples:
+2. **UI element names are BOLD in the docs — only extract `element_*` assertions
+   from bold text.** Apify house style writes literal UI element names (buttons,
+   tabs, menu items, field/section labels) in **bold**, e.g. `**Save**`,
+   `**Settings**`, `**Sign up**`. So an `element_button` / `element_tab` /
+   `element_text` assertion may only come from text that is bold in the source.
+   Plain (non-bold) text — prose, or a bullet list of criteria/options/concepts
+   like `* Category` / `* Pricing model` — is NOT a literal UI label; do not turn
+   it into an element assertion (it describes a concept, and its on-screen
+   wording usually differs, e.g. "Category" vs the actual "All categories"
+   control). `route` assertions are exempt — they come from Markdown links, not
+   bold.
+3. **One assertion = one specific, locatable UI fact.** Examples:
    - A specific route is reachable (kind: `route`).
-   - A specific named button exists on a specific page (kind: `element_button`).
-   - A specific named tab exists on a specific page (kind: `element_tab`).
-   - A specific labelled text/field/heading is visible (kind: `element_text`).
-3. **`target`** is the exact selector value:
+   - A specific **bold** button exists on a specific page (kind: `element_button`).
+   - A specific **bold** tab exists on a specific page (kind: `element_tab`).
+   - A specific **bold** label/field/heading is visible (kind: `element_text`).
+4. **`target`** is the exact selector value:
    - For `route`: the path (e.g. `/actors`, `/settings/integrations`). No host.
    - For `element_*`: the visible label text exactly as it appears in the docs
      (preserve casing, drop surrounding backticks/asterisks).
-4. **`at`** (optional, for `element_*` only) is the Console path the runner
+5. **`at`** (optional, for `element_*` only) is the Console path the runner
    should navigate to before checking for the element. Pull from the route
    table above. Omit if the element isn't on a known landing page (e.g.
    detail-page elements that require a fixture).
-5. **`page_context`** describes where in the Console the element lives, in plain
+6. **`page_context`** describes where in the Console the element lives, in plain
    English (e.g. "Settings page > Login & Privacy tab"). Even when `at` is set,
    include this for human readability.
-6. **`source_quote`** is a short verbatim snippet from the doc (≤200 chars) that
+7. **`source_quote`** is a short verbatim snippet from the doc (≤200 chars) that
    justifies the assertion.
-7. **`source_line`** is the 1-indexed line number in the input where the quote
+8. **`source_line`** is the 1-indexed line number in the input where the quote
    appears.
-8. **`needs_auth`** is true unless the documented page is `/sign-up` or `/sign-in`.
-9. **Be conservative.** If unsure whether the doc claim is locatable as a
-   selector, omit it. False positives are worse than missed assertions.
-10. **`id`** is a short kebab-case slug unique within the output (e.g.
+9. **`needs_auth`** is true unless the documented page is `/sign-up` or `/sign-in`.
+10. **Be conservative.** If unsure whether the doc claim is locatable as a
+    selector, omit it. False positives are worse than missed assertions.
+11. **`id`** is a short kebab-case slug unique within the output (e.g.
     `login-privacy-tab`).
