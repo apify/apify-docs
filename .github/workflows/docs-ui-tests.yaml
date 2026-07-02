@@ -24,6 +24,9 @@ defaults:
 jobs:
     ui-drift:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            issues: write   # the failure step files a drift issue for maintainers
         steps:
             -   uses: actions/checkout@v6
 
@@ -67,3 +70,65 @@ jobs:
                     name: drift-report
                     path: docs-tests/output/
                     retention-days: 14
+
+            # On any failure (drift found, or the job broke before tests ran),
+            # open a GitHub issue for the docs maintainers. To avoid a new issue
+            # every week, reuse the open `docs-ui-drift` issue if one exists and
+            # comment on it instead. The body is kept public-safe: it links to
+            # the run (where the report/artifacts live) and lists only assertion
+            # IDs + their doc source — never the staging URL or credentials.
+            -   name: File a drift issue for maintainers
+                if: failure()
+                env:
+                    GH_TOKEN: ${{ github.token }}
+                    REPO: ${{ github.repository }}
+                    RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+                run: |
+                    set -euo pipefail
+                    REPORT=output/issues.json
+                    BODY="$(mktemp)"
+
+                    if [[ -f "$REPORT" ]]; then
+                      PASSED=$(jq -r '.summary.passed' "$REPORT")
+                      FAILED=$(jq -r '.summary.failed' "$REPORT")
+                      SKIPPED=$(jq -r '.summary.skipped' "$REPORT")
+                      TOTAL=$(jq -r '.summary.total' "$REPORT")
+                      {
+                        echo "The scheduled docs-UI drift check found **${FAILED} failing assertion(s)** (${PASSED}/${TOTAL} passed, ${SKIPPED} skipped)."
+                        echo ""
+                        echo "Filed automatically by the \`Docs UI drift tests\` workflow. Logs, the Playwright report, and \`issues.json\` are on the [workflow run](${RUN_URL})."
+                        echo ""
+                        echo "### Failing assertions"
+                        echo ""
+                        echo "| Assertion | Kind | Target | Doc source |"
+                        echo "| --- | --- | --- | --- |"
+                        jq -r '.issues[] | "| `\(.id)` | \(.kind) | \(.target) | `\(.source_file):\(.source_line)` |"' "$REPORT"
+                        echo ""
+                        echo "Each failure is either genuine doc drift (the Console changed, the docs did not) or a harness limitation (selector needs a click first, or a logged-out/session-gated page). Triage against the Playwright report."
+                      } > "$BODY"
+                    else
+                      {
+                        echo "The \`Docs UI drift tests\` workflow failed before producing a drift report (likely a setup or login error)."
+                        echo ""
+                        echo "See the [workflow run](${RUN_URL}) for logs."
+                      } > "$BODY"
+                    fi
+
+                    # Ensure the dedup label exists (upsert), then reuse an open
+                    # issue if present, otherwise create a new one.
+                    gh label create docs-ui-drift --repo "$REPO" \
+                      --color BFD4F2 --description "Automated Console UI drift report" --force || true
+
+                    EXISTING=$(gh issue list --repo "$REPO" --state open --label docs-ui-drift \
+                      --limit 1 --json number --jq '.[0].number // empty')
+
+                    if [[ -n "$EXISTING" ]]; then
+                      gh issue comment "$EXISTING" --repo "$REPO" --body-file "$BODY"
+                      echo "Commented on existing drift issue #${EXISTING}"
+                    else
+                      gh issue create --repo "$REPO" \
+                        --title "Docs UI drift detected by scheduled tests" \
+                        --body-file "$BODY" \
+                        --label docs-ui-drift --label documentation --label t-docs \
+                        --assignee marcel-rbro
+                    fi
