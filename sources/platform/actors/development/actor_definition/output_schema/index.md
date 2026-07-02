@@ -70,20 +70,20 @@ The output schema defines the collections of keys and their properties. It allow
 
 ### Output schema object definition
 
-| Property                          | Type                          | Required | Description                                                                                                     |
-|-----------------------------------|-------------------------------|----------|-----------------------------------------------------------------------------------------------------------------|
-| `actorOutputSchemaVersion`        | integer                       | true     | Specifies the version of output schema structure document. <br/>Currently only version 1 is available.          |
-| `title`                           | string                        | true     | Title of the schema                                                                                             |
-| `description`                     | string                        | false    | Description of the schema                                                                                       |
-| `properties`                      | Object                        | true     | An object where each key is an output ID and its value is an Output object definition (see below).              |
+| Property                   | Type    | Required | Description                                                                                            |
+|----------------------------|---------|----------|--------------------------------------------------------------------------------------------------------|
+| `actorOutputSchemaVersion` | integer | true     | Specifies the version of output schema structure document. <br/>Currently only version 1 is available. |
+| `title`                    | string  | true     | Title of the schema                                                                                    |
+| `description`              | string  | false    | Description of the schema                                                                              |
+| `properties`               | Object  | true     | An object where each key is an output ID and its value is an Output object definition (see below).     |
 
 ### Output object definition
 
-| Property       | Type         | Required     | Description                                                                                                                                      |
-|----------------|--------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`        | string       | true         | The output's title, shown in the run's output tab if there are multiple outputs. In the API response, the generated output URL is keyed by the property name (output ID), not by `title`.                  |
-| `description`  | string       | false        | A description of the output. Only used when reading the schema (useful for LLMs).                                                                |
-| `template`     | string       | true         | Defines a URL template that generates the output link using `{{variable}}` syntax. See [How templates work](#how-templates-work) for details.    |
+| Property      | Type   | Required | Description                                                                                                                                                                               |
+|---------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`       | string | true     | The output's title, shown in the run's output tab if there are multiple outputs. In the API response, the generated output URL is keyed by the property name (output ID), not by `title`. |
+| `description` | string | false    | A description of the output. Only used when reading the schema (useful for LLMs).                                                                                                         |
+| `template`    | string | true     | Defines a URL template that generates the output link using `{{variable}}` syntax. See [How templates work](#how-templates-work) for details.                                             |
 
 ### Available template variables
 

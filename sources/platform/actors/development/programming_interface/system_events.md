@@ -26,13 +26,13 @@ These events help you manage your Actor's behavior and resources effectively.
 The following table outlines the system events available:
 
 
-| Event name | Payload | Description |
-| --- | --- | --- |
-| `systemInfo` | `{ memAvgBytes, memCurrentBytes, memMaxBytes, cpuAvgUsage, cpuMaxUsage, cpuCurrentUsage: Float, isCpuOverloaded: Boolean }` | Emitted approximately every second with the run's current memory and CPU usage statistics. |
-| `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Emitted alongside `systemInfo` for backwards compatibility, indicating whether the Actor is using maximum available CPU resources. |
-| `migrating` | `{ timeRemainingSecs: Float }` | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
-| `aborting` | N/A | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup. |
-| `persistState` | `{ isMigrating: Boolean, isAborting: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. Also sent during a graceful abort with `isAborting: true`. |
+| Event name     | Payload                                                                                                                     | Description                                                                                                                                                             |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `systemInfo`   | `{ memAvgBytes, memCurrentBytes, memMaxBytes, cpuAvgUsage, cpuMaxUsage, cpuCurrentUsage: Float, isCpuOverloaded: Boolean }` | Emitted approximately every second with the run's current memory and CPU usage statistics.                                                                              |
+| `cpuInfo`      | `{ isCpuOverloaded: Boolean }`                                                                                              | Emitted alongside `systemInfo` for backwards compatibility, indicating whether the Actor is using maximum available CPU resources.                                      |
+| `migrating`    | `{ timeRemainingSecs: Float }`                                                                                              | Signals that the Actor will soon migrate to another worker server on the Apify platform.                                                                                |
+| `aborting`     | N/A                                                                                                                         | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup.                                                                            |
+| `persistState` | `{ isMigrating: Boolean, isAborting: Boolean }`                                                                             | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. Also sent during a graceful abort with `isAborting: true`. |
 
 ## How system events work
 

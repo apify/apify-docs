@@ -102,7 +102,7 @@ Your `servers` array is replaced with the Actor's standby URL at display time. C
 
 ## Related fields
 
-| Field | Description |
-| --- | --- |
-| `usesStandbyMode` | Must be `true` for the **Endpoints** tab to appear. See [standby mode](/platform/actors/development/programming-interface/standby). |
+| Field             | Description                                                                                                                                                                                  |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `usesStandbyMode` | Must be `true` for the **Endpoints** tab to appear. See [standby mode](/platform/actors/development/programming-interface/standby).                                                          |
 | `webServerSchema` | The OpenAPI spec that powers the **Endpoints** tab. Defined in [`.actor/actor.json`](/platform/actors/development/actor-definition/actor-json) as an inline object or a path to a JSON file. |
