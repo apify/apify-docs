@@ -4,6 +4,9 @@ on:
     push:
         branches:
             - master
+        # nginx.conf is deployed and invalidated by deploy-nginx.yml; avoid a duplicate here.
+        paths-ignore:
+            - nginx.conf
     workflow_dispatch:
 
 jobs:
