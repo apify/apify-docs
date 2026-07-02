@@ -15,7 +15,7 @@ To define a webhook, select a system **event** that triggers the webhook. Then, 
 
 :::info Webhook actions
 
-The most common action is to send a POST HTTP request to a URL specified in the webhook. Webhooks can also trigger other actions, such as sending a Slack message, an email through Gmail, a file to Google Drive, or creating a GitHub issue.
+The most common action is to send a POST HTTP request to a URL specified in the webhook. Webhooks can also trigger other actions, such as posting a Slack message, sending an email through Gmail, uploading a file to Google Drive, or creating a GitHub issue.
 
 :::
 
