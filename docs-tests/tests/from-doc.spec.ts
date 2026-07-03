@@ -1,5 +1,6 @@
 import { type Page } from '@playwright/test';
 import { test, expect } from './auth.fixture';
+import { baseURL } from '../playwright.config';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { suggestReplacement } from './similarity';
@@ -63,9 +64,7 @@ for (const data of sets) {
                 // so its buttons ("Sign up", "Continue with Google/GitHub") vanish. Use
                 // a fresh context with no storageState instead.
                 if (!a.needs_auth) {
-                    const anonContext = await browser.newContext({
-                        baseURL: process.env.CONSOLE_STAGING_URL,
-                    });
+                    const anonContext = await browser.newContext({ baseURL });
                     try {
                         await runAssertion(await anonContext.newPage(), a);
                     } finally {

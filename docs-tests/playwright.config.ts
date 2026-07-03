@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import 'dotenv/config';
 
-const baseURL = process.env.CONSOLE_STAGING_URL;
+export const baseURL = process.env.CONSOLE_STAGING_URL;
 if (!baseURL) {
     throw new Error('CONSOLE_STAGING_URL is not set. Copy .env.example to .env and fill it in.');
 }
@@ -10,7 +10,9 @@ export default defineConfig({
     testDir: './tests',
     fullyParallel: false,
     forbidOnly: !!process.env.CI,
-    retries: 0,
+    // One retry in CI: a transient staging/network hiccup shouldn't surface as
+    // "drift" and auto-file an issue. Genuine, repeatable drift still fails.
+    retries: process.env.CI ? 1 : 0,
     reporter: [['html', { open: 'never' }], ['list'], ['./reporters/issues-reporter.ts']],
 
     use: {

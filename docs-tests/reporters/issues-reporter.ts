@@ -59,15 +59,16 @@ export default class IssuesReporter implements Reporter {
     }
 
     async onEnd(_result: FullResult): Promise<void> {
+        const isFailure = (r: { result: TestResult }): boolean =>
+            r.result.status === 'failed' || r.result.status === 'timedOut';
+
         const passed = this.collected.filter((r) => r.result.status === 'passed').length;
-        const failed = this.collected.filter(
-            (r) => r.result.status === 'failed' || r.result.status === 'timedOut',
-        ).length;
+        const failed = this.collected.filter(isFailure).length;
         const skipped = this.collected.filter((r) => r.result.status === 'skipped').length;
         const total = this.collected.length;
 
         const issues: Issue[] = this.collected
-            .filter((r) => r.result.status === 'failed' || r.result.status === 'timedOut')
+            .filter(isFailure)
             .map(({ test, result }) => {
                 const data = extractAssertionData(test);
                 const observed = extractObservedCandidates(test);
