@@ -18,12 +18,11 @@ import RentalSunset from '../../../../_partials/_rental-sunsetting.mdx';
 
 ## Pricing models
 
-All Actors in [Apify Store](https://apify.com/store) fall into one of the four pricing models:
+All Actors in [Apify Store](https://apify.com/store) fall into one of the three pricing models:
 
 1. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
 1. [**Pay per usage**](#pay-per-usage) - you only pay for the platform resources (compute units, data transfer, etc.) the
  Actor consumes. There are no additional charges from the Actor developer.
-1. [**Pay per result**](#pay-per-result) - you pay a fixed price for every 1,000 results the Actor produces, typically items stored in the run's default dataset. Platform usage is included in this price.
 1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
 
 :::note Post-run storage costs
@@ -71,12 +70,6 @@ With this model, it's very easy to see how many platform resources each Actor ru
 _For more information on platform usage cost see the [usage and resources](../usage_and_resources.md) page._
 
 :::
-
-### Pay per result
-
-With pay per result pricing, you pay a fixed price for every 1,000 results an Actor run produces - typically items stored in the run's default dataset. Platform usage is included in this price, so you are not charged for it separately. When starting a run, you can cap the number of results to keep your costs under control.
-
-Pay per result is a legacy pricing model. New Actors are published under [pay per event](#pay-per-event) instead, but you may still encounter existing Actors that use it.
 
 ### Rental Actors
 
