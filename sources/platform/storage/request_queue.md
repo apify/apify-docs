@@ -642,6 +642,10 @@ CRUD ([add](/api/v2/request-queue-requests-post),
 [delete](/api/v2/request-queue-request-delete))
 operation requests are limited to _400 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
 
+Request-lock operations ([prolong a lock](/api/v2/request-queue-request-lock-put) and [delete a lock](/api/v2/request-queue-request-lock-delete)) are also limited to _400 requests per second_ per request queue.
+
+Batch operations ([add](/api/v2/request-queue-requests-batch-post) and [delete](/api/v2/request-queue-requests-batch-delete)) and the [list and lock head](/api/v2/request-queue-head-lock-post) endpoint are limited to _40 requests per second_ per request queue.
+
 All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _60 requests per second_ per request queue.
 
 Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

@@ -220,6 +220,31 @@ You can also search for "Apify" in the connector directory and install it direct
 For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
 </TabItem>
+<TabItem value="apify-cli" label="Apify CLI">
+
+Use the Apify CLI to add the Apify MCP server to a supported local client:
+
+```bash
+apify mcp install cursor
+```
+
+Available clients are: `claude-code`, `cursor`, `vscode`, `vscode-insiders`, `codex`, `kiro`, and `antigravity`.
+
+The command creates or updates a user-level MCP server entry named `apify`. For Cursor, Kiro, and Antigravity, it writes to the client's MCP config file. For Claude Code, VS Code, VS Code Insiders, and Codex CLI, it uses the client's own install command.
+
+By default, the command uses the API token saved by `apify login`. To use a different token or Apify account than the one configured in the Apify CLI, pass `--token <APIFY_TOKEN>`:
+
+```bash
+apify mcp install cursor --token <APIFY_TOKEN>
+```
+
+Use `--tools` to expose only selected tools or Actors:
+
+```bash
+apify mcp install vscode --tools search-actors,apify/rag-web-browser
+```
+
+</TabItem>
 </Tabs>
 
 ### Local stdio
