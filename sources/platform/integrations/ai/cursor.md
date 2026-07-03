@@ -32,21 +32,19 @@ This guide covers installation from the Cursor plugin marketplace.
     ![Cursor settings page](./images/cursor/00-cursor-settings.png)
 
 
-1. Select **Plugins**.
+2. Select **Plugins**.
 
     ![Cursor Settings with the Plugins section selected](./images/cursor/01-plugins.png)
 
-1. Search for **Apify**.
+3. Search for **Apify**.
 
-1. Select the **Apify Cursor plugin** from the results.
+4. Select the **Apify Cursor plugin** from the results.
 
-    <!-- ![Cursor plugin marketplace search results with the Apify Cursor plugin card](../images/cursor/02-apify-plugin-search.png) -->
+    ![Cursor plugin marketplace search results with the Apify Cursor plugin card](./images/cursor/02-apify-plugin-search.png)
 
-1. Click **Add to Cursor**.
+5. Click **Get**.
 
-1. Choose an install scope. Select **This project** to enable the plugin only in the current project, or **All projects** to enable it for every project under your account.
-
-    <!-- ![Install scope selection with options to install for this project or all projects](../images/cursor/03-install-scope.png) -->
+6. Choose an install scope. Select **This project** to enable the plugin only in the current project, or **All projects** to enable it for every project under your account.
 
 ## Authenticate to Apify
 
@@ -56,7 +54,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Scroll to the bottom of the page. The **Apify MCP** server appears in the list.
 
-    ![Tools & MCPs page showing the Apify MCP server at the bottom of the list](./images/cursor/04-tools-and-mcps.png)
+    ![Tools & MCPs page showing the Apify MCP server at the bottom of the list](./images/cursor/03-tools-and-mcps.png)
 
 1. Click **Connect**. Cursor opens a browser tab for the Apify OAuth flow.
 
@@ -70,7 +68,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Back in Cursor, the **Apify MCP** server shows as connected.
 
-    ![Tools & MCPs page showing the Apify MCP server connected](./images/cursor/05-mcp-connected.png)
+    ![Tools & MCPs page showing the Apify MCP server connected](./images/cursor/04-mcp-connected.png)
 
 :::tip Session persistence
 
@@ -86,7 +84,7 @@ Describe what you want in natural language. The `apify` agent routes the request
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
-![Cursor session calling the Apify MCP server and returning Google Maps Actor details](./images/cursor/06-example-prompt.png)
+![Cursor session calling the Apify MCP server and returning Google Maps Actor details](./images/cursor/05-example-prompt.png)
 
 ## Bundled skills
 
