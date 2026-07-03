@@ -31,13 +31,13 @@ This guide covers installation from the Cursor plugin marketplace.
 
 2. Select **Plugins**.
 
-    ![Cursor Settings with the Plugins section selected](./images/cursor/01-plugins.png)
+    ![Cursor Settings with the Plugins section selected](./images/cursor/01-plugins.webp)
 
 3. Search for **Apify**.
 
 4. Select the **Apify Cursor plugin** from the results.
 
-    ![Cursor plugin marketplace search results with the Apify Cursor plugin card](./images/cursor/02-apify-plugin-search.png)
+    ![Cursor plugin marketplace search results with the Apify Cursor plugin card](./images/cursor/02-apify-plugin-search.webp)
 
 5. Click **Get**.
 
@@ -51,7 +51,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Scroll to the bottom of the page. The **Apify MCP** server appears in the list.
 
-    ![Tools & MCPs page showing the Apify MCP server at the bottom of the list](./images/cursor/03-tools-and-mcps.png)
+    ![Tools & MCPs page showing the Apify MCP server at the bottom of the list](./images/cursor/03-tools-and-mcps.webp)
 
 1. Click **Connect**. Cursor opens a browser tab for the Apify OAuth flow.
 
@@ -65,7 +65,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Back in Cursor, the **Apify MCP** server shows as connected.
 
-    ![Tools & MCPs page showing the Apify MCP server connected](./images/cursor/04-mcp-connected.png)
+    ![Tools & MCPs page showing the Apify MCP server connected](./images/cursor/04-mcp-connected.webp)
 
 :::tip Session persistence
 
@@ -81,7 +81,7 @@ Describe what you want in natural language. The `apify` agent routes the request
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
-![Cursor session calling the Apify MCP server and returning Google Maps Actor details](./images/cursor/05-example-prompt.png)
+![Cursor session calling the Apify MCP server and returning Google Maps Actor details](./images/cursor/05-example-prompt.webp)
 
 ## Bundled skills
 
