@@ -141,6 +141,9 @@ function extractObservedCandidates(test: TestCase): ObservedCandidates | null {
 
 function summarizeError(message: string | undefined): string {
   if (!message) return 'no error message';
+  // Strip ANSI escape sequences from Playwright's error output. The escape
+  // character is intentional, so silence oxlint's no-control-regex here.
+  // eslint-disable-next-line no-control-regex
   const stripped = message.replace(/\x1B\[[0-9;]*[A-Za-z]/g, '');
   const firstLine = stripped.split('\n')[0]!.trim();
   return firstLine.length > 200 ? firstLine.slice(0, 197) + '...' : firstLine;

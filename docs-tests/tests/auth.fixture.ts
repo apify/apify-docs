@@ -73,7 +73,7 @@ export const test = base.extend<object, { authState: StorageState }>({
       log('submitted credentials, waiting to leave /sign-in');
 
       // Confirm we left the sign-in page; otherwise creds/selectors are wrong.
-      await page.waitForURL((url) => !/\/sign-in/.test(url.pathname), { timeout: 15_000 });
+      await page.waitForURL((url) => !url.pathname.includes('/sign-in'), { timeout: 15_000 });
       log(`logged in, landed on ${new URL(page.url()).pathname}`);
 
       const state = await context.storageState();
