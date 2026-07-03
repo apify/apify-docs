@@ -29,9 +29,6 @@ This guide covers installation from the Cursor plugin marketplace.
 
 1. Open **Cursor** > **Preferences** > **Cursor Settings**.
 
-    ![Cursor settings page](./images/cursor/00-cursor-settings.png)
-
-
 2. Select **Plugins**.
 
     ![Cursor Settings with the Plugins section selected](./images/cursor/01-plugins.png)
