@@ -8,17 +8,26 @@ slug: /integrations/langchain
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-> For more information on LangChain visit its [documentation](https://docs.langchain.com/oss/python/langchain/overview).
+> For more information on LangChain visit its [documentation](https://docs.langchain.com/oss/python/langchain/overview). The Apify integration lives in the [langchain-apify](https://github.com/apify/langchain-apify) repository.
+
+<ThirdPartyDisclaimer />
 
 In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
 Then we feed the documents into a vector index and answer questions from it.
 
-This example demonstrates how to integrate Apify with LangChain using the Python language.
-If you prefer to use JavaScript, you can follow the  [JavaScript LangChain documentation](https://docs.langchain.com/oss/javascript/integrations/document_loaders/web_loaders/apify_dataset).
+This example demonstrates how to integrate Apify with LangChain in Python.
+
+:::info Python only
+
+The `langchain-apify` package is currently available for Python only.
+
+:::
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install langchain langchain-openai langchain-apify`
+```bash
+pip install langchain langchain-openai langchain-apify
+```
 
 After successful installation of all dependencies, we can start writing code.
 
@@ -136,14 +145,14 @@ It provides modules you can use to build language model applications as well as 
 
 You can use all of Apify’s Actors as document loaders in LangChain.
 For example, to incorporate web browsing functionality, you can use the [RAG-Web-Browser Actor](https://apify.com/apify/rag-web-browser).
-This allows you to either crawl and scrape top pages from Google Search results or directly scrape text content from a URL and return it as Markdown.
+This allows you to either crawl and scrape top pages from Google Search results or directly scrape text content from a URL and return it as markdown.
 To set this up, change the `actor_id` to `apify/rag-web-browser` and specify the `run_input`.
 
 ```python
 loader = apify.call_actor(
     actor_id="apify/rag-web-browser",
     run_input={"query": "apify langchain web browser", "maxResults": 3},
-    dataset_mapping_function=lambda item: Document(page_content=item["text"] or "", metadata={"source": item["metadata"]["url"]}),
+    dataset_mapping_function=lambda item: Document(page_content=item["markdown"] or "", metadata={"source": item["metadata"]["url"]}),
 )
 print("Documents:", loader.load())
 ```
@@ -166,7 +175,7 @@ The package provides 19 tools split across three lists, so you can bind a focuse
 
 A model selects tools based on their names and descriptions. The more tools you register, the larger the decision space, which can lead to wrong tool selection, slower responses, and higher token usage. Register only the tools your agent needs.
 
-Each list holds tool **classes**, so instantiate them before passing them to an agent. There are three ways to compose your tool list:
+Each list holds tool *classes*, so instantiate them before passing them to an agent. There are three ways to compose your tool list:
 
 1. Bind a whole tool set when your agent needs the full category:
 
@@ -216,7 +225,7 @@ Most tools return a JSON string with two keys: `run` (run metadata such as `stat
 
 :::note Some components return a different shape
 
-`ApifyScrapeUrlTool` returns the scraped page as markdown instead of the JSON envelope, and `ApifySearchRetriever` and `ApifyCrawlLoader` return LangChain `Document` objects.
+`ApifyScrapeUrlTool` follows the same JSON envelope, with the scraped markdown in the single item's `content` field. `ApifySearchRetriever` and `ApifyCrawlLoader` are the exceptions: they return LangChain `Document` objects instead.
 
 :::
 
@@ -224,7 +233,9 @@ Most tools return a JSON string with two keys: `run` (run metadata such as `stat
 
 To let a model decide when to call the tools, bind a tool list to an agent. The example below uses LangGraph's prebuilt ReAct agent, so install it alongside the previous dependencies:
 
-`pip install langgraph`
+```bash
+pip install langgraph
+```
 
 ```python
 import os
@@ -275,7 +286,7 @@ Generic platform primitives that run any Actor or task and read datasets.
 - `ApifyRunActorTool` - start any Actor by ID and return run metadata only (run ID, status, dataset ID). Pair with `ApifyGetDatasetItemsTool`.
 - `ApifyRunActorAndGetDatasetTool` - run any Actor and return both run metadata and dataset items in one call.
 - `ApifyGetDatasetItemsTool` - read items from an existing dataset by ID, with `limit` / `offset` pagination.
-- `ApifyScrapeUrlTool` - scrape a single URL and return its content as markdown.
+- `ApifyScrapeUrlTool` - scrape a single URL and return its markdown content in a JSON envelope (in the item's `content` field).
 - `ApifyRunTaskTool` - run a saved [Actor task](/platform/actors/running/tasks) by ID and return run metadata.
 - `ApifyRunTaskAndGetDatasetTool` - run a saved task and return both run metadata and dataset items.
 
@@ -283,7 +294,7 @@ Generic platform primitives that run any Actor or task and read datasets.
 
 Web search, crawling, and platform-specific search.
 
-- `ApifyGoogleSearchTool` - structured Google search results. Wraps [apify/google-search-scraper](https://apify.com/apify/google-search-scraper).
+- `ApifyGoogleSearchTool` - structured Google Search results. Wraps [apify/google-search-scraper](https://apify.com/apify/google-search-scraper).
 - `ApifyWebCrawlerTool` - crawl multiple pages of a site and return each as markdown. Wraps [apify/website-content-crawler](https://apify.com/apify/website-content-crawler).
 - `ApifyRAGWebBrowserTool` - search the web and return the top results' content as JSON. Wraps [apify/rag-web-browser](https://apify.com/apify/rag-web-browser).
 - `ApifyGoogleMapsTool` - Google Maps place results for a query. Wraps [compass/crawler-google-places](https://apify.com/compass/crawler-google-places).
@@ -312,8 +323,6 @@ from langchain_apify import ApifyActorsTool
 tool = ApifyActorsTool("apify/rag-web-browser")
 result = tool.invoke({"run_input": {"query": "latest AI news", "maxResults": 3}})
 ```
-
-<ThirdPartyDisclaimer />
 
 ## Resources
 
