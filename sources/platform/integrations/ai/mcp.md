@@ -220,6 +220,31 @@ You can also search for "Apify" in the connector directory and install it direct
 For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
 </TabItem>
+<TabItem value="apify-cli" label="Apify CLI">
+
+Use the Apify CLI to add the Apify MCP server to a supported local client:
+
+```bash
+apify mcp install cursor
+```
+
+Available clients are: `claude-code`, `cursor`, `vscode`, `vscode-insiders`, `codex`, `kiro`, and `antigravity`.
+
+The command creates or updates a user-level MCP server entry named `apify`. For Cursor, Kiro, and Antigravity, it writes to the client's MCP config file. For Claude Code, VS Code, VS Code Insiders, and Codex CLI, it uses the client's own install command.
+
+By default, the command uses the API token saved by `apify login`. To use a different token or Apify account than the one configured in the Apify CLI, pass `--token <APIFY_TOKEN>`:
+
+```bash
+apify mcp install cursor --token <APIFY_TOKEN>
+```
+
+Use `--tools` to expose only selected tools or Actors:
+
+```bash
+apify mcp install vscode --tools search-actors,apify/rag-web-browser
+```
+
+</TabItem>
 </Tabs>
 
 ### Local stdio
@@ -264,6 +289,21 @@ This configuration approach works for both hosted and local setups. For the CLI 
 Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your client.
 
 :::
+
+### Anonymous access
+
+The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+
+- `search-actors`
+- `fetch-actor-details`
+- `search-apify-docs`
+- `fetch-apify-docs`
+
+For example, the following URL connects without authentication:
+
+`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
+
+If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication.
 
 ### Available tools
 

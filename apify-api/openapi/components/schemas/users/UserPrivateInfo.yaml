@@ -1,13 +1,9 @@
 title: UserPrivateInfo
 required:
-  - id
   - username
-  - profile
-  - email
   - proxy
   - plan
   - effectivePlatformFeatures
-  - createdAt
   - isPaying
 type: object
 properties:
