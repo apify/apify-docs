@@ -39,6 +39,39 @@ html[data-theme='dark'] {
 }
 
 :root {
+    /*
+     * Light-mode color tokens. The ui-library light token set is not injected
+     * (its palette shifts from the current design and its card hover color is
+     * broken - identical to the card background), so light values are pinned
+     * here. Dark mode gets its tokens from cssColorsVariablesBrandDark,
+     * injected in Root.jsx, which overrides these.
+     */
+    --color-neutral-background: #ffffff;
+    --color-neutral-background-muted: #f9f9fa;
+    --color-neutral-background-subtle: #f4f4f5;
+    --color-neutral-border: #d2d3d6;
+    --color-neutral-card-background: #ffffff;
+    --color-neutral-card-background-hover: #f1f2f7;
+    --color-neutral-chip-background: #e4e5e6;
+    --color-neutral-chip-background-active: #c9cbcf;
+    --color-neutral-field-border: #c9cbcf;
+    --color-neutral-hover: #edeeef;
+    --color-neutral-icon: #4f5257;
+    --color-neutral-overflow: #e4e5e6;
+    --color-neutral-separator-subtle: #e4e5e6;
+    --color-neutral-text: #1f2123;
+    --color-neutral-text-muted: #3d3f43;
+    --color-neutral-text-on-primary: #ffffff;
+    --color-neutral-text-placeholder: #a9acb1;
+    --color-neutral-text-subtle: #6d7178;
+    --color-primary-action: #246dff;
+    --color-primary-action-hover: #4788ff;
+    --color-primary-black-action: #242528;
+    --color-primary-black-action-hover: #292b2e;
+    --color-primary-chip-background: #e0ebff;
+    --color-primary-chip-text: #0043ca;
+    --color-primary-text-interactive: #246dff;
+
     /* use default system font based on https://devhints.io/css-system-font-stack */
     --ifm-font-family-base:
         -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -101,6 +134,9 @@ html[data-theme='dark'] {
     --ifm-h4-font-size: 1.6rem;
     --ifm-h5-font-size: 1.4rem;
     --ifm-h6-font-size: 1.2rem;
+
+    /* Override package's identical light-mode card hover color */
+    --color-neutral-card-background-hover: var(--color-neutral-hover);
 
     /* TRON colors */
     --color-Neutral_Text: var(--color-neutral-text);
