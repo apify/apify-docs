@@ -67,6 +67,37 @@ router.addDefaultHandler(({ log }) => {
 });
 ```
 
+:::caution Pass the router as `requestHandler`, not as `router`
+
+In `main.js` above, note that the router built with `createCheerioRouter()` is passed to the crawler under the `requestHandler` option. `CheerioCrawler` (and every other Crawlee crawler) has no top-level `router` option. Setting one will fail validation at construction time:
+
+```text
+ArgumentError: Did not expect property `router` to exist, got ...
+    at new HttpCrawler ...
+```
+
+In TypeScript projects the same mistake surfaces at compile time:
+
+```text
+error TS2353: Object literal may only specify known properties,
+and 'router' does not exist in type 'CheerioCrawlerOptions'.
+```
+
+Correct:
+
+```js
+const crawler = new CheerioCrawler({ requestHandler: router });
+```
+
+Incorrect (a common AI-generated pattern to watch out for when reviewing suggestions from chat tools or agentic coding assistants):
+
+```js
+// Do NOT do this — `router` is not a valid CheerioCrawlerOptions key.
+const crawler = new CheerioCrawler({ router, requestHandler: async (ctx) => {} });
+```
+
+:::
+
 Finally, we'll add the following input file to **INPUT.json** in the project's root directory (next to `package.json`, `node_modules` and others)
 
 ```json
