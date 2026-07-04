@@ -6,7 +6,7 @@ description: Attach an OpenAPI specification to your Actor to enable the interac
 slug: /actors/development/actor-definition/web-server-schema
 ---
 
-The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable [standby mode](/platform/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Standby** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
+The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.0.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. OpenAPI 3.1 documents are not accepted by the build validator - see [OpenAPI 3.0 compatibility](/platform/actors/development/actor-definition/web-server-schema/openapi-version) for the 3.1 constructs that break the build and how to rewrite them. You can define the schema for any Actor that exposes an HTTP server. When you enable [standby mode](/platform/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Standby** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
 
 ![Apify Console showing the Standby tab with the Endpoints section rendered from the Actor's OpenAPI spec](../images/console-standby-openapi-swagger.png)
 
@@ -86,7 +86,7 @@ Place your OpenAPI spec in `.actor/openapi.json`:
 }
 ```
 
-Follow the standard [OpenAPI 3.x format](https://spec.openapis.org/oas/latest.html) to describe your endpoints, parameters, request bodies, and responses.
+Follow the [OpenAPI 3.0.x format](https://spec.openapis.org/oas/v3.0.3) to describe your endpoints, parameters, request bodies, and responses. If you have an OpenAPI 3.1 document, see [OpenAPI 3.0 compatibility](/platform/actors/development/actor-definition/web-server-schema/openapi-version) for the translations you need to apply.
 
 ## Build and deploy
 
